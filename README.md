@@ -132,6 +132,16 @@ You can include the library as a regular script tag on your page:
 <script src="dist/onfido.min.js"></script>
 ```
 
+⚠️ Note: The above import does **not** include the Auth module. To include it, use:
+
+```html
+<script src="dist/onfidoAuth.min.js"></script>
+```
+
+If you are importing the Auth module, you do not need to import the standard SDK module (`dist/onfido.min.js`) also.
+
+⚠️ **The Authentication module is currently a BETA feature.**
+
 And the CSS styles:
 
 ```html
@@ -156,6 +166,33 @@ import { init } from 'onfido-sdk-ui'
 var Onfido = require('onfido-sdk-ui')
 ```
 
+⚠️ Note: The above import does **not** include the Auth module. To include it, use:
+
+```javascript
+// ES6 module import
+import { init } from 'onfido-sdk-ui/dist/onfidoAuth.min.js'
+
+// commonjs style require
+var Onfido = require('onfido-sdk-ui/dist/onfidoAuth.min.js')
+```
+
+In addition to the alternative way of importing Auth, you need to have an `auth-sdk/` folder in your public assets folder, and copy the contents of `node_modules/onfido-sdk-ui/dist/auth-sdk` into it.
+
+If you are using Webpack on your application, you can automate this by adding:
+
+```javascript
+new CopyPlugin({
+  patterns: [
+    {
+      from: `../../node_modules/onfido-sdk-ui/dist/auth-sdk`,
+      to: `${__dirname}/bin/src/auth-sdk`,
+    },
+  ],
+})
+```
+
+This will fetch the core authentication technology from the SDK into your application. Using web workers for authentication enables the best performance achievable, without compromising on usability.
+
 The CSS style will be included inline with the JS code when the library is imported.
 
 ⚠️ Note: The library is **Browser only**, it does not support the **Node Context**.
@@ -169,10 +206,7 @@ Alternatively, you can use hosted versions of files above from our CDN such as:
 ```html
 <!-- Replace "<version>" with the actual version you want to use, example: 9.0.0 -->
 <script src="https://assets.onfido.com/web-sdk-releases/<version>/onfido.min.js"></script>
-<link
-  href="https://assets.onfido.com/web-sdk-releases/<version>/style.css"
-  rel="stylesheet"
-/>
+<script src="https://assets.onfido.com/web-sdk-releases/<version>/onfidoAuth.min.js"></script>
 ```
 
 ### 5. Add basic HTML markup
@@ -443,64 +477,29 @@ The Web SDK has multiple customizable features that provide flexibility, while a
 
 - **`language {String || Object} optional`**
 
-  You can customize the language displayed on the SDK by passing a string or object.
-  If `language` is not present we will use the browser's language setting. If the browser's language is not supported, we will default to English (`en_US`).
+  You can customize the language displayed on the SDK by passing a string or object. If `language` is not present the default copy will be in English.
 
   #### Supported languages
 
   The SDK supports and maintains the following languages. These can be implemented directly inside the SDK by passing the `language` option as a string containing the supported language tag.
 
-  | Language                 | Locale Tag | Direction |
-  | ------------------------ | ---------- | --------- |
-  | Arabic                   | "ar"       | rtl       |
-  | Armenian                 | "hy"       |           |
-  | Bulgarian                | "bg"       |           |
-  | Chinese (Simplified)     | "zh_CN"    |           |
-  | Chinese (Traditional)    | "zh_TW"    |           |
-  | Croatian                 | "hr"       |           |
-  | Czech                    | "cs"       |           |
-  | Danish                   | "da"       |           |
-  | Dutch                    | "nl"       |           |
-  | English (United Kingdom) | "en_GB"    |           |
-  | English (United States)  | "en_US"    |           |
-  | Estonian                 | "et"       |           |
-  | Finnish                  | "fi"       |           |
-  | French                   | "fr"       |           |
-  | French (Canadian)        | "fr_CA"    |           |
-  | German                   | "de"       |           |
-  | Greek                    | "el"       |           |
-  | Hebrew                   | "he"       | rtl       |
-  | Hindi                    | "hi"       |           |
-  | Hungarian                | "hu"       |           |
-  | Indonesian               | "id"       |           |
-  | Italian                  | "it"       |           |
-  | Japanese                 | "ja"       |           |
-  | Korean                   | "ko"       |           |
-  | Latvian                  | "lv"       |           |
-  | Lithuanian               | "lt"       |           |
-  | Malay                    | "ms"       |           |
-  | Norwegian                | "nb"       |           |
-  | Persian                  | "fa"       | rtl       |
-  | Polish                   | "pl"       |           |
-  | Portuguese               | "pt"       |           |
-  | Portuguese (Brazil)      | "pt_BR"    |           |
-  | Romanian                 | "ro"       |           |
-  | Russian                  | "ru"       |           |
-  | Serbian                  | "sr"       |           |
-  | Slovak                   | "sk"       |           |
-  | Slovenian                | "sl"       |           |
-  | Spanish                  | "es"       |           |
-  | Spanish (Latin America)  | "es_419"   |           |
-  | Swedish                  | "sv"       |           |
-  | Thai                     | "th"       |           |
-  | Turkish                  | "tr"       |           |
-  | Ukrainian                | "uk"       |           |
-  | Vietnamese               | "vi"       |           |
+  | Language          | Locale Tag |
+  | ----------------- | ---------- |
+  | English (default) | `en_US`    |
+  | German            | `de_DE`    |
+  | Spanish           | `es_ES`    |
+  | French            | `fr_FR`    |
+  | Italian           | `it_IT`    |
+  | Portuguese        | `pt_PT`    |
+  | Dutch             | `nl_NL`    |
+  | Czech             | `cs_CZ`    |
+  | Polish            | `pl_PL`    |
+  | Romanian          | `ro_RO`    |
 
   Example:
 
   ```javascript
-  language: 'pt_BR' | 'es'
+  language: 'es_ES' | 'es'
   ```
 
   #### Custom languages
@@ -510,14 +509,12 @@ The Web SDK has multiple customizable features that provide flexibility, while a
   | Key             | Description                                                                                | Notes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
   | --------------- | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
   | `locale`        | **required** <br /> A locale tag.                                                          | This is required when providing phrases for an unsupported language. You can also use this to partially customize the strings of a supported language (e.g. Spanish), by passing a supported language locale tag (e.g. `es_ES`). For missing keys, the values will be displayed in the language specified within the locale tag if supported, otherwise they will be displayed in English. The locale tag is also used to override the language of the SMS body for the cross device feature. This feature is owned by Onfido and is currently only supports English, Spanish, French and German. |
-  | `direction`     | **optional** <br /> Direction of reading                                                   | Set the direction of reading, either left-to-right or right-to-left. Values: `ltr` or `rtl`. Default: `ltr`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
   | `phrases`       | **required** <br /> An object containing the keys you want to override and the new values. | The keys can be found in [`src/locales/en_US/en_US.json`](src/locales/en_US/en_US.json). They can be passed as a nested object or as a string using the dot notation for nested values. See the examples below.                                                                                                                                                                                                                                                                                                                                                                                   |
   | `mobilePhrases` | **optional** <br /> An object containing the keys you want to override and the new values. | The values specified within this object are only visible on mobile devices. Please refer to the `mobilePhrases` property in [`src/locales/en_US/en_US.json`](src/locales/en_US/en_US.json). **Note**: support for standalone `mobilePhrases` key will be deprecated soon. Consider nesting it inside `phrases` if applicable.                                                                                                                                                                                                                                                                     |
 
   ```javascript
   language: {
     locale: 'en_US',
-    direction: 'ltr',
     phrases: { welcome: { title: 'My custom title' } },
     mobilePhrases: {
       'capture.driving_licence.instructions': 'This string will only appear on mobile'
@@ -541,34 +538,7 @@ The custom options are:
 
 This is the identity document capture step. Users will be asked to select the document type and its issuing country before providing images of their selected document. They will also have a chance to check the quality of the image(s) before confirming.
 
-Document type and document country selection is an optional screen. This screen will only show to the end user if specific options are **not** configured to the SDK.
-
-You can configure the document capture step in one of two ways:
-
-- Designating eligible issuing countries and document types on your [Dashboard](https://onfido.com/dashboard/), enabling the SDK to automatically read these settings (**this is the preferred method**)
-- Hard coding eligible issuing countries and document types in your SDK integration
-
-Both methods of document capture configuration are detailed below.
-
-##### Country and document type selection by Dashboard
-
-Configuring the issuing country and document type selection step using your Dashboard is the **preferred method** of integration.
-
-- Start by opening up the Accounts tab on your Dashboard, then click Supported Documents.
-- You will be presented with a list of all available countries and their associated supported documents. Once you have made your selections, click Save Change.
-
-![The Supported Documents tab in the Dashboard](demo/supported_documents_dashboard.png)
-
-In order for your SDK to link to the Dashboard configuration and display the appropriate choices to your end users, Onfido must activate the feature. Contact [Client Support](mailto:client-support@onfido.com) to enable the Dashboard supported documents feature.
-
-**Please note:**
-
-- Any custom country and document type configurations that have been coded into your SDK integration will override and ignore any Dashboard settings
-- Currently only passport, national ID card, driving licence and residence permit are supported by this feature. If you nominate other document types in your Dashboard (visa, for example), these will not be displayed in the user interface
-
-##### Country and document type selection - SDK integration code
-
-Rather than configuring the document selection step using your Dashboard, you can hard code the issuing countries and supported document types in your SDK integration. Please note this is **not** the preferred integration method, we recommend the Dashboard configuration described above.
+Document type and document country selection is an optional screen. This screen will only show to the end user if specific options are not configured to the SDK.
 
 The custom options are:
 
@@ -584,7 +554,7 @@ The custom options are:
 
   ⚠️ **Note**: the `null` value is deprecated and has no effect.
 
-  ⚠️ **Note**: Passports have the same format worldwide so the SDK will not show the country selection screen even if they are not restricted by country (e.g. passport: true).
+  ⚠️ **Note**: You can set the country for all document types except **Passport**. This is because passports have the same format worldwide so the SDK does not require this additional information.
 
 For example, if you want to allow only Spanish (ESP) driving licences, and national identity cards and residence permits for all countries:
 
@@ -609,14 +579,6 @@ For example, if you want to allow only Spanish (ESP) driving licences, and natio
 }
 ```
 
-- `hideCountrySelection` (boolean - default: `false`)
-
-  Set this option to `true` in case you do not want the user to see the country selection screen.
-
-  ⚠️ **Note**: This option relies on the `documentTypes` option to show the document types to the user. The documents won't be pre filtered according to country.
-
-  ⚠️ **Note**: If this option is selected, in case of a `documentTypes` value set to `true` for a specific document, no country information is sent to Onfido's backend. This means that we are not able to do fine grained analytics analysis based on country.
-
 - `forceCrossDevice` (boolean - default: `false`)
 
   The Web SDK offers a cross device flow where desktop users will be given the option to continue using their desktop browser or swap to using their mobile device browser to complete the capture process. If a user selects to use their mobile device they will be redirected via a secure link that they can receive by SMS or QR code to complete the flow. At the end of the capture process users will be redirected back to their desktop to complete the SDK flow.
@@ -624,13 +586,18 @@ For example, if you want to allow only Spanish (ESP) driving licences, and natio
   When `forceCrossDevice` is set to `true`, the cross device flow is mandatory for all users. Desktop users will be required to complete the capture process on a mobile device browser.
   Configuring this option minimises the risk of fraudulent upload by ensuring a higher likelihood of live capture.
 
-  The `forceCrossDevice` functionality can be configured for both the Document capture and Proof of Address verification steps. The option is also now available in Onfido Studio, configurable in the [workflow builder](https://developers.onfido.com/guide/onfido-studio-product#document-capture-task). `forceCrossDevice` cannot be configured for Face captures.
-
   ```javascript
   options: {
     forceCrossDevice: true
   }
   ```
+
+  - `useLiveDocumentCapture` (boolean - default: `false`). DEPRECATED OPTION, WILL BE REMOVED NEXT QUARTERLY.
+    **This feature is only available on mobile devices.**
+
+  When set to `true`, users on mobile browsers with camera support will be able to capture document images using an optimised camera UI, where the SDK directly controls the camera feed to ensure live capture. Configuring this option minimises the risk of fraudulent upload by bypassing the device's default camera application. For unsupported scenarios, see the `uploadFallback` section below.
+
+  Tested on: Android Chrome `78.0.3904.108`, iOS Safari `13`
 
 - `uploadFallback` (boolean - default: `true`)
 
@@ -643,39 +610,6 @@ For example, if you want to allow only Spanish (ESP) driving licences, and natio
   ```javascript
   options: {
     uploadFallback: false
-  }
-  ```
-
-- `genericDocumentTypes` (object)
-
-  You can add generic documents that are not supported by Onfido. They will be displayed at the bottom of the built-in document types.
-
-  ```javascript
-  genericDocumentTypes: [
-    {
-      id: 'my_single_side_document',
-      title: 'My single side document',
-      subTitle: 'Details about my document',
-      country: 'ALB',
-      pages: 1,
-    },
-    {
-      id: 'my_two_sides_document',
-      title: 'My two sides document',
-      subTitle: 'Details about my document',
-      country: 'ALB',
-      pages: 2,
-    },
-  ]
-  ```
-
-  In the same way to other document types, you can skip the document selection screen by adding a single `generic_document` object which references one of your generic documents declared in `genericDocumentTypes`.
-
-  ```javascript
-  documentTypes: {
-    generic_document: {
-      id: 'my_single_side_document',
-    }
   }
   ```
 
@@ -697,10 +631,7 @@ The custom options are:
   - `video`: a video will be captured;
   - `motion`: a motion capture will be captured.
 
-  The SDK will try to fulfil this request depending on camera availability, device capabilities, and browser support on the user's device:
-
-  - if a video cannot be taken, the face step can be configured to fallback to the `standard` variant (see `photoCaptureFallback`);
-  - if Motion is not available, the face step can be configured to fallback to either `video` or `standard` variants (see `motionFallbackVariant`).
+  The SDK will try to fulfil this request depending on camera availability, device capabilities, and browser support on the user's device. If a video cannot be taken, the face step will fallback to the `standard` variant. If Motion is not available, the face step will fallback to either `video` or `standard` variants. See `videoCaptureFallback` and `photoCaptureFallback` to control the fallback.
 
   If the SDK is initialized with the `requestedVariant` option for the face step, make sure you use the data returned in the [`onComplete` callback](#handling-callbacks) to request the correct report when creating a check.
 
@@ -725,40 +656,27 @@ The custom options are:
 
 - `photoCaptureFallback` (boolean - default: `true`)
 
-  This feature only applies to the [Video](https://developers.onfido.com/guide/facial-similarity-reports#video) variant.
+  When enabled, this feature allows end-users to upload selfies if the requested variant is `video` or `motion` and their browser does not support MediaRecorder, or if the requested variant is `motion` and Motion is unavailable on their device due to device capabilities.
 
-  When enabled, it allows end-users to capture a selfie if their browser does not support MediaRecorder.
-  When disabled, we will return an unsupported browser error if the end-user browser doesn’t support MediaRecorder.
+  When disabled, it will forward the user to the cross-device flow in order to attempt to capture a video in another device. If the user is already in a mobile device and it does not support MediaRecorder, the unsupported browser error will be shown.
 
-- `motionFallbackVariant` (string - default: `undefined`)
+- `videoCaptureFallback` (boolean - default: `true`)
 
-  This feature only applies to the [Motion](https://developers.onfido.com/guide/facial-similarity-reports#motion) variant and it allows to specify which face capture variant users will fallback to if Motion is not available on the end-user device due to MediaRecorder not being supported or to limited device capabilities.
+  When enabled, this feature allows end-users to upload videos if the requested variant is `motion` and their browser supports MediaRecorder, yet Motion is not supported due to device capabilities.
 
-  If no variant is specified, then users on unsupported devices will receive an unsupported browser error instead.
+  When disabled, it will forward the user to the cross-device flow in order to attempt to capture a photo in another device. Having both `photoCaptureFallback` and `videoCaptureFallback` disabled would forward the user to the cross-device flow with Motion.
 
-  The following example shows how to configure `motionFallbackVariant` to allow users on unsupported devices to fallback to Selfie:
+#### auth
 
-  ```javascript
-  options: {
-    requestedVariant: 'motion',
-    motionFallbackVariant: 'standard'
-  }
-  ```
+This is the authentication step. If you have followed the guidelines specific to including authentication, you'll have this step made available. In here, a loading screen is presented to the user to fetch all necessary resources to perform authentication.
 
-  The following example shows how to configure `motionFallbackVariant` to allow users on unsupported devices to fallback to Video:
+After all resources are loaded, the session is initialized, and the authentication check begins. An oval frame of the camera will be present (if camera permissions are provided) and actionable elements will render, asking the user to place their face in the frame, followed up by a different set of instructions for them to follow to successfully authenticate the user.
 
-  ```javascript
-  options: {
-    requestedVariant: 'motion',
-    motionFallbackVariant: 'video'
-  }
-  ```
+If the user is not a match, or conditions are not good enough to successfully authenticate, the user will be asked to retry authentication. If authentication is not possible (i.e. user performing authentication is not a match, doesn't provide optimal light/environment conditions, or doesn't follow instructions on screen), the page will rollback to the previous step. Custom option is:
 
-- `recordMotionAudio` (boolean - default: `false`)
+- `retries` (number)
 
-  When enabled, and the requested variant is `motion`, this feature allows Motion to record the user background audio.
-
-Please note that if a camera can’t be detected, we forward the user to the cross-device flow in order to attempt to capture in another device.
+This option allows the integrator to set the maximum number of retries until authentication session is cancelled. **Default maximum number of attempts is 3.**
 
 #### complete
 
@@ -964,14 +882,14 @@ In order to mitigate potential cross-site scripting issues, most modern browsers
   http-equiv="Content-Security-Policy"
   content="
   default-src 'self' https://assets.onfido.com;
-  script-src 'self' 'unsafe-eval' https://assets.onfido.com https://sentry.io https://*.sardine.ai/;
+  script-src 'self' 'unsafe-eval' https://assets.onfido.com https://sentry.io;
   style-src 'self' https://assets.onfido.com;
   connect-src 'self' data: blob: *.onfido.com wss://*.onfido.com https://sentry.io;
   img-src 'self' data: blob: https://assets.onfido.com/;
   media-src blob: https://assets.onfido.com;
-  worker-src 'self' blob:;
+  worker-src blob:;
   object-src 'self' blob:;
-  frame-src 'self' data: blob: https://*.sardine.ai/;
+  frame-src 'self' data: blob:;
 "
 />
 ```

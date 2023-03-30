@@ -10,56 +10,13 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 
-## [12.1.0] - 2023-03-27
+## [10.1.2] - 2023-03-30
 
 ### Changed
 
-- Public: Added Generic document support
-
-## [12.0.0] - 2023-03-08
-
-- Public: Typescript support: remove unused configuration types for POA step (They were not used but were not removed from the types.)
-- Public: Remove deprecated (since 10.1.0) option `useLiveDocumentCapture`.
-- Public: Remove deprecated (since 10.1.0) option `useWebcam`.
-- Public: Add national ID number capture based on applicant geo
-- Public: Replace face step option `videoCaptureFallback` with `motionFallbackVariant`.
-- Public: Add Generic Document Types.
-- Public: Fix for "FLOW_STARTED" analytics event
+## [10.1.1] - 2023-01-24
 
 ### Changed
-
-## [10.4.0] - 2023-01-23
-
-### Changed
-
-- Public: Fixed a bug in the selfie/face video step, where the face would not be zoomed in correctly.
-- Public: Reduce by one the number of forced retries in case of error while submitting a document. For a max retry count of 4, the 5th attempt will be the final one (previously it was the 6th attempt).
-- Public: In the document step, if there is only a single country due to `documentTypes` option, show a disabled input with the country pre selected for the user.
-- Public: In the document step, add new option `hideCountrySelection` to bypass the country selection sub screen. Refer to the README for more information.
-- Public: Added support for dashboard document selection via `/supported_documents endpoint` and `enableDocumentSupportRules` option for overriding dashboard feature flag.
-
-## [10.3.1] - 2023-01-13
-
-### Changed
-
-- Fix for consistent language between desktop and mobile in cross device flow
-
-## [10.3.0] - 2023-01-11
-
-### Changed
-
-- Internal: Added `isWebView` SDK configuration option for enabling native featured via webview
-- Public: Prevent error during tearDown when fired from onComplete callback
-- Public: Workflow configurable `forceCrossDevice` to `document` and `poa` task. The features lets Studio users to set `forceCrossDevice` to true on a task level.
-- Public: Fixed capture icons in cross-device complete screen for `face`, `poa` workflow capture tasks.
-
-## [10.2.0] - 2022-12-15
-
-### Changed
-
-- Public: Add a range of new languages
-- Public: Add RTL support
-- Public: Use browser language when available
 
 ## [10.1.0] - 2022-12-08
 
@@ -77,22 +34,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Add network and feature flag support for Logger
 - Internal: Add data-onfido-qas for a few elements on profile screen and country option selection
 - Public: GA workflow api 3.5 integration
-- Public: Add new `colorBackgroundSelector` UI customization option
-- Public: Add new `colorBackgroundDocTypeButtonHover` and `colorBackgroundDocTypeButtonActive` UI customization options
-
-## [10.0.2] - 2022-11-29
-
-### Changed:
-
-- Public: Fix for https://github.com/onfido/onfido-sdk-ui/issues/2127
-- Public: Fix for https://github.com/onfido/onfido-sdk-ui/issues/2131
-
-## [10.0.2] - 2022-11-29
-
-### Changed:
-
-- Public: Fix for https://github.com/onfido/onfido-sdk-ui/issues/2127
-- Public: Fix for https://github.com/onfido/onfido-sdk-ui/issues/2131
 
 ## [10.0.1] - 2022-11-24
 
@@ -1484,16 +1425,10 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/12.1.0...development
-[12.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/12.0.0...12.1.0
-[12.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/10.4.0...12.0.0
-[10.4.0]: https://github.com/onfido/onfido-sdk-ui/compare/10.3.1...10.4.0
-[10.3.1]: https://github.com/onfido/onfido-sdk-ui/compare/10.3.0...10.3.1
-[10.3.0]: https://github.com/onfido/onfido-sdk-ui/compare/10.2.0...10.3.0
-[10.2.0]: https://github.com/onfido/onfido-sdk-ui/compare/10.1.0...10.2.0
-[10.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/10.0.2...10.1.0
-[10.0.2]: https://github.com/onfido/onfido-sdk-ui/compare/10.0.2...10.0.2
-[10.0.2]: https://github.com/onfido/onfido-sdk-ui/compare/10.0.1...10.0.2
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/10.1.2...development
+[10.1.2]: https://github.com/onfido/onfido-sdk-ui/compare/10.1.1...10.1.2
+[10.1.1]: https://github.com/onfido/onfido-sdk-ui/compare/10.1.0...10.1.1
+[10.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/10.0.1...10.1.0
 [10.0.1]: https://github.com/onfido/onfido-sdk-ui/compare/10.0.0...10.0.1
 [10.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/9.1.4...10.0.0
 [9.1.4]: https://github.com/onfido/onfido-sdk-ui/compare/9.1.3...9.1.4

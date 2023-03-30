@@ -1,91 +1,4 @@
 {
-  "auth_accessibility": {
-    "back_button": ""
-  },
-  "auth_cam_encrypt": {
-    "loader": ""
-  },
-  "auth_cam_start": {
-    "loader": ""
-  },
-  "auth_capture": {
-    "feedback": {
-      "center_face": "",
-      "even_lighting": "",
-      "eye_level": "",
-      "face_not_found": "",
-      "head_not_upright": "",
-      "move_back": "",
-      "move_close": "",
-      "move_closer": "",
-      "not_looking_straight": "",
-      "steady": ""
-    }
-  },
-  "auth_capture_start": {
-    "body": "",
-    "button_primary": "",
-    "feedback": {
-      "center_face": "",
-      "conditions_too_bright": "",
-      "conditions_too_dark": "",
-      "head_not_upright": "",
-      "neutral_expression": "",
-      "not_looking_straight": "",
-      "remove_sunglasses": "",
-      "steady_count_1": "",
-      "steady_count_2": "",
-      "steady_count_3": ""
-    },
-    "title": ""
-  },
-  "auth_error": {
-    "cam_encryption": {
-      "body": "",
-      "button_primary": "",
-      "button_primary_firefox": "",
-      "subtitle": "",
-      "table_header_1": "",
-      "table_header_2": "",
-      "table_row_1_cell_1": "",
-      "table_row_1_cell_1_firefox": "",
-      "table_row_1_cell_2": "",
-      "table_row_1_cell_2_firefox": "",
-      "table_row_2_cell_1": "",
-      "table_row_2_cell_2": "",
-      "table_row_3_cell_1": "",
-      "table_row_3_cell_2": "",
-      "title": ""
-    }
-  },
-  "auth_full_screen": {
-    "body": "",
-    "button_primary": "",
-    "title": ""
-  },
-  "auth_permission": {
-    "body_cam": "",
-    "button_primary_cam": "",
-    "title_cam": ""
-  },
-  "auth_permission_denied": {
-    "body_cam": "",
-    "button_primary_cam": ""
-  },
-  "auth_progress": {
-    "loader": ""
-  },
-  "auth_retry": {
-    "body_blur": "",
-    "body_neutral_expression": "",
-    "body_too_bright": "",
-    "button_primary": "",
-    "subtitle": "",
-    "title": ""
-  },
-  "auth_upload_pass": {
-    "body": ""
-  },
   "avc_confirmation": {
     "button_primary_upload": "Opname uploaden",
     "subtitle": "Er is met succes een video van uw gezicht opgenomen",
@@ -107,21 +20,19 @@
   },
   "avc_face_capture": {
     "alert": {
-      "mic_conflict_title": "Uw microfoon wordt door een andere app gebruikt",
       "timeout_body": "U heeft 15 seconden om de opname te maken",
-      "timeout_button_primary": "Opnieuw proberen",
+      "timeout_button_primary": "Probeer opnieuw",
       "timeout_title": "Sorry, we moeten de opname opnieuw starten",
       "too_fast_body": "Probeer het opnieuw en draai uw hoofd dit keer langzamer",
-      "too_fast_button_primary": "Opnieuw proberen",
+      "too_fast_button_primary": "Probeer opnieuw",
       "too_fast_title": "U heeft uw hoofd te snel gedraaid"
     },
     "title": "Draai uw hoofd langzaam naar beide kanten",
     "title_completed": "Opname voltooid"
   },
   "avc_intro": {
-    "button_primary_ready": "Start met opnemen",
-    "disclaimer": "Uw gezicht en uw achtergrond worden tijdens dit proces opgenomen",
-    "disclaimer_camera_and_audio_on": "Uw gezicht, achtergrond en geluid worden tijdens dit proces opgenomen",
+    "button_primary_ready": "Ik ben klaar",
+    "disclaimer": "Wees u er bewust van dat we uw gezicht en achtergrond zullen opnemen",
     "list_item_one": "Plaats eerst uw gezicht in het kader",
     "list_item_two": "Draai uw hoofd dan langzaam naar beide kanten",
     "subtitle": "Dit is om te verifiëren dat u een echte persoon bent",
@@ -158,11 +69,11 @@
     "title": "Selecteer land van uitgifte"
   },
   "cross_device_checklist": {
-    "button_primary": "Verzend verificatie",
+    "button_primary": "Verificatie verzenden",
     "info": "Tips",
     "list_item_doc_multiple": "Documenten",
     "list_item_doc_one": "Document",
-    "list_item_poa": "Bewijs van adres",
+    "list_item_poa": "Adresbewijs",
     "list_item_selfie": "Selfie",
     "list_item_video": "Filmpje",
     "subtitle": "Hier ziet u alles wat u geüpload hebt:",
@@ -203,8 +114,6 @@
     "footer": {
       "captured": "Foto gemaakt",
       "capturing": "Foto maken",
-      "manual_fallback_generic_document_back": "Neem een foto van de achterkant van uw document",
-      "manual_fallback_generic_document_front": "Neem een foto van de voorkant van uw document",
       "manual_fallback_identity_card_back": "Maak een foto van de achterkant van uw kaart",
       "manual_fallback_identity_card_front": "Maak een foto van de voorkant van uw kaart",
       "manual_fallback_license_back": "Maak een foto van de achterkant van uw rijbewijs",
@@ -212,8 +121,6 @@
       "manual_fallback_passport": "Maak een foto van de fotopagina van uw paspoort",
       "manual_fallback_residence_permit_back": "Maak een foto van de achterkant van uw verblijfsvergunning",
       "manual_fallback_residence_permit_front": "Maak een foto van de voorkant van uw verblijfsvergunning",
-      "position_generic_document_back": "",
-      "position_generic_document_front": "",
       "position_identity_card_back": "Plaats de achterkant van uw kaart in het kader",
       "position_identity_card_front": "Plaats de voorkant van uw kaart in het kader",
       "position_license_back": "Plaats de achterkant van uw rijbewijs in het kader",
@@ -224,20 +131,20 @@
     },
     "frame": {
       "flip_document": "Draai naar de achterkant",
-      "hold_still": "Niet bewegen",
+      "hold_still": "Houd stil",
       "no_document": "Document niet gedetecteerd"
     }
   },
   "doc_capture": {
     "button_primary": "Start scannen van document",
     "detail": {
-      "folded_doc_front": "Leg uw document plat neer, inclusief alle binnenste pagina's (moeten uw foto bevatten)"
+      "folded_doc_front": "Leg uw document plat, inclusief alle binnenste pagina's (moeten uw foto bevatten)"
     },
-    "header_folded_doc_front": "Kant van de profiel foto",
+    "header_folded_doc_front": "Zijde profielfoto",
     "prompt": {
       "button_card": "Plastic kaart",
       "button_paper": "Papieren document",
-      "title_id": "Wat voor type identiteitskaart heeft u?",
+      "title_id": "Wat voor type identiteitskaart hebt u?",
       "title_license": "Wat voor type rijbewijs hebt u?"
     }
   },
@@ -247,7 +154,7 @@
       "blur_title": "Onscherpe foto gedetecteerd",
       "crop_detail": "Zorg dat het volledige document zichtbaar is",
       "crop_title": "Afgesneden afbeelding gedetecteerd",
-      "glare_detail": "Sta niet in direct zonlicht",
+      "glare_detail": "Ga niet in direct zonlicht staan",
       "glare_title": "Schittering gedetecteerd",
       "no_doc_detail": "Zorg dat het volledig in het kader geplaatst is",
       "no_doc_title": "Document niet gedetecteerd"
@@ -256,7 +163,6 @@
     "body_bank_statement": "Zorg ervoor dat u de volledige documentpagina heeft geüpload, en dat de details duidelijk en zonder wazigheid of spiegeling te lezen zijn",
     "body_benefits_letter": "Zorg ervoor dat u de volledige documentpagina heeft geüpload, en dat de details duidelijk en zonder wazigheid of spiegeling te lezen zijn",
     "body_bill": "Zorg ervoor dat u de volledige documentpagina heeft geüpload, en dat de details duidelijk en zonder wazigheid of spiegeling te lezen zijn",
-    "body_generic_document": "Controleer of uw gegevens goed en volledig zichtbaar zijn",
     "body_id": "Controleer of uw gegevens goed en volledig zichtbaar zijn",
     "body_image_medium": "Het duurt langer u te verifiëren als we deze niet kunnen lezen",
     "body_image_poor": "Om u gemakkelijk te kunnen verifiëren, hebben we een betere foto nodig",
@@ -279,12 +185,12 @@
     "instructions_title_front": "Plaats de voorkant van uw document in het kader"
   },
   "doc_select": {
-    "button_address_card": "Adres kaart",
-    "button_address_card_detail": "Tijdelijke en permanente kaarten worden geaccepteerd",
+    "button_address_card": "",
+    "button_address_card_detail": "",
     "button_bank_statement": "Afschriften van de bank of bouwvereniging",
     "button_bank_statement_non_uk": "Bankafschrift",
-    "button_benefits_letter": "Brief belastingvoordelen",
-    "button_benefits_letter_detail": "Door de overheid toegestane uitkeringen voor huishoudens, bv. uitkering voor werkzoekenden, huursubsidie, heffingskorting",
+    "button_benefits_letter": "Brief voordelen",
+    "button_benefits_letter_detail": "Door de overheid toegestane uitkeringen voor huishoudens, bv. uitkering voor werkzoekenden, huursubsidie, belastingkredieten",
     "button_bill": "Energierekening",
     "button_bill_detail": "Gas, elektriciteit, water, vaste telefoonlijn of breedband",
     "button_government_letter": "Brief van de overheid",
@@ -299,7 +205,7 @@
     "button_permit_detail": "Voor- en achterkant",
     "button_tax_letter": "Brief gemeentelijke belastingen",
     "extra_estatements_ok": "Elektronische afschriften geaccepteerd",
-    "extra_no_mobile": "Sorry, geen mobiele telefoon rekeningen",
+    "extra_no_mobile": "Sorry, geen rekening voor mobiele telefoon",
     "list_accessibility": "Document die u kunt gebruiken voor het verifiëren van uw identiteit",
     "pill": "snelst",
     "section": {
@@ -315,7 +221,7 @@
     "subtitle_photo_page": "Fotopagina",
     "subtitle_poa": "Dit zijn de meest waarschijnlijke documenten waaruit uw huidige adres blijkt",
     "title": "Kies uw document",
-    "title_poa": "Kies een %{land} document"
+    "title_poa": "Kies een %{country} document"
   },
   "doc_submit": {
     "button_link_upload": "of upload een foto - geen scans of kopieën",
@@ -324,8 +230,6 @@
     "title_bank_statement": "Afschrift indienen",
     "title_benefits_letter": "Brief indienen",
     "title_bill": "Factuur indienen",
-    "title_generic_document_back": "Document indienen (achterkant)",
-    "title_generic_document_front": "Document indienen (voorkant)",
     "title_government_letter": "Brief van de overheid",
     "title_id_back": "Verzend identiteitskaart (achterkant)",
     "title_id_front": "Verzend identiteitskaart (voorkant)",
@@ -343,8 +247,8 @@
     "header": "Houd uw document vast en plaats de voorkant in het kader",
     "header_paper_doc_step2": "Draai uw document langzaam om, zodat de buitenste pagina's zichtbaar worden",
     "header_passport": "Houd uw paspoort vast en plaats de fotopagina in het kader",
-    "header_passport_progress": "Niet bewegen",
-    "header_step1": "Beweeg nu niet",
+    "header_passport_progress": "Houd het stil",
+    "header_step1": "Houd het nu stil",
     "header_step2": "Draai uw document langzaam om, zodat de achterkant zichtbaar wordt",
     "prompt": {
       "detail_timeout": "Opnemen video is beperkt tot <timeout></timeout> seconden. <fallback>Probeer opnieuw</fallback>"
@@ -375,7 +279,7 @@
         "message": "Uw token is verlopen"
       },
       "expired_trial": {
-        "instruction": "U heeft het limiet van uw proefperiodes bereikt",
+        "instruction": "U heeft uw proeflimieten bereikt",
         "message": "Uw proefperiode is vervallen"
       },
       "geoblocked_error": {
@@ -395,7 +299,7 @@
         "message": "Bestand niet geüpload."
       },
       "lazy_loading": {
-        "message": "Er is een fout opgetreden bij het laden van dit deel"
+        "message": "Er is een fout opgetreden bij het laden van de component"
       },
       "multiple_faces": {
         "instruction": "Alleen uw gezicht mag zichtbaar zijn in de selfie",
@@ -453,8 +357,8 @@
     "intro_ready_button": "Wees er bewust van dat we uw gezicht en achtergrond zullen opnemen",
     "intro_subtitle": "Dit is om te verifiëren dat u een echte persoon bent",
     "intro_warning": "Wees er bewust van dat we uw gezicht en achtergrond zullen opnemen",
-    "success_main_button": "Verzend verificatie",
-    "success_title": "Dit is alles wat we nodig hebben om uw identiteit te verifiëren"
+    "success_main_button": "Verificatie indienen",
+    "success_title": "Daarom moeten we uw identiteit verifiëren"
   },
   "mobilePhrases": {
     "photo_upload": {
@@ -480,13 +384,8 @@
       "title": "Plaats de fotopagina van uw document in het kader"
     }
   },
-  "nfc_scan": {
-    "sheet": {
-      "success": "Scan succesvol gemaakt"
-    }
-  },
   "outro": {
-    "body": "Dit is alles wat we nodig hebben om uw identiteit te verifiëren",
+    "body": "Daarom moeten we uw identiteit verifiëren",
     "body_government_letter": "Verstrek de hele documentpagina voor de beste resultaten",
     "title": "Dank u"
   },
@@ -508,7 +407,6 @@
     "list_item_action_cam": "Ververs deze pagina om het proces voor de verificatie van uw identiteit opnieuw te starten",
     "list_item_how_to_both": "Verleen via uw browserinstellingen toegang tot uw camera en microfoon",
     "list_item_how_to_cam": "Schakel toegang tot uw camera in vanuit de browserinstellingen",
-    "list_item_how_to_mic": "Schakel toegang tot uw microfoon in vanuit de browserinstellingen",
     "subtitle_both": "Herstel toegang tot de camera en de microfoon om een filmpje op te nemen en de verificatie van uw gezicht te voltooien",
     "subtitle_cam": "Herstel de cameratoegang om uw verificatie voort te zetten",
     "subtitle_cam_old": "Herstel toegang tot de camera om door te gaan met de verificatie van uw gezicht",
@@ -519,15 +417,13 @@
     "body_bank_statement": "Verstrek de hele documentpagina voor de beste resultaten",
     "body_benefits_letter": "Verstrek de hele documentpagina voor de beste resultaten",
     "body_bill": "Verstrek de hele documentpagina voor de beste resultaten",
-    "body_generic_document_back": "Upload de achterkant van uw document vanaf uw computer",
-    "body_generic_document_front": "Upload de voorkant van uw document vanaf uw computer",
     "body_id_back": "Upload de achterkant van uw kaart vanaf uw computer",
     "body_id_front": "Upload de voorkant van uw kaart vanaf uw computer",
     "body_license_back": "Upload de achterkant van uw rijbewijs vanaf uw computer",
     "body_license_front": "Upload de voorkant van uw rijbewijs vanaf uw computer",
     "body_passport": "Upload de fotopagina van uw paspoort vanaf uw computer",
     "body_selfie": "Upload een selfie vanaf uw computer",
-    "body_tax_letter": "Verstrek de hele documentpagina voor de beste resultaten",
+    "body_tax_letter": "Geef de hele documentpagina voor de beste resultaten",
     "button_take_photo": "Neem een foto",
     "button_upload": "Uploaden",
     "title_selfie": "Selfie"
@@ -544,23 +440,23 @@
       "address": "Huidig adres",
       "full_name": "Volledige naam",
       "issue_date": "Afgiftedatum of samenvattende periode",
-      "label": "Leg het gehele document vast en zorg ervoor dat duidelijk te zien is:",
+      "label": "Leg het hele document vast en zorg ervoor dat het duidelijk te zien is:",
       "logo": "Logo"
     },
-    "instructions_address_card_issue_date": "Uitgiftedatum",
-    "instructions_expiry_date": "Vervaldatum indien van toepassing",
-    "instructions_full_address": "Volledig adres",
-    "subtitle_address_card": "Moet een geldig adreskaartje zijn",
-    "subtitle_bank_statement": "Moet in de laatste 3 maanden zijn afgegeven",
-    "subtitle_benefits_letter": "Moet in de laatste 12 maanden zijn afgegeven",
-    "subtitle_bill": "Moet in de laatste 3 maanden zijn afgegeven",
-    "subtitle_tax_letter": "Moet in de laatste 12 maanden zijn afgegeven"
+    "instructions_address_card_issue_date": "",
+    "instructions_expiry_date": "",
+    "instructions_full_address": "",
+    "subtitle_address_card": "",
+    "subtitle_bank_statement": "Moet in de <strong>laatste 3 maanden</strong> zijn afgegeven",
+    "subtitle_benefits_letter": "Moet in de <strong>laatste 12 maanden</strong> zijn afgegeven",
+    "subtitle_bill": "Moet in de <strong>laatste 3 maanden</strong> zijn afgegeven",
+    "subtitle_tax_letter": "Moet in de <strong>laatste 12 maanden</strong> zijn afgegeven"
   },
   "poa_intro": {
     "button_primary": "Start verificatie",
-    "list_matches_signup": "Komt overeen met het adres dat u bij de registratie heeft gebruikt",
-    "list_most_recent": "Is uw meest recente document",
-    "list_shows_address": "Toont uw huidige adres",
+    "list_matches_signup": "<strong>Komt overeen</strong> met het adres dat u bij de registratie heeft gebruikt",
+    "list_most_recent": "Is uw meest <strong>recente</strong> document",
+    "list_shows_address": "Toont uw <strong>huidige</strong> adres",
     "subtitle": "U heeft een document nodig dat:",
     "title": "Laten we uw adres verifiëren"
   },
@@ -573,39 +469,6 @@
       },
       "country_select": {
         "placeholder": "Selecteer een land"
-      },
-      "id_type_select": {
-        "aus_specific": {
-          "other": "Buitenlands paspoort"
-        },
-        "bra_specific": {
-          "other": "CNPJ",
-          "tax_id": "CPF"
-        },
-        "driving_license": "Rijbewijs",
-        "esp_specific": {
-          "identity_card": "NIF/DNI"
-        },
-        "gha_specific": {
-          "social_insurance": "SSNIT"
-        },
-        "identity_card": "Identiteitskaart",
-        "ind_specific": {
-          "tax_id": "Persoonlijk Rekeningnummer (PAN)"
-        },
-        "ken_specific": {
-          "other": "Buitenaardse kaart"
-        },
-        "nga_specific": {
-          "identity_card": "Nationaal identificatienummer (NIN)",
-          "other": "BVN",
-          "tax_id": "TIN"
-        },
-        "other": "NIE",
-        "passport": "Paspoort",
-        "placeholder": "Selecteer een nationaal ID-type",
-        "tax_id": "BTW-nummer",
-        "voter_id": "Kiezer-ID"
       },
       "nationality_select": {
         "placeholder": "Selecteer een land"
@@ -622,76 +485,29 @@
     },
     "country_of_residence_title": "Uw land van verblijf",
     "field_labels": {
-      "arg_specific": {
-        "national_id_value": "DNI-nummer"
-      },
-      "can_specific": {
-        "national_id_value": "Burgerservicenummer (SIN)"
-      },
-      "chl_specific": {
-        "national_id_value": "RUT / RUN-nummers"
-      },
-      "chn_specific": {
-        "national_id_value": "Inwoner Identiteitskaart nummer"
-      },
-      "col_specific": {
-        "national_id_value": "Colombiaans persoonlijk identificatienummer"
-      },
       "country": "Land",
       "country_residence": "Land",
-      "dnk_specific": {
-        "national_id_value": "CPR-nummer"
-      },
       "dob": "Geboortedatum",
       "email": "E-mailadres",
-      "fin_specific": {
-        "national_id_value": "Persoonlijke identiteitscode"
-      },
       "first_name": "Voornaam",
       "gbr_specific": {
         "postcode": "Postcode",
         "town": "Stad/Dorp"
       },
-      "hkg_specific": {
-        "national_id_value": "HKID"
-      },
       "ind_specific": {
-        "pan": "Permanent account nummer (PAN)"
-      },
-      "ita_specific": {
-        "national_id_value": "Fiscale code"
-      },
-      "jpn_specific": {
-        "national_id_value": "\"Mijn nummer\" / Resident Record-code"
+        "pan": "Permanent account number (PAN)"
       },
       "last_name": "Achternaam",
       "line1": "Adresregel 1",
       "line2": "Adresregel 2",
       "line3": "Adresregel 3",
-      "lux_specific": {
-        "national_id_value": "Burgerservicenummer"
-      },
       "mobile_number": "Mobiel nummer",
-      "national_id_type": "Nationaal ID-type",
-      "national_id_value": "Nationale ID Nummer",
       "nationality": "Nationaliteit",
-      "phl_specific": {
-        "national_id_value": "PhilSys-kaartnummer (PCN)"
-      },
       "phone_number": "Telefoonnummer",
-      "pol_specific": {
-        "national_id_value": "PESEL-nummer"
-      },
       "postcode": "Postcode",
-      "prt_specific": {
-        "national_id_value": "Btw nummer"
-      },
       "town": "Stad",
-      "tur_specific": {
-        "national_id_value": "Turks identificatienummer"
-      },
       "usa_specific": {
-        "line1_helper_text": "Adres, bijvoorbeeld: Albertstraat 200",
+        "line1_helper_text": "Adres, bijvoorbeeld: 200 Albertstraat",
         "line2_helper_text": "Appartement, suite, eenheid, enz.",
         "postcode": "Zip code (VS)",
         "ssn": "Sociale Zekerheidsnummer (SSN)",
@@ -700,57 +516,11 @@
     },
     "field_optional": "(optioneel)",
     "field_validation": {
-      "arg_specific": {
-        "invalid_national_id_value": "Voer een geldige DNI in"
-      },
-      "bra_specific": {
-        "invalid_other": "Voer een geldig CNPJ",
-        "invalid_tax_id": "Voer een geldig CPF",
-        "required_other": "Voer uw CNPJ in",
-        "required_tax_id": "Voer uw CPF in"
-      },
-      "can_specific": {
-        "invalid_national_id_value": "Voer een geldig SIN",
-        "required_national_id_value": "Voer uw SIN in"
-      },
-      "chl_specific": {
-        "invalid_national_id_value": "Voer een geldig RUT / RUN-nummer in",
-        "required_national_id_value": "Voer uw RUT / RUN-nummers in"
-      },
-      "chn_specific": {
-        "invalid_national_id_value": "Vul een geldig identiteitskaartnummer in",
-        "required_national_id_value": "Vul a.u.b. het nummer van uw bewonerskaart in"
-      },
-      "col_specific": {
-        "invalid_national_id_value": "Voer een geldig Colombiaans persoonlijk identificatienummer in",
-        "required_national_id_value": "Voer uw Colombiaans persoonlijk identificatienummer in"
-      },
-      "dnk_specific": {
-        "invalid_national_id_value": "Voer een geldig reanimatienummer in",
-        "required_national_id_value": "Voer uw reanimatienummer in"
-      },
-      "esp_specific": {
-        "invalid_identity_card": "Voer een geldig NIF/DNI",
-        "invalid_other": "Voer een geldig NIE",
-        "required_identity_card": "Voer uw NIF/DNI in"
-      },
-      "fin_specific": {
-        "invalid_national_id_value": "Voer een geldige persoonlijke identiteitscode in",
-        "required_national_id_value": "Voer uw persoonlijke identiteitscode in"
-      },
       "gbr_specific": {
         "invalid_postcode": "Voer een geldig postcode in",
         "required_postcode": "Voer uw postcode in",
         "too_long_postcode": "Postcode is te lang",
         "too_short_postcode": "Postcode is te kort"
-      },
-      "gha_specific": {
-        "invalid_social_insurance": "Voer een geldige SSNIT in",
-        "required_social_insurance": "Voer uw SSNIT in"
-      },
-      "hkg_specific": {
-        "invalid_national_id_value": "Voer een geldige HKID in",
-        "required_national_id_value": "Voer uw HKID in"
       },
       "ind_specific": {
         "invalid_pan": "Voer een geldig PAN in",
@@ -758,106 +528,35 @@
       },
       "invalid": "Controleer op ongeldige tekens of symbolen",
       "invalid_dob": "Voer een geldig geboortedatum in",
-      "invalid_driving_license": "Voer een geldig rijbewijsnummer in",
       "invalid_email": "Voer een geldig e-mailadres in",
       "invalid_mobile_number": "Voer een geldig mobiel nummer in",
-      "invalid_national_id_value": "Voer een geldig nationaal ID-nummer in",
-      "invalid_passport": "Voer een geldig paspoortnummer in",
       "invalid_phone_number": "Voer een geldig telefoonnummer in",
-      "invalid_voter_id": "Voer een geldig kiezers-ID in",
-      "ita_specific": {
-        "invalid_national_id_value": "Voer een geldige fiscale code in",
-        "required_national_id_value": "Vul a.u.b. uw fiscale code in"
-      },
-      "jpn_specific": {
-        "invalid_national_id_value": "Voer een geldige \"Mijn nummer\" / Resident Record-code in",
-        "required_national_id_value": ""
-      },
-      "ken_specific": {
-        "invalid_other": "Voer een geldig Alien Card-nummer in",
-        "required_other": "Voer uw Alien Card-nummer in"
-      },
-      "lux_specific": {
-        "invalid_national_id_value": "Voer een geldig burgerservicenummer in",
-        "required_national_id_value": "Vul a.u.b. uw burgerservicenummer in"
-      },
-      "mex_specific": {
-        "invalid_identity_card": "Voer een geldig CURP",
-        "invalid_tax_id": "Voer een geldig RFC",
-        "required_identity_card": "Voer uw CURP in",
-        "required_tax_id": "Voer uw RFC in"
-      },
-      "mys_specific": {
-        "invalid_national_id_value": "Voer een geldig NRIC in",
-        "required_national_id_value": "Voer uw NRIC in"
-      },
-      "nga_specific": {
-        "invalid_identity_card": "Voer een geldig nationaal identificatienummer (NIN) in",
-        "invalid_other": "Voer een geldig BVN in",
-        "invalid_tax_id": "Voer een geldig TIN in",
-        "required_identity_card": "Voer uw nationaal identificatienummer (NIN) in",
-        "required_other": "Vul a.u.b. uw BVN in",
-        "required_tax_id": "Voer uw TIN in"
-      },
-      "phl_specific": {
-        "invalid_national_id_value": "Voer een geldig PhilSys-kaartnummer (PCN) in",
-        "required_national_id_value": "Voer uw PhilSys-kaartnummer (PCN) in"
-      },
-      "pol_specific": {
-        "invalid_national_id_value": "Voer een geldig PESEL-nummer in",
-        "required_national_id_value": "Voer uw PESEL-nummer in"
-      },
-      "prt_specific": {
-        "invalid_national_id_value": "Voer een geldig btw-nummer in",
-        "required_national_id_value": "Vul a.u.b. uw BTW-nummer in"
-      },
-      "reference": {
-        "translation": "Voer een geldig"
-      },
-      "required_consent": "Ga akkoord met het toestaan van identiteits- en fraudecontroles",
+      "required_consent": "",
       "required_country": "Selecteer een land",
       "required_country_residence": "Selecteer een land",
       "required_dob": "Voer uw geboortedatum in",
       "required_email": "Voer uw e-mailadres in",
-      "required_first_name": "Voer uw voornaam in",
+      "required_first_name": "",
       "required_last_name": "Voer uw achternaam in",
       "required_line1": "Voer uw adres in",
       "required_mobile_number": "Voer uw mobiele nummer in",
-      "required_national_driving_license": "Vul a.u.b. uw rijbewijsnummer in",
-      "required_national_id_type": "Selecteer uw type nationale identiteitskaart",
-      "required_national_id_value": "Voer uw rijksregisternummer in",
-      "required_national_passport": "Vul a.u.b. uw paspoortnummer in",
-      "required_national_voter_id": "Voer uw kiezersnummer in",
       "required_nationality": "Selecteer een land",
       "required_phone_number": "Voer uw telefoonnummer in",
       "required_postcode": "Voer uw postcode in",
-      "sgp_specific": {
-        "invalid_national_id_value": "Voer een geldig NRIC",
-        "required_national_id_value": "Voer uw NRIC in"
-      },
-      "swe_specific": {
-        "invalid_national_id_value": "Voer een geldig PIN",
-        "required_national_id_value": "Voer uw pincode in"
-      },
       "too_long_first_name": "Voornaam is te lang",
       "too_long_last_name": "Achternaam is te lang",
       "too_long_line1": "Adresregel is te lang",
       "too_long_postcode": "Postcode is te lang",
-      "too_long_town": "De stad is te lang",
+      "too_long_town": "",
       "too_short_first_name": "Voornaam is te kort",
       "too_short_last_name": "Achternaam is te kort",
       "too_short_postcode": "Postcode is te kort",
-      "tur_specific": {
-        "invalid_national_id_value": "Voer een geldig Turks ID-nummer in",
-        "required_national_id_value": ""
-      },
       "usa_specific": {
         "invalid_ssn": "Voer een geldig SSN in",
         "required_ssn": "Voer uw SSN in",
         "required_state": "Selecteer een staat"
       }
     },
-    "national_id_number_title": "Voeg uw nationale ID-nummer toe",
     "personal_information_title": "Voeg uw persoonlijke informatie toe",
     "prompt": {
       "details_timeout": "Start opnieuw",
@@ -900,11 +599,11 @@
         "title": "Het lijkt erop dat het te lang duurde"
       }
     },
-    "body": "Houd uw gezicht binnen het ovale kader",
+    "body": "Houd uw gezicht binnen de ovaal",
     "button_accessibility": "Neem een foto",
     "button_primary": "Start een gezichtsscan",
     "frame_accessibility": "Waargave vanaf camera",
-    "title": "Houd uw gezicht binnen het ovale kader"
+    "title": "Houd uw gezicht binnen de ovaal"
   },
   "selfie_confirmation": {
     "image_accessibility": "Foto van uw gezicht",
@@ -950,13 +649,13 @@
     "title": "Upload de fotopagina van uw paspoort"
   },
   "user_consent": {
-    "button_primary": "Accepteren",
-    "button_secondary": "Niet accepteren",
+    "button_primary": "Accept",
+    "button_secondary": "Do not accept",
     "prompt": {
-      "button_primary": "Controleer opniew",
-      "button_secondary": "Ja, verifieer mij niet",
+      "button_primary": "Review again",
+      "button_secondary": "Yes, don’t verify me",
       "no_consent_detail": "If you do not accept Onfido’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
-      "no_consent_title": "Weet u het zeker?"
+      "no_consent_title": "Are you sure?"
     }
   },
   "user_consent_load_fail": {
@@ -965,7 +664,7 @@
     "title": "Content failed to load"
   },
   "video_capture": {
-    "body": "Houd uw gezicht binnen het ovale kader",
+    "body": "Houd uw gezicht binnen de ovaal",
     "body_record": "Druk op de knop als u klaar bent",
     "body_stop": "Druk op Stop als u klaar bent",
     "button_primary_finish": "Voltooi opname",
@@ -975,7 +674,7 @@
     "frame_accessibility": "Waargave vanaf camera",
     "header": {
       "challenge_digit_instructions": "Spreek elk cijfer hardop uit",
-      "challenge_turn_forward": "en kijk recht vooruit",
+      "challenge_turn_forward": "en kijk rechtuit",
       "challenge_turn_left": "Draai uw hoofd naar links",
       "challenge_turn_right": "Draai uw hoofd naar rechts"
     },
@@ -999,11 +698,10 @@
   },
   "welcome": {
     "doc_video_subtitle": "Dat duurt maar een paar minuten",
-    "info_original_document": "Maak een foto van uw originele document. Scans, foto's van schermen of fotokopieën zijn niet toegestaan.",
     "list_header_doc_video": "Gebruik uw apparaat om op te nemen:",
     "list_header_webcam": "Gebruik uw webcam of telefoon om te fotograferen:",
     "list_item_doc": "uw identiteitsbewijs",
-    "list_item_doc_video_timeout": "Opname is beperkt tot <timeout></timeout> seconden",
+    "list_item_doc_video_timeout": "Opnemen is beperkt tot <timeout></timeout> seconden",
     "list_item_poa": "uw adresbewijs",
     "list_item_selfie": "uw gezicht",
     "next_button": "Kies een document",
@@ -1015,20 +713,20 @@
   },
   "workflow_complete": {
     "pass": {
-      "description": "We hebben uw identiteit geverifieerd",
-      "title": "Geslaagd"
+      "description": "",
+      "title": ""
     },
     "reject": {
-      "description": "We hebben uw identiteit niet kunnen verifiëren...",
-      "title": "Afgewezen"
+      "description": "",
+      "title": ""
     }
   },
   "workflow_erros": {
-    "generic_title": "Er was een server fout!",
-    "no_workflow_run_id": "Workflow run ID is niet ingesteld.",
-    "reload_app": "Probeer de app opnieuw te laden en probeer het opnieuw.",
-    "task_not_completed": "Kon de workflow taak niet voltooien.",
-    "task_not_retrieved": "Kon geen workflow taak ophalen.",
-    "task_not_supported": "De taak wordt momenteel niet ondersteund"
+    "generic_title": "",
+    "no_workflow_run_id": "",
+    "reload_app": "",
+    "task_not_completed": "",
+    "task_not_retrieved": "",
+    "task_not_supported": ""
   }
 }
