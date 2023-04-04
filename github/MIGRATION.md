@@ -2,6 +2,44 @@
 
 The guides below are provided to ease the transition of existing applications using the Onfido SDK from one version to another that introduces breaking API changes.
 
+## `10.1.0` -> `10.2.0`
+
+We have added new language(s):
+
+- Arabic
+- Armenian
+- Bulgarian
+- Chinese (Simplified)
+- Chinese (Traditional)
+- Croatian
+- Danish
+- English (United States)
+- Estonian
+- Finnish
+- French (Canadian)
+- Greek
+- Hebrew
+- Hindi
+- Hungarian
+- Indonesian
+- Japanese
+- Korean
+- Latvian
+- Lithuanian
+- Malay
+- Norwegian
+- Persian
+- Portuguese (Brazil)
+- Russian
+- Serbian
+- Slovak
+- Spanish (Latin America)
+- Swedish
+- Thai
+- Turkish
+- Ukrainian
+- Vietnamese
+
 ## `9.1.4` -> `10.1.0`
 
 We have added new language(s): **Czech, Polish, and Romanian**

@@ -20,7 +20,6 @@
   },
   "avc_face_capture": {
     "alert": {
-      "mic_conflict_title": "Ձեր խոսափողն օգտագործվում է մեկ այլ հավելվածի կողմից",
       "timeout_body": "Տեսագրությունն ավարտելու համար դուք ունեք մինչև 15 վայրկյան",
       "timeout_button_primary": "Կրկին փորձել",
       "timeout_title": "Ներեցեք, մենք պետք է վերսկսենք տեսագրությունը",
@@ -32,9 +31,8 @@
     "title_completed": "Տեսագրումն ավարտված է"
   },
   "avc_intro": {
-    "button_primary_ready": "Սկսել տեսագրությունը",
-    "disclaimer": "Ձեր դեմքը և ձեր ֆոնը կգրանցվեն այս գործընթացի ընթացքում",
-    "disclaimer_camera_and_audio_on": "Ձեր դեմքը, ֆոնը և ձայնագրությունը կձայնագրվեն այս գործընթացի ընթացքում",
+    "button_primary_ready": "Պատրաստ եմ",
+    "disclaimer": "Խնդրում ենք ի նկատի ունենալ, որ մենք տեսագրելու ենք ձեր դեմքը և շրջակայքը",
     "list_item_one": "Սկզբում ձեր դեմքը տեղադրեք շրջանակի մեջ",
     "list_item_two": "Ապա գլուխը դանդաղ պտտեք երկու կողմ",
     "subtitle": "Սա անհրաժեշտ է, որպեսզի համոզվենք, որ դուք իրական մարդ եք",
@@ -116,8 +114,6 @@
     "footer": {
       "captured": "Լուսանկարն արված է",
       "capturing": "Լուսանկարվում է",
-      "manual_fallback_generic_document_back": "Լուսանկարե՛ք Ձեր փաստաթղթի հետևի հատվածը",
-      "manual_fallback_generic_document_front": "Լուսանկարե՛ք Ձեր փաստաթղթի առջևի հատվածը",
       "manual_fallback_identity_card_back": "Լուսանկարեք ձեր քարտի դարձերեսը",
       "manual_fallback_identity_card_front": "Լուսանկարեք ձեր քարտի դիմերեսը",
       "manual_fallback_license_back": "Լուսանկարեք ձեր վարորդական վկայականի դարձերեսը",
@@ -125,8 +121,6 @@
       "manual_fallback_passport": "Լուսանկարեք ձեր անձնագրի լուսանկարով էջը",
       "manual_fallback_residence_permit_back": "Լուսանկարեք ձեր բնակության թույլտվության դարձերեսը",
       "manual_fallback_residence_permit_front": "Լուսանկարեք ձեր բնակության թույլտվության դիմերեսը",
-      "position_generic_document_back": "",
-      "position_generic_document_front": "",
       "position_identity_card_back": "Ձեր քարտի դարձերեսը տեղադրեք շրջանակի մեջ",
       "position_identity_card_front": "Ձեր քարտի դիմերեսը տեղադրեք շրջանակի մեջ",
       "position_license_back": "Ձեր վարորդական իրավունքի դարձերեսը տեղադրեք շրջանակի մեջ",
@@ -169,7 +163,6 @@
     "body_bank_statement": "Համոզվեք, որ վերբեռնել եք փաստաթղթի ամբողջական էջը, և տվյալները ընթեռնելի են, պատկերը աղոտ չէ և չի փայլում",
     "body_benefits_letter": "Համոզվեք, որ վերբեռնել եք փաստաթղթի ամբողջական էջը, և տվյալները ընթեռնելի են, պատկերը աղոտ չէ և չի փայլում",
     "body_bill": "Համոզվեք, որ վերբեռնել եք փաստաթղթի ամբողջական էջը, և տվյալները ընթեռնելի են, պատկերը աղոտ չէ և չի փայլում",
-    "body_generic_document": "Համոզվեք, որ ձեր տվյալները հասկանալի են և պարզ",
     "body_id": "Համոզվեք, որ ձեր տվյալները հասկանալի են և պարզ",
     "body_image_medium": "Ձեզ նույնականացնելու համար ավելի երկար ժամանակ կպահանջվի, եթե մենք չկարողանանք կարդալ այն",
     "body_image_poor": "Ձեզ արագ նույնականացնելու համար մեզ անհրաժեշտ է ավելի լավ որակի լուսանկար",
@@ -237,8 +230,6 @@
     "title_bank_statement": "Ուղարկել քաղվածքը",
     "title_benefits_letter": "Ուղարկել նամակը",
     "title_bill": "Ուղարկել հաշիվ",
-    "title_generic_document_back": "Ուղարկե՛ք փաստաթուղթը (հետևի հատվածը)",
-    "title_generic_document_front": "Ուղարկե՛ք փաստաթուղթը (առջևի հատվածը)",
     "title_government_letter": "Պետական փաստաթուղթ",
     "title_id_back": "Ուղարկել նույնականացման քարտը (դարձերեսը)",
     "title_id_front": "Ուղարկել նույնականացման քարտը (դիմերեսը)",
@@ -393,11 +384,6 @@
       "title": "Անձնագրի լուսանկարով էջ"
     }
   },
-  "nfc_scan": {
-    "sheet": {
-      "success": "Սկանավորումը հաջողվեց"
-    }
-  },
   "outro": {
     "body": "Դա այն ամենն է, ինչ մեզ պետք է՝ սկսելու համար ձեր ինքնության հաստատումը",
     "body_government_letter": "Լավագույն արդյունքի համար հետևեք, որ փաստաթղթի էջը ամբողջական լինի",
@@ -421,7 +407,6 @@
     "list_item_action_cam": "Թարմացրեք այս էջը՝ ինքնության հաստատման գործընթացը վերսկսելու համար",
     "list_item_how_to_both": "Ձեր տեսախցիկի հասանելիությունը կարող եք թույլատրեք դիտարկչի կարգավորումների միջոցով",
     "list_item_how_to_cam": "Ձեր տեսախցիկի հասանելիությունը թույլատրեք դիտարկչի կարգավորումներից",
-    "list_item_how_to_mic": "Ձեր խոսափողի հասանելիությունը կարող եք թույլատրել դիտարկիչի կարգավորումներից",
     "subtitle_both": "Վերականգնեք տեսախցիկի և խոսափողի հասանելիությունը՝ տեսանյութը նկարահանելու և հաստատման գործընթացն ավարտելու համար",
     "subtitle_cam": "Վերականգնել տեսախցիկի հասանելիությունը՝ դեմքի նույնականացումը շարունակելու համար",
     "subtitle_cam_old": "Վերականգնել տեսախցիկի հասանելիությունը՝ դեմքի նույնականացումը շարունակելու համար",
@@ -432,8 +417,6 @@
     "body_bank_statement": "Լավագույն արդյունքի համար հետևեք, որ փաստաթղթի էջը ամբողջական լինի",
     "body_benefits_letter": "Լավագույն արդյունքի համար հետևեք, որ փաստաթղթի էջը ամբողջական լինի",
     "body_bill": "Լավագույն արդյունքի համար հետևեք, որ փաստաթղթի էջը ամբողջական լինի",
-    "body_generic_document_back": "Վերբեռնե՛ք փաստաթղթի հետևի հատվածը Ձեր համակարգչից",
-    "body_generic_document_front": "Վերբեռնե՛ք փաստաթղթի դիմացի հատվածը Ձեր համակարգչից",
     "body_id_back": "Վերբեռնեք քարտի դիմերեսը ձեր համակարգչից",
     "body_id_front": "Վերբեռնեք քարտի դիմերեսը ձեր համակարգչից",
     "body_license_back": "Վերբեռնեք վկայականի դարձերեսը ձեր համակարգչից",
@@ -487,39 +470,6 @@
       "country_select": {
         "placeholder": "Ընտրել երկիր"
       },
-      "id_type_select": {
-        "aus_specific": {
-          "other": "Օտարերկրյա անձնագիր"
-        },
-        "bra_specific": {
-          "other": "CNPJ",
-          "tax_id": "CPF"
-        },
-        "driving_license": "Վարորդական իրավունք",
-        "esp_specific": {
-          "identity_card": "NIF/DNI"
-        },
-        "gha_specific": {
-          "social_insurance": "SSNIT"
-        },
-        "identity_card": "Նույնականացման քարտ",
-        "ind_specific": {
-          "tax_id": "Անձնական հաշվի համար (PAN)"
-        },
-        "ken_specific": {
-          "other": "Այլմոլորակայինների քարտ"
-        },
-        "nga_specific": {
-          "identity_card": "Ազգային նույնականացման համարը (NIN)",
-          "other": "BVN",
-          "tax_id": "TIN"
-        },
-        "other": "NIE",
-        "passport": "Անձնագիր",
-        "placeholder": "Ընտրեք ազգային ID-ի տեսակը",
-        "tax_id": "Հարկային ID",
-        "voter_id": "Ընտրողի ID"
-      },
       "nationality_select": {
         "placeholder": "Ընտրել երկիր"
       },
@@ -535,74 +485,27 @@
     },
     "country_of_residence_title": "Ձեր բնակության երկիրը",
     "field_labels": {
-      "arg_specific": {
-        "national_id_value": "DNI համարը"
-      },
-      "can_specific": {
-        "national_id_value": "Սոցիալական ապահովագրության համարը (SIN)"
-      },
-      "chl_specific": {
-        "national_id_value": "RUT / RUN համարներ"
-      },
-      "chn_specific": {
-        "national_id_value": "Բնակիչ Նույնականացման քարտ համարը"
-      },
-      "col_specific": {
-        "national_id_value": "Կոլումբիայի Անձնական նույնականացման Համար"
-      },
       "country": "Երկիր",
       "country_residence": "Երկիր",
-      "dnk_specific": {
-        "national_id_value": "CPR համարը"
-      },
       "dob": "Ծննդյան ամսաթիվ",
       "email": "Էլ փոստ",
-      "fin_specific": {
-        "national_id_value": "Անձնական նույնականացման կոդը"
-      },
       "first_name": "Անուն",
       "gbr_specific": {
         "postcode": "Փոստային դասիչ",
         "town": "Քաղաք"
       },
-      "hkg_specific": {
-        "national_id_value": "HKID"
-      },
       "ind_specific": {
         "pan": "Հարկ վճարողի համար (Permanent account number, PAN)"
-      },
-      "ita_specific": {
-        "national_id_value": "Ֆիսկալ ծածկագիր"
-      },
-      "jpn_specific": {
-        "national_id_value": "«Իմ համարը» / Resident Record code"
       },
       "last_name": "Ազգանուն",
       "line1": "Հասցե 1",
       "line2": "Հասցե 2",
       "line3": "Հասցե 3",
-      "lux_specific": {
-        "national_id_value": "Սոցիալական քարտի համար"
-      },
       "mobile_number": "Բջջային հեռախոսահամար",
-      "national_id_type": "Ազգային ID տեսակը",
-      "national_id_value": "Ազգային ID համարը",
       "nationality": "Ազգություն",
-      "phl_specific": {
-        "national_id_value": "PhilSys քարտի համարը (PCN)"
-      },
       "phone_number": "Հեռախոսահամար",
-      "pol_specific": {
-        "national_id_value": "PESEL համարը"
-      },
       "postcode": "Փոստային դասիչ",
-      "prt_specific": {
-        "national_id_value": "Հարկային համարը"
-      },
       "town": "Քաղաք",
-      "tur_specific": {
-        "national_id_value": "Թուրքական նույնականացման համարը"
-      },
       "usa_specific": {
         "line1_helper_text": "Փողոցի անվանում, օրինակ՝ Ալբերտ 200",
         "line2_helper_text": "Բնակարան, առանձնասենյակ, սենյակ և այլն",
@@ -613,57 +516,11 @@
     },
     "field_optional": "(ըստ ցանկության)",
     "field_validation": {
-      "arg_specific": {
-        "invalid_national_id_value": "Խնդրում ենք մուտքագրել վավեր DNI"
-      },
-      "bra_specific": {
-        "invalid_other": "Խնդրում ենք մուտքագրել վավեր CNPJ",
-        "invalid_tax_id": "Խնդրում ենք մուտքագրել վավեր CPF",
-        "required_other": "Խնդրում ենք մուտքագրել ձեր CNPJ-ը",
-        "required_tax_id": "Խնդրում ենք մուտքագրել ձեր CPF-ն"
-      },
-      "can_specific": {
-        "invalid_national_id_value": "Խնդրում ենք մուտքագրել վավեր SIN",
-        "required_national_id_value": "Խնդրում ենք մուտքագրել ձեր ՄԵՂՔԸ"
-      },
-      "chl_specific": {
-        "invalid_national_id_value": "Խնդրում ենք մուտքագրել վավեր RUT/RUN համարներ",
-        "required_national_id_value": "Խնդրում ենք մուտքագրել ձեր RUT / RUN համարները"
-      },
-      "chn_specific": {
-        "invalid_national_id_value": "Խնդրում ենք մուտքագրել վավեր բնակության անձը հաստատող փաստաթղթի համարը",
-        "required_national_id_value": "Խնդրում ենք մուտքագրել ձեր բնակության վկայականի համարը"
-      },
-      "col_specific": {
-        "invalid_national_id_value": "Խնդրում ենք մուտքագրել վավեր կոլումբիական նույնականացման համար",
-        "required_national_id_value": "Խնդրում ենք մուտքագրել ձեր կոլումբիական նույնականացման համարը"
-      },
-      "dnk_specific": {
-        "invalid_national_id_value": "Խնդրում ենք մուտքագրել վավեր CPR համար",
-        "required_national_id_value": "Խնդրում ենք մուտքագրել ձեր CPR համարը"
-      },
-      "esp_specific": {
-        "invalid_identity_card": "Խնդրում ենք մուտքագրել վավեր NIF/DNI",
-        "invalid_other": "Խնդրում ենք մուտքագրել վավեր NIE",
-        "required_identity_card": "Խնդրում ենք մուտքագրել ձեր NIF/DNI"
-      },
-      "fin_specific": {
-        "invalid_national_id_value": "Խնդրում ենք մուտքագրել վավեր Անձնական կոդը",
-        "required_national_id_value": "Խնդրում ենք մուտքագրել ձեր անձնական նույնականացման կոդը"
-      },
       "gbr_specific": {
         "invalid_postcode": "Խնդրում ենք մուտքագրել վավեր փոստային դասիչ",
         "required_postcode": "Խնդրում ենք մուտքագրել ձեր փոստային դասիչը",
         "too_long_postcode": "Փոստային դասիչը շատ երկար է",
         "too_short_postcode": "Փոստային դասիչը շատ կարճ է"
-      },
-      "gha_specific": {
-        "invalid_social_insurance": "Խնդրում ենք մուտքագրել վավեր SSNIT",
-        "required_social_insurance": "Խնդրում ենք մուտքագրել ձեր SSNIT-ը"
-      },
-      "hkg_specific": {
-        "invalid_national_id_value": "Խնդրում ենք մուտքագրել վավեր HKID",
-        "required_national_id_value": "Խնդրում ենք մուտքագրել ձեր HKID-ը"
       },
       "ind_specific": {
         "invalid_pan": "Մուտքագրեք վավեր PAN",
@@ -671,62 +528,9 @@
       },
       "invalid": "Խնդրում ենք ստուգել անվավեր նիշերը կամ նշանները",
       "invalid_dob": "Խնդրում ենք մուտքագրել ծննդյան վավեր ամսաթիվը",
-      "invalid_driving_license": "Խնդրում ենք մուտքագրել վավեր վարորդական իրավունքի համարը",
       "invalid_email": "Մուտքագրեք վավեր էլ փոստի հասցե",
       "invalid_mobile_number": "Խնդրում ենք մուտքագրել վավեր բջջային հեռախոսահամար",
-      "invalid_national_id_value": "Խնդրում ենք մուտքագրել վավեր ազգային ID համար",
-      "invalid_passport": "Խնդրում ենք մուտքագրել վավեր անձնագրի համարը",
       "invalid_phone_number": "Խնդրում ենք մուտքագրել վավեր հեռախոսահամար",
-      "invalid_voter_id": "Խնդրում ենք մուտքագրել վավեր ընտրողի ID համարը",
-      "ita_specific": {
-        "invalid_national_id_value": "Խնդրում ենք մուտքագրել վավեր հարկային ծածկագիր",
-        "required_national_id_value": "Խնդրում ենք մուտքագրել ձեր ֆիսկալ կոդը"
-      },
-      "jpn_specific": {
-        "invalid_national_id_value": "Խնդրում ենք մուտքագրել վավեր «Իմ համարը» / ռեզիդենտի գրանցման կոդը",
-        "required_national_id_value": ""
-      },
-      "ken_specific": {
-        "invalid_other": "Խնդրում ենք մուտքագրել Alien Card-ի վավեր համարը",
-        "required_other": "Խնդրում ենք մուտքագրել ձեր Alien Card համարը"
-      },
-      "lux_specific": {
-        "invalid_national_id_value": "Խնդրում ենք մուտքագրել վավեր սոցիալական ապահովության համար",
-        "required_national_id_value": "Խնդրում ենք մուտքագրել ձեր սոցիալական ապահովության համարը"
-      },
-      "mex_specific": {
-        "invalid_identity_card": "Խնդրում ենք մուտքագրել վավեր CURP",
-        "invalid_tax_id": "Խնդրում ենք մուտքագրել վավեր RFC",
-        "required_identity_card": "Խնդրում ենք մուտքագրել ձեր CURP-ը",
-        "required_tax_id": "Խնդրում ենք մուտքագրել ձեր RFC-ն"
-      },
-      "mys_specific": {
-        "invalid_national_id_value": "Խնդրում ենք մուտքագրել վավեր NRIC",
-        "required_national_id_value": "Խնդրում ենք մուտքագրել ձեր NRIC-ը"
-      },
-      "nga_specific": {
-        "invalid_identity_card": "Խնդրում ենք մուտքագրել վավեր ազգային նույնականացման համարը (NIN)",
-        "invalid_other": "Խնդրում ենք մուտքագրել վավեր BVN",
-        "invalid_tax_id": "Խնդրում ենք մուտքագրել վավեր TIN",
-        "required_identity_card": "Խնդրում ենք մուտքագրել ձեր ազգային նույնականացման համարը (NIN)",
-        "required_other": "Խնդրում ենք մուտքագրել ձեր BVN-ը",
-        "required_tax_id": "Խնդրում ենք մուտքագրել ձեր TIN-ը"
-      },
-      "phl_specific": {
-        "invalid_national_id_value": "Խնդրում ենք մուտքագրել վավեր PhilSys քարտի համարը (PCN)",
-        "required_national_id_value": "Խնդրում ենք մուտքագրել ձեր PhilSys քարտի համարը (PCN)"
-      },
-      "pol_specific": {
-        "invalid_national_id_value": "Խնդրում ենք մուտքագրել վավեր PESEL համար",
-        "required_national_id_value": "Խնդրում ենք մուտքագրել ձեր PESEL համարը"
-      },
-      "prt_specific": {
-        "invalid_national_id_value": "Խնդրում ենք մուտքագրել վավեր հարկային համար",
-        "required_national_id_value": "Խնդրում ենք մուտքագրել ձեր հարկային համարը"
-      },
-      "reference": {
-        "translation": "Խնդրում ենք մուտքագրել վավեր"
-      },
       "required_consent": "Խնդրում ենք թույլ տալ ինքնության և խարդախության դեպքերի ստուգումները",
       "required_country": "Խնդրում ենք ընտրել երկիրը",
       "required_country_residence": "Խնդրում ենք ընտրել երկիրը",
@@ -736,22 +540,9 @@
       "required_last_name": "Խնդրում ենք մուտքագրել ձեր ազգանունը",
       "required_line1": "Խնդրում ենք մուտքագրել ձեր հասցեն",
       "required_mobile_number": "Խնդրում ենք մուտքագրել շարժական հեռախոսահամարը",
-      "required_national_driving_license": "Խնդրում ենք մուտքագրել ձեր վարորդական իրավունքի համարը",
-      "required_national_id_type": "Խնդրում ենք ընտրել ձեր ազգային ID-ի տեսակը",
-      "required_national_id_value": "Խնդրում ենք մուտքագրել ձեր ազգային ID համարը",
-      "required_national_passport": "Խնդրում ենք մուտքագրել ձեր անձնագրի համարը",
-      "required_national_voter_id": "Խնդրում ենք մուտքագրել ձեր ընտրողի համարը",
       "required_nationality": "Խնդրում ենք ընտրել երկիրը",
       "required_phone_number": "Խնդրում ենք մուտքագրել ձեր հեռախոսահամարը",
       "required_postcode": "Խնդրում ենք մուտքագրել ձեր փոստային դասիչը",
-      "sgp_specific": {
-        "invalid_national_id_value": "Խնդրում ենք մուտքագրել վավեր NRIC",
-        "required_national_id_value": "Խնդրում ենք մուտքագրել ձեր NRIC-ը"
-      },
-      "swe_specific": {
-        "invalid_national_id_value": "Խնդրում ենք մուտքագրել վավեր PIN",
-        "required_national_id_value": "Խնդրում ենք մուտքագրել ձեր PIN կոդը"
-      },
       "too_long_first_name": "Անունը շատ երկար է",
       "too_long_last_name": "Ազգանունը շատ երկար է",
       "too_long_line1": "Հասցեի տողը շատ երկար է",
@@ -760,17 +551,12 @@
       "too_short_first_name": "Անունը շատ կարճ է",
       "too_short_last_name": "Ազգանունը շատ կարճ է",
       "too_short_postcode": "Փոստային դասիչը շատ կարճ է",
-      "tur_specific": {
-        "invalid_national_id_value": "Խնդրում ենք մուտքագրել վավեր թուրքական ID համար",
-        "required_national_id_value": ""
-      },
       "usa_specific": {
         "invalid_ssn": "Խնդրում ենք մուտքագրեք վավեր ՀԾՀ",
         "required_ssn": "Խնդրում ենք մուտքագրել ձեր ՀԾՀ-ն",
         "required_state": "Խնդրում ենք ընտրել նահանգը"
       }
     },
-    "national_id_number_title": "Ավելացրեք ձեր ազգային ID համարը",
     "personal_information_title": "Ավելացրեք ձեր անձնական տվյալները",
     "prompt": {
       "details_timeout": "Կրկին սկսել",
@@ -912,7 +698,6 @@
   },
   "welcome": {
     "doc_video_subtitle": "Դա կարող է տևել մի քանի րոպե",
-    "info_original_document": "Լուսանկարեք ձեր բնօրինակ փաստաթուղթը: Սկանավորումը, էկրանների լուսանկարները կամ պատճենահանումը չի թույլատրվում:",
     "list_header_doc_video": "Օգտագործեք ձեր սարքը՝ տեսագրելու՝",
     "list_header_webcam": "Լուսանկարելու համար օգտագործեք ձեր վեբ-տեսախցիկը կամ հեռախոսը՝",
     "list_item_doc": "ձեր անձը հաստատող փաստաթուղթը",

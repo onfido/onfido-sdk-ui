@@ -20,7 +20,6 @@
   },
   "avc_face_capture": {
     "alert": {
-      "mic_conflict_title": "แอปอื่นกำลังใช้ไมโครโฟนอยู่",
       "timeout_body": "คุณมีเวลาไม่เกิน 15 วินาทีในการบันทึกให้เสร็จ",
       "timeout_button_primary": "ลองอีกครั้ง",
       "timeout_title": "ขออภัย เราต้องเริ่มบันทึกใหม่",
@@ -32,9 +31,8 @@
     "title_completed": "บันทึกเสร็จสมบูรณ์"
   },
   "avc_intro": {
-    "button_primary_ready": "เริ่มบันทึก",
+    "button_primary_ready": "พร้อมแล้ว",
     "disclaimer": "โปรดทราบว่าเราจะบันทึกใบหน้าและพื้นหลังของคุณ",
-    "disclaimer_camera_and_audio_on": "ใบหน้า พื้นหลัง และเสียงของคุณจะถูกบันทึกในระหว่างขั้นตอนนี้",
     "list_item_one": "อันดับแรก วางตำแหน่งใบหน้าของคุณไว้ในกรอบ",
     "list_item_two": "จากนั้นค่อยๆ หันศีรษะไปทั้ง 2 ข้าง",
     "subtitle": "ขั้นตอนนี้มีเพื่อยืนยันว่าคุณเป็นบุคคลตามที่กล่าวอ้างจริงๆ",
@@ -116,8 +114,6 @@
     "footer": {
       "captured": "ถ่ายภาพแล้ว",
       "capturing": "การถ่ายภาพ",
-      "manual_fallback_generic_document_back": "ถ่ายรูปด้านหลังของเอกสารของคุณ",
-      "manual_fallback_generic_document_front": "ถ่ายรูปด้านหน้าของเอกสารของคุณ",
       "manual_fallback_identity_card_back": "ถ่ายรูปด้านหลังบัตรของคุณ",
       "manual_fallback_identity_card_front": "ถ่ายรูปด้านหน้าบัตรของคุณ",
       "manual_fallback_license_back": "ถ่ายรูปด้านหลังใบอนุญาตขับขี่ของคุณ",
@@ -125,8 +121,6 @@
       "manual_fallback_passport": "ถ่ายรูปหน้ารูปถ่ายในหนังสือเดินทางของคุณ",
       "manual_fallback_residence_permit_back": "ถ่ายรูปด้านหลังใบอนุญาตพำนักอาศัยของคุณ",
       "manual_fallback_residence_permit_front": "ถ่ายรูปด้านหน้าของใบอนุญาตมีถิ่นที่อยู่ของคุณ",
-      "position_generic_document_back": "",
-      "position_generic_document_front": "",
       "position_identity_card_back": "วางด้านหลังบัตรให้อยู่ในกรอบ",
       "position_identity_card_front": "วางด้านหน้าบัตรให้อยู่ในกรอบ",
       "position_license_back": "วางด้านหลังใบอนุญาตขับขี่ให้อยู่ในกรอบ",
@@ -137,7 +131,7 @@
     },
     "frame": {
       "flip_document": "พลิกไปด้านหลัง",
-      "hold_still": "ถือนิ่ง",
+      "hold_still": "อยู่นิ่งๆ",
       "no_document": "ไม่พบเอกสาร"
     }
   },
@@ -169,7 +163,6 @@
     "body_bank_statement": "เช็คให้แน่ใจว่าคุณอัปโหลดเอกสารทั้งหน้า และสามารถอ่านรายละเอียดได้อย่างชัดเจนโดยไม่มีตัวหนังสือพร่ามัวหรือมีแสงสะท้อน",
     "body_benefits_letter": "เช็คให้แน่ใจว่าคุณอัปโหลดเอกสารทั้งหน้า และสามารถอ่านรายละเอียดได้อย่างชัดเจนโดยไม่มีตัวหนังสือพร่ามัวหรือมีแสงสะท้อน",
     "body_bill": "เช็คให้แน่ใจว่าคุณอัปโหลดเอกสารทั้งหน้า และสามารถอ่านรายละเอียดได้อย่างชัดเจนโดยไม่มีตัวหนังสือพร่ามัวหรือมีแสงสะท้อน",
-    "body_generic_document": "เช็คให้แน่ใจว่ารายละเอียดชัดเจนและไม่มีอะไรกีดขวาง",
     "body_id": "เช็คให้แน่ใจว่ารายละเอียดชัดเจนและไม่มีอะไรกีดขวาง",
     "body_image_medium": "การยืนยันตัวตนจะใช้เวลานานขึ้นหากเราอ่านเอกสารไม่ได้",
     "body_image_poor": "เราต้องการรูปถ่ายที่ดีกว่านี้ เพื่อยืนยันตัวตนของคุณอย่างราบรื่น",
@@ -237,8 +230,6 @@
     "title_bank_statement": "ส่งใบแจ้งยอด",
     "title_benefits_letter": "ส่งจดหมาย",
     "title_bill": "ส่งใบเรียกเก็บเงิน",
-    "title_generic_document_back": "ส่งเอกสาร (ด้านหลัง)",
-    "title_generic_document_front": "ส่งเอกสาร (ด้านหน้า)",
     "title_government_letter": "หนังสือราชการ",
     "title_id_back": "ส่งบัตรประจำตัวประชาชน (ด้านหลัง)",
     "title_id_front": "ส่งบัตรประจำตัวประชาชน (ด้านหน้า)",
@@ -393,11 +384,6 @@
       "title": "หน้ารูปถ่ายในหนังสือเดินทาง"
     }
   },
-  "nfc_scan": {
-    "sheet": {
-      "success": "การสแกนสำเร็จ"
-    }
-  },
   "outro": {
     "body": "เพียงเท่านี้เราก็จะเริ่มยืนยันตัวตนของคุณได้",
     "body_government_letter": "แสดงเอกสารทั้งหน้าเพื่อให้ได้ผลลัพธ์ที่ดีที่สุด",
@@ -421,7 +407,6 @@
     "list_item_action_cam": "รีเฟรชหน้านี้เพื่อเริ่มต้นกระบวนการยืนยันตัวตนใหม่",
     "list_item_how_to_both": "มอบสิทธิ์การเข้าถึงกล้องและไมโครโฟนจากการตั้งค่าเบราว์เซอร์ของคุณ",
     "list_item_how_to_cam": "มอบสิทธิ์การเข้าถึงกล้องจากการตั้งค่าเบราว์เซอร์ของคุณ",
-    "list_item_how_to_mic": "ให้อนุญาตการเข้าถึงไมโครโฟนจากการตั้งค่าเบราว์เซอร์",
     "subtitle_both": "กู้คืนสิทธิ์การเข้าถึงกล้องและไมโครโฟน เพื่อถ่ายวิดีโอและดำเนินการตามขั้นตอนยืนยันให้เสร็จ",
     "subtitle_cam": "กู้คืนสิทธิ์การเข้าถึงกล้องเพื่อยืนยันตัวตนต่อ",
     "subtitle_cam_old": "กู้คืนสิทธิ์การเข้าถึงกล้องเพื่อยืนยันใบหน้าต่อ",
@@ -432,8 +417,6 @@
     "body_bank_statement": "แสดงเอกสารทั้งหน้าเพื่อให้ได้ผลลัพธ์ที่ดีที่สุด",
     "body_benefits_letter": "แสดงเอกสารทั้งหน้าเพื่อให้ได้ผลลัพธ์ที่ดีที่สุด",
     "body_bill": "แสดงเอกสารทั้งหน้าเพื่อให้ได้ผลลัพธ์ที่ดีที่สุด",
-    "body_generic_document_back": "อัปโหลดด้านหลังของเอกสารจากคอมพิวเตอร์ของคุณ",
-    "body_generic_document_front": "อัปโหลดด้านหน้าของเอกสารจากคอมพิวเตอร์ของคุณ",
     "body_id_back": "อัปโหลดด้านหลังบัตรจากคอมพิวเตอร์ของคุณ",
     "body_id_front": "อัปโหลดด้านหน้าบัตรจากคอมพิวเตอร์ของคุณ",
     "body_license_back": "อัปโหลดด้านหลังใบอนุญาตจากคอมพิวเตอร์ของคุณ",
@@ -487,39 +470,6 @@
       "country_select": {
         "placeholder": "เลือกประเทศ"
       },
-      "id_type_select": {
-        "aus_specific": {
-          "other": "พาสปอร์ตต่างประเทศ"
-        },
-        "bra_specific": {
-          "other": "CNPJ",
-          "tax_id": "CPF"
-        },
-        "driving_license": "ใบขับขี่",
-        "esp_specific": {
-          "identity_card": "NIF/DNI"
-        },
-        "gha_specific": {
-          "social_insurance": "SSNIT"
-        },
-        "identity_card": "บัตรประจำตัวประชาชน",
-        "ind_specific": {
-          "tax_id": "หมายเลขบัญชีส่วนบุคคล (PAN)"
-        },
-        "ken_specific": {
-          "other": "บัตรต่างด้าว"
-        },
-        "nga_specific": {
-          "identity_card": "หมายเลขประจำตัวประชาชน (NIN)",
-          "other": "BVN",
-          "tax_id": "TIN"
-        },
-        "other": "NIE",
-        "passport": "หนังสือเดินทาง",
-        "placeholder": "เลือกประเภทบัตรประจำตัวประชาชน",
-        "tax_id": "หมายเลขประจำตัวผู้เสียภาษี",
-        "voter_id": "รหัสผู้มีสิทธิเลือกตั้ง"
-      },
       "nationality_select": {
         "placeholder": "เลือกประเทศ"
       },
@@ -535,74 +485,27 @@
     },
     "country_of_residence_title": "ประเทศที่อยู่อาศัย",
     "field_labels": {
-      "arg_specific": {
-        "national_id_value": "หมายเลขดีเอ็นไอ"
-      },
-      "can_specific": {
-        "national_id_value": "หมายเลขประกันสังคม (SIN)"
-      },
-      "chl_specific": {
-        "national_id_value": "หมายเลข RUT / RUN"
-      },
-      "chn_specific": {
-        "national_id_value": "ถิ่นที่อยู่ บัตรประจำตัวประชาชน หมายเลข"
-      },
-      "col_specific": {
-        "national_id_value": "หมายเลขประจำตัวส่วนบุคคลของโคลอมเบีย"
-      },
       "country": "ประเทศ",
       "country_residence": "ประเทศ",
-      "dnk_specific": {
-        "national_id_value": "หมายเลข CPR"
-      },
       "dob": "วันเกิด",
       "email": "อีเมล",
-      "fin_specific": {
-        "national_id_value": "รหัสประจำตัวส่วนบุคคล"
-      },
       "first_name": "ชื่อ",
       "gbr_specific": {
         "postcode": "รหัสไปรษณีย์",
         "town": "เมือง/จังหวัด"
       },
-      "hkg_specific": {
-        "national_id_value": "HKID"
-      },
       "ind_specific": {
         "pan": "เลขที่บัญชีถาวร (PAN)"
-      },
-      "ita_specific": {
-        "national_id_value": "รหัสทางการเงิน"
-      },
-      "jpn_specific": {
-        "national_id_value": "\"หมายเลขของฉัน\" / รหัสทะเบียนบ้าน"
       },
       "last_name": "นามสกุล",
       "line1": "ที่อยู่บรรทัดที่ 1",
       "line2": "ที่อยู่บรรทัดที่ 2",
       "line3": "ที่อยู่บรรทัดที่ 3",
-      "lux_specific": {
-        "national_id_value": "หมายเลขประกันสังคม"
-      },
       "mobile_number": "หมายเลขโทรศัพท์มือถือ",
-      "national_id_type": "ประเภทบัตรประจำตัวประชาชน",
-      "national_id_value": "หมายเลขประจำตัวประชาชน",
       "nationality": "สัญชาติ",
-      "phl_specific": {
-        "national_id_value": "หมายเลขบัตร PhilSys (PCN)"
-      },
       "phone_number": "หมายเลขโทรศัพท์",
-      "pol_specific": {
-        "national_id_value": "หมายเลข PESEL"
-      },
       "postcode": "รหัสไปรษณีย์",
-      "prt_specific": {
-        "national_id_value": "หมายเลขภาษี"
-      },
       "town": "เมือง",
-      "tur_specific": {
-        "national_id_value": "หมายเลขประจำตัวประชาชนตุรกี"
-      },
       "usa_specific": {
         "line1_helper_text": "ที่อยู่ เช่น 200 Albert Street",
         "line2_helper_text": "อพาร์ทเมนท์ ห้องชุด ยูนิต ฯลฯ",
@@ -613,57 +516,11 @@
     },
     "field_optional": "(ไม่บังคับ)",
     "field_validation": {
-      "arg_specific": {
-        "invalid_national_id_value": "โปรดป้อน DNI ที่ถูกต้อง"
-      },
-      "bra_specific": {
-        "invalid_other": "กรุณาใส่ที่ถูกต้อง CNPJ",
-        "invalid_tax_id": "กรุณาใส่ที่ถูกต้อง CPF",
-        "required_other": "กรุณากรอก CNPJ ของคุณ",
-        "required_tax_id": "กรุณากรอก CPF ของคุณ"
-      },
-      "can_specific": {
-        "invalid_national_id_value": "กรุณาใส่ที่ถูกต้อง SIN",
-        "required_national_id_value": "โปรดป้อน SIN ของคุณ"
-      },
-      "chl_specific": {
-        "invalid_national_id_value": "โปรดป้อนหมายเลข RUT / RUN ที่ถูกต้อง",
-        "required_national_id_value": "โปรดป้อนหมายเลข RUT / RUN ของคุณ"
-      },
-      "chn_specific": {
-        "invalid_national_id_value": "โปรดป้อนหมายเลขบัตรประจำตัวประชาชนที่ถูกต้อง",
-        "required_national_id_value": "กรุณาใส่หมายเลขบัตรประจำตัวประชาชนของคุณ"
-      },
-      "col_specific": {
-        "invalid_national_id_value": "โปรดป้อนหมายเลขประจำตัวส่วนบุคคลของโคลอมเบียที่ถูกต้อง",
-        "required_national_id_value": "โปรดป้อนหมายเลขประจำตัวส่วนบุคคลโคลอมเบียของคุณ"
-      },
-      "dnk_specific": {
-        "invalid_national_id_value": "โปรดป้อนหมายเลข CPR ที่ถูกต้อง",
-        "required_national_id_value": "กรุณาใส่หมายเลข CPR ของคุณ"
-      },
-      "esp_specific": {
-        "invalid_identity_card": "กรุณาใส่ที่ถูกต้อง NIF/DNI",
-        "invalid_other": "กรุณาใส่ที่ถูกต้อง NIE",
-        "required_identity_card": "โปรดป้อน NIF/DNI ของคุณ"
-      },
-      "fin_specific": {
-        "invalid_national_id_value": "โปรดป้อนรหัสประจำตัวส่วนบุคคลที่ถูกต้อง",
-        "required_national_id_value": "กรุณาใส่รหัสประจำตัวของคุณ"
-      },
       "gbr_specific": {
         "invalid_postcode": "โปรดใส่รหัสไปรษณีย์ที่ถูกต้อง",
         "required_postcode": "โปรดใส่รหัสไปรษณีย์ของคุณ",
         "too_long_postcode": "รหัสไปรษณีย์ยาวเกินไป",
         "too_short_postcode": "รหัสไปรษณีย์สั้นเกินไป"
-      },
-      "gha_specific": {
-        "invalid_social_insurance": "โปรดป้อน SSNIT ที่ถูกต้อง",
-        "required_social_insurance": "กรุณากรอก SSNIT ของคุณ"
-      },
-      "hkg_specific": {
-        "invalid_national_id_value": "โปรดป้อน HKID ที่ถูกต้อง",
-        "required_national_id_value": "กรุณากรอก HKID ของคุณ"
       },
       "ind_specific": {
         "invalid_pan": "โปรดใส่ PAN ที่ถูกต้อง",
@@ -671,62 +528,9 @@
       },
       "invalid": "โปรดตรวจสอบอักขระหรือสัญลักษณ์ที่ไม่ถูกต้อง",
       "invalid_dob": "โปรดใส่วันเกิดที่ถูกต้อง",
-      "invalid_driving_license": "โปรดป้อนหมายเลขใบขับขี่ที่ถูกต้อง",
       "invalid_email": "โปรดใส่อีเมลที่ถูกต้อง",
       "invalid_mobile_number": "โปรดใส่หมายเลขโทรศัพท์ที่ถูกต้อง",
-      "invalid_national_id_value": "กรุณากรอกเลขประจำตัวประชาชนที่ถูกต้อง",
-      "invalid_passport": "กรุณาใส่หมายเลขหนังสือเดินทางที่ถูกต้อง",
       "invalid_phone_number": "โปรดใส่หมายเลขโทรศัพท์ที่ถูกต้อง",
-      "invalid_voter_id": "โปรดป้อนหมายเลขประจำตัวผู้มีสิทธิเลือกตั้งที่ถูกต้อง",
-      "ita_specific": {
-        "invalid_national_id_value": "โปรดป้อนรหัสการเงินที่ถูกต้อง",
-        "required_national_id_value": "โปรดป้อนรหัสการเงินของคุณ"
-      },
-      "jpn_specific": {
-        "invalid_national_id_value": "โปรดป้อน \"หมายเลขของฉัน\" / รหัสบันทึกถิ่นที่อยู่ที่ถูกต้อง",
-        "required_national_id_value": ""
-      },
-      "ken_specific": {
-        "invalid_other": "กรุณากรอกหมายเลขบัตรคนต่างด้าวที่ถูกต้อง",
-        "required_other": "กรุณาใส่หมายเลขบัตรคนต่างด้าวของคุณ"
-      },
-      "lux_specific": {
-        "invalid_national_id_value": "โปรดป้อนหมายเลขประกันสังคมที่ถูกต้อง",
-        "required_national_id_value": "กรุณากรอกหมายเลขประกันสังคมของคุณ"
-      },
-      "mex_specific": {
-        "invalid_identity_card": "กรุณาใส่ที่ถูกต้อง CURP",
-        "invalid_tax_id": "กรุณาใส่ที่ถูกต้อง RFC",
-        "required_identity_card": "กรุณากรอก CURP ของคุณ",
-        "required_tax_id": "กรุณากรอก RFC ของคุณ"
-      },
-      "mys_specific": {
-        "invalid_national_id_value": "โปรดป้อน NRIC ที่ถูกต้อง",
-        "required_national_id_value": "กรุณากรอก NRIC ของคุณ"
-      },
-      "nga_specific": {
-        "invalid_identity_card": "โปรดป้อนหมายเลขประจำตัวประชาชน (NIN) ที่ถูกต้อง",
-        "invalid_other": "โปรดป้อน BVN ที่ถูกต้อง",
-        "invalid_tax_id": "โปรดป้อน TIN ที่ถูกต้อง",
-        "required_identity_card": "โปรดป้อนหมายเลขประจำตัวประชาชน (NIN) ของคุณ",
-        "required_other": "กรุณากรอก BVN ของคุณ",
-        "required_tax_id": "โปรดป้อน TIN ของคุณ"
-      },
-      "phl_specific": {
-        "invalid_national_id_value": "โปรดป้อนหมายเลขบัตร PhilSys (PCN) ที่ถูกต้อง",
-        "required_national_id_value": "กรุณากรอกหมายเลขบัตร PhilSys (PCN) ของคุณ"
-      },
-      "pol_specific": {
-        "invalid_national_id_value": "โปรดป้อนหมายเลข PESEL ที่ถูกต้อง",
-        "required_national_id_value": "โปรดป้อนหมายเลข PESEL ของคุณ"
-      },
-      "prt_specific": {
-        "invalid_national_id_value": "โปรดป้อนหมายเลขภาษีที่ถูกต้อง",
-        "required_national_id_value": "โปรดป้อนหมายเลขภาษีของคุณ"
-      },
-      "reference": {
-        "translation": "กรุณาใส่ที่ถูกต้อง"
-      },
       "required_consent": "โปรดอนุมัติการตรวจสอบตัวตนและการฉ้อโกง",
       "required_country": "โปรดเลือกประเทศ",
       "required_country_residence": "โปรดเลือกประเทศ",
@@ -736,22 +540,9 @@
       "required_last_name": "โปรดใส่นามสกุลของคุณ",
       "required_line1": "โปรดใส่อีเมล",
       "required_mobile_number": "โปรดใส่หมายเลขโทรศัพท์มือถือของคุณ",
-      "required_national_driving_license": "กรุณาใส่หมายเลขใบขับขี่ของคุณ",
-      "required_national_id_type": "กรุณาเลือกประเภทบัตรประจำตัวประชาชนของคุณ",
-      "required_national_id_value": "กรุณากรอกเลขประจำตัวประชาชนของคุณ",
-      "required_national_passport": "กรุณาใส่หมายเลขหนังสือเดินทางของคุณ",
-      "required_national_voter_id": "โปรดป้อนหมายเลขประจำตัวผู้มีสิทธิเลือกตั้งของคุณ",
       "required_nationality": "โปรดเลือกประเทศ",
       "required_phone_number": "โปรดใส่หมายเลขโทรศัพท์ของคุณ",
       "required_postcode": "โปรดใส่รหัสไปรษณีย์ของคุณ",
-      "sgp_specific": {
-        "invalid_national_id_value": "กรุณาใส่ที่ถูกต้อง NRIC",
-        "required_national_id_value": "กรุณากรอก NRIC ของคุณ"
-      },
-      "swe_specific": {
-        "invalid_national_id_value": "กรุณาใส่ที่ถูกต้อง PIN",
-        "required_national_id_value": "กรุณาใส่รหัส PIN ของคุณ"
-      },
       "too_long_first_name": "ชื่อยาวเกินไป",
       "too_long_last_name": "นามสกุลยาวเกินไป",
       "too_long_line1": "บรรทัดที่อยู่ยาวเกินไป",
@@ -760,17 +551,12 @@
       "too_short_first_name": "ชื่อสั้นเกินไป",
       "too_short_last_name": "นามสกุลสั้นเกินไป",
       "too_short_postcode": "รหัสไปรษณีย์สั้นเกินไป",
-      "tur_specific": {
-        "invalid_national_id_value": "โปรดป้อนหมายเลข ID ตุรกีที่ถูกต้อง",
-        "required_national_id_value": ""
-      },
       "usa_specific": {
         "invalid_ssn": "โปรดใส่ SSN ที่ถูกต้อง",
         "required_ssn": "โปรดใส่ SSN ของคุณ",
         "required_state": "โปรดเลือกรัฐ"
       }
     },
-    "national_id_number_title": "เพิ่มหมายเลขประจำตัวประชาชนของคุณ",
     "personal_information_title": "เพิ่มข้อมูลส่วนบุคคลของคุณ",
     "prompt": {
       "details_timeout": "เริ่มอีกครั้ง",
@@ -912,7 +698,6 @@
   },
   "welcome": {
     "doc_video_subtitle": "น่าจะใช้เวลาสักครู่",
-    "info_original_document": "ถ่ายภาพเอกสารต้นฉบับของคุณ ไม่อนุญาตให้สแกน ภาพถ่ายหน้าจอ หรือถ่ายเอกสาร",
     "list_header_doc_video": "ใช้อุปกรณ์ของคุณเพื่อบันทึก:",
     "list_header_webcam": "ใช้เว็บแคมหรือโทรศัพท์ของคุณถ่ายภาพ:",
     "list_item_doc": "เอกสารยืนยันตัวตนของคุณ",

@@ -20,7 +20,6 @@
   },
   "avc_face_capture": {
     "alert": {
-      "mic_conflict_title": "Mikrofoną naudoja kita programėlė",
       "timeout_body": "Turite iki 15 sekundžių įrašymui užbaigti",
       "timeout_button_primary": "Bandyti dar kartą",
       "timeout_title": "Atsiprašome, turime iš naujo pradėti įrašymą",
@@ -32,9 +31,8 @@
     "title_completed": "Įrašymas baigtas"
   },
   "avc_intro": {
-    "button_primary_ready": "Pradėti įrašymą",
-    "disclaimer": "Atminkite, kad užfiksuosime jūsų veidą ir esamą aplinką",
-    "disclaimer_camera_and_audio_on": "Šio proceso metu bus įrašomas jūsų veidas, fonas ir garsas",
+    "button_primary_ready": "Aš pasiruošęs",
+    "disclaimer": "Atminkite, kad įrašysime jūsų veidą ir esamą aplinką",
     "list_item_one": "Pirmiausia pasirūpinkite, kad jūsų veidas būtų rėmelyje",
     "list_item_two": "Tada lėtai pasukite galvą į abi puses",
     "subtitle": "Taip patvirtinsite, kad esate tikras asmuo",
@@ -116,8 +114,6 @@
     "footer": {
       "captured": "Nufotografuota nuotrauka",
       "capturing": "Nuotraukos darymas",
-      "manual_fallback_generic_document_back": "Nufotografuokite galinę dokumento pusę",
-      "manual_fallback_generic_document_front": "Nufotografuokite priekinę dokumento pusę",
       "manual_fallback_identity_card_back": "Nufotografuokite galinę kortelės pusę",
       "manual_fallback_identity_card_front": "Nufotografuokite priekinę kortelės pusę",
       "manual_fallback_license_back": "Nufotografuokite vairuotojo pažymėjimo galinę pusę",
@@ -125,8 +121,6 @@
       "manual_fallback_passport": "Nufotografuokite paso nuotraukos puslapį",
       "manual_fallback_residence_permit_back": "Nufotografuokite galinę leidimo nuolat gyventi pusę",
       "manual_fallback_residence_permit_front": "Nufotografuokite leidimo gyventi priekinę pusę",
-      "position_generic_document_back": "",
-      "position_generic_document_front": "",
       "position_identity_card_back": "Pasirūpinkite, kad kortelės galinė pusė būtų rėmelyje",
       "position_identity_card_front": "Pasirūpinkite, kad kortelės priekinė pusė būtų rėmelyje",
       "position_license_back": "Pasirūpinkite, kad galinė vairuotojo pažymėjimo pusė būtų rėmelyje",
@@ -169,7 +163,6 @@
     "body_bank_statement": "Įsitikinkite, kad įkėlėte visą dokumento puslapį ir kad informacija yra aiškiai matoma, kad ją būtų galima perskaityti, nesusiliejusi ir be atspindžių",
     "body_benefits_letter": "Įsitikinkite, kad įkėlėte visą dokumento puslapį ir kad informacija yra aiškiai matoma, kad ją būtų galima perskaityti, nesusiliejusi ir be atspindžių",
     "body_bill": "Įsitikinkite, kad įkėlėte visą dokumento puslapį ir kad informacija yra aiškiai matoma, kad ją būtų galima perskaityti, nesusiliejusi ir be atspindžių",
-    "body_generic_document": "Įsitikinkite, kad jūsų informacija yra aiškiai matoma ir neuždengta",
     "body_id": "Įsitikinkite, kad jūsų informacija yra aiškiai matoma ir neuždengta",
     "body_image_medium": "Jei negalėsime perskaityti, užtruks ilgiau, kol jus patvirtinsime",
     "body_image_poor": "Kad galėtume sklandžiai jus patvirtinti, mums reikia geresnės kokybės nuotraukos",
@@ -237,8 +230,6 @@
     "title_bank_statement": "Pateikti išrašą",
     "title_benefits_letter": "Pateikti laišką",
     "title_bill": "Pateikti sąskaitą",
-    "title_generic_document_back": "Pateikti dokumentą (galinę pusę)",
-    "title_generic_document_front": "Pateikti dokumentą (priekinę pusę)",
     "title_government_letter": "Vyriausybės raštas",
     "title_id_back": "Pateikite asmens tapatybės kortelę (galinę pusę)",
     "title_id_front": "Pateikite asmens tapatybės kortelę (priekinę pusę)",
@@ -393,11 +384,6 @@
       "title": "Paso nuotraukos puslapis"
     }
   },
-  "nfc_scan": {
-    "sheet": {
-      "success": "Sėkmingas nuskaitymas"
-    }
-  },
   "outro": {
     "body": "Tai viskas, ko mums reikia, kad galėtume pradėti tikrinti jūsų tapatybę",
     "body_government_letter": "Pateikite visą dokumento puslapį, kad pasiektumėte geriausių rezultatų",
@@ -421,7 +407,6 @@
     "list_item_action_cam": "Atnaujinkite šį puslapį, kad iš naujo pradėtumėte tapatybės patvirtinimo procesą",
     "list_item_how_to_both": "Suteikite prieigą prie fotoaparato ir mikrofono naudodami naršyklės nustatymus",
     "list_item_how_to_cam": "Suteikite prieigą prie kameros naudodami naršyklės nustatymus",
-    "list_item_how_to_mic": "Suteikite prieigą prie mikrofono naudodami naršyklės nustatymus",
     "subtitle_both": "Atkurkite prieigą prie kameros ir mikrofono, kad galėtumėte padaryti vaizdo įrašą ir užbaigti patvirtinimo procesą",
     "subtitle_cam": "Atkurkite prieigą prie fotoaparato ir tęskite patvirtinimą",
     "subtitle_cam_old": "Atkurkite prieigą prie kameros, kad galėtumėte tęsti veido patikrinimą",
@@ -432,8 +417,6 @@
     "body_bank_statement": "Pateikite visą dokumento puslapį, kad pasiektumėte geriausių rezultatų",
     "body_benefits_letter": "Pateikite visą dokumento puslapį, kad pasiektumėte geriausių rezultatų",
     "body_bill": "Pateikite visą dokumento puslapį, kad pasiektumėte geriausių rezultatų",
-    "body_generic_document_back": "Įkelkite galinę dokumento pusę iš kompiuterio",
-    "body_generic_document_front": "Įkelkite priekinę dokumento pusę iš kompiuterio",
     "body_id_back": "Įkelkite galinę kortelės pusę iš kompiuterio",
     "body_id_front": "Įkelkite priekinę kortelės pusę iš kompiuterio",
     "body_license_back": "Įkelkite galinę pažymėjimo pusę iš kompiuterio",
@@ -487,39 +470,6 @@
       "country_select": {
         "placeholder": "Pasirinkti šalį"
       },
-      "id_type_select": {
-        "aus_specific": {
-          "other": "Užsienio pasas"
-        },
-        "bra_specific": {
-          "other": "CNPJ",
-          "tax_id": "CPF"
-        },
-        "driving_license": "Vairuotojo pažymėjimas",
-        "esp_specific": {
-          "identity_card": "NIF/DNI"
-        },
-        "gha_specific": {
-          "social_insurance": "SSNIT"
-        },
-        "identity_card": "Asmens tapatybės kortelė",
-        "ind_specific": {
-          "tax_id": "Asmeninis sąskaitos numeris (PAN)"
-        },
-        "ken_specific": {
-          "other": "Ateivių kortelė"
-        },
-        "nga_specific": {
-          "identity_card": "Nacionalinis identifikavimo numeris (NIN)",
-          "other": "BVN",
-          "tax_id": "TIN"
-        },
-        "other": "NIE",
-        "passport": "Pasas",
-        "placeholder": "Pasirinkite nacionalinio ID tipą",
-        "tax_id": "Mokesčių ID",
-        "voter_id": "Rinkėjo ID"
-      },
       "nationality_select": {
         "placeholder": "Pasirinkti šalį"
       },
@@ -535,74 +485,27 @@
     },
     "country_of_residence_title": "Gyvenamoji šalis",
     "field_labels": {
-      "arg_specific": {
-        "national_id_value": "DNI numeris"
-      },
-      "can_specific": {
-        "national_id_value": "Socialinio draudimo numeris (SIN)"
-      },
-      "chl_specific": {
-        "national_id_value": "RUT / RUN numeriai"
-      },
-      "chn_specific": {
-        "national_id_value": "Gyventojo Asmens tapatybės kortelė numeris"
-      },
-      "col_specific": {
-        "national_id_value": "Kolumbijos asmens identifikavimo numeris"
-      },
       "country": "Šalis",
       "country_residence": "Šalis",
-      "dnk_specific": {
-        "national_id_value": "CPR numeris"
-      },
       "dob": "Gimimo data",
       "email": "El. paštas",
-      "fin_specific": {
-        "national_id_value": "Asmens tapatybės kodas"
-      },
       "first_name": "Vardas",
       "gbr_specific": {
         "postcode": "Pašto kodas",
         "town": "Miestas"
       },
-      "hkg_specific": {
-        "national_id_value": "HKID"
-      },
       "ind_specific": {
         "pan": "Nuolatinis sąskaitos numeris (PAN)"
-      },
-      "ita_specific": {
-        "national_id_value": "Fiskalinis kodas"
-      },
-      "jpn_specific": {
-        "national_id_value": "„Mano numeris“ / Gyventojo įrašo kodas"
       },
       "last_name": "Pavardė",
       "line1": "1 adreso eilutė",
       "line2": "2 adreso eilutė",
       "line3": "3 adreso eilutė",
-      "lux_specific": {
-        "national_id_value": "Socialinio draudimo numeris"
-      },
       "mobile_number": "Mob. telefonas",
-      "national_id_type": "Nacionalinis ID tipas",
-      "national_id_value": "Asmens kodas",
       "nationality": "Tautybė",
-      "phl_specific": {
-        "national_id_value": "PhilSys kortelės numeris (PCN)"
-      },
       "phone_number": "Telefono numeris",
-      "pol_specific": {
-        "national_id_value": "PESEL numeris"
-      },
       "postcode": "Pašto kodas",
-      "prt_specific": {
-        "national_id_value": "Mokesčio numeris"
-      },
       "town": "Miestas",
-      "tur_specific": {
-        "national_id_value": "Turkijos identifikavimo numeris"
-      },
       "usa_specific": {
         "line1_helper_text": "Gatvės adresas, pavyzdžiui: 200 Albert Street",
         "line2_helper_text": "Butas ir pan.",
@@ -613,57 +516,11 @@
     },
     "field_optional": "(neprivaloma)",
     "field_validation": {
-      "arg_specific": {
-        "invalid_national_id_value": "Įveskite galiojantį DNI"
-      },
-      "bra_specific": {
-        "invalid_other": "Įveskite tinkamą CNPJ",
-        "invalid_tax_id": "Įveskite tinkamą CPF",
-        "required_other": "Įveskite savo CNPJ",
-        "required_tax_id": "Įveskite savo CPF"
-      },
-      "can_specific": {
-        "invalid_national_id_value": "Įveskite tinkamą SIN",
-        "required_national_id_value": "Įveskite savo SIN"
-      },
-      "chl_specific": {
-        "invalid_national_id_value": "Įveskite galiojančius RUT / RUN numerius",
-        "required_national_id_value": "Įveskite savo RUT / RUN numerius"
-      },
-      "chn_specific": {
-        "invalid_national_id_value": "Įveskite galiojantį gyventojo asmens tapatybės kortelės numerį",
-        "required_national_id_value": "Įveskite savo gyventojo asmens tapatybės kortelės numerį"
-      },
-      "col_specific": {
-        "invalid_national_id_value": "Įveskite galiojantį Kolumbijos asmens identifikavimo numerį",
-        "required_national_id_value": "Įveskite savo Kolumbijos asmens identifikavimo numerį"
-      },
-      "dnk_specific": {
-        "invalid_national_id_value": "Įveskite galiojantį CPR numerį",
-        "required_national_id_value": "Įveskite savo CPR numerį"
-      },
-      "esp_specific": {
-        "invalid_identity_card": "Įveskite tinkamą NIF/DNI",
-        "invalid_other": "Įveskite tinkamą NIE",
-        "required_identity_card": "Įveskite savo NIF/DNI"
-      },
-      "fin_specific": {
-        "invalid_national_id_value": "Įveskite galiojantį asmens kodą",
-        "required_national_id_value": "Prašome įvesti savo asmens kodą"
-      },
       "gbr_specific": {
         "invalid_postcode": "Įveskite galiojantį pašto kodą",
         "required_postcode": "Įveskite savo pašto kodą",
         "too_long_postcode": "Pašto kodas per ilgas",
         "too_short_postcode": "Pašto kodas per trumpas"
-      },
-      "gha_specific": {
-        "invalid_social_insurance": "Įveskite tinkamą SSNIT",
-        "required_social_insurance": "Įveskite savo SSNIT"
-      },
-      "hkg_specific": {
-        "invalid_national_id_value": "Įveskite tinkamą HKID",
-        "required_national_id_value": "Įveskite savo HKID"
       },
       "ind_specific": {
         "invalid_pan": "Įveskite galiojantį PAN",
@@ -671,62 +528,9 @@
       },
       "invalid": "Patikrinkite, ar nėra netinkamų simbolių",
       "invalid_dob": "Įveskite teisingą gimimo datą",
-      "invalid_driving_license": "Įveskite galiojantį vairuotojo pažymėjimo numerį",
       "invalid_email": "Įveskite galiojantį el. pašto adresą",
       "invalid_mobile_number": "Įveskite galiojantį mob. telefono numerį",
-      "invalid_national_id_value": "Įveskite galiojantį nacionalinį ID numerį",
-      "invalid_passport": "Įveskite galiojantį paso numerį",
       "invalid_phone_number": "Įveskite galiojantį telefono numerį",
-      "invalid_voter_id": "Įveskite galiojantį rinkėjo ID numerį",
-      "ita_specific": {
-        "invalid_national_id_value": "Įveskite galiojantį mokesčių kodą",
-        "required_national_id_value": "Įveskite savo mokesčių kodą"
-      },
-      "jpn_specific": {
-        "invalid_national_id_value": "Įveskite galiojantį „Mano numeris“ / Gyventojo įrašo kodą",
-        "required_national_id_value": ""
-      },
-      "ken_specific": {
-        "invalid_other": "Įveskite galiojantį užsieniečių kortelės numerį",
-        "required_other": "Įveskite užsieniečių kortelės numerį"
-      },
-      "lux_specific": {
-        "invalid_national_id_value": "Įveskite galiojantį socialinio draudimo numerį",
-        "required_national_id_value": "Įveskite savo socialinio draudimo numerį"
-      },
-      "mex_specific": {
-        "invalid_identity_card": "Įveskite tinkamą CURP",
-        "invalid_tax_id": "Įveskite tinkamą RFC",
-        "required_identity_card": "Įveskite savo CURP",
-        "required_tax_id": "Įveskite savo RFC"
-      },
-      "mys_specific": {
-        "invalid_national_id_value": "Įveskite tinkamą NRIC",
-        "required_national_id_value": "Įveskite savo NRIC"
-      },
-      "nga_specific": {
-        "invalid_identity_card": "Įveskite galiojantį nacionalinį identifikavimo numerį (NIN)",
-        "invalid_other": "Įveskite galiojantį BVN",
-        "invalid_tax_id": "Įveskite galiojantį TIN",
-        "required_identity_card": "Įveskite savo nacionalinį identifikavimo numerį (NIN)",
-        "required_other": "Įveskite savo BVN",
-        "required_tax_id": "Įveskite savo TIN"
-      },
-      "phl_specific": {
-        "invalid_national_id_value": "Įveskite galiojantį PhilSys kortelės numerį (PCN)",
-        "required_national_id_value": "Įveskite savo PhilSys kortelės numerį (PCN)"
-      },
-      "pol_specific": {
-        "invalid_national_id_value": "Įveskite galiojantį PESEL numerį",
-        "required_national_id_value": "Įveskite savo PESEL numerį"
-      },
-      "prt_specific": {
-        "invalid_national_id_value": "Įveskite galiojantį mokesčių numerį",
-        "required_national_id_value": "Įveskite savo mokesčių numerį"
-      },
-      "reference": {
-        "translation": "Įveskite tinkamą"
-      },
       "required_consent": "Sutikite autorizuoti tapatybės ir sukčiavimo patikrinimus",
       "required_country": "Pasirinkite šalį",
       "required_country_residence": "Pasirinkite šalį",
@@ -736,22 +540,9 @@
       "required_last_name": "Įrašykite savo pavardę",
       "required_line1": "Įrašykite savo adresą",
       "required_mobile_number": "Įveskite savo mobiliojo telefono numerį",
-      "required_national_driving_license": "Įveskite vairuotojo pažymėjimo numerį",
-      "required_national_id_type": "Pasirinkite savo nacionalinio ID tipą",
-      "required_national_id_value": "Įveskite savo nacionalinį ID numerį",
-      "required_national_passport": "Įveskite savo paso numerį",
-      "required_national_voter_id": "Įveskite savo rinkėjo ID numerį",
       "required_nationality": "Pasirinkite šalį",
       "required_phone_number": "Įveskite savo telefono numerį",
       "required_postcode": "Įrašykite savo pašto kodą",
-      "sgp_specific": {
-        "invalid_national_id_value": "Įveskite tinkamą NRIC",
-        "required_national_id_value": "Įveskite savo NRIC"
-      },
-      "swe_specific": {
-        "invalid_national_id_value": "Įveskite tinkamą PIN",
-        "required_national_id_value": "Įveskite savo PIN kodą"
-      },
       "too_long_first_name": "Vardas per ilgas",
       "too_long_last_name": "Pavardė per ilga",
       "too_long_line1": "Adreso eilutė per ilga",
@@ -760,17 +551,12 @@
       "too_short_first_name": "Vardas per trumpas",
       "too_short_last_name": "Pavardė per trumpa",
       "too_short_postcode": "Pašto kodas per trumpas",
-      "tur_specific": {
-        "invalid_national_id_value": "Įveskite galiojantį Turkijos ID numerį",
-        "required_national_id_value": ""
-      },
       "usa_specific": {
         "invalid_ssn": "Įveskite galiojantį SSN",
         "required_ssn": "Įveskite savo SSN",
         "required_state": "Pasirinkite apskritį"
       }
     },
-    "national_id_number_title": "Pridėkite savo nacionalinį ID numerį",
     "personal_information_title": "Pridėkite savo asmeninę informaciją",
     "prompt": {
       "details_timeout": "Pradėti iš naujo",
@@ -912,7 +698,6 @@
   },
   "welcome": {
     "doc_video_subtitle": "Tai turėtų užtrukti kelias minutes",
-    "info_original_document": "Nufotografuokite dokumento originalą. Skenuoti, fotografuoti ekranų ar fotokopijų negalima.",
     "list_header_doc_video": "Naudodamiesi įrenginiu įrašykite:",
     "list_header_webcam": "Fotografuokite naudodami internetinę kamerą arba telefoną:",
     "list_item_doc": "jūsų asmens tapatybės dokumentas",

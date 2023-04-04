@@ -20,7 +20,6 @@
   },
   "avc_face_capture": {
     "alert": {
-      "mic_conflict_title": "Ứng dụng khác đang sử dụng micrô của bạn",
       "timeout_body": "Bạn có tối đa 15 giây để hoàn tất bản ghi",
       "timeout_button_primary": "Thử lại",
       "timeout_title": "Rất tiếc, chúng tôi phải ghi hình lại",
@@ -32,9 +31,8 @@
     "title_completed": "Ghi hình đã hoàn tất"
   },
   "avc_intro": {
-    "button_primary_ready": "Bắt đầu quay",
-    "disclaimer": "Xin lưu ý rằng chúng tôi sẽ ghi lại khuôn mặt và nền ảnh của bạn trong quá trình này",
-    "disclaimer_camera_and_audio_on": "Khuôn mặt, phông nền và phát âm của bạn sẽ được lưu trữ trong quá trình này",
+    "button_primary_ready": "Tôi đã sẵn sàng",
+    "disclaimer": "Xin lưu ý rằng chúng tôi sẽ ghi lại khuôn mặt và nền ảnh của bạn",
     "list_item_one": "Đầu tiên, định vị khuôn mặt của bạn trong khung hình",
     "list_item_two": "Sau đó, bạn hãy xoay đầu từ từ sang hai bên",
     "subtitle": "Thông tin này để xác minh rằng bạn là một con người có thật",
@@ -116,8 +114,6 @@
     "footer": {
       "captured": "Ảnh đã chụp",
       "capturing": "Đang chụp ảnh",
-      "manual_fallback_generic_document_back": "Chụp ảnh mặt sau tài liệu của bạn",
-      "manual_fallback_generic_document_front": "Chụp ảnh mặt trước tài liệu của bạn",
       "manual_fallback_identity_card_back": "Chụp ảnh mặt sau thẻ của bạn",
       "manual_fallback_identity_card_front": "Chụp ảnh mặt trước thẻ của bạn",
       "manual_fallback_license_back": "Chụp ảnh mặt sau giấy phép lái xe của bạn",
@@ -125,8 +121,6 @@
       "manual_fallback_passport": "Chụp ảnh trang có ảnh hộ chiếu của bạn",
       "manual_fallback_residence_permit_back": "Chụp ảnh mặt sau giấy phép cư trú của bạn",
       "manual_fallback_residence_permit_front": "Chụp ảnh mặt trước giấy phép cư trú của bạn",
-      "position_generic_document_back": "",
-      "position_generic_document_front": "",
       "position_identity_card_back": "Đặt mặt sau thẻ của bạn trong khung hình",
       "position_identity_card_front": "Đặt mặt trước thẻ của bạn trong khung hình",
       "position_license_back": "Đặt mặt sau của giấy phép lái xe trong khung hình",
@@ -169,7 +163,6 @@
     "body_bank_statement": "Đảm bảo bạn đã tải lên toàn bộ trang giấy tờ và chi tiết phải rõ ràng để đọc mà không bị mờ hoặc lóa",
     "body_benefits_letter": "Đảm bảo bạn đã tải lên toàn bộ trang giấy tờ và chi tiết phải rõ ràng để đọc mà không bị mờ hoặc lóa",
     "body_bill": "Đảm bảo bạn đã tải lên toàn bộ trang giấy tờ và chi tiết phải rõ ràng để đọc mà không bị mờ hoặc lóa",
-    "body_generic_document": "Đảm bảo thông tin của bạn rõ ràng và dễ nhìn",
     "body_id": "Đảm bảo thông tin của bạn rõ ràng và dễ nhìn",
     "body_image_medium": "Sẽ mất nhiều thời gian xác minh hơn nếu chúng tôi không đọc được",
     "body_image_poor": "Để xác minh nhanh chóng, chúng tôi cần ảnh chụp sắc nét hơn",
@@ -237,8 +230,6 @@
     "title_bank_statement": "Gửi bảng sao kê",
     "title_benefits_letter": "Gửi thư",
     "title_bill": "Gửi hóa đơn",
-    "title_generic_document_back": "Gửi tài liệu (mặt sau)",
-    "title_generic_document_front": "Gửi tài liệu (mặt trước)",
     "title_government_letter": "Công văn của chính phủ",
     "title_id_back": "Gửi thẻ căn cước (mặt sau)",
     "title_id_front": "Gửi thẻ căn cước (mặt trước)",
@@ -393,11 +384,6 @@
       "title": "Trang có ảnh hộ chiếu"
     }
   },
-  "nfc_scan": {
-    "sheet": {
-      "success": "Scan thành công"
-    }
-  },
   "outro": {
     "body": "Chúng tôi đã có đầy đủ thông tin cần thiết để bắt đầu xác minh danh tính của bạn",
     "body_government_letter": "Cung cấp toàn bộ trang tài liệu để có kết quả tốt nhất",
@@ -421,7 +407,6 @@
     "list_item_action_cam": "Làm mới trang này để bắt đầu lại quá trình xác minh danh tính",
     "list_item_how_to_both": "Cấp quyền truy cập vào máy ảnh và micrô từ cài đặt trình duyệt của bạn",
     "list_item_how_to_cam": "Cấp quyền truy cập vào máy ảnh từ cài đặt trình duyệt của bạn",
-    "list_item_how_to_mic": "Cấp quyền truy cập vào micrô của bạn từ cài đặt trình duyệt của bạn",
     "subtitle_both": "Khôi phục quyền truy cập máy ảnh và micrô để quay video và hoàn tất quy trình xác minh",
     "subtitle_cam": "Khôi phục quyền truy cập máy ảnh để tiếp tục quá trình xác minh của bạn",
     "subtitle_cam_old": "Khôi phục quyền truy cập vào máy ảnh để tiếp tục xác minh khuôn mặt",
@@ -432,8 +417,6 @@
     "body_bank_statement": "Cung cấp toàn bộ trang tài liệu để có kết quả tốt nhất",
     "body_benefits_letter": "Cung cấp toàn bộ trang tài liệu để có kết quả tốt nhất",
     "body_bill": "Cung cấp toàn bộ trang tài liệu để có kết quả tốt nhất",
-    "body_generic_document_back": "Tải lên mặt sau tài liệu từ máy tính của bạn",
-    "body_generic_document_front": "Tải lên mặt trước tài liệu từ máy tính của bạn",
     "body_id_back": "Tải lên mặt sau của thẻ căn cước từ máy tính của bạn",
     "body_id_front": "Tải lên mặt trước thẻ căn cước từ máy tính của bạn",
     "body_license_back": "Tải lên mặt sau giấy phép từ máy tính của bạn",
@@ -487,39 +470,6 @@
       "country_select": {
         "placeholder": "Chọn quốc gia"
       },
-      "id_type_select": {
-        "aus_specific": {
-          "other": ""
-        },
-        "bra_specific": {
-          "other": "CNPJ",
-          "tax_id": "CPF"
-        },
-        "driving_license": "",
-        "esp_specific": {
-          "identity_card": "NIF/DNI"
-        },
-        "gha_specific": {
-          "social_insurance": "SSNIT"
-        },
-        "identity_card": "Thẻ căn cước",
-        "ind_specific": {
-          "tax_id": ""
-        },
-        "ken_specific": {
-          "other": "thẻ ngoại kiều"
-        },
-        "nga_specific": {
-          "identity_card": "Số nhận dạng quốc gia (NIN)",
-          "other": "BVN",
-          "tax_id": "TIN"
-        },
-        "other": "NIE",
-        "passport": "",
-        "placeholder": "",
-        "tax_id": "",
-        "voter_id": ""
-      },
       "nationality_select": {
         "placeholder": "Chọn quốc gia"
       },
@@ -535,74 +485,27 @@
     },
     "country_of_residence_title": "Quốc gia bạn đang cư trú",
     "field_labels": {
-      "arg_specific": {
-        "national_id_value": ""
-      },
-      "can_specific": {
-        "national_id_value": ""
-      },
-      "chl_specific": {
-        "national_id_value": "Số RUT/RUN"
-      },
-      "chn_specific": {
-        "national_id_value": ""
-      },
-      "col_specific": {
-        "national_id_value": "Số nhận dạng cá nhân Colombia"
-      },
       "country": "Quốc gia",
       "country_residence": "Quốc gia",
-      "dnk_specific": {
-        "national_id_value": "số hô hấp nhân tạo"
-      },
       "dob": "Ngày sinh",
       "email": "Email",
-      "fin_specific": {
-        "national_id_value": "Mã định danh cá nhân"
-      },
       "first_name": "Tên",
       "gbr_specific": {
         "postcode": "Mã bưu điện",
         "town": "Thành phố/Thị trấn"
       },
-      "hkg_specific": {
-        "national_id_value": "HKID"
-      },
       "ind_specific": {
         "pan": "Số tài khoản cố định (PAN)"
-      },
-      "ita_specific": {
-        "national_id_value": ""
-      },
-      "jpn_specific": {
-        "national_id_value": "\"Số của tôi\" / Mã hồ sơ cư trú"
       },
       "last_name": "Họ",
       "line1": "Dòng địa chỉ 1",
       "line2": "Dòng địa chỉ 2",
       "line3": "Dòng địa chỉ 3",
-      "lux_specific": {
-        "national_id_value": "Số an sinh xã hội"
-      },
       "mobile_number": "Số điện thoại di động",
-      "national_id_type": "",
-      "national_id_value": "",
       "nationality": "Quốc tịch",
-      "phl_specific": {
-        "national_id_value": "Số thẻ PhilSys (PCN)"
-      },
       "phone_number": "Số điện thoại",
-      "pol_specific": {
-        "national_id_value": "số PESEL"
-      },
       "postcode": "Mã bưu chính",
-      "prt_specific": {
-        "national_id_value": "Số thuế"
-      },
       "town": "Thị trấn/thị xã",
-      "tur_specific": {
-        "national_id_value": ""
-      },
       "usa_specific": {
         "line1_helper_text": "Địa chỉ đường phố, ví dụ: 200 Albert Street",
         "line2_helper_text": "Căn hộ, phòng, hoặc đơn nguyên, v.v.",
@@ -613,57 +516,11 @@
     },
     "field_optional": "(tùy chọn)",
     "field_validation": {
-      "arg_specific": {
-        "invalid_national_id_value": ""
-      },
-      "bra_specific": {
-        "invalid_other": "xin vui lòng nhập vào một giá trị CNPJ",
-        "invalid_tax_id": "xin vui lòng nhập vào một giá trị CPF",
-        "required_other": "Vui lòng nhập CNPJ của bạn",
-        "required_tax_id": "Vui lòng nhập CPF của bạn"
-      },
-      "can_specific": {
-        "invalid_national_id_value": "xin vui lòng nhập vào một giá trị SIN",
-        "required_national_id_value": "Vui lòng nhập số SIN của bạn"
-      },
-      "chl_specific": {
-        "invalid_national_id_value": "Vui lòng nhập số RUT / RUN hợp lệ",
-        "required_national_id_value": "Vui lòng nhập số RUT / RUN của bạn"
-      },
-      "chn_specific": {
-        "invalid_national_id_value": "Vui lòng nhập số chứng minh nhân dân hợp lệ",
-        "required_national_id_value": "Vui lòng nhập số chứng minh nhân dân của bạn"
-      },
-      "col_specific": {
-        "invalid_national_id_value": "Vui lòng nhập Số nhận dạng cá nhân Colombia hợp lệ",
-        "required_national_id_value": "Vui lòng nhập Số nhận dạng cá nhân Colombia của bạn"
-      },
-      "dnk_specific": {
-        "invalid_national_id_value": "Vui lòng nhập số CPR hợp lệ",
-        "required_national_id_value": "Vui lòng nhập số CPR của bạn"
-      },
-      "esp_specific": {
-        "invalid_identity_card": "xin vui lòng nhập vào một giá trị NIF/DNI",
-        "invalid_other": "xin vui lòng nhập vào một giá trị NIE",
-        "required_identity_card": "Vui lòng nhập NIF/DNI của bạn"
-      },
-      "fin_specific": {
-        "invalid_national_id_value": "Vui lòng nhập Mã nhận dạng cá nhân hợp lệ",
-        "required_national_id_value": "Vui lòng nhập Mã nhận dạng cá nhân của bạn"
-      },
       "gbr_specific": {
         "invalid_postcode": "Vui lòng nhập mã bưu chính hợp lệ",
         "required_postcode": "Vui lòng nhập mã bưu điện của bạn",
         "too_long_postcode": "Mã bưu điện quá dài",
         "too_short_postcode": "Mã bưu điện quá ngắn"
-      },
-      "gha_specific": {
-        "invalid_social_insurance": "Vui lòng nhập SSNIT hợp lệ",
-        "required_social_insurance": "Vui lòng nhập SSNIT của bạn"
-      },
-      "hkg_specific": {
-        "invalid_national_id_value": "Vui lòng nhập HKID hợp lệ",
-        "required_national_id_value": "Vui lòng nhập HKID của bạn"
       },
       "ind_specific": {
         "invalid_pan": "Vui lòng nhập PAN hợp lệ",
@@ -671,62 +528,9 @@
       },
       "invalid": "Vui lòng kiểm tra các ký tự hoặc ký hiệu không hợp lệ",
       "invalid_dob": "Vui lòng nhập ngày sinh hợp lệ",
-      "invalid_driving_license": "Vui lòng nhập số giấy phép lái xe hợp lệ",
       "invalid_email": "Vui lòng nhập email hợp lệ",
       "invalid_mobile_number": "Vui lòng nhập số di động hợp lệ",
-      "invalid_national_id_value": "Vui lòng nhập số ID quốc gia hợp lệ",
-      "invalid_passport": "Vui lòng nhập số hộ chiếu hợp lệ",
       "invalid_phone_number": "Vui lòng nhập số điện thoại hợp lệ",
-      "invalid_voter_id": "Vui lòng nhập số ID cử tri hợp lệ",
-      "ita_specific": {
-        "invalid_national_id_value": "Vui lòng nhập mã tài chính hợp lệ",
-        "required_national_id_value": "Vui lòng nhập mã tài chính của bạn"
-      },
-      "jpn_specific": {
-        "invalid_national_id_value": "Vui lòng nhập mã \"Số của tôi\" / Hồ sơ cư trú hợp lệ",
-        "required_national_id_value": ""
-      },
-      "ken_specific": {
-        "invalid_other": "Vui lòng nhập số Thẻ ngoại kiều hợp lệ",
-        "required_other": "Vui lòng nhập số Thẻ ngoại kiều của bạn"
-      },
-      "lux_specific": {
-        "invalid_national_id_value": "Vui lòng nhập số An sinh xã hội hợp lệ",
-        "required_national_id_value": "Vui lòng nhập số An sinh xã hội của bạn"
-      },
-      "mex_specific": {
-        "invalid_identity_card": "xin vui lòng nhập vào một giá trị CURP",
-        "invalid_tax_id": "xin vui lòng nhập vào một giá trị RFC",
-        "required_identity_card": "Vui lòng nhập CURP của bạn",
-        "required_tax_id": "Vui lòng nhập RFC của bạn"
-      },
-      "mys_specific": {
-        "invalid_national_id_value": "Vui lòng nhập NRIC hợp lệ",
-        "required_national_id_value": "Vui lòng nhập NRIC của bạn"
-      },
-      "nga_specific": {
-        "invalid_identity_card": "Vui lòng nhập Số nhận dạng quốc gia hợp lệ (NIN)",
-        "invalid_other": "Vui lòng nhập một BVN hợp lệ",
-        "invalid_tax_id": "Vui lòng nhập TIN hợp lệ",
-        "required_identity_card": "Vui lòng nhập Số nhận dạng quốc gia (NIN) của bạn",
-        "required_other": "Vui lòng nhập BVN của bạn",
-        "required_tax_id": "Vui lòng nhập TIN của bạn"
-      },
-      "phl_specific": {
-        "invalid_national_id_value": "Vui lòng nhập Số thẻ PhilSys (PCN) hợp lệ",
-        "required_national_id_value": "Vui lòng nhập Số thẻ PhilSys (PCN) của bạn"
-      },
-      "pol_specific": {
-        "invalid_national_id_value": "Vui lòng nhập số PESEL hợp lệ",
-        "required_national_id_value": "Vui lòng nhập số PESEL của bạn"
-      },
-      "prt_specific": {
-        "invalid_national_id_value": "Vui lòng nhập số Thuế hợp lệ",
-        "required_national_id_value": "Vui lòng nhập mã số thuế của bạn"
-      },
-      "reference": {
-        "translation": "xin vui lòng nhập vào một giá trị"
-      },
       "required_consent": "Vui lòng đồng ý cho phép kiểm tra danh tính và gian lận",
       "required_country": "Vui lòng chọn quốc gia",
       "required_country_residence": "Vui lòng chọn quốc gia",
@@ -736,22 +540,9 @@
       "required_last_name": "Vui lòng điền họ của bạn",
       "required_line1": "Vui lòng nhập địa chỉ của bạn",
       "required_mobile_number": "Vui lòng nhập số điện thoại di động",
-      "required_national_driving_license": "Vui lòng nhập số giấy phép lái xe của bạn",
-      "required_national_id_type": "Vui lòng chọn loại ID quốc gia của bạn",
-      "required_national_id_value": "Vui lòng nhập số Chứng minh nhân dân của bạn",
-      "required_national_passport": "Vui lòng nhập số hộ chiếu của bạn",
-      "required_national_voter_id": "Vui lòng nhập số ID cử tri của bạn",
       "required_nationality": "Vui lòng chọn quốc gia",
       "required_phone_number": "Vui lòng nhập số điện thoại của bạn",
       "required_postcode": "Vui lòng nhập mã bưu điện của bạn",
-      "sgp_specific": {
-        "invalid_national_id_value": "xin vui lòng nhập vào một giá trị NRIC",
-        "required_national_id_value": "Vui lòng nhập NRIC của bạn"
-      },
-      "swe_specific": {
-        "invalid_national_id_value": "xin vui lòng nhập vào một giá trị PIN",
-        "required_national_id_value": "Vui lòng nhập mã pin của bạn"
-      },
       "too_long_first_name": "Tên quá dài",
       "too_long_last_name": "Họ quá dài",
       "too_long_line1": "Dòng địa chỉ quá dài",
@@ -760,17 +551,12 @@
       "too_short_first_name": "Tên quá ngắn",
       "too_short_last_name": "Họ quá ngắn",
       "too_short_postcode": "Mã bưu điện quá ngắn",
-      "tur_specific": {
-        "invalid_national_id_value": "Vui lòng nhập số ID Thổ Nhĩ Kỳ hợp lệ",
-        "required_national_id_value": ""
-      },
       "usa_specific": {
         "invalid_ssn": "Vui lòng nhập SSN hợp lệ",
         "required_ssn": "Vui lòng nhập SSN của bạn",
         "required_state": "Vui lòng chọn tiểu bang"
       }
     },
-    "national_id_number_title": "Thêm số ID quốc gia của bạn",
     "personal_information_title": "Thêm thông tin cá nhân của bạn",
     "prompt": {
       "details_timeout": "Bắt đầu lại",
@@ -912,7 +698,6 @@
   },
   "welcome": {
     "doc_video_subtitle": "Quá trình này có thể mất vài phút",
-    "info_original_document": "Chụp giấy tờ gốc của bạn. Bản scan, ảnh chụp bàn hình hoặc bản photo sẽ không được chấp nhận.",
     "list_header_doc_video": "Sử dụng thiết bị của bạn để ghi hình:",
     "list_header_webcam": "Sử dụng webcam hoặc điện thoại của bạn để chụp ảnh:",
     "list_item_doc": "giấy tờ tùy thân",

@@ -20,7 +20,6 @@
   },
   "avc_face_capture": {
     "alert": {
-      "mic_conflict_title": "Mikrofón používa iná aplikácia",
       "timeout_body": "Na dokončenie záznamu máte až 15 sekúnd",
       "timeout_button_primary": "Skúsiť znova",
       "timeout_title": "Ľutujeme, zaznamenávanie musíme spustiť znova",
@@ -32,9 +31,8 @@
     "title_completed": "Zaznamenávanie je ukončené"
   },
   "avc_intro": {
-    "button_primary_ready": "Spustiť zaznamenávanie",
-    "disclaimer": "Počas tohto procesu sa zaznamená vaša tvár a pozadie",
-    "disclaimer_camera_and_audio_on": "Počas tohto procesu bude zaznamenaná vaša tvár, pozadie a zvuk",
+    "button_primary_ready": "Môžeme začať",
+    "disclaimer": "Pripomíname, že súčasťou záznamu bude vaša tvár i pozadie",
     "list_item_one": "Najprv umiestnite tvár do rámu",
     "list_item_two": "Potom pomaly otočte hlavou na obe strany",
     "subtitle": "Týmto overujeme, že ste skutočná osoba",
@@ -116,8 +114,6 @@
     "footer": {
       "captured": "Fotka bola zaznamenaná",
       "capturing": "Zaznamenáva sa fotka",
-      "manual_fallback_generic_document_back": "Odfoťte zadnú stranu dokladu",
-      "manual_fallback_generic_document_front": "Odfoťte prednú stranu dokladu",
       "manual_fallback_identity_card_back": "Odfoťte zadnú stranu preukazu",
       "manual_fallback_identity_card_front": "Odfoťte prednú stranu preukazu",
       "manual_fallback_license_back": "Odfoťte zadnú stranu vodičského preukazu",
@@ -125,8 +121,6 @@
       "manual_fallback_passport": "Odfoťte stránku pasu s fotkou",
       "manual_fallback_residence_permit_back": "Odfoťte zadnú stranu povolenia na pobyt",
       "manual_fallback_residence_permit_front": "Odfoťte prednú stranu svojho povolenia na pobyt",
-      "position_generic_document_back": "",
-      "position_generic_document_front": "",
       "position_identity_card_back": "Umiestnite zadnú stranu preukazu do rámu",
       "position_identity_card_front": "Umiestnite prednú stranu preukazu do rámu",
       "position_license_back": "Umiestnite zadnú stranu vodičského preukazu do rámu",
@@ -169,7 +163,6 @@
     "body_bank_statement": "Uistite sa, že ste nahrali celú stránku dokladu a údaje sú čitateľné bez rozmazania alebo odleskov",
     "body_benefits_letter": "Uistite sa, že ste nahrali celú stránku dokladu a údaje sú čitateľné bez rozmazania alebo odleskov",
     "body_bill": "Uistite sa, že ste nahrali celú stránku dokladu a údaje sú čitateľné bez rozmazania alebo odleskov",
-    "body_generic_document": "Uistite sa, že sú vaše údaje jasné a nič ich nezakrýva",
     "body_id": "Uistite sa, že sú vaše údaje jasné a nič ich nezakrýva",
     "body_image_medium": "Overenie bude trvať dlhšie, ak doklad nedokážeme prečítať",
     "body_image_poor": "Na bezproblémové overenie potrebujeme lepšiu fotku",
@@ -237,8 +230,6 @@
     "title_bank_statement": "Odošlite výpis",
     "title_benefits_letter": "Odošlite potvrdenie",
     "title_bill": "Odošlite faktúru",
-    "title_generic_document_back": "Odošlite doklad (zadnú stranu)",
-    "title_generic_document_front": "Odošlite doklad (prednú stranu)",
     "title_government_letter": "Potvrdenie od verejnej správy",
     "title_id_back": "Odošlite preukaz totožnosti (zadná strana)",
     "title_id_front": "Odošlite preukaz totožnosti (predná strana)",
@@ -393,11 +384,6 @@
       "title": "Stránka pasu s fotkou"
     }
   },
-  "nfc_scan": {
-    "sheet": {
-      "success": "Úspešné skenovanie"
-    }
-  },
   "outro": {
     "body": "To je všetko, čo potrebujeme na začatie overovania vašej totožnosti",
     "body_government_letter": "Najlepšie výsledky dosiahnete, ak nám poskytnete celú stránku dokladu",
@@ -421,7 +407,6 @@
     "list_item_action_cam": "Ak chcete reštartovať proces overenia totožnosti, obnovte túto stránku",
     "list_item_how_to_both": "Udeľte prístup k fotoaparátu a mikrofónu v nastaveniach prehliadača",
     "list_item_how_to_cam": "Udeľte prístup k fotoaparátu v nastaveniach prehliadača",
-    "list_item_how_to_mic": "Udeľte prístup k mikrofónu v nastaveniach prehliadača",
     "subtitle_both": "Obnovte prístup k fotoaparátu a mikrofónu, aby ste mohli nahrať video a dokončiť proces overenia",
     "subtitle_cam": "Ak chcete pokračovať v overovaní, obnovte prístup k fotoaparátu",
     "subtitle_cam_old": "Ak chcete pokračovať v overovaní tváre, obnovte prístup k fotoaparátu",
@@ -432,8 +417,6 @@
     "body_bank_statement": "Najlepšie výsledky dosiahnete, ak nám poskytnete celú stránku dokladu",
     "body_benefits_letter": "Najlepšie výsledky dosiahnete, ak nám poskytnete celú stránku dokladu",
     "body_bill": "Najlepšie výsledky dosiahnete, ak nám poskytnete celú stránku dokladu",
-    "body_generic_document_back": "Nahrajte zadnú stranu dokladu z počítača",
-    "body_generic_document_front": "Nahrajte prednú stranu dokladu z počítača",
     "body_id_back": "Nahrajte zadnú stranu preukazu z počítača",
     "body_id_front": "Nahrajte prednú stranu preukazu z počítača",
     "body_license_back": "Nahrajte zadnú stranu vodičského preukazu z počítača",
@@ -487,39 +470,6 @@
       "country_select": {
         "placeholder": "Vyberte krajinu"
       },
-      "id_type_select": {
-        "aus_specific": {
-          "other": "Zahraničný pas"
-        },
-        "bra_specific": {
-          "other": "CNPJ",
-          "tax_id": "CPF"
-        },
-        "driving_license": "Vodičský preukaz",
-        "esp_specific": {
-          "identity_card": "NIF/DNI"
-        },
-        "gha_specific": {
-          "social_insurance": "SSNIT"
-        },
-        "identity_card": "Preukaz totožnosti",
-        "ind_specific": {
-          "tax_id": "Osobné číslo účtu (PAN)"
-        },
-        "ken_specific": {
-          "other": "Mimozemská karta"
-        },
-        "nga_specific": {
-          "identity_card": "Národné identifikačné číslo (NIN)",
-          "other": "BVN",
-          "tax_id": "TIN"
-        },
-        "other": "NIE",
-        "passport": "pas",
-        "placeholder": "Vyberte typ národného ID",
-        "tax_id": "DIČ",
-        "voter_id": "Voličský preukaz"
-      },
       "nationality_select": {
         "placeholder": "Vyberte krajinu"
       },
@@ -535,74 +485,27 @@
     },
     "country_of_residence_title": "Krajina trvalého bydliska",
     "field_labels": {
-      "arg_specific": {
-        "national_id_value": "číslo DNI"
-      },
-      "can_specific": {
-        "national_id_value": "Číslo sociálneho poistenia (SIN)"
-      },
-      "chl_specific": {
-        "national_id_value": "Čísla RUT / RUN"
-      },
-      "chn_specific": {
-        "national_id_value": "Číslo trvalého Preukaz totožnosti"
-      },
-      "col_specific": {
-        "national_id_value": "Kolumbijské osobné identifikačné číslo"
-      },
       "country": "Krajina",
       "country_residence": "Krajina",
-      "dnk_specific": {
-        "national_id_value": "CPR číslo"
-      },
       "dob": "Dátum narodenia",
       "email": "E-mail",
-      "fin_specific": {
-        "national_id_value": "Osobný identifikačný kód"
-      },
       "first_name": "Meno",
       "gbr_specific": {
         "postcode": "PSČ",
         "town": "Mesto/obec"
       },
-      "hkg_specific": {
-        "national_id_value": "HKID"
-      },
       "ind_specific": {
         "pan": "Číslo trvalého účtu (PAN)"
-      },
-      "ita_specific": {
-        "national_id_value": "Fiškálny kód"
-      },
-      "jpn_specific": {
-        "national_id_value": "\"Moje číslo\" / kód záznamu o pobyte"
       },
       "last_name": "Priezvisko",
       "line1": "Adresa, 1. riadok",
       "line2": "Adresa, 2. riadok",
       "line3": "Adresa, 3. riadok",
-      "lux_specific": {
-        "national_id_value": "Číslo sociálneho poistenia"
-      },
       "mobile_number": "Číslo mobilného telefónu",
-      "national_id_type": "Typ občianskeho preukazu",
-      "national_id_value": "Národné identifikačné číslo",
       "nationality": "Národnosť",
-      "phl_specific": {
-        "national_id_value": "Číslo karty PhilSys (PCN)"
-      },
       "phone_number": "Telefónne číslo",
-      "pol_specific": {
-        "national_id_value": "číslo PESEL"
-      },
       "postcode": "PSČ",
-      "prt_specific": {
-        "national_id_value": "Daňové identifikačné číslo"
-      },
       "town": "Obec",
-      "tur_specific": {
-        "national_id_value": "Turecké identifikačné číslo"
-      },
       "usa_specific": {
         "line1_helper_text": "Ulica, napríklad: Dúbravská 13/15",
         "line2_helper_text": "Apartmán, byt, jednotka atď.",
@@ -613,57 +516,11 @@
     },
     "field_optional": "(nepovinné)",
     "field_validation": {
-      "arg_specific": {
-        "invalid_national_id_value": "Zadajte platné DNI"
-      },
-      "bra_specific": {
-        "invalid_other": "Zadajte platné CNPJ",
-        "invalid_tax_id": "Zadajte platné CPF",
-        "required_other": "Zadajte svoje CNPJ",
-        "required_tax_id": "Zadajte svoje CPF"
-      },
-      "can_specific": {
-        "invalid_national_id_value": "Zadajte platné SIN",
-        "required_national_id_value": "Zadajte svoj SIN"
-      },
-      "chl_specific": {
-        "invalid_national_id_value": "Zadajte platné čísla RUT / RUN",
-        "required_national_id_value": "Zadajte svoje čísla RUT / RUN"
-      },
-      "chn_specific": {
-        "invalid_national_id_value": "Zadajte platné číslo občianskeho preukazu",
-        "required_national_id_value": "Zadajte číslo svojho rezidentského preukazu totožnosti"
-      },
-      "col_specific": {
-        "invalid_national_id_value": "Zadajte platné kolumbijské osobné identifikačné číslo",
-        "required_national_id_value": "Zadajte svoje kolumbijské osobné identifikačné číslo"
-      },
-      "dnk_specific": {
-        "invalid_national_id_value": "Zadajte platné číslo CPR",
-        "required_national_id_value": "Zadajte číslo CPR"
-      },
-      "esp_specific": {
-        "invalid_identity_card": "Zadajte platné NIF/DNI",
-        "invalid_other": "Zadajte platné NIE",
-        "required_identity_card": "Zadajte svoje NIF/DNI"
-      },
-      "fin_specific": {
-        "invalid_national_id_value": "Zadajte platný osobný identifikačný kód",
-        "required_national_id_value": "Zadajte svoj osobný identifikačný kód"
-      },
       "gbr_specific": {
         "invalid_postcode": "Zadajte platné PSČ",
         "required_postcode": "Zadajte svoje PSČ",
         "too_long_postcode": "PSČ je príliš dlhé",
         "too_short_postcode": "PSČ je príliš krátke"
-      },
-      "gha_specific": {
-        "invalid_social_insurance": "Zadajte platný SSNIT",
-        "required_social_insurance": "Zadajte svoje SSNIT"
-      },
-      "hkg_specific": {
-        "invalid_national_id_value": "Zadajte platný identifikátor HKID",
-        "required_national_id_value": "Zadajte svoje HKID"
       },
       "ind_specific": {
         "invalid_pan": "Zadajte platné číslo PAN",
@@ -671,62 +528,9 @@
       },
       "invalid": "Skontrolujte, či sa v texte nevyskytujú neplatné znaky alebo symboly",
       "invalid_dob": "Zadajte platný dátum narodenia",
-      "invalid_driving_license": "Zadajte platné číslo vodičského preukazu",
       "invalid_email": "Zadajte platný e-mail",
       "invalid_mobile_number": "Zadajte platné číslo mobilného telefónu",
-      "invalid_national_id_value": "Zadajte platné národné identifikačné číslo",
-      "invalid_passport": "Zadajte platné číslo pasu",
       "invalid_phone_number": "Zadajte platné telefónne číslo",
-      "invalid_voter_id": "Zadajte platné číslo voličského preukazu",
-      "ita_specific": {
-        "invalid_national_id_value": "Zadajte platný fiškálny kód",
-        "required_national_id_value": "Zadajte svoj fiškálny kód"
-      },
-      "jpn_specific": {
-        "invalid_national_id_value": "Zadajte platný kód „Moje číslo“ / Rezidentný kód",
-        "required_national_id_value": ""
-      },
-      "ken_specific": {
-        "invalid_other": "Zadajte platné číslo mimozemskej karty",
-        "required_other": "Zadajte číslo svojej mimozemskej karty"
-      },
-      "lux_specific": {
-        "invalid_national_id_value": "Zadajte platné číslo sociálneho poistenia",
-        "required_national_id_value": "Zadajte svoje číslo sociálneho poistenia"
-      },
-      "mex_specific": {
-        "invalid_identity_card": "Zadajte platné CURP",
-        "invalid_tax_id": "Zadajte platné RFC",
-        "required_identity_card": "Zadajte svoj CURP",
-        "required_tax_id": "Zadajte svoje RFC"
-      },
-      "mys_specific": {
-        "invalid_national_id_value": "Zadajte platné číslo NRIC",
-        "required_national_id_value": "Zadajte svoje NRIC"
-      },
-      "nga_specific": {
-        "invalid_identity_card": "Zadajte platné národné identifikačné číslo (NIN)",
-        "invalid_other": "Zadajte platné BVN",
-        "invalid_tax_id": "Zadajte platné DIČ",
-        "required_identity_card": "Zadajte svoje národné identifikačné číslo (NIN)",
-        "required_other": "Zadajte svoje BVN",
-        "required_tax_id": "Zadajte svoje DIČ"
-      },
-      "phl_specific": {
-        "invalid_national_id_value": "Zadajte platné číslo karty PhilSys (PCN)",
-        "required_national_id_value": "Zadajte číslo svojej karty PhilSys (PCN)"
-      },
-      "pol_specific": {
-        "invalid_national_id_value": "Zadajte platné číslo PESEL",
-        "required_national_id_value": "Zadajte svoje číslo PESEL"
-      },
-      "prt_specific": {
-        "invalid_national_id_value": "Zadajte platné daňové číslo",
-        "required_national_id_value": "Zadajte svoje daňové číslo"
-      },
-      "reference": {
-        "translation": "Zadajte platné"
-      },
       "required_consent": "Vyjadrite súhlas s autorizáciou kontrol totožnosti a podvodov",
       "required_country": "Vyberte krajinu",
       "required_country_residence": "Vyberte krajinu",
@@ -736,22 +540,9 @@
       "required_last_name": "Zadajte svoje priezvisko",
       "required_line1": "Zadajte svoju e-mailovú adresu",
       "required_mobile_number": "Zadajte svoje číslo mobilného telefónu",
-      "required_national_driving_license": "Zadajte číslo svojho vodičského preukazu",
-      "required_national_id_type": "Vyberte typ svojho občianskeho preukazu",
-      "required_national_id_value": "Zadajte svoje rodné číslo",
-      "required_national_passport": "Zadajte číslo pasu",
-      "required_national_voter_id": "Zadajte svoje identifikačné číslo voliča",
       "required_nationality": "Vyberte krajinu",
       "required_phone_number": "Zadajte svoje telefónne číslo",
       "required_postcode": "Zadajte svoje PSČ",
-      "sgp_specific": {
-        "invalid_national_id_value": "Zadajte platné NRIC",
-        "required_national_id_value": "Zadajte svoje NRIC"
-      },
-      "swe_specific": {
-        "invalid_national_id_value": "Zadajte platné PIN",
-        "required_national_id_value": "Zadajte svoj PIN"
-      },
       "too_long_first_name": "Meno je príliš dlhé",
       "too_long_last_name": "Priezvisko je príliš dlhé",
       "too_long_line1": "Riadok adresy je príliš dlhý",
@@ -760,17 +551,12 @@
       "too_short_first_name": "Meno je príliš krátke",
       "too_short_last_name": "Priezvisko je príliš krátke",
       "too_short_postcode": "PSČ je príliš krátke",
-      "tur_specific": {
-        "invalid_national_id_value": "Zadajte platné turecké identifikačné číslo",
-        "required_national_id_value": ""
-      },
       "usa_specific": {
         "invalid_ssn": "Zadajte platné číslo SSN",
         "required_ssn": "Zadajte číslo SSN",
         "required_state": "Vyberte štát"
       }
     },
-    "national_id_number_title": "Pridajte svoje rodné číslo",
     "personal_information_title": "Pridajte osobné údaje",
     "prompt": {
       "details_timeout": "Začať znova",
@@ -912,7 +698,6 @@
   },
   "welcome": {
     "doc_video_subtitle": "Malo by to trvať niekoľko minút",
-    "info_original_document": "Odfoťte si originál dokumentu. Skeny, fotografie obrazoviek alebo fotokópie nie sú povolené.",
     "list_header_doc_video": "Pomocou zariadenia zaznamenajte:",
     "list_header_webcam": "Pomocou webovej kamery alebo telefónu odfoťte:",
     "list_item_doc": "váš doklad totožnosti",
