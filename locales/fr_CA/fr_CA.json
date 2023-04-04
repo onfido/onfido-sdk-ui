@@ -33,7 +33,6 @@
   "avc_intro": {
     "button_primary_ready": "Je suis prêt",
     "disclaimer": "N'oubliez pas que nous enregistrerons votre visage et l'arrière-plan",
-    "disclaimer_camera_and_audio_on": "Votre visage, vos antécédents et votre son seront enregistrés au cours de ce processus.",
     "list_item_one": "Tout d'abord, positionnez votre visage dans le cadre",
     "list_item_two": "Ensuite, tournez lentement la tête des deux côtés",
     "subtitle": "Ceci est pour vérifier que vous êtes une personne réelle",
@@ -385,11 +384,6 @@
       "title": "Page du passeport avec photo"
     }
   },
-  "nfc_scan": {
-    "sheet": {
-      "success": "Scanning réussi"
-    }
-  },
   "outro": {
     "body": "C'est tout ce dont nous avons besoin pour commencer à vérifier votre identité",
     "body_government_letter": "Fournir l'intégralité de la page du document pour de meilleurs résultats",
@@ -704,7 +698,6 @@
   },
   "welcome": {
     "doc_video_subtitle": "Cela devrait prendre quelques minutes",
-    "info_original_document": "Prenez une photographie de votre document original. Les scans, les photos d'écran ou les photocopies ne sont pas autorisés.",
     "list_header_doc_video": "Utilisez votre appareil pour enregistrer :",
     "list_header_webcam": "Utilisez votre webcam ou votre téléphone pour photographier :",
     "list_item_doc": "votre pièce d’identité",

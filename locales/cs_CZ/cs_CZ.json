@@ -120,7 +120,6 @@
   "avc_intro": {
     "button_primary_ready": "Jsem připraven",
     "disclaimer": "Během tohoto procesu bude zaznamenán váš obličej a pozadí.",
-    "disclaimer_camera_and_audio_on": "Během tohoto procesu bude zaznamenán váš obličej, pozadí a zvuk.",
     "list_item_one": "Nejprve umístěte obličej do záběru",
     "list_item_two": "Pak pomalu otáčejte hlavu na obě strany",
     "subtitle": "Tím se ověří, že jste skutečná osoba",
@@ -472,11 +471,6 @@
       "title": "Nahrávání pasové fotografie"
     }
   },
-  "nfc_scan": {
-    "sheet": {
-      "success": "Úspěšné skenování"
-    }
-  },
   "outro": {
     "body": "To je vše, co potřebujeme, abychom mohli začít ověřovat Vaši totožnost",
     "body_government_letter": "Pro dosažení nejlepších výsledků použijte celou stránku dokumentu",
@@ -791,7 +785,6 @@
   },
   "welcome": {
     "doc_video_subtitle": "Mělo by to trvat několik minut",
-    "info_original_document": "Vyfoťte si originál dokumentu. Skeny, fotografie obrazovek nebo fotokopie nejsou povoleny.",
     "list_header_doc_video": "Nahrávejte pomocí svého zařízení:",
     "list_header_webcam": "K fotografování použijte webovou kameru nebo telefon:",
     "list_item_doc": "Váš doklad totožnosti",

@@ -120,7 +120,6 @@
   "avc_intro": {
     "button_primary_ready": "Ik ben klaar",
     "disclaimer": "Wees u er bewust van dat we uw gezicht en achtergrond zullen opnemen",
-    "disclaimer_camera_and_audio_on": "Uw gezicht, achtergrond en geluid worden tijdens dit proces opgenomen.",
     "list_item_one": "Plaats eerst uw gezicht in het kader",
     "list_item_two": "Draai uw hoofd dan langzaam naar beide kanten",
     "subtitle": "Dit is om te verifiëren dat u een echte persoon bent",
@@ -472,11 +471,6 @@
       "title": "Plaats de fotopagina van uw document in het kader"
     }
   },
-  "nfc_scan": {
-    "sheet": {
-      "success": "Succesvol scannen"
-    }
-  },
   "outro": {
     "body": "Daarom moeten we uw identiteit verifiëren",
     "body_government_letter": "Verstrek de hele documentpagina voor de beste resultaten",
@@ -791,7 +785,6 @@
   },
   "welcome": {
     "doc_video_subtitle": "Dat duurt maar een paar minuten",
-    "info_original_document": "Maak een foto van uw originele document. Scans, foto's van schermen of fotokopieën zijn niet toegestaan.",
     "list_header_doc_video": "Gebruik uw apparaat om op te nemen:",
     "list_header_webcam": "Gebruik uw webcam of telefoon om te fotograferen:",
     "list_item_doc": "uw identiteitsbewijs",

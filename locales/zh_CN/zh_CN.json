@@ -33,7 +33,6 @@
   "avc_intro": {
     "button_primary_ready": "我准备好了",
     "disclaimer": "在此过程中将记录您的面部和背景",
-    "disclaimer_camera_and_audio_on": "在此过程中将记录您的面部、背景和音频",
     "list_item_one": "首先，将面部移入框中",
     "list_item_two": "然后，慢慢地将头转向两侧",
     "subtitle": "这是为了验证您的真实身份",
@@ -385,11 +384,6 @@
       "title": "护照照片页面"
     }
   },
-  "nfc_scan": {
-    "sheet": {
-      "success": "扫描成功"
-    }
-  },
   "outro": {
     "body": "这就是我们开始验证您的身份所需的一切",
     "body_government_letter": "提供整个证明文件页面以获得最佳结果",
@@ -704,7 +698,6 @@
   },
   "welcome": {
     "doc_video_subtitle": "这应该会需要几分钟时间",
-    "info_original_document": "为您的原始文件拍照。不允许扫描、屏幕照片或复印件。",
     "list_header_doc_video": "使用您的设备录制：",
     "list_header_webcam": "使用网络相机或手机拍摄：",
     "list_item_doc": "您的身份证件",

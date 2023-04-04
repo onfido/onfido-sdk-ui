@@ -33,7 +33,6 @@
   "avc_intro": {
     "button_primary_ready": "Tôi đã sẵn sàng",
     "disclaimer": "Xin lưu ý rằng chúng tôi sẽ ghi lại khuôn mặt và nền ảnh của bạn",
-    "disclaimer_camera_and_audio_on": "Khuôn mặt, phông nền và phát âm của bạn sẽ được lưu trữ tại bước này",
     "list_item_one": "Đầu tiên, định vị khuôn mặt của bạn trong khung hình",
     "list_item_two": "Sau đó, bạn hãy xoay đầu từ từ sang hai bên",
     "subtitle": "Thông tin này để xác minh rằng bạn là một con người có thật",
@@ -385,11 +384,6 @@
       "title": "Trang có ảnh hộ chiếu"
     }
   },
-  "nfc_scan": {
-    "sheet": {
-      "success": "Scan thành công"
-    }
-  },
   "outro": {
     "body": "Chúng tôi đã có đầy đủ thông tin cần thiết để bắt đầu xác minh danh tính của bạn",
     "body_government_letter": "Cung cấp toàn bộ trang tài liệu để có kết quả tốt nhất",
@@ -704,7 +698,6 @@
   },
   "welcome": {
     "doc_video_subtitle": "Quá trình này có thể mất vài phút",
-    "info_original_document": "Chụp giấy tờ gốc của bạn. Bản scan, ảnh chụp bàn hình hoặc bản photo sẽ không được chấp nhận.",
     "list_header_doc_video": "Sử dụng thiết bị của bạn để ghi hình:",
     "list_header_webcam": "Sử dụng webcam hoặc điện thoại của bạn để chụp ảnh:",
     "list_item_doc": "giấy tờ tùy thân",

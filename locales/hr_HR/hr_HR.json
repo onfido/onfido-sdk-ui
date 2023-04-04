@@ -33,7 +33,6 @@
   "avc_intro": {
     "button_primary_ready": "Sve je spremno",
     "disclaimer": "Vaše lice i pozadina bit će snimljeni tijekom ovog procesa",
-    "disclaimer_camera_and_audio_on": "Vaše lice, pozadina i zvuk bit će snimljeni tijekom ovog postupka",
     "list_item_one": "Najprije namjestite lice u okvir",
     "list_item_two": "Zatim polako okrenite glavu u obje strane",
     "subtitle": "Ovime potvrđujemo da ste stvarna osoba",
@@ -385,11 +384,6 @@
       "title": "Stranica s fotografijom iz putovnice"
     }
   },
-  "nfc_scan": {
-    "sheet": {
-      "success": "Skeniranje uspješno"
-    }
-  },
   "outro": {
     "body": "To je sve što nam je potrebno da pokrenemo postupak provjere vašeg identiteta",
     "body_government_letter": "Za najbolje rezultate pošaljite cijelu stranicu dokumenta",
@@ -704,7 +698,6 @@
   },
   "welcome": {
     "doc_video_subtitle": "Nekoliko minuta bi trebalo biti dovoljno",
-    "info_original_document": "Fotografirajte svoj originalni dokument. Skeniranje, fotografije zaslona ili fotokopije nisu dopušteni.",
     "list_header_doc_video": "Upotrijebite uređaj za snimanje:",
     "list_header_webcam": "Za fotografiranje upotrijebite web-kameru ili mobitel:",
     "list_item_doc": "vaša osobna iskaznica",

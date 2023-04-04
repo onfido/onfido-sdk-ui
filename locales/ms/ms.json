@@ -33,7 +33,6 @@
   "avc_intro": {
     "button_primary_ready": "Saya sudah bersedia",
     "disclaimer": "Harap maklum bahawa kami akan merakam wajah anda berserta latar belakang anda",
-    "disclaimer_camera_and_audio_on": "Wajah, latar belakang dan audio anda akan dirakam semasa proses ini",
     "list_item_one": "Pertama, letakkan wajah anda dalam bingkai",
     "list_item_two": "Kemudian, toleh kepala anda perlahan-lahan ke kedua-dua belah sisi",
     "subtitle": "Ini adalah untuk mengesahkan bahawa anda merupakan orang sebenar",
@@ -385,11 +384,6 @@
       "title": "Halaman foto pasport"
     }
   },
-  "nfc_scan": {
-    "sheet": {
-      "success": "Pengimbasan berjaya"
-    }
-  },
   "outro": {
     "body": "Itu sahaja yang kami perlukan untuk mula mengesahkan identiti anda",
     "body_government_letter": "Sediakan seluruh halaman dokumen untuk mendapatkan hasil terbaik",
@@ -704,7 +698,6 @@
   },
   "welcome": {
     "doc_video_subtitle": "Ia akan mengambil masa beberapa minit",
-    "info_original_document": "Ambil gambar dokumen asal anda. Imbasan, foto skrin atau salinan foto tidak dibenarkan.",
     "list_header_doc_video": "Guna peranti anda untuk merakam:",
     "list_header_webcam": "Gunakan kamera web atau telefon anda untuk mengambil gambar:",
     "list_item_doc": "dokumen pengenalan anda",

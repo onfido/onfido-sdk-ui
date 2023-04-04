@@ -33,7 +33,6 @@
   "avc_intro": {
     "button_primary_ready": "Aš pasiruošęs",
     "disclaimer": "Atminkite, kad įrašysime jūsų veidą ir esamą aplinką",
-    "disclaimer_camera_and_audio_on": "Šio proceso metu bus įrašomas jūsų veidas, fonas ir garsas.",
     "list_item_one": "Pirmiausia pasirūpinkite, kad jūsų veidas būtų rėmelyje",
     "list_item_two": "Tada lėtai pasukite galvą į abi puses",
     "subtitle": "Taip patvirtinsite, kad esate tikras asmuo",
@@ -385,11 +384,6 @@
       "title": "Paso nuotraukos puslapis"
     }
   },
-  "nfc_scan": {
-    "sheet": {
-      "success": "Sėkmingas nuskaitymas"
-    }
-  },
   "outro": {
     "body": "Tai viskas, ko mums reikia, kad galėtume pradėti tikrinti jūsų tapatybę",
     "body_government_letter": "Pateikite visą dokumento puslapį, kad pasiektumėte geriausių rezultatų",
@@ -704,7 +698,6 @@
   },
   "welcome": {
     "doc_video_subtitle": "Tai turėtų užtrukti kelias minutes",
-    "info_original_document": "Nufotografuokite dokumento originalą. Skenuoti, fotografuoti ekranų ar fotokopijų negalima.",
     "list_header_doc_video": "Naudodamiesi įrenginiu įrašykite:",
     "list_header_webcam": "Fotografuokite naudodami internetinę kamerą arba telefoną:",
     "list_item_doc": "jūsų asmens tapatybės dokumentas",

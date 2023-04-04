@@ -33,7 +33,6 @@
   "avc_intro": {
     "button_primary_ready": "Saya siap",
     "disclaimer": "Harap perhatikan bahwa kami akan merekam wajah dan latar belakang Anda",
-    "disclaimer_camera_and_audio_on": "Wajah, latar belakang, dan audio Anda akan direkam selama proses ini",
     "list_item_one": "Pertama, posisikan wajah Anda dalam bingkai",
     "list_item_two": "Kemudian, putar kepala Anda ke kedua sisi",
     "subtitle": "Ini untuk memverifikasi bahwa Anda adalah orang sungguhan",
@@ -385,11 +384,6 @@
       "title": "Halaman foto paspor"
     }
   },
-  "nfc_scan": {
-    "sheet": {
-      "success": "Pemindaian berhasil"
-    }
-  },
   "outro": {
     "body": "Hanya itu yang kami butuhkan untuk mulai memverifikasi identitas Anda",
     "body_government_letter": "Berikan seluruh halaman dokumen untuk hasil terbaik",
@@ -704,7 +698,6 @@
   },
   "welcome": {
     "doc_video_subtitle": "Ini akan memakan waktu beberapa menit",
-    "info_original_document": "Ambil foto dokumen asli Anda. Pemindaian, foto layar, atau fotokopi tidak diperbolehkan.",
     "list_header_doc_video": "Gunakan perangkat Anda untuk merekam:",
     "list_header_webcam": "Gunakan kamera web atau ponsel Anda untuk memotret:",
     "list_item_doc": "dokumen identitas Anda",

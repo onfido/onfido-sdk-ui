@@ -120,7 +120,6 @@
   "avc_intro": {
     "button_primary_ready": "Sunt pregătit",
     "disclaimer": "Vă rugăm să aveți în vedere că vă vom înregistra fața și fundalul dvs.",
-    "disclaimer_camera_and_audio_on": "Fața, fundalul și sunetul dvs. vor fi înregistrate în timpul acestui proces.",
     "list_item_one": "Întâi, poziționați-vă fața în cadru",
     "list_item_two": "Apoi, întoarceți capul încet în ambele părți",
     "subtitle": "Acest lucru este pentru a verifica faptul că sunteți o persoană reală",
@@ -472,11 +471,6 @@
       "title": "Încărcați pagina cu poză a pașaportului"
     }
   },
-  "nfc_scan": {
-    "sheet": {
-      "success": "Scanare reușită"
-    }
-  },
   "outro": {
     "body": "Este tot ce avem nevoie pentru a începe verificarea identității dvs.",
     "body_government_letter": "Furnizați întreaga pagină a documentului pentru rezultate mai bune",
@@ -791,7 +785,6 @@
   },
   "welcome": {
     "doc_video_subtitle": "",
-    "info_original_document": "Faceți o fotografie a documentului original. Nu sunt permise scanările, fotografiile de pe ecran sau fotocopiile.",
     "list_header_doc_video": "Utilizați dispozitivul dvs. pentru înregistra:",
     "list_header_webcam": "Utilizați camera dvs. web sau telefonul dvs. pentru a face o poză:",
     "list_item_doc": "documentul dvs. de identitate",

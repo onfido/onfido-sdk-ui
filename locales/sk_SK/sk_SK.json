@@ -33,7 +33,6 @@
   "avc_intro": {
     "button_primary_ready": "Môžeme začať",
     "disclaimer": "Pripomíname, že súčasťou záznamu bude vaša tvár i pozadie",
-    "disclaimer_camera_and_audio_on": "Počas tohto procesu bude zaznamenaná vaša tvár, pozadie a zvuk.",
     "list_item_one": "Najprv umiestnite tvár do rámu",
     "list_item_two": "Potom pomaly otočte hlavou na obe strany",
     "subtitle": "Týmto overujeme, že ste skutočná osoba",
@@ -385,11 +384,6 @@
       "title": "Stránka pasu s fotkou"
     }
   },
-  "nfc_scan": {
-    "sheet": {
-      "success": "Úspešné skenovanie"
-    }
-  },
   "outro": {
     "body": "To je všetko, čo potrebujeme na začatie overovania vašej totožnosti",
     "body_government_letter": "Najlepšie výsledky dosiahnete, ak nám poskytnete celú stránku dokladu",
@@ -704,7 +698,6 @@
   },
   "welcome": {
     "doc_video_subtitle": "Malo by to trvať niekoľko minút",
-    "info_original_document": "Odfoťte si originál dokumentu. Skeny, fotografie obrazoviek alebo fotokópie nie sú povolené.",
     "list_header_doc_video": "Pomocou zariadenia zaznamenajte:",
     "list_header_webcam": "Pomocou webovej kamery alebo telefónu odfoťte:",
     "list_item_doc": "váš doklad totožnosti",

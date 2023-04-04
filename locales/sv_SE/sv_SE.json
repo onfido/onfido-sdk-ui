@@ -33,7 +33,6 @@
   "avc_intro": {
     "button_primary_ready": "Jag är redo",
     "disclaimer": "Tänk på att vi spelar in ditt ansikte och din bakgrund",
-    "disclaimer_camera_and_audio_on": "Ditt ansikte, din bakgrund och ditt ljud kommer att spelas in under denna process.",
     "list_item_one": "Placera först ansiktet i ramen",
     "list_item_two": "Vrid sedan långsamt huvudet åt båda sidorna",
     "subtitle": "Syftet med detta är att verifiera att du är en riktig person",
@@ -385,11 +384,6 @@
       "title": "Passets fotosida"
     }
   },
-  "nfc_scan": {
-    "sheet": {
-      "success": "Skanning lyckad"
-    }
-  },
   "outro": {
     "body": "Det är allt vi behöver för att börja verifiera din identitet",
     "body_government_letter": "Se till att skicka in hela dokumentsidan för bästa resultat",
@@ -704,7 +698,6 @@
   },
   "welcome": {
     "doc_video_subtitle": "Detta kan ta några minuter",
-    "info_original_document": "Ta ett foto av originalhandlingen. Skanningar, bilder av skärmar eller fotokopior är inte tillåtna.",
     "list_header_doc_video": "Använd din enhet för att spela in:",
     "list_header_webcam": "Använd din webbkamera eller telefon för att fotografera:",
     "list_item_doc": "ditt identitetsdokument",

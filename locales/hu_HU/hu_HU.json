@@ -33,7 +33,6 @@
   "avc_intro": {
     "button_primary_ready": "Kezdhetjük",
     "disclaimer": "Kérjük, vegye figyelembe, hogy mind az arcát, mind a hátterét rögzítjük",
-    "disclaimer_camera_and_audio_on": "Az Ön arcát, hátterét és hangját rögzítjük a folyamat során.",
     "list_item_one": "Először illessze az arcát a keretbe",
     "list_item_two": "Ezután lassan fordítsa a fejét mindkét oldalra",
     "subtitle": "Ez annak igazolására szolgál, hogy Ön egy valós személy",
@@ -385,11 +384,6 @@
       "title": "Útlevél fényképes oldala"
     }
   },
-  "nfc_scan": {
-    "sheet": {
-      "success": "A szkennelés sikeres"
-    }
-  },
   "outro": {
     "body": "Ez minden, amire szükségünk van személyazonossága ellenőrzésének megkezdéséhez",
     "body_government_letter": "A legjobb eredményhez adja meg a teljes dokumentumoldalt",
@@ -704,7 +698,6 @@
   },
   "welcome": {
     "doc_video_subtitle": "Pár percet vesz igénybe",
-    "info_original_document": "Fényképezze le az eredeti dokumentumot. Szkennelés, képernyőfotó vagy fénymásolat nem megengedett.",
     "list_header_doc_video": "Használja eszközét a felvételhez:",
     "list_header_webcam": "Használja webkameráját vagy telefonját az alábbiak fényképezéséhez:",
     "list_item_doc": "Az Ön személyazonosító okmánya",
