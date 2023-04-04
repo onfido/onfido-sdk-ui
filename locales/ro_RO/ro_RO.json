@@ -107,6 +107,7 @@
   },
   "avc_face_capture": {
     "alert": {
+      "mic_conflict_title": "Microfonul dvs. este utilizat de altă aplicație",
       "timeout_body": "Aveți maximum 15 de secunde la dispoziție să finalizați înregistrarea",
       "timeout_button_primary": "Încercați din nou",
       "timeout_title": "Ne cerem scuze, trebuie să reîncepem înregistrarea",
@@ -118,8 +119,9 @@
     "title_completed": "Înregistrare finalizată"
   },
   "avc_intro": {
-    "button_primary_ready": "Sunt pregătit",
+    "button_primary_ready": "Începeți înregistrarea",
     "disclaimer": "Vă rugăm să aveți în vedere că vă vom înregistra fața și fundalul dvs.",
+    "disclaimer_camera_and_audio_on": "Fața, fundalul și sunetul dvs. vor fi înregistrate în timpul acestui proces",
     "list_item_one": "Întâi, poziționați-vă fața în cadru",
     "list_item_two": "Apoi, întoarceți capul încet în ambele părți",
     "subtitle": "Acest lucru este pentru a verifica faptul că sunteți o persoană reală",
@@ -201,6 +203,8 @@
     "footer": {
       "captured": "Poză realizată",
       "capturing": "Se realizează poza",
+      "manual_fallback_generic_document_back": "",
+      "manual_fallback_generic_document_front": "",
       "manual_fallback_identity_card_back": "Faceți o poză cu partea din spate a documentului dvs.",
       "manual_fallback_identity_card_front": "Faceți o poză cu partea din față a documentului dvs.",
       "manual_fallback_license_back": "Faceți o poză cu partea din spate a permisului dvs. de conducere",
@@ -208,6 +212,8 @@
       "manual_fallback_passport": "Faceți o poză cu pagina cu fotografie din pașaportul dvs.",
       "manual_fallback_residence_permit_back": "Faceți o poză cu partea din spate a permisului de ședere",
       "manual_fallback_residence_permit_front": "Faceți o poză cu partea din față a permisului de ședere",
+      "position_generic_document_back": "",
+      "position_generic_document_front": "",
       "position_identity_card_back": "Poziționați partea din spate a documentului dvs. în cadru",
       "position_identity_card_front": "Poziționați partea din față a documentului dvs. în cadru",
       "position_license_back": "Poziționați partea din spate a permisului dvs. de conducere în cadru",
@@ -250,6 +256,7 @@
     "body_bank_statement": "Asigurați-vă că ați încărcat întreaga pagină a documentului și că detaliile sunt clare, fără estompări sau luciri, pentru a fi citite",
     "body_benefits_letter": "Asigurați-vă că ați încărcat întreaga pagină a documentului și că detaliile sunt clare, fără estompări sau luciri, pentru a fi citite",
     "body_bill": "Asigurați-vă că ați încărcat întreaga pagină a documentului și că detaliile sunt clare, fără estompări sau luciri, pentru a fi citite",
+    "body_generic_document": "",
     "body_id": "Asigurați-vă că detaliile dvs. sunt clare și neacoperite",
     "body_image_medium": "Va dura mai mult să vă verificăm dacă nu putem citi elementul",
     "body_image_poor": "Pentru a vă verifica mai ușor, avem nevoie de o poză mai bună",
@@ -317,6 +324,8 @@
     "title_bank_statement": "Trimiteți extras",
     "title_benefits_letter": "Trimiteți scrisoare",
     "title_bill": "Trimiteți factură",
+    "title_generic_document_back": "",
+    "title_generic_document_front": "",
     "title_government_letter": "Scrisoare de la guvern",
     "title_id_back": "Trimiteți cardul de identitate (verso)",
     "title_id_front": "Trimiteți cardul de identitate (față)",
@@ -471,6 +480,11 @@
       "title": "Încărcați pagina cu poză a pașaportului"
     }
   },
+  "nfc_scan": {
+    "sheet": {
+      "success": "Scanare reușită"
+    }
+  },
   "outro": {
     "body": "Este tot ce avem nevoie pentru a începe verificarea identității dvs.",
     "body_government_letter": "Furnizați întreaga pagină a documentului pentru rezultate mai bune",
@@ -479,12 +493,16 @@
   "permission": {
     "body_both": "Nu vă putem verifica fără a utiliza atât camera video, cât și microfonul dvs.",
     "body_cam": "Nu vă putem verifica fără camera dvs. video",
+    "body_mic": "Nu vă putem verifica fără a utiliza microfonul dvs.",
     "button_primary_both": "Activați ambele",
     "button_primary_cam": "Activați camera video",
+    "button_primary_mic": "Activați microfonul",
     "subtitle_both": "Când vi se solicită, trebuie să activați accesul la ambele pentru a continua",
     "subtitle_cam": "Când vi se solicită, trebuie să activați accesul la camera video pentru a continua",
+    "subtitle_mic": "Când vi se solicită, trebuie să activați accesul la microfon pentru a continua",
     "title_both": "Permiteți accesul la camera video și microfon",
-    "title_cam": "Permiteți accesul la camera video"
+    "title_cam": "Permiteți accesul la camera video",
+    "title_mic": "Permiteți accesul la microfon"
   },
   "permission_recovery": {
     "button_primary": "Reîmprospătați",
@@ -494,16 +512,21 @@
     "list_item_action_cam": "Reîmprospătați această pagină pentru a începe din nou procesul de verificare a identității",
     "list_item_how_to_both": "Permiteți accesul la camera video și microfonul dvs. din setările dvs. de browser",
     "list_item_how_to_cam": "Permiteți accesul la camera dvs. video din setările dvs. de browser",
+    "list_item_how_to_mic": "Permiteți accesul la microfonul dvs. din setările dvs. de browser",
     "subtitle_both": "Recuperați accesul la camera video și microfon pentru a face un clip video și a finaliza procesul de verificare",
     "subtitle_cam": "Recuperați accesul la camera video pentru a continua verificarea dvs.",
     "subtitle_cam_old": "Recuperați accesul la camera video pentru a continua verificarea feței",
+    "subtitle_mic": "Nu vă putem verifica fără microfonul dvs.",
     "title_both": "Accesul la camera video și microfon este refuzat",
-    "title_cam": "Accesul la camera video este refuzat"
+    "title_cam": "Accesul la camera video este refuzat",
+    "title_mic": "Accesul la microfon este refuzat"
   },
   "photo_upload": {
     "body_bank_statement": "Furnizați întreaga pagină a documentului pentru mai bune rezultate",
     "body_benefits_letter": "Furnizați întreaga pagină a documentului pentru mai bune rezultate",
     "body_bill": "Furnizați întreaga pagină a documentului pentru mai bune rezultate",
+    "body_generic_document_back": "",
+    "body_generic_document_front": "",
     "body_id_back": "Încărcați pagina verso a cardului din computerul dvs.",
     "body_id_front": "Încărcați pagina față a cardului din computerul dvs.",
     "body_license_back": "Încărcați pagina verso a permisului de conducere din computerul dvs.",
@@ -557,6 +580,39 @@
       "country_select": {
         "placeholder": "Selectați o țară"
       },
+      "id_type_select": {
+        "aus_specific": {
+          "other": "Pașaport străin"
+        },
+        "bra_specific": {
+          "other": "CNPJ",
+          "tax_id": "CPF"
+        },
+        "driving_license": "Permis de conducere",
+        "esp_specific": {
+          "identity_card": "NIF/DNI"
+        },
+        "gha_specific": {
+          "social_insurance": "SSNIT"
+        },
+        "identity_card": "Card de identitate",
+        "ind_specific": {
+          "tax_id": "Număr personal de cont (PAN)"
+        },
+        "ken_specific": {
+          "other": "Carte de extraterestru"
+        },
+        "nga_specific": {
+          "identity_card": "Numărul național de identificare (NIN)",
+          "other": "BVN",
+          "tax_id": "TIN"
+        },
+        "other": "NIE",
+        "passport": "Pașaport",
+        "placeholder": "Selectați un tip de identitate națională",
+        "tax_id": "Cod fiscal",
+        "voter_id": "ID alegătorului"
+      },
       "nationality_select": {
         "placeholder": "Selectați o țară"
       },
@@ -572,27 +628,71 @@
     },
     "country_of_residence_title": "Țara dvs. de reședință",
     "field_labels": {
+      "arg_specific": {
+        "national_id_value": "numarul DNI"
+      },
+      "can_specific": {
+        "national_id_value": "Numărul de asigurări sociale (SIN)"
+      },
+      "chl_specific": {
+        "national_id_value": "numere RUT / RUN"
+      },
+      "chn_specific": {
+        "national_id_value": "Număr de rezident Card de identitate"
+      },
+      "col_specific": {
+        "national_id_value": "Număr personal de identificare columbian"
+      },
       "country": "Țară",
       "country_residence": "Țară",
       "dob": "Data nașterii",
       "email": "E-mail",
+      "fin_specific": {
+        "national_id_value": "Cod personal de identitate"
+      },
       "first_name": "Prenume",
       "gbr_specific": {
         "postcode": "Cod poștal",
         "town": "Oraș/Localitate"
       },
+      "hkg_specific": {
+        "national_id_value": "HKID"
+      },
       "ind_specific": {
         "pan": "Număr de cont permanent (PAN)"
+      },
+      "ita_specific": {
+        "national_id_value": "Cod fiscal"
+      },
+      "jpn_specific": {
+        "national_id_value": "„Numărul meu”/Codul de înregistrare a rezidenților"
       },
       "last_name": "Nume de familie",
       "line1": "Linie adresă 1",
       "line2": "Linie adresă 2",
       "line3": "Linie adresă 3",
+      "lux_specific": {
+        "national_id_value": "Cod numeric personal"
+      },
       "mobile_number": "Telefonul mobil",
+      "national_id_type": "Tipul de identitate națională",
+      "national_id_value": "Număr național de identitate",
       "nationality": "Naționalitatea",
+      "phl_specific": {
+        "national_id_value": "Numărul cardului PhilSys (PCN)"
+      },
       "phone_number": "Număr de telefon",
+      "pol_specific": {
+        "national_id_value": "numărul PESEL"
+      },
       "postcode": "Cod poștal",
+      "prt_specific": {
+        "national_id_value": "Cod fiscal"
+      },
       "town": "Localitate",
+      "tur_specific": {
+        "national_id_value": "Număr de identificare turc"
+      },
       "usa_specific": {
         "line1_helper_text": "Adresă stradă, de exemplu: 200 Albert Street",
         "line2_helper_text": "Apartament, birou, bloc etc.",
@@ -603,11 +703,48 @@
     },
     "field_optional": "(opțional)",
     "field_validation": {
+      "arg_specific": {
+        "invalid_national_id_value": "Vă rugăm să introduceți un DNI valid"
+      },
+      "bra_specific": {
+        "invalid_other": "Vă rugăm să introduceți un valid CNPJ",
+        "invalid_tax_id": "Vă rugăm să introduceți un valid CPF"
+      },
+      "can_specific": {
+        "invalid_national_id_value": "Vă rugăm să introduceți un valid SIN"
+      },
+      "chl_specific": {
+        "invalid_national_id_value": "Vă rugăm să introduceți un numere RUT/RUN valide",
+        "required_national_id_value": "Vă rugăm să introduceți numerele dvs. RUT / RUN"
+      },
+      "chn_specific": {
+        "invalid_national_id_value": "Vă rugăm să introduceți un număr valid de carte de identitate de rezident"
+      },
+      "col_specific": {
+        "invalid_national_id_value": "Vă rugăm să introduceți un număr de identificare personal columbian valid",
+        "required_national_id_value": "Vă rugăm să introduceți numărul dvs. personal de identificare columbian"
+      },
+      "esp_specific": {
+        "invalid_identity_card": "Vă rugăm să introduceți un valid NIF/DNI",
+        "invalid_other": "Vă rugăm să introduceți un valid NIE"
+      },
+      "fin_specific": {
+        "invalid_national_id_value": "Vă rugăm să introduceți un cod de identitate personal valid",
+        "required_national_id_value": "Vă rugăm să introduceți codul personal de identitate"
+      },
       "gbr_specific": {
         "invalid_postcode": "Vă rugăm să introduceți un poștal valabil",
         "required_postcode": "Vă rugăm să introduceți codul dvs. poștal",
         "too_long_postcode": "Codul poștal este prea lung",
         "too_short_postcode": "Codul poștal este prea scurt"
+      },
+      "gha_specific": {
+        "invalid_social_insurance": "Vă rugăm să introduceți un SSNIT valid",
+        "required_social_insurance": "Vă rugăm să introduceți SSNIT"
+      },
+      "hkg_specific": {
+        "invalid_national_id_value": "Vă rugăm să introduceți un HKID valid",
+        "required_national_id_value": "Vă rugăm să introduceți HKID"
       },
       "ind_specific": {
         "invalid_pan": "Vă rugăm să introduceți un PAN valabil",
@@ -615,9 +752,59 @@
       },
       "invalid": "Vă rugăm să verificați să nu fie caractere sau simboluri nevalide",
       "invalid_dob": "Vă rugăm să introduceți o dată de naștere validă",
+      "invalid_driving_license": "Vă rugăm să introduceți un număr valid de permis de conducere",
       "invalid_email": "Vă rugăm să introduceți un e-mail valabil",
       "invalid_mobile_number": "Vă rugăm să introduceți un număr de telefon valid",
+      "invalid_national_id_value": "Vă rugăm să introduceți un număr național de identitate valid",
+      "invalid_passport": "Vă rugăm să introduceți un număr de pașaport valid",
       "invalid_phone_number": "Vă rugăm să introduceți un număr de telefon valabil",
+      "invalid_voter_id": "Vă rugăm să introduceți un număr valid de identificare a alegătorului",
+      "ita_specific": {
+        "invalid_national_id_value": "Vă rugăm să introduceți un cod fiscal valid"
+      },
+      "jpn_specific": {
+        "invalid_national_id_value": "Vă rugăm să introduceți un „Numărul meu”/un cod de înregistrare de rezident valid",
+        "required_national_id_value": ""
+      },
+      "ken_specific": {
+        "invalid_other": "Vă rugăm să introduceți un număr valid de card Alien",
+        "required_other": "Vă rugăm să introduceți numărul dvs. de Alien Card"
+      },
+      "lux_specific": {
+        "invalid_national_id_value": "Vă rugăm să introduceți un număr de securitate socială valid",
+        "required_national_id_value": "Vă rugăm să introduceți numărul dvs. de securitate socială"
+      },
+      "mex_specific": {
+        "invalid_identity_card": "Vă rugăm să introduceți un valid CURP",
+        "invalid_tax_id": "Vă rugăm să introduceți un valid RFC"
+      },
+      "mys_specific": {
+        "invalid_national_id_value": "Vă rugăm să introduceți un NRIC valid",
+        "required_national_id_value": "Vă rugăm să introduceți NRIC-ul dvs"
+      },
+      "nga_specific": {
+        "invalid_identity_card": "Vă rugăm să introduceți un număr național de identificare (NIN) valid",
+        "invalid_other": "Vă rugăm să introduceți un BVN valid",
+        "invalid_tax_id": "Vă rugăm să introduceți un TIN valid",
+        "required_identity_card": "Vă rugăm să introduceți numărul dvs. național de identificare (NIN)",
+        "required_other": "Vă rugăm să introduceți BVN-ul dvs",
+        "required_tax_id": "Vă rugăm să introduceți TIN-ul dvs"
+      },
+      "phl_specific": {
+        "invalid_national_id_value": "Vă rugăm să introduceți un număr valid de card PhilSys (PCN)",
+        "required_national_id_value": "Vă rugăm să introduceți numărul cardului PhilSys (PCN)"
+      },
+      "pol_specific": {
+        "invalid_national_id_value": "Vă rugăm să introduceți un număr PESEL valid",
+        "required_national_id_value": "Vă rugăm să introduceți numărul dvs. PESEL"
+      },
+      "prt_specific": {
+        "invalid_national_id_value": "Vă rugăm să introduceți un număr de taxe valid",
+        "required_national_id_value": "Vă rugăm să introduceți numărul dvs. fiscal"
+      },
+      "reference": {
+        "translation": "Vă rugăm să introduceți un valid"
+      },
       "required_consent": "Vă rugăm să fiți de acord să autorizați verificarea identității și a fraudei",
       "required_country": "Vă rugăm să selectați o țară",
       "required_country_residence": "Vă rugăm să selectați o țară",
@@ -630,6 +817,12 @@
       "required_nationality": "Vă rugăm să selectați o țară",
       "required_phone_number": "Vă rugăm să introduceți numărul dvs. de telefon",
       "required_postcode": "Vă rugăm să introduceți codul dvs. poștal",
+      "sgp_specific": {
+        "invalid_national_id_value": "Vă rugăm să introduceți un valid NRIC"
+      },
+      "swe_specific": {
+        "invalid_national_id_value": "Vă rugăm să introduceți un valid PIN"
+      },
       "too_long_first_name": "Prenumele este prea lung",
       "too_long_last_name": "Numele de familie este prea lung",
       "too_long_line1": "Linia adresă este prea lungă",
@@ -638,12 +831,16 @@
       "too_short_first_name": "Prenumele este prea scurt",
       "too_short_last_name": "Numele de familie este prea scurt",
       "too_short_postcode": "Codul poștal este prea scurt",
+      "tur_specific": {
+        "invalid_national_id_value": "Vă rugăm să introduceți un număr de identitate turc valid"
+      },
       "usa_specific": {
         "invalid_ssn": "Vă rugăm să introduceți un SSN valabil",
         "required_ssn": "Vă rugăm să introduceți numărul SSN",
         "required_state": "Vă rugăm să selectați un stat"
       }
     },
+    "national_id_number_title": "Adăugați numărul dvs. național de identitate",
     "personal_information_title": "Adăugați informațiile dvs. personale",
     "prompt": {
       "details_timeout": "Începeți din nou",
@@ -785,6 +982,7 @@
   },
   "welcome": {
     "doc_video_subtitle": "",
+    "info_original_document": "Faceți o fotografie a documentului original. Nu sunt permise scanările, fotografiile de pe ecran sau fotocopiile.",
     "list_header_doc_video": "Utilizați dispozitivul dvs. pentru înregistra:",
     "list_header_webcam": "Utilizați camera dvs. web sau telefonul dvs. pentru a face o poză:",
     "list_item_doc": "documentul dvs. de identitate",

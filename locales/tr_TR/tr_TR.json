@@ -20,6 +20,7 @@
   },
   "avc_face_capture": {
     "alert": {
+      "mic_conflict_title": "Mikrofonunuz başka bir uygulama tarafından kullanılıyor",
       "timeout_body": "Kaydı tamamlamak için 15 saniyeniz var",
       "timeout_button_primary": "Yeniden dene",
       "timeout_title": "Üzgünüz, kaydı yeniden başlatmamız gerekiyor",
@@ -31,8 +32,9 @@
     "title_completed": "Kayıt tamamlandı"
   },
   "avc_intro": {
-    "button_primary_ready": "Hazırım",
+    "button_primary_ready": "Kaydı başlatın",
     "disclaimer": "Lütfen yüzünüzü ve arka planı kaydedeceğimizi unutmayın",
+    "disclaimer_camera_and_audio_on": "Bu işlem sırasında yüzünüz, arka planınız ve sesiniz kaydedilecek",
     "list_item_one": "İlk olarak, yüzünüzü çerçeveye yerleştirin",
     "list_item_two": "Ardından, başınızı yavaşça her iki tarafa çevirin",
     "subtitle": "Bu işlem, gerçek bir kişi olduğunuzu doğrulamak amacıyla yapılır",
@@ -114,6 +116,8 @@
     "footer": {
       "captured": "Fotoğraf alındı",
       "capturing": "Fotoğraf alınıyor",
+      "manual_fallback_generic_document_back": "",
+      "manual_fallback_generic_document_front": "",
       "manual_fallback_identity_card_back": "Kimliğinizin arka yüzünün fotoğrafını çekin",
       "manual_fallback_identity_card_front": "Kimliğinizin ön yüzünün fotoğrafını çekin",
       "manual_fallback_license_back": "Sürücü belgenizin arka yüzünün fotoğrafını çekin",
@@ -121,6 +125,8 @@
       "manual_fallback_passport": "Pasaport fotoğraf sayfanızın fotoğrafını çekin",
       "manual_fallback_residence_permit_back": "Oturma izninizin arka yüzünün fotoğrafını çekin",
       "manual_fallback_residence_permit_front": "Oturma izninizin ön yüzünün fotoğrafını çekin",
+      "position_generic_document_back": "",
+      "position_generic_document_front": "",
       "position_identity_card_back": "Kartınızın arka yüzünü çerçevenin içine yerleştirin",
       "position_identity_card_front": "Kartınızın ön yüzünü çerçevenin içine yerleştirin",
       "position_license_back": "Sürücü belgenizin arka yüzünü çerçevenin içine yerleştirin",
@@ -163,6 +169,7 @@
     "body_bank_statement": "Belge sayfasının tamamını yüklediğinizden ve ayrıntıların bulanıklık veya parlama olmadan okunabilecek netlikte olduğundan emin olun",
     "body_benefits_letter": "Belge sayfasının tamamını yüklediğinizden ve ayrıntıların bulanıklık veya parlama olmadan okunabilecek netlikte olduğundan emin olun",
     "body_bill": "Belge sayfasının tamamını yüklediğinizden ve ayrıntıların bulanıklık veya parlama olmadan okunabilecek netlikte olduğundan emin olun",
+    "body_generic_document": "",
     "body_id": "Bilgilerinizin net olduğundan ve tamamen göründüğünden emin olun",
     "body_image_medium": "Okunamaz olması durumunda doğrulanma süreciniz daha uzun sürer",
     "body_image_poor": "Sizi sorunsuz bir şekilde doğrulayabilmemiz için daha iyi bir fotoğrafa ihtiyacımız var",
@@ -230,6 +237,8 @@
     "title_bank_statement": "Beyan gönder",
     "title_benefits_letter": "Mektup gönder",
     "title_bill": "Faturayı gönder",
+    "title_generic_document_back": "",
+    "title_generic_document_front": "",
     "title_government_letter": "Resmî Mektup",
     "title_id_back": "Kimliği gönder (arka yüz)",
     "title_id_front": "Kimliği gönder (ön yüz)",
@@ -384,6 +393,11 @@
       "title": "Pasaport fotoğraf sayfası"
     }
   },
+  "nfc_scan": {
+    "sheet": {
+      "success": "Tarama başarılı"
+    }
+  },
   "outro": {
     "body": "Kimliğinizi doğrulamaya başlamak için ihtiyacımız olan tek şey bu",
     "body_government_letter": "En iyi sonuçlar için belge sayfasının tamamını gönderin",
@@ -392,12 +406,16 @@
   "permission": {
     "body_both": "Hem kameranızı hem de mikrofonunuzu kullanmadan sizi doğrulayamayız",
     "body_cam": "Kamera erişimi olmadan sizi doğrulayamayız",
+    "body_mic": "Mikrofonunuzu kullanmadan sizi doğrulayamayız",
     "button_primary_both": "Her ikisini de etkinleştir",
     "button_primary_cam": "Kamerayı etkinleştir",
+    "button_primary_mic": "Mikrofonu etkinleştir",
     "subtitle_both": "İstendiğinde, devam etmek için her ikisine de erişimi etkinleştirmeniz gerekir",
     "subtitle_cam": "İstendiğinde, devam etmek için kamera erişimini etkinleştirmeniz gerekir",
+    "subtitle_mic": "İstendiğinde, devam etmek için mikrofon erişimini etkinleştirmeniz gerekir",
     "title_both": "Kamera ve mikrofon erişimine izin ver",
-    "title_cam": "Kamera erişimine izin ver"
+    "title_cam": "Kamera erişimine izin ver",
+    "title_mic": "Mikrofon erişimine izin ver"
   },
   "permission_recovery": {
     "button_primary": "Yenile",
@@ -407,16 +425,21 @@
     "list_item_action_cam": "Kimlik doğrulama işlemini yeniden başlatmak için bu sayfayı yenileyin",
     "list_item_how_to_both": "Tarayıcı ayarlarınızdan kameranıza ve mikrofonunuza erişim izni verin",
     "list_item_how_to_cam": "Tarayıcı ayarlarınızdan kameranıza erişim izni verin",
+    "list_item_how_to_mic": "Tarayıcı ayarlarınızdan mikrofonunuza erişim izni verin",
     "subtitle_both": "Video çekmek ve hem kamera hem de doğrulama sürecini tamamlamak için kamera erişimini sağlayın",
     "subtitle_cam": "Doğrulama işleminize devam etmek için kamera erişimini kurtarın",
     "subtitle_cam_old": "Yüz doğrulamasına devam etmek için kamera erişimini kurtarın",
+    "subtitle_mic": "Mikrofonunuzu kullanmadan sizi doğrulayamayız",
     "title_both": "Kamera ve mikrofon erişimi reddedildi",
-    "title_cam": "Kamera erişimi reddedildi"
+    "title_cam": "Kamera erişimi reddedildi",
+    "title_mic": "Mikrofon erişimi reddedildi"
   },
   "photo_upload": {
     "body_bank_statement": "En iyi sonuçlar için belge sayfasının tamamını gönderin",
     "body_benefits_letter": "En iyi sonuçlar için belge sayfasının tamamını gönderin",
     "body_bill": "En iyi sonuçlar için belge sayfasının tamamını gönderin",
+    "body_generic_document_back": "",
+    "body_generic_document_front": "",
     "body_id_back": "Bilgisayarınızdan kimliğin arka yüzünü yükleyin",
     "body_id_front": "Bilgisayarınızdan kimliğin ön yüzünü yükleyin",
     "body_license_back": "Bilgisayarınızdan sürücü belgenizin arka yüzünü yükleyin",
@@ -470,6 +493,39 @@
       "country_select": {
         "placeholder": "Bir ülke seçin"
       },
+      "id_type_select": {
+        "aus_specific": {
+          "other": "Yabancı pasaportu"
+        },
+        "bra_specific": {
+          "other": "CNPJ",
+          "tax_id": "CPF"
+        },
+        "driving_license": "Ehliyet",
+        "esp_specific": {
+          "identity_card": "NIF/DNI"
+        },
+        "gha_specific": {
+          "social_insurance": "SSNIT"
+        },
+        "identity_card": "Kimlik kartı",
+        "ind_specific": {
+          "tax_id": "Kişisel Hesap Numarası (PAN)"
+        },
+        "ken_specific": {
+          "other": "Uzaylı Kartı"
+        },
+        "nga_specific": {
+          "identity_card": "Ulusal Kimlik Numarası (NIN)",
+          "other": "BVN",
+          "tax_id": "TIN"
+        },
+        "other": "NIE",
+        "passport": "Pasaport",
+        "placeholder": "Bir ulusal kimlik türü seçin",
+        "tax_id": "Vergi numarası",
+        "voter_id": "seçmen kimliği"
+      },
       "nationality_select": {
         "placeholder": "Bir ülke seçin"
       },
@@ -485,27 +541,71 @@
     },
     "country_of_residence_title": "İkamet ettiğiniz ülke",
     "field_labels": {
+      "arg_specific": {
+        "national_id_value": "DNI numarası"
+      },
+      "can_specific": {
+        "national_id_value": "Sosyal Sigorta Numarası (SIN)"
+      },
+      "chl_specific": {
+        "national_id_value": "RUT / RUN numaraları"
+      },
+      "chn_specific": {
+        "national_id_value": "Yerleşik Kimlik kartı numarası"
+      },
+      "col_specific": {
+        "national_id_value": "Kolombiya Kişisel Kimlik Numarası"
+      },
       "country": "Ülke",
       "country_residence": "Ülke",
       "dob": "Doğum tarihi",
       "email": "E-posta",
+      "fin_specific": {
+        "national_id_value": "Kişisel kimlik kodu"
+      },
       "first_name": "Ad",
       "gbr_specific": {
         "postcode": "Posta kodu",
         "town": "Şehir/Kasaba"
       },
+      "hkg_specific": {
+        "national_id_value": "HKID"
+      },
       "ind_specific": {
         "pan": "Kalıcı hesap numarası (PAN)"
+      },
+      "ita_specific": {
+        "national_id_value": "mali kod"
+      },
+      "jpn_specific": {
+        "national_id_value": "\"Numaram\" / Yerleşik Kayıt kodu"
       },
       "last_name": "Soyadı",
       "line1": "Adres satırı 1",
       "line2": "Adres satırı 2",
       "line3": "Adres satırı 3",
+      "lux_specific": {
+        "national_id_value": "Sosyal Güvenlik numarası"
+      },
       "mobile_number": "Cep telefonu numarası",
+      "national_id_type": "Ulusal kimlik türü",
+      "national_id_value": "Kimlik Numarası",
       "nationality": "Uyruk",
+      "phl_specific": {
+        "national_id_value": "PhilSys Kart Numarası (PCN)"
+      },
       "phone_number": "Telefon numarası",
+      "pol_specific": {
+        "national_id_value": "PESEL numarası"
+      },
       "postcode": "Posta kodu",
+      "prt_specific": {
+        "national_id_value": "Vergi numarası"
+      },
       "town": "Şehir",
+      "tur_specific": {
+        "national_id_value": "TC Kimlik Numarası"
+      },
       "usa_specific": {
         "line1_helper_text": "Açık adres, ör. 200 Albert Street",
         "line2_helper_text": "Daire, süit, birim vb.",
@@ -516,11 +616,48 @@
     },
     "field_optional": "(isteğe bağlı)",
     "field_validation": {
+      "arg_specific": {
+        "invalid_national_id_value": "Lütfen geçerli bir DNI girin"
+      },
+      "bra_specific": {
+        "invalid_other": "Lütfen geçerli bir girin CNPJ",
+        "invalid_tax_id": "Lütfen geçerli bir girin CPF"
+      },
+      "can_specific": {
+        "invalid_national_id_value": "Lütfen geçerli bir girin SIN"
+      },
+      "chl_specific": {
+        "invalid_national_id_value": "Lütfen geçerli bir RUT / RUN numarası girin",
+        "required_national_id_value": "Lütfen RUT / RUN numaralarınızı giriniz."
+      },
+      "chn_specific": {
+        "invalid_national_id_value": "Lütfen geçerli bir yerleşik kimlik kartı numarası girin"
+      },
+      "col_specific": {
+        "invalid_national_id_value": "Lütfen geçerli bir Kolombiya Kişisel Kimlik Numarası girin",
+        "required_national_id_value": "Lütfen Kolombiya Kişisel Kimlik Numaranızı girin"
+      },
+      "esp_specific": {
+        "invalid_identity_card": "Lütfen geçerli bir girin NIF/DNI",
+        "invalid_other": "Lütfen geçerli bir girin NIE"
+      },
+      "fin_specific": {
+        "invalid_national_id_value": "Lütfen geçerli bir Kişisel kimlik kodu girin",
+        "required_national_id_value": "Lütfen Kişisel kimlik kodunuzu giriniz"
+      },
       "gbr_specific": {
         "invalid_postcode": "Lütfen geçerli bir posta kodu girin",
         "required_postcode": "Lütfen posta kodunuzu girin",
         "too_long_postcode": "Posta kodu çok uzun",
         "too_short_postcode": "Posta kodu çok kısa"
+      },
+      "gha_specific": {
+        "invalid_social_insurance": "Lütfen geçerli bir SSNIT girin",
+        "required_social_insurance": "Lütfen SSNIT'inizi girin"
+      },
+      "hkg_specific": {
+        "invalid_national_id_value": "Lütfen geçerli bir HKID girin",
+        "required_national_id_value": "Lütfen HKID'nizi girin"
       },
       "ind_specific": {
         "invalid_pan": "Lütfen geçerli bir PAN GİRİN",
@@ -528,9 +665,59 @@
       },
       "invalid": "Lütfen geçersiz karakterler veya semboller olup olmadığını kontrol edin",
       "invalid_dob": "Lütfen geçerli bir doğum tarihi girin",
+      "invalid_driving_license": "Lütfen geçerli bir ehliyet numarası girin",
       "invalid_email": "Lütfen geçerli bir e-posta girin",
       "invalid_mobile_number": "Lütfen geçerli bir cep telefonu numarası girin",
+      "invalid_national_id_value": "Lütfen geçerli bir ulusal kimlik numarası girin",
+      "invalid_passport": "Lütfen geçerli bir pasaport numarası girin",
       "invalid_phone_number": "Lütfen geçerli bir telefon numarası girin",
+      "invalid_voter_id": "Lütfen geçerli bir seçmen kimlik numarası girin",
+      "ita_specific": {
+        "invalid_national_id_value": "Lütfen geçerli bir mali kod girin"
+      },
+      "jpn_specific": {
+        "invalid_national_id_value": "Lütfen geçerli bir \"Numaram\" / Yerleşik Kayıt kodu girin",
+        "required_national_id_value": ""
+      },
+      "ken_specific": {
+        "invalid_other": "Lütfen geçerli bir Alien Card numarası girin",
+        "required_other": "Lütfen Alien Card numaranızı giriniz."
+      },
+      "lux_specific": {
+        "invalid_national_id_value": "Lütfen geçerli bir Sosyal Güvenlik numarası girin",
+        "required_national_id_value": "Lütfen sosyal güvenlik numaranızı giriniz"
+      },
+      "mex_specific": {
+        "invalid_identity_card": "Lütfen geçerli bir girin CURP",
+        "invalid_tax_id": "Lütfen geçerli bir girin RFC"
+      },
+      "mys_specific": {
+        "invalid_national_id_value": "Lütfen geçerli bir NRIC girin",
+        "required_national_id_value": "Lütfen NRIC'nizi girin"
+      },
+      "nga_specific": {
+        "invalid_identity_card": "Lütfen geçerli bir Ulusal Kimlik Numarası (NIN) girin",
+        "invalid_other": "Lütfen geçerli bir BVN girin",
+        "invalid_tax_id": "Lütfen geçerli bir TIN girin",
+        "required_identity_card": "Lütfen Ulusal Kimlik Numaranızı (NIN) giriniz",
+        "required_other": "Lütfen BVN'nizi girin",
+        "required_tax_id": "Lütfen VKN'nizi girin"
+      },
+      "phl_specific": {
+        "invalid_national_id_value": "Lütfen geçerli bir PhilSys Kart Numarası (PCN) girin",
+        "required_national_id_value": "Lütfen PhilSys Kart Numaranızı (PCN) girin"
+      },
+      "pol_specific": {
+        "invalid_national_id_value": "Lütfen geçerli bir PESEL numarası girin",
+        "required_national_id_value": "Lütfen PESEL numaranızı giriniz."
+      },
+      "prt_specific": {
+        "invalid_national_id_value": "Lütfen geçerli bir Vergi numarası girin",
+        "required_national_id_value": "Lütfen Vergi numaranızı giriniz"
+      },
+      "reference": {
+        "translation": "Lütfen geçerli bir girin"
+      },
       "required_consent": "Lütfen kimlik ve dolandırıcılık kontrollerine izin vermeyi kabul edin",
       "required_country": "Lütfen bir ülke seçin",
       "required_country_residence": "Lütfen bir ülke seçin",
@@ -543,6 +730,12 @@
       "required_nationality": "Lütfen bir ülke seçin",
       "required_phone_number": "Lütfen telefon numaranızı girin",
       "required_postcode": "Lütfen posta kodunuzu girin",
+      "sgp_specific": {
+        "invalid_national_id_value": "Lütfen geçerli bir girin NRIC"
+      },
+      "swe_specific": {
+        "invalid_national_id_value": "Lütfen geçerli bir girin PIN"
+      },
       "too_long_first_name": "Ad çok uzun",
       "too_long_last_name": "Soyadı çok uzun",
       "too_long_line1": "Adres satırı çok uzun",
@@ -551,12 +744,16 @@
       "too_short_first_name": "Ad çok kısa",
       "too_short_last_name": "Soyadı çok kısa",
       "too_short_postcode": "Posta kodu çok kısa",
+      "tur_specific": {
+        "invalid_national_id_value": "Lütfen geçerli bir TC kimlik numarası giriniz."
+      },
       "usa_specific": {
         "invalid_ssn": "Lütfen geçerli bir SSN girin",
         "required_ssn": "Lütfen SSN'nizi girin",
         "required_state": "Lütfen bir eyalet seçin"
       }
     },
+    "national_id_number_title": "Ulusal kimlik numaranızı ekleyin",
     "personal_information_title": "Kişisel bilgilerinizi ekleyin",
     "prompt": {
       "details_timeout": "Yeniden başlat",
@@ -698,6 +895,7 @@
   },
   "welcome": {
     "doc_video_subtitle": "Sadece birkaç dakika sürer",
+    "info_original_document": "Orijinal belgenizin bir fotoğrafını çekin. Taramalara, ekran fotoğraflarına veya fotokopilere izin verilmez.",
     "list_header_doc_video": "Kayıt yapmak için cihazınızı kullanın:",
     "list_header_webcam": "Aşağıdakileri fotoğraflamak için web kameranızı veya telefonunuzu kullanın:",
     "list_item_doc": "kimlik belgeniz",

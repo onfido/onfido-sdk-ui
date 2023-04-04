@@ -20,6 +20,7 @@
   },
   "avc_face_capture": {
     "alert": {
+      "mic_conflict_title": "برنامه دیگری در حال استفاده از میکروفون شماست",
       "timeout_body": "شما حداکثر 15 ثانیه فرصت دارید تا ضبط را کامل کنید",
       "timeout_button_primary": "سعی مجدد‌",
       "timeout_title": "با عرض پوزش، باید فرآیند ضبط را دوباره شروع کنیم",
@@ -31,8 +32,9 @@
     "title_completed": "ضبط کامل شد"
   },
   "avc_intro": {
-    "button_primary_ready": "من آماده‌ام",
+    "button_primary_ready": "شروع ضبط",
     "disclaimer": "لطفاً توجه داشته باشید که ما چهره و فضای پشت سر شما را ضبط می‌کنیم",
+    "disclaimer_camera_and_audio_on": "در طی این فرآیند چهره، پس زمینه و صدای شما ضبط می شود",
     "list_item_one": "ابتدا چهره خود را درون کادر قرار دهید",
     "list_item_two": "سپس سر خود را به آرامی به دو طرف بچرخانید",
     "subtitle": "این کار برای این است که تأیید شود شما یک شخص واقعی هستید",
@@ -112,8 +114,10 @@
   "doc_auto_capture": {
     "button_accessibility": "یک عکس بگیرید",
     "footer": {
-      "captured": "عکس گرفته شد",
+      "captured": "عکس گرفته شده است",
       "capturing": "در حال عکس گرفتن",
+      "manual_fallback_generic_document_back": "",
+      "manual_fallback_generic_document_front": "",
       "manual_fallback_identity_card_back": "از پشت کارت خود عکس بگیرید",
       "manual_fallback_identity_card_front": "از روی کارت خود عکس بگیرید",
       "manual_fallback_license_back": "از پشت گواهینامه رانندگی خود عکس بگیرید",
@@ -121,6 +125,8 @@
       "manual_fallback_passport": "از صفحه عکس‌دار گذرنامه خود عکس بگیرید",
       "manual_fallback_residence_permit_back": "از پشت مجوز اقامت خود عکس بگیرید",
       "manual_fallback_residence_permit_front": "از جلوی مجوز اقامت خود عکس بگیرید",
+      "position_generic_document_back": "",
+      "position_generic_document_front": "",
       "position_identity_card_back": "پشت کارت خود را درون کادر قرار دهید",
       "position_identity_card_front": "روی کارت خود را درون کادر قرار دهید",
       "position_license_back": "پشت گواهینامه رانندگی خود را درون کادر قرار دهید",
@@ -163,6 +169,7 @@
     "body_bank_statement": "مطمئن شوید که تصویر کامل مدرک را بارگذاری کرده‌اید، جزئیات مدرک واضح بوده، عکس تار نیست و انعکاس نور در تصویر نیست",
     "body_benefits_letter": "مطمئن شوید که تصویر کامل مدرک را بارگذاری کرده‌اید، جزئیات مدرک واضح بوده، عکس تار نیست و انعکاس نور در تصویر نیست",
     "body_bill": "مطمئن شوید که تصویر کامل مدرک را بارگذاری کرده‌اید، جزئیات مدرک واضح بوده، عکس تار نیست و انعکاس نور در تصویر نیست",
+    "body_generic_document": "",
     "body_id": "اطمینان حاصل کنید که جزئیات مدرک واضح بوده و مانعی روی آن نیست",
     "body_image_medium": "اگر نتوانیم این مدرک را بخوانیم، تأیید هویت شما زمان بیشتری خواهد برد",
     "body_image_poor": "برای تسهیل فرآیند تأیید هویت، به عکس بهتری نیاز داریم",
@@ -230,6 +237,8 @@
     "title_bank_statement": "ارسال صورتحساب",
     "title_benefits_letter": "ارسال نامه",
     "title_bill": "ارسال قبض",
+    "title_generic_document_back": "",
+    "title_generic_document_front": "",
     "title_government_letter": "نامه دولتی",
     "title_id_back": "ارسال کارت شناسایی (سمت پشت)",
     "title_id_front": "ارسال کارت شناسایی (سمت رو)",
@@ -384,6 +393,11 @@
       "title": "صفحه عکس‌دار گذرنامه"
     }
   },
+  "nfc_scan": {
+    "sheet": {
+      "success": "اسکن با موفقیت انجام شد"
+    }
+  },
   "outro": {
     "body": "این تمام آن چیزی است که برای شروع فرآیند تأیید هویت شما نیاز داریم",
     "body_government_letter": "برای دستیابی به بهترین نتایج، تصویر کل صفحه را ارائه دهید",
@@ -392,12 +406,16 @@
   "permission": {
     "body_both": "ما نمی‌توانیم بدون استفاده از دوربین و میکروفون، هویت شما را تأیید کنیم",
     "body_cam": "ما نمی‌توانیم بدون دوربین هویت شما را تأیید کنیم",
+    "body_mic": "ما نمی‌توانیم بدون استفاده از میکروفون، هویت شما را تأیید کنیم",
     "button_primary_both": "دسترسی به هر دو را فعال کنید",
     "button_primary_cam": "فعال کردن دوربین",
+    "button_primary_mic": "میکروفون را فعال کنید",
     "subtitle_both": "وقتی از شما درخواست شد، برای ادامه کار، باید دسترسی به هر دو را فعال کنید",
     "subtitle_cam": "وقتی از شما درخواست شد، برای ادامه کار، باید دسترسی به دوربین را فعال کنید",
+    "subtitle_mic": "وقتی از شما درخواست شد، برای ادامه کار، باید دسترسی به میکروفون را فعال کنید",
     "title_both": "اجازه دسترسی به دوربین و میکروفون را بدهید",
-    "title_cam": "اجازه استفاده از دوربین را بدهید"
+    "title_cam": "اجازه استفاده از دوربین را بدهید",
+    "title_mic": "اجازه دسترسی به میکروفون را بدهید"
   },
   "permission_recovery": {
     "button_primary": "تازه‌سازی",
@@ -407,16 +425,21 @@
     "list_item_action_cam": "برای شروع مجدد فرآیند تأیید هویت، این صفحه را تازه‌سازی کنید",
     "list_item_how_to_both": "از بخش تنظیمات مرورگر خود، مجوز دسترسی به دوربین و میکروفون را بدهید",
     "list_item_how_to_cam": "از بخش تنظیمات مرورگر خود، مجوز دسترسی به دوربین را بدهید",
+    "list_item_how_to_mic": "از تنظیمات مرورگر خود دسترسی به میکروفون خود را اعطا کنید",
     "subtitle_both": "برای فیلم‌برداری و تکمیل فرآیند تأیید هویت، دسترسی به دوربین و میکروفن را مجدداً فعال کنید",
     "subtitle_cam": "برای ادامه فرآیند تأیید هویت، دسترسی به دوربین را مجدداً فعال کنید",
     "subtitle_cam_old": "برای ادامه تأیید چهره، دسترسی به دوربین را مجدداً فعال کنید",
+    "subtitle_mic": "ما نمی‌توانیم بدون میکروفون، هویت شما را تأیید کنیم",
     "title_both": "دسترسی به دوربین و میکروفون رد شد",
-    "title_cam": "دسترسی به دوربین منع شده است"
+    "title_cam": "دسترسی به دوربین منع شده است",
+    "title_mic": "دسترسی به میکروفون رد شد"
   },
   "photo_upload": {
     "body_bank_statement": "برای دستیابی به بهترین نتایج، تصویر کل صفحه را ارائه دهید",
     "body_benefits_letter": "برای دستیابی به بهترین نتایج، تصویر کل صفحه را ارائه دهید",
     "body_bill": "برای دستیابی به بهترین نتایج، تصویر کل صفحه را ارائه دهید",
+    "body_generic_document_back": "",
+    "body_generic_document_front": "",
     "body_id_back": "تصویر پشت کارت را از رایانه خود بارگذاری کنید",
     "body_id_front": "تصویر روی کارت را از رایانه خود بارگذاری کنید",
     "body_license_back": "تصویر پشت گواهینامه را از رایانه خود بارگذاری کنید",
@@ -470,6 +493,39 @@
       "country_select": {
         "placeholder": "یک کشور را انتخاب کنید"
       },
+      "id_type_select": {
+        "aus_specific": {
+          "other": "گذرنامه خارجی"
+        },
+        "bra_specific": {
+          "other": "CNPJ",
+          "tax_id": "CPF"
+        },
+        "driving_license": "گواهینامه رانندگی",
+        "esp_specific": {
+          "identity_card": "NIF/DNI"
+        },
+        "gha_specific": {
+          "social_insurance": "SSNIT"
+        },
+        "identity_card": "کارت شناسایی",
+        "ind_specific": {
+          "tax_id": "شماره حساب شخصی (PAN)"
+        },
+        "ken_specific": {
+          "other": "کارت بیگانه"
+        },
+        "nga_specific": {
+          "identity_card": "شماره شناسایی ملی (NIN)",
+          "other": "BVN",
+          "tax_id": "TIN"
+        },
+        "other": "NIE",
+        "passport": "گذرنامه",
+        "placeholder": "نوع شناسه ملی را انتخاب کنید",
+        "tax_id": "شناسه مالیاتی",
+        "voter_id": "شناسه رای دهنده"
+      },
       "nationality_select": {
         "placeholder": "یک کشور را انتخاب کنید"
       },
@@ -485,27 +541,71 @@
     },
     "country_of_residence_title": "کشور محل سکونت شما",
     "field_labels": {
+      "arg_specific": {
+        "national_id_value": "شماره DNI"
+      },
+      "can_specific": {
+        "national_id_value": "شماره بیمه اجتماعی (SIN)"
+      },
+      "chl_specific": {
+        "national_id_value": "اعداد RUT / RUN"
+      },
+      "chn_specific": {
+        "national_id_value": "شماره کارت شناسایی مقیم"
+      },
+      "col_specific": {
+        "national_id_value": "شماره شناسایی شخصی کلمبیایی"
+      },
       "country": "کشور",
       "country_residence": "کشور",
       "dob": "تاریخ تولد",
       "email": "ایمیل",
+      "fin_specific": {
+        "national_id_value": "کد هویت شخصی"
+      },
       "first_name": "نام",
       "gbr_specific": {
         "postcode": "کدپستی",
         "town": "شهر"
       },
+      "hkg_specific": {
+        "national_id_value": "HKID"
+      },
       "ind_specific": {
         "pan": "شماره حساب دائمی (PAN)"
+      },
+      "ita_specific": {
+        "national_id_value": "کد مالی"
+      },
+      "jpn_specific": {
+        "national_id_value": "\"شماره من\" / کد رکورد مقیم"
       },
       "last_name": "نام خانوادگی",
       "line1": "آدرس خط 1",
       "line2": "آدرس خط 2",
       "line3": "آدرس خط ۳",
+      "lux_specific": {
+        "national_id_value": "شماره تامین اجتماعی"
+      },
       "mobile_number": "شماره موبایل",
+      "national_id_type": "نوع شناسنامه ملی",
+      "national_id_value": "شماره شناسنامه ملی",
       "nationality": "ملیت",
+      "phl_specific": {
+        "national_id_value": "شماره کارت PhilSys (PCN)"
+      },
       "phone_number": "شماره تلفن",
+      "pol_specific": {
+        "national_id_value": "شماره PESEL"
+      },
       "postcode": "كدپستی",
+      "prt_specific": {
+        "national_id_value": "شماره مالیاتی"
+      },
       "town": "شهر",
+      "tur_specific": {
+        "national_id_value": "شماره شناسایی ترکی"
+      },
       "usa_specific": {
         "line1_helper_text": "آدرس خیابان، به عنوان مثال: خیابان آلبرت شماره 200",
         "line2_helper_text": "آپارتمان، سوئیت، واحد و غیره.",
@@ -516,11 +616,48 @@
     },
     "field_optional": "(اختیاری)",
     "field_validation": {
+      "arg_specific": {
+        "invalid_national_id_value": "لطفاً یک DNI معتبر وارد کنید"
+      },
+      "bra_specific": {
+        "invalid_other": "لطفا یک معتبر وارد کنید CNPJ",
+        "invalid_tax_id": "لطفا یک معتبر وارد کنید CPF"
+      },
+      "can_specific": {
+        "invalid_national_id_value": "لطفا یک معتبر وارد کنید SIN"
+      },
+      "chl_specific": {
+        "invalid_national_id_value": "لطفاً یک شماره RUT/RUN معتبر وارد کنید",
+        "required_national_id_value": "لطفا شماره های RUT/RUN خود را وارد کنید"
+      },
+      "chn_specific": {
+        "invalid_national_id_value": "لطفا یک شماره کارت شناسایی اقامت معتبر وارد کنید"
+      },
+      "col_specific": {
+        "invalid_national_id_value": "لطفاً یک شماره شناسایی شخصی کلمبیایی معتبر وارد کنید",
+        "required_national_id_value": "لطفا شماره شناسایی شخصی کلمبیایی خود را وارد کنید"
+      },
+      "esp_specific": {
+        "invalid_identity_card": "لطفا یک معتبر وارد کنید NIF/DNI",
+        "invalid_other": "لطفا یک معتبر وارد کنید NIE"
+      },
+      "fin_specific": {
+        "invalid_national_id_value": "لطفا یک کد هویت شخصی معتبر وارد کنید",
+        "required_national_id_value": "لطفا کد هویت شخصی خود را وارد کنید"
+      },
       "gbr_specific": {
         "invalid_postcode": "لطفاً یک کدپستی معتبر وارد کنید",
         "required_postcode": "لطفاً کدپستی خود را وارد کنید",
         "too_long_postcode": "کدپستی خیلی طولانی است",
         "too_short_postcode": "کدپستی خیلی کوتاه است"
+      },
+      "gha_specific": {
+        "invalid_social_insurance": "لطفاً یک SSNIT معتبر وارد کنید",
+        "required_social_insurance": "لطفا SSNIT خود را وارد کنید"
+      },
+      "hkg_specific": {
+        "invalid_national_id_value": "لطفا یک HKID معتبر وارد کنید",
+        "required_national_id_value": "لطفا HKID خود را وارد کنید"
       },
       "ind_specific": {
         "invalid_pan": "لطفاً یک PAN معتبر وارد کنید",
@@ -528,9 +665,59 @@
       },
       "invalid": "لطفاً بررسی کنید که از حروف یا نمادهای غیرمعتبر استفاده نکرده باشید",
       "invalid_dob": "لطفاً تاریخ تولد را بصورت درست وارد کنید",
+      "invalid_driving_license": "لطفا یک شماره گواهینامه رانندگی معتبر وارد کنید",
       "invalid_email": "لطفاً یک ایمیل معتبر وارد کنید",
       "invalid_mobile_number": "لطفاً یک شماره موبایل معتبر وارد کنید",
+      "invalid_national_id_value": "لطفا یک شماره شناسه ملی معتبر وارد کنید",
+      "invalid_passport": "لطفا یک شماره پاسپورت معتبر وارد کنید",
       "invalid_phone_number": "لطفاً یک شماره تلفن معتبر وارد نمایید",
+      "invalid_voter_id": "لطفا یک شماره شناسه رای دهنده معتبر وارد کنید",
+      "ita_specific": {
+        "invalid_national_id_value": "لطفا یک کد مالی معتبر وارد کنید"
+      },
+      "jpn_specific": {
+        "invalid_national_id_value": "لطفاً یک \"شماره من\" / کد سابقه ساکن معتبر وارد کنید",
+        "required_national_id_value": ""
+      },
+      "ken_specific": {
+        "invalid_other": "لطفاً یک شماره کارت بیگانه معتبر وارد کنید",
+        "required_other": "لطفا شماره کارت بیگانه خود را وارد کنید"
+      },
+      "lux_specific": {
+        "invalid_national_id_value": "لطفا یک شماره تامین اجتماعی معتبر وارد کنید",
+        "required_national_id_value": "لطفا شماره تامین اجتماعی خود را وارد کنید"
+      },
+      "mex_specific": {
+        "invalid_identity_card": "لطفا یک معتبر وارد کنید CURP",
+        "invalid_tax_id": "لطفا یک معتبر وارد کنید RFC"
+      },
+      "mys_specific": {
+        "invalid_national_id_value": "لطفا یک NRIC معتبر وارد کنید",
+        "required_national_id_value": "لطفا NRIC خود را وارد کنید"
+      },
+      "nga_specific": {
+        "invalid_identity_card": "لطفاً یک شماره شناسایی معتبر ملی (NIN) وارد کنید",
+        "invalid_other": "لطفا یک BVN معتبر وارد کنید",
+        "invalid_tax_id": "لطفا یک TIN معتبر وارد کنید",
+        "required_identity_card": "لطفا شماره شناسایی ملی (NIN) خود را وارد کنید",
+        "required_other": "لطفا BVN خود را وارد کنید",
+        "required_tax_id": "لطفا TIN خود را وارد کنید"
+      },
+      "phl_specific": {
+        "invalid_national_id_value": "لطفاً یک شماره کارت PhilSys (PCN) معتبر وارد کنید",
+        "required_national_id_value": "لطفا شماره کارت PhilSys (PCN) خود را وارد کنید"
+      },
+      "pol_specific": {
+        "invalid_national_id_value": "لطفاً یک شماره PESEL معتبر وارد کنید",
+        "required_national_id_value": "لطفا شماره PESEL خود را وارد کنید"
+      },
+      "prt_specific": {
+        "invalid_national_id_value": "لطفاً یک شماره مالیات معتبر وارد کنید",
+        "required_national_id_value": "لطفا شماره مالیات خود را وارد کنید"
+      },
+      "reference": {
+        "translation": "لطفا یک معتبر وارد کنید"
+      },
       "required_consent": "لطفاً با مجوز «بررسی‌های هویتی و کلاهبرداری» موافقت کنید",
       "required_country": "لطفاً یک کشور را انتخاب کنید",
       "required_country_residence": "لطفاً یک کشور را انتخاب کنید",
@@ -543,6 +730,12 @@
       "required_nationality": "لطفاً یک کشور را انتخاب کنید",
       "required_phone_number": "لطفاً شماره تلفن خود را وارد کنید",
       "required_postcode": "لطفاً کدپستی خود را وارد کنید",
+      "sgp_specific": {
+        "invalid_national_id_value": "لطفا یک معتبر وارد کنید NRIC"
+      },
+      "swe_specific": {
+        "invalid_national_id_value": "لطفا یک معتبر وارد کنید PIN"
+      },
       "too_long_first_name": "نام خیلی طولانی است",
       "too_long_last_name": "نام خانوادگی خیلی طولانی است",
       "too_long_line1": "آدرس خیلی طولانی است",
@@ -551,12 +744,16 @@
       "too_short_first_name": "نام خیلی کوتاه است",
       "too_short_last_name": "نام خانوادگی خیلی کوتاه است",
       "too_short_postcode": "کدپستی خیلی کوتاه است",
+      "tur_specific": {
+        "invalid_national_id_value": "لطفا یک شماره شناسایی معتبر ترکی وارد کنید"
+      },
       "usa_specific": {
         "invalid_ssn": "لطفاً یک SSN معتبر وارد کنید",
         "required_ssn": "لطفاً SSN خود را وارد کنید",
         "required_state": "لطفاً یک استان را انتخاب کنید"
       }
     },
+    "national_id_number_title": "شماره کارت ملی خود را اضافه کنید",
     "personal_information_title": "مشخصات خود را وارد کنید",
     "prompt": {
       "details_timeout": "شروع مجدد",
@@ -698,6 +895,7 @@
   },
   "welcome": {
     "doc_video_subtitle": "این کار چند دقیقه طول می‌کشد",
+    "info_original_document": "از سند اصلی خود عکس بگیرید. اسکن، عکس صفحه نمایش یا فتوکپی مجاز نیست.",
     "list_header_doc_video": "از دستگاه خود برای ضبط ویدئو استفاده کنید:",
     "list_header_webcam": "از وب‌کم یا تلفن خود برای عکاسی استفاده کنید:",
     "list_item_doc": "مدرک هویتی شما",

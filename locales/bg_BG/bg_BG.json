@@ -20,6 +20,7 @@
   },
   "avc_face_capture": {
     "alert": {
+      "mic_conflict_title": "Вашият микрофон се използва от друго приложение",
       "timeout_body": "Разполагате с максимум 15 секунди, за да завършите записа",
       "timeout_button_primary": "Опитайте отново",
       "timeout_title": "За съжаление, трябва да започнем отначало",
@@ -31,8 +32,9 @@
     "title_completed": "Записът е завършен"
   },
   "avc_intro": {
-    "button_primary_ready": "Готов съм",
+    "button_primary_ready": "Начало на запис",
     "disclaimer": "По време на този процес ще бъдат записани лицето и фонът ви.",
+    "disclaimer_camera_and_audio_on": "Лицето, фонът и звукът ви ще бъдат записани по време на този процес",
     "list_item_one": "Първо позиционирайте лицето си в рамката",
     "list_item_two": "След това бавно обърнете главата си наляво и надясно",
     "subtitle": "Това е, за да потвърдите, че сте реален човек",
@@ -114,6 +116,8 @@
     "footer": {
       "captured": "Снимката е заснета",
       "capturing": "Снимане",
+      "manual_fallback_generic_document_back": "",
+      "manual_fallback_generic_document_front": "",
       "manual_fallback_identity_card_back": "Направете снимка на задната страна на картата си",
       "manual_fallback_identity_card_front": "Направете снимка на лицевата страна на картата си",
       "manual_fallback_license_back": "Направете снимка на задната страна на шофьорската си книжка",
@@ -121,6 +125,8 @@
       "manual_fallback_passport": "Направете снимка на страницата със снимката от паспорта ви",
       "manual_fallback_residence_permit_back": "Направете снимка на задната страна на разрешителното си за пребиваване",
       "manual_fallback_residence_permit_front": "Направете снимка на лицевата страна на разрешителното си за пребиваване",
+      "position_generic_document_back": "",
+      "position_generic_document_front": "",
       "position_identity_card_back": "Позиционирайте задната страна на картата в рамката",
       "position_identity_card_front": "Позиционирайте лицевата страна на картата в рамката",
       "position_license_back": "Позиционирайте задната страна на шофьорската си книжка в рамката",
@@ -163,6 +169,7 @@
     "body_bank_statement": "Уверете се, че сте качили цялата страница на документа и подробностите се четат ясно, без да са размазани или с отблясъци",
     "body_benefits_letter": "Уверете се, че сте качили цялата страница на документа и подробностите се четат ясно, без да са размазани или с отблясъци",
     "body_bill": "Уверете се, че сте качили цялата страница на документа и подробностите се четат ясно, без да са размазани или с отблясъци",
+    "body_generic_document": "",
     "body_id": "Уверете се, че данните ви се виждат ясно и не са скрити",
     "body_image_medium": "Проверката ще отнеме повече време, ако не можем да я разчетем",
     "body_image_poor": "За безпроблемен процес на потвърждаването се нуждаем от по-добра снимка",
@@ -230,6 +237,8 @@
     "title_bank_statement": "Изпращане на извлечение",
     "title_benefits_letter": "Подаване на служебна бележка",
     "title_bill": "Подаване на сметка за комунални услуги",
+    "title_generic_document_back": "",
+    "title_generic_document_front": "",
     "title_government_letter": "Официален документ",
     "title_id_back": "Подаване на лична карта (задна страна)",
     "title_id_front": "Подаване на лична карта (лицева страна)",
@@ -384,6 +393,11 @@
       "title": "Страница със снимка от паспорта"
     }
   },
+  "nfc_scan": {
+    "sheet": {
+      "success": "Успешно сканиране"
+    }
+  },
   "outro": {
     "body": "Това е всичко, от което се нуждаем, за да започнем проверката на самоличността ви",
     "body_government_letter": "Изпратете цялата страница на документа за най-добър резултат",
@@ -392,12 +406,16 @@
   "permission": {
     "body_both": "Не можем да потвърдим самоличността ви, без да използваме камерата и микрофона ви",
     "body_cam": "Не можем да потвърдим самоличността ви без достъп до камерата",
+    "body_mic": "Не можем да потвърдим самоличността ви, без да използваме микрофона",
     "button_primary_both": "Активиране на двете",
     "button_primary_cam": "Активиране на камерата",
+    "button_primary_mic": "Активиране на микрофона",
     "subtitle_both": "Когато бъдете подканени, трябва да активирате достъпа и за двете, за да продължите",
     "subtitle_cam": "Когато ви подканим, трябва да активирате достъпа до камерата, за да продължите",
+    "subtitle_mic": "Когато бъдете подканени, трябва да активирате достъпа до микрофона, за да продължите",
     "title_both": "Разрешете достъпа до камерата и микрофона",
-    "title_cam": "Разрешаване на достъп до камерата"
+    "title_cam": "Разрешаване на достъп до камерата",
+    "title_mic": "Разрешете достъпа до микрофона"
   },
   "permission_recovery": {
     "button_primary": "Обновяване",
@@ -407,16 +425,21 @@
     "list_item_action_cam": "Обновете тази страница, за да рестартирате процеса на проверка на самоличността",
     "list_item_how_to_both": "Осигурете достъп до камерата и микрофона от настройките на браузъра",
     "list_item_how_to_cam": "Предоставете достъп до камерата от настройките на браузъра",
+    "list_item_how_to_mic": "Предоставете достъп до вашия микрофон от настройките на браузъра ви",
     "subtitle_both": "Възстановете достъпа до камерата и микрофона, за да заснемете видео и да завършите процеса на проверка",
     "subtitle_cam": "Възстановете достъпа до камерата, за да продължите с процеса на потвърждаване",
     "subtitle_cam_old": "Възстановете достъпа до камерата, за да продължите с потвърждаването на лицето",
+    "subtitle_mic": "Не можем да потвърдим самоличността ви, без да използваме микрофона",
     "title_both": "Достъпът до камерата и микрофона е отказан",
-    "title_cam": "Достъпът до камерата е отказан"
+    "title_cam": "Достъпът до камерата е отказан",
+    "title_mic": "Достъпът до микрофона е отказан"
   },
   "photo_upload": {
     "body_bank_statement": "Изпратете цялата страница на документа за най-добър резултат",
     "body_benefits_letter": "Изпратете цялата страница на документа за най-добър резултат",
     "body_bill": "Изпратете цялата страница на документа за най-добър резултат",
+    "body_generic_document_back": "",
+    "body_generic_document_front": "",
     "body_id_back": "Качете задната страна на личната карта от компютъра си",
     "body_id_front": "Качете лицевата страна на личната карта от компютъра си",
     "body_license_back": "Качете задната страна на шофьорската книжка от компютъра си",
@@ -470,6 +493,39 @@
       "country_select": {
         "placeholder": "Изберете държава"
       },
+      "id_type_select": {
+        "aus_specific": {
+          "other": "Задграничен паспорт"
+        },
+        "bra_specific": {
+          "other": "CNPJ",
+          "tax_id": "CPF"
+        },
+        "driving_license": "Шофьорска книжка",
+        "esp_specific": {
+          "identity_card": "NIF/DNI"
+        },
+        "gha_specific": {
+          "social_insurance": "SSNIT"
+        },
+        "identity_card": "Лична карта",
+        "ind_specific": {
+          "tax_id": "Номер на лична сметка (PAN)"
+        },
+        "ken_specific": {
+          "other": "Извънземна карта"
+        },
+        "nga_specific": {
+          "identity_card": "Национален идентификационен номер (NIN)",
+          "other": "BVN",
+          "tax_id": "TIN"
+        },
+        "other": "NIE",
+        "passport": "Паспорт",
+        "placeholder": "Изберете тип национален идентификатор",
+        "tax_id": "Данъчен номер",
+        "voter_id": "ID на избирателя"
+      },
       "nationality_select": {
         "placeholder": "Изберете държава"
       },
@@ -485,27 +541,71 @@
     },
     "country_of_residence_title": "Държава на пребиваване",
     "field_labels": {
+      "arg_specific": {
+        "national_id_value": "DNI номер"
+      },
+      "can_specific": {
+        "national_id_value": "Социалноосигурителен номер (SIN)"
+      },
+      "chl_specific": {
+        "national_id_value": "RUT / RUN номера"
+      },
+      "chn_specific": {
+        "national_id_value": "Постоянен Лична карта номер"
+      },
+      "col_specific": {
+        "national_id_value": "Колумбийски персонален идентификационен номер"
+      },
       "country": "Държава",
       "country_residence": "Държава",
       "dob": "Дата на раждане",
       "email": "Имейл адрес",
+      "fin_specific": {
+        "national_id_value": "Персонален идентификационен код"
+      },
       "first_name": "Собствено име",
       "gbr_specific": {
         "postcode": "Пощенски код",
         "town": "Град"
       },
+      "hkg_specific": {
+        "national_id_value": "HKID"
+      },
       "ind_specific": {
         "pan": "Номер на постоянна сметка (PAN)"
+      },
+      "ita_specific": {
+        "national_id_value": "Фискален код"
+      },
+      "jpn_specific": {
+        "national_id_value": "\"Моят номер\" / Код за запис на жител"
       },
       "last_name": "Фамилия",
       "line1": "Адрес, ред 1",
       "line2": "Адрес, ред 2",
       "line3": "Адрес, ред 3",
+      "lux_specific": {
+        "national_id_value": "Номер на социална осигуровка"
+      },
       "mobile_number": "Мобилен телефон",
+      "national_id_type": "Тип национален документ за самоличност",
+      "national_id_value": "Национален индентификационен номер",
       "nationality": "Националност",
+      "phl_specific": {
+        "national_id_value": "Номер на картата PhilSys (PCN)"
+      },
       "phone_number": "Телефонен номер",
+      "pol_specific": {
+        "national_id_value": "PESEL номер"
+      },
       "postcode": "Пощенски код",
+      "prt_specific": {
+        "national_id_value": "Данъчен номер"
+      },
       "town": "Град",
+      "tur_specific": {
+        "national_id_value": "Турски идентификационен номер"
+      },
       "usa_specific": {
         "line1_helper_text": "Точен адрес, например: ул. „Алберт“ № 200",
         "line2_helper_text": "Блок, вход, етаж, апартамент и др.",
@@ -516,11 +616,48 @@
     },
     "field_optional": "(незадължително)",
     "field_validation": {
+      "arg_specific": {
+        "invalid_national_id_value": "Моля, въведете валиден DNI"
+      },
+      "bra_specific": {
+        "invalid_other": "Моля, въведете валиден CNPJ",
+        "invalid_tax_id": "Моля, въведете валиден CPF"
+      },
+      "can_specific": {
+        "invalid_national_id_value": "Моля, въведете валиден SIN"
+      },
+      "chl_specific": {
+        "invalid_national_id_value": "Моля, въведете валидни RUT / RUN номера",
+        "required_national_id_value": "Моля, въведете вашите RUT / RUN номера"
+      },
+      "chn_specific": {
+        "invalid_national_id_value": "Моля, въведете валиден номер на лична карта на жител"
+      },
+      "col_specific": {
+        "invalid_national_id_value": "Моля, въведете валиден колумбийски персонален идентификационен номер",
+        "required_national_id_value": "Моля, въведете вашия колумбийски персонален идентификационен номер"
+      },
+      "esp_specific": {
+        "invalid_identity_card": "Моля, въведете валиден NIF/DNI",
+        "invalid_other": "Моля, въведете валиден NIE"
+      },
+      "fin_specific": {
+        "invalid_national_id_value": "Моля, въведете валиден личен идентификационен код",
+        "required_national_id_value": "Моля, въведете личния си идентификационен код"
+      },
       "gbr_specific": {
         "invalid_postcode": "Въведете валиден пощенски код",
         "required_postcode": "Въведете пощенски код",
         "too_long_postcode": "Пощенският код е твърде дълъг",
         "too_short_postcode": "Пощенският код е твърде кратък"
+      },
+      "gha_specific": {
+        "invalid_social_insurance": "Моля, въведете валиден SSNIT",
+        "required_social_insurance": "Моля, въведете своя SSNIT"
+      },
+      "hkg_specific": {
+        "invalid_national_id_value": "Моля, въведете валиден HKID",
+        "required_national_id_value": "Моля, въведете своя HKID"
       },
       "ind_specific": {
         "invalid_pan": "Въведете валиден PAN",
@@ -528,9 +665,59 @@
       },
       "invalid": "Проверете за невалидни знаци или символи",
       "invalid_dob": "Въведете валидна дата на раждане",
+      "invalid_driving_license": "Моля, въведете валиден номер на шофьорска книжка",
       "invalid_email": "Въведете валиден имейл адрес",
       "invalid_mobile_number": "Въведете валиден номер на мобилен телефон",
+      "invalid_national_id_value": "Моля, въведете валиден национален идентификационен номер",
+      "invalid_passport": "Моля, въведете валиден номер на паспорт",
       "invalid_phone_number": "Въведете валиден телефонен номер",
+      "invalid_voter_id": "Моля, въведете валиден идентификационен номер на избирател",
+      "ita_specific": {
+        "invalid_national_id_value": "Моля, въведете валиден фискален код"
+      },
+      "jpn_specific": {
+        "invalid_national_id_value": "Моля, въведете валиден „Моят номер“/код за запис на жител",
+        "required_national_id_value": ""
+      },
+      "ken_specific": {
+        "invalid_other": "Моля, въведете валиден номер на чужда карта",
+        "required_other": "Моля, въведете номера на вашата карта за чужденци"
+      },
+      "lux_specific": {
+        "invalid_national_id_value": "Моля, въведете валиден социалноосигурителен номер",
+        "required_national_id_value": "Моля, въведете своя социалноосигурителен номер"
+      },
+      "mex_specific": {
+        "invalid_identity_card": "Моля, въведете валиден CURP",
+        "invalid_tax_id": "Моля, въведете валиден RFC"
+      },
+      "mys_specific": {
+        "invalid_national_id_value": "Моля, въведете валидна НКЖИ",
+        "required_national_id_value": "Моля, въведете вашата НКЖИ"
+      },
+      "nga_specific": {
+        "invalid_identity_card": "Моля, въведете валиден национален идентификационен номер (NIN)",
+        "invalid_other": "Моля, въведете валиден BVN",
+        "invalid_tax_id": "Моля, въведете валиден TIN",
+        "required_identity_card": "Моля, въведете своя национален идентификационен номер (NIN)",
+        "required_other": "Моля, въведете своя BVN",
+        "required_tax_id": "Моля, въведете вашия TIN"
+      },
+      "phl_specific": {
+        "invalid_national_id_value": "Моля, въведете валиден номер на карта PhilSys (PCN)",
+        "required_national_id_value": "Моля, въведете номера на вашата карта PhilSys (PCN)"
+      },
+      "pol_specific": {
+        "invalid_national_id_value": "Моля, въведете валиден PESEL номер",
+        "required_national_id_value": "Моля, въведете своя PESEL номер"
+      },
+      "prt_specific": {
+        "invalid_national_id_value": "Моля, въведете валиден данъчен номер",
+        "required_national_id_value": "Моля, въведете своя данъчен номер"
+      },
+      "reference": {
+        "translation": "Моля, въведете валиден"
+      },
       "required_consent": "Трябва да разрешите проверките за самоличност и за измами",
       "required_country": "Изберете държава",
       "required_country_residence": "Изберете държава",
@@ -543,6 +730,12 @@
       "required_nationality": "Изберете държава",
       "required_phone_number": "Въведете телефонния си номер",
       "required_postcode": "Въведете пощенски код",
+      "sgp_specific": {
+        "invalid_national_id_value": "Моля, въведете валиден NRIC"
+      },
+      "swe_specific": {
+        "invalid_national_id_value": "Моля, въведете валиден PIN"
+      },
       "too_long_first_name": "Собственото име е твърде дълго",
       "too_long_last_name": "Фамилията е твърде дълга",
       "too_long_line1": "Адресът е твърде дълъг",
@@ -551,12 +744,16 @@
       "too_short_first_name": "Собственото име е твърде кратко",
       "too_short_last_name": "Фамилията е твърде кратка",
       "too_short_postcode": "Пощенският код е твърде кратък",
+      "tur_specific": {
+        "invalid_national_id_value": "Моля, въведете валиден турски идентификационен номер"
+      },
       "usa_specific": {
         "invalid_ssn": "Въведете валиден номер на социалната осигуровка (SSN)",
         "required_ssn": "Въведете номер на социалната осигуровка (SSN)",
         "required_state": "Изберете щат"
       }
     },
+    "national_id_number_title": "Добавете вашия национален идентификационен номер",
     "personal_information_title": "Добавете личните си данни",
     "prompt": {
       "details_timeout": "Започнете отначало",
@@ -698,6 +895,7 @@
   },
   "welcome": {
     "doc_video_subtitle": "Ще отнеме няколко минути",
+    "info_original_document": "Направете снимка на оригиналния си документ. Не се допускат сканирания, снимки на екрани или фотокопия.",
     "list_header_doc_video": "Използвайте устройството си, за да запишете:",
     "list_header_webcam": "Използвайте уеб камерата или телефона си, за да снимате:",
     "list_item_doc": "официалният ви документ за самоличност",

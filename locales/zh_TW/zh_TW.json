@@ -20,6 +20,7 @@
   },
   "avc_face_capture": {
     "alert": {
+      "mic_conflict_title": "其他應用程式正在使用您的麥克風",
       "timeout_body": "您最多有 15 秒的時間完成錄製",
       "timeout_button_primary": "重試",
       "timeout_title": "很抱歉，我們必須重新開始錄製",
@@ -31,8 +32,9 @@
     "title_completed": "錄製完成"
   },
   "avc_intro": {
-    "button_primary_ready": "我準備好了",
+    "button_primary_ready": "開始錄製",
     "disclaimer": "在此過程中將記錄您的面部和背景",
+    "disclaimer_camera_and_audio_on": "將在此過程中記錄您的臉部、背景及聲音",
     "list_item_one": "首先，請將臉部置於框架中",
     "list_item_two": "然後，將您的頭部慢慢轉向兩側",
     "subtitle": "這是為了驗證您的真實身份",
@@ -114,6 +116,8 @@
     "footer": {
       "captured": "已擷取相片",
       "capturing": "正在擷取相片",
+      "manual_fallback_generic_document_back": "",
+      "manual_fallback_generic_document_front": "",
       "manual_fallback_identity_card_back": "請拍攝卡片背面的相片",
       "manual_fallback_identity_card_front": "請拍攝卡片正面的相片",
       "manual_fallback_license_back": "請拍攝駕照背面的相片",
@@ -121,6 +125,8 @@
       "manual_fallback_passport": "請拍攝護照相片頁的相片",
       "manual_fallback_residence_permit_back": "請拍攝居留證背面的相片",
       "manual_fallback_residence_permit_front": "請拍攝居留許可證正面相片",
+      "position_generic_document_back": "",
+      "position_generic_document_front": "",
       "position_identity_card_back": "將您的卡片背面放在框架中",
       "position_identity_card_front": "將卡片正面放置在畫面中",
       "position_license_back": "請將駕照背面放在框架中",
@@ -163,6 +169,7 @@
     "body_bank_statement": "請確保您已上傳整個文件頁面，且詳細資料清晰可閱，沒有模糊或眩光",
     "body_benefits_letter": "請確保您已上傳整個文件頁面，且詳細資料清晰可閱，沒有模糊或眩光",
     "body_bill": "請確保您已上傳整個文件頁面，且詳細資料清晰可閱，沒有模糊或眩光",
+    "body_generic_document": "",
     "body_id": "請確保您的個人詳細資料清晰且未被遮蔽",
     "body_image_medium": "若我們無法讀取，則需要較長時間驗證您的身份",
     "body_image_poor": "為了順利驗證您的身份，我們需要一張更好的相片",
@@ -230,6 +237,8 @@
     "title_bank_statement": "提交對帳單",
     "title_benefits_letter": "提交信件",
     "title_bill": "提交帳單",
+    "title_generic_document_back": "",
+    "title_generic_document_front": "",
     "title_government_letter": "政府公文",
     "title_id_back": "提交身份證（背面）",
     "title_id_front": "提交身份證（正面）",
@@ -384,6 +393,11 @@
       "title": "護照相片頁"
     }
   },
+  "nfc_scan": {
+    "sheet": {
+      "success": "掃描成功"
+    }
+  },
   "outro": {
     "body": "這就是我們開始驗證您身份所需的全部內容",
     "body_government_letter": "提供整個文件頁面以取得最佳結果",
@@ -392,12 +406,16 @@
   "permission": {
     "body_both": "若不同時使用相機和麥克風，我們無法驗證您的身份",
     "body_cam": "不使用相機，我們無法驗證您的身份",
+    "body_mic": "若不使用麥克風，我們無法驗證您的身份",
     "button_primary_both": "同時啟用兩者",
     "button_primary_cam": "啟用相機",
+    "button_primary_mic": "啟用麥克風",
     "subtitle_both": "出現提示時，您必須允許使用兩者，才能繼續",
     "subtitle_cam": "出現提示時，您必須允許使用相機才能繼續",
+    "subtitle_mic": "出現提示時，您必須啟用麥克風存取權限才能繼續",
     "title_both": "允許使用相機和麥克風",
-    "title_cam": "允許相機存取"
+    "title_cam": "允許相機存取",
+    "title_mic": "允許麥克風存取"
   },
   "permission_recovery": {
     "button_primary": "重新整理",
@@ -407,16 +425,21 @@
     "list_item_action_cam": "重新整理此頁面，以重新開始身份驗證流程",
     "list_item_how_to_both": "透過瀏覽器設定授予相機和麥克風存取權限",
     "list_item_how_to_cam": "從瀏覽器設定中授予相機的存取權限",
+    "list_item_how_to_mic": "透過瀏覽器設定授予麥克風存取權限",
     "subtitle_both": "恢復相機和麥克風存取權限，以拍攝影片，並完成驗證流程",
     "subtitle_cam": "恢復相機存取權限，以繼續驗證",
     "subtitle_cam_old": "恢復相機存取權限，以繼續臉部驗證",
+    "subtitle_mic": "不使用麥克風，我們無法驗證您的身份",
     "title_both": "相機和麥克風存取被拒絕",
-    "title_cam": "相機存取被拒絕"
+    "title_cam": "相機存取被拒絕",
+    "title_mic": "麥克風存取被拒絕"
   },
   "photo_upload": {
     "body_bank_statement": "提供整個文件頁面以取得最佳結果",
     "body_benefits_letter": "提供整個文件頁面以取得最佳結果",
     "body_bill": "提供整個文件頁面以取得最佳結果",
+    "body_generic_document_back": "",
+    "body_generic_document_front": "",
     "body_id_back": "從電腦上傳身分證背面",
     "body_id_front": "從電腦上傳身分證正面",
     "body_license_back": "從電腦上傳駕照背面",
@@ -470,6 +493,39 @@
       "country_select": {
         "placeholder": "選擇一個國家"
       },
+      "id_type_select": {
+        "aus_specific": {
+          "other": "外國護照"
+        },
+        "bra_specific": {
+          "other": "CNPJ",
+          "tax_id": "CPF"
+        },
+        "driving_license": "駕照",
+        "esp_specific": {
+          "identity_card": "NIF/DNI"
+        },
+        "gha_specific": {
+          "social_insurance": "SSNIT"
+        },
+        "identity_card": "身份證",
+        "ind_specific": {
+          "tax_id": "個人帳號 (PAN)"
+        },
+        "ken_specific": {
+          "other": "外國人卡"
+        },
+        "nga_specific": {
+          "identity_card": "國民身份證號碼 (NIN)",
+          "other": "BVN",
+          "tax_id": "TIN"
+        },
+        "other": "NIE",
+        "passport": "護照",
+        "placeholder": "選擇國民身份證類型",
+        "tax_id": "稅號",
+        "voter_id": "選民編號"
+      },
       "nationality_select": {
         "placeholder": "選擇一個國家"
       },
@@ -485,27 +541,71 @@
     },
     "country_of_residence_title": "您的居住國家",
     "field_labels": {
+      "arg_specific": {
+        "national_id_value": "DNI 編號"
+      },
+      "can_specific": {
+        "national_id_value": "社會保險號 (SIN)"
+      },
+      "chl_specific": {
+        "national_id_value": "RUT / RUN 編號"
+      },
+      "chn_specific": {
+        "national_id_value": "居民身份證號碼"
+      },
+      "col_specific": {
+        "national_id_value": "哥倫比亞個人身份證號碼"
+      },
       "country": "國家",
       "country_residence": "國家",
       "dob": "出生日期",
       "email": "電子郵件",
+      "fin_specific": {
+        "national_id_value": "個人身份代碼"
+      },
       "first_name": "名字",
       "gbr_specific": {
         "postcode": "郵遞區號",
         "town": "縣（市）/ 鄉（鎮、市）"
       },
+      "hkg_specific": {
+        "national_id_value": "HKID"
+      },
       "ind_specific": {
         "pan": "永久帳戶號碼 (PAN)"
+      },
+      "ita_specific": {
+        "national_id_value": "稅控碼"
+      },
+      "jpn_specific": {
+        "national_id_value": "“我的號碼”/住民票代碼"
       },
       "last_name": "姓氏",
       "line1": "地址第 1 行",
       "line2": "地址第 2 行",
       "line3": "地址第 3 行",
+      "lux_specific": {
+        "national_id_value": "社會安全號碼"
+      },
       "mobile_number": "手機號碼",
+      "national_id_type": "國民身份證類型",
+      "national_id_value": "身份證號碼",
       "nationality": "國籍",
+      "phl_specific": {
+        "national_id_value": "PhilSys 卡號 (PCN)"
+      },
       "phone_number": "電話號碼",
+      "pol_specific": {
+        "national_id_value": "PESEL號碼"
+      },
       "postcode": "郵遞區號",
+      "prt_specific": {
+        "national_id_value": "稅號"
+      },
       "town": "鄉（鎮、市）",
+      "tur_specific": {
+        "national_id_value": "土耳其身份證號碼"
+      },
       "usa_specific": {
         "line1_helper_text": "街道地址，例如：阿爾伯特街 200 號",
         "line2_helper_text": "公寓、套房、單位等。",
@@ -516,11 +616,48 @@
     },
     "field_optional": "（非必填）",
     "field_validation": {
+      "arg_specific": {
+        "invalid_national_id_value": "請輸入有效的 DNI"
+      },
+      "bra_specific": {
+        "invalid_other": "請輸入一個有效的 CNPJ",
+        "invalid_tax_id": "請輸入一個有效的 CPF"
+      },
+      "can_specific": {
+        "invalid_national_id_value": "請輸入一個有效的 SIN"
+      },
+      "chl_specific": {
+        "invalid_national_id_value": "請輸入有效的 RUT/RUN 編號",
+        "required_national_id_value": "請輸入您的 RUT / RUN 編號"
+      },
+      "chn_specific": {
+        "invalid_national_id_value": "請輸入有效的居民身份證號碼"
+      },
+      "col_specific": {
+        "invalid_national_id_value": "請輸入有效的哥倫比亞個人身份證號碼",
+        "required_national_id_value": "請輸入您的哥倫比亞個人身份證號碼"
+      },
+      "esp_specific": {
+        "invalid_identity_card": "請輸入一個有效的 NIF/DNI",
+        "invalid_other": "請輸入一個有效的 NIE"
+      },
+      "fin_specific": {
+        "invalid_national_id_value": "請輸入有效的個人身份代碼",
+        "required_national_id_value": "請輸入您的個人身份代碼"
+      },
       "gbr_specific": {
         "invalid_postcode": "請輸入有效的郵遞區號",
         "required_postcode": "請輸入您的郵遞區號",
         "too_long_postcode": "郵遞區號太長",
         "too_short_postcode": "郵遞區號太短"
+      },
+      "gha_specific": {
+        "invalid_social_insurance": "請輸入有效的 SSNIT",
+        "required_social_insurance": "請輸入您的 SSNIT"
+      },
+      "hkg_specific": {
+        "invalid_national_id_value": "請輸入有效的香港身份證",
+        "required_national_id_value": "請輸入您的香港身份證"
       },
       "ind_specific": {
         "invalid_pan": "請輸入有效的永久帳戶號碼 (PAN)",
@@ -528,9 +665,59 @@
       },
       "invalid": "請檢查是否含有無效字元或符號",
       "invalid_dob": "請輸入有效的出生日期",
+      "invalid_driving_license": "請輸入有效的駕照號碼",
       "invalid_email": "請輸入有效的電子郵件",
       "invalid_mobile_number": "請輸入有效的手機號碼",
+      "invalid_national_id_value": "請輸入有效的國民身份證號碼",
+      "invalid_passport": "請輸入有效的護照號碼",
       "invalid_phone_number": "請輸入一組有效的電話號碼",
+      "invalid_voter_id": "請輸入有效的選民身份證號碼",
+      "ita_specific": {
+        "invalid_national_id_value": "請輸入有效的財務代碼"
+      },
+      "jpn_specific": {
+        "invalid_national_id_value": "請輸入有效的“我的號碼”/居民票代碼",
+        "required_national_id_value": ""
+      },
+      "ken_specific": {
+        "invalid_other": "請輸入有效的外國人卡號",
+        "required_other": "請輸入您的外國人卡號"
+      },
+      "lux_specific": {
+        "invalid_national_id_value": "請輸入有效的社會保險號",
+        "required_national_id_value": "請輸入您的社會安全號碼"
+      },
+      "mex_specific": {
+        "invalid_identity_card": "請輸入一個有效的 CURP",
+        "invalid_tax_id": "請輸入一個有效的 RFC"
+      },
+      "mys_specific": {
+        "invalid_national_id_value": "請輸入有效的身份證",
+        "required_national_id_value": "請輸入您的身份證"
+      },
+      "nga_specific": {
+        "invalid_identity_card": "請輸入有效的國民身份證號碼 (NIN)",
+        "invalid_other": "請輸入有效的 BVN",
+        "invalid_tax_id": "請輸入有效的 TIN",
+        "required_identity_card": "請輸入您的國民身份證號碼 (NIN)",
+        "required_other": "請輸入您的 BVN",
+        "required_tax_id": "請輸入您的納稅人識別號"
+      },
+      "phl_specific": {
+        "invalid_national_id_value": "請輸入有效的 PhilSys 卡號 (PCN)",
+        "required_national_id_value": "請輸入您的 PhilSys 卡號 (PCN)"
+      },
+      "pol_specific": {
+        "invalid_national_id_value": "請輸入有效的 PESEL 編號",
+        "required_national_id_value": "請輸入您的 PESEL 號碼"
+      },
+      "prt_specific": {
+        "invalid_national_id_value": "請輸入有效的稅號",
+        "required_national_id_value": "請輸入您的稅號"
+      },
+      "reference": {
+        "translation": "請輸入一個有效的"
+      },
       "required_consent": "請同意授權身份和欺騙檢查",
       "required_country": "請選擇國家",
       "required_country_residence": "請選擇國家",
@@ -543,6 +730,12 @@
       "required_nationality": "請選擇國家",
       "required_phone_number": "請輸入您的電話號碼",
       "required_postcode": "請輸入您的郵遞區號",
+      "sgp_specific": {
+        "invalid_national_id_value": "請輸入一個有效的 NRIC"
+      },
+      "swe_specific": {
+        "invalid_national_id_value": "請輸入一個有效的 PIN"
+      },
       "too_long_first_name": "名字太長",
       "too_long_last_name": "姓氏太長",
       "too_long_line1": "地址行太長",
@@ -551,12 +744,16 @@
       "too_short_first_name": "名字太短",
       "too_short_last_name": "姓氏太短",
       "too_short_postcode": "郵遞區號太短",
+      "tur_specific": {
+        "invalid_national_id_value": "請輸入有效的土耳其身份證號碼"
+      },
       "usa_specific": {
         "invalid_ssn": "請輸入有效的社會安全號碼 (SSN)",
         "required_ssn": "請輸入您的社會安全號碼 (SSN)",
         "required_state": "請選擇州 / 省"
       }
     },
+    "national_id_number_title": "添加您的國民身份證號碼",
     "personal_information_title": "新增您的個人資料",
     "prompt": {
       "details_timeout": "重新開始",
@@ -698,6 +895,7 @@
   },
   "welcome": {
     "doc_video_subtitle": "這可能需要幾分鐘的時間",
+    "info_original_document": "為您的原始文件拍照。不允許掃描、屏幕照片或複印件。",
     "list_header_doc_video": "使用您的裝置進行錄製：",
     "list_header_webcam": "使用您的網路攝影機或手機進行拍攝：",
     "list_item_doc": "您的身份證件",

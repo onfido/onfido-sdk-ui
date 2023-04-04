@@ -2,6 +2,215 @@
 
 The guides below are provided to ease the transition of existing applications using the Onfido SDK from one version to another that introduces breaking API changes.
 
+## `next`
+
+For all supported language the copy for the following string(s) has been added:
+
+## Added strings
+
+- `avc_face_capture:alert:mic_conflict_title`
+- `doc_auto_capture:footer:manual_fallback_generic_document_back`
+- `doc_auto_capture:footer:manual_fallback_generic_document_front`
+- `doc_auto_capture:footer:position_generic_document_back`
+- `doc_auto_capture:footer:position_generic_document_front`
+- `doc_confirmation:body_generic_document`
+- `doc_submit:title_generic_document_back`
+- `doc_submit:title_generic_document_front`
+- `photo_upload:body_id_back`
+- `photo_upload:body_id_front`
+- `profile_data:components::id_type_select::aus_specific::other`
+- `profile_data:components::id_type_select::bra_specific::other`
+- `profile_data:components::id_type_select::bra_specific::tax_id`
+- `profile_data:components::id_type_select::driving_license`
+- `profile_data:components::id_type_select::esp_specific::identity_card`
+- `profile_data:components::id_type_select::gha_specific::social_insurance`
+- `profile_data:components::id_type_select::identity_card`
+- `profile_data:components::id_type_select::ind_specific::tax_id`
+- `profile_data:components::id_type_select::ken_specific::other`
+- `profile_data:components::id_type_select::nga_specific::identity_card`
+- `profile_data:components::id_type_select::nga_specific::other`
+- `profile_data:components::id_type_select::nga_specific::tax_id`
+- `profile_data:components::id_type_select::other`
+- `profile_data:components::id_type_select::passport`
+- `profile_data:components::id_type_select::placeholder`
+- `profile_data:components::id_type_select::tax_id`
+- `profile_data:components::id_type_select::voter_id`
+- `profile_data::field_labels::arg_specific::national_id_value`
+- `profile_data::field_labels::can_specific::national_id_value`
+- `profile_data::field_labels::chl_specific::national_id_value`
+- `profile_data::field_labels::chn_specific::national_id_value`
+- `profile_data::field_labels::col_specific::national_id_value`
+- `profile_data::field_labels::fin_specific::national_id_value`
+- `profile_data::field_labels::hkg_specific::national_id_value`
+- `profile_data::field_labels::ita_specific::national_id_value`
+- `profile_data::field_labels::jpn_specific::national_id_value`
+- `profile_data::field_labels::lux_specific::national_id_value`
+- `profile_data::field_labels::national_id_type`
+- `profile_data::field_labels::national_id_value`
+- `profile_data::field_labels::phl_specific::national_id_value`
+- `profile_data::field_labels::pol_specific::national_id_value`
+- `profile_data::field_labels::prt_specific::national_id_value`
+- `profile_data::field_labels::tur_specific::national_id_value`
+- `profile_data::field_validation::arg_specific::invalid_national_id_value`
+- `profile_data::field_validation::bra_specific::invalid_other`
+- `profile_data::field_validation::bra_specific::invalid_tax_id`
+- `profile_data::field_validation::can_specific::invalid_national_id_value`
+- `profile_data::field_validation::chl_specific::invalid_national_id_value`
+- `profile_data::field_validation::chl_specific::required_national_id_value`
+- `profile_data::field_validation::chn_specific::invalid_national_id_value`
+- `profile_data::field_validation::col_specific::invalid_national_id_value`
+- `profile_data::field_validation::col_specific::required_national_id_value`
+- `profile_data::field_validation::esp_specific::invalid_identity_card`
+- `profile_data::field_validation::esp_specific::invalid_other`
+- `profile_data::field_validation::fin_specific::invalid_national_id_value`
+- `profile_data::field_validation::fin_specific::required_national_id_value`
+- `profile_data::field_validation::gha_specific::invalid_social_insurance`
+- `profile_data::field_validation::gha_specific::required_social_insurance`
+- `profile_data::field_validation::hkg_specific::invalid_national_id_value`
+- `profile_data::field_validation::hkg_specific::required_national_id_value`
+- `profile_data::field_validation::invalid_driving_license`
+- `profile_data::field_validation::invalid_voter_id`
+- `profile_data::field_validation::ita_specific::invalid_national_id_value`
+- `profile_data::field_validation::jpn_specific::invalid_national_id_value`
+- `profile_data::field_validation::jpn_specific::required_national_id_value`
+- `profile_data::field_validation::ken_specific::invalid_other`
+- `profile_data::field_validation::ken_specific::required_other`
+- `profile_data::field_validation::lux_specific::invalid_national_id_value`
+- `profile_data::field_validation::lux_specific::required_national_id_value`
+- `profile_data::field_validation::mex_specific::invalid_identity_card`
+- `profile_data::field_validation::mex_specific::invalid_tax_id`
+- `profile_data::field_validation::mys_specific::invalid_national_id_value`
+- `profile_data::field_validation::mys_specific::required_national_id_value`
+- `profile_data::field_validation::nga_specific::invalid_identity_card`
+- `profile_data::field_validation::nga_specific::invalid_other`
+- `profile_data::field_validation::nga_specific::invalid_tax_id`
+- `profile_data::field_validation::nga_specific::required_identity_card`
+- `profile_data::field_validation::nga_specific::required_other`
+- `profile_data::field_validation::nga_specific::required_tax_id`
+- `profile_data::field_validation::phl_specific::invalid_national_id_value`
+- `profile_data::field_validation::phl_specific::required_national_id_value`
+- `profile_data::field_validation::pol_specific::invalid_national_id_value`
+- `profile_data::field_validation::pol_specific::required_national_id_value`
+- `profile_data::field_validation::prt_specific::invalid_national_id_value`
+- `profile_data::field_validation::prt_specific::required_national_id_value`
+- `profile_data::field_validation::reference::translation`
+- `profile_data::field_validation::sgp_specific::invalid_national_id_value`
+- `profile_data::field_validation::swe_specific::invalid_national_id_value`
+- `profile_data::field_validation::tur_specific::invalid_national_id_value`
+- `profile_date::national_id_number_title`
+
+## `11.0.0`
+
+The deprecated `useLiveDocumentCapture` document option has been removed from Onfido's SDK. Please remove it.
+The deprecated `useWebcam` document option has been removed from Onfido's SDK. Please remove it.
+
+## Added strings
+
+- `profile_data.components.id_type_select.placeholder`
+- `profile_data.components.id_type_select.identity_card`
+- `profile_data.components.id_type_select.passport`
+- `profile_data.components.id_type_select.driving_license`
+- `profile_data.components.id_type_select.tax_id`
+- `profile_data.components.id_type_select.voter_id`
+- `profile_data.components.id_type_select.aus_specific.other`
+- `profile_data.components.id_type_select.esp_specific.identity_card`
+- `profile_data.components.id_type_select.other`
+- `profile_data.components.id_type_select.bra_specific.tax_id`
+- `profile_data.components.id_type_select.bra_specific.other`
+- `profile_data.components.id_type_select.ind_specific.tax_id`
+- `profile_data.field_labels.national_id_type`
+- `profile_data.field_labels.national_id_value`
+- `profile_data.field_labels.arg_specific.national_id_value`
+- `profile_data.field_labels.can_specific.national_id_value`
+- `profile_data.field_labels.chn_specific.national_id_value`
+- `profile_data.field_labels.ita_specific.national_id_value`
+- `profile_data.field_labels.sgp_specific.national_id_value`
+- `profile_data.field_labels.swe_specific.national_id_value`
+- `profile_data.field_labels.tur_specific.national_id_value`
+- `profile_data.field_validation.arg_specific.invalid_national_id_value`
+- `profile_data.field_validation.bra_specific.invalid_tax_id`
+- `profile_data.field_validation.bra_specific.invalid_other`
+- `profile_data.field_validation.can_specific.invalid_national_id_value`
+- `profile_data.field_validation.chn_specific.invalid_national_id_value`
+- `profile_data.field_validation.ita_specific.invalid_national_id_value`
+- `profile_data.field_validation.mex_specific.invalid_identity_card`
+- `profile_data.field_validation.mex_specific.invalid_tax_id`
+- `profile_data.field_validation.sgp_specific.invalid_national_id_value`
+- `profile_data.field_validation.esp_specific.invalid_identity_card`
+- `profile_data.field_validation.esp_specific.invalid_other`
+- `profile_data.field_validation.swe_specific.invalid_national_id_value`
+- `profile_data.field_validation.tur_specific.invalid_national_id_value`
+- `profile_data.field_validation.invalid_driving_license`
+- `profile_data.field_validation.invalid_voter_id`
+- `profile_data.field_validation.invalid_passport`
+- `profile_data.field_validation.invalid_national_id_value`
+- `profile_data.national_id_number_title`
+- `profile_data.components.id_type_select.mex_specific.identity_card`
+- `profile_data.components.id_type_select.mex_specific.tax_id`
+- `profile_data.field_validation.arg_specific.required_national_id_value`
+- `profile_data.field_validation.bra_specific.required_tax_id`
+- `profile_data.field_validation.bra_specific.required_other`
+- `profile_data.field_validation.can_specific.required_national_id_value`
+- `profile_data.field_validation.chn_specific.required_national_id_value`
+- `profile_data.field_validation.ita_specific.required_national_id_value`
+- `profile_data.field_validation.mex_specific.required_identity_card`
+- `profile_data.field_validation.mex_specific.required_tax_id`
+- `profile_data.field_validation.sgp_specific.required_national_id_value`
+- `profile_data.field_validation.esp_specific.required_identity_card`
+- `profile_data.field_validation.esp_specific.required_other`
+- `profile_data.field_validation.swe_specific.required_national_id_value`
+- `profile_data.field_validation.tur_specific.required_national_id_value`
+- `profile_data.field_validation.required_national_id_value`
+- `profile_data.field_validation.required_national_id_type`
+- `profile_data.field_validation.required_national_voter_id`
+- `profile_data.field_validation.required_national_passport`
+- `profile_data.field_validation.required_national_driving_license`
+- `profile_data.field_validation.hkg_specific.required_national_id_value`
+- `profile_data.field_validation.hkg_specific.invalid_national_id_value`
+- `profile_data.field_labels.hkg_specific.national_id_value`
+- `profile_data.field_validation.jpn_specific.required_national_id_value`
+- `profile_data.field_validation.jpn_specific.invalid_national_id_value`
+- `profile_data.field_labels.jpn_specific.national_id_value`
+- `profile_data.field_validation.chl_specific.required_national_id_value`
+- `profile_data.field_validation.chl_specific.invalid_national_id_value`
+- `profile_data.field_labels.chl_specific.national_id_value`
+- `profile_data.field_validation.col_specific.required_national_id_value`
+- `profile_data.field_validation.col_specific.invalid_national_id_value`
+- `profile_data.field_labels.col_specific.national_id_value`
+- `profile_data.field_validation.fin_specific.required_national_id_value`
+- `profile_data.field_validation.fin_specific.invalid_national_id_value`
+- `profile_data.field_labels.fin_specific.national_id_value`
+- `profile_data.field_validation.gha_specific.required_social_insurance`
+- `profile_data.field_validation.gha_specific.invalid_social_insurance`
+- `profile_data.components.id_type_select.gha_specific.social_insurance`
+- `profile_data.field_validation.ken_specific.required_other`
+- `profile_data.field_validation.ken_specific.invalid_other`
+- `profile_data.components.id_type_select.ken_specific.other`
+- `profile_data.field_validation.lux_specific.required_national_id_value`
+- `profile_data.field_validation.lux_specific.invalid_national_id_value`
+- `profile_data.field_labels.lux_specific.national_id_value`
+- `profile_data.field_validation.mys_specific.required_national_id_value`
+- `profile_data.field_validation.mys_specific.invalid_national_id_value`
+- `profile_data.field_labels.mys_specific.national_id_value`
+- `profile_data.field_validation.nga_specific.required_other`
+- `profile_data.field_validation.nga_specific.invalid_other`
+- `profile_data.components.id_type_select.nga_specific.other`
+- `profile_data.field_validation.nga_specific.required_identity_card`
+- `profile_data.field_validation.nga_specific.invalid_identity_card`
+- `profile_data.components.id_type_select.nga_specific.identity_card`
+- `profile_data.field_validation.nga_specific.required_tax_id`
+- `profile_data.field_validation.nga_specific.invalid_tax_id`
+- `profile_data.components.id_type_select.nga_specific.tax_id`
+- `profile_data.field_validation.phl_specific.required_national_id_value`
+- `profile_data.field_validation.phl_specific.invalid_national_id_value`
+- `profile_data.field_labels.phl_specific.national_id_value`
+- `profile_data.field_validation.pol_specific.required_national_id_value`
+- `profile_data.field_validation.pol_specific.invalid_national_id_value`
+- `profile_data.field_labels.pol_specific.national_id_value`
+- `profile_data.field_validation.prt_specific.required_national_id_value`
+- `profile_data.field_validation.prt_specific.invalid_national_id_value`
+- `profile_data.field_labels.prt_specific.national_id_value`
+
 ## `10.4.0`
 
 ## Updated strings
@@ -12,6 +221,9 @@ The guides below are provided to ease the transition of existing applications us
 - `avc_connection_error:button_secondary_restart_recording` (pl)
 - `avc_no_face_detected:button_primary_restart` (pl)
 - `welcome:trial_message` (pt)
+- `welcome:info_original_document` (all)
+- `avc_intro:disclaimer_camera_and_audio_on` (all)
+- `nfc_scan:sheet:success` (all)
 
 ## `10.1.0` -> `10.2.0`
 

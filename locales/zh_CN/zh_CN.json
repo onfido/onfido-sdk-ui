@@ -20,6 +20,7 @@
   },
   "avc_face_capture": {
     "alert": {
+      "mic_conflict_title": "您的麦克风正在被另一个应用使用",
       "timeout_body": "您有最多15秒的时间完成录制",
       "timeout_button_primary": "重试",
       "timeout_title": "对不起，我们必须重新开始录制",
@@ -31,8 +32,9 @@
     "title_completed": "录制完成"
   },
   "avc_intro": {
-    "button_primary_ready": "我准备好了",
+    "button_primary_ready": "开始录制",
     "disclaimer": "在此过程中将记录您的面部和背景",
+    "disclaimer_camera_and_audio_on": "在此过程中将记录您的面部、背景和音频",
     "list_item_one": "首先，将面部移入框中",
     "list_item_two": "然后，慢慢地将头转向两侧",
     "subtitle": "这是为了验证您的真实身份",
@@ -114,6 +116,8 @@
     "footer": {
       "captured": "已拍摄照片",
       "capturing": "正在拍摄照片",
+      "manual_fallback_generic_document_back": "",
+      "manual_fallback_generic_document_front": "",
       "manual_fallback_identity_card_back": "拍摄您身份证背面的照片",
       "manual_fallback_identity_card_front": "拍摄您身份证正面的照片",
       "manual_fallback_license_back": "拍摄您驾照背面的照片",
@@ -121,6 +125,8 @@
       "manual_fallback_passport": "拍摄您护照照片页的照片",
       "manual_fallback_residence_permit_back": "拍摄您居留证背面的照片",
       "manual_fallback_residence_permit_front": "拍摄您居留证正面的照片",
+      "position_generic_document_back": "",
+      "position_generic_document_front": "",
       "position_identity_card_back": "将您的身份证背面放在框中",
       "position_identity_card_front": "将您的身份证正面放在框中",
       "position_license_back": "将驾照背面放在框中",
@@ -163,6 +169,7 @@
     "body_bank_statement": "请确保您已上传整个证明文件页面，且细节清晰可辨，无模糊或眩光",
     "body_benefits_letter": "请确保您已上传整个证明文件页面，且细节清晰可辨，无模糊或眩光",
     "body_bill": "请确保您已上传整个证明文件页面，且细节清晰可辨，无模糊或眩光",
+    "body_generic_document": "",
     "body_id": "请确保您的细节清晰且未受遮挡",
     "body_image_medium": "如果我们无法分辨，则需要更长时间才能完成验证",
     "body_image_poor": "为了顺利验证您的身份，我们需要一张更好的照片",
@@ -230,6 +237,8 @@
     "title_bank_statement": "提交对账单",
     "title_benefits_letter": "提交信函",
     "title_bill": "提交账单",
+    "title_generic_document_back": "",
+    "title_generic_document_front": "",
     "title_government_letter": "政府信函",
     "title_id_back": "提交身份证（背面）",
     "title_id_front": "提交身份证（正面）",
@@ -384,6 +393,11 @@
       "title": "护照照片页面"
     }
   },
+  "nfc_scan": {
+    "sheet": {
+      "success": "扫描成功"
+    }
+  },
   "outro": {
     "body": "这就是我们开始验证您的身份所需的一切",
     "body_government_letter": "提供整个证明文件页面以获得最佳结果",
@@ -392,12 +406,16 @@
   "permission": {
     "body_both": "如果不同时使用相机和麦克风，我们将无法验证您的身份",
     "body_cam": "如果不使用相机，我们就无法验证您的身份",
+    "body_mic": "如果不使用麦克风，我们将无法验证您的身份",
     "button_primary_both": "启用两者",
     "button_primary_cam": "启用相机",
+    "button_primary_mic": "启用麦克风",
     "subtitle_both": "出现提示时，您必须启用这两者的访问才能继续",
     "subtitle_cam": "出现提示时，您必须启用相机访问才能继续",
+    "subtitle_mic": "出现提示时，您必须启用麦克风访问才能继续",
     "title_both": "允许相机和麦克风访问",
-    "title_cam": "允许相机访问"
+    "title_cam": "允许相机访问",
+    "title_mic": "允许麦克风访问"
   },
   "permission_recovery": {
     "button_primary": "刷新",
@@ -407,16 +425,21 @@
     "list_item_action_cam": "刷新此页面，以重新启动身份验证流程",
     "list_item_how_to_both": "通过浏览器设置授予对相机和麦克风的访问",
     "list_item_how_to_cam": "通过浏览器设置授予对相机的访问",
+    "list_item_how_to_mic": "从浏览器设置授予对您的麦克风的访问权限",
     "subtitle_both": "恢复相机和麦克风访问，以拍摄视频并完成验证流程",
     "subtitle_cam": "恢复相机访问，以继续您的验证",
     "subtitle_cam_old": "恢复相机访问，以继续面部验证",
+    "subtitle_mic": "如果不使用麦克风，我们就无法验证您的身份",
     "title_both": "相机和麦克风访问被拒绝",
-    "title_cam": "相机访问被拒绝"
+    "title_cam": "相机访问被拒绝",
+    "title_mic": "麦克风访问被拒绝"
   },
   "photo_upload": {
     "body_bank_statement": "提供整个证明文件页面以获得最佳结果",
     "body_benefits_letter": "提供整个证明文件页面以获得最佳结果",
     "body_bill": "提供整个证明文件页面以获得最佳结果",
+    "body_generic_document_back": "",
+    "body_generic_document_front": "",
     "body_id_back": "从计算机上传身份证背面",
     "body_id_front": "从计算机上传身份证正面",
     "body_license_back": "从计算机上传驾照背面",
@@ -470,6 +493,39 @@
       "country_select": {
         "placeholder": "选择国家/地区"
       },
+      "id_type_select": {
+        "aus_specific": {
+          "other": "外国护照"
+        },
+        "bra_specific": {
+          "other": "CNPJ",
+          "tax_id": "CPF"
+        },
+        "driving_license": "驾照",
+        "esp_specific": {
+          "identity_card": "NIF/DNI"
+        },
+        "gha_specific": {
+          "social_insurance": "SSNIT"
+        },
+        "identity_card": "身份证",
+        "ind_specific": {
+          "tax_id": "个人帐号 (PAN)"
+        },
+        "ken_specific": {
+          "other": "外国人卡"
+        },
+        "nga_specific": {
+          "identity_card": "国民身份证号码 (NIN)",
+          "other": "BVN",
+          "tax_id": "TIN"
+        },
+        "other": "NIE",
+        "passport": "护照",
+        "placeholder": "选择国民身份证类型",
+        "tax_id": "税号",
+        "voter_id": "选民编号"
+      },
       "nationality_select": {
         "placeholder": "选择国家/地区"
       },
@@ -485,27 +541,71 @@
     },
     "country_of_residence_title": "您居住所在的国家/地区",
     "field_labels": {
+      "arg_specific": {
+        "national_id_value": "DNI 编号"
+      },
+      "can_specific": {
+        "national_id_value": "社会保险号 (SIN)"
+      },
+      "chl_specific": {
+        "national_id_value": "RUT / RUN 编号"
+      },
+      "chn_specific": {
+        "national_id_value": "居民身份证号码"
+      },
+      "col_specific": {
+        "national_id_value": "哥伦比亚个人身份证号码"
+      },
       "country": "国家/地区",
       "country_residence": "国家/地区",
       "dob": "出生日期",
       "email": "电子邮箱",
+      "fin_specific": {
+        "national_id_value": "个人身份代码"
+      },
       "first_name": "名",
       "gbr_specific": {
         "postcode": "邮编",
         "town": "市/镇"
       },
+      "hkg_specific": {
+        "national_id_value": "HKID"
+      },
       "ind_specific": {
         "pan": "永久账号（PAN）"
+      },
+      "ita_specific": {
+        "national_id_value": "税控码"
+      },
+      "jpn_specific": {
+        "national_id_value": "“我的号码”/住民票代码"
       },
       "last_name": "姓",
       "line1": "地址行1",
       "line2": "地址行2",
       "line3": "地址行3",
+      "lux_specific": {
+        "national_id_value": "社会安全号码"
+      },
       "mobile_number": "手机号码",
+      "national_id_type": "国民身份证类型",
+      "national_id_value": "身份证号码",
       "nationality": "国籍",
+      "phl_specific": {
+        "national_id_value": "PhilSys 卡号 (PCN)"
+      },
       "phone_number": "手机号码",
+      "pol_specific": {
+        "national_id_value": "PESEL号码"
+      },
       "postcode": "邮政编码",
+      "prt_specific": {
+        "national_id_value": "税号"
+      },
       "town": "镇",
+      "tur_specific": {
+        "national_id_value": "土耳其身份证号码"
+      },
       "usa_specific": {
         "line1_helper_text": "街道地址，例如：200 Albert Street",
         "line2_helper_text": "公寓、套房、单元等",
@@ -516,11 +616,48 @@
     },
     "field_optional": "（选填）",
     "field_validation": {
+      "arg_specific": {
+        "invalid_national_id_value": "请输入有效的 DNI"
+      },
+      "bra_specific": {
+        "invalid_other": "请输入一个有效的 CNPJ",
+        "invalid_tax_id": "请输入一个有效的 CPF"
+      },
+      "can_specific": {
+        "invalid_national_id_value": "请输入一个有效的 SIN"
+      },
+      "chl_specific": {
+        "invalid_national_id_value": "请输入有效的 RUT/RUN 编号",
+        "required_national_id_value": "请输入您的 RUT / RUN 编号"
+      },
+      "chn_specific": {
+        "invalid_national_id_value": "请输入有效的居民身份证号码"
+      },
+      "col_specific": {
+        "invalid_national_id_value": "请输入有效的哥伦比亚个人身份证号码",
+        "required_national_id_value": "请输入您的哥伦比亚个人身份证号码"
+      },
+      "esp_specific": {
+        "invalid_identity_card": "请输入一个有效的 NIF/DNI",
+        "invalid_other": "请输入一个有效的 NIE"
+      },
+      "fin_specific": {
+        "invalid_national_id_value": "请输入有效的个人身份代码",
+        "required_national_id_value": "请输入您的个人身份代码"
+      },
       "gbr_specific": {
         "invalid_postcode": "请输入有效的邮编",
         "required_postcode": "请输入您的邮编",
         "too_long_postcode": "邮编太长",
         "too_short_postcode": "邮编太短"
+      },
+      "gha_specific": {
+        "invalid_social_insurance": "请输入有效的 SSNIT",
+        "required_social_insurance": "请输入您的 SSNIT"
+      },
+      "hkg_specific": {
+        "invalid_national_id_value": "请输入有效的香港身份证",
+        "required_national_id_value": "请输入您的香港身份证"
       },
       "ind_specific": {
         "invalid_pan": "请输入有效的PAN",
@@ -528,9 +665,59 @@
       },
       "invalid": "请检查是否有无效字符或符号",
       "invalid_dob": "请输入有效的出生日期",
+      "invalid_driving_license": "请输入有效的驾照号码",
       "invalid_email": "请输入有效的电子邮箱",
       "invalid_mobile_number": "请输入有效的手机号码",
+      "invalid_national_id_value": "请输入有效的国民身份证号码",
+      "invalid_passport": "请输入有效的护照号码",
       "invalid_phone_number": "请输入有效的电话号码",
+      "invalid_voter_id": "请输入有效的选民身份证号码",
+      "ita_specific": {
+        "invalid_national_id_value": "请输入有效的财务代码"
+      },
+      "jpn_specific": {
+        "invalid_national_id_value": "请输入有效的“我的号码”/居民票代码",
+        "required_national_id_value": ""
+      },
+      "ken_specific": {
+        "invalid_other": "请输入有效的外国人卡号",
+        "required_other": "请输入您的外国人卡号"
+      },
+      "lux_specific": {
+        "invalid_national_id_value": "请输入有效的社会保险号",
+        "required_national_id_value": "请输入您的社会安全号码"
+      },
+      "mex_specific": {
+        "invalid_identity_card": "请输入一个有效的 CURP",
+        "invalid_tax_id": "请输入一个有效的 RFC"
+      },
+      "mys_specific": {
+        "invalid_national_id_value": "请输入有效的身份证",
+        "required_national_id_value": "请输入您的身份证"
+      },
+      "nga_specific": {
+        "invalid_identity_card": "请输入有效的国民身份证号码 (NIN)",
+        "invalid_other": "请输入有效的 BVN",
+        "invalid_tax_id": "请输入有效的 TIN",
+        "required_identity_card": "请输入您的国民身份证号码 (NIN)",
+        "required_other": "请输入您的 BVN",
+        "required_tax_id": "请输入您的纳税人识别号"
+      },
+      "phl_specific": {
+        "invalid_national_id_value": "请输入有效的 PhilSys 卡号 (PCN)",
+        "required_national_id_value": "请输入您的 PhilSys 卡号 (PCN)"
+      },
+      "pol_specific": {
+        "invalid_national_id_value": "请输入有效的 PESEL 编号",
+        "required_national_id_value": "请输入您的 PESEL 编号"
+      },
+      "prt_specific": {
+        "invalid_national_id_value": "请输入有效的税号",
+        "required_national_id_value": "请输入您的税号"
+      },
+      "reference": {
+        "translation": "请输入一个有效的"
+      },
       "required_consent": "请同意授权身份和欺诈检查",
       "required_country": "请选择一个国家/地区",
       "required_country_residence": "请选择一个国家/地区",
@@ -543,6 +730,12 @@
       "required_nationality": "请选择一个国家/地区",
       "required_phone_number": "请输入您的电话号码",
       "required_postcode": "请输入您的邮编",
+      "sgp_specific": {
+        "invalid_national_id_value": "请输入一个有效的 NRIC"
+      },
+      "swe_specific": {
+        "invalid_national_id_value": "请输入一个有效的 PIN"
+      },
       "too_long_first_name": "名太长",
       "too_long_last_name": "姓太长",
       "too_long_line1": "地址行太长",
@@ -551,12 +744,16 @@
       "too_short_first_name": "姓太短",
       "too_short_last_name": "名太短",
       "too_short_postcode": "邮编太短",
+      "tur_specific": {
+        "invalid_national_id_value": "请输入有效的土耳其身份证号码"
+      },
       "usa_specific": {
         "invalid_ssn": "请输入有效的SSN",
         "required_ssn": "请输入您的SSN",
         "required_state": "请选择州/省"
       }
     },
+    "national_id_number_title": "添加您的国民身份证号码",
     "personal_information_title": "添加您的个人信息",
     "prompt": {
       "details_timeout": "重新开始",
@@ -698,6 +895,7 @@
   },
   "welcome": {
     "doc_video_subtitle": "这应该会需要几分钟时间",
+    "info_original_document": "为您的原始文件拍照。不允许扫描、屏幕照片或复印件。",
     "list_header_doc_video": "使用您的设备录制：",
     "list_header_webcam": "使用网络相机或手机拍摄：",
     "list_item_doc": "您的身份证件",

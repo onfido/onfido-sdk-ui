@@ -20,6 +20,7 @@
   },
   "avc_face_capture": {
     "alert": {
+      "mic_conflict_title": "Vaš mikrofon uporablja druga aplikacija",
       "timeout_body": "Imate do 15 sekund, da dokončate posnetek",
       "timeout_button_primary": "Poskusite znova",
       "timeout_title": "Žal moramo ponovno začeti snemanje",
@@ -31,8 +32,9 @@
     "title_completed": "Snemanje končano"
   },
   "avc_intro": {
-    "button_primary_ready": "Pripravljen sem",
+    "button_primary_ready": "Začni s snemanjem",
     "disclaimer": "Ne pozabite, da bomo posneli vaš obraz in ozadje",
+    "disclaimer_camera_and_audio_on": "Med tem postopkom bodo posneti vaš obraz, ozadje in zvok",
     "list_item_one": "Najprej postavite obraz v okvir",
     "list_item_two": "Nato glavo počasi obrnite na obe strani",
     "subtitle": "S tem se preveri, ali ste resnična oseba",
@@ -114,6 +116,8 @@
     "footer": {
       "captured": "Fotografija je zajeta",
       "capturing": "Zajemanje fotografije",
+      "manual_fallback_generic_document_back": "",
+      "manual_fallback_generic_document_front": "",
       "manual_fallback_identity_card_back": "Fotografirajte zadnjo stran izkaznice",
       "manual_fallback_identity_card_front": "Fotografirajte sprednjo stran izkaznice",
       "manual_fallback_license_back": "Fotografirajte zadnjo stran vozniškega dovoljenja",
@@ -121,6 +125,8 @@
       "manual_fallback_passport": "Fotografirajte stran potnega lista s fotografijo",
       "manual_fallback_residence_permit_back": "Fotografirajte zadnjo stran dovoljenja za prebivanje",
       "manual_fallback_residence_permit_front": "Fotografirajte sprednjo stran dovoljenja za prebivanje",
+      "position_generic_document_back": "",
+      "position_generic_document_front": "",
       "position_identity_card_back": "Zadnjo stran kartice postavite v okvir",
       "position_identity_card_front": "Sprednjo stran kartice postavite v okvir",
       "position_license_back": "Postavite zadnjo stran vozniškega dovoljenja v okvir",
@@ -163,6 +169,7 @@
     "body_bank_statement": "Prepričajte se, da ste naložili celotno stran dokumenta in da so podrobnosti jasno berljive, brez zamegljenosti ali bleščanja",
     "body_benefits_letter": "Prepričajte se, da ste naložili celotno stran dokumenta in da so podrobnosti jasno berljive, brez zamegljenosti ali bleščanja",
     "body_bill": "Prepričajte se, da ste naložili celotno stran dokumenta in da so podrobnosti jasno berljive, brez zamegljenosti ali bleščanja",
+    "body_generic_document": "",
     "body_id": "Prepričajte se, da so vaši podatki jasni in pregledni",
     "body_image_medium": "Potrditev bo trajala dlje, če je ne bomo mogli prebrati",
     "body_image_poor": "Za nemoteno preverjanje potrebujemo boljšo fotografijo",
@@ -230,6 +237,8 @@
     "title_bank_statement": "Predloži izjavo",
     "title_benefits_letter": "Predloži pismo",
     "title_bill": "Predloži račun",
+    "title_generic_document_back": "",
+    "title_generic_document_front": "",
     "title_government_letter": "Vladno pismo",
     "title_id_back": "Predložitev osebne izkaznice (zadaj)",
     "title_id_front": "Pošlji osebno izkaznico (spredaj)",
@@ -384,6 +393,11 @@
       "title": "Stran potnega lista s fotografijo"
     }
   },
+  "nfc_scan": {
+    "sheet": {
+      "success": "Uspešno skeniranje"
+    }
+  },
   "outro": {
     "body": "To je vse, kar potrebujemo za začetek preverjanja vaše identitete",
     "body_government_letter": "Za najboljše rezultate zagotovite celotno stran dokumenta",
@@ -392,12 +406,16 @@
   "permission": {
     "body_both": "Ne moremo vas preveriti brez uporabe kamere in mikrofona",
     "body_cam": "Brez kamere vas ne moremo preveriti",
+    "body_mic": "Ne moremo vas preveriti brez uporabe mikrofona",
     "button_primary_both": "Omogoči oboje",
     "button_primary_cam": "Omogoči kamero",
+    "button_primary_mic": "Omogoči mikrofon",
     "subtitle_both": "Ko boste pozvani, morate za nadaljevanje omogočiti dostop za oboje",
     "subtitle_cam": "Ko boste pozvani, morate za nadaljevanje omogočiti dostop do kamere",
+    "subtitle_mic": "Ko boste pozvani, morate za nadaljevanje omogočiti dostop do mikrofona",
     "title_both": "Omogočite dostop do kamere in mikrofona",
-    "title_cam": "Dovoli dostop do kamere"
+    "title_cam": "Dovoli dostop do kamere",
+    "title_mic": "Omogočite dostop do mikrofona"
   },
   "permission_recovery": {
     "button_primary": "Osveži",
@@ -407,16 +425,21 @@
     "list_item_action_cam": "Osvežite to stran, da ponovno zaženete postopek preverjanja identitete",
     "list_item_how_to_both": "Omogočite dostop do kamere in mikrofona iz nastavitev brskalnika",
     "list_item_how_to_cam": "Omogočite dostop do kamere iz nastavitev brskalnika",
+    "list_item_how_to_mic": "Dovolite dostop do mikrofona v nastavitvah brskalnika",
     "subtitle_both": "Obnovite dostop do kamere in mikrofona, da posnamete videoposnetek in dokončate postopek preverjanja",
     "subtitle_cam": "Če želite nadaljevati preverjanje, obnovite dostop do kamere",
     "subtitle_cam_old": "Če želite nadaljevati preverjanje obraza, obnovite dostop do kamere",
+    "subtitle_mic": "Ne moremo vas preveriti brez uporabe mikrofona",
     "title_both": "Dostop do kamere in mikrofona zavrnjen",
-    "title_cam": "Dostop do kamere je zavrnjen"
+    "title_cam": "Dostop do kamere je zavrnjen",
+    "title_mic": "Dostop do mikrofona zavrnjen"
   },
   "photo_upload": {
     "body_bank_statement": "Za najboljše rezultate zagotovite celotno stran dokumenta",
     "body_benefits_letter": "Za najboljše rezultate zagotovite celotno stran dokumenta",
     "body_bill": "Za najboljše rezultate zagotovite celotno stran dokumenta",
+    "body_generic_document_back": "",
+    "body_generic_document_front": "",
     "body_id_back": "Naloži zadnjo stran izkaznice iz računalnika",
     "body_id_front": "Prenesi sprednjo stran izkaznice iz računalnika",
     "body_license_back": "Prenesi zadnjo stran dovoljenja iz računalnika",
@@ -470,6 +493,39 @@
       "country_select": {
         "placeholder": "Izberite državo"
       },
+      "id_type_select": {
+        "aus_specific": {
+          "other": "Tuji potni list"
+        },
+        "bra_specific": {
+          "other": "CNPJ",
+          "tax_id": "CPF"
+        },
+        "driving_license": "Vozniško dovoljenje",
+        "esp_specific": {
+          "identity_card": "NIF/DNI"
+        },
+        "gha_specific": {
+          "social_insurance": "SSNIT"
+        },
+        "identity_card": "Osebna izkaznica",
+        "ind_specific": {
+          "tax_id": "Številka osebnega računa (PAN)"
+        },
+        "ken_specific": {
+          "other": "Kartica tujca"
+        },
+        "nga_specific": {
+          "identity_card": "Nacionalna identifikacijska številka (NIN)",
+          "other": "BVN",
+          "tax_id": "TIN"
+        },
+        "other": "NIE",
+        "passport": "Potni list",
+        "placeholder": "Izberite vrsto nacionalne izkaznice",
+        "tax_id": "Davčna številka",
+        "voter_id": "ID volilca"
+      },
       "nationality_select": {
         "placeholder": "Izberite državo"
       },
@@ -485,27 +541,71 @@
     },
     "country_of_residence_title": "Država prebivališča",
     "field_labels": {
+      "arg_specific": {
+        "national_id_value": "DNI številka"
+      },
+      "can_specific": {
+        "national_id_value": "Številka socialnega zavarovanja (SIN)"
+      },
+      "chl_specific": {
+        "national_id_value": "RUT / RUN številke"
+      },
+      "chn_specific": {
+        "national_id_value": "Številka rezidenta Osebna izkaznica"
+      },
+      "col_specific": {
+        "national_id_value": "Kolumbijska osebna identifikacijska številka"
+      },
       "country": "Država",
       "country_residence": "Država",
       "dob": "Datum rojstva",
       "email": "E-poštni naslov",
+      "fin_specific": {
+        "national_id_value": "Osebna identifikacijska koda"
+      },
       "first_name": "Ime",
       "gbr_specific": {
         "postcode": "Poštna številka",
         "town": "Mesto/kraj"
       },
+      "hkg_specific": {
+        "national_id_value": "HKID"
+      },
       "ind_specific": {
         "pan": "Številka stalnega računa (PAN)"
+      },
+      "ita_specific": {
+        "national_id_value": "Fiskalna koda"
+      },
+      "jpn_specific": {
+        "national_id_value": "\"Moja številka\" / šifra prebivališča"
       },
       "last_name": "Priimek",
       "line1": "Naslovna vrstica 1",
       "line2": "Naslov vrstica 2",
       "line3": "Naslovna vrstica 3",
+      "lux_specific": {
+        "national_id_value": "Številka socialnega zavarovanja"
+      },
       "mobile_number": "Številka mobilnega telefona",
+      "national_id_type": "Vrsta nacionalne izkaznice",
+      "national_id_value": "Nacionalna identifikacijska številka",
       "nationality": "Državljanstvo",
+      "phl_specific": {
+        "national_id_value": "Številka kartice PhilSys (PCN)"
+      },
       "phone_number": "Telefonska številka",
+      "pol_specific": {
+        "national_id_value": "številka PESEL"
+      },
       "postcode": "Poštna številka",
+      "prt_specific": {
+        "national_id_value": "Davčna številka"
+      },
       "town": "Kraj",
+      "tur_specific": {
+        "national_id_value": "Turška identifikacijska številka"
+      },
       "usa_specific": {
         "line1_helper_text": "Naslov ulice, na primer: 200 Albert Street",
         "line2_helper_text": "Stanovanje, apartma, enota itd.",
@@ -516,11 +616,48 @@
     },
     "field_optional": "(neobvezno)",
     "field_validation": {
+      "arg_specific": {
+        "invalid_national_id_value": "Vnesite veljaven DNI"
+      },
+      "bra_specific": {
+        "invalid_other": "Vnesite veljavno CNPJ",
+        "invalid_tax_id": "Vnesite veljavno CPF"
+      },
+      "can_specific": {
+        "invalid_national_id_value": "Vnesite veljavno SIN"
+      },
+      "chl_specific": {
+        "invalid_national_id_value": "Vnesite veljavne številke RUT/RUN",
+        "required_national_id_value": "Vnesite svoje številke RUT / RUN"
+      },
+      "chn_specific": {
+        "invalid_national_id_value": "Vnesite veljavno številko osebne izkaznice rezidenta"
+      },
+      "col_specific": {
+        "invalid_national_id_value": "Vnesite veljavno kolumbijsko osebno identifikacijsko številko",
+        "required_national_id_value": "Vnesite svojo kolumbijsko osebno identifikacijsko številko"
+      },
+      "esp_specific": {
+        "invalid_identity_card": "Vnesite veljavno NIF/DNI",
+        "invalid_other": "Vnesite veljavno NIE"
+      },
+      "fin_specific": {
+        "invalid_national_id_value": "Vnesite veljavno osebno identifikacijsko kodo",
+        "required_national_id_value": "Prosimo, vnesite svojo osebno identifikacijsko kodo"
+      },
       "gbr_specific": {
         "invalid_postcode": "Vnesite veljavno poštno številko",
         "required_postcode": "Vnesite poštno številko",
         "too_long_postcode": "Poštna številka je predolga",
         "too_short_postcode": "Poštna številka je prekratka"
+      },
+      "gha_specific": {
+        "invalid_social_insurance": "Vnesite veljaven SSNIT",
+        "required_social_insurance": "Vnesite svoj SSNIT"
+      },
+      "hkg_specific": {
+        "invalid_national_id_value": "Vnesite veljaven HKID",
+        "required_national_id_value": "Vnesite svoj HKID"
       },
       "ind_specific": {
         "invalid_pan": "Vnesite veljavni PAN",
@@ -528,9 +665,59 @@
       },
       "invalid": "Preverite neveljavne znake ali simbole",
       "invalid_dob": "Vnesite veljaven datum rojstva",
+      "invalid_driving_license": "Vnesite veljavno številko vozniškega dovoljenja",
       "invalid_email": "Vnesite veljaven e-poštni naslov",
       "invalid_mobile_number": "Vnesite veljavno številko mobilnega telefona",
+      "invalid_national_id_value": "Vnesite veljavno nacionalno identifikacijsko številko",
+      "invalid_passport": "Vnesite veljavno številko potnega lista",
       "invalid_phone_number": "Vnesite veljavno telefonsko številko",
+      "invalid_voter_id": "Prosimo, vnesite veljavno identifikacijsko številko volivca",
+      "ita_specific": {
+        "invalid_national_id_value": "Vnesite veljavno davčno številko"
+      },
+      "jpn_specific": {
+        "invalid_national_id_value": "Prosimo, vnesite veljavno \"mojo številko\"/rezidentsko kodo",
+        "required_national_id_value": ""
+      },
+      "ken_specific": {
+        "invalid_other": "Vnesite veljavno številko kartice tujca",
+        "required_other": "Prosimo, vnesite številko kartice za tujce"
+      },
+      "lux_specific": {
+        "invalid_national_id_value": "Vnesite veljavno številko socialnega zavarovanja",
+        "required_national_id_value": "Vnesite svojo številko socialnega zavarovanja"
+      },
+      "mex_specific": {
+        "invalid_identity_card": "Vnesite veljavno CURP",
+        "invalid_tax_id": "Vnesite veljavno RFC"
+      },
+      "mys_specific": {
+        "invalid_national_id_value": "Vnesite veljavno NRIC",
+        "required_national_id_value": "Prosimo, vnesite svoj NŽIC"
+      },
+      "nga_specific": {
+        "invalid_identity_card": "Vnesite veljavno nacionalno identifikacijsko številko (NIN)",
+        "invalid_other": "Vnesite veljaven BVN",
+        "invalid_tax_id": "Vnesite veljavno TIN",
+        "required_identity_card": "Vnesite svojo nacionalno identifikacijsko številko (NIN)",
+        "required_other": "Vnesite svoj BVN",
+        "required_tax_id": "Vnesite svojo TIN"
+      },
+      "phl_specific": {
+        "invalid_national_id_value": "Vnesite veljavno številko kartice PhilSys (PCN)",
+        "required_national_id_value": "Vnesite številko vaše kartice PhilSys (PCN)"
+      },
+      "pol_specific": {
+        "invalid_national_id_value": "Vnesite veljavno številko PESEL",
+        "required_national_id_value": "Vnesite svojo številko PESEL"
+      },
+      "prt_specific": {
+        "invalid_national_id_value": "Vnesite veljavno davčno številko",
+        "required_national_id_value": "Vnesite svojo davčno številko"
+      },
+      "reference": {
+        "translation": "Vnesite veljavno"
+      },
       "required_consent": "Strinjajte se, da boste odobrili preverjanje identitete in goljufij",
       "required_country": "Izberite državo",
       "required_country_residence": "Izberite državo",
@@ -543,6 +730,12 @@
       "required_nationality": "Izberite državo",
       "required_phone_number": "Vnesite telefonsko številko",
       "required_postcode": "Vnesite poštno številko",
+      "sgp_specific": {
+        "invalid_national_id_value": "Vnesite veljavno NRIC"
+      },
+      "swe_specific": {
+        "invalid_national_id_value": "Vnesite veljavno PIN"
+      },
       "too_long_first_name": "Vaše ime je predolgo",
       "too_long_last_name": "Vaš priimek je predolg",
       "too_long_line1": "Vrstica naslova je predolga",
@@ -551,12 +744,16 @@
       "too_short_first_name": "Vaše ime je prekratko",
       "too_short_last_name": "Vaš priimek je prekratek",
       "too_short_postcode": "Poštna številka je prekratka",
+      "tur_specific": {
+        "invalid_national_id_value": "Vnesite veljavno turško osebno številko"
+      },
       "usa_specific": {
         "invalid_ssn": "Vnesite veljavni SSN",
         "required_ssn": "Vnesite svoj SSN",
         "required_state": "Izberite zvezno državo"
       }
     },
+    "national_id_number_title": "Dodajte svojo nacionalno identifikacijsko številko",
     "personal_information_title": "Dodajte svoje osebne podatke",
     "prompt": {
       "details_timeout": "Začnite ponovno",
@@ -698,6 +895,7 @@
   },
   "welcome": {
     "doc_video_subtitle": "Trajalo bo nekaj minut",
+    "info_original_document": "Fotografirajte izvirni dokument. Skeni, fotografije zaslonov ali fotokopije niso dovoljene.",
     "list_header_doc_video": "Uporabite napravo za snemanje:",
     "list_header_webcam": "S spletno kamero ali telefonom fotografirajte:",
     "list_item_doc": "vaš osebni dokument",

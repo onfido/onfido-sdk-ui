@@ -20,6 +20,7 @@
   },
   "avc_face_capture": {
     "alert": {
+      "mic_conflict_title": "マイクが別のアプリで使用されています",
       "timeout_body": "15秒以内に録画を完了してください",
       "timeout_button_primary": "再試行",
       "timeout_title": "申し訳ありませんが、録画を再開する必要があります",
@@ -31,8 +32,9 @@
     "title_completed": "記録が完了しました"
   },
   "avc_intro": {
-    "button_primary_ready": "準備ができました",
+    "button_primary_ready": "録画を開始する",
     "disclaimer": "顔と背景を録画することにご留意ください",
+    "disclaimer_camera_and_audio_on": "この際、お客様の顔、背景、音声が記録されます",
     "list_item_one": "まず、顔を枠内に配置します",
     "list_item_two": "そして、頭をゆっくりと両側に向けます",
     "subtitle": "これは、お客様が実際の人物であることを確認するために行います",
@@ -114,6 +116,8 @@
     "footer": {
       "captured": "写真がキャプチャされました",
       "capturing": "写真をキャプチャしています",
+      "manual_fallback_generic_document_back": "",
+      "manual_fallback_generic_document_front": "",
       "manual_fallback_identity_card_back": "カードの裏面を写真撮影してください",
       "manual_fallback_identity_card_front": "カードの表側を写真撮影してください",
       "manual_fallback_license_back": "運転免許証の裏面の写真を撮影してください",
@@ -121,6 +125,8 @@
       "manual_fallback_passport": "パスポートの写真ページを写真撮影してください",
       "manual_fallback_residence_permit_back": "居住許可証の裏面の写真を撮影してください",
       "manual_fallback_residence_permit_front": "居住許可証の表側の写真を撮影してください",
+      "position_generic_document_back": "",
+      "position_generic_document_front": "",
       "position_identity_card_back": "カードの背面を枠内に配置する",
       "position_identity_card_front": "カードの前面を枠内に配置する",
       "position_license_back": "運転免許証の裏面をフレームに配置する",
@@ -163,6 +169,7 @@
     "body_bank_statement": "ドキュメントページ全体をアップロードしており、ぼかしや照り返しがなく、詳細がはっきりしていることを確認してください",
     "body_benefits_letter": "ドキュメントページ全体をアップロードしており、ぼかしや照り返しがなく、詳細がはっきりしていることを確認してください",
     "body_bill": "ドキュメントページ全体をアップロードしており、ぼかしや照り返しがなく、詳細がはっきりしていることを確認してください",
+    "body_generic_document": "",
     "body_id": "詳細が明確で遮られていないことを確認してください",
     "body_image_medium": "確認できない場合、認証に時間がかかります",
     "body_image_poor": "ご本人確認をスムーズに行うには、より良い写真が必要です",
@@ -230,6 +237,8 @@
     "title_bank_statement": "明細書を送信",
     "title_benefits_letter": "手紙を送信",
     "title_bill": "請求書を送信",
+    "title_generic_document_back": "",
+    "title_generic_document_front": "",
     "title_government_letter": "政府発行の手紙",
     "title_id_back": "身分証明書を提出する（裏面）",
     "title_id_front": "身分証明書を提出する（表）",
@@ -384,6 +393,11 @@
       "title": "パスポート写真ページ"
     }
   },
+  "nfc_scan": {
+    "sheet": {
+      "success": "スキャンに成功"
+    }
+  },
   "outro": {
     "body": "本人確認を開始するために必要なお手続きは以上です",
     "body_government_letter": "最高の結果が得られるよう、ドキュメントページの全体を写してください",
@@ -392,12 +406,16 @@
   "permission": {
     "body_both": "カメラとマイクの両方を使用しないと認証できません",
     "body_cam": "カメラなしでは認証できません",
+    "body_mic": "マイクを使用しないと確認できません",
     "button_primary_both": "両方を有効にする",
     "button_primary_cam": "カメラを有効にする",
+    "button_primary_mic": "マイクを有効にする",
     "subtitle_both": "プロンプトが表示されたら、続行するため両方へのアクセスを有効にしてください",
     "subtitle_cam": "プロンプトが表示されたら、カメラへのアクセスを有効にして続行してください",
+    "subtitle_mic": "プロンプトが表示されたら、マイクへのアクセスを有効にして続行してください",
     "title_both": "カメラとマイクへのアクセスを許可する",
-    "title_cam": "カメラへのアクセスを許可"
+    "title_cam": "カメラへのアクセスを許可",
+    "title_mic": "マイクへのアクセスを許可する"
   },
   "permission_recovery": {
     "button_primary": "更新",
@@ -407,16 +425,21 @@
     "list_item_action_cam": "このページを更新して、本人確認プロセスを再開してください",
     "list_item_how_to_both": "ブラウザの設定からカメラとマイクへのアクセスを許可する",
     "list_item_how_to_cam": "ブラウザの設定からカメラへのアクセスを許可する",
+    "list_item_how_to_mic": "ブラウザの設定からマイクへのアクセスを許可する",
     "subtitle_both": "カメラとマイクへのアクセスを回復して動画を撮影し、認証プロセスを完了します",
     "subtitle_cam": "カメラへのアクセスを回復して認証を続行する",
     "subtitle_cam_old": "カメラへのアクセスを回復して顔認証を続行する",
+    "subtitle_mic": "マイクを使用しないと確認できません",
     "title_both": "カメラとマイクへのアクセスが拒否されました",
-    "title_cam": "カメラへのアクセスが拒否されました"
+    "title_cam": "カメラへのアクセスが拒否されました",
+    "title_mic": "マイクへのアクセスが拒否されました"
   },
   "photo_upload": {
     "body_bank_statement": "最高の結果が得られるよう、ドキュメントページの全体を写してください",
     "body_benefits_letter": "最高の結果が得られるよう、ドキュメントページの全体を写してください",
     "body_bill": "最高の結果が得られるよう、ドキュメントページの全体を写してください",
+    "body_generic_document_back": "",
+    "body_generic_document_front": "",
     "body_id_back": "パソコンからカードの裏面をアップロードする",
     "body_id_front": "パソコンから免許証の前面をアップロードする",
     "body_license_back": "パソコンから免許証の裏面をアップロードする",
@@ -470,6 +493,39 @@
       "country_select": {
         "placeholder": "国を選択"
       },
+      "id_type_select": {
+        "aus_specific": {
+          "other": "外国のパスポート"
+        },
+        "bra_specific": {
+          "other": "CNPJ",
+          "tax_id": "CPF"
+        },
+        "driving_license": "運転免許証",
+        "esp_specific": {
+          "identity_card": "NIF/DNI"
+        },
+        "gha_specific": {
+          "social_insurance": "SSNIT"
+        },
+        "identity_card": "身分証明書",
+        "ind_specific": {
+          "tax_id": "個人口座番号 (PAN)"
+        },
+        "ken_specific": {
+          "other": "エイリアンカード"
+        },
+        "nga_specific": {
+          "identity_card": "国民識別番号 (NIN)",
+          "other": "BVN",
+          "tax_id": "TIN"
+        },
+        "other": "NIE",
+        "passport": "パスポート",
+        "placeholder": "国民 ID の種類を選択してください",
+        "tax_id": "納税者番号",
+        "voter_id": "投票者ID"
+      },
       "nationality_select": {
         "placeholder": "国を選択"
       },
@@ -485,27 +541,71 @@
     },
     "country_of_residence_title": "居住国",
     "field_labels": {
+      "arg_specific": {
+        "national_id_value": "DNI番号"
+      },
+      "can_specific": {
+        "national_id_value": "社会保険番号 (SIN)"
+      },
+      "chl_specific": {
+        "national_id_value": "RUT / RUN番号"
+      },
+      "chn_specific": {
+        "national_id_value": "居住者身分証明書番号"
+      },
+      "col_specific": {
+        "national_id_value": "コロンビア個人識別番号"
+      },
       "country": "国",
       "country_residence": "国",
       "dob": "生年月日",
       "email": "メールアドレス",
+      "fin_specific": {
+        "national_id_value": "個人識別コード"
+      },
       "first_name": "名",
       "gbr_specific": {
         "postcode": "郵便番号",
         "town": "都市名"
       },
+      "hkg_specific": {
+        "national_id_value": "HKID"
+      },
       "ind_specific": {
         "pan": "インドの納税者番号（PAN）"
+      },
+      "ita_specific": {
+        "national_id_value": "会計コード"
+      },
+      "jpn_specific": {
+        "national_id_value": "「マイナンバー」・住民票コード"
       },
       "last_name": "姓",
       "line1": "住所1",
       "line2": "住所2",
       "line3": "住所3",
+      "lux_specific": {
+        "national_id_value": "社会保障番号"
+      },
       "mobile_number": "携帯電話番号",
+      "national_id_type": "国民 ID の種類",
+      "national_id_value": "国民識別番号",
       "nationality": "国籍",
+      "phl_specific": {
+        "national_id_value": "PhilSys カード番号 (PCN)"
+      },
       "phone_number": "電話番号",
+      "pol_specific": {
+        "national_id_value": "PESEL番号"
+      },
       "postcode": "郵便番号",
+      "prt_specific": {
+        "national_id_value": "税番号"
+      },
       "town": "町",
+      "tur_specific": {
+        "national_id_value": "トルコ識別番号"
+      },
       "usa_specific": {
         "line1_helper_text": "番地（例：田中町1丁目33番地）",
         "line2_helper_text": "建物名、部屋番号など",
@@ -516,11 +616,48 @@
     },
     "field_optional": "（オプション）",
     "field_validation": {
+      "arg_specific": {
+        "invalid_national_id_value": "有効な DNI を入力してください"
+      },
+      "bra_specific": {
+        "invalid_other": "正しく入力してください CNPJ",
+        "invalid_tax_id": "正しく入力してください CPF"
+      },
+      "can_specific": {
+        "invalid_national_id_value": "正しく入力してください SIN"
+      },
+      "chl_specific": {
+        "invalid_national_id_value": "有効な RUT / RUN 番号を入力してください",
+        "required_national_id_value": "RUT / RUN番号を入力してください"
+      },
+      "chn_specific": {
+        "invalid_national_id_value": "有効な住民票番号を入力してください"
+      },
+      "col_specific": {
+        "invalid_national_id_value": "コロンビアの有効な個人識別番号を入力してください",
+        "required_national_id_value": "コロンビアの個人識別番号を入力してください"
+      },
+      "esp_specific": {
+        "invalid_identity_card": "正しく入力してください NIF/DNI",
+        "invalid_other": "正しく入力してください NIE"
+      },
+      "fin_specific": {
+        "invalid_national_id_value": "有効な個人識別コードを入力してください",
+        "required_national_id_value": "個人識別コードを入力してください"
+      },
       "gbr_specific": {
         "invalid_postcode": "有効な郵便番号を入力してください",
         "required_postcode": "郵便番号を入力してください",
         "too_long_postcode": "郵便番号が長すぎます",
         "too_short_postcode": "郵便番号が短すぎます"
+      },
+      "gha_specific": {
+        "invalid_social_insurance": "有効な SSNIT を入力してください",
+        "required_social_insurance": "SSNIT を入力してください"
+      },
+      "hkg_specific": {
+        "invalid_national_id_value": "有効な HKID を入力してください",
+        "required_national_id_value": "HKIDを入力してください"
       },
       "ind_specific": {
         "invalid_pan": "有効なインドの納税者番号（PAN）を入力してください",
@@ -528,9 +665,59 @@
       },
       "invalid": "無効な文字または記号を確認してください",
       "invalid_dob": "有効な生年月日を入力してください",
+      "invalid_driving_license": "有効な運転免許証番号を入力してください",
       "invalid_email": "有効なメールアドレスを入力して下さい",
       "invalid_mobile_number": "有効な携帯電話番号を入力してください",
+      "invalid_national_id_value": "有効な国民 ID 番号を入力してください",
+      "invalid_passport": "有効なパスポート番号を入力してください",
       "invalid_phone_number": "有効な電話番号を入力してください",
+      "invalid_voter_id": "有効な有権者 ID 番号を入力してください",
+      "ita_specific": {
+        "invalid_national_id_value": "有効な会計コードを入力してください"
+      },
+      "jpn_specific": {
+        "invalid_national_id_value": "有効な「マイナンバー」・住民票コードを入力してください",
+        "required_national_id_value": ""
+      },
+      "ken_specific": {
+        "invalid_other": "有効な外国人カード番号を入力してください",
+        "required_other": "外国人カード番号を入力してください"
+      },
+      "lux_specific": {
+        "invalid_national_id_value": "有効な社会保障番号を入力してください",
+        "required_national_id_value": "社会保障番号を入力してください"
+      },
+      "mex_specific": {
+        "invalid_identity_card": "正しく入力してください CURP",
+        "invalid_tax_id": "正しく入力してください RFC"
+      },
+      "mys_specific": {
+        "invalid_national_id_value": "有効な NRIC を入力してください",
+        "required_national_id_value": "NRICを入力してください"
+      },
+      "nga_specific": {
+        "invalid_identity_card": "有効な国民識別番号 (NIN) を入力してください",
+        "invalid_other": "有効な BVN を入力してください",
+        "invalid_tax_id": "有効な TIN を入力してください",
+        "required_identity_card": "国民識別番号 (NIN) を入力してください",
+        "required_other": "BVNを入力してください",
+        "required_tax_id": "TIN を入力してください"
+      },
+      "phl_specific": {
+        "invalid_national_id_value": "有効な PhilSys カード番号 (PCN) を入力してください",
+        "required_national_id_value": "PhilSys カード番号 (PCN) を入力してください"
+      },
+      "pol_specific": {
+        "invalid_national_id_value": "有効な PESEL 番号を入力してください",
+        "required_national_id_value": "PESEL番号を入力してください"
+      },
+      "prt_specific": {
+        "invalid_national_id_value": "有効な納税者番号を入力してください",
+        "required_national_id_value": "納税者番号を入力してください"
+      },
+      "reference": {
+        "translation": "正しく入力してください"
+      },
       "required_consent": "本人確認と詐欺チェックの認証に同意してください",
       "required_country": "国を選択してください",
       "required_country_residence": "国を選択してください",
@@ -543,6 +730,12 @@
       "required_nationality": "国を選択してください",
       "required_phone_number": "電話番号を入力してください",
       "required_postcode": "郵便番号を入力してください",
+      "sgp_specific": {
+        "invalid_national_id_value": "正しく入力してください NRIC"
+      },
+      "swe_specific": {
+        "invalid_national_id_value": "正しく入力してください PIN"
+      },
       "too_long_first_name": "名が長すぎます",
       "too_long_last_name": "名前が長すぎます",
       "too_long_line1": "住所が長すぎます",
@@ -551,12 +744,16 @@
       "too_short_first_name": "名が短すぎます",
       "too_short_last_name": "姓が短すぎます",
       "too_short_postcode": "郵便番号が短すぎます",
+      "tur_specific": {
+        "invalid_national_id_value": "有効なトルコの ID 番号を入力してください"
+      },
       "usa_specific": {
         "invalid_ssn": "有効なSSNを入力してください",
         "required_ssn": "SSNを入力してください",
         "required_state": "州・都道府県を選択してください"
       }
     },
+    "national_id_number_title": "国民 ID 番号を追加",
     "personal_information_title": "お客様情報の追加",
     "prompt": {
       "details_timeout": "やり直す",
@@ -698,6 +895,7 @@
   },
   "welcome": {
     "doc_video_subtitle": "数分かかります",
+    "info_original_document": "書類の原本を写真で撮影してください。スキャン、画面写真、コピーなどは不可。",
     "list_header_doc_video": "デバイスを使用して以下を記録してください。",
     "list_header_webcam": "ウェブカメラまたはスマートフォンを使用して写真を撮影してください。",
     "list_item_doc": "本人確認書類",

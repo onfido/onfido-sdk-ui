@@ -107,6 +107,7 @@
   },
   "avc_face_capture": {
     "alert": {
+      "mic_conflict_title": "Ihr Mikrofon wird von einer anderen App genutzt",
       "timeout_body": "Sie haben maximal 15 Sekunden Zeit, um die Aufnahme zu beenden",
       "timeout_button_primary": "Wiederholen",
       "timeout_title": "Leider muss die Aufnahme neu gestartet werden",
@@ -118,8 +119,9 @@
     "title_completed": "Aufnahme abgeschlossen"
   },
   "avc_intro": {
-    "button_primary_ready": "Ich bin fertig",
+    "button_primary_ready": "Aufnahme starten",
     "disclaimer": "Bitte beachten Sie, dass Ihr Gesicht und Ihr Hintergrund aufgenommen wird",
+    "disclaimer_camera_and_audio_on": "Ihr Gesicht, Ihr Hintergrund und Ihr Ton werden während dieses Vorgangs aufgezeichnet.",
     "list_item_one": "Positionieren Sie Ihr Gesicht zunächst im Rahmen",
     "list_item_two": "Drehen Sie Ihren Kopf dann langsam nach beiden Seiten",
     "subtitle": "Damit verifizieren wir, dass es sich bei Ihnen um eine reale Person handelt",
@@ -200,7 +202,9 @@
     "button_accessibility": "Ein Foto aufnehmen",
     "footer": {
       "captured": "Foto aufgenommen",
-      "capturing": "nehme Foto auf",
+      "capturing": "Foto aufnehmen",
+      "manual_fallback_generic_document_back": "",
+      "manual_fallback_generic_document_front": "",
       "manual_fallback_identity_card_back": "Machen Sie ein Foto von der Rückseite ihres Personalausweises",
       "manual_fallback_identity_card_front": "Machen Sie ein Foto von der Vorderseite ihres Personalausweises",
       "manual_fallback_license_back": "Machen Sie ein Foto von der Rückseite ihres Führerscheins",
@@ -208,6 +212,8 @@
       "manual_fallback_passport": "Machen Sie ein Foto von der Lichtbild-Seite ihres Passes",
       "manual_fallback_residence_permit_back": "Machen Sie ein Foto von der Rückseite ihrer Aufenthaltsgenehmigung",
       "manual_fallback_residence_permit_front": "Machen Sie ein Foto von der Vorderseite ihrer Aufenthaltserlaubnis",
+      "position_generic_document_back": "",
+      "position_generic_document_front": "",
       "position_identity_card_back": "Positionieren Sie die Rückseite ihres Personalausweises innerhalb des Rahmens",
       "position_identity_card_front": "Positionieren Sie die Vorderseite ihres Personalausweises innerhalb des Rahmens",
       "position_license_back": "Positionieren Sie die Rückseite ihres Führerscheins innerhalb des Rahmens",
@@ -250,6 +256,7 @@
     "body_bank_statement": "Überprüfen Sie, dass Sie die gesamte Dokumentseite hochgeladen haben, und dass man die Details ohne Unschärfen und blendfrei lesen kann",
     "body_benefits_letter": "Überprüfen Sie, dass Sie die gesamte Dokumentseite hochgeladen haben, und dass man die Details ohne Unschärfen und blendfrei lesen kann",
     "body_bill": "Überprüfen Sie, dass Sie die gesamte Dokumentseite hochgeladen haben, und dass man die Details ohne Unschärfen und blendfrei lesen kann",
+    "body_generic_document": "",
     "body_id": "Die Reisepass-Details müssen deutlich lesbar sein, ohne Unschärfe oder Spiegelung",
     "body_image_medium": "Es wird länger dauern, Sie zu verifizieren, wenn wir es nicht lesen können",
     "body_image_poor": "Um Sie reibungslos zu verifizieren, benötigen wir ein besseres Foto",
@@ -317,6 +324,8 @@
     "title_bank_statement": "Auszug senden",
     "title_benefits_letter": "Schreiben einreichen",
     "title_bill": "Rechnung senden",
+    "title_generic_document_back": "",
+    "title_generic_document_front": "",
     "title_government_letter": "Staatliches Schreiben",
     "title_id_back": "Personalausweis einreichen (Rückseite)",
     "title_id_front": "Personalausweis einreichen (Vorderseite)",
@@ -471,6 +480,11 @@
       "title": "Reisepass Foto-Seite"
     }
   },
+  "nfc_scan": {
+    "sheet": {
+      "success": "Scannen erfolgreich"
+    }
+  },
   "outro": {
     "body": "Das ist alles, was wir benötigen, um mit Ihrer Identitätsprüfung zu beginnen",
     "body_government_letter": "Für das beste Ergebnis die gesamte Dokumentseite abbilden",
@@ -479,12 +493,16 @@
   "permission": {
     "body_both": "Wir können Sie nicht verifizieren, ohne auf Ihr Mikrofon und Ihre Kamera zuzugreifen",
     "body_cam": "Wir können Sie nicht verifizieren, ohne Ihre Kamera zu benutzen",
+    "body_mic": "Wir können Sie nicht verifizieren, ohne auf Ihr Mikrofon zuzugreifen",
     "button_primary_both": "Beides aktivieren",
     "button_primary_cam": "Kamera aktivieren",
+    "button_primary_mic": "Mikrofon aktivieren",
     "subtitle_both": "Wenn Sie dazu aufgefordert werden, müssen Sie den Zugriff auf beide Komponenten aktivieren, um fortzufahren",
     "subtitle_cam": "Wenn Sie dazu aufgefordert werden, müssen Sie den Kamerazugriff aktivieren, um fortzufahren",
+    "subtitle_mic": "Wenn Sie dazu aufgefordert werden, müssen Sie den Zugriff auf Ihr Mikrofon aktivieren, um fortzufahren",
     "title_both": "Zugriff auf Kamera und Mikrofon erlauben",
-    "title_cam": "Zugriff auf Kamera erlauben"
+    "title_cam": "Zugriff auf Kamera erlauben",
+    "title_mic": "Zugriff auf Mikrofon erlauben"
   },
   "permission_recovery": {
     "button_primary": "Aktualisieren",
@@ -494,16 +512,21 @@
     "list_item_action_cam": "Aktualisieren Sie diese Seite, um den Identitätsüberprüfungsprozess neu zu starten",
     "list_item_how_to_both": "Gewähren Sie den Zugriff auf Ihre Kamera und Ihr Mikrofon über Ihre Browsereinstellungen",
     "list_item_how_to_cam": "Gewähren Sie den Zugriff auf Ihre Kamera über Ihre Browsereinstellungen",
+    "list_item_how_to_mic": "Geben Sie den Zugriff auf Ihr Mikrofon in Ihren Browsereinstellungen frei",
     "subtitle_both": "Stellen Sie den Zugriff auf Kamera und Mikrofon wieder her, um ein Video aufzunehmen und den Überprüfungsprozess abzuschließen",
     "subtitle_cam": "Kamerazugriff wiederherstellen, um Verifizierung fortzusetzen",
     "subtitle_cam_old": "Kamerazugriff wiederherstellen, um Gesichtsverifizierung fortzusetzen",
+    "subtitle_mic": "Wir können Sie nicht ohne Ihr Mikrofon überprüfen",
     "title_both": "Kamera- und Mikrofonzugriff verweigert",
-    "title_cam": "Kamerazugriff wird verweigert"
+    "title_cam": "Kamerazugriff wird verweigert",
+    "title_mic": "Mikrofonzugriff verweigert"
   },
   "photo_upload": {
     "body_bank_statement": "Für das beste Ergebnis die gesamte Dokumentseite abbilden",
     "body_benefits_letter": "Für das beste Ergebnis die gesamte Dokumentseite abbilden",
     "body_bill": "Für das beste Ergebnis die gesamte Dokumentseite abbilden",
+    "body_generic_document_back": "",
+    "body_generic_document_front": "",
     "body_id_back": "Kartenrückseite von Ihrem Computer hochladen",
     "body_id_front": "Kartenvorderseite von Ihrem Computer hochladen",
     "body_license_back": "Rückseite des Führerscheins von Ihrem Computer hochladen",
@@ -557,6 +580,39 @@
       "country_select": {
         "placeholder": "Wählen Sie ein Land aus"
       },
+      "id_type_select": {
+        "aus_specific": {
+          "other": "Ausländischer Pass"
+        },
+        "bra_specific": {
+          "other": "CNPJ",
+          "tax_id": "CPF"
+        },
+        "driving_license": "Führerschein",
+        "esp_specific": {
+          "identity_card": "NIF/DNI"
+        },
+        "gha_specific": {
+          "social_insurance": "SSNIT"
+        },
+        "identity_card": "Nationaler Personalausweis",
+        "ind_specific": {
+          "tax_id": "Persönliche Kontonummer (PAN)"
+        },
+        "ken_specific": {
+          "other": "Alien-Karte"
+        },
+        "nga_specific": {
+          "identity_card": "Nationale Identifikationsnummer (NIN)",
+          "other": "BVN",
+          "tax_id": "TIN"
+        },
+        "other": "NIE",
+        "passport": "Reisepass",
+        "placeholder": "Wählen Sie einen nationalen ID-Typ aus",
+        "tax_id": "Steuer ID",
+        "voter_id": "Wähler-ID"
+      },
       "nationality_select": {
         "placeholder": "Wählen Sie ein Land aus"
       },
@@ -572,27 +628,71 @@
     },
     "country_of_residence_title": "Ihr Wohnsitzland",
     "field_labels": {
+      "arg_specific": {
+        "national_id_value": "DNI-Nummer"
+      },
+      "can_specific": {
+        "national_id_value": "Sozialversicherungsnummer (SIN)"
+      },
+      "chl_specific": {
+        "national_id_value": "RUT / RUN-Nummern"
+      },
+      "chn_specific": {
+        "national_id_value": "Einwohnernummer Nationaler Personalausweis"
+      },
+      "col_specific": {
+        "national_id_value": "Kolumbianische persönliche Identifikationsnummer"
+      },
       "country": "Land",
       "country_residence": "Land",
       "dob": "Geburtsdatum",
       "email": "E-Mail-Adresse",
+      "fin_specific": {
+        "national_id_value": "Persönlicher Identitätscode"
+      },
       "first_name": "Vorname",
       "gbr_specific": {
         "postcode": "Postleitzahl",
         "town": "Stadt"
       },
+      "hkg_specific": {
+        "national_id_value": "HKID"
+      },
       "ind_specific": {
         "pan": "Permanente Account-Nummer (PAN)"
+      },
+      "ita_specific": {
+        "national_id_value": "Abgabenordnung"
+      },
+      "jpn_specific": {
+        "national_id_value": "\"Meine Nummer\" / Resident Record Code"
       },
       "last_name": "Nachname",
       "line1": "Adresszeile 1",
       "line2": "Adresszeile 2",
       "line3": "Adresszeile 3",
+      "lux_specific": {
+        "national_id_value": "Sozialversicherungsnummer"
+      },
       "mobile_number": "Mobiltelefonnummer",
+      "national_id_type": "Nationaler ID-Typ",
+      "national_id_value": "Nationale ID-Nummer",
       "nationality": "Nationalität",
+      "phl_specific": {
+        "national_id_value": "PhilSys-Kartennummer (PCN)"
+      },
       "phone_number": "Telefonnummer",
+      "pol_specific": {
+        "national_id_value": "PESEL-Nummer"
+      },
       "postcode": "Postleitzahl",
+      "prt_specific": {
+        "national_id_value": "Steuernummer"
+      },
       "town": "Stadt",
+      "tur_specific": {
+        "national_id_value": "Türkische Identifikationsnummer"
+      },
       "usa_specific": {
         "line1_helper_text": "Straßenname, zum Beispiel: Abertstraße 200",
         "line2_helper_text": "Wohnung, Suite, Einheit, etc.",
@@ -603,11 +703,48 @@
     },
     "field_optional": "(optional)",
     "field_validation": {
+      "arg_specific": {
+        "invalid_national_id_value": "Bitte geben Sie eine gültige DNI ein"
+      },
+      "bra_specific": {
+        "invalid_other": "Bitte geben Sie eine gültige ein CNPJ",
+        "invalid_tax_id": "Bitte geben Sie eine gültige ein CPF"
+      },
+      "can_specific": {
+        "invalid_national_id_value": "Bitte geben Sie eine gültige ein SIN"
+      },
+      "chl_specific": {
+        "invalid_national_id_value": "Bitte geben Sie eine gültige RUT/RUN-Nummer ein",
+        "required_national_id_value": "Bitte geben Sie Ihre RUT / RUN-Nummern ein"
+      },
+      "chn_specific": {
+        "invalid_national_id_value": "Bitte geben Sie eine gültige Einwohnerausweisnummer ein"
+      },
+      "col_specific": {
+        "invalid_national_id_value": "Bitte geben Sie eine gültige kolumbianische Personenidentifikationsnummer ein",
+        "required_national_id_value": "Bitte geben Sie Ihre kolumbianische Personenidentifikationsnummer ein"
+      },
+      "esp_specific": {
+        "invalid_identity_card": "Bitte geben Sie eine gültige ein NIF/DNI",
+        "invalid_other": "Bitte geben Sie eine gültige ein NIE"
+      },
+      "fin_specific": {
+        "invalid_national_id_value": "Bitte geben Sie einen gültigen persönlichen Identitätscode ein",
+        "required_national_id_value": "Bitte geben Sie Ihren persönlichen Identitätscode ein"
+      },
       "gbr_specific": {
         "invalid_postcode": "Bitte geben Sie eine gültige Postleitzahl ein",
         "required_postcode": "Bitte geben Sie Ihre Postleitzahl ein",
         "too_long_postcode": "Die Postleitzahl ist zu lang",
         "too_short_postcode": "Die Postleitzahl ist zu kurz"
+      },
+      "gha_specific": {
+        "invalid_social_insurance": "Bitte geben Sie eine gültige SSNIT ein",
+        "required_social_insurance": "Bitte geben Sie Ihre SSNIT ein"
+      },
+      "hkg_specific": {
+        "invalid_national_id_value": "Bitte geben Sie eine gültige HKID ein",
+        "required_national_id_value": "Bitte geben Sie Ihre HKID ein"
       },
       "ind_specific": {
         "invalid_pan": "Bitte geben Sie eine gültige PAN ein",
@@ -615,9 +752,59 @@
       },
       "invalid": "Bitte auf ungültige Zeichen oder Symbole überprüfen",
       "invalid_dob": "Bitte geben Sie ein gültiges Geburtsdatum ein",
+      "invalid_driving_license": "Bitte geben Sie eine gültige Führerscheinnummer ein",
       "invalid_email": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
       "invalid_mobile_number": "Bitte geben Sie eine gültige Mobiltelefonnummer ein",
+      "invalid_national_id_value": "Bitte geben Sie eine gültige nationale Ausweisnummer ein",
+      "invalid_passport": "Bitte geben Sie eine gültige Passnummer ein",
       "invalid_phone_number": "Bitte geben Sie eine gültige Telefonnummer ein",
+      "invalid_voter_id": "Bitte geben Sie eine gültige Wähler-ID-Nummer ein",
+      "ita_specific": {
+        "invalid_national_id_value": "Bitte geben Sie eine gültige Steuernummer ein"
+      },
+      "jpn_specific": {
+        "invalid_national_id_value": "Bitte geben Sie einen gültigen \"Meine Nummer\" / Bewohnerdatensatz-Code ein",
+        "required_national_id_value": ""
+      },
+      "ken_specific": {
+        "invalid_other": "Bitte geben Sie eine gültige Alien Card Nummer ein",
+        "required_other": "Bitte geben Sie Ihre Alien Card Nummer ein"
+      },
+      "lux_specific": {
+        "invalid_national_id_value": "Bitte geben Sie eine gültige Sozialversicherungsnummer ein",
+        "required_national_id_value": "Bitte geben Sie Ihre Sozialversicherungsnummer ein"
+      },
+      "mex_specific": {
+        "invalid_identity_card": "Bitte geben Sie eine gültige ein CURP",
+        "invalid_tax_id": "Bitte geben Sie eine gültige ein RFC"
+      },
+      "mys_specific": {
+        "invalid_national_id_value": "Bitte geben Sie eine gültige NRIC ein",
+        "required_national_id_value": "Bitte geben Sie Ihre NRIC ein"
+      },
+      "nga_specific": {
+        "invalid_identity_card": "Bitte geben Sie eine gültige nationale Identifikationsnummer (NIN) ein",
+        "invalid_other": "Bitte geben Sie eine gültige BVN ein",
+        "invalid_tax_id": "Bitte geben Sie eine gültige TIN ein",
+        "required_identity_card": "Bitte geben Sie Ihre nationale Identifikationsnummer (NIN) ein",
+        "required_other": "Bitte geben Sie Ihre BVN ein",
+        "required_tax_id": "Bitte geben Sie Ihre TIN ein"
+      },
+      "phl_specific": {
+        "invalid_national_id_value": "Bitte geben Sie eine gültige PhilSys Card Number (PCN) ein",
+        "required_national_id_value": "Bitte geben Sie Ihre PhilSys Card Number (PCN) ein"
+      },
+      "pol_specific": {
+        "invalid_national_id_value": "Bitte geben Sie eine gültige PESEL-Nummer ein",
+        "required_national_id_value": "Bitte geben Sie Ihre PESEL-Nummer ein"
+      },
+      "prt_specific": {
+        "invalid_national_id_value": "Bitte geben Sie eine gültige Steuernummer ein",
+        "required_national_id_value": "Bitte geben Sie Ihre Steuernummer ein"
+      },
+      "reference": {
+        "translation": "Bitte geben Sie eine gültige ein"
+      },
       "required_consent": "Bitte stimmen Sie der Identitäts- und Betrugsprüfung zu",
       "required_country": "Bitte wählen Sie ein Land aus",
       "required_country_residence": "Bitte wählen Sie ein Land aus",
@@ -630,6 +817,12 @@
       "required_nationality": "Bitte wählen Sie ein Land aus",
       "required_phone_number": "Bitte geben Sie Ihre Telefonnummer ein",
       "required_postcode": "Bitte geben Sie Ihre Postleitzahl ein",
+      "sgp_specific": {
+        "invalid_national_id_value": "Bitte geben Sie eine gültige ein NRIC"
+      },
+      "swe_specific": {
+        "invalid_national_id_value": "Bitte geben Sie eine gültige ein PIN"
+      },
       "too_long_first_name": "Der Vorname ist zu lang",
       "too_long_last_name": "Der Nachname ist zu lang",
       "too_long_line1": "Die Adresszeile ist zu lang",
@@ -638,12 +831,16 @@
       "too_short_first_name": "Der Vorname ist zu kurz",
       "too_short_last_name": "Der Nachname ist zu kurz",
       "too_short_postcode": "Die Postleitzahl ist zu kurz",
+      "tur_specific": {
+        "invalid_national_id_value": "Bitte geben Sie eine gültige türkische Ausweisnummer ein"
+      },
       "usa_specific": {
         "invalid_ssn": "Bitte geben Sie eine gültige SVN ein",
         "required_ssn": "Bitte geben Sie Ihre SVN ein",
         "required_state": "Bitte wählen Sie einen Staat aus"
       }
     },
+    "national_id_number_title": "Fügen Sie Ihre nationale ID-Nummer hinzu",
     "personal_information_title": "Fügen Sie Ihre persönlichen Informationen hinzu",
     "prompt": {
       "details_timeout": "Erneut starten",
@@ -785,6 +982,7 @@
   },
   "welcome": {
     "doc_video_subtitle": "Es dauert nur wenige Minuten",
+    "info_original_document": "Machen Sie ein Foto von Ihrem Originaldokument. Scans, Fotos von Bildschirmen oder Fotokopien sind nicht zulässig.",
     "list_header_doc_video": "Nutzen Sie Ihr Gerät um Folgendes aufzunehmen:",
     "list_header_webcam": "Verwenden Sie Ihre Webcam oder Ihr Telefon zum Fotografieren:",
     "list_item_doc": "Ihr Ausweisdokument",
