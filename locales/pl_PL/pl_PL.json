@@ -94,7 +94,7 @@
   "avc_connection_error": {
     "button_primary_reload": "Uruchom ponownie instrukcję",
     "button_primary_retry_upload": "Ponów próbę wysłania",
-    "button_secondary_restart_recording": "Uruchom nagrywanie ponownie",
+    "button_secondary_restart_recording": "Nagraj ponownie",
     "subtitle": "Sprawdź, czy połączenie z internetem jest stabilne, a następnie spróbuj ponownie",
     "title": "Błąd połączenia"
   },
@@ -120,13 +120,14 @@
   "avc_intro": {
     "button_primary_ready": "Zacznij",
     "disclaimer": "Pamiętaj, że nagramy Twoją twarz razem z tłem",
+    "disclaimer_camera_and_audio_on": "Twoja twarz, tło i dźwięk zostaną nagrane podczas tego procesu",
     "list_item_one": "Najpierw umieść twarz w ramce",
     "list_item_two": "Następnie powoli obróć głowę w obie strony",
     "subtitle": "Ma to na celu sprawdzenie, czy naprawdę jesteś człowiekiem",
     "title": "Nagraj wideo"
   },
   "avc_no_face_detected": {
-    "button_primary_restart": "Uruchom nagrywanie ponownie",
+    "button_primary_restart": "Nagraj ponownie",
     "list_item_eyes": "Upewnij się, że oczy są dobrze widoczne",
     "list_item_face": "Upewnij się, że pokazujesz tylko swoją twarz, nie musimy widzieć Twojego dokumentu tożsamości",
     "list_item_lighting": "Upewnij się, że jesteś w miejscu z dobrym oświetleniem",
@@ -471,6 +472,11 @@
       "title": "Prześlij stronę ze zdjęciem paszportowym"
     }
   },
+  "nfc_scan": {
+    "sheet": {
+      "success": "Skanowanie zakończone sukcesem"
+    }
+  },
   "outro": {
     "body": "To wszystko, czego potrzebujemy, aby rozpocząć weryfikację Twojej tożsamości",
     "body_government_letter": "Podaj całą stronę dokumentu, aby uzyskać najlepsze wyniki",
@@ -785,6 +791,7 @@
   },
   "welcome": {
     "doc_video_subtitle": "Powinno to zająć kilka minut",
+    "info_original_document": "Zrób zdjęcie swojego oryginalnego dokumentu. Skany, zdjęcia ekranów lub kserokopie nie są dozwolone.",
     "list_header_doc_video": "Użyj urządzenia, aby nagrać:",
     "list_header_webcam": "Użyj kamery internetowej lub telefonu do zrobienia zdjęć:",
     "list_item_doc": "Twojego dokumentu tożsamości",

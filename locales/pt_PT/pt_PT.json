@@ -120,6 +120,7 @@
   "avc_intro": {
     "button_primary_ready": "Estou pronto",
     "disclaimer": "Tenha em atenção que iremos gravar o seu rosto e o seu fundo",
+    "disclaimer_camera_and_audio_on": "O seu rosto, fundo, e áudio serão gravados durante este processo",
     "list_item_one": "Primeiro, posicione o seu rosto na moldura",
     "list_item_two": "Depois, vire a cabeça lentamente para ambos os lados",
     "subtitle": "Isto serve para verificar que é uma pessoa real",
@@ -471,6 +472,11 @@
       "title": "Página com fotografia do passaporte"
     }
   },
+  "nfc_scan": {
+    "sheet": {
+      "success": "Digitalização bem sucedida"
+    }
+  },
   "outro": {
     "body": "É tudo o que precisamos para começar a verificar a sua identidade",
     "body_government_letter": "Forneça a página completa do documento para melhores resultados",
@@ -785,6 +791,7 @@
   },
   "welcome": {
     "doc_video_subtitle": "Pode demorar alguns minutos",
+    "info_original_document": "Tire uma fotografia do seu documento original. Não são permitidas digitalizações, fotografias de ecrãs ou fotocópias.",
     "list_header_doc_video": "Utilize o seu dispositivo para gravar:",
     "list_header_webcam": "Utilize a sua câmara ou telefone para fotografar:",
     "list_item_doc": "o seu documento de identidade",
@@ -796,7 +803,7 @@
     "start_workflow_button_trial": "Iniciar a verificação (TEST)",
     "subtitle": "Pode demorar alguns minutos",
     "title": "Verifique a sua identidade",
-    "trial_message": "Ne partagez pas de données personalles ici, sauf si vous êtes engagé dans un essei Onfido."
+    "trial_message": "Não partilhe dados pessoais, a menos que esteja a realizar um teste da Onfido."
   },
   "workflow_complete": {
     "pass": {

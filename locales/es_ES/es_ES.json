@@ -120,6 +120,7 @@
   "avc_intro": {
     "button_primary_ready": "Estoy listo",
     "disclaimer": "Tenga en cuenta que grabaremos un vídeo del rostro y el fondo",
+    "disclaimer_camera_and_audio_on": "Tu cara, fondo y audio serán grabados durante este proceso",
     "list_item_one": "Primero, coloque la cara dentro del marco",
     "list_item_two": "Luego, gire la cabeza despacio hacia ambos lados",
     "subtitle": "Esto es para verificar que es una persona real",
@@ -471,6 +472,11 @@
       "title": "Página del pasaporte con su foto"
     }
   },
+  "nfc_scan": {
+    "sheet": {
+      "success": "Escaneado correcto"
+    }
+  },
   "outro": {
     "body": "Eso es todo lo que necesitamos para comenzar a verificar su identidad",
     "body_government_letter": "Facilite la página completa del documento para obtener mejores resultados",
@@ -785,6 +791,7 @@
   },
   "welcome": {
     "doc_video_subtitle": "Debería tomar unos minutos",
+    "info_original_document": "Tome una fotografía de su documento original. No se permiten escaneos, fotos de pantallas ni fotocopias.",
     "list_header_doc_video": "Utilice su móvil para la grabación:",
     "list_header_webcam": "Utilice su cámara web o su teléfono para fotografiar:",
     "list_item_doc": "su documento de identidad",

@@ -33,6 +33,7 @@
   "avc_intro": {
     "button_primary_ready": "準備ができました",
     "disclaimer": "顔と背景を録画することにご留意ください",
+    "disclaimer_camera_and_audio_on": "この際、お客様の顔、背景、音声が記録されます。",
     "list_item_one": "まず、顔を枠内に配置します",
     "list_item_two": "そして、頭をゆっくりと両側に向けます",
     "subtitle": "これは、お客様が実際の人物であることを確認するために行います",
@@ -384,6 +385,11 @@
       "title": "パスポート写真ページ"
     }
   },
+  "nfc_scan": {
+    "sheet": {
+      "success": "スキャンに成功"
+    }
+  },
   "outro": {
     "body": "本人確認を開始するために必要なお手続きは以上です",
     "body_government_letter": "最高の結果が得られるよう、ドキュメントページの全体を写してください",
@@ -698,6 +704,7 @@
   },
   "welcome": {
     "doc_video_subtitle": "数分かかります",
+    "info_original_document": "書類の原本を写真で撮影してください。スキャン、画面写真、コピーなどは不可。",
     "list_header_doc_video": "デバイスを使用して以下を記録してください。",
     "list_header_webcam": "ウェブカメラまたはスマートフォンを使用して写真を撮影してください。",
     "list_item_doc": "本人確認書類",

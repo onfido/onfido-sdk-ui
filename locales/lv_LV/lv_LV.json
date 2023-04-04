@@ -33,6 +33,7 @@
   "avc_intro": {
     "button_primary_ready": "Esmu gatavs",
     "disclaimer": "Ņemiet vērā, ka mēs ierakstīsim jūsu seju un fonu",
+    "disclaimer_camera_and_audio_on": "Šī procesa laikā tiks ierakstīta jūsu seja, fons un skaņa.",
     "list_item_one": "Vispirms pozicionējiet seju kadrā",
     "list_item_two": "Pēc tam lēnām pagrieziet galvu uz abām pusēm",
     "subtitle": "Tas nepieciešams, lai pārbaudītu, vai esat īsta persona",
@@ -384,6 +385,11 @@
       "title": "Pases fotoattēla lapa"
     }
   },
+  "nfc_scan": {
+    "sheet": {
+      "success": "Veiksmīga skenēšana"
+    }
+  },
   "outro": {
     "body": "Tas ir viss, kas mums nepieciešams, lai sāktu jūsu identitātes pārbaudi",
     "body_government_letter": "Iesniedziet visu dokumenta lapu, lai iegūtu pēc iespējas labāku rezultātu",
@@ -698,6 +704,7 @@
   },
   "welcome": {
     "doc_video_subtitle": "Tas var aizņemt dažas minūtes",
+    "info_original_document": "Nofotografējiet dokumenta oriģinālu. Skenētus dokumentus, ekrānu fotoattēlus vai fotokopijas nav atļauts izmantot.",
     "list_header_doc_video": "Izmantojiet ierīci, lai ierakstītu:",
     "list_header_webcam": "Izmantojiet tīmekļa kameru vai tālruni, lai nofotografētu:",
     "list_item_doc": "jūsu personu apliecinošo dokumentu",

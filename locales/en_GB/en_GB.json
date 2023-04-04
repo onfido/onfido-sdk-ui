@@ -33,6 +33,7 @@
   "avc_intro": {
     "button_primary_ready": "I'm ready",
     "disclaimer": "Please be mindful that we'll record your face and your background",
+    "disclaimer_camera_and_audio_on": "Your face, background, and audio will be recorded during this process",
     "list_item_one": "First, position your face in the frame",
     "list_item_two": "Then, turn your head slowly to both sides",
     "subtitle": "This is to verify that you’re a real person",
@@ -124,7 +125,7 @@
       "position_identity_card_back": "Position the back of your card in the frame",
       "position_identity_card_front": "Position the front of your card in the frame",
       "position_license_back": "Position the back of your driver’s licence in the frame",
-      "position_license_front": "Position the front of your driver’s licensc in the frame",
+      "position_license_front": "Position the front of your driver’s licence in the frame",
       "position_passport": "Position your passport photo page in the frame",
       "position_residence_permit_back": "Position the back of your residence permit in the frame",
       "position_residence_permit_front": "Position the front of your residence permit in the frame"
@@ -382,6 +383,11 @@
     "upload_guide": {
       "button_primary": "Take a photo",
       "title": "Passport photo page"
+    }
+  },
+  "nfc_scan": {
+    "sheet": {
+      "success": "Scanning successful"
     }
   },
   "outro": {
@@ -698,6 +704,7 @@
   },
   "welcome": {
     "doc_video_subtitle": "It should take a few minutes",
+    "info_original_document": "Take a photograph of your original document. Scans, photos of screens or photocopies are not allowed.",
     "list_header_doc_video": "Use your device to record:",
     "list_header_webcam": "Use your webcam or phone to photograph:",
     "list_item_doc": "your identity document",
