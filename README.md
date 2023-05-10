@@ -162,6 +162,17 @@ The CSS style will be included inline with the JS code when the library is impor
 
 You can see an [example app using npm style import](https://github.com/onfido/onfido-sdk-web-sample-app/).
 
+#### Split bundle
+
+To decrease the size of your production bundle, you can use the split version of the library:
+
+```javascript
+import { init } from 'onfido-sdk-ui/split'
+import 'onfido-sdk-ui/split/css'
+```
+
+⚠️ Note: The main bundle will be in included in your build, but the other bundles will be loaded from Onfido's CDN.
+
 #### 4.3 CDN
 
 Alternatively, you can use hosted versions of files above from our CDN such as:
@@ -253,19 +264,6 @@ For the face step an object is returned with the `variant` used for the face cap
     }
 ```
 
-For the Auth step a data object is returned with parameters `success`, `token`, `type`, and `uuid`. The `success` variable informs whether or not the user was authenticated successfuly, whereas `token` is a JWT that can be used to validate the user authentication.
-
-**Example of an auth `onComplete` data callback:**
-
-```javascript
-    {
-      "success": true,
-      "token": "eyJhbGciOiJSUz...",
-      "type": "complete",
-      "uuid": "b3b9142d-3071-401d-821b-17ab134d4798"
-    }
-```
-
 ### `onError {Function} optional`
 
 Callback that fires when an error occurs. The callback returns the following error types:
@@ -277,7 +275,6 @@ Callback that fires when an error occurs. The callback returns the following err
   - authorization
   - invalid token
   - missing data in `onComplete` callback
-  - [Auth] exception handling API response
 
   This data can be used for debugging purposes.
 
@@ -539,36 +536,52 @@ The custom options are:
 
 #### document
 
-This is the identity document capture step. Users will be asked to select the document type and its issuing country before providing images of their selected document. They will also have a chance to check the quality of the image(s) before confirming.
+In the Document Capture step, an end user can select the issuing country and document type before capture.
 
-Document type and document country selection is an optional screen. This screen will only show to the end user if specific options are **not** configured to the SDK.
+This information is used to optimize the capture experience, as well as inform the end user about which documents they are allowed to use.
 
-You can configure the document capture step in one of two ways:
+This selection screen is optional, and will be automatically hidden where the end user is not required to indicate which document will be captured.
 
-- Designating eligible issuing countries and document types on your [Dashboard](https://onfido.com/dashboard/), enabling the SDK to automatically read these settings (**this is the preferred method**)
-- Hard coding eligible issuing countries and document types in your SDK integration
+By default, when the selection screen is shown, the country selection will be empty.
 
-Both methods of document capture configuration are detailed below.
+![Choose documents type](demo/choose-document.png)
+
+_The above images are for web SDK versions 8.3.0+. For previous designs, see previous SDK reference guides_
+
+You can specify allowed issuing countries and document types for the document capture step in one of three ways:
+
+- If you are using Onfido Studio, this is configured within a Document Capture task, documented in the [Studio Product Guide](https://developers.onfido.com/guide/onfido-studio-product#document-capture-task)
+- Otherwise, for Onfido Classic you can set this globally in your Dashboard (recommended), or hard code it into your SDK integration. Both of these options are documented below
 
 ##### Country and document type selection by Dashboard
 
-Configuring the issuing country and document type selection step using your Dashboard is the **preferred method** of integration.
+Configuring the issuing country and document type selection step using your Dashboard is the recommended method of customization (available from [Web SDK](https://documentation.onfido.com/sdk/web/) version 10.0.0 onwards) as this configuration is also applied to your Document Reports. Any document that has been uploaded by an end user against your guidance will result in a Document Report sub-result of "rejected" and be flagged as `Image Integrity` > `Supported Document`.
 
-- Start by opening up the Accounts tab on your Dashboard, then click Supported Documents.
-- You will be presented with a list of all available countries and their associated supported documents. Once you have made your selections, click Save Change.
+_We will be rolling out Dashboard-based configuration of allowed documents soon. In the meantime, contact [support@onfido.com](mailto:support@onfido.com) or your Customer Support Manager to request access to this feature_.
+
+- Open the Accounts tab on your [Dashboard](https://dashboard.onfido.com/), then click Supported Documents
+- You will be presented with a list of all available countries and their associated supported documents. Make your selection, then click Save Change
 
 ![The Supported Documents tab in the Dashboard](demo/supported_documents_dashboard.png)
 
-In order for your SDK to link to the Dashboard configuration and display the appropriate choices to your end users, Onfido must activate the feature. Contact [Client Support](mailto:client-support@onfido.com) to enable the Dashboard supported documents feature.
-
 **Please note:**
 
-- Any custom country and document type configurations that have been coded into your SDK integration will override and ignore any Dashboard settings
-- Currently only passport, national ID card, driving licence and residence permit are supported by this feature. If you nominate other document types in your Dashboard (visa, for example), these will not be displayed in the user interface
+- Hard coding any document type and issuing country configuration in your SDK integration will fully override the Dashboard-based settings
+- Currently, only passport, national ID card, driving licence and residence permit are visible for document selection by the end user in the SDK. If you nominate other document types in your Dashboard (visa, for example), these will not be displayed in the user interface
+- If you need to add other document types to the document selection screen, you can mitigate this limitation in the near-term, using the Custom Document feature
+- If for any reason the configuration fails or is not enabled, the SDK will fallback to display the selection screen for the complete list of documents supported within the selection screens
 
 ##### Country and document type selection - SDK integration code
 
-Rather than configuring the document selection step using your Dashboard, you can hard code the issuing countries and supported document types in your SDK integration. Please note this is **not** the preferred integration method, we recommend the Dashboard configuration described above.
+If you want to use your own custom document selection UI instead of displaying the Onfido document selection screen, you will need to specify the document details during SDK initialization.
+
+The document selection screen will be skipped automatically when the single document type is specified.
+
+The SDK will accept the following:
+
+- The **Document Type** is required. This controls fundamental SDK document capture behaviour
+- The **Country** is optional, but recommended. This enables any optimizations the SDK may have for this specific document issued by this country
+- The **Document Format** is optional, and only accepted for French driving licence, Italian national identity card and South African national identity card This defaults to Card, representing modern forms of these documents. If the end user indicates that they have an older, paper version of one of these documents, use Folded to ensure an optimized capture experience
 
 The custom options are:
 
@@ -609,42 +622,51 @@ For example, if you want to allow only Spanish (ESP) driving licences, and natio
 }
 ```
 
-- `hideCountrySelection` (boolean - default: `false`)
+In the Web SDK, it is also possible to remove the country selection entirely from the document selection screen. Set the hideCountrySelection option to true to show all supported document types in a single list with no country selection. Note that, without capturing the country information, the SDK is unable to apply optimized capture experiences for specific documents, and we are not able to perform fine-grained analytics based on country selection.
 
-  Set this option to `true` in case you do not want the user to see the country selection screen.
+See more details in the Technical Reference [here](https://documentation.onfido.com/sdk/web/).
 
-  ⚠️ **Note**: This option relies on the `documentTypes` option to show the document types to the user. The documents won't be pre filtered according to country.
+**Note**: You may still wish to configure the Dashboard-based approach to ensure that the Document Report also rejects any document that has been uploaded by an end user against your guidance.
 
-  ⚠️ **Note**: If this option is selected, in case of a `documentTypes` value set to `true` for a specific document, no country information is sent to Onfido's backend. This means that we are not able to do fine grained analytics analysis based on country.
+##### Cross-device flow
 
-- `forceCrossDevice` (boolean - default: `false`)
+The Web SDK offers a cross-device flow where desktop users are directed to continue on their mobile device browser to complete the capture process, providing vastly improved image quality versus a typical desktop webcam and an increased likelihood of live capture.
 
-  The Web SDK offers a cross device flow where desktop users will be given the option to continue using their desktop browser or swap to using their mobile device browser to complete the capture process. If a user selects to use their mobile device they will be redirected via a secure link that they can receive by SMS or QR code to complete the flow. At the end of the capture process users will be redirected back to their desktop to complete the SDK flow.
+The user is offered a QR code to scan with their camera app, which then resumes the flow on their mobile device browser. For users that cannot scan a QR code, a Copy Link feature and Send Link with SMS feature are also available. Regardless of the cross-device method, the secure URL is unique to this session.
 
-  When `forceCrossDevice` is set to `true`, the cross device flow is mandatory for all users. Desktop users will be required to complete the capture process on a mobile device browser.
-  Configuring this option minimises the risk of fraudulent upload by ensuring a higher likelihood of live capture.
+When a user switches to the SDK's cross-device flow, they will see an [introductory screen](https://developers.onfido.com/guide/sdk-customization#cross-device---mobile-client-introductory-screen) when the SDK client loads on their mobile browser. At the end of the capture process, users will be redirected back to their desktop to complete the SDK flow.
 
-  The `forceCrossDevice` functionality can be configured for both the Document capture and Proof of Address verification steps. The option is also now available in Onfido Studio, configurable in the [workflow builder](https://developers.onfido.com/guide/onfido-studio-product#document-capture-task). `forceCrossDevice` cannot be configured for Face captures.
+It is recommended to enforce the cross-device flow. The option is available in Onfido Studio, configurable in the [workflow builder](https://developers.onfido.com/guide/onfido-studio-product#document-capture-task), and in the Classic integration, configured as follows:
 
-  ```javascript
-  options: {
-    forceCrossDevice: true
-  }
-  ```
+- When configured, forceCrossDevice makes the cross-device flow mandatory for all users who will be required to complete the capture process on a mobile device browser
+- The forceCrossDevice functionality can be configured for both the Document capture and Proof of Address verification steps
+- forceCrossDevice cannot be configured for Face captures
 
-- `uploadFallback` (boolean - default: `true`)
+![Force cross-device flow](demo/cross-device.png)
 
-  The SDK will attempt to open an optimised camera UI for the user to take a live photo of the selected document. When this is not possible (because of an unsupported browser or mobile devices with no camera), by default the user will be presented with an HTML5 File Input upload because of `uploadFallback`. In this scenario, they will be able to use their mobile device's default camera application to take a photo.
+When a user switches to the SDK's cross-device flow, they will see an introductory screen when the SDK client loads on their mobile browser. This screen notifies the user that this is part of a flow initiated on a desktop browser when they open the cross-device link on their mobile browser.
 
-  This method does not guarantee live capture, because certain mobile device browsers and camera applications may also allow uploads from the user's gallery of photos.
+The following optional customizations are available for the introductory screen:
 
-  ⚠️ **Warning**: If the mobile device does not have a camera or lacks camera browser support the user will not be able to complete the flow if `uploadFallback` is set to `false`.
+- Specify company or product name
 
-  ```javascript
-  options: {
-    uploadFallback: false
-  }
-  ```
+  - `crossDeviceClientIntroProductName`
+  - You can customize the text by adding your company or product name to the subtitle
+  - We recommend that you set this so that the user can identify the purpose of the flow when they open the cross-device link. This is also an opportunity to include your branding in the SDK flow
+
+- Display company or product logo
+  - `crossDeviceClientIntroProductLogoSrc`
+  - You can customize the icon by adding your company or product logo to be displayed instead of the default SDK icon image
+  - We recommend that you set this so that the user can identify the purpose of the flow when they open the cross-device link. This is also an opportunity to include your branding in the SDK flow
+  - The image used should be no more than 144px in both height and width
+
+![Cross-device intro screen](demo/cross-device-logo.png)
+
+#### Image capture upload fallback
+
+The SDK will attempt to load an optimized camera UI to take a live photo. When this is not possible (because of an unsupported browser or mobile devices with no camera), the user will be presented with an HTML5 File Input. Set `uploadFallback` to `false` to disable this fallback feature and ensure live capture. Note that disabling `uploadFallback` will prevent users with an unsupported browser or a mobile device with no camera from continuing.
+
+![Upload fallback](demo/upload-fallback.png)
 
 - `genericDocumentTypes` (object)
 
