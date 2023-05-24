@@ -904,11 +904,14 @@
     "video_accessibility": "녹화된 동영상 다시 재생"
   },
   "video_intro": {
+    "button_pause_accessibility": "동영상 일시 중지",
+    "button_play_accessibility": "동영상 재생",
     "button_primary": "동영상 녹화하기",
     "list_accessibility": "셀카 동영상을 녹화하기 위한 작업",
     "list_item_actions": "완료까지 20초 남았습니다",
     "list_item_speak": "지침에 따라 움직이거나 말하세요",
-    "title": "동영상 녹화하기"
+    "title": "동영상 녹화하기",
+    "video_accessibility": "셀카 동영상을 녹화하는 예시 동영상. 셀카 동영상을 녹화하려면 전면 카메라를 마주하고 휴대폰을 얼굴에서 약간 떨어진 곳에 두세요. 그런 다음 몇 개의 숫자를 말하고 화면의 지침에 따라 고개를 돌리셔야 합니다."
   },
   "welcome": {
     "doc_video_subtitle": "이 절차를 진행하는 데는 몇 분 정도가 소요됩니다",

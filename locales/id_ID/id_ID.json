@@ -904,11 +904,14 @@
     "video_accessibility": "Putar ulang video rekaman Anda"
   },
   "video_intro": {
+    "button_pause_accessibility": "Jeda video",
+    "button_play_accessibility": "Putar video",
     "button_primary": "Rekam video",
     "list_accessibility": "Tindakan untuk merekam video selfie",
     "list_item_actions": "Anda memiliki 20 detik untuk menyelesaikan",
     "list_item_speak": "Ikuti petunjuk untuk bergerak atau berbicara",
-    "title": "Rekam video"
+    "title": "Rekam video",
+    "video_accessibility": "Contoh video orang sedang merekam video selfie. Untuk merekam video selfie, hadapkan kamera depan dan sedikit jauhkan ponsel dari wajah Anda. Kemudian Anda harus membacakan beberapa angka dan menggerakkan kepala sesuai dengan petunjuk di layar."
   },
   "welcome": {
     "doc_video_subtitle": "Ini akan memakan waktu beberapa menit",

@@ -904,11 +904,14 @@
     "video_accessibility": "Rejouer votre vidéo enregistrée"
   },
   "video_intro": {
+    "button_pause_accessibility": "Mettre la vidéo en pause",
+    "button_play_accessibility": "Lire la vidéo",
     "button_primary": "Enregistrer la vidéo",
     "list_accessibility": "Actions pour enregistrer une vidéo selfie",
     "list_item_actions": "Vous avez 20 secondes pour terminer",
     "list_item_speak": "Suivez les instructions pour vous déplacer ou parler",
-    "title": "Enregistrer une vidéo"
+    "title": "Enregistrer une vidéo",
+    "video_accessibility": "Exemple de vidéo d'une personne enregistrant une vidéo selfie. Pour enregistrer une vidéo selfie, faites face à la caméra frontale et tenez votre téléphone légèrement éloigné de votre visage. Vous devrez ensuite réciter quelques chiffres et tourner la tête en suivant les instructions à l'écran."
   },
   "welcome": {
     "doc_video_subtitle": "Cela devrait prendre quelques minutes",

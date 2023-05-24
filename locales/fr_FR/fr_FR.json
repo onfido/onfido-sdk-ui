@@ -1,91 +1,4 @@
 {
-  "auth_accessibility": {
-    "back_button": "Annuler"
-  },
-  "auth_cam_encrypt": {
-    "loader": "Cryptage du flux de l’appareil photo"
-  },
-  "auth_cam_start": {
-    "loader": "Démarrage de l’appareil photo"
-  },
-  "auth_capture": {
-    "feedback": {
-      "center_face": "Encadrez votre visage",
-      "even_lighting": "Assurez-vous que votre éclairage est uniforme",
-      "eye_level": "Gardez votre appareil photo au niveau des yeux",
-      "face_not_found": "Assurez-vous que votre visage est visible",
-      "head_not_upright": "Gardez la tête droite",
-      "move_back": "Maintenant, reculez",
-      "move_close": "Maintenant, approchez-vous",
-      "move_closer": "Approchez-vous",
-      "not_looking_straight": "Regardez devant vous",
-      "steady": "Ne bougez pas"
-    }
-  },
-  "auth_capture_start": {
-    "body": "Gardez votre visage dans l’ovale.",
-    "button_primary": "Démarrer le scan du visage",
-    "feedback": {
-      "center_face": "Encadrez votre visage",
-      "conditions_too_bright": "Trouvez un environnement moins lumineux",
-      "conditions_too_dark": "Trouvez un environnement plus lumineux",
-      "head_not_upright": "Gardez la tête droite",
-      "neutral_expression": "Gardez une expression neutre",
-      "not_looking_straight": "Regardez devant vous",
-      "remove_sunglasses": "Retirez vos lunettes de soleil",
-      "steady_count_1": "Restez immobile : 1",
-      "steady_count_2": "Restez immobile : 2",
-      "steady_count_3": "Restez immobile : 3"
-    },
-    "title": "Démarrer le scan du visage"
-  },
-  "auth_error": {
-    "cam_encryption": {
-      "body": "Cette application bloque les configurations de webcam suspectes. <fallback>En savoir plus</fallback>.",
-      "button_primary": "Réessayer",
-      "button_primary_firefox": "Réessayer",
-      "subtitle": "Ce système ne peut pas être vérifié pour les raisons suivantes :",
-      "table_header_1": "Problème possible",
-      "table_header_2": "Réparer",
-      "table_row_1_cell_1": "Appareil photo déjà utilisé par une autre application.",
-      "table_row_1_cell_1_firefox": "Les autorisations de l’appareil photo ne sont pas mémorisées dans Firefox.",
-      "table_row_1_cell_2": "Fermez l’autre application.",
-      "table_row_1_cell_2_firefox": "Vérifiez Se souvenir des autorisations.",
-      "table_row_2_cell_1": "Une application tierce modifie la vidéo.",
-      "table_row_2_cell_2": "Fermez/désinstallez l’autre application.",
-      "table_row_3_cell_1": "Le matériel ne peut pas être sécurisé.",
-      "table_row_3_cell_2": "Utilisez un autre appareil.",
-      "title": "<b>Problème de cryptage du flux de l’appareil photo</b>"
-    }
-  },
-  "auth_full_screen": {
-    "body": "Cela lancera la capture du selfie en mode plein écran.",
-    "button_primary": "Ouvrir en plein écran",
-    "title": "Mode selfie plein écran"
-  },
-  "auth_permission": {
-    "body_cam": "Pour continuer, vous devez activer les autorisations de la caméra lorsque vous y êtes invité.",
-    "button_primary_cam": "Activer la caméra",
-    "title_cam": "Autoriser l’accès à la caméra"
-  },
-  "auth_permission_denied": {
-    "body_cam": "Pour continuer, vous devez activer les autorisations de la caméra dans les paramètres de votre mobile.",
-    "button_primary_cam": "Paramètres de lancement"
-  },
-  "auth_progress": {
-    "loader": "Téléversement"
-  },
-  "auth_retry": {
-    "body_blur": "Nettoyez l’objectif de votre appareil photo",
-    "body_neutral_expression": "Gardez une expression neutre",
-    "body_too_bright": "Trouvez un environnement moins lumineux",
-    "button_primary": "Démarrer la caméra",
-    "subtitle": "Nous n’avons pas été en mesure de capturer votre visage correctement",
-    "title": "Scannez à nouveau votre visage"
-  },
-  "auth_upload_pass": {
-    "body": "Téléversement réussi"
-  },
   "avc_confirmation": {
     "button_primary_upload": "Téléverser l’enregistrement",
     "subtitle": "Une vidéo de votre visage a bien été enregistrée",
@@ -991,11 +904,14 @@
     "video_accessibility": "Rejouer la vidéo"
   },
   "video_intro": {
+    "button_pause_accessibility": "Mettre la vidéo sur pause",
+    "button_play_accessibility": "Lire la vidéo",
     "button_primary": "Commencer l’enregistrement",
     "list_accessibility": "Actions pour enregistrer une vidéo de votre visage",
     "list_item_actions": "Vous avez 20 secondes pour terminer",
     "list_item_speak": "Suivez les instructions pour bouger ou parler",
-    "title": "Enregistrez une vidéo de votre visage"
+    "title": "Enregistrez une vidéo de votre visage",
+    "video_accessibility": "Exemple de vidéo d’une personne enregistrant un selfie. Pour enregistrer une vidéo de votre visage, regardez la caméra frontale de votre mobile en le maintenant légèrement éloigné de votre visage. Vous allez ensuite devoir réciter une suite de chiffres et bouger la tête en fonction des instructions qui apparaîtront à l’écran."
   },
   "welcome": {
     "doc_video_subtitle": "Cela ne prendra que quelques minutes",

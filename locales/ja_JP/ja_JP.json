@@ -904,11 +904,14 @@
     "video_accessibility": "録画した動画を再生する"
   },
   "video_intro": {
+    "button_pause_accessibility": "動画を一時停止",
+    "button_play_accessibility": "動画を再生",
     "button_primary": "動画を録画する",
     "list_accessibility": "自撮り動画を録画するアクション",
     "list_item_actions": "終了まで残り20秒です",
     "list_item_speak": "指示に従って移動したり話してください",
-    "title": "動画を録画する"
+    "title": "動画を録画する",
+    "video_accessibility": "自撮り動画の録画例。自撮り動画を録画するには、フロントカメラに顔を向け、スマートフォンを顔から少し離してください。次に、いくつかの数字を発言し、画面の指示に従って頭を動かしてください。"
   },
   "welcome": {
     "doc_video_subtitle": "数分かかります",

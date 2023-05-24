@@ -1,91 +1,4 @@
 {
-  "auth_accessibility": {
-    "back_button": "Cancel"
-  },
-  "auth_cam_encrypt": {
-    "loader": "Encrypting camera feed"
-  },
-  "auth_cam_start": {
-    "loader": "Starting camera"
-  },
-  "auth_capture": {
-    "feedback": {
-      "center_face": "Frame your face",
-      "even_lighting": "Make sure your lighting is even",
-      "eye_level": "Keep your camera at eye level",
-      "face_not_found": "Make sure your face is visible",
-      "head_not_upright": "Keep your head upright",
-      "move_back": "Now move back",
-      "move_close": "Now move in closer",
-      "move_closer": "Move in closer",
-      "not_looking_straight": "Look forward",
-      "steady": "Keep still"
-    }
-  },
-  "auth_capture_start": {
-    "body": "Fit your face within the oval frame",
-    "button_primary": "Start face scan",
-    "feedback": {
-      "center_face": "Frame your face",
-      "conditions_too_bright": "Find a less bright environment",
-      "conditions_too_dark": "Find a brighter environment",
-      "head_not_upright": "Keep your head upright",
-      "neutral_expression": "Keep a neutral expression",
-      "not_looking_straight": "Look forward",
-      "remove_sunglasses": "Remove your sunglasses",
-      "steady_count_1": "Keep still: 1",
-      "steady_count_2": "Keep still: 2",
-      "steady_count_3": "Keep still: 3"
-    },
-    "title": "Start face scan"
-  },
-  "auth_error": {
-    "cam_encryption": {
-      "body": "This app blocks suspicious webcam configurations. <fallback>Learn more</fallback>.",
-      "button_primary": "Try again",
-      "button_primary_firefox": "Try again",
-      "subtitle": "This system cannot be verified due to the following:",
-      "table_header_1": "Possible issue",
-      "table_header_2": "Fix",
-      "table_row_1_cell_1": "Camera already in use by another app.",
-      "table_row_1_cell_1_firefox": "Camera permissions not remembered in Firefox.",
-      "table_row_1_cell_2": "Close the other app.",
-      "table_row_1_cell_2_firefox": "Check Remember Permissions.",
-      "table_row_2_cell_1": "A 3rd-party app is modifying the video.",
-      "table_row_2_cell_2": "Close/Uninstall the other app.",
-      "table_row_3_cell_1": "Hardware not capable of being secured.",
-      "table_row_3_cell_2": "Use a different device.",
-      "title": "<b>Issue Encrypting Camera Feed</b>"
-    }
-  },
-  "auth_full_screen": {
-    "body": "This will start the selfie capture in full screen mode",
-    "button_primary": "Open in full screen",
-    "title": "Full screen selfie mode"
-  },
-  "auth_permission": {
-    "body_cam": "To continue, you must enable camera permissions when prompted.",
-    "button_primary_cam": "Enable camera",
-    "title_cam": "Allow camera access"
-  },
-  "auth_permission_denied": {
-    "body_cam": "To continue, you must enable camera permissions in your device settings.",
-    "button_primary_cam": "Launch settings"
-  },
-  "auth_progress": {
-    "loader": "Uploading"
-  },
-  "auth_retry": {
-    "body_blur": "Clean your camera lens",
-    "body_neutral_expression": "Keep a neutral expression",
-    "body_too_bright": "Find a less bright environment",
-    "button_primary": "Start camera",
-    "subtitle": "We weren’t able to capture your face properly",
-    "title": "Scan your face again"
-  },
-  "auth_upload_pass": {
-    "body": "Upload successful"
-  },
   "avc_confirmation": {
     "button_primary_upload": "Upload recording",
     "subtitle": "A video of your face has been recorded successfully",
@@ -216,8 +129,8 @@
       "position_generic_document_front": "Position the front of your document in the frame",
       "position_identity_card_back": "Position the back of your card in the frame",
       "position_identity_card_front": "Position the front of your card in the frame",
-      "position_license_back": "Position the back of your driver’s license in the frame",
-      "position_license_front": "Position the front of your driver’s license in the frame",
+      "position_license_back": "Position the back of your driver's license in the frame",
+      "position_license_front": "Position the front of your driver's license in the frame",
       "position_passport": "Position your passport photo page in the frame",
       "position_residence_permit_back": "Position the back of your residence permit in the frame",
       "position_residence_permit_front": "Position the front of your residence permit in the frame"
@@ -991,11 +904,14 @@
     "video_accessibility": "Replay your recorded video"
   },
   "video_intro": {
+    "button_pause_accessibility": "Pause video",
+    "button_play_accessibility": "Play video",
     "button_primary": "Record video",
     "list_accessibility": "Actions to record a selfie video",
     "list_item_actions": "You have 20 seconds to finish",
     "list_item_speak": "Follow the instructions to move or speak",
-    "title": "Record a video"
+    "title": "Record a video",
+    "video_accessibility": "Example video of someone recording a selfie video. To record a selfie video, face the front camera and keep your phone slightly away from your face. You’ll then need to recite some numbers and turn your head according to the instructions on screen."
   },
   "welcome": {
     "doc_video_subtitle": "It should take a few minutes",

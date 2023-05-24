@@ -904,11 +904,14 @@
     "video_accessibility": "Ponovno reproducirajte snimljeni videozapis"
   },
   "video_intro": {
+    "button_pause_accessibility": "Zaustavi videozapis",
+    "button_play_accessibility": "Reproduciraj videozapis",
     "button_primary": "Snimite videozapis",
     "list_accessibility": "Radnje koje trebate učiniti za snimanje selfie videozapisa",
     "list_item_actions": "Imate još 20 sekundi da dovršite postupak",
     "list_item_speak": "Slijedite upute za kretnje i izgovorene riječi",
-    "title": "Snimite videozapis"
+    "title": "Snimite videozapis",
+    "video_accessibility": "Primjer videzapisa u kojem je netko snimio selfie videozapis. Ako želite snimiti selfie videozapis, okrenite se prema prednjoj kameri i mobitel malo odmaknite od lica. Nakon toga ćete morati izgovoriti neke brojeve i okrenuti glavu prema uputama koje će se prikazivati na zaslonu."
   },
   "welcome": {
     "doc_video_subtitle": "Nekoliko minuta bi trebalo biti dovoljno",

@@ -904,11 +904,14 @@
     "video_accessibility": "重播您錄製的影片"
   },
   "video_intro": {
+    "button_pause_accessibility": "暫停影片",
+    "button_play_accessibility": "播放影片",
     "button_primary": "錄製影片",
     "list_accessibility": "錄製自拍影片的操作",
     "list_item_actions": "您有 20 秒完成動作",
     "list_item_speak": "按照指示移動或說話",
-    "title": "錄製影片"
+    "title": "錄製影片",
+    "video_accessibility": "其他人錄製自拍影片的示範影片。若要拍攝自拍影片，請面對前鏡頭，並將手機與臉部保持適當距離。您需要朗讀一些數字，並按照畫面上的說明轉動頭部。"
   },
   "welcome": {
     "doc_video_subtitle": "這可能需要幾分鐘的時間",

@@ -904,11 +904,14 @@
     "video_accessibility": "重播录制的视频"
   },
   "video_intro": {
+    "button_pause_accessibility": "暂停视频",
+    "button_play_accessibility": "播放视频",
     "button_primary": "录制视频",
     "list_accessibility": "录制自拍视频的操作",
     "list_item_actions": "您还有20秒钟时间完成",
     "list_item_speak": "按照说明移动或说话",
-    "title": "录制视频"
+    "title": "录制视频",
+    "video_accessibility": "某人录制自拍视频的示例视频。要录制自拍视频，请面向前置相机，将手机稍微远离面部。然后，您需要朗读一些数字，并根据屏幕上的说明转动头部。"
   },
   "welcome": {
     "doc_video_subtitle": "这应该会需要几分钟时间",

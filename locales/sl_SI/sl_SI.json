@@ -904,11 +904,14 @@
     "video_accessibility": "Ponovno predvajajte posneti videoposnetek"
   },
   "video_intro": {
+    "button_pause_accessibility": "Zaustavi videoposnetek",
+    "button_play_accessibility": "Predvajaj videoposnetek",
     "button_primary": "Posnemi videoposnetek",
     "list_accessibility": "Dejavnosti za snemanje videoposnetka selfijev",
     "list_item_actions": "Imate 20 sekund, da končate",
     "list_item_speak": "Upoštevajte navodila za premikanje ali govorjenje",
-    "title": "Posnemi videoposnetek"
+    "title": "Posnemi videoposnetek",
+    "video_accessibility": "Primer videoposnetka, na katerem nekdo snema selfie videoposnetek. Če želite posneti selfie videoposnetek, se obrnite proti sprednji kameri in telefon držite nekoliko stran od obraza. Nato morate izgovoriti nekaj številk in obrniti glavo v skladu z navodili na zaslonu."
   },
   "welcome": {
     "doc_video_subtitle": "Trajalo bo nekaj minut",

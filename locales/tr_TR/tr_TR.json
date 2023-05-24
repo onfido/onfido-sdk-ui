@@ -904,11 +904,14 @@
     "video_accessibility": "Kaydedilen videonuzu tekrar oynatın"
   },
   "video_intro": {
+    "button_pause_accessibility": "Videoyu durdur",
+    "button_play_accessibility": "Videoyu oynat",
     "button_primary": "Video kaydedin",
     "list_accessibility": "Selfie videosu kaydetme işlemleri",
     "list_item_actions": "Tamamlamak için 20 saniyeniz var",
     "list_item_speak": "Hareket etmek veya konuşmak için talimatları izleyin",
-    "title": "Video kaydetme"
+    "title": "Video kaydetme",
+    "video_accessibility": "Selfie videosu kaydeden birinin örnek videosu. Bir selfie videosu kaydetmek için ön kameraya dönün ve telefonu yüzünüzden biraz uzakta tutun. Sonrasında bazı sayıları ezberden okumanız ve başınızı ekrandaki talimatlara göre çevirmeniz gerekecek."
   },
   "welcome": {
     "doc_video_subtitle": "Sadece birkaç dakika sürer",

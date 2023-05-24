@@ -904,11 +904,14 @@
     "video_accessibility": "הפעל מחדש את הסרטון המוקלט"
   },
   "video_intro": {
+    "button_pause_accessibility": "השהה סרטון",
+    "button_play_accessibility": "נגן סרטון",
     "button_primary": "צלם וידאו",
     "list_accessibility": "פעולות לצילום סרטון סלפי",
     "list_item_actions": "יש לך 20 שניות לסיים",
     "list_item_speak": "פעל לפי ההוראות כדי לזוז או לדבר",
-    "title": "הקלט סרטון"
+    "title": "הקלט סרטון",
+    "video_accessibility": "סרטון לדוגמה של מישהו שמצלם סרטון סלפי. כדי לצלם סרטון סלפי, עליך להפנות את הפנים למצלמה הקדמית ולהרחיק אותה מעט מהפנים שלך. לאחר מכן תצטרך לדקלם כמה מספרים ולסובב את הראש בהתאם להוראות שעל המסך."
   },
   "welcome": {
     "doc_video_subtitle": "תהליך זה אמור לקחת כמה דקות",

@@ -904,11 +904,14 @@
     "video_accessibility": "Main semula rakaman video anda"
   },
   "video_intro": {
+    "button_pause_accessibility": "Jeda video",
+    "button_play_accessibility": "Main video",
     "button_primary": "Rakam video",
     "list_accessibility": "Tindakan untuk merakam video swafoto",
     "list_item_actions": "Anda mempunyai 20 saat untuk menyelesaikannya",
     "list_item_speak": "Ikut arahan untuk bergerak atau bercakap",
-    "title": "Rakam video"
+    "title": "Rakam video",
+    "video_accessibility": "Contoh video cara merakam video swafoto. Untuk merakam video swafoto, hadapkan wajah anda ke kamera hadapan dan jauhkan sedikit telefon anda daripada wajah anda. Kemudian, anda perlu membaca beberapa nombor dan toleh kepala anda mengikut arahan pada skrin."
   },
   "welcome": {
     "doc_video_subtitle": "Ia akan mengambil masa beberapa minit",
