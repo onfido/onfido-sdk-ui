@@ -1,4 +1,91 @@
 {
+  "auth_accessibility": {
+    "back_button": ""
+  },
+  "auth_cam_encrypt": {
+    "loader": ""
+  },
+  "auth_cam_start": {
+    "loader": ""
+  },
+  "auth_capture": {
+    "feedback": {
+      "center_face": "",
+      "even_lighting": "",
+      "eye_level": "",
+      "face_not_found": "",
+      "head_not_upright": "",
+      "move_back": "",
+      "move_close": "",
+      "move_closer": "",
+      "not_looking_straight": "",
+      "steady": ""
+    }
+  },
+  "auth_capture_start": {
+    "body": "",
+    "button_primary": "",
+    "feedback": {
+      "center_face": "",
+      "conditions_too_bright": "",
+      "conditions_too_dark": "",
+      "head_not_upright": "",
+      "neutral_expression": "",
+      "not_looking_straight": "",
+      "remove_sunglasses": "",
+      "steady_count_1": "",
+      "steady_count_2": "",
+      "steady_count_3": ""
+    },
+    "title": ""
+  },
+  "auth_error": {
+    "cam_encryption": {
+      "body": "",
+      "button_primary": "",
+      "button_primary_firefox": "",
+      "subtitle": "",
+      "table_header_1": "",
+      "table_header_2": "",
+      "table_row_1_cell_1": "",
+      "table_row_1_cell_1_firefox": "",
+      "table_row_1_cell_2": "",
+      "table_row_1_cell_2_firefox": "",
+      "table_row_2_cell_1": "",
+      "table_row_2_cell_2": "",
+      "table_row_3_cell_1": "",
+      "table_row_3_cell_2": "",
+      "title": ""
+    }
+  },
+  "auth_full_screen": {
+    "body": "",
+    "button_primary": "",
+    "title": ""
+  },
+  "auth_permission": {
+    "body_cam": "",
+    "button_primary_cam": "",
+    "title_cam": ""
+  },
+  "auth_permission_denied": {
+    "body_cam": "",
+    "button_primary_cam": ""
+  },
+  "auth_progress": {
+    "loader": ""
+  },
+  "auth_retry": {
+    "body_blur": "",
+    "body_neutral_expression": "",
+    "body_too_bright": "",
+    "button_primary": "",
+    "subtitle": "",
+    "title": ""
+  },
+  "auth_upload_pass": {
+    "body": ""
+  },
   "avc_confirmation": {
     "button_primary_upload": "Carica registrazione",
     "subtitle": "Un video del tuo viso è stato registrato con successo",
@@ -904,14 +991,11 @@
     "video_accessibility": "Guarda il video registrato"
   },
   "video_intro": {
-    "button_pause_accessibility": "Pausa video",
-    "button_play_accessibility": "Play video",
     "button_primary": "Registra video",
     "list_accessibility": "Azioni per registrare un video selfie",
     "list_item_actions": "Hai 20 secondi per terminare",
     "list_item_speak": "Muoviti o parla seguendo le istruzioni",
-    "title": "Registra un video",
-    "video_accessibility": "Video di esempio di una persone che registra un video selfie. Per registrare un video selfie, guarda la fotocamera frontale e tieni il telefono leggermente lontano dal viso. Poi recita alcuni numeri e gira la testa seguendo le istruzioni sullo schermo."
+    "title": "Registra un video"
   },
   "welcome": {
     "doc_video_subtitle": "L’operazione richiederà pochi minuti",

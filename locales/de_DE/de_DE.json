@@ -1,4 +1,91 @@
 {
+  "auth_accessibility": {
+    "back_button": "Abbrechen"
+  },
+  "auth_cam_encrypt": {
+    "loader": "Verschlüsselung von Kameraaufnahmen"
+  },
+  "auth_cam_start": {
+    "loader": "Starten der Kamera"
+  },
+  "auth_capture": {
+    "feedback": {
+      "center_face": "Positionieren Sie Ihr Gesicht im Rahmen",
+      "even_lighting": "Stellen Sie sicher, dass Ihre Beleuchtung gleichmäßig ist",
+      "eye_level": "Halten Sie Ihre Kamera auf Augenhöhe",
+      "face_not_found": "Stellen Sie sicher, dass Ihr Gesicht sichtbar ist",
+      "head_not_upright": "Halten Sie Ihren Kopf aufrecht",
+      "move_back": "Gehen sie jetzt zurück",
+      "move_close": "Rücken Sie jetzt näher heran",
+      "move_closer": "Rücken Sie näher heran",
+      "not_looking_straight": "Schauen Sie nach vorne",
+      "steady": "Halten Sie still"
+    }
+  },
+  "auth_capture_start": {
+    "body": "Positionieren Sie Ihr Gesicht innerhalb des ovalen Rahmens",
+    "button_primary": "Starten Sie mit dem Scannen des Gesichts",
+    "feedback": {
+      "center_face": "Positionieren Sie Ihr Gesicht im Rahmen",
+      "conditions_too_bright": "Suchen Sie eine weniger helle Umgebung auf",
+      "conditions_too_dark": "Suchen Sie eine hellere Umgebung auf",
+      "head_not_upright": "Halten Sie Ihren Kopf aufrecht",
+      "neutral_expression": "Behalten Sie einen neutralen Gesichtsausdruck",
+      "not_looking_straight": "Schauen Sie nach vorne",
+      "remove_sunglasses": "Nehmen Sie Ihre Sonnenbrille ab",
+      "steady_count_1": "Halten Sie still: 1",
+      "steady_count_2": "Halten Sie still: 2",
+      "steady_count_3": "Halten Sie still: 3"
+    },
+    "title": "Starten Sie mit dem Scannen des Gesichts"
+  },
+  "auth_error": {
+    "cam_encryption": {
+      "body": "Diese App blockiert verdächtige Webcam-Konfigurationen. <fallback>Mehr erfahren</fallback>.",
+      "button_primary": "Erneut versuchen",
+      "button_primary_firefox": "Erneut versuchen",
+      "subtitle": "Dieses System kann aufgrund des Folgenden nicht überprüft werden:",
+      "table_header_1": "Mögliches Problem",
+      "table_header_2": "Behebung",
+      "table_row_1_cell_1": "Kamera wird bereits von einer anderen App verwendet.",
+      "table_row_1_cell_1_firefox": "Kameraberechtigungen werden in Firefox nicht gespeichert.",
+      "table_row_1_cell_2": "Die andere App schließen.",
+      "table_row_1_cell_2_firefox": "\"Berechtigungen speichern\" überprüfen.",
+      "table_row_2_cell_1": "Eine Drittanbieter-App modifiziert das Video.",
+      "table_row_2_cell_2": "Die andere App schließen/deinstallieren.",
+      "table_row_3_cell_1": "Hardware kann nicht gesichert werden.",
+      "table_row_3_cell_2": "Anderes Gerät verwenden.",
+      "title": "<b>Problem bei der Verschlüsselung von Kameraaufnahmen</b>"
+    }
+  },
+  "auth_full_screen": {
+    "body": "Dadurch wird die Selfie-Erfassung im Vollbild-Modus gestartet",
+    "button_primary": "Als Vollbild öffnen",
+    "title": "Vollbild-Selfie-Modus"
+  },
+  "auth_permission": {
+    "body_cam": "Um fortzufahren, müssen Sie bei Aufforderung die Kameraberechtigungen aktivieren.",
+    "button_primary_cam": "Kamera aktivieren",
+    "title_cam": "Zugriff auf Kamera erlauben"
+  },
+  "auth_permission_denied": {
+    "body_cam": "Um fortzufahren, müssen Sie die Kameraberechtigungen in Ihren Geräteeinstellungen aktivieren.",
+    "button_primary_cam": "Einstellungen starten"
+  },
+  "auth_progress": {
+    "loader": "Hochladen"
+  },
+  "auth_retry": {
+    "body_blur": "Reinigen Sie Ihr Kameraobjektiv",
+    "body_neutral_expression": "Behalten Sie einen neutralen Gesichtsausdruck",
+    "body_too_bright": "Suchen Sie eine weniger helle Umgebung auf",
+    "button_primary": "Kamera starten",
+    "subtitle": "Wir konnten Ihr Gesicht nicht ordnungsgemäß erfassen",
+    "title": "Scannen Sie Ihr Gesicht erneut"
+  },
+  "auth_upload_pass": {
+    "body": "Hochladen erfolgreich"
+  },
   "avc_confirmation": {
     "button_primary_upload": "Aufnahme hochladen",
     "subtitle": "Ein Video von Ihrem Gesicht wurde erfolgreich aufgenommen",
@@ -169,13 +256,13 @@
     "body_bank_statement": "Überprüfen Sie, dass Sie die gesamte Dokumentseite hochgeladen haben, und dass man die Details ohne Unschärfen und blendfrei lesen kann",
     "body_benefits_letter": "Überprüfen Sie, dass Sie die gesamte Dokumentseite hochgeladen haben, und dass man die Details ohne Unschärfen und blendfrei lesen kann",
     "body_bill": "Überprüfen Sie, dass Sie die gesamte Dokumentseite hochgeladen haben, und dass man die Details ohne Unschärfen und blendfrei lesen kann",
-    "body_generic_document": "Die Informationen müssen deutlich lesbar sein, ohne Unschärfe oder Spiegelung",
+    "body_generic_document": "Die Reisepass-Details müssen deutlich lesbar sein, ohne Unschärfe oder Spiegelung",
     "body_id": "Die Reisepass-Details müssen deutlich lesbar sein, ohne Unschärfe oder Spiegelung",
     "body_image_medium": "Es wird länger dauern, Sie zu verifizieren, wenn wir es nicht lesen können",
     "body_image_poor": "Um Sie reibungslos zu verifizieren, benötigen wir ein besseres Foto",
-    "body_license": "Die Informationen müssen deutlich lesbar sein, ohne Unschärfe oder Spiegelung",
+    "body_license": "Die Reisepass-Details müssen deutlich lesbar sein, ohne Unschärfe oder Spiegelung",
     "body_passport": "Die Reisepass-Details müssen deutlich lesbar sein, ohne Unschärfe oder Spiegelung",
-    "body_permit": "Die Informationen müssen deutlich lesbar sein, ohne Unschärfe oder Spiegelung",
+    "body_permit": "Die Reisepass-Details müssen deutlich lesbar sein, ohne Unschärfe oder Spiegelung",
     "body_tax_letter": "Überprüfen Sie, dass Sie die gesamte Dokumentseite hochgeladen haben, und dass man die Details ohne Unschärfen und blendfrei lesen kann",
     "button_close": "Schließen",
     "button_primary_redo": "Wiederholen",
@@ -904,14 +991,11 @@
     "video_accessibility": "Wiedergeben Ihres aufgezeichneten Videos"
   },
   "video_intro": {
-    "button_pause_accessibility": "Video anhalten",
-    "button_play_accessibility": "Video abspielen",
     "button_primary": "Fortfahren",
     "list_accessibility": "Aktionen zum Aufzeichnen eines Selfie-Videos",
     "list_item_actions": "Beenden Sie Aktionen in weniger als 20 Sekunden",
     "list_item_speak": "Befolgen Sie die Anweisungen zur Bewegung oder zum Sprechen",
-    "title": "Selfie-Video aufnehmen",
-    "video_accessibility": "Beispielvideo von jemandem, der ein Selfie-Video aufnimmt. Um ein Selfie-Video aufzunehmen, richten Sie Ihr Gesicht zur Vorderkamera und halten Sie Ihr Smartphone etwas vom Gesicht entfernt. Anschließend müssen Sie einige Zahlen aufsagen und Ihren Kopf entsprechend den Anweisungen auf dem Bildschirm drehen."
+    "title": "Selfie-Video aufnehmen"
   },
   "welcome": {
     "doc_video_subtitle": "Es dauert nur wenige Minuten",

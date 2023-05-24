@@ -904,14 +904,11 @@
     "video_accessibility": "Iš naujo paleisti padarytą vaizdo įrašą"
   },
   "video_intro": {
-    "button_pause_accessibility": "Padaryti vaizdo įrašo pauzę",
-    "button_play_accessibility": "Paleisti vaizdo įrašą",
     "button_primary": "Padaryti vaizdo įrašą",
     "list_accessibility": "Veiksmai asmenukės vaizdo įrašui padaryti",
     "list_item_actions": "Turite užbaigti per 20 sekundžių",
     "list_item_speak": "Vadovaukitės nurodymais, kaip judėti ar kalbėti",
-    "title": "Padaryti vaizdo įrašą",
-    "video_accessibility": "Vaizdo įrašo, kaip nusifilmuojama, pavyzdys. Norėdami nusifilmuoti, žiūrėkite į priekinę kamerą ir laikykite telefoną šiek tiek toliau nuo veido. Tada jums reikės pasakyti kai kuriuos skaičius ir pasukti galvą pagal nurodymus ekrane."
+    "title": "Padaryti vaizdo įrašą"
   },
   "welcome": {
     "doc_video_subtitle": "Tai turėtų užtrukti kelias minutes",

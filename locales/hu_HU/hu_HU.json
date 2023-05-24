@@ -904,14 +904,11 @@
     "video_accessibility": "Rögzített videó lejátszása"
   },
   "video_intro": {
-    "button_pause_accessibility": "Videó szüneteltetése",
-    "button_play_accessibility": "Videó lejátszása",
     "button_primary": "Készítsen videófelvételt",
     "list_accessibility": "Videószelfi rögzítésére vonatkozó műveletek",
     "list_item_actions": "A befejezéshez 20 másodperc áll rendelkezésére",
     "list_item_speak": "Kövesse a mozgásra és beszédre vonatkozó utasításokat",
-    "title": "Készítsen videófelvételt",
-    "video_accessibility": "Példavideó szelfivideó készítéséről. Szelfi-videófelvétel készítéséhez nézzen az elülső kamerába, és tartsa kissé távol a telefont az arcától. Ezután ki kell mondania néhány számot, majd elfordítania a fejét a képernyőn megjelenő utasításoknak megfelelően."
+    "title": "Készítsen videófelvételt"
   },
   "welcome": {
     "doc_video_subtitle": "Pár percet vesz igénybe",

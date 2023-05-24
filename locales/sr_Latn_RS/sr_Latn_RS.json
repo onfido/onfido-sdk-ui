@@ -904,14 +904,11 @@
     "video_accessibility": "Ponovo pustite snimljeni video"
   },
   "video_intro": {
-    "button_pause_accessibility": "Pauziraj video",
-    "button_play_accessibility": "Pusti video",
     "button_primary": "Snimite video",
     "list_accessibility": "Radnje za snimanje selfija",
     "list_item_actions": "Imate 20 sekundi da dovršite postupak",
     "list_item_speak": "Pratite uputstva za kretanje ili izgovaranje teksta",
-    "title": "Snimite video",
-    "video_accessibility": "Video sa primerom u kojem neko snima selfi-video. Da biste snimili selfi-video, okrenite se prema prednjoj kameri i držite telefon malo dalje od lica. Zatim ćete morati da izgovorite neke brojeve i okrenete glavu u skladu sa uputstvima na ekranu."
+    "title": "Snimite video"
   },
   "welcome": {
     "doc_video_subtitle": "Trebalo bi da traje nekoliko minuta",

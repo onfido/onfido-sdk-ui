@@ -904,14 +904,11 @@
     "video_accessibility": "Atkārtoti atskaņot ierakstīto videoklipu"
   },
   "video_intro": {
-    "button_pause_accessibility": "Apturēt video",
-    "button_play_accessibility": "Atskaņot video",
     "button_primary": "Ierakstīt videoklipu",
     "list_accessibility": "Darbības selfija videoklipa ierakstīšanai",
     "list_item_actions": "Jums ir 20 sekundes laika, lai to pabeigtu",
     "list_item_speak": "Izpildiet instrukcijas par kustībām vai runāšanu",
-    "title": "Ierakstīt videoklipu",
-    "video_accessibility": "Piemērs, kurā kāds ieraksta selfija videoklipu.Lai ierakstītu selfija videoklipu, pagrieziet seju pret priekšējo kameru un turiet tālruni nedaudz atstatus no sejas. Pēc tam jums būs jānosauc daži cipari un jāpagriež galva saskaņā ar ekrānā redzamajām instrukcijām."
+    "title": "Ierakstīt videoklipu"
   },
   "welcome": {
     "doc_video_subtitle": "Tas var aizņemt dažas minūtes",

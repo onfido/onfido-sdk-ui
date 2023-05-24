@@ -904,14 +904,11 @@
     "video_accessibility": "Reproduzir novamente o vídeo gravado"
   },
   "video_intro": {
-    "button_pause_accessibility": "Pausar vídeo",
-    "button_play_accessibility": "Reproduzir vídeo",
     "button_primary": "Gravar vídeo",
     "list_accessibility": "Ações para gravar um vídeo de selfie",
     "list_item_actions": "Você tem 20 segundos para terminar",
     "list_item_speak": "Siga as instruções para se mover ou falar",
-    "title": "Gravar um vídeo",
-    "video_accessibility": "Exemplo de vídeo de alguém gravando um vídeo de selfie. Para gravar um vídeo de selfie, fique de frente para a câmera frontal e mantenha o celular um pouco longe do rosto. Em seguida, você precisará recitar alguns números e virar a cabeça de acordo com as instruções na tela."
+    "title": "Gravar um vídeo"
   },
   "welcome": {
     "doc_video_subtitle": "Isso pode levar alguns minutos",

@@ -904,14 +904,11 @@
     "video_accessibility": "Spela upp din inspelade video igen"
   },
   "video_intro": {
-    "button_pause_accessibility": "Pausa video",
-    "button_play_accessibility": "Spela upp video",
     "button_primary": "Spela in video",
     "list_accessibility": "Hur du spelar in en selfievideo",
     "list_item_actions": "Du har 20 sekunder på dig att slutföra detta",
     "list_item_speak": "Följ instruktionerna för att röra dig eller tala",
-    "title": "Spela in en video",
-    "video_accessibility": "Exempelvideo där någon spelar in en selfievideo. För att spela in en selfievideo vänder du dig mot frontkameran och håller telefonen en bit bort från ansiktet. Du måste sedan läsa upp några siffror och vrida huvudet enligt instruktionerna på skärmen."
+    "title": "Spela in en video"
   },
   "welcome": {
     "doc_video_subtitle": "Detta kan ta några minuter",

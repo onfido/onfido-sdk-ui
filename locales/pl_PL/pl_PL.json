@@ -1,4 +1,91 @@
 {
+  "auth_accessibility": {
+    "back_button": ""
+  },
+  "auth_cam_encrypt": {
+    "loader": ""
+  },
+  "auth_cam_start": {
+    "loader": ""
+  },
+  "auth_capture": {
+    "feedback": {
+      "center_face": "",
+      "even_lighting": "",
+      "eye_level": "",
+      "face_not_found": "",
+      "head_not_upright": "",
+      "move_back": "",
+      "move_close": "",
+      "move_closer": "",
+      "not_looking_straight": "",
+      "steady": ""
+    }
+  },
+  "auth_capture_start": {
+    "body": "",
+    "button_primary": "",
+    "feedback": {
+      "center_face": "",
+      "conditions_too_bright": "",
+      "conditions_too_dark": "",
+      "head_not_upright": "",
+      "neutral_expression": "",
+      "not_looking_straight": "",
+      "remove_sunglasses": "",
+      "steady_count_1": "",
+      "steady_count_2": "",
+      "steady_count_3": ""
+    },
+    "title": ""
+  },
+  "auth_error": {
+    "cam_encryption": {
+      "body": "",
+      "button_primary": "",
+      "button_primary_firefox": "",
+      "subtitle": "",
+      "table_header_1": "",
+      "table_header_2": "",
+      "table_row_1_cell_1": "",
+      "table_row_1_cell_1_firefox": "",
+      "table_row_1_cell_2": "",
+      "table_row_1_cell_2_firefox": "",
+      "table_row_2_cell_1": "",
+      "table_row_2_cell_2": "",
+      "table_row_3_cell_1": "",
+      "table_row_3_cell_2": "",
+      "title": ""
+    }
+  },
+  "auth_full_screen": {
+    "body": "",
+    "button_primary": "",
+    "title": ""
+  },
+  "auth_permission": {
+    "body_cam": "",
+    "button_primary_cam": "",
+    "title_cam": ""
+  },
+  "auth_permission_denied": {
+    "body_cam": "",
+    "button_primary_cam": ""
+  },
+  "auth_progress": {
+    "loader": ""
+  },
+  "auth_retry": {
+    "body_blur": "",
+    "body_neutral_expression": "",
+    "body_too_bright": "",
+    "button_primary": "",
+    "subtitle": "",
+    "title": ""
+  },
+  "auth_upload_pass": {
+    "body": ""
+  },
   "avc_confirmation": {
     "button_primary_upload": "Prześlij nagranie",
     "subtitle": "Udało się nagrać film wideo przedstawiający Twoją twarz",
@@ -904,14 +991,11 @@
     "video_accessibility": "Odtwórz swoje nagranie"
   },
   "video_intro": {
-    "button_pause_accessibility": "Wstrzymaj wideo",
-    "button_play_accessibility": "Odtwórz wideo",
     "button_primary": "Nagraj wideo",
     "list_accessibility": "Czynności związane z nagrywaniem wideo selfie",
     "list_item_actions": "Masz 20 sekund na dokończenie",
     "list_item_speak": "Postępuj zgodnie z instrukcjami poruszania się lub mówienia",
-    "title": "Nagraj wideo",
-    "video_accessibility": "Przykładowy film, na którym ktoś nagrywa wideo typu selfie. Aby nagrać wideo typu selfie, skieruj się do przedniej kamery i trzymaj telefon w niewielkiej odległości od twarzy. Następnie będziesz musiał wyrecytować kilka liczb i obrócić głowę zgodnie z instrukcjami na ekranie."
+    "title": "Nagraj wideo"
   },
   "welcome": {
     "doc_video_subtitle": "Powinno to zająć kilka minut",

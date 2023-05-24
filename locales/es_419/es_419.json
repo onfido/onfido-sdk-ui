@@ -904,14 +904,11 @@
     "video_accessibility": "Volver a reproducir el video grabado"
   },
   "video_intro": {
-    "button_pause_accessibility": "Pausar video",
-    "button_play_accessibility": "Reproducir video",
     "button_primary": "Grabar video",
     "list_accessibility": "Acciones para grabar un video selfi",
     "list_item_actions": "Tienes 20 segundos para terminar",
     "list_item_speak": "Sigue las instrucciones para moverte o hablar",
-    "title": "Grabar un video",
-    "video_accessibility": "Ejemplo de video de alguien que graba un video selfi. Para grabar un video selfi, mira a la cámara frontal y mantén el teléfono ligeramente alejado de tu rostro. Luego, deberás decir algunos números y girar la cabeza de acuerdo con las instrucciones en pantalla."
+    "title": "Grabar un video"
   },
   "welcome": {
     "doc_video_subtitle": "Esto puede tomar unos pocos minutos",

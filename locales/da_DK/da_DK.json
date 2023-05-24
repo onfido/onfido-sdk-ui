@@ -904,14 +904,11 @@
     "video_accessibility": "Afspil videoen, du har optaget, igen"
   },
   "video_intro": {
-    "button_pause_accessibility": "Sæt videoen på pause",
-    "button_play_accessibility": "Afspil video",
     "button_primary": "Optag video",
     "list_accessibility": "Sådan optager du en selfie-video",
     "list_item_actions": "Du har 20 sekunder til at afslutte",
     "list_item_speak": "Følg anvisningerne, når du skal bevæge dig eller sige noget",
-    "title": "Optag en video",
-    "video_accessibility": "Videoeksempel på en person, der optager en selfie-video. Du skal vende ansigtet mod frontkameraet og holde telefonen lidt væk fra dit ansigt for at optage en selfie-video. Derefter skal du sige nogle tal højt og dreje hovedet i henhold til anvisningerne på skærmen."
+    "title": "Optag en video"
   },
   "welcome": {
     "doc_video_subtitle": "Det tager nok et par minutter",

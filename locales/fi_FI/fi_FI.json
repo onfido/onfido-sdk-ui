@@ -904,14 +904,11 @@
     "video_accessibility": "Toista tallentamasi video uudelleen"
   },
   "video_intro": {
-    "button_pause_accessibility": "Keskeytä video",
-    "button_play_accessibility": "Toista video",
     "button_primary": "Tallenna video",
     "list_accessibility": "Selfievideon tallennustoiminnot",
     "list_item_actions": "Sinulla on 20 sekuntia jäljellä",
     "list_item_speak": "Seuraa liikkumis- tai puhumisohjeita",
-    "title": "Tallenna video",
-    "video_accessibility": "Esimerkki videosta, jossa joku tallentaa selfievideon. Tallenna selfievideo katsomalla etukameraan ja pitämällä puhelintasi pienen matkan päässä kasvoistasi. Sitten sinun täytyy lausua joitakin numeroita ja kääntää päätäsi näytön ohjeiden mukaisesti."
+    "title": "Tallenna video"
   },
   "welcome": {
     "doc_video_subtitle": "Siihen menee muutama minuutti",

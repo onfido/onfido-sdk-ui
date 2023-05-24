@@ -1,4 +1,91 @@
 {
+  "auth_accessibility": {
+    "back_button": "Cancelar"
+  },
+  "auth_cam_encrypt": {
+    "loader": "Cifrado de transmisión de la cámara"
+  },
+  "auth_cam_start": {
+    "loader": "Iniciando cámara"
+  },
+  "auth_capture": {
+    "feedback": {
+      "center_face": "Coloque su rostro en el marco",
+      "even_lighting": "Asegúrese de que la iluminación sea uniforme",
+      "eye_level": "Mantenga la cámara a la altura de los ojos",
+      "face_not_found": "Asegúrese que su cara sea visible",
+      "head_not_upright": "Mantenga la cabeza erguida",
+      "move_back": "Ahora muévase hacia atrás",
+      "move_close": "Ahora acérquese",
+      "move_closer": "Acérquese",
+      "not_looking_straight": "Mire hacia adelante",
+      "steady": "No se mueva"
+    }
+  },
+  "auth_capture_start": {
+    "body": "Coloque su rostro dentro del marco ovalado",
+    "button_primary": "Iniciar escaneo del rostro",
+    "feedback": {
+      "center_face": "Coloque su rostro en el marco",
+      "conditions_too_bright": "Busque un entorno con menos luz",
+      "conditions_too_dark": "Busque un entorno con más luz",
+      "head_not_upright": "Mantenga la cabeza erguida",
+      "neutral_expression": "Mantenga una expresión neutra",
+      "not_looking_straight": "Mire hacia adelante",
+      "remove_sunglasses": "Quítese las gafas de sol",
+      "steady_count_1": "No se mueva: 1",
+      "steady_count_2": "No se mueva: 2",
+      "steady_count_3": "No se mueva: 3"
+    },
+    "title": "Iniciar escaneo del rostro"
+  },
+  "auth_error": {
+    "cam_encryption": {
+      "body": "Esta aplicación bloquea las configuraciones sospechosas de las cámaras web. <fallback>Más información</fallback>.",
+      "button_primary": "Intentar otra vez",
+      "button_primary_firefox": "Intentar otra vez",
+      "subtitle": "Este sistema no se puede verificar debido a lo siguiente:",
+      "table_header_1": "Posible problema",
+      "table_header_2": "Solución",
+      "table_row_1_cell_1": "La cámara ya está siendo utilizada por otra app.",
+      "table_row_1_cell_1_firefox": "Permisos de la cámara no recordados en Firefox.",
+      "table_row_1_cell_2": "Cierre la otra app.",
+      "table_row_1_cell_2_firefox": "Revise Recordar permisos.",
+      "table_row_2_cell_1": "Una app de terceros está modificando el vídeo.",
+      "table_row_2_cell_2": "Cierre/desinstale la otra app.",
+      "table_row_3_cell_1": "No es posible asegurar el hardware.",
+      "table_row_3_cell_2": "Utilice un dispositivo diferente.",
+      "title": "<b>Problema de cifrado de transmisión de la cámara</b>"
+    }
+  },
+  "auth_full_screen": {
+    "body": "Esto iniciará la captura de selfies en modo de pantalla completa.",
+    "button_primary": "Abrir en pantalla completa",
+    "title": "Modo selfie en pantalla completa"
+  },
+  "auth_permission": {
+    "body_cam": "Para continuar, deberá conceder acceso a la cámara cuando se le solicite.",
+    "button_primary_cam": "Conceder acceso a la cámara",
+    "title_cam": "Permitir acceso a la cámara"
+  },
+  "auth_permission_denied": {
+    "body_cam": "Para continuar, deberá conceder acceso a la cámara desde la configuración de su móvil.",
+    "button_primary_cam": "Acceder a la configuración"
+  },
+  "auth_progress": {
+    "loader": "Cargando"
+  },
+  "auth_retry": {
+    "body_blur": "Limpie el objetivo de su cámara",
+    "body_neutral_expression": "Mantenga una expresión neutra",
+    "body_too_bright": "Busque un entorno con menos luz",
+    "button_primary": "Iniciar cámara",
+    "subtitle": "No hemos podido capturar su rostro correctamente",
+    "title": "Vuelva a escanear su rostro"
+  },
+  "auth_upload_pass": {
+    "body": "Carga realizada correctamente"
+  },
   "avc_confirmation": {
     "button_primary_upload": "Subir grabación",
     "subtitle": "Se ha registrado correctamente un vídeo de su cara",
@@ -904,14 +991,11 @@
     "video_accessibility": "Reproducir su video grabado"
   },
   "video_intro": {
-    "button_pause_accessibility": "Pausar video",
-    "button_play_accessibility": "Reproducir video",
     "button_primary": "Grábese en un vídeo",
     "list_accessibility": "Acciones para grabar un video selfie",
     "list_item_actions": "Termine las instrucciones en 20 segundos",
     "list_item_speak": "Siga las instrucciones para moverse o hablar",
-    "title": "Grábese en un vídeo",
-    "video_accessibility": "Ejemplo de vídeo de alguien que graba un vídeo selfie. Para grabar un video selfie, póngase frente a la cámara, y mantenga el teléfono no muy lejos de su cara. Luego le pediremos que recite unos números y rotar su cabeza de acuerdo a las instrucciones en la pantalla"
+    "title": "Grábese en un vídeo"
   },
   "welcome": {
     "doc_video_subtitle": "Debería tomar unos minutos",

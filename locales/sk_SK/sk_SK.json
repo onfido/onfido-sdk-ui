@@ -904,14 +904,11 @@
     "video_accessibility": "Prehrajte si zaznamenané video"
   },
   "video_intro": {
-    "button_pause_accessibility": "Pozastaviť video",
-    "button_play_accessibility": "Prehrať video",
     "button_primary": "Zaznamenať video",
     "list_accessibility": "Postup na zaznamenanie selfie videa",
     "list_item_actions": "Na dokončenie máte 20 sekúnd",
     "list_item_speak": "Vykonajte pohyby alebo vyslovte slová podľa pokynov",
-    "title": "Zaznamenajte video",
-    "video_accessibility": "Príklad videa niekoho, kto zaznamenáva selfie video. Ak chcete zaznamenať selfie video, otočte sa tvárou k prednému fotoaparátu a držte telefón mierne vzdialený od tváre. Potom budete musieť vysloviť určité čísla a otočiť hlavu podľa pokynov na obrazovke."
+    "title": "Zaznamenajte video"
   },
   "welcome": {
     "doc_video_subtitle": "Malo by to trvať niekoľko minút",

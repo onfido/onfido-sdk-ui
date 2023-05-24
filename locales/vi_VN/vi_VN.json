@@ -904,14 +904,11 @@
     "video_accessibility": "Phát lại video đã quay của bạn"
   },
   "video_intro": {
-    "button_pause_accessibility": "Tạm dừng video",
-    "button_play_accessibility": "Phát video",
     "button_primary": "Quay video",
     "list_accessibility": "Các bước quay video selfie",
     "list_item_actions": "Bạn có 20 giây để hoàn thành",
     "list_item_speak": "Di chuyển hoặc nói theo hướng dẫn",
-    "title": "Quay video",
-    "video_accessibility": "Video mẫu về cách quay video selfie. Để quay video selfie, hãy hướng mặt vào camera trước và giữ điện thoại cách mặt bạn một chút. Sau đó, bạn cần đọc một vài chữ số và xoay đầu theo hướng dẫn trên màn hình."
+    "title": "Quay video"
   },
   "welcome": {
     "doc_video_subtitle": "Quá trình này có thể mất vài phút",

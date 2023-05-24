@@ -1,4 +1,91 @@
 {
+  "auth_accessibility": {
+    "back_button": ""
+  },
+  "auth_cam_encrypt": {
+    "loader": ""
+  },
+  "auth_cam_start": {
+    "loader": ""
+  },
+  "auth_capture": {
+    "feedback": {
+      "center_face": "",
+      "even_lighting": "",
+      "eye_level": "",
+      "face_not_found": "",
+      "head_not_upright": "",
+      "move_back": "",
+      "move_close": "",
+      "move_closer": "",
+      "not_looking_straight": "",
+      "steady": ""
+    }
+  },
+  "auth_capture_start": {
+    "body": "",
+    "button_primary": "",
+    "feedback": {
+      "center_face": "",
+      "conditions_too_bright": "",
+      "conditions_too_dark": "",
+      "head_not_upright": "",
+      "neutral_expression": "",
+      "not_looking_straight": "",
+      "remove_sunglasses": "",
+      "steady_count_1": "",
+      "steady_count_2": "",
+      "steady_count_3": ""
+    },
+    "title": ""
+  },
+  "auth_error": {
+    "cam_encryption": {
+      "body": "",
+      "button_primary": "",
+      "button_primary_firefox": "",
+      "subtitle": "",
+      "table_header_1": "",
+      "table_header_2": "",
+      "table_row_1_cell_1": "",
+      "table_row_1_cell_1_firefox": "",
+      "table_row_1_cell_2": "",
+      "table_row_1_cell_2_firefox": "",
+      "table_row_2_cell_1": "",
+      "table_row_2_cell_2": "",
+      "table_row_3_cell_1": "",
+      "table_row_3_cell_2": "",
+      "title": ""
+    }
+  },
+  "auth_full_screen": {
+    "body": "",
+    "button_primary": "",
+    "title": ""
+  },
+  "auth_permission": {
+    "body_cam": "",
+    "button_primary_cam": "",
+    "title_cam": ""
+  },
+  "auth_permission_denied": {
+    "body_cam": "",
+    "button_primary_cam": ""
+  },
+  "auth_progress": {
+    "loader": ""
+  },
+  "auth_retry": {
+    "body_blur": "",
+    "body_neutral_expression": "",
+    "body_too_bright": "",
+    "button_primary": "",
+    "subtitle": "",
+    "title": ""
+  },
+  "auth_upload_pass": {
+    "body": ""
+  },
   "avc_confirmation": {
     "button_primary_upload": "Nahrávání záznamu",
     "subtitle": "Video Vašeho obličeje bylo úspěšně nahráno",
@@ -904,14 +991,11 @@
     "video_accessibility": "Přehrání nahraného videa"
   },
   "video_intro": {
-    "button_pause_accessibility": "Pozastavit video",
-    "button_play_accessibility": "Přehrát video",
     "button_primary": "Nahrávání videa",
     "list_accessibility": "Akce pro nahrávání selfie videa",
     "list_item_actions": "Na dokončení máte 20 sekund",
     "list_item_speak": "Postupujte podle pokynů k pohybu nebo mluvení",
-    "title": "Nahrajte video",
-    "video_accessibility": "Příklad videa, na kterém někdo nahrává selfie. Pokud chcete nahrávat selfie video, postavte se čelem k přední kameře a držte telefon mírně od obličeje. Poté budete muset odříkat několik čísel a natočit hlavu podle pokynů na obrazovce."
+    "title": "Nahrajte video"
   },
   "welcome": {
     "doc_video_subtitle": "Mělo by to trvat několik minut",
