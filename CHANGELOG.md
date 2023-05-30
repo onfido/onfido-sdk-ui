@@ -10,6 +10,13 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 
+## [12.3.2] - 2023-05-30
+
+- Public: Fix a bug that prevented document upload from the native camera application.
+- Public: Fix a bug that caused selfies to appear stretched on Safari 15.
+
+### Changed
+
 ## [12.3.1] - 2023-05-25
 
 ### Changed
@@ -1483,7 +1490,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/12.3.1...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/12.3.2...development
+[12.3.2]: https://github.com/onfido/onfido-sdk-ui/compare/12.3.1...12.3.2
 [12.3.1]: https://github.com/onfido/onfido-sdk-ui/compare/12.3.0...12.3.1
 [12.3.0]: https://github.com/onfido/onfido-sdk-ui/compare/10.4.0...12.3.0
 [10.4.0]: https://github.com/onfido/onfido-sdk-ui/compare/10.3.1...10.4.0
