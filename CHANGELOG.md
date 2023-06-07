@@ -10,6 +10,10 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 
+## [12.3.3] - 2023-06-01
+
+### Changed
+
 ## [12.3.2] - 2023-05-30
 
 - Public: Fix a bug that prevented document upload from the native camera application.
@@ -1490,7 +1494,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/12.3.2...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/12.3.3...development
+[12.3.3]: https://github.com/onfido/onfido-sdk-ui/compare/12.3.2...12.3.3
 [12.3.2]: https://github.com/onfido/onfido-sdk-ui/compare/12.3.1...12.3.2
 [12.3.1]: https://github.com/onfido/onfido-sdk-ui/compare/12.3.0...12.3.1
 [12.3.0]: https://github.com/onfido/onfido-sdk-ui/compare/10.4.0...12.3.0
