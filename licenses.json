@@ -1154,7 +1154,7 @@
     "path": "node_modules/@octokit/types",
     "licenseFile": "node_modules/@octokit/types/LICENSE"
   },
-  "@onfido/active-video-capture@0.23.0": {
+  "@onfido/active-video-capture@0.27.3": {
     "licenses": "UNLICENSED",
     "repository": "/active-video-capture",
     "publisher": "Web SDK Customer Support",
@@ -1883,12 +1883,6 @@
     "path": "node_modules/@types/uuid",
     "licenseFile": "node_modules/@types/uuid/LICENSE"
   },
-  "@types/web@0.0.75": {
-    "licenses": "Apache-2.0",
-    "repository": "https://github.com/microsoft/TypeScript-DOM-Lib-Generator",
-    "path": "node_modules/@typescript/lib-dom",
-    "licenseFile": "node_modules/@typescript/lib-dom/LICENSE.txt"
-  },
   "@types/webgl-ext@0.0.30": {
     "licenses": "MIT",
     "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
@@ -1922,8 +1916,8 @@
   "@types/webpack@4.41.32": {
     "licenses": "MIT",
     "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
-    "path": "node_modules/@types/speed-measure-webpack-plugin/node_modules/@types/webpack",
-    "licenseFile": "node_modules/@types/speed-measure-webpack-plugin/node_modules/@types/webpack/LICENSE"
+    "path": "node_modules/@types/html-webpack-plugin/node_modules/@types/webpack",
+    "licenseFile": "node_modules/@types/html-webpack-plugin/node_modules/@types/webpack/LICENSE"
   },
   "@types/webpack@5.28.0": {
     "licenses": "MIT",
@@ -2227,8 +2221,8 @@
   "acorn-walk@8.2.0": {
     "licenses": "MIT",
     "repository": "https://github.com/acornjs/acorn",
-    "path": "node_modules/ts-node/node_modules/acorn-walk",
-    "licenseFile": "node_modules/ts-node/node_modules/acorn-walk/LICENSE"
+    "path": "node_modules/webpack-bundle-analyzer/node_modules/acorn-walk",
+    "licenseFile": "node_modules/webpack-bundle-analyzer/node_modules/acorn-walk/LICENSE"
   },
   "acorn@7.4.1": {
     "licenses": "MIT",
@@ -3220,8 +3214,8 @@
     "repository": "https://github.com/tj/commander.js",
     "publisher": "TJ Holowaychuk",
     "email": "tj@vision-media.ca",
-    "path": "node_modules/@babel/node/node_modules/commander",
-    "licenseFile": "node_modules/@babel/node/node_modules/commander/LICENSE"
+    "path": "node_modules/@babel/cli/node_modules/commander",
+    "licenseFile": "node_modules/@babel/cli/node_modules/commander/LICENSE"
   },
   "commander@7.2.0": {
     "licenses": "MIT",
@@ -7412,7 +7406,7 @@
     "path": "node_modules/onetime",
     "licenseFile": "node_modules/onetime/license"
   },
-  "onfido-sdk-ui@10.4.0": {
+  "onfido-sdk-ui@12.3.4": {
     "licenses": "Custom: https://travis-ci.org/onfido/onfido-sdk-ui.svg",
     "repository": "https://github.com/onfido/onfido-sdk-ui",
     "publisher": "Web SDK Customer Support",
@@ -8008,7 +8002,7 @@
     "path": "node_modules/postinstall-postinstall",
     "licenseFile": "node_modules/postinstall-postinstall/LICENSE"
   },
-  "preact@10.11.1": {
+  "preact@10.11.3": {
     "licenses": "MIT",
     "repository": "https://github.com/preactjs/preact",
     "path": "node_modules/preact",
@@ -8334,7 +8328,7 @@
     "path": "node_modules/react-router",
     "licenseFile": "node_modules/react-router/LICENSE"
   },
-  "react-webcam@7.0.1": {
+  "react-webcam@7.1.1": {
     "licenses": "MIT",
     "repository": "https://github.com/mozmorris/react-webcam",
     "publisher": "Moz Morris",
