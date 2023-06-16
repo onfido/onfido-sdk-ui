@@ -319,12 +319,20 @@ You can then decide to close the modal or keep it open by changing the property 
 
 ## Removing the SDK
 
-If you have embedded the SDK inside a single page app, you can call the `tearDown` function to remove the SDK completely from the current webpage. It will reset the state and you can safely re-initialize the SDK inside the same webpage later on.
+If you have embedded the SDK inside a single page app, you can call the `safeTearDown` function to remove the SDK completely from the current webpage. It will reset the state and you can safely re-initialize the SDK inside the same webpage later on.
 
 ```javascript
 onfidoOut = Onfido.init({...})
 ...
-onfidoOut.tearDown()
+await onfidoOut.safeTearDown()
+```
+
+⚠️ **Warning**: The `safeTearDown` method is a Promise. If you plan on mounting the SDK a second (or nth time), please await the promise first.
+
+```javascript
+onfidoOut = Onfido.init({...})
+await onfidoOut.safeTearDown()
+onfidoOut2 = Onfido.init({...})
 ```
 
 ## Initialization options

@@ -4,6 +4,8 @@ The guides below are provided to ease the transition of existing applications us
 
 ## `next`
 
+`tearDown` is deprecated in favor of `safeTearDown` which is a promise that you can await to know when the sdk tear down is complete.
+
 For all supported language the copy for the following string(s) has been added:
 
 ## Added strings
