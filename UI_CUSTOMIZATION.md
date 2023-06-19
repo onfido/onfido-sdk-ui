@@ -132,7 +132,7 @@ The Web SDK supports customization options across the SDK screen including text,
 
   | Links                       | Description                               |
   | --------------------------- | ----------------------------------------- |
-  | `colorContentLinkTextHover` | Change Link text color                    |
+  | `colorContentLinkTextHover` | Change Link text color on hover           |
   | `colorBorderLinkUnderline`  | Change Link underline color               |
   | `colorBackgroundLinkHover`  | Change Link background color on hover     |
   | `colorBackgroundLinkActive` | Change Link background color on click/tap |

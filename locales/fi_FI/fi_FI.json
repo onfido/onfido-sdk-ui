@@ -70,6 +70,9 @@
     },
     "title": "Valitse myöntämismaa"
   },
+  "cross_device": {
+    "button_primary_upload": "Lataa kuva"
+  },
   "cross_device_checklist": {
     "button_primary": "Lähetä vahvistus",
     "info": "Vinkit",
@@ -96,6 +99,7 @@
     "list_item_open_link": "Avaa linkki ja suorita tehtävät",
     "list_item_send_phone": "Lähetä suojattu linkki puhelimeesi",
     "subtitle": "Tee se näin:",
+    "subtitle_upload": "Lataa uusi valokuva alkuperäisestä asiakirjastasi",
     "title": "Jatka puhelimellasi"
   },
   "cross_device_return": {

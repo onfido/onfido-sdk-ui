@@ -70,6 +70,9 @@
     },
     "title": "Izberite državo izdajateljico"
   },
+  "cross_device": {
+    "button_primary_upload": "Naloži fotografijo"
+  },
   "cross_device_checklist": {
     "button_primary": "Pošlji potrditev",
     "info": "Namigi",
@@ -96,6 +99,7 @@
     "list_item_open_link": "Odprite povezavo in dokončajte naloge",
     "list_item_send_phone": "Pošljite varno povezavo v telefon",
     "subtitle": "To storite takole:",
+    "subtitle_upload": "Naložite najnovejšo fotografijo izvirnega dokumenta",
     "title": "Nadaljujte po telefonu"
   },
   "cross_device_return": {

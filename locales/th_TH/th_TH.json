@@ -70,6 +70,9 @@
     },
     "title": "เลือกประเทศที่ออกเอกสาร"
   },
+  "cross_device": {
+    "button_primary_upload": "อัปโหลดรูปภาพ"
+  },
   "cross_device_checklist": {
     "button_primary": "ส่งการยืนยัน",
     "info": "เคล็ดลับ",
@@ -96,6 +99,7 @@
     "list_item_open_link": "เปิดลิงก์และทำให้เสร็จ",
     "list_item_send_phone": "ส่งลิงก์ที่ปลอดภัยไปยังโทรศัพท์ของคุณ",
     "subtitle": "วิธีทำ",
+    "subtitle_upload": "โปรดอัปโหลดรูปถ่ายล่าสุดของเอกสารต้นฉบับของคุณ",
     "title": "ดำเนินการต่อทางโทรศัพท์"
   },
   "cross_device_return": {

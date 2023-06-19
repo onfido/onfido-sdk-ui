@@ -70,6 +70,9 @@
     },
     "title": "Seleccione el país emisor"
   },
+  "cross_device": {
+    "button_primary_upload": "Subir foto"
+  },
   "cross_device_checklist": {
     "button_primary": "Enviar verificación",
     "info": "Recomendaciones",
@@ -96,6 +99,7 @@
     "list_item_open_link": "Abra el enlace y complete las acciones",
     "list_item_send_phone": "Envíe el enlace seguro a su teléfono móvil",
     "subtitle": "Siga estas instrucciones:",
+    "subtitle_upload": "Cargue una foto reciente de su documento original",
     "title": "Continúe en su teléfono móvil"
   },
   "cross_device_return": {

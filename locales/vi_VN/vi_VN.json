@@ -70,6 +70,9 @@
     },
     "title": "Chọn quốc gia cấp giấy tờ"
   },
+  "cross_device": {
+    "button_primary_upload": "Tải ảnh lên"
+  },
   "cross_device_checklist": {
     "button_primary": "Gửi xác minh",
     "info": "Gợi ý",
@@ -96,6 +99,7 @@
     "list_item_open_link": "Mở liên kết và hoàn thành thao tác",
     "list_item_send_phone": "Gửi liên kết bảo mật đến điện thoại của bạn",
     "subtitle": "Sau đây là cách thức thực hiện:",
+    "subtitle_upload": "Vui lòng tải lên một bức ảnh gần đây của tài liệu gốc của bạn",
     "title": "Tiếp tục trên điện thoại của bạn"
   },
   "cross_device_return": {

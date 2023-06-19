@@ -70,6 +70,9 @@
     },
     "title": "Выберите страну выдачи"
   },
+  "cross_device": {
+    "button_primary_upload": "Загрузить фото"
+  },
   "cross_device_checklist": {
     "button_primary": "Отправить на проверку",
     "info": "Советы",
@@ -96,6 +99,7 @@
     "list_item_open_link": "Перейдите по ссылке и следуйте инструкциям",
     "list_item_send_phone": "Отправьте защищенную ссылку на телефон",
     "subtitle": "Как это сделать:",
+    "subtitle_upload": "Пожалуйста, загрузите последнюю фотографию исходного документа",
     "title": "Продолжить на телефоне"
   },
   "cross_device_return": {

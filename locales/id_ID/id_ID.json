@@ -70,6 +70,9 @@
     },
     "title": "Pilih negara penerbit"
   },
+  "cross_device": {
+    "button_primary_upload": "Unggah foto"
+  },
   "cross_device_checklist": {
     "button_primary": "Kirim verifikasi",
     "info": "Tips",
@@ -96,6 +99,7 @@
     "list_item_open_link": "Buka tautan dan selesaikan tugas ini",
     "list_item_send_phone": "Kirim tautan aman ke ponsel Anda",
     "subtitle": "Begini caranya:",
+    "subtitle_upload": "Unggah foto terbaru dari dokumen asli Anda",
     "title": "Lanjutkan di ponsel Anda"
   },
   "cross_device_return": {

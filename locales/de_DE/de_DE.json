@@ -70,6 +70,9 @@
     },
     "title": "Ausstellungsland auswählen"
   },
+  "cross_device": {
+    "button_primary_upload": "Foto hochladen"
+  },
   "cross_device_checklist": {
     "button_primary": "Bestätigung senden",
     "info": "Tipps",
@@ -96,6 +99,7 @@
     "list_item_open_link": "Öffnen Sie den Link und führen Sie die Aktionen aus",
     "list_item_send_phone": "Senden Sie einen Sicherheitslink an Ihr Mobiltelefon",
     "subtitle": "So geht’s:",
+    "subtitle_upload": "Bitte laden Sie ein aktuelles Foto Ihres Originaldokuments hoch",
     "title": "Fahren Sie mit Ihrem Mobiltelefon fort"
   },
   "cross_device_return": {

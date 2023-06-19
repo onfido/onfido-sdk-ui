@@ -70,6 +70,9 @@
     },
     "title": "Pasirinkite išdavusią šalį"
   },
+  "cross_device": {
+    "button_primary_upload": "Įkelti nuotrauką"
+  },
   "cross_device_checklist": {
     "button_primary": "Pateikti patvirtinimą",
     "info": "Patarimai",
@@ -96,6 +99,7 @@
     "list_item_open_link": "Atidarykite nuorodą ir užbaikite užduotis",
     "list_item_send_phone": "Siųsti saugią nuorodą į telefoną",
     "subtitle": "Štai kaip tai padaryti:",
+    "subtitle_upload": "Įkelkite naujausią originalaus dokumento nuotrauką",
     "title": "Tęsti telefonu"
   },
   "cross_device_return": {

@@ -70,6 +70,9 @@
     },
     "title": "Ընտրեք թողարկող երկիրը"
   },
+  "cross_device": {
+    "button_primary_upload": "Բեռնել լուսանկարը"
+  },
   "cross_device_checklist": {
     "button_primary": "Ուղարկել հաստատումը",
     "info": "Խորհուրդներ",
@@ -96,6 +99,7 @@
     "list_item_open_link": "Բացեք հղումը և կատարեք առաջադրանքները",
     "list_item_send_phone": "Ուղարկեք անվտանգ հղումը ձեր հեռախոսին",
     "subtitle": "Ահա թե ինչպես դա անել.",
+    "subtitle_upload": "Խնդրում ենք վերբեռնել ձեր բնօրինակ փաստաթղթի վերջին լուսանկարը",
     "title": "Շարունակել հեռախոսով"
   },
   "cross_device_return": {

@@ -70,6 +70,9 @@
     },
     "title": "选择签发国家/地区"
   },
+  "cross_device": {
+    "button_primary_upload": "上传照片"
+  },
   "cross_device_checklist": {
     "button_primary": "提交验证",
     "info": "小贴士",
@@ -96,6 +99,7 @@
     "list_item_open_link": "打开链接并完成任务",
     "list_item_send_phone": "向手机发送安全链接",
     "subtitle": "请按如下步骤操作：",
+    "subtitle_upload": "请上传原始文件的近期照片",
     "title": "在手机上继续"
   },
   "cross_device_return": {

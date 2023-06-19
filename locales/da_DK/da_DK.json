@@ -70,6 +70,9 @@
     },
     "title": "Vælg udstedende land"
   },
+  "cross_device": {
+    "button_primary_upload": "Upload billede"
+  },
   "cross_device_checklist": {
     "button_primary": "Indsend verificering",
     "info": "Tips",
@@ -96,6 +99,7 @@
     "list_item_open_link": "Åbn linket og fuldfør opgaverne",
     "list_item_send_phone": "Send et sikkert link til din telefon",
     "subtitle": "Sådan gør du det:",
+    "subtitle_upload": "Upload venligst et nyligt billede af dit originale dokument",
     "title": "Fortsæt på din telefon"
   },
   "cross_device_return": {

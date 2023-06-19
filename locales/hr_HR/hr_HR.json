@@ -70,6 +70,9 @@
     },
     "title": "Odaberite zemlju izdavanja"
   },
+  "cross_device": {
+    "button_primary_upload": "Prenesite fotografiju"
+  },
   "cross_device_checklist": {
     "button_primary": "Pošalji potvrdu",
     "info": "Savjeti",
@@ -96,6 +99,7 @@
     "list_item_open_link": "Otvorite poveznicu i dovršite potrebne radnje",
     "list_item_send_phone": "Pošaljite sigurnu poveznicu na svoj mobitel",
     "subtitle": "Evo kako to učiniti:",
+    "subtitle_upload": "Učitajte noviju fotografiju svog izvornog dokumenta",
     "title": "Nastavite na svom mobitelu"
   },
   "cross_device_return": {

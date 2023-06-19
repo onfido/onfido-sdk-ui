@@ -120,11 +120,29 @@ An example of a valid referrer is `https://*.example.com/example_page/*`.
 
 You can either:
 
+- use our CDN
 - import directly into your HTML page
 - use npm
-- use our CDN
 
-#### 4.1 HTML Script Tag Include
+#### 4.1 CDN
+
+You can use hosted versions of the library files from Onfido's CDN.
+
+From SDK 12.3.1 onwards, the version number you subscribe to can vary, depending on your needs:
+
+- subscribing to a specific patch release (e.g. v12.3.1) will fix the library files to that SDK release
+- subscribing to a minor level release (e.g. v12.3) means Onfido will update to the latest available patch release
+- subscribing to a major release (e.g. v12) means Onfido will update to the latest available patch and minor release
+
+```html
+<!-- Replace "<version>" with the actual SDK version you want to use, example: v12 -->
+<script src="https://sdk.onfido.com/<version>"></script>
+<link href="https://sdk.onfido.com/<version>/style.css" rel="stylesheet" />
+```
+
+For versions prior to 12.3.1, specifying a precise release only, see our previous [documentation](https://github.com/onfido/onfido-sdk-ui/blob/12.3.0/README.md#43-cdn).
+
+#### 4.2 HTML Script Tag Include
 
 You can include the library as a regular script tag on your page:
 
@@ -140,9 +158,9 @@ And the CSS styles:
 
 You can see a [simple example using script tags](https://jsfiddle.net/gh/get/library/pure/onfido/onfido-sdk-ui/tree/master/demo/fiddle/).
 
-#### 4.2 NPM style import
+#### 4.3 NPM style import
 
-You can import the library as a module into your own JS build system (tested with Webpack):
+Alternatively, you can import the library as a module into your own JS build system (tested with Webpack):
 
 ```shell
 $ npm install --save onfido-sdk-ui
@@ -172,19 +190,6 @@ import 'onfido-sdk-ui/split/css'
 ```
 
 ⚠️ Note: The main bundle will be in included in your build, but the other bundles will be loaded from Onfido's CDN.
-
-#### 4.3 CDN
-
-Alternatively, you can use hosted versions of files above from our CDN such as:
-
-```html
-<!-- Replace "<version>" with the actual version you want to use, example: 9.0.0 -->
-<script src="https://assets.onfido.com/web-sdk-releases/<version>/onfido.min.js"></script>
-<link
-  href="https://assets.onfido.com/web-sdk-releases/<version>/style.css"
-  rel="stylesheet"
-/>
-```
 
 ### 5. Add basic HTML markup
 
@@ -319,12 +324,20 @@ You can then decide to close the modal or keep it open by changing the property 
 
 ## Removing the SDK
 
-If you have embedded the SDK inside a single page app, you can call the `tearDown` function to remove the SDK completely from the current webpage. It will reset the state and you can safely re-initialize the SDK inside the same webpage later on.
+If you have embedded the SDK inside a single page app, you can call the `safeTearDown` function to remove the SDK completely from the current webpage. It will reset the state and you can safely re-initialize the SDK inside the same webpage later on.
 
 ```javascript
 onfidoOut = Onfido.init({...})
 ...
-onfidoOut.tearDown()
+await onfidoOut.safeTearDown()
+```
+
+⚠️ **Warning**: The `safeTearDown` method is a Promise. If you plan on mounting the SDK a second (or nth time), please await the promise first.
+
+```javascript
+onfidoOut = Onfido.init({...})
+await onfidoOut.safeTearDown()
+onfidoOut2 = Onfido.init({...})
 ```
 
 ## Initialization options
@@ -919,6 +932,15 @@ FACIAL_CAPTURE_CONFIRMATION - User reached the "selfie confirmation" screen
 VIDEO_FACIAL_INTRO - User reached the "face video intro" screen
 VIDEO_FACIAL_CAPTURE_STEP_1 - User reached the 1st challenge during "face video capture", challenge_type can be found in eventProperties
 VIDEO_FACIAL_CAPTURE_STEP_2 - User reached the 2nd challenge during "face video capture", challenge_type can be found in eventProperties
+MOTION_FACIAL_INTRO - User reached the "motion intro" screen
+MOTION_FACIAL_ALIGNMENT - User reached the "motion alignment" screen
+MOTION_FACIAL_CAPTURE - User reached the "motion capture" screen
+MOTION_FACIAL_NO_FACE_DETECTED - User's face was not detected
+MOTION_FACIAL_CAPTURE_ERROR_TIMEOUT - User's motion capture timed out
+MOTION_FACIAL_CAPTURE_ERROR_TOO_FAST - User performed the motion headturn too fast
+MOTION_FACIAL_UPLOAD - User's motion capture is uploading
+MOTION_FACIAL_UPLOAD_COMPLETED - User's motion capture finished uploading
+MOTION_FACIAL_CONNECTION_ERROR - User was presented the "motion connection error" screen during upload
 UPLOAD - User's file is uploading
 ```
 
@@ -974,6 +996,10 @@ From version `6.5.0`, TypeScript is officially supported, providing typings for:
 | Latest ✔                                                                                            | Latest \* ✔                                                                                            | Latest ✔                                                                                      | Latest ✔                                                                                            |
 
 \* _Firefox on Android, iOS not supported_
+
+### Node.js compatibility
+
+The SDK is compatible with the all supported Node.js versions (currently starting with Node.js 16).
 
 ### Troubleshooting
 

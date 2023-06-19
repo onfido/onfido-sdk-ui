@@ -70,6 +70,9 @@
     },
     "title": "Selecteer land van uitgifte"
   },
+  "cross_device": {
+    "button_primary_upload": "Upload foto"
+  },
   "cross_device_checklist": {
     "button_primary": "Verzend verificatie",
     "info": "Tips",
@@ -96,6 +99,7 @@
     "list_item_open_link": "Open de link en voer de taken uit",
     "list_item_send_phone": "Stuur een veilige link naar uw telefoon",
     "subtitle": "Hier ziet u hoe dat moet:",
+    "subtitle_upload": "Upload een recente foto van uw originele document",
     "title": "Ga door op uw telefoon"
   },
   "cross_device_return": {

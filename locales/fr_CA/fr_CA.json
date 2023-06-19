@@ -70,6 +70,9 @@
     },
     "title": "Sélectionner le pays d'émission"
   },
+  "cross_device": {
+    "button_primary_upload": "Téléverser une photo"
+  },
   "cross_device_checklist": {
     "button_primary": "Soumettre la vérification",
     "info": "Conseils",
@@ -96,6 +99,7 @@
     "list_item_open_link": "Ouvrez le lien et terminez les tâches",
     "list_item_send_phone": "Envoyez un lien sécurisé vers votre téléphone",
     "subtitle": "Voici comment procéder :",
+    "subtitle_upload": "Veuillez télécharger une photo récente de votre document original",
     "title": "Continuez sur votre téléphone"
   },
   "cross_device_return": {
@@ -916,7 +920,7 @@
   "welcome": {
     "doc_video_subtitle": "Cela devrait prendre quelques minutes",
     "info_original_document": "Prenez une photographie de votre document original. Les scans, les photos d'écran ou les photocopies ne sont pas autorisés.",
-    "list_header_doc_video": "Utilisez votre appareil pour enregistrer :",
+    "list_header_doc_video": "Utilisez votre appareil pour enregistrer:",
     "list_header_webcam": "Utilisez votre webcam ou votre téléphone pour photographier :",
     "list_item_doc": "votre pièce d’identité",
     "list_item_doc_video_timeout": "L'enregistrement est limité à <timeout></timeout> secondes",
