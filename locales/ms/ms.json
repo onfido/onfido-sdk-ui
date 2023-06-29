@@ -70,6 +70,9 @@
     },
     "title": "Pilih negara yang mengeluarkan"
   },
+  "cross_device": {
+    "button_primary_upload": "Muat naik foto"
+  },
   "cross_device_checklist": {
     "button_primary": "Hantar pengesahan",
     "info": "Tip",
@@ -96,6 +99,7 @@
     "list_item_open_link": "Buka pautan dan lengkapkan tugasan",
     "list_item_send_phone": "Hantar pautan yang selamat ke telefon anda",
     "subtitle": "Berikut ialah cara-caranya:",
+    "subtitle_upload": "Sila muat naik foto terbaru dokumen asal anda",
     "title": "Teruskan di telefon"
   },
   "cross_device_return": {
@@ -142,6 +146,10 @@
     }
   },
   "doc_capture": {
+    "alert": {
+      "no_barcode_detail": "Berada di tempat yang terang dan dekatkan kad dengan kamera",
+      "no_barcode_title": "Kod bar tidak dikesan"
+    },
     "button_primary": "Mulakan imbasan dokumen",
     "detail": {
       "folded_doc_front": "Letakkan dokumen anda secara rata, sertakan semua halaman dalaman (ia mesti mengandungi gambar anda)"

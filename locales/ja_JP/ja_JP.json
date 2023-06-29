@@ -70,6 +70,9 @@
     },
     "title": "発行国を選択"
   },
+  "cross_device": {
+    "button_primary_upload": "写真をアップロードする"
+  },
   "cross_device_checklist": {
     "button_primary": "認証を送信",
     "info": "ヒント",
@@ -96,6 +99,7 @@
     "list_item_open_link": "リンクを開き、タスクを完了します",
     "list_item_send_phone": "スマートフォンに安全なリンクを送信します",
     "subtitle": "その方法：",
+    "subtitle_upload": "元のドキュメントの最近の写真をアップロードしてください",
     "title": "スマートフォンで続行"
   },
   "cross_device_return": {
@@ -142,6 +146,10 @@
     }
   },
   "doc_capture": {
+    "alert": {
+      "no_barcode_detail": "明るい場所に留まり、カードをカメラに近づけます",
+      "no_barcode_title": "バーコードが検出されません"
+    },
     "button_primary": "ドキュメントのスキャンを開始",
     "detail": {
       "folded_doc_front": "ドキュメントを平らに置き、すべての内側のページを含める（ご自身の写真を含める必要があります）"

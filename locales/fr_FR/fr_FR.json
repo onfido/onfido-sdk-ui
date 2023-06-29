@@ -70,6 +70,9 @@
     },
     "title": "Sélectionnez votre pays"
   },
+  "cross_device": {
+    "button_primary_upload": "Envoyer une photo"
+  },
   "cross_device_checklist": {
     "button_primary": "Envoyer la vérification",
     "info": "Conseils",
@@ -96,6 +99,7 @@
     "list_item_open_link": "Ouvrez le lien et complétez les tâches",
     "list_item_send_phone": "Envoyez un lien sécurisé vers votre téléphone",
     "subtitle": "Voici comment faire :",
+    "subtitle_upload": "Veuillez télécharger une photo récente de votre document original",
     "title": "Continuez sur votre mobile"
   },
   "cross_device_return": {
@@ -142,6 +146,10 @@
     }
   },
   "doc_capture": {
+    "alert": {
+      "no_barcode_detail": "Dirigez-vous vers un espace bien éclairé et rapprochez le document",
+      "no_barcode_title": "Le code-barres n’est pas lisible"
+    },
     "button_primary": "Démarrer le scan du document",
     "detail": {
       "folded_doc_front": "Dépliez votre document, prenez en photo les pages intérieures (qui contiennent votre photo)"
@@ -916,7 +924,7 @@
   "welcome": {
     "doc_video_subtitle": "Cela ne prendra que quelques minutes",
     "info_original_document": "Prenez une photographie de votre document original. Les scans, les photos d'écran ou les photocopies ne sont pas autorisés.",
-    "list_header_doc_video": "Utilisez votre mobile pour enregistrer :",
+    "list_header_doc_video": "Utilisez votre mobile pour enregistrer:",
     "list_header_webcam": "Utilisez votre webcam ou mobile pour prendre en photo :",
     "list_item_doc": "votre document d’identité",
     "list_item_doc_video_timeout": "L'enregistrement est limité à <timeout></timeout> secondes",

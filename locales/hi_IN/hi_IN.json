@@ -70,6 +70,9 @@
     },
     "title": "जारी करने वाला देश चुनें"
   },
+  "cross_device": {
+    "button_primary_upload": "फ़ोटो अपलोड करें"
+  },
   "cross_device_checklist": {
     "button_primary": "वेरिफ़िकेशन सबमिट करें",
     "info": "सलाह",
@@ -96,6 +99,7 @@
     "list_item_open_link": "लिंक खोलें और काम पूरे करें",
     "list_item_send_phone": "अपने फ़ोन पर एक सुरक्षित लिंक भेजें",
     "subtitle": "यहाँ तरीका देखें:",
+    "subtitle_upload": "कृपया अपने मूल दस्तावेज़ का हाल का फ़ोटो अपलोड करें",
     "title": "अपने फ़ोन पर जारी रखें"
   },
   "cross_device_return": {
@@ -142,6 +146,10 @@
     }
   },
   "doc_capture": {
+    "alert": {
+      "no_barcode_detail": "बढ़िया रोशनी वाली जगह में रहें और कार्ड को कैमरे के करीब लाएँ",
+      "no_barcode_title": "बारकोड नहीं मिला"
+    },
     "button_primary": "डॉक्यूमेंट स्कैन करना शुरू करें",
     "detail": {
       "folded_doc_front": "अपने डॉक्यूमेंट को सीधा रखें, अंदर के सभी पेज शामिल करें (आपकी फ़ोटो होनी चाहिए)"

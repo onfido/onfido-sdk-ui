@@ -70,6 +70,9 @@
     },
     "title": "Vyberte vydávajúcu krajinu"
   },
+  "cross_device": {
+    "button_primary_upload": "Nahrať fotku"
+  },
   "cross_device_checklist": {
     "button_primary": "Odoslať overenie",
     "info": "Tipy",
@@ -96,6 +99,7 @@
     "list_item_open_link": "Otvorte odkaz a dokončite úlohy",
     "list_item_send_phone": "Pošlite do telefónu bezpečný odkaz",
     "subtitle": "Tu je postup:",
+    "subtitle_upload": "Odovzdajte najnovšiu fotografiu svojho pôvodného dokumentu",
     "title": "Pokračujte v telefóne"
   },
   "cross_device_return": {
@@ -142,6 +146,10 @@
     }
   },
   "doc_capture": {
+    "alert": {
+      "no_barcode_detail": "Buďte na dobre osvetlenom mieste a priblížte preukaz k fotoaparátu",
+      "no_barcode_title": "Čiarový kód nebol zistený"
+    },
     "button_primary": "Spustiť skenovanie dokladu",
     "detail": {
       "folded_doc_front": "Umiestnite doklad na rovnú plochu a zahrňte všetky vnútorné strany (musia obsahovať vašu fotku)"

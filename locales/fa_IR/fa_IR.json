@@ -70,6 +70,9 @@
     },
     "title": "کشور صادر کننده را انتخاب کنید"
   },
+  "cross_device": {
+    "button_primary_upload": "بارگذاری عکس"
+  },
   "cross_device_checklist": {
     "button_primary": "ارسال تأیید هویت",
     "info": "نکات",
@@ -96,6 +99,7 @@
     "list_item_open_link": "لینک را باز کنید و کارها را انجام دهید",
     "list_item_send_phone": "یک لینک امن به گوشی شما ارسال می‌شود",
     "subtitle": "چگونگی انجام کار به این شرح است:",
+    "subtitle_upload": "لطفاً یک عکس اخیر از سند اصلی خود آپلود کنید",
     "title": "ادامه در گوشی"
   },
   "cross_device_return": {
@@ -142,6 +146,10 @@
     }
   },
   "doc_capture": {
+    "alert": {
+      "no_barcode_detail": "در مکانی با نور مناسب باشید و کارت را به دوربین نزدیک کنید",
+      "no_barcode_title": "بارکد شناسایی نشد"
+    },
     "button_primary": "شروع اسکن مدرک",
     "detail": {
       "folded_doc_front": "مدرک خود را به شکل مسطح قرار دهید، بطوری که تمام صفحات داخلی را شامل شود (باید عکس شما روی مدرک باشد)"
