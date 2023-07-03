@@ -70,6 +70,9 @@
     },
     "title": "בחר את ארץ ההנפקה"
   },
+  "cross_device": {
+    "button_primary_upload": "העלה תמונה"
+  },
   "cross_device_checklist": {
     "button_primary": "שלח אימות",
     "info": "טיפים",
@@ -96,6 +99,7 @@
     "list_item_open_link": "יש לפתוח את הקישור ולהשלים את המשימות",
     "list_item_send_phone": "יש לשלוח קישור מאובטח לטלפון",
     "subtitle": "כך עושים זאת:",
+    "subtitle_upload": "אנא העלה תמונה עדכנית של המסמך המקורי שלך",
     "title": "המשך בטלפון הנייד"
   },
   "cross_device_return": {
@@ -142,6 +146,10 @@
     }
   },
   "doc_capture": {
+    "alert": {
+      "no_barcode_detail": "הישאר במקום מואר היטב וקרב את הכרטיס למצלמה",
+      "no_barcode_title": "הברקוד לא זוהה"
+    },
     "button_primary": "התחל סריקת מסמכים",
     "detail": {
       "folded_doc_front": "הנח את המסמך על המשטח, כולל כל הדפים הפנימיים (התמונה שלך חייבת להופיע)"

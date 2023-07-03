@@ -70,6 +70,9 @@
     },
     "title": "选择签发国家/地区"
   },
+  "cross_device": {
+    "button_primary_upload": "上传照片"
+  },
   "cross_device_checklist": {
     "button_primary": "提交验证",
     "info": "小贴士",
@@ -96,6 +99,7 @@
     "list_item_open_link": "打开链接并完成任务",
     "list_item_send_phone": "向手机发送安全链接",
     "subtitle": "请按如下步骤操作：",
+    "subtitle_upload": "请上传原始文件的近期照片",
     "title": "在手机上继续"
   },
   "cross_device_return": {
@@ -142,6 +146,10 @@
     }
   },
   "doc_capture": {
+    "alert": {
+      "no_barcode_detail": "保持在光线充足的位置，并将身份证靠近相机",
+      "no_barcode_title": "未检测到条形码"
+    },
     "button_primary": "开始证明文件扫描",
     "detail": {
       "folded_doc_front": "平放您的证明文件，包括所有内页（必须包含您的照片）"
