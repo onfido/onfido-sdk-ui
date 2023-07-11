@@ -70,6 +70,9 @@
     },
     "title": "Atlasīt izdevējvalsti"
   },
+  "cross_device": {
+    "button_primary_upload": "Augšupielādēt fotoattēlu"
+  },
   "cross_device_checklist": {
     "button_primary": "Iesniegt pārbaudei",
     "info": "Padomi",
@@ -96,6 +99,7 @@
     "list_item_open_link": "Atveriet saiti un izpildiet uzdevumus.",
     "list_item_send_phone": "Nosūtiet drošu saiti uz tālruni.",
     "subtitle": "Lai to paveiktu, veiciet tālāk norādītās darbības.",
+    "subtitle_upload": "Lūdzu, augšupielādējiet sava oriģinālā dokumenta jaunāko fotoattēlu",
     "title": "Turpināt tālrunī"
   },
   "cross_device_return": {
@@ -142,6 +146,10 @@
     }
   },
   "doc_capture": {
+    "alert": {
+      "no_barcode_detail": "Palieciet labi apgaismotā vietā un pietuviniet karti kamerai",
+      "no_barcode_title": "Svītrkods nav atrasts"
+    },
     "button_primary": "Sākt dokumenta skenēšanu",
     "detail": {
       "folded_doc_front": "Novietojiet dokumentu plakani uz līdzenas virsmas, ir jābūt redzamām visām iekšējām lapām (tajās jābūt jūsu fotoattēlam)"

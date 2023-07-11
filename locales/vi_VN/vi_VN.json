@@ -70,6 +70,9 @@
     },
     "title": "Chọn quốc gia cấp giấy tờ"
   },
+  "cross_device": {
+    "button_primary_upload": "Tải ảnh lên"
+  },
   "cross_device_checklist": {
     "button_primary": "Gửi xác minh",
     "info": "Gợi ý",
@@ -96,6 +99,7 @@
     "list_item_open_link": "Mở liên kết và hoàn thành thao tác",
     "list_item_send_phone": "Gửi liên kết bảo mật đến điện thoại của bạn",
     "subtitle": "Sau đây là cách thức thực hiện:",
+    "subtitle_upload": "Vui lòng tải lên một bức ảnh gần đây của tài liệu gốc của bạn",
     "title": "Tiếp tục trên điện thoại của bạn"
   },
   "cross_device_return": {
@@ -142,6 +146,10 @@
     }
   },
   "doc_capture": {
+    "alert": {
+      "no_barcode_detail": "Ở nơi có ánh sáng tốt và đưa thẻ đến gần máy ảnh",
+      "no_barcode_title": "Không tìm thấy mã vạch"
+    },
     "button_primary": "Bắt đầu quét tài liệu",
     "detail": {
       "folded_doc_front": "Đặt giấy tờ của bạn lên mặt phẳng, chụp tất cả các trang bên trong (phải có ảnh rõ mặt)"

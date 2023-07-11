@@ -10,12 +10,60 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 
+## [13.0.0] - 2023-07-11
+
+### Changed
+
+- Remove `uploadFallback` option in the `document` step.
+- Add a new error when barcode detection issues arise.
+- Remove `uploadFallback` option in the `face` step.
+- Fix workflow multi document taks step configuration.
+
+## [12.4.0] - 2023-06-19
+
+### Changed
+
+- Add an instructional video in the Face Video intro screen.
+- Expose Motion events as [user analytics](https://github.com/onfido/onfido-sdk-ui#tracked-events).
+
+### Fixed
+
+- Fix custom colours on icons
+- Fix phone input to prevent country from resetting
+- Fix `InvalidStateException` in edge cases where webcams takes too long to initialise.
+- Fix icon sizes on intro screens with long texts
+
+## [12.3.6] - 2023-06-16
+
+### Changed
+
+- Deprecate the `tearDown` method. Prefer `safeTearDown`, which is a promise and awaitable.
+
+## [12.3.5] - 2023-06-09
+
+### Fixed
+
+- Public: Fix a crash in the Selfie step when the SDK is bundled
+
+## [12.3.4] - 2023-06-08
+
+### Fixed
+
+- Public: Bump react-webcam to 7.1.1. Really fixes the bug that caused selfies to appear stretched on Safari 15.
+- Public: Fix preact version to 10.11.3. This should improve our stability when our library is rebundled (NPM).
+
+## [12.3.3] - 2023-06-01
+
+### Fixed
+
+- Internal: Fix internal issue.
+
 ## [12.3.2] - 2023-05-30
+
+### Fixed
 
 - Public: Fix a bug that prevented document upload from the native camera application.
 - Public: Fix a bug that caused selfies to appear stretched on Safari 15.
-
-### Changed
 
 ## [12.3.1] - 2023-05-25
 
@@ -33,6 +81,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Remove Auth SDK
 - Internal: Enhanced security around payload tampering
 - Public: Add capture of ID numbers for Vietnam
+- Internal: Auto uppercase postcode to avoid errors
 
 ## [10.4.0] - 2023-01-23
 
@@ -1490,7 +1539,13 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/12.3.2...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/13.0.0...development
+[13.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/12.4.0...13.0.0
+[12.4.0]: https://github.com/onfido/onfido-sdk-ui/compare/12.3.6...12.4.0
+[12.3.6]: https://github.com/onfido/onfido-sdk-ui/compare/12.3.5...12.3.6
+[12.3.5]: https://github.com/onfido/onfido-sdk-ui/compare/12.3.4...12.3.5
+[12.3.4]: https://github.com/onfido/onfido-sdk-ui/compare/12.3.3...12.3.4
+[12.3.3]: https://github.com/onfido/onfido-sdk-ui/compare/12.3.2...12.3.3
 [12.3.2]: https://github.com/onfido/onfido-sdk-ui/compare/12.3.1...12.3.2
 [12.3.1]: https://github.com/onfido/onfido-sdk-ui/compare/12.3.0...12.3.1
 [12.3.0]: https://github.com/onfido/onfido-sdk-ui/compare/10.4.0...12.3.0

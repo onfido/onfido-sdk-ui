@@ -1154,7 +1154,7 @@
     "path": "node_modules/@octokit/types",
     "licenseFile": "node_modules/@octokit/types/LICENSE"
   },
-  "@onfido/active-video-capture@0.23.0": {
+  "@onfido/active-video-capture@0.27.7": {
     "licenses": "UNLICENSED",
     "repository": "/active-video-capture",
     "publisher": "Web SDK Customer Support",
@@ -1191,7 +1191,7 @@
     "path": "node_modules/@onfido/castor",
     "licenseFile": "node_modules/@onfido/castor/README.md"
   },
-  "@onfido/opencv@1.0.2": {
+  "@onfido/opencv@2.0.0": {
     "licenses": "Apache-2.0",
     "publisher": "Wilson",
     "path": "node_modules/@onfido/opencv",
@@ -1308,7 +1308,7 @@
     "path": "node_modules/@szmarczak/http-timer",
     "licenseFile": "node_modules/@szmarczak/http-timer/LICENSE"
   },
-  "@tensorflow-models/face-detection@1.0.1": {
+  "@tensorflow-models/face-detection@1.0.2": {
     "licenses": "Apache-2.0",
     "repository": "https://github.com/tensorflow/tfjs-models",
     "path": "node_modules/@tensorflow-models/face-detection",
@@ -1317,34 +1317,58 @@
   "@tensorflow-models/face-landmarks-detection@1.0.2": {
     "licenses": "Apache-2.0",
     "repository": "https://github.com/tensorflow/tfjs-models",
-    "path": "node_modules/@tensorflow-models/face-landmarks-detection",
-    "licenseFile": "node_modules/@tensorflow-models/face-landmarks-detection/README.md"
+    "path": "node_modules/@onfido/active-video-capture/node_modules/@tensorflow-models/face-landmarks-detection",
+    "licenseFile": "node_modules/@onfido/active-video-capture/node_modules/@tensorflow-models/face-landmarks-detection/README.md"
   },
-  "@tensorflow/tfjs-backend-cpu@3.20.0": {
+  "@tensorflow/tfjs-backend-cpu@3.21.0": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/tensorflow/tfjs",
+    "path": "node_modules/@onfido/active-video-capture/node_modules/@tensorflow/tfjs-backend-cpu",
+    "licenseFile": "node_modules/@onfido/active-video-capture/node_modules/@tensorflow/tfjs-backend-cpu/README.md"
+  },
+  "@tensorflow/tfjs-backend-cpu@4.8.0": {
     "licenses": "Apache-2.0",
     "repository": "https://github.com/tensorflow/tfjs",
     "path": "node_modules/@tensorflow/tfjs-backend-cpu",
     "licenseFile": "node_modules/@tensorflow/tfjs-backend-cpu/README.md"
   },
-  "@tensorflow/tfjs-backend-wasm@3.20.0": {
+  "@tensorflow/tfjs-backend-wasm@3.21.0": {
     "licenses": "Apache-2.0",
     "repository": "https://github.com/tensorflow/tfjs",
-    "path": "node_modules/@tensorflow/tfjs-backend-wasm",
-    "licenseFile": "node_modules/@tensorflow/tfjs-backend-wasm/README.md"
+    "path": "node_modules/@onfido/active-video-capture/node_modules/@tensorflow/tfjs-backend-wasm",
+    "licenseFile": "node_modules/@onfido/active-video-capture/node_modules/@tensorflow/tfjs-backend-wasm/README.md"
   },
-  "@tensorflow/tfjs-backend-webgl@3.20.0": {
+  "@tensorflow/tfjs-backend-webgl@3.21.0": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/tensorflow/tfjs",
+    "path": "node_modules/@onfido/active-video-capture/node_modules/@tensorflow/tfjs-backend-webgl",
+    "licenseFile": "node_modules/@onfido/active-video-capture/node_modules/@tensorflow/tfjs-backend-webgl/README.md"
+  },
+  "@tensorflow/tfjs-backend-webgl@4.8.0": {
     "licenses": "Apache-2.0",
     "repository": "https://github.com/tensorflow/tfjs",
     "path": "node_modules/@tensorflow/tfjs-backend-webgl",
     "licenseFile": "node_modules/@tensorflow/tfjs-backend-webgl/README.md"
   },
-  "@tensorflow/tfjs-converter@3.20.0": {
+  "@tensorflow/tfjs-converter@3.21.0": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/tensorflow/tfjs",
+    "path": "node_modules/@onfido/active-video-capture/node_modules/@tensorflow/tfjs-converter",
+    "licenseFile": "node_modules/@onfido/active-video-capture/node_modules/@tensorflow/tfjs-converter/README.md"
+  },
+  "@tensorflow/tfjs-converter@4.8.0": {
     "licenses": "Apache-2.0",
     "repository": "https://github.com/tensorflow/tfjs",
     "path": "node_modules/@tensorflow/tfjs-converter",
     "licenseFile": "node_modules/@tensorflow/tfjs-converter/README.md"
   },
-  "@tensorflow/tfjs-core@3.20.0": {
+  "@tensorflow/tfjs-core@3.21.0": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/tensorflow/tfjs",
+    "path": "node_modules/@onfido/active-video-capture/node_modules/@tensorflow/tfjs-core",
+    "licenseFile": "node_modules/@onfido/active-video-capture/node_modules/@tensorflow/tfjs-core/README.md"
+  },
+  "@tensorflow/tfjs-core@4.8.0": {
     "licenses": "Apache-2.0",
     "repository": "https://github.com/tensorflow/tfjs",
     "path": "node_modules/@tensorflow/tfjs-core",
@@ -1698,8 +1722,8 @@
   "@types/offscreencanvas@2019.3.0": {
     "licenses": "MIT",
     "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
-    "path": "node_modules/@tensorflow/tfjs-backend-webgl/node_modules/@types/offscreencanvas",
-    "licenseFile": "node_modules/@tensorflow/tfjs-backend-webgl/node_modules/@types/offscreencanvas/LICENSE"
+    "path": "node_modules/@onfido/active-video-capture/node_modules/@types/offscreencanvas",
+    "licenseFile": "node_modules/@onfido/active-video-capture/node_modules/@types/offscreencanvas/LICENSE"
   },
   "@types/offscreencanvas@2019.7.0": {
     "licenses": "MIT",
@@ -1882,12 +1906,6 @@
     "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
     "path": "node_modules/@types/uuid",
     "licenseFile": "node_modules/@types/uuid/LICENSE"
-  },
-  "@types/web@0.0.75": {
-    "licenses": "Apache-2.0",
-    "repository": "https://github.com/microsoft/TypeScript-DOM-Lib-Generator",
-    "path": "node_modules/@typescript/lib-dom",
-    "licenseFile": "node_modules/@typescript/lib-dom/LICENSE.txt"
   },
   "@types/webgl-ext@0.0.30": {
     "licenses": "MIT",
@@ -2115,6 +2133,12 @@
   "@webgpu/types@0.1.16": {
     "licenses": "BSD-3-Clause",
     "repository": "https://github.com/gpuweb/types",
+    "path": "node_modules/@onfido/active-video-capture/node_modules/@webgpu/types",
+    "licenseFile": "node_modules/@onfido/active-video-capture/node_modules/@webgpu/types/LICENSE"
+  },
+  "@webgpu/types@0.1.30": {
+    "licenses": "BSD-3-Clause",
+    "repository": "https://github.com/gpuweb/types",
     "path": "node_modules/@webgpu/types",
     "licenseFile": "node_modules/@webgpu/types/LICENSE"
   },
@@ -2152,12 +2176,6 @@
     "email": "dcode@dcode.io",
     "path": "node_modules/@xtuc/long",
     "licenseFile": "node_modules/@xtuc/long/LICENSE"
-  },
-  "@yarnpkg/lockfile@1.1.0": {
-    "licenses": "BSD-2-Clause",
-    "repository": "https://github.com/yarnpkg/yarn/blob/master/packages/lockfile",
-    "path": "node_modules/@yarnpkg/lockfile",
-    "licenseFile": "node_modules/@yarnpkg/lockfile/README.md"
   },
   "abab@2.0.5": {
     "licenses": "BSD-3-Clause",
@@ -2227,8 +2245,8 @@
   "acorn-walk@8.2.0": {
     "licenses": "MIT",
     "repository": "https://github.com/acornjs/acorn",
-    "path": "node_modules/ts-node/node_modules/acorn-walk",
-    "licenseFile": "node_modules/ts-node/node_modules/acorn-walk/LICENSE"
+    "path": "node_modules/webpack-bundle-analyzer/node_modules/acorn-walk",
+    "licenseFile": "node_modules/webpack-bundle-analyzer/node_modules/acorn-walk/LICENSE"
   },
   "acorn@7.4.1": {
     "licenses": "MIT",
@@ -2999,15 +3017,6 @@
     "path": "node_modules/chrome-trace-event",
     "licenseFile": "node_modules/chrome-trace-event/LICENSE.txt"
   },
-  "ci-info@2.0.0": {
-    "licenses": "MIT",
-    "repository": "https://github.com/watson/ci-info",
-    "publisher": "Thomas Watson Steen",
-    "email": "w@tson.dk",
-    "url": "https://twitter.com/wa7son",
-    "path": "node_modules/is-ci/node_modules/ci-info",
-    "licenseFile": "node_modules/is-ci/node_modules/ci-info/LICENSE"
-  },
   "ci-info@3.3.0": {
     "licenses": "MIT",
     "repository": "https://github.com/watson/ci-info",
@@ -3220,8 +3229,8 @@
     "repository": "https://github.com/tj/commander.js",
     "publisher": "TJ Holowaychuk",
     "email": "tj@vision-media.ca",
-    "path": "node_modules/@babel/node/node_modules/commander",
-    "licenseFile": "node_modules/@babel/node/node_modules/commander/LICENSE"
+    "path": "node_modules/@babel/cli/node_modules/commander",
+    "licenseFile": "node_modules/@babel/cli/node_modules/commander/LICENSE"
   },
   "commander@7.2.0": {
     "licenses": "MIT",
@@ -3412,14 +3421,6 @@
     "email": "lquixada@gmail.com",
     "path": "node_modules/cross-fetch",
     "licenseFile": "node_modules/cross-fetch/LICENSE"
-  },
-  "cross-spawn@6.0.5": {
-    "licenses": "MIT",
-    "repository": "https://github.com/moxystudio/node-cross-spawn",
-    "publisher": "André Cruz",
-    "email": "andre@moxy.studio",
-    "path": "node_modules/patch-package/node_modules/cross-spawn",
-    "licenseFile": "node_modules/patch-package/node_modules/cross-spawn/LICENSE"
   },
   "cross-spawn@7.0.3": {
     "licenses": "MIT",
@@ -4640,13 +4641,6 @@
     "path": "node_modules/eslint-plugin-compat/node_modules/find-up",
     "licenseFile": "node_modules/eslint-plugin-compat/node_modules/find-up/license"
   },
-  "find-yarn-workspace-root@2.0.0": {
-    "licenses": "Apache-2.0",
-    "repository": "https://github.com/square/find-yarn-workspace-root",
-    "publisher": "Square, Inc.",
-    "path": "node_modules/find-yarn-workspace-root",
-    "licenseFile": "node_modules/find-yarn-workspace-root/LICENSE"
-  },
   "flat-cache@3.0.4": {
     "licenses": "MIT",
     "repository": "https://github.com/royriojas/flat-cache",
@@ -4745,14 +4739,6 @@
     "url": "https://github.com/jonschlinkert",
     "path": "node_modules/fs-exists-sync",
     "licenseFile": "node_modules/fs-exists-sync/LICENSE"
-  },
-  "fs-extra@7.0.1": {
-    "licenses": "MIT",
-    "repository": "https://github.com/jprichardson/node-fs-extra",
-    "publisher": "JP Richardson",
-    "email": "jprichardson@gmail.com",
-    "path": "node_modules/fs-extra",
-    "licenseFile": "node_modules/fs-extra/LICENSE"
   },
   "fs-monkey@1.0.3": {
     "licenses": "Unlicense",
@@ -5597,15 +5583,6 @@
     "path": "node_modules/is-callable",
     "licenseFile": "node_modules/is-callable/LICENSE"
   },
-  "is-ci@2.0.0": {
-    "licenses": "MIT",
-    "repository": "https://github.com/watson/is-ci",
-    "publisher": "Thomas Watson Steen",
-    "email": "w@tson.dk",
-    "url": "https://twitter.com/wa7son",
-    "path": "node_modules/is-ci",
-    "licenseFile": "node_modules/is-ci/LICENSE"
-  },
   "is-core-module@2.10.0": {
     "licenses": "MIT",
     "repository": "https://github.com/inspect-js/is-core-module",
@@ -6233,14 +6210,6 @@
     "path": "node_modules/json5",
     "licenseFile": "node_modules/json5/LICENSE.md"
   },
-  "jsonfile@4.0.0": {
-    "licenses": "MIT",
-    "repository": "https://github.com/jprichardson/node-jsonfile",
-    "publisher": "JP Richardson",
-    "email": "jprichardson@gmail.com",
-    "path": "node_modules/jsonfile",
-    "licenseFile": "node_modules/jsonfile/LICENSE"
-  },
   "jsonpointer@5.0.1": {
     "licenses": "MIT",
     "repository": "https://github.com/janl/node-jsonpointer",
@@ -6302,13 +6271,6 @@
     "url": "https://github.com/jonschlinkert",
     "path": "node_modules/kind-of",
     "licenseFile": "node_modules/kind-of/LICENSE"
-  },
-  "klaw-sync@6.0.0": {
-    "licenses": "MIT",
-    "repository": "https://github.com/manidlou/node-klaw-sync",
-    "publisher": "Mani Maghsoudlou",
-    "path": "node_modules/klaw-sync",
-    "licenseFile": "node_modules/klaw-sync/LICENSE"
   },
   "kleur@3.0.3": {
     "licenses": "MIT",
@@ -7112,12 +7074,6 @@
     "path": "node_modules/neo-async",
     "licenseFile": "node_modules/neo-async/LICENSE"
   },
-  "nice-try@1.0.5": {
-    "licenses": "MIT",
-    "repository": "https://github.com/electerious/nice-try",
-    "path": "node_modules/nice-try",
-    "licenseFile": "node_modules/nice-try/LICENSE"
-  },
   "no-case@3.0.4": {
     "licenses": "MIT",
     "repository": "https://github.com/blakeembrey/change-case",
@@ -7412,7 +7368,7 @@
     "path": "node_modules/onetime",
     "licenseFile": "node_modules/onetime/license"
   },
-  "onfido-sdk-ui@10.4.0": {
+  "onfido-sdk-ui@12.4.0": {
     "licenses": "Custom: https://travis-ci.org/onfido/onfido-sdk-ui.svg",
     "repository": "https://github.com/onfido/onfido-sdk-ui",
     "publisher": "Web SDK Customer Support",
@@ -7420,15 +7376,6 @@
     "url": "https://github.com/onfido",
     "path": "",
     "licenseFile": "LICENSE"
-  },
-  "open@7.4.2": {
-    "licenses": "MIT",
-    "repository": "https://github.com/sindresorhus/open",
-    "publisher": "Sindre Sorhus",
-    "email": "sindresorhus@gmail.com",
-    "url": "https://sindresorhus.com",
-    "path": "node_modules/patch-package/node_modules/open",
-    "licenseFile": "node_modules/patch-package/node_modules/open/license"
   },
   "open@8.4.0": {
     "licenses": "MIT",
@@ -7472,15 +7419,6 @@
     "url": "https://sindresorhus.com",
     "path": "node_modules/ora",
     "licenseFile": "node_modules/ora/license"
-  },
-  "os-tmpdir@1.0.2": {
-    "licenses": "MIT",
-    "repository": "https://github.com/sindresorhus/os-tmpdir",
-    "publisher": "Sindre Sorhus",
-    "email": "sindresorhus@gmail.com",
-    "url": "sindresorhus.com",
-    "path": "node_modules/os-tmpdir",
-    "licenseFile": "node_modules/os-tmpdir/license"
   },
   "override-require@1.1.1": {
     "licenses": "BSD-3-Clause",
@@ -7693,13 +7631,6 @@
     "path": "node_modules/pascal-case",
     "licenseFile": "node_modules/pascal-case/LICENSE"
   },
-  "patch-package@6.4.7": {
-    "licenses": "MIT",
-    "repository": "https://github.com/ds300/patch-package",
-    "publisher": "David Sheldrick",
-    "path": "node_modules/patch-package",
-    "licenseFile": "node_modules/patch-package/LICENSE"
-  },
   "path-browserify@1.0.1": {
     "licenses": "MIT",
     "repository": "https://github.com/browserify/path-browserify",
@@ -7735,15 +7666,6 @@
     "url": "sindresorhus.com",
     "path": "node_modules/path-is-absolute",
     "licenseFile": "node_modules/path-is-absolute/license"
-  },
-  "path-key@2.0.1": {
-    "licenses": "MIT",
-    "repository": "https://github.com/sindresorhus/path-key",
-    "publisher": "Sindre Sorhus",
-    "email": "sindresorhus@gmail.com",
-    "url": "sindresorhus.com",
-    "path": "node_modules/patch-package/node_modules/path-key",
-    "licenseFile": "node_modules/patch-package/node_modules/path-key/license"
   },
   "path-key@3.1.1": {
     "licenses": "MIT",
@@ -8001,14 +7923,7 @@
     "path": "node_modules/postcss",
     "licenseFile": "node_modules/postcss/LICENSE"
   },
-  "postinstall-postinstall@2.1.0": {
-    "licenses": "MIT",
-    "repository": "https://github.com/ds300/postinstall-postinstall",
-    "publisher": "David Sheldrick",
-    "path": "node_modules/postinstall-postinstall",
-    "licenseFile": "node_modules/postinstall-postinstall/LICENSE"
-  },
-  "preact@10.11.1": {
+  "preact@10.11.3": {
     "licenses": "MIT",
     "repository": "https://github.com/preactjs/preact",
     "path": "node_modules/preact",
@@ -8334,7 +8249,7 @@
     "path": "node_modules/react-router",
     "licenseFile": "node_modules/react-router/LICENSE"
   },
-  "react-webcam@7.0.1": {
+  "react-webcam@7.1.1": {
     "licenses": "MIT",
     "repository": "https://github.com/mozmorris/react-webcam",
     "publisher": "Moz Morris",
@@ -8728,7 +8643,7 @@
     "path": "node_modules/reusify",
     "licenseFile": "node_modules/reusify/LICENSE"
   },
-  "rimraf@2.7.1": {
+  "rimraf@3.0.2": {
     "licenses": "ISC",
     "repository": "https://github.com/isaacs/rimraf",
     "publisher": "Isaac Z. Schlueter",
@@ -8736,15 +8651,6 @@
     "url": "http://blog.izs.me/",
     "path": "node_modules/rimraf",
     "licenseFile": "node_modules/rimraf/LICENSE"
-  },
-  "rimraf@3.0.2": {
-    "licenses": "ISC",
-    "repository": "https://github.com/isaacs/rimraf",
-    "publisher": "Isaac Z. Schlueter",
-    "email": "i@izs.me",
-    "url": "http://blog.izs.me/",
-    "path": "node_modules/@tensorflow-models/face-detection/node_modules/rimraf",
-    "licenseFile": "node_modules/@tensorflow-models/face-detection/node_modules/rimraf/LICENSE"
   },
   "run-parallel@1.1.9": {
     "licenses": "MIT",
@@ -8884,8 +8790,8 @@
   "semver@5.7.1": {
     "licenses": "ISC",
     "repository": "https://github.com/npm/node-semver",
-    "path": "node_modules/patch-package/node_modules/semver",
-    "licenseFile": "node_modules/patch-package/node_modules/semver/LICENSE"
+    "path": "node_modules/make-dir/node_modules/semver",
+    "licenseFile": "node_modules/make-dir/node_modules/semver/LICENSE"
   },
   "semver@6.3.0": {
     "licenses": "ISC",
@@ -8983,15 +8889,6 @@
     "path": "node_modules/shallow-clone",
     "licenseFile": "node_modules/shallow-clone/LICENSE"
   },
-  "shebang-command@1.2.0": {
-    "licenses": "MIT",
-    "repository": "https://github.com/kevva/shebang-command",
-    "publisher": "Kevin Martensson",
-    "email": "kevinmartensson@gmail.com",
-    "url": "github.com/kevva",
-    "path": "node_modules/patch-package/node_modules/shebang-command",
-    "licenseFile": "node_modules/patch-package/node_modules/shebang-command/license"
-  },
   "shebang-command@2.0.0": {
     "licenses": "MIT",
     "repository": "https://github.com/kevva/shebang-command",
@@ -9000,15 +8897,6 @@
     "url": "github.com/kevva",
     "path": "node_modules/shebang-command",
     "licenseFile": "node_modules/shebang-command/license"
-  },
-  "shebang-regex@1.0.0": {
-    "licenses": "MIT",
-    "repository": "https://github.com/sindresorhus/shebang-regex",
-    "publisher": "Sindre Sorhus",
-    "email": "sindresorhus@gmail.com",
-    "url": "sindresorhus.com",
-    "path": "node_modules/patch-package/node_modules/shebang-regex",
-    "licenseFile": "node_modules/patch-package/node_modules/shebang-regex/license"
   },
   "shebang-regex@3.0.0": {
     "licenses": "MIT",
@@ -9676,15 +9564,6 @@
     "path": "node_modules/tiny-warning",
     "licenseFile": "node_modules/tiny-warning/LICENSE"
   },
-  "tmp@0.0.33": {
-    "licenses": "MIT",
-    "repository": "https://github.com/raszi/node-tmp",
-    "publisher": "KARASZI István",
-    "email": "github@spam.raszi.hu",
-    "url": "http://raszi.hu/",
-    "path": "node_modules/patch-package/node_modules/tmp",
-    "licenseFile": "node_modules/patch-package/node_modules/tmp/LICENSE"
-  },
   "tmp@0.2.1": {
     "licenses": "MIT",
     "repository": "https://github.com/raszi/node-tmp",
@@ -9839,6 +9718,13 @@
     "publisher": "Microsoft Corp.",
     "path": "node_modules/lower-case/node_modules/tslib",
     "licenseFile": "node_modules/lower-case/node_modules/tslib/LICENSE.txt"
+  },
+  "tslib@2.4.0": {
+    "licenses": "0BSD",
+    "repository": "https://github.com/Microsoft/tslib",
+    "publisher": "Microsoft Corp.",
+    "path": "node_modules/@tensorflow-models/face-detection/node_modules/tslib",
+    "licenseFile": "node_modules/@tensorflow-models/face-detection/node_modules/tslib/LICENSE.txt"
   },
   "tsutils@3.21.0": {
     "licenses": "MIT",

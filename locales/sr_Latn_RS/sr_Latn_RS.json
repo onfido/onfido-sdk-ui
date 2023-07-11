@@ -70,6 +70,9 @@
     },
     "title": "Izaberite zemlju izdavanja"
   },
+  "cross_device": {
+    "button_primary_upload": "Otpremi fotografiju"
+  },
   "cross_device_checklist": {
     "button_primary": "Pošalji potvrdu identiteta",
     "info": "Saveti",
@@ -96,6 +99,7 @@
     "list_item_open_link": "Otvorite link i dovršite potrebne radnje",
     "list_item_send_phone": "Pošaljite bezbedan link na telefon",
     "subtitle": "Evo kako to da uradite:",
+    "subtitle_upload": "Отпремите недавну фотографију оригиналног документа",
     "title": "Nastavite na telefonu"
   },
   "cross_device_return": {
@@ -142,6 +146,10 @@
     }
   },
   "doc_capture": {
+    "alert": {
+      "no_barcode_detail": "Stanite na dobro osvetljeno mesto i približite karticu kameri",
+      "no_barcode_title": "Bar-kôd nije nađen"
+    },
     "button_primary": "Započnite skeniranje dokumenta",
     "detail": {
       "folded_doc_front": "Postavite dokument na ravnu podlogu, obuhvatite sve unutrašnje stranice (mora da sadrži fotografiju)"

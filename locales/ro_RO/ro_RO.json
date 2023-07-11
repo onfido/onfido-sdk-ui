@@ -70,6 +70,9 @@
     },
     "title": "Selectați țara emitentă"
   },
+  "cross_device": {
+    "button_primary_upload": "Încărcați poza"
+  },
   "cross_device_checklist": {
     "button_primary": "Trimiteți verificarea",
     "info": "Sugestii",
@@ -96,6 +99,7 @@
     "list_item_open_link": "Deschideți linkul și finalizați sarcinile",
     "list_item_send_phone": "Trimiteți un link sigur spre telefonul dvs.",
     "subtitle": "Vedeți cum trebuie să procedați:",
+    "subtitle_upload": "Vă rugăm să încărcați o fotografie recentă a documentului original",
     "title": "Continuați pe telefonul dvs."
   },
   "cross_device_return": {
@@ -142,6 +146,10 @@
     }
   },
   "doc_capture": {
+    "alert": {
+      "no_barcode_detail": "Stați într-un loc bine luminat și aduceți cardul mai aproape de camera video",
+      "no_barcode_title": "Codul de bare nu a fost detectat"
+    },
     "button_primary": "Începeți scanarea documentului",
     "detail": {
       "folded_doc_front": "Poziționați documentul dvs. pe o suprafață plană, includeți toate paginile interne (trebuie să conțină poza dvs.)"

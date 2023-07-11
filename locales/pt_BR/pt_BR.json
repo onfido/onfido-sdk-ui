@@ -70,6 +70,9 @@
     },
     "title": "Selecionar país emissor"
   },
+  "cross_device": {
+    "button_primary_upload": "Carregar foto"
+  },
   "cross_device_checklist": {
     "button_primary": "Enviar verificação",
     "info": "Dicas",
@@ -96,6 +99,7 @@
     "list_item_open_link": "Abra o link e conclua as tarefas",
     "list_item_send_phone": "Envie um link seguro para o seu celular",
     "subtitle": "Veja como fazer:",
+    "subtitle_upload": "Carregue uma foto recente do seu documento original",
     "title": "Continue no seu celular"
   },
   "cross_device_return": {
@@ -142,6 +146,10 @@
     }
   },
   "doc_capture": {
+    "alert": {
+      "no_barcode_detail": "Fique em um local bem iluminado e aproxime o cartão da câmera",
+      "no_barcode_title": "Código de barras não detectado"
+    },
     "button_primary": "Iniciar digitalização do documento",
     "detail": {
       "folded_doc_front": "Coloque seu documento em um local plano, inclua todas as páginas internas (deve conter sua foto)"

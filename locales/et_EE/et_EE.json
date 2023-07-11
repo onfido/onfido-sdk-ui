@@ -70,6 +70,9 @@
     },
     "title": "Valige väljastanud riik"
   },
+  "cross_device": {
+    "button_primary_upload": "Laadige foto üles"
+  },
   "cross_device_checklist": {
     "button_primary": "Esitage kinnitus",
     "info": "Nõuanded",
@@ -96,6 +99,7 @@
     "list_item_open_link": "Avage link ja täitke juhised",
     "list_item_send_phone": "Saatke oma telefonile turvaline link",
     "subtitle": "Selleks peate tegema järgmist:",
+    "subtitle_upload": "Laadige üles oma originaaldokumendi hiljutine foto",
     "title": "Jätkake telefonis"
   },
   "cross_device_return": {
@@ -142,6 +146,10 @@
     }
   },
   "doc_capture": {
+    "alert": {
+      "no_barcode_detail": "Püsige hästi valgustatud kohas ja liigutage kaarti kaamerale lähemale",
+      "no_barcode_title": "Vöötkoodi ei tuvastatud"
+    },
     "button_primary": "Alustage dokumendi skannimist",
     "detail": {
       "folded_doc_front": "Asetage dokument avatult tasapinnale nii, et on näha sisemised lehed (peab sisaldama teie fotot)"

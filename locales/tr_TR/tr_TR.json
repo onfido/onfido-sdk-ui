@@ -70,6 +70,9 @@
     },
     "title": "Düzenleyen ülkeyi seçin"
   },
+  "cross_device": {
+    "button_primary_upload": "Fotoğraf yükleyin"
+  },
   "cross_device_checklist": {
     "button_primary": "Doğrulamayı gönder",
     "info": "İpuçları",
@@ -96,6 +99,7 @@
     "list_item_open_link": "Bağlantıyı açın ve görevleri tamamlayın",
     "list_item_send_phone": "Telefonunuza güvenli bir bağlantı gönderin",
     "subtitle": "Bunu şu şekilde yapabilirsiniz:",
+    "subtitle_upload": "Lütfen orijinal belgenizin yakın tarihli bir fotoğrafını yükleyin",
     "title": "Telefonunuzda devam edin"
   },
   "cross_device_return": {
@@ -142,6 +146,10 @@
     }
   },
   "doc_capture": {
+    "alert": {
+      "no_barcode_detail": "İyi aydınlatılmış bir yerde durun ve kartı kameraya yaklaştırın",
+      "no_barcode_title": "Barkod tespit edilemedi"
+    },
     "button_primary": "Belge taramasını başlat",
     "detail": {
       "folded_doc_front": "Belgenizi düz bir şekilde yerleştirin, tüm iç sayfaları ekleyin (fotoğrafınızı içermelidir)"

@@ -70,6 +70,9 @@
     },
     "title": "Kibocsátó ország kiválasztása"
   },
+  "cross_device": {
+    "button_primary_upload": "Töltse fel a fotót"
+  },
   "cross_device_checklist": {
     "button_primary": "Hitelesítés elküldése",
     "info": "Tippek",
@@ -96,6 +99,7 @@
     "list_item_open_link": "Nyissa meg a linket, és végezze el a feladatokat",
     "list_item_send_phone": "Küldje el a biztonságos linket a telefonjára",
     "subtitle": "Így csinálja:",
+    "subtitle_upload": "Kérjük, töltsön fel egy friss fotót az eredeti dokumentumról",
     "title": "Folytassa a telefonján"
   },
   "cross_device_return": {
@@ -142,6 +146,10 @@
     }
   },
   "doc_capture": {
+    "alert": {
+      "no_barcode_detail": "Tartózkodjon jól megvilágított helyen, és tartsa közelebb a kártyát a fényképezőgéphez",
+      "no_barcode_title": "Vonalkód nem észlelhető"
+    },
     "button_primary": "Dokumentumbeolvasás indítása",
     "detail": {
       "folded_doc_front": "Fektesse a dokumentumot sík felületre, és mutassa az összes belső oldalt (a fényképes oldalt is beleértve)"
@@ -231,7 +239,7 @@
     "title_poa": "Válasszon az alábbi dokumentumtípusok közül: %{country}"
   },
   "doc_submit": {
-    "button_link_upload": "vagy töltsön fel nem szkennelt és nem fénymásolt fényképet",
+    "button_link_upload": "vagy töltsön fel egy nem szkennelt és nem fénymásolt fényképet",
     "button_primary": "Folytassa telefonján",
     "subtitle": "Készítsen egy fotót a telefonjával",
     "title_bank_statement": "Dokumentum beküldése",
@@ -918,7 +926,7 @@
     "info_original_document": "Fényképezze le az eredeti dokumentumot. Szkennelés, képernyőfotó vagy fénymásolat nem megengedett.",
     "list_header_doc_video": "Használja eszközét a felvételhez:",
     "list_header_webcam": "Használja webkameráját vagy telefonját az alábbiak fényképezéséhez:",
-    "list_item_doc": "Az Ön személyazonosító okmánya",
+    "list_item_doc": "az Ön személyazonosító okmánya",
     "list_item_doc_video_timeout": "A videórögzítés időkorlátja <timeout></timeout> másodperc",
     "list_item_poa": "az Ön lakcímét igazoló dokumentum",
     "list_item_selfie": "az Ön arca",

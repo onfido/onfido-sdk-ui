@@ -70,6 +70,9 @@
     },
     "title": "Velg utstedelsesland"
   },
+  "cross_device": {
+    "button_primary_upload": "Last opp bilde"
+  },
   "cross_device_checklist": {
     "button_primary": "Send inn verifisering",
     "info": "Tips",
@@ -96,6 +99,7 @@
     "list_item_open_link": "Åpne koblingen og fullfør oppgavene",
     "list_item_send_phone": "Send en sikker lenke til telefonen din",
     "subtitle": "Slik gjør du det:",
+    "subtitle_upload": "Last opp et nylig bilde av originaldokumentet ditt",
     "title": "Fortsett på telefonen"
   },
   "cross_device_return": {
@@ -142,6 +146,10 @@
     }
   },
   "doc_capture": {
+    "alert": {
+      "no_barcode_detail": "Hold deg på et godt opplyst sted og plasser kortet nærmere kameraet",
+      "no_barcode_title": "Strekkode ikke oppdaget"
+    },
     "button_primary": "Start dokumentskanning",
     "detail": {
       "folded_doc_front": "Legg dokumentet flatt, inkluder alle sidene (må inneholde bildet)"

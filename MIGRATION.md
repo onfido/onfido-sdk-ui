@@ -4,6 +4,10 @@ The guides below are provided to ease the transition of existing applications us
 
 ## `next`
 
+The `uploadFallback` option has been removed. Users with mobile devices that do not have a camera or lack camera browser support will not be able to complete the flow. Please reach out to your CSM for details.
+
+`tearDown` is deprecated in favor of `safeTearDown` which is a promise that you can await to know when the sdk tear down is complete.
+
 For all supported language the copy for the following string(s) has been added:
 
 ## Added strings
@@ -118,6 +122,8 @@ For all supported language the copy for the following string(s) has been added:
 - `profile_data::field_validation::tur_specific::invalid_national_id_value`
 - `profile_data::field_validation::tur_specific::required_national_id_value`
 - `profile_data::national_id_number_title`
+- `cross_device::button_primary_upload`
+- `cross_device_intro::subtitle_upload`
 
 ## `11.0.0`
 

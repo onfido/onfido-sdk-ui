@@ -32,10 +32,29 @@ The [response](https://documentation.onfido.com/#workflow-run-object) will conta
 
 You can either:
 
+- use our CDN
 - import directly into your HTML page
-- use npm (valid from version 9+)
+- use npm
 
-#### 2.1 HTML Script Tag Include
+#### 2.1 CDN
+
+You can use hosted versions of the library files from Onfido's CDN.
+
+From SDK 12.3.1 onwards, the version number you subscribe to can vary, depending on your needs:
+
+- subscribing to a specific patch release (e.g. v12.3.1) will fix the library files to that SDK release
+- subscribing to a minor level release (e.g. v12.3) means Onfido will update to the latest available patch release
+- subscribing to a major release (e.g. v12) means Onfido will update to the latest available patch and minor release
+
+```html
+<!-- Replace "<version>" with the actual SDK version you want to use, example: v12 -->
+<script src="https://sdk.onfido.com/<version>"></script>
+<link href="https://sdk.onfido.com/<version>/style.css" rel="stylesheet" />
+```
+
+For versions prior to 12.3.1, specifying a precise release only, see our previous [documentation](https://github.com/onfido/onfido-sdk-ui/blob/12.3.0/README.md#43-cdn).
+
+#### 2.2 HTML Script Tag Include
 
 You can include the library as a regular script tag on your page:
 
@@ -49,11 +68,11 @@ And the CSS styles:
 <link rel="stylesheet" href="dist/style.css" />
 ```
 
-You can see a simple example using script tags [here](https://jsfiddle.net/gh/get/library/pure/onfido/onfido-sdk-ui/tree/master/demo/fiddle/).
+You can see a [simple example using script tags](https://jsfiddle.net/gh/get/library/pure/onfido/onfido-sdk-ui/tree/master/demo/fiddle/).
 
-#### 2.2 NPM style import
+#### 2.3 NPM style import
 
-You can import the library as a module into your own JS build system (tested with Webpack):
+Alternatively, you can import the library as a module into your own JS build system (tested with Webpack):
 
 ```shell
 $ npm install --save onfido-sdk-ui
@@ -71,7 +90,18 @@ The CSS style will be included inline with the JS code when the library is impor
 
 ⚠️ Note: The library is **Browser only**, it does not support the **Node Context**.
 
-You can see an example app using npm style import [in our sample app](https://github.com/onfido/onfido-sdk-web-sample-app/).
+You can see an [example app using npm style import](https://github.com/onfido/onfido-sdk-web-sample-app/).
+
+#### Split bundle
+
+To decrease the size of your production bundle, you can use the split version of the library:
+
+```javascript
+import { init } from 'onfido-sdk-ui/split'
+import 'onfido-sdk-ui/split/css'
+```
+
+⚠️ Note: The main bundle will be in included in your build, but the other bundles will be loaded from Onfido's CDN.
 
 ### 3. Add basic HTML markup
 
