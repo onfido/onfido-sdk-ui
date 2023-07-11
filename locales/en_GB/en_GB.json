@@ -70,6 +70,9 @@
     },
     "title": "Select issuing country"
   },
+  "cross_device": {
+    "button_primary_upload": "Upload photo"
+  },
   "cross_device_checklist": {
     "button_primary": "Submit verification",
     "info": "Tips",
@@ -96,6 +99,7 @@
     "list_item_open_link": "Open the link and complete the tasks",
     "list_item_send_phone": "Send a secure link to your phone",
     "subtitle": "Here’s how to do it:",
+    "subtitle_upload": "Please upload a recent photo of your original document",
     "title": "Continue on your phone"
   },
   "cross_device_return": {
@@ -142,6 +146,10 @@
     }
   },
   "doc_capture": {
+    "alert": {
+      "no_barcode_detail": "Stay in a well-lit spot and bring the card closer to the camera",
+      "no_barcode_title": "Barcode not detected"
+    },
     "button_primary": "Start document scan",
     "detail": {
       "folded_doc_front": "Lay your document flat, include all inner pages (must contain your photo)"

@@ -70,6 +70,9 @@
     },
     "title": "Seleziona il paese di emissione"
   },
+  "cross_device": {
+    "button_primary_upload": "Carica foto"
+  },
   "cross_device_checklist": {
     "button_primary": "Invia verifica",
     "info": "Consigli",
@@ -96,6 +99,7 @@
     "list_item_open_link": "Apri il link e completa i passaggi",
     "list_item_send_phone": "Invia un link sicuro al tuo telefono",
     "subtitle": "Ecco come fare:",
+    "subtitle_upload": "Carica una foto recente del documento originale",
     "title": "Continua sul tuo telefono"
   },
   "cross_device_return": {
@@ -142,6 +146,10 @@
     }
   },
   "doc_capture": {
+    "alert": {
+      "no_barcode_detail": "Resta in un punto ben illuminato e avvicina la carta alla fotocamera",
+      "no_barcode_title": "Codice a barre non rilevato"
+    },
     "button_primary": "Inizia a scansionare il documento",
     "detail": {
       "folded_doc_front": "Appoggia il documento aperto sulle pagine interne (deve contenere la tua foto)"

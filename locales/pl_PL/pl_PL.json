@@ -70,6 +70,9 @@
     },
     "title": "Wybierz kraj wydania"
   },
+  "cross_device": {
+    "button_primary_upload": "Prześlij zdjęcie"
+  },
   "cross_device_checklist": {
     "button_primary": "Prześlij weryfikację",
     "info": "Porady",
@@ -96,6 +99,7 @@
     "list_item_open_link": "Otwórz link i wykonaj zadania",
     "list_item_send_phone": "Wyślij bezpieczny link na swój telefon",
     "subtitle": "Oto jak to zrobić:",
+    "subtitle_upload": "Prześlij aktualne zdjęcie oryginalnego dokumentu",
     "title": "Kontynuuj na telefonie"
   },
   "cross_device_return": {
@@ -142,6 +146,10 @@
     }
   },
   "doc_capture": {
+    "alert": {
+      "no_barcode_detail": "Pozostań w dobrze oświetlonym miejscu i zbliż kartę do aparatu",
+      "no_barcode_title": "Nie wykryto kodu kreskowego"
+    },
     "button_primary": "Rozpocznij skanowanie dokumentu",
     "detail": {
       "folded_doc_front": "Ułóż dokument płasko, także wszystkie wewnętrzne strony (muszą zawierać Twoje zdjęcie)"
@@ -363,15 +371,15 @@
     "error_reload_instructions": "Uruchom ponownie instrukcję",
     "intro_note_no1": "Najpierw umieść twarz w ramce",
     "intro_note_no2": "Następnie powoli obróć głowę w obie strony",
-    "intro_ready_button": "Pamiętaj, że nagramy Twoją twarz razem z tłem",
+    "intro_ready_button": "Pamiętaj, że nagramy wideo z Twoją twarzą oraz tłem",
     "intro_subtitle": "Ma to na celu sprawdzenie, czy naprawdę jesteś człowiekiem",
-    "intro_warning": "Pamiętaj, że nagramy Twoją twarz razem z tłem",
+    "intro_warning": "Pamiętaj, że nagramy wideo z Twoją twarzą oraz tłem",
     "success_main_button": "Prześlij do weryfikacji",
     "success_title": "To wszystko, czego potrzebujemy, aby rozpocząć weryfikację Twojej tożsamości"
   },
   "mobilePhrases": {
     "photo_upload": {
-      "body_id_back": "Zrób zdjęcie tylnej strony karty",
+      "body_id_back": "Zrób zdjęcie tylnej strony dowodu osobistego",
       "body_id_front": "Zrób zdjęcie przedniej strony karty",
       "body_license_back": "Zrób zdjęcie odwrotnej strony prawa jazdy",
       "body_license_front": "Zrób zdjęcie przedniej strony prawa jazdy",

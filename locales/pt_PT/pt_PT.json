@@ -44,8 +44,8 @@
     "button_primary_restart": "Reiniciar a gravação",
     "list_item_eyes": "Assegure-se de que os seus olhos estão claramente visíveis",
     "list_item_face": "Certifique-se de que apenas mostra a sua cara. Não precisamos de ver a sua identificação",
-    "list_item_lighting": "Certifique-se de está num local com boa iluminação",
-    "list_item_mask": "Certifique-se de que remove as máscaras ou outros artigos que cobrem o seu rosto. Os óculos não precisa de retirar",
+    "list_item_lighting": "Certifique-se de que está num local com boa iluminação",
+    "list_item_mask": "Certifique-se de que remove as máscaras ou outros objetos que cobrem o seu rosto. Os óculos não precisa de retirar",
     "title": "Não conseguimos detetar o seu rosto"
   },
   "avc_uploading": {
@@ -69,6 +69,9 @@
       "label": "Procurar país"
     },
     "title": "Selecione o país emissor"
+  },
+  "cross_device": {
+    "button_primary_upload": "Carregar foto"
   },
   "cross_device_checklist": {
     "button_primary": "Enviar verificação",
@@ -96,6 +99,7 @@
     "list_item_open_link": "Abra a ligação e conclua as tarefas",
     "list_item_send_phone": "Enviar uma ligação segura para o seu telefone",
     "subtitle": "Veja como poderá fazer:",
+    "subtitle_upload": "Carregue uma foto recente do seu documento original",
     "title": "Continue no seu telefone"
   },
   "cross_device_return": {
@@ -142,6 +146,10 @@
     }
   },
   "doc_capture": {
+    "alert": {
+      "no_barcode_detail": "Ficar num local bem iluminado e aproximar o cartão da câmara",
+      "no_barcode_title": "Código de barras não detetado"
+    },
     "button_primary": "Iniciar digitalização de documento",
     "detail": {
       "folded_doc_front": "Coloque o documento de forma plana e inclua todas as páginas interiores (deve conter a sua fotografia)"
@@ -222,7 +230,7 @@
       "input_placeholder_country": "Selecione o país emissor"
     },
     "subtitle": "Deve ser uma identificação oficial com fotografia",
-    "subtitle_country": "Selecione o país emissor para ver quais documentos aceitamos",
+    "subtitle_country": "Selecione o país emissor para ver quais os documentos que aceitamos",
     "subtitle_entire_page": "Página inteira",
     "subtitle_front_back": "Frente e verso",
     "subtitle_photo_page": "Página de fotos",
@@ -831,7 +839,7 @@
     "list_item_face_forward": "Fique virado para a frente e assegure-se de que os seus olhos são claramente visíveis",
     "list_item_no_face_cover": "Remova qualquer coisa que cubra o seu rosto. Pode usar óculos",
     "list_item_no_glasses": "Retire os seus óculos, se necessário",
-    "subtitle": "Iremos efetuar uma comparação comparação o seu documento",
+    "subtitle": "Iremos efetuar uma comparação com o seu documento",
     "title": "Tirar uma fotografia"
   },
   "sms_sent": {

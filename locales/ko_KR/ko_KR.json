@@ -70,6 +70,9 @@
     },
     "title": "발급 국가 선택"
   },
+  "cross_device": {
+    "button_primary_upload": "사진 업로드"
+  },
   "cross_device_checklist": {
     "button_primary": "인증 제출하기",
     "info": "팁",
@@ -96,6 +99,7 @@
     "list_item_open_link": "링크를 열고 작업을 완료합니다",
     "list_item_send_phone": "휴대폰으로 보안 링크를 전송받습니다",
     "subtitle": "진행 방법:",
+    "subtitle_upload": "원본 문서의 최근 사진을 업로드하세요.",
     "title": "휴대폰으로 계속하기"
   },
   "cross_device_return": {
@@ -142,6 +146,10 @@
     }
   },
   "doc_capture": {
+    "alert": {
+      "no_barcode_detail": "조명이 밝은 곳에 자리를 잡고 카드를 카메라 가까이로 가져가세요",
+      "no_barcode_title": "바코드가 감지되지 않습니다"
+    },
     "button_primary": "서류 스캔 시작",
     "detail": {
       "folded_doc_front": "모든 내부 페이지를 포함하여 (사진이 부착된 면이 보이도록 해서) 평평하게 펼치세요"
