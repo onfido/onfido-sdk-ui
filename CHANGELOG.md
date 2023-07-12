@@ -10,6 +10,10 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 
+## [13.0.1] - 2023-07-11
+
+### Changed
+
 ## [13.0.0] - 2023-07-11
 
 ### Changed
@@ -18,6 +22,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Add a new error when barcode detection issues arise.
 - Remove `uploadFallback` option in the `face` step.
 - Fix workflow multi document taks step configuration.
+- Fix duplicate Motion capture uploads on SDK initialisations without a `complete` step.
 
 ## [12.4.0] - 2023-06-19
 
@@ -1539,7 +1544,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/13.0.0...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/13.0.1...development
+[13.0.1]: https://github.com/onfido/onfido-sdk-ui/compare/13.0.0...13.0.1
 [13.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/12.4.0...13.0.0
 [12.4.0]: https://github.com/onfido/onfido-sdk-ui/compare/12.3.6...12.4.0
 [12.3.6]: https://github.com/onfido/onfido-sdk-ui/compare/12.3.5...12.3.6
