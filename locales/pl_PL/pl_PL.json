@@ -146,10 +146,6 @@
     }
   },
   "doc_capture": {
-    "alert": {
-      "no_barcode_detail": "Pozostań w dobrze oświetlonym miejscu i zbliż kartę do aparatu",
-      "no_barcode_title": "Nie wykryto kodu kreskowego"
-    },
     "button_primary": "Rozpocznij skanowanie dokumentu",
     "detail": {
       "folded_doc_front": "Ułóż dokument płasko, także wszystkie wewnętrzne strony (muszą zawierać Twoje zdjęcie)"

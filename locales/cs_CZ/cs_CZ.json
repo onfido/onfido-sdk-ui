@@ -146,10 +146,6 @@
     }
   },
   "doc_capture": {
-    "alert": {
-      "no_barcode_detail": "Zůstaňte na dobře osvětleném místě a přiblížte kartu k fotoaparátu",
-      "no_barcode_title": "Čárový kód nebyl detekován"
-    },
     "button_primary": "Spuštění skenování dokumentů",
     "detail": {
       "folded_doc_front": "Položte dokument na plocho a připojte všechny vnitřní stránky (musí obsahovat Vaši fotografii)"

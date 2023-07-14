@@ -146,10 +146,6 @@
     }
   },
   "doc_capture": {
-    "alert": {
-      "no_barcode_detail": "Stay in a well-lit spot and bring the card closer to the camera",
-      "no_barcode_title": "Barcode not detected"
-    },
     "button_primary": "Start document scan",
     "detail": {
       "folded_doc_front": "Lay your document flat, include all inner pages (must contain your photo)"

@@ -675,6 +675,12 @@ The following optional customizations are available for the introductory screen:
 
 ![Cross-device intro screen](demo/cross-device-logo.png)
 
+#### Image capture upload fallback
+
+The SDK will attempt to load an optimized camera UI to take a live photo. When this is not possible (because of an unsupported browser or mobile devices with no camera), the user will be presented with an HTML5 File Input. Set `uploadFallback` to `false` to disable this fallback feature and ensure live capture. Note that disabling `uploadFallback` will prevent users with an unsupported browser or a mobile device with no camera from continuing.
+
+![Upload fallback](demo/upload-fallback.png)
+
 - `genericDocumentTypes` (object)
 
   You can add generic documents that are not supported by Onfido. They will be displayed at the bottom of the built-in document types.
@@ -732,6 +738,21 @@ The custom options are:
   - if Motion is not available, the face step can be configured to fallback to either `video` or `standard` variants (see `motionFallbackVariant`).
 
   If the SDK is initialized with the `requestedVariant` option for the face step, make sure you use the data returned in the [`onComplete` callback](#handling-callbacks) to request the correct report when creating a check.
+
+- `uploadFallback` (boolean - default: `true`)
+
+  By default, the SDK will attempt to open an optimised camera UI for the user to take a live photo or video. When this is not possible (because of an unsupported browser or mobile devices with no camera), by default the user will be presented with an HTML5 File Input upload because of `uploadFallback`. In this scenario, they will be able to use their mobile device's default camera application to take a photo, but will not be presented with an optimised camera UI.
+
+  This method does not guarantee live capture, because certain mobile device browsers and camera applications may also allow uploads from the user's gallery of photos.
+
+  ⚠️ **Warning**: If the mobile device does not have a camera or lacks camera browser support the user will not be able to complete the flow if `uploadFallback` is set to `false`.
+
+  ```javascript
+  options: {
+    requestedVariant: 'standard' | 'video',
+    uploadFallback: false
+  }
+  ```
 
 - `useMultipleSelfieCapture` (boolean - default: `true`)
 

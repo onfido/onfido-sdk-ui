@@ -146,10 +146,6 @@
     }
   },
   "doc_capture": {
-    "alert": {
-      "no_barcode_detail": "조명이 밝은 곳에 자리를 잡고 카드를 카메라 가까이로 가져가세요",
-      "no_barcode_title": "바코드가 감지되지 않습니다"
-    },
     "button_primary": "서류 스캔 시작",
     "detail": {
       "folded_doc_front": "모든 내부 페이지를 포함하여 (사진이 부착된 면이 보이도록 해서) 평평하게 펼치세요"

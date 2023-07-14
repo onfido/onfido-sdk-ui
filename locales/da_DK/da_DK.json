@@ -146,10 +146,6 @@
     }
   },
   "doc_capture": {
-    "alert": {
-      "no_barcode_detail": "Ophold dig på et godt oplyst sted, og før kortet ind mod kameraet",
-      "no_barcode_title": "Stregkoden er ikke detekteret"
-    },
     "button_primary": "Start scanning af dokumenter",
     "detail": {
       "folded_doc_front": "Du skal sørge for, at dit dokument ligger fladt, og at alle de indvendige sider indgår (skal indeholde dit foto)"

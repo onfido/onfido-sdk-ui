@@ -146,10 +146,6 @@
     }
   },
   "doc_capture": {
-    "alert": {
-      "no_barcode_detail": "Ficar num local bem iluminado e aproximar o cartão da câmara",
-      "no_barcode_title": "Código de barras não detetado"
-    },
     "button_primary": "Iniciar digitalização de documento",
     "detail": {
       "folded_doc_front": "Coloque o documento de forma plana e inclua todas as páginas interiores (deve conter a sua fotografia)"

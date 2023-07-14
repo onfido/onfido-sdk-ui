@@ -146,10 +146,6 @@
     }
   },
   "doc_capture": {
-    "alert": {
-      "no_barcode_detail": "Ostanite na dobro osvijetljenom mjestu i približite karticu kameri",
-      "no_barcode_title": "Barkod nije otkriven"
-    },
     "button_primary": "Započnite skeniranje dokumenta",
     "detail": {
       "folded_doc_front": "Postavite dokument na ravno i ne zaboravite unutarnje stranice (tu mora biti vaša fotografija)"

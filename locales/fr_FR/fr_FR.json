@@ -146,10 +146,6 @@
     }
   },
   "doc_capture": {
-    "alert": {
-      "no_barcode_detail": "Dirigez-vous vers un espace bien éclairé et rapprochez le document",
-      "no_barcode_title": "Le code-barres n’est pas lisible"
-    },
     "button_primary": "Démarrer le scan du document",
     "detail": {
       "folded_doc_front": "Dépliez votre document, prenez en photo les pages intérieures (qui contiennent votre photo)"

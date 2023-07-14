@@ -146,10 +146,6 @@
     }
   },
   "doc_capture": {
-    "alert": {
-      "no_barcode_detail": "Bleiben Sie an einem gut beleuchteten Ort und bringen Sie die Karte näher an die Kamera",
-      "no_barcode_title": "Barcode nicht erkannt"
-    },
     "button_primary": "Starten Sie mit dem Scannen des Dokuments",
     "detail": {
       "folded_doc_front": "Legen Sie Ihr Dokument flach hin, einschließlich aller Innenseiten (Ihr Foto muss enthalten sein)"

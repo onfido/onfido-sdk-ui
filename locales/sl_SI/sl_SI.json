@@ -146,10 +146,6 @@
     }
   },
   "doc_capture": {
-    "alert": {
-      "no_barcode_detail": "Ostanite na dobro osvetljenem mestu in približajte kartico fotoaparatu",
-      "no_barcode_title": "Črtna koda ni zaznana"
-    },
     "button_primary": "Začni skeniranje dokumenta",
     "detail": {
       "folded_doc_front": "Dokument položite ravno, vključite vse notranje strani (vsebovati mora vašo fotografijo)"

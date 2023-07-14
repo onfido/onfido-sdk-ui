@@ -146,10 +146,6 @@
     }
   },
   "doc_capture": {
-    "alert": {
-      "no_barcode_detail": "Tetap di tempat yang terang dan dekatkan kartu ke kamera",
-      "no_barcode_title": "Barcode tidak terdeteksi"
-    },
     "button_primary": "Mulai pemindaian dokumen",
     "detail": {
       "folded_doc_front": "Letakkan dokumen secara mendatar, sertakan semua halaman dalam (harus memuat foto Anda)"

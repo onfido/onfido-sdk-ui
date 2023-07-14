@@ -146,10 +146,6 @@
     }
   },
   "doc_capture": {
-    "alert": {
-      "no_barcode_detail": "Stați într-un loc bine luminat și aduceți cardul mai aproape de camera video",
-      "no_barcode_title": "Codul de bare nu a fost detectat"
-    },
     "button_primary": "Începeți scanarea documentului",
     "detail": {
       "folded_doc_front": "Poziționați documentul dvs. pe o suprafață plană, includeți toate paginile interne (trebuie să conțină poza dvs.)"

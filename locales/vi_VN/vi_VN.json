@@ -146,10 +146,6 @@
     }
   },
   "doc_capture": {
-    "alert": {
-      "no_barcode_detail": "Ở nơi có ánh sáng tốt và đưa thẻ đến gần máy ảnh",
-      "no_barcode_title": "Không tìm thấy mã vạch"
-    },
     "button_primary": "Bắt đầu quét tài liệu",
     "detail": {
       "folded_doc_front": "Đặt giấy tờ của bạn lên mặt phẳng, chụp tất cả các trang bên trong (phải có ảnh rõ mặt)"

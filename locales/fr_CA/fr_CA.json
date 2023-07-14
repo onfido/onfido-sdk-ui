@@ -146,10 +146,6 @@
     }
   },
   "doc_capture": {
-    "alert": {
-      "no_barcode_detail": "Restez dans un endroit bien éclairé et rapprochez la carte de la caméra",
-      "no_barcode_title": "Code-barres non détecté"
-    },
     "button_primary": "Démarrer la numérisation du document",
     "detail": {
       "folded_doc_front": "Posez votre document à plat, incluant toutes les pages intérieures (doit contenir votre photo)"

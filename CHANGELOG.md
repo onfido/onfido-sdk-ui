@@ -10,14 +10,11 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 
-## [13.0.0] - 2023-07-11
+## [12.4.1] - 2023-07-14
 
 ### Changed
 
-- Remove `uploadFallback` option in the `document` step.
-- Add a new error when barcode detection issues arise.
-- Remove `uploadFallback` option in the `face` step.
-- Fix workflow multi document taks step configuration.
+- Fix close button on document preview
 
 ## [12.4.0] - 2023-06-19
 
@@ -1539,8 +1536,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/13.0.0...development
-[13.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/12.4.0...13.0.0
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/12.4.1...development
+[12.4.1]: https://github.com/onfido/onfido-sdk-ui/compare/12.4.0...12.4.1
 [12.4.0]: https://github.com/onfido/onfido-sdk-ui/compare/12.3.6...12.4.0
 [12.3.6]: https://github.com/onfido/onfido-sdk-ui/compare/12.3.5...12.3.6
 [12.3.5]: https://github.com/onfido/onfido-sdk-ui/compare/12.3.4...12.3.5

@@ -146,10 +146,6 @@
     }
   },
   "doc_capture": {
-    "alert": {
-      "no_barcode_detail": "Ole hyvin valaistussa paikassa ja tuo kortti lähemmäs kameraa",
-      "no_barcode_title": "Viivakoodia ei havaittu"
-    },
     "button_primary": "Aloita asiakirjan skannaus",
     "detail": {
       "folded_doc_front": "Aseta asiakirjasi tasaisesti, sisällytä kaikki sisäsivut (täytyy sisältää kuvasi)"

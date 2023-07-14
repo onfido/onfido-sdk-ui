@@ -146,10 +146,6 @@
     }
   },
   "doc_capture": {
-    "alert": {
-      "no_barcode_detail": "Ga op een goed verlichte plek staan en houd de kaart dichter bij de camera",
-      "no_barcode_title": "Streepjescode niet gedetecteerd"
-    },
     "button_primary": "Start scannen van document",
     "detail": {
       "folded_doc_front": "Leg uw document plat neer, inclusief alle binnenste pagina's (moeten uw foto bevatten)"

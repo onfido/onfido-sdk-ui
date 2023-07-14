@@ -4,8 +4,6 @@ The guides below are provided to ease the transition of existing applications us
 
 ## `next`
 
-The `uploadFallback` option has been removed. Users with mobile devices that do not have a camera or lack camera browser support will not be able to complete the flow. Please reach out to your CSM for details.
-
 `tearDown` is deprecated in favor of `safeTearDown` which is a promise that you can await to know when the sdk tear down is complete.
 
 For all supported language the copy for the following string(s) has been added:

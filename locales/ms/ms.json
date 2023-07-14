@@ -146,10 +146,6 @@
     }
   },
   "doc_capture": {
-    "alert": {
-      "no_barcode_detail": "Berada di tempat yang terang dan dekatkan kad dengan kamera",
-      "no_barcode_title": "Kod bar tidak dikesan"
-    },
     "button_primary": "Mulakan imbasan dokumen",
     "detail": {
       "folded_doc_front": "Letakkan dokumen anda secara rata, sertakan semua halaman dalaman (ia mesti mengandungi gambar anda)"

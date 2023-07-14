@@ -146,10 +146,6 @@
     }
   },
   "doc_capture": {
-    "alert": {
-      "no_barcode_detail": "Resta in un punto ben illuminato e avvicina la carta alla fotocamera",
-      "no_barcode_title": "Codice a barre non rilevato"
-    },
     "button_primary": "Inizia a scansionare il documento",
     "detail": {
       "folded_doc_front": "Appoggia il documento aperto sulle pagine interne (deve contenere la tua foto)"

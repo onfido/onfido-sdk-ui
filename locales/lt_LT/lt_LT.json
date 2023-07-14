@@ -146,10 +146,6 @@
     }
   },
   "doc_capture": {
-    "alert": {
-      "no_barcode_detail": "Būkite gerai apšviestoje vietoje ir priartinkite kortelę prie kameros",
-      "no_barcode_title": "Brūkšninis kodas neaptiktas"
-    },
     "button_primary": "Pradėti dokumento nuskaitymą",
     "detail": {
       "folded_doc_front": "Padėkite dokumentą plokščiai, įtraukite visus vidinius puslapius (turi būti jūsų nuotrauka)"

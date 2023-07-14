@@ -146,10 +146,6 @@
     }
   },
   "doc_capture": {
-    "alert": {
-      "no_barcode_detail": "明るい場所に留まり、カードをカメラに近づけます",
-      "no_barcode_title": "バーコードが検出されません"
-    },
     "button_primary": "ドキュメントのスキャンを開始",
     "detail": {
       "folded_doc_front": "ドキュメントを平らに置き、すべての内側のページを含める（ご自身の写真を含める必要があります）"

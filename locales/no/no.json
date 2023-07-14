@@ -146,10 +146,6 @@
     }
   },
   "doc_capture": {
-    "alert": {
-      "no_barcode_detail": "Hold deg på et godt opplyst sted og plasser kortet nærmere kameraet",
-      "no_barcode_title": "Strekkode ikke oppdaget"
-    },
     "button_primary": "Start dokumentskanning",
     "detail": {
       "folded_doc_front": "Legg dokumentet flatt, inkluder alle sidene (må inneholde bildet)"

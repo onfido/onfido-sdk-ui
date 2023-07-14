@@ -146,10 +146,6 @@
     }
   },
   "doc_capture": {
-    "alert": {
-      "no_barcode_detail": "Püsige hästi valgustatud kohas ja liigutage kaarti kaamerale lähemale",
-      "no_barcode_title": "Vöötkoodi ei tuvastatud"
-    },
     "button_primary": "Alustage dokumendi skannimist",
     "detail": {
       "folded_doc_front": "Asetage dokument avatult tasapinnale nii, et on näha sisemised lehed (peab sisaldama teie fotot)"

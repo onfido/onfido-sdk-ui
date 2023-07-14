@@ -146,10 +146,6 @@
     }
   },
   "doc_capture": {
-    "alert": {
-      "no_barcode_detail": "保持在光线充足的位置，并将身份证靠近相机",
-      "no_barcode_title": "未检测到条形码"
-    },
     "button_primary": "开始证明文件扫描",
     "detail": {
       "folded_doc_front": "平放您的证明文件，包括所有内页（必须包含您的照片）"

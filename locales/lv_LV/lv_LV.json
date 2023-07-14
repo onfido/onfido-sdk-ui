@@ -146,10 +146,6 @@
     }
   },
   "doc_capture": {
-    "alert": {
-      "no_barcode_detail": "Palieciet labi apgaismotā vietā un pietuviniet karti kamerai",
-      "no_barcode_title": "Svītrkods nav atrasts"
-    },
     "button_primary": "Sākt dokumenta skenēšanu",
     "detail": {
       "folded_doc_front": "Novietojiet dokumentu plakani uz līdzenas virsmas, ir jābūt redzamām visām iekšējām lapām (tajās jābūt jūsu fotoattēlam)"

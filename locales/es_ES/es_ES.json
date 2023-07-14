@@ -146,10 +146,6 @@
     }
   },
   "doc_capture": {
-    "alert": {
-      "no_barcode_detail": "Manténganse en un área bien iluminada y acerque el carnet a la cámara",
-      "no_barcode_title": "Código de barras no detectado"
-    },
     "button_primary": "Iniciar escaneo del documento",
     "detail": {
       "folded_doc_front": "Asegúrese que su documento este completamente abierto (debe incluir su foto)"

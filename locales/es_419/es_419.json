@@ -146,10 +146,6 @@
     }
   },
   "doc_capture": {
-    "alert": {
-      "no_barcode_detail": "Ubícate en un lugar bien iluminado y acerca la tarjeta a la cámara",
-      "no_barcode_title": "Código de barras no detectado"
-    },
     "button_primary": "Iniciar escaneo de documento",
     "detail": {
       "folded_doc_front": "Coloca tu documento en un lugar plano, incluye todas las páginas internas (debe tener tu foto)"

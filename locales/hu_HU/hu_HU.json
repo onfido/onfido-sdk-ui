@@ -146,10 +146,6 @@
     }
   },
   "doc_capture": {
-    "alert": {
-      "no_barcode_detail": "Tartózkodjon jól megvilágított helyen, és tartsa közelebb a kártyát a fényképezőgéphez",
-      "no_barcode_title": "Vonalkód nem észlelhető"
-    },
     "button_primary": "Dokumentumbeolvasás indítása",
     "detail": {
       "folded_doc_front": "Fektesse a dokumentumot sík felületre, és mutassa az összes belső oldalt (a fényképes oldalt is beleértve)"

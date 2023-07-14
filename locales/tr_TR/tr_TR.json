@@ -146,10 +146,6 @@
     }
   },
   "doc_capture": {
-    "alert": {
-      "no_barcode_detail": "İyi aydınlatılmış bir yerde durun ve kartı kameraya yaklaştırın",
-      "no_barcode_title": "Barkod tespit edilemedi"
-    },
     "button_primary": "Belge taramasını başlat",
     "detail": {
       "folded_doc_front": "Belgenizi düz bir şekilde yerleştirin, tüm iç sayfaları ekleyin (fotoğrafınızı içermelidir)"
