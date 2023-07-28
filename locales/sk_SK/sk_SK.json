@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Posuňte sa ďalej",
+    "feedback_move_back_accessibility": "Posuňte zariadenie ďalej",
     "feedback_move_closer": "Posuňte sa bližšie",
+    "feedback_move_left_accessibility": "Posuňte zariadenie doľava",
+    "feedback_move_right_accessibility": "Posuňte zariadenie doprava",
     "feedback_no_face_detected": "Nebola zistená tvár",
     "feedback_not_centered": "Tvár nie je v strede",
     "title": "Umiestnite tvár do rámu"
@@ -38,7 +41,8 @@
     "list_item_one": "Najprv umiestnite tvár do rámu",
     "list_item_two": "Potom pomaly otočte hlavou na obe strany",
     "subtitle": "Týmto overujeme, že ste skutočná osoba",
-    "title": "Zaznamenajte video"
+    "title": "Zaznamenajte video",
+    "video_accessibility": "Príklad videa, na ktorom niekto otáča hlavu na obe strany až do dokončenia"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Spustiť záznam znova",
@@ -153,6 +157,9 @@
     "button_primary": "Spustiť skenovanie dokladu",
     "detail": {
       "folded_doc_front": "Umiestnite doklad na rovnú plochu a zahrňte všetky vnútorné strany (musia obsahovať vašu fotku)"
+    },
+    "header": {
+      "recording_complete": "Zaznamenávanie je ukončené"
     },
     "header_folded_doc_front": "Fotka z profilu",
     "prompt": {
@@ -846,7 +853,7 @@
     "info": "Tipy",
     "info_link_expire": "Platnosť odkazu vyprší o hodinu",
     "info_link_window": "Počas používania mobilného telefónu ponechajte toto okno otvorené",
-    "link": "Znova odoslať odkaz",
+    "link": "Vyskúšajte inú metódu",
     "subtitle": "Bezpečný odkaz sme poslali na číslo %{number}",
     "subtitle_minutes": "Kým príde, môže to trvať niekoľko minút",
     "title": "Skontrolujte svoj mobilný telefón"

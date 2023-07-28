@@ -189,6 +189,8 @@ import { init } from 'onfido-sdk-ui/split'
 import 'onfido-sdk-ui/split/css'
 ```
 
+If you are using TypeScript, you have to enable `moduleResolution` to `Node16 | NodeNext | Bundler`. If it is not possible in your case, you need to add a `@ts-ignore` comment above the import.
+
 ⚠️ Note: The main bundle will be in included in your build, but the other bundles will be loaded from Onfido's CDN.
 
 ### 5. Add basic HTML markup

@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Pavirzieties tālāk",
+    "feedback_move_back_accessibility": "Attāliniet ierīci",
     "feedback_move_closer": "Pavirzieties tuvāk",
+    "feedback_move_left_accessibility": "Pavirziet ierīci pa kreisi",
+    "feedback_move_right_accessibility": "Pavirziet ierīci pa labi",
     "feedback_no_face_detected": "Seja nav atrasta",
     "feedback_not_centered": "Seja nav centrēta",
     "title": "Pozicionējiet seju kadrā"
@@ -38,7 +41,8 @@
     "list_item_one": "Vispirms pozicionējiet seju kadrā",
     "list_item_two": "Pēc tam lēnām pagrieziet galvu uz abām pusēm",
     "subtitle": "Tas nepieciešams, lai pārbaudītu, vai esat īsta persona",
-    "title": "Ierakstīt videoklipu"
+    "title": "Ierakstīt videoklipu",
+    "video_accessibility": "Videoklipa piemērs, kurā cilvēks pagriež galvu uz abām pusēm līdz apstiprinājumam"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Sākt ierakstu no jauna",
@@ -153,6 +157,9 @@
     "button_primary": "Sākt dokumenta skenēšanu",
     "detail": {
       "folded_doc_front": "Novietojiet dokumentu plakani uz līdzenas virsmas, ir jābūt redzamām visām iekšējām lapām (tajās jābūt jūsu fotoattēlam)"
+    },
+    "header": {
+      "recording_complete": "Ieraksts pabeigts"
     },
     "header_folded_doc_front": "Profila fotoattēla puse",
     "prompt": {
@@ -846,7 +853,7 @@
     "info": "Padomi",
     "info_link_expire": "Jūsu saites derīguma termiņš beigsies pēc stundas",
     "info_link_window": "Turiet šo logu atvērtu, kamēr izmantojat mobilo tālruni",
-    "link": "Nosūtīt saiti atkārtoti",
+    "link": "Izmēģiniet citu metodi",
     "subtitle": "Mēs nosūtījām drošu saiti uz %{number}",
     "subtitle_minutes": "Sūtīšana var aizņemt dažas minūtes",
     "title": "Pārbaudiet savu mobilo tālruni"

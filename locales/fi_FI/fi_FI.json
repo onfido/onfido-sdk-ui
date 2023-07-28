@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Siirry taaksepäin",
+    "feedback_move_back_accessibility": "Siirrä laitettasi taaksepäin",
     "feedback_move_closer": "Siirry lähemmäs",
+    "feedback_move_left_accessibility": "Siirrä laitettasi vasemmalle",
+    "feedback_move_right_accessibility": "Siirrä laitettasi oikealle",
     "feedback_no_face_detected": "Kasvoja ei havaittu",
     "feedback_not_centered": "Kasvot eivät ole keskellä",
     "title": "Aseta kasvosi kehykseen"
@@ -38,7 +41,8 @@
     "list_item_one": "Aseta ensin kasvosi kehykseen",
     "list_item_two": "Käännä sitten päätäsi hitaasti molemmille puolille",
     "subtitle": "Näin vahvistetaan, että olet todellinen henkilö",
-    "title": "Tallenna video"
+    "title": "Tallenna video",
+    "video_accessibility": "Esimerkkivideo, jossa joku kääntää päätään molemmille puolille, kunnes on valmis"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Aloita tallennus uud.",
@@ -153,6 +157,9 @@
     "button_primary": "Aloita asiakirjan skannaus",
     "detail": {
       "folded_doc_front": "Aseta asiakirjasi tasaisesti, sisällytä kaikki sisäsivut (täytyy sisältää kuvasi)"
+    },
+    "header": {
+      "recording_complete": "Tallennus valmis"
     },
     "header_folded_doc_front": "Sivukuvapuoli",
     "prompt": {
@@ -846,7 +853,7 @@
     "info": "Vinkit",
     "info_link_expire": "Linkkisi vanhenee tunnin kuluttua",
     "info_link_window": "Pidä tämä ikkuna auki matkapuhelinta käyttäessäsi",
-    "link": "Lähetä uusi linkki",
+    "link": "Kokeile toista menetelmää",
     "subtitle": "Olemme lähettäneet suojatun linkin numeroon %{number}",
     "subtitle_minutes": "Saapumiseen voi mennä muutama minuutti",
     "title": "Tarkista matkapuhelimesi"

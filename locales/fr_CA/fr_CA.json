@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Reculer",
+    "feedback_move_back_accessibility": "Reculez votre appareil",
     "feedback_move_closer": "Approchez-vous",
+    "feedback_move_left_accessibility": "Déplacez votre appareil vers la gauche",
+    "feedback_move_right_accessibility": "Déplacez votre appareil vers la droite",
     "feedback_no_face_detected": "Aucun visage détecté",
     "feedback_not_centered": "Visage non centré",
     "title": "Tout d'abord, positionnez votre visage dans le cadre"
@@ -38,7 +41,8 @@
     "list_item_one": "Tout d'abord, positionnez votre visage dans le cadre",
     "list_item_two": "Ensuite, tournez lentement la tête des deux côtés",
     "subtitle": "Ceci est pour vérifier que vous êtes une personne réelle",
-    "title": "Enregistrer une vidéo"
+    "title": "Enregistrer une vidéo",
+    "video_accessibility": "Exemple de vidéo d'une personne qui tourne la tête des deux côtés jusqu'à la fin"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Redémarrer l'enregistrement",
@@ -153,6 +157,9 @@
     "button_primary": "Démarrer la numérisation du document",
     "detail": {
       "folded_doc_front": "Posez votre document à plat, incluant toutes les pages intérieures (doit contenir votre photo)"
+    },
+    "header": {
+      "recording_complete": "Enregistrement terminé"
     },
     "header_folded_doc_front": "Côté photo de profil",
     "prompt": {
@@ -846,7 +853,7 @@
     "info": "Conseils",
     "info_link_expire": "Votre lien mobile expirera dans une heure",
     "info_link_window": "Gardez cette fenêtre ouverte lorsque vous utilisez votre téléphone mobile",
-    "link": "Renvoyez le lien",
+    "link": "Essayez une autre méthode",
     "subtitle": "Nous avons envoyé un lien sécurisé à %{number}",
     "subtitle_minutes": "Vous devriez le recevoir d'ici quelques minutes",
     "title": "Vérifiez votre téléphone mobile"

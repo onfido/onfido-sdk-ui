@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Flytta bakåt",
+    "feedback_move_back_accessibility": "Flytta enheten bakåt",
     "feedback_move_closer": "Flytta närmare",
+    "feedback_move_left_accessibility": "Flytta enheten åt vänster",
+    "feedback_move_right_accessibility": "Flytta enheten åt höger",
     "feedback_no_face_detected": "Inget ansikte upptäcktes",
     "feedback_not_centered": "Ansiktet är inte centrerat",
     "title": "Placera ditt ansikte i ramen"
@@ -38,7 +41,8 @@
     "list_item_one": "Placera först ansiktet i ramen",
     "list_item_two": "Vrid sedan långsamt huvudet åt båda sidorna",
     "subtitle": "Syftet med detta är att verifiera att du är en riktig person",
-    "title": "Spela in en video"
+    "title": "Spela in en video",
+    "video_accessibility": "Exempel på video där någon vrider huvudet åt båda sidorna tills det är klart"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Starta om inspelningen",
@@ -153,6 +157,9 @@
     "button_primary": "Starta dokumentskanning",
     "detail": {
       "folded_doc_front": "Lägg dokumentet platt och inkludera alla inre sidor (ditt foto måste finnas med)"
+    },
+    "header": {
+      "recording_complete": "Inspelning slutförd"
     },
     "header_folded_doc_front": "Sida med profilfoto",
     "prompt": {
@@ -846,7 +853,7 @@
     "info": "Tips",
     "info_link_expire": "Din länk går ut om en timme",
     "info_link_window": "Håll detta fönster öppet när du använder din mobil",
-    "link": "Skicka länken igen",
+    "link": "Prova en annan metod",
     "subtitle": "Vi har skickat en säker länk till %{number}",
     "subtitle_minutes": "Det kan ta några minuter för den att komma fram",
     "title": "Kontrollera din mobil"

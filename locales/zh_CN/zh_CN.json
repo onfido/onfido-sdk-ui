@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "退后",
+    "feedback_move_back_accessibility": "将设备向后移动",
     "feedback_move_closer": "靠近",
+    "feedback_move_left_accessibility": "将设备向左移动",
+    "feedback_move_right_accessibility": "将设备向右移动",
     "feedback_no_face_detected": "未检测到面部",
     "feedback_not_centered": "面部未居中",
     "title": "将面部移入框中"
@@ -38,7 +41,8 @@
     "list_item_one": "首先，将面部移入框中",
     "list_item_two": "然后，慢慢地将头转向两侧",
     "subtitle": "这是为了验证您的真实身份",
-    "title": "录制视频"
+    "title": "录制视频",
+    "video_accessibility": "将头转向两侧直到完成的视频示例"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "重新开始录制",
@@ -153,6 +157,9 @@
     "button_primary": "开始证明文件扫描",
     "detail": {
       "folded_doc_front": "平放您的证明文件，包括所有内页（必须包含您的照片）"
+    },
+    "header": {
+      "recording_complete": "录制完成"
     },
     "header_folded_doc_front": "资料照片一面",
     "prompt": {
@@ -846,7 +853,7 @@
     "info": "小贴士",
     "info_link_expire": "您的链接将在一小时后过期",
     "info_link_window": "使用手机时请勿关闭此窗口",
-    "link": "重新发送链接",
+    "link": "尝试另一种方法",
     "subtitle": "我们已将安全链接发送至%{number}",
     "subtitle_minutes": "可能需要几分钟时间才能到达",
     "title": "请检查手机"

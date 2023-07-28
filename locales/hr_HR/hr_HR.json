@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Pomaknite se unatrag",
+    "feedback_move_back_accessibility": "Odmaknite uređaj",
     "feedback_move_closer": "Približite se",
+    "feedback_move_left_accessibility": "Pomaknite uređaj ulijevo",
+    "feedback_move_right_accessibility": "Pomaknite uređaj udesno",
     "feedback_no_face_detected": "Lice nije prepoznato",
     "feedback_not_centered": "Lice nije centrirano",
     "title": "Namjestite lice u okvir"
@@ -38,7 +41,8 @@
     "list_item_one": "Najprije namjestite lice u okvir",
     "list_item_two": "Zatim polako okrenite glavu u obje strane",
     "subtitle": "Ovime potvrđujemo da ste stvarna osoba",
-    "title": "Snimite videozapis"
+    "title": "Snimite videozapis",
+    "video_accessibility": "Primjer videozapisa u kojem netko okreće glavu u obje strane sve dok snimanje ne završi"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Ponovno započnite snimanje",
@@ -153,6 +157,9 @@
     "button_primary": "Započnite skeniranje dokumenta",
     "detail": {
       "folded_doc_front": "Postavite dokument na ravno i ne zaboravite unutarnje stranice (tu mora biti vaša fotografija)"
+    },
+    "header": {
+      "recording_complete": "Snimanje je završeno"
     },
     "header_folded_doc_front": "Strana fotografije profila",
     "prompt": {
@@ -846,7 +853,7 @@
     "info": "Savjeti",
     "info_link_expire": "Poveznica istječe za sat vremena",
     "info_link_window": "Držite ovaj prozor otvoren dok se koristite mobitelom",
-    "link": "Ponovno pošalji poveznicu",
+    "link": "Pokušajte s drugom metodom",
     "subtitle": "Poslali smo sigurnu poveznicu na broj %{number}",
     "subtitle_minutes": "Možda će biti potrebno nekoliko minuta da je dobijete",
     "title": "Provjerite mobitel"

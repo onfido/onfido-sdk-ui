@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Aléjate",
+    "feedback_move_back_accessibility": "Mover el dispositivo hacia atrás",
     "feedback_move_closer": "Acércate",
+    "feedback_move_left_accessibility": "Mueve tu dispositivo a la izquierda",
+    "feedback_move_right_accessibility": "Mueve tu dispositivo a la derecha",
     "feedback_no_face_detected": "Rostro no detectado",
     "feedback_not_centered": "Rostro no centrado",
     "title": "Coloca tu rostro en el marco"
@@ -38,7 +41,8 @@
     "list_item_one": "Primero, coloca tu rostro en el marco",
     "list_item_two": "Luego, gira la cabeza lentamente hacia ambos lados",
     "subtitle": "Esto es para verificar que eres una persona real",
-    "title": "Grabar un video"
+    "title": "Grabar un video",
+    "video_accessibility": "Ejemplo de video de alguien girando la cabeza hacia ambos lados hasta completar"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Reiniciar grabación",
@@ -153,6 +157,9 @@
     "button_primary": "Iniciar escaneo de documento",
     "detail": {
       "folded_doc_front": "Coloca tu documento en un lugar plano, incluye todas las páginas internas (debe tener tu foto)"
+    },
+    "header": {
+      "recording_complete": "Grabación completa"
     },
     "header_folded_doc_front": "Lado de la foto de perfil",
     "prompt": {
@@ -846,7 +853,7 @@
     "info": "Consejos",
     "info_link_expire": "Tu enlace vencerá en una hora",
     "info_link_window": "Mantén esta ventana abierta mientras usas tu celular",
-    "link": "Reenviar enlace",
+    "link": "Intenta con otro método",
     "subtitle": "Te enviamos un enlace seguro a %{number}",
     "subtitle_minutes": "Puede tardar unos minutos en llegar",
     "title": "Verifica tu celular"

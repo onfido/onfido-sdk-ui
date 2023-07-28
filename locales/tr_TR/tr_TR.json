@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Biraz daha geri gidin",
+    "feedback_move_back_accessibility": "Cihazınızı daha uzağa götürün",
     "feedback_move_closer": "Biraz daha yaklaşın",
+    "feedback_move_left_accessibility": "Cihazınızı sola hareket ettirin",
+    "feedback_move_right_accessibility": "Cihazınızı sağa hareket ettirin",
     "feedback_no_face_detected": "Yüz tespit edilmedi",
     "feedback_not_centered": "Yüz ortalanmamış",
     "title": "Yüzünüzü çerçeveye yerleştirin"
@@ -38,7 +41,8 @@
     "list_item_one": "İlk olarak, yüzünüzü çerçeveye yerleştirin",
     "list_item_two": "Ardından, başınızı yavaşça her iki tarafa çevirin",
     "subtitle": "Bu işlem, gerçek bir kişi olduğunuzu doğrulamak amacıyla yapılır",
-    "title": "Video kaydetme"
+    "title": "Video kaydetme",
+    "video_accessibility": "Tamamlanana kadar başını iki yana çeviren birinin örnek videosu"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Kaydı yeniden başlat",
@@ -153,6 +157,9 @@
     "button_primary": "Belge taramasını başlat",
     "detail": {
       "folded_doc_front": "Belgenizi düz bir şekilde yerleştirin, tüm iç sayfaları ekleyin (fotoğrafınızı içermelidir)"
+    },
+    "header": {
+      "recording_complete": "Kayıt tamamlandı"
     },
     "header_folded_doc_front": "Profil resmi tarafı",
     "prompt": {
@@ -846,7 +853,7 @@
     "info": "İpuçları",
     "info_link_expire": "Bağlantınızın süresi bir saat içinde dolacak",
     "info_link_window": "Cep telefonunuzu kullanırken bu pencereyi açık tutun",
-    "link": "Bağlantıyı yeniden gönder",
+    "link": "Başka bir yöntem deneyin",
     "subtitle": "%{number} numaralı telefona güvenli bir bağlantı gönderdik",
     "subtitle_minutes": "Ulaşması birkaç dakika sürebilir",
     "title": "Cep telefonunuzu kontrol edin"

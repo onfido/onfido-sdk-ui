@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Ga naar achteren",
+    "feedback_move_back_accessibility": "Beweeg uw apparaat terug",
     "feedback_move_closer": "Kom dichterbij",
+    "feedback_move_left_accessibility": "Beweeg uw apparaat naar links",
+    "feedback_move_right_accessibility": "Beweeg uw apparaat naar rechts",
     "feedback_no_face_detected": "Gezicht niet gedetecteerd",
     "feedback_not_centered": "Gezicht niet gecentreerd",
     "title": "Plaats uw gezicht in het kader"
@@ -38,7 +41,8 @@
     "list_item_one": "Plaats eerst uw gezicht in het kader",
     "list_item_two": "Draai uw hoofd dan langzaam naar beide kanten",
     "subtitle": "Dit is om te verifiëren dat u een echte persoon bent",
-    "title": "Maak een filmpje"
+    "title": "Maak een filmpje",
+    "video_accessibility": "Voorbeeldfilmpje van iemand die zijn/haar hoofd naar beide kanten draait totdat hij/zij klaar is"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Opname opnieuw starten",
@@ -153,6 +157,9 @@
     "button_primary": "Start scannen van document",
     "detail": {
       "folded_doc_front": "Leg uw document plat neer, inclusief alle binnenste pagina's (moeten uw foto bevatten)"
+    },
+    "header": {
+      "recording_complete": "Opname voltooid"
     },
     "header_folded_doc_front": "Kant van de profiel foto",
     "prompt": {
@@ -846,7 +853,7 @@
     "info": "Tips",
     "info_link_expire": "Uw link verloopt over een uur",
     "info_link_window": "Houd dit venster open als u uw mobiele telefoon gebruikt",
-    "link": "Stuur link opnieuw",
+    "link": "Probeer een andere methode",
     "subtitle": "We hebben een beveiligde link gestuurd naar %{number}",
     "subtitle_minutes": "Het kan een paar minuten duren voordat u deze ontvangt",
     "title": "Check uw mobiele telefoon"
@@ -872,18 +879,18 @@
   },
   "user_consent": {
     "button_primary": "Accepteren",
-    "button_secondary": "Niet accepteren",
+    "button_secondary": "Niet aanvaarden",
     "prompt": {
-      "button_primary": "Controleer opniew",
-      "button_secondary": "Ja, verifieer mij niet",
-      "no_consent_detail": "If you do not accept Onfido’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
+      "button_primary": "Bekijk het opnieuw",
+      "button_secondary": "Ja, controleer mij niet",
+      "no_consent_detail": "Als u de privacyverklaringen en de servicevoorwaarden van Onfido niet accepteert, kunnen we uw identiteit niet verifiëren en zult u deze stap verlaten.",
       "no_consent_title": "Weet u het zeker?"
     }
   },
   "user_consent_load_fail": {
-    "button_primary": "Reload screen",
-    "detail": "Check that your connection is stable, then try again",
-    "title": "Content failed to load"
+    "button_primary": "Scherm opnieuw laden",
+    "detail": "Controleer of u een stabiele verbinding heeft en probeer het daarna opnieuw",
+    "title": "Inhoud laden mislukt"
   },
   "video_capture": {
     "body": "Houd uw gezicht binnen het ovale kader",

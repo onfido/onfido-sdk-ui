@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Allontanati",
+    "feedback_move_back_accessibility": "Allontana il dispositivo",
     "feedback_move_closer": "Avvicinati",
+    "feedback_move_left_accessibility": "Sposta il dispositivo verso sinistra",
+    "feedback_move_right_accessibility": "Sposta il dispositivo verso destra",
     "feedback_no_face_detected": "Viso non rilevato",
     "feedback_not_centered": "Viso non centrato",
     "title": "Posiziona il viso nel riquadro"
@@ -38,7 +41,8 @@
     "list_item_one": "Innanzitutto, posiziona il viso nel riquadro",
     "list_item_two": "Poi, gira lentamente la testa da entrambe le parti",
     "subtitle": "Questo serve a verificare che tu sia una persona reale",
-    "title": "Registra un video"
+    "title": "Registra un video",
+    "video_accessibility": "Video di esempio di una persona che ruota la testa verso entrambi i lati fino al completamento"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Riavvia la registrazione",
@@ -153,6 +157,9 @@
     "button_primary": "Inizia a scansionare il documento",
     "detail": {
       "folded_doc_front": "Appoggia il documento aperto sulle pagine interne (deve contenere la tua foto)"
+    },
+    "header": {
+      "recording_complete": "Registrazione completata"
     },
     "header_folded_doc_front": "Lato foto profilo",
     "prompt": {
@@ -846,7 +853,7 @@
     "info": "Consigli",
     "info_link_expire": "Il tuo link scadrà tra un’ora",
     "info_link_window": "Tieni aperta questa finestra mentre usi il telefono",
-    "link": "Invia nuovo link",
+    "link": "Prova un altro metodo",
     "subtitle": "Abbiamo inviato un link sicuro a %{number}",
     "subtitle_minutes": "La ricezione potrebbe richiedere qualche minuto",
     "title": "Controlla il telefono"
@@ -871,19 +878,19 @@
     "title": "Invia la pagina con foto del passaporto"
   },
   "user_consent": {
-    "button_primary": "Accept",
-    "button_secondary": "Do not accept",
+    "button_primary": "Accetta",
+    "button_secondary": "Non accettare",
     "prompt": {
-      "button_primary": "Review again",
-      "button_secondary": "Yes, don’t verify me",
-      "no_consent_detail": "If you do not accept Onfido’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
-      "no_consent_title": "Are you sure?"
+      "button_primary": "Rivedi di nuovo",
+      "button_secondary": "Sì, non verificarmi",
+      "no_consent_detail": "Se non accetti le dichiarazioni sulla privacy e i termini di servizio di Onfido, non saremo in grado di verificare la tua identità e interromperai questo passaggio.",
+      "no_consent_title": "Sei sicuro?"
     }
   },
   "user_consent_load_fail": {
-    "button_primary": "Reload screen",
-    "detail": "Check that your connection is stable, then try again",
-    "title": "Content failed to load"
+    "button_primary": "Ricarica schermo",
+    "detail": "Verifica che la tua connessione sia stabile e riprova",
+    "title": "Il contenuto non è riuscito a caricare"
   },
   "video_capture": {
     "body": "Tieni il viso nell’ovale",

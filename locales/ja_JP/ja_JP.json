@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "後ろへ下がってください",
+    "feedback_move_back_accessibility": "デバイスを離してください",
     "feedback_move_closer": "もっと近づいてください",
+    "feedback_move_left_accessibility": "デバイスを左に移動させてください",
+    "feedback_move_right_accessibility": "デバイスを右に移動させてください",
     "feedback_no_face_detected": "顔が検出されませんでした",
     "feedback_not_centered": "顔が中央に配置されていません",
     "title": "顔を枠内に配置してください"
@@ -38,7 +41,8 @@
     "list_item_one": "まず、顔を枠内に配置します",
     "list_item_two": "そして、頭をゆっくりと両側に向けます",
     "subtitle": "これは、お客様が実際の人物であることを確認するために行います",
-    "title": "動画を録画する"
+    "title": "動画を録画する",
+    "video_accessibility": "完了まで首を左右に回している動画例"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "録画を再開する",
@@ -153,6 +157,9 @@
     "button_primary": "ドキュメントのスキャンを開始",
     "detail": {
       "folded_doc_front": "ドキュメントを平らに置き、すべての内側のページを含める（ご自身の写真を含める必要があります）"
+    },
+    "header": {
+      "recording_complete": "記録が完了しました"
     },
     "header_folded_doc_front": "プロフィール写真側",
     "prompt": {
@@ -846,7 +853,7 @@
     "info": "ヒント",
     "info_link_expire": "リンクは1時間後に期限切れになります",
     "info_link_window": "携帯電話を使用している間、このウィンドウを開いたままにしてください",
-    "link": "リンクを再送信",
+    "link": "別の方法を試してみてください",
     "subtitle": "%{number}に安全なリンクを送信しました",
     "subtitle_minutes": "到着まで数分かかる場合があります",
     "title": "携帯電話を確認する"

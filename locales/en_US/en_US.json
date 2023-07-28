@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Move back",
+    "feedback_move_back_accessibility": "Move your device back",
     "feedback_move_closer": "Move closer",
+    "feedback_move_left_accessibility": "Move your device to the left",
+    "feedback_move_right_accessibility": "Move your device to the right",
     "feedback_no_face_detected": "Face not detected",
     "feedback_not_centered": "Face not centered",
     "title": "Position your face in the frame"
@@ -38,7 +41,8 @@
     "list_item_one": "First, position your face in the frame",
     "list_item_two": "Then, turn your head slowly to both sides",
     "subtitle": "This is to verify that you’re a real person",
-    "title": "Record a video"
+    "title": "Record a video",
+    "video_accessibility": "Example video of someone turning their head to both sides until completion"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Restart recording",
@@ -153,6 +157,9 @@
     "button_primary": "Start document scan",
     "detail": {
       "folded_doc_front": "Lay your document flat, include all inner pages (must contain your photo)"
+    },
+    "header": {
+      "recording_complete": "Recording complete"
     },
     "header_folded_doc_front": "Profile photo side",
     "prompt": {
@@ -846,7 +853,7 @@
     "info": "Tips",
     "info_link_expire": "Your link will expire in one hour",
     "info_link_window": "Keep this window open while using your mobile",
-    "link": "Resend link",
+    "link": "Try another method",
     "subtitle": "We’ve sent a secure link to %{number}",
     "subtitle_minutes": "It may take a few minutes to arrive",
     "title": "Check your mobile"
@@ -875,7 +882,7 @@
     "button_secondary": "Do not accept",
     "prompt": {
       "button_primary": "Review again",
-      "button_secondary": "Yes, don’t verify me",
+      "button_secondary": "Yes, don't verify me",
       "no_consent_detail": "If you do not accept Onfido’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
       "no_consent_title": "Are you sure?"
     }

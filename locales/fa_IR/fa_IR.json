@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "عقب بروید",
+    "feedback_move_back_accessibility": "دستگاه خود را به عقب ببرید",
     "feedback_move_closer": "نزدیکتر بیایید",
+    "feedback_move_left_accessibility": "دستگاه خود را به سمت چپ حرکت دهید",
+    "feedback_move_right_accessibility": "دستگاه خود را به سمت راست حرکت دهید",
     "feedback_no_face_detected": "چهره شناسایی نشد",
     "feedback_not_centered": "چهره در مرکز نیست",
     "title": "چهره خود را درون کادر قرار دهید"
@@ -38,7 +41,8 @@
     "list_item_one": "ابتدا چهره خود را درون کادر قرار دهید",
     "list_item_two": "سپس سر خود را به آرامی به دو طرف بچرخانید",
     "subtitle": "این کار برای این است که تأیید شود شما یک شخص واقعی هستید",
-    "title": "ضبط یک ویدئو"
+    "title": "ضبط یک ویدئو",
+    "video_accessibility": "ویدئوی نمونه از فردی که سر خود را به دو طرف می‌چرخاند تا فرآیند تکمیل شود"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "شروع مجدد ضبط",
@@ -153,6 +157,9 @@
     "button_primary": "شروع اسکن مدرک",
     "detail": {
       "folded_doc_front": "مدرک خود را به شکل مسطح قرار دهید، بطوری که تمام صفحات داخلی را شامل شود (باید عکس شما روی مدرک باشد)"
+    },
+    "header": {
+      "recording_complete": "ضبط کامل شد"
     },
     "header_folded_doc_front": "سمت عکس پروفایل",
     "prompt": {
@@ -846,7 +853,7 @@
     "info": "نکات",
     "info_link_expire": "لینک شما تا یک ساعت دیگر منقضی می‌شود",
     "info_link_window": "هنگام استفاده از موبایل خود، این پنجره را باز نگه دارید",
-    "link": "ارسال مجدد لینک",
+    "link": "روش دیگری را امتحان کنید",
     "subtitle": "ما یک لینک امن به شماره %{number} ارسال کردیم",
     "subtitle_minutes": "ممکن است چند دقیقه طول بکشد تا پیام برسد",
     "title": "موبایل خود را بررسی کنید"

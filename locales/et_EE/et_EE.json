@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Liikuge kaugemale",
+    "feedback_move_back_accessibility": "Liigutage seadet kaugemale",
     "feedback_move_closer": "Liikuge lähemale",
+    "feedback_move_left_accessibility": "Liigutage seadet vasakule",
+    "feedback_move_right_accessibility": "Liigutage seadet paremale",
     "feedback_no_face_detected": "Nägu ei tuvastatud",
     "feedback_not_centered": "Nägu pole kaadri keskel",
     "title": "Asetage oma nägu kaadrisse"
@@ -38,7 +41,8 @@
     "list_item_one": "Kõigepealt asetage oma nägu kaadrisse",
     "list_item_two": "Seejärel keerake oma pead aeglaselt mõlemale poole",
     "subtitle": "Nii kinnitame, et olete tõeline inimene",
-    "title": "Salvestage video"
+    "title": "Salvestage video",
+    "video_accessibility": "Näide videost, kus kujutatud isik pöörab pead mõlemale poole kuni video valmimiseni"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Alustage salvestamist uuesti",
@@ -153,6 +157,9 @@
     "button_primary": "Alustage dokumendi skannimist",
     "detail": {
       "folded_doc_front": "Asetage dokument avatult tasapinnale nii, et on näha sisemised lehed (peab sisaldama teie fotot)"
+    },
+    "header": {
+      "recording_complete": "Salvestamine lõpetatud"
     },
     "header_folded_doc_front": "Profiili pildi külg",
     "prompt": {
@@ -846,7 +853,7 @@
     "info": "Nõuanded",
     "info_link_expire": "Teie link aegub tunni aja pärast",
     "info_link_window": "Jätke see aken mobiiltelefoni kasutamise ajal avatuks",
-    "link": "Saatke link uuesti",
+    "link": "Proovi teist meetodit",
     "subtitle": "Saatsime turvalise lingi numbrile %{number}",
     "subtitle_minutes": "Selle saabumine võib võtta mõne minuti",
     "title": "Kontrollige oma mobiiltelefoni"

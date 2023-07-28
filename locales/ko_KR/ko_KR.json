@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "좀 더 뒤로 물러나세요",
+    "feedback_move_back_accessibility": "기기 위치를 뒤쪽으로 옮기세요",
     "feedback_move_closer": "더 가까이 다가오세요",
+    "feedback_move_left_accessibility": "기기 위치를 왼쪽으로 옮기세요",
+    "feedback_move_right_accessibility": "기기 위치를 오른쪽으로 옮기세요",
     "feedback_no_face_detected": "얼굴이 감지되지 않습니다",
     "feedback_not_centered": "얼굴이 중앙에 위치해 있지 않습니다",
     "title": "프레임 안에 얼굴이 배치되도록 하세요"
@@ -38,7 +41,8 @@
     "list_item_one": "먼저, 프레임 안에 얼굴이 배치되도록 하세요",
     "list_item_two": "그런 다음 고개를 좌우로 천천히 돌리세요",
     "subtitle": "이는 사용자가 (기계가 아닌) 사람인지 확인하기 위한 절차입니다",
-    "title": "동영상 녹화하기"
+    "title": "동영상 녹화하기",
+    "video_accessibility": "완료될 때까지 좌우로 고개를 돌리는 동영상 예시"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "녹화 재시작",
@@ -153,6 +157,9 @@
     "button_primary": "서류 스캔 시작",
     "detail": {
       "folded_doc_front": "모든 내부 페이지를 포함하여 (사진이 부착된 면이 보이도록 해서) 평평하게 펼치세요"
+    },
+    "header": {
+      "recording_complete": "녹화 완료"
     },
     "header_folded_doc_front": "프로필 사진 면",
     "prompt": {
@@ -846,7 +853,7 @@
     "info": "팁",
     "info_link_expire": "링크는 1시간 후에 만료됩니다",
     "info_link_window": "휴대폰을 사용하는 동안 이 창을 열어두세요",
-    "link": "링크 재전송",
+    "link": "다른 방법을 시도해보세요",
     "subtitle": "%{number}번으로 보안 링크가 전송되었습니다",
     "subtitle_minutes": "전송되는 데 몇 분 정도 걸릴 수 있습니다",
     "title": "휴대폰을 확인하세요"
