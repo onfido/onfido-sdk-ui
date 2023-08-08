@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Toliau",
+    "feedback_move_back_accessibility": "Atitraukite įrenginį",
     "feedback_move_closer": "Arčiau",
+    "feedback_move_left_accessibility": "Patraukite įrenginį į kairę",
+    "feedback_move_right_accessibility": "Patraukite įrenginį į dešinę",
     "feedback_no_face_detected": "Veidas neaptiktas",
     "feedback_not_centered": "Veidas nėra centre",
     "title": "Pasirūpinkite, kad jūsų veidas būtų rėmelyje"
@@ -38,7 +41,8 @@
     "list_item_one": "Pirmiausia pasirūpinkite, kad jūsų veidas būtų rėmelyje",
     "list_item_two": "Tada lėtai pasukite galvą į abi puses",
     "subtitle": "Taip patvirtinsite, kad esate tikras asmuo",
-    "title": "Padaryti vaizdo įrašą"
+    "title": "Padaryti vaizdo įrašą",
+    "video_accessibility": "Vaizdo įrašo, kaip žmogus sukinėja galvą į abi puses iki pabaigos, pavyzdys"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Iš naujo pradėti įrašymą",
@@ -154,6 +158,9 @@
     "detail": {
       "folded_doc_front": "Padėkite dokumentą plokščiai, įtraukite visus vidinius puslapius (turi būti jūsų nuotrauka)"
     },
+    "header": {
+      "recording_complete": "Įrašymas baigtas"
+    },
     "header_folded_doc_front": "Paskyros nuotraukos pusė",
     "prompt": {
       "button_card": "Plastikinė kortelė",
@@ -236,7 +243,7 @@
     "subtitle_photo_page": "Nuotraukos puslapis",
     "subtitle_poa": "Štai dokumentai, kuriuose labiausiai tikėtas jūsų namų adreso buvimas",
     "title": "Pasirinkite dokumentą",
-    "title_poa": "Pasirinkite %{country} dokumentą"
+    "title_poa": "Pasirinkite dokumentą"
   },
   "doc_submit": {
     "button_link_upload": "arba įkelkite nuotrauką – jokių skenuotų ar atšviestų",
@@ -846,7 +853,7 @@
     "info": "Patarimai",
     "info_link_expire": "Jūsų nuoroda baigs galioti po valandos",
     "info_link_window": "Laikykite šį langą atidarytą, kai naudojate mobilųjį telefoną",
-    "link": "Siųsti nuorodą iš naujo",
+    "link": "Pabandykite kitą metodą",
     "subtitle": "Išsiuntėme saugią nuorodą numeriu %{number}",
     "subtitle_minutes": "Gali užtrukti kelias minutes, kol pamatysite",
     "title": "Patikrinkite savo mobilųjį telefoną"

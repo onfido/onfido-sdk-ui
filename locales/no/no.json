@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Flytt deg lenger unna",
+    "feedback_move_back_accessibility": "Flytt enheten lenger unna",
     "feedback_move_closer": "Flytt deg nærmere",
+    "feedback_move_left_accessibility": "Flytt enheten til venstre",
+    "feedback_move_right_accessibility": "Flytt enheten til høyre",
     "feedback_no_face_detected": "Ansikt ikke oppdaget",
     "feedback_not_centered": "Ansiktet er ikke sentrert",
     "title": "Først, plasser ansiktet ditt i rammen"
@@ -38,7 +41,8 @@
     "list_item_one": "Først, plasser ansiktet ditt i rammen",
     "list_item_two": "Snu deretter hodet sakte til begge sider",
     "subtitle": "Dette er for å bekrefte at du er en ekte person",
-    "title": "Ta opp en video"
+    "title": "Ta opp en video",
+    "video_accessibility": "Eksempel på en video av noen som dreier hodet til begge sider til ferdigstillelse"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Start opptaket på nytt",
@@ -154,6 +158,9 @@
     "detail": {
       "folded_doc_front": "Legg dokumentet flatt, inkluder alle sidene (må inneholde bildet)"
     },
+    "header": {
+      "recording_complete": "Opptaket er fullført"
+    },
     "header_folded_doc_front": "Profilbildeside",
     "prompt": {
       "button_card": "Plastkort",
@@ -236,7 +243,7 @@
     "subtitle_photo_page": "Bildeside",
     "subtitle_poa": "Dette er dokumentene som mest sannsynlig vil vise din nåværende hjemmeadresse",
     "title": "Velg dokumentet ditt",
-    "title_poa": "Velg et %{country} -dokument"
+    "title_poa": "Velg et dokument"
   },
   "doc_submit": {
     "button_link_upload": "eller last opp bilde – ingen skanninger eller fotokopier",
@@ -846,7 +853,7 @@
     "info": "Tips",
     "info_link_expire": "Mobilkoblingen din utløper om én time",
     "info_link_window": "Hold dette vinduet åpent mens du bruker mobilen",
-    "link": "Send lenken på nytt",
+    "link": "Prøv en annen metode",
     "subtitle": "Vi har sendt en sikker lenke til %{number}",
     "subtitle_minutes": "Det kan ta noen minutter før du får den",
     "title": "Sjekk mobilen din"

@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Mundur",
+    "feedback_move_back_accessibility": "Gerakkan perangkat Anda ke belakang",
     "feedback_move_closer": "Mendekatlah",
+    "feedback_move_left_accessibility": "Gerakkan perangkat Anda ke kiri",
+    "feedback_move_right_accessibility": "Gerakkan perangkat Anda ke kanan",
     "feedback_no_face_detected": "Wajah tidak terdeteksi",
     "feedback_not_centered": "Wajah tidak berada di tengah",
     "title": "Posisikan wajah Anda dalam bingkai"
@@ -38,7 +41,8 @@
     "list_item_one": "Pertama, posisikan wajah Anda dalam bingkai",
     "list_item_two": "Kemudian, putar kepala Anda ke kedua sisi",
     "subtitle": "Ini untuk memverifikasi bahwa Anda adalah orang sungguhan",
-    "title": "Rekam video"
+    "title": "Rekam video",
+    "video_accessibility": "Contoh video seseorang memutar kepala ke kedua sisi hingga selesai"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Mulai ulang perekaman",
@@ -154,6 +158,9 @@
     "detail": {
       "folded_doc_front": "Letakkan dokumen secara mendatar, sertakan semua halaman dalam (harus memuat foto Anda)"
     },
+    "header": {
+      "recording_complete": "Perekaman selesai"
+    },
     "header_folded_doc_front": "Sisi foto profil",
     "prompt": {
       "button_card": "Kartu plastik",
@@ -236,7 +243,7 @@
     "subtitle_photo_page": "Halaman foto",
     "subtitle_poa": "Ini adalah dokumen yang hampir bisa dipastikan menunjukkan alamat rumah Anda saat ini",
     "title": "Pilih dokumen Anda",
-    "title_poa": "Pilih dokumen %{country}"
+    "title_poa": "Pilih sebuah dokumen"
   },
   "doc_submit": {
     "button_link_upload": "atau unggah foto – bukan hasil pindaian atau fotokopi",
@@ -846,7 +853,7 @@
     "info": "Tips",
     "info_link_expire": "Tautan Anda akan kedaluwarsa dalam satu jam",
     "info_link_window": "Tetap buka jendela ini saat menggunakan ponsel Anda",
-    "link": "Kirim ulang tautan",
+    "link": "Coba metode lain",
     "subtitle": "Kami telah mengirimkan tautan aman ke %{number}",
     "subtitle_minutes": "Mungkin dibutuhkan waktu beberapa menit untuk sampai",
     "title": "Periksa ponsel Anda"

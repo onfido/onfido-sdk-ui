@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Afaste-se",
+    "feedback_move_back_accessibility": "Mova o seu dispositivo para trás",
     "feedback_move_closer": "Aproxime-se",
+    "feedback_move_left_accessibility": "Mova o seu dispositivo para a esquerda",
+    "feedback_move_right_accessibility": "Mova o seu dispositivo para a direita",
     "feedback_no_face_detected": "Rosto não detetado",
     "feedback_not_centered": "Rosto não centrado",
     "title": "Posicione o seu rosto na moldura"
@@ -38,7 +41,8 @@
     "list_item_one": "Primeiro, posicione o seu rosto na moldura",
     "list_item_two": "Depois, vire a cabeça lentamente para ambos os lados",
     "subtitle": "Isto serve para verificar que é uma pessoa real",
-    "title": "Gravar um vídeo"
+    "title": "Gravar um vídeo",
+    "video_accessibility": "Vídeo de exemplo de alguém a virar a cabeça para ambos os lados até à conclusão"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Reiniciar a gravação",
@@ -154,6 +158,9 @@
     "detail": {
       "folded_doc_front": "Coloque o documento de forma plana e inclua todas as páginas interiores (deve conter a sua fotografia)"
     },
+    "header": {
+      "recording_complete": "Gravação concluída"
+    },
     "header_folded_doc_front": "Lado da foto do perfil",
     "prompt": {
       "button_card": "Cartão de plástico",
@@ -236,7 +243,7 @@
     "subtitle_photo_page": "Página de fotos",
     "subtitle_poa": "Estes são os documentos que deverão apresentar a sua morada atual",
     "title": "Escolha o seu documento",
-    "title_poa": "Selecione um documento de %{country}"
+    "title_poa": "Escolha um documento"
   },
   "doc_submit": {
     "button_link_upload": "ou carregar foto – digitalizações ou fotocópias não são permitidas",
@@ -846,7 +853,7 @@
     "info": "Dicas",
     "info_link_expire": "A sua ligação irá expirar dentro de uma hora",
     "info_link_window": "Mantenha esta janela aberta ao utilizar o telemóvel",
-    "link": "Reenviar a ligação",
+    "link": "Tente outro método",
     "subtitle": "Enviámos uma ligação segura para %{number}",
     "subtitle_minutes": "Poderá demorar alguns minutos a chegar",
     "title": "Verifique o seu telemóvel"
@@ -871,19 +878,19 @@
     "title": "Carregue a página com fotografia do passaporte"
   },
   "user_consent": {
-    "button_primary": "Acepipe",
-    "button_secondary": "Do not accept",
+    "button_primary": "Aceitar",
+    "button_secondary": "Não aceite",
     "prompt": {
-      "button_primary": "Review again",
-      "button_secondary": "Yes, don’t verify me",
-      "no_consent_detail": "If you do not accept Onfido’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
-      "no_consent_title": "Are you sure?"
+      "button_primary": "Reveja novamente",
+      "button_secondary": "Sim, não me verifique",
+      "no_consent_detail": "Se não aceitar as declarações de privacidade e os termos de serviço da Onfido, não poderemos verificar a sua identidade e você sairá deste passo.",
+      "no_consent_title": "Tem a certeza?"
     }
   },
   "user_consent_load_fail": {
-    "button_primary": "Reload screen",
-    "detail": "Check that your connection is stable, then try again",
-    "title": "Content failed to load"
+    "button_primary": "Recarregar ecrã",
+    "detail": "Verifique se a sua ligação é estável e tente novamente",
+    "title": "O conteúdo falhou ao carregar"
   },
   "video_capture": {
     "body": "Mantenha o seu rosto dentro da forma oval",

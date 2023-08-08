@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "تحرك للخلف",
+    "feedback_move_back_accessibility": "حرك جهازك للخلف",
     "feedback_move_closer": "اقترب أكثر",
+    "feedback_move_left_accessibility": "حرك جهازك إلى اليسار",
+    "feedback_move_right_accessibility": "حرك جهازك إلى اليمين",
     "feedback_no_face_detected": "لم يتم اكتشاف وجهك",
     "feedback_not_centered": "الوجه ليس في المنتصف",
     "title": "ضع وجهك ضمن الإطار"
@@ -38,7 +41,8 @@
     "list_item_one": "أولاً، ضع وجهك ضمن الإطار",
     "list_item_two": "ثم أدر رأسك ببطء إلى كلا الجانبين",
     "subtitle": "هذا للتأكد من أنك شخص حقيقي",
-    "title": "تسجيل فيديو"
+    "title": "تسجيل فيديو",
+    "video_accessibility": "مثال فيديو لشخص يدير رأسه لكلا الجانبين حتى الانتهاء"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "إعادة بدء التسجيل",
@@ -154,6 +158,9 @@
     "detail": {
       "folded_doc_front": "ضع مستندك بشكل مستوٍ، مع تضمين جميع الصفحات الداخلية (يجب أن يحتوي على صورتك)"
     },
+    "header": {
+      "recording_complete": "اكتمل التسجيل"
+    },
     "header_folded_doc_front": "جانب صورة الملف الشخصي",
     "prompt": {
       "button_card": "بطاقة بلاستيكية",
@@ -236,7 +243,7 @@
     "subtitle_photo_page": "التقط صورة للصفحة",
     "subtitle_poa": "هذه هي الوثائق الأكثر احتمالاً لإظهار العنوان الحالي لمسكنك",
     "title": "اختر مستندك",
-    "title_poa": "تحديد مستند %{country}"
+    "title_poa": "تحديد مستند"
   },
   "doc_submit": {
     "button_link_upload": "أو تحميل صورة – لا تحمل مستندات لمسح ضوئي أو نسخ مصورة",

@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "זוז אחורה",
+    "feedback_move_back_accessibility": "העבר את המכשיר שלך בחזרה",
     "feedback_move_closer": "התקרב",
+    "feedback_move_left_accessibility": "הזז את המכשיר לצד שמאל",
+    "feedback_move_right_accessibility": "הזז את המכשיר לצד לימין",
     "feedback_no_face_detected": "לא זוהו פנים",
     "feedback_not_centered": "הפנים לא מופיעות במרכז",
     "title": "ראשית, מקם את הפנים שלך במסגרת"
@@ -38,7 +41,8 @@
     "list_item_one": "ראשית, מקם את הפנים שלך במסגרת",
     "list_item_two": "לאחר מכן, סובב את ראשך לאט לשני הצדדים",
     "subtitle": "כדי לוודא שאתה אדם אמיתי",
-    "title": "הקלט סרטון"
+    "title": "הקלט סרטון",
+    "video_accessibility": "סרטון לדוגמה שבו מישהו מסובב את הראש לשני הצדדים עד לסיום"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "צלם מחדש",
@@ -154,6 +158,9 @@
     "detail": {
       "folded_doc_front": "הנח את המסמך על המשטח, כולל כל הדפים הפנימיים (התמונה שלך חייבת להופיע)"
     },
+    "header": {
+      "recording_complete": "הצילום הושלם"
+    },
     "header_folded_doc_front": "תמונת פרופיל",
     "prompt": {
       "button_card": "כרטיס פלסטיק",
@@ -236,7 +243,7 @@
     "subtitle_photo_page": "עמוד תמונה",
     "subtitle_poa": "אלה המסמכים שהכי סביר שיציגו את כתובת המגורים הנוכחית שלך",
     "title": "בחר את המסמך שלך",
-    "title_poa": "בחר מסמך %{country}"
+    "title_poa": "אנא בחר מסמך"
   },
   "doc_submit": {
     "button_link_upload": "או העלה תמונה – ללא סריקות או צילומים",
@@ -846,7 +853,7 @@
     "info": "טיפים",
     "info_link_expire": "תוקף הקישור לנייד שלך יפוג בעוד שעה",
     "info_link_window": "יש להשאיר את החלון פתוח בעת השימוש בנייד",
-    "link": "שליחה חוזרת של הקישור",
+    "link": "נסה שיטה אחרת",
     "subtitle": "שלחנו קישור מאובטח למספר %{number}",
     "subtitle_minutes": "ייתכן שיחלפו מספר דקות עד ההגעה",
     "title": "בדוק את הטלפון הנייד שלך"

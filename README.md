@@ -189,6 +189,8 @@ import { init } from 'onfido-sdk-ui/split'
 import 'onfido-sdk-ui/split/css'
 ```
 
+If you are using TypeScript, you have to enable `moduleResolution` to `Node16 | NodeNext | Bundler`. If it is not possible in your case, you need to add a `@ts-ignore` comment above the import.
+
 ⚠️ Note: The main bundle will be in included in your build, but the other bundles will be loaded from Onfido's CDN.
 
 ### 5. Add basic HTML markup
@@ -972,9 +974,7 @@ From version `6.5.0`, TypeScript is officially supported, providing typings for:
 
 | ![Chrome](https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png) | ![Edge](https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png) | ![Safari](https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png) |
 | --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| Latest ✔                                                                                            | Latest \* ✔                                                                                            | Latest ✔                                                                                      | Latest ✔                                                                                            |
-
-\* _Firefox on Android, iOS not supported_
+| Latest ✔                                                                                            | Latest ✔                                                                                               | Latest ✔                                                                                      | Latest ✔                                                                                            |
 
 ### Node.js compatibility
 

@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Reculez",
+    "feedback_move_back_accessibility": "Déplacez votre mobile vers l'arrière",
     "feedback_move_closer": "Approchez-vous",
+    "feedback_move_left_accessibility": "Déplacez votre mobile vers la gauche",
+    "feedback_move_right_accessibility": "Déplacez votre mobile vers la droite",
     "feedback_no_face_detected": "Aucun visage détecté",
     "feedback_not_centered": "Visage non centré",
     "title": "Positionnez votre visage dans le cadre"
@@ -38,7 +41,8 @@
     "list_item_one": "D'abord, positionnez votre visage dans le cadre",
     "list_item_two": "Ensuite, tournez votre tête lentement des deux côtés",
     "subtitle": "Ceci sert à vérifier que vous êtes une personne authentique",
-    "title": "Enregistrez une vidéo de votre visage"
+    "title": "Enregistrez une vidéo de votre visage",
+    "video_accessibility": "Exemple de vidéo d'une personne tournant la tête des deux côtés jusqu'à la fin"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Redémarrer l’enregistrement",
@@ -154,6 +158,9 @@
     "detail": {
       "folded_doc_front": "Dépliez votre document, prenez en photo les pages intérieures (qui contiennent votre photo)"
     },
+    "header": {
+      "recording_complete": "Enregistrement terminé"
+    },
     "header_folded_doc_front": "Côté contenant votre photo",
     "prompt": {
       "button_card": "Carte plastique",
@@ -236,7 +243,7 @@
     "subtitle_photo_page": "Page de photos",
     "subtitle_poa": "Voici les documents les plus susceptibles d'indiquer votre adresse de résidence actuelle",
     "title": "Sélectionnez un document",
-    "title_poa": "Sélectionnez un document de %{country}"
+    "title_poa": "Choisissez un document"
   },
   "doc_submit": {
     "button_link_upload": "ou envoyer une photo - pas de scans ou de photocopies",
@@ -846,7 +853,7 @@
     "info": "Conseils",
     "info_link_expire": "Votre lien expirera dans une heure",
     "info_link_window": "Gardez cette fenêtre ouverte lorsque vous utilisez votre mobile",
-    "link": "Renvoyer le lien",
+    "link": "Essayez une autre méthode",
     "subtitle": "Nous vous avons envoyé un lien sécurisé au numéro suivant : %{number}",
     "subtitle_minutes": "Le délai de réception peut varier entre les différents opérateurs",
     "title": "Vérifiez votre mobile"
@@ -871,19 +878,19 @@
     "title": "Envoyez la page du passeport contenant votre photo"
   },
   "user_consent": {
-    "button_primary": "Accept",
-    "button_secondary": "Do not accept",
+    "button_primary": "Accepter",
+    "button_secondary": "Ne pas accepter",
     "prompt": {
-      "button_primary": "Review again",
-      "button_secondary": "Yes, don’t verify me",
-      "no_consent_detail": "If you do not accept Onfido’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
-      "no_consent_title": "Are you sure?"
+      "button_primary": "Revoir à nouveau",
+      "button_secondary": "Oui, ne procédez pas à ma vérification",
+      "no_consent_detail": "Si vous n'acceptez pas les déclarations de confidentialité et les conditions d'utilisation d'Onfido, nous ne pourrons pas vérifier votre identité et vous quitterez cette étape.",
+      "no_consent_title": "Êtes-vous sûr ?"
     }
   },
   "user_consent_load_fail": {
-    "button_primary": "Reload screen",
-    "detail": "Check that your connection is stable, then try again",
-    "title": "Content failed to load"
+    "button_primary": "Recharger l'écran",
+    "detail": "Vérifiez que votre connexion est stable, puis réessayez",
+    "title": "Le contenu n'a pas pu être chargé"
   },
   "video_capture": {
     "body": "Gardez le visage dans le cercle",

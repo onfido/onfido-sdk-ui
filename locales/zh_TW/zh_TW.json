@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "向後移動",
+    "feedback_move_back_accessibility": "向後移動裝置",
     "feedback_move_closer": "靠近一些",
+    "feedback_move_left_accessibility": "向左移動裝置",
+    "feedback_move_right_accessibility": "向右移動裝置",
     "feedback_no_face_detected": "未偵測到臉部",
     "feedback_not_centered": "臉部未在中心位置",
     "title": "請將臉部置於框架中"
@@ -38,7 +41,8 @@
     "list_item_one": "首先，請將臉部置於框架中",
     "list_item_two": "然後，將您的頭部慢慢轉向兩側",
     "subtitle": "這是為了驗證您的真實身份",
-    "title": "錄製影片"
+    "title": "錄製影片",
+    "video_accessibility": "範例影片：某人把頭轉向兩側，直到完成"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "重新開始錄製",
@@ -154,6 +158,9 @@
     "detail": {
       "folded_doc_front": "將您的文件平放，包括所有內頁（須包含您的相片）"
     },
+    "header": {
+      "recording_complete": "錄製完成"
+    },
     "header_folded_doc_front": "個人相片的一面",
     "prompt": {
       "button_card": "信用卡",
@@ -236,7 +243,7 @@
     "subtitle_photo_page": "相片頁",
     "subtitle_poa": "這些是最可能顯示您目前住家地址的文件",
     "title": "選擇文件",
-    "title_poa": "選擇%{country}的文件"
+    "title_poa": "選擇一份文件"
   },
   "doc_submit": {
     "button_link_upload": "或上傳相片（不可使用掃描或影印的相片）",

@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Mișcați-vă înapoi",
+    "feedback_move_back_accessibility": "Mișcați dispozitivul în spate",
     "feedback_move_closer": "Veniți mai aproape",
+    "feedback_move_left_accessibility": "Mișcați dispozitivul spre stânga",
+    "feedback_move_right_accessibility": "Mișcați dispozitivul spre dreapta",
     "feedback_no_face_detected": "Fața nu este detectată",
     "feedback_not_centered": "Fața nu este centrată",
     "title": "Poziționați-vă fața în cadru"
@@ -38,7 +41,8 @@
     "list_item_one": "Întâi, poziționați-vă fața în cadru",
     "list_item_two": "Apoi, întoarceți capul încet în ambele părți",
     "subtitle": "Acest lucru este pentru a verifica faptul că sunteți o persoană reală",
-    "title": "Înregistrați un clip video"
+    "title": "Înregistrați un clip video",
+    "video_accessibility": "Clip video exemplificativ cu o persoană care își întoarce capul în ambele sensuri până la finalizare"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Începeți din nou înregistrarea",
@@ -154,6 +158,9 @@
     "detail": {
       "folded_doc_front": "Poziționați documentul dvs. pe o suprafață plană, includeți toate paginile interne (trebuie să conțină poza dvs.)"
     },
+    "header": {
+      "recording_complete": "Înregistrare finalizată"
+    },
     "header_folded_doc_front": "Latură poză de profil",
     "prompt": {
       "button_card": "Card de plastic",
@@ -236,7 +243,7 @@
     "subtitle_photo_page": "Pagina cu poză",
     "subtitle_poa": "Acestea sunt documente care cel mai probabil indică adresa dvs. de reședință actuală",
     "title": "Alegeți documentul dvs.",
-    "title_poa": "Selectați un %{country} document"
+    "title_poa": "Alegeți un document"
   },
   "doc_submit": {
     "button_link_upload": "sau încărcați poză – fără scanări sau fotocopii",
@@ -846,7 +853,7 @@
     "info": "Sugestii",
     "info_link_expire": "Linkul dvs. va expira într-o oră",
     "info_link_window": "Mențineți această fereastră deschisă în timp ce vă utilizați telefonul mobil",
-    "link": "Trimiteți din nou linkul",
+    "link": "Încercați o altă metodă",
     "subtitle": "Am trimis un link sigur la %{number}",
     "subtitle_minutes": "Ar putea să dureze câteva minute să îl primiți",
     "title": "Verificați telefonul dvs. mobil"

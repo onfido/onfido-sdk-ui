@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Afaste-se",
+    "feedback_move_back_accessibility": "Afaste o seu dispositivo",
     "feedback_move_closer": "Aproxime-se",
+    "feedback_move_left_accessibility": "Mova seu dispositivo para a esquerda",
+    "feedback_move_right_accessibility": "Mova seu dispositivo para a direita",
     "feedback_no_face_detected": "Rosto não detectado",
     "feedback_not_centered": "Rosto não centralizado",
     "title": "Posicione seu rosto no quadro"
@@ -38,7 +41,8 @@
     "list_item_one": "Primeiro, posicione seu rosto no quadro",
     "list_item_two": "Em seguida, vire a cabeça lentamente para os dois lados",
     "subtitle": "Isso é para verificar se você é uma pessoa real",
-    "title": "Gravar um vídeo"
+    "title": "Gravar um vídeo",
+    "video_accessibility": "Exemplo de vídeo de alguém virando a cabeça para os dois lados até a conclusão"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Reiniciar gravação",
@@ -154,6 +158,9 @@
     "detail": {
       "folded_doc_front": "Coloque seu documento em um local plano, inclua todas as páginas internas (deve conter sua foto)"
     },
+    "header": {
+      "recording_complete": "Gravação concluída"
+    },
     "header_folded_doc_front": "Lado da foto de perfil",
     "prompt": {
       "button_card": "Cartão de plástico",
@@ -236,7 +243,7 @@
     "subtitle_photo_page": "Página com foto",
     "subtitle_poa": "Estes são os documentos com maior probabilidade de mostrar seu endereço residencial atual",
     "title": "Escolha o seu documento",
-    "title_poa": "Selecione um documento do país: %{country}"
+    "title_poa": "Escolha um documento"
   },
   "doc_submit": {
     "button_link_upload": "ou carregar foto – sem digitalizações ou fotocópias",
@@ -846,7 +853,7 @@
     "info": "Dicas",
     "info_link_expire": "Seu link expirará em uma hora",
     "info_link_window": "Mantenha esta janela aberta enquanto usa seu celular",
-    "link": "Reenviar link",
+    "link": "Tente outro método",
     "subtitle": "Enviamos um link seguro para %{number}",
     "subtitle_minutes": "Pode levar alguns minutos para chegar",
     "title": "Verifique o seu celular"

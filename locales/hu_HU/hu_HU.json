@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Távolodjon",
+    "feedback_move_back_accessibility": "Vigye távolabb az eszközt",
     "feedback_move_closer": "Közelítsen",
+    "feedback_move_left_accessibility": "Mozgassa az eszközt balra",
+    "feedback_move_right_accessibility": "Mozgassa az eszközt jobbra",
     "feedback_no_face_detected": "Arc nem észlelhető",
     "feedback_not_centered": "Arca nincs középen",
     "title": "Illessze az arcát a keretbe"
@@ -38,7 +41,8 @@
     "list_item_one": "Először illessze az arcát a keretbe",
     "list_item_two": "Ezután lassan fordítsa a fejét mindkét oldalra",
     "subtitle": "Ez annak igazolására szolgál, hogy Ön egy valós személy",
-    "title": "Készítsen videófelvételt"
+    "title": "Készítsen videófelvételt",
+    "video_accessibility": "Példavideó, amelyen valaki mindkét oldalra elfordítja a fejét a befejezésig"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Rögzítés újraindítása",
@@ -154,6 +158,9 @@
     "detail": {
       "folded_doc_front": "Fektesse a dokumentumot sík felületre, és mutassa az összes belső oldalt (a fényképes oldalt is beleértve)"
     },
+    "header": {
+      "recording_complete": "Felvétel kész"
+    },
     "header_folded_doc_front": "Profilkép",
     "prompt": {
       "button_card": "Műanyag kártya",
@@ -236,7 +243,7 @@
     "subtitle_photo_page": "Arcképes oldal",
     "subtitle_poa": "Ezek azok a dokumentumok, amelyek a legnagyobb valószínűséggel jelzik az Ön jelenlegi lakcímét",
     "title": "Válassza ki a dokumentumot",
-    "title_poa": "Válasszon az alábbi dokumentumtípusok közül: %{country}"
+    "title_poa": "Válasszon az alábbi dokumentumtípusok közül"
   },
   "doc_submit": {
     "button_link_upload": "vagy töltsön fel egy nem szkennelt és nem fénymásolt fényképet",
@@ -846,7 +853,7 @@
     "info": "Tippek",
     "info_link_expire": "A hivatkozása egy óra múlva lejár",
     "info_link_window": "Hagyja nyitva az ablakot a mobil használata közben",
-    "link": "Hivatkozás újraküldése",
+    "link": "Használjon egy másik módszert",
     "subtitle": "Elküldtünk egy biztonságos linket erre a számra: %{number}",
     "subtitle_minutes": "Néhány percbe telhet, míg megérkezik",
     "title": "Ellenőrizze a mobilját"

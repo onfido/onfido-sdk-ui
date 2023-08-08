@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Lùi lại",
+    "feedback_move_back_accessibility": "Di chuyển thiết bị của bạn lùi lại",
     "feedback_move_closer": "Di chuyển gần hơn nữa",
+    "feedback_move_left_accessibility": "Di chuyển thiết bị của bạn sang bên trái",
+    "feedback_move_right_accessibility": "Di chuyển thiết bị của bạn sang phải",
     "feedback_no_face_detected": "Không nhận dạng được khuôn mặt",
     "feedback_not_centered": "Khuôn mặt không được căn giữa",
     "title": "Đầu tiên, định vị khuôn mặt của bạn trong khung hình"
@@ -38,7 +41,8 @@
     "list_item_one": "Đầu tiên, định vị khuôn mặt của bạn trong khung hình",
     "list_item_two": "Sau đó, bạn hãy xoay đầu từ từ sang hai bên",
     "subtitle": "Thông tin này để xác minh rằng bạn là một con người có thật",
-    "title": "Quay video"
+    "title": "Quay video",
+    "video_accessibility": "Video mẫu về một người xoay đầu sang cả hai bên cho đến khi hoàn thành"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Quay lại video",
@@ -154,6 +158,9 @@
     "detail": {
       "folded_doc_front": "Đặt giấy tờ của bạn lên mặt phẳng, chụp tất cả các trang bên trong (phải có ảnh rõ mặt)"
     },
+    "header": {
+      "recording_complete": "Ghi hình đã hoàn tất"
+    },
     "header_folded_doc_front": "Bên có ảnh hồ sơ",
     "prompt": {
       "button_card": "Giấy phép dạng thẻ cứng",
@@ -236,7 +243,7 @@
     "subtitle_photo_page": "Trang có ảnh",
     "subtitle_poa": "Đây là những giấy tờ có nhiều khả năng hiển thị địa chỉ nhà hiện tại của bạn nhất",
     "title": "Chọn giấy tờ của bạn",
-    "title_poa": "Chọn giấy tờ của %{country}"
+    "title_poa": "Chọn một tài liệu"
   },
   "doc_submit": {
     "button_link_upload": "hoặc tải ảnh lên – không dùng bản scan hoặc bản sao",
@@ -846,7 +853,7 @@
     "info": "Gợi ý",
     "info_link_expire": "Liên kết của bạn sẽ hết hạn sau một giờ",
     "info_link_window": "Giữ cửa sổ này mở trong khi sử dụng điện thoại di động của bạn",
-    "link": "Gửi lại liên kết",
+    "link": "Thử phương pháp khác",
     "subtitle": "Chúng tôi đã gửi liên kết an toàn đến %{number}",
     "subtitle_minutes": "Có thể mất vài phút để đến nơi",
     "title": "Kiểm tra điện thoại di động của bạn"

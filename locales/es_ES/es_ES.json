@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Muévase hacia atrás",
+    "feedback_move_back_accessibility": "Mueva el móvil hacia atrás",
     "feedback_move_closer": "Acérquese",
+    "feedback_move_left_accessibility": "Mueva el dispositivo hacia la izquierda",
+    "feedback_move_right_accessibility": "Mueva el dispositivo hacia la derecha",
     "feedback_no_face_detected": "Cara no encontrada",
     "feedback_not_centered": "La cara no está centrada",
     "title": "Coloque la cara dentro el marco"
@@ -38,7 +41,8 @@
     "list_item_one": "Primero, coloque la cara dentro del marco",
     "list_item_two": "Luego, gire la cabeza despacio hacia ambos lados",
     "subtitle": "Esto es para verificar que es una persona real",
-    "title": "Grábese en un vídeo"
+    "title": "Grábese en un vídeo",
+    "video_accessibility": "Vídeo de ejemplo de alguien que gira la cabeza hacia ambos lados hasta terminar"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Reiniciar la grabación",
@@ -154,6 +158,9 @@
     "detail": {
       "folded_doc_front": "Asegúrese que su documento este completamente abierto (debe incluir su foto)"
     },
+    "header": {
+      "recording_complete": "Grabación completada"
+    },
     "header_folded_doc_front": "Lado con su foto",
     "prompt": {
       "button_card": "Tarjeta de plastico",
@@ -236,7 +243,7 @@
     "subtitle_photo_page": "página de fotos",
     "subtitle_poa": "Estos son los documentos en los que es más probable que se muestre la dirección de su hogar",
     "title": "Seleccione un documento",
-    "title_poa": "Seleccione un documento de %{country}"
+    "title_poa": "Elija un documento"
   },
   "doc_submit": {
     "button_link_upload": "o subir foto - no escaneos o fotocopias",
@@ -846,7 +853,7 @@
     "info": "Recomendaciones",
     "info_link_expire": "Su enlace móvil caducará en una hora",
     "info_link_window": "Mantenga esta ventana abierta mientras usa su dispositivo móvil",
-    "link": "Reenviar enlace",
+    "link": "Intenta otro método",
     "subtitle": "Hemos enviado un enlace seguro a %{number}",
     "subtitle_minutes": "Puede tardar unos minutos en llegar",
     "title": "Controle su dispositivo móvil"

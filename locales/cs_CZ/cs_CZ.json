@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Posuňte se dozadu",
+    "feedback_move_back_accessibility": "Posuňte zařízení zpět",
     "feedback_move_closer": "Přibližte se",
+    "feedback_move_left_accessibility": "Posuňte zařízení doleva",
+    "feedback_move_right_accessibility": "Posuňte zařízení doprava",
     "feedback_no_face_detected": "Obličej nebyl rozpoznán",
     "feedback_not_centered": "Obličej není vycentrovaný",
     "title": "Umístěte obličej do záběru"
@@ -38,7 +41,8 @@
     "list_item_one": "Nejprve umístěte obličej do záběru",
     "list_item_two": "Pak pomalu otáčejte hlavu na obě strany",
     "subtitle": "Tím se ověří, že jste skutečná osoba",
-    "title": "Nahrajte video"
+    "title": "Nahrajte video",
+    "video_accessibility": "Příklad videa, na kterém někdo otáčí hlavou na obě strany až do dokončení"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Restart nahrávání",
@@ -154,6 +158,9 @@
     "detail": {
       "folded_doc_front": "Položte dokument na plocho a připojte všechny vnitřní stránky (musí obsahovat Vaši fotografii)"
     },
+    "header": {
+      "recording_complete": "Nahrávání bylo dokončeno"
+    },
     "header_folded_doc_front": "Strana s profilovou fotografií",
     "prompt": {
       "button_card": "Plastová karta",
@@ -236,7 +243,7 @@
     "subtitle_photo_page": "Přední strana s fotografií",
     "subtitle_poa": "V těchto dokumentech je nejčastěji uvedena Vaše současná adresa bydliště",
     "title": "Vyberte svůj dokument",
-    "title_poa": "Vyberte dokument %{country}"
+    "title_poa": "Zvolte dokument"
   },
   "doc_submit": {
     "button_link_upload": "nebo nahrát fotografii - žádné skeny nebo fotokopie",
@@ -846,7 +853,7 @@
     "info": "Tipy",
     "info_link_expire": "Platnost Vašeho odkazu vyprší za hodinu",
     "info_link_window": "Při používání mobilního telefonu nechte toto okno otevřené",
-    "link": "Znovu odešlete odkaz",
+    "link": "Vyzkoušejte jinou metodu",
     "subtitle": "Odeslali jsme zabezpečený odkaz na %{number}",
     "subtitle_minutes": "Může trvat několik minut, než dorazí",
     "title": "Zkontrolujte svůj mobilní telefon"

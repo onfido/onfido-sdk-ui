@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Bergerak ke belakang",
+    "feedback_move_back_accessibility": "Gerakkan peranti anda ke belakang",
     "feedback_move_closer": "Bergerak lebih dekat",
+    "feedback_move_left_accessibility": "Gerakkan peranti anda ke kiri",
+    "feedback_move_right_accessibility": "Gerakkan peranti anda ke kanan",
     "feedback_no_face_detected": "Wajah tidak dikesan",
     "feedback_not_centered": "Wajah tidak berada pada bahagian tengah",
     "title": "Letakkan wajah anda dalam bingkai"
@@ -38,7 +41,8 @@
     "list_item_one": "Pertama, letakkan wajah anda dalam bingkai",
     "list_item_two": "Kemudian, toleh kepala anda perlahan-lahan ke kedua-dua belah sisi",
     "subtitle": "Ini adalah untuk mengesahkan bahawa anda merupakan orang sebenar",
-    "title": "Rakam video"
+    "title": "Rakam video",
+    "video_accessibility": "Contoh video cara menoleh kepala ke kedua-dua belah sisi sehingga tamat"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Mulakan semula rakaman",
@@ -154,6 +158,9 @@
     "detail": {
       "folded_doc_front": "Letakkan dokumen anda secara rata, sertakan semua halaman dalaman (ia mesti mengandungi gambar anda)"
     },
+    "header": {
+      "recording_complete": "Rakaman selesai"
+    },
     "header_folded_doc_front": "Bahagian foto profil",
     "prompt": {
       "button_card": "Kad plastik",
@@ -236,7 +243,7 @@
     "subtitle_photo_page": "Halaman foto",
     "subtitle_poa": "Ini ialah dokumen-dokumen yang berkemungkinan besar menunjukkan alamat rumah semasa anda",
     "title": "Pilih dokumen anda",
-    "title_poa": "Pilih dokumen %{country}"
+    "title_poa": "Pilih satu dokumen"
   },
   "doc_submit": {
     "button_link_upload": "atau muat naik gambar – imbasan atau fotokopi tidak dibenarkan",
@@ -846,7 +853,7 @@
     "info": "Tip",
     "info_link_expire": "Pautan anda akan tamat tempoh dalam masa satu jam",
     "info_link_window": "Pastikan tetingkap ini terbuka semasa menggunakan telefon bimbit anda",
-    "link": "Hantar semula pautan",
+    "link": "Cuba cara lain",
     "subtitle": "Kami telah menghantar pautan selamat ke %{number}",
     "subtitle_minutes": "Ia mungkin mengambil masa beberapa minit untuk tiba",
     "title": "Periksa telefon bimbit anda"

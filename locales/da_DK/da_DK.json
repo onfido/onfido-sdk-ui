@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Flyt tilbage",
+    "feedback_move_back_accessibility": "Flyt enheden væk fra dig",
     "feedback_move_closer": "Flyt tættere på",
+    "feedback_move_left_accessibility": "Flyt din enhed til venstre",
+    "feedback_move_right_accessibility": "Flyt din enhed til højre",
     "feedback_no_face_detected": "Ansigtet er ikke detekteret",
     "feedback_not_centered": "Ansigtet er ikke centreret",
     "title": "Placer dit ansigt inden for rammen"
@@ -38,7 +41,8 @@
     "list_item_one": "Først skal du placere dit ansigt inden for rammen",
     "list_item_two": "Dernæst drejer du hovedet langsomt til begge sider",
     "subtitle": "Dette er for at verificere, at du er en fysisk person",
-    "title": "Optag en video"
+    "title": "Optag en video",
+    "video_accessibility": "Videoeksempel på en person, der drejer hovedet til begge sider indtil handlingen er fuldført"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Start optagelsen forfra",
@@ -154,6 +158,9 @@
     "detail": {
       "folded_doc_front": "Du skal sørge for, at dit dokument ligger fladt, og at alle de indvendige sider indgår (skal indeholde dit foto)"
     },
+    "header": {
+      "recording_complete": "Optagelsen er fuldført"
+    },
     "header_folded_doc_front": "Side med profilbillede",
     "prompt": {
       "button_card": "Plastikkort",
@@ -236,7 +243,7 @@
     "subtitle_photo_page": "Side med billede",
     "subtitle_poa": "Det er de dokumenter, der med størst sandsynlighed viser din nuværende bopælsadresse",
     "title": "Vælg dit dokument",
-    "title_poa": "Vælg et dokument fra %{country}"
+    "title_poa": "Vælg et dokument"
   },
   "doc_submit": {
     "button_link_upload": "eller upload et billede – ingen scanninger eller fotokopier",
@@ -846,7 +853,7 @@
     "info": "Tips",
     "info_link_expire": "Dit link udløber om én time",
     "info_link_window": "Hold dette vindue åbent, mens du bruger din mobil",
-    "link": "Send linket igen",
+    "link": "Prøv en anden metode",
     "subtitle": "Vi har sendt et sikkert link til %{number}",
     "subtitle_minutes": "Det kan tage et par minutter, før du kan se det",
     "title": "Tjek din mobil"

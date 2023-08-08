@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Oddaljite se",
+    "feedback_move_back_accessibility": "Oddaljite napravo",
     "feedback_move_closer": "Približajte se",
+    "feedback_move_left_accessibility": "Premaknite napravo v levo",
+    "feedback_move_right_accessibility": "Premaknite napravo v desno",
     "feedback_no_face_detected": "Obraz ni zaznan",
     "feedback_not_centered": "Obraz ni centriran",
     "title": "Postavite obraz v okvir"
@@ -38,7 +41,8 @@
     "list_item_one": "Najprej postavite obraz v okvir",
     "list_item_two": "Nato glavo počasi obrnite na obe strani",
     "subtitle": "S tem se preveri, ali ste resnična oseba",
-    "title": "Posnemi videoposnetek"
+    "title": "Posnemi videoposnetek",
+    "video_accessibility": "Primer videoposnetka, ko nekdo obrne glavo na obe strani do zaključka"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Ponovni zagon snemanja",
@@ -154,6 +158,9 @@
     "detail": {
       "folded_doc_front": "Dokument položite ravno, vključite vse notranje strani (vsebovati mora vašo fotografijo)"
     },
+    "header": {
+      "recording_complete": "Snemanje končano"
+    },
     "header_folded_doc_front": "Stran s profilno fotografijo",
     "prompt": {
       "button_card": "Plastična kartica",
@@ -236,7 +243,7 @@
     "subtitle_photo_page": "Stran s fotografijo",
     "subtitle_poa": "To so dokumenti, ki bodo najverjetneje prikazali vaš trenutni domači naslov",
     "title": "Izberite dokument",
-    "title_poa": "Izberite dokument države %{country}"
+    "title_poa": "Izberite dokument"
   },
   "doc_submit": {
     "button_link_upload": "ali naložite fotografijo – brez skenov ali fotokopij",
@@ -846,7 +853,7 @@
     "info": "Namigi",
     "info_link_expire": "Vaša povezava bo potekla v eni uri",
     "info_link_window": "Med uporabo mobilnega telefona imejte to okno odprto",
-    "link": "Ponovno pošlji povezavo",
+    "link": "Poskusite z drugo metodo",
     "subtitle": "Na številko %{number} smo poslali varno povezavo",
     "subtitle_minutes": "Lahko traja nekaj minut, da prispe",
     "title": "Preverite svoj mobilni telefon"
