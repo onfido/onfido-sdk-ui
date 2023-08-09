@@ -380,7 +380,7 @@
   "mobilePhrases": {
     "photo_upload": {
       "body_id_back": "Zrób zdjęcie tylnej strony dowodu osobistego",
-      "body_id_front": "Zrób zdjęcie przedniej strony karty",
+      "body_id_front": "Zrób zdjęcie przedniej strony dowodu osobistego",
       "body_license_back": "Zrób zdjęcie odwrotnej strony prawa jazdy",
       "body_license_front": "Zrób zdjęcie przedniej strony prawa jazdy",
       "body_passport": "Zrób zdjęcie strony ze zdjęciem paszportowym",
@@ -442,8 +442,8 @@
     "body_bill": "Podaj całą stronę dokumentu, aby uzyskać najlepsze wyniki",
     "body_generic_document_back": "Prześlij zdjęcie rewersu dokumentu ze swojego komputera",
     "body_generic_document_front": "Prześlij zdjęcie przedniej strony dokumentu ze swojego komputera",
-    "body_id_back": "Prześlij zdjęcie tylnej strony karty ze swojego komputera",
-    "body_id_front": "Prześlij zdjęcie przodu karty ze swojego komputera",
+    "body_id_back": "Prześlij zdjęcie tylnej strony dowodu osobistego ze swojego komputera",
+    "body_id_front": "Prześlij zdjęcie przedniej strony dowodu osobistego ze swojego komputera",
     "body_license_back": "Prześlij tylną stronę dokumentu ze swojego komputera",
     "body_license_front": "Prześlij przednią stronę dokumentu ze swojego komputera",
     "body_passport": "Prześlij stronę paszportu ze zdjęciem ze swojego komputera",
