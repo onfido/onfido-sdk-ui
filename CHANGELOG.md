@@ -12,7 +12,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Fixed
 
-- Polish translations for ID card
+- Polish translations for ID card (https://github.com/onfido/onfido-sdk-ui/pull/2179)
 
 ## [13.0.0] - 2023-07-11
 
