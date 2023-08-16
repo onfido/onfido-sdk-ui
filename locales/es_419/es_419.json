@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Aléjate",
+    "feedback_move_back_accessibility": "Mover el dispositivo hacia atrás",
     "feedback_move_closer": "Acércate",
+    "feedback_move_left_accessibility": "Mueve tu dispositivo a la izquierda",
+    "feedback_move_right_accessibility": "Mueve tu dispositivo a la derecha",
     "feedback_no_face_detected": "Rostro no detectado",
     "feedback_not_centered": "Rostro no centrado",
     "title": "Coloca tu rostro en el marco"
@@ -38,7 +41,9 @@
     "list_item_one": "Primero, coloca tu rostro en el marco",
     "list_item_two": "Luego, gira la cabeza lentamente hacia ambos lados",
     "subtitle": "Esto es para verificar que eres una persona real",
-    "title": "Grabar un video"
+    "title": "Grabar un video",
+    "title_accessibility": "Grabar un video de tu rostro",
+    "video_accessibility": "Ejemplo de video de alguien girando la cabeza hacia ambos lados hasta completar"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Reiniciar grabación",
@@ -154,6 +159,10 @@
     "detail": {
       "folded_doc_front": "Coloca tu documento en un lugar plano, incluye todas las páginas internas (debe tener tu foto)"
     },
+    "header": {
+      "recording_complete": "Grabación completa",
+      "recording_video": "Grabando video"
+    },
     "header_folded_doc_front": "Lado de la foto de perfil",
     "prompt": {
       "button_card": "Tarjeta plástica",
@@ -236,7 +245,7 @@
     "subtitle_photo_page": "Página con foto",
     "subtitle_poa": "Estos son los documentos que probablemente muestren tu domicilio actual",
     "title": "Elige tu documento",
-    "title_poa": "Selecciona un documento de %{country}"
+    "title_poa": "Elige un documento"
   },
   "doc_submit": {
     "button_link_upload": "o cargar foto – sin escaneos ni fotocopias",
@@ -485,6 +494,7 @@
     "subtitle": "Necesitarás un documento que:",
     "title": "Vamos a verificar tu dirección"
   },
+  "poa_welcome_text": "Toma una foto de un documento con tu dirección",
   "profile_data": {
     "address_title": "Agrega tu dirección",
     "button_continue": "Continuar",
@@ -846,7 +856,7 @@
     "info": "Consejos",
     "info_link_expire": "Tu enlace vencerá en una hora",
     "info_link_window": "Mantén esta ventana abierta mientras usas tu celular",
-    "link": "Reenviar enlace",
+    "link": "Intenta con otro método",
     "subtitle": "Te enviamos un enlace seguro a %{number}",
     "subtitle_minutes": "Puede tardar unos minutos en llegar",
     "title": "Verifica tu celular"
@@ -924,10 +934,16 @@
   "welcome": {
     "doc_video_subtitle": "Esto puede tomar unos pocos minutos",
     "info_original_document": "Tome una fotografía de su documento original. No se permiten escaneos, fotos de pantallas ni fotocopias.",
+    "list_header": "Usa tu dispositivo para:",
     "list_header_doc_video": "Usa tu dispositivo para grabar:",
     "list_header_webcam": "Usa tu cámara web o teléfono para fotografiar:",
     "list_item_doc": "tu documento de identidad",
+    "list_item_doc_generic": "Graba un video de tu documento de identidad",
+    "list_item_doc_photo": "Tomar una foto de tu documento de identidad",
+    "list_item_doc_video": "Grabar un video de tu documento de identidad",
     "list_item_doc_video_timeout": "La grabación se limita a <timeout></timeout> segundos",
+    "list_item_face_photo": "Tomar una foto de tu rostro",
+    "list_item_face_video": "Grabar un video de tu rostro",
     "list_item_poa": "tu comprobante de domicilio",
     "list_item_selfie": "tu rostro",
     "next_button": "Elegir documento",

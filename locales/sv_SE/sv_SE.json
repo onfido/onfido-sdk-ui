@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Flytta bakåt",
+    "feedback_move_back_accessibility": "Flytta enheten bakåt",
     "feedback_move_closer": "Flytta närmare",
+    "feedback_move_left_accessibility": "Flytta enheten åt vänster",
+    "feedback_move_right_accessibility": "Flytta enheten åt höger",
     "feedback_no_face_detected": "Inget ansikte upptäcktes",
     "feedback_not_centered": "Ansiktet är inte centrerat",
     "title": "Placera ditt ansikte i ramen"
@@ -38,7 +41,9 @@
     "list_item_one": "Placera först ansiktet i ramen",
     "list_item_two": "Vrid sedan långsamt huvudet åt båda sidorna",
     "subtitle": "Syftet med detta är att verifiera att du är en riktig person",
-    "title": "Spela in en video"
+    "title": "Spela in en video",
+    "title_accessibility": "Spela in en video av ditt ansikte",
+    "video_accessibility": "Exempel på video där någon vrider huvudet åt båda sidorna tills det är klart"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Starta om inspelningen",
@@ -154,6 +159,10 @@
     "detail": {
       "folded_doc_front": "Lägg dokumentet platt och inkludera alla inre sidor (ditt foto måste finnas med)"
     },
+    "header": {
+      "recording_complete": "Inspelning slutförd",
+      "recording_video": "Spelar in video"
+    },
     "header_folded_doc_front": "Sida med profilfoto",
     "prompt": {
       "button_card": "Plastkort",
@@ -236,7 +245,7 @@
     "subtitle_photo_page": "Fotosida",
     "subtitle_poa": "Dessa dokument är de som mest sannolikt visar din nuvarande hemadress",
     "title": "Välj ditt dokument",
-    "title_poa": "Välj ett dokument från %{country}"
+    "title_poa": "Välj ett dokument"
   },
   "doc_submit": {
     "button_link_upload": "eller ladda upp foto – inga skanningar eller fotokopior",
@@ -485,6 +494,7 @@
     "subtitle": "Du behöver ett dokument som:",
     "title": "Låt oss verifiera din adress"
   },
+  "poa_welcome_text": "Ta ett foto av ett dokument med din adress",
   "profile_data": {
     "address_title": "Lägg till din adress",
     "button_continue": "Fortsätt",
@@ -846,7 +856,7 @@
     "info": "Tips",
     "info_link_expire": "Din länk går ut om en timme",
     "info_link_window": "Håll detta fönster öppet när du använder din mobil",
-    "link": "Skicka länken igen",
+    "link": "Prova en annan metod",
     "subtitle": "Vi har skickat en säker länk till %{number}",
     "subtitle_minutes": "Det kan ta några minuter för den att komma fram",
     "title": "Kontrollera din mobil"
@@ -924,10 +934,16 @@
   "welcome": {
     "doc_video_subtitle": "Detta kan ta några minuter",
     "info_original_document": "Ta ett foto av originalhandlingen. Skanningar, bilder av skärmar eller fotokopior är inte tillåtna.",
+    "list_header": "Använd din enhet för att:",
     "list_header_doc_video": "Använd din enhet för att spela in:",
     "list_header_webcam": "Använd din webbkamera eller telefon för att fotografera:",
     "list_item_doc": "ditt identitetsdokument",
+    "list_item_doc_generic": "Spela in en video av ditt identitetsdokument",
+    "list_item_doc_photo": "Ta ett foto av ditt identitetsdokument",
+    "list_item_doc_video": "Spela in en video av ditt identitetsdokument",
     "list_item_doc_video_timeout": "Inspelningen är begränsad till <timeout></timeout> sekunder",
+    "list_item_face_photo": "Ta ett foto av ditt ansikte",
+    "list_item_face_video": "Spela in en video av ditt ansikte",
     "list_item_poa": "ditt adressbevis",
     "list_item_selfie": "ditt ansikte",
     "next_button": "Välj dokument",

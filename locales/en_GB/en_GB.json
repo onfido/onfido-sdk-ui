@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Move back",
+    "feedback_move_back_accessibility": "Move your device back",
     "feedback_move_closer": "Move closer",
+    "feedback_move_left_accessibility": "Move your device to the left",
+    "feedback_move_right_accessibility": "Move your device to the right",
     "feedback_no_face_detected": "Face not detected",
     "feedback_not_centered": "Face not centered",
     "title": "Position your face in the frame"
@@ -38,7 +41,9 @@
     "list_item_one": "First, position your face in the frame",
     "list_item_two": "Then, turn your head slowly to both sides",
     "subtitle": "This is to verify that you’re a real person",
-    "title": "Record a video"
+    "title": "Record a video",
+    "title_accessibility": "Record a video of your face",
+    "video_accessibility": "Example video of someone turning their head to both sides until completion"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Restart recording",
@@ -154,6 +159,10 @@
     "detail": {
       "folded_doc_front": "Lay your document flat, include all inner pages (must contain your photo)"
     },
+    "header": {
+      "recording_complete": "Recording complete",
+      "recording_video": "Recording video"
+    },
     "header_folded_doc_front": "Profile photo side",
     "prompt": {
       "button_card": "Plastic card",
@@ -236,7 +245,7 @@
     "subtitle_photo_page": "Photo page",
     "subtitle_poa": "These are the documents most likely to show your current home address",
     "title": "Choose your document",
-    "title_poa": "Select a %{country} document"
+    "title_poa": "Choose a document"
   },
   "doc_submit": {
     "button_link_upload": "or upload photo – no scans or photocopies",
@@ -485,6 +494,7 @@
     "subtitle": "You’ll need a document that:",
     "title": "Let’s verify your address"
   },
+  "poa_welcome_text": "Take a photo of a document with your address",
   "profile_data": {
     "address_title": "Add your address",
     "button_continue": "Continue",
@@ -846,7 +856,7 @@
     "info": "Tips",
     "info_link_expire": "Your link will expire in one hour",
     "info_link_window": "Keep this window open while using your mobile",
-    "link": "Resend link",
+    "link": "Try another method",
     "subtitle": "We’ve sent a secure link to %{number}",
     "subtitle_minutes": "It may take a few minutes to arrive",
     "title": "Check your mobile"
@@ -924,10 +934,16 @@
   "welcome": {
     "doc_video_subtitle": "It should take a few minutes",
     "info_original_document": "Take a photograph of your original document. Scans, photos of screens or photocopies are not allowed.",
+    "list_header": "Use your device to:",
     "list_header_doc_video": "Use your device to record:",
     "list_header_webcam": "Use your webcam or phone to photograph:",
     "list_item_doc": "your identity document",
+    "list_item_doc_generic": "Record a video of your identity document",
+    "list_item_doc_photo": "Take a photo of your identity document",
+    "list_item_doc_video": "Record a video of your identity document",
     "list_item_doc_video_timeout": "Recording is limited to <timeout></timeout> seconds",
+    "list_item_face_photo": "Take a photo of your face",
+    "list_item_face_video": "Record a video of your face",
     "list_item_poa": "your proof of address",
     "list_item_selfie": "your face",
     "next_button": "Choose document",

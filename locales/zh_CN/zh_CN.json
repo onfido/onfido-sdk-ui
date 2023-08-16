@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "退后",
+    "feedback_move_back_accessibility": "将设备向后移动",
     "feedback_move_closer": "靠近",
+    "feedback_move_left_accessibility": "将设备向左移动",
+    "feedback_move_right_accessibility": "将设备向右移动",
     "feedback_no_face_detected": "未检测到面部",
     "feedback_not_centered": "面部未居中",
     "title": "将面部移入框中"
@@ -38,7 +41,9 @@
     "list_item_one": "首先，将面部移入框中",
     "list_item_two": "然后，慢慢地将头转向两侧",
     "subtitle": "这是为了验证您的真实身份",
-    "title": "录制视频"
+    "title": "录制视频",
+    "title_accessibility": "录制一段您面部的视频",
+    "video_accessibility": "将头转向两侧直到完成的视频示例"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "重新开始录制",
@@ -154,6 +159,10 @@
     "detail": {
       "folded_doc_front": "平放您的证明文件，包括所有内页（必须包含您的照片）"
     },
+    "header": {
+      "recording_complete": "录制完成",
+      "recording_video": "录制视频"
+    },
     "header_folded_doc_front": "资料照片一面",
     "prompt": {
       "button_card": "塑料身份证",
@@ -236,7 +245,7 @@
     "subtitle_photo_page": "照片页",
     "subtitle_poa": "这些证明文件最有可能显示您当前的家庭地址",
     "title": "选择您的证明文件",
-    "title_poa": "选择%{country}证明文件"
+    "title_poa": "选择一个文档"
   },
   "doc_submit": {
     "button_link_upload": "或者上传照片 – 不能是扫描件或复印件",
@@ -485,6 +494,7 @@
     "subtitle": "您需要提供满足以下条件的证明文件：",
     "title": "我们来验证您的地址"
   },
+  "poa_welcome_text": "请拍摄一张包含您地址的证明文件照片",
   "profile_data": {
     "address_title": "添加您的地址",
     "button_continue": "继续",
@@ -846,7 +856,7 @@
     "info": "小贴士",
     "info_link_expire": "您的链接将在一小时后过期",
     "info_link_window": "使用手机时请勿关闭此窗口",
-    "link": "重新发送链接",
+    "link": "尝试另一种方法",
     "subtitle": "我们已将安全链接发送至%{number}",
     "subtitle_minutes": "可能需要几分钟时间才能到达",
     "title": "请检查手机"
@@ -924,10 +934,16 @@
   "welcome": {
     "doc_video_subtitle": "这应该会需要几分钟时间",
     "info_original_document": "为您的原始文件拍照。不允许扫描、屏幕照片或复印件。",
+    "list_header": "使用您的设备：",
     "list_header_doc_video": "使用您的设备录制：",
     "list_header_webcam": "使用网络相机或手机拍摄：",
     "list_item_doc": "您的身份证件",
+    "list_item_doc_generic": "录制您身份证件的视频",
+    "list_item_doc_photo": "拍一张您身份证件的照片",
+    "list_item_doc_video": "录制一段您身份证件的视频",
     "list_item_doc_video_timeout": "视频录制限制为​<timeout>​​</timeout>​秒。​<fallback>​请重新开始​</fallback>",
+    "list_item_face_photo": "拍一张您面部的照片",
+    "list_item_face_video": "录制一段您面部的视频",
     "list_item_poa": "您的地址证明",
     "list_item_selfie": "您的面部",
     "next_button": "选择证明文件",

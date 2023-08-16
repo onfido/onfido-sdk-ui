@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Pomaknite se unatrag",
+    "feedback_move_back_accessibility": "Odmaknite uređaj",
     "feedback_move_closer": "Približite se",
+    "feedback_move_left_accessibility": "Pomaknite uređaj ulijevo",
+    "feedback_move_right_accessibility": "Pomaknite uređaj udesno",
     "feedback_no_face_detected": "Lice nije prepoznato",
     "feedback_not_centered": "Lice nije centrirano",
     "title": "Namjestite lice u okvir"
@@ -38,7 +41,9 @@
     "list_item_one": "Najprije namjestite lice u okvir",
     "list_item_two": "Zatim polako okrenite glavu u obje strane",
     "subtitle": "Ovime potvrđujemo da ste stvarna osoba",
-    "title": "Snimite videozapis"
+    "title": "Snimite videozapis",
+    "title_accessibility": "Snimite videozapis svog lica",
+    "video_accessibility": "Primjer videozapisa u kojem netko okreće glavu u obje strane sve dok snimanje ne završi"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Ponovno započnite snimanje",
@@ -154,6 +159,10 @@
     "detail": {
       "folded_doc_front": "Postavite dokument na ravno i ne zaboravite unutarnje stranice (tu mora biti vaša fotografija)"
     },
+    "header": {
+      "recording_complete": "Snimanje je završeno",
+      "recording_video": "Snimanje videa"
+    },
     "header_folded_doc_front": "Strana fotografije profila",
     "prompt": {
       "button_card": "Plastična kartica",
@@ -236,7 +245,7 @@
     "subtitle_photo_page": "Stranica s fotografijom",
     "subtitle_poa": "Ovo su dokumenti koji će najvjerojatnije prikazivati vašu trenutačnu kućnu adresu",
     "title": "Odaberite svoj dokument",
-    "title_poa": "Odaberite dokument (%{country})"
+    "title_poa": "Odaberite dokument"
   },
   "doc_submit": {
     "button_link_upload": "ili prenesite fotografiju – skenovi i fotokopije nisu dopušteni",
@@ -485,6 +494,7 @@
     "subtitle": "Evo kakav vam je dokument potreban:",
     "title": "Najprije ćemo provjeriti vašu adresu"
   },
+  "poa_welcome_text": "Fotografirajte dokument sa svojom adresom",
   "profile_data": {
     "address_title": "Unesite svoju adresu",
     "button_continue": "Nastavak",
@@ -846,7 +856,7 @@
     "info": "Savjeti",
     "info_link_expire": "Poveznica istječe za sat vremena",
     "info_link_window": "Držite ovaj prozor otvoren dok se koristite mobitelom",
-    "link": "Ponovno pošalji poveznicu",
+    "link": "Pokušajte s drugom metodom",
     "subtitle": "Poslali smo sigurnu poveznicu na broj %{number}",
     "subtitle_minutes": "Možda će biti potrebno nekoliko minuta da je dobijete",
     "title": "Provjerite mobitel"
@@ -924,10 +934,16 @@
   "welcome": {
     "doc_video_subtitle": "Nekoliko minuta bi trebalo biti dovoljno",
     "info_original_document": "Fotografirajte svoj originalni dokument. Skeniranje, fotografije zaslona ili fotokopije nisu dopušteni.",
+    "list_header": "Upotrijebite uređaj i učinite sljedeće:",
     "list_header_doc_video": "Upotrijebite uređaj za snimanje:",
     "list_header_webcam": "Za fotografiranje upotrijebite web-kameru ili mobitel:",
     "list_item_doc": "vaša osobna iskaznica",
+    "list_item_doc_generic": "Snimite video svog identifikacijskog dokumenta",
+    "list_item_doc_photo": "Fotografirajte svoj identifikacijski dokument",
+    "list_item_doc_video": "Snimite videozapis svog identifikacijskog dokumenta",
     "list_item_doc_video_timeout": "Snimanje je ograničeno na nekoliko sekundi (<timeout></timeout>)",
+    "list_item_face_photo": "Fotografirajte svoje lice",
+    "list_item_face_video": "Snimite videozapis svog lica",
     "list_item_poa": "dokaz o adresi",
     "list_item_selfie": "vaše lice",
     "next_button": "Odaberite dokument",

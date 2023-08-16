@@ -6,6 +6,7 @@
 ## Table of contents
 
 - [Overview](#overview)
+- [General tips](#general-tips)
 - [Getting started](#getting-started)
 - [Handling callbacks](#handling-callbacks)
 - [Removing the SDK](#removing-the-sdk)
@@ -33,6 +34,10 @@ The SDK offers a number of benefits to help you create the best identity verific
 ⚠️ Note: the SDK is only responsible for capturing photos, videos, and motion captures. You still need to access the [Onfido API](https://documentation.onfido.com/) to manage applicants and perform checks.
 
 ![Various views from the SDK](demo/screenshots.jpg)
+
+## General tips
+
+For use in a mobile device, it is recommended to set up the SDK to use the full screen of the device. Otherwise, there may not be enough room to display all critical elements of the SDK.
 
 ## Getting started
 
@@ -188,6 +193,8 @@ To decrease the size of your production bundle, you can use the split version of
 import { init } from 'onfido-sdk-ui/split'
 import 'onfido-sdk-ui/split/css'
 ```
+
+If you are using TypeScript, you have to enable `moduleResolution` to `Node16 | NodeNext | Bundler`. If it is not possible in your case, you need to add a `@ts-ignore` comment above the import.
 
 ⚠️ Note: The main bundle will be in included in your build, but the other bundles will be loaded from Onfido's CDN.
 
@@ -972,9 +979,7 @@ From version `6.5.0`, TypeScript is officially supported, providing typings for:
 
 | ![Chrome](https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png) | ![Edge](https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png) | ![Safari](https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png) |
 | --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| Latest ✔                                                                                            | Latest \* ✔                                                                                            | Latest ✔                                                                                      | Latest ✔                                                                                            |
-
-\* _Firefox on Android, iOS not supported_
+| Latest ✔                                                                                            | Latest ✔                                                                                               | Latest ✔                                                                                      | Latest ✔                                                                                            |
 
 ### Node.js compatibility
 

@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "ถอยออกไปเล็กน้อย",
+    "feedback_move_back_accessibility": "เลื่อนอุปกรณ์ของคุณออก",
     "feedback_move_closer": "ขยับเข้ามาใกล้ๆ",
+    "feedback_move_left_accessibility": "เลื่อนอุปกรณ์ของคุณไปทางซ้าย",
+    "feedback_move_right_accessibility": "เลื่อนอุปกรณ์ของคุณไปทางขวา",
     "feedback_no_face_detected": "ไม่พบใบหน้า",
     "feedback_not_centered": "ใบหน้าไม่อยู่ตรงกลาง",
     "title": "วางตำแหน่งใบหน้าของคุณไว้ในกรอบ"
@@ -38,7 +41,9 @@
     "list_item_one": "อันดับแรก วางตำแหน่งใบหน้าของคุณไว้ในกรอบ",
     "list_item_two": "จากนั้นค่อยๆ หันศีรษะไปทั้ง 2 ข้าง",
     "subtitle": "ขั้นตอนนี้มีเพื่อยืนยันว่าคุณเป็นบุคคลตามที่กล่าวอ้างจริงๆ",
-    "title": "บันทึกวิดีโอ"
+    "title": "บันทึกวิดีโอ",
+    "title_accessibility": "บันทึกวิดีโอใบหน้าของคุณ",
+    "video_accessibility": "ตัวอย่างวิดีโอแสดงคนที่หันศีรษะไปทั้ง 2 ข้างจนเสร็จสิ้น"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "รีสตาร์ทการบันทึก",
@@ -154,6 +159,10 @@
     "detail": {
       "folded_doc_front": "วางเอกสารของคุณให้ราบเรียบ โดยให้เห็นหน้าด้านในทั้งหมด (ต้องมีรูปภาพของคุณด้วย)"
     },
+    "header": {
+      "recording_complete": "บันทึกเสร็จสมบูรณ์",
+      "recording_video": "กำลังบันทึกวิดีโอ"
+    },
     "header_folded_doc_front": "ด้านรูปโปรไฟล์",
     "prompt": {
       "button_card": "บัตรพลาสติก",
@@ -236,7 +245,7 @@
     "subtitle_photo_page": "หน้ารูปภาพ",
     "subtitle_poa": "เอกสารเหล่านี้น่าจะแสดงที่อยู่ปัจจุบันของคุณ",
     "title": "เลือกเอกสารของคุณ",
-    "title_poa": "เลือกเอกสารของประเทศ%{country}"
+    "title_poa": "เลือกเอกสาร"
   },
   "doc_submit": {
     "button_link_upload": "หรืออัปโหลดรูปภาพ – ห้ามสแกนหรือถ่ายเอกสาร",
@@ -485,6 +494,7 @@
     "subtitle": "คุณจะต้องมีเอกสารที่:",
     "title": "มายืนยันที่อยู่ของคุณกัน"
   },
+  "poa_welcome_text": "ถ่ายรูปเอกสารที่มีที่อยู่ของคุณ",
   "profile_data": {
     "address_title": "เพิ่มที่อยู่ของคุณ",
     "button_continue": "ดำเนินการต่อ",
@@ -846,7 +856,7 @@
     "info": "เคล็ดลับ",
     "info_link_expire": "ลิงก์ของคุณจะหมดอายุใน 1 ชั่วโมง",
     "info_link_window": "เปิดหน้าต่างนี้ไว้ขณะใช้โทรศัพท์",
-    "link": "ส่งลิงก์อีกครั้ง",
+    "link": "ลองวิธีอื่น",
     "subtitle": "เราส่งลิงก์ที่ปลอดภัยไปยังหมายเลข %{number}",
     "subtitle_minutes": "อาจจะได้รับในอีกสักครู่",
     "title": "เช็คโทรศัพท์ของคุณ"
@@ -924,10 +934,16 @@
   "welcome": {
     "doc_video_subtitle": "น่าจะใช้เวลาสักครู่",
     "info_original_document": "ถ่ายภาพเอกสารต้นฉบับของคุณ ไม่อนุญาตให้สแกน ภาพถ่ายหน้าจอ หรือถ่ายเอกสาร",
+    "list_header": "ใช้อุปกรณ์ของคุณ:",
     "list_header_doc_video": "ใช้อุปกรณ์ของคุณเพื่อบันทึก:",
     "list_header_webcam": "ใช้เว็บแคมหรือโทรศัพท์ของคุณถ่ายภาพ:",
     "list_item_doc": "เอกสารยืนยันตัวตนของคุณ",
+    "list_item_doc_generic": "ทำการบันทึกวิดีโอเอกสารที่ใช้ในการยืนยันตัวตนของคุณ",
+    "list_item_doc_photo": "ถ่ายรูปเอกสารยืนยันตัวตนของคุณ",
+    "list_item_doc_video": "บันทึกวิดีโอเอกสารยืนยันตัวตนของคุณ",
     "list_item_doc_video_timeout": "การบันทึกถูกจำกัดไว้ที่<timeout></timeout>วินาที",
+    "list_item_face_photo": "ถ่ายรูปใบหน้าของคุณ",
+    "list_item_face_video": "บันทึกวิดีโอใบหน้าของคุณ",
     "list_item_poa": "เอกสารยืนยันที่อยู่",
     "list_item_selfie": "ใบหน้าของคุณ",
     "next_button": "เลือกเอกสาร",

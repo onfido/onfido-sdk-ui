@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Ga naar achteren",
+    "feedback_move_back_accessibility": "Beweeg uw apparaat terug",
     "feedback_move_closer": "Kom dichterbij",
+    "feedback_move_left_accessibility": "Beweeg uw apparaat naar links",
+    "feedback_move_right_accessibility": "Beweeg uw apparaat naar rechts",
     "feedback_no_face_detected": "Gezicht niet gedetecteerd",
     "feedback_not_centered": "Gezicht niet gecentreerd",
     "title": "Plaats uw gezicht in het kader"
@@ -38,7 +41,9 @@
     "list_item_one": "Plaats eerst uw gezicht in het kader",
     "list_item_two": "Draai uw hoofd dan langzaam naar beide kanten",
     "subtitle": "Dit is om te verifiëren dat u een echte persoon bent",
-    "title": "Maak een filmpje"
+    "title": "Maak een filmpje",
+    "title_accessibility": "Maak een fimpje van uw gezicht",
+    "video_accessibility": "Voorbeeldfilmpje van iemand die zijn/haar hoofd naar beide kanten draait totdat hij/zij klaar is"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Opname opnieuw starten",
@@ -154,6 +159,10 @@
     "detail": {
       "folded_doc_front": "Leg uw document plat neer, inclusief alle binnenste pagina's (moeten uw foto bevatten)"
     },
+    "header": {
+      "recording_complete": "Opname voltooid",
+      "recording_video": "Video opnemen"
+    },
     "header_folded_doc_front": "Kant van de profiel foto",
     "prompt": {
       "button_card": "Plastic kaart",
@@ -236,7 +245,7 @@
     "subtitle_photo_page": "Fotopagina",
     "subtitle_poa": "Dit zijn de meest waarschijnlijke documenten waaruit uw huidige adres blijkt",
     "title": "Kies uw document",
-    "title_poa": "Kies een %{land} document"
+    "title_poa": "Selecteer een document"
   },
   "doc_submit": {
     "button_link_upload": "of upload een foto - geen scans of kopieën",
@@ -485,6 +494,7 @@
     "subtitle": "U heeft een document nodig dat:",
     "title": "Laten we uw adres verifiëren"
   },
+  "poa_welcome_text": "Neem een foto van een document met uw adres",
   "profile_data": {
     "address_title": "Voeg uw adres toe",
     "button_continue": "Doorgaan",
@@ -846,7 +856,7 @@
     "info": "Tips",
     "info_link_expire": "Uw link verloopt over een uur",
     "info_link_window": "Houd dit venster open als u uw mobiele telefoon gebruikt",
-    "link": "Stuur link opnieuw",
+    "link": "Probeer een andere methode",
     "subtitle": "We hebben een beveiligde link gestuurd naar %{number}",
     "subtitle_minutes": "Het kan een paar minuten duren voordat u deze ontvangt",
     "title": "Check uw mobiele telefoon"
@@ -872,18 +882,18 @@
   },
   "user_consent": {
     "button_primary": "Accepteren",
-    "button_secondary": "Niet accepteren",
+    "button_secondary": "Niet aanvaarden",
     "prompt": {
-      "button_primary": "Controleer opniew",
-      "button_secondary": "Ja, verifieer mij niet",
-      "no_consent_detail": "If you do not accept Onfido’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
+      "button_primary": "Bekijk het opnieuw",
+      "button_secondary": "Ja, controleer mij niet",
+      "no_consent_detail": "Als u de privacyverklaringen en de servicevoorwaarden van Onfido niet accepteert, kunnen we uw identiteit niet verifiëren en zult u deze stap verlaten.",
       "no_consent_title": "Weet u het zeker?"
     }
   },
   "user_consent_load_fail": {
-    "button_primary": "Reload screen",
-    "detail": "Check that your connection is stable, then try again",
-    "title": "Content failed to load"
+    "button_primary": "Scherm opnieuw laden",
+    "detail": "Controleer of u een stabiele verbinding heeft en probeer het daarna opnieuw",
+    "title": "Inhoud laden mislukt"
   },
   "video_capture": {
     "body": "Houd uw gezicht binnen het ovale kader",
@@ -924,10 +934,16 @@
   "welcome": {
     "doc_video_subtitle": "Dat duurt maar een paar minuten",
     "info_original_document": "Maak een foto van uw originele document. Scans, foto's van schermen of fotokopieën zijn niet toegestaan.",
+    "list_header": "Gebruik uw apparaat om:",
     "list_header_doc_video": "Gebruik uw apparaat om op te nemen:",
     "list_header_webcam": "Gebruik uw webcam of telefoon om te fotograferen:",
     "list_item_doc": "uw identiteitsbewijs",
+    "list_item_doc_generic": "Maak een video van uw identiteitsdocument",
+    "list_item_doc_photo": "Maak een foto van uw identiteitsbewijs",
+    "list_item_doc_video": "Maak een filmpje van uw identiteitsbewijs",
     "list_item_doc_video_timeout": "Opname is beperkt tot <timeout></timeout> seconden",
+    "list_item_face_photo": "Maak een foto van uw gezicht",
+    "list_item_face_video": "Maak een fimpje van uw gezicht",
     "list_item_poa": "uw adresbewijs",
     "list_item_selfie": "uw gezicht",
     "next_button": "Kies een document",

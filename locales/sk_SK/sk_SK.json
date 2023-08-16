@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Posuňte sa ďalej",
+    "feedback_move_back_accessibility": "Posuňte zariadenie ďalej",
     "feedback_move_closer": "Posuňte sa bližšie",
+    "feedback_move_left_accessibility": "Posuňte zariadenie doľava",
+    "feedback_move_right_accessibility": "Posuňte zariadenie doprava",
     "feedback_no_face_detected": "Nebola zistená tvár",
     "feedback_not_centered": "Tvár nie je v strede",
     "title": "Umiestnite tvár do rámu"
@@ -38,7 +41,9 @@
     "list_item_one": "Najprv umiestnite tvár do rámu",
     "list_item_two": "Potom pomaly otočte hlavou na obe strany",
     "subtitle": "Týmto overujeme, že ste skutočná osoba",
-    "title": "Zaznamenajte video"
+    "title": "Zaznamenajte video",
+    "title_accessibility": "Zaznamenajte video svojej tváre",
+    "video_accessibility": "Príklad videa, na ktorom niekto otáča hlavu na obe strany až do dokončenia"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Spustiť záznam znova",
@@ -154,6 +159,10 @@
     "detail": {
       "folded_doc_front": "Umiestnite doklad na rovnú plochu a zahrňte všetky vnútorné strany (musia obsahovať vašu fotku)"
     },
+    "header": {
+      "recording_complete": "Zaznamenávanie je ukončené",
+      "recording_video": "Nahrávanie videa"
+    },
     "header_folded_doc_front": "Fotka z profilu",
     "prompt": {
       "button_card": "Plastový preukaz",
@@ -236,7 +245,7 @@
     "subtitle_photo_page": "Stránka s fotkou",
     "subtitle_poa": "Toto sú doklady, na ktorých je s najväčšou pravdepodobnosťou uvedená aktuálna adresa vášho bydliska",
     "title": "Zvoľte svoj doklad",
-    "title_poa": "Vyberte doklad z krajiny %{country}"
+    "title_poa": "Vyberte dokument"
   },
   "doc_submit": {
     "button_link_upload": "alebo nahrajte fotku – žiadne skeny ani fotokópie",
@@ -485,6 +494,7 @@
     "subtitle": "Budete potrebovať doklad, ktorý spĺňa tieto podmienky:",
     "title": "Poďme overiť vašu adresu"
   },
+  "poa_welcome_text": "Odfoťte doklad s adresou",
   "profile_data": {
     "address_title": "Pridajte svoju adresu",
     "button_continue": "Pokračovať",
@@ -846,7 +856,7 @@
     "info": "Tipy",
     "info_link_expire": "Platnosť odkazu vyprší o hodinu",
     "info_link_window": "Počas používania mobilného telefónu ponechajte toto okno otvorené",
-    "link": "Znova odoslať odkaz",
+    "link": "Vyskúšajte inú metódu",
     "subtitle": "Bezpečný odkaz sme poslali na číslo %{number}",
     "subtitle_minutes": "Kým príde, môže to trvať niekoľko minút",
     "title": "Skontrolujte svoj mobilný telefón"
@@ -924,10 +934,16 @@
   "welcome": {
     "doc_video_subtitle": "Malo by to trvať niekoľko minút",
     "info_original_document": "Odfoťte si originál dokumentu. Skeny, fotografie obrazoviek alebo fotokópie nie sú povolené.",
+    "list_header": "Pomocou zariadenia vykonajte tieto kroky:",
     "list_header_doc_video": "Pomocou zariadenia zaznamenajte:",
     "list_header_webcam": "Pomocou webovej kamery alebo telefónu odfoťte:",
     "list_item_doc": "váš doklad totožnosti",
+    "list_item_doc_generic": "Vytvorte videozáznam vášho dokladu totožnosti",
+    "list_item_doc_photo": "Odfoťte doklad totožnosti",
+    "list_item_doc_video": "Zaznamenajte video dokladu totožnosti",
     "list_item_doc_video_timeout": "Nahrávanie je obmedzené na <timeout></timeout> sekundy",
+    "list_item_face_photo": "Odfoťte svoju tvár",
+    "list_item_face_video": "Zaznamenajte video svojej tváre",
     "list_item_poa": "doklad o bydlisku",
     "list_item_selfie": "vašu tvár",
     "next_button": "Vyberte doklad",

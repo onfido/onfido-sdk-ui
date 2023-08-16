@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Biraz daha geri gidin",
+    "feedback_move_back_accessibility": "Cihazınızı daha uzağa götürün",
     "feedback_move_closer": "Biraz daha yaklaşın",
+    "feedback_move_left_accessibility": "Cihazınızı sola hareket ettirin",
+    "feedback_move_right_accessibility": "Cihazınızı sağa hareket ettirin",
     "feedback_no_face_detected": "Yüz tespit edilmedi",
     "feedback_not_centered": "Yüz ortalanmamış",
     "title": "Yüzünüzü çerçeveye yerleştirin"
@@ -38,7 +41,9 @@
     "list_item_one": "İlk olarak, yüzünüzü çerçeveye yerleştirin",
     "list_item_two": "Ardından, başınızı yavaşça her iki tarafa çevirin",
     "subtitle": "Bu işlem, gerçek bir kişi olduğunuzu doğrulamak amacıyla yapılır",
-    "title": "Video kaydetme"
+    "title": "Video kaydetme",
+    "title_accessibility": "Yüzünüzün bir videosunu kaydedin",
+    "video_accessibility": "Tamamlanana kadar başını iki yana çeviren birinin örnek videosu"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Kaydı yeniden başlat",
@@ -154,6 +159,10 @@
     "detail": {
       "folded_doc_front": "Belgenizi düz bir şekilde yerleştirin, tüm iç sayfaları ekleyin (fotoğrafınızı içermelidir)"
     },
+    "header": {
+      "recording_complete": "Kayıt tamamlandı",
+      "recording_video": "Video kaydediliyor"
+    },
     "header_folded_doc_front": "Profil resmi tarafı",
     "prompt": {
       "button_card": "Plastik kart",
@@ -236,7 +245,7 @@
     "subtitle_photo_page": "Fotoğraf sayfası",
     "subtitle_poa": "Bunlar mevcut ev adresinizi göstermesi en muhtemel belgelerdir",
     "title": "Belgenizi seçin",
-    "title_poa": "%{country} Bir belge seçin"
+    "title_poa": "Bir belge seçiniz"
   },
   "doc_submit": {
     "button_link_upload": "veya fotoğraf yükleyin (tarama veya fotokopi kabul edilmez)",
@@ -485,6 +494,7 @@
     "subtitle": "Aşağıdaki niteliklerde bir belgeye ihtiyacınız olacak:",
     "title": "Şimdi adresinizi doğrulayalım"
   },
+  "poa_welcome_text": "Adresinizi içeren bir belgenin fotoğrafını çekin",
   "profile_data": {
     "address_title": "Adresinizi ekleyin",
     "button_continue": "Devam et",
@@ -846,7 +856,7 @@
     "info": "İpuçları",
     "info_link_expire": "Bağlantınızın süresi bir saat içinde dolacak",
     "info_link_window": "Cep telefonunuzu kullanırken bu pencereyi açık tutun",
-    "link": "Bağlantıyı yeniden gönder",
+    "link": "Başka bir yöntem deneyin",
     "subtitle": "%{number} numaralı telefona güvenli bir bağlantı gönderdik",
     "subtitle_minutes": "Ulaşması birkaç dakika sürebilir",
     "title": "Cep telefonunuzu kontrol edin"
@@ -924,10 +934,16 @@
   "welcome": {
     "doc_video_subtitle": "Sadece birkaç dakika sürer",
     "info_original_document": "Orijinal belgenizin bir fotoğrafını çekin. Taramalara, ekran fotoğraflarına veya fotokopilere izin verilmez.",
+    "list_header": "Cihazınızı şu amaçlarla kullanın:",
     "list_header_doc_video": "Kayıt yapmak için cihazınızı kullanın:",
     "list_header_webcam": "Aşağıdakileri fotoğraflamak için web kameranızı veya telefonunuzu kullanın:",
     "list_item_doc": "kimlik belgeniz",
+    "list_item_doc_generic": "Kimlik belgenizin bir video kaydını yapın",
+    "list_item_doc_photo": "Kimlik belgenizin fotoğrafını çekin",
+    "list_item_doc_video": "Kimlik belgenizin bir videosunu kaydedin",
     "list_item_doc_video_timeout": "Kayıt ​<timeout>​​</timeout>​ saniye ile sınırlıdır",
+    "list_item_face_photo": "Yüzünüzün fotoğrafını çekin",
+    "list_item_face_video": "Yüzünüzün bir videosunu kaydedin",
     "list_item_poa": "ikamet belgeniz",
     "list_item_selfie": "yüzünüz",
     "next_button": "Belge seçin",
