@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Flyt tilbage",
+    "feedback_move_back_accessibility": "Flyt enheden væk fra dig",
     "feedback_move_closer": "Flyt tættere på",
+    "feedback_move_left_accessibility": "Flyt din enhed til venstre",
+    "feedback_move_right_accessibility": "Flyt din enhed til højre",
     "feedback_no_face_detected": "Ansigtet er ikke detekteret",
     "feedback_not_centered": "Ansigtet er ikke centreret",
     "title": "Placer dit ansigt inden for rammen"
@@ -38,7 +41,9 @@
     "list_item_one": "Først skal du placere dit ansigt inden for rammen",
     "list_item_two": "Dernæst drejer du hovedet langsomt til begge sider",
     "subtitle": "Dette er for at verificere, at du er en fysisk person",
-    "title": "Optag en video"
+    "title": "Optag en video",
+    "title_accessibility": "Optag en video af dit ansigt",
+    "video_accessibility": "Videoeksempel på en person, der drejer hovedet til begge sider indtil handlingen er fuldført"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Start optagelsen forfra",
@@ -154,6 +159,10 @@
     "detail": {
       "folded_doc_front": "Du skal sørge for, at dit dokument ligger fladt, og at alle de indvendige sider indgår (skal indeholde dit foto)"
     },
+    "header": {
+      "recording_complete": "Optagelsen er fuldført",
+      "recording_video": "Optager video"
+    },
     "header_folded_doc_front": "Side med profilbillede",
     "prompt": {
       "button_card": "Plastikkort",
@@ -236,7 +245,7 @@
     "subtitle_photo_page": "Side med billede",
     "subtitle_poa": "Det er de dokumenter, der med størst sandsynlighed viser din nuværende bopælsadresse",
     "title": "Vælg dit dokument",
-    "title_poa": "Vælg et dokument fra %{country}"
+    "title_poa": "Vælg et dokument"
   },
   "doc_submit": {
     "button_link_upload": "eller upload et billede – ingen scanninger eller fotokopier",
@@ -485,6 +494,7 @@
     "subtitle": "Du skal bruge et dokument, der:",
     "title": "Lad os verificere din adresse"
   },
+  "poa_welcome_text": "Tag et billede af et dokument med din adresse",
   "profile_data": {
     "address_title": "Tilføj din adresse",
     "button_continue": "Fortsæt",
@@ -846,7 +856,7 @@
     "info": "Tips",
     "info_link_expire": "Dit link udløber om én time",
     "info_link_window": "Hold dette vindue åbent, mens du bruger din mobil",
-    "link": "Send linket igen",
+    "link": "Prøv en anden metode",
     "subtitle": "Vi har sendt et sikkert link til %{number}",
     "subtitle_minutes": "Det kan tage et par minutter, før du kan se det",
     "title": "Tjek din mobil"
@@ -924,10 +934,16 @@
   "welcome": {
     "doc_video_subtitle": "Det tager nok et par minutter",
     "info_original_document": "Tag et fotografi af dit originale dokument. Scans, billeder af skærme eller fotokopier er ikke tilladt.",
+    "list_header": "Brug din enhed til at:",
     "list_header_doc_video": "Brug din enhed til at optage:",
     "list_header_webcam": "Brug dit webkamera eller telefon til at tage billedet:",
     "list_item_doc": "dit ID-dokument",
+    "list_item_doc_generic": "Optag en video af dit identitetsdokument",
+    "list_item_doc_photo": "Tag et billede af dit ID-dokument",
+    "list_item_doc_video": "Optag en video af dit ID-dokument",
     "list_item_doc_video_timeout": "Optagelsen må højst vare <timeout></timeout> sekunder",
+    "list_item_face_photo": "Tag et billede af dit ansigt",
+    "list_item_face_video": "Optag en video af dit ansigt",
     "list_item_poa": "dit adressebevis",
     "list_item_selfie": "dit ansigt",
     "next_button": "Vælg dokument",

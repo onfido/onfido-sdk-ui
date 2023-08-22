@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Siirry taaksepäin",
+    "feedback_move_back_accessibility": "Siirrä laitettasi taaksepäin",
     "feedback_move_closer": "Siirry lähemmäs",
+    "feedback_move_left_accessibility": "Siirrä laitettasi vasemmalle",
+    "feedback_move_right_accessibility": "Siirrä laitettasi oikealle",
     "feedback_no_face_detected": "Kasvoja ei havaittu",
     "feedback_not_centered": "Kasvot eivät ole keskellä",
     "title": "Aseta kasvosi kehykseen"
@@ -38,7 +41,9 @@
     "list_item_one": "Aseta ensin kasvosi kehykseen",
     "list_item_two": "Käännä sitten päätäsi hitaasti molemmille puolille",
     "subtitle": "Näin vahvistetaan, että olet todellinen henkilö",
-    "title": "Tallenna video"
+    "title": "Tallenna video",
+    "title_accessibility": "Tallenna video kasvoistasi",
+    "video_accessibility": "Esimerkkivideo, jossa joku kääntää päätään molemmille puolille, kunnes on valmis"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Aloita tallennus uud.",
@@ -154,6 +159,10 @@
     "detail": {
       "folded_doc_front": "Aseta asiakirjasi tasaisesti, sisällytä kaikki sisäsivut (täytyy sisältää kuvasi)"
     },
+    "header": {
+      "recording_complete": "Tallennus valmis",
+      "recording_video": "Video tallennus"
+    },
     "header_folded_doc_front": "Sivukuvapuoli",
     "prompt": {
       "button_card": "Muovikortti",
@@ -236,7 +245,7 @@
     "subtitle_photo_page": "Valokuvasivu",
     "subtitle_poa": "Nämä asiakirjat näyttävät todennäköisimmin nykyisen kotiosoitteesi",
     "title": "Valitse asiakirjasi",
-    "title_poa": "Valitse maan %{country} asiakirja"
+    "title_poa": "Valitse asiakirja"
   },
   "doc_submit": {
     "button_link_upload": "tai lataa valokuva – ei skannauksia tai valokopioita",
@@ -485,6 +494,7 @@
     "subtitle": "Tarvitset asiakirjan, joka:",
     "title": "Vahvistetaan osoitteesi"
   },
+  "poa_welcome_text": "Ota kuva asiakirjasta, jossa on osoitteesi",
   "profile_data": {
     "address_title": "Lisää osoitteesi",
     "button_continue": "Jatka",
@@ -846,7 +856,7 @@
     "info": "Vinkit",
     "info_link_expire": "Linkkisi vanhenee tunnin kuluttua",
     "info_link_window": "Pidä tämä ikkuna auki matkapuhelinta käyttäessäsi",
-    "link": "Lähetä uusi linkki",
+    "link": "Kokeile toista menetelmää",
     "subtitle": "Olemme lähettäneet suojatun linkin numeroon %{number}",
     "subtitle_minutes": "Saapumiseen voi mennä muutama minuutti",
     "title": "Tarkista matkapuhelimesi"
@@ -924,10 +934,16 @@
   "welcome": {
     "doc_video_subtitle": "Siihen menee muutama minuutti",
     "info_original_document": "Ota valokuva alkuperäisestä asiakirjasta. Skannaukset, valokuvat näytöistä tai valokopiot eivät ole sallittuja.",
+    "list_header": "Käytä laitettasi:",
     "list_header_doc_video": "Käytä laitettasi tallentaaksesi:",
     "list_header_webcam": "Käytä verkkokameraa tai puhelinta kuvataksesi:",
     "list_item_doc": "henkilötodistuksesi",
+    "list_item_doc_generic": "Tee video henkilöllisyysasiakirjastasi",
+    "list_item_doc_photo": "ottaaksesi kuvan henkilötodistuksestasi",
+    "list_item_doc_video": "tallentaaksesi videon henkilötodistuksestasi",
     "list_item_doc_video_timeout": "Tallennus on rajoitettu <timeout></timeout> sekunteihin",
+    "list_item_face_photo": "ottaaksesi kuvan kasvoistasi",
+    "list_item_face_video": "tallentaaksesi videon kasvoistasi",
     "list_item_poa": "asuinpaikkatodistuksesi",
     "list_item_selfie": "kasvosi",
     "next_button": "Valitse asiakirja",

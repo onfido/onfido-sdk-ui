@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Odsuń się",
+    "feedback_move_back_accessibility": "Odsuń swoje urządzenie",
     "feedback_move_closer": "Zbliż się do ekranu",
+    "feedback_move_left_accessibility": "Przesuń urządzenie w lewo",
+    "feedback_move_right_accessibility": "Przesuń urządzenie w prawo",
     "feedback_no_face_detected": "Nie wykryto twarzy",
     "feedback_not_centered": "Twarz nie jest wyśrodkowana",
     "title": "Umieść twarz w ramce"
@@ -38,7 +41,9 @@
     "list_item_one": "Najpierw umieść twarz w ramce",
     "list_item_two": "Następnie powoli obróć głowę w obie strony",
     "subtitle": "Ma to na celu sprawdzenie, czy naprawdę jesteś człowiekiem",
-    "title": "Nagraj wideo"
+    "title": "Nagraj wideo",
+    "title_accessibility": "Nagrać wideo swojej twarzy",
+    "video_accessibility": "Przykładowy film, na którym ktoś obraca głowę w obie strony aż do ukończenia"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Nagraj ponownie",
@@ -154,6 +159,10 @@
     "detail": {
       "folded_doc_front": "Ułóż dokument płasko, także wszystkie wewnętrzne strony (muszą zawierać Twoje zdjęcie)"
     },
+    "header": {
+      "recording_complete": "Nagrywanie zakończone",
+      "recording_video": "Nagrywanie wideo"
+    },
     "header_folded_doc_front": "Strona ze zdjęcia z profilu",
     "prompt": {
       "button_card": "Karta plastikowa",
@@ -236,7 +245,7 @@
     "subtitle_photo_page": "Strona ze zdjęciem",
     "subtitle_poa": "Te dokumenty najprawdopodobniej zawierają Twój aktualny adres zamieszkania",
     "title": "Wybierz swój dokument",
-    "title_poa": "Wybierz dokument z kraju %{country}"
+    "title_poa": "Wybierz dokument"
   },
   "doc_submit": {
     "button_link_upload": "lub prześlij zdjęcie — bez skanów i kserokopii",
@@ -485,6 +494,7 @@
     "subtitle": "Potrzebny będzie dokument, który:",
     "title": "Teraz zweryfikujmy Twój adres"
   },
+  "poa_welcome_text": "Zrobić zdjęcie dokumentu z Twoim adresem",
   "profile_data": {
     "address_title": "Dodaj swój adres",
     "button_continue": "Kontynuuj",
@@ -846,7 +856,7 @@
     "info": "Porady",
     "info_link_expire": "Twój link wygaśnie za godzinę",
     "info_link_window": "Pozostaw to okno otwarte podczas korzystania z telefonu komórkowego",
-    "link": "Wyślij link ponownie",
+    "link": "Spróbuj inną metodę",
     "subtitle": "Wysłaliśmy bezpieczny link na numer %{number}",
     "subtitle_minutes": "To może potrwać kilka minut",
     "title": "Sprawdź telefon komórkowy"
@@ -924,10 +934,16 @@
   "welcome": {
     "doc_video_subtitle": "Powinno to zająć kilka minut",
     "info_original_document": "Zrób zdjęcie swojego oryginalnego dokumentu. Skany, zdjęcia ekranów lub kserokopie nie są dozwolone.",
+    "list_header": "Użyj urządzenia, aby:",
     "list_header_doc_video": "Użyj urządzenia, aby nagrać:",
     "list_header_webcam": "Użyj kamery internetowej lub telefonu do zrobienia zdjęć:",
     "list_item_doc": "Twojego dokumentu tożsamości",
+    "list_item_doc_generic": "Nagraj wideo swojego dokumentu tożsamości",
+    "list_item_doc_photo": "Zrobić zdjęcie swojego dokumentu tożsamości",
+    "list_item_doc_video": "Nagrać wideo z dokumentem tożsamości",
     "list_item_doc_video_timeout": "Nagrywanie jest ograniczone do <timeout></timeout> sekund",
+    "list_item_face_photo": "Zrobić zdjęcie swojej twarzy",
+    "list_item_face_video": "Nagrać wideo swojej twarzy",
     "list_item_poa": "dokumentu potwierdzającego Twój adres zamieszkania",
     "list_item_selfie": "Twojej twarzy",
     "next_button": "Wybierz dokument",

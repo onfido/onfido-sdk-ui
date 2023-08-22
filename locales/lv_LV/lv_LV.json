@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Pavirzieties tālāk",
+    "feedback_move_back_accessibility": "Attāliniet ierīci",
     "feedback_move_closer": "Pavirzieties tuvāk",
+    "feedback_move_left_accessibility": "Pavirziet ierīci pa kreisi",
+    "feedback_move_right_accessibility": "Pavirziet ierīci pa labi",
     "feedback_no_face_detected": "Seja nav atrasta",
     "feedback_not_centered": "Seja nav centrēta",
     "title": "Pozicionējiet seju kadrā"
@@ -38,7 +41,9 @@
     "list_item_one": "Vispirms pozicionējiet seju kadrā",
     "list_item_two": "Pēc tam lēnām pagrieziet galvu uz abām pusēm",
     "subtitle": "Tas nepieciešams, lai pārbaudītu, vai esat īsta persona",
-    "title": "Ierakstīt videoklipu"
+    "title": "Ierakstīt videoklipu",
+    "title_accessibility": "Ierakstīt savas sejas videoklipu",
+    "video_accessibility": "Videoklipa piemērs, kurā cilvēks pagriež galvu uz abām pusēm līdz apstiprinājumam"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Sākt ierakstu no jauna",
@@ -154,6 +159,10 @@
     "detail": {
       "folded_doc_front": "Novietojiet dokumentu plakani uz līdzenas virsmas, ir jābūt redzamām visām iekšējām lapām (tajās jābūt jūsu fotoattēlam)"
     },
+    "header": {
+      "recording_complete": "Ieraksts pabeigts",
+      "recording_video": "Ieraksta video"
+    },
     "header_folded_doc_front": "Profila fotoattēla puse",
     "prompt": {
       "button_card": "Plastikāta karte",
@@ -236,7 +245,7 @@
     "subtitle_photo_page": "Fotoattēla lapa",
     "subtitle_poa": "Šie ir dokumenti, kuros, visticamāk, ir redzama jūsu pašreizējā dzīvesvietas adrese",
     "title": "Izvēlieties savu dokumentu",
-    "title_poa": "Atlasīt dokumentu, kuras izdošanas valsts ir %{country}"
+    "title_poa": "Izvēlieties dokumentu"
   },
   "doc_submit": {
     "button_link_upload": "vai augšupielādējiet fotoattēlu, nevis skenētus dokumentus vai fotokopijas",
@@ -485,6 +494,7 @@
     "subtitle": "Jums būs nepieciešams dokuments, kas atbilst šādām prasībām:",
     "title": "Pārbaudīsim jūsu adresi"
   },
+  "poa_welcome_text": "Nofotografētu dokumentu ar savu adresi",
   "profile_data": {
     "address_title": "Pievienojiet savu adresi",
     "button_continue": "Turpināt",
@@ -846,7 +856,7 @@
     "info": "Padomi",
     "info_link_expire": "Jūsu saites derīguma termiņš beigsies pēc stundas",
     "info_link_window": "Turiet šo logu atvērtu, kamēr izmantojat mobilo tālruni",
-    "link": "Nosūtīt saiti atkārtoti",
+    "link": "Izmēģiniet citu metodi",
     "subtitle": "Mēs nosūtījām drošu saiti uz %{number}",
     "subtitle_minutes": "Sūtīšana var aizņemt dažas minūtes",
     "title": "Pārbaudiet savu mobilo tālruni"
@@ -924,10 +934,16 @@
   "welcome": {
     "doc_video_subtitle": "Tas var aizņemt dažas minūtes",
     "info_original_document": "Nofotografējiet dokumenta oriģinālu. Skenētus dokumentus, ekrānu fotoattēlus vai fotokopijas nav atļauts izmantot.",
+    "list_header": "Izmantojiet ierīci, lai:",
     "list_header_doc_video": "Izmantojiet ierīci, lai ierakstītu:",
     "list_header_webcam": "Izmantojiet tīmekļa kameru vai tālruni, lai nofotografētu:",
     "list_item_doc": "jūsu personu apliecinošo dokumentu",
+    "list_item_doc_generic": "Ierakstiet video, kurā redzams jūsu identitātes dokuments",
+    "list_item_doc_photo": "Nofotografētu savu personu apliecinošo dokumentu.",
+    "list_item_doc_video": "Ierakstītu sava personu apliecinošā dokumenta videoklipu.",
     "list_item_doc_video_timeout": "Ierakstīšana ir ierobežota līdz <timeout></timeout> sekundēm",
+    "list_item_face_photo": "Nofotografētu savu seju.",
+    "list_item_face_video": "Ierakstītu savas sejas videoklipu.",
     "list_item_poa": "jūsu adreses apliecinājumu",
     "list_item_selfie": "jūsu seju",
     "next_button": "Izvēlēties dokumentu",

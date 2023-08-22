@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "عقب بروید",
+    "feedback_move_back_accessibility": "دستگاه خود را به عقب ببرید",
     "feedback_move_closer": "نزدیکتر بیایید",
+    "feedback_move_left_accessibility": "دستگاه خود را به سمت چپ حرکت دهید",
+    "feedback_move_right_accessibility": "دستگاه خود را به سمت راست حرکت دهید",
     "feedback_no_face_detected": "چهره شناسایی نشد",
     "feedback_not_centered": "چهره در مرکز نیست",
     "title": "چهره خود را درون کادر قرار دهید"
@@ -38,7 +41,9 @@
     "list_item_one": "ابتدا چهره خود را درون کادر قرار دهید",
     "list_item_two": "سپس سر خود را به آرامی به دو طرف بچرخانید",
     "subtitle": "این کار برای این است که تأیید شود شما یک شخص واقعی هستید",
-    "title": "ضبط یک ویدئو"
+    "title": "ضبط یک ویدئو",
+    "title_accessibility": "از چهره خود فیلم بگیرید",
+    "video_accessibility": "ویدئوی نمونه از فردی که سر خود را به دو طرف می‌چرخاند تا فرآیند تکمیل شود"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "شروع مجدد ضبط",
@@ -154,6 +159,10 @@
     "detail": {
       "folded_doc_front": "مدرک خود را به شکل مسطح قرار دهید، بطوری که تمام صفحات داخلی را شامل شود (باید عکس شما روی مدرک باشد)"
     },
+    "header": {
+      "recording_complete": "ضبط کامل شد",
+      "recording_video": "ضبط ویدیو"
+    },
     "header_folded_doc_front": "سمت عکس پروفایل",
     "prompt": {
       "button_card": "کارت پلاستیکی",
@@ -236,7 +245,7 @@
     "subtitle_photo_page": "صفحه عکس‌دار",
     "subtitle_poa": "اینها مدارکی هستند که به احتمال زیاد آدرس سکونت فعلی شما را نشان می‌دهند",
     "title": "سند خود را انتخاب کنید",
-    "title_poa": "یک مدرک مربوط به %{country} را انتخاب کنید"
+    "title_poa": "یک مدرک را انتخاب کنید"
   },
   "doc_submit": {
     "button_link_upload": "یا عکس گرفته شده با دوربین را بارگذاری کنید – اسکن یا فتوکپی پذیرفته نمی‌شود",
@@ -485,6 +494,7 @@
     "subtitle": "شما به مدرکی نیاز دارید که:",
     "title": "می‌خواهیم آدرس‌تان را تأیید ‌کنیم"
   },
+  "poa_welcome_text": "از مدرکی که آدرس شما را نشان دهد عکس بگیرید",
   "profile_data": {
     "address_title": "آدرس خود را وارد کنید",
     "button_continue": "ادامه",
@@ -846,7 +856,7 @@
     "info": "نکات",
     "info_link_expire": "لینک شما تا یک ساعت دیگر منقضی می‌شود",
     "info_link_window": "هنگام استفاده از موبایل خود، این پنجره را باز نگه دارید",
-    "link": "ارسال مجدد لینک",
+    "link": "روش دیگری را امتحان کنید",
     "subtitle": "ما یک لینک امن به شماره %{number} ارسال کردیم",
     "subtitle_minutes": "ممکن است چند دقیقه طول بکشد تا پیام برسد",
     "title": "موبایل خود را بررسی کنید"
@@ -924,10 +934,16 @@
   "welcome": {
     "doc_video_subtitle": "این کار چند دقیقه طول می‌کشد",
     "info_original_document": "از سند اصلی خود عکس بگیرید. اسکن، عکس صفحه نمایش یا فتوکپی مجاز نیست.",
+    "list_header": "از دستگاه خود برای موارد زیر استفاده کنید:",
     "list_header_doc_video": "از دستگاه خود برای ضبط ویدئو استفاده کنید:",
     "list_header_webcam": "از وب‌کم یا تلفن خود برای عکاسی استفاده کنید:",
     "list_item_doc": "مدرک هویتی شما",
+    "list_item_doc_generic": "یک ویدیو از سند هویتی خود ضبط کنید",
+    "list_item_doc_photo": "از مدرک هویتی خود عکس بگیرید",
+    "list_item_doc_video": "از مدارک هویتی خود فیلم بگیرید",
     "list_item_doc_video_timeout": "زمان ضبط نباید بیشتر از ​<timeout>​​</timeout>​ ثانیه شود",
+    "list_item_face_photo": "از چهره خود عکس بگیرید",
+    "list_item_face_video": "از چهره خود فیلم بگیرید",
     "list_item_poa": "مدرک اثبات‌کننده آدرس شما",
     "list_item_selfie": "چهره شما",
     "next_button": "مدرک را انتخاب کنید",

@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Liikuge kaugemale",
+    "feedback_move_back_accessibility": "Liigutage seadet kaugemale",
     "feedback_move_closer": "Liikuge lähemale",
+    "feedback_move_left_accessibility": "Liigutage seadet vasakule",
+    "feedback_move_right_accessibility": "Liigutage seadet paremale",
     "feedback_no_face_detected": "Nägu ei tuvastatud",
     "feedback_not_centered": "Nägu pole kaadri keskel",
     "title": "Asetage oma nägu kaadrisse"
@@ -38,7 +41,9 @@
     "list_item_one": "Kõigepealt asetage oma nägu kaadrisse",
     "list_item_two": "Seejärel keerake oma pead aeglaselt mõlemale poole",
     "subtitle": "Nii kinnitame, et olete tõeline inimene",
-    "title": "Salvestage video"
+    "title": "Salvestage video",
+    "title_accessibility": "Näost video salvestamine",
+    "video_accessibility": "Näide videost, kus kujutatud isik pöörab pead mõlemale poole kuni video valmimiseni"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Alustage salvestamist uuesti",
@@ -154,6 +159,10 @@
     "detail": {
       "folded_doc_front": "Asetage dokument avatult tasapinnale nii, et on näha sisemised lehed (peab sisaldama teie fotot)"
     },
+    "header": {
+      "recording_complete": "Salvestamine lõpetatud",
+      "recording_video": "Video salvestamine"
+    },
     "header_folded_doc_front": "Profiili pildi külg",
     "prompt": {
       "button_card": "Plastkaart",
@@ -236,7 +245,7 @@
     "subtitle_photo_page": "Fotoga lehekülg",
     "subtitle_poa": "Need on dokumendid, mis näitavad kõige tõenäolisemalt teie praegust kodust aadressi",
     "title": "Valige dokument",
-    "title_poa": "Valige riigi %{country} dokument"
+    "title_poa": "Valige dokument"
   },
   "doc_submit": {
     "button_link_upload": "või laadige foto üles – skaneeringud ja koopiad ei sobi",
@@ -485,6 +494,7 @@
     "subtitle": "Teil on vaja dokumenti, mis vastab järgmistele tingimustele.",
     "title": "Kontrollime teie aadressi"
   },
+  "poa_welcome_text": "Pildistage oma aadressiga dokumenti",
   "profile_data": {
     "address_title": "Lisage oma aadress",
     "button_continue": "Jätkake",
@@ -846,7 +856,7 @@
     "info": "Nõuanded",
     "info_link_expire": "Teie link aegub tunni aja pärast",
     "info_link_window": "Jätke see aken mobiiltelefoni kasutamise ajal avatuks",
-    "link": "Saatke link uuesti",
+    "link": "Proovi teist meetodit",
     "subtitle": "Saatsime turvalise lingi numbrile %{number}",
     "subtitle_minutes": "Selle saabumine võib võtta mõne minuti",
     "title": "Kontrollige oma mobiiltelefoni"
@@ -924,10 +934,16 @@
   "welcome": {
     "doc_video_subtitle": "See peaks võtma mõne minuti",
     "info_original_document": "Tehke oma originaaldokumendi foto. Skaneeringud, ekraanifotod või fotokoopiad ei ole lubatud.",
+    "list_header": "Seadme abil saate teha järgmist.",
     "list_header_doc_video": "Kasutage oma seadet, et salvestada järgmist.",
     "list_header_webcam": "Kasutage veebikaamerat või telefoni, et pildistada järgmist.",
     "list_item_doc": "teie isikut tõendav dokument",
+    "list_item_doc_generic": "Salvesta video oma isikut tõendavast dokumendist",
+    "list_item_doc_photo": "Isikut tõendava dokumendi pildistamine",
+    "list_item_doc_video": "Isikut tõendavast dokumendist video salvestamine",
     "list_item_doc_video_timeout": "Salvestamine on piiratud <timeout></timeout> sekunditega",
+    "list_item_face_photo": "Näo pildistamine",
+    "list_item_face_video": "Näost video salvestamine",
     "list_item_poa": "tõend teie aadressi kohta",
     "list_item_selfie": "teie nägu",
     "next_button": "Valige dokument",

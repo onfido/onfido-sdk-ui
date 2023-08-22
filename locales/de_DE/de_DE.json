@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Gehen Sie zurück",
+    "feedback_move_back_accessibility": "Bewegen Sie Ihr Gerät nach hinten",
     "feedback_move_closer": "Rücken Sie näher heran",
+    "feedback_move_left_accessibility": "Bewegen Sie Ihr Gerät nach links",
+    "feedback_move_right_accessibility": "Bewegen Sie Ihr Gerät nach rechts",
     "feedback_no_face_detected": "Gesicht nicht erkannt",
     "feedback_not_centered": "Gesicht nicht mittig",
     "title": "Positionieren Sie Ihr Gesicht im Rahmen"
@@ -38,7 +41,9 @@
     "list_item_one": "Positionieren Sie Ihr Gesicht zunächst im Rahmen",
     "list_item_two": "Drehen Sie Ihren Kopf dann langsam nach beiden Seiten",
     "subtitle": "Damit verifizieren wir, dass es sich bei Ihnen um eine reale Person handelt",
-    "title": "Video aufnehmen"
+    "title": "Video aufnehmen",
+    "title_accessibility": "Nehmen Sie ein Video von Ihrem Gesicht auf",
+    "video_accessibility": "Beispielvideo von jemandem, der den Kopf bis zum Abschluss zu beiden Seiten dreht"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Aufnahme neu starten",
@@ -154,6 +159,10 @@
     "detail": {
       "folded_doc_front": "Legen Sie Ihr Dokument flach hin, einschließlich aller Innenseiten (Ihr Foto muss enthalten sein)"
     },
+    "header": {
+      "recording_complete": "Aufnahme abgeschlossen",
+      "recording_video": "Videoaufnahme"
+    },
     "header_folded_doc_front": "Profilfotoseite",
     "prompt": {
       "button_card": "Plastikkarte",
@@ -178,11 +187,11 @@
     "body_benefits_letter": "Überprüfen Sie, dass Sie die gesamte Dokumentseite hochgeladen haben, und dass man die Details ohne Unschärfen und blendfrei lesen kann",
     "body_bill": "Überprüfen Sie, dass Sie die gesamte Dokumentseite hochgeladen haben, und dass man die Details ohne Unschärfen und blendfrei lesen kann",
     "body_generic_document": "Die Informationen müssen deutlich lesbar sein, ohne Unschärfe oder Spiegelung",
-    "body_id": "Die Reisepass-Details müssen deutlich lesbar sein, ohne Unschärfe oder Spiegelung",
+    "body_id": "Einzelheiten müssen klar lesbar sein, ohne Unschärfe oder Spiegelung",
     "body_image_medium": "Es wird länger dauern, Sie zu verifizieren, wenn wir es nicht lesen können",
     "body_image_poor": "Um Sie reibungslos zu verifizieren, benötigen wir ein besseres Foto",
     "body_license": "Die Informationen müssen deutlich lesbar sein, ohne Unschärfe oder Spiegelung",
-    "body_passport": "Die Reisepass-Details müssen deutlich lesbar sein, ohne Unschärfe oder Spiegelung",
+    "body_passport": "Einzelheiten müssen klar lesbar sein, ohne Unschärfe oder Spiegelung",
     "body_permit": "Die Informationen müssen deutlich lesbar sein, ohne Unschärfe oder Spiegelung",
     "body_tax_letter": "Überprüfen Sie, dass Sie die gesamte Dokumentseite hochgeladen haben, und dass man die Details ohne Unschärfen und blendfrei lesen kann",
     "button_close": "Schließen",
@@ -236,7 +245,7 @@
     "subtitle_photo_page": "Fotoseite",
     "subtitle_poa": "Diese Dokumente zeigen wahrscheinlich Ihre aktuelle Wohnadresse:",
     "title": "Dokument auswählen",
-    "title_poa": "Ein %{country}-Dokumente auswählen"
+    "title_poa": "Wählen Sie ein Dokument"
   },
   "doc_submit": {
     "button_link_upload": "oder Foto hochladen – keine Scans oder Kopien",
@@ -485,6 +494,7 @@
     "subtitle": "Sie brauchen ein Dokument, das:",
     "title": "Bestätigen wir nun Ihre Adresse"
   },
+  "poa_welcome_text": "Machen Sie ein Foto von einem Dokument mit Ihrer Adresse",
   "profile_data": {
     "address_title": "Fügen Sie Ihre Adresse hinzu",
     "button_continue": "Weiter",
@@ -846,7 +856,7 @@
     "info": "Tipps",
     "info_link_expire": "Ihr Link läuft in einer Stunde ab",
     "info_link_window": "Lassen Sie dieses Fenster geöffnet, während Sie Ihr Mobiltelefon bedienen",
-    "link": "Link erneut senden",
+    "link": "Versuchen Sie eine andere Methode",
     "subtitle": "Wir haben einen sicheren Link an %{number} gesendet",
     "subtitle_minutes": "Dieser Vorgang kann einige Minuten dauern",
     "title": "Überprüfen Sie Ihr Mobiltelefon"
@@ -871,19 +881,19 @@
     "title": "Fotoseite des Reisepasses hochladen"
   },
   "user_consent": {
-    "button_primary": "Accept",
-    "button_secondary": "Do not accept",
+    "button_primary": "Akzeptieren",
+    "button_secondary": "Nicht akzeptieren",
     "prompt": {
-      "button_primary": "Review again",
-      "button_secondary": "Yes, don’t verify me",
-      "no_consent_detail": "If you do not accept Onfido’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
-      "no_consent_title": "Are you sure?"
+      "button_primary": "Erneut überprüfen",
+      "button_secondary": "Ja, verifizieren Sie mich nicht",
+      "no_consent_detail": "Wenn Sie die Datenschutzerklärungen und Nutzungsbedingungen von Onfido nicht akzeptieren, können wir Ihre Identität nicht überprüfen und Sie werden diesen Schritt beenden.",
+      "no_consent_title": "Bist du sicher?"
     }
   },
   "user_consent_load_fail": {
-    "button_primary": "Reload screen",
-    "detail": "Check that your connection is stable, then try again",
-    "title": "Content failed to load"
+    "button_primary": "Bildschirm neu laden",
+    "detail": "Prüfen Sie, ob Ihre Internetverbindung stabil ist, und versuchen Sie es dann erneut",
+    "title": "Inhalt konnte nicht geladen werden"
   },
   "video_capture": {
     "body": "Positionieren Sie Ihr Gesicht im angezeigten Oval",
@@ -924,10 +934,16 @@
   "welcome": {
     "doc_video_subtitle": "Es dauert nur wenige Minuten",
     "info_original_document": "Machen Sie ein Foto von Ihrem Originaldokument. Scans, Fotos von Bildschirmen oder Fotokopien sind nicht zulässig.",
+    "list_header": "Benutzen Sie Ihr Gerät:",
     "list_header_doc_video": "Nutzen Sie Ihr Gerät um Folgendes aufzunehmen:",
     "list_header_webcam": "Verwenden Sie Ihre Webcam oder Ihr Telefon zum Fotografieren:",
     "list_item_doc": "Ihr Ausweisdokument",
+    "list_item_doc_generic": "Nehmen Sie ein Video von Ihrem Identitätsdokument auf",
+    "list_item_doc_photo": "Machen Sie ein Foto von Ihrem Ausweisdokument",
+    "list_item_doc_video": "Nehmen Sie ein Video von Ihrem Ausweisdokument auf",
     "list_item_doc_video_timeout": "Die Aufnahme ist auf <timeout></timeout> Sekunden beschränkt",
+    "list_item_face_photo": "Machen Sie ein Foto von Ihrem Gesicht",
+    "list_item_face_video": "Nehmen Sie ein Video von Ihrem Gesicht auf",
     "list_item_poa": "Ihr Adressnachweis",
     "list_item_selfie": "Ihr Gesicht",
     "next_button": "Dokument auswählen",

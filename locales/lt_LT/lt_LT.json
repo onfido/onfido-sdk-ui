@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Toliau",
+    "feedback_move_back_accessibility": "Atitraukite įrenginį",
     "feedback_move_closer": "Arčiau",
+    "feedback_move_left_accessibility": "Patraukite įrenginį į kairę",
+    "feedback_move_right_accessibility": "Patraukite įrenginį į dešinę",
     "feedback_no_face_detected": "Veidas neaptiktas",
     "feedback_not_centered": "Veidas nėra centre",
     "title": "Pasirūpinkite, kad jūsų veidas būtų rėmelyje"
@@ -38,7 +41,9 @@
     "list_item_one": "Pirmiausia pasirūpinkite, kad jūsų veidas būtų rėmelyje",
     "list_item_two": "Tada lėtai pasukite galvą į abi puses",
     "subtitle": "Taip patvirtinsite, kad esate tikras asmuo",
-    "title": "Padaryti vaizdo įrašą"
+    "title": "Padaryti vaizdo įrašą",
+    "title_accessibility": "Padarykite savo veido vaizdo įrašą",
+    "video_accessibility": "Vaizdo įrašo, kaip žmogus sukinėja galvą į abi puses iki pabaigos, pavyzdys"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Iš naujo pradėti įrašymą",
@@ -154,6 +159,10 @@
     "detail": {
       "folded_doc_front": "Padėkite dokumentą plokščiai, įtraukite visus vidinius puslapius (turi būti jūsų nuotrauka)"
     },
+    "header": {
+      "recording_complete": "Įrašymas baigtas",
+      "recording_video": "Įrašomas vaizdo įrašas"
+    },
     "header_folded_doc_front": "Paskyros nuotraukos pusė",
     "prompt": {
       "button_card": "Plastikinė kortelė",
@@ -236,7 +245,7 @@
     "subtitle_photo_page": "Nuotraukos puslapis",
     "subtitle_poa": "Štai dokumentai, kuriuose labiausiai tikėtas jūsų namų adreso buvimas",
     "title": "Pasirinkite dokumentą",
-    "title_poa": "Pasirinkite %{country} dokumentą"
+    "title_poa": "Pasirinkite dokumentą"
   },
   "doc_submit": {
     "button_link_upload": "arba įkelkite nuotrauką – jokių skenuotų ar atšviestų",
@@ -485,6 +494,7 @@
     "subtitle": "Jums reikės dokumento, kuris:",
     "title": "Patvirtinkite savo adresą"
   },
+  "poa_welcome_text": "Nufotografuokite dokumentą su savo adresu",
   "profile_data": {
     "address_title": "Pridėkite savo adresą",
     "button_continue": "Tęsti",
@@ -846,7 +856,7 @@
     "info": "Patarimai",
     "info_link_expire": "Jūsų nuoroda baigs galioti po valandos",
     "info_link_window": "Laikykite šį langą atidarytą, kai naudojate mobilųjį telefoną",
-    "link": "Siųsti nuorodą iš naujo",
+    "link": "Pabandykite kitą metodą",
     "subtitle": "Išsiuntėme saugią nuorodą numeriu %{number}",
     "subtitle_minutes": "Gali užtrukti kelias minutes, kol pamatysite",
     "title": "Patikrinkite savo mobilųjį telefoną"
@@ -924,10 +934,16 @@
   "welcome": {
     "doc_video_subtitle": "Tai turėtų užtrukti kelias minutes",
     "info_original_document": "Nufotografuokite dokumento originalą. Skenuoti, fotografuoti ekranų ar fotokopijų negalima.",
+    "list_header": "Naudodami savo įrenginį, galite:",
     "list_header_doc_video": "Naudodamiesi įrenginiu įrašykite:",
     "list_header_webcam": "Fotografuokite naudodami internetinę kamerą arba telefoną:",
     "list_item_doc": "jūsų asmens tapatybės dokumentas",
+    "list_item_doc_generic": "Įrašykite vaizdo įrašą su savo asmens tapatybės dokumentu",
+    "list_item_doc_photo": "Nufotografuokite savo asmens tapatybės dokumentą",
+    "list_item_doc_video": "Padarykite savo asmens tapatybės dokumento vaizdo įrašą",
     "list_item_doc_video_timeout": "Įrašymo trukmė ribojama iki ​<timeout>​​</timeout>​ sek.",
+    "list_item_face_photo": "Nufotografuokite savo veidą",
+    "list_item_face_video": "Padarykite savo veido vaizdo įrašą",
     "list_item_poa": "adreso patvirtinimas",
     "list_item_selfie": "jūsų veidas",
     "next_button": "Pasirinkite dokumentą",

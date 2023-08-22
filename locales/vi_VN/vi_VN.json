@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Lùi lại",
+    "feedback_move_back_accessibility": "Di chuyển thiết bị của bạn lùi lại",
     "feedback_move_closer": "Di chuyển gần hơn nữa",
+    "feedback_move_left_accessibility": "Di chuyển thiết bị của bạn sang bên trái",
+    "feedback_move_right_accessibility": "Di chuyển thiết bị của bạn sang phải",
     "feedback_no_face_detected": "Không nhận dạng được khuôn mặt",
     "feedback_not_centered": "Khuôn mặt không được căn giữa",
     "title": "Đầu tiên, định vị khuôn mặt của bạn trong khung hình"
@@ -38,7 +41,9 @@
     "list_item_one": "Đầu tiên, định vị khuôn mặt của bạn trong khung hình",
     "list_item_two": "Sau đó, bạn hãy xoay đầu từ từ sang hai bên",
     "subtitle": "Thông tin này để xác minh rằng bạn là một con người có thật",
-    "title": "Quay video"
+    "title": "Quay video",
+    "title_accessibility": "Quay video khuôn mặt của bạn",
+    "video_accessibility": "Video mẫu về một người xoay đầu sang cả hai bên cho đến khi hoàn thành"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Quay lại video",
@@ -154,6 +159,10 @@
     "detail": {
       "folded_doc_front": "Đặt giấy tờ của bạn lên mặt phẳng, chụp tất cả các trang bên trong (phải có ảnh rõ mặt)"
     },
+    "header": {
+      "recording_complete": "Ghi hình đã hoàn tất",
+      "recording_video": "Ghi video"
+    },
     "header_folded_doc_front": "Bên có ảnh hồ sơ",
     "prompt": {
       "button_card": "Giấy phép dạng thẻ cứng",
@@ -236,7 +245,7 @@
     "subtitle_photo_page": "Trang có ảnh",
     "subtitle_poa": "Đây là những giấy tờ có nhiều khả năng hiển thị địa chỉ nhà hiện tại của bạn nhất",
     "title": "Chọn giấy tờ của bạn",
-    "title_poa": "Chọn giấy tờ của %{country}"
+    "title_poa": "Chọn một tài liệu"
   },
   "doc_submit": {
     "button_link_upload": "hoặc tải ảnh lên – không dùng bản scan hoặc bản sao",
@@ -485,6 +494,7 @@
     "subtitle": "Bạn sẽ cần một giấy tờ:",
     "title": "Hãy xác nhận địa chỉ của bạn"
   },
+  "poa_welcome_text": "Chụp ảnh giấy tờ có địa chỉ của bạn",
   "profile_data": {
     "address_title": "Thêm địa chỉ của bạn",
     "button_continue": "Tiếp tục",
@@ -846,7 +856,7 @@
     "info": "Gợi ý",
     "info_link_expire": "Liên kết của bạn sẽ hết hạn sau một giờ",
     "info_link_window": "Giữ cửa sổ này mở trong khi sử dụng điện thoại di động của bạn",
-    "link": "Gửi lại liên kết",
+    "link": "Thử phương pháp khác",
     "subtitle": "Chúng tôi đã gửi liên kết an toàn đến %{number}",
     "subtitle_minutes": "Có thể mất vài phút để đến nơi",
     "title": "Kiểm tra điện thoại di động của bạn"
@@ -924,10 +934,16 @@
   "welcome": {
     "doc_video_subtitle": "Quá trình này có thể mất vài phút",
     "info_original_document": "Chụp giấy tờ gốc của bạn. Bản scan, ảnh chụp bàn hình hoặc bản photo sẽ không được chấp nhận.",
+    "list_header": "Sử dụng thiết bị của bạn để:",
     "list_header_doc_video": "Sử dụng thiết bị của bạn để ghi hình:",
     "list_header_webcam": "Sử dụng webcam hoặc điện thoại của bạn để chụp ảnh:",
     "list_item_doc": "giấy tờ tùy thân",
+    "list_item_doc_generic": "Ghi lại video của giấy tờ tùy thân của bạn",
+    "list_item_doc_photo": "Chụp ảnh giấy tờ tùy thân của bạn",
+    "list_item_doc_video": "Quay video giấy tờ tùy thân của bạn",
     "list_item_doc_video_timeout": "Thời lượng ghi được giới hạn trong  <timeout></timeout> giây",
+    "list_item_face_photo": "Chụp ảnh khuôn mặt của bạn",
+    "list_item_face_video": "Quay video khuôn mặt của bạn",
     "list_item_poa": "bằng chứng về địa chỉ của bạn",
     "list_item_selfie": "khuôn mặt của bạn",
     "next_button": "Chọn giấy tờ",
