@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "後ろへ下がってください",
+    "feedback_move_back_accessibility": "デバイスを離してください",
     "feedback_move_closer": "もっと近づいてください",
+    "feedback_move_left_accessibility": "デバイスを左に移動させてください",
+    "feedback_move_right_accessibility": "デバイスを右に移動させてください",
     "feedback_no_face_detected": "顔が検出されませんでした",
     "feedback_not_centered": "顔が中央に配置されていません",
     "title": "顔を枠内に配置してください"
@@ -38,7 +41,9 @@
     "list_item_one": "まず、顔を枠内に配置します",
     "list_item_two": "そして、頭をゆっくりと両側に向けます",
     "subtitle": "これは、お客様が実際の人物であることを確認するために行います",
-    "title": "動画を録画する"
+    "title": "動画を録画する",
+    "title_accessibility": "顔の動画を録画する",
+    "video_accessibility": "完了まで首を左右に回している動画例"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "録画を再開する",
@@ -71,7 +76,7 @@
     "title": "発行国を選択"
   },
   "cross_device": {
-    "button_primary_upload": "写真をアップロードする"
+    "button_primary_upload": "続行"
   },
   "cross_device_checklist": {
     "button_primary": "認証を送信",
@@ -154,6 +159,10 @@
     "detail": {
       "folded_doc_front": "ドキュメントを平らに置き、すべての内側のページを含める（ご自身の写真を含める必要があります）"
     },
+    "header": {
+      "recording_complete": "記録が完了しました",
+      "recording_video": "ビデオを録画する"
+    },
     "header_folded_doc_front": "プロフィール写真側",
     "prompt": {
       "button_card": "プラスチックカード",
@@ -171,7 +180,12 @@
       "glare_detail": "直射光から離れた場所に置いてください",
       "glare_title": "照り返しが検出されました",
       "no_doc_detail": "フレーム内に完全に収まっていることを確認してください",
-      "no_doc_title": "ドキュメントが検出されませんでした"
+      "no_doc_title": "ドキュメントが検出されませんでした",
+      "odp_detail": "元のドキュメントを使用してください。スクリーンの写真やコピーは受け付けていません",
+      "odp_photo_of_screen_title": "画面の写真が検出されました",
+      "odp_photocopy_title": "複写検出されました",
+      "odp_scan_title": "スキャンが検出されました",
+      "odp_screenshot_title": "スクリーンショットが検出されました"
     },
     "body": "ドキュメントページ全体をアップロードしており、ぼかしや照り返しがなく、詳細がはっきりしていることを確認してください",
     "body_bank_statement": "ドキュメントページ全体をアップロードしており、ぼかしや照り返しがなく、詳細がはっきりしていることを確認してください",
@@ -189,7 +203,9 @@
     "button_primary_redo": "やり直し",
     "button_primary_upload": "アップロード",
     "button_primary_upload_anyway": "そのままアップロードしてください",
+    "button_secondary_change_document": "別のドキュメントを選択",
     "button_secondary_redo": "やり直し",
+    "button_secondary_submit_anyway": "それでも写真を提出する",
     "button_zoom": "画像を拡大",
     "image_accessibility": "ドキュメントの写真",
     "title": "画像を確認する"
@@ -236,7 +252,7 @@
     "subtitle_photo_page": "写真ページ",
     "subtitle_poa": "次のドキュメントが、現在の自宅の住所を示す可能性の最も高いものです",
     "title": "ドキュメントを選択",
-    "title_poa": "%{country}のドキュメントを選択"
+    "title_poa": "ドキュメントを選択してください"
   },
   "doc_submit": {
     "button_link_upload": "または写真をアップロードする（スキャンやコピーはできません）",
@@ -423,6 +439,64 @@
   },
   "permission_recovery": {
     "button_primary": "更新",
+    "desktop_chrome": {
+      "browser_settings": {
+        "list_item_1": "ブラウザで、アドレスバーにあるロックアイコン [LOCK_ICON] をクリックしてください",
+        "list_item_2_cam": "カメラの隣にあるトグルを有効にしてください",
+        "list_item_2_mic": "マイクの隣にあるトグルを有効にしてください"
+      }
+    },
+    "desktop_edge": {
+      "browser_settings": {
+        "list_item_1": "ブラウザで、アドレスバーにあるロックアイコン [LOCK_ICON] をクリックしてください",
+        "list_item_2_cam": "カメラの隣のドロップダウンをクリックし、許可を選択します",
+        "list_item_2_mic": "マイクの隣のドロップダウンをクリックし、許可を選択します"
+      }
+    },
+    "desktop_firefox": {
+      "browser_settings": {
+        "list_item_2_mic": "ブロックをクリックし、マイクを使用するの隣にある"
+      }
+    },
+    "desktop_generic": {
+      "browser_settings": {
+        "list_item_1": "ブラウザでウェブサイトの設定を開きます。これは通常、アドレスバーにあるロックアイコン[LOCK_ICON]です",
+        "list_item_2": "パーミッションに関するセクションを探してください",
+        "list_item_3_cam": "カメラの権限を有効にする",
+        "list_item_3_mic": "マイクの権限を有効にする",
+        "list_item_4": "このページに戻り、変更しましたボタンをクリックしてください"
+      },
+      "device_settings": {
+        "list_item_1": "コンピュータで設定を開きます",
+        "list_item_2": "パーミッションに関するセクションを見つけてください（通常はプライバシーの下にあります）",
+        "list_item_3_cam": "[BROWSER_ICON]のカメラ権限を有効にしてください",
+        "list_item_3_mic": "[BROWSER_ICON]のマイクの権限を有効にしてください"
+      }
+    },
+    "desktop_mac": {
+      "device_settings": {
+        "list_item_1": "お使いのコンピュータで、Appleメニュー[APPLE_ICON]をクリックし、システム設定（またはシステム環境設定）を選択します",
+        "list_item_2": "サイドバーでプライバシー＆セキュリティ（またはセキュリティ＆プライバシー）をクリックします",
+        "list_item_3": "ポップアップで後でをクリックしてください",
+        "list_item_3_cam": "カメラをクリックし、[BROWSER_ICON]の隣にあるトグル（またはチェックボックス）を有効にしてください",
+        "list_item_4": "ポップアップで終了して再開をクリックし、このページに戻ってきてください",
+        "list_item_4_mic": "マイクロフォンをクリックし、[BROWSER_ICON]の隣にあるトグル（またはチェックボックス）を有効にします"
+      }
+    },
+    "desktop_safari": {
+      "browser_settings": {
+        "list_item_3": "このページに戻って、変更を行いましたボタンをクリックしてください"
+      }
+    },
+    "desktop_windows": {
+      "device_settings": {
+        "list_item_1": "お使いのコンピューターで、Windowsメニュー [WINDOWS_ICON] をクリックし、設定 [SETTINGS_ICON_WINDOWS] を選択します",
+        "list_item_2": "プライバシー（またはプライバシー & セキュリティ）をクリックしてください",
+        "list_item_3_cam": "アプリの権限の下のカメラをクリックし、[BROWSER_ICON]の隣にあるトグルを有効にします",
+        "list_item_3_mic": "アプリの権限の下のマイクをクリックし、[BROWSER_ICON]の隣のトグルを有効にします",
+        "list_item_4": "必要であればブラウザを再起動し、このページに戻ってきてください"
+      }
+    },
     "info": "回復",
     "list_header_both": "両方へのアクセスを回復する方法は次のとおりです。",
     "list_header_cam": "カメラへのアクセスを回復する方法は次のとおりです。",
@@ -431,7 +505,7 @@
     "list_item_how_to_cam": "ブラウザの設定からカメラへのアクセスを許可する",
     "list_item_how_to_mic": "ブラウザの設定からマイクへのアクセスを許可する",
     "subtitle_both": "カメラとマイクへのアクセスを回復して動画を撮影し、認証プロセスを完了します",
-    "subtitle_cam": "カメラへのアクセスを回復して認証を続行する",
+    "subtitle_cam": "あなたの身元を確認するために、カメラへのアクセスが必要です。以下の指示に従ってアクセスを回復してください。",
     "subtitle_cam_old": "カメラへのアクセスを回復して顔認証を続行する",
     "title_both": "カメラとマイクへのアクセスが拒否されました",
     "title_cam": "カメラへのアクセスが拒否されました"
@@ -485,6 +559,7 @@
     "subtitle": "次の内容を記載したドキュメントが必要です。",
     "title": "住所を認証しましょう"
   },
+  "poa_welcome_text": "住所が記載されたドキュメントの写真を撮影してください",
   "profile_data": {
     "address_title": "住所を追加する",
     "button_continue": "続行",
@@ -846,7 +921,7 @@
     "info": "ヒント",
     "info_link_expire": "リンクは1時間後に期限切れになります",
     "info_link_window": "携帯電話を使用している間、このウィンドウを開いたままにしてください",
-    "link": "リンクを再送信",
+    "link": "別の方法を試してみてください",
     "subtitle": "%{number}に安全なリンクを送信しました",
     "subtitle_minutes": "到着まで数分かかる場合があります",
     "title": "携帯電話を確認する"
@@ -861,14 +936,14 @@
     "title": "携帯電話に接続しました"
   },
   "upload_guide": {
-    "button_primary": "写真をアップロードする",
+    "button_primary": "続行",
     "image_detail_blur_alt": "ぼんやりした文書の例",
     "image_detail_blur_label": "すべての詳細がぼやけておらず、はっきりしている必要があります",
     "image_detail_cutoff_label": "下2行を含むすべての詳細を表示してください",
     "image_detail_glare_label": "直射光から離れた場所に置き、照り返しが無いようにしてください",
     "image_detail_good_label": "写真にはドキュメントがはっきり写っている必要があります",
     "subtitle": "スキャンやコピーは受け付けていません",
-    "title": "パスポートの写真ページをアップロードする"
+    "title": "パスポートの写真ページを提出してください"
   },
   "user_consent": {
     "button_primary": "受け入れる",
@@ -924,10 +999,16 @@
   "welcome": {
     "doc_video_subtitle": "数分かかります",
     "info_original_document": "書類の原本を写真で撮影してください。スキャン、画面写真、コピーなどは不可。",
+    "list_header": "デバイスを使用して次のことを行います。",
     "list_header_doc_video": "デバイスを使用して以下を記録してください。",
     "list_header_webcam": "ウェブカメラまたはスマートフォンを使用して写真を撮影してください。",
     "list_item_doc": "本人確認書類",
+    "list_item_doc_generic": "あなたの身分証明書のビデオを記録してください",
+    "list_item_doc_photo": "身分証明書の写真を撮影する",
+    "list_item_doc_video": "身分証明書の動画を録画する",
     "list_item_doc_video_timeout": "録画は<timeout></timeout>秒に制限されています",
+    "list_item_face_photo": "顔写真を撮る",
+    "list_item_face_video": "顔の動画を録画する",
     "list_item_poa": "住所を証明するもの",
     "list_item_selfie": "ご自身の顔",
     "next_button": "ドキュメントを選択",

@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Aléjate",
+    "feedback_move_back_accessibility": "Mover el dispositivo hacia atrás",
     "feedback_move_closer": "Acércate",
+    "feedback_move_left_accessibility": "Mueve tu dispositivo a la izquierda",
+    "feedback_move_right_accessibility": "Mueve tu dispositivo a la derecha",
     "feedback_no_face_detected": "Rostro no detectado",
     "feedback_not_centered": "Rostro no centrado",
     "title": "Coloca tu rostro en el marco"
@@ -38,7 +41,9 @@
     "list_item_one": "Primero, coloca tu rostro en el marco",
     "list_item_two": "Luego, gira la cabeza lentamente hacia ambos lados",
     "subtitle": "Esto es para verificar que eres una persona real",
-    "title": "Grabar un video"
+    "title": "Grabar un video",
+    "title_accessibility": "Grabar un video de tu rostro",
+    "video_accessibility": "Ejemplo de video de alguien girando la cabeza hacia ambos lados hasta completar"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Reiniciar grabación",
@@ -71,7 +76,7 @@
     "title": "Seleccionar país emisor"
   },
   "cross_device": {
-    "button_primary_upload": "Cargar foto"
+    "button_primary_upload": "Continuar"
   },
   "cross_device_checklist": {
     "button_primary": "Enviar verificación",
@@ -154,6 +159,10 @@
     "detail": {
       "folded_doc_front": "Coloca tu documento en un lugar plano, incluye todas las páginas internas (debe tener tu foto)"
     },
+    "header": {
+      "recording_complete": "Grabación completa",
+      "recording_video": "Grabando video"
+    },
     "header_folded_doc_front": "Lado de la foto de perfil",
     "prompt": {
       "button_card": "Tarjeta plástica",
@@ -171,7 +180,12 @@
       "glare_detail": "Aléjate de la luz directa",
       "glare_title": "Brillo detectado",
       "no_doc_detail": "Asegúrate de que esté completamente en el marco",
-      "no_doc_title": "Documento no detectado"
+      "no_doc_title": "Documento no detectado",
+      "odp_detail": "Por favor, use su documento original. No se aceptan fotos de pantalla ni fotocopias",
+      "odp_photo_of_screen_title": "Foto de pantalla detectada",
+      "odp_photocopy_title": "Fotocopia detectada",
+      "odp_scan_title": "Escaneo detectado",
+      "odp_screenshot_title": "Captura de pantalla detectada"
     },
     "body": "Asegúrate de que cargaste toda la página del documento y de que los detalles sean claros para que no se vean borrosos ni fuera de foco",
     "body_bank_statement": "Asegúrate de que cargaste toda la página del documento y de que los detalles sean claros para que no se vean borrosos ni fuera de foco",
@@ -189,7 +203,9 @@
     "button_primary_redo": "Rehacer",
     "button_primary_upload": "Cargar",
     "button_primary_upload_anyway": "Cargar de todos modos",
+    "button_secondary_change_document": "Elige otro documento",
     "button_secondary_redo": "Rehacer",
+    "button_secondary_submit_anyway": "Enviar foto de todos modos",
     "button_zoom": "Ampliar imagen",
     "image_accessibility": "Foto de tu documento",
     "title": "Revisa tu imagen"
@@ -236,7 +252,7 @@
     "subtitle_photo_page": "Página con foto",
     "subtitle_poa": "Estos son los documentos que probablemente muestren tu domicilio actual",
     "title": "Elige tu documento",
-    "title_poa": "Selecciona un documento de %{country}"
+    "title_poa": "Elige un documento"
   },
   "doc_submit": {
     "button_link_upload": "o cargar foto – sin escaneos ni fotocopias",
@@ -423,6 +439,64 @@
   },
   "permission_recovery": {
     "button_primary": "Actualizar",
+    "desktop_chrome": {
+      "browser_settings": {
+        "list_item_1": "En tu navegador, haz clic en el ícono de candado [LOCK_ICON] en la barra de direcciones",
+        "list_item_2_cam": "Activa el interruptor junto a Cámara",
+        "list_item_2_mic": "Activa el interruptor junto a Micrófono"
+      }
+    },
+    "desktop_edge": {
+      "browser_settings": {
+        "list_item_1": "En tu navegador, haz clic en el ícono de candado [LOCK_ICON] en la barra de direcciones",
+        "list_item_2_cam": "Haz clic en el menú desplegable junto a Cámara y selecciona Permitir",
+        "list_item_2_mic": "Haz clic en el menú desplegable junto a Micrófono y selecciona Permitir"
+      }
+    },
+    "desktop_firefox": {
+      "browser_settings": {
+        "list_item_2_mic": "Haz clic en Bloqueado junto a Usar el micrófono"
+      }
+    },
+    "desktop_generic": {
+      "browser_settings": {
+        "list_item_1": "En tu navegador, abre la configuración del sitio web. Esto a menudo es un ícono de candado [LOCK_ICON] en la barra de direcciones",
+        "list_item_2": "Encuentra la sección sobre permisos",
+        "list_item_3_cam": "Habilita los permisos de la Cámara",
+        "list_item_3_mic": "Habilita los permisos del Micrófono",
+        "list_item_4": "Regresa a esta página y haz clic en el botón He realizado los cambios"
+      },
+      "device_settings": {
+        "list_item_1": "En su computadora, abra sus Configuraciones",
+        "list_item_2": "Encuentra la sección sobre permisos (generalmente bajo Privacidad)",
+        "list_item_3_cam": "Habilita los permisos de Cámara para [BROWSER_ICON]",
+        "list_item_3_mic": "Habilite los permisos de Micrófono para [BROWSER_ICON]"
+      }
+    },
+    "desktop_mac": {
+      "device_settings": {
+        "list_item_1": "En su computadora, haga clic en el menú Apple [APPLE_ICON] y seleccione Configuración del Sistema (o Preferencias del Sistema)",
+        "list_item_2": "Haz clic en Privacidad y seguridad (o Seguridad y privacidad) en la barra lateral",
+        "list_item_3": "Haz clic en Más tarde en la ventana emergente",
+        "list_item_3_cam": "Haz clic en Cámara y activa el interruptor (o casilla de verificación) junto a [BROWSER_ICON]",
+        "list_item_4": "Haz clic en Salir y volver a abrir en el pop-up y regresa a esta página",
+        "list_item_4_mic": "Haz clic en Micrófono y activa el interruptor (o casilla de verificación) junto a [BROWSER_ICON]"
+      }
+    },
+    "desktop_safari": {
+      "browser_settings": {
+        "list_item_3": "Regresa a esta página y haz clic en el botón He realizado los cambios"
+      }
+    },
+    "desktop_windows": {
+      "device_settings": {
+        "list_item_1": "En su computadora, haga clic en el menú de Windows [WINDOWS_ICON] y seleccione Configuración [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "Haz clic en Privacidad (o Privacidad & Seguridad)",
+        "list_item_3_cam": "Haz clic en Cámara bajo Permisos de la aplicación y activa el interruptor junto a [BROWSER_ICON] ",
+        "list_item_3_mic": "Haz clic en Micrófono bajo Permisos de la aplicación y activa el interruptor junto a [BROWSER_ICON]",
+        "list_item_4": "Reinicia tu navegador si es necesario y vuelve a esta página"
+      }
+    },
     "info": "Recuperación",
     "list_header_both": "Sigue estos pasos para recuperar el acceso a ambos:",
     "list_header_cam": "Sigue estos pasos para recuperar el acceso a la cámara:",
@@ -431,7 +505,7 @@
     "list_item_how_to_cam": "Concede el acceso a tu cámara desde la configuración de tu navegador",
     "list_item_how_to_mic": "Conceda acceso a la cámara desde la configuración de su navegador",
     "subtitle_both": "Recupera el acceso a la cámara y al micrófono para grabar un video y completar el proceso de verificación",
-    "subtitle_cam": "Recupera el acceso a la cámara para continuar con tu verificación",
+    "subtitle_cam": "Necesitamos acceso a su cámara para verificar su identidad. Siga las instrucciones a continuación para recuperar el acceso",
     "subtitle_cam_old": "Recupera el acceso a la cámara para continuar con la verificación facial",
     "title_both": "Acceso a la cámara y micrófono denegado",
     "title_cam": "Acceso a la cámara denegado"
@@ -485,6 +559,7 @@
     "subtitle": "Necesitarás un documento que:",
     "title": "Vamos a verificar tu dirección"
   },
+  "poa_welcome_text": "Toma una foto de un documento con tu dirección",
   "profile_data": {
     "address_title": "Agrega tu dirección",
     "button_continue": "Continuar",
@@ -846,7 +921,7 @@
     "info": "Consejos",
     "info_link_expire": "Tu enlace vencerá en una hora",
     "info_link_window": "Mantén esta ventana abierta mientras usas tu celular",
-    "link": "Reenviar enlace",
+    "link": "Intenta con otro método",
     "subtitle": "Te enviamos un enlace seguro a %{number}",
     "subtitle_minutes": "Puede tardar unos minutos en llegar",
     "title": "Verifica tu celular"
@@ -861,14 +936,14 @@
     "title": "Conectado a tu celular"
   },
   "upload_guide": {
-    "button_primary": "Cargar foto",
+    "button_primary": "Continuar",
     "image_detail_blur_alt": "Ejemplo de documento borroso",
     "image_detail_blur_label": "Todos los detalles deben ser claros, nada borroso",
     "image_detail_cutoff_label": "Mostrar todos los detalles, incluidas las 2 líneas inferiores",
     "image_detail_glare_label": "Aléjate de la luz directa, sin reflejos",
     "image_detail_good_label": "La foto debe mostrar claramente tu documento",
     "subtitle": "No se aceptan escaneos ni fotocopias",
-    "title": "Carga la página con foto del pasaporte"
+    "title": "Envía la página de la foto del pasaporte"
   },
   "user_consent": {
     "button_primary": "Aceptar",
@@ -924,10 +999,16 @@
   "welcome": {
     "doc_video_subtitle": "Esto puede tomar unos pocos minutos",
     "info_original_document": "Tome una fotografía de su documento original. No se permiten escaneos, fotos de pantallas ni fotocopias.",
+    "list_header": "Usa tu dispositivo para:",
     "list_header_doc_video": "Usa tu dispositivo para grabar:",
     "list_header_webcam": "Usa tu cámara web o teléfono para fotografiar:",
     "list_item_doc": "tu documento de identidad",
+    "list_item_doc_generic": "Graba un video de tu documento de identidad",
+    "list_item_doc_photo": "Tomar una foto de tu documento de identidad",
+    "list_item_doc_video": "Grabar un video de tu documento de identidad",
     "list_item_doc_video_timeout": "La grabación se limita a <timeout></timeout> segundos",
+    "list_item_face_photo": "Tomar una foto de tu rostro",
+    "list_item_face_video": "Grabar un video de tu rostro",
     "list_item_poa": "tu comprobante de domicilio",
     "list_item_selfie": "tu rostro",
     "next_button": "Elegir documento",

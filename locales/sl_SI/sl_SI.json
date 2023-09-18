@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Oddaljite se",
+    "feedback_move_back_accessibility": "Oddaljite napravo",
     "feedback_move_closer": "Približajte se",
+    "feedback_move_left_accessibility": "Premaknite napravo v levo",
+    "feedback_move_right_accessibility": "Premaknite napravo v desno",
     "feedback_no_face_detected": "Obraz ni zaznan",
     "feedback_not_centered": "Obraz ni centriran",
     "title": "Postavite obraz v okvir"
@@ -38,7 +41,9 @@
     "list_item_one": "Najprej postavite obraz v okvir",
     "list_item_two": "Nato glavo počasi obrnite na obe strani",
     "subtitle": "S tem se preveri, ali ste resnična oseba",
-    "title": "Posnemi videoposnetek"
+    "title": "Posnemi videoposnetek",
+    "title_accessibility": "Posnemite videoposnetek svojega obraza",
+    "video_accessibility": "Primer videoposnetka, ko nekdo obrne glavo na obe strani do zaključka"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Ponovni zagon snemanja",
@@ -71,7 +76,7 @@
     "title": "Izberite državo izdajateljico"
   },
   "cross_device": {
-    "button_primary_upload": "Naloži fotografijo"
+    "button_primary_upload": "Nadaljuj"
   },
   "cross_device_checklist": {
     "button_primary": "Pošlji potrditev",
@@ -154,6 +159,10 @@
     "detail": {
       "folded_doc_front": "Dokument položite ravno, vključite vse notranje strani (vsebovati mora vašo fotografijo)"
     },
+    "header": {
+      "recording_complete": "Snemanje končano",
+      "recording_video": "Snemanje videa"
+    },
     "header_folded_doc_front": "Stran s profilno fotografijo",
     "prompt": {
       "button_card": "Plastična kartica",
@@ -171,7 +180,12 @@
       "glare_detail": "Odmaknite se od neposredne svetlobe",
       "glare_title": "Zaznano bleščanje",
       "no_doc_detail": "Prepričajte se, da je v celoti v okvirju",
-      "no_doc_title": "Dokument ni zaznan"
+      "no_doc_title": "Dokument ni zaznan",
+      "odp_detail": "Prosimo, uporabite svoj izvirni dokument. Fotografije zaslona ali fotokopije niso sprejemljive.",
+      "odp_photo_of_screen_title": "Zaznana fotografija zaslona",
+      "odp_photocopy_title": "Zaznana fotokopija",
+      "odp_scan_title": "Prepoznano skeniranje",
+      "odp_screenshot_title": "Zaznan posnetek zaslona"
     },
     "body": "Prepričajte se, da ste naložili celotno stran dokumenta in da so podrobnosti jasno berljive, brez zamegljenosti ali bleščanja",
     "body_bank_statement": "Prepričajte se, da ste naložili celotno stran dokumenta in da so podrobnosti jasno berljive, brez zamegljenosti ali bleščanja",
@@ -189,7 +203,9 @@
     "button_primary_redo": "Ponovi",
     "button_primary_upload": "Naloži",
     "button_primary_upload_anyway": "Vseeno naloži",
+    "button_secondary_change_document": "Izberite drug dokument",
     "button_secondary_redo": "Ponovi",
+    "button_secondary_submit_anyway": "Pošlji fotografijo kljub temu",
     "button_zoom": "Povečaj sliko",
     "image_accessibility": "Fotografija dokumenta",
     "title": "Preverite svojo sliko"
@@ -236,7 +252,7 @@
     "subtitle_photo_page": "Stran s fotografijo",
     "subtitle_poa": "To so dokumenti, ki bodo najverjetneje prikazali vaš trenutni domači naslov",
     "title": "Izberite dokument",
-    "title_poa": "Izberite dokument države %{country}"
+    "title_poa": "Izberite dokument"
   },
   "doc_submit": {
     "button_link_upload": "ali naložite fotografijo – brez skenov ali fotokopij",
@@ -423,6 +439,64 @@
   },
   "permission_recovery": {
     "button_primary": "Osveži",
+    "desktop_chrome": {
+      "browser_settings": {
+        "list_item_1": "V svojem brskalniku kliknite na ikono za zaklepanje [LOCK_ICON] v naslovni vrstici",
+        "list_item_2_cam": "Aktivirajte stikalo poleg Kamere",
+        "list_item_2_mic": "Aktivirajte stikalo poleg Mikrofona"
+      }
+    },
+    "desktop_edge": {
+      "browser_settings": {
+        "list_item_1": "V svojem brskalniku kliknite na ikono za zaklepanje [LOCK_ICON] v naslovni vrstici",
+        "list_item_2_cam": "Kliknite na spustni meni poleg Kamere in izberite Dovoli",
+        "list_item_2_mic": "Kliknite na spustni meni poleg Mikrofon in izberite Dovoli"
+      }
+    },
+    "desktop_firefox": {
+      "browser_settings": {
+        "list_item_2_mic": "Kliknite Blokirano poleg Uporabi mikrofon"
+      }
+    },
+    "desktop_generic": {
+      "browser_settings": {
+        "list_item_1": "V svojem brskalniku odprite nastavitve spletnega mesta. To je pogosto ikona za zaklepanje [LOCK_ICON] v naslovni vrstici",
+        "list_item_2": "Najdite razdelek o dovoljenjih",
+        "list_item_3_cam": "Omogočite dovoljenja za kamero",
+        "list_item_3_mic": "Omogočite dovoljenja za mikrofon",
+        "list_item_4": "Pojdite nazaj na to stran in kliknite gumb Spremembe sem naredil"
+      },
+      "device_settings": {
+        "list_item_1": "Na vašem računalniku odprite svoje Nastavitve",
+        "list_item_2": "Najdite razdelek o dovoljenjih (običajno pod Zasebnost)",
+        "list_item_3_cam": "Omogočite dovoljenja za Kamero za [BROWSER_ICON]",
+        "list_item_3_mic": "Omogočite dovoljenja za Mikrofon za [BROWSER_ICON]"
+      }
+    },
+    "desktop_mac": {
+      "device_settings": {
+        "list_item_1": "Na vašem računalniku kliknite meni Apple [APPLE_ICON] in izberite Sistemske nastavitve (ali Sistemske preference)",
+        "list_item_2": "Kliknite Zasebnost & Varnost (ali Varnost & Zasebnost) v stranskem meniju ",
+        "list_item_3": "Kliknite Kasneje v pojavnem oknu",
+        "list_item_3_cam": "Kliknite Kamera in aktivirajte stikalo (ali potrditveno polje) poleg [BROWSER_ICON]",
+        "list_item_4": "Kliknite na Zapri in ponovno odpri v pojavnem oknu in se vrnite na to stran",
+        "list_item_4_mic": "Kliknite Mikrofon in aktivirajte stikalo (ali potrditveno polje) poleg [BROWSER_ICON]"
+      }
+    },
+    "desktop_safari": {
+      "browser_settings": {
+        "list_item_3": "Povrnite se na to stran in kliknite na gumb Spremembe sem izvedel"
+      }
+    },
+    "desktop_windows": {
+      "device_settings": {
+        "list_item_1": "Na vašem računalniku kliknite meni Windows [WINDOWS_ICON] in izberite Nastavitve [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "Kliknite Zasebnost (ali Zasebnost & Varnost)",
+        "list_item_3_cam": "Kliknite na Kamera pod Dovoljenja za aplikacije in aktivirajte stikalo poleg [BROWSER_ICON] ",
+        "list_item_3_mic": "Kliknite na Mikrofon pod Dovoljenja za aplikacije in aktivirajte stikalo poleg [BROWSER_ICON]",
+        "list_item_4": "Ponovno zaženite brskalnik, če je potrebno, in se vrnite na to stran"
+      }
+    },
     "info": "Obnovitev",
     "list_header_both": "Če želite obnoviti dostop za oboje, upoštevajte ta navodila:",
     "list_header_cam": "Če želite obnoviti dostop do kamere, upoštevajte ta navodila:",
@@ -431,7 +505,7 @@
     "list_item_how_to_cam": "Omogočite dostop do kamere iz nastavitev brskalnika",
     "list_item_how_to_mic": "Dovolite dostop do mikrofona v nastavitvah brskalnika",
     "subtitle_both": "Obnovite dostop do kamere in mikrofona, da posnamete videoposnetek in dokončate postopek preverjanja",
-    "subtitle_cam": "Če želite nadaljevati preverjanje, obnovite dostop do kamere",
+    "subtitle_cam": "Potrebujemo dostop do vaše kamere za preverjanje vaše identitete. Sledite spodnjim navodilom za povrnitev dostopa",
     "subtitle_cam_old": "Če želite nadaljevati preverjanje obraza, obnovite dostop do kamere",
     "title_both": "Dostop do kamere in mikrofona zavrnjen",
     "title_cam": "Dostop do kamere je zavrnjen"
@@ -485,6 +559,7 @@
     "subtitle": "Potrebovali boste dokument, ki:",
     "title": "Potrdimo vaš naslov"
   },
+  "poa_welcome_text": "Fotografirajte dokument z vašim naslovom",
   "profile_data": {
     "address_title": "Dodajte naslov",
     "button_continue": "Nadaljuj",
@@ -846,7 +921,7 @@
     "info": "Namigi",
     "info_link_expire": "Vaša povezava bo potekla v eni uri",
     "info_link_window": "Med uporabo mobilnega telefona imejte to okno odprto",
-    "link": "Ponovno pošlji povezavo",
+    "link": "Poskusite z drugo metodo",
     "subtitle": "Na številko %{number} smo poslali varno povezavo",
     "subtitle_minutes": "Lahko traja nekaj minut, da prispe",
     "title": "Preverite svoj mobilni telefon"
@@ -861,14 +936,14 @@
     "title": "Povezava z mobilnim telefonom je uspela"
   },
   "upload_guide": {
-    "button_primary": "Naloži fotografijo",
+    "button_primary": "Nadaljuj",
     "image_detail_blur_alt": "Primer zamegljenega dokumenta",
     "image_detail_blur_label": "Vse podrobnosti morajo biti jasne — nič zamegljenega",
     "image_detail_cutoff_label": "Prikaži vse podrobnosti — vključno z spodnjima dvema vrsticama",
     "image_detail_glare_label": "Odmaknite se od neposredne svetlobe — brez bleščanja",
     "image_detail_good_label": "Na fotografiji mora biti jasno viden vaš dokument",
     "subtitle": "Skeni in fotokopije niso sprejemljive",
-    "title": "Naložite stran potnega lista s fotografijo"
+    "title": "Predložite stran potnega lista s fotografijo"
   },
   "user_consent": {
     "button_primary": "Sprejmi",
@@ -924,10 +999,16 @@
   "welcome": {
     "doc_video_subtitle": "Trajalo bo nekaj minut",
     "info_original_document": "Fotografirajte izvirni dokument. Skeni, fotografije zaslonov ali fotokopije niso dovoljene.",
+    "list_header": "Uporabite napravo za:",
     "list_header_doc_video": "Uporabite napravo za snemanje:",
     "list_header_webcam": "S spletno kamero ali telefonom fotografirajte:",
     "list_item_doc": "vaš osebni dokument",
+    "list_item_doc_generic": "Posnemite video vašega osebnega dokumenta",
+    "list_item_doc_photo": "Fotografirajte osebni dokument",
+    "list_item_doc_video": "Posnemite video posnetek osebnega dokumenta",
     "list_item_doc_video_timeout": "Snemanje je omejeno na <timeout></timeout> sekunde",
+    "list_item_face_photo": "Fotografirajte obraz",
+    "list_item_face_video": "Posnemite videoposnetek svojega obraza",
     "list_item_poa": "dokazilo o naslovu",
     "list_item_selfie": "vaš obraz",
     "next_button": "Izberite dokument",

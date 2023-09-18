@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "تحرك للخلف",
+    "feedback_move_back_accessibility": "حرك جهازك للخلف",
     "feedback_move_closer": "اقترب أكثر",
+    "feedback_move_left_accessibility": "حرك جهازك إلى اليسار",
+    "feedback_move_right_accessibility": "حرك جهازك إلى اليمين",
     "feedback_no_face_detected": "لم يتم اكتشاف وجهك",
     "feedback_not_centered": "الوجه ليس في المنتصف",
     "title": "ضع وجهك ضمن الإطار"
@@ -38,7 +41,9 @@
     "list_item_one": "أولاً، ضع وجهك ضمن الإطار",
     "list_item_two": "ثم أدر رأسك ببطء إلى كلا الجانبين",
     "subtitle": "هذا للتأكد من أنك شخص حقيقي",
-    "title": "تسجيل فيديو"
+    "title": "تسجيل فيديو",
+    "title_accessibility": "سجِّل فيديو لوجهك",
+    "video_accessibility": "مثال فيديو لشخص يدير رأسه لكلا الجانبين حتى الانتهاء"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "إعادة بدء التسجيل",
@@ -71,7 +76,7 @@
     "title": "اختر الدولة المصدِرة"
   },
   "cross_device": {
-    "button_primary_upload": "حمّل الصورة"
+    "button_primary_upload": "متابعة"
   },
   "cross_device_checklist": {
     "button_primary": "إرسال التحقق",
@@ -154,6 +159,10 @@
     "detail": {
       "folded_doc_front": "ضع مستندك بشكل مستوٍ، مع تضمين جميع الصفحات الداخلية (يجب أن يحتوي على صورتك)"
     },
+    "header": {
+      "recording_complete": "اكتمل التسجيل",
+      "recording_video": "تسجيل الفيديو"
+    },
     "header_folded_doc_front": "جانب صورة الملف الشخصي",
     "prompt": {
       "button_card": "بطاقة بلاستيكية",
@@ -171,7 +180,12 @@
       "glare_detail": "ابتعد عن الضوء المباشر",
       "glare_title": "تم اكتشاف توهج",
       "no_doc_detail": "تأكد من أنه موجود بالكامل في الإطار",
-      "no_doc_title": "لم يتم اكتشاف المستند"
+      "no_doc_title": "لم يتم اكتشاف المستند",
+      "odp_detail": "يرجى استخدام المستند الأصلي الخاص بك. لا يتم قبول الصور من الشاشة أو النسخ الفوتوغرافية",
+      "odp_photo_of_screen_title": "تم اكتشاف صورة للشاشة",
+      "odp_photocopy_title": "تم اكتشاف نسخة طبق الأصل",
+      "odp_scan_title": "تم اكتشاف الفحص",
+      "odp_screenshot_title": "تم اكتشاف لقطة شاشة"
     },
     "body": "تأكد من تحميل صفحة المستند بأكملها، وأن التفاصيل واضحة للقراءة دون أي ضبابية أو وهج",
     "body_bank_statement": "تأكد من تحميل صفحة المستند بأكملها، وأن التفاصيل واضحة للقراءة دون أي ضبابية أو وهج",
@@ -189,7 +203,9 @@
     "button_primary_redo": "إعادة",
     "button_primary_upload": "التحميل",
     "button_primary_upload_anyway": "تحميل على أي حال",
+    "button_secondary_change_document": "اختر مستندًا آخر",
     "button_secondary_redo": "إعادة",
+    "button_secondary_submit_anyway": "أرسل الصورة على أي حال",
     "button_zoom": "تكبير الصورة",
     "image_accessibility": "صورة مستندك",
     "title": "تحقق من صورتك"
@@ -236,7 +252,7 @@
     "subtitle_photo_page": "التقط صورة للصفحة",
     "subtitle_poa": "هذه هي الوثائق الأكثر احتمالاً لإظهار العنوان الحالي لمسكنك",
     "title": "اختر مستندك",
-    "title_poa": "تحديد مستند %{country}"
+    "title_poa": "تحديد مستند"
   },
   "doc_submit": {
     "button_link_upload": "أو تحميل صورة – لا تحمل مستندات لمسح ضوئي أو نسخ مصورة",
@@ -423,6 +439,64 @@
   },
   "permission_recovery": {
     "button_primary": "تنشيط",
+    "desktop_chrome": {
+      "browser_settings": {
+        "list_item_1": "في المتصفح الخاص بك، انقر على أيقونة القفل [LOCK_ICON] في شريط العنوان",
+        "list_item_2_cam": "قم بتفعيل المفتاح بجوار الكاميرا",
+        "list_item_2_mic": "قم بتفعيل المفتاح بجوار الميكروفون"
+      }
+    },
+    "desktop_edge": {
+      "browser_settings": {
+        "list_item_1": "في المتصفح الخاص بك، انقر على أيقونة القفل [LOCK_ICON] في شريط العنوان",
+        "list_item_2_cam": "انقر على القائمة المنسدلة بجوار الكاميرا واختر السماح",
+        "list_item_2_mic": "انقر على القائمة المنسدلة بجوار الميكروفون واختر السماح"
+      }
+    },
+    "desktop_firefox": {
+      "browser_settings": {
+        "list_item_2_mic": "انقر على محظور بجوار استخدم الميكروفون"
+      }
+    },
+    "desktop_generic": {
+      "browser_settings": {
+        "list_item_1": "في المتصفح الخاص بك، افتح إعدادات الموقع. غالبًا ما يكون هذا رمز القفل [LOCK_ICON] في شريط العنوان",
+        "list_item_2": "ابحث عن القسم المتعلق بالأذونات",
+        "list_item_3_cam": "قم بتمكين أذونات الكاميرا",
+        "list_item_3_mic": "قم بتمكين أذونات الميكروفون",
+        "list_item_4": "عُد إلى هذه الصفحة واضغط على الزر لقد قمت بالتغييرات"
+      },
+      "device_settings": {
+        "list_item_1": "على جهاز الكمبيوتر الخاص بك، افتح الإعدادات الخاصة بك",
+        "list_item_2": "ابحث عن القسم المتعلق بالأذونات (عادةً تحت الخصوصية)",
+        "list_item_3_cam": "قم بتمكين أذونات الكاميرا لـ [BROWSER_ICON]",
+        "list_item_3_mic": "قم بتمكين أذونات الميكروفون لـ [BROWSER_ICON]"
+      }
+    },
+    "desktop_mac": {
+      "device_settings": {
+        "list_item_1": "على جهاز الكمبيوتر الخاص بك، انقر على قائمة Apple [APPLE_ICON] واختر إعدادات النظام (أو تفضيلات النظام)",
+        "list_item_2": "انقر على الخصوصية والأمان (أو الأمان والخصوصية) في الشريط الجانبي",
+        "list_item_3": "انقر على  لاحقا  في النافذة المنبثقة",
+        "list_item_3_cam": "انقر على الكاميرا وقم بتفعيل المفتاح (أو المربع) بجوار [BROWSER_ICON]",
+        "list_item_4": "انقر على إغلاق وإعادة فتح في النافذة المنبثقة وعُد إلى هذه الصفحة",
+        "list_item_4_mic": "انقر على الميكروفون وقم بتنشيط المفتاح (أو المربع) بجوار [BROWSER_ICON]"
+      }
+    },
+    "desktop_safari": {
+      "browser_settings": {
+        "list_item_3": "عد إلى هذه الصفحة واضغط على الزر لقد أجريت التغييرات"
+      }
+    },
+    "desktop_windows": {
+      "device_settings": {
+        "list_item_1": "على جهاز الكمبيوتر الخاص بك، انقر على قائمة Windows [WINDOWS_ICON] واختر الإعدادات [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "انقر على الخصوصية (أو الخصوصية والأمان)",
+        "list_item_3_cam": "انقر على الكاميرا تحت أذونات التطبيق وقم بتنشيط المفتاح بجوار [BROWSER_ICON]",
+        "list_item_3_mic": "انقر على الميكروفون تحت أذونات التطبيق وقم بتنشيط المفتاح بجوار [BROWSER_ICON]",
+        "list_item_4": "أعد تشغيل المتصفح الخاص بك إذا لزم الأمر وعد إلى هذه الصفحة"
+      }
+    },
     "info": "التعافي",
     "list_header_both": "اتبع هذه الخطوات لاستعادة الوصول لكليهما:",
     "list_header_cam": "اتبع هذه الخطوات لاستعادة الوصول إلى الكاميرا:",
@@ -431,7 +505,7 @@
     "list_item_how_to_cam": "امنح الوصول إلى الكاميرا من إعدادات المتصفح",
     "list_item_how_to_mic": "امنح إمكانية الوصول إلى الميكروفون من إعدادات متصفحك",
     "subtitle_both": "استعادة الوصول إلى الكاميرا والميكروفون لالتقاط مقطع فيديو وإكمال عملية التحقق",
-    "subtitle_cam": "استعادة الوصول إلى الكاميرا لمتابعة عملية التحقق",
+    "subtitle_cam": "نحتاج إلى الوصول إلى كاميرتك للتحقق من هويتك. يرجى اتباع التعليمات أدناه لاستعادة الوصول",
     "subtitle_cam_old": "استعادة الوصول إلى الكاميرا لمتابعة التحقق من الوجه",
     "title_both": "تم رفض الوصول إلى الكاميرا والميكروفون",
     "title_cam": "تم رفض الوصول إلى الكاميرا"
@@ -485,6 +559,7 @@
     "subtitle": "ستحتاج إلى مستند:",
     "title": "لنتحقق من عنوانك"
   },
+  "poa_welcome_text": "التقط صورة لمستند بعنوانك",
   "profile_data": {
     "address_title": "أضِف عنوانك",
     "button_continue": "متابعة",
@@ -861,14 +936,14 @@
     "title": "متصل بهاتفك المحمول"
   },
   "upload_guide": {
-    "button_primary": "حمّل الصورة",
+    "button_primary": "متابعة",
     "image_detail_blur_alt": "مثال على وثيقة ضبابية",
     "image_detail_blur_label": "يجب أن تكون جميع التفاصيل واضحة — لا شيء ضبابي",
     "image_detail_cutoff_label": "إظهار جميع التفاصيل — بما في ذلك السطرين السفليين",
     "image_detail_glare_label": "ابتعد عن الضوء المباشر — لا يوجد وهج",
     "image_detail_good_label": "يجب أن تُظهر الصورة مستندك بوضوح",
     "subtitle": "لا تُقبل مستندات لمسح ضوئي ونسخ ضوئية",
-    "title": "تحميل صفحة صورة جواز السفر"
+    "title": "قدم صفحة صورة جواز السفر"
   },
   "user_consent": {
     "button_primary": "قبول",
@@ -924,10 +999,16 @@
   "welcome": {
     "doc_video_subtitle": "ستأخذ بعض الوقت",
     "info_original_document": "التقط صورة من المستند الأصلي. لا يُسمح بإجراء عمليات المسح أو صور الشاشات أو النسخ.",
+    "list_header": "استخدم جهازك من أجل:",
     "list_header_doc_video": "استخدم جهازك للتسجيل:",
     "list_header_webcam": "استخدم كاميرا الويب أو الهاتف لالتقاط صورة:",
     "list_item_doc": "بطاقة هويتك",
+    "list_item_doc_generic": "قم بتسجيل فيديو لمستند هويتك",
+    "list_item_doc_photo": "التقط صورة لمستند هويتك",
+    "list_item_doc_video": "سجّل فيديو لمستند هويتك",
     "list_item_doc_video_timeout": "يقتصر تسجيل الفيديو على ​<timeout>​​</timeout>​ ثوانٍ. ​<fallback>​ابدأ مرة أخرى​</fallback>​",
+    "list_item_face_photo": "التقط صورة لوجهك",
+    "list_item_face_video": "سجِّل فيديو لوجهك",
     "list_item_poa": "إثبات عنوانك",
     "list_item_selfie": "وجهك",
     "next_button": "اختر مستند",

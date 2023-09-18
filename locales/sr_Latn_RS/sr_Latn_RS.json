@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Odaljite se",
+    "feedback_move_back_accessibility": "Odmaknite uređaj",
     "feedback_move_closer": "Priđite bliže",
+    "feedback_move_left_accessibility": "Pomerite uređaj ulevo",
+    "feedback_move_right_accessibility": "Pomerite uređaj udesno",
     "feedback_no_face_detected": "Lice nije nađeno",
     "feedback_not_centered": "Lice nije centrirano",
     "title": "Postavite lice u okvir"
@@ -38,7 +41,9 @@
     "list_item_one": "Prvo postavite lice u okvir",
     "list_item_two": "Zatim polako okrenite glavu na jednu pa na drugu stranu",
     "subtitle": "Ovim se potvrđuje da ste stvarna osoba",
-    "title": "Snimite video"
+    "title": "Snimite video",
+    "title_accessibility": "snimite video lica",
+    "video_accessibility": "Video sa primerom u kojem neko okreće glavu na obe strane do završetka snimanja"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Ponovo započnite snimanje",
@@ -71,7 +76,7 @@
     "title": "Izaberite zemlju izdavanja"
   },
   "cross_device": {
-    "button_primary_upload": "Otpremi fotografiju"
+    "button_primary_upload": "Nastavi"
   },
   "cross_device_checklist": {
     "button_primary": "Pošalji potvrdu identiteta",
@@ -154,6 +159,10 @@
     "detail": {
       "folded_doc_front": "Postavite dokument na ravnu podlogu, obuhvatite sve unutrašnje stranice (mora da sadrži fotografiju)"
     },
+    "header": {
+      "recording_complete": "Snimanje je završeno",
+      "recording_video": "Snimanje videa"
+    },
     "header_folded_doc_front": "Stranica profilne fotografije",
     "prompt": {
       "button_card": "Plastična kartica",
@@ -171,7 +180,12 @@
       "glare_detail": "Odmaknite se od direktnog svetla",
       "glare_title": "Otkriven je odsjaj",
       "no_doc_detail": "Proverite da li je u potpunosti u zadatom okviru",
-      "no_doc_title": "Dokument nije nađen"
+      "no_doc_title": "Dokument nije nađen",
+      "odp_detail": "Molimo Vas da koristite svoj originalni dokument. Fotografije ekrana ili fotokopije nisu prihvatljive.",
+      "odp_photo_of_screen_title": "Fotografija ekrana detektovana",
+      "odp_photocopy_title": "Otkrivena fotokopija",
+      "odp_scan_title": "Skeniranje detektovano",
+      "odp_screenshot_title": "Otkriven snimak ekrana"
     },
     "body": "Proverite da li ste otpremili celu stranicu dokumenta i da li su podaci jasno čitljivi, nisu mutni i nema odsjaja",
     "body_bank_statement": "Proverite da li ste otpremili celu stranicu dokumenta i da li su podaci jasno čitljivi, nisu mutni i nema odsjaja",
@@ -189,7 +203,9 @@
     "button_primary_redo": "Ponovi",
     "button_primary_upload": "Nastavi",
     "button_primary_upload_anyway": "Ipak otpremi",
+    "button_secondary_change_document": "Izaberite drugi dokument",
     "button_secondary_redo": "Ponovi",
+    "button_secondary_submit_anyway": "Pošalji fotografiju svejedno",
     "button_zoom": "Uvećaj sliku",
     "image_accessibility": "Fotografija dokumenta",
     "title": "Proverite sliku"
@@ -236,7 +252,7 @@
     "subtitle_photo_page": "Stranica sa fotografijom",
     "subtitle_poa": "Ovo su dokumenti koji će najverovatnije prikazivati vašu trenutnu kućnu adresu",
     "title": "Izaberite dokument",
-    "title_poa": "Izaberite dokument (%{country})"
+    "title_poa": "Izaberite dokument"
   },
   "doc_submit": {
     "button_link_upload": "ili otpremite fotografiju – ne sme biti skenirana ni fotokopirana",
@@ -423,6 +439,64 @@
   },
   "permission_recovery": {
     "button_primary": "Osveži",
+    "desktop_chrome": {
+      "browser_settings": {
+        "list_item_1": "U vašem pretraživaču, kliknite na ikonicu za zaključavanje [LOCK_ICON] u adresnoj traci",
+        "list_item_2_cam": "Aktivirajte prekidač pored Kamere",
+        "list_item_2_mic": "Aktivirajte prekidač pored Mikrofona"
+      }
+    },
+    "desktop_edge": {
+      "browser_settings": {
+        "list_item_1": "U vašem pretraživaču, kliknite na ikonicu za zaključavanje [LOCK_ICON] u adresnoj traci",
+        "list_item_2_cam": "Kliknite na padajući meni pored Kamere i izaberite Dozvoli",
+        "list_item_2_mic": "Kliknite na padajući meni pored Mikrofona i izaberite Dozvoli"
+      }
+    },
+    "desktop_firefox": {
+      "browser_settings": {
+        "list_item_2_mic": "Kliknite na Blokirano pored Koristi mikrofon"
+      }
+    },
+    "desktop_generic": {
+      "browser_settings": {
+        "list_item_1": "U vašem pretraživaču, otvorite postavke sajta. To je često ikonica brave [LOCK_ICON] u adresnoj traci",
+        "list_item_2": "Pronađite deo o dozvolama",
+        "list_item_3_cam": "Omogućite dozvole za Kameru",
+        "list_item_3_mic": "Omogućite dozvole za Mikrofon",
+        "list_item_4": "Vratite se na ovu stranicu i kliknite na dugme Napravio sam promene"
+      },
+      "device_settings": {
+        "list_item_1": "Na vašem računaru, otvorite svoje Postavke",
+        "list_item_2": "Pronađite deo o dozvolama (obično pod Privatnost)",
+        "list_item_3_cam": "Omogućite dozvole za Kameru za [BROWSER_ICON]",
+        "list_item_3_mic": "Omogućite dozvole za Mikrofon za [BROWSER_ICON]"
+      }
+    },
+    "desktop_mac": {
+      "device_settings": {
+        "list_item_1": "Na vašem računaru, kliknite na Apple meni [APPLE_ICON] i izaberite Sistemske postavke (ili Sistemske preferencije)",
+        "list_item_2": "Kliknite na Privatnost & Sigurnost (ili Sigurnost & Privatnost) u bočnoj traci ",
+        "list_item_3": "Kliknite na Kasnije u iskačućem prozoru",
+        "list_item_3_cam": "Kliknite na Kamera i aktivirajte prekidač (ili polje za potvrdu) pored [BROWSER_ICON]",
+        "list_item_4": "Kliknite na Zatvori & Ponovo otvori u iskačućem prozoru i vratite se na ovu stranicu",
+        "list_item_4_mic": "Kliknite na Mikrofon i aktivirajte prekidač (ili polje za potvrdu) pored [BROWSER_ICON]"
+      }
+    },
+    "desktop_safari": {
+      "browser_settings": {
+        "list_item_3": "Vratite se na ovu stranicu i kliknite na dugme Napravio sam izmene"
+      }
+    },
+    "desktop_windows": {
+      "device_settings": {
+        "list_item_1": "Na vašem računaru, kliknite na Windows meni [WINDOWS_ICON] i izaberite Podešavanja [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "Kliknite na Privatnost (ili Privatnost & Sigurnost)",
+        "list_item_3_cam": "Kliknite na Kamera pod Dozvole za aplikacije i aktivirajte prekidač pored [BROWSER_ICON] ",
+        "list_item_3_mic": "Kliknite na Mikrofon ispod Dozvole za aplikacije i aktivirajte prekidač pored [BROWSER_ICON]",
+        "list_item_4": "Ponovo pokrenite vaš pretraživač ako je potrebno i vratite se na ovu stranicu"
+      }
+    },
     "info": "Oporavak",
     "list_header_both": "Pratite ove korake da biste ponovo odobrili pristup:",
     "list_header_cam": "Pratite ove korake da biste ponovo odobrili pristup kameri:",
@@ -431,7 +505,7 @@
     "list_item_how_to_cam": "Omogućite pristup kameri iz podešavanja pregledača",
     "list_item_how_to_mic": "Odobrite pristup mikrofonu iz podešavanja pregledača",
     "subtitle_both": "Ponovo dozvolite pristup kameri i mikrofonu da biste snimili video i dovršili postupak provere identiteta",
-    "subtitle_cam": "Ponovo dozvolite pristup kameri da biste nastavili proveru identiteta",
+    "subtitle_cam": "Potrebna nam je pristup vašoj kameri kako bismo verifikovali vaš identitet. Pratite uputstva ispod kako biste povratili pristup",
     "subtitle_cam_old": "Ponovo dozvolite pristup kameri da biste nastavili proveru lica",
     "title_both": "Pristup kameri i mikrofonu je odbijen",
     "title_cam": "Pristup kameri je odbijen"
@@ -485,6 +559,7 @@
     "subtitle": "Potreban vam je dokument koji:",
     "title": "Hajde da proverimo vašu adresu"
   },
+  "poa_welcome_text": "Snimite fotografiju dokumenta sa adresom",
   "profile_data": {
     "address_title": "Unesite svoju adresu",
     "button_continue": "Nastavi",
@@ -846,7 +921,7 @@
     "info": "Saveti",
     "info_link_expire": "Link ističe za jedan sat",
     "info_link_window": "Ostavite ovaj prozor otvoren dok koristite mobilni telefon",
-    "link": "Ponovo pošalji link",
+    "link": "Pokušajte sa drugom metodom",
     "subtitle": "Poslali smo bezbedan link na %{number}",
     "subtitle_minutes": "Možda će trebati nekoliko minuta da vam stigne",
     "title": "Proverite mobilni telefon"
@@ -861,14 +936,14 @@
     "title": "Povezano sa mobilnim telefonom"
   },
   "upload_guide": {
-    "button_primary": "Otpremi fotografiju",
+    "button_primary": "Nastavi",
     "image_detail_blur_alt": "Primer mutnog dokumenta",
     "image_detail_blur_label": "Svi detalji moraju biti jasni – ništa ne sme biti mutno",
     "image_detail_cutoff_label": "Prikaži sve detalje – uključujući donja 2 reda",
     "image_detail_glare_label": "Odmaknite se od direktne svetlosti – ne sme biti odsjaja",
     "image_detail_good_label": "Na fotografiji treba jasno da se vidi vaš dokument",
     "subtitle": "Skenirano i fotokopirano se ne prihvata",
-    "title": "Otpremite stranicu pasoša sa fotografijom"
+    "title": "Pošaljite stranicu pasoša sa slikom"
   },
   "user_consent": {
     "button_primary": "Prihvatam",
@@ -924,10 +999,16 @@
   "welcome": {
     "doc_video_subtitle": "Trebalo bi da traje nekoliko minuta",
     "info_original_document": "Снимите фотографију свог оригиналног документа. Скенирање, фотографије екрана или фотокопије нису дозвољени.",
+    "list_header": "Upotrebite uređaj da:",
     "list_header_doc_video": "Upotrebite vaš uređaj za snimanje:",
     "list_header_webcam": "Snimite fotografiju pomoću veb-kamere ili telefona:",
     "list_item_doc": "identifikacioni dokument",
+    "list_item_doc_generic": "Napravite video snimak svog identifikacionog dokumenta",
+    "list_item_doc_photo": "Snimite fotografiju identifikacionog dokumenta",
+    "list_item_doc_video": "snimite video identifikacionog dokumenta",
     "list_item_doc_video_timeout": "Snimanje je ograničeno na <timeout></timeout> sekunde",
+    "list_item_face_photo": "snimite fotografiju lica",
+    "list_item_face_video": "snimite video lica",
     "list_item_poa": "dokaz o adresi",
     "list_item_selfie": "vaše lice",
     "next_button": "Izaberite dokument",

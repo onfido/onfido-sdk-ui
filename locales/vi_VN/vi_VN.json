@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Lùi lại",
+    "feedback_move_back_accessibility": "Di chuyển thiết bị của bạn lùi lại",
     "feedback_move_closer": "Di chuyển gần hơn nữa",
+    "feedback_move_left_accessibility": "Di chuyển thiết bị của bạn sang bên trái",
+    "feedback_move_right_accessibility": "Di chuyển thiết bị của bạn sang phải",
     "feedback_no_face_detected": "Không nhận dạng được khuôn mặt",
     "feedback_not_centered": "Khuôn mặt không được căn giữa",
     "title": "Đầu tiên, định vị khuôn mặt của bạn trong khung hình"
@@ -38,7 +41,9 @@
     "list_item_one": "Đầu tiên, định vị khuôn mặt của bạn trong khung hình",
     "list_item_two": "Sau đó, bạn hãy xoay đầu từ từ sang hai bên",
     "subtitle": "Thông tin này để xác minh rằng bạn là một con người có thật",
-    "title": "Quay video"
+    "title": "Quay video",
+    "title_accessibility": "Quay video khuôn mặt của bạn",
+    "video_accessibility": "Video mẫu về một người xoay đầu sang cả hai bên cho đến khi hoàn thành"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Quay lại video",
@@ -71,7 +76,7 @@
     "title": "Chọn quốc gia cấp giấy tờ"
   },
   "cross_device": {
-    "button_primary_upload": "Tải ảnh lên"
+    "button_primary_upload": "Tiếp tục"
   },
   "cross_device_checklist": {
     "button_primary": "Gửi xác minh",
@@ -154,6 +159,10 @@
     "detail": {
       "folded_doc_front": "Đặt giấy tờ của bạn lên mặt phẳng, chụp tất cả các trang bên trong (phải có ảnh rõ mặt)"
     },
+    "header": {
+      "recording_complete": "Ghi hình đã hoàn tất",
+      "recording_video": "Ghi video"
+    },
     "header_folded_doc_front": "Bên có ảnh hồ sơ",
     "prompt": {
       "button_card": "Giấy phép dạng thẻ cứng",
@@ -171,7 +180,12 @@
       "glare_detail": "Tránh xa ánh sáng trực tiếp",
       "glare_title": "Phát hiện ánh sáng chói",
       "no_doc_detail": "Đảm bảo giấy tờ nằm hoàn toàn trong khung",
-      "no_doc_title": "Không tìm thấy giấy tờ"
+      "no_doc_title": "Không tìm thấy giấy tờ",
+      "odp_detail": "Vui lòng sử dụng tài liệu gốc của bạn. Ảnh chụp màn hình hoặc bản sao không được chấp nhận",
+      "odp_photo_of_screen_title": "Đã phát hiện ảnh của màn hình",
+      "odp_photocopy_title": "Phát hiện bản sao",
+      "odp_scan_title": "Quét đã phát hiện",
+      "odp_screenshot_title": "Đã phát hiện ảnh chụp màn hình"
     },
     "body": "Đảm bảo bạn đã tải lên toàn bộ trang giấy tờ và chi tiết phải rõ ràng để đọc mà không bị mờ hoặc lóa",
     "body_bank_statement": "Đảm bảo bạn đã tải lên toàn bộ trang giấy tờ và chi tiết phải rõ ràng để đọc mà không bị mờ hoặc lóa",
@@ -189,7 +203,9 @@
     "button_primary_redo": "Làm lại",
     "button_primary_upload": "Tải lên",
     "button_primary_upload_anyway": "Vẫn tải lên",
+    "button_secondary_change_document": "Chọn giấy tờ khác",
     "button_secondary_redo": "Làm lại",
+    "button_secondary_submit_anyway": "Gửi ảnh bất kể",
     "button_zoom": "Phóng to hình ảnh",
     "image_accessibility": "Ảnh chụp giấy tờ của bạn",
     "title": "Kiểm tra hình ảnh của bạn"
@@ -236,7 +252,7 @@
     "subtitle_photo_page": "Trang có ảnh",
     "subtitle_poa": "Đây là những giấy tờ có nhiều khả năng hiển thị địa chỉ nhà hiện tại của bạn nhất",
     "title": "Chọn giấy tờ của bạn",
-    "title_poa": "Chọn giấy tờ của %{country}"
+    "title_poa": "Chọn một tài liệu"
   },
   "doc_submit": {
     "button_link_upload": "hoặc tải ảnh lên – không dùng bản scan hoặc bản sao",
@@ -423,6 +439,64 @@
   },
   "permission_recovery": {
     "button_primary": "Làm mới",
+    "desktop_chrome": {
+      "browser_settings": {
+        "list_item_1": "Trên trình duyệt của bạn, nhấp vào biểu tượng khóa [LOCK_ICON] trên thanh địa chỉ",
+        "list_item_2_cam": "Kích hoạt công tắc bên cạnh Camera",
+        "list_item_2_mic": "Kích hoạt công tắc bên cạnh Micro"
+      }
+    },
+    "desktop_edge": {
+      "browser_settings": {
+        "list_item_1": "Trên trình duyệt của bạn, nhấp vào biểu tượng khóa [LOCK_ICON] trên thanh địa chỉ",
+        "list_item_2_cam": "Nhấp vào hộp thả xuống bên cạnh Micro và chọn Cho phép",
+        "list_item_2_mic": "Nhấp vào hộp thả xuống bên cạnh Micro và chọn Cho phép"
+      }
+    },
+    "desktop_firefox": {
+      "browser_settings": {
+        "list_item_2_mic": "Nhấp vào Đã chặn kế bên Sử dụng micro"
+      }
+    },
+    "desktop_generic": {
+      "browser_settings": {
+        "list_item_1": "Trên trình duyệt của bạn, mở cài đặt trang web. Đây thường là biểu tượng khóa [LOCK_ICON] ở thanh địa chỉ",
+        "list_item_2": "Tìm phần về quyền truy cập",
+        "list_item_3_cam": "Cho phép quyền Máy ảnh",
+        "list_item_3_mic": "Cho phép quyền Micro",
+        "list_item_4": "Quay lại trang này và nhấp vào nút Tôi đã thực hiện những thay đổi"
+      },
+      "device_settings": {
+        "list_item_1": "Trên máy tính của bạn, mở Cài đặt của bạn",
+        "list_item_2": "Tìm phần về quyền (thường nằm dưới mục Quyền riêng tư)",
+        "list_item_3_cam": "Cho phép quyền Máy ảnh cho [BROWSER_ICON]",
+        "list_item_3_mic": "Cho phép quyền Micro cho [BROWSER_ICON]"
+      }
+    },
+    "desktop_mac": {
+      "device_settings": {
+        "list_item_1": "Trên máy tính của bạn, nhấp vào menu Apple [APPLE_ICON] và chọn Cài đặt Hệ thống (hoặc Tùy chọn Hệ thống)",
+        "list_item_2": "Nhấp vào Quyền riêng tư & Bảo mật (hoặc Bảo mật & Quyền riêng tư) trong thanh bên",
+        "list_item_3": "Nhấp vào Sau trong cửa sổ pop-up",
+        "list_item_3_cam": "Nhấp vào Camera và kích hoạt công tắc (hoặc hộp kiểm) bên cạnh [BROWSER_ICON]",
+        "list_item_4": "Nhấp vào Thoát & Mở lại trong cửa sổ pop-up và quay lại trang này",
+        "list_item_4_mic": "Nhấp vào Micro và kích hoạt công tắc (hoặc hộp kiểm) bên cạnh [BROWSER_ICON]"
+      }
+    },
+    "desktop_safari": {
+      "browser_settings": {
+        "list_item_3": "Quay lại trang này và nhấp vào nút Tôi đã thực hiện các thay đổi"
+      }
+    },
+    "desktop_windows": {
+      "device_settings": {
+        "list_item_1": "Trên máy tính của bạn, nhấp vào menu Windows [WINDOWS_ICON] và chọn Cài đặt [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "Nhấp vào Quyền riêng tư (hoặc Quyền riêng tư & Bảo mật)",
+        "list_item_3_cam": "Nhấp vào Camera dưới mục Quyền ứng dụng và kích hoạt công tắc bên cạnh [BROWSER_ICON] ",
+        "list_item_3_mic": "Nhấp vào Microphone dưới Quyền ứng dụng và kích hoạt công tắc bên cạnh [BROWSER_ICON]",
+        "list_item_4": "Khởi động lại trình duyệt của bạn nếu cần và quay lại trang này"
+      }
+    },
     "info": "Khôi phục",
     "list_header_both": "Thực hiện theo các bước sau để khôi phục quyền truy cập vào cả hai:",
     "list_header_cam": "Thực hiện theo các bước sau để khôi phục quyền truy cập máy ảnh:",
@@ -431,7 +505,7 @@
     "list_item_how_to_cam": "Cấp quyền truy cập vào máy ảnh từ cài đặt trình duyệt của bạn",
     "list_item_how_to_mic": "Cấp quyền truy cập vào micrô của bạn từ cài đặt trình duyệt của bạn",
     "subtitle_both": "Khôi phục quyền truy cập máy ảnh và micrô để quay video và hoàn tất quy trình xác minh",
-    "subtitle_cam": "Khôi phục quyền truy cập máy ảnh để tiếp tục quá trình xác minh của bạn",
+    "subtitle_cam": "Chúng tôi cần quyền truy cập vào camera của bạn để xác minh danh tính. Vui lòng làm theo hướng dẫn dưới đây để khôi phục quyền truy cập",
     "subtitle_cam_old": "Khôi phục quyền truy cập vào máy ảnh để tiếp tục xác minh khuôn mặt",
     "title_both": "Quyền truy cập máy ảnh và micrô bị từ chối",
     "title_cam": "Quyền truy cập máy ảnh bị từ chối"
@@ -485,6 +559,7 @@
     "subtitle": "Bạn sẽ cần một giấy tờ:",
     "title": "Hãy xác nhận địa chỉ của bạn"
   },
+  "poa_welcome_text": "Chụp ảnh giấy tờ có địa chỉ của bạn",
   "profile_data": {
     "address_title": "Thêm địa chỉ của bạn",
     "button_continue": "Tiếp tục",
@@ -846,7 +921,7 @@
     "info": "Gợi ý",
     "info_link_expire": "Liên kết của bạn sẽ hết hạn sau một giờ",
     "info_link_window": "Giữ cửa sổ này mở trong khi sử dụng điện thoại di động của bạn",
-    "link": "Gửi lại liên kết",
+    "link": "Thử phương pháp khác",
     "subtitle": "Chúng tôi đã gửi liên kết an toàn đến %{number}",
     "subtitle_minutes": "Có thể mất vài phút để đến nơi",
     "title": "Kiểm tra điện thoại di động của bạn"
@@ -861,14 +936,14 @@
     "title": "Đã kết nối với điện thoại di động của bạn"
   },
   "upload_guide": {
-    "button_primary": "Tải ảnh lên",
+    "button_primary": "Tiếp tục",
     "image_detail_blur_alt": "Ví dụ về giấy tờ bị mờ",
     "image_detail_blur_label": "Tất cả các chi tiết phải rõ ràng — không chi tiết nào bị mờ",
     "image_detail_cutoff_label": "Thể hiện mọi chi tiết — kể cả 2 dòng dưới cùng",
     "image_detail_glare_label": "Tránh ánh sáng trực tiếp — không bị lóa",
     "image_detail_good_label": "Ảnh phải thể hiện rõ giấy tờ của bạn",
     "subtitle": "Không chấp nhận bản quét và bản sao",
-    "title": "Tải lên trang có ảnh hộ chiếu"
+    "title": "Gửi trang có ảnh trong hộ chiếu"
   },
   "user_consent": {
     "button_primary": "Chấp nhận",
@@ -924,10 +999,16 @@
   "welcome": {
     "doc_video_subtitle": "Quá trình này có thể mất vài phút",
     "info_original_document": "Chụp giấy tờ gốc của bạn. Bản scan, ảnh chụp bàn hình hoặc bản photo sẽ không được chấp nhận.",
+    "list_header": "Sử dụng thiết bị của bạn để:",
     "list_header_doc_video": "Sử dụng thiết bị của bạn để ghi hình:",
     "list_header_webcam": "Sử dụng webcam hoặc điện thoại của bạn để chụp ảnh:",
     "list_item_doc": "giấy tờ tùy thân",
+    "list_item_doc_generic": "Ghi lại video của giấy tờ tùy thân của bạn",
+    "list_item_doc_photo": "Chụp ảnh giấy tờ tùy thân của bạn",
+    "list_item_doc_video": "Quay video giấy tờ tùy thân của bạn",
     "list_item_doc_video_timeout": "Thời lượng ghi được giới hạn trong  <timeout></timeout> giây",
+    "list_item_face_photo": "Chụp ảnh khuôn mặt của bạn",
+    "list_item_face_video": "Quay video khuôn mặt của bạn",
     "list_item_poa": "bằng chứng về địa chỉ của bạn",
     "list_item_selfie": "khuôn mặt của bạn",
     "next_button": "Chọn giấy tờ",

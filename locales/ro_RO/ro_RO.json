@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Mișcați-vă înapoi",
+    "feedback_move_back_accessibility": "Mișcați dispozitivul în spate",
     "feedback_move_closer": "Veniți mai aproape",
+    "feedback_move_left_accessibility": "Mișcați dispozitivul spre stânga",
+    "feedback_move_right_accessibility": "Mișcați dispozitivul spre dreapta",
     "feedback_no_face_detected": "Fața nu este detectată",
     "feedback_not_centered": "Fața nu este centrată",
     "title": "Poziționați-vă fața în cadru"
@@ -38,7 +41,9 @@
     "list_item_one": "Întâi, poziționați-vă fața în cadru",
     "list_item_two": "Apoi, întoarceți capul încet în ambele părți",
     "subtitle": "Acest lucru este pentru a verifica faptul că sunteți o persoană reală",
-    "title": "Înregistrați un clip video"
+    "title": "Înregistrați un clip video",
+    "title_accessibility": "Înregistrați un clip video cu fața dvs.",
+    "video_accessibility": "Clip video exemplificativ cu o persoană care își întoarce capul în ambele sensuri până la finalizare"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Începeți din nou înregistrarea",
@@ -71,7 +76,7 @@
     "title": "Selectați țara emitentă"
   },
   "cross_device": {
-    "button_primary_upload": "Încărcați poza"
+    "button_primary_upload": "Continuați"
   },
   "cross_device_checklist": {
     "button_primary": "Trimiteți verificarea",
@@ -154,6 +159,10 @@
     "detail": {
       "folded_doc_front": "Poziționați documentul dvs. pe o suprafață plană, includeți toate paginile interne (trebuie să conțină poza dvs.)"
     },
+    "header": {
+      "recording_complete": "Înregistrare finalizată",
+      "recording_video": "Înregistrare video"
+    },
     "header_folded_doc_front": "Latură poză de profil",
     "prompt": {
       "button_card": "Card de plastic",
@@ -171,7 +180,12 @@
       "glare_detail": "Nu stați în lumină directă",
       "glare_title": "Luciu detectat",
       "no_doc_detail": "Asigurați-vă că este integral în cadru",
-      "no_doc_title": "Documentul nu a fost detectat"
+      "no_doc_title": "Documentul nu a fost detectat",
+      "odp_detail": "Vă rugăm să utilizați documentul dvs. original. Fotografiile de pe ecran sau fotocopiile nu sunt acceptate",
+      "odp_photo_of_screen_title": "Fotografie a ecranului detectată",
+      "odp_photocopy_title": "Fotocopie detectată",
+      "odp_scan_title": "Scanare detectată",
+      "odp_screenshot_title": "Captură de ecran detectată"
     },
     "body": "Asigurați-vă că ați încărcat întreaga pagină a documentului și că detaliile sunt clare, fără estompări sau luciri, pentru a fi citite",
     "body_bank_statement": "Asigurați-vă că ați încărcat întreaga pagină a documentului și că detaliile sunt clare, fără estompări sau luciri, pentru a fi citite",
@@ -189,7 +203,9 @@
     "button_primary_redo": "Refaceți",
     "button_primary_upload": "Încărcați",
     "button_primary_upload_anyway": "Încărcați oricum",
+    "button_secondary_change_document": "Alegeți alt document",
     "button_secondary_redo": "Refaceți",
+    "button_secondary_submit_anyway": "Trimite oricum fotografia",
     "button_zoom": "Măriți imaginea",
     "image_accessibility": "Poză a documentului dvs.",
     "title": "Verificați imaginea dvs."
@@ -236,7 +252,7 @@
     "subtitle_photo_page": "Pagina cu poză",
     "subtitle_poa": "Acestea sunt documente care cel mai probabil indică adresa dvs. de reședință actuală",
     "title": "Alegeți documentul dvs.",
-    "title_poa": "Selectați un %{country} document"
+    "title_poa": "Alegeți un document"
   },
   "doc_submit": {
     "button_link_upload": "sau încărcați poză – fără scanări sau fotocopii",
@@ -423,6 +439,64 @@
   },
   "permission_recovery": {
     "button_primary": "Reîmprospătați",
+    "desktop_chrome": {
+      "browser_settings": {
+        "list_item_1": "În browserul tău, fă clic pe pictograma de blocare [LOCK_ICON] din bara de adrese",
+        "list_item_2_cam": "Activați comutatorul de lângă Camera",
+        "list_item_2_mic": "Activați comutatorul de lângă Microfon"
+      }
+    },
+    "desktop_edge": {
+      "browser_settings": {
+        "list_item_1": "În browserul tău, fă clic pe pictograma de blocare [LOCK_ICON] din bara de adrese",
+        "list_item_2_cam": "Faceți clic pe meniul derulant de lângă Microfon și selectați Permiteți",
+        "list_item_2_mic": "Faceți clic pe meniul derulant de lângă Microfon și selectați Permiteți"
+      }
+    },
+    "desktop_firefox": {
+      "browser_settings": {
+        "list_item_2_mic": "Faceți clic pe Blocat lângă Utilizați microfonul"
+      }
+    },
+    "desktop_generic": {
+      "browser_settings": {
+        "list_item_1": "În browserul dvs., deschideți setările site-ului web. Aceasta este adesea o pictogramă de blocare [LOCK_ICON] în bara de adrese",
+        "list_item_2": "Găsiți secțiunea despre permisiuni",
+        "list_item_3_cam": "Activați permisiunile pentru Camera",
+        "list_item_3_mic": "Activați permisiunile pentru Microfon",
+        "list_item_4": "Reveniți la această pagină și apăsați butonul Am făcut modificările"
+      },
+      "device_settings": {
+        "list_item_1": "Pe computerul dvs., deschideți Setările",
+        "list_item_2": "Găsiți secțiunea despre permisiuni (de obicei sub Confidențialitate)",
+        "list_item_3_cam": "Activați permisiunile pentru Camera pentru [BROWSER_ICON]",
+        "list_item_3_mic": "Activați permisiunile pentru Microfon pentru [BROWSER_ICON]"
+      }
+    },
+    "desktop_mac": {
+      "device_settings": {
+        "list_item_1": "Pe computerul dvs., faceți clic pe meniul Apple [APPLE_ICON] și selectați Setări sistem (sau Preferințe sistem)",
+        "list_item_2": "Faceți clic pe Confidențialitate și Securitate (sau Securitate și Confidențialitate) în bara laterală ",
+        "list_item_3": "Faceți clic pe Mai târziu în fereastra pop-up",
+        "list_item_3_cam": "Faceți clic pe Camera și activați comutatorul (sau căsuța de selectare) de lângă [BROWSER_ICON]",
+        "list_item_4": "Faceți clic pe Închideți și redeschideți în fereastra pop-up și reveniți la această pagină",
+        "list_item_4_mic": "Faceți clic pe Microfon și activați comutatorul (sau căsuța de selectare) de lângă [BROWSER_ICON]"
+      }
+    },
+    "desktop_safari": {
+      "browser_settings": {
+        "list_item_3": "Reveniți la această pagină și faceți clic pe butonul Am făcut modificările"
+      }
+    },
+    "desktop_windows": {
+      "device_settings": {
+        "list_item_1": "Pe computerul dvs., faceți clic pe meniul Windows [WINDOWS_ICON] și selectați Setări [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "Faceți clic pe Confidențialitate (sau Confidențialitate & Securitate)",
+        "list_item_3_cam": "Faceți clic pe Camera sub Permisiuni aplicație și activați comutatorul de lângă [BROWSER_ICON] ",
+        "list_item_3_mic": "Faceți clic pe Microfon sub Permisiuni aplicație și activați comutatorul de lângă [BROWSER_ICON]",
+        "list_item_4": "Reporniți browserul dacă este necesar și reveniți la această pagină"
+      }
+    },
     "info": "Recuperare",
     "list_header_both": "Urmați acești pași pentru a recupera acces pentru ambele:",
     "list_header_cam": "Urmați acești pași pentru a recupera accesul la camera video:",
@@ -431,7 +505,7 @@
     "list_item_how_to_cam": "Permiteți accesul la camera dvs. video din setările dvs. de browser",
     "list_item_how_to_mic": "Permiteți accesul la microfonul dvs. din setările dvs. de browser",
     "subtitle_both": "Recuperați accesul la camera video și microfon pentru a face un clip video și a finaliza procesul de verificare",
-    "subtitle_cam": "Recuperați accesul la camera video pentru a continua verificarea dvs.",
+    "subtitle_cam": "Avem nevoie de acces la camera dvs. pentru a vă verifica identitatea. Urmați instrucțiunile de mai jos pentru a recupera accesul",
     "subtitle_cam_old": "Recuperați accesul la camera video pentru a continua verificarea feței",
     "title_both": "Accesul la camera video și microfon este refuzat",
     "title_cam": "Accesul la camera video este refuzat"
@@ -485,6 +559,7 @@
     "subtitle": "Aveți nevoie de un document care:",
     "title": "Haideți să vă verificăm adresa"
   },
+  "poa_welcome_text": "Faceți o poză a unui document cu adresa dvs.",
   "profile_data": {
     "address_title": "Adăugați adresa dvs.",
     "button_continue": "Continuați",
@@ -846,7 +921,7 @@
     "info": "Sugestii",
     "info_link_expire": "Linkul dvs. va expira într-o oră",
     "info_link_window": "Mențineți această fereastră deschisă în timp ce vă utilizați telefonul mobil",
-    "link": "Trimiteți din nou linkul",
+    "link": "Încercați o altă metodă",
     "subtitle": "Am trimis un link sigur la %{number}",
     "subtitle_minutes": "Ar putea să dureze câteva minute să îl primiți",
     "title": "Verificați telefonul dvs. mobil"
@@ -861,14 +936,14 @@
     "title": "Conectat la telefonul dvs. mobil"
   },
   "upload_guide": {
-    "button_primary": "Încărcați poza",
+    "button_primary": "Continuați",
     "image_detail_blur_alt": "Exemplu de document încețoșat",
     "image_detail_blur_label": "Toate detaliile trebuie să fie clare — nimic cețos",
     "image_detail_cutoff_label": "Arătați toate detaliile — includeți cele 2 linii de jos",
     "image_detail_glare_label": "Nu stați în lumină directă — fără luciri",
     "image_detail_good_label": "Poza trebuie să arate clar documentul dvs.",
     "subtitle": "Scanările și fotocopiile nu sunt acceptate",
-    "title": "Încărcați pagina cu poză a pașaportului"
+    "title": "Trimiteți pagina cu fotografia din pașaport"
   },
   "user_consent": {
     "button_primary": "Accept",
@@ -924,10 +999,16 @@
   "welcome": {
     "doc_video_subtitle": "",
     "info_original_document": "Faceți o fotografie a documentului original. Nu sunt permise scanările, fotografiile de pe ecran sau fotocopiile.",
+    "list_header": "Utilizați dispozitivul dvs. pentru:",
     "list_header_doc_video": "Utilizați dispozitivul dvs. pentru înregistra:",
     "list_header_webcam": "Utilizați camera dvs. web sau telefonul dvs. pentru a face o poză:",
     "list_item_doc": "documentul dvs. de identitate",
+    "list_item_doc_generic": "Înregistrați un videoclip cu documentul dvs. de identitate",
+    "list_item_doc_photo": "Faceți o poză cu documentul dvs. de identitate",
+    "list_item_doc_video": "Înregistrați un clip video cu documentul dvs. de identitate",
     "list_item_doc_video_timeout": "Înregistrarea este limitată la <timeout></timeout> secunde",
+    "list_item_face_photo": "A face o poză a feței dvs.",
+    "list_item_face_video": "Înregistrați un clip video cu fața dvs.",
     "list_item_poa": "dovada dvs. de adresă",
     "list_item_selfie": "fața dvs.",
     "next_button": "Alegeți documentul",

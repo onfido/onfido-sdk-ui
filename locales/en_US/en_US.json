@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Move back",
+    "feedback_move_back_accessibility": "Move your device back",
     "feedback_move_closer": "Move closer",
+    "feedback_move_left_accessibility": "Move your device to the left",
+    "feedback_move_right_accessibility": "Move your device to the right",
     "feedback_no_face_detected": "Face not detected",
     "feedback_not_centered": "Face not centered",
     "title": "Position your face in the frame"
@@ -38,7 +41,9 @@
     "list_item_one": "First, position your face in the frame",
     "list_item_two": "Then, turn your head slowly to both sides",
     "subtitle": "This is to verify that you’re a real person",
-    "title": "Record a video"
+    "title": "Record a video",
+    "title_accessibility": "Record a video of your face",
+    "video_accessibility": "Example video of someone turning their head to both sides until completion"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Restart recording",
@@ -71,7 +76,7 @@
     "title": "Select issuing country"
   },
   "cross_device": {
-    "button_primary_upload": "Upload photo"
+    "button_primary_upload": "Continue"
   },
   "cross_device_checklist": {
     "button_primary": "Submit verification",
@@ -154,6 +159,10 @@
     "detail": {
       "folded_doc_front": "Lay your document flat, include all inner pages (must contain your photo)"
     },
+    "header": {
+      "recording_complete": "Recording complete",
+      "recording_video": "Recording video"
+    },
     "header_folded_doc_front": "Profile photo side",
     "prompt": {
       "button_card": "Plastic card",
@@ -171,7 +180,12 @@
       "glare_detail": "Move away from direct light",
       "glare_title": "Glare detected",
       "no_doc_detail": "Make sure it’s fully in the frame",
-      "no_doc_title": "Document not detected"
+      "no_doc_title": "Document not detected",
+      "odp_detail": "Please use your original document. Photos of screen or photocopies are not accepted",
+      "odp_photo_of_screen_title": "Photo of screen detected",
+      "odp_photocopy_title": "Photocopy detected",
+      "odp_scan_title": "Scan detected",
+      "odp_screenshot_title": "Screenshot detected"
     },
     "body": "Make sure you have uploaded the entire document page, and details are clear to read with no blur or glare",
     "body_bank_statement": "Make sure you have uploaded the entire document page, and details are clear to read with no blur or glare",
@@ -189,7 +203,9 @@
     "button_primary_redo": "Redo",
     "button_primary_upload": "Upload",
     "button_primary_upload_anyway": "Upload anyway",
+    "button_secondary_change_document": "Choose another document",
     "button_secondary_redo": "Redo",
+    "button_secondary_submit_anyway": "Submit photo anyway",
     "button_zoom": "Enlarge image",
     "image_accessibility": "Photo of your document",
     "title": "Check your image"
@@ -236,7 +252,7 @@
     "subtitle_photo_page": "Photo page",
     "subtitle_poa": "These are the documents most likely to show your current home address",
     "title": "Choose your document",
-    "title_poa": "Select a %{country} document"
+    "title_poa": "Select a document"
   },
   "doc_submit": {
     "button_link_upload": "or upload photo – no scans or photocopies",
@@ -423,6 +439,64 @@
   },
   "permission_recovery": {
     "button_primary": "Refresh",
+    "desktop_chrome": {
+      "browser_settings": {
+        "list_item_1": "In your browser, click the lock icon [LOCK_ICON] in the address bar",
+        "list_item_2_cam": "Activate the toggle next to Camera",
+        "list_item_2_mic": "Activate the toggle next to Microphone"
+      }
+    },
+    "desktop_edge": {
+      "browser_settings": {
+        "list_item_1": "In your browser, click the lock icon [LOCK_ICON] in the address bar",
+        "list_item_2_cam": "Click the dropdown next to Camera and select Allow",
+        "list_item_2_mic": "Click the dropdown next to Microphone and select Allow"
+      }
+    },
+    "desktop_firefox": {
+      "browser_settings": {
+        "list_item_2_mic": "Click Blocked next to Use the microphone"
+      }
+    },
+    "desktop_generic": {
+      "browser_settings": {
+        "list_item_1": "In your browser, open the website settings. This is often a lock icon [LOCK_ICON] in the address bar",
+        "list_item_2": "Find the section about permissions",
+        "list_item_3_cam": "Enable the Camera permissions",
+        "list_item_3_mic": "Enable the Microphone permissions",
+        "list_item_4": "Come back to this page and click the I've made the changes button"
+      },
+      "device_settings": {
+        "list_item_1": "On your computer, open your Settings",
+        "list_item_2": "Find the section about permissions (usually under Privacy)",
+        "list_item_3_cam": "Enable the Camera permissions for [BROWSER_ICON]",
+        "list_item_3_mic": "Enable the Microphone permissions for [BROWSER_ICON]"
+      }
+    },
+    "desktop_mac": {
+      "device_settings": {
+        "list_item_1": "On your computer, click the Apple menu [APPLE_ICON] and select System Settings (or System Preferences)",
+        "list_item_2": "Click Privacy & Security (or Security & Privacy) in the sidebar ",
+        "list_item_3": "Click Later in the pop-up",
+        "list_item_3_cam": "Click Camera and activate the toggle (or checkbox) next to [BROWSER_ICON]",
+        "list_item_4": "Click Quit & Reopen in the pop-up and come back to this page",
+        "list_item_4_mic": "Click Microphone and activate the toggle (or checkbox) next to [BROWSER_ICON]"
+      }
+    },
+    "desktop_safari": {
+      "browser_settings": {
+        "list_item_3": "Come back to this page and click the I've made the changes button"
+      }
+    },
+    "desktop_windows": {
+      "device_settings": {
+        "list_item_1": "On your computer, click the Windows menu [WINDOWS_ICON] and select Settings [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "Click Privacy (or Privacy & Security)",
+        "list_item_3_cam": "Click Camera under App permissions and activate the toggle next to [BROWSER_ICON] ",
+        "list_item_3_mic": "Click Microphone under App permissions and activate the toggle next to [BROWSER_ICON]",
+        "list_item_4": "Restart your browser if necessary and come back to this page"
+      }
+    },
     "info": "Recovery",
     "list_header_both": "Follow these steps to recover access for both:",
     "list_header_cam": "Follow these steps to recover camera access:",
@@ -431,7 +505,7 @@
     "list_item_how_to_cam": "Grant access to your camera from your browser settings",
     "list_item_how_to_mic": "Grant access to your microphone from your browser settings",
     "subtitle_both": "Recover camera and microphone access to take a video and complete the verification process",
-    "subtitle_cam": "Recover camera access to continue your verification",
+    "subtitle_cam": "We need access to your camera to verify your identity. Follow the instructions below to recover access",
     "subtitle_cam_old": "Recover camera access to continue face verification",
     "title_both": "Camera and microphone access denied",
     "title_cam": "Camera access is denied"
@@ -485,6 +559,7 @@
     "subtitle": "You’ll need a document that:",
     "title": "Let’s verify your address"
   },
+  "poa_welcome_text": "Take a photo of a document with your address",
   "profile_data": {
     "address_title": "Add your address",
     "button_continue": "Continue",
@@ -846,7 +921,7 @@
     "info": "Tips",
     "info_link_expire": "Your link will expire in one hour",
     "info_link_window": "Keep this window open while using your mobile",
-    "link": "Resend link",
+    "link": "Try another method",
     "subtitle": "We’ve sent a secure link to %{number}",
     "subtitle_minutes": "It may take a few minutes to arrive",
     "title": "Check your mobile"
@@ -861,21 +936,21 @@
     "title": "Connected to your mobile"
   },
   "upload_guide": {
-    "button_primary": "Upload photo",
+    "button_primary": "Continue",
     "image_detail_blur_alt": "Example of a blurry document",
     "image_detail_blur_label": "All details must be clear — nothing blurry",
     "image_detail_cutoff_label": "Show all details — including the bottom 2 lines",
     "image_detail_glare_label": "Move away from direct light — no glare",
     "image_detail_good_label": "The photo should clearly show your document",
     "subtitle": "Scans and photocopies are not accepted",
-    "title": "Upload passport photo page"
+    "title": "Submit passport photo page"
   },
   "user_consent": {
     "button_primary": "Accept",
     "button_secondary": "Do not accept",
     "prompt": {
       "button_primary": "Review again",
-      "button_secondary": "Yes, don’t verify me",
+      "button_secondary": "Yes, don't verify me",
       "no_consent_detail": "If you do not accept Onfido’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
       "no_consent_title": "Are you sure?"
     }
@@ -924,10 +999,16 @@
   "welcome": {
     "doc_video_subtitle": "It should take a few minutes",
     "info_original_document": "Take a photograph of your original document. Scans, photos of screens or photocopies are not allowed.",
+    "list_header": "Use your device to:",
     "list_header_doc_video": "Use your device to record:",
     "list_header_webcam": "Use your webcam or phone to photograph:",
     "list_item_doc": "your identity document",
+    "list_item_doc_generic": "Record a video of your identity document",
+    "list_item_doc_photo": "Take a photo of your identity document",
+    "list_item_doc_video": "Record a video of your identity document",
     "list_item_doc_video_timeout": "Recording is limited to <timeout></timeout> seconds",
+    "list_item_face_photo": "Take a photo of your face",
+    "list_item_face_video": "Record a video of your face",
     "list_item_poa": "your proof of address",
     "list_item_selfie": "your face",
     "next_button": "Choose document",

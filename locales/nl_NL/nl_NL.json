@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Ga naar achteren",
+    "feedback_move_back_accessibility": "Beweeg uw apparaat terug",
     "feedback_move_closer": "Kom dichterbij",
+    "feedback_move_left_accessibility": "Beweeg uw apparaat naar links",
+    "feedback_move_right_accessibility": "Beweeg uw apparaat naar rechts",
     "feedback_no_face_detected": "Gezicht niet gedetecteerd",
     "feedback_not_centered": "Gezicht niet gecentreerd",
     "title": "Plaats uw gezicht in het kader"
@@ -38,7 +41,9 @@
     "list_item_one": "Plaats eerst uw gezicht in het kader",
     "list_item_two": "Draai uw hoofd dan langzaam naar beide kanten",
     "subtitle": "Dit is om te verifiëren dat u een echte persoon bent",
-    "title": "Maak een filmpje"
+    "title": "Maak een filmpje",
+    "title_accessibility": "Maak een fimpje van uw gezicht",
+    "video_accessibility": "Voorbeeldfilmpje van iemand die zijn/haar hoofd naar beide kanten draait totdat hij/zij klaar is"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Opname opnieuw starten",
@@ -71,7 +76,7 @@
     "title": "Selecteer land van uitgifte"
   },
   "cross_device": {
-    "button_primary_upload": "Upload foto"
+    "button_primary_upload": "Doorgaan"
   },
   "cross_device_checklist": {
     "button_primary": "Verzend verificatie",
@@ -154,6 +159,10 @@
     "detail": {
       "folded_doc_front": "Leg uw document plat neer, inclusief alle binnenste pagina's (moeten uw foto bevatten)"
     },
+    "header": {
+      "recording_complete": "Opname voltooid",
+      "recording_video": "Video opnemen"
+    },
     "header_folded_doc_front": "Kant van de profiel foto",
     "prompt": {
       "button_card": "Plastic kaart",
@@ -171,7 +180,12 @@
       "glare_detail": "Sta niet in direct zonlicht",
       "glare_title": "Schittering gedetecteerd",
       "no_doc_detail": "Zorg dat het volledig in het kader geplaatst is",
-      "no_doc_title": "Document niet gedetecteerd"
+      "no_doc_title": "Document niet gedetecteerd",
+      "odp_detail": "Gebruik alstublieft uw originele document. Foto's van schermen of fotokopieën worden niet geaccepteerd",
+      "odp_photo_of_screen_title": "Foto van scherm gedetecteerd",
+      "odp_photocopy_title": "Fotokopie gedetecteerd",
+      "odp_scan_title": "Scan gedetecteerd",
+      "odp_screenshot_title": "Schermafbeelding gedetecteerd"
     },
     "body": "Zorg ervoor dat u de volledige documentpagina heeft geüpload, en dat de details duidelijk en zonder wazigheid of spiegeling te lezen zijn",
     "body_bank_statement": "Zorg ervoor dat u de volledige documentpagina heeft geüpload, en dat de details duidelijk en zonder wazigheid of spiegeling te lezen zijn",
@@ -189,7 +203,9 @@
     "button_primary_redo": "Opnieuw uitvoeren",
     "button_primary_upload": "Uploaden",
     "button_primary_upload_anyway": "Toch uploaden",
+    "button_secondary_change_document": "Kies een ander document",
     "button_secondary_redo": "Opnieuw uitvoeren",
+    "button_secondary_submit_anyway": "Foto toch indienen",
     "button_zoom": "Vergroot afbeelding",
     "image_accessibility": "Foto van uw document",
     "title": "Controleer uw afbeelding"
@@ -236,7 +252,7 @@
     "subtitle_photo_page": "Fotopagina",
     "subtitle_poa": "Dit zijn de meest waarschijnlijke documenten waaruit uw huidige adres blijkt",
     "title": "Kies uw document",
-    "title_poa": "Kies een %{land} document"
+    "title_poa": "Selecteer een document"
   },
   "doc_submit": {
     "button_link_upload": "of upload een foto - geen scans of kopieën",
@@ -423,6 +439,64 @@
   },
   "permission_recovery": {
     "button_primary": "Verversen",
+    "desktop_chrome": {
+      "browser_settings": {
+        "list_item_1": "Klik in uw browser op het slotpictogram [LOCK_ICON] in de adresbalk",
+        "list_item_2_cam": "Activeer de schakelaar naast Camera",
+        "list_item_2_mic": "Activeer de schakelaar naast Microfoon"
+      }
+    },
+    "desktop_edge": {
+      "browser_settings": {
+        "list_item_1": "Klik in uw browser op het slotpictogram [LOCK_ICON] in de adresbalk",
+        "list_item_2_cam": "Klik op het dropdown-menu naast Camera en selecteer Toestaan",
+        "list_item_2_mic": "Klik op het dropdown-menu naast Microfoon en selecteer Toestaan"
+      }
+    },
+    "desktop_firefox": {
+      "browser_settings": {
+        "list_item_2_mic": "Klik op Geblokkeerd naast Gebruik de microfoon"
+      }
+    },
+    "desktop_generic": {
+      "browser_settings": {
+        "list_item_1": "Open in uw browser de website-instellingen. Dit is vaak een slotpictogram [LOCK_ICON] in de adresbalk",
+        "list_item_2": "Vind de sectie over toestemmingen",
+        "list_item_3_cam": "Schakel de Camera toestemmingen in",
+        "list_item_3_mic": "Schakel de Microfoon toestemmingen in",
+        "list_item_4": "Kom terug naar deze pagina en klik op de knop Ik heb de wijzigingen aangebracht"
+      },
+      "device_settings": {
+        "list_item_1": "Open op uw computer uw Instellingen",
+        "list_item_2": "Zoek het gedeelte over machtigingen (meestal onder Privacy)",
+        "list_item_3_cam": "Schakel de Camera toestemmingen in voor [BROWSER_ICON]",
+        "list_item_3_mic": "Schakel de Microfoon toestemmingen in voor [BROWSER_ICON]"
+      }
+    },
+    "desktop_mac": {
+      "device_settings": {
+        "list_item_1": "Op uw computer, klik op het Apple-menu [APPLE_ICON] en selecteer Systeeminstellingen (of Systeemvoorkeuren)",
+        "list_item_2": "Klik op Privacy & Beveiliging (of Beveiliging & Privacy) in de zijbalk",
+        "list_item_3": "Klik op Later in de pop-up",
+        "list_item_3_cam": "Klik op  Camera  en activeer de schakelaar (of het selectievakje) naast [BROWSER_ICON]",
+        "list_item_4": "Klik op Stoppen & Opnieuw openen in de pop-up en keer terug naar deze pagina",
+        "list_item_4_mic": "Klik op Microfoon en activeer de schakelaar (of het selectievakje) naast [BROWSER_ICON]"
+      }
+    },
+    "desktop_safari": {
+      "browser_settings": {
+        "list_item_3": "Kom terug naar deze pagina en klik op de knop Ik heb de wijzigingen aangebracht"
+      }
+    },
+    "desktop_windows": {
+      "device_settings": {
+        "list_item_1": "Op uw computer, klik op het Windows-menu [WINDOWS_ICON] en selecteer Instellingen [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "Klik op Privacy (of Privacy & Beveiliging)",
+        "list_item_3_cam": "Klik op Camera onder App-machtigingen en activeer de schakelaar naast [BROWSER_ICON] ",
+        "list_item_3_mic": "Klik op Microfoon onder App-machtigingen en activeer de schakelaar naast [BROWSER_ICON]",
+        "list_item_4": "Herstart indien nodig uw browser en keer terug naar deze pagina"
+      }
+    },
     "info": "Herstellen",
     "list_header_both": "Volg deze stappen om de toegang voor beide te herstellen:",
     "list_header_cam": "Volg deze stappen om toegang tot de camera te herstellen:",
@@ -431,7 +505,7 @@
     "list_item_how_to_cam": "Schakel toegang tot uw camera in vanuit de browserinstellingen",
     "list_item_how_to_mic": "Schakel toegang tot uw microfoon in vanuit de browserinstellingen",
     "subtitle_both": "Herstel toegang tot de camera en de microfoon om een filmpje op te nemen en de verificatie van uw gezicht te voltooien",
-    "subtitle_cam": "Herstel de cameratoegang om uw verificatie voort te zetten",
+    "subtitle_cam": "We hebben toegang tot uw camera nodig om uw identiteit te verifiëren. Volg de onderstaande instructies om toegang te herstellen",
     "subtitle_cam_old": "Herstel toegang tot de camera om door te gaan met de verificatie van uw gezicht",
     "title_both": "Toegang tot camera en microfoon geweigerd",
     "title_cam": "Toegang tot camera is geweigerd"
@@ -485,6 +559,7 @@
     "subtitle": "U heeft een document nodig dat:",
     "title": "Laten we uw adres verifiëren"
   },
+  "poa_welcome_text": "Neem een foto van een document met uw adres",
   "profile_data": {
     "address_title": "Voeg uw adres toe",
     "button_continue": "Doorgaan",
@@ -846,7 +921,7 @@
     "info": "Tips",
     "info_link_expire": "Uw link verloopt over een uur",
     "info_link_window": "Houd dit venster open als u uw mobiele telefoon gebruikt",
-    "link": "Stuur link opnieuw",
+    "link": "Probeer een andere methode",
     "subtitle": "We hebben een beveiligde link gestuurd naar %{number}",
     "subtitle_minutes": "Het kan een paar minuten duren voordat u deze ontvangt",
     "title": "Check uw mobiele telefoon"
@@ -861,29 +936,29 @@
     "title": "Verbonden met uw mobiele telefoon"
   },
   "upload_guide": {
-    "button_primary": "Upload foto",
+    "button_primary": "Doorgaan",
     "image_detail_blur_alt": "Voorbeeld van een wazig document",
     "image_detail_blur_label": "Alle details moeten scherp zijn - niets wazig",
     "image_detail_cutoff_label": "Toon alle details - waaronder de onderste 2 regels",
     "image_detail_glare_label": "Ga niet in direct zonlicht staan - geen glans",
     "image_detail_good_label": "De foto moet uw document duidelijk weergeven",
     "subtitle": "Scans en fotokopiën worden niet geaccepteerd",
-    "title": "Upload de fotopagina van uw paspoort"
+    "title": "Dien de fotopagina van uw paspoort in"
   },
   "user_consent": {
     "button_primary": "Accepteren",
-    "button_secondary": "Niet accepteren",
+    "button_secondary": "Niet aanvaarden",
     "prompt": {
-      "button_primary": "Controleer opniew",
-      "button_secondary": "Ja, verifieer mij niet",
-      "no_consent_detail": "If you do not accept Onfido’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
+      "button_primary": "Bekijk het opnieuw",
+      "button_secondary": "Ja, controleer mij niet",
+      "no_consent_detail": "Als u de privacyverklaringen en de servicevoorwaarden van Onfido niet accepteert, kunnen we uw identiteit niet verifiëren en zult u deze stap verlaten.",
       "no_consent_title": "Weet u het zeker?"
     }
   },
   "user_consent_load_fail": {
-    "button_primary": "Reload screen",
-    "detail": "Check that your connection is stable, then try again",
-    "title": "Content failed to load"
+    "button_primary": "Scherm opnieuw laden",
+    "detail": "Controleer of u een stabiele verbinding heeft en probeer het daarna opnieuw",
+    "title": "Inhoud laden mislukt"
   },
   "video_capture": {
     "body": "Houd uw gezicht binnen het ovale kader",
@@ -924,10 +999,16 @@
   "welcome": {
     "doc_video_subtitle": "Dat duurt maar een paar minuten",
     "info_original_document": "Maak een foto van uw originele document. Scans, foto's van schermen of fotokopieën zijn niet toegestaan.",
+    "list_header": "Gebruik uw apparaat om:",
     "list_header_doc_video": "Gebruik uw apparaat om op te nemen:",
     "list_header_webcam": "Gebruik uw webcam of telefoon om te fotograferen:",
     "list_item_doc": "uw identiteitsbewijs",
+    "list_item_doc_generic": "Maak een video van uw identiteitsdocument",
+    "list_item_doc_photo": "Maak een foto van uw identiteitsbewijs",
+    "list_item_doc_video": "Maak een filmpje van uw identiteitsbewijs",
     "list_item_doc_video_timeout": "Opname is beperkt tot <timeout></timeout> seconden",
+    "list_item_face_photo": "Maak een foto van uw gezicht",
+    "list_item_face_video": "Maak een fimpje van uw gezicht",
     "list_item_poa": "uw adresbewijs",
     "list_item_selfie": "uw gezicht",
     "next_button": "Kies een document",

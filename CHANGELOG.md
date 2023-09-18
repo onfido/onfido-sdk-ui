@@ -10,14 +10,87 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 
+- Add new `colorBackgroundDropdownItemHover` and `colorBackgroundDropdownItemActive` UI customization option for the country selector.
+- Add ODP error handling (https://documentation.onfido.com/#original-document-present-reasons)
+- New document capture experience change: Stop rendering the fallback message after two blurry document upload tries.
+- Three changes in the Javascript "New document capture experience": One, increase timeout to see the fallback error message from 40s to 80s. Two, don't show the fallback error message when uploadFallback is disabled. Three, keep the button available even when the uploadFallback error message is shown.
+
+### Fixed
+
+- Prevent the windows touch machines from using the JS camera. In some cases, the Windows Touch machines were allowed to behave as mobile devices. It's not the case anymore.
+- Fix the resolution of the new document capture experience (JS Camera) for iOS devices. It was 1443 px instead of 1440 px.
+
+## [13.3.2] - 2023-09-18
+
+### Changed
+
+### Fixed
+
+- Fix workflow double document steps and blank screen after face capture
+
+## [13.3.1] - 2023-08-22
+
+### Changed
+
+- Prevent Windows Touch machines from using the JS camera. In some cases, Windows Touch machines were allowed to behave as mobile devices. This is no longer the case.
+
+## [13.3.0] - 2023-08-16
+
+### Changed
+
+- Fix loading modules when the first module is skippable (studio).
+- Add a general tips section in the README.md
+- Change the welcome screen wording to comply with video recording regulations.
+
+## [13.2.0] - 2023-08-08
+
+### Changed
+
+### Fixed
+
+- Custom cross device URLs can now contain a path between the host and the hash. Ex: `https://host:port/some/path/HASH`
+- Color contrast in button and remove icons preload
+
+## [13.1.0] - 2023-07-20
+
+### Changed
+
+- Update `resend SMS` copy for better user experience.
+- Add Accessibility translations for Motion.
+- Add support for Romanian national identity number in profile capture
+
+### Fixed
+
+- Fix `issuing_country` on `cross-device` for `passport` not added to payload.
+
+## [13.0.1] - 2023-07-11
+
+### Changed
+
+- Add play pause button to motion intro animation video.
+
+### Fixed
+
+- Fix duplicate Motion capture uploads on SDK initialisations without a `complete` step.
+- Fix Motion capture recording starting too early.
+
 ## [13.0.0] - 2023-07-11
 
 ### Changed
 
 - Remove `uploadFallback` option in the `document` step.
-- Add a new error when barcode detection issues arise.
 - Remove `uploadFallback` option in the `face` step.
+- Add a new error when barcode detection issues arise.
+
+### Fixed
+
 - Fix workflow multi document taks step configuration.
+
+## [12.4.1] - 2023-07-14
+
+### Fixed
+
+- Fix close button on document preview
 
 ## [12.4.0] - 2023-06-19
 
@@ -1539,8 +1612,15 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/13.0.0...development
-[13.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/12.4.0...13.0.0
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/13.3.2...development
+[13.3.2]: https://github.com/onfido/onfido-sdk-ui/compare/13.3.1...13.3.2
+[13.3.1]: https://github.com/onfido/onfido-sdk-ui/compare/13.3.0...13.3.1
+[13.3.0]: https://github.com/onfido/onfido-sdk-ui/compare/13.2.0...13.3.0
+[13.2.0]: https://github.com/onfido/onfido-sdk-ui/compare/13.1.0...13.2.0
+[13.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/13.0.1...13.1.0
+[13.0.1]: https://github.com/onfido/onfido-sdk-ui/compare/13.0.0...13.0.1
+[13.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/12.4.1...13.0.0
+[12.4.1]: https://github.com/onfido/onfido-sdk-ui/compare/12.4.0...12.4.1
 [12.4.0]: https://github.com/onfido/onfido-sdk-ui/compare/12.3.6...12.4.0
 [12.3.6]: https://github.com/onfido/onfido-sdk-ui/compare/12.3.5...12.3.6
 [12.3.5]: https://github.com/onfido/onfido-sdk-ui/compare/12.3.4...12.3.5

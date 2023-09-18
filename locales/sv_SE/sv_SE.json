@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Flytta bakåt",
+    "feedback_move_back_accessibility": "Flytta enheten bakåt",
     "feedback_move_closer": "Flytta närmare",
+    "feedback_move_left_accessibility": "Flytta enheten åt vänster",
+    "feedback_move_right_accessibility": "Flytta enheten åt höger",
     "feedback_no_face_detected": "Inget ansikte upptäcktes",
     "feedback_not_centered": "Ansiktet är inte centrerat",
     "title": "Placera ditt ansikte i ramen"
@@ -38,7 +41,9 @@
     "list_item_one": "Placera först ansiktet i ramen",
     "list_item_two": "Vrid sedan långsamt huvudet åt båda sidorna",
     "subtitle": "Syftet med detta är att verifiera att du är en riktig person",
-    "title": "Spela in en video"
+    "title": "Spela in en video",
+    "title_accessibility": "Spela in en video av ditt ansikte",
+    "video_accessibility": "Exempel på video där någon vrider huvudet åt båda sidorna tills det är klart"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Starta om inspelningen",
@@ -71,7 +76,7 @@
     "title": "Välj utfärdande land"
   },
   "cross_device": {
-    "button_primary_upload": "Ladda upp foto"
+    "button_primary_upload": "Fortsätt"
   },
   "cross_device_checklist": {
     "button_primary": "Skicka in verifiering",
@@ -154,6 +159,10 @@
     "detail": {
       "folded_doc_front": "Lägg dokumentet platt och inkludera alla inre sidor (ditt foto måste finnas med)"
     },
+    "header": {
+      "recording_complete": "Inspelning slutförd",
+      "recording_video": "Spelar in video"
+    },
     "header_folded_doc_front": "Sida med profilfoto",
     "prompt": {
       "button_card": "Plastkort",
@@ -171,7 +180,12 @@
       "glare_detail": "Flytta bort från direkt ljus",
       "glare_title": "Ljusreflex upptäckt",
       "no_doc_detail": "Se till att hela dokumentet är inuti ramen",
-      "no_doc_title": "Inget dokument upptäcktes"
+      "no_doc_title": "Inget dokument upptäcktes",
+      "odp_detail": "Använd ditt ursprungliga dokument. Foton av skärm eller fotokopior accepteras inte",
+      "odp_photo_of_screen_title": "Foto av skärm upptäckt",
+      "odp_photocopy_title": "Fotokopia upptäckt",
+      "odp_scan_title": "Skanning upptäckt",
+      "odp_screenshot_title": "Skärmdump upptäckt"
     },
     "body": "Se till att du har laddat upp hela dokumentsidan, att detaljerna är tydliga och att det inte finns några oskarpa områden eller ljusreflexer",
     "body_bank_statement": "Se till att du har laddat upp hela dokumentsidan, att detaljerna är tydliga och att det inte finns några oskarpa områden eller ljusreflexer",
@@ -189,7 +203,9 @@
     "button_primary_redo": "Gör om",
     "button_primary_upload": "Ladda upp",
     "button_primary_upload_anyway": "Ladda upp ändå",
+    "button_secondary_change_document": "Välj ett annat dokument",
     "button_secondary_redo": "Gör om",
+    "button_secondary_submit_anyway": "Skicka foto ändå",
     "button_zoom": "Förstora bild",
     "image_accessibility": "Foto av ditt dokument",
     "title": "Kontrollera din bild"
@@ -236,7 +252,7 @@
     "subtitle_photo_page": "Fotosida",
     "subtitle_poa": "Dessa dokument är de som mest sannolikt visar din nuvarande hemadress",
     "title": "Välj ditt dokument",
-    "title_poa": "Välj ett dokument från %{country}"
+    "title_poa": "Välj ett dokument"
   },
   "doc_submit": {
     "button_link_upload": "eller ladda upp foto – inga skanningar eller fotokopior",
@@ -423,6 +439,64 @@
   },
   "permission_recovery": {
     "button_primary": "Uppdatera",
+    "desktop_chrome": {
+      "browser_settings": {
+        "list_item_1": "I din webbläsare, klicka på låsikonen [LOCK_ICON] i adressfältet",
+        "list_item_2_cam": "Aktivera reglaget bredvid Kamera",
+        "list_item_2_mic": "Aktivera reglaget bredvid Mikrofon"
+      }
+    },
+    "desktop_edge": {
+      "browser_settings": {
+        "list_item_1": "I din webbläsare, klicka på låsikonen [LOCK_ICON] i adressfältet",
+        "list_item_2_cam": "Klicka på rullgardinsmenyn bredvid Kamera och välj Tillåt",
+        "list_item_2_mic": "Klicka på rullgardinsmenyn bredvid Mikrofon och välj Tillåt"
+      }
+    },
+    "desktop_firefox": {
+      "browser_settings": {
+        "list_item_2_mic": "Klicka på Blockerad bredvid Använd mikrofonen"
+      }
+    },
+    "desktop_generic": {
+      "browser_settings": {
+        "list_item_1": "I din webbläsare, öppna webbplatsinställningarna. Detta är ofta en låsikon [LOCK_ICON] i adressfältet",
+        "list_item_2": "Hitta avsnittet om behörigheter",
+        "list_item_3_cam": "Aktivera Kamera-behörigheterna",
+        "list_item_3_mic": "Aktivera Mikrofon-behörigheterna",
+        "list_item_4": "Återvänd till denna sida och klicka på knappen Jag har gjort ändringarna"
+      },
+      "device_settings": {
+        "list_item_1": "På din dator, öppna dina Inställningar",
+        "list_item_2": "Hitta avsnittet om behörigheter (vanligtvis under Integritet)",
+        "list_item_3_cam": "Aktivera Kamera-behörigheterna för [BROWSER_ICON]",
+        "list_item_3_mic": "Aktivera Mikrofon-behörigheterna för [BROWSER_ICON]"
+      }
+    },
+    "desktop_mac": {
+      "device_settings": {
+        "list_item_1": "På din dator, klicka på Apple-menyn [APPLE_ICON] och välj Systeminställningar (eller Systempreferenser)",
+        "list_item_2": "Klicka på Integritet & Säkerhet (eller Säkerhet & Integritet) i sidofältet ",
+        "list_item_3": "Klicka på Senare i popup-fönstret",
+        "list_item_3_cam": "Klicka på Kamera och aktivera reglaget (eller kryssrutan) bredvid [BROWSER_ICON]",
+        "list_item_4": "Klicka på Avsluta & Öppna igen i popup-fönstret och återvänd till denna sida",
+        "list_item_4_mic": "Klicka på Mikrofon och aktivera reglaget (eller kryssrutan) bredvid [BROWSER_ICON]"
+      }
+    },
+    "desktop_safari": {
+      "browser_settings": {
+        "list_item_3": "Återvänd till denna sida och klicka på knappen Jag har gjort ändringarna"
+      }
+    },
+    "desktop_windows": {
+      "device_settings": {
+        "list_item_1": "På din dator, klicka på Windows-menyn [WINDOWS_ICON] och välj Inställningar [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "Klicka på Integritet (eller Integritet & Säkerhet)",
+        "list_item_3_cam": "Klicka på Kamera under Appbehörigheter och aktivera reglaget bredvid [BROWSER_ICON] ",
+        "list_item_3_mic": "Klicka på Mikrofon under Appbehörigheter och aktivera reglaget bredvid [BROWSER_ICON]",
+        "list_item_4": "Starta om din webbläsare om nödvändigt och återvänd till denna sida"
+      }
+    },
     "info": "Återställ",
     "list_header_both": "Följ dessa steg för att återställa åtkomst för båda:",
     "list_header_cam": "Följ dessa steg för att återställa kameraåtkomst:",
@@ -431,7 +505,7 @@
     "list_item_how_to_cam": "Bevilja åtkomst till din kamera från dina webbläsarinställningar",
     "list_item_how_to_mic": "Bevilja åtkomst till din mikrofon från dina webbläsarinställningar",
     "subtitle_both": "Återställ kamera- och mikrofonåtkomst för att göra en video och slutföra verifieringsprocessen",
-    "subtitle_cam": "Vi kan inte verifiera dig utan din kamera",
+    "subtitle_cam": "Vi behöver tillgång till din kamera för att verifiera din identitet. Följ instruktionerna nedan för att återfå tillgång",
     "subtitle_cam_old": "Återställ kameraåtkomst för att fortsätta med din verifiering",
     "title_both": "Kamera- och mikrofonåtkomst nekad",
     "title_cam": "Kameraåtkomst nekad"
@@ -485,6 +559,7 @@
     "subtitle": "Du behöver ett dokument som:",
     "title": "Låt oss verifiera din adress"
   },
+  "poa_welcome_text": "Ta ett foto av ett dokument med din adress",
   "profile_data": {
     "address_title": "Lägg till din adress",
     "button_continue": "Fortsätt",
@@ -846,7 +921,7 @@
     "info": "Tips",
     "info_link_expire": "Din länk går ut om en timme",
     "info_link_window": "Håll detta fönster öppet när du använder din mobil",
-    "link": "Skicka länken igen",
+    "link": "Prova en annan metod",
     "subtitle": "Vi har skickat en säker länk till %{number}",
     "subtitle_minutes": "Det kan ta några minuter för den att komma fram",
     "title": "Kontrollera din mobil"
@@ -861,14 +936,14 @@
     "title": "Ansluten till din mobil"
   },
   "upload_guide": {
-    "button_primary": "Ladda upp foto",
+    "button_primary": "Fortsätt",
     "image_detail_blur_alt": "Exempel på ett suddigt dokument",
     "image_detail_blur_label": "Alla detaljer måste vara tydliga – inget får vara suddigt",
     "image_detail_cutoff_label": "Visa alla detaljer – inklusive de två nedersta raderna",
     "image_detail_glare_label": "Flytta bort från direkt ljus – inga ljusreflexer får förekomma",
     "image_detail_good_label": "Fotot ska tydligt visa ditt dokument",
     "subtitle": "Skanningar och fotokopior accepteras inte",
-    "title": "Ladda upp passets fotosida"
+    "title": "Skicka in sidan med passfoto"
   },
   "user_consent": {
     "button_primary": "Acceptera",
@@ -924,10 +999,16 @@
   "welcome": {
     "doc_video_subtitle": "Detta kan ta några minuter",
     "info_original_document": "Ta ett foto av originalhandlingen. Skanningar, bilder av skärmar eller fotokopior är inte tillåtna.",
+    "list_header": "Använd din enhet för att:",
     "list_header_doc_video": "Använd din enhet för att spela in:",
     "list_header_webcam": "Använd din webbkamera eller telefon för att fotografera:",
     "list_item_doc": "ditt identitetsdokument",
+    "list_item_doc_generic": "Spela in en video av ditt identitetsdokument",
+    "list_item_doc_photo": "Ta ett foto av ditt identitetsdokument",
+    "list_item_doc_video": "Spela in en video av ditt identitetsdokument",
     "list_item_doc_video_timeout": "Inspelningen är begränsad till <timeout></timeout> sekunder",
+    "list_item_face_photo": "Ta ett foto av ditt ansikte",
+    "list_item_face_video": "Spela in en video av ditt ansikte",
     "list_item_poa": "ditt adressbevis",
     "list_item_selfie": "ditt ansikte",
     "next_button": "Välj dokument",

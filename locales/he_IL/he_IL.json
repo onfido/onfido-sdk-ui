@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "זוז אחורה",
+    "feedback_move_back_accessibility": "העבר את המכשיר שלך בחזרה",
     "feedback_move_closer": "התקרב",
+    "feedback_move_left_accessibility": "הזז את המכשיר לצד שמאל",
+    "feedback_move_right_accessibility": "הזז את המכשיר לצד לימין",
     "feedback_no_face_detected": "לא זוהו פנים",
     "feedback_not_centered": "הפנים לא מופיעות במרכז",
     "title": "ראשית, מקם את הפנים שלך במסגרת"
@@ -38,7 +41,9 @@
     "list_item_one": "ראשית, מקם את הפנים שלך במסגרת",
     "list_item_two": "לאחר מכן, סובב את ראשך לאט לשני הצדדים",
     "subtitle": "כדי לוודא שאתה אדם אמיתי",
-    "title": "הקלט סרטון"
+    "title": "הקלט סרטון",
+    "title_accessibility": "צלם סרטון של הפנים שלך",
+    "video_accessibility": "סרטון לדוגמה שבו מישהו מסובב את הראש לשני הצדדים עד לסיום"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "צלם מחדש",
@@ -71,7 +76,7 @@
     "title": "בחר את ארץ ההנפקה"
   },
   "cross_device": {
-    "button_primary_upload": "העלה תמונה"
+    "button_primary_upload": "המשך"
   },
   "cross_device_checklist": {
     "button_primary": "שלח אימות",
@@ -154,6 +159,10 @@
     "detail": {
       "folded_doc_front": "הנח את המסמך על המשטח, כולל כל הדפים הפנימיים (התמונה שלך חייבת להופיע)"
     },
+    "header": {
+      "recording_complete": "הצילום הושלם",
+      "recording_video": "מקליט וידאו"
+    },
     "header_folded_doc_front": "תמונת פרופיל",
     "prompt": {
       "button_card": "כרטיס פלסטיק",
@@ -171,7 +180,12 @@
       "glare_detail": "התרחק מאור הישיר",
       "glare_title": "זוהתה השתקפות",
       "no_doc_detail": "ודא שהמסמך נמצא בתוך המסגרת",
-      "no_doc_title": "המסמך לא זוהה"
+      "no_doc_title": "המסמך לא זוהה",
+      "odp_detail": "אנא השתמש במסמך המקורי שלך. תמונות של מסך או צילומי עותק לא מתקבלות",
+      "odp_photo_of_screen_title": "זוהתה תמונה של מסך",
+      "odp_photocopy_title": "זוהתה צילום",
+      "odp_scan_title": "סריקה זוהתה",
+      "odp_screenshot_title": "צילום מסך זוהה"
     },
     "body": "ודא שהעלית את עמוד המסמך בשלמותו ושהפרטים ברורים לקריאה ללא טשטוש או השתקפות",
     "body_bank_statement": "ודא שהעלית את עמוד המסמך בשלמותו ושהפרטים ברורים לקריאה ללא טשטוש או השתקפות",
@@ -189,7 +203,9 @@
     "button_primary_redo": "בצע מחדש",
     "button_primary_upload": "העלאה",
     "button_primary_upload_anyway": "העלה בכל זאת",
+    "button_secondary_change_document": "בחר מסמך אחר",
     "button_secondary_redo": "בצע מחדש",
+    "button_secondary_submit_anyway": "שלח תמונה בכל מקרה",
     "button_zoom": "הגדל תמונה",
     "image_accessibility": "תמונה של המסמך שלך",
     "title": "בדוק את התמונה שלך"
@@ -236,7 +252,7 @@
     "subtitle_photo_page": "עמוד תמונה",
     "subtitle_poa": "אלה המסמכים שהכי סביר שיציגו את כתובת המגורים הנוכחית שלך",
     "title": "בחר את המסמך שלך",
-    "title_poa": "בחר מסמך %{country}"
+    "title_poa": "אנא בחר מסמך"
   },
   "doc_submit": {
     "button_link_upload": "או העלה תמונה – ללא סריקות או צילומים",
@@ -423,6 +439,64 @@
   },
   "permission_recovery": {
     "button_primary": "רענן",
+    "desktop_chrome": {
+      "browser_settings": {
+        "list_item_1": "בדפדפן שלך, לחץ על סמל הנעילה [LOCK_ICON] בשורת הכתובת",
+        "list_item_2_cam": "הפעל את המתג ליד מצלמה",
+        "list_item_2_mic": "הפעל את המתג ליד המיקרופון"
+      }
+    },
+    "desktop_edge": {
+      "browser_settings": {
+        "list_item_1": "בדפדפן שלך, לחץ על סמל הנעילה [LOCK_ICON] בשורת הכתובת",
+        "list_item_2_cam": "לחץ על התפריט הנפתח ליד מצלמה ובחר אפשר",
+        "list_item_2_mic": "לחץ על התפריט הנפתח ליד מיקרופון ובחר אפשר"
+      }
+    },
+    "desktop_firefox": {
+      "browser_settings": {
+        "list_item_2_mic": "לחץ על חסום ליד השתמש במיקרופון"
+      }
+    },
+    "desktop_generic": {
+      "browser_settings": {
+        "list_item_1": "בדפדפן שלך, פתח את הגדרות האתר. לעיתים קרובות זהו סמל של מנעול [LOCK_ICON] בשורת הכתובת",
+        "list_item_2": "מצא את הסעיף שעוסק בהרשאות",
+        "list_item_3_cam": "אפשר את הרשאות המצלמה",
+        "list_item_3_mic": "אפשר את הרשאות המיקרופון",
+        "list_item_4": "חזור לדף זה ולחץ על הכפתור ביצעתי את השינויים"
+      },
+      "device_settings": {
+        "list_item_1": "במחשב שלכם, פתחו את ההגדרות שלכם",
+        "list_item_2": "מצא את הסעיף שעוסק בהרשאות (בדרך כלל תחת פרטיות)",
+        "list_item_3_cam": "אפשר את ההרשאות למצלמה עבור [BROWSER_ICON]",
+        "list_item_3_mic": "אפשר את ההרשאות למיקרופון עבור [BROWSER_ICON]"
+      }
+    },
+    "desktop_mac": {
+      "device_settings": {
+        "list_item_1": "במחשב שלך, לחץ על תפריט Apple [APPLE_ICON] ובחר הגדרות מערכת (או העדפות מערכת)",
+        "list_item_2": "לחץ על פרטיות ואבטחה (או אבטחה ופרטיות) בסרגל הצד",
+        "list_item_3": "לחץ על מאוחר יותר בחלון הקופץ",
+        "list_item_3_cam": "לחץ על מצלמה והפעל את המתג (או תיבת הסימון) ליד [BROWSER_ICON]",
+        "list_item_4": "לחץ על צא & פתח מחדש בחלון הקופץ וחזור לדף זה",
+        "list_item_4_mic": "לחץ על מיקרופון והפעל את המתג (או תיבת הסימון) ליד [BROWSER_ICON]"
+      }
+    },
+    "desktop_safari": {
+      "browser_settings": {
+        "list_item_3": "חזור לדף זה ולחץ על הכפתור ביצעתי את השינויים"
+      }
+    },
+    "desktop_windows": {
+      "device_settings": {
+        "list_item_1": "במחשב שלך, לחץ על תפריט Windows [WINDOWS_ICON] ובחר הגדרות [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "לחץ על פרטיות (או פרטיות & אבטחה)",
+        "list_item_3_cam": "לחץ על מצלמה תחת הרשאות יישום והפעל את המתג ליד [BROWSER_ICON] ",
+        "list_item_3_mic": "לחץ על מיקרופון תחת הרשאות יישום והפעל את המתג ליד [BROWSER_ICON]",
+        "list_item_4": "אם נדרש, הפעל מחדש את הדפדפן שלך וחזור לדף זה"
+      }
+    },
     "info": "שחזור",
     "list_header_both": "בצע את השלבים הבאים כדי לשחזר את הגישה למצלמה:",
     "list_header_cam": "בצע את השלבים הבאים כדי לשחזר את הגישה למצלמה:",
@@ -431,7 +505,7 @@
     "list_item_how_to_cam": "הענק גישה למצלמה מהגדרות הדפדפן שלך",
     "list_item_how_to_mic": "הענק גישה למיקרופון מהגדרות הדפדפן שלך",
     "subtitle_both": "שחזר גישה למצלמה כדי לצלם סרטון ולהשלים את תהליך האימות",
-    "subtitle_cam": "שחזר את הגישה למצלמה כדי להמשיך באימות הפנים",
+    "subtitle_cam": "",
     "subtitle_cam_old": "שחזר את הגישה למצלמה כדי להמשיך באימות הפנים",
     "title_both": "הגישה למצלמה ולמיקרופון נדחתה",
     "title_cam": "הגישה למצלמה נדחתה"
@@ -485,6 +559,7 @@
     "subtitle": "יש צורך במסמך שבו:",
     "title": "בוא נאמת את הכתובת"
   },
+  "poa_welcome_text": "עליך לצלם תמונה של מסמך שבו מופיעה הכתובת שלך",
   "profile_data": {
     "address_title": "הוסף את הכתובת שלך",
     "button_continue": "המשך",
@@ -846,7 +921,7 @@
     "info": "טיפים",
     "info_link_expire": "תוקף הקישור לנייד שלך יפוג בעוד שעה",
     "info_link_window": "יש להשאיר את החלון פתוח בעת השימוש בנייד",
-    "link": "שליחה חוזרת של הקישור",
+    "link": "נסה שיטה אחרת",
     "subtitle": "שלחנו קישור מאובטח למספר %{number}",
     "subtitle_minutes": "ייתכן שיחלפו מספר דקות עד ההגעה",
     "title": "בדוק את הטלפון הנייד שלך"
@@ -861,14 +936,14 @@
     "title": "מחובר לנייד שלך"
   },
   "upload_guide": {
-    "button_primary": "העלה תמונה",
+    "button_primary": "המשך",
     "image_detail_blur_alt": "דוגמה למסמך מטושטש",
     "image_detail_blur_label": "כל הפרטים חייבים להיות ברורים ולא מטושטשים",
     "image_detail_cutoff_label": "הצג את כל הפרטים — כולל שתי השורות התחתונות",
     "image_detail_glare_label": "התרחק מאור ישיר כדי למנוע השתקפות",
     "image_detail_good_label": "התמונה חייבת להציג את המסמך בצורה ברורה",
     "subtitle": "סריקות והעתקים אינם מתקבלים",
-    "title": "העלה עמוד תמונת הדרכון"
+    "title": "שלח עמוד תמונת הדרכון"
   },
   "user_consent": {
     "button_primary": "מאשר",
@@ -924,10 +999,16 @@
   "welcome": {
     "doc_video_subtitle": "תהליך זה אמור לקחת כמה דקות",
     "info_original_document": "צלם תמונה של המסמך המקורי שלך. אסור לבצע סריקות, תמונות של מסכים או צילום.",
+    "list_header": "השתמש במכשיר שלך כדי:",
     "list_header_doc_video": "השתמש במכשיר שלך כדי לצלם:",
     "list_header_webcam": "יש להשתמש במצלמת המחשב או בטלפון כדי לצלם את:",
     "list_item_doc": "תעודת הזהות שלך",
+    "list_item_doc_generic": "הקלט סרטון של תעודת הזהות שלך",
+    "list_item_doc_photo": "לצלם את תעודת הזהות שלך",
+    "list_item_doc_video": "לצלם סרטון של תעודת הזהות שלך",
     "list_item_doc_video_timeout": "ההקלטה מוגבלת ל-​<timeout>​​</timeout>​ לשניות",
+    "list_item_face_photo": "לצלם תמונה של הפנים שלך",
+    "list_item_face_video": "לצלם סרטון של הפנים שלך",
     "list_item_poa": "הוכחת הכתובת שלך",
     "list_item_selfie": "הפנים שלך",
     "next_button": "בחר מסמך",

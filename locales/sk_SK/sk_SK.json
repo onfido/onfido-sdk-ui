@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Posuňte sa ďalej",
+    "feedback_move_back_accessibility": "Posuňte zariadenie ďalej",
     "feedback_move_closer": "Posuňte sa bližšie",
+    "feedback_move_left_accessibility": "Posuňte zariadenie doľava",
+    "feedback_move_right_accessibility": "Posuňte zariadenie doprava",
     "feedback_no_face_detected": "Nebola zistená tvár",
     "feedback_not_centered": "Tvár nie je v strede",
     "title": "Umiestnite tvár do rámu"
@@ -38,7 +41,9 @@
     "list_item_one": "Najprv umiestnite tvár do rámu",
     "list_item_two": "Potom pomaly otočte hlavou na obe strany",
     "subtitle": "Týmto overujeme, že ste skutočná osoba",
-    "title": "Zaznamenajte video"
+    "title": "Zaznamenajte video",
+    "title_accessibility": "Zaznamenajte video svojej tváre",
+    "video_accessibility": "Príklad videa, na ktorom niekto otáča hlavu na obe strany až do dokončenia"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Spustiť záznam znova",
@@ -71,7 +76,7 @@
     "title": "Vyberte vydávajúcu krajinu"
   },
   "cross_device": {
-    "button_primary_upload": "Nahrať fotku"
+    "button_primary_upload": "Pokračovať"
   },
   "cross_device_checklist": {
     "button_primary": "Odoslať overenie",
@@ -154,6 +159,10 @@
     "detail": {
       "folded_doc_front": "Umiestnite doklad na rovnú plochu a zahrňte všetky vnútorné strany (musia obsahovať vašu fotku)"
     },
+    "header": {
+      "recording_complete": "Zaznamenávanie je ukončené",
+      "recording_video": "Nahrávanie videa"
+    },
     "header_folded_doc_front": "Fotka z profilu",
     "prompt": {
       "button_card": "Plastový preukaz",
@@ -171,7 +180,12 @@
       "glare_detail": "Vzdiaľte sa od priameho svetla",
       "glare_title": "Zistili sa odlesky",
       "no_doc_detail": "Uistite sa, že je úplne v ráme",
-      "no_doc_title": "Nebol zistený doklad"
+      "no_doc_title": "Nebol zistený doklad",
+      "odp_detail": "Prosím, použite svoj pôvodný dokument. Fotografie obrazovky alebo fotokópie nie sú akceptované.",
+      "odp_photo_of_screen_title": "Fotografia obrazovky zaznamenaná",
+      "odp_photocopy_title": "Detekovaná fotokópia",
+      "odp_scan_title": "Scanovanie zistené",
+      "odp_screenshot_title": "Detekovaná snímka obrazovky"
     },
     "body": "Uistite sa, že ste nahrali celú stránku dokladu a údaje sú čitateľné bez rozmazania alebo odleskov",
     "body_bank_statement": "Uistite sa, že ste nahrali celú stránku dokladu a údaje sú čitateľné bez rozmazania alebo odleskov",
@@ -189,7 +203,9 @@
     "button_primary_redo": "Opakovať",
     "button_primary_upload": "Nahrajte",
     "button_primary_upload_anyway": "Napriek tomu nahrať",
+    "button_secondary_change_document": "Vyberte iný doklad",
     "button_secondary_redo": "Opakovať",
+    "button_secondary_submit_anyway": "Odoslať fotografiu aj tak",
     "button_zoom": "Zväčšiť obrázok",
     "image_accessibility": "Photo of your document",
     "title": "Skontrolujte obrázok"
@@ -236,7 +252,7 @@
     "subtitle_photo_page": "Stránka s fotkou",
     "subtitle_poa": "Toto sú doklady, na ktorých je s najväčšou pravdepodobnosťou uvedená aktuálna adresa vášho bydliska",
     "title": "Zvoľte svoj doklad",
-    "title_poa": "Vyberte doklad z krajiny %{country}"
+    "title_poa": "Vyberte dokument"
   },
   "doc_submit": {
     "button_link_upload": "alebo nahrajte fotku – žiadne skeny ani fotokópie",
@@ -423,6 +439,64 @@
   },
   "permission_recovery": {
     "button_primary": "Obnoviť",
+    "desktop_chrome": {
+      "browser_settings": {
+        "list_item_1": "V prehliadači kliknite na ikonu zámku [LOCK_ICON] v adresnom riadku",
+        "list_item_2_cam": "Aktivujte prepínač vedľa Kamery",
+        "list_item_2_mic": "Aktivujte prepínač vedľa Mikrofónu"
+      }
+    },
+    "desktop_edge": {
+      "browser_settings": {
+        "list_item_1": "Kliknite v prehliadači na ikonu zámku [LOCK_ICON] v adresnom riadku",
+        "list_item_2_cam": "Kliknite na rozbaľovaciu ponuku vedľa Kamery a vyberte Povoliť",
+        "list_item_2_mic": "Kliknite na rozbaľovaciu ponuku vedľa Mikrofón a vyberte Povoliť"
+      }
+    },
+    "desktop_firefox": {
+      "browser_settings": {
+        "list_item_2_mic": "Kliknite na Blokované vedľa Použiť mikrofón"
+      }
+    },
+    "desktop_generic": {
+      "browser_settings": {
+        "list_item_1": "V prehliadači otvorte nastavenia webovej stránky. Často je to ikona zámku [LOCK_ICON] v adresnom riadku",
+        "list_item_2": "Nájdite sekciu o povoleniach",
+        "list_item_3_cam": "Povoliť povolenia pre Kameru",
+        "list_item_3_mic": "Povoliť oprávnenia pre Mikrofón pre [BROWSER_ICON]",
+        "list_item_4": "Vráťte sa na túto stránku a kliknite na tlačidlo Urobil som zmeny"
+      },
+      "device_settings": {
+        "list_item_1": "Na svojom počítači otvorte svoje Nastavenia",
+        "list_item_2": "Nájdite sekciu o povoleniach (zvyčajne pod Súkromie)",
+        "list_item_3_cam": "Povoliť oprávnenia pre Kameru pre [BROWSER_ICON]",
+        "list_item_3_mic": "Povoliť oprávnenia pre Mikrofón pre [BROWSER_ICON]"
+      }
+    },
+    "desktop_mac": {
+      "device_settings": {
+        "list_item_1": "Na svojom počítači kliknite na menu Apple [APPLE_ICON] a vyberte Systémové nastavenia (alebo Systémové preferencie)",
+        "list_item_2": "Kliknite na Súkromie a bezpečnosť (alebo Bezpečnosť a súkromie) v bočnom paneli ",
+        "list_item_3": "Kliknite na Neskôr v kontextovom okne",
+        "list_item_3_cam": "Kliknite na Kamera a aktivujte prepínač (alebo zaškrtávacie políčko) vedľa [BROWSER_ICON]",
+        "list_item_4": "Kliknite na Ukončiť a znovu otvoriť v kontextovom menu a vráťte sa na túto stránku",
+        "list_item_4_mic": "Kliknite na Mikrofón a aktivujte prepínač (alebo zaškrtávacie políčko) vedľa [BROWSER_ICON]"
+      }
+    },
+    "desktop_safari": {
+      "browser_settings": {
+        "list_item_3": "Vráťte sa na túto stránku a kliknite na tlačidlo Urobil som zmeny"
+      }
+    },
+    "desktop_windows": {
+      "device_settings": {
+        "list_item_1": "Na svojom počítači kliknite na menu Windows [WINDOWS_ICON] a vyberte Nastavenia [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "Kliknite na Súkromie (alebo Súkromie & Bezpečnosť)",
+        "list_item_3_cam": "Kliknite na Kamera pod Povolenia aplikácie a aktivujte prepínač vedľa [BROWSER_ICON] ",
+        "list_item_3_mic": "Kliknite na Mikrofón pod Oprávneniami aplikácie a aktivujte prepínač vedľa [BROWSER_ICON]",
+        "list_item_4": "Reštartujte svoj prehliadač, ak je to potrebné, a vráťte sa na túto stránku"
+      }
+    },
     "info": "Obnovenie",
     "list_header_both": "Ak chcete obnoviť prístup k obom, postupujte takto:",
     "list_header_cam": "Ak chcete obnoviť prístup k fotoaparátu, postupujte takto:",
@@ -431,7 +505,7 @@
     "list_item_how_to_cam": "Udeľte prístup k fotoaparátu v nastaveniach prehliadača",
     "list_item_how_to_mic": "Udeľte prístup k mikrofónu v nastaveniach prehliadača",
     "subtitle_both": "Obnovte prístup k fotoaparátu a mikrofónu, aby ste mohli nahrať video a dokončiť proces overenia",
-    "subtitle_cam": "Ak chcete pokračovať v overovaní, obnovte prístup k fotoaparátu",
+    "subtitle_cam": "Potrebujeme prístup k vašej kamere na overenie vašej identity. Postupujte podľa nižšie uvedených pokynov na obnovenie prístupu",
     "subtitle_cam_old": "Ak chcete pokračovať v overovaní tváre, obnovte prístup k fotoaparátu",
     "title_both": "Prístup k fotoaparátu a mikrofónu bol zamietnutý",
     "title_cam": "Prístup k fotoaparátu bol zamietnutý"
@@ -485,6 +559,7 @@
     "subtitle": "Budete potrebovať doklad, ktorý spĺňa tieto podmienky:",
     "title": "Poďme overiť vašu adresu"
   },
+  "poa_welcome_text": "Odfoťte doklad s adresou",
   "profile_data": {
     "address_title": "Pridajte svoju adresu",
     "button_continue": "Pokračovať",
@@ -846,7 +921,7 @@
     "info": "Tipy",
     "info_link_expire": "Platnosť odkazu vyprší o hodinu",
     "info_link_window": "Počas používania mobilného telefónu ponechajte toto okno otvorené",
-    "link": "Znova odoslať odkaz",
+    "link": "Vyskúšajte inú metódu",
     "subtitle": "Bezpečný odkaz sme poslali na číslo %{number}",
     "subtitle_minutes": "Kým príde, môže to trvať niekoľko minút",
     "title": "Skontrolujte svoj mobilný telefón"
@@ -861,14 +936,14 @@
     "title": "Pripojené k mobilnému telefónu"
   },
   "upload_guide": {
-    "button_primary": "Nahrať fotku",
+    "button_primary": "Pokračovať",
     "image_detail_blur_alt": "Príklad rozmazaného dokladu",
     "image_detail_blur_label": "Všetky údaje musia byť jasné — nič nesmie byť rozmazané",
     "image_detail_cutoff_label": "Musia byť viditeľné všetky podrobnosti — vrátane dolných 2 riadkov",
     "image_detail_glare_label": "Vzdiaľte sa od priameho svetla — bez odleskov",
     "image_detail_good_label": "Na fotke by mal byť jasne viditeľný váš doklad",
     "subtitle": "Skeny a fotokópie nie sú akceptované",
-    "title": "Nahrajte stránku pasu s fotkou"
+    "title": "Odošlite stránku pasu s fotografiou"
   },
   "user_consent": {
     "button_primary": "Prijať",
@@ -924,10 +999,16 @@
   "welcome": {
     "doc_video_subtitle": "Malo by to trvať niekoľko minút",
     "info_original_document": "Odfoťte si originál dokumentu. Skeny, fotografie obrazoviek alebo fotokópie nie sú povolené.",
+    "list_header": "Pomocou zariadenia vykonajte tieto kroky:",
     "list_header_doc_video": "Pomocou zariadenia zaznamenajte:",
     "list_header_webcam": "Pomocou webovej kamery alebo telefónu odfoťte:",
     "list_item_doc": "váš doklad totožnosti",
+    "list_item_doc_generic": "Vytvorte videozáznam vášho dokladu totožnosti",
+    "list_item_doc_photo": "Odfoťte doklad totožnosti",
+    "list_item_doc_video": "Zaznamenajte video dokladu totožnosti",
     "list_item_doc_video_timeout": "Nahrávanie je obmedzené na <timeout></timeout> sekundy",
+    "list_item_face_photo": "Odfoťte svoju tvár",
+    "list_item_face_video": "Zaznamenajte video svojej tváre",
     "list_item_poa": "doklad o bydlisku",
     "list_item_selfie": "vašu tvár",
     "next_button": "Vyberte doklad",

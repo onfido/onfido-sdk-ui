@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Liikuge kaugemale",
+    "feedback_move_back_accessibility": "Liigutage seadet kaugemale",
     "feedback_move_closer": "Liikuge lähemale",
+    "feedback_move_left_accessibility": "Liigutage seadet vasakule",
+    "feedback_move_right_accessibility": "Liigutage seadet paremale",
     "feedback_no_face_detected": "Nägu ei tuvastatud",
     "feedback_not_centered": "Nägu pole kaadri keskel",
     "title": "Asetage oma nägu kaadrisse"
@@ -38,7 +41,9 @@
     "list_item_one": "Kõigepealt asetage oma nägu kaadrisse",
     "list_item_two": "Seejärel keerake oma pead aeglaselt mõlemale poole",
     "subtitle": "Nii kinnitame, et olete tõeline inimene",
-    "title": "Salvestage video"
+    "title": "Salvestage video",
+    "title_accessibility": "Näost video salvestamine",
+    "video_accessibility": "Näide videost, kus kujutatud isik pöörab pead mõlemale poole kuni video valmimiseni"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Alustage salvestamist uuesti",
@@ -71,7 +76,7 @@
     "title": "Valige väljastanud riik"
   },
   "cross_device": {
-    "button_primary_upload": "Laadige foto üles"
+    "button_primary_upload": "Jätkake"
   },
   "cross_device_checklist": {
     "button_primary": "Esitage kinnitus",
@@ -154,6 +159,10 @@
     "detail": {
       "folded_doc_front": "Asetage dokument avatult tasapinnale nii, et on näha sisemised lehed (peab sisaldama teie fotot)"
     },
+    "header": {
+      "recording_complete": "Salvestamine lõpetatud",
+      "recording_video": "Video salvestamine"
+    },
     "header_folded_doc_front": "Profiili pildi külg",
     "prompt": {
       "button_card": "Plastkaart",
@@ -171,7 +180,12 @@
       "glare_detail": "Hoiduge otsesest valgusest",
       "glare_title": "Tuvastati ülevalgustus",
       "no_doc_detail": "Veenduge, et see on täielikult kaadris",
-      "no_doc_title": "Dokumenti ei tuvastatud"
+      "no_doc_title": "Dokumenti ei tuvastatud",
+      "odp_detail": "Palun kasutage oma algset dokumenti. Ekraanipiltide või fotokoopiate kasutamine ei ole lubatud",
+      "odp_photo_of_screen_title": "Ekraanipildi foto tuvastatud",
+      "odp_photocopy_title": "Fotokoopia tuvastatud",
+      "odp_scan_title": "Skaneerimine tuvastatud",
+      "odp_screenshot_title": "Ekraanipilt tuvastatud"
     },
     "body": "Veenduge, et olete kogu dokumendi lehe üles laadinud ja andmed on loetavad ning ei ole hägused ega ülevalgustatud",
     "body_bank_statement": "Veenduge, et olete kogu dokumendi lehe üles laadinud ja andmed on loetavad ning ei ole hägused ega ülevalgustatud",
@@ -189,7 +203,9 @@
     "button_primary_redo": "Tehke uuesti",
     "button_primary_upload": "Üleslaadimine",
     "button_primary_upload_anyway": "Laadige ikkagi üles",
+    "button_secondary_change_document": "Valige teine dokument",
     "button_secondary_redo": "Tehke uuesti",
+    "button_secondary_submit_anyway": "Esita foto ikkagi",
     "button_zoom": "Suurendage pilti",
     "image_accessibility": "Foto teie dokumendist",
     "title": "Kontrollige oma pilti"
@@ -236,7 +252,7 @@
     "subtitle_photo_page": "Fotoga lehekülg",
     "subtitle_poa": "Need on dokumendid, mis näitavad kõige tõenäolisemalt teie praegust kodust aadressi",
     "title": "Valige dokument",
-    "title_poa": "Valige riigi %{country} dokument"
+    "title_poa": "Valige dokument"
   },
   "doc_submit": {
     "button_link_upload": "või laadige foto üles – skaneeringud ja koopiad ei sobi",
@@ -423,6 +439,64 @@
   },
   "permission_recovery": {
     "button_primary": "Värskenda",
+    "desktop_chrome": {
+      "browser_settings": {
+        "list_item_1": "Klõpsake oma brauseris aadressiribal lukuikoonil [LOCK_ICON]",
+        "list_item_2_cam": "Aktiveerige lüliti kõrval Kaamera",
+        "list_item_2_mic": "Aktiveerige lüliti kõrval Mikrofon"
+      }
+    },
+    "desktop_edge": {
+      "browser_settings": {
+        "list_item_1": "Klõpsake oma brauseris aadressiribal luku ikoonil [LOCK_ICON]",
+        "list_item_2_cam": "Klõpsake rippmenüül kõrval Kaamera ja valige Luba",
+        "list_item_2_mic": "Klõpsake rippmenüül kõrval Mikrofon ja valige Luba"
+      }
+    },
+    "desktop_firefox": {
+      "browser_settings": {
+        "list_item_2_mic": "Klõpsake Blokeeritud kõrval Kasuta mikrofoni"
+      }
+    },
+    "desktop_generic": {
+      "browser_settings": {
+        "list_item_1": "Avage oma brauseris veebisaidi seaded. See on sageli aadressiribal asuv lukusümbol [LOCK_ICON]",
+        "list_item_2": "Leidke jaotis lubade kohta",
+        "list_item_3_cam": "Luba kaamera õigused",
+        "list_item_3_mic": "Luba mikrofoni õigused",
+        "list_item_4": "Pöörduge tagasi sellele lehele ja klõpsake nupul Olen teinud muudatused"
+      },
+      "device_settings": {
+        "list_item_1": "Avage oma arvutis Seaded",
+        "list_item_2": "Leidke jaotis lubade kohta (tavaliselt Privaatsus all)",
+        "list_item_3_cam": "Luba kaamera õigused [BROWSER_ICON]-le",
+        "list_item_3_mic": "Luba Mikrofoni õigused [BROWSER_ICON] jaoks"
+      }
+    },
+    "desktop_mac": {
+      "device_settings": {
+        "list_item_1": "Oma arvutis klõpsake Apple'i menüül [APPLE_ICON] ja valige Süsteemi seaded (või Süsteemi eelistused)",
+        "list_item_2": "Klõpsake küljeribal Privaatsus & Turvalisus (või Turvalisus & Privaatsus)",
+        "list_item_3": "Klõpsake hüpikaknas Hiljem",
+        "list_item_3_cam": "Klõpsake Kaamera ja aktiveerige lüliti (või märkeruut) ikooni [BROWSER_ICON] kõrval",
+        "list_item_4": "Klõpsake hüpikaknas Välju & Ava uuesti ja tulge tagasi sellele lehele",
+        "list_item_4_mic": "Klõpsake Mikrofoni ja aktiveerige lüliti (või märkeruut) ikooni [BROWSER_ICON] kõrval"
+      }
+    },
+    "desktop_safari": {
+      "browser_settings": {
+        "list_item_3": "Pöörduge tagasi sellele lehele ja klõpsake nuppu Olen teinud muudatused"
+      }
+    },
+    "desktop_windows": {
+      "device_settings": {
+        "list_item_1": "Oma arvutis klõpsake Windowsi menüül [WINDOWS_ICON] ja valige Sätted [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "Klõpsake Privaatsus (või Privaatsus & Turvalisus)",
+        "list_item_3_cam": "Klõpsake jaotisel Kaamera alajaotises Rakenduse õigused ja aktiveerige lüliti kõrval [BROWSER_ICON]",
+        "list_item_3_mic": "Klõpsake jaotisel Mikrofon alajaotises Rakenduse õigused ja aktiveerige lüliti kõrval [BROWSER_ICON]",
+        "list_item_4": "Taaskäivitage vajadusel oma brauser ja tulge tagasi sellele lehele"
+      }
+    },
     "info": "Taastamine",
     "list_header_both": "Mõlema juurdepääsu taastamiseks toimige järgmiselt.",
     "list_header_cam": "Kaamerale juurdepääsu taastamiseks toimige järgmiselt.",
@@ -431,7 +505,7 @@
     "list_item_how_to_cam": "Juurdepääsu andmine kaamerale brauseri seadetest",
     "list_item_how_to_mic": "Juurdepääsu andmine mikrofonile brauseri seadetest",
     "subtitle_both": "Võimaldage juurdepääs kaamerale ja mikrofonile video tegemiseks ja kinnitamise lõpuleviimiseks",
-    "subtitle_cam": "Kaamera juurdepääsu taastamine tuvastamise jätkamiseks",
+    "subtitle_cam": "Meil on vaja juurdepääsu teie kaamerale, et kinnitada teie isikut. Järgige allpool toodud juhiseid juurdepääsu taastamiseks",
     "subtitle_cam_old": "Kaamerale juurdepääsu taastamine näo tuvastamise jätkamiseks",
     "title_both": "Juurdepääs kaamerale ja mikrofonile on keelatud",
     "title_cam": "Juurdepääs kaamerale on keelatud"
@@ -485,6 +559,7 @@
     "subtitle": "Teil on vaja dokumenti, mis vastab järgmistele tingimustele.",
     "title": "Kontrollime teie aadressi"
   },
+  "poa_welcome_text": "Pildistage oma aadressiga dokumenti",
   "profile_data": {
     "address_title": "Lisage oma aadress",
     "button_continue": "Jätkake",
@@ -846,7 +921,7 @@
     "info": "Nõuanded",
     "info_link_expire": "Teie link aegub tunni aja pärast",
     "info_link_window": "Jätke see aken mobiiltelefoni kasutamise ajal avatuks",
-    "link": "Saatke link uuesti",
+    "link": "Proovi teist meetodit",
     "subtitle": "Saatsime turvalise lingi numbrile %{number}",
     "subtitle_minutes": "Selle saabumine võib võtta mõne minuti",
     "title": "Kontrollige oma mobiiltelefoni"
@@ -861,14 +936,14 @@
     "title": "Ühendatud teie mobiiliga"
   },
   "upload_guide": {
-    "button_primary": "Laadige foto üles",
+    "button_primary": "Jätkake",
     "image_detail_blur_alt": "Hägusa dokumendi näide",
     "image_detail_blur_label": "Kõik üksikasjad peavad olema selged, mitte hägused",
     "image_detail_cutoff_label": "Näha peavad olema kõik üksikasjad, sh 2 alumist rida",
     "image_detail_glare_label": "Liikuge otsesest valgusest ära, et vältida ülevalgustamist",
     "image_detail_good_label": "Fotol peab olema selgelt näha teie dokument",
     "subtitle": "Skaneeringud ja koopiad ei sobi",
-    "title": "Laadige üles passi fotoleht"
+    "title": "Esitage passi fotoleht"
   },
   "user_consent": {
     "button_primary": "Nõustuge",
@@ -924,10 +999,16 @@
   "welcome": {
     "doc_video_subtitle": "See peaks võtma mõne minuti",
     "info_original_document": "Tehke oma originaaldokumendi foto. Skaneeringud, ekraanifotod või fotokoopiad ei ole lubatud.",
+    "list_header": "Seadme abil saate teha järgmist.",
     "list_header_doc_video": "Kasutage oma seadet, et salvestada järgmist.",
     "list_header_webcam": "Kasutage veebikaamerat või telefoni, et pildistada järgmist.",
     "list_item_doc": "teie isikut tõendav dokument",
+    "list_item_doc_generic": "Salvesta video oma isikut tõendavast dokumendist",
+    "list_item_doc_photo": "Isikut tõendava dokumendi pildistamine",
+    "list_item_doc_video": "Isikut tõendavast dokumendist video salvestamine",
     "list_item_doc_video_timeout": "Salvestamine on piiratud <timeout></timeout> sekunditega",
+    "list_item_face_photo": "Näo pildistamine",
+    "list_item_face_video": "Näost video salvestamine",
     "list_item_poa": "tõend teie aadressi kohta",
     "list_item_selfie": "teie nägu",
     "next_button": "Valige dokument",

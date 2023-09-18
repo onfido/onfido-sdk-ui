@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Allontanati",
+    "feedback_move_back_accessibility": "Allontana il dispositivo",
     "feedback_move_closer": "Avvicinati",
+    "feedback_move_left_accessibility": "Sposta il dispositivo verso sinistra",
+    "feedback_move_right_accessibility": "Sposta il dispositivo verso destra",
     "feedback_no_face_detected": "Viso non rilevato",
     "feedback_not_centered": "Viso non centrato",
     "title": "Posiziona il viso nel riquadro"
@@ -38,7 +41,9 @@
     "list_item_one": "Innanzitutto, posiziona il viso nel riquadro",
     "list_item_two": "Poi, gira lentamente la testa da entrambe le parti",
     "subtitle": "Questo serve a verificare che tu sia una persona reale",
-    "title": "Registra un video"
+    "title": "Registra un video",
+    "title_accessibility": "Registra un video del tuo viso",
+    "video_accessibility": "Video di esempio di una persona che ruota la testa verso entrambi i lati fino al completamento"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Riavvia la registrazione",
@@ -71,7 +76,7 @@
     "title": "Seleziona il paese di emissione"
   },
   "cross_device": {
-    "button_primary_upload": "Carica foto"
+    "button_primary_upload": "Continua"
   },
   "cross_device_checklist": {
     "button_primary": "Invia verifica",
@@ -154,6 +159,10 @@
     "detail": {
       "folded_doc_front": "Appoggia il documento aperto sulle pagine interne (deve contenere la tua foto)"
     },
+    "header": {
+      "recording_complete": "Registrazione completata",
+      "recording_video": "Registrazione video"
+    },
     "header_folded_doc_front": "Lato foto profilo",
     "prompt": {
       "button_card": "Card plastificata",
@@ -171,7 +180,12 @@
       "glare_detail": "Allontanati dalla luce diretta",
       "glare_title": "Riflesso rilevato",
       "no_doc_detail": "Assicurati che sia ben inquadrato",
-      "no_doc_title": "Documento non rilevato"
+      "no_doc_title": "Documento non rilevato",
+      "odp_detail": "Si prega di utilizzare il proprio documento originale. Non sono accettate foto dello schermo o fotocopie",
+      "odp_photo_of_screen_title": "Foto dello schermo rilevata",
+      "odp_photocopy_title": "Fotocopia rilevata",
+      "odp_scan_title": "Scansione rilevata",
+      "odp_screenshot_title": "Istantanea rilevata"
     },
     "body": "Assicurati di aver caricato l'intera pagina del documento e che i dati siano chiari e leggibili, senza sfocature o riflessi",
     "body_bank_statement": "Assicurati di aver caricato l'intera pagina del documento e che i dati siano chiari e leggibili, senza sfocature o riflessi",
@@ -189,7 +203,9 @@
     "button_primary_redo": "Ripeti",
     "button_primary_upload": "Carica",
     "button_primary_upload_anyway": "Carica comunque",
+    "button_secondary_change_document": "Seleziona un altro documento",
     "button_secondary_redo": "Ripeti",
+    "button_secondary_submit_anyway": "Invia comunque la foto",
     "button_zoom": "Ingrandisci l’immagine",
     "image_accessibility": "Foto del tuo documento",
     "title": "Controlla l’immagine"
@@ -236,7 +252,7 @@
     "subtitle_photo_page": "Pagina delle foto",
     "subtitle_poa": "Questi sono i documenti che più probabilmente mostrano il tuo indirizzo attuale",
     "title": "Seleziona il tuo documento",
-    "title_poa": "Seleziona un documento %{country}"
+    "title_poa": "Scegli un documento"
   },
   "doc_submit": {
     "button_link_upload": "o carica foto (no scansioni o fotocopie)",
@@ -423,6 +439,64 @@
   },
   "permission_recovery": {
     "button_primary": "Ricarica",
+    "desktop_chrome": {
+      "browser_settings": {
+        "list_item_1": "Nel tuo browser, fai clic sull'icona del lucchetto [LOCK_ICON] nella barra degli indirizzi",
+        "list_item_2_cam": "Attiva l'interruttore accanto a Fotocamera",
+        "list_item_2_mic": "Attiva l'interruttore accanto a Microfono"
+      }
+    },
+    "desktop_edge": {
+      "browser_settings": {
+        "list_item_1": "Nel tuo browser, fai clic sull'icona del lucchetto [LOCK_ICON] nella barra degli indirizzi",
+        "list_item_2_cam": "Fai clic sul menu a discesa accanto a Fotocamera e seleziona Consenti",
+        "list_item_2_mic": "Fai clic sul menu a discesa accanto a Microfono e seleziona Consenti"
+      }
+    },
+    "desktop_firefox": {
+      "browser_settings": {
+        "list_item_2_mic": "Fai clic su Bloccato accanto a Usa il microfono"
+      }
+    },
+    "desktop_generic": {
+      "browser_settings": {
+        "list_item_1": "Nel tuo browser, apri le impostazioni del sito web. Questo è spesso un'icona di blocco [LOCK_ICON] nella barra degli indirizzi",
+        "list_item_2": "Trova la sezione sulle autorizzazioni",
+        "list_item_3_cam": "Abilita le autorizzazioni della Fotocamera",
+        "list_item_3_mic": "Abilita le autorizzazioni per il Microfono",
+        "list_item_4": "Torna a questa pagina e clicca il pulsante Ho effettuato le modifiche"
+      },
+      "device_settings": {
+        "list_item_1": "Sul tuo computer, apri le tue Impostazioni",
+        "list_item_2": "Trova la sezione riguardante i permessi (di solito sotto Privacy)",
+        "list_item_3_cam": "Abilita le autorizzazioni per la Fotocamera per [BROWSER_ICON]",
+        "list_item_3_mic": "Abilita le autorizzazioni per il Microfono per [BROWSER_ICON]"
+      }
+    },
+    "desktop_mac": {
+      "device_settings": {
+        "list_item_1": "Sul tuo computer, fai clic sul menu Apple [APPLE_ICON] e seleziona Impostazioni di sistema (o Preferenze di sistema)",
+        "list_item_2": "Fai clic su Privacy & Sicurezza (o Sicurezza & Privacy) nella barra laterale",
+        "list_item_3": "Fai clic su Dopo nel pop-up",
+        "list_item_3_cam": "Fai clic su Fotocamera e attiva l'interruttore (o la casella di controllo) accanto a [BROWSER_ICON]",
+        "list_item_4": "Fai clic su Esci e riapri nel pop-up e torna a questa pagina",
+        "list_item_4_mic": "Fai clic su Microfono e attiva l'interruttore (o la casella di controllo) accanto a [BROWSER_ICON]"
+      }
+    },
+    "desktop_safari": {
+      "browser_settings": {
+        "list_item_3": "Torna a questa pagina e fai clic sul pulsante Ho apportato le modifiche"
+      }
+    },
+    "desktop_windows": {
+      "device_settings": {
+        "list_item_1": "Sul tuo computer, fai clic sul menu Windows [WINDOWS_ICON] e seleziona Impostazioni [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "Fai clic su Privacy (o Privacy & Sicurezza)",
+        "list_item_3_cam": "Fai clic su Fotocamera sotto Permessi app e attiva l'interruttore accanto a [BROWSER_ICON] ",
+        "list_item_3_mic": "Fai clic su Microfono sotto Permessi app e attiva l'interruttore accanto a [BROWSER_ICON]",
+        "list_item_4": "Riavvia il tuo browser se necessario e torna su questa pagina"
+      }
+    },
     "info": "Ripristino",
     "list_header_both": "Segui questi passaggi per ripristinare l’accesso alla entrambi:",
     "list_header_cam": "Segui questi passaggi per ripristinare l’accesso alla fotocamera:",
@@ -431,7 +505,7 @@
     "list_item_how_to_cam": "Consenti l’accesso alla fotocamera dalle impostazioni del browser",
     "list_item_how_to_mic": "Consenti l’accesso al microfono dalle impostazioni del browser",
     "subtitle_both": "Ripristina l’accesso alla fotocamera e al microfono per registrare un video e completare il processo di verifica",
-    "subtitle_cam": "Ripristina l’accesso alla fotocamera per continuare la verifica",
+    "subtitle_cam": "Abbiamo bisogno di accedere alla tua fotocamera per verificare la tua identità. Segui le istruzioni sottostanti per recuperare l'accesso",
     "subtitle_cam_old": "Ripristina l’accesso alla fotocamera per continuare il processo di verifica",
     "title_both": "Accesso alla fotocamera e al microfono negato",
     "title_cam": "Accesso alla fotocamera negato"
@@ -485,6 +559,7 @@
     "subtitle": "Ti servirà un documento che:",
     "title": "Verifichiamo il tuo indirizzo"
   },
+  "poa_welcome_text": "Scatta una foto del documento con il tuo indirizzo",
   "profile_data": {
     "address_title": "Aggiungere l’indirizzo",
     "button_continue": "Continua",
@@ -846,7 +921,7 @@
     "info": "Consigli",
     "info_link_expire": "Il tuo link scadrà tra un’ora",
     "info_link_window": "Tieni aperta questa finestra mentre usi il telefono",
-    "link": "Invia nuovo link",
+    "link": "Prova un altro metodo",
     "subtitle": "Abbiamo inviato un link sicuro a %{number}",
     "subtitle_minutes": "La ricezione potrebbe richiedere qualche minuto",
     "title": "Controlla il telefono"
@@ -861,29 +936,29 @@
     "title": "Collegato al tuo telefono"
   },
   "upload_guide": {
-    "button_primary": "Carica foto",
+    "button_primary": "Continua",
     "image_detail_blur_alt": "Esempio di un documento sfocato",
     "image_detail_blur_label": "Tutti i dettagli devono essere nitidi, senza sfocature",
     "image_detail_cutoff_label": "Mostra tutti i dettagli, incluse le 2 righe inferiori",
     "image_detail_glare_label": "Allontanati dalla luce diretta per evitare riflessi",
     "image_detail_good_label": "La foto deve mostrare chiaramente il tuo documento",
     "subtitle": "Non sono ammesse scansioni e fotocopie",
-    "title": "Invia la pagina con foto del passaporto"
+    "title": "Invia la pagina della foto del passaporto"
   },
   "user_consent": {
-    "button_primary": "Accept",
-    "button_secondary": "Do not accept",
+    "button_primary": "Accetta",
+    "button_secondary": "Non accettare",
     "prompt": {
-      "button_primary": "Review again",
-      "button_secondary": "Yes, don’t verify me",
-      "no_consent_detail": "If you do not accept Onfido’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
-      "no_consent_title": "Are you sure?"
+      "button_primary": "Rivedi di nuovo",
+      "button_secondary": "Sì, non verificarmi",
+      "no_consent_detail": "Se non accetti le dichiarazioni sulla privacy e i termini di servizio di Onfido, non saremo in grado di verificare la tua identità e interromperai questo passaggio.",
+      "no_consent_title": "Sei sicuro?"
     }
   },
   "user_consent_load_fail": {
-    "button_primary": "Reload screen",
-    "detail": "Check that your connection is stable, then try again",
-    "title": "Content failed to load"
+    "button_primary": "Ricarica schermo",
+    "detail": "Verifica che la tua connessione sia stabile e riprova",
+    "title": "Il contenuto non è riuscito a caricare"
   },
   "video_capture": {
     "body": "Tieni il viso nell’ovale",
@@ -924,10 +999,16 @@
   "welcome": {
     "doc_video_subtitle": "L’operazione richiederà pochi minuti",
     "info_original_document": "Fotografare il documento originale. Non sono ammesse scansioni, foto di schermi o fotocopie.",
+    "list_header": "Usa il dispositivo per:",
     "list_header_doc_video": "Usa il dispositivo per registrare:",
     "list_header_webcam": "Usa la webcam o il telefono per fotografare:",
     "list_item_doc": "il tuo documento d’identità",
+    "list_item_doc_generic": "Registra un video del tuo documento d'identità",
+    "list_item_doc_photo": "Scattare una foto del tuo documento d’identità",
+    "list_item_doc_video": "Registrare un video del tuo documento d’identità",
     "list_item_doc_video_timeout": "La registrazione è limitata a <timeout></timeout> pochi secondi",
+    "list_item_face_photo": "Scattare una foto del tuo viso",
+    "list_item_face_video": "Registrare un video del tuo viso",
     "list_item_poa": "la tua prova dell'indirizzo",
     "list_item_selfie": "il tuo viso",
     "next_button": "Seleziona documento",

@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Távolodjon",
+    "feedback_move_back_accessibility": "Vigye távolabb az eszközt",
     "feedback_move_closer": "Közelítsen",
+    "feedback_move_left_accessibility": "Mozgassa az eszközt balra",
+    "feedback_move_right_accessibility": "Mozgassa az eszközt jobbra",
     "feedback_no_face_detected": "Arc nem észlelhető",
     "feedback_not_centered": "Arca nincs középen",
     "title": "Illessze az arcát a keretbe"
@@ -38,7 +41,9 @@
     "list_item_one": "Először illessze az arcát a keretbe",
     "list_item_two": "Ezután lassan fordítsa a fejét mindkét oldalra",
     "subtitle": "Ez annak igazolására szolgál, hogy Ön egy valós személy",
-    "title": "Készítsen videófelvételt"
+    "title": "Készítsen videófelvételt",
+    "title_accessibility": "Készítsen videófelvételt az arcáról",
+    "video_accessibility": "Példavideó, amelyen valaki mindkét oldalra elfordítja a fejét a befejezésig"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Rögzítés újraindítása",
@@ -71,7 +76,7 @@
     "title": "Kibocsátó ország kiválasztása"
   },
   "cross_device": {
-    "button_primary_upload": "Töltse fel a fotót"
+    "button_primary_upload": "Tovább"
   },
   "cross_device_checklist": {
     "button_primary": "Hitelesítés elküldése",
@@ -154,6 +159,10 @@
     "detail": {
       "folded_doc_front": "Fektesse a dokumentumot sík felületre, és mutassa az összes belső oldalt (a fényképes oldalt is beleértve)"
     },
+    "header": {
+      "recording_complete": "Felvétel kész",
+      "recording_video": "Videó rögzítése"
+    },
     "header_folded_doc_front": "Profilkép",
     "prompt": {
       "button_card": "Műanyag kártya",
@@ -171,7 +180,12 @@
       "glare_detail": "Kerülje el a közvetlen fényt",
       "glare_title": "Tükröződés észlelhető",
       "no_doc_detail": "Győződjön meg róla, hogy minden része a kereten belül van",
-      "no_doc_title": "A dokumentum nem észlelhető"
+      "no_doc_title": "A dokumentum nem észlelhető",
+      "odp_detail": "Kérjük, az eredeti dokumentumot használja. A képernyőfotók vagy fénymásolatok nem megfelelőek.",
+      "odp_photo_of_screen_title": "Az észlelt képernyő fotó",
+      "odp_photocopy_title": "Fénymásolat észlelve",
+      "odp_scan_title": "Szkennelés észlelve",
+      "odp_screenshot_title": "Képernyőfotó észlelve"
     },
     "body": "Győződjön meg róla, hogy feltöltötte a teljes dokumentumoldalt, és az adatok tisztán, elmosódás- és tükröződésmentesen olvashatók",
     "body_bank_statement": "Győződjön meg róla, hogy feltöltötte a teljes dokumentumoldalt, és az adatok tisztán, elmosódás- és tükröződésmentesen olvashatók",
@@ -189,7 +203,9 @@
     "button_primary_redo": "Újra",
     "button_primary_upload": "Feltöltés",
     "button_primary_upload_anyway": "Töltse fel így is",
+    "button_secondary_change_document": "Válasszon másik dokumentumot",
     "button_secondary_redo": "Újra",
+    "button_secondary_submit_anyway": "Küldje el a fotót így is",
     "button_zoom": "Kép nagyítása",
     "image_accessibility": "Igazolványképe",
     "title": "Ellenőrizze a képet"
@@ -236,7 +252,7 @@
     "subtitle_photo_page": "Arcképes oldal",
     "subtitle_poa": "Ezek azok a dokumentumok, amelyek a legnagyobb valószínűséggel jelzik az Ön jelenlegi lakcímét",
     "title": "Válassza ki a dokumentumot",
-    "title_poa": "Válasszon az alábbi dokumentumtípusok közül: %{country}"
+    "title_poa": "Válasszon az alábbi dokumentumtípusok közül"
   },
   "doc_submit": {
     "button_link_upload": "vagy töltsön fel egy nem szkennelt és nem fénymásolt fényképet",
@@ -423,6 +439,64 @@
   },
   "permission_recovery": {
     "button_primary": "Frissítés",
+    "desktop_chrome": {
+      "browser_settings": {
+        "list_item_1": "A böngészőjében kattintson a címsorban található zárolás ikonra [LOCK_ICON]",
+        "list_item_2_cam": "Aktiválja a kapcsolót a Kamera mellett",
+        "list_item_2_mic": "Aktiválja a kapcsolót a Mikrofon mellett"
+      }
+    },
+    "desktop_edge": {
+      "browser_settings": {
+        "list_item_1": "A böngészőjében kattintson a lakat ikonra [LOCK_ICON] a címsorban",
+        "list_item_2_cam": "Kattintson a Kamera melletti legördülő menüre, és válassza a Engedélyezés opciót",
+        "list_item_2_mic": "Kattintson a legördülő menüre a Mikrofon mellett és válassza a Engedélyezés opciót"
+      }
+    },
+    "desktop_firefox": {
+      "browser_settings": {
+        "list_item_2_mic": "Kattintson a Blokkolt gombra a Mikrofon használata mellett"
+      }
+    },
+    "desktop_generic": {
+      "browser_settings": {
+        "list_item_1": "Nyissa meg a böngészőben a webhely beállításait. Ez gyakran egy lakat ikon [LOCK_ICON] a címsorban",
+        "list_item_2": "Keresse meg a jogosultságokra vonatkozó részt",
+        "list_item_3_cam": "Engedélyezze a Kamera hozzáféréseket",
+        "list_item_3_mic": "Engedélyezze a Mikrofon hozzáféréseket",
+        "list_item_4": "Térjen vissza erre az oldalra és kattintson a Módosításokat eszközöltem gombra"
+      },
+      "device_settings": {
+        "list_item_1": "A számítógépen nyissa meg a Beállításokat",
+        "list_item_2": "Keresse meg a jogosultságokkal kapcsolatos részt (általában a Adatvédelem alatt)",
+        "list_item_3_cam": "Engedélyezze a Kamera jogosultságokat a [BROWSER_ICON] számára",
+        "list_item_3_mic": "Engedélyezze a Mikrofon hozzáférést a [BROWSER_ICON] számára"
+      }
+    },
+    "desktop_mac": {
+      "device_settings": {
+        "list_item_1": "A számítógépén kattintson az Apple menüre [APPLE_ICON] és válassza a Rendszerbeállítások (vagy Rendszerpreferenciák) lehetőséget",
+        "list_item_2": "Kattintson a Adatvédelem és biztonság (vagy Biztonság és adatvédelem) lehetőségre az oldalsávon",
+        "list_item_3": "Kattintson a Később gombra a felugró ablakban",
+        "list_item_3_cam": "Kattintson a Kamera elemre, és aktiválja a kapcsolót (vagy jelölőnégyzetet) a [BROWSER_ICON] mellett",
+        "list_item_4": "Kattintson a Kilépés és újranyitás gombra a felugró ablakban, majd térjen vissza erre az oldalra",
+        "list_item_4_mic": "Kattintson a Mikrofon elemre, és aktiválja a kapcsolót (vagy jelölőnégyzetet) a [BROWSER_ICON] mellett"
+      }
+    },
+    "desktop_safari": {
+      "browser_settings": {
+        "list_item_3": "Térjen vissza erre az oldalra, és kattintson a Végrehajtottam a módosításokat gombra"
+      }
+    },
+    "desktop_windows": {
+      "device_settings": {
+        "list_item_1": "A számítógépen kattintson a Windows menüre [WINDOWS_ICON] és válassza a Beállítások [SETTINGS_ICON_WINDOWS] lehetőséget",
+        "list_item_2": "Kattintson a Adatvédelem (vagy Adatvédelem & Biztonság) lehetőségre",
+        "list_item_3_cam": "Kattintson a Kamera lehetőségre az Alkalmazás engedélyek alatt, és aktiválja a kapcsolót a [BROWSER_ICON] mellett",
+        "list_item_3_mic": "Kattintson a Mikrofon elemre az Alkalmazás engedélyek alatt, és aktiválja a kapcsolót a [BROWSER_ICON] mellett",
+        "list_item_4": "Indítsa újra a böngészőjét, ha szükséges, és térjen vissza erre az oldalra"
+      }
+    },
     "info": "Újraindítás",
     "list_header_both": "Mindkét eszközhöz való hozzáférés helyreállításához kövesse az alábbi lépéseket:",
     "list_header_cam": "A kamerához való hozzáférés helyreállításához kövesse az alábbi lépéseket:",
@@ -431,7 +505,7 @@
     "list_item_how_to_cam": "Engedélyezze a fényképezőgéphez való hozzáférést a böngésző beállításaiban",
     "list_item_how_to_mic": "Adjon hozzáférést mikrofonjának a böngészőbeállításokban",
     "subtitle_both": "Videó készítéséhez és az ellenőrzési folyamat befejezéséhez állítsa vissza a kamera és a mikrofon hozzáférését",
-    "subtitle_cam": "Állítsa vissza a kamera hozzáférését az arcellenőrzés folytatásához",
+    "subtitle_cam": "Szükségünk van a kamerájához való hozzáférésre azonosításának ellenőrzése érdekében. Kövesse az alábbi utasításokat a hozzáférés visszaszerzéséhez",
     "subtitle_cam_old": "Állítsa vissza a kamera hozzáférését az arcellenőrzés folytatásához",
     "title_both": "Kamera- és mikrofon-hozzáférés megtagadva",
     "title_cam": "Kamerához való hozzáférés elutasítva"
@@ -485,6 +559,7 @@
     "subtitle": "Olyan dokumentumra lesz szüksége:",
     "title": "Ellenőrizzük a lakcímét"
   },
+  "poa_welcome_text": "Készítsen fényképet a címét tartalmazó dokumentumról",
   "profile_data": {
     "address_title": "Adja meg a címét",
     "button_continue": "Tovább",
@@ -846,7 +921,7 @@
     "info": "Tippek",
     "info_link_expire": "A hivatkozása egy óra múlva lejár",
     "info_link_window": "Hagyja nyitva az ablakot a mobil használata közben",
-    "link": "Hivatkozás újraküldése",
+    "link": "Használjon egy másik módszert",
     "subtitle": "Elküldtünk egy biztonságos linket erre a számra: %{number}",
     "subtitle_minutes": "Néhány percbe telhet, míg megérkezik",
     "title": "Ellenőrizze a mobilját"
@@ -861,14 +936,14 @@
     "title": "Csatlakoztatva a mobiljához"
   },
   "upload_guide": {
-    "button_primary": "Töltse fel a fotót",
+    "button_primary": "Tovább",
     "image_detail_blur_alt": "Példa elmosódott dokumentumra",
     "image_detail_blur_label": "Minden adatnak jól kell látszódnia — semmi nem lehet elmosódott",
     "image_detail_cutoff_label": "Az összes adat megjelenítése — beleértve az alsó 2 sort is",
     "image_detail_glare_label": "Távolodjon el a közvetlen fénytől — ne legyen csillogás",
     "image_detail_good_label": "A fényképen a dokumentum jól látható legyen",
     "subtitle": "Szkennelt és fénymásolt dokumentumot nem fogadunk el",
-    "title": "Töltse fel útlevele fényképes oldalát"
+    "title": "Küldje be az útlevél fényképes oldalát"
   },
   "user_consent": {
     "button_primary": "Elfogad",
@@ -924,10 +999,16 @@
   "welcome": {
     "doc_video_subtitle": "Pár percet vesz igénybe",
     "info_original_document": "Fényképezze le az eredeti dokumentumot. Szkennelés, képernyőfotó vagy fénymásolat nem megengedett.",
+    "list_header": "Használja eszközét a következőkhöz:",
     "list_header_doc_video": "Használja eszközét a felvételhez:",
     "list_header_webcam": "Használja webkameráját vagy telefonját az alábbiak fényképezéséhez:",
     "list_item_doc": "az Ön személyazonosító okmánya",
+    "list_item_doc_generic": "Készítsen videót személyazonosító okmányáról",
+    "list_item_doc_photo": "Készítsen fényképet személyazonosító okmányáról",
+    "list_item_doc_video": "Készítsen videót személyazonosító okmányáról",
     "list_item_doc_video_timeout": "A videórögzítés időkorlátja <timeout></timeout> másodperc",
+    "list_item_face_photo": "Fényképezze le az arcát",
+    "list_item_face_video": "Készítsen videófelvételt az arcáról",
     "list_item_poa": "az Ön lakcímét igazoló dokumentum",
     "list_item_selfie": "az Ön arca",
     "next_button": "Dokumentum kiválasztása",

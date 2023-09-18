@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Flyt tilbage",
+    "feedback_move_back_accessibility": "Flyt enheden væk fra dig",
     "feedback_move_closer": "Flyt tættere på",
+    "feedback_move_left_accessibility": "Flyt din enhed til venstre",
+    "feedback_move_right_accessibility": "Flyt din enhed til højre",
     "feedback_no_face_detected": "Ansigtet er ikke detekteret",
     "feedback_not_centered": "Ansigtet er ikke centreret",
     "title": "Placer dit ansigt inden for rammen"
@@ -38,7 +41,9 @@
     "list_item_one": "Først skal du placere dit ansigt inden for rammen",
     "list_item_two": "Dernæst drejer du hovedet langsomt til begge sider",
     "subtitle": "Dette er for at verificere, at du er en fysisk person",
-    "title": "Optag en video"
+    "title": "Optag en video",
+    "title_accessibility": "Optag en video af dit ansigt",
+    "video_accessibility": "Videoeksempel på en person, der drejer hovedet til begge sider indtil handlingen er fuldført"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Start optagelsen forfra",
@@ -71,7 +76,7 @@
     "title": "Vælg udstedende land"
   },
   "cross_device": {
-    "button_primary_upload": "Upload billede"
+    "button_primary_upload": "Fortsæt"
   },
   "cross_device_checklist": {
     "button_primary": "Indsend verificering",
@@ -154,6 +159,10 @@
     "detail": {
       "folded_doc_front": "Du skal sørge for, at dit dokument ligger fladt, og at alle de indvendige sider indgår (skal indeholde dit foto)"
     },
+    "header": {
+      "recording_complete": "Optagelsen er fuldført",
+      "recording_video": "Optager video"
+    },
     "header_folded_doc_front": "Side med profilbillede",
     "prompt": {
       "button_card": "Plastikkort",
@@ -171,7 +180,12 @@
       "glare_detail": "Flyt dig væk fra direkte lys",
       "glare_title": "Der er detekteret genskin",
       "no_doc_detail": "Sørg for, at det er helt inden for rammen",
-      "no_doc_title": "Dokumentet er ikke detekteret"
+      "no_doc_title": "Dokumentet er ikke detekteret",
+      "odp_detail": "Brug venligst dit originale dokument. Fotos af skærm eller fotokopier accepteres ikke",
+      "odp_photo_of_screen_title": "Foto af skærm registreret",
+      "odp_photocopy_title": "Fotokopi detekteret",
+      "odp_scan_title": "Scan registreret",
+      "odp_screenshot_title": "Skærmbillede registreret"
     },
     "body": "Sørg for, at du har uploadet hele siden af dokumentet, og at oplysningerne fremstår tydelige, uden at de er slørede eller har genskin",
     "body_bank_statement": "Sørg for, at du har uploadet hele siden af dokumentet, og at oplysningerne fremstår tydelige, uden at de er slørede eller har genskin",
@@ -189,7 +203,9 @@
     "button_primary_redo": "Tag om",
     "button_primary_upload": "Upload",
     "button_primary_upload_anyway": "Upload alligevel",
+    "button_secondary_change_document": "Vælg et andet dokument",
     "button_secondary_redo": "Tag om",
+    "button_secondary_submit_anyway": "Indsend foto alligevel",
     "button_zoom": "Forstør billede",
     "image_accessibility": "Billede af dit dokument",
     "title": "Tjek dit billede"
@@ -236,7 +252,7 @@
     "subtitle_photo_page": "Side med billede",
     "subtitle_poa": "Det er de dokumenter, der med størst sandsynlighed viser din nuværende bopælsadresse",
     "title": "Vælg dit dokument",
-    "title_poa": "Vælg et dokument fra %{country}"
+    "title_poa": "Vælg et dokument"
   },
   "doc_submit": {
     "button_link_upload": "eller upload et billede – ingen scanninger eller fotokopier",
@@ -423,6 +439,64 @@
   },
   "permission_recovery": {
     "button_primary": "Genindlæs",
+    "desktop_chrome": {
+      "browser_settings": {
+        "list_item_1": "I din browser skal du klikke på låseikonet [LOCK_ICON] i adresselinjen",
+        "list_item_2_cam": "Aktiver kontakten ved siden af Kamera",
+        "list_item_2_mic": "Aktiver kontakten ved siden af Mikrofon"
+      }
+    },
+    "desktop_edge": {
+      "browser_settings": {
+        "list_item_1": "I din browser skal du klikke på låseikonet [LOCK_ICON] i adresselinjen",
+        "list_item_2_cam": "Klik på rullemenuen ved siden af Kamera og vælg Tillad",
+        "list_item_2_mic": "Klik på rullemenuen ved siden af Mikrofon og vælg Tillad"
+      }
+    },
+    "desktop_firefox": {
+      "browser_settings": {
+        "list_item_2_mic": "Klik på Blokeret ved siden af Brug mikrofonen"
+      }
+    },
+    "desktop_generic": {
+      "browser_settings": {
+        "list_item_1": "I din browser skal du åbne webstedsindstillingerne. Dette er ofte et låseikon [LOCK_ICON] i adresselinjen",
+        "list_item_2": "Find afsnittet om tilladelser",
+        "list_item_3_cam": "Aktivér Kamera tilladelserne",
+        "list_item_3_mic": "Aktivér Mikrofon tilladelserne",
+        "list_item_4": "Gå tilbage til denne side og klik på knappen Jeg har foretaget ændringerne"
+      },
+      "device_settings": {
+        "list_item_1": "På din computer, åbn dine Indstillinger",
+        "list_item_2": "Find afsnittet om tilladelser (normalt under Privatliv)",
+        "list_item_3_cam": "Aktivér Kamera tilladelser for [BROWSER_ICON]",
+        "list_item_3_mic": "Aktivér Mikrofon tilladelser for [BROWSER_ICON]"
+      }
+    },
+    "desktop_mac": {
+      "device_settings": {
+        "list_item_1": "På din computer, klik på Apple-menuen [APPLE_ICON] og vælg Systemindstillinger (eller Systempræferencer)",
+        "list_item_2": "Klik på Privatliv & Sikkerhed (eller Sikkerhed & Privatliv) i sidebaren ",
+        "list_item_3": "Klik på Senere i pop op-vinduet",
+        "list_item_3_cam": "Klik på Kamera og aktiver kontakten (eller afkrydsningsfeltet) ved siden af [BROWSER_ICON]",
+        "list_item_4": "Klik på Afslut & Genåbn i pop op-vinduet og vend tilbage til denne side",
+        "list_item_4_mic": "Klik på Mikrofon og aktiver kontakten (eller afkrydsningsfeltet) ved siden af [BROWSER_ICON]"
+      }
+    },
+    "desktop_safari": {
+      "browser_settings": {
+        "list_item_3": "Vend tilbage til denne side og klik på knappen Jeg har foretaget ændringerne"
+      }
+    },
+    "desktop_windows": {
+      "device_settings": {
+        "list_item_1": "På din computer, klik på Windows-menuen [WINDOWS_ICON] og vælg Indstillinger [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "Klik på Privatliv (eller Privatliv & Sikkerhed)",
+        "list_item_3_cam": "Klik på Kamera under App tilladelser og aktiver kontakten ved siden af [BROWSER_ICON] ",
+        "list_item_3_mic": "Klik på Mikrofon under App tilladelser og aktiver kontakten ved siden af [BROWSER_ICON]",
+        "list_item_4": "Genstart din browser om nødvendigt og vend tilbage til denne side"
+      }
+    },
     "info": "Gendannelse",
     "list_header_both": "Følg disse trin for at gendanne adgang til begge dele:",
     "list_header_cam": "Følg disse trin for at gendanne adgang til kameraet:",
@@ -431,7 +505,7 @@
     "list_item_how_to_cam": "Giv adgang til dit kamera fra dine browserindstillinger",
     "list_item_how_to_mic": "Giv adgang til din mikrofon fra dine browserindstillinger",
     "subtitle_both": "Gendan adgang til kameraet og mikrofonen, så du kan optage en video og fuldføre verificeringen",
-    "subtitle_cam": "Gendan adgang til kameraet, så du kan fortsætte verificeringen",
+    "subtitle_cam": "Vi har brug for adgang til dit kamera for at verificere din identitet. Følg instruktionerne nedenfor for at gendanne adgangen",
     "subtitle_cam_old": "Gendan adgang til kameraet, så du kan fortsætte ansigtverificeringen",
     "title_both": "Adgang til mikrofon og kamera er nægtet",
     "title_cam": "Der er nægtet adgang til kameraet"
@@ -485,6 +559,7 @@
     "subtitle": "Du skal bruge et dokument, der:",
     "title": "Lad os verificere din adresse"
   },
+  "poa_welcome_text": "Tag et billede af et dokument med din adresse",
   "profile_data": {
     "address_title": "Tilføj din adresse",
     "button_continue": "Fortsæt",
@@ -846,7 +921,7 @@
     "info": "Tips",
     "info_link_expire": "Dit link udløber om én time",
     "info_link_window": "Hold dette vindue åbent, mens du bruger din mobil",
-    "link": "Send linket igen",
+    "link": "Prøv en anden metode",
     "subtitle": "Vi har sendt et sikkert link til %{number}",
     "subtitle_minutes": "Det kan tage et par minutter, før du kan se det",
     "title": "Tjek din mobil"
@@ -861,14 +936,14 @@
     "title": "Forbundet til din mobil"
   },
   "upload_guide": {
-    "button_primary": "Upload billede",
+    "button_primary": "Fortsæt",
     "image_detail_blur_alt": "Eksempel på et sløret dokument",
     "image_detail_blur_label": "Alle oplysninger skal være tydelige – intet må være sløret",
     "image_detail_cutoff_label": "Vis alle oplysninger – herunder de nederste 2 linjer",
     "image_detail_glare_label": "Flyt dig væk fra direkte lys – ingen genskin på billedet",
     "image_detail_good_label": "Billedet skal tydeligt vise dit dokument",
     "subtitle": "Scanninger og fotokopier accepteres ikke",
-    "title": "Upload siden i passet, hvor billedet fremgår"
+    "title": "Indsend side med pasfoto"
   },
   "user_consent": {
     "button_primary": "Accepter",
@@ -924,10 +999,16 @@
   "welcome": {
     "doc_video_subtitle": "Det tager nok et par minutter",
     "info_original_document": "Tag et fotografi af dit originale dokument. Scans, billeder af skærme eller fotokopier er ikke tilladt.",
+    "list_header": "Brug din enhed til at:",
     "list_header_doc_video": "Brug din enhed til at optage:",
     "list_header_webcam": "Brug dit webkamera eller telefon til at tage billedet:",
     "list_item_doc": "dit ID-dokument",
+    "list_item_doc_generic": "Optag en video af dit identitetsdokument",
+    "list_item_doc_photo": "Tag et billede af dit ID-dokument",
+    "list_item_doc_video": "Optag en video af dit ID-dokument",
     "list_item_doc_video_timeout": "Optagelsen må højst vare <timeout></timeout> sekunder",
+    "list_item_face_photo": "Tag et billede af dit ansigt",
+    "list_item_face_video": "Optag en video af dit ansigt",
     "list_item_poa": "dit adressebevis",
     "list_item_selfie": "dit ansigt",
     "next_button": "Vælg dokument",

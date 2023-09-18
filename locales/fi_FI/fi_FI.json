@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Siirry taaksepäin",
+    "feedback_move_back_accessibility": "Siirrä laitettasi taaksepäin",
     "feedback_move_closer": "Siirry lähemmäs",
+    "feedback_move_left_accessibility": "Siirrä laitettasi vasemmalle",
+    "feedback_move_right_accessibility": "Siirrä laitettasi oikealle",
     "feedback_no_face_detected": "Kasvoja ei havaittu",
     "feedback_not_centered": "Kasvot eivät ole keskellä",
     "title": "Aseta kasvosi kehykseen"
@@ -38,7 +41,9 @@
     "list_item_one": "Aseta ensin kasvosi kehykseen",
     "list_item_two": "Käännä sitten päätäsi hitaasti molemmille puolille",
     "subtitle": "Näin vahvistetaan, että olet todellinen henkilö",
-    "title": "Tallenna video"
+    "title": "Tallenna video",
+    "title_accessibility": "Tallenna video kasvoistasi",
+    "video_accessibility": "Esimerkkivideo, jossa joku kääntää päätään molemmille puolille, kunnes on valmis"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Aloita tallennus uud.",
@@ -71,7 +76,7 @@
     "title": "Valitse myöntämismaa"
   },
   "cross_device": {
-    "button_primary_upload": "Lataa kuva"
+    "button_primary_upload": "Jatka"
   },
   "cross_device_checklist": {
     "button_primary": "Lähetä vahvistus",
@@ -154,6 +159,10 @@
     "detail": {
       "folded_doc_front": "Aseta asiakirjasi tasaisesti, sisällytä kaikki sisäsivut (täytyy sisältää kuvasi)"
     },
+    "header": {
+      "recording_complete": "Tallennus valmis",
+      "recording_video": "Video tallennus"
+    },
     "header_folded_doc_front": "Sivukuvapuoli",
     "prompt": {
       "button_card": "Muovikortti",
@@ -171,7 +180,12 @@
       "glare_detail": "Siirry pois suorasta valosta",
       "glare_title": "Häikäisyä havaittu",
       "no_doc_detail": "Varmista, että se on kokonaan kehyksessä",
-      "no_doc_title": "Asiakirjaa ei havaittu"
+      "no_doc_title": "Asiakirjaa ei havaittu",
+      "odp_detail": "Käytä alkuperäistä asiakirjaasi. Näytön valokuvia tai valokopioita ei hyväksytä",
+      "odp_photo_of_screen_title": "Näytön kuva havaittu",
+      "odp_photocopy_title": "Fotokopio havaittu",
+      "odp_scan_title": "Skannaus havaittu",
+      "odp_screenshot_title": "Näyttökuva havaittu"
     },
     "body": "Varmista, että olet ladannut asiakirjan koko sivun ja että tiedot ovat luettavissa selkeästi ilman epäselviä tai häikäiseviä kohtia",
     "body_bank_statement": "Varmista, että olet ladannut asiakirjan koko sivun ja että tiedot ovat luettavissa selkeästi ilman epäselviä tai häikäiseviä kohtia",
@@ -189,7 +203,9 @@
     "button_primary_redo": "Uusi",
     "button_primary_upload": "Lataa",
     "button_primary_upload_anyway": "Lataa silti",
+    "button_secondary_change_document": "Valitse toinen asiakirja",
     "button_secondary_redo": "Uusi",
+    "button_secondary_submit_anyway": "Lähetä kuva joka tapauksessa",
     "button_zoom": "Suurenna kuvaa",
     "image_accessibility": "Valokuva asiakirjastasi",
     "title": "Tarkista kuvasi"
@@ -236,7 +252,7 @@
     "subtitle_photo_page": "Valokuvasivu",
     "subtitle_poa": "Nämä asiakirjat näyttävät todennäköisimmin nykyisen kotiosoitteesi",
     "title": "Valitse asiakirjasi",
-    "title_poa": "Valitse maan %{country} asiakirja"
+    "title_poa": "Valitse asiakirja"
   },
   "doc_submit": {
     "button_link_upload": "tai lataa valokuva – ei skannauksia tai valokopioita",
@@ -423,6 +439,64 @@
   },
   "permission_recovery": {
     "button_primary": "Päivitä",
+    "desktop_chrome": {
+      "browser_settings": {
+        "list_item_1": "Napsauta lukkokuvaketta [LOCK_ICON] osoiterivillä selaimessasi",
+        "list_item_2_cam": "Ota käyttöön vipu vieressä Kamera",
+        "list_item_2_mic": "Ota käyttöön vipu vieressä Mikrofoni"
+      }
+    },
+    "desktop_edge": {
+      "browser_settings": {
+        "list_item_1": "Napsauta lukkokuvaketta [LOCK_ICON] osoiterivillä selaimessasi",
+        "list_item_2_cam": "Napsauta pudotusvalikkoa kohdassa Kamera ja valitse Salli",
+        "list_item_2_mic": "Napsauta pudotusvalikkoa kohdassa Mikrofoni ja valitse Salli"
+      }
+    },
+    "desktop_firefox": {
+      "browser_settings": {
+        "list_item_2_mic": "Napsauta Estetty kohdassa Käytä mikrofonia"
+      }
+    },
+    "desktop_generic": {
+      "browser_settings": {
+        "list_item_1": "Avaa selaimessasi verkkosivuston asetukset. Tämä on usein lukon kuvake [LOCK_ICON] osoitepalkissa",
+        "list_item_2": "Etsi osio oikeuksista",
+        "list_item_3_cam": "Ota käyttöön Kamera -oikeudet",
+        "list_item_3_mic": "Ota käyttöön Mikrofoni -oikeudet",
+        "list_item_4": "Palaa tälle sivulle ja klikkaa Olen tehnyt muutokset -painiketta"
+      },
+      "device_settings": {
+        "list_item_1": "Avaa Asetukset tietokoneellasi",
+        "list_item_2": "Etsi osio, joka käsittelee oikeuksia (yleensä Yksityisyys -kohdassa)",
+        "list_item_3_cam": "Ota käyttöön Kamera -oikeudet kohteelle [BROWSER_ICON]",
+        "list_item_3_mic": "Ota käyttöön Mikrofoni -oikeudet kohteelle [BROWSER_ICON]"
+      }
+    },
+    "desktop_mac": {
+      "device_settings": {
+        "list_item_1": "Tietokoneellasi, napsauta Apple-valikkoa [APPLE_ICON] ja valitse Järjestelmäasetukset (tai Järjestelmäasetukset)",
+        "list_item_2": "Napsauta Yksityisyys & turvallisuus (tai Turvallisuus & yksityisyys) sivupalkissa ",
+        "list_item_3": "Napsauta Myöhemmin ponnahdusikkunassa",
+        "list_item_3_cam": "Napsauta Kameraa ja aktivoi kytkin (tai valintaruutu) kohdassa [BROWSER_ICON]",
+        "list_item_4": "Napsauta Lopeta ja avaa uudelleen -painiketta ponnahdusikkunassa ja palaa takaisin tälle sivulle",
+        "list_item_4_mic": "Napsauta Mikrofoni ja aktivoi kytkin (tai valintaruutu) kohdassa [BROWSER_ICON]"
+      }
+    },
+    "desktop_safari": {
+      "browser_settings": {
+        "list_item_3": "Palaa takaisin tälle sivulle ja napsauta Olen tehnyt muutokset -painiketta"
+      }
+    },
+    "desktop_windows": {
+      "device_settings": {
+        "list_item_1": "Tietokoneellasi, napsauta Windows-valikkoa [WINDOWS_ICON] ja valitse Asetukset [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "Napsauta Yksityisyys (tai Yksityisyys & Turvallisuus)",
+        "list_item_3_cam": "Napsauta Kameraa kohdassa Sovelluslupien alla ja aktivoi kytkin vieressä [BROWSER_ICON] ",
+        "list_item_3_mic": "Napsauta Mikrofoni kohdassa Sovelluksen oikeudet ja aktivoi kytkin vieressä [BROWSER_ICON]",
+        "list_item_4": "Käynnistä selain tarvittaessa uudelleen ja palaa tälle sivulle"
+      }
+    },
     "info": "Palautus",
     "list_header_both": "Palauta molempien käyttöoikeudet näin:",
     "list_header_cam": "Palauta kameran käyttöoikeus näin:",
@@ -431,7 +505,7 @@
     "list_item_how_to_cam": "Myönnä kamerasi käyttöoikeus selainasetuksistasi",
     "list_item_how_to_mic": "Myönnä mikrofonisi käyttöoikeus selainasetuksistasi",
     "subtitle_both": "Palauta kameran ja mikrofonin käyttöoikeus videon kuvaamiseksi ja vahvistusprosessin viimeistelemiseksi",
-    "subtitle_cam": "Palauta kameran käyttöoikeus jatkaaksesi vahvistustasi",
+    "subtitle_cam": "Tarvitsemme pääsyn kameraasi henkilöllisyytesi varmistamiseksi. Noudata alla olevia ohjeita pääsyn palauttamiseksi",
     "subtitle_cam_old": "Palauta kameran käyttöoikeus jatkaaksesi kasvojen vahvistusta",
     "title_both": "Kameran ja mikrofonin käyttö estetty",
     "title_cam": "Kameran käyttö on estetty"
@@ -485,6 +559,7 @@
     "subtitle": "Tarvitset asiakirjan, joka:",
     "title": "Vahvistetaan osoitteesi"
   },
+  "poa_welcome_text": "Ota kuva asiakirjasta, jossa on osoitteesi",
   "profile_data": {
     "address_title": "Lisää osoitteesi",
     "button_continue": "Jatka",
@@ -846,7 +921,7 @@
     "info": "Vinkit",
     "info_link_expire": "Linkkisi vanhenee tunnin kuluttua",
     "info_link_window": "Pidä tämä ikkuna auki matkapuhelinta käyttäessäsi",
-    "link": "Lähetä uusi linkki",
+    "link": "Kokeile toista menetelmää",
     "subtitle": "Olemme lähettäneet suojatun linkin numeroon %{number}",
     "subtitle_minutes": "Saapumiseen voi mennä muutama minuutti",
     "title": "Tarkista matkapuhelimesi"
@@ -861,14 +936,14 @@
     "title": "Yhdistetty matkapuhelimeesi"
   },
   "upload_guide": {
-    "button_primary": "Lataa kuva",
+    "button_primary": "Jatka",
     "image_detail_blur_alt": "Esimerkki epäselvästä asiakirjasta",
     "image_detail_blur_label": "Kaikkien tietojen on oltava selkeitä, ei epäselviä",
     "image_detail_cutoff_label": "Näytä kaikki tiedot, mukaan lukien 2 alinta riviä",
     "image_detail_glare_label": "Siirry pois suorasta valosta – ei häikäisyä",
     "image_detail_good_label": "Asiakirjan tulee näkyä kuvassa selkeästi",
     "subtitle": "Skannauksia ja valokopioita ei hyväksytä",
-    "title": "Lataa passin valokuvasivu"
+    "title": "Toimita passin kuvallinen sivu"
   },
   "user_consent": {
     "button_primary": "Hyväksy",
@@ -924,10 +999,16 @@
   "welcome": {
     "doc_video_subtitle": "Siihen menee muutama minuutti",
     "info_original_document": "Ota valokuva alkuperäisestä asiakirjasta. Skannaukset, valokuvat näytöistä tai valokopiot eivät ole sallittuja.",
+    "list_header": "Käytä laitettasi:",
     "list_header_doc_video": "Käytä laitettasi tallentaaksesi:",
     "list_header_webcam": "Käytä verkkokameraa tai puhelinta kuvataksesi:",
     "list_item_doc": "henkilötodistuksesi",
+    "list_item_doc_generic": "Tee video henkilöllisyysasiakirjastasi",
+    "list_item_doc_photo": "ottaaksesi kuvan henkilötodistuksestasi",
+    "list_item_doc_video": "tallentaaksesi videon henkilötodistuksestasi",
     "list_item_doc_video_timeout": "Tallennus on rajoitettu <timeout></timeout> sekunteihin",
+    "list_item_face_photo": "ottaaksesi kuvan kasvoistasi",
+    "list_item_face_video": "tallentaaksesi videon kasvoistasi",
     "list_item_poa": "asuinpaikkatodistuksesi",
     "list_item_selfie": "kasvosi",
     "next_button": "Valitse asiakirja",

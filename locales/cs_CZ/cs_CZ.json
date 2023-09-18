@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Posuňte se dozadu",
+    "feedback_move_back_accessibility": "Posuňte zařízení zpět",
     "feedback_move_closer": "Přibližte se",
+    "feedback_move_left_accessibility": "Posuňte zařízení doleva",
+    "feedback_move_right_accessibility": "Posuňte zařízení doprava",
     "feedback_no_face_detected": "Obličej nebyl rozpoznán",
     "feedback_not_centered": "Obličej není vycentrovaný",
     "title": "Umístěte obličej do záběru"
@@ -38,7 +41,9 @@
     "list_item_one": "Nejprve umístěte obličej do záběru",
     "list_item_two": "Pak pomalu otáčejte hlavu na obě strany",
     "subtitle": "Tím se ověří, že jste skutečná osoba",
-    "title": "Nahrajte video"
+    "title": "Nahrajte video",
+    "title_accessibility": "Nahrát video svého obličeje",
+    "video_accessibility": "Příklad videa, na kterém někdo otáčí hlavou na obě strany až do dokončení"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Restart nahrávání",
@@ -71,7 +76,7 @@
     "title": "Vyberte zemi, kde došlo k vydání"
   },
   "cross_device": {
-    "button_primary_upload": "Nahrajte fotografii"
+    "button_primary_upload": "Pokračovat"
   },
   "cross_device_checklist": {
     "button_primary": "Odeslat ověření",
@@ -154,6 +159,10 @@
     "detail": {
       "folded_doc_front": "Položte dokument na plocho a připojte všechny vnitřní stránky (musí obsahovat Vaši fotografii)"
     },
+    "header": {
+      "recording_complete": "Nahrávání bylo dokončeno",
+      "recording_video": "Nahrávání videa"
+    },
     "header_folded_doc_front": "Strana s profilovou fotografií",
     "prompt": {
       "button_card": "Plastová karta",
@@ -171,7 +180,12 @@
       "glare_detail": "Odstupte od přímého světla",
       "glare_title": "Zjištěno oslnění",
       "no_doc_detail": "Ujistěte se, že je tento dokument zcela v rámečku",
-      "no_doc_title": "Dokument nebyl zjištěn"
+      "no_doc_title": "Dokument nebyl zjištěn",
+      "odp_detail": "Prosím, použijte svůj původní dokument. Fotografie obrazovky nebo fotokopie nejsou přijímány.",
+      "odp_photo_of_screen_title": "Fotografie obrazovky detekována",
+      "odp_photocopy_title": "Detekována fotokopie",
+      "odp_scan_title": "Skenování detekováno",
+      "odp_screenshot_title": "Detekován snímek obrazovky"
     },
     "body": "Ujistěte se, že jste nahráli celou stránku dokumentu a detaily jsou dobře čitelné bez rozmazání nebo odlesků.",
     "body_bank_statement": "Ujistěte se, že jste nahráli celou stránku dokumentu a detaily jsou dobře čitelné bez rozmazání nebo odlesků.",
@@ -189,7 +203,9 @@
     "button_primary_redo": "Přepracovat",
     "button_primary_upload": "Nahrát",
     "button_primary_upload_anyway": "Stejně nahrát",
+    "button_secondary_change_document": "Použijte jiný dokument",
     "button_secondary_redo": "Přepracovat",
+    "button_secondary_submit_anyway": "Odeslat fotku tak jako tak",
     "button_zoom": "Zvětšit obrázek",
     "image_accessibility": "Fotografie Vašeho dokumentu",
     "title": "Zkontrolujte svůj snímek"
@@ -236,7 +252,7 @@
     "subtitle_photo_page": "Přední strana s fotografií",
     "subtitle_poa": "V těchto dokumentech je nejčastěji uvedena Vaše současná adresa bydliště",
     "title": "Vyberte svůj dokument",
-    "title_poa": "Vyberte dokument %{country}"
+    "title_poa": "Zvolte dokument"
   },
   "doc_submit": {
     "button_link_upload": "nebo nahrát fotografii - žádné skeny nebo fotokopie",
@@ -423,6 +439,64 @@
   },
   "permission_recovery": {
     "button_primary": "Obnovit",
+    "desktop_chrome": {
+      "browser_settings": {
+        "list_item_1": "Klikněte v prohlížeči na ikonu zámku [LOCK_ICON] v adresním řádku",
+        "list_item_2_cam": "Aktivujte přepínač vedle Kamery",
+        "list_item_2_mic": "Aktivujte přepínač vedle Mikrofonu"
+      }
+    },
+    "desktop_edge": {
+      "browser_settings": {
+        "list_item_1": "Klikněte v prohlížeči na ikonu zámku [LOCK_ICON] v adresním řádku",
+        "list_item_2_cam": "Klikněte na rozevírací nabídku vedle Kamery a vyberte Povolit",
+        "list_item_2_mic": "Klikněte na rozevírací nabídku vedle Mikrofonu a vyberte Povolit"
+      }
+    },
+    "desktop_firefox": {
+      "browser_settings": {
+        "list_item_2_mic": "Klikněte na Blokováno vedle Použít mikrofon"
+      }
+    },
+    "desktop_generic": {
+      "browser_settings": {
+        "list_item_1": "V prohlížeči otevřete nastavení webové stránky. To je často ikona zámku [LOCK_ICON] v adresním řádku",
+        "list_item_2": "Najděte sekci o oprávněních",
+        "list_item_3_cam": "Povolte oprávnění pro Kameru",
+        "list_item_3_mic": "Povolte oprávnění pro Mikrofon",
+        "list_item_4": "Vraťte se na tuto stránku a klikněte na tlačítko Provedl jsem změny"
+      },
+      "device_settings": {
+        "list_item_1": "Na svém počítači otevřete své Nastavení",
+        "list_item_2": "Najděte sekci o oprávněních (obvykle pod Ochrana osobních údajů)",
+        "list_item_3_cam": "Povolte oprávnění pro Kameru pro [BROWSER_ICON]",
+        "list_item_3_mic": "Povolte oprávnění pro Mikrofon pro [BROWSER_ICON]"
+      }
+    },
+    "desktop_mac": {
+      "device_settings": {
+        "list_item_1": "Na svém počítači klikněte na nabídku Apple [APPLE_ICON] a vyberte Systémová nastavení (nebo Systémové předvolby)",
+        "list_item_2": "Klikněte na Ochrana osobních údajů & Bezpečnost (nebo Bezpečnost & Ochrana osobních údajů) v postranním panelu",
+        "list_item_3": "Klikněte na Později v otevřeném okně",
+        "list_item_3_cam": "Klikněte na Kamera a aktivujte přepínač (nebo zaškrtávací políčko) vedle [BROWSER_ICON]",
+        "list_item_4": "Klikněte na Ukončit a znovu otevřít v otevřeném okně a vraťte se na tuto stránku",
+        "list_item_4_mic": "Klikněte na Mikrofon a aktivujte přepínač (nebo zaškrtávací políčko) vedle [BROWSER_ICON]"
+      }
+    },
+    "desktop_safari": {
+      "browser_settings": {
+        "list_item_3": "Vraťte se na tuto stránku a klikněte na tlačítko Provedl jsem změny"
+      }
+    },
+    "desktop_windows": {
+      "device_settings": {
+        "list_item_1": "Na svém počítači klikněte na nabídku Windows [WINDOWS_ICON] a vyberte Nastavení [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "Klikněte na Soukromí (nebo Soukromí & Bezpečnost)",
+        "list_item_3_cam": "Klikněte na Kamera pod Oprávnění aplikace a aktivujte přepínač vedle [BROWSER_ICON]",
+        "list_item_3_mic": "Klikněte na Mikrofon pod Oprávnění aplikace a aktivujte přepínač vedle [BROWSER_ICON]",
+        "list_item_4": "Restartujte svůj prohlížeč, pokud je to nutné, a vraťte se na tuto stránku"
+      }
+    },
     "info": "Obnova",
     "list_header_both": "Podle následujících kroků obnovíte přístup k oběma přístrojům:",
     "list_header_cam": "Podle následujících kroků obnovíte přístup ke kameře:",
@@ -431,7 +505,7 @@
     "list_item_how_to_cam": "Udělení přístupu ke kameře v nastavení prohlížeče",
     "list_item_how_to_mic": "Povolení přístupu k mikrofonu pomocí nastavení prohlížeče",
     "subtitle_both": "Obnovení přístupu ke kameře a mikrofonu pro pořízení videa a dokončení procesu ověřování",
-    "subtitle_cam": "Obnovení přístupu ke kameře a další ověřování",
+    "subtitle_cam": "Potřebujeme přístup k vaší kameře pro ověření vaší identity. Postupujte podle níže uvedených pokynů pro obnovení přístupu",
     "subtitle_cam_old": "Obnovení přístupu ke kameře pro další ověřování obličeje",
     "title_both": "Zamezení přístupu ke kameře a mikrofonu",
     "title_cam": "Přístup ke kameře byl odepřen"
@@ -485,6 +559,7 @@
     "subtitle": "Budete potřebovat dokument, který:",
     "title": "Nyní ověříme Vaši adresu"
   },
+  "poa_welcome_text": "Vyfotit dokument s Vaší adresou",
   "profile_data": {
     "address_title": "Přidejte svou adresu",
     "button_continue": "Pokračovat",
@@ -846,7 +921,7 @@
     "info": "Tipy",
     "info_link_expire": "Platnost Vašeho odkazu vyprší za hodinu",
     "info_link_window": "Při používání mobilního telefonu nechte toto okno otevřené",
-    "link": "Znovu odešlete odkaz",
+    "link": "Vyzkoušejte jinou metodu",
     "subtitle": "Odeslali jsme zabezpečený odkaz na %{number}",
     "subtitle_minutes": "Může trvat několik minut, než dorazí",
     "title": "Zkontrolujte svůj mobilní telefon"
@@ -861,14 +936,14 @@
     "title": "Připojení k mobilnímu telefonu"
   },
   "upload_guide": {
-    "button_primary": "Nahrajte fotografii",
+    "button_primary": "Pokračovat",
     "image_detail_blur_alt": "Příklad rozmazaného dokumentu",
     "image_detail_blur_label": "Všechny detaily musí být jasné - nic nesmí být rozmazané",
     "image_detail_cutoff_label": "Zobrazit všechny podrobnosti - včetně spodních 2 řádků",
     "image_detail_glare_label": "Odstupte od přímého světla - žádné oslnění",
     "image_detail_good_label": "Na fotografii musí být jasně vidět Váš dokument",
     "subtitle": "Skeny a fotokopie nemohou být akceptovány",
-    "title": "Nahrávání pasové fotografie"
+    "title": "Odeslat stránku s pasovou fotografií"
   },
   "user_consent": {
     "button_primary": "Accept",
@@ -924,10 +999,16 @@
   "welcome": {
     "doc_video_subtitle": "Mělo by to trvat několik minut",
     "info_original_document": "Vyfoťte si originál dokumentu. Skeny, fotografie obrazovek nebo fotokopie nejsou povoleny.",
+    "list_header": "Pomocí svého zařízení můžete:",
     "list_header_doc_video": "Nahrávejte pomocí svého zařízení:",
     "list_header_webcam": "K fotografování použijte webovou kameru nebo telefon:",
     "list_item_doc": "Váš doklad totožnosti",
+    "list_item_doc_generic": "Vytvořte video svého dokladu totožnosti",
+    "list_item_doc_photo": "Vyfoťte si svůj doklad totožnosti",
+    "list_item_doc_video": "Nahrát video svého dokladu totožnosti",
     "list_item_doc_video_timeout": "Nahrávání je omezeno na <timeout></timeout> sekundy",
+    "list_item_face_photo": "Vyfotit svůj obličej",
+    "list_item_face_video": "Nahrát video svého obličeje",
     "list_item_poa": "Váš doklad o adrese",
     "list_item_selfie": "Váš obličej",
     "next_button": "Vyberte dokument",

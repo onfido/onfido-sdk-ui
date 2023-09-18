@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Mundur",
+    "feedback_move_back_accessibility": "Gerakkan perangkat Anda ke belakang",
     "feedback_move_closer": "Mendekatlah",
+    "feedback_move_left_accessibility": "Gerakkan perangkat Anda ke kiri",
+    "feedback_move_right_accessibility": "Gerakkan perangkat Anda ke kanan",
     "feedback_no_face_detected": "Wajah tidak terdeteksi",
     "feedback_not_centered": "Wajah tidak berada di tengah",
     "title": "Posisikan wajah Anda dalam bingkai"
@@ -38,7 +41,9 @@
     "list_item_one": "Pertama, posisikan wajah Anda dalam bingkai",
     "list_item_two": "Kemudian, putar kepala Anda ke kedua sisi",
     "subtitle": "Ini untuk memverifikasi bahwa Anda adalah orang sungguhan",
-    "title": "Rekam video"
+    "title": "Rekam video",
+    "title_accessibility": "Merekam video wajah Anda",
+    "video_accessibility": "Contoh video seseorang memutar kepala ke kedua sisi hingga selesai"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Mulai ulang perekaman",
@@ -71,7 +76,7 @@
     "title": "Pilih negara penerbit"
   },
   "cross_device": {
-    "button_primary_upload": "Unggah foto"
+    "button_primary_upload": "Lanjutkan"
   },
   "cross_device_checklist": {
     "button_primary": "Kirim verifikasi",
@@ -154,6 +159,10 @@
     "detail": {
       "folded_doc_front": "Letakkan dokumen secara mendatar, sertakan semua halaman dalam (harus memuat foto Anda)"
     },
+    "header": {
+      "recording_complete": "Perekaman selesai",
+      "recording_video": "Merekam video"
+    },
     "header_folded_doc_front": "Sisi foto profil",
     "prompt": {
       "button_card": "Kartu plastik",
@@ -171,7 +180,12 @@
       "glare_detail": "Harap menjauh dari cahaya langsung",
       "glare_title": "Cahaya menyilaukan terdeteksi",
       "no_doc_detail": "Pastikan sepenuhnya berada dalam bingkai",
-      "no_doc_title": "Dokumen tidak ditemukan"
+      "no_doc_title": "Dokumen tidak ditemukan",
+      "odp_detail": "Silakan gunakan dokumen asli Anda. Foto layar atau fotokopi tidak diterima",
+      "odp_photo_of_screen_title": "Foto layar terdeteksi",
+      "odp_photocopy_title": "Fotokopi terdeteksi",
+      "odp_scan_title": "Pemindaian terdeteksi",
+      "odp_screenshot_title": "Tangkapan layar terdeteksi"
     },
     "body": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya bisa dibaca dengan jelas, tidak buram atau silau",
     "body_bank_statement": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya bisa dibaca dengan jelas, tidak buram atau silau",
@@ -189,7 +203,9 @@
     "button_primary_redo": "Ulangi",
     "button_primary_upload": "Unggah",
     "button_primary_upload_anyway": "Tetap mengunggah",
+    "button_secondary_change_document": "Pilih dokumen lain",
     "button_secondary_redo": "Ulangi",
+    "button_secondary_submit_anyway": "Kirim foto saja",
     "button_zoom": "Perbesar gambar",
     "image_accessibility": "Foto dokumen Anda",
     "title": "Periksa foto Anda"
@@ -236,7 +252,7 @@
     "subtitle_photo_page": "Halaman foto",
     "subtitle_poa": "Ini adalah dokumen yang hampir bisa dipastikan menunjukkan alamat rumah Anda saat ini",
     "title": "Pilih dokumen Anda",
-    "title_poa": "Pilih dokumen %{country}"
+    "title_poa": "Pilih sebuah dokumen"
   },
   "doc_submit": {
     "button_link_upload": "atau unggah foto – bukan hasil pindaian atau fotokopi",
@@ -423,6 +439,64 @@
   },
   "permission_recovery": {
     "button_primary": "Muat ulang",
+    "desktop_chrome": {
+      "browser_settings": {
+        "list_item_1": "Di browser Anda, klik ikon gembok [LOCK_ICON] di bilah alamat",
+        "list_item_2_cam": "Aktifkan tombol di sebelah Kamera",
+        "list_item_2_mic": "Aktifkan tombol di sebelah Mikrofon"
+      }
+    },
+    "desktop_edge": {
+      "browser_settings": {
+        "list_item_1": "Di browser Anda, klik ikon gembok [LOCK_ICON] di bilah alamat",
+        "list_item_2_cam": "Klik dropdown di sebelah Mikrofon dan pilih Izinkan",
+        "list_item_2_mic": "Klik dropdown di sebelah Mikrofon dan pilih Izinkan"
+      }
+    },
+    "desktop_firefox": {
+      "browser_settings": {
+        "list_item_2_mic": "Klik Diblokir di sebelah Gunakan mikrofon"
+      }
+    },
+    "desktop_generic": {
+      "browser_settings": {
+        "list_item_1": "Di browser Anda, buka pengaturan situs web. Ini seringkali merupakan ikon gembok [LOCK_ICON] di bilah alamat",
+        "list_item_2": "Temukan bagian tentang izin",
+        "list_item_3_cam": "Aktifkan izin Kamera",
+        "list_item_3_mic": "Aktifkan izin Mikrofon",
+        "list_item_4": "Kembali ke halaman ini dan klik tombol Saya telah membuat perubahan"
+      },
+      "device_settings": {
+        "list_item_1": "Di komputer Anda, buka Pengaturan Anda",
+        "list_item_2": "Temukan bagian tentang izin (biasanya di bawah Privasi)",
+        "list_item_3_cam": "Aktifkan izin Kamera untuk [BROWSER_ICON]",
+        "list_item_3_mic": "Aktifkan izin Mikrofon untuk [BROWSER_ICON]"
+      }
+    },
+    "desktop_mac": {
+      "device_settings": {
+        "list_item_1": "Di komputer Anda, klik menu Apple [APPLE_ICON] dan pilih Pengaturan Sistem (atau Preferensi Sistem)",
+        "list_item_2": "Klik Privasi & Keamanan (atau Keamanan & Privasi) di sidebar",
+        "list_item_3": "Klik Nanti di pop-up",
+        "list_item_3_cam": "Klik Kamera dan aktifkan tombol (atau kotak centang) di sebelah [BROWSER_ICON]",
+        "list_item_4": "Klik Keluar & Buka Ulang di pop-up dan kembali ke halaman ini",
+        "list_item_4_mic": "Klik Mikrofon dan aktifkan tombol (atau kotak centang) di sebelah [BROWSER_ICON]"
+      }
+    },
+    "desktop_safari": {
+      "browser_settings": {
+        "list_item_3": "Kembali ke halaman ini dan klik tombol Saya telah membuat perubahan"
+      }
+    },
+    "desktop_windows": {
+      "device_settings": {
+        "list_item_1": "Di komputer Anda, klik menu Windows [WINDOWS_ICON] dan pilih Pengaturan [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "Klik Privasi (atau Privasi & Keamanan)",
+        "list_item_3_cam": "Klik Kamera di bawah Izin Aplikasi dan aktifkan tombol di sebelah [BROWSER_ICON] ",
+        "list_item_3_mic": "Klik Mikrofon di bawah Izin Aplikasi dan aktifkan tombol di sebelah [BROWSER_ICON]",
+        "list_item_4": "Restart browser Anda jika perlu dan kembali ke halaman ini"
+      }
+    },
     "info": "Pemulihan",
     "list_header_both": "Ikuti langkah-langkah berikut untuk memulihkan akses:",
     "list_header_cam": "Ikuti langkah-langkah berikut untuk memulihkan akses kamera:",
@@ -431,7 +505,7 @@
     "list_item_how_to_cam": "Berikan akses ke kamera Anda dari pengaturan browser",
     "list_item_how_to_mic": "Berikan akses ke mikrofon Anda dari pengaturan browser",
     "subtitle_both": "Pulihkan akses kamera dan mikrofon untuk mengambil video dan selesaikan proses verifikasi",
-    "subtitle_cam": "Pulihkan akses kamera untuk melanjutkan verifikasi",
+    "subtitle_cam": "Kami membutuhkan akses ke kamera Anda untuk memverifikasi identitas Anda. Ikuti instruksi di bawah ini untuk memulihkan akses",
     "subtitle_cam_old": "Pulihkan akses kamera untuk melanjutkan verifikasi wajah",
     "title_both": "Akses kamera dan mikrofon ditolak",
     "title_cam": "Akses kamera ditolak"
@@ -485,6 +559,7 @@
     "subtitle": "Anda memerlukan dokumen yang:",
     "title": "Mari verifikasi alamat Anda"
   },
+  "poa_welcome_text": "Ambil foto dokumen dengan alamat Anda",
   "profile_data": {
     "address_title": "Tambahkan alamat Anda",
     "button_continue": "Lanjutkan",
@@ -846,7 +921,7 @@
     "info": "Tips",
     "info_link_expire": "Tautan Anda akan kedaluwarsa dalam satu jam",
     "info_link_window": "Tetap buka jendela ini saat menggunakan ponsel Anda",
-    "link": "Kirim ulang tautan",
+    "link": "Coba metode lain",
     "subtitle": "Kami telah mengirimkan tautan aman ke %{number}",
     "subtitle_minutes": "Mungkin dibutuhkan waktu beberapa menit untuk sampai",
     "title": "Periksa ponsel Anda"
@@ -861,14 +936,14 @@
     "title": "Terhubung ke ponsel Anda"
   },
   "upload_guide": {
-    "button_primary": "Unggah foto",
+    "button_primary": "Lanjutkan",
     "image_detail_blur_alt": "Contoh dokumen buram",
     "image_detail_blur_label": "Semua detail harus jelas — tidak ada yang buram",
     "image_detail_cutoff_label": "Tampilkan semua detail — termasuk 2 baris terbawah",
     "image_detail_glare_label": "Menjauh dari cahaya langsung — tidak boleh terlihat silau",
     "image_detail_good_label": "Foto harus menampilkan dokumen Anda dengan jelas",
     "subtitle": "Pindaian dan fotokopi tidak diterima",
-    "title": "Unggah halaman foto paspor"
+    "title": "Kirimkan halaman foto paspor"
   },
   "user_consent": {
     "button_primary": "Setuju",
@@ -924,10 +999,16 @@
   "welcome": {
     "doc_video_subtitle": "Ini akan memakan waktu beberapa menit",
     "info_original_document": "Ambil foto dokumen asli Anda. Pemindaian, foto layar, atau fotokopi tidak diperbolehkan.",
+    "list_header": "Gunakan perangkat Anda untuk:",
     "list_header_doc_video": "Gunakan perangkat Anda untuk merekam:",
     "list_header_webcam": "Gunakan kamera web atau ponsel Anda untuk memotret:",
     "list_item_doc": "dokumen identitas Anda",
+    "list_item_doc_generic": "Rekam video dari dokumen identitas Anda",
+    "list_item_doc_photo": "Mengambil foto dokumen identitas Anda",
+    "list_item_doc_video": "Merekam video dokumen identitas Anda",
     "list_item_doc_video_timeout": "Rekaman dibatasi hingga <timeout></timeout> detik",
+    "list_item_face_photo": "Mengambil foto wajah Anda",
+    "list_item_face_video": "Merekam video wajah Anda",
     "list_item_poa": "bukti alamat Anda",
     "list_item_selfie": "wajah Anda",
     "next_button": "Pilih dokumen",

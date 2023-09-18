@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Pavirzieties tālāk",
+    "feedback_move_back_accessibility": "Attāliniet ierīci",
     "feedback_move_closer": "Pavirzieties tuvāk",
+    "feedback_move_left_accessibility": "Pavirziet ierīci pa kreisi",
+    "feedback_move_right_accessibility": "Pavirziet ierīci pa labi",
     "feedback_no_face_detected": "Seja nav atrasta",
     "feedback_not_centered": "Seja nav centrēta",
     "title": "Pozicionējiet seju kadrā"
@@ -38,7 +41,9 @@
     "list_item_one": "Vispirms pozicionējiet seju kadrā",
     "list_item_two": "Pēc tam lēnām pagrieziet galvu uz abām pusēm",
     "subtitle": "Tas nepieciešams, lai pārbaudītu, vai esat īsta persona",
-    "title": "Ierakstīt videoklipu"
+    "title": "Ierakstīt videoklipu",
+    "title_accessibility": "Ierakstīt savas sejas videoklipu",
+    "video_accessibility": "Videoklipa piemērs, kurā cilvēks pagriež galvu uz abām pusēm līdz apstiprinājumam"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Sākt ierakstu no jauna",
@@ -71,7 +76,7 @@
     "title": "Atlasīt izdevējvalsti"
   },
   "cross_device": {
-    "button_primary_upload": "Augšupielādēt fotoattēlu"
+    "button_primary_upload": "Turpināt"
   },
   "cross_device_checklist": {
     "button_primary": "Iesniegt pārbaudei",
@@ -154,6 +159,10 @@
     "detail": {
       "folded_doc_front": "Novietojiet dokumentu plakani uz līdzenas virsmas, ir jābūt redzamām visām iekšējām lapām (tajās jābūt jūsu fotoattēlam)"
     },
+    "header": {
+      "recording_complete": "Ieraksts pabeigts",
+      "recording_video": "Ieraksta video"
+    },
     "header_folded_doc_front": "Profila fotoattēla puse",
     "prompt": {
       "button_card": "Plastikāta karte",
@@ -171,7 +180,12 @@
       "glare_detail": "Pavirzieties prom no tiešas gaismas",
       "glare_title": "Konstatēts atspīdums",
       "no_doc_detail": "Pārliecinieties, ka tas ir pilnībā ievietots kadrā",
-      "no_doc_title": "Dokuments nav atrasts"
+      "no_doc_title": "Dokuments nav atrasts",
+      "odp_detail": "Lūdzu, izmantojiet savu oriģinālo dokumentu. Ekrāna fotogrāfijas vai fotokopijas netiek pieņemtas.",
+      "odp_photo_of_screen_title": "Ekrāna fotoattēls konstatēts",
+      "odp_photocopy_title": "Fotokopija konstatēta",
+      "odp_scan_title": "Skenēšana konstatēta",
+      "odp_screenshot_title": "Ierakstīts ekrānuzņēmums"
     },
     "body": "Pārliecinieties, ka esat augšupielādējis visu dokumenta lapu un ka informācija ir skaidri salasāma bez izplūduma vai atspīduma",
     "body_bank_statement": "Pārliecinieties, ka esat augšupielādējis visu dokumenta lapu un ka informācija ir skaidri salasāma bez izplūduma vai atspīduma",
@@ -189,7 +203,9 @@
     "button_primary_redo": "Atkārtot",
     "button_primary_upload": "Augšupielādēt",
     "button_primary_upload_anyway": "Augšupielādēt tik un tā",
+    "button_secondary_change_document": "Izvēlēties citu dokumentu",
     "button_secondary_redo": "Atkārtot",
+    "button_secondary_submit_anyway": "Iesniegt fotoattēlu tāpat",
     "button_zoom": "Palielināt attēlu",
     "image_accessibility": "Dokumenta fotoattēls",
     "title": "Apskatiet savu attēlu"
@@ -236,7 +252,7 @@
     "subtitle_photo_page": "Fotoattēla lapa",
     "subtitle_poa": "Šie ir dokumenti, kuros, visticamāk, ir redzama jūsu pašreizējā dzīvesvietas adrese",
     "title": "Izvēlieties savu dokumentu",
-    "title_poa": "Atlasīt dokumentu, kuras izdošanas valsts ir %{country}"
+    "title_poa": "Izvēlieties dokumentu"
   },
   "doc_submit": {
     "button_link_upload": "vai augšupielādējiet fotoattēlu, nevis skenētus dokumentus vai fotokopijas",
@@ -423,6 +439,64 @@
   },
   "permission_recovery": {
     "button_primary": "Atsvaidzināt",
+    "desktop_chrome": {
+      "browser_settings": {
+        "list_item_1": "Savā pārlūkprogrammā noklikšķiniet uz bloķēšanas ikonas [LOCK_ICON] adrešu joslā",
+        "list_item_2_cam": "Aktivizējiet pārslēdzēju blakus Kamera",
+        "list_item_2_mic": "Aktivizējiet pārslēdzēju blakus Mikrofonam"
+      }
+    },
+    "desktop_edge": {
+      "browser_settings": {
+        "list_item_1": "Savā pārlūkprogrammā noklikšķiniet uz bloķēšanas ikonas [LOCK_ICON] adrešu joslā",
+        "list_item_2_cam": "Noklikšķiniet uz nolaižamās izvēlnes blakus Kamera un izvēlieties Atļaut",
+        "list_item_2_mic": "Noklikšķiniet uz nolaižamās izvēlnes blakus Mikrofons un izvēlieties Atļaut"
+      }
+    },
+    "desktop_firefox": {
+      "browser_settings": {
+        "list_item_2_mic": "Noklikšķiniet uz Bloķēts blakus Izmantot mikrofonu"
+      }
+    },
+    "desktop_generic": {
+      "browser_settings": {
+        "list_item_1": "Savā pārlūkprogrammā atveriet vietnes iestatījumus. Bieži vien tas ir slēdzenes ikona [LOCK_ICON] adreses joslā",
+        "list_item_2": "Atrast sadaļu par atļaujām",
+        "list_item_3_cam": "Iespējojiet Kameras atļaujas",
+        "list_item_3_mic": "Iespējojiet Mikrofona atļaujas",
+        "list_item_4": "Atgriezieties šajā lapā un noklikšķiniet uz pogas Es esmu veicis izmaiņas"
+      },
+      "device_settings": {
+        "list_item_1": "Savā datorā atveriet savus Iestatījumus",
+        "list_item_2": "Atrast sadaļu par atļaujām (parasti zem Privātums)",
+        "list_item_3_cam": "Iespējojiet Kameras atļaujas priekš [BROWSER_ICON]",
+        "list_item_3_mic": "Iespējojiet Mikrofona atļaujas priekš [BROWSER_ICON]"
+      }
+    },
+    "desktop_mac": {
+      "device_settings": {
+        "list_item_1": "Savā datorā noklikšķiniet uz Apple izvēlnes [APPLE_ICON] un izvēlieties Sistēmas iestatījumi (vai Sistēmas preferences)",
+        "list_item_2": "Noklikšķiniet uz Privātums un drošība (vai Drošība un privātums) sānjoslā ",
+        "list_item_3": "Noklikšķiniet uz Vēlāk uznirstošajā logā",
+        "list_item_3_cam": "Noklikšķiniet uz Kamera un aktivizējiet slēdzi (vai izvēles rūtiņu) blakus [BROWSER_ICON]",
+        "list_item_4": "Noklikšķiniet uz Aizvērt un atkārtoti atvērt uznirstošajā logā un atgriezieties šajā lapā",
+        "list_item_4_mic": "Noklikšķiniet uz Mikrofons un aktivizējiet slēdzi (vai izvēles rūtiņu) blakus [BROWSER_ICON]"
+      }
+    },
+    "desktop_safari": {
+      "browser_settings": {
+        "list_item_3": "Atgriezieties šajā lapā un noklikšķiniet uz pogas Es esmu veicis izmaiņas"
+      }
+    },
+    "desktop_windows": {
+      "device_settings": {
+        "list_item_1": "Uz sava datora, noklikšķiniet uz Windows izvēlnes [WINDOWS_ICON] un izvēlieties Iestatījumi [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "Noklikšķiniet uz Privātums (vai Privātums & Drošība)",
+        "list_item_3_cam": "Noklikšķiniet uz Kamera sadaļā Lietotņu atļaujas un aktivizējiet pārslēdzēju blakus [BROWSER_ICON] ",
+        "list_item_3_mic": "Noklikšķiniet uz Mikrofons zem Lietotņu atļaujas un aktivizējiet slēdzi blakus [BROWSER_ICON]",
+        "list_item_4": "Ja nepieciešams, restartējiet savu pārlūkprogrammu un atgriezieties šajā lapā"
+      }
+    },
     "info": "Atjaunošana",
     "list_header_both": "Lai atjaunotu piekļuvi abiem, veiciet tālāk norādītās darbības.",
     "list_header_cam": "Lai atjaunotu piekļuvi kamerai, veiciet tālāk norādītās darbības.",
@@ -431,7 +505,7 @@
     "list_item_how_to_cam": "Sniedziet piekļuvi kamerai pārlūka iestatījumos.",
     "list_item_how_to_mic": "Pārlūka iestatījumos piešķiriet piekļuvi mikrofonam",
     "subtitle_both": "Atjaunojiet piekļuvi kamerai un mikrofonam, lai uzņemtu videoklipu un pabeigtu pārbaudi",
-    "subtitle_cam": "Atjaunojiet piekļuvi kamerai, lai turpinātu pārbaudi",
+    "subtitle_cam": "Mums ir nepieciešama piekļuve jūsu kamerai, lai pārbaudītu jūsu identitāti. Lūdzu, sekojiet zemāk norādītajām instrukcijām, lai atjaunotu piekļuvi",
     "subtitle_cam_old": "Atjaunojiet piekļuvi kamerai, lai turpinātu sejas pārbaudi",
     "title_both": "Kamerai un mikrofonam ir liegta piekļuve",
     "title_cam": "Piekļuve kamerai ir liegta"
@@ -485,6 +559,7 @@
     "subtitle": "Jums būs nepieciešams dokuments, kas atbilst šādām prasībām:",
     "title": "Pārbaudīsim jūsu adresi"
   },
+  "poa_welcome_text": "Nofotografētu dokumentu ar savu adresi",
   "profile_data": {
     "address_title": "Pievienojiet savu adresi",
     "button_continue": "Turpināt",
@@ -846,7 +921,7 @@
     "info": "Padomi",
     "info_link_expire": "Jūsu saites derīguma termiņš beigsies pēc stundas",
     "info_link_window": "Turiet šo logu atvērtu, kamēr izmantojat mobilo tālruni",
-    "link": "Nosūtīt saiti atkārtoti",
+    "link": "Izmēģiniet citu metodi",
     "subtitle": "Mēs nosūtījām drošu saiti uz %{number}",
     "subtitle_minutes": "Sūtīšana var aizņemt dažas minūtes",
     "title": "Pārbaudiet savu mobilo tālruni"
@@ -861,14 +936,14 @@
     "title": "Izveidots savienojums ar mobilo tālruni"
   },
   "upload_guide": {
-    "button_primary": "Augšupielādēt fotoattēlu",
+    "button_primary": "Turpināt",
     "image_detail_blur_alt": "Izplūduša dokumenta piemērs",
     "image_detail_blur_label": "Visai informācijai jābūt skaidri redzamai, nekas nedrīkst būt izplūdis",
     "image_detail_cutoff_label": "Rādīt visu informāciju, tostarp divas apakšējās rindas",
     "image_detail_glare_label": "Pavirzieties nostāk no tiešas gaismas, nedrīkst būt atspīduma",
     "image_detail_good_label": "Fotoattēlā jābūt skaidri redzamam jūsu dokumentam",
     "subtitle": "Mēs nepieņemam skenētus dokumentus un fotokopijas",
-    "title": "Augšupielādējiet pases fotoattēla lapu"
+    "title": "Iesniedziet pases fotoattēla lapu"
   },
   "user_consent": {
     "button_primary": "Piekrist",
@@ -924,10 +999,16 @@
   "welcome": {
     "doc_video_subtitle": "Tas var aizņemt dažas minūtes",
     "info_original_document": "Nofotografējiet dokumenta oriģinālu. Skenētus dokumentus, ekrānu fotoattēlus vai fotokopijas nav atļauts izmantot.",
+    "list_header": "Izmantojiet ierīci, lai:",
     "list_header_doc_video": "Izmantojiet ierīci, lai ierakstītu:",
     "list_header_webcam": "Izmantojiet tīmekļa kameru vai tālruni, lai nofotografētu:",
     "list_item_doc": "jūsu personu apliecinošo dokumentu",
+    "list_item_doc_generic": "Ierakstiet video, kurā redzams jūsu identitātes dokuments",
+    "list_item_doc_photo": "Nofotografētu savu personu apliecinošo dokumentu.",
+    "list_item_doc_video": "Ierakstītu sava personu apliecinošā dokumenta videoklipu.",
     "list_item_doc_video_timeout": "Ierakstīšana ir ierobežota līdz <timeout></timeout> sekundēm",
+    "list_item_face_photo": "Nofotografētu savu seju.",
+    "list_item_face_video": "Ierakstītu savas sejas videoklipu.",
     "list_item_poa": "jūsu adreses apliecinājumu",
     "list_item_selfie": "jūsu seju",
     "next_button": "Izvēlēties dokumentu",
