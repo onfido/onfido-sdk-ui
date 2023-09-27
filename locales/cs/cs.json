@@ -1,0 +1,1132 @@
+{
+  "avc_confirmation": {
+    "button_primary_upload": "Nahrávání záznamu",
+    "subtitle": "Video Vašeho obličeje bylo úspěšně nahráno",
+    "title": "Nahrávání bylo dokončeno"
+  },
+  "avc_connection_error": {
+    "button_primary_reload": "Pokyny pro opětovné nahrávání",
+    "button_primary_retry_upload": "Opakování nahrávání",
+    "button_secondary_restart_recording": "Restart nahrávání",
+    "subtitle": "Zkontrolujte, zda je připojení stabilní, a opakujte akci",
+    "title": "Chyba připojení"
+  },
+  "avc_face_alignment": {
+    "feedback_move_back": "Posuňte se dozadu",
+    "feedback_move_back_accessibility": "Posuňte zařízení zpět",
+    "feedback_move_closer": "Přibližte se",
+    "feedback_move_left_accessibility": "Posuňte zařízení doleva",
+    "feedback_move_right_accessibility": "Posuňte zařízení doprava",
+    "feedback_no_face_detected": "Obličej nebyl rozpoznán",
+    "feedback_not_centered": "Obličej není vycentrovaný",
+    "title": "Umístěte obličej do záběru"
+  },
+  "avc_face_capture": {
+    "alert": {
+      "mic_conflict_title": "Mikrofon je používán v jiné aplikaci",
+      "timeout_body": "Na dokončení záznamu máte až 15 sekund",
+      "timeout_button_primary": "Opakování",
+      "timeout_title": "Litujeme, musíme znovu spustit nahrávání",
+      "too_fast_body": "Zkuste to znovu a otáčejte hlavou pomaleji",
+      "too_fast_button_primary": "Opakování",
+      "too_fast_title": "Otočil/a jste hlavu příliš rychle"
+    },
+    "title": "Pomalu otáčejte hlavou na obě strany",
+    "title_completed": "Nahrávání bylo dokončeno"
+  },
+  "avc_intro": {
+    "button_primary_ready": "Spuštění nahrávání",
+    "disclaimer": "Během tohoto procesu bude zaznamenán váš obličej a pozadí obrazu",
+    "disclaimer_camera_and_audio_on": "Během tohoto procesu bude zaznamenán váš obličej, pozadí a zvuk",
+    "list_item_one": "Nejprve umístěte obličej do záběru",
+    "list_item_two": "Pak pomalu otáčejte hlavu na obě strany",
+    "subtitle": "Tím se ověří, že jste skutečná osoba",
+    "title": "Nahrajte video",
+    "title_accessibility": "Nahrát video svého obličeje",
+    "video_accessibility": "Příklad videa, na kterém někdo otáčí hlavou na obě strany až do dokončení"
+  },
+  "avc_no_face_detected": {
+    "button_primary_restart": "Restart nahrávání",
+    "list_item_eyes": "Ujistěte se, že jsou Vaše oči dobře viditelné",
+    "list_item_face": "Stačí, když se ukážete, nepotřebujeme vidět Váš průkaz totožnosti.",
+    "list_item_lighting": "Ujistěte se, že jste na místě s dobrým osvětlením",
+    "list_item_mask": "Nezapomeňte si sundat roušku nebo jiné předměty, které vám zakrývají obličej. Brýle jsou v pořádku",
+    "title": "Nemůžeme rozpoznat Váš obličej"
+  },
+  "avc_uploading": {
+    "title": "Nahrávání"
+  },
+  "country_select": {
+    "alert": {
+      "another_doc": "Dokumenty z této země nejsou v současné době podporovány - <fallback>zkuste jiný typ dokumentu</fallback>."
+    },
+    "alert_dropdown": {
+      "country_not_found": "Země nebyla nalezena"
+    },
+    "button_primary": "Odeslat dokument",
+    "poa_alert": {
+      "country_not_found": "Litujeme. Pracujeme na budoucí podpoře dalších zemí.",
+      "intro": "Nemůžete najít svou zemi?"
+    },
+    "search": {
+      "accessibility": "Zvolte zemi",
+      "input_placeholder": "např. Spojené státy",
+      "label": "Hledání země"
+    },
+    "title": "Vyberte zemi, kde došlo k vydání"
+  },
+  "cross_device": {
+    "button_primary_upload": "Pokračovat"
+  },
+  "cross_device_checklist": {
+    "button_primary": "Odeslat ověření",
+    "info": "Tipy",
+    "list_item_doc_multiple": "Dokumenty",
+    "list_item_doc_one": "Dokument",
+    "list_item_poa": "Doklad o adrese",
+    "list_item_selfie": "Selfie",
+    "list_item_video": "Video",
+    "subtitle": "Zde je vše, co jste nahráli:",
+    "title": "Poslední krok"
+  },
+  "cross_device_error_desktop": {
+    "subtitle": "Odkaz funguje pouze na mobilních zařízeních",
+    "title": "Něco se pokazilo"
+  },
+  "cross_device_error_restart": {
+    "subtitle": "Budete muset restartovat ověřování v počítači",
+    "title": "Něco se pokazilo"
+  },
+  "cross_device_intro": {
+    "button_primary": "Získejte zabezpečený odkaz",
+    "list_accessibility": "Kroky potřebné k pokračování ověřování v mobilním telefonu",
+    "list_item_finish": "Zkontrolujte, zda jste dokončili odesílání",
+    "list_item_open_link": "Otevřete odkaz a dokončete úkoly",
+    "list_item_send_phone": "Odeslání zabezpečeného odkazu do telefonu",
+    "subtitle": "Zde je postup:",
+    "subtitle_upload": "Nahrajte prosím aktuální fotografii svého původního dokumentu",
+    "title": "Pokračovat v telefonu"
+  },
+  "cross_device_return": {
+    "body": "Aktualizace počítače může trvat několik sekund",
+    "subtitle": "Nyní se můžete vrátit k počítači a pokračovat dále",
+    "title": "Úspěšné nahrávání"
+  },
+  "cross_device_session_linked": {
+    "button_primary": "Pokračovat",
+    "info": "Dvojitá kontrola",
+    "list_item_desktop_open": "Okno plochy je stále otevřené",
+    "list_item_sent_by_you": "Tento odkaz jste poslali Vy - pokud si myslíte, že by mohlo jít o podvod, požádejte o radu.",
+    "subtitle": "Pokračujte v ověřování",
+    "title": "Mobilní relace propojená s počítačem"
+  },
+  "doc_auto_capture": {
+    "button_accessibility": "Pořiď fotografii",
+    "footer": {
+      "captured": "Snímek pořízen",
+      "capturing": "Probíhá pořizování snímku",
+      "manual_fallback_generic_document_back": "Vyfoťte zadní stranu dokumentu",
+      "manual_fallback_generic_document_front": "Vyfoťte přední stranu dokumentu",
+      "manual_fallback_identity_card_back": "Vyfoť zadní stranu občanského průkazu",
+      "manual_fallback_identity_card_front": "Vyfoť přední stranu občanského průkazu",
+      "manual_fallback_license_back": "Vyfoť zadní stranu řidičského průkazu",
+      "manual_fallback_license_front": "Vyfoť přední stranu řidičského průkazu",
+      "manual_fallback_passport": "Vyfoť stránku s fotografií v pasu",
+      "manual_fallback_residence_permit_back": "Vyfoť přední stranu povolení k pobytu",
+      "manual_fallback_residence_permit_front": "Vyfoť přední stranu povolení k pobytu",
+      "position_generic_document_back": "",
+      "position_generic_document_front": "",
+      "position_identity_card_back": "Umísti zadní stranu občanského průkazu do rámečku",
+      "position_identity_card_front": "Umísti přední stranu občanského průkazu do rámečku",
+      "position_license_back": "Umísti zadní stranu řidičského průkazu do rámečku",
+      "position_license_front": "Umísti přední stranu řidičského průkazu do rámečku",
+      "position_passport": "Umísti stránku s fotografií v pasu do rámečku",
+      "position_residence_permit_back": "Umísti zadní stranu povolení k pobytu do rámečku",
+      "position_residence_permit_front": "Umísti přední stranu povolení k pobytu do rámečku"
+    },
+    "frame": {
+      "flip_document": "Otoč na zadní stranu",
+      "hold_still": "Nehýbej se",
+      "no_document": "Doklad nebyl zjištěn"
+    }
+  },
+  "doc_capture": {
+    "alert": {
+      "no_barcode_detail": "Zůstaňte na dobře osvětleném místě a přiblížte kartu k fotoaparátu",
+      "no_barcode_title": "Čárový kód nebyl detekován"
+    },
+    "button_primary": "Spuštění skenování dokumentů",
+    "detail": {
+      "folded_doc_front": "Položte dokument na plocho a připojte všechny vnitřní stránky (musí obsahovat Vaši fotografii)"
+    },
+    "header": {
+      "recording_complete": "Nahrávání bylo dokončeno",
+      "recording_video": "Nahrávání videa"
+    },
+    "header_folded_doc_front": "Strana s profilovou fotografií",
+    "prompt": {
+      "button_card": "Plastová karta",
+      "button_paper": "Papírový dokument",
+      "title_id": "Jaký typ průkazu totožnosti máte?",
+      "title_license": "Jaký typ licence máte?"
+    }
+  },
+  "doc_confirmation": {
+    "alert": {
+      "blur_detail": "Ujistěte se, že je vše jasné a čisté",
+      "blur_title": "Detekce rozmazané fotografie",
+      "crop_detail": "Ujistěte se, že je viditelný celý dokument",
+      "crop_title": "Zjištěný obraz s oříznutým okrajem",
+      "glare_detail": "Odstupte od přímého světla",
+      "glare_title": "Zjištěno oslnění",
+      "no_doc_detail": "Ujistěte se, že je tento dokument zcela v rámečku",
+      "no_doc_title": "Dokument nebyl zjištěn",
+      "odp_detail": "Prosím, použijte svůj původní dokument. Fotografie obrazovky nebo fotokopie nejsou přijímány.",
+      "odp_photo_of_screen_title": "Fotografie obrazovky detekována",
+      "odp_photocopy_title": "Detekována fotokopie",
+      "odp_scan_title": "Skenování detekováno",
+      "odp_screenshot_title": "Detekován snímek obrazovky"
+    },
+    "body": "Ujistěte se, že jste nahráli celou stránku dokumentu a detaily jsou dobře čitelné bez rozmazání nebo odlesků.",
+    "body_bank_statement": "Ujistěte se, že jste nahráli celou stránku dokumentu a detaily jsou dobře čitelné bez rozmazání nebo odlesků.",
+    "body_benefits_letter": "Ujistěte se, že jste nahráli celou stránku dokumentu a detaily jsou dobře čitelné bez rozmazání nebo odlesků.",
+    "body_bill": "Ujistěte se, že jste nahráli celou stránku dokumentu a detaily jsou dobře čitelné bez rozmazání nebo odlesků.",
+    "body_generic_document": "Ujistěte se, že jsou Vaše údaje jasné a nezkreslené",
+    "body_id": "Ujistěte se, že jsou Vaše údaje jasné a nezkreslené",
+    "body_image_medium": "Ověření bude trvat déle, pokud nebudeme moci dokument přečíst",
+    "body_image_poor": "Pro hladké ověření potřebujeme lepší fotografii",
+    "body_license": "Ujistěte se, že jsou Vaše údaje jasné a nezkreslené",
+    "body_passport": "Ujistěte se, že jsou Vaše údaje jasné a nezkreslené",
+    "body_permit": "Ujistěte se, že jsou Vaše údaje jasné a nezkreslené",
+    "body_tax_letter": "Ujistěte se, že jste nahráli celou stránku dokumentu a detaily jsou dobře čitelné bez rozmazání nebo odlesků.",
+    "button_close": "Zavřít",
+    "button_primary_redo": "Přepracovat",
+    "button_primary_upload": "Nahrát",
+    "button_primary_upload_anyway": "Stejně nahrát",
+    "button_secondary_change_document": "Použijte jiný dokument",
+    "button_secondary_redo": "Přepracovat",
+    "button_secondary_submit_anyway": "Odeslat fotku tak jako tak",
+    "button_zoom": "Zvětšit obrázek",
+    "image_accessibility": "Fotografie Vašeho dokumentu",
+    "title": "Zkontrolujte svůj snímek"
+  },
+  "doc_multi_frame_capture": {
+    "capture_progress_title": "Skenování dokumentu",
+    "instructions_title_back": "Umístěte zadní stranu dokumentu do rámečku",
+    "instructions_title_front": "Umístěte přední stranu dokumentu do rámečku"
+  },
+  "doc_select": {
+    "button_address_card": "Adresní karta",
+    "button_address_card_detail": "Přijímají se dočasné i trvalé karty",
+    "button_bank_statement": "Výpis z účtu banky nebo stavební spořitelny",
+    "button_bank_statement_non_uk": "Bankovní výpis",
+    "button_benefits_letter": "Dopis o výhodách",
+    "button_benefits_letter_detail": "Vládou schválené dávky pro domácnosti, např. příspěvek pro uchazeče o zaměstnání, příspěvek na bydlení, daňové úlevy.",
+    "button_bill": "Účet za komunální služby",
+    "button_bill_detail": "Plyn, elektřina, voda, pevná linka nebo internetové připojení",
+    "button_government_letter": "Vládní dopis",
+    "button_government_letter_detail": "Jakýkoli dopis vydaný vládou, například dopis o nároku na dávky, dopis o volbách, dopis o daních atd.",
+    "button_id": "Průkaz totožnosti",
+    "button_id_detail": "Přední a zadní strana",
+    "button_license": "Řidičský průkaz",
+    "button_license_detail": "Přední a zadní strana",
+    "button_passport": "Pas",
+    "button_passport_detail": "Stránka pro fotografie",
+    "button_permit": "Povolení k pobytu",
+    "button_permit_detail": "Přední a zadní strana",
+    "button_tax_letter": "Dopis o dani",
+    "extra_estatements_ok": "Přijímání elektronických výpisů",
+    "extra_no_mobile": "Litujeme, účty za mobilní telefon nepřijímáme",
+    "list_accessibility": "Doklady, které můžete použít k ověření své totožnosti",
+    "pill": "nejrychlejší",
+    "section": {
+      "header_country": "Vydávající země",
+      "header_doc_type": "Akceptované dokumenty",
+      "input_country_not_found": "Žádné výsledky",
+      "input_placeholder_country": "Vyberte zemi, kde došlo k vydání"
+    },
+    "subtitle": "Musí se jednat o oficiální průkaz totožnosti s fotografií",
+    "subtitle_country": "Vyberte zemi vydání a podívejte se, které doklady přijímáme",
+    "subtitle_entire_page": "Celá stránka",
+    "subtitle_front_back": "Přední a zadní strana",
+    "subtitle_photo_page": "Přední strana s fotografií",
+    "subtitle_poa": "V těchto dokumentech je nejčastěji uvedena Vaše současná adresa bydliště",
+    "title": "Vyberte svůj dokument",
+    "title_poa": "Zvolte dokument"
+  },
+  "doc_submit": {
+    "button_link_upload": "nebo nahrát fotografii - žádné skeny nebo fotokopie",
+    "button_primary": "Pokračujte v telefonu",
+    "subtitle": "Vyfotografujte se telefonem",
+    "title_bank_statement": "Odeslat prohlášení",
+    "title_benefits_letter": "Odeslat dopis",
+    "title_bill": "Předložit účet",
+    "title_generic_document_back": "Odeslat dokument (zadní strana)",
+    "title_generic_document_front": "Odeslat dokument (přední strana)",
+    "title_government_letter": "Vládní dopis",
+    "title_id_back": "Předložit průkaz totožnosti (zadní strana)",
+    "title_id_front": "Předložit průkaz totožnosti (přední strana)",
+    "title_license_back": "Předložit řidičský průkaz (zadní strana)",
+    "title_license_front": "Předložit řidičský průkaz (přední strana)",
+    "title_passport": "Odeslat pasovou fotografii",
+    "title_permit_back": "Předložit povolení k pobytu (zadní stranu)",
+    "title_permit_front": "Předložit povolení k pobytu (přední stranu)",
+    "title_tax_letter": "Odeslat dopis"
+  },
+  "doc_video_capture": {
+    "button_primary_fallback": "Další krok",
+    "button_primary_fallback_end": "Dokončení nahrávání",
+    "detail_step2": "Mějte dokument stále na očích",
+    "header": "Při držení dokumentu držte přední stranu v rámečku",
+    "header_paper_doc_step2": "Pomalu otočte dokument tak, abyste viděli vnější stránky",
+    "header_passport": "Když držíte pas, držte stránku s fotografií v rámečku",
+    "header_passport_progress": "Vydržte v klidu",
+    "header_step1": "Nyní se nehýbejte",
+    "header_step2": "Pomalu otočte dokument tak, abyste viděli jeho zadní stranu",
+    "prompt": {
+      "detail_timeout": "Nahrávání videa je omezeno na <timeout></timeout> sekund. <fallback>Spusťte proces znovu</fallback>"
+    },
+    "stepper": "Krok <step></step> z <total></total>",
+    "success_accessibility": "Úspěch"
+  },
+  "doc_video_confirmation": {
+    "button_secondary": "Náhled videa",
+    "title": "Zkontrolujte své video"
+  },
+  "error_unsupported_browser": {
+    "subtitle_android": "Restartování v nejnovější verzi prohlížeče Google Chrome",
+    "subtitle_ios": "Restartování v nejnovější verzi prohlížeče Safari",
+    "title_android": "Nepodporovaný prohlížeč",
+    "title_ios": "Nepodporovaný prohlížeč"
+  },
+  "generic": {
+    "accessibility": {
+      "close_sdk_screen": "Zavření obrazovky pro ověření totožnosti",
+      "dismiss_alert": "Zrušit upozornění"
+    },
+    "back": "zpět",
+    "close": "zavřít",
+    "errors": {
+      "expired_token": {
+        "instruction": "Zkuste to znovu",
+        "message": "Platnost Vašeho tokenu vypršela"
+      },
+      "expired_trial": {
+        "instruction": "Dosáhli jste zkušebního limitu",
+        "message": "Vaše zkušební verze vypršela"
+      },
+      "geoblocked_error": {
+        "instruction": "Litujeme, ale zdá se, že nemůžeme pokračovat dále, protože Vaše aktuální umístění není podporováno.",
+        "message": "Služba není k dispozici"
+      },
+      "interrupted_flow_error": {
+        "instruction": "Restartování na jiném zařízení",
+        "message": "Kamera nebyla detekována"
+      },
+      "invalid_size": {
+        "instruction": "Musí mít velikost menší než 10 MB.",
+        "message": "Překročena velikost souboru."
+      },
+      "invalid_type": {
+        "instruction": "Zkuste použít jiný typ souboru.",
+        "message": "Soubor nebyl nahrán."
+      },
+      "lazy_loading": {
+        "message": "Při načítání komponentu došlo k chybě"
+      },
+      "multiple_faces": {
+        "instruction": "Na selfie může být pouze Váš obličej",
+        "message": "Nalezeno více obličejů"
+      },
+      "no_face": {
+        "instruction": "Ujistěte se, že je Váš obličej viditelný",
+        "message": "Obličej nebyl rozpoznán"
+      },
+      "request_error": {
+        "instruction": "Zkuste to znovu",
+        "message": "Něco se pokazilo"
+      },
+      "sms_failed": {
+        "instruction": "Zkopírujte odkaz do telefonu",
+        "message": "Něco se pokazilo"
+      },
+      "sms_overuse": {
+        "instruction": "Zkopírujte odkaz do telefonu",
+        "message": "Příliš mnoho neúspěšných pokusů"
+      },
+      "unsupported_file": {
+        "instruction": "Zkuste použít soubor JPG nebo PNG",
+        "message": "Typ souboru není podporován"
+      }
+    },
+    "lazy_load_placeholder": "Nahrávání...",
+    "loading": "Načítání"
+  },
+  "get_link": {
+    "alert_wrong_number": "Zkontrolujte, zda je Vaše číslo správné",
+    "button_copied": "Zkopírováno",
+    "button_copy": "Kopírovat",
+    "button_submit": "Odeslat odkaz",
+    "info_qr_how": "Jak naskenovat kód QR",
+    "info_qr_how_list_item_camera": "Namiřte fotoaparát telefonu na kód QR",
+    "info_qr_how_list_item_download": "Pokud to nefunguje, stáhněte si z Google Play nebo App Store skener QR kódů",
+    "link_divider": "nebo zvolit alternativní metodu",
+    "link_qr": "Naskenování kódu QR",
+    "link_sms": "Získat odkaz prostřednictvím SMS",
+    "link_url": "Kopírovat odkaz",
+    "loader_sending": "Odesílání",
+    "number_field_input_placeholder": "Zadejte číslo mobilního telefonu",
+    "number_field_label": "Zadejte své mobilní číslo:",
+    "subtitle_qr": "Naskenujte kód QR pomocí telefonu",
+    "subtitle_sms": "Odeslání tohoto jednorázového odkazu do telefonu",
+    "subtitle_url": "Odeslání tohoto jednorázového odkazu do telefonu",
+    "title": "Získejte zabezpečený odkaz",
+    "url_field_label": "Zkopírujte odkaz do mobilního prohlížeče"
+  },
+  "livenessV2": {
+    "error_reload_instructions": "Pokyny pro opětovné nahrávání",
+    "intro_note_no1": "Nejprve umístěte obličej do záběru",
+    "intro_note_no2": "Pak pomalu otáčejte hlavu na obě strany",
+    "intro_ready_button": "Mějte prosím na paměti, že budeme zaznamenávat Vaši tvář a pozadí obrazu",
+    "intro_subtitle": "Tím se ověří, že jste skutečná osoba",
+    "intro_warning": "Mějte prosím na paměti, že budeme zaznamenávat Vaši tvář a pozadí obrazu",
+    "success_main_button": "Odeslat ověření",
+    "success_title": "To je vše, co potřebujeme, abychom mohli začít ověřovat Vaši totožnost"
+  },
+  "mobilePhrases": {
+    "photo_upload": {
+      "body_id_back": "Vyfoťte zadní stranu občanského průkazu",
+      "body_id_front": "Vyfoťte přední stranu občanského průkazu",
+      "body_license_back": "Vyfoťte zadní stranu řidičského průkazu",
+      "body_license_front": "Vyfoťte přední stranu řidičského průkazu",
+      "body_passport": "Vyfoťte si stránku s fotografií v pasu",
+      "body_selfie": "Pořiďte si selfie se svým obličejem"
+    },
+    "selfie_capture": {
+      "alert": {
+        "camera_inactive": {
+          "detail": "Místo toho pořiďte fotografii v <fallback>základním režimu kamery</fallback>"
+        },
+        "camera_not_working": {
+          "detail": "Místo toho pořiďte fotografii v <fallback>základním režimu kamery</fallback>"
+        }
+      }
+    },
+    "upload_guide": {
+      "button_primary": "Vyfoťte se",
+      "title": "Nahrávání pasové fotografie"
+    }
+  },
+  "nfc_scan": {
+    "sheet": {
+      "success": "Úspěšné skenování"
+    }
+  },
+  "outro": {
+    "body": "To je vše, co potřebujeme, abychom mohli začít ověřovat Vaši totožnost",
+    "body_government_letter": "Pro dosažení nejlepších výsledků použijte celou stránku dokumentu",
+    "title": "Děkujeme"
+  },
+  "permission": {
+    "body_both": "Bez použití kamery a mikrofonu Vás nemůžeme ověřit",
+    "body_cam": "Bez kamery Vás nemůžeme ověřit",
+    "body_mic": "Bez použití mikrofonu Vás nemůžeme ověřit",
+    "button_primary_both": "Povolte obě možnosti",
+    "button_primary_cam": "Povolení kamery",
+    "button_primary_mic": "Povolení mikrofonu",
+    "subtitle_both": "Po výzvě musíte povolit přístup pro obě možnosti, potom můžete pokračovat",
+    "subtitle_cam": "Po výzvě musíte povolit přístup ke kameře, abyste mohli pokračovat dále",
+    "subtitle_mic": "Po výzvě musíte povolit přístup k mikrofonu, abyste mohli pokračovat",
+    "title_both": "Povolení přístupu ke kameře a mikrofonu",
+    "title_cam": "Povolení přístupu ke kameře",
+    "title_mic": "Povolení přístupu k mikrofonu"
+  },
+  "permission_recovery": {
+    "android": {
+      "device_settings": {
+        "list_item_1": "Na svém zařízení otevřete aplikaci Nastavení",
+        "list_item_2": "Klepněte na Aplikace",
+        "list_item_3": "Klepněte na [BROWSER_ICON]. Pokud jej nemůžete najít, klepněte na Zobrazit všechny aplikace nebo Spravovat aplikace a vyberte aplikaci prohlížeče",
+        "list_item_4": "Klepněte na Oprávnění",
+        "list_item_5_cam": "Klepněte na Kamera a vyberte Povolit",
+        "list_item_5_mic": "Klepněte na Mikrofon a vyberte Povolit",
+        "list_item_6": "Vraťte se na tuto stránku a klepněte na tlačítko Provedl jsem změny"
+      }
+    },
+    "android_chrome": {
+      "browser_settings": {
+        "list_item_1": "V prohlížeči klepněte na ikonu zámku [LOCK_ICON] v adresním řádku",
+        "list_item_2": "Klepněte na Oprávnění",
+        "list_item_3_cam": "Aktivujte přepínač vedle Kamery",
+        "list_item_3_mic": "Aktivujte přepínač vedle Mikrofonu",
+        "list_item_4": "Vraťte se na tuto stránku a klepněte na tlačítko Provedl jsem změny"
+      }
+    },
+    "android_firefox": {
+      "browser_settings": {
+        "list_item_1": "V prohlížeči klepněte na ikonu zámku [LOCK_ICON] v adresním řádku",
+        "list_item_2_cam": "Klepněte na Blokovaná vedle Kamery pro přepnutí na Povoleno",
+        "list_item_2_mic": "Klepněte na Blokováno vedle Mikrofonu pro přepnutí na <",
+        "list_item_3": "Vraťte se na tuto stránku a klepněte na tlačítko Provedl jsem změny"
+      }
+    },
+    "android_generic": {
+      "browser_settings": {
+        "list_item_1": "V prohlížeči otevřete nastavení webové stránky. To je často ikona zámku [LOCK_ICON] v adresním řádku",
+        "list_item_2": "Najděte sekci o oprávněních",
+        "list_item_3_cam": "Povolte oprávnění pro Kameru",
+        "list_item_3_mic": "Povolte oprávnění pro Mikrofon",
+        "list_item_4": "Vraťte se na tuto stránku a klepněte na tlačítko Provedl jsem změny"
+      }
+    },
+    "android_samsung": {
+      "browser_settings": {
+        "list_item_1": "V prohlížeči klepněte na ikonu zámku [LOCK_ICON] v adresním řádku",
+        "list_item_2_cam": "Aktivujte přepínač vedle Kamery",
+        "list_item_2_mic": "Aktivujte přepínač vedle Mikrofonu",
+        "list_item_3": "Vraťte se na tuto stránku a klepněte na tlačítko Provedl jsem změny"
+      }
+    },
+    "button_primary": "Obnovit",
+    "desktop_chrome": {
+      "browser_settings": {
+        "list_item_1": "Klikněte v prohlížeči na ikonu zámku [LOCK_ICON] v adresním řádku",
+        "list_item_2_cam": "Aktivujte přepínač vedle Kamery",
+        "list_item_2_mic": "Aktivujte přepínač vedle Mikrofonu",
+        "list_item_3": "Vraťte se na tuto stránku a klikněte na tlačítko Provedl jsem změny"
+      }
+    },
+    "desktop_edge": {
+      "browser_settings": {
+        "list_item_1": "Klikněte v prohlížeči na ikonu zámku [LOCK_ICON] v adresním řádku",
+        "list_item_2_cam": "Klikněte na rozevírací nabídku vedle Kamery a vyberte Povolit",
+        "list_item_2_mic": "Klikněte na rozevírací nabídku vedle Mikrofonu a vyberte Povolit",
+        "list_item_3": "Vraťte se na tuto stránku a klikněte na tlačítko Provedl jsem změny"
+      }
+    },
+    "desktop_firefox": {
+      "browser_settings": {
+        "list_item_1": "Klikněte v prohlížeči na ikonu nastavení [SETTINGS_ICON_FIREFOX] v adresním řádku",
+        "list_item_2_cam": "Klikněte na Blokováno vedle Použít kameru",
+        "list_item_2_mic": "Klikněte na Blokováno vedle Použít mikrofon",
+        "list_item_3": "Vraťte se na tuto stránku a klikněte na tlačítko Provedl jsem změny"
+      }
+    },
+    "desktop_generic": {
+      "browser_settings": {
+        "list_item_1": "V prohlížeči otevřete nastavení webové stránky. To je často ikona zámku [LOCK_ICON] v adresním řádku",
+        "list_item_2": "Najděte sekci o oprávněních",
+        "list_item_3_cam": "Povolte oprávnění pro Kameru",
+        "list_item_3_mic": "Povolte oprávnění pro Mikrofon",
+        "list_item_4": "Vraťte se na tuto stránku a klikněte na tlačítko Provedl jsem změny"
+      },
+      "device_settings": {
+        "list_item_1": "Na svém počítači otevřete své Nastavení",
+        "list_item_2": "Najděte sekci o oprávněních (obvykle pod Ochrana osobních údajů)",
+        "list_item_3_cam": "Povolte oprávnění pro Kameru pro [BROWSER_ICON]",
+        "list_item_3_mic": "Povolte oprávnění pro Mikrofon pro [BROWSER_ICON]",
+        "list_item_4": "Restartujte svůj prohlížeč, pokud je to nutné, a vraťte se na tuto stránku"
+      }
+    },
+    "desktop_mac": {
+      "device_settings": {
+        "list_item_1": "Na svém počítači klikněte na nabídku Apple [APPLE_ICON] a vyberte Systémová nastavení (nebo Systémové předvolby)",
+        "list_item_2": "Klikněte na Ochrana osobních údajů & Bezpečnost (nebo Bezpečnost & Ochrana osobních údajů) v postranním panelu",
+        "list_item_3": "Klikněte na Později v otevřeném okně",
+        "list_item_3_cam": "Klikněte na Kamera a aktivujte přepínač (nebo zaškrtávací políčko) vedle [BROWSER_ICON]",
+        "list_item_4": "Klikněte na Ukončit a znovu otevřít v otevřeném okně a vraťte se na tuto stránku",
+        "list_item_4_mic": "Klikněte na Mikrofon a aktivujte přepínač (nebo zaškrtávací políčko) vedle [BROWSER_ICON]"
+      }
+    },
+    "desktop_safari": {
+      "browser_settings": {
+        "list_item_1": "V prohlížeči klikněte pravým tlačítkem myši na adresní řádek a vyberte Nastavení",
+        "list_item_2_cam": "Klikněte na rozevírací nabídku vedle Kamery a vyberte Povolit",
+        "list_item_2_mic": "Klikněte na rozbalovací nabídku vedle Mikrofonu a vyberte Povolit",
+        "list_item_3": "Vraťte se na tuto stránku a klikněte na tlačítko Provedl jsem změny"
+      }
+    },
+    "desktop_windows": {
+      "device_settings": {
+        "list_item_1": "Na svém počítači klikněte na nabídku Windows [WINDOWS_ICON] a vyberte Nastavení [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "Klikněte na Soukromí (nebo Soukromí & Bezpečnost)",
+        "list_item_3_cam": "Klikněte na Kamera pod Oprávnění aplikace a aktivujte přepínač vedle [BROWSER_ICON]",
+        "list_item_3_mic": "Klikněte na Mikrofon pod Oprávnění aplikace a aktivujte přepínač vedle [BROWSER_ICON]",
+        "list_item_4": "Restartujte svůj prohlížeč, pokud je to nutné, a vraťte se na tuto stránku"
+      }
+    },
+    "info": "Obnova",
+    "ios": {
+      "browser_settings": {
+        "list_item_1_both": "Klepněte na tlačítko Provedl jsem změny. Budete vyzváni k opětovnému povolení přístupu ke kameře a mikrofonu. Když se objeví vyskakovací okno, vyberte Povolit (nebo OK)",
+        "list_item_1_cam": "Klepněte na tlačítko Provedl jsem změny. Budete vyzváni k opětovnému povolení přístupu k fotoaparátu. Když se objeví vyskakovací okno, vyberte Povolit (nebo OK)",
+        "list_item_1_mic": "Klepněte na tlačítko Provedl jsem změny. Budete vyzváni k opětovnému povolení přístupu k mikrofonu. Když se objeví vyskakovací okno, vyberte Povolit (nebo OK)"
+      },
+      "device_settings": {
+        "list_item_1": "Na svém zařízení otevřete aplikaci Nastavení",
+        "list_item_2": "Projíždějte seznamem a klepněte na [BROWSER_ICON]",
+        "list_item_3_cam": "Aktivujte přepínač vedle Kamery",
+        "list_item_3_mic": "Aktivujte přepínač vedle Mikrofonu",
+        "list_item_4": "Vraťte se na tuto stránku a klepněte na tlačítko Provedl jsem změny"
+      }
+    },
+    "ios_safari": {
+      "device_settings": {
+        "list_item_1": "Na svém zařízení otevřete aplikaci Nastavení",
+        "list_item_2": "Projíždějte seznamem a klepněte na [BROWSER_ICON]",
+        "list_item_3_cam": "Klepněte na Kamera a vyberte Povolit",
+        "list_item_3_mic": "Klepněte na Mikrofon a vyberte Povolit",
+        "list_item_4": "Vraťte se na tuto stránku a klepněte na tlačítko Provedl jsem změny"
+      }
+    },
+    "list_header_both": "Podle následujících kroků obnovíte přístup k oběma přístrojům:",
+    "list_header_cam": "Podle následujících kroků obnovíte přístup ke kameře:",
+    "list_item_action_cam": "Obnovením této stránky znovu spustíte proces ověření totožnosti",
+    "list_item_how_to_both": "Povolení přístupu ke kameře a mikrofonu v nastavení prohlížeče",
+    "list_item_how_to_cam": "Udělení přístupu ke kameře v nastavení prohlížeče",
+    "list_item_how_to_mic": "Povolení přístupu k mikrofonu pomocí nastavení prohlížeče",
+    "subtitle_both": "Obnovení přístupu ke kameře a mikrofonu pro pořízení videa a dokončení procesu ověřování",
+    "subtitle_cam": "Potřebujeme přístup k vaší kameře pro ověření vaší identity. Postupujte podle níže uvedených pokynů pro obnovení přístupu",
+    "subtitle_cam_old": "Obnovení přístupu ke kameře pro další ověřování obličeje",
+    "subtitle_mic": "Potřebujeme přístup k vašemu mikrofonu pro ověření vaší identity. Postupujte podle níže uvedených pokynů k obnovení přístupu",
+    "title_both": "Zamezení přístupu ke kameře a mikrofonu",
+    "title_cam": "Přístup ke kameře byl odepřen",
+    "title_mic": "Odmítnutí přístupu k mikrofonu",
+    "web": {
+      "browser_settings": {
+        "title": "Řešení 1: Nastavení prohlížeče"
+      },
+      "button_primary": "Provedl jsem změny",
+      "device_settings": {
+        "title": "Řešení 2: Nastavení zařízení"
+      },
+      "disclaimer": "Proces ověření identity se může restartovat. Omlouváme se za případné nepříjemnosti."
+    }
+  },
+  "photo_upload": {
+    "body_bank_statement": "Pro dosažení nejlepších výsledků použijte celou stránku dokumentu",
+    "body_benefits_letter": "Pro dosažení nejlepších výsledků použijte celou stránku dokumentu",
+    "body_bill": "Pro dosažení nejlepších výsledků použijte celou stránku dokumentu",
+    "body_generic_document_back": "Nahrání zadní části dokumentu z počítače",
+    "body_generic_document_front": "Nahrání přední části dokumentu z počítače",
+    "body_id_back": "Nahrání zadní strany karty z počítače",
+    "body_id_front": "Nahrát přední stranu karty z počítače",
+    "body_license_back": "Nahrání zadní části licence z počítače",
+    "body_license_front": "Nahrání přední části licence z počítače",
+    "body_passport": "Nahrát pasovou fotografii z počítače",
+    "body_selfie": "Nahrání selfie z počítače",
+    "body_tax_letter": "Pro dosažení nejlepších výsledků použijte celou stránku dokumentu",
+    "button_take_photo": "Vyfotografovat",
+    "button_upload": "Nahrát",
+    "title_selfie": "Selfie"
+  },
+  "poa_cancel": "Zrušit",
+  "poa_err_invalid_file": {
+    "message": "Vyberte jiný soubor.",
+    "ok": "OK",
+    "title": "Neplatný soubor"
+  },
+  "poa_guidance": {
+    "button_primary": "Pokračovat",
+    "instructions": {
+      "address": "Aktuální adresa",
+      "full_name": "Celé jméno",
+      "issue_date": "Datum vydání nebo souhrnné období",
+      "label": "Zachyťte celý dokument a ujistěte se o viditelnosti následujících údajů:",
+      "logo": "Logo"
+    },
+    "instructions_address_card_issue_date": "Datum vydání",
+    "instructions_expiry_date": "Případné datum ukončení platnosti",
+    "instructions_full_address": "Úplná adresa",
+    "subtitle_address_card": "Musí se jednat o platnou adresní kartu",
+    "subtitle_bank_statement": "Musí být vydáno v posledních 3 měsících",
+    "subtitle_benefits_letter": "Musí být vydáno v posledních 12 měsících",
+    "subtitle_bill": "Musí být vydáno v posledních 3 měsících",
+    "subtitle_tax_letter": "Musí být vydáno v posledních 12 měsících"
+  },
+  "poa_intro": {
+    "button_primary": "Zahájit proces ověřování",
+    "list_matches_signup": "Údaj odpovídá adrese, kterou jste použili při registraci",
+    "list_most_recent": "Je to Váš nejnovější dokument",
+    "list_shows_address": "Zobrazuje Vaši aktuální adresu",
+    "subtitle": "Budete potřebovat dokument, který:",
+    "title": "Nyní ověříme Vaši adresu"
+  },
+  "poa_welcome_text": "Vyfotit dokument s Vaší adresou",
+  "profile_data": {
+    "address_title": "Přidejte svou adresu",
+    "button_continue": "Pokračovat",
+    "components": {
+      "country_residence_select": {
+        "placeholder": "Vybrat zemi"
+      },
+      "country_select": {
+        "placeholder": "Vybrat zemi"
+      },
+      "id_type_select": {
+        "aus_specific": {
+          "other": "Zahraniční pas"
+        },
+        "bra_specific": {
+          "other": "CNPJ",
+          "tax_id": "CPF"
+        },
+        "driving_license": "Řidičský průkaz",
+        "esp_specific": {
+          "identity_card": "NIF/DNI"
+        },
+        "gha_specific": {
+          "social_insurance": "SSNIT"
+        },
+        "identity_card": "Průkaz totožnosti",
+        "ind_specific": {
+          "tax_id": "Osobní číslo účtu (PAN)"
+        },
+        "ken_specific": {
+          "other": "Mimozemská karta"
+        },
+        "nga_specific": {
+          "identity_card": "Národní identifikační číslo (NIN)",
+          "other": "BVN",
+          "tax_id": "TIN"
+        },
+        "other": "NIE",
+        "passport": "Cestovní pas",
+        "placeholder": "Vyberte typ národního ID",
+        "tax_id": "DIČ",
+        "voter_id": "Voličský průkaz"
+      },
+      "nationality_select": {
+        "placeholder": "Vybrat zemi"
+      },
+      "pan": {
+        "placeholder": "ABCDE1234F"
+      },
+      "ssn": {
+        "placeholder": "123-45-6789"
+      },
+      "state_select": {
+        "placeholder": "Vybrat stát"
+      }
+    },
+    "country_of_residence_title": "Země Vašeho trvalého pobytu",
+    "field_labels": {
+      "arg_specific": {
+        "national_id_value": "číslo DNI"
+      },
+      "can_specific": {
+        "national_id_value": "Číslo sociálního pojištění (SIN)"
+      },
+      "chl_specific": {
+        "national_id_value": "Čísla RUT / RUN"
+      },
+      "chn_specific": {
+        "national_id_value": "Rezidentní Průkaz totožnosti číslo"
+      },
+      "col_specific": {
+        "national_id_value": "Kolumbijské osobní identifikační číslo"
+      },
+      "country": "Země",
+      "country_residence": "Země",
+      "dnk_specific": {
+        "national_id_value": "Číslo CPR"
+      },
+      "dob": "Datum narození",
+      "email": "E-mail",
+      "fin_specific": {
+        "national_id_value": "Osobní identifikační kód"
+      },
+      "first_name": "Křestní jméno",
+      "gbr_specific": {
+        "postcode": "Poštovní směrovací číslo",
+        "town": "Město/obec"
+      },
+      "hkg_specific": {
+        "national_id_value": "HKID"
+      },
+      "ind_specific": {
+        "pan": "Číslo trvalého účtu (PAN)"
+      },
+      "ita_specific": {
+        "national_id_value": "Daňový kód"
+      },
+      "jpn_specific": {
+        "national_id_value": "\"Moje číslo\" / kód záznamu o pobytu"
+      },
+      "last_name": "Příjmení",
+      "line1": "Řádek adresy 1",
+      "line2": "Řádek adresy 2",
+      "line3": "Řádek adresy 3",
+      "lux_specific": {
+        "national_id_value": "Číslo sociálního pojištění"
+      },
+      "mobile_number": "Číslo mobilního telefonu",
+      "national_id_type": "Typ národního průkazu totožnosti",
+      "national_id_value": "Národní identifikační číslo",
+      "nationality": "Státní příslušnost",
+      "phl_specific": {
+        "national_id_value": "Číslo karty PhilSys (PCN)"
+      },
+      "phone_number": "Telefonní číslo",
+      "pol_specific": {
+        "national_id_value": "číslo PESEL"
+      },
+      "postcode": "Poštovní směrovací číslo",
+      "prt_specific": {
+        "national_id_value": "Daňové číslo"
+      },
+      "town": "Město",
+      "tur_specific": {
+        "national_id_value": "Turecké identifikační číslo"
+      },
+      "usa_specific": {
+        "line1_helper_text": "Ulice, například: 200 Albert Street",
+        "line2_helper_text": "Byt, apartmá, bytová jednotka atd.",
+        "postcode": "Poštovní směrovací číslo",
+        "ssn": "Číslo sociálního pojištění (SSN)",
+        "state": "Stát"
+      }
+    },
+    "field_optional": "(volitelná položka)",
+    "field_validation": {
+      "arg_specific": {
+        "invalid_national_id_value": "Zadejte prosím platné DNI"
+      },
+      "bra_specific": {
+        "invalid_other": "Zadejte prosím platný CNPJ",
+        "invalid_tax_id": "Zadejte prosím platný CPF",
+        "required_other": "Zadejte prosím své CNPJ",
+        "required_tax_id": "Zadejte prosím své CPF"
+      },
+      "can_specific": {
+        "invalid_national_id_value": "Zadejte prosím platný SIN",
+        "required_national_id_value": "Zadejte prosím svůj SIN"
+      },
+      "chl_specific": {
+        "invalid_national_id_value": "Zadejte prosím platná čísla RUT / RUN",
+        "required_national_id_value": "Zadejte prosím svá čísla RUT / RUN"
+      },
+      "chn_specific": {
+        "invalid_national_id_value": "Zadejte prosím platné číslo občanského průkazu",
+        "required_national_id_value": "Zadejte prosím číslo svého rezidentního průkazu totožnosti"
+      },
+      "col_specific": {
+        "invalid_national_id_value": "Zadejte prosím platné kolumbijské osobní identifikační číslo",
+        "required_national_id_value": "Zadejte své kolumbijské osobní identifikační číslo"
+      },
+      "dnk_specific": {
+        "invalid_national_id_value": "Zadejte prosím platné číslo CPR",
+        "required_national_id_value": "Zadejte prosím své CPR číslo"
+      },
+      "esp_specific": {
+        "invalid_identity_card": "Zadejte prosím platný NIF/DNI",
+        "invalid_other": "Zadejte prosím platný NIE",
+        "required_identity_card": "Zadejte své NIF/DNI"
+      },
+      "fin_specific": {
+        "invalid_national_id_value": "Zadejte prosím platný osobní identifikační kód",
+        "required_national_id_value": "Zadejte svůj osobní identifikační kód"
+      },
+      "gbr_specific": {
+        "invalid_postcode": "Zadejte platné poštovní",
+        "required_postcode": "Zadejte své poštovní směrovací číslo",
+        "too_long_postcode": "Poštovní směrovací číslo je příliš dlouhé",
+        "too_short_postcode": "Poštovní směrovací číslo je příliš krátké"
+      },
+      "gha_specific": {
+        "invalid_social_insurance": "Zadejte prosím platný SSNIT",
+        "required_social_insurance": "Zadejte prosím svůj SSNIT"
+      },
+      "hkg_specific": {
+        "invalid_national_id_value": "Zadejte prosím platné HKID",
+        "required_national_id_value": "Zadejte své HKID"
+      },
+      "ind_specific": {
+        "invalid_pan": "Zadejte platné PAN",
+        "required_pan": "Zadejte své PAN"
+      },
+      "invalid": "Zkontrolujte, zda zde nejsou neplatné znaky nebo symboly",
+      "invalid_dob": "Zadejte platné datum narození",
+      "invalid_driving_license": "Zadejte platné číslo řidičského průkazu",
+      "invalid_email": "Zadejte platný e-mail",
+      "invalid_mobile_number": "Zadejte platné mobilní číslo",
+      "invalid_national_id_value": "Zadejte prosím platné národní identifikační číslo",
+      "invalid_passport": "Zadejte prosím platné číslo pasu",
+      "invalid_phone_number": "Zadejte platné telefonní číslo",
+      "invalid_voter_id": "Zadejte platné číslo voličského průkazu",
+      "ita_specific": {
+        "invalid_national_id_value": "Zadejte prosím platný fiskální kód",
+        "required_national_id_value": "Zadejte prosím svůj fiskální kód"
+      },
+      "jpn_specific": {
+        "invalid_national_id_value": "Zadejte prosím platný kód \"Moje číslo\" / Resident Record",
+        "required_national_id_value": ""
+      },
+      "ken_specific": {
+        "invalid_other": "Zadejte prosím platné číslo cizí karty",
+        "required_other": "Zadejte číslo své cizí karty"
+      },
+      "lux_specific": {
+        "invalid_national_id_value": "Zadejte prosím platné číslo sociálního pojištění",
+        "required_national_id_value": "Zadejte své číslo sociálního zabezpečení"
+      },
+      "mex_specific": {
+        "invalid_identity_card": "Zadejte prosím platný CURP",
+        "invalid_tax_id": "Zadejte prosím platný RFC",
+        "required_identity_card": "Zadejte prosím svůj CURP",
+        "required_tax_id": "Zadejte prosím svůj RFC"
+      },
+      "mys_specific": {
+        "invalid_national_id_value": "Zadejte prosím platné číslo NRIC",
+        "required_national_id_value": "Zadejte prosím své NRIC"
+      },
+      "nga_specific": {
+        "invalid_identity_card": "Zadejte prosím platné národní identifikační číslo (NIN)",
+        "invalid_other": "Zadejte prosím platné BVN",
+        "invalid_tax_id": "Zadejte prosím platné DIČ",
+        "required_identity_card": "Zadejte své národní identifikační číslo (NIN)",
+        "required_other": "Zadejte své BVN",
+        "required_tax_id": "Zadejte své DIČ"
+      },
+      "phl_specific": {
+        "invalid_national_id_value": "Zadejte prosím platné číslo karty PhilSys (PCN)",
+        "required_national_id_value": "Zadejte číslo své karty PhilSys (PCN)"
+      },
+      "pol_specific": {
+        "invalid_national_id_value": "Zadejte prosím platné číslo PESEL",
+        "required_national_id_value": "Zadejte své číslo PESEL"
+      },
+      "prt_specific": {
+        "invalid_national_id_value": "Zadejte prosím platné daňové číslo",
+        "required_national_id_value": "Zadejte prosím své daňové číslo"
+      },
+      "reference": {
+        "translation": "Zadejte prosím platný"
+      },
+      "required_consent": "Souhlas s povolením kontroly totožnosti a podvodů",
+      "required_country": "Vyberte zemi",
+      "required_country_residence": "Vyberte zemi",
+      "required_dob": "Zadejte své datum narození",
+      "required_email": "Zadejte svůj e-mail",
+      "required_first_name": "Zadejte své křestní jméno",
+      "required_last_name": "Zadejte své příjmení",
+      "required_line1": "Zadejte svou adresu",
+      "required_mobile_number": "Zkontrolujte správnost svého čísla",
+      "required_national_driving_license": "Zadejte číslo svého řidičského průkazu",
+      "required_national_id_type": "Vyberte typ svého národního průkazu totožnosti",
+      "required_national_id_value": "Zadejte prosím své rodné číslo",
+      "required_national_passport": "Zadejte prosím číslo pasu",
+      "required_national_voter_id": "Zadejte prosím své voličské číslo",
+      "required_nationality": "Vyberte zemi",
+      "required_phone_number": "Zadejte své telefonní číslo",
+      "required_postcode": "Zadejte své poštovní směrovací číslo",
+      "sgp_specific": {
+        "invalid_national_id_value": "Zadejte prosím platný NRIC",
+        "required_national_id_value": "Zadejte prosím své NRIC"
+      },
+      "swe_specific": {
+        "invalid_national_id_value": "Zadejte prosím platný PIN",
+        "required_national_id_value": "Zadejte prosím svůj PIN"
+      },
+      "too_long_first_name": "Křestní jméno je příliš dlouhé",
+      "too_long_last_name": "Příjmení je příliš dlouhé",
+      "too_long_line1": "Adresní řádek je příliš dlouhý",
+      "too_long_postcode": "Poštovní směrovací číslo je příliš dlouhé",
+      "too_long_town": "Název města je příliš dlouhý",
+      "too_short_first_name": "Křestní jméno je příliš krátké",
+      "too_short_last_name": "Příjmení je příliš krátké",
+      "too_short_postcode": "Poštovní směrovací číslo je příliš krátké",
+      "tur_specific": {
+        "invalid_national_id_value": "Zadejte prosím platné turecké identifikační číslo",
+        "required_national_id_value": ""
+      },
+      "usa_specific": {
+        "invalid_ssn": "Zadejte platné číslo SSN",
+        "required_ssn": "Zadejte své číslo SSN",
+        "required_state": "Vyberte stát"
+      }
+    },
+    "national_id_number_title": "Přidejte své rodné číslo",
+    "personal_information_title": "Přidejte své osobní údaje",
+    "prompt": {
+      "details_timeout": "Začít znovu",
+      "header_timeout": "Vypadá to, že vám to trvalo příliš dlouho"
+    }
+  },
+  "retry_feedback": {
+    "button_primary": "Zkuste to znovu"
+  },
+  "retry_feedback_id_expired": {
+    "subtitle": "Zkuste to znovu s platným průkazem totožnosti s fotografií a ujistěte se, že jsou Vaše údaje jasně viditelné.",
+    "title": "Platnost Vašeho dokumentu vypršela"
+  },
+  "retry_feedback_id_generic": {
+    "subtitle": "Zkuste to znovu s platným průkazem totožnosti s fotografií a ujistěte se, že jsou Vaše údaje jasně viditelné.",
+    "title": "Došlo k problému ve Vašem dokumentu"
+  },
+  "retry_feedback_id_unaccepted": {
+    "subtitle": "Zkuste to znovu s platným průkazem totožnosti s fotografií a ujistěte se, že jsou Vaše údaje jasně viditelné.",
+    "title": "Neakceptovatelný dokument"
+  },
+  "retry_feedback_selfie_generic": {
+    "subtitle": "Zkuste to znovu a ujistěte se, že je Váš obličej viditelný a dobře osvětlený.",
+    "title": "Došlo k problému s vaším selfie"
+  },
+  "selfie_capture": {
+    "alert": {
+      "camera_inactive": {
+        "detail": "Zkontrolujte připojení a funkčnost. V ověřování <fallback>můžete pokračovat v mobilním telefonu</fallback>",
+        "detail_no_fallback": "Ujistěte se, že má Vaše zařízení funkční kameru",
+        "title": "Nefunguje kamera?"
+      },
+      "camera_not_working": {
+        "detail": "Může být odpojena. <fallback>Zkuste místo toho použít telefon</fallback>.",
+        "detail_no_fallback": "Ujistěte se, že kamera Vašeho zařízení funguje",
+        "title": "Nefunguje kamera"
+      },
+      "timeout": {
+        "detail": "Po dokončení nezapomeňte stisknout tlačítko <fallback>Přepracování akcí videa</fallback>",
+        "title": "Vypadá to, že vám to trvalo příliš dlouho"
+      }
+    },
+    "body": "Držte obličej v oválu",
+    "button_accessibility": "",
+    "button_primary": "Spuštění skenování obličeje",
+    "frame_accessibility": "Pohled z kamery",
+    "title": "Držte obličej v oválu"
+  },
+  "selfie_confirmation": {
+    "image_accessibility": "Fotografie Vašeho obličeje",
+    "subtitle": "Ujistěte se, že je vidět celý Váš obličej",
+    "title": "Zkontrolujte si své selfie"
+  },
+  "selfie_intro": {
+    "banner_nudity_message": "Během tohoto procesu bude zachycena Vaše tvář a pozadí obrazu",
+    "button_primary": "Pokračovat",
+    "list_accessibility": "Tipy, jak pořídit dobré selfie",
+    "list_item_face_forward": "Dívejte se dopředu a ujistěte se, že máte dobře viditelné oči",
+    "list_item_no_face_cover": "Odstraňte vše, co vám zakrývá obličej. Brýle si můžete nechat",
+    "list_item_no_glasses": "V případě potřeby si sundejte brýle",
+    "subtitle": "Porovnáme to s vaším dokumentem",
+    "title": "Pořiďte si selfie"
+  },
+  "sms_sent": {
+    "info": "Tipy",
+    "info_link_expire": "Platnost Vašeho odkazu vyprší za hodinu",
+    "info_link_window": "Při používání mobilního telefonu nechte toto okno otevřené",
+    "link": "Vyzkoušejte jinou metodu",
+    "subtitle": "Odeslali jsme zabezpečený odkaz na %{number}",
+    "subtitle_minutes": "Může trvat několik minut, než dorazí",
+    "title": "Zkontrolujte svůj mobilní telefon"
+  },
+  "switch_phone": {
+    "info": "Tipy",
+    "info_link_expire": "Platnost Vašeho mobilního odkazu vyprší za jednu hodinu",
+    "info_link_refresh": "Neobnovujte tuto stránku",
+    "info_link_window": "Při používání mobilního telefonu nechte toto okno otevřené",
+    "link": "Zrušit",
+    "subtitle": "Jakmile dokončíte tento krok, přejdeme k dalšímu kroku",
+    "title": "Připojení k mobilnímu telefonu"
+  },
+  "upload_guide": {
+    "button_primary": "Pokračovat",
+    "image_detail_blur_alt": "Příklad rozmazaného dokumentu",
+    "image_detail_blur_label": "Všechny detaily musí být jasné - nic nesmí být rozmazané",
+    "image_detail_cutoff_label": "Zobrazit všechny podrobnosti - včetně spodních 2 řádků",
+    "image_detail_glare_label": "Odstupte od přímého světla - žádné oslnění",
+    "image_detail_good_label": "Na fotografii musí být jasně vidět Váš dokument",
+    "subtitle": "Skeny a fotokopie nemohou být akceptovány",
+    "title": "Odeslat stránku s pasovou fotografií"
+  },
+  "user_consent": {
+    "button_primary": "Accept",
+    "button_secondary": "Do not accept",
+    "prompt": {
+      "button_primary": "Review again",
+      "button_secondary": "Yes, don’t verify me",
+      "no_consent_detail": "If you do not accept Onfido’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
+      "no_consent_title": "Are you sure?"
+    }
+  },
+  "user_consent_load_fail": {
+    "button_primary": "Reload screen",
+    "detail": "Check that your connection is stable, then try again",
+    "title": "Content failed to load"
+  },
+  "video_capture": {
+    "body": "Držte obličej v oválu",
+    "body_record": "Až budete připraveni, stiskněte tlačítko",
+    "body_stop": "Po dokončení stiskněte tlačítko stop",
+    "button_primary_finish": "Dokončení nahrávání",
+    "button_primary_next": "Další krok",
+    "button_primary_start": "Spuštění nahrávání",
+    "button_record_accessibility": "Spuštění nahrávání",
+    "frame_accessibility": "Pohled z kamery",
+    "header": {
+      "challenge_digit_instructions": "Vyslovte každou číslici nahlas",
+      "challenge_turn_forward": "pak se otočte dopředu",
+      "challenge_turn_left": "Otočte hlavu doleva",
+      "challenge_turn_right": "Otočte hlavu doprava"
+    },
+    "prompt": {
+      "header_timeout": "Vypadá to, že vám to trvalo příliš dlouho"
+    }
+  },
+  "video_confirmation": {
+    "body": "Vaše video bylo nahráno",
+    "button_primary": "Nahrát video",
+    "button_secondary": "Znovu pořídit video",
+    "title": "Zkontrolujte své video",
+    "video_accessibility": "Přehrání nahraného videa"
+  },
+  "video_intro": {
+    "button_pause_accessibility": "Pozastavit video",
+    "button_play_accessibility": "Přehrát video",
+    "button_primary": "Nahrávání videa",
+    "list_accessibility": "Akce pro nahrávání selfie videa",
+    "list_item_actions": "Na dokončení máte 20 sekund",
+    "list_item_speak": "Postupujte podle pokynů k pohybu nebo mluvení",
+    "title": "Nahrajte video",
+    "video_accessibility": "Příklad videa, na kterém někdo nahrává selfie. Pokud chcete nahrávat selfie video, postavte se čelem k přední kameře a držte telefon mírně od obličeje. Poté budete muset odříkat několik čísel a natočit hlavu podle pokynů na obrazovce."
+  },
+  "welcome": {
+    "doc_video_subtitle": "Mělo by to trvat několik minut",
+    "info_original_document": "Vyfoťte si originál dokumentu. Skeny, fotografie obrazovek nebo fotokopie nejsou povoleny.",
+    "list_header": "Pomocí svého zařízení můžete:",
+    "list_header_doc_video": "Nahrávejte pomocí svého zařízení:",
+    "list_header_webcam": "K fotografování použijte webovou kameru nebo telefon:",
+    "list_item_doc": "Váš doklad totožnosti",
+    "list_item_doc_generic": "Vytvořte video svého dokladu totožnosti",
+    "list_item_doc_photo": "Vyfoťte si svůj doklad totožnosti",
+    "list_item_doc_video": "Nahrát video svého dokladu totožnosti",
+    "list_item_doc_video_timeout": "Nahrávání je omezeno na <timeout></timeout> sekundy",
+    "list_item_face_photo": "Vyfotit svůj obličej",
+    "list_item_face_video": "Nahrát video svého obličeje",
+    "list_item_poa": "Váš doklad o adrese",
+    "list_item_selfie": "Váš obličej",
+    "next_button": "Vyberte dokument",
+    "start_workflow_button": "Zahájit proces ověřování",
+    "start_workflow_button_trial": "Zahájit proces ověřování (TEST)",
+    "subtitle": "Mělo by to trvat několik minut",
+    "title": "Potvrďte svou totožnost",
+    "trial_message": "Pokud nejste zapojeni do zkušební verze aplikace Onfido, nesdílejte zde osobní údaje."
+  },
+  "workflow_complete": {
+    "pass": {
+      "description": "Podařilo se nám ověřit Vaši totožnost",
+      "title": "Úspěšný výsledek"
+    },
+    "reject": {
+      "description": "Nepodařilo se nám ověřit Vaši totožnost.",
+      "title": "Odmítnuto"
+    }
+  },
+  "workflow_erros": {
+    "generic_title": "Došlo k chybě serveru!",
+    "no_workflow_run_id": "ID pro spuštění pracovního postupu není nastaveno.",
+    "reload_app": "Zkuste aplikaci znovu načíst a opakujte akci.",
+    "task_not_completed": "Nelze dokončit úlohu pracovního postupu.",
+    "task_not_retrieved": "Nepodařilo se načíst úlohu pracovního postupu.",
+    "task_not_supported": "Úloha není aktuálně podporována"
+  }
+}

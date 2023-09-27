@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Afaste-se",
+    "feedback_move_back_accessibility": "Afaste o seu dispositivo",
     "feedback_move_closer": "Aproxime-se",
+    "feedback_move_left_accessibility": "Mova seu dispositivo para a esquerda",
+    "feedback_move_right_accessibility": "Mova seu dispositivo para a direita",
     "feedback_no_face_detected": "Rosto não detectado",
     "feedback_not_centered": "Rosto não centralizado",
     "title": "Posicione seu rosto no quadro"
@@ -38,7 +41,9 @@
     "list_item_one": "Primeiro, posicione seu rosto no quadro",
     "list_item_two": "Em seguida, vire a cabeça lentamente para os dois lados",
     "subtitle": "Isso é para verificar se você é uma pessoa real",
-    "title": "Gravar um vídeo"
+    "title": "Gravar um vídeo",
+    "title_accessibility": "Gravar um vídeo do seu rosto",
+    "video_accessibility": "Exemplo de vídeo de alguém virando a cabeça para os dois lados até a conclusão"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Reiniciar gravação",
@@ -71,7 +76,7 @@
     "title": "Selecionar país emissor"
   },
   "cross_device": {
-    "button_primary_upload": "Carregar foto"
+    "button_primary_upload": "Continuar"
   },
   "cross_device_checklist": {
     "button_primary": "Enviar verificação",
@@ -154,6 +159,10 @@
     "detail": {
       "folded_doc_front": "Coloque seu documento em um local plano, inclua todas as páginas internas (deve conter sua foto)"
     },
+    "header": {
+      "recording_complete": "Gravação concluída",
+      "recording_video": "Gravando vídeo"
+    },
     "header_folded_doc_front": "Lado da foto de perfil",
     "prompt": {
       "button_card": "Cartão de plástico",
@@ -171,7 +180,12 @@
       "glare_detail": "Afaste-se da luz direta",
       "glare_title": "Reflexo detectado",
       "no_doc_detail": "Certifique-se de ele que está totalmente no quadro",
-      "no_doc_title": "Documento não detectado"
+      "no_doc_title": "Documento não detectado",
+      "odp_detail": "Por favor, use seu documento original. Fotos de tela ou fotocópias não são aceitas",
+      "odp_photo_of_screen_title": "Foto da tela detectada",
+      "odp_photocopy_title": "Cópia fotográfica detectada",
+      "odp_scan_title": "Varredura detectada",
+      "odp_screenshot_title": "Captura de tela detectada"
     },
     "body": "Certifique-se de que carregou toda a página do documento e de que os detalhes são claros e não estão desfocados ou ofuscados",
     "body_bank_statement": "Certifique-se de que carregou toda a página do documento e de que os detalhes são claros e não estão desfocados ou ofuscados",
@@ -189,7 +203,9 @@
     "button_primary_redo": "Refazer",
     "button_primary_upload": "Carregar",
     "button_primary_upload_anyway": "Carregar mesmo assim",
+    "button_secondary_change_document": "Escolher outro documento",
     "button_secondary_redo": "Refazer",
+    "button_secondary_submit_anyway": "Enviar foto mesmo assim",
     "button_zoom": "Ampliar a imagem",
     "image_accessibility": "Foto do seu documento",
     "title": "Verifique a sua imagem"
@@ -236,7 +252,7 @@
     "subtitle_photo_page": "Página com foto",
     "subtitle_poa": "Estes são os documentos com maior probabilidade de mostrar seu endereço residencial atual",
     "title": "Escolha o seu documento",
-    "title_poa": "Selecione um documento do país: %{country}"
+    "title_poa": "Escolha um documento"
   },
   "doc_submit": {
     "button_link_upload": "ou carregar foto – sem digitalizações ou fotocópias",
@@ -414,16 +430,155 @@
   "permission": {
     "body_both": "Não podemos verificar sua identidade sem usar sua câmera e seu microfone",
     "body_cam": "Não podemos verificar sua identidade sem sua câmera",
+    "body_mic": "Não podemos verificar sua identidade sem usar seu microfone",
     "button_primary_both": "Ativar ambos",
     "button_primary_cam": "Ativar câmera",
+    "button_primary_mic": "Ativar microfone",
     "subtitle_both": "Quando solicitado, você deve permitir o acesso a ambos para continuar",
     "subtitle_cam": "Quando solicitado, você deve ativar o acesso à câmera para continuar",
+    "subtitle_mic": "Quando solicitado, você deve ativar o acesso ao microfone para continuar",
     "title_both": "Permitir acesso à câmera e ao microfone",
-    "title_cam": "Permitir acesso à câmera"
+    "title_cam": "Permitir acesso à câmera",
+    "title_mic": "Permitir acesso ao microfone"
   },
   "permission_recovery": {
+    "android": {
+      "device_settings": {
+        "list_item_1": "No seu dispositivo, abra o aplicativo Configurações",
+        "list_item_2": "Toque em Aplicativos",
+        "list_item_3": "Toque em [BROWSER_ICON]. Se você não conseguir encontrá-lo, toque em Ver todos os aplicativos ou Gerenciar aplicativos e selecione o aplicativo do seu navegador",
+        "list_item_4": "Toque em Permissões",
+        "list_item_5_cam": "Toque em Câmera e selecione Permitir",
+        "list_item_5_mic": "Toque em Microfone e selecione Permitir",
+        "list_item_6": "Volte para esta página e toque no botão Eu fiz as alterações"
+      }
+    },
+    "android_chrome": {
+      "browser_settings": {
+        "list_item_1": "No seu navegador, toque no ícone de cadeado [LOCK_ICON] na barra de endereços",
+        "list_item_2": "Toque em Permissões",
+        "list_item_3_cam": "Ative a chave ao lado de Câmera",
+        "list_item_3_mic": "Ative a chave ao lado de Microfone",
+        "list_item_4": "Volte para esta página e toque no botão Eu fiz as alterações"
+      }
+    },
+    "android_firefox": {
+      "browser_settings": {
+        "list_item_1": "No seu navegador, toque no ícone de cadeado [LOCK_ICON] na barra de endereços",
+        "list_item_2_cam": "Toque em Bloqueado ao lado de Câmera para mudar para Permitido",
+        "list_item_2_mic": "Toque em Bloqueado ao lado de Microfone para mudar para Permitido",
+        "list_item_3": "Volte a esta página e toque no botão Eu fiz as alterações"
+      }
+    },
+    "android_generic": {
+      "browser_settings": {
+        "list_item_1": "No seu navegador, abra as configurações do site. Isso geralmente é um ícone de cadeado [LOCK_ICON] na barra de endereços",
+        "list_item_2": "Encontre a seção sobre permissões",
+        "list_item_3_cam": "Habilite as permissões da Câmera",
+        "list_item_3_mic": "Habilite as permissões do Microfone",
+        "list_item_4": "Volte a esta página e toque no botão Eu fiz as alterações"
+      }
+    },
+    "android_samsung": {
+      "browser_settings": {
+        "list_item_1": "No seu navegador, toque no ícone de cadeado [LOCK_ICON] na barra de endereços",
+        "list_item_2_cam": "Ative a chave ao lado de Câmera",
+        "list_item_2_mic": "Ative a chave ao lado de Microfone",
+        "list_item_3": "Volte para esta página e toque no botão Eu fiz as alterações"
+      }
+    },
     "button_primary": "Atualizar",
+    "desktop_chrome": {
+      "browser_settings": {
+        "list_item_1": "No seu navegador, clique no ícone de cadeado [LOCK_ICON] na barra de endereços",
+        "list_item_2_cam": "Ative a chave ao lado de Câmera",
+        "list_item_2_mic": "Ative a chave ao lado de Microfone",
+        "list_item_3": "Volte a esta página e clique no botão Eu fiz as alterações"
+      }
+    },
+    "desktop_edge": {
+      "browser_settings": {
+        "list_item_1": "No seu navegador, clique no ícone de cadeado [LOCK_ICON] na barra de endereços",
+        "list_item_2_cam": "Clique no menu suspenso ao lado de Câmera e selecione Permitir",
+        "list_item_2_mic": "Clique no menu suspenso ao lado de Microfone e selecione Permitir",
+        "list_item_3": "Volte a esta página e clique no botão Eu fiz as alterações"
+      }
+    },
+    "desktop_firefox": {
+      "browser_settings": {
+        "list_item_1": "No seu navegador, clique no ícone de configurações [SETTINGS_ICON_FIREFOX] na barra de endereços",
+        "list_item_2_cam": "Clique em Bloqueado ao lado de Usar a câmera",
+        "list_item_2_mic": "Clique em Bloqueado ao lado de Usar o microfone",
+        "list_item_3": "Volte a esta página e clique no botão Eu fiz as alterações"
+      }
+    },
+    "desktop_generic": {
+      "browser_settings": {
+        "list_item_1": "No seu navegador, abra as configurações do site. Isso geralmente é um ícone de cadeado [LOCK_ICON] na barra de endereços",
+        "list_item_2": "Encontre a seção sobre permissões",
+        "list_item_3_cam": "Habilite as permissões da Câmera",
+        "list_item_3_mic": "Habilite as permissões do Microfone",
+        "list_item_4": "Retorne a esta página e clique no botão Fiz as alterações"
+      },
+      "device_settings": {
+        "list_item_1": "No seu computador, abra suas Configurações",
+        "list_item_2": "Encontre a seção sobre permissões (geralmente em Privacidade)",
+        "list_item_3_cam": "Ative as permissões de Câmera para [BROWSER_ICON]",
+        "list_item_3_mic": "Habilite as permissões do Microfone para [BROWSER_ICON]",
+        "list_item_4": "Reinicie seu navegador, se necessário, e volte para esta página"
+      }
+    },
+    "desktop_mac": {
+      "device_settings": {
+        "list_item_1": "No seu computador, clique no menu Apple [APPLE_ICON] e selecione Configurações do Sistema (ou Preferências do Sistema)",
+        "list_item_2": "Clique em Privacidade & Segurança (ou Segurança & Privacidade) na barra lateral ",
+        "list_item_3": "Clique em Mais tarde no pop-up",
+        "list_item_3_cam": "Clique em Câmera e ative a chave (ou caixa de seleção) ao lado de [BROWSER_ICON]",
+        "list_item_4": "Clique em Sair & Reabrir no pop-up e volte para esta página",
+        "list_item_4_mic": "Clique em Microfone e ative a chave (ou caixa de seleção) ao lado de [BROWSER_ICON]"
+      }
+    },
+    "desktop_safari": {
+      "browser_settings": {
+        "list_item_1": "No seu navegador, clique com o botão direito na barra de endereços e selecione Configurações",
+        "list_item_2_cam": "Clique no menu suspenso ao lado de Câmera e selecione Permitir",
+        "list_item_2_mic": "Clique no menu suspenso ao lado de Microfone e selecione Permitir",
+        "list_item_3": "Volte a esta página e clique no botão Eu fiz as alterações"
+      }
+    },
+    "desktop_windows": {
+      "device_settings": {
+        "list_item_1": "No seu computador, clique no menu do Windows [WINDOWS_ICON] e selecione Configurações [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "Clique em Privacidade (ou Privacidade & Segurança)",
+        "list_item_3_cam": "Clique em Câmera em Permissões do aplicativo e ative a chave ao lado de [BROWSER_ICON] ",
+        "list_item_3_mic": "Clique em Microfone em Permissões do aplicativo e ative a chave ao lado de [BROWSER_ICON]",
+        "list_item_4": "Reinicie seu navegador, se necessário, e volte para esta página"
+      }
+    },
     "info": "Recuperação",
+    "ios": {
+      "browser_settings": {
+        "list_item_1_both": "Toque no botão Eu fiz as alterações. Será solicitado que você habilite novamente o acesso à câmera e ao microfone. Quando o pop-up aparecer, selecione Permitir (ou OK)",
+        "list_item_1_cam": "Toque no botão Eu fiz as alterações. Será solicitado que você habilite novamente o acesso à câmera. Quando o pop-up aparecer, selecione Permitir (ou OK)",
+        "list_item_1_mic": "Toque no botão Eu fiz as alterações. Será solicitado que você habilite novamente o acesso ao microfone. Quando o pop-up aparecer, selecione Permitir (ou OK)"
+      },
+      "device_settings": {
+        "list_item_1": "No seu dispositivo, abra o aplicativo Configurações",
+        "list_item_2": "Deslize pela lista e toque em [BROWSER_ICON]",
+        "list_item_3_cam": "Ative a chave ao lado de Câmera",
+        "list_item_3_mic": "Ative a chave ao lado de Microfone",
+        "list_item_4": "Volte para esta página e toque no botão Eu fiz as alterações"
+      }
+    },
+    "ios_safari": {
+      "device_settings": {
+        "list_item_1": "No seu dispositivo, abra o aplicativo Configurações",
+        "list_item_2": "Deslize pela lista e toque em [BROWSER_ICON]",
+        "list_item_3_cam": "Toque em Câmera e selecione Permitir",
+        "list_item_3_mic": "Toque em Microfone e selecione Permitir",
+        "list_item_4": "Volte a esta página e toque no botão Eu fiz as alterações"
+      }
+    },
     "list_header_both": "Siga estas etapas para recuperar o acesso à câmera e ao microfone:",
     "list_header_cam": "Siga estas etapas para recuperar o acesso à câmera:",
     "list_item_action_cam": "Atualize esta página para reiniciar o processo de verificação de identidade",
@@ -431,10 +586,22 @@
     "list_item_how_to_cam": "Conceda acesso à câmera a partir das configurações do seu navegador",
     "list_item_how_to_mic": "Conceda acesso ao seu microfone nas configurações do navegador",
     "subtitle_both": "Recupere o acesso à câmera e ao microfone para gravar um vídeo e concluir o processo de verificação",
-    "subtitle_cam": "Recupere o acesso à câmera para continuar sua verificação",
+    "subtitle_cam": "Precisamos de acesso à sua câmera para verificar sua identidade. Siga as instruções abaixo para recuperar o acesso",
     "subtitle_cam_old": "Recupere o acesso à câmera para continuar a verificação facial",
+    "subtitle_mic": "Precisamos de acesso ao seu microfone para verificar sua identidade. Siga as instruções abaixo para recuperar o acesso",
     "title_both": "Acesso negado à câmera e ao microfone",
-    "title_cam": "O acesso à câmera foi negado"
+    "title_cam": "O acesso à câmera foi negado",
+    "title_mic": "Acesso ao microfone negado",
+    "web": {
+      "browser_settings": {
+        "title": "Solução 1: Configurações do navegador"
+      },
+      "button_primary": "Eu fiz as alterações",
+      "device_settings": {
+        "title": "Solução 2: Configurações do dispositivo"
+      },
+      "disclaimer": "O processo de verificação de identidade pode ser reiniciado. Desculpe por qualquer inconveniente"
+    }
   },
   "photo_upload": {
     "body_bank_statement": "Forneça toda a página do documento para obter melhores resultados",
@@ -485,6 +652,7 @@
     "subtitle": "Você precisará de um documento que:",
     "title": "Vamos verificar o seu endereço"
   },
+  "poa_welcome_text": "Tire uma foto de um documento com o seu endereço",
   "profile_data": {
     "address_title": "Adicione seu endereço",
     "button_continue": "Continuar",
@@ -846,7 +1014,7 @@
     "info": "Dicas",
     "info_link_expire": "Seu link expirará em uma hora",
     "info_link_window": "Mantenha esta janela aberta enquanto usa seu celular",
-    "link": "Reenviar link",
+    "link": "Tente outro método",
     "subtitle": "Enviamos um link seguro para %{number}",
     "subtitle_minutes": "Pode levar alguns minutos para chegar",
     "title": "Verifique o seu celular"
@@ -861,14 +1029,14 @@
     "title": "Conectado ao seu celular"
   },
   "upload_guide": {
-    "button_primary": "Carregar foto",
+    "button_primary": "Continuar",
     "image_detail_blur_alt": "Exemplo de um documento desfocado",
     "image_detail_blur_label": "Todos os detalhes devem ser claros – nada deve estar desfocado",
     "image_detail_cutoff_label": "Mostrar todos os detalhes – incluindo as 2 linhas inferiores",
     "image_detail_glare_label": "Afaste-se da luz direta – sem reflexo",
     "image_detail_good_label": "A foto deve mostrar claramente o seu documento",
     "subtitle": "Digitalizações e fotocópias não são aceitas",
-    "title": "Carregar página com foto do passaporte"
+    "title": "Enviar página da foto do passaporte"
   },
   "user_consent": {
     "button_primary": "Aceitar",
@@ -924,10 +1092,16 @@
   "welcome": {
     "doc_video_subtitle": "Isso pode levar alguns minutos",
     "info_original_document": "Tire uma fotografia de seu documento original. Não são permitidas digitalizações, fotos de telas ou fotocópias.",
+    "list_header": "Use seu dispositivo para:",
     "list_header_doc_video": "Use seu dispositivo para gravar:",
     "list_header_webcam": "Use sua webcam ou celular para fotografar:",
     "list_item_doc": "seu documento de identidade",
+    "list_item_doc_generic": "Faça uma gravação do seu documento de identidade",
+    "list_item_doc_photo": "Tirar uma foto do seu documento de identidade",
+    "list_item_doc_video": "Gravar um vídeo do seu documento de identidade",
     "list_item_doc_video_timeout": "A gravação é limitada a ​<timeout>​​</timeout>​ segundos",
+    "list_item_face_photo": "Tirar uma foto do seu rosto",
+    "list_item_face_video": "Gravar um vídeo do seu rosto",
     "list_item_poa": "seu comprovante de residência",
     "list_item_selfie": "seu rosto",
     "next_button": "Escolha o documento",

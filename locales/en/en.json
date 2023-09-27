@@ -58,7 +58,7 @@
   },
   "country_select": {
     "alert": {
-      "another_doc": "Documents from that country are not currently supported – <fallback>try another document type</fallback>"
+      "another_doc": "Documents from that country are not currently supported — <fallback>try another document type</fallback>"
     },
     "alert_dropdown": {
       "country_not_found": "Country not found"
@@ -116,7 +116,7 @@
     "button_primary": "Continue",
     "info": "Double-check",
     "list_item_desktop_open": "Your desktop window remains open",
-    "list_item_sent_by_you": "This link was sent by you – seek advice if you think this could be a scam",
+    "list_item_sent_by_you": "This link was sent by you — seek advice if you think this could be a scam",
     "subtitle": "Continue with the verification",
     "title": "Mobile session linked to your computer"
   },
@@ -129,17 +129,17 @@
       "manual_fallback_generic_document_front": "Take a photo of the front of your document",
       "manual_fallback_identity_card_back": "Take a photo of the back of your card",
       "manual_fallback_identity_card_front": "Take a photo of the front of your card",
-      "manual_fallback_license_back": "Take a photo of the back of your driving licence",
-      "manual_fallback_license_front": "Take a photo of the front of your driving licence",
+      "manual_fallback_license_back": "Take a photo of the back of your driver’s license",
+      "manual_fallback_license_front": "Take a photo of the front of your driver’s license",
       "manual_fallback_passport": "Take a photo of your passport photo page",
       "manual_fallback_residence_permit_back": "Take a photo of the back of your residence permit",
       "manual_fallback_residence_permit_front": "Take a photo of the front of your residence permit",
-      "position_generic_document_back": "",
-      "position_generic_document_front": "",
+      "position_generic_document_back": "Position the back of your document in the frame",
+      "position_generic_document_front": "Position the front of your document in the frame",
       "position_identity_card_back": "Position the back of your card in the frame",
       "position_identity_card_front": "Position the front of your card in the frame",
-      "position_license_back": "Position the back of your driving licence in the frame",
-      "position_license_front": "Position the front of your driving licence in the frame",
+      "position_license_back": "Position the back of your driver's license in the frame",
+      "position_license_front": "Position the front of your driver's license in the frame",
       "position_passport": "Position your passport photo page in the frame",
       "position_residence_permit_back": "Position the back of your residence permit in the frame",
       "position_residence_permit_front": "Position the front of your residence permit in the frame"
@@ -168,7 +168,7 @@
       "button_card": "Plastic card",
       "button_paper": "Paper document",
       "title_id": "What type of identity card do you have?",
-      "title_license": "What type of licence do you have?"
+      "title_license": "What type of license do you have?"
     }
   },
   "doc_confirmation": {
@@ -205,7 +205,7 @@
     "button_primary_upload_anyway": "Upload anyway",
     "button_secondary_change_document": "Choose another document",
     "button_secondary_redo": "Redo",
-    "button_secondary_submit_anyway": "Submit photo regardless",
+    "button_secondary_submit_anyway": "Submit photo anyway",
     "button_zoom": "Enlarge image",
     "image_accessibility": "Photo of your document",
     "title": "Check your image"
@@ -223,12 +223,12 @@
     "button_benefits_letter": "Benefits Letter",
     "button_benefits_letter_detail": "Government authorised household benefits eg. Jobseeker allowance, Housing benefit, Tax credits",
     "button_bill": "Utility Bill",
-    "button_bill_detail": "Gas, electricity, water, landline or broadband",
+    "button_bill_detail": "Gas, electricity, water, landline, or broadband",
     "button_government_letter": "Government Letter",
     "button_government_letter_detail": "Any government issued letter eg. Benefits entitlement, Voting letters, Tax letters, etc",
     "button_id": "Identity card",
     "button_id_detail": "Front and back",
-    "button_license": "Driving licence",
+    "button_license": "Driver’s license",
     "button_license_detail": "Front and back",
     "button_passport": "Passport",
     "button_passport_detail": "Photo page",
@@ -252,7 +252,7 @@
     "subtitle_photo_page": "Photo page",
     "subtitle_poa": "These are the documents most likely to show your current home address",
     "title": "Choose your document",
-    "title_poa": "Choose a document"
+    "title_poa": "Select a document"
   },
   "doc_submit": {
     "button_link_upload": "or upload photo – no scans or photocopies",
@@ -266,8 +266,8 @@
     "title_government_letter": "Government Letter",
     "title_id_back": "Submit identity card (back)",
     "title_id_front": "Submit identity card (front)",
-    "title_license_back": "Submit licence (back)",
-    "title_license_front": "Submit licence (front)",
+    "title_license_back": "Submit license (back)",
+    "title_license_front": "Submit license (front)",
     "title_passport": "Submit passport photo page",
     "title_permit_back": "Submit residence permit (back)",
     "title_permit_front": "Submit residence permit (front)",
@@ -397,8 +397,8 @@
     "photo_upload": {
       "body_id_back": "Take a photo of the back of your card",
       "body_id_front": "Take a photo of the front of your card",
-      "body_license_back": "Take a photo of the back of your licence",
-      "body_license_front": "Take a photo of the front of your licence",
+      "body_license_back": "Take a photo of the back of your license",
+      "body_license_front": "Take a photo of the front of your license",
       "body_passport": "Take a photo of your passport photo page",
       "body_selfie": "Take a selfie showing your face"
     },
@@ -558,16 +558,16 @@
     "info": "Recovery",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "Tap the I've made the changes button. You will be asked to enable camera and microphone access again. When the pop-up appears, select Allow (or OK)",
-        "list_item_1_cam": "Tap the I've made the changes button. You will be asked to enable camera access again. When the pop-up appears, select <>Allow (or OK)",
-        "list_item_1_mic": "Tap the I've made the changes button. You will be asked to enable microphone access again. When the pop-up appears, select Allow (or OK)"
+        "list_item_1_both": "Tap the I've made the changes button. You will be asked to enable camera and microphone access again. When the pop-up shows up, select Allow (or OK)",
+        "list_item_1_cam": "Tap the I've made the changes button. You will be asked to enable camera access again. When the pop-up shows up, select Allow (or OK)",
+        "list_item_1_mic": "Tap the I've made the changes button. You will be asked to enable microphone access again. When the pop-up shows up, select Allow (or OK)"
       },
       "device_settings": {
         "list_item_1": "On your device, open the Settings app",
         "list_item_2": "Scroll through the list and tap [BROWSER_ICON]",
         "list_item_3_cam": "Activate the toggle next to Camera",
         "list_item_3_mic": "Activate the toggle next to Microphone",
-        "list_item_4": "Return to this page and tap the I've made the changes button"
+        "list_item_4": "Come back to this page and tap the I've made the changes button"
       }
     },
     "ios_safari": {
@@ -576,7 +576,7 @@
         "list_item_2": "Scroll through the list and tap [BROWSER_ICON]",
         "list_item_3_cam": "Tap Camera and select Allow",
         "list_item_3_mic": "Tap Microphone and select Allow",
-        "list_item_4": "Return to this page and tap the I've made the changes button"
+        "list_item_4": "Come back to this page and tap the I've made the changes button"
       }
     },
     "list_header_both": "Follow these steps to recover access for both:",
@@ -611,8 +611,8 @@
     "body_generic_document_front": "Upload front of document from your computer",
     "body_id_back": "Upload back of card from your computer",
     "body_id_front": "Upload front of card from your computer",
-    "body_license_back": "Upload back of licence from your computer",
-    "body_license_front": "Upload front of licence from your computer",
+    "body_license_back": "Upload back of license from your computer",
+    "body_license_front": "Upload front of license from your computer",
     "body_passport": "Upload passport photo page from your computer",
     "body_selfie": "Upload a selfie from your computer",
     "body_tax_letter": "Provide the whole document page for best results",
@@ -639,7 +639,7 @@
     "instructions_expiry_date": "Expiry date if applicable",
     "instructions_full_address": "Full address",
     "subtitle_address_card": "Must be a valid address card",
-    "subtitle_bank_statement": "Must have been issued in the last 3 months",
+    "subtitle_bank_statement": "Must be issued in the last 3 months",
     "subtitle_benefits_letter": "Must be issued in the last 12 months",
     "subtitle_bill": "Must have been issued in the last 3 months",
     "subtitle_tax_letter": "Must be issued in the last 12 months"
@@ -647,7 +647,7 @@
   "poa_intro": {
     "button_primary": "Start verification",
     "list_matches_signup": "Matches the address you used on sign up",
-    "list_most_recent": "Is your most ​​recent​​ document",
+    "list_most_recent": "Is your most recent document",
     "list_shows_address": "Shows your current address",
     "subtitle": "You’ll need a document that:",
     "title": "Let’s verify your address"
@@ -671,7 +671,7 @@
           "other": "CNPJ",
           "tax_id": "CPF"
         },
-        "driving_license": "Driving licence",
+        "driving_license": "Driver's license",
         "esp_specific": {
           "identity_card": "NIF/DNI"
         },
@@ -721,7 +721,7 @@
         "national_id_value": "RUT / RUN numbers"
       },
       "chn_specific": {
-        "national_id_value": ""
+        "national_id_value": "Resident Identity card number"
       },
       "col_specific": {
         "national_id_value": "Colombian Personal Identification Number"
@@ -847,7 +847,7 @@
       },
       "invalid": "Please check for invalid characters or symbols",
       "invalid_dob": "Please enter a valid date of birth",
-      "invalid_driving_license": "Please enter a valid driving licence number",
+      "invalid_driving_license": "Please enter a valid driver's license number",
       "invalid_email": "Please enter a valid email",
       "invalid_mobile_number": "Please enter a valid mobile number",
       "invalid_national_id_value": "Please enter a valid national ID number",
@@ -860,7 +860,7 @@
       },
       "jpn_specific": {
         "invalid_national_id_value": "Please enter a valid \"My number\" / Resident Record code",
-        "required_national_id_value": ""
+        "required_national_id_value": "Please enter your \"My number\" / Resident Record code"
       },
       "ken_specific": {
         "invalid_other": "Please enter a valid Alien Card number",
@@ -912,7 +912,7 @@
       "required_last_name": "Please enter your last name",
       "required_line1": "Please enter your address",
       "required_mobile_number": "Please enter your mobile number",
-      "required_national_driving_license": "Please enter your driving licence number",
+      "required_national_driving_license": "Please enter your driver's license number",
       "required_national_id_type": "Please select your National ID type",
       "required_national_id_value": "Please enter your National ID number",
       "required_national_passport": "Please enter your passport number",
@@ -1031,19 +1031,19 @@
   "upload_guide": {
     "button_primary": "Continue",
     "image_detail_blur_alt": "Example of a blurry document",
-    "image_detail_blur_label": "All details must be clear – nothing blurry",
-    "image_detail_cutoff_label": "Show all details – including the bottom 2 lines",
-    "image_detail_glare_label": "Move away from direct light – no glare",
+    "image_detail_blur_label": "All details must be clear — nothing blurry",
+    "image_detail_cutoff_label": "Show all details — including the bottom 2 lines",
+    "image_detail_glare_label": "Move away from direct light — no glare",
     "image_detail_good_label": "The photo should clearly show your document",
     "subtitle": "Scans and photocopies are not accepted",
-    "title": "Provide passport photo page"
+    "title": "Submit passport photo page"
   },
   "user_consent": {
     "button_primary": "Accept",
     "button_secondary": "Do not accept",
     "prompt": {
       "button_primary": "Review again",
-      "button_secondary": "Yes, don’t verify me",
+      "button_secondary": "Yes, don't verify me",
       "no_consent_detail": "If you do not accept Onfido’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
       "no_consent_title": "Are you sure?"
     }

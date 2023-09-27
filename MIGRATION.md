@@ -124,6 +124,9 @@ For all supported language the copy for the following string(s) has been added:
 - `profile_data::national_id_number_title`
 - `cross_device::button_primary_upload`
 - `cross_device_intro::subtitle_upload`
+- `profile_data::field_validation::rou_specific::invalid_national_id_value`
+- `profile_data::field_validation::rou_specific::required_national_id_value`
+- `profile_data::field_labels::rou_specific::national_id_value`
 
 ## `11.0.0`
 
