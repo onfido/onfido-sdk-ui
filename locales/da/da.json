@@ -1,0 +1,1132 @@
+{
+  "avc_confirmation": {
+    "button_primary_upload": "Upload optagelsen",
+    "subtitle": "En video af dit ansigt er nu blevet optaget",
+    "title": "Optagelsen er fuldført"
+  },
+  "avc_connection_error": {
+    "button_primary_reload": "Genindlæs anvisninger",
+    "button_primary_retry_upload": "Prøv at uploade igen",
+    "button_secondary_restart_recording": "Start optagelsen forfra",
+    "subtitle": "Tjek, at din forbindelse er stabil, og prøv igen",
+    "title": "Forbindelsesfejl"
+  },
+  "avc_face_alignment": {
+    "feedback_move_back": "Flyt tilbage",
+    "feedback_move_back_accessibility": "Flyt enheden væk fra dig",
+    "feedback_move_closer": "Flyt tættere på",
+    "feedback_move_left_accessibility": "Flyt din enhed til venstre",
+    "feedback_move_right_accessibility": "Flyt din enhed til højre",
+    "feedback_no_face_detected": "Ansigtet er ikke detekteret",
+    "feedback_not_centered": "Ansigtet er ikke centreret",
+    "title": "Placer dit ansigt inden for rammen"
+  },
+  "avc_face_capture": {
+    "alert": {
+      "mic_conflict_title": "Din mikrofon bruges af en anden app",
+      "timeout_body": "Du har op til 15 sekunder til at fuldføre optagelsen",
+      "timeout_button_primary": "Prøv igen",
+      "timeout_title": "Beklager, vi er nødt til at genstarte optagelsen",
+      "too_fast_body": "Prøv igen og drej hovedet langsommere",
+      "too_fast_button_primary": "Prøv igen",
+      "too_fast_title": "Du drejede hovedet for hurtigt"
+    },
+    "title": "Drej hovedet langsomt til begge sider",
+    "title_completed": "Optagelsen er fuldført"
+  },
+  "avc_intro": {
+    "button_primary_ready": "Start optagelsen",
+    "disclaimer": "Dit ansigt og din baggrund bliver optaget under denne proces",
+    "disclaimer_camera_and_audio_on": "Dit ansigt, din baggrund og din lyd vil blive optaget under denne proces",
+    "list_item_one": "Først skal du placere dit ansigt inden for rammen",
+    "list_item_two": "Dernæst drejer du hovedet langsomt til begge sider",
+    "subtitle": "Dette er for at verificere, at du er en fysisk person",
+    "title": "Optag en video",
+    "title_accessibility": "Optag en video af dit ansigt",
+    "video_accessibility": "Videoeksempel på en person, der drejer hovedet til begge sider indtil handlingen er fuldført"
+  },
+  "avc_no_face_detected": {
+    "button_primary_restart": "Start optagelsen forfra",
+    "list_item_eyes": "Sørg for, at dine øjne kan ses tydeligt",
+    "list_item_face": "Sørg for kun at vise dit ansigt, vi behøver ikke at kunne se dit ID",
+    "list_item_lighting": "Sørg for at være på et sted med god belysning",
+    "list_item_mask": "Sørg for at fjerne masker eller andre ting, der dækker dit ansigt. Briller må anvendes",
+    "title": "Vi kan ikke detektere dit ansigt"
+  },
+  "avc_uploading": {
+    "title": "Uploader"
+  },
+  "country_select": {
+    "alert": {
+      "another_doc": "Dokumenter fra det pågældende land understøttes ikke i øjeblikket – <fallback>prøv en anden dokumenttype</fallback>"
+    },
+    "alert_dropdown": {
+      "country_not_found": "Landet blev ikke fundet"
+    },
+    "button_primary": "Indsend dokument",
+    "poa_alert": {
+      "country_not_found": "Vi beklager. Vi arbejder på at understøtte flere lande.",
+      "intro": "Kan du ikke finde dit land?"
+    },
+    "search": {
+      "accessibility": "Vælg land",
+      "input_placeholder": "f.eks. USA",
+      "label": "Søg efter land"
+    },
+    "title": "Vælg udstedende land"
+  },
+  "cross_device": {
+    "button_primary_upload": "Fortsæt"
+  },
+  "cross_device_checklist": {
+    "button_primary": "Indsend verificering",
+    "info": "Tips",
+    "list_item_doc_multiple": "Dokumenter",
+    "list_item_doc_one": "Dokument",
+    "list_item_poa": "Adressebevis",
+    "list_item_selfie": "Selfie",
+    "list_item_video": "Video",
+    "subtitle": "Her er alt, hvad du har uploadet:",
+    "title": "Et sidste skridt"
+  },
+  "cross_device_error_desktop": {
+    "subtitle": "Linket fungerer kun på mobilenheder",
+    "title": "Noget gik galt"
+  },
+  "cross_device_error_restart": {
+    "subtitle": "Du skal starte verificeringen igen på din computer",
+    "title": "Noget gik galt"
+  },
+  "cross_device_intro": {
+    "button_primary": "Få et sikkert link",
+    "list_accessibility": "Trin, der påkræves for at fortsætte verificeringen på din mobil",
+    "list_item_finish": "Gå tilbage hertil for at afslutte indsendelsen",
+    "list_item_open_link": "Åbn linket og fuldfør opgaverne",
+    "list_item_send_phone": "Send et sikkert link til din telefon",
+    "subtitle": "Sådan gør du det:",
+    "subtitle_upload": "Upload venligst et nyligt billede af dit originale dokument",
+    "title": "Fortsæt på din telefon"
+  },
+  "cross_device_return": {
+    "body": "Det kan tage et par sekunder for din computer at udføre opdateringen",
+    "subtitle": "Du kan nu vende tilbage til din computer for at fortsætte",
+    "title": "Upload blev gennemført"
+  },
+  "cross_device_session_linked": {
+    "button_primary": "Fortsæt",
+    "info": "Dobbelttjek",
+    "list_item_desktop_open": "Dit skrivebordsvindue forbliver åbent",
+    "list_item_sent_by_you": "Dette link blev sendt af dig – søg rådgivning, hvis du tror, at det kan være svindel",
+    "subtitle": "Fortsæt med verificeringen",
+    "title": "Mobilsession knyttet til din computer"
+  },
+  "doc_auto_capture": {
+    "button_accessibility": "Tag et billede",
+    "footer": {
+      "captured": "Billedet er taget",
+      "capturing": "Tager et billede",
+      "manual_fallback_generic_document_back": "Tag et billede af dit dokuments bagside",
+      "manual_fallback_generic_document_front": "Tag et billede af dit dokuments forside",
+      "manual_fallback_identity_card_back": "Tag et billede af dit korts bagside",
+      "manual_fallback_identity_card_front": "Tag et billede af dit korts forside",
+      "manual_fallback_license_back": "Tag et billede af dit kørekorts bagside",
+      "manual_fallback_license_front": "Tag et billede af dit kørekorts forside",
+      "manual_fallback_passport": "Tag et billede af siden i passet, hvor billedet fremgår",
+      "manual_fallback_residence_permit_back": "Tag et billede af din opholdstilladelses bagside",
+      "manual_fallback_residence_permit_front": "Tag et billede af forsiden af din opholdstilladelse",
+      "position_generic_document_back": "",
+      "position_generic_document_front": "",
+      "position_identity_card_back": "Placer dit korts bagside inden for rammen",
+      "position_identity_card_front": "Placer dit korts forside inden for rammen",
+      "position_license_back": "Placer bagsiden af dit kørekort inden for rammen",
+      "position_license_front": "Placer forsiden af dit kørekort inden for rammen",
+      "position_passport": "Placer siden i passet, hvor billedet fremgår inden for rammen",
+      "position_residence_permit_back": "Placer bagsiden af din opholdstilladelse inden for rammen",
+      "position_residence_permit_front": "Placer forsiden af din opholdstilladelse inden for rammen"
+    },
+    "frame": {
+      "flip_document": "Vend det om på bagsiden",
+      "hold_still": "Hold det stille",
+      "no_document": "Dokumentet blev ikke fundet"
+    }
+  },
+  "doc_capture": {
+    "alert": {
+      "no_barcode_detail": "Ophold dig på et godt oplyst sted, og før kortet ind mod kameraet",
+      "no_barcode_title": "Stregkoden er ikke detekteret"
+    },
+    "button_primary": "Start scanning af dokumenter",
+    "detail": {
+      "folded_doc_front": "Du skal sørge for, at dit dokument ligger fladt, og at alle de indvendige sider indgår (skal indeholde dit foto)"
+    },
+    "header": {
+      "recording_complete": "Optagelsen er fuldført",
+      "recording_video": "Optager video"
+    },
+    "header_folded_doc_front": "Side med profilbillede",
+    "prompt": {
+      "button_card": "Plastikkort",
+      "button_paper": "Dokument i papirformat",
+      "title_id": "Hvilken type ID-kort har du?",
+      "title_license": "Hvilken type ID har du?"
+    }
+  },
+  "doc_confirmation": {
+    "alert": {
+      "blur_detail": "Sørg for, at alt fremstår tydeligt",
+      "blur_title": "Billedet er sløret",
+      "crop_detail": "Sørg for, at hele dokumentet er synligt",
+      "crop_title": "Beskåret billede er detekteret",
+      "glare_detail": "Flyt dig væk fra direkte lys",
+      "glare_title": "Der er detekteret genskin",
+      "no_doc_detail": "Sørg for, at det er helt inden for rammen",
+      "no_doc_title": "Dokumentet er ikke detekteret",
+      "odp_detail": "Brug venligst dit originale dokument. Fotos af skærm eller fotokopier accepteres ikke",
+      "odp_photo_of_screen_title": "Foto af skærm registreret",
+      "odp_photocopy_title": "Fotokopi detekteret",
+      "odp_scan_title": "Scan registreret",
+      "odp_screenshot_title": "Skærmbillede registreret"
+    },
+    "body": "Sørg for, at du har uploadet hele siden af dokumentet, og at oplysningerne fremstår tydelige, uden at de er slørede eller har genskin",
+    "body_bank_statement": "Sørg for, at du har uploadet hele siden af dokumentet, og at oplysningerne fremstår tydelige, uden at de er slørede eller har genskin",
+    "body_benefits_letter": "Sørg for, at du har uploadet hele siden af dokumentet, og at oplysningerne fremstår tydelige, uden at de er slørede eller har genskin",
+    "body_bill": "Sørg for, at du har uploadet hele siden af dokumentet, og at oplysningerne fremstår tydelige, uden at de er slørede eller har genskin",
+    "body_generic_document": "Sørg for, at dine oplysninger er tydelige og ikke er dækket af noget",
+    "body_id": "Sørg for, at dine oplysninger er tydelige og ikke er dækket af noget",
+    "body_image_medium": "Det tager længere tid at verificere dig, hvis vi ikke kan læse det",
+    "body_image_poor": "Vi har brug for et bedre foto for nemt at kunne verificere dig",
+    "body_license": "Sørg for, at dine oplysninger er tydelige og ikke er dækket af noget",
+    "body_passport": "Sørg for, at dine oplysninger er tydelige og ikke er dækket af noget",
+    "body_permit": "Sørg for, at dine oplysninger er tydelige og ikke er dækket af noget",
+    "body_tax_letter": "Sørg for, at du har uploadet hele siden af dokumentet, og at oplysningerne fremstår tydelige, uden at de er slørede eller har genskin",
+    "button_close": "Luk",
+    "button_primary_redo": "Tag om",
+    "button_primary_upload": "Upload",
+    "button_primary_upload_anyway": "Upload alligevel",
+    "button_secondary_change_document": "Vælg et andet dokument",
+    "button_secondary_redo": "Tag om",
+    "button_secondary_submit_anyway": "Indsend foto alligevel",
+    "button_zoom": "Forstør billede",
+    "image_accessibility": "Billede af dit dokument",
+    "title": "Tjek dit billede"
+  },
+  "doc_multi_frame_capture": {
+    "capture_progress_title": "Scanner dokumentet",
+    "instructions_title_back": "Placer dit dokuments bagside inden for rammen",
+    "instructions_title_front": "Placer dit dokuments forside inden for rammen"
+  },
+  "doc_select": {
+    "button_address_card": "Adressekort",
+    "button_address_card_detail": "Vi accepterer midlertidige og permanente kort",
+    "button_bank_statement": "Erklæring fra din bank eller kreditforening",
+    "button_bank_statement_non_uk": "Kontoudtog",
+    "button_benefits_letter": "Brev om sociale ydelser",
+    "button_benefits_letter_detail": "Myndighedsgodkendte boligydelser, f.eks. Arbejdsløshedsunderstøttelse, boligstøtte, skattefradrag",
+    "button_bill": "Regning på forbrugsydelser",
+    "button_bill_detail": "Gas, elektricitet, vand, fastnet eller bredbånd",
+    "button_government_letter": "Brev fra myndighederne",
+    "button_government_letter_detail": "Enhvert myndighedsudstedt brev, f.eks. Ret til sociale ydelser, stemmerettighed, skatteopgørelser osv.",
+    "button_id": "ID-kort",
+    "button_id_detail": "For- og bagside",
+    "button_license": "Kørekort",
+    "button_license_detail": "For- og bagside",
+    "button_passport": "Pas",
+    "button_passport_detail": "Side med billede",
+    "button_permit": "Opholdstilladelse",
+    "button_permit_detail": "For- og bagside",
+    "button_tax_letter": "Brev om kommuneskat",
+    "extra_estatements_ok": "accepterede e-erklæringer",
+    "extra_no_mobile": "Vi beklager, men mobiltelefonregninger accepteres ikke",
+    "list_accessibility": "Dokumenter, du kan bruge til at verificere din identitet",
+    "pill": "hurtigste",
+    "section": {
+      "header_country": "Udstedelsesland",
+      "header_doc_type": "Accepterede dokumenter",
+      "input_country_not_found": "Ingen resultater",
+      "input_placeholder_country": "Vælg udstedende land"
+    },
+    "subtitle": "Det skal være et officielt billed-ID",
+    "subtitle_country": "Vælg udstedelsesland for at se, hvilke dokumenter vi accepterer",
+    "subtitle_entire_page": "Hele siden",
+    "subtitle_front_back": "For- og bagside",
+    "subtitle_photo_page": "Side med billede",
+    "subtitle_poa": "Det er de dokumenter, der med størst sandsynlighed viser din nuværende bopælsadresse",
+    "title": "Vælg dit dokument",
+    "title_poa": "Vælg et dokument"
+  },
+  "doc_submit": {
+    "button_link_upload": "eller upload et billede – ingen scanninger eller fotokopier",
+    "button_primary": "Fortsæt på telefon",
+    "subtitle": "Tag et billede med din telefon",
+    "title_bank_statement": "Indsend erklæring",
+    "title_benefits_letter": "Indsend brev",
+    "title_bill": "Indsend regning",
+    "title_generic_document_back": "Indsend dokument (bagside)",
+    "title_generic_document_front": "Indsend dokument (forside)",
+    "title_government_letter": "Brev fra myndighederne",
+    "title_id_back": "Indsend ID-kort (bagside)",
+    "title_id_front": "Indsend ID-kort (forside)",
+    "title_license_back": "Indsend ID (bagside)",
+    "title_license_front": "Indsend ID (forside)",
+    "title_passport": "Indsend siden i passet, hvor billedet fremgår",
+    "title_permit_back": "Indsend opholdstilladelse (bagside)",
+    "title_permit_front": "Indsend opholdstilladelse (forside)",
+    "title_tax_letter": "Indsend brev"
+  },
+  "doc_video_capture": {
+    "button_primary_fallback": "Næste trin",
+    "button_primary_fallback_end": "Afslut optagelsen",
+    "detail_step2": "Dokumentet skal hele tiden være synligt",
+    "header": "Sørg for, at dokumentets forside er inden for rammen, mens du holder dokumentet",
+    "header_paper_doc_step2": "Vend langsomt dit dokument om, så ydersiderne bliver vist",
+    "header_passport": "Sørg for, at siden i passet, hvor billedet fremgår er inden for rammen, mens du holder passet",
+    "header_passport_progress": "Hold det stille",
+    "header_step1": "Hold det stille nu",
+    "header_step2": "Vend langsomt dit dokument om, så bagsiden bliver vist",
+    "prompt": {
+      "detail_timeout": "Videooptagelsen må højst vare ​<timeout>​​</timeout>​ sekunder. ​<fallback>​Start forfra​</fallback>​"
+    },
+    "stepper": "Trin ​<step>​​</step>​ af ​<total>​​</total>​",
+    "success_accessibility": "Gennemført"
+  },
+  "doc_video_confirmation": {
+    "button_secondary": "Forhåndsvis video",
+    "title": "Tjek din video"
+  },
+  "error_unsupported_browser": {
+    "subtitle_android": "Genstart processen på en browser med den nyeste version af Google Chrome",
+    "subtitle_ios": "Genstart processen på en browser med den nyeste version af Safari",
+    "title_android": "Denne browser understøttes ikke",
+    "title_ios": "Denne browser understøttes ikke"
+  },
+  "generic": {
+    "accessibility": {
+      "close_sdk_screen": "Luk siden til identitetsverificering",
+      "dismiss_alert": "Afvis advarsel"
+    },
+    "back": "tilbage",
+    "close": "luk",
+    "errors": {
+      "expired_token": {
+        "instruction": "Prøv igen",
+        "message": "Dit token er udløbet"
+      },
+      "expired_trial": {
+        "instruction": "Du har nået det maksimale antal prøveperioder",
+        "message": "Din prøveperiode er udløbet"
+      },
+      "geoblocked_error": {
+        "instruction": "Vi beklager, men det ser ud til, at vi ikke kan komme videre i processen, da din nuværende placering ikke understøttes",
+        "message": "Tjenesten er ikke tilgængelig"
+      },
+      "interrupted_flow_error": {
+        "instruction": "Genstart processen på en anden enhed",
+        "message": "Kameraet er ikke detekteret"
+      },
+      "invalid_size": {
+        "instruction": "Skal være under 10 MB.",
+        "message": "Filen er for stor."
+      },
+      "invalid_type": {
+        "instruction": "Brug en anden filtype.",
+        "message": "Filen er ikke uploadet."
+      },
+      "lazy_loading": {
+        "message": "Der opstod en fejl under indlæsning af komponenten"
+      },
+      "multiple_faces": {
+        "instruction": "Selfien må kun indeholde dit ansigt",
+        "message": "Der fremgår mere end ét ansigt"
+      },
+      "no_face": {
+        "instruction": "Sørg for, at dit ansigt er synligt",
+        "message": "Ansigtet er ikke detekteret"
+      },
+      "request_error": {
+        "instruction": "Prøv igen",
+        "message": "Noget gik galt"
+      },
+      "sms_failed": {
+        "instruction": "Kopiér linket og indsæt det i din telefon",
+        "message": "Noget gik galt"
+      },
+      "sms_overuse": {
+        "instruction": "Kopiér linket og indsæt det i din telefon",
+        "message": "For mange fejlagtige forsøg"
+      },
+      "unsupported_file": {
+        "instruction": "Brug en JPG- eller PNG-fil",
+        "message": "Filtypen understøttes ikke"
+      }
+    },
+    "lazy_load_placeholder": "Indlæser...",
+    "loading": "Indlæser"
+  },
+  "get_link": {
+    "alert_wrong_number": "Tjek, at dit nummer er korrekt",
+    "button_copied": "Kopieret",
+    "button_copy": "Kopiér",
+    "button_submit": "Send link",
+    "info_qr_how": "Sådan scanner du en QR-kode",
+    "info_qr_how_list_item_camera": "Ret din telefons kamera mod QR-koden",
+    "info_qr_how_list_item_download": "Hvis det ikke fungerer, skal du downloade en QR-kodescanner fra Google Play eller App Store",
+    "link_divider": "eller vælg en anden metode",
+    "link_qr": "Scan QR-kode",
+    "link_sms": "Få linket via sms",
+    "link_url": "Kopiér link",
+    "loader_sending": "Sender",
+    "number_field_input_placeholder": "Indtast mobilnummer",
+    "number_field_label": "Indtast dit mobilnummer:",
+    "subtitle_qr": "Scan QR-koden med din telefon",
+    "subtitle_sms": "Send dette link til engangsbrug til din telefon",
+    "subtitle_url": "Send dette link til engangsbrug til din telefon",
+    "title": "Få dit sikre link",
+    "url_field_label": "Kopiér linket og indsæt det i din mobilbrowser"
+  },
+  "livenessV2": {
+    "error_reload_instructions": "Genindlæs anvisninger",
+    "intro_note_no1": "Først skal du placere dit ansigt inden for rammen",
+    "intro_note_no2": "Dernæst drejer du hovedet langsomt til begge sider",
+    "intro_ready_button": "Vær opmærksom på, at vi optager dit ansigt og din baggrund",
+    "intro_subtitle": "Dette er for at verificere, at du er en fysisk person",
+    "intro_warning": "Vær opmærksom på, at vi optager dit ansigt og din baggrund",
+    "success_main_button": "Indsend verificering",
+    "success_title": "Det er alt, hvad vi behøver for at starte verificeringen af din identitet"
+  },
+  "mobilePhrases": {
+    "photo_upload": {
+      "body_id_back": "Tag et billede af dit korts bagside",
+      "body_id_front": "Tag et billede af dit korts forside",
+      "body_license_back": "Tag et billede af dit ID's bagside",
+      "body_license_front": "Tag et billede af dit ID's forside",
+      "body_passport": "Tag et billede af siden i passet, hvor billedet fremgår",
+      "body_selfie": "Tag en selfie, der viser dit ansigt"
+    },
+    "selfie_capture": {
+      "alert": {
+        "camera_inactive": {
+          "detail": "Tag et billede ved hjælp af <fallback>standard kameratilstanden</fallback> i stedet"
+        },
+        "camera_not_working": {
+          "detail": "Tag et billede ved hjælp af <fallback>standard kameratilstanden</fallback> i stedet"
+        }
+      }
+    },
+    "upload_guide": {
+      "button_primary": "Tag et billede",
+      "title": "Siden i passet, hvor billedet fremgår"
+    }
+  },
+  "nfc_scan": {
+    "sheet": {
+      "success": "Scanning vellykket"
+    }
+  },
+  "outro": {
+    "body": "Det er alt, hvad vi behøver for at starte verificeringen af din identitet",
+    "body_government_letter": "Hele dokumentets side skal fremgå for at få det bedste resultat",
+    "title": "Mange tak"
+  },
+  "permission": {
+    "body_both": "Vi kan ikke verificere dig uden at bruge både dit kamera og din mikrofon",
+    "body_cam": "Vi kan ikke verificere dig uden dit kamera",
+    "body_mic": "Vi kan ikke verificere dig uden at bruge din mikrofon",
+    "button_primary_both": "Aktivér begge dele",
+    "button_primary_cam": "Aktivér kamera",
+    "button_primary_mic": "Aktivér mikrofon",
+    "subtitle_both": "Når du bliver bedt om det, skal du aktivere adgang til begge dele for at fortsætte",
+    "subtitle_cam": "Når du bliver bedt om det, skal du aktivere adgang til kameraet for at fortsætte",
+    "subtitle_mic": "Når du bliver bedt om det, skal du aktivere adgang til mikrofonen for at fortsætte",
+    "title_both": "Tillad adgang til kamera og mikrofon",
+    "title_cam": "Tillad adgang til kameraet",
+    "title_mic": "Tillad adgang til mikrofon"
+  },
+  "permission_recovery": {
+    "android": {
+      "device_settings": {
+        "list_item_1": "På din enhed, åbn Indstillinger appen",
+        "list_item_2": "Tryk på Apps",
+        "list_item_3": "Tryk på [BROWSER_ICON]. Hvis du ikke kan finde den, skal du trykke på Se alle apps eller Administrer apps og vælge din browser-app",
+        "list_item_4": "Tryk på Tilladelser",
+        "list_item_5_cam": "Tryk på Kamera og vælg Tillad",
+        "list_item_5_mic": "Tryk på Mikrofon og vælg Tillad",
+        "list_item_6": "Vend tilbage til denne side og tryk på knappen Jeg har foretaget ændringerne"
+      }
+    },
+    "android_chrome": {
+      "browser_settings": {
+        "list_item_1": "I din browser skal du trykke på låseikonet [LOCK_ICON] i adresselinjen",
+        "list_item_2": "Tryk på Tilladelser",
+        "list_item_3_cam": "Aktiver kontakten ved siden af Kamera",
+        "list_item_3_mic": "Aktiver kontakten ved siden af Mikrofon",
+        "list_item_4": "Vend tilbage til denne side og tryk på knappen Jeg har foretaget ændringerne"
+      }
+    },
+    "android_firefox": {
+      "browser_settings": {
+        "list_item_1": "I din browser skal du trykke på låseikonet [LOCK_ICON] i adresselinjen",
+        "list_item_2_cam": "Tryk på Blokeret ved siden af Kamera for at skifte til Tilladt",
+        "list_item_2_mic": "Tryk på Blokeret ved siden af Mikrofon for at skifte til Tilladt",
+        "list_item_3": "Kom tilbage til denne side og tryk på knappen Jeg har foretaget ændringerne"
+      }
+    },
+    "android_generic": {
+      "browser_settings": {
+        "list_item_1": "I din browser skal du åbne webstedsindstillingerne. Dette er ofte et låseikon [LOCK_ICON] i adresselinjen",
+        "list_item_2": "Find afsnittet om tilladelser",
+        "list_item_3_cam": "Aktivér Kamera tilladelserne",
+        "list_item_3_mic": "Aktivér Mikrofon tilladelserne",
+        "list_item_4": "Kom tilbage til denne side og tryk på knappen Jeg har foretaget ændringerne"
+      }
+    },
+    "android_samsung": {
+      "browser_settings": {
+        "list_item_1": "I din browser skal du trykke på låseikonet [LOCK_ICON] i adresselinjen",
+        "list_item_2_cam": "Aktiver kontakten ved siden af Kamera",
+        "list_item_2_mic": "Aktiver kontakten ved siden af Mikrofon",
+        "list_item_3": "Kom tilbage til denne side og tryk på knappen Jeg har foretaget ændringerne"
+      }
+    },
+    "button_primary": "Genindlæs",
+    "desktop_chrome": {
+      "browser_settings": {
+        "list_item_1": "I din browser skal du klikke på låseikonet [LOCK_ICON] i adresselinjen",
+        "list_item_2_cam": "Aktiver kontakten ved siden af Kamera",
+        "list_item_2_mic": "Aktiver kontakten ved siden af Mikrofon",
+        "list_item_3": "Kom tilbage til denne side og klik på knappen Jeg har foretaget ændringerne"
+      }
+    },
+    "desktop_edge": {
+      "browser_settings": {
+        "list_item_1": "I din browser skal du klikke på låseikonet [LOCK_ICON] i adresselinjen",
+        "list_item_2_cam": "Klik på rullemenuen ved siden af Kamera og vælg Tillad",
+        "list_item_2_mic": "Klik på rullemenuen ved siden af Mikrofon og vælg Tillad",
+        "list_item_3": "Kom tilbage til denne side og klik på knappen Jeg har foretaget ændringerne"
+      }
+    },
+    "desktop_firefox": {
+      "browser_settings": {
+        "list_item_1": "I din browser skal du klikke på indstillingsikonet [SETTINGS_ICON_FIREFOX] i adresselinjen",
+        "list_item_2_cam": "Klik på Blokeret ved siden af Brug kameraet",
+        "list_item_2_mic": "Klik på Blokeret ved siden af Brug mikrofonen",
+        "list_item_3": "Kom tilbage til denne side og klik på knappen Jeg har foretaget ændringerne"
+      }
+    },
+    "desktop_generic": {
+      "browser_settings": {
+        "list_item_1": "I din browser skal du åbne webstedsindstillingerne. Dette er ofte et låseikon [LOCK_ICON] i adresselinjen",
+        "list_item_2": "Find afsnittet om tilladelser",
+        "list_item_3_cam": "Aktivér Kamera tilladelserne",
+        "list_item_3_mic": "Aktivér Mikrofon tilladelserne",
+        "list_item_4": "Gå tilbage til denne side og klik på knappen Jeg har foretaget ændringerne"
+      },
+      "device_settings": {
+        "list_item_1": "På din computer, åbn dine Indstillinger",
+        "list_item_2": "Find afsnittet om tilladelser (normalt under Privatliv)",
+        "list_item_3_cam": "Aktivér Kamera tilladelser for [BROWSER_ICON]",
+        "list_item_3_mic": "Aktivér Mikrofon tilladelser for [BROWSER_ICON]",
+        "list_item_4": "Genstart din browser om nødvendigt og vend tilbage til denne side"
+      }
+    },
+    "desktop_mac": {
+      "device_settings": {
+        "list_item_1": "På din computer, klik på Apple-menuen [APPLE_ICON] og vælg Systemindstillinger (eller Systempræferencer)",
+        "list_item_2": "Klik på Privatliv & Sikkerhed (eller Sikkerhed & Privatliv) i sidebaren ",
+        "list_item_3": "Klik på Senere i pop op-vinduet",
+        "list_item_3_cam": "Klik på Kamera og aktiver kontakten (eller afkrydsningsfeltet) ved siden af [BROWSER_ICON]",
+        "list_item_4": "Klik på Afslut & Genåbn i pop op-vinduet og vend tilbage til denne side",
+        "list_item_4_mic": "Klik på Mikrofon og aktiver kontakten (eller afkrydsningsfeltet) ved siden af [BROWSER_ICON]"
+      }
+    },
+    "desktop_safari": {
+      "browser_settings": {
+        "list_item_1": "I din browser skal du højreklikke i adresselinjen og vælge Indstillinger",
+        "list_item_2_cam": "Klik på rullemenuen ved siden af Kamera og vælg Tillad",
+        "list_item_2_mic": "Klik på rullemenuen ved siden af Mikrofon og vælg Tillad",
+        "list_item_3": "Vend tilbage til denne side og klik på knappen Jeg har foretaget ændringerne"
+      }
+    },
+    "desktop_windows": {
+      "device_settings": {
+        "list_item_1": "På din computer, klik på Windows-menuen [WINDOWS_ICON] og vælg Indstillinger [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "Klik på Privatliv (eller Privatliv & Sikkerhed)",
+        "list_item_3_cam": "Klik på Kamera under App tilladelser og aktiver kontakten ved siden af [BROWSER_ICON] ",
+        "list_item_3_mic": "Klik på Mikrofon under App tilladelser og aktiver kontakten ved siden af [BROWSER_ICON]",
+        "list_item_4": "Genstart din browser om nødvendigt og vend tilbage til denne side"
+      }
+    },
+    "info": "Gendannelse",
+    "ios": {
+      "browser_settings": {
+        "list_item_1_both": "Tryk på knappen Jeg har foretaget ændringerne. Du vil blive bedt om igen at give adgang til kamera og mikrofon. Når pop op-vinduet vises, skal du vælge Tillad (eller OK)",
+        "list_item_1_cam": "Tryk på knappen Jeg har foretaget ændringerne. Du vil blive bedt om at aktivere kameraadgang igen. Når pop op-vinduet vises, skal du vælge Tillad (eller OK)",
+        "list_item_1_mic": "Tryk på knappen Jeg har foretaget ændringerne. Du vil blive bedt om at aktivere mikrofonadgang igen. Når pop op-vinduet vises, skal du vælge Tillad (eller OK)"
+      },
+      "device_settings": {
+        "list_item_1": "På din enhed, åbn Indstillinger appen",
+        "list_item_2": "Rul gennem listen og tryk på [BROWSER_ICON]",
+        "list_item_3_cam": "Aktiver kontakten ved siden af Kamera",
+        "list_item_3_mic": "Aktiver kontakten ved siden af Mikrofon",
+        "list_item_4": "Vend tilbage til denne side og tryk på knappen Jeg har foretaget ændringerne"
+      }
+    },
+    "ios_safari": {
+      "device_settings": {
+        "list_item_1": "På din enhed, åbn Indstillinger appen",
+        "list_item_2": "Rul gennem listen og tryk på [BROWSER_ICON]",
+        "list_item_3_cam": "Tryk på Kamera og vælg Tillad",
+        "list_item_3_mic": "Tryk på Mikrofon og vælg Tillad",
+        "list_item_4": "Vend tilbage til denne side og tryk på knappen Jeg har foretaget ændringerne"
+      }
+    },
+    "list_header_both": "Følg disse trin for at gendanne adgang til begge dele:",
+    "list_header_cam": "Følg disse trin for at gendanne adgang til kameraet:",
+    "list_item_action_cam": "Genindlæs denne side for at genstarte identitetsverificeringen",
+    "list_item_how_to_both": "Giv adgang til dit kamera og din mikrofon fra dine browserindstillinger",
+    "list_item_how_to_cam": "Giv adgang til dit kamera fra dine browserindstillinger",
+    "list_item_how_to_mic": "Giv adgang til din mikrofon fra dine browserindstillinger",
+    "subtitle_both": "Gendan adgang til kameraet og mikrofonen, så du kan optage en video og fuldføre verificeringen",
+    "subtitle_cam": "Vi har brug for adgang til dit kamera for at verificere din identitet. Følg instruktionerne nedenfor for at gendanne adgangen",
+    "subtitle_cam_old": "Gendan adgang til kameraet, så du kan fortsætte ansigtverificeringen",
+    "subtitle_mic": "Vi har brug for adgang til din mikrofon for at verificere din identitet. Følg instruktionerne nedenfor for at gendanne adgang",
+    "title_both": "Adgang til mikrofon og kamera er nægtet",
+    "title_cam": "Der er nægtet adgang til kameraet",
+    "title_mic": "Adgang til mikrofon er nægtet",
+    "web": {
+      "browser_settings": {
+        "title": "Løsning 1: Browserindstillinger"
+      },
+      "button_primary": "Jeg har foretaget ændringerne",
+      "device_settings": {
+        "title": "Løsning 2: Enhedsindstillinger"
+      },
+      "disclaimer": "Identitetsverifikationsprocessen kan muligvis genstarte. Beklager eventuelle ulemper"
+    }
+  },
+  "photo_upload": {
+    "body_bank_statement": "Hele dokumentets side skal fremgå for at få det bedste resultat",
+    "body_benefits_letter": "Hele dokumentets side skal fremgå for at få det bedste resultat",
+    "body_bill": "Hele dokumentets side skal fremgå for at få det bedste resultat",
+    "body_generic_document_back": "Upload dokumentets bagside fra din computer",
+    "body_generic_document_front": "Upload dokumentets forside fra din computer",
+    "body_id_back": "Upload kortets bagside fra din computer",
+    "body_id_front": "Upload kortets forside fra din computer",
+    "body_license_back": "Upload ID'ets bagside fra din computer",
+    "body_license_front": "Upload ID'ets forside fra din computer",
+    "body_passport": "Upload siden i passet, hvor billedet fremgår fra din computer",
+    "body_selfie": "Upload en selfie fra din computer",
+    "body_tax_letter": "Hele dokumentets side skal fremgå for at få det bedste resultat",
+    "button_take_photo": "Tag et billede",
+    "button_upload": "Upload",
+    "title_selfie": "Selfie"
+  },
+  "poa_cancel": "Annuller",
+  "poa_err_invalid_file": {
+    "message": "Vælg en anden fil.",
+    "ok": "OK",
+    "title": "Ugyldig fil"
+  },
+  "poa_guidance": {
+    "button_primary": "Fortsæt",
+    "instructions": {
+      "address": "Nuværende adresse",
+      "full_name": "Fulde navn",
+      "issue_date": "Udstedelsesdato eller oversigtsperiode",
+      "label": "Hele dokumentet skal fremgå, og sørg for, at det tydeligt viser:",
+      "logo": "Logo"
+    },
+    "instructions_address_card_issue_date": "Udstedelsesdato",
+    "instructions_expiry_date": "Udløbsdato, hvis relevant",
+    "instructions_full_address": "Fuldstændig adresse",
+    "subtitle_address_card": "Det skal være et gyldigt adressekort",
+    "subtitle_bank_statement": "Skal være udstedt inden for de ​​seneste tre måneder​​",
+    "subtitle_benefits_letter": "Skal være udstedt inden for de ​​seneste 12 måneder​​",
+    "subtitle_bill": "Skal være udstedt inden for de ​​seneste tre måneder​​",
+    "subtitle_tax_letter": "Skal være udstedt inden for de ​​seneste 12 måneder​​"
+  },
+  "poa_intro": {
+    "button_primary": "Start verificering",
+    "list_matches_signup": "Hvorpå der fremgår den samme adresse, du brugte, da du tilmeldte dig",
+    "list_most_recent": "Er det ​​nyeste​​ du har",
+    "list_shows_address": "Viser din ​​nuværende​​ adresse",
+    "subtitle": "Du skal bruge et dokument, der:",
+    "title": "Lad os verificere din adresse"
+  },
+  "poa_welcome_text": "Tag et billede af et dokument med din adresse",
+  "profile_data": {
+    "address_title": "Tilføj din adresse",
+    "button_continue": "Fortsæt",
+    "components": {
+      "country_residence_select": {
+        "placeholder": "Vælg et land"
+      },
+      "country_select": {
+        "placeholder": "Vælg et land"
+      },
+      "id_type_select": {
+        "aus_specific": {
+          "other": "Udenlandsk pas"
+        },
+        "bra_specific": {
+          "other": "CNPJ",
+          "tax_id": "CPF"
+        },
+        "driving_license": "Kørekort",
+        "esp_specific": {
+          "identity_card": "NIF/DNI"
+        },
+        "gha_specific": {
+          "social_insurance": "SSNIT"
+        },
+        "identity_card": "ID-kort",
+        "ind_specific": {
+          "tax_id": "Personligt kontonummer (PAN)"
+        },
+        "ken_specific": {
+          "other": "Alien kort"
+        },
+        "nga_specific": {
+          "identity_card": "National Identification Number (NIN)",
+          "other": "BVN",
+          "tax_id": "TIN"
+        },
+        "other": "NIE",
+        "passport": "Pas",
+        "placeholder": "Vælg en national ID-type",
+        "tax_id": "Skatte ID",
+        "voter_id": "Vælger-id"
+      },
+      "nationality_select": {
+        "placeholder": "Vælg et land"
+      },
+      "pan": {
+        "placeholder": "ABCDE1234F"
+      },
+      "ssn": {
+        "placeholder": "123-45-6789"
+      },
+      "state_select": {
+        "placeholder": "Vælg en region"
+      }
+    },
+    "country_of_residence_title": "Dit bopælsland",
+    "field_labels": {
+      "arg_specific": {
+        "national_id_value": "DNI nummer"
+      },
+      "can_specific": {
+        "national_id_value": "Social Insurance Number (SIN)"
+      },
+      "chl_specific": {
+        "national_id_value": "RUT / RUN numre"
+      },
+      "chn_specific": {
+        "national_id_value": "Resident ID-kort nummer"
+      },
+      "col_specific": {
+        "national_id_value": "Colombiansk personligt identifikationsnummer"
+      },
+      "country": "Land",
+      "country_residence": "Land",
+      "dnk_specific": {
+        "national_id_value": "CPR nummer"
+      },
+      "dob": "Fødselsdato",
+      "email": "E-mail",
+      "fin_specific": {
+        "national_id_value": "Personlig identitetskode"
+      },
+      "first_name": "Fornavn",
+      "gbr_specific": {
+        "postcode": "Postnummer",
+        "town": "By"
+      },
+      "hkg_specific": {
+        "national_id_value": "HKID"
+      },
+      "ind_specific": {
+        "pan": "Permanent kontonummer (PAN)"
+      },
+      "ita_specific": {
+        "national_id_value": "Skattekode"
+      },
+      "jpn_specific": {
+        "national_id_value": "\"Mit nummer\" / Beboer Record kode"
+      },
+      "last_name": "Efternavn",
+      "line1": "Adresselinje 1",
+      "line2": "Adresselinje 2",
+      "line3": "Adresselinje 3",
+      "lux_specific": {
+        "national_id_value": "CPR-nummer"
+      },
+      "mobile_number": "Mobilnummer",
+      "national_id_type": "National ID type",
+      "national_id_value": "Nationalt ID-nummer",
+      "nationality": "Nationalitet",
+      "phl_specific": {
+        "national_id_value": "PhilSys-kortnummer (PCN)"
+      },
+      "phone_number": "Telefonnummer",
+      "pol_specific": {
+        "national_id_value": "PESEL nummer"
+      },
+      "postcode": "Postnummer",
+      "prt_specific": {
+        "national_id_value": "Skattenummer"
+      },
+      "town": "By",
+      "tur_specific": {
+        "national_id_value": "Tyrkisk identifikationsnummer"
+      },
+      "usa_specific": {
+        "line1_helper_text": "Adresse, f.eks.: Vestergade 200",
+        "line2_helper_text": "Lejlighed, suite, værelse osv.",
+        "postcode": "Postnummer",
+        "ssn": "Personnummer (CPR)",
+        "state": "Region"
+      }
+    },
+    "field_optional": "(valgfrit)",
+    "field_validation": {
+      "arg_specific": {
+        "invalid_national_id_value": "Indtast venligst et gyldigt DNI"
+      },
+      "bra_specific": {
+        "invalid_other": "Indtast venligst en gyldig CNPJ",
+        "invalid_tax_id": "Indtast venligst en gyldig CPF",
+        "required_other": "Indtast venligst din CNPJ",
+        "required_tax_id": "Indtast venligst din CPF"
+      },
+      "can_specific": {
+        "invalid_national_id_value": "Indtast venligst en gyldig SIN",
+        "required_national_id_value": "Indtast venligst din SIN"
+      },
+      "chl_specific": {
+        "invalid_national_id_value": "Indtast venligst et gyldigt RUT/RUN-nummer",
+        "required_national_id_value": "Indtast venligst dine RUT / RUN numre"
+      },
+      "chn_specific": {
+        "invalid_national_id_value": "Indtast venligst et gyldigt beboeridentitetskortnummer",
+        "required_national_id_value": "Indtast venligst dit beboeridentitetskortnummer"
+      },
+      "col_specific": {
+        "invalid_national_id_value": "Indtast venligst et gyldigt colombiansk personligt identifikationsnummer",
+        "required_national_id_value": "Indtast venligst dit colombianske personlige identifikationsnummer"
+      },
+      "dnk_specific": {
+        "invalid_national_id_value": "Indtast venligst et gyldigt CPR-nummer",
+        "required_national_id_value": "Indtast venligst dit CPR-nummer"
+      },
+      "esp_specific": {
+        "invalid_identity_card": "Indtast venligst en gyldig NIF/DNI",
+        "invalid_other": "Indtast venligst en gyldig NIE",
+        "required_identity_card": "Indtast venligst dit NIF/DNI"
+      },
+      "fin_specific": {
+        "invalid_national_id_value": "Indtast venligst en gyldig personlig identitetskode",
+        "required_national_id_value": "Indtast venligst din personlige identitetskode"
+      },
+      "gbr_specific": {
+        "invalid_postcode": "Indtast et gyldigt postnummer",
+        "required_postcode": "Indtast dit postnummer",
+        "too_long_postcode": "Postnummeret er for langt",
+        "too_short_postcode": "Postnummeret er for kort"
+      },
+      "gha_specific": {
+        "invalid_social_insurance": "Indtast venligst et gyldigt SSNIT",
+        "required_social_insurance": "Indtast venligst dit SSNIT"
+      },
+      "hkg_specific": {
+        "invalid_national_id_value": "Indtast venligst et gyldigt HKID",
+        "required_national_id_value": "Indtast venligst dit HKID"
+      },
+      "ind_specific": {
+        "invalid_pan": "Indsæt et gyldigt PAN-nummer",
+        "required_pan": "Indtast dit PAN-nummer"
+      },
+      "invalid": "Tjek, om der er ugyldige tegn eller symboler",
+      "invalid_dob": "Indtast en gyldig fødselsdato",
+      "invalid_driving_license": "Indtast venligst et gyldigt kørekortnummer",
+      "invalid_email": "Indtast en gyldig e-mailadresse",
+      "invalid_mobile_number": "Indtast et gyldigt mobilnummer",
+      "invalid_national_id_value": "Indtast venligst et gyldigt nationalt ID-nummer",
+      "invalid_passport": "Indtast venligst et gyldigt pasnummer",
+      "invalid_phone_number": "Indtast et gyldigt telefonnummer",
+      "invalid_voter_id": "Indtast venligst et gyldigt vælger-id-nummer",
+      "ita_specific": {
+        "invalid_national_id_value": "Indtast venligst en gyldig skattekode",
+        "required_national_id_value": "Indtast venligst din skattekode"
+      },
+      "jpn_specific": {
+        "invalid_national_id_value": "Indtast venligst en gyldig \"Mit nummer\" / Resident Record-kode",
+        "required_national_id_value": ""
+      },
+      "ken_specific": {
+        "invalid_other": "Indtast venligst et gyldigt Alien Card-nummer",
+        "required_other": "Indtast venligst dit Alien Card-nummer"
+      },
+      "lux_specific": {
+        "invalid_national_id_value": "Indtast venligst et gyldigt CPR-nummer",
+        "required_national_id_value": "Indtast venligst dit CPR-nummer"
+      },
+      "mex_specific": {
+        "invalid_identity_card": "Indtast venligst en gyldig CURP",
+        "invalid_tax_id": "Indtast venligst en gyldig RFC",
+        "required_identity_card": "Indtast venligst din CURP",
+        "required_tax_id": "Indtast venligst din RFC"
+      },
+      "mys_specific": {
+        "invalid_national_id_value": "Indtast venligst et gyldigt NRIC",
+        "required_national_id_value": "Indtast venligst dit NRIC"
+      },
+      "nga_specific": {
+        "invalid_identity_card": "Indtast venligst et gyldigt nationalt identifikationsnummer (NIN)",
+        "invalid_other": "Indtast venligst et gyldigt BVN",
+        "invalid_tax_id": "Indtast venligst et gyldigt TIN",
+        "required_identity_card": "Indtast venligst dit nationale identifikationsnummer (NIN)",
+        "required_other": "Indtast venligst dit BVN",
+        "required_tax_id": "Indtast venligst dit TIN"
+      },
+      "phl_specific": {
+        "invalid_national_id_value": "Indtast venligst et gyldigt PhilSys-kortnummer (PCN)",
+        "required_national_id_value": "Indtast venligst dit PhilSys-kortnummer (PCN)"
+      },
+      "pol_specific": {
+        "invalid_national_id_value": "Indtast venligst et gyldigt PESEL-nummer",
+        "required_national_id_value": "Indtast venligst dit PESEL-nummer"
+      },
+      "prt_specific": {
+        "invalid_national_id_value": "Indtast venligst et gyldigt skattenummer",
+        "required_national_id_value": "Indtast venligst dit skattenummer"
+      },
+      "reference": {
+        "translation": "Indtast venligst en gyldig"
+      },
+      "required_consent": "Godkend kontrol af identitet og begået bedrageri",
+      "required_country": "Vælg et land",
+      "required_country_residence": "Vælg et land",
+      "required_dob": "Indtast din fødselsdato",
+      "required_email": "Indtast din e-mailadresse",
+      "required_first_name": "Indtast dit fornavn",
+      "required_last_name": "Indtast dit efternavn",
+      "required_line1": "Indtast din adresse",
+      "required_mobile_number": "Indtast dit mobilnummer",
+      "required_national_driving_license": "Indtast venligst dit kørekortnummer",
+      "required_national_id_type": "Vælg venligst din nationale ID-type",
+      "required_national_id_value": "Indtast venligst dit nationale ID-nummer",
+      "required_national_passport": "Indtast venligst dit pasnummer",
+      "required_national_voter_id": "Indtast venligst dit vælger-id-nummer",
+      "required_nationality": "Vælg et land",
+      "required_phone_number": "Indtast dit telefonnummer",
+      "required_postcode": "Indtast dit postnummer",
+      "sgp_specific": {
+        "invalid_national_id_value": "Indtast venligst en gyldig NRIC",
+        "required_national_id_value": "Indtast venligst dit NRIC"
+      },
+      "swe_specific": {
+        "invalid_national_id_value": "Indtast venligst en gyldig PIN",
+        "required_national_id_value": "Indtast venligst din PIN-kode"
+      },
+      "too_long_first_name": "Fornavnet er for langt",
+      "too_long_last_name": "Efternavnet er for langt",
+      "too_long_line1": "Adresselinjen er for lang",
+      "too_long_postcode": "Postnummeret er for langt",
+      "too_long_town": "Bynavnet er for langt",
+      "too_short_first_name": "Fornavnet er for kort",
+      "too_short_last_name": "Efternavnet er for kort",
+      "too_short_postcode": "Postnummeret er for kort",
+      "tur_specific": {
+        "invalid_national_id_value": "Indtast venligst et gyldigt tyrkisk ID-nummer",
+        "required_national_id_value": ""
+      },
+      "usa_specific": {
+        "invalid_ssn": "Indsæt et gyldigt personnummer",
+        "required_ssn": "Indtast dit personnummer",
+        "required_state": "Vælg en region"
+      }
+    },
+    "national_id_number_title": "Tilføj dit nationale ID-nummer",
+    "personal_information_title": "Tilføj dine personoplysninger",
+    "prompt": {
+      "details_timeout": "Prøv igen",
+      "header_timeout": "Det ser ud til, at du var for længe om det"
+    }
+  },
+  "retry_feedback": {
+    "button_primary": "Prøv igen"
+  },
+  "retry_feedback_id_expired": {
+    "subtitle": "Prøv igen med et gyldigt billed-ID, og sørg for, at dine oplysninger kan ses tydeligt",
+    "title": "Dit dokument er udløbet"
+  },
+  "retry_feedback_id_generic": {
+    "subtitle": "Prøv igen med et gyldigt billed-ID, og sørg for, at dine oplysninger kan ses tydeligt",
+    "title": "Der opstod et problem med dit dokument"
+  },
+  "retry_feedback_id_unaccepted": {
+    "subtitle": "Prøv igen med et gyldigt billed-ID, og sørg for, at dine oplysninger kan ses tydeligt",
+    "title": "Dokument ikke accepteret"
+  },
+  "retry_feedback_selfie_generic": {
+    "subtitle": "Prøv igen, og sørg for, at dit ansigt er synligt og godt oplyst",
+    "title": "Det opstod et problem med din selfie"
+  },
+  "selfie_capture": {
+    "alert": {
+      "camera_inactive": {
+        "detail": "Tjek, at det er tilsluttet og kan bruges. Du kan også <fallback>fortsætte verificeringen på din telefon</fallback>",
+        "detail_no_fallback": "Sørg for, at din enhed har et kamera, der fungerer",
+        "title": "Fungerer kameraet ikke?"
+      },
+      "camera_not_working": {
+        "detail": "Det kan være afbrudt. <fallback>Brug din telefon i stedet</fallback>.",
+        "detail_no_fallback": "Sørg for, at din enheds kamera fungerer",
+        "title": "Kameraet fungerer ikke"
+      },
+      "timeout": {
+        "detail": "Husk at trykke på knappen, når du er færdig. <fallback>Fortryd videohandlinger</fallback>",
+        "title": "Det ser ud til, at du var for længe om det"
+      }
+    },
+    "body": "Hold dit ansigt inden for den ovale cirkel",
+    "button_accessibility": "Tag et billede",
+    "button_primary": "Start scanning af ansigt",
+    "frame_accessibility": "Visning fra kameraet",
+    "title": "Hold dit ansigt inden for den ovale cirkel"
+  },
+  "selfie_confirmation": {
+    "image_accessibility": "Billede af dit ansigt",
+    "subtitle": "Sørg for, at hele dit ansigt er synligt",
+    "title": "Tjek din selfie"
+  },
+  "selfie_intro": {
+    "banner_nudity_message": "Dit ansigt og din baggrund bliver ikke optaget under denne proces",
+    "button_primary": "Fortsæt",
+    "list_accessibility": "Tips til at tage en god selfie",
+    "list_item_face_forward": "Kig fremad og sørg for, at dine øjne kan ses tydeligt",
+    "list_item_no_face_cover": "Fjern alt, der dækker dit ansigt. Briller må anvendes",
+    "list_item_no_glasses": "Tag dine briller af, om nødvendigt",
+    "subtitle": "Vi sammenligner billedet med dit dokument",
+    "title": "Tag en selfie"
+  },
+  "sms_sent": {
+    "info": "Tips",
+    "info_link_expire": "Dit link udløber om én time",
+    "info_link_window": "Hold dette vindue åbent, mens du bruger din mobil",
+    "link": "Prøv en anden metode",
+    "subtitle": "Vi har sendt et sikkert link til %{number}",
+    "subtitle_minutes": "Det kan tage et par minutter, før du kan se det",
+    "title": "Tjek din mobil"
+  },
+  "switch_phone": {
+    "info": "Tips",
+    "info_link_expire": "Dit mobillink udløber om én time",
+    "info_link_refresh": "Genindlæs ikke denne side",
+    "info_link_window": "Hold dette vindue åbent, mens du bruger din mobil",
+    "link": "Annuller",
+    "subtitle": "Når du er færdig, bliver du ført til næste trin",
+    "title": "Forbundet til din mobil"
+  },
+  "upload_guide": {
+    "button_primary": "Fortsæt",
+    "image_detail_blur_alt": "Eksempel på et sløret dokument",
+    "image_detail_blur_label": "Alle oplysninger skal være tydelige – intet må være sløret",
+    "image_detail_cutoff_label": "Vis alle oplysninger – herunder de nederste 2 linjer",
+    "image_detail_glare_label": "Flyt dig væk fra direkte lys – ingen genskin på billedet",
+    "image_detail_good_label": "Billedet skal tydeligt vise dit dokument",
+    "subtitle": "Scanninger og fotokopier accepteres ikke",
+    "title": "Indsend side med pasfoto"
+  },
+  "user_consent": {
+    "button_primary": "Accepter",
+    "button_secondary": "Accepter ikke",
+    "prompt": {
+      "button_primary": "Gennemgå igen",
+      "button_secondary": "Ja, verificer mig ikke",
+      "no_consent_detail": "Hvis du ikke accepterer Onfidos fortrolighedserklæringer og servicevilkår, kan vi ikke verificere din identitet, og du forlader derefter dette trin.",
+      "no_consent_title": "Er du sikker?"
+    }
+  },
+  "user_consent_load_fail": {
+    "button_primary": "Genindlæs siden",
+    "detail": "Tjek, at din forbindelse er stabil, og prøv igen",
+    "title": "Indholdet kan ikke indlæses"
+  },
+  "video_capture": {
+    "body": "Hold dit ansigt inden for den ovale cirkel",
+    "body_record": "Tryk på knappen, når du er klar",
+    "body_stop": "Tryk på stop, når du er færdig",
+    "button_primary_finish": "Afslut optagelsen",
+    "button_primary_next": "Næste trin",
+    "button_primary_start": "Start optagelsen",
+    "button_record_accessibility": "Start optagelsen",
+    "frame_accessibility": "Visning fra kameraet",
+    "header": {
+      "challenge_digit_instructions": "Sig hvert tal højt",
+      "challenge_turn_forward": "kig derefter fremad",
+      "challenge_turn_left": "Drej hovedet til venstre",
+      "challenge_turn_right": "Drej hovedet til højre"
+    },
+    "prompt": {
+      "header_timeout": "Det ser ud til, at du var for længe om det"
+    }
+  },
+  "video_confirmation": {
+    "body": "Din video er blevet optaget",
+    "button_primary": "Upload video",
+    "button_secondary": "Optag videoen igen",
+    "title": "Tjek din video",
+    "video_accessibility": "Afspil videoen, du har optaget, igen"
+  },
+  "video_intro": {
+    "button_pause_accessibility": "Sæt videoen på pause",
+    "button_play_accessibility": "Afspil video",
+    "button_primary": "Optag video",
+    "list_accessibility": "Sådan optager du en selfie-video",
+    "list_item_actions": "Du har 20 sekunder til at afslutte",
+    "list_item_speak": "Følg anvisningerne, når du skal bevæge dig eller sige noget",
+    "title": "Optag en video",
+    "video_accessibility": "Videoeksempel på en person, der optager en selfie-video. Du skal vende ansigtet mod frontkameraet og holde telefonen lidt væk fra dit ansigt for at optage en selfie-video. Derefter skal du sige nogle tal højt og dreje hovedet i henhold til anvisningerne på skærmen."
+  },
+  "welcome": {
+    "doc_video_subtitle": "Det tager nok et par minutter",
+    "info_original_document": "Tag et fotografi af dit originale dokument. Scans, billeder af skærme eller fotokopier er ikke tilladt.",
+    "list_header": "Brug din enhed til at:",
+    "list_header_doc_video": "Brug din enhed til at optage:",
+    "list_header_webcam": "Brug dit webkamera eller telefon til at tage billedet:",
+    "list_item_doc": "dit ID-dokument",
+    "list_item_doc_generic": "Optag en video af dit identitetsdokument",
+    "list_item_doc_photo": "Tag et billede af dit ID-dokument",
+    "list_item_doc_video": "Optag en video af dit ID-dokument",
+    "list_item_doc_video_timeout": "Optagelsen må højst vare <timeout></timeout> sekunder",
+    "list_item_face_photo": "Tag et billede af dit ansigt",
+    "list_item_face_video": "Optag en video af dit ansigt",
+    "list_item_poa": "dit adressebevis",
+    "list_item_selfie": "dit ansigt",
+    "next_button": "Vælg dokument",
+    "start_workflow_button": "Start verificering",
+    "start_workflow_button_trial": "Start verificering (TEST)",
+    "subtitle": "Det tager nok et par minutter",
+    "title": "Verificer din identitet",
+    "trial_message": "Du må ikke dele personlige oplysninger her, medmindre du har tilmeldt dig en prøveperiode hos Onfido."
+  },
+  "workflow_complete": {
+    "pass": {
+      "description": "Vi har verificeret din identitet",
+      "title": "Godkendt"
+    },
+    "reject": {
+      "description": "Vi kan ikke verificere din identitet",
+      "title": "Afvist"
+    }
+  },
+  "workflow_erros": {
+    "generic_title": "Der opstod en serverfejl!",
+    "no_workflow_run_id": "ID for kørsel af arbejdsgang er ikke angivet.",
+    "reload_app": "Genindlæs appen, og prøv igen.",
+    "task_not_completed": "Kunne ikke fuldføre arbejdsgangens opgave.",
+    "task_not_retrieved": "Kan ikke hente arbejdsgangens opgave.",
+    "task_not_supported": "Opgaven er ikke understøttet i øjeblikket"
+  }
+}

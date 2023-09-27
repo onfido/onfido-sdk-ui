@@ -1,0 +1,1132 @@
+{
+  "avc_confirmation": {
+    "button_primary_upload": "อัปโหลดบันทึก",
+    "subtitle": "บันทึกวิดีโอใบหน้าของคุณเรียบร้อยแล้ว",
+    "title": "บันทึกเสร็จสมบูรณ์"
+  },
+  "avc_connection_error": {
+    "button_primary_reload": "โหลดคำแนะนำอีกครั้ง",
+    "button_primary_retry_upload": "ลองอัปโหลดอีกครั้ง",
+    "button_secondary_restart_recording": "รีสตาร์ทการบันทึก",
+    "subtitle": "เช็คว่าการเชื่อมต่อของคุณเสถียร แล้วลองอีกครั้ง",
+    "title": "เกิดข้อผิดพลาดในการเชื่อมต่อ"
+  },
+  "avc_face_alignment": {
+    "feedback_move_back": "ถอยออกไปเล็กน้อย",
+    "feedback_move_back_accessibility": "เลื่อนอุปกรณ์ของคุณออก",
+    "feedback_move_closer": "ขยับเข้ามาใกล้ๆ",
+    "feedback_move_left_accessibility": "เลื่อนอุปกรณ์ของคุณไปทางซ้าย",
+    "feedback_move_right_accessibility": "เลื่อนอุปกรณ์ของคุณไปทางขวา",
+    "feedback_no_face_detected": "ไม่พบใบหน้า",
+    "feedback_not_centered": "ใบหน้าไม่อยู่ตรงกลาง",
+    "title": "วางตำแหน่งใบหน้าของคุณไว้ในกรอบ"
+  },
+  "avc_face_capture": {
+    "alert": {
+      "mic_conflict_title": "แอปอื่นกำลังใช้ไมโครโฟนอยู่",
+      "timeout_body": "คุณมีเวลาไม่เกิน 15 วินาทีในการบันทึกให้เสร็จ",
+      "timeout_button_primary": "ลองอีกครั้ง",
+      "timeout_title": "ขออภัย เราต้องเริ่มบันทึกใหม่",
+      "too_fast_body": "โปรดลองอีกครั้ง และหันศีรษะของคุณให้ช้าลง",
+      "too_fast_button_primary": "ลองอีกครั้ง",
+      "too_fast_title": "คุณหันศีรษะเร็วเกินไป"
+    },
+    "title": "ค่อยๆ หันศีรษะไปทั้ง 2 ข้าง",
+    "title_completed": "บันทึกเสร็จสมบูรณ์"
+  },
+  "avc_intro": {
+    "button_primary_ready": "เริ่มบันทึก",
+    "disclaimer": "โปรดทราบว่าเราจะบันทึกใบหน้าและพื้นหลังของคุณ",
+    "disclaimer_camera_and_audio_on": "ใบหน้า พื้นหลัง และเสียงของคุณจะถูกบันทึกในระหว่างขั้นตอนนี้",
+    "list_item_one": "อันดับแรก วางตำแหน่งใบหน้าของคุณไว้ในกรอบ",
+    "list_item_two": "จากนั้นค่อยๆ หันศีรษะไปทั้ง 2 ข้าง",
+    "subtitle": "ขั้นตอนนี้มีเพื่อยืนยันว่าคุณเป็นบุคคลตามที่กล่าวอ้างจริงๆ",
+    "title": "บันทึกวิดีโอ",
+    "title_accessibility": "บันทึกวิดีโอใบหน้าของคุณ",
+    "video_accessibility": "ตัวอย่างวิดีโอแสดงคนที่หันศีรษะไปทั้ง 2 ข้างจนเสร็จสิ้น"
+  },
+  "avc_no_face_detected": {
+    "button_primary_restart": "รีสตาร์ทการบันทึก",
+    "list_item_eyes": "เช็คให้แน่ใจว่าสามารถมองเห็นดวงตาของคุณในภาพ",
+    "list_item_face": "เช็คให้แน่ใจว่าเห็นใบหน้าของคุณเท่านั้น ไม่ต้องเห็นบัตรประจำตัว",
+    "list_item_lighting": "เช็คให้แน่ใจว่าอยู่ในที่ที่มีแสงสว่างเพียงพอ",
+    "list_item_mask": "เช็คให้แน่ใจว่าถอดหน้ากากหรือสิ่งของอื่นๆ ที่คลุมใบหน้าของคุณอยู่ แต่สวมแว่นสายตาได้",
+    "title": "เราตรวจหาใบหน้าของคุณไม่พบ"
+  },
+  "avc_uploading": {
+    "title": "กำลังอัปโหลด"
+  },
+  "country_select": {
+    "alert": {
+      "another_doc": "ปัจจุบันระบบยังไม่รองรับเอกสารจากประเทศดังกล่าว — <fallback>ลองใช้เอกสารประเภทอื่น</fallback>"
+    },
+    "alert_dropdown": {
+      "country_not_found": "ไม่พบประเทศ"
+    },
+    "button_primary": "ส่งเอกสาร",
+    "poa_alert": {
+      "country_not_found": "ขอโทษด้วย เรากำลังเพิ่มประเทศที่รองรับ",
+      "intro": "ไม่พบประเทศของคุณใช่ไหม?"
+    },
+    "search": {
+      "accessibility": "เลือกประเทศ",
+      "input_placeholder": "เช่น สหรัฐอเมริกา",
+      "label": "ค้นหาประเทศ"
+    },
+    "title": "เลือกประเทศที่ออกเอกสาร"
+  },
+  "cross_device": {
+    "button_primary_upload": "ดำเนินการต่อ"
+  },
+  "cross_device_checklist": {
+    "button_primary": "ส่งการยืนยัน",
+    "info": "เคล็ดลับ",
+    "list_item_doc_multiple": "เอกสาร",
+    "list_item_doc_one": "เอกสาร",
+    "list_item_poa": "เอกสารยืนยันที่อยู่",
+    "list_item_selfie": "ภาพเซลฟี่",
+    "list_item_video": "วิดีโอ",
+    "subtitle": "คุณอัปโหลดเอกสารเหล่านี้แล้ว:",
+    "title": "ขั้นตอนสุดท้าย"
+  },
+  "cross_device_error_desktop": {
+    "subtitle": "ใช้งานลิงก์ได้บนอุปกรณ์มือถือเท่านั้น",
+    "title": "มีบางอย่างผิดปกติ"
+  },
+  "cross_device_error_restart": {
+    "subtitle": "คุณต้องเริ่มต้นยืนยันตัวตนบนคอมพิวเตอร์อีกครั้ง",
+    "title": "มีบางอย่างผิดปกติ"
+  },
+  "cross_device_intro": {
+    "button_primary": "รับลิงก์ที่ปลอดภัย",
+    "list_accessibility": "ขั้นตอนที่จำเป็นในการยืนยันบนโทรศัพท์ของคุณ",
+    "list_item_finish": "กลับมาที่นี่เพื่อส่งเอกสารให้เสร็จ",
+    "list_item_open_link": "เปิดลิงก์และทำให้เสร็จ",
+    "list_item_send_phone": "ส่งลิงก์ที่ปลอดภัยไปยังโทรศัพท์ของคุณ",
+    "subtitle": "วิธีทำ",
+    "subtitle_upload": "โปรดอัปโหลดรูปถ่ายล่าสุดของเอกสารต้นฉบับของคุณ",
+    "title": "ดำเนินการต่อทางโทรศัพท์"
+  },
+  "cross_device_return": {
+    "body": "คอมพิวเตอร์ของคุณอาจใช้เวลาอัปเดตสักครู่",
+    "subtitle": "ตอนนี้คุณกลับไปดำเนินการต่อที่คอมพิวเตอร์ได้แล้ว",
+    "title": "อัปโหลดสำเร็จแล้ว"
+  },
+  "cross_device_session_linked": {
+    "button_primary": "ดำเนินการต่อ",
+    "info": "ตรวจสอบอีกครั้ง",
+    "list_item_desktop_open": "คุณยังเปิดหน้าต่างในเดสก์ท็อปอยู่",
+    "list_item_sent_by_you": "คุณเป็นผู้ส่งลิงก์นี้ — หากคิดว่านี่อาจเป็นการหลอกลวง ให้ขอคำแนะนำ",
+    "subtitle": "ยืนยันตัวตนต่อ",
+    "title": "เซสชันบนโทรศัพท์ที่เชื่อมโยงกับคอมพิวเตอร์ของคุณ"
+  },
+  "doc_auto_capture": {
+    "button_accessibility": "ถ่ายภาพ",
+    "footer": {
+      "captured": "ถ่ายภาพแล้ว",
+      "capturing": "การถ่ายภาพ",
+      "manual_fallback_generic_document_back": "ถ่ายรูปด้านหลังของเอกสารของคุณ",
+      "manual_fallback_generic_document_front": "ถ่ายรูปด้านหน้าของเอกสารของคุณ",
+      "manual_fallback_identity_card_back": "ถ่ายรูปด้านหลังบัตรของคุณ",
+      "manual_fallback_identity_card_front": "ถ่ายรูปด้านหน้าบัตรของคุณ",
+      "manual_fallback_license_back": "ถ่ายรูปด้านหลังใบอนุญาตขับขี่ของคุณ",
+      "manual_fallback_license_front": "ถ่ายรูปด้านหน้าใบอนุญาตขับขี่ของคุณ",
+      "manual_fallback_passport": "ถ่ายรูปหน้ารูปถ่ายในหนังสือเดินทางของคุณ",
+      "manual_fallback_residence_permit_back": "ถ่ายรูปด้านหลังใบอนุญาตพำนักอาศัยของคุณ",
+      "manual_fallback_residence_permit_front": "ถ่ายรูปด้านหน้าของใบอนุญาตมีถิ่นที่อยู่ของคุณ",
+      "position_generic_document_back": "",
+      "position_generic_document_front": "",
+      "position_identity_card_back": "วางด้านหลังบัตรให้อยู่ในกรอบ",
+      "position_identity_card_front": "วางด้านหน้าบัตรให้อยู่ในกรอบ",
+      "position_license_back": "วางด้านหลังใบอนุญาตขับขี่ให้อยู่ในกรอบ",
+      "position_license_front": "วางด้านหน้าใบอนุญาตขับขี่ให้อยู่ในกรอบ",
+      "position_passport": "วางหน้ารูปถ่ายของหนังสือเดินทางให้อยู่ในกรอบ",
+      "position_residence_permit_back": "วางด้านหลังใบอนุญาตพำนักอาศัยให้อยู่ในกรอบ",
+      "position_residence_permit_front": "วางด้านหน้าใบอนุญาตพำนักอาศัยให้อยู่ในกรอบ"
+    },
+    "frame": {
+      "flip_document": "พลิกไปด้านหลัง",
+      "hold_still": "ถือนิ่ง",
+      "no_document": "ไม่พบเอกสาร"
+    }
+  },
+  "doc_capture": {
+    "alert": {
+      "no_barcode_detail": "อยู่ในที่ที่มีแสงสว่างเพียงพอ และนำบัตรมาใกล้ๆ กล้อง",
+      "no_barcode_title": "ไม่พบบาร์โค้ด"
+    },
+    "button_primary": "เริ่มสแกนเอกสาร",
+    "detail": {
+      "folded_doc_front": "วางเอกสารของคุณให้ราบเรียบ โดยให้เห็นหน้าด้านในทั้งหมด (ต้องมีรูปภาพของคุณด้วย)"
+    },
+    "header": {
+      "recording_complete": "บันทึกเสร็จสมบูรณ์",
+      "recording_video": "กำลังบันทึกวิดีโอ"
+    },
+    "header_folded_doc_front": "ด้านรูปโปรไฟล์",
+    "prompt": {
+      "button_card": "บัตรพลาสติก",
+      "button_paper": "เอกสารกระดาษ",
+      "title_id": "คุณมีบัตรประจำตัวประเภทใด?",
+      "title_license": "คุณมีใบอนุญาตประเภทใด?"
+    }
+  },
+  "doc_confirmation": {
+    "alert": {
+      "blur_detail": "เช็คให้แน่ใจว่าทุกอย่างชัดเจน",
+      "blur_title": "ตรวจพบรูปภาพเบลอ",
+      "crop_detail": "เช็คให้แน่ใจว่ามองเห็นเอกสารทั้งหน้าอย่างชัดเจน",
+      "crop_title": "ตรวจพบภาพถูกตัด",
+      "glare_detail": "เลื่อนไม่ให้มีแสงส่องโดยตรง",
+      "glare_title": "ตรวจพบแสงสะท้อน",
+      "no_doc_detail": "เช็คให้แน่ใจว่าเอกสารอยู่ในกรอบครบถ้วน",
+      "no_doc_title": "ไม่พบเอกสาร",
+      "odp_detail": "โปรดใช้เอกสารต้นฉบับของคุณ ภาพถ่ายจากหน้าจอหรือการถ่ายเอกสารไม่ได้รับการยอมรับ",
+      "odp_photo_of_screen_title": "ตรวจพบภาพของหน้าจอ",
+      "odp_photocopy_title": "ตรวจพบการถ่ายเอกสาร",
+      "odp_scan_title": "ตรวจพบการสแกน",
+      "odp_screenshot_title": "ตรวจพบภาพหน้าจอ"
+    },
+    "body": "เช็คให้แน่ใจว่าคุณอัปโหลดเอกสารทั้งหน้า และสามารถอ่านรายละเอียดได้อย่างชัดเจนโดยไม่มีตัวหนังสือพร่ามัวหรือมีแสงสะท้อน",
+    "body_bank_statement": "เช็คให้แน่ใจว่าคุณอัปโหลดเอกสารทั้งหน้า และสามารถอ่านรายละเอียดได้อย่างชัดเจนโดยไม่มีตัวหนังสือพร่ามัวหรือมีแสงสะท้อน",
+    "body_benefits_letter": "เช็คให้แน่ใจว่าคุณอัปโหลดเอกสารทั้งหน้า และสามารถอ่านรายละเอียดได้อย่างชัดเจนโดยไม่มีตัวหนังสือพร่ามัวหรือมีแสงสะท้อน",
+    "body_bill": "เช็คให้แน่ใจว่าคุณอัปโหลดเอกสารทั้งหน้า และสามารถอ่านรายละเอียดได้อย่างชัดเจนโดยไม่มีตัวหนังสือพร่ามัวหรือมีแสงสะท้อน",
+    "body_generic_document": "เช็คให้แน่ใจว่ารายละเอียดชัดเจนและไม่มีอะไรกีดขวาง",
+    "body_id": "เช็คให้แน่ใจว่ารายละเอียดชัดเจนและไม่มีอะไรกีดขวาง",
+    "body_image_medium": "การยืนยันตัวตนจะใช้เวลานานขึ้นหากเราอ่านเอกสารไม่ได้",
+    "body_image_poor": "เราต้องการรูปถ่ายที่ดีกว่านี้ เพื่อยืนยันตัวตนของคุณอย่างราบรื่น",
+    "body_license": "เช็คให้แน่ใจว่ารายละเอียดชัดเจนและไม่มีอะไรกีดขวาง",
+    "body_passport": "เช็คให้แน่ใจว่ารายละเอียดชัดเจนและไม่มีอะไรกีดขวาง",
+    "body_permit": "เช็คให้แน่ใจว่ารายละเอียดชัดเจนและไม่มีอะไรกีดขวาง",
+    "body_tax_letter": "เช็คให้แน่ใจว่าคุณอัปโหลดเอกสารทั้งหน้า และสามารถอ่านรายละเอียดได้อย่างชัดเจนโดยไม่มีตัวหนังสือพร่ามัวหรือมีแสงสะท้อน",
+    "button_close": "ปิด",
+    "button_primary_redo": "ทำอีกครั้ง",
+    "button_primary_upload": "อัปโหลด",
+    "button_primary_upload_anyway": "อัปโหลดเลย",
+    "button_secondary_change_document": "เลือกเอกสารอื่น",
+    "button_secondary_redo": "ทำอีกครั้ง",
+    "button_secondary_submit_anyway": "ส่งรูปถ่ายอยู่ดี",
+    "button_zoom": "ขยายภาพ",
+    "image_accessibility": "รูปถ่ายเอกสารของคุณ",
+    "title": "ตรวจสอบภาพของคุณ"
+  },
+  "doc_multi_frame_capture": {
+    "capture_progress_title": "กำลังสแกนเอกสาร…",
+    "instructions_title_back": "วางด้านหลังเอกสารให้อยู่ในกรอบ",
+    "instructions_title_front": "วางด้านหน้าเอกสารให้อยู่ในกรอบ"
+  },
+  "doc_select": {
+    "button_address_card": "บัตรที่อยู่",
+    "button_address_card_detail": "รับทั้งบัตรชั่วคราวและบัตรถาวร",
+    "button_bank_statement": "รายการเดินบัญชีของธนาคารหรือสหกรณ์ออมทรัพย์เพื่อการเคหะ",
+    "button_bank_statement_non_uk": "รายการเดินบัญชีธนาคาร",
+    "button_benefits_letter": "หนังสือยืนยันการรับสวัสดิการ",
+    "button_benefits_letter_detail": "สวัสดิการเพื่อการอยู่อาศัยที่ได้รับจากรัฐบาล เช่น เงินทดแทนระหว่างการว่างงาน สวัสดิการค่าที่อยู่อาศัย เครดิตภาษี",
+    "button_bill": "ใบแจ้งหนี้ค่าสาธารณูปโภค",
+    "button_bill_detail": "แก๊ซ ไฟฟ้า ประปา โทรศัพท์บ้าน หรือบรอดแบนด์",
+    "button_government_letter": "หนังสือราชการ",
+    "button_government_letter_detail": "หนังสือใดก็ได้ที่ราชการออกให้ เช่น หนังสือรับรองสวัสดิการ หนังสือเลือกตั้ง หนังสือภาษี ฯลฯ",
+    "button_id": "บัตรประจำตัวประชาชน",
+    "button_id_detail": "ด้านหน้าและด้านหลัง",
+    "button_license": "ใบอนุญาตขับขี่",
+    "button_license_detail": "ด้านหน้าและด้านหลัง",
+    "button_passport": "หนังสือเดินทาง",
+    "button_passport_detail": "หน้ารูปภาพ",
+    "button_permit": "ใบอนุญาตพำนักอาศัย",
+    "button_permit_detail": "ด้านหน้าและด้านหลัง",
+    "button_tax_letter": "หนังสือภาษีที่อยู่อาศัย",
+    "extra_estatements_ok": "จะใช้เอกสารอิเล็กทรอนิกส์ก็ได้",
+    "extra_no_mobile": "ขออภัยที่ใช้ใบเรียกเก็บเงินโทรศัพท์มือถือไม่ได้",
+    "list_accessibility": "เอกสารที่ใช้ยืนยันตัวตนได้",
+    "pill": "เร็วที่สุด",
+    "section": {
+      "header_country": "ประเทศที่ออกเอกสาร",
+      "header_doc_type": "เอกสารที่ยอมรับ",
+      "input_country_not_found": "ไม่มีผลลัพธ์",
+      "input_placeholder_country": "เลือกประเทศที่ออกเอกสาร"
+    },
+    "subtitle": "ต้องเป็นบัตรประจำตัวอย่างเป็นทางการที่มีรูปถ่าย",
+    "subtitle_country": "เลือกประเทศที่ออกเอกสาร เพื่อดูว่าเรารับเอกสารใดบ้าง",
+    "subtitle_entire_page": "ทั้งหน้า",
+    "subtitle_front_back": "ด้านหน้าและด้านหลัง",
+    "subtitle_photo_page": "หน้ารูปภาพ",
+    "subtitle_poa": "เอกสารเหล่านี้น่าจะแสดงที่อยู่ปัจจุบันของคุณ",
+    "title": "เลือกเอกสารของคุณ",
+    "title_poa": "เลือกเอกสาร"
+  },
+  "doc_submit": {
+    "button_link_upload": "หรืออัปโหลดรูปภาพ – ห้ามสแกนหรือถ่ายเอกสาร",
+    "button_primary": "ดำเนินการต่อทางโทรศัพท์",
+    "subtitle": "ถ่ายรูปด้วยโทรศัพท์ของคุณ",
+    "title_bank_statement": "ส่งใบแจ้งยอด",
+    "title_benefits_letter": "ส่งจดหมาย",
+    "title_bill": "ส่งใบเรียกเก็บเงิน",
+    "title_generic_document_back": "ส่งเอกสาร (ด้านหลัง)",
+    "title_generic_document_front": "ส่งเอกสาร (ด้านหน้า)",
+    "title_government_letter": "หนังสือราชการ",
+    "title_id_back": "ส่งบัตรประจำตัวประชาชน (ด้านหลัง)",
+    "title_id_front": "ส่งบัตรประจำตัวประชาชน (ด้านหน้า)",
+    "title_license_back": "ส่งใบอนุญาต (ด้านหลัง)",
+    "title_license_front": "ส่งใบอนุญาต (ด้านหน้า)",
+    "title_passport": "ส่งหน้ารูปถ่ายของหนังสือเดินทาง",
+    "title_permit_back": "ส่งใบอนุญาตพำนักอาศัย (ด้านหลัง)",
+    "title_permit_front": "ส่งใบอนุญาตพำนักอาศัย (ด้านหน้า)",
+    "title_tax_letter": "ส่งจดหมาย"
+  },
+  "doc_video_capture": {
+    "button_primary_fallback": "ขั้นตอนถัดไป",
+    "button_primary_fallback_end": "ยุติการบันทึก",
+    "detail_step2": "ให้เอกสารอยู่ในมุมที่เห็นได้ทั้งหมดตลอดเวลา",
+    "header": "ถือเอกสารของคุณโดยให้ด้านหน้าอยู่ในกรอบ",
+    "header_paper_doc_step2": "ค่อยๆ พลิกเอกสารของคุณเพื่อแสดงหน้าด้านนอก",
+    "header_passport": "ถือหนังสือเดินทางโดยให้หน้ารูปถ่ายอยู่ในกรอบ",
+    "header_passport_progress": "อยู่นิ่งๆ",
+    "header_step1": "ตอนนี้ก็อยู่นิ่งๆ",
+    "header_step2": "ค่อยๆ พลิกเอกสารของคุณเพื่อแสดงด้านหลัง",
+    "prompt": {
+      "detail_timeout": "บันทึกวิดีโอได้ไม่เกิน <timeout></timeout> วินาที <fallback>เริ่มอีกครั้ง</fallback>"
+    },
+    "stepper": "ขั้นตอนที่ <step></step> จาก <total></total>",
+    "success_accessibility": "สำเร็จ"
+  },
+  "doc_video_confirmation": {
+    "button_secondary": "ดูตัวอย่างวิดีโอ",
+    "title": "เช็ควิดีโอของคุณ"
+  },
+  "error_unsupported_browser": {
+    "subtitle_android": "เริ่มกระบวนการอีกครั้งใน Google Chrome รุ่นล่าสุด",
+    "subtitle_ios": "รีสตาร์ทกระบวนการบน Safari เวอร์ชันล่าสุด",
+    "title_android": "ไม่รองรับเบราว์เซอร์นี้",
+    "title_ios": "ไม่รองรับเบราว์เซอร์นี้"
+  },
+  "generic": {
+    "accessibility": {
+      "close_sdk_screen": "ปิดหน้าจอยืนยันตัวตน",
+      "dismiss_alert": "ปิดการแจ้งเตือน"
+    },
+    "back": "ย้อนกลับ",
+    "close": "ปิด",
+    "errors": {
+      "expired_token": {
+        "instruction": "โปรดลองอีกครั้ง",
+        "message": "โทเค็นของคุณหมดอายุแล้ว"
+      },
+      "expired_trial": {
+        "instruction": "คุณทดลองใช้ครบระยะเวลาแล้ว",
+        "message": "การทดลองใช้ของคุณหมดอายุแล้ว"
+      },
+      "geoblocked_error": {
+        "instruction": "ขออภัย ดูเหมือนว่าเราดำเนินการต่อไม่ได้ เนื่องจากระบบไม่รองรับตำแหน่งปัจจุบันของคุณ",
+        "message": "บริการไม่พร้อมใช้"
+      },
+      "interrupted_flow_error": {
+        "instruction": "รีสตาร์ทกระบวนการบนอุปกรณ์อื่น",
+        "message": "ไม่พบกล้อง"
+      },
+      "invalid_size": {
+        "instruction": "ต้องมีขนาดไม่เกิน 10 MB",
+        "message": "ไฟล์ใหญ่เกินไป"
+      },
+      "invalid_type": {
+        "instruction": "ลองใช้ไฟล์ประเภทอื่น",
+        "message": "อัปโหลดไฟล์ไม่ได้"
+      },
+      "lazy_loading": {
+        "message": "เกิดข้อผิดพลาดขณะโหลดองค์ประกอบ"
+      },
+      "multiple_faces": {
+        "instruction": "รูปเซลฟี่ต้องมีเฉพาะใบหน้าของคุณ",
+        "message": "พบหลายใบหน้า"
+      },
+      "no_face": {
+        "instruction": "เช็คให้แน่ใจว่ามองเห็นใบหน้าของคุณได้ชัดเจน",
+        "message": "ไม่พบใบหน้า"
+      },
+      "request_error": {
+        "instruction": "โปรดลองอีกครั้ง",
+        "message": "มีบางอย่างผิดปกติ"
+      },
+      "sms_failed": {
+        "instruction": "คัดลอกลิงก์ไปยังโทรศัพท์ของคุณ",
+        "message": "มีบางอย่างผิดปกติ"
+      },
+      "sms_overuse": {
+        "instruction": "คัดลอกลิงก์ไปยังโทรศัพท์ของคุณ",
+        "message": "คุณพยายามผิดพลาดหลายครั้งเกินไป"
+      },
+      "unsupported_file": {
+        "instruction": "ลองใช้ไฟล์ JPG หรือ PNG",
+        "message": "ไม่รองรับประเภทไฟล์"
+      }
+    },
+    "lazy_load_placeholder": "กำลังโหลด...",
+    "loading": "กำลังโหลด"
+  },
+  "get_link": {
+    "alert_wrong_number": "เช็คว่าหมายเลขของคุณถูกต้อง",
+    "button_copied": "คัดลอกแล้ว",
+    "button_copy": "คัดลอก",
+    "button_submit": "ส่งลิงก์",
+    "info_qr_how": "วิธีสแกนรหัส QR",
+    "info_qr_how_list_item_camera": "ใช้กล้องโทรศัพท์ของคุณส่องไปที่รหัส QR",
+    "info_qr_how_list_item_download": "หากใช้งานไม่ได้ ให้ดาวน์โหลดตัวสแกนรหัส QR จาก Google Play หรือ App Store",
+    "link_divider": "หรือเลือกวิธีอื่น",
+    "link_qr": "สแกนรหัส QR",
+    "link_sms": "รับลิงก์ทาง SMS",
+    "link_url": "คัดลอกลิงก์",
+    "loader_sending": "กำลังส่ง",
+    "number_field_input_placeholder": "ใส่หมายเลขโทรศัพท์มือถือ",
+    "number_field_label": "ใส่หมายเลขโทรศัพท์มือถือของคุณ:",
+    "subtitle_qr": "สแกนรหัส QR ด้วยโทรศัพท์ของคุณ",
+    "subtitle_sms": "ส่งลิงก์แบบใช้ครั้งเดียวนี้ไปยังโทรศัพท์ของคุณ",
+    "subtitle_url": "ส่งลิงก์แบบใช้ครั้งเดียวนี้ไปยังโทรศัพท์ของคุณ",
+    "title": "รับลิงก์ที่ปลอดภัยของคุณ",
+    "url_field_label": "คัดลอกลิงก์ไปยังเบราว์เซอร์มือถือของคุณ"
+  },
+  "livenessV2": {
+    "error_reload_instructions": "โหลดคำแนะนำอีกครั้ง",
+    "intro_note_no1": "อันดับแรก วางตำแหน่งใบหน้าของคุณไว้ในกรอบ",
+    "intro_note_no2": "จากนั้นค่อยๆ หันศีรษะไปทั้ง 2 ข้าง",
+    "intro_ready_button": "โปรดทราบว่าเราจะบันทึกใบหน้าและพื้นหลังของคุณ",
+    "intro_subtitle": "ขั้นตอนนี้มีเพื่อยืนยันว่าคุณเป็นบุคคลตามที่กล่าวอ้างจริงๆ",
+    "intro_warning": "โปรดทราบว่าเราจะบันทึกใบหน้าและพื้นหลังของคุณ",
+    "success_main_button": "ส่งการยืนยัน",
+    "success_title": "เพียงเท่านี้เราก็จะเริ่มยืนยันตัวตนของคุณได้"
+  },
+  "mobilePhrases": {
+    "photo_upload": {
+      "body_id_back": "ถ่ายรูปด้านหลังบัตรของคุณ",
+      "body_id_front": "ถ่ายรูปด้านหน้าบัตรของคุณ",
+      "body_license_back": "ถ่ายรูปด้านหลังใบอนุญาตของคุณ",
+      "body_license_front": "ถ่ายรูปด้านหน้าใบอนุญาตของคุณ",
+      "body_passport": "ถ่ายรูปหน้ารูปถ่ายในหนังสือเดินทางของคุณ",
+      "body_selfie": "ถ่ายภาพเซลฟี่ให้เห็นใบหน้าของคุณ"
+    },
+    "selfie_capture": {
+      "alert": {
+        "camera_inactive": {
+          "detail": "ถ่ายรูปโดยใช้<fallback>โหมดกล้องพื้นฐาน</fallback>แทน"
+        },
+        "camera_not_working": {
+          "detail": "ถ่ายรูปโดยใช้<fallback>โหมดกล้องพื้นฐาน</fallback>แทน"
+        }
+      }
+    },
+    "upload_guide": {
+      "button_primary": "ถ่ายภาพ",
+      "title": "หน้ารูปถ่ายในหนังสือเดินทาง"
+    }
+  },
+  "nfc_scan": {
+    "sheet": {
+      "success": "การสแกนสำเร็จ"
+    }
+  },
+  "outro": {
+    "body": "เพียงเท่านี้เราก็จะเริ่มยืนยันตัวตนของคุณได้",
+    "body_government_letter": "แสดงเอกสารทั้งหน้าเพื่อให้ได้ผลลัพธ์ที่ดีที่สุด",
+    "title": "ขอบคุณ"
+  },
+  "permission": {
+    "body_both": "เรายืนยันตัวตนคุณไม่ได้ หากไม่ใช้กล้องและไมโครโฟน",
+    "body_cam": "เรายืนยันตัวตนคุณไม่ได้ หากไม่ใช้กล้อง",
+    "body_mic": "เรายืนยันตัวตนคุณไม่ได้ หากไม่ใช้ไมโครโฟน",
+    "button_primary_both": "เปิดใช้งานทั้ง 2 อย่าง",
+    "button_primary_cam": "เปิดใช้งานกล้อง",
+    "button_primary_mic": "เปิดใช้งานไมโครโฟน",
+    "subtitle_both": "เมื่อได้รับแจ้ง คุณต้องอนุญาตการเข้าถึงสำหรับทั้งคู่เพื่อดำเนินการต่อ",
+    "subtitle_cam": "เมื่อได้รับแจ้ง คุณต้องอนุญาตการเข้าถึงกล้องเพื่อดำเนินการต่อ",
+    "subtitle_mic": "เมื่อได้รับแจ้ง คุณต้องอนุญาตการเข้าถึงไมโครโฟนเพื่อดำเนินการต่อ",
+    "title_both": "อนุญาตให้เข้าถึงกล้องและไมโครโฟน",
+    "title_cam": "อนุญาตให้เข้าถึงกล้อง",
+    "title_mic": "อนุญาตให้เข้าถึงไมโครโฟน"
+  },
+  "permission_recovery": {
+    "android": {
+      "device_settings": {
+        "list_item_1": "บนอุปกรณ์ของคุณ เปิดแอป การตั้งค่า",
+        "list_item_2": "แตะ แอป",
+        "list_item_3": "แตะที่ [BROWSER_ICON] หากคุณไม่พบ ให้แตะที่ ดูแอปทั้งหมด หรือ จัดการแอป และเลือกแอปเบราว์เซอร์ของคุณ",
+        "list_item_4": "แตะ สิทธิ์",
+        "list_item_5_cam": "แตะ กล้อง และเลือก อนุญาต",
+        "list_item_5_mic": "แตะ ไมโครโฟน และเลือก อนุญาต",
+        "list_item_6": "กลับมาที่หน้านี้และแตะที่ปุ่ม ฉันได้ทำการเปลี่ยนแปลงแล้ว"
+      }
+    },
+    "android_chrome": {
+      "browser_settings": {
+        "list_item_1": "ในเบราว์เซอร์ของคุณ แตะที่ไอคอนล็อค [LOCK_ICON] ที่แถบที่อยู่",
+        "list_item_2": "แตะ สิทธิ์",
+        "list_item_3_cam": "เปิดสวิตช์ที่อยู่ถัดจาก กล้อง",
+        "list_item_3_mic": "เปิดสวิตช์ที่อยู่ถัดจาก ไมโครโฟน",
+        "list_item_4": "กลับมาที่หน้านี้และแตะที่ปุ่ม ฉันได้ทำการเปลี่ยนแปลงแล้ว"
+      }
+    },
+    "android_firefox": {
+      "browser_settings": {
+        "list_item_1": "ในเบราว์เซอร์ของคุณ แตะที่ไอคอนล็อค [LOCK_ICON] ที่แถบที่อยู่",
+        "list_item_2_cam": "แตะ ถูกบล็อก ถัดจาก กล้อง เพื่อเปลี่ยนเป็น ได้รับอนุญาต",
+        "list_item_2_mic": "แตะ ถูกบล็อก ถัดจาก ไมโครโฟน เพื่อเปลี่ยนเป็น ได้รับอนุญาต",
+        "list_item_3": "กลับมาที่หน้านี้และแตะที่ปุ่ม ฉันได้ทำการเปลี่ยนแปลงแล้ว"
+      }
+    },
+    "android_generic": {
+      "browser_settings": {
+        "list_item_1": "ในเบราว์เซอร์ของคุณ ให้เปิดการตั้งค่าเว็บไซต์ ซึ่งมักจะเป็นไอคอนล็อค [LOCK_ICON] ที่แถบที่อยู่",
+        "list_item_2": "ค้นหาส่วนเกี่ยวกับสิทธิ์การเข้าถึง",
+        "list_item_3_cam": "เปิดใช้งานสิทธิ์ กล้อง",
+        "list_item_3_mic": "เปิดใช้งานสิทธิ์ ไมโครโฟน",
+        "list_item_4": "กลับมาที่หน้านี้และแตะที่ปุ่ม ฉันได้ทำการเปลี่ยนแปลงแล้ว"
+      }
+    },
+    "android_samsung": {
+      "browser_settings": {
+        "list_item_1": "ในเบราว์เซอร์ของคุณ แตะที่ไอคอนล็อค [LOCK_ICON] ที่แถบที่อยู่",
+        "list_item_2_cam": "เปิดสวิตช์ที่อยู่ถัดจาก กล้อง",
+        "list_item_2_mic": "เปิดสวิตช์ที่อยู่ถัดจาก ไมโครโฟน",
+        "list_item_3": "กลับมาที่หน้านี้และแตะที่ปุ่ม ฉันได้ทำการเปลี่ยนแปลงแล้ว"
+      }
+    },
+    "button_primary": "รีเฟรช",
+    "desktop_chrome": {
+      "browser_settings": {
+        "list_item_1": "ในเบราว์เซอร์ของคุณ คลิกที่ไอคอนล็อค [LOCK_ICON] ที่แถบที่อยู่",
+        "list_item_2_cam": "เปิดสวิตช์ที่อยู่ถัดจาก กล้อง",
+        "list_item_2_mic": "เปิดสวิตช์ที่อยู่ถัดจาก ไมโครโฟน",
+        "list_item_3": "กลับมาที่หน้านี้และคลิกที่ปุ่ม ฉันได้ทำการเปลี่ยนแปลงแล้ว"
+      }
+    },
+    "desktop_edge": {
+      "browser_settings": {
+        "list_item_1": "ในเบราว์เซอร์ของคุณ คลิกที่ไอคอนล็อค [LOCK_ICON] ที่แถบที่อยู่",
+        "list_item_2_cam": "คลิกที่เมนูแบบเลื่อนลงที่อยู่ถัดจาก กล้อง และเลือก อนุญาต",
+        "list_item_2_mic": "คลิกที่เมนูแบบเลื่อนลงที่อยู่ถัดจาก ไมโครโฟน และเลือก อนุญาต",
+        "list_item_3": "กลับมาที่หน้านี้และคลิกที่ปุ่ม ฉันได้ทำการเปลี่ยนแปลงแล้ว"
+      }
+    },
+    "desktop_firefox": {
+      "browser_settings": {
+        "list_item_1": "ในเบราว์เซอร์ของคุณ คลิกที่ไอคอนการตั้งค่า [SETTINGS_ICON_FIREFOX] ที่แถบที่อยู่",
+        "list_item_2_cam": "คลิก ถูกบล็อก ถัดจาก ใช้กล้อง",
+        "list_item_2_mic": "คลิก ถูกบล็อก ถัดจาก ใช้ไมโครโฟน",
+        "list_item_3": "กลับมาที่หน้านี้และคลิกที่ปุ่ม ฉันได้ทำการเปลี่ยนแปลงแล้ว"
+      }
+    },
+    "desktop_generic": {
+      "browser_settings": {
+        "list_item_1": "ในเบราว์เซอร์ของคุณ ให้เปิดการตั้งค่าเว็บไซต์ ซึ่งมักจะเป็นไอคอนล็อค [LOCK_ICON] ที่แถบที่อยู่",
+        "list_item_2": "ค้นหาส่วนเกี่ยวกับสิทธิ์การเข้าถึง",
+        "list_item_3_cam": "เปิดใช้งานสิทธิ์กล้อง",
+        "list_item_3_mic": "เปิดใช้งานสิทธิ์ ไมโครโฟน",
+        "list_item_4": "กลับมาที่หน้านี้และคลิกที่ปุ่ม ฉันได้ทำการเปลี่ยนแปลงแล้ว"
+      },
+      "device_settings": {
+        "list_item_1": "บนคอมพิวเตอร์ของคุณ, เปิด การตั้งค่า ของคุณ",
+        "list_item_2": "ค้นหาส่วนเกี่ยวกับสิทธิ์การเข้าถึง (โดยปกติจะอยู่ภายใต้ ความเป็นส่วนตัว)",
+        "list_item_3_cam": "เปิดใช้งานสิทธิ์ กล้อง สำหรับ [BROWSER_ICON]",
+        "list_item_3_mic": "เปิดใช้งานสิทธิ์ ไมโครโฟน สำหรับ [BROWSER_ICON]",
+        "list_item_4": "ถ้าจำเป็นให้รีสตาร์ทเบราว์เซอร์ของคุณและลับมาที่หน้านี้"
+      }
+    },
+    "desktop_mac": {
+      "device_settings": {
+        "list_item_1": "บนคอมพิวเตอร์ของคุณ คลิกที่เมนู Apple [APPLE_ICON] และเลือก การตั้งค่าระบบ (หรือ การตั้งค่าระบบ)",
+        "list_item_2": "คลิก ความเป็นส่วนตัว & ความปลอดภัย (หรือ ความปลอดภัย & ความเป็นส่วนตัว) ที่แถบด้านข้าง",
+        "list_item_3": "คลิก ภายหลัง ในหน้าต่างที่ขึ้นมา",
+        "list_item_3_cam": "คลิก กล้อง และเปิดสวิตช์ (หรือช่องทำเครื่องหมาย) ข้างๆ [BROWSER_ICON]",
+        "list_item_4": "คลิก ออก & เปิดใหม่ ในหน้าต่างที่ปรากฏขึ้นและกลับมาที่หน้านี้",
+        "list_item_4_mic": "คลิก ไมโครโฟน และเปิดสวิตช์ (หรือช่องทำเครื่องหมาย) ที่อยู่ถัดจาก [BROWSER_ICON]"
+      }
+    },
+    "desktop_safari": {
+      "browser_settings": {
+        "list_item_1": "ในเบราว์เซอร์ของคุณ คลิกขวาที่แถบที่อยู่และเลือก การตั้งค่า",
+        "list_item_2_cam": "คลิกที่เมนูแบบเลื่อนลงที่อยู่ถัดจาก กล้อง และเลือก อนุญาต",
+        "list_item_2_mic": "คลิกที่เมนูแบบเลื่อนลงที่อยู่ถัดจาก ไมโครโฟน และเลือก อนุญาต",
+        "list_item_3": "กลับมาที่หน้านี้และคลิกที่ปุ่ม ฉันได้ทำการเปลี่ยนแปลงแล้ว"
+      }
+    },
+    "desktop_windows": {
+      "device_settings": {
+        "list_item_1": "บนคอมพิวเตอร์ของคุณ คลิกที่เมนู Windows [WINDOWS_ICON] และเลือก การตั้งค่า [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "คลิก ความเป็นส่วนตัว (หรือ ความเป็นส่วนตัว & ความปลอดภัย)",
+        "list_item_3_cam": "คลิกที่ กล้อง ใต้ สิทธิ์การใช้งานแอป และเปิดสวิตช์ที่อยู่ถัดจาก [BROWSER_ICON]",
+        "list_item_3_mic": "คลิกที่ ไมโครโฟน ใต้ สิทธิ์การใช้งานแอป และเปิดสวิตช์ที่อยู่ข้างๆ [BROWSER_ICON]",
+        "list_item_4": "ถ้าจำเป็นให้รีสตาร์ทเบราว์เซอร์ของคุณและลับมาที่หน้านี้"
+      }
+    },
+    "info": "การกู้คืน",
+    "ios": {
+      "browser_settings": {
+        "list_item_1_both": "แตะที่ปุ่ม ฉันได้ทำการเปลี่ยนแปลงแล้ว คุณจะถูกขอให้เปิดใช้งานการเข้าถึงกล้องและไมโครโฟนอีกครั้ง เมื่อป๊อปอัปปรากฏขึ้น ให้เลือก อนุญาต (หรือ ตกลง)",
+        "list_item_1_cam": "แตะที่ปุ่ม ฉันได้ทำการเปลี่ยนแปลงแล้ว คุณจะถูกขอให้เปิดใช้งานการเข้าถึงกล้องอีกครั้ง เมื่อป๊อปอัปปรากฏขึ้น ให้เลือก อนุญาต (หรือ ตกลง)",
+        "list_item_1_mic": "แตะที่ปุ่ม ฉันได้ทำการเปลี่ยนแปลงแล้ว คุณจะถูกขอให้เปิดใช้งานการเข้าถึงไมโครโฟนอีกครั้ง เมื่อป๊อปอัปปรากฏขึ้น ให้เลือก อนุญาต (หรือ ตกลง)"
+      },
+      "device_settings": {
+        "list_item_1": "บนอุปกรณ์ของคุณ เปิดแอป การตั้งค่า",
+        "list_item_2": "เลื่อนผ่านรายการและแตะที่ [BROWSER_ICON]",
+        "list_item_3_cam": "เปิดสวิตช์ที่อยู่ถัดจาก กล้อง",
+        "list_item_3_mic": "เปิดสวิตช์ที่อยู่ถัดจาก ไมโครโฟน",
+        "list_item_4": "กลับมาที่หน้านี้และแตะที่ปุ่ม ฉันได้ทำการเปลี่ยนแปลงแล้ว"
+      }
+    },
+    "ios_safari": {
+      "device_settings": {
+        "list_item_1": "บนอุปกรณ์ของคุณ เปิดแอป การตั้งค่า",
+        "list_item_2": "เลื่อนผ่านรายการและแตะที่ [BROWSER_ICON]",
+        "list_item_3_cam": "แตะ กล้อง และเลือก อนุญาต",
+        "list_item_3_mic": "แตะ ไมโครโฟน และเลือก อนุญาต",
+        "list_item_4": "กลับมาที่หน้านี้และแตะที่ปุ่ม ฉันได้ทำการเปลี่ยนแปลงแล้ว"
+      }
+    },
+    "list_header_both": "ทำตามขั้นตอนต่อไปนี้เพื่อกู้คืนสิทธิ์การเข้าถึงทั้ง 2 รายการ:",
+    "list_header_cam": "ทำตามขั้นตอนต่อไปนี้เพื่อกู้คืนสิทธิ์การเข้าถึงกล้อง:",
+    "list_item_action_cam": "รีเฟรชหน้านี้เพื่อเริ่มต้นกระบวนการยืนยันตัวตนใหม่",
+    "list_item_how_to_both": "มอบสิทธิ์การเข้าถึงกล้องและไมโครโฟนจากการตั้งค่าเบราว์เซอร์ของคุณ",
+    "list_item_how_to_cam": "มอบสิทธิ์การเข้าถึงกล้องจากการตั้งค่าเบราว์เซอร์ของคุณ",
+    "list_item_how_to_mic": "ให้อนุญาตการเข้าถึงไมโครโฟนจากการตั้งค่าเบราว์เซอร์",
+    "subtitle_both": "กู้คืนสิทธิ์การเข้าถึงกล้องและไมโครโฟน เพื่อถ่ายวิดีโอและดำเนินการตามขั้นตอนยืนยันให้เสร็จ",
+    "subtitle_cam": "เราต้องการเข้าถึงกล้องของคุณเพื่อยืนยันตัวตนขงคุณ กรุณาปฏิบัติตามคำแนะนำด้านล่างเพื่อกู้คืนการเข้าถึง",
+    "subtitle_cam_old": "กู้คืนสิทธิ์การเข้าถึงกล้องเพื่อยืนยันใบหน้าต่อ",
+    "subtitle_mic": "เราต้องการเข้าถึงไมโครโฟนของคุณเพื่อยืนยันตัวตนของคุณ กรุณาปฏิบัติตามคำแนะนำด้านล่างเพื่อกู้คืนการเข้าถึง",
+    "title_both": "การเข้าถึงกล้องและไมโครโฟนถูกปฏิเสธ",
+    "title_cam": "การเข้าถึงกล้องถูกปฏิเสธ",
+    "title_mic": "การเข้าถึงไมโครโฟนถูกปฏิเสธ",
+    "web": {
+      "browser_settings": {
+        "title": "วิธีที่ 1: การตั้งค่าบราวเซอร์"
+      },
+      "button_primary": "ฉันได้ทำการเปลี่ยนแปลงแล้ว",
+      "device_settings": {
+        "title": "วิธีที่ 2: การตั้งค่าอุปกรณ์"
+      },
+      "disclaimer": "กระบวนการตรวจสอบตัวตนอาจจะเริ่มต้นใหม่ ขออภัยในความไม่สะดวก"
+    }
+  },
+  "photo_upload": {
+    "body_bank_statement": "แสดงเอกสารทั้งหน้าเพื่อให้ได้ผลลัพธ์ที่ดีที่สุด",
+    "body_benefits_letter": "แสดงเอกสารทั้งหน้าเพื่อให้ได้ผลลัพธ์ที่ดีที่สุด",
+    "body_bill": "แสดงเอกสารทั้งหน้าเพื่อให้ได้ผลลัพธ์ที่ดีที่สุด",
+    "body_generic_document_back": "อัปโหลดด้านหลังของเอกสารจากคอมพิวเตอร์ของคุณ",
+    "body_generic_document_front": "อัปโหลดด้านหน้าของเอกสารจากคอมพิวเตอร์ของคุณ",
+    "body_id_back": "อัปโหลดด้านหลังบัตรจากคอมพิวเตอร์ของคุณ",
+    "body_id_front": "อัปโหลดด้านหน้าบัตรจากคอมพิวเตอร์ของคุณ",
+    "body_license_back": "อัปโหลดด้านหลังใบอนุญาตจากคอมพิวเตอร์ของคุณ",
+    "body_license_front": "อัปโหลดด้านหน้าใบอนุญาตจากคอมพิวเตอร์ของคุณ",
+    "body_passport": "อัปโหลดหน้ารูปถ่ายของหนังสือเดินทางจากคอมพิวเตอร์ของคุณ",
+    "body_selfie": "อัปโหลดรูปเซลฟี่จากคอมพิวเตอร์ของคุณ",
+    "body_tax_letter": "แสดงเอกสารทั้งหน้าเพื่อให้ได้ผลลัพธ์ที่ดีที่สุด",
+    "button_take_photo": "ถ่ายรูปภาพ",
+    "button_upload": "อัปโหลด",
+    "title_selfie": "ภาพเซลฟี่"
+  },
+  "poa_cancel": "ยกเลิก",
+  "poa_err_invalid_file": {
+    "message": "โปรดเลือกไฟล์อื่น",
+    "ok": "ตกลง",
+    "title": "ไฟล์ไม่ถูกต้อง"
+  },
+  "poa_guidance": {
+    "button_primary": "ดำเนินการต่อ",
+    "instructions": {
+      "address": "ที่อยู่ปัจจุบัน",
+      "full_name": "ชื่อ",
+      "issue_date": "วันที่ออกเอกสารหรืองวดบิล",
+      "label": "จับภาพเอกสารทั้งหมดและตรวจสอบให้แน่ใจว่าเห็น:",
+      "logo": "โลโก้"
+    },
+    "instructions_address_card_issue_date": "วันที่ออก",
+    "instructions_expiry_date": "วันหมดอายุ (ถ้ามี)",
+    "instructions_full_address": "ที่อยู่เต็ม",
+    "subtitle_address_card": "ต้องเป็นบัตรที่อยู่ที่ถูกต้อง",
+    "subtitle_bank_statement": "ต้องออกในช่วง 3 เดือนที่ผ่านมา",
+    "subtitle_benefits_letter": "ต้องออกในช่วง 12 เดือนที่ผ่านมา",
+    "subtitle_bill": "ต้องออกในช่วง 3 เดือนที่ผ่านมา",
+    "subtitle_tax_letter": "ต้องออกในช่วง 12 เดือนที่ผ่านมา"
+  },
+  "poa_intro": {
+    "button_primary": "เริ่มการยืนยันตัวตน",
+    "list_matches_signup": "ตรงกับที่อยู่ที่คุณใช้ลงทะเบียน",
+    "list_most_recent": "เป็นเอกสาร ล่าสุดของคุณ",
+    "list_shows_address": "แสดงที่อยู่ปัจจุบันของคุณ",
+    "subtitle": "คุณจะต้องมีเอกสารที่:",
+    "title": "มายืนยันที่อยู่ของคุณกัน"
+  },
+  "poa_welcome_text": "ถ่ายรูปเอกสารที่มีที่อยู่ของคุณ",
+  "profile_data": {
+    "address_title": "เพิ่มที่อยู่ของคุณ",
+    "button_continue": "ดำเนินการต่อ",
+    "components": {
+      "country_residence_select": {
+        "placeholder": "เลือกประเทศ"
+      },
+      "country_select": {
+        "placeholder": "เลือกประเทศ"
+      },
+      "id_type_select": {
+        "aus_specific": {
+          "other": "พาสปอร์ตต่างประเทศ"
+        },
+        "bra_specific": {
+          "other": "CNPJ",
+          "tax_id": "CPF"
+        },
+        "driving_license": "ใบขับขี่",
+        "esp_specific": {
+          "identity_card": "NIF/DNI"
+        },
+        "gha_specific": {
+          "social_insurance": "SSNIT"
+        },
+        "identity_card": "บัตรประจำตัวประชาชน",
+        "ind_specific": {
+          "tax_id": "หมายเลขบัญชีส่วนบุคคล (PAN)"
+        },
+        "ken_specific": {
+          "other": "บัตรต่างด้าว"
+        },
+        "nga_specific": {
+          "identity_card": "หมายเลขประจำตัวประชาชน (NIN)",
+          "other": "BVN",
+          "tax_id": "TIN"
+        },
+        "other": "NIE",
+        "passport": "หนังสือเดินทาง",
+        "placeholder": "เลือกประเภทบัตรประจำตัวประชาชน",
+        "tax_id": "หมายเลขประจำตัวผู้เสียภาษี",
+        "voter_id": "รหัสผู้มีสิทธิเลือกตั้ง"
+      },
+      "nationality_select": {
+        "placeholder": "เลือกประเทศ"
+      },
+      "pan": {
+        "placeholder": "ABCDE1234F"
+      },
+      "ssn": {
+        "placeholder": "123-45-6789"
+      },
+      "state_select": {
+        "placeholder": "เลือกรัฐ"
+      }
+    },
+    "country_of_residence_title": "ประเทศที่อยู่อาศัย",
+    "field_labels": {
+      "arg_specific": {
+        "national_id_value": "หมายเลขดีเอ็นไอ"
+      },
+      "can_specific": {
+        "national_id_value": "หมายเลขประกันสังคม (SIN)"
+      },
+      "chl_specific": {
+        "national_id_value": "หมายเลข RUT / RUN"
+      },
+      "chn_specific": {
+        "national_id_value": "ถิ่นที่อยู่ บัตรประจำตัวประชาชน หมายเลข"
+      },
+      "col_specific": {
+        "national_id_value": "หมายเลขประจำตัวส่วนบุคคลของโคลอมเบีย"
+      },
+      "country": "ประเทศ",
+      "country_residence": "ประเทศ",
+      "dnk_specific": {
+        "national_id_value": "หมายเลข CPR"
+      },
+      "dob": "วันเกิด",
+      "email": "อีเมล",
+      "fin_specific": {
+        "national_id_value": "รหัสประจำตัวส่วนบุคคล"
+      },
+      "first_name": "ชื่อ",
+      "gbr_specific": {
+        "postcode": "รหัสไปรษณีย์",
+        "town": "เมือง/จังหวัด"
+      },
+      "hkg_specific": {
+        "national_id_value": "HKID"
+      },
+      "ind_specific": {
+        "pan": "เลขที่บัญชีถาวร (PAN)"
+      },
+      "ita_specific": {
+        "national_id_value": "รหัสทางการเงิน"
+      },
+      "jpn_specific": {
+        "national_id_value": "\"หมายเลขของฉัน\" / รหัสทะเบียนบ้าน"
+      },
+      "last_name": "นามสกุล",
+      "line1": "ที่อยู่บรรทัดที่ 1",
+      "line2": "ที่อยู่บรรทัดที่ 2",
+      "line3": "ที่อยู่บรรทัดที่ 3",
+      "lux_specific": {
+        "national_id_value": "หมายเลขประกันสังคม"
+      },
+      "mobile_number": "หมายเลขโทรศัพท์มือถือ",
+      "national_id_type": "ประเภทบัตรประจำตัวประชาชน",
+      "national_id_value": "หมายเลขประจำตัวประชาชน",
+      "nationality": "สัญชาติ",
+      "phl_specific": {
+        "national_id_value": "หมายเลขบัตร PhilSys (PCN)"
+      },
+      "phone_number": "หมายเลขโทรศัพท์",
+      "pol_specific": {
+        "national_id_value": "หมายเลข PESEL"
+      },
+      "postcode": "รหัสไปรษณีย์",
+      "prt_specific": {
+        "national_id_value": "หมายเลขภาษี"
+      },
+      "town": "เมือง",
+      "tur_specific": {
+        "national_id_value": "หมายเลขประจำตัวประชาชนตุรกี"
+      },
+      "usa_specific": {
+        "line1_helper_text": "ที่อยู่ เช่น 200 Albert Street",
+        "line2_helper_text": "อพาร์ทเมนท์ ห้องชุด ยูนิต ฯลฯ",
+        "postcode": "รหัสไปรษณีย์",
+        "ssn": "หมายเลขประกันสังคม (SSN)",
+        "state": "รัฐ"
+      }
+    },
+    "field_optional": "(ไม่บังคับ)",
+    "field_validation": {
+      "arg_specific": {
+        "invalid_national_id_value": "โปรดป้อน DNI ที่ถูกต้อง"
+      },
+      "bra_specific": {
+        "invalid_other": "กรุณาใส่ที่ถูกต้อง CNPJ",
+        "invalid_tax_id": "กรุณาใส่ที่ถูกต้อง CPF",
+        "required_other": "กรุณากรอก CNPJ ของคุณ",
+        "required_tax_id": "กรุณากรอก CPF ของคุณ"
+      },
+      "can_specific": {
+        "invalid_national_id_value": "กรุณาใส่ที่ถูกต้อง SIN",
+        "required_national_id_value": "โปรดป้อน SIN ของคุณ"
+      },
+      "chl_specific": {
+        "invalid_national_id_value": "โปรดป้อนหมายเลข RUT / RUN ที่ถูกต้อง",
+        "required_national_id_value": "โปรดป้อนหมายเลข RUT / RUN ของคุณ"
+      },
+      "chn_specific": {
+        "invalid_national_id_value": "โปรดป้อนหมายเลขบัตรประจำตัวประชาชนที่ถูกต้อง",
+        "required_national_id_value": "กรุณาใส่หมายเลขบัตรประจำตัวประชาชนของคุณ"
+      },
+      "col_specific": {
+        "invalid_national_id_value": "โปรดป้อนหมายเลขประจำตัวส่วนบุคคลของโคลอมเบียที่ถูกต้อง",
+        "required_national_id_value": "โปรดป้อนหมายเลขประจำตัวส่วนบุคคลโคลอมเบียของคุณ"
+      },
+      "dnk_specific": {
+        "invalid_national_id_value": "โปรดป้อนหมายเลข CPR ที่ถูกต้อง",
+        "required_national_id_value": "กรุณาใส่หมายเลข CPR ของคุณ"
+      },
+      "esp_specific": {
+        "invalid_identity_card": "กรุณาใส่ที่ถูกต้อง NIF/DNI",
+        "invalid_other": "กรุณาใส่ที่ถูกต้อง NIE",
+        "required_identity_card": "โปรดป้อน NIF/DNI ของคุณ"
+      },
+      "fin_specific": {
+        "invalid_national_id_value": "โปรดป้อนรหัสประจำตัวส่วนบุคคลที่ถูกต้อง",
+        "required_national_id_value": "กรุณาใส่รหัสประจำตัวของคุณ"
+      },
+      "gbr_specific": {
+        "invalid_postcode": "โปรดใส่รหัสไปรษณีย์ที่ถูกต้อง",
+        "required_postcode": "โปรดใส่รหัสไปรษณีย์ของคุณ",
+        "too_long_postcode": "รหัสไปรษณีย์ยาวเกินไป",
+        "too_short_postcode": "รหัสไปรษณีย์สั้นเกินไป"
+      },
+      "gha_specific": {
+        "invalid_social_insurance": "โปรดป้อน SSNIT ที่ถูกต้อง",
+        "required_social_insurance": "กรุณากรอก SSNIT ของคุณ"
+      },
+      "hkg_specific": {
+        "invalid_national_id_value": "โปรดป้อน HKID ที่ถูกต้อง",
+        "required_national_id_value": "กรุณากรอก HKID ของคุณ"
+      },
+      "ind_specific": {
+        "invalid_pan": "โปรดใส่ PAN ที่ถูกต้อง",
+        "required_pan": "โปรดใส่ PAN"
+      },
+      "invalid": "โปรดตรวจสอบอักขระหรือสัญลักษณ์ที่ไม่ถูกต้อง",
+      "invalid_dob": "โปรดใส่วันเกิดที่ถูกต้อง",
+      "invalid_driving_license": "โปรดป้อนหมายเลขใบขับขี่ที่ถูกต้อง",
+      "invalid_email": "โปรดใส่อีเมลที่ถูกต้อง",
+      "invalid_mobile_number": "โปรดใส่หมายเลขโทรศัพท์ที่ถูกต้อง",
+      "invalid_national_id_value": "กรุณากรอกเลขประจำตัวประชาชนที่ถูกต้อง",
+      "invalid_passport": "กรุณาใส่หมายเลขหนังสือเดินทางที่ถูกต้อง",
+      "invalid_phone_number": "โปรดใส่หมายเลขโทรศัพท์ที่ถูกต้อง",
+      "invalid_voter_id": "โปรดป้อนหมายเลขประจำตัวผู้มีสิทธิเลือกตั้งที่ถูกต้อง",
+      "ita_specific": {
+        "invalid_national_id_value": "โปรดป้อนรหัสการเงินที่ถูกต้อง",
+        "required_national_id_value": "โปรดป้อนรหัสการเงินของคุณ"
+      },
+      "jpn_specific": {
+        "invalid_national_id_value": "โปรดป้อน \"หมายเลขของฉัน\" / รหัสบันทึกถิ่นที่อยู่ที่ถูกต้อง",
+        "required_national_id_value": ""
+      },
+      "ken_specific": {
+        "invalid_other": "กรุณากรอกหมายเลขบัตรคนต่างด้าวที่ถูกต้อง",
+        "required_other": "กรุณาใส่หมายเลขบัตรคนต่างด้าวของคุณ"
+      },
+      "lux_specific": {
+        "invalid_national_id_value": "โปรดป้อนหมายเลขประกันสังคมที่ถูกต้อง",
+        "required_national_id_value": "กรุณากรอกหมายเลขประกันสังคมของคุณ"
+      },
+      "mex_specific": {
+        "invalid_identity_card": "กรุณาใส่ที่ถูกต้อง CURP",
+        "invalid_tax_id": "กรุณาใส่ที่ถูกต้อง RFC",
+        "required_identity_card": "กรุณากรอก CURP ของคุณ",
+        "required_tax_id": "กรุณากรอก RFC ของคุณ"
+      },
+      "mys_specific": {
+        "invalid_national_id_value": "โปรดป้อน NRIC ที่ถูกต้อง",
+        "required_national_id_value": "กรุณากรอก NRIC ของคุณ"
+      },
+      "nga_specific": {
+        "invalid_identity_card": "โปรดป้อนหมายเลขประจำตัวประชาชน (NIN) ที่ถูกต้อง",
+        "invalid_other": "โปรดป้อน BVN ที่ถูกต้อง",
+        "invalid_tax_id": "โปรดป้อน TIN ที่ถูกต้อง",
+        "required_identity_card": "โปรดป้อนหมายเลขประจำตัวประชาชน (NIN) ของคุณ",
+        "required_other": "กรุณากรอก BVN ของคุณ",
+        "required_tax_id": "โปรดป้อน TIN ของคุณ"
+      },
+      "phl_specific": {
+        "invalid_national_id_value": "โปรดป้อนหมายเลขบัตร PhilSys (PCN) ที่ถูกต้อง",
+        "required_national_id_value": "กรุณากรอกหมายเลขบัตร PhilSys (PCN) ของคุณ"
+      },
+      "pol_specific": {
+        "invalid_national_id_value": "โปรดป้อนหมายเลข PESEL ที่ถูกต้อง",
+        "required_national_id_value": "โปรดป้อนหมายเลข PESEL ของคุณ"
+      },
+      "prt_specific": {
+        "invalid_national_id_value": "โปรดป้อนหมายเลขภาษีที่ถูกต้อง",
+        "required_national_id_value": "โปรดป้อนหมายเลขภาษีของคุณ"
+      },
+      "reference": {
+        "translation": "กรุณาใส่ที่ถูกต้อง"
+      },
+      "required_consent": "โปรดอนุมัติการตรวจสอบตัวตนและการฉ้อโกง",
+      "required_country": "โปรดเลือกประเทศ",
+      "required_country_residence": "โปรดเลือกประเทศ",
+      "required_dob": "โปรดใส่วันเกิดของคุณ",
+      "required_email": "โปรดใส่อีเมลของคุณ",
+      "required_first_name": "โปรดใส่ชื่อของคุณ",
+      "required_last_name": "โปรดใส่นามสกุลของคุณ",
+      "required_line1": "โปรดใส่อีเมล",
+      "required_mobile_number": "โปรดใส่หมายเลขโทรศัพท์มือถือของคุณ",
+      "required_national_driving_license": "กรุณาใส่หมายเลขใบขับขี่ของคุณ",
+      "required_national_id_type": "กรุณาเลือกประเภทบัตรประจำตัวประชาชนของคุณ",
+      "required_national_id_value": "กรุณากรอกเลขประจำตัวประชาชนของคุณ",
+      "required_national_passport": "กรุณาใส่หมายเลขหนังสือเดินทางของคุณ",
+      "required_national_voter_id": "โปรดป้อนหมายเลขประจำตัวผู้มีสิทธิเลือกตั้งของคุณ",
+      "required_nationality": "โปรดเลือกประเทศ",
+      "required_phone_number": "โปรดใส่หมายเลขโทรศัพท์ของคุณ",
+      "required_postcode": "โปรดใส่รหัสไปรษณีย์ของคุณ",
+      "sgp_specific": {
+        "invalid_national_id_value": "กรุณาใส่ที่ถูกต้อง NRIC",
+        "required_national_id_value": "กรุณากรอก NRIC ของคุณ"
+      },
+      "swe_specific": {
+        "invalid_national_id_value": "กรุณาใส่ที่ถูกต้อง PIN",
+        "required_national_id_value": "กรุณาใส่รหัส PIN ของคุณ"
+      },
+      "too_long_first_name": "ชื่อยาวเกินไป",
+      "too_long_last_name": "นามสกุลยาวเกินไป",
+      "too_long_line1": "บรรทัดที่อยู่ยาวเกินไป",
+      "too_long_postcode": "รหัสไปรษณีย์ยาวเกินไป",
+      "too_long_town": "ชื่อเมืองยาวเกินไป",
+      "too_short_first_name": "ชื่อสั้นเกินไป",
+      "too_short_last_name": "นามสกุลสั้นเกินไป",
+      "too_short_postcode": "รหัสไปรษณีย์สั้นเกินไป",
+      "tur_specific": {
+        "invalid_national_id_value": "โปรดป้อนหมายเลข ID ตุรกีที่ถูกต้อง",
+        "required_national_id_value": ""
+      },
+      "usa_specific": {
+        "invalid_ssn": "โปรดใส่ SSN ที่ถูกต้อง",
+        "required_ssn": "โปรดใส่ SSN ของคุณ",
+        "required_state": "โปรดเลือกรัฐ"
+      }
+    },
+    "national_id_number_title": "เพิ่มหมายเลขประจำตัวประชาชนของคุณ",
+    "personal_information_title": "เพิ่มข้อมูลส่วนบุคคลของคุณ",
+    "prompt": {
+      "details_timeout": "เริ่มอีกครั้ง",
+      "header_timeout": "ดูเหมือนว่าคุณใช้เวลานานเกินไป"
+    }
+  },
+  "retry_feedback": {
+    "button_primary": "ลองอีกครั้ง"
+  },
+  "retry_feedback_id_expired": {
+    "subtitle": "โปรดลองอีกครั้งโดยใช้บัตรประจำตัวที่มีรูปถ่ายที่ถูกต้อง และตรวจให้แน่ใจว่าเห็นข้อมูลของคุณได้อย่างชัดเจน",
+    "title": "เอกสารของคุณหมดอายุแล้ว"
+  },
+  "retry_feedback_id_generic": {
+    "subtitle": "โปรดลองอีกครั้งโดยใช้บัตรประจำตัวที่มีรูปถ่ายที่ถูกต้อง และตรวจให้แน่ใจว่าเห็นข้อมูลของคุณได้อย่างชัดเจน",
+    "title": "เอกสารของคุณมีปัญหา"
+  },
+  "retry_feedback_id_unaccepted": {
+    "subtitle": "โปรดลองอีกครั้งโดยใช้บัตรประจำตัวที่มีรูปถ่ายที่ถูกต้อง และตรวจให้แน่ใจว่าเห็นข้อมูลของคุณได้อย่างชัดเจน",
+    "title": "เอกสารที่ไม่ยอมรับ"
+  },
+  "retry_feedback_selfie_generic": {
+    "subtitle": "โปรดลองอีกครั้ง และเช็คให้แน่ใจว่ามองเห็นใบหน้าของคุณได้ชัดเจนและมีแสงสว่างเพียงพอ",
+    "title": "รูปเซลฟี่ของคุณมีปัญหา"
+  },
+  "selfie_capture": {
+    "alert": {
+      "camera_inactive": {
+        "detail": "เช็คว่าเชื่อมต่อแล้ว และกล้องใช้งานได้ คุณ<fallback>ยืนยันตัวตนบนโทรศัพท์ต่อ</fallback>ได้ด้วย",
+        "detail_no_fallback": "เช็คให้แน่ใจว่าอุปกรณ์ของคุณมีกล้องที่ใช้งานได้",
+        "title": "หากกล้องไม่ทำงาน"
+      },
+      "camera_not_working": {
+        "detail": "อาจไม่ได้เชื่อมต่อกล้อง <fallback>ลองใช้โทรศัพท์ของคุณแทน</fallback>",
+        "detail_no_fallback": "เช็คให้แน่ใจว่ากล้องของอุปกรณ์ใช้งานได้",
+        "title": "กล้องไม่ทำงาน"
+      },
+      "timeout": {
+        "detail": "อย่าลืมกดปุ่มเมื่อทำเสร็จ <fallback>ถ่ายวิดีโออีกครั้ง</fallback>",
+        "title": "ดูเหมือนว่าคุณใช้เวลานานเกินไป"
+      }
+    },
+    "body": "วางใบหน้าของคุณให้อยู่ในกรอบรูปไข่",
+    "button_accessibility": "ถ่ายภาพ",
+    "button_primary": "เริ่มสแกนใบหน้า",
+    "frame_accessibility": "ดูจากกล้อง",
+    "title": "วางใบหน้าของคุณให้อยู่ในกรอบรูปไข่"
+  },
+  "selfie_confirmation": {
+    "image_accessibility": "รูปถ่ายใบหน้าของคุณ",
+    "subtitle": "เช็คให้แน่ใจว่ามองเห็นทั้งใบหน้าของคุณได้ชัดเจน",
+    "title": "เช็ครูปเซลฟี่ของคุณ"
+  },
+  "selfie_intro": {
+    "banner_nudity_message": "ใบหน้าและพื้นหลังของคุณจะถูกบันทึกไว้ในขั้นตอนนี้",
+    "button_primary": "ดำเนินการต่อ",
+    "list_accessibility": "เคล็ดลับในการถ่ายรูปเซลฟี่ให้ผ่าน",
+    "list_item_face_forward": "มองตรงไปข้างหน้าและเช็คให้แน่ใจว่าเห็นดวงตาของคุณได้อย่างชัดเจน",
+    "list_item_no_face_cover": "ถอดสิ่งที่คลุมหน้าออกไป แต่สวมแว่นสายตาได้",
+    "list_item_no_glasses": "ถอดแว่นตาออก หากจำเป็น",
+    "subtitle": "เราจะเปรียบเทียบรูปนี้กับเอกสารของคุณ",
+    "title": "ถ่ายเซลฟี่"
+  },
+  "sms_sent": {
+    "info": "เคล็ดลับ",
+    "info_link_expire": "ลิงก์ของคุณจะหมดอายุใน 1 ชั่วโมง",
+    "info_link_window": "เปิดหน้าต่างนี้ไว้ขณะใช้โทรศัพท์",
+    "link": "ลองวิธีอื่น",
+    "subtitle": "เราส่งลิงก์ที่ปลอดภัยไปยังหมายเลข %{number}",
+    "subtitle_minutes": "อาจจะได้รับในอีกสักครู่",
+    "title": "เช็คโทรศัพท์ของคุณ"
+  },
+  "switch_phone": {
+    "info": "เคล็ดลับ",
+    "info_link_expire": "ลิงก์ในโทรศัพท์ของคุณจะหมดอายุใน 1 ชั่วโมง",
+    "info_link_refresh": "อย่ารีเฟรชหน้านี้",
+    "info_link_window": "เปิดหน้าต่างนี้ไว้ขณะใช้โทรศัพท์",
+    "link": "ยกเลิก",
+    "subtitle": "เมื่อทำเสร็จ เราจะนำคุณไปยังขั้นตอนถัดไป",
+    "title": "เชื่อมต่อกับมือถือของคุณแล้ว"
+  },
+  "upload_guide": {
+    "button_primary": "ดำเนินการต่อ",
+    "image_detail_blur_alt": "ตัวอย่างเอกสารที่พร่ามัว",
+    "image_detail_blur_label": "รายละเอียดทั้งหมดต้องชัดเจน — ไม่มีอะไรพร่ามัว",
+    "image_detail_cutoff_label": "แสดงรายละเอียดทั้งหมด — รวม 2 บรรทัดล่าง",
+    "image_detail_glare_label": "ออกห่างจากแสงส่องโดยตรง — อย่าให้มีแสงสะท้อน",
+    "image_detail_good_label": "รูปถ่ายควรแสดงเอกสารของคุณอย่างชัดเจน",
+    "subtitle": "ใช้ภาพสแกนหรือถ่ายเอกสารไม่ได้",
+    "title": "ส่งหน้ารูปถ่ายในหนังสือเดินทาง"
+  },
+  "user_consent": {
+    "button_primary": "ยอมรับ",
+    "button_secondary": "ไม่ยอมรับ",
+    "prompt": {
+      "button_primary": "ตรวจสอบอีกครั้ง",
+      "button_secondary": "ใช่ ไม่ต้องยืนยันตัวตนฉัน",
+      "no_consent_detail": "หากคุณไม่ยอมรับนโยบายความเป็นส่วนตัวและข้อกำหนดในการให้บริการของ Onfido เราจะไม่สามารถยืนยันตัวตนของคุณได้ และคุณจะออกจากขั้นตอนนี้",
+      "no_consent_title": "แน่ใจใช่ไหม"
+    }
+  },
+  "user_consent_load_fail": {
+    "button_primary": "โหลดหน้าจออีกครั้ง",
+    "detail": "เช็คว่าการเชื่อมต่อของคุณเสถียร แล้วลองอีกครั้ง",
+    "title": "ไม่สามารถโหลดเนื้อหาได้"
+  },
+  "video_capture": {
+    "body": "วางใบหน้าของคุณให้อยู่ในกรอบรูปไข่",
+    "body_record": "กดปุ่มเมื่อคุณพร้อม",
+    "body_stop": "กดหยุดเมื่อทำเสร็จ",
+    "button_primary_finish": "ยุติการบันทึก",
+    "button_primary_next": "ขั้นตอนถัดไป",
+    "button_primary_start": "เริ่มบันทึก",
+    "button_record_accessibility": "เริ่มบันทึก",
+    "frame_accessibility": "ดูจากกล้อง",
+    "header": {
+      "challenge_digit_instructions": "พูดตัวเลขแต่ละตัวออกมาดังๆ",
+      "challenge_turn_forward": "แล้วหันหน้าไปข้างหน้า",
+      "challenge_turn_left": "หันศีรษะไปทางซ้าย",
+      "challenge_turn_right": "หันศีรษะไปทางขวา"
+    },
+    "prompt": {
+      "header_timeout": "ดูเหมือนว่าคุณใช้เวลานานเกินไป"
+    }
+  },
+  "video_confirmation": {
+    "body": "บันทึกวิดีโอของคุณแล้ว",
+    "button_primary": "อัปโหลดวิดีโอ",
+    "button_secondary": "ถ่ายวิดีโออีกครั้ง",
+    "title": "เช็ควิดีโอของคุณ",
+    "video_accessibility": "เล่นวิดีโอที่บันทึกไว้อีกครั้ง"
+  },
+  "video_intro": {
+    "button_pause_accessibility": "หยุดวิดีโอชั่วคราว",
+    "button_play_accessibility": "เล่นวิดีโอ",
+    "button_primary": "บันทึกวิดีโอ",
+    "list_accessibility": "ท่าทางที่ต้องบันทึกในวิดีโอเซลฟี่",
+    "list_item_actions": "คุณมีเวลา 20 วินาทีเพื่อทำให้เสร็จ",
+    "list_item_speak": "ทำตามคำแนะนำในการขยับหรือพูด",
+    "title": "บันทึกวิดีโอ",
+    "video_accessibility": "ตัวอย่างวิดีโอแสดงคนที่กำลังบันทึกวิดีโอเซลฟี่ วิธีบันทึกวิดีโอเซลฟี่ ให้หันหน้าไปทางกล้องหน้าและถือโทรศัพท์ให้ห่างจากใบหน้าเล็กน้อย จากนั้นคุณจะต้องพูดตัวเลข และหันศีรษะของคุณไปตามคำแนะนำบนหน้าจอ"
+  },
+  "welcome": {
+    "doc_video_subtitle": "น่าจะใช้เวลาสักครู่",
+    "info_original_document": "ถ่ายภาพเอกสารต้นฉบับของคุณ ไม่อนุญาตให้สแกน ภาพถ่ายหน้าจอ หรือถ่ายเอกสาร",
+    "list_header": "ใช้อุปกรณ์ของคุณ:",
+    "list_header_doc_video": "ใช้อุปกรณ์ของคุณเพื่อบันทึก:",
+    "list_header_webcam": "ใช้เว็บแคมหรือโทรศัพท์ของคุณถ่ายภาพ:",
+    "list_item_doc": "เอกสารยืนยันตัวตนของคุณ",
+    "list_item_doc_generic": "ทำการบันทึกวิดีโอเอกสารที่ใช้ในการยืนยันตัวตนของคุณ",
+    "list_item_doc_photo": "ถ่ายรูปเอกสารยืนยันตัวตนของคุณ",
+    "list_item_doc_video": "บันทึกวิดีโอเอกสารยืนยันตัวตนของคุณ",
+    "list_item_doc_video_timeout": "การบันทึกถูกจำกัดไว้ที่<timeout></timeout>วินาที",
+    "list_item_face_photo": "ถ่ายรูปใบหน้าของคุณ",
+    "list_item_face_video": "บันทึกวิดีโอใบหน้าของคุณ",
+    "list_item_poa": "เอกสารยืนยันที่อยู่",
+    "list_item_selfie": "ใบหน้าของคุณ",
+    "next_button": "เลือกเอกสาร",
+    "start_workflow_button": "เริ่มการยืนยันตัวตน",
+    "start_workflow_button_trial": "เริ่มยืนยันตัวตน (ทดลอง)",
+    "subtitle": "น่าจะใช้เวลาสักครู่",
+    "title": "ยืนยันตัวตน",
+    "trial_message": "อย่าแชร์ข้อมูลส่วนบุคคลที่นี่ เว้นแต่คุณจะมีส่วนร่วมในการทดลองของ Onfido"
+  },
+  "workflow_complete": {
+    "pass": {
+      "description": "เรายืนยันตัวตนของคุณแล้ว",
+      "title": "ผ่าน"
+    },
+    "reject": {
+      "description": "เราไม่สามารถยืนยันตัวตนของคุณได้",
+      "title": "ปฏิเสธ"
+    }
+  },
+  "workflow_erros": {
+    "generic_title": "เกิดข้อผิดพลาดกับเซิร์ฟเวอร์",
+    "no_workflow_run_id": "ไม่ได้ตั้งค่าการเรียกใช้ ID ในเวิร์กโฟลว์",
+    "reload_app": "โปรดลองโหลดแอปอีกครั้งแล้วลองใหม่",
+    "task_not_completed": "ดำเนินการตามเวิร์กโฟลว์ให้เสร็จสมบูรณ์ไม่ได้",
+    "task_not_retrieved": "เรียกดูงานในเวิร์กโฟลว์ไม่ได้",
+    "task_not_supported": "ปัจจุบันเรายังไม่รองรับงานนี้"
+  }
+}

@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "退后",
+    "feedback_move_back_accessibility": "将设备向后移动",
     "feedback_move_closer": "靠近",
+    "feedback_move_left_accessibility": "将设备向左移动",
+    "feedback_move_right_accessibility": "将设备向右移动",
     "feedback_no_face_detected": "未检测到面部",
     "feedback_not_centered": "面部未居中",
     "title": "将面部移入框中"
@@ -38,7 +41,9 @@
     "list_item_one": "首先，将面部移入框中",
     "list_item_two": "然后，慢慢地将头转向两侧",
     "subtitle": "这是为了验证您的真实身份",
-    "title": "录制视频"
+    "title": "录制视频",
+    "title_accessibility": "录制一段您面部的视频",
+    "video_accessibility": "将头转向两侧直到完成的视频示例"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "重新开始录制",
@@ -71,7 +76,7 @@
     "title": "选择签发国家/地区"
   },
   "cross_device": {
-    "button_primary_upload": "上传照片"
+    "button_primary_upload": "继续"
   },
   "cross_device_checklist": {
     "button_primary": "提交验证",
@@ -154,6 +159,10 @@
     "detail": {
       "folded_doc_front": "平放您的证明文件，包括所有内页（必须包含您的照片）"
     },
+    "header": {
+      "recording_complete": "录制完成",
+      "recording_video": "录制视频"
+    },
     "header_folded_doc_front": "资料照片一面",
     "prompt": {
       "button_card": "塑料身份证",
@@ -171,7 +180,12 @@
       "glare_detail": "请远离直射光线",
       "glare_title": "检测到眩光",
       "no_doc_detail": "请确保其完全在框中",
-      "no_doc_title": "未检测到证明文件"
+      "no_doc_title": "未检测到证明文件",
+      "odp_detail": "请使用您的原始文件。屏幕照片或复印件将不被接受",
+      "odp_photo_of_screen_title": "检测到屏幕照片",
+      "odp_photocopy_title": "检测到复印件",
+      "odp_scan_title": "扫描检测到",
+      "odp_screenshot_title": "检测到截图"
     },
     "body": "请确保您已上传整个证明文件页面，且细节清晰可辨，无模糊或眩光",
     "body_bank_statement": "请确保您已上传整个证明文件页面，且细节清晰可辨，无模糊或眩光",
@@ -189,7 +203,9 @@
     "button_primary_redo": "重做",
     "button_primary_upload": "上传",
     "button_primary_upload_anyway": "仍然上传",
+    "button_secondary_change_document": "选择另一个证明文件",
     "button_secondary_redo": "重做",
+    "button_secondary_submit_anyway": "无论如何提交照片",
     "button_zoom": "放大图像",
     "image_accessibility": "您的证明文件照片",
     "title": "查看您的图像"
@@ -236,7 +252,7 @@
     "subtitle_photo_page": "照片页",
     "subtitle_poa": "这些证明文件最有可能显示您当前的家庭地址",
     "title": "选择您的证明文件",
-    "title_poa": "选择%{country}证明文件"
+    "title_poa": "选择一个文档"
   },
   "doc_submit": {
     "button_link_upload": "或者上传照片 – 不能是扫描件或复印件",
@@ -414,16 +430,155 @@
   "permission": {
     "body_both": "如果不同时使用相机和麦克风，我们将无法验证您的身份",
     "body_cam": "如果不使用相机，我们就无法验证您的身份",
+    "body_mic": "如果不使用麦克风，我们将无法验证您的身份",
     "button_primary_both": "启用两者",
     "button_primary_cam": "启用相机",
+    "button_primary_mic": "启用麦克风",
     "subtitle_both": "出现提示时，您必须启用这两者的访问才能继续",
     "subtitle_cam": "出现提示时，您必须启用相机访问才能继续",
+    "subtitle_mic": "出现提示时，您必须启用麦克风访问才能继续",
     "title_both": "允许相机和麦克风访问",
-    "title_cam": "允许相机访问"
+    "title_cam": "允许相机访问",
+    "title_mic": "允许麦克风访问"
   },
   "permission_recovery": {
+    "android": {
+      "device_settings": {
+        "list_item_1": "在您的设备上，打开设置应用程序",
+        "list_item_2": "点击 应用",
+        "list_item_3": "点击 [BROWSER_ICON]。如果找不到，点击查看所有应用或管理应用，然后选择你的浏览器应用",
+        "list_item_4": "点击 权限",
+        "list_item_5_cam": "点击 相机 并选择 允许",
+        "list_item_5_mic": "点击 麦克风 并选择 允许",
+        "list_item_6": "返回此页面并点击我已做出更改按钮"
+      }
+    },
+    "android_chrome": {
+      "browser_settings": {
+        "list_item_1": "在您的浏览器中，点击地址栏中的锁图标 [LOCK_ICON]",
+        "list_item_2": "点击 权限",
+        "list_item_3_cam": "激活位于 相机 旁边的切换开关",
+        "list_item_3_mic": "激活位于 麦克风 旁边的切换开关",
+        "list_item_4": "返回此页面并点击我已做出更改按钮"
+      }
+    },
+    "android_firefox": {
+      "browser_settings": {
+        "list_item_1": "在您的浏览器中，点击地址栏中的锁图标 [LOCK_ICON]",
+        "list_item_2_cam": "点击 已阻止 旁边的 相机 切换到 已允许",
+        "list_item_2_mic": "点击 已阻止 旁边的 麦克风 切换到 已允许",
+        "list_item_3": "返回此页面并点击我已做出更改按钮"
+      }
+    },
+    "android_generic": {
+      "browser_settings": {
+        "list_item_1": "在您的浏览器中，打开网站设置。这通常是地址栏中的一个锁图标 [LOCK_ICON]",
+        "list_item_2": "找到有关权限的部分",
+        "list_item_3_cam": "启用相机权限",
+        "list_item_3_mic": "启用麦克风权限",
+        "list_item_4": "返回此页面并点击我已做出更改按钮"
+      }
+    },
+    "android_samsung": {
+      "browser_settings": {
+        "list_item_1": "在您的浏览器中，点击地址栏中的锁图标[LOCK_ICON]",
+        "list_item_2_cam": "激活位于 相机 旁边的切换开关",
+        "list_item_2_mic": "激活位于 麦克风 旁边的切换开关",
+        "list_item_3": "返回此页面并点击我已做出更改按钮"
+      }
+    },
     "button_primary": "刷新",
+    "desktop_chrome": {
+      "browser_settings": {
+        "list_item_1": "在您的浏览器中，点击地址栏中的锁图标 [LOCK_ICON]",
+        "list_item_2_cam": "激活相机旁边的切换开关",
+        "list_item_2_mic": "激活位于 麦克风 旁边的切换开关",
+        "list_item_3": "返回此页面并点击我已做出更改按钮"
+      }
+    },
+    "desktop_edge": {
+      "browser_settings": {
+        "list_item_1": "在您的浏览器中，点击地址栏中的锁图标[LOCK_ICON]",
+        "list_item_2_cam": "点击 相机旁边的下拉菜单，然后选择允许",
+        "list_item_2_mic": "点击 麦克风旁边的下拉菜单，然后选择允许",
+        "list_item_3": "返回此页面并点击我已做出更改按钮"
+      }
+    },
+    "desktop_firefox": {
+      "browser_settings": {
+        "list_item_1": "在您的浏览器中，点击地址栏中的设置图标 [SETTINGS_ICON_FIREFOX]",
+        "list_item_2_cam": "点击已阻止，位于使用相机旁边",
+        "list_item_2_mic": "点击已阻止，位于使用麦克风旁边",
+        "list_item_3": "返回此页面并点击我已做出更改按钮"
+      }
+    },
+    "desktop_generic": {
+      "browser_settings": {
+        "list_item_1": "在您的浏览器中，打开网站设置。这通常是地址栏中的一个锁图标 [LOCK_ICON]",
+        "list_item_2": "找到关于权限的部分",
+        "list_item_3_cam": "启用相机权限",
+        "list_item_3_mic": "启用麦克风权限",
+        "list_item_4": "返回此页面并点击我已做出更改按钮"
+      },
+      "device_settings": {
+        "list_item_1": "在您的电脑上，打开您的设置",
+        "list_item_2": "找到有关权限的部分（通常在隐私下）",
+        "list_item_3_cam": "为 [BROWSER_ICON] 启用 相机 权限",
+        "list_item_3_mic": "为 [BROWSER_ICON] 启用 麦克风 权限",
+        "list_item_4": "如有必要，请重启您的浏览器并返回此页面"
+      }
+    },
+    "desktop_mac": {
+      "device_settings": {
+        "list_item_1": "在您的电脑上，点击苹果菜单 [APPLE_ICON] 并选择系统设置（或系统偏好设置）",
+        "list_item_2": "点击侧边栏的隐私与安全（或安全与隐私）",
+        "list_item_3": "点击弹出窗口中的稍后",
+        "list_item_3_cam": "点击 相机 并激活 [BROWSER_ICON] 旁边的切换按钮（或复选框）",
+        "list_item_4": "点击弹出窗口中的退出并重新打开，然后返回到此页面",
+        "list_item_4_mic": "点击 麦克风 并激活 [BROWSER_ICON] 旁边的切换按钮（或复选框）"
+      }
+    },
+    "desktop_safari": {
+      "browser_settings": {
+        "list_item_1": "在您的浏览器中，右键点击地址栏并选择设置",
+        "list_item_2_cam": "点击 相机旁边的下拉菜单并选择允许",
+        "list_item_2_mic": "点击 麦克风旁边的下拉菜单，然后选择允许",
+        "list_item_3": "返回此页面并点击我已做出更改按钮"
+      }
+    },
+    "desktop_windows": {
+      "device_settings": {
+        "list_item_1": "在您的电脑上，点击Windows菜单 [WINDOWS_ICON] 并选择 设置 [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "点击 隐私（或 隐私和安全）",
+        "list_item_3_cam": "点击 相机 在 应用权限 下并激活 [BROWSER_ICON] 旁边的切换开关 ",
+        "list_item_3_mic": "点击 麦克风 位于 应用权限 下方，并激活 [BROWSER_ICON] 旁边的切换开关",
+        "list_item_4": "如有必要，请重启您的浏览器并返回此页面"
+      }
+    },
     "info": "恢复",
+    "ios": {
+      "browser_settings": {
+        "list_item_1_both": "点击我已做出更改按钮。系统将再次要求您启用摄像头和麦克风访问权限。当弹出窗口出现时，选择允许（或确定）",
+        "list_item_1_cam": "点击我已做出更改按钮。系统将再次要求您启用相机访问权限。当弹出窗口出现时，选择允许（或确定）",
+        "list_item_1_mic": "点击我已做出更改按钮。系统将再次要求您启用麦克风访问权限。当弹出窗口出现时，选择允许（或确定）"
+      },
+      "device_settings": {
+        "list_item_1": "在您的设备上，打开设置应用程序",
+        "list_item_2": "滚动浏览列表并点击[BROWSER_ICON]",
+        "list_item_3_cam": "激活位于 相机 旁边的切换开关",
+        "list_item_3_mic": "激活位于 麦克风 旁边的切换开关",
+        "list_item_4": "返回此页面并点击我已做出更改按钮"
+      }
+    },
+    "ios_safari": {
+      "device_settings": {
+        "list_item_1": "在您的设备上，打开设置应用程序",
+        "list_item_2": "滚动浏览列表并点击[BROWSER_ICON]",
+        "list_item_3_cam": "点击 相机 并选择 允许",
+        "list_item_3_mic": "点击 麦克风 并选择 允许",
+        "list_item_4": "返回此页面并点击我已做出更改按钮"
+      }
+    },
     "list_header_both": "要恢复对这两者的访问，请按以下步骤操作：",
     "list_header_cam": "要恢复相机访问，请按以下步骤操作：",
     "list_item_action_cam": "刷新此页面，以重新启动身份验证流程",
@@ -431,10 +586,22 @@
     "list_item_how_to_cam": "通过浏览器设置授予对相机的访问",
     "list_item_how_to_mic": "从浏览器设置授予对您的麦克风的访问权限",
     "subtitle_both": "恢复相机和麦克风访问，以拍摄视频并完成验证流程",
-    "subtitle_cam": "恢复相机访问，以继续您的验证",
+    "subtitle_cam": "我们需要访问您的摄像头以验证您的身份。请按照以下指示恢复访问权限",
     "subtitle_cam_old": "恢复相机访问，以继续面部验证",
+    "subtitle_mic": "我们需要访问您的麦克风以验证您的身份。请按照以下指示恢复访问权限",
     "title_both": "相机和麦克风访问被拒绝",
-    "title_cam": "相机访问被拒绝"
+    "title_cam": "相机访问被拒绝",
+    "title_mic": "麦克风访问被拒绝",
+    "web": {
+      "browser_settings": {
+        "title": "解决方案1：浏览器设置"
+      },
+      "button_primary": "我已经做了更改",
+      "device_settings": {
+        "title": "解决方案2：设备设置"
+      },
+      "disclaimer": "身份验证过程可能会重新开始。对任何不便表示歉意"
+    }
   },
   "photo_upload": {
     "body_bank_statement": "提供整个证明文件页面以获得最佳结果",
@@ -485,6 +652,7 @@
     "subtitle": "您需要提供满足以下条件的证明文件：",
     "title": "我们来验证您的地址"
   },
+  "poa_welcome_text": "请拍摄一张包含您地址的证明文件照片",
   "profile_data": {
     "address_title": "添加您的地址",
     "button_continue": "继续",
@@ -846,7 +1014,7 @@
     "info": "小贴士",
     "info_link_expire": "您的链接将在一小时后过期",
     "info_link_window": "使用手机时请勿关闭此窗口",
-    "link": "重新发送链接",
+    "link": "尝试另一种方法",
     "subtitle": "我们已将安全链接发送至%{number}",
     "subtitle_minutes": "可能需要几分钟时间才能到达",
     "title": "请检查手机"
@@ -861,14 +1029,14 @@
     "title": "已连接到手机"
   },
   "upload_guide": {
-    "button_primary": "上传照片",
+    "button_primary": "继续",
     "image_detail_blur_alt": "模糊证明文件示例",
     "image_detail_blur_label": "所有细节都必须清晰，没有模糊之处",
     "image_detail_cutoff_label": "显示所有细节—包括底部2行",
     "image_detail_glare_label": "远离直射光，无眩光",
     "image_detail_good_label": "照片应清晰展示您的证明文件",
     "subtitle": "不接受扫描件和复印件",
-    "title": "上传护照照片页面"
+    "title": "提交护照照片页"
   },
   "user_consent": {
     "button_primary": "接受",
@@ -924,10 +1092,16 @@
   "welcome": {
     "doc_video_subtitle": "这应该会需要几分钟时间",
     "info_original_document": "为您的原始文件拍照。不允许扫描、屏幕照片或复印件。",
+    "list_header": "使用您的设备：",
     "list_header_doc_video": "使用您的设备录制：",
     "list_header_webcam": "使用网络相机或手机拍摄：",
     "list_item_doc": "您的身份证件",
+    "list_item_doc_generic": "录制您身份证件的视频",
+    "list_item_doc_photo": "拍一张您身份证件的照片",
+    "list_item_doc_video": "录制一段您身份证件的视频",
     "list_item_doc_video_timeout": "视频录制限制为​<timeout>​​</timeout>​秒。​<fallback>​请重新开始​</fallback>",
+    "list_item_face_photo": "拍一张您面部的照片",
+    "list_item_face_video": "录制一段您面部的视频",
     "list_item_poa": "您的地址证明",
     "list_item_selfie": "您的面部",
     "next_button": "选择证明文件",

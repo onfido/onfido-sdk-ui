@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Bergerak ke belakang",
+    "feedback_move_back_accessibility": "Gerakkan peranti anda ke belakang",
     "feedback_move_closer": "Bergerak lebih dekat",
+    "feedback_move_left_accessibility": "Gerakkan peranti anda ke kiri",
+    "feedback_move_right_accessibility": "Gerakkan peranti anda ke kanan",
     "feedback_no_face_detected": "Wajah tidak dikesan",
     "feedback_not_centered": "Wajah tidak berada pada bahagian tengah",
     "title": "Letakkan wajah anda dalam bingkai"
@@ -38,7 +41,9 @@
     "list_item_one": "Pertama, letakkan wajah anda dalam bingkai",
     "list_item_two": "Kemudian, toleh kepala anda perlahan-lahan ke kedua-dua belah sisi",
     "subtitle": "Ini adalah untuk mengesahkan bahawa anda merupakan orang sebenar",
-    "title": "Rakam video"
+    "title": "Rakam video",
+    "title_accessibility": "Rakam video wajah anda",
+    "video_accessibility": "Contoh video cara menoleh kepala ke kedua-dua belah sisi sehingga tamat"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Mulakan semula rakaman",
@@ -71,7 +76,7 @@
     "title": "Pilih negara yang mengeluarkan"
   },
   "cross_device": {
-    "button_primary_upload": "Muat naik foto"
+    "button_primary_upload": "Teruskan"
   },
   "cross_device_checklist": {
     "button_primary": "Hantar pengesahan",
@@ -154,6 +159,10 @@
     "detail": {
       "folded_doc_front": "Letakkan dokumen anda secara rata, sertakan semua halaman dalaman (ia mesti mengandungi gambar anda)"
     },
+    "header": {
+      "recording_complete": "Rakaman selesai",
+      "recording_video": "Merekod video"
+    },
     "header_folded_doc_front": "Bahagian foto profil",
     "prompt": {
       "button_card": "Kad plastik",
@@ -171,7 +180,12 @@
       "glare_detail": "Jauhi daripada cahaya langsung",
       "glare_title": "Silau dikesan",
       "no_doc_detail": "Pastikan ia berada dalam bingkai sepenuhnya",
-      "no_doc_title": "Dokumen tidak dikesan"
+      "no_doc_title": "Dokumen tidak dikesan",
+      "odp_detail": "Sila gunakan dokumen asal anda. Foto skrin atau fotokopi tidak diterima",
+      "odp_photo_of_screen_title": "Gambar skrin dikesan",
+      "odp_photocopy_title": "Fotokopi dikesan",
+      "odp_scan_title": "Imbasan dikesan",
+      "odp_screenshot_title": "Pengambilan skrin dikesan"
     },
     "body": "Pastikan anda telah memuat naik keseluruhan halaman dokumen dan butiran adalah jelas untuk dibaca tanpa kabur atau silau",
     "body_bank_statement": "Pastikan anda telah memuat naik keseluruhan halaman dokumen dan butiran adalah jelas untuk dibaca tanpa kabur atau silau",
@@ -189,7 +203,9 @@
     "button_primary_redo": "Lakukan semula",
     "button_primary_upload": "Muat naik",
     "button_primary_upload_anyway": "Teruskan muat naik",
+    "button_secondary_change_document": "Pilih dokumen lain",
     "button_secondary_redo": "Lakukan semula",
+    "button_secondary_submit_anyway": "Hantar foto sekalipun",
     "button_zoom": "Besarkan imej",
     "image_accessibility": "Gambar dokumen anda",
     "title": "Periksa gambar anda"
@@ -236,7 +252,7 @@
     "subtitle_photo_page": "Halaman foto",
     "subtitle_poa": "Ini ialah dokumen-dokumen yang berkemungkinan besar menunjukkan alamat rumah semasa anda",
     "title": "Pilih dokumen anda",
-    "title_poa": "Pilih dokumen %{country}"
+    "title_poa": "Pilih satu dokumen"
   },
   "doc_submit": {
     "button_link_upload": "atau muat naik gambar – imbasan atau fotokopi tidak dibenarkan",
@@ -414,16 +430,155 @@
   "permission": {
     "body_both": "Kami tidak dapat mengesahkan anda tanpa menggunakan kamera dan juga mikrofon anda",
     "body_cam": "Kami tidak dapat mengesahkan anda tanpa kamera anda",
+    "body_mic": "Kami tidak dapat mengesahkan anda tanpa menggunakan mikrofon anda",
     "button_primary_both": "Dayakan kedua-duanya",
     "button_primary_cam": "Dayakan kamera",
+    "button_primary_mic": "Dayakan mikrofon",
     "subtitle_both": "Apabila digesa, anda mesti mendayakan akses kamera dan mikrofon untuk meneruskannya",
     "subtitle_cam": "Apabila digesa, anda mesti mendayakan akses kamera untuk meneruskannya",
+    "subtitle_mic": "Apabila digesa, anda mesti mendayakan akses mikrofon untuk meneruskannya",
     "title_both": "Benarkan akses kamera dan mikrofon",
-    "title_cam": "Benarkan akses kamera"
+    "title_cam": "Benarkan akses kamera",
+    "title_mic": "Benarkan akses mikrofon"
   },
   "permission_recovery": {
+    "android": {
+      "device_settings": {
+        "list_item_1": "Pada peranti anda, buka aplikasi Tetapan",
+        "list_item_2": "Ketuk Aplikasi",
+        "list_item_3": "Ketuk [BROWSER_ICON]. Jika anda tidak dapat mencarinya, ketuk Lihat semua aplikasi atau Urus aplikasi dan pilih aplikasi pelayar anda",
+        "list_item_4": "Ketuk Keizinan",
+        "list_item_5_cam": "Ketuk Kamera dan pilih Benarkan",
+        "list_item_5_mic": "Ketuk Mikrofon dan pilih Benarkan",
+        "list_item_6": "Kembali ke halaman ini dan tekan butang Saya telah membuat perubahan"
+      }
+    },
+    "android_chrome": {
+      "browser_settings": {
+        "list_item_1": "Di pelayar anda, ketuk ikon kunci [LOCK_ICON] di bar alamat",
+        "list_item_2": "Ketuk Keizinan",
+        "list_item_3_cam": "Aktifkan suis sebelah Kamera",
+        "list_item_3_mic": "Aktifkan suis sebelah Mikrofon",
+        "list_item_4": "Kembali ke halaman ini dan tekan butang Saya telah membuat perubahan"
+      }
+    },
+    "android_firefox": {
+      "browser_settings": {
+        "list_item_1": "Di pelayar anda, ketuk ikon kunci [LOCK_ICON] di bar alamat",
+        "list_item_2_cam": "Ketuk Disekat bersebelahan dengan Kamera untuk bertukar ke Dibenarkan",
+        "list_item_2_mic": "Ketuk Disekat bersebelahan dengan Mikrofon untuk bertukar ke Dibenarkan",
+        "list_item_3": "Kembali ke halaman ini dan tekan butang Saya telah membuat perubahan"
+      }
+    },
+    "android_generic": {
+      "browser_settings": {
+        "list_item_1": "Dalam pelayar anda, buka tetapan laman web. Ini seringkali merupakan ikon kunci [LOCK_ICON] di bar alamat",
+        "list_item_2": "Cari bahagian tentang kebenaran",
+        "list_item_3_cam": "Dayakan kebenaran Kamera",
+        "list_item_3_mic": "Dayakan kebenaran Mikrofon",
+        "list_item_4": "Kembali ke halaman ini dan tekan butang Saya telah membuat perubahan"
+      }
+    },
+    "android_samsung": {
+      "browser_settings": {
+        "list_item_1": "Di pelayar anda, ketuk ikon kunci [LOCK_ICON] di bar alamat",
+        "list_item_2_cam": "Aktifkan suis sebelah Kamera",
+        "list_item_2_mic": "Aktifkan suis sebelah Mikrofon",
+        "list_item_3": "Kembali ke halaman ini dan tekan butang Saya telah membuat perubahan"
+      }
+    },
     "button_primary": "Segar semula",
+    "desktop_chrome": {
+      "browser_settings": {
+        "list_item_1": "Dalam pelayar anda, klik ikon kunci [LOCK_ICON] di bar alamat",
+        "list_item_2_cam": "Aktifkan suis sebelah Kamera",
+        "list_item_2_mic": "Aktifkan suis sebelah Mikrofon",
+        "list_item_3": "Kembali ke halaman ini dan klik butang Saya telah membuat perubahan"
+      }
+    },
+    "desktop_edge": {
+      "browser_settings": {
+        "list_item_1": "Di pelayar anda, klik ikon kunci [LOCK_ICON] di bar alamat",
+        "list_item_2_cam": "Klik pada dropdown sebelah Kamera dan pilih Benarkan",
+        "list_item_2_mic": "Klik pada dropdown di sebelah Mikrofon dan pilih Benarkan",
+        "list_item_3": "Kembali ke halaman ini dan klik butang Saya telah membuat perubahan"
+      }
+    },
+    "desktop_firefox": {
+      "browser_settings": {
+        "list_item_1": "Di pelayar anda, klik ikon tetapan [SETTINGS_ICON_FIREFOX] di bar alamat",
+        "list_item_2_cam": "Klik Disekat bersebelahan dengan Gunakan kamera",
+        "list_item_2_mic": "Klik Disekat bersebelahan dengan Gunakan mikrofon",
+        "list_item_3": "Kembali ke halaman ini dan klik butang Saya telah membuat perubahan"
+      }
+    },
+    "desktop_generic": {
+      "browser_settings": {
+        "list_item_1": "Dalam pelayar anda, buka tetapan laman web. Ini seringkali merupakan ikon kunci [LOCK_ICON] di bar alamat",
+        "list_item_2": "Cari bahagian tentang kebenaran",
+        "list_item_3_cam": "Dayakan kebenaran Kamera",
+        "list_item_3_mic": "Dayakan kebenaran Mikrofon",
+        "list_item_4": "Kembali ke halaman ini dan klik butang Saya telah membuat perubahan"
+      },
+      "device_settings": {
+        "list_item_1": "Pada komputer anda, buka Tetapan anda",
+        "list_item_2": "Cari bahagian tentang kebenaran (biasanya di bawah Privasi)",
+        "list_item_3_cam": "Dayakan kebenaran Kamera untuk [BROWSER_ICON]",
+        "list_item_3_mic": "Dayakan kebenaran Mikrofon untuk [BROWSER_ICON]",
+        "list_item_4": "Mulakan semula pelayar anda jika perlu dan kembali ke halaman ini"
+      }
+    },
+    "desktop_mac": {
+      "device_settings": {
+        "list_item_1": "Pada komputer anda, klik menu Apple [APPLE_ICON] dan pilih Tetapan Sistem (atau Keutamaan Sistem)",
+        "list_item_2": "Klik Privasi & Keselamatan (atau Keselamatan & Privasi) di bar sisi ",
+        "list_item_3": "Klik Kemudian dalam pop-up",
+        "list_item_3_cam": "Klik Kamera dan aktifkan suis (atau kotak semak) di sebelah [BROWSER_ICON]",
+        "list_item_4": "Klik Keluar & Buka Semula dalam pop-up dan kembali ke halaman ini",
+        "list_item_4_mic": "Klik Mikrofon dan aktifkan suis (atau kotak semak) di sebelah [BROWSER_ICON]"
+      }
+    },
+    "desktop_safari": {
+      "browser_settings": {
+        "list_item_1": "Dalam pelayar anda, klik kanan pada bar alamat dan pilih Tetapan",
+        "list_item_2_cam": "Klik pada dropdown sebelah Kamera dan pilih Benarkan",
+        "list_item_2_mic": "Klik pada dropdown sebelah Mikrofon dan pilih Benarkan",
+        "list_item_3": "Kembali ke halaman ini dan klik butang Saya telah membuat perubahan"
+      }
+    },
+    "desktop_windows": {
+      "device_settings": {
+        "list_item_1": "Pada komputer anda, klik menu Windows [WINDOWS_ICON] dan pilih Tetapan [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "Klik Privasi (atau Privasi & Keselamatan)",
+        "list_item_3_cam": "Klik Kamera di bawah Keizinan Aplikasi dan aktifkan suis di sebelah [BROWSER_ICON] ",
+        "list_item_3_mic": "Klik Mikrofon di bawah Keizinan Aplikasi dan aktifkan suis sebelah [BROWSER_ICON]",
+        "list_item_4": "Mulakan semula pelayar anda jika perlu dan kembali ke halaman ini"
+      }
+    },
     "info": "Pemulihan",
+    "ios": {
+      "browser_settings": {
+        "list_item_1_both": "Ketuk butang Saya telah membuat perubahan. Anda akan diminta untuk mengaktifkan semula akses kamera dan mikrofon. Apabila muncul pop-up, pilih Benarkan (atau OK)",
+        "list_item_1_cam": "Ketuk butang Saya telah membuat perubahan. Anda akan diminta untuk mengaktifkan semula akses kamera. Apabila muncul pop-up, pilih Benarkan (atau OK)",
+        "list_item_1_mic": "Ketuk butang Saya telah membuat perubahan. Anda akan diminta untuk mengaktifkan semula akses mikrofon. Apabila muncul pop-up, pilih Benarkan (atau OK)"
+      },
+      "device_settings": {
+        "list_item_1": "Pada peranti anda, buka aplikasi Tetapan",
+        "list_item_2": "Tatal melalui senarai dan ketuk [BROWSER_ICON]",
+        "list_item_3_cam": "Aktifkan suis sebelah Kamera",
+        "list_item_3_mic": "Aktifkan suis sebelah Mikrofon",
+        "list_item_4": "Kembali ke halaman ini dan tekan butang Saya telah membuat perubahan"
+      }
+    },
+    "ios_safari": {
+      "device_settings": {
+        "list_item_1": "Pada peranti anda, buka aplikasi Tetapan",
+        "list_item_2": "Gulir melalui senarai dan ketuk [BROWSER_ICON]",
+        "list_item_3_cam": "Ketuk Kamera dan pilih Benarkan",
+        "list_item_3_mic": "Ketuk Mikrofon dan pilih Benarkan",
+        "list_item_4": "Kembali ke halaman ini dan tekan butang Saya telah membuat perubahan"
+      }
+    },
     "list_header_both": "Ikuti langkah-langkah ini untuk mengembalikan akses kamera dan juga mikrofon:",
     "list_header_cam": "Ikuti langkah ini untuk mengembalikan akses kamera:",
     "list_item_action_cam": "Segar semula halaman ini untuk memulakan semula proses pengesahan identiti",
@@ -431,10 +586,22 @@
     "list_item_how_to_cam": "Benarkan akses kepada kamera anda melalui tetapan pelayar anda",
     "list_item_how_to_mic": "Benarkan akses kepada mikrofon daripada tetapan pelayar anda",
     "subtitle_both": "Kembalikan akses kamera dan mikrofon untuk merakam video dan melengkapkan proses pengesahan",
-    "subtitle_cam": "Kembalikan akses kamera untuk meneruskan pengesahan anda",
+    "subtitle_cam": "Kami memerlukan akses ke kamera anda untuk mengesahkan identiti anda. Ikuti arahan di bawah untuk mendapatkan semula akses",
     "subtitle_cam_old": "Kembalikan akses kamera untuk meneruskan pengesahan wajah",
+    "subtitle_mic": "Kami memerlukan akses ke mikrofon anda untuk mengesahkan identiti anda. Ikuti arahan di bawah untuk mendapatkan semula akses",
     "title_both": "Akses kamera dan mikrofon tidak dibenarkan",
-    "title_cam": "Akses kamera tidak dibenarkan"
+    "title_cam": "Akses kamera tidak dibenarkan",
+    "title_mic": "Akses mikrofon tidak dibenarkan",
+    "web": {
+      "browser_settings": {
+        "title": "Penyelesaian 1: Tetapan pelayar"
+      },
+      "button_primary": "Saya telah membuat perubahan",
+      "device_settings": {
+        "title": "Penyelesaian 2: Tetapan peranti"
+      },
+      "disclaimer": "Proses pengesahan identiti mungkin akan dimulakan semula. Maaf atas sebarang kesulitan"
+    }
   },
   "photo_upload": {
     "body_bank_statement": "Sediakan seluruh halaman dokumen untuk mendapatkan hasil terbaik",
@@ -485,6 +652,7 @@
     "subtitle": "Anda memerlukan dokumen yang:",
     "title": "Mari sahkan alamat anda"
   },
+  "poa_welcome_text": "Ambil gambar dokumen yang mempunyai alamat anda",
   "profile_data": {
     "address_title": "Tambah alamat anda",
     "button_continue": "Teruskan",
@@ -846,7 +1014,7 @@
     "info": "Tip",
     "info_link_expire": "Pautan anda akan tamat tempoh dalam masa satu jam",
     "info_link_window": "Pastikan tetingkap ini terbuka semasa menggunakan telefon bimbit anda",
-    "link": "Hantar semula pautan",
+    "link": "Cuba cara lain",
     "subtitle": "Kami telah menghantar pautan selamat ke %{number}",
     "subtitle_minutes": "Ia mungkin mengambil masa beberapa minit untuk tiba",
     "title": "Periksa telefon bimbit anda"
@@ -861,14 +1029,14 @@
     "title": "Disambungkan ke telefon bimbit anda"
   },
   "upload_guide": {
-    "button_primary": "Muat naik foto",
+    "button_primary": "Teruskan",
     "image_detail_blur_alt": "Contoh dokumen yang kabur",
     "image_detail_blur_label": "Semua butiran mesti jelas — tiada bahagian yang kabur",
     "image_detail_cutoff_label": "Papar semua butiran — termasuk 2 baris terbawah",
     "image_detail_glare_label": "Jauhi cahaya langsung — tiada silau",
     "image_detail_good_label": "Gambar hendaklah menunjukkan dokumen anda dengan jelas",
     "subtitle": "Imbasan dan fotokopi tidak diterima",
-    "title": "Muat naik halaman foto pasport"
+    "title": "Hantar halaman foto pasport"
   },
   "user_consent": {
     "button_primary": "Bersetuju",
@@ -924,10 +1092,16 @@
   "welcome": {
     "doc_video_subtitle": "Ia akan mengambil masa beberapa minit",
     "info_original_document": "Ambil gambar dokumen asal anda. Imbasan, foto skrin atau salinan foto tidak dibenarkan.",
+    "list_header": "Gunakan peranti anda untuk:",
     "list_header_doc_video": "Guna peranti anda untuk merakam:",
     "list_header_webcam": "Gunakan kamera web atau telefon anda untuk mengambil gambar:",
     "list_item_doc": "dokumen pengenalan anda",
+    "list_item_doc_generic": "Rakam video dokumen pengenalan anda",
+    "list_item_doc_photo": "Ambil gambar dokumen pengenalan anda",
+    "list_item_doc_video": "Rakam video dokumen pengenalan anda",
     "list_item_doc_video_timeout": "Rakaman terhad kepada ​<timeout>​​</timeout>​ saat",
+    "list_item_face_photo": "Ambil gambar wajah anda",
+    "list_item_face_video": "Rakam video wajah anda",
     "list_item_poa": "bukti alamat anda",
     "list_item_selfie": "wajah anda",
     "next_button": "Pilih dokumen",

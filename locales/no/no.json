@@ -13,7 +13,10 @@
   },
   "avc_face_alignment": {
     "feedback_move_back": "Flytt deg lenger unna",
+    "feedback_move_back_accessibility": "Flytt enheten lenger unna",
     "feedback_move_closer": "Flytt deg nærmere",
+    "feedback_move_left_accessibility": "Flytt enheten til venstre",
+    "feedback_move_right_accessibility": "Flytt enheten til høyre",
     "feedback_no_face_detected": "Ansikt ikke oppdaget",
     "feedback_not_centered": "Ansiktet er ikke sentrert",
     "title": "Først, plasser ansiktet ditt i rammen"
@@ -38,7 +41,9 @@
     "list_item_one": "Først, plasser ansiktet ditt i rammen",
     "list_item_two": "Snu deretter hodet sakte til begge sider",
     "subtitle": "Dette er for å bekrefte at du er en ekte person",
-    "title": "Ta opp en video"
+    "title": "Ta opp en video",
+    "title_accessibility": "Ta opp en video av ansiktet ditt",
+    "video_accessibility": "Eksempel på en video av noen som dreier hodet til begge sider til ferdigstillelse"
   },
   "avc_no_face_detected": {
     "button_primary_restart": "Start opptaket på nytt",
@@ -71,7 +76,7 @@
     "title": "Velg utstedelsesland"
   },
   "cross_device": {
-    "button_primary_upload": "Last opp bilde"
+    "button_primary_upload": "Fortsett"
   },
   "cross_device_checklist": {
     "button_primary": "Send inn verifisering",
@@ -154,6 +159,10 @@
     "detail": {
       "folded_doc_front": "Legg dokumentet flatt, inkluder alle sidene (må inneholde bildet)"
     },
+    "header": {
+      "recording_complete": "Opptaket er fullført",
+      "recording_video": "Opptak av video"
+    },
     "header_folded_doc_front": "Profilbildeside",
     "prompt": {
       "button_card": "Plastkort",
@@ -171,7 +180,12 @@
       "glare_detail": "Flytt deg bort fra direkte lys",
       "glare_title": "Gjenskinn oppdaget",
       "no_doc_detail": "Sørg for at hele dokumentet er i rammen",
-      "no_doc_title": "Dokument ikke oppdaget"
+      "no_doc_title": "Dokument ikke oppdaget",
+      "odp_detail": "Vennligst bruk ditt originale dokument. Bilder av skjerm eller fotokopier blir ikke akseptert",
+      "odp_photo_of_screen_title": "Bilde av skjerm oppdaget",
+      "odp_photocopy_title": "Fotokopi oppdaget",
+      "odp_scan_title": "Skanning oppdaget",
+      "odp_screenshot_title": "Skjermbilde oppdaget"
     },
     "body": "Pass på at du har lastet opp hele dokumentsiden, og detaljene er tydelige og lette å lese, uten uskarphet eller gjenskinn",
     "body_bank_statement": "Pass på at du har lastet opp hele dokumentsiden, og detaljene er tydelige og lette å lese, uten uskarphet eller gjenskinn",
@@ -189,7 +203,9 @@
     "button_primary_redo": "Ta på nytt",
     "button_primary_upload": "Last opp",
     "button_primary_upload_anyway": "Last opp likevel",
+    "button_secondary_change_document": "Velg et annet dokument",
     "button_secondary_redo": "Ta på nytt",
+    "button_secondary_submit_anyway": "Send inn bilde uansett",
     "button_zoom": "Forstørr bilde",
     "image_accessibility": "Bilde av dokumentet ditt",
     "title": "Sjekk bildet ditt"
@@ -236,7 +252,7 @@
     "subtitle_photo_page": "Bildeside",
     "subtitle_poa": "Dette er dokumentene som mest sannsynlig vil vise din nåværende hjemmeadresse",
     "title": "Velg dokumentet ditt",
-    "title_poa": "Velg et %{country} -dokument"
+    "title_poa": "Velg et dokument"
   },
   "doc_submit": {
     "button_link_upload": "eller last opp bilde – ingen skanninger eller fotokopier",
@@ -414,16 +430,155 @@
   "permission": {
     "body_both": "Vi kan ikke verifisere deg uten å bruke både kameraet og mikrofonen din",
     "body_cam": "Vi kan ikke verifisere deg uten kameraet ditt",
+    "body_mic": "Vi kan ikke verifisere deg uten å bruke mikrofonen din",
     "button_primary_both": "Aktiver begge",
     "button_primary_cam": "Aktiver kamera",
+    "button_primary_mic": "Aktiver mikrofon",
     "subtitle_both": "Når du blir bedt om det, må du aktivere tilgang for at begge skal fortsette",
     "subtitle_cam": "Når du blir bedt om det, må du aktivere kameratilgangen for å fortsette",
+    "subtitle_mic": "Når du blir bedt om det, må du aktivere tilgang til begge for å fortsette",
     "title_both": "Tillat kamera- og mikrofontilgang",
-    "title_cam": "Tillat kameratilgang"
+    "title_cam": "Tillat kameratilgang",
+    "title_mic": "Tillat mikrofontilgang"
   },
   "permission_recovery": {
+    "android": {
+      "device_settings": {
+        "list_item_1": "På enheten din, åpne Innstillinger appen",
+        "list_item_2": "Trykk på Apps",
+        "list_item_3": "Trykk på [BROWSER_ICON]. Hvis du ikke finner den, trykk på Se alle apper eller Administrer apper og velg nettleserappen din",
+        "list_item_4": "Trykk på Tillatelser",
+        "list_item_5_cam": "Trykk på Kamera og velg Tillat",
+        "list_item_5_mic": "Trykk på Mikrofon og velg Tillat",
+        "list_item_6": "Kom tilbake til denne siden og trykk på Jeg har gjort endringene knappen"
+      }
+    },
+    "android_chrome": {
+      "browser_settings": {
+        "list_item_1": "I nettleseren din, trykk på låsikonet [LOCK_ICON] i adressefeltet",
+        "list_item_2": "Trykk på Tillatelser",
+        "list_item_3_cam": "Aktiver vippebryteren ved siden av Kamera",
+        "list_item_3_mic": "Aktiver vippebryteren ved siden av Mikrofon",
+        "list_item_4": "Kom tilbake til denne siden og trykk på Jeg har gjort endringene knappen"
+      }
+    },
+    "android_firefox": {
+      "browser_settings": {
+        "list_item_1": "I nettleseren din, trykk på låsikonet [LOCK_ICON] i adressefeltet",
+        "list_item_2_cam": "Trykk på Blokkert ved siden av Kamera for å bytte til Tillatt",
+        "list_item_2_mic": "Trykk på Blokkert ved siden av Mikrofon for å bytte til Tillatt",
+        "list_item_3": "Kom tilbake til denne siden og trykk på Jeg har gjort endringene knappen"
+      }
+    },
+    "android_generic": {
+      "browser_settings": {
+        "list_item_1": "I nettleseren din, åpne nettstedinnstillingene. Dette er ofte et låsikon [LOCK_ICON] i adressefeltet",
+        "list_item_2": "Finn avsnittet om tillatelser",
+        "list_item_3_cam": "Aktiver Kamera tillatelser",
+        "list_item_3_mic": "Aktiver Mikrofon tillatelser",
+        "list_item_4": "Kom tilbake til denne siden og trykk på Jeg har gjort endringene knappen"
+      }
+    },
+    "android_samsung": {
+      "browser_settings": {
+        "list_item_1": "I nettleseren din, trykk på låsikonet [LOCK_ICON] i adressefeltet",
+        "list_item_2_cam": "Aktiver vippebryteren ved siden av Kamera",
+        "list_item_2_mic": "Aktiver vippebryteren ved siden av Mikrofon",
+        "list_item_3": "Kom tilbake til denne siden og trykk på Jeg har gjort endringene knappen"
+      }
+    },
     "button_primary": "Oppdater",
+    "desktop_chrome": {
+      "browser_settings": {
+        "list_item_1": "I nettleseren din, klikk på låsikonet [LOCK_ICON] i adressefeltet",
+        "list_item_2_cam": "Aktiver vippebryteren ved siden av Kamera",
+        "list_item_2_mic": "Aktiver vippebryteren ved siden av Mikrofon",
+        "list_item_3": "Kom tilbake til denne siden og klikk på Jeg har gjort endringene knappen"
+      }
+    },
+    "desktop_edge": {
+      "browser_settings": {
+        "list_item_1": "I nettleseren din, klikk på låsikonet [LOCK_ICON] i adressefeltet",
+        "list_item_2_cam": "Klikk på rullegardinmenyen ved siden av Kamera og velg Tillat",
+        "list_item_2_mic": "Klikk på rullegardinmenyen ved siden av Mikrofon og velg Tillat",
+        "list_item_3": "Kom tilbake til denne siden og klikk på Jeg har gjort endringene knappen"
+      }
+    },
+    "desktop_firefox": {
+      "browser_settings": {
+        "list_item_1": "I nettleseren din, klikk på innstillingsikonet [SETTINGS_ICON_FIREFOX] i adressefeltet",
+        "list_item_2_cam": "Klikk på Blokkert ved siden av Bruk kameraet",
+        "list_item_2_mic": "Klikk på Blokkert ved siden av Bruk mikrofonen",
+        "list_item_3": "Kom tilbake til denne siden og klikk på Jeg har gjort endringene knappen"
+      }
+    },
+    "desktop_generic": {
+      "browser_settings": {
+        "list_item_1": "I nettleseren din, åpne nettstedinnstillingene. Dette er ofte et låsikon [LOCK_ICON] i adressefeltet",
+        "list_item_2": "Finne avsnittet om tillatelser",
+        "list_item_3_cam": "Aktiver Kamera tillatelser",
+        "list_item_3_mic": "Aktiver Mikrofon tillatelser",
+        "list_item_4": "Kom tilbake til denne siden og klikk på Jeg har gjort endringene knappen"
+      },
+      "device_settings": {
+        "list_item_1": "På datamaskinen din, åpne Innstillinger",
+        "list_item_2": "Finn avsnittet om tillatelser (vanligvis under Personvern)",
+        "list_item_3_cam": "Aktiver Kamera tillatelser for [BROWSER_ICON]",
+        "list_item_3_mic": "Aktiver Mikrofon tillatelser for [BROWSER_ICON]",
+        "list_item_4": "Start nettleseren din på nytt om nødvendig og kom tilbake til denne siden"
+      }
+    },
+    "desktop_mac": {
+      "device_settings": {
+        "list_item_1": "På datamaskinen din, klikk på Apple-menyen [APPLE_ICON] og velg Systeminnstillinger (eller Systempreferanser)",
+        "list_item_2": "Klikk på Personvern & Sikkerhet (eller Sikkerhet & Personvern) i sidefeltet ",
+        "list_item_3": "Klikk på Senere i popup-vinduet",
+        "list_item_3_cam": "Klikk på Kamera og aktiver vekselen (eller avkrysningsboksen) ved siden av [BROWSER_ICON]",
+        "list_item_4": "Klikk på Avslutt & Åpne på nytt i popup-vinduet og kom tilbake til denne siden",
+        "list_item_4_mic": "Klikk på Mikrofon og aktiver vekselen (eller avkrysningsboksen) ved siden av [BROWSER_ICON]"
+      }
+    },
+    "desktop_safari": {
+      "browser_settings": {
+        "list_item_1": "I nettleseren din, høyreklikk i adressefeltet og velg Innstillinger",
+        "list_item_2_cam": "Klikk på rullegardinmenyen ved siden av Kamera og velg Tillat",
+        "list_item_2_mic": "Klikk på rullegardinmenyen ved siden av Mikrofon og velg Tillat",
+        "list_item_3": "Kom tilbake til denne siden og klikk på Jeg har gjort endringene knappen"
+      }
+    },
+    "desktop_windows": {
+      "device_settings": {
+        "list_item_1": "På datamaskinen din, klikk på Windows-menyen [WINDOWS_ICON] og velg Innstillinger [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "Klikk på Personvern (eller Personvern & Sikkerhet)",
+        "list_item_3_cam": "Klikk på Kamera under App-tillatelser og aktiver vekselen ved siden av [BROWSER_ICON] ",
+        "list_item_3_mic": "Klikk på Mikrofon under App-tillatelser og aktiver vekselen ved siden av [BROWSER_ICON]",
+        "list_item_4": "Start nettleseren din på nytt om nødvendig og kom tilbake til denne siden"
+      }
+    },
     "info": "Gjenoppretning",
+    "ios": {
+      "browser_settings": {
+        "list_item_1_both": "Trykk på Jeg har gjort endringene knappen. Du vil bli bedt om å aktivere kamera og mikrofon tilgang igjen. Når pop-up vises, velg Tillat (eller OK)",
+        "list_item_1_cam": "Trykk på Jeg har gjort endringene knappen. Du vil bli bedt om å aktivere kameraadgang igjen. Når pop-up-vinduet vises, velg Tillat (eller OK)",
+        "list_item_1_mic": "Trykk på Jeg har gjort endringene knappen. Du vil bli bedt om å aktivere mikrofontilgang igjen. Når pop-up-vinduet vises, velg Tillat (eller OK)"
+      },
+      "device_settings": {
+        "list_item_1": "På enheten din, åpne Innstillinger appen",
+        "list_item_2": "Rull gjennom listen og trykk på [BROWSER_ICON]",
+        "list_item_3_cam": "Aktiver vippebryteren ved siden av Kamera",
+        "list_item_3_mic": "Aktiver vippebryteren ved siden av Mikrofon",
+        "list_item_4": "Kom tilbake til denne siden og trykk på Jeg har gjort endringene knappen"
+      }
+    },
+    "ios_safari": {
+      "device_settings": {
+        "list_item_1": "På enheten din, åpne Innstillinger appen",
+        "list_item_2": "Rull gjennom listen og trykk på [BROWSER_ICON]",
+        "list_item_3_cam": "Trykk på Kamera og velg Tillat",
+        "list_item_3_mic": "Trykk på Mikrofon og velg Tillat",
+        "list_item_4": "Kom tilbake til denne siden og trykk på Jeg har gjort endringene knappen"
+      }
+    },
     "list_header_both": "Følg disse trinnene for å gjenopprette tilgang til begge:",
     "list_header_cam": "Følg disse trinnene for å gjenopprette kameratilgangen:",
     "list_item_action_cam": "Oppdater denne siden for å starte prosessen for identitetsbekreftelse på nytt",
@@ -431,10 +586,22 @@
     "list_item_how_to_cam": "Gi tilgang til kameraet i nettleserinnstillingene",
     "list_item_how_to_mic": "Gi mikrofonen tilgang i nettleserinnstillingene",
     "subtitle_both": "Gjenopprett kameratilgang for å ta en video og fullfør verifiseringsprosessen",
-    "subtitle_cam": "Gjenopprett kameratilgang for å fortsette verifiseringen",
+    "subtitle_cam": "Vi trenger tilgang til kameraet ditt for å verifisere identiteten din. Følg instruksjonene nedenfor for å gjenopprette tilgang",
     "subtitle_cam_old": "Gjenopprett kameratilgangen for å fortsette ansiktsverifiseringen",
+    "subtitle_mic": "Vi trenger tilgang til mikrofonen din for å verifisere identiteten din. Følg instruksjonene nedenfor for å gjenopprette tilgangen",
     "title_both": "Kamera- og mikrofontilgang nektet",
-    "title_cam": "Kameratilgang er nektet"
+    "title_cam": "Kameratilgang er nektet",
+    "title_mic": "Mikrofontilgang nektet",
+    "web": {
+      "browser_settings": {
+        "title": "Løsning 1: Nettleserinnstillinger"
+      },
+      "button_primary": "Jeg har gjort endringene",
+      "device_settings": {
+        "title": "Løsning 2: Innstillinger for enhet"
+      },
+      "disclaimer": "Identitetsbekreftelsesprosessen kan starte på nytt. Beklager eventuelle ulemper"
+    }
   },
   "photo_upload": {
     "body_bank_statement": "Bruk hele dokumentsiden for det beste resultatet",
@@ -485,6 +652,7 @@
     "subtitle": "Du trenger et dokument som:",
     "title": "La oss bekrefte adressen din"
   },
+  "poa_welcome_text": "Ta et bilde av et dokument som inneholder adressen din",
   "profile_data": {
     "address_title": "Legg til adressen din",
     "button_continue": "Fortsett",
@@ -846,7 +1014,7 @@
     "info": "Tips",
     "info_link_expire": "Mobilkoblingen din utløper om én time",
     "info_link_window": "Hold dette vinduet åpent mens du bruker mobilen",
-    "link": "Send lenken på nytt",
+    "link": "Prøv en annen metode",
     "subtitle": "Vi har sendt en sikker lenke til %{number}",
     "subtitle_minutes": "Det kan ta noen minutter før du får den",
     "title": "Sjekk mobilen din"
@@ -861,14 +1029,14 @@
     "title": "Koblet til mobilen din"
   },
   "upload_guide": {
-    "button_primary": "Last opp bilde",
+    "button_primary": "Fortsett",
     "image_detail_blur_alt": "Eksempel på et uskarpt dokument",
     "image_detail_blur_label": "Alle detaljer må være tydelige – ingenting uskarpt",
     "image_detail_cutoff_label": "Vis alle detaljer – inkludert de nederste to linjene",
     "image_detail_glare_label": "Gå vekk fra direkte lys – ingen gjenskinn",
     "image_detail_good_label": "Bildet må tydelig vise dokumentet ditt",
     "subtitle": "Skanninger og fotokopier aksepteres ikke",
-    "title": "Last opp passets bildeside"
+    "title": "Send inn bildesiden av passet"
   },
   "user_consent": {
     "button_primary": "Godta",
@@ -924,10 +1092,16 @@
   "welcome": {
     "doc_video_subtitle": "Det tar bare noen minutter",
     "info_original_document": "Ta et bilde av originaldokumentet ditt. Skanninger, bilder av skjermer eller fotokopier er ikke tillatt.",
+    "list_header": "Bruk enheten til å:",
     "list_header_doc_video": "Bruk enheten til å ta opp:",
     "list_header_webcam": "Bruk webkameraet eller telefonen til å fotografere:",
     "list_item_doc": "legitimasjonen din",
+    "list_item_doc_generic": "Lag en video av identitetsdokumentet ditt",
+    "list_item_doc_photo": "Ta et bilde av legitimasjonen din",
+    "list_item_doc_video": "Spille inn en video av legitimasjonen din",
     "list_item_doc_video_timeout": "Opptaket er begrenset til ​<timeout>​​</timeout>​ sekunder",
+    "list_item_face_photo": "Ta et bilde av ansiktet ditt",
+    "list_item_face_video": "Ta opp en video av ansiktet ditt",
     "list_item_poa": "adressebevis",
     "list_item_selfie": "ansiktet ditt",
     "next_button": "Velg dokument",
