@@ -483,3 +483,7 @@ index.html
   </body>
 </html>
 ```
+
+## Crossdevice SDK options
+
+- `customUI` - Apply UI customisation to the crossDevice instance. If supplied, the crossdevice customUI will take president over the one specified in the main SDK instance.
