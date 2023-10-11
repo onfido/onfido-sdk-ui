@@ -444,139 +444,139 @@
   "permission_recovery": {
     "android": {
       "device_settings": {
-        "list_item_1": "Avaa Asetukset -sovellus laitteellasi",
-        "list_item_2": "Napauta Sovellukset",
-        "list_item_3": "Napauta [BROWSER_ICON]. Jos et löydä sitä, napauta Näytä kaikki sovellukset tai Hallitse sovelluksia ja valitse selainsovelluksesi",
-        "list_item_4": "Napauta Oikeudet",
-        "list_item_5_cam": "Napauta Kameraa ja valitse Salli",
-        "list_item_5_mic": "Napauta Mikrofoni ja valitse Salli",
-        "list_item_6": "Palaa tälle sivulle ja napauta Olen tehnyt muutokset -painiketta"
+        "list_item_1": "Avaa <strong>Asetukset</strong> -sovellus laitteellasi",
+        "list_item_2": "Napauta <strong>Sovellukset</strong>",
+        "list_item_3": "Napauta [BROWSER_ICON]. Jos et löydä sitä, napauta <strong>Näytä kaikki sovellukset</strong> tai <strong>Hallitse sovelluksia</strong> ja valitse selainsovelluksesi",
+        "list_item_4": "Napauta <strong>Oikeudet</strong>",
+        "list_item_5_cam": "Napauta <strong>Kameraa</strong> ja valitse <strong>Salli</strong>",
+        "list_item_5_mic": "Napauta <strong>Mikrofoni</strong> ja valitse <strong>Salli</strong>",
+        "list_item_6": "Palaa tälle sivulle ja napauta <strong>Olen tehnyt muutokset</strong> -painiketta"
       }
     },
     "android_chrome": {
       "browser_settings": {
         "list_item_1": "Napauta lukkokuvaketta [LOCK_ICON] osoiterivillä selaimessasi",
-        "list_item_2": "Napauta Oikeudet",
-        "list_item_3_cam": "Ota käyttöön vipu Kamera vieressä",
-        "list_item_3_mic": "Ota käyttöön vipu vieressä Mikrofoni",
-        "list_item_4": "Palaa takaisin tälle sivulle ja napauta Olen tehnyt muutokset -painiketta"
+        "list_item_2": "Napauta <strong>Oikeudet</strong>",
+        "list_item_3_cam": "Ota käyttöön vipu <strong>Kamera</strong> vieressä",
+        "list_item_3_mic": "Ota käyttöön vipu vieressä <strong>Mikrofoni</strong>",
+        "list_item_4": "Palaa takaisin tälle sivulle ja napauta <strong>Olen tehnyt muutokset</strong> -painiketta"
       }
     },
     "android_firefox": {
       "browser_settings": {
         "list_item_1": "Valitse lukkokuvake [LOCK_ICON] osoiteriviltä selaimessasi",
-        "list_item_2_cam": "Napauta Estetty vieressä Kamera vaihtaaksesi Sallittu",
-        "list_item_2_mic": "Napauta Estetty vieressä Mikrofoni vaihtaaksesi Sallittu",
-        "list_item_3": "Palaa tälle sivulle ja napauta Olen tehnyt muutokset -painiketta"
+        "list_item_2_cam": "Napauta <strong>Estetty</strong> vieressä <strong>Kamera</strong> vaihtaaksesi <strong>Sallittu</strong>",
+        "list_item_2_mic": "Napauta <strong>Estetty</strong> vieressä <strong>Mikrofoni</strong> vaihtaaksesi <strong>Sallittu</strong>",
+        "list_item_3": "Palaa tälle sivulle ja napauta <strong>Olen tehnyt muutokset</strong> -painiketta"
       }
     },
     "android_generic": {
       "browser_settings": {
         "list_item_1": "Avaa selaimessasi verkkosivuston asetukset. Tämä on usein lukon kuvake [LOCK_ICON] osoitepalkissa",
         "list_item_2": "Etsi osio oikeuksista",
-        "list_item_3_cam": "Ota käyttöön Kamera -oikeudet",
-        "list_item_3_mic": "Ota käyttöön Mikrofoni -oikeudet",
-        "list_item_4": "Palaa takaisin tälle sivulle ja napauta Olen tehnyt muutokset -painiketta"
+        "list_item_3_cam": "Ota käyttöön <strong>Kamera</strong> -oikeudet",
+        "list_item_3_mic": "Ota käyttöön <strong>Mikrofoni</strong> -oikeudet",
+        "list_item_4": "Palaa takaisin tälle sivulle ja napauta <strong>Olen tehnyt muutokset</strong> -painiketta"
       }
     },
     "android_samsung": {
       "browser_settings": {
         "list_item_1": "Avaa selaimessasi lukitusikoni [LOCK_ICON] osoiterivillä",
-        "list_item_2_cam": "Ota käyttöön vipu vieressä Kamera",
-        "list_item_2_mic": "Ota käyttöön vipu vieressä Mikrofoni",
-        "list_item_3": "Palaa takaisin tälle sivulle ja napauta Olen tehnyt muutokset -painiketta"
+        "list_item_2_cam": "Ota käyttöön vipu vieressä <strong>Kamera</strong>",
+        "list_item_2_mic": "Ota käyttöön vipu vieressä <strong>Mikrofoni</strong>",
+        "list_item_3": "Palaa takaisin tälle sivulle ja napauta <strong>Olen tehnyt muutokset</strong> -painiketta"
       }
     },
     "button_primary": "Päivitä",
     "desktop_chrome": {
       "browser_settings": {
         "list_item_1": "Napsauta lukkokuvaketta [LOCK_ICON] osoiterivillä selaimessasi",
-        "list_item_2_cam": "Ota käyttöön vipu vieressä Kamera",
-        "list_item_2_mic": "Ota käyttöön vipu vieressä Mikrofoni",
-        "list_item_3": "Palaa takaisin tälle sivulle ja klikkaa Olen tehnyt muutokset -painiketta"
+        "list_item_2_cam": "Ota käyttöön vipu vieressä <strong>Kamera</strong>",
+        "list_item_2_mic": "Ota käyttöön vipu vieressä <strong>Mikrofoni</strong>",
+        "list_item_3": "Palaa takaisin tälle sivulle ja klikkaa <strong>Olen tehnyt muutokset</strong> -painiketta"
       }
     },
     "desktop_edge": {
       "browser_settings": {
         "list_item_1": "Napsauta lukkokuvaketta [LOCK_ICON] osoiterivillä selaimessasi",
-        "list_item_2_cam": "Napsauta pudotusvalikkoa kohdassa Kamera ja valitse Salli",
-        "list_item_2_mic": "Napsauta pudotusvalikkoa kohdassa Mikrofoni ja valitse Salli",
-        "list_item_3": "Palaa takaisin tälle sivulle ja klikkaa Olen tehnyt muutokset -painiketta"
+        "list_item_2_cam": "Napsauta pudotusvalikkoa kohdassa <strong>Kamera</strong> ja valitse <strong>Salli</strong>",
+        "list_item_2_mic": "Napsauta pudotusvalikkoa kohdassa <strong>Mikrofoni</strong> ja valitse <strong>Salli</strong>",
+        "list_item_3": "Palaa takaisin tälle sivulle ja klikkaa <strong>Olen tehnyt muutokset</strong> -painiketta"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
         "list_item_1": "Napsauta selaimessasi asetuskuvaketta [SETTINGS_ICON_FIREFOX] osoiterivillä",
-        "list_item_2_cam": "Napsauta Estetty kohtaa Käytä kameraa",
-        "list_item_2_mic": "Napsauta Estetty kohdassa Käytä mikrofonia",
-        "list_item_3": "Palaa takaisin tälle sivulle ja klikkaa Olen tehnyt muutokset -painiketta"
+        "list_item_2_cam": "Napsauta <strong>Estetty</strong> kohtaa <strong>Käytä kameraa</strong>",
+        "list_item_2_mic": "Napsauta <strong>Estetty</strong> kohdassa <strong>Käytä mikrofonia</strong>",
+        "list_item_3": "Palaa takaisin tälle sivulle ja klikkaa <strong>Olen tehnyt muutokset</strong> -painiketta"
       }
     },
     "desktop_generic": {
       "browser_settings": {
         "list_item_1": "Avaa selaimessasi verkkosivuston asetukset. Tämä on usein lukon kuvake [LOCK_ICON] osoitepalkissa",
         "list_item_2": "Etsi osio oikeuksista",
-        "list_item_3_cam": "Ota käyttöön Kamera -oikeudet",
-        "list_item_3_mic": "Ota käyttöön Mikrofoni -oikeudet",
-        "list_item_4": "Palaa tälle sivulle ja klikkaa Olen tehnyt muutokset -painiketta"
+        "list_item_3_cam": "Ota käyttöön <strong>Kamera</strong> -oikeudet",
+        "list_item_3_mic": "Ota käyttöön <strong>Mikrofoni</strong> -oikeudet",
+        "list_item_4": "Palaa tälle sivulle ja klikkaa <strong>Olen tehnyt muutokset</strong> -painiketta"
       },
       "device_settings": {
-        "list_item_1": "Avaa Asetukset tietokoneellasi",
-        "list_item_2": "Etsi osio, joka käsittelee oikeuksia (yleensä Yksityisyys -kohdassa)",
-        "list_item_3_cam": "Ota käyttöön Kamera -oikeudet kohteelle [BROWSER_ICON]",
-        "list_item_3_mic": "Ota käyttöön Mikrofoni -oikeudet kohteelle [BROWSER_ICON]",
+        "list_item_1": "Avaa <strong>Asetukset</strong> tietokoneellasi",
+        "list_item_2": "Etsi osio, joka käsittelee oikeuksia (yleensä <strong>Yksityisyys</strong> -kohdassa)",
+        "list_item_3_cam": "Ota käyttöön <strong>Kamera</strong> -oikeudet kohteelle [BROWSER_ICON]",
+        "list_item_3_mic": "Ota käyttöön <strong>Mikrofoni</strong> -oikeudet kohteelle [BROWSER_ICON]",
         "list_item_4": "Käynnistä selain tarvittaessa uudelleen ja palaa tälle sivulle"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "Tietokoneellasi, napsauta Apple-valikkoa [APPLE_ICON] ja valitse Järjestelmäasetukset (tai Järjestelmäasetukset)",
-        "list_item_2": "Napsauta Yksityisyys & turvallisuus (tai Turvallisuus & yksityisyys) sivupalkissa ",
-        "list_item_3": "Napsauta Myöhemmin ponnahdusikkunassa",
-        "list_item_3_cam": "Napsauta Kameraa ja aktivoi kytkin (tai valintaruutu) kohdassa [BROWSER_ICON]",
-        "list_item_4": "Napsauta Lopeta ja avaa uudelleen -painiketta ponnahdusikkunassa ja palaa takaisin tälle sivulle",
-        "list_item_4_mic": "Napsauta Mikrofoni ja aktivoi kytkin (tai valintaruutu) kohdassa [BROWSER_ICON]"
+        "list_item_1": "Tietokoneellasi, napsauta Apple-valikkoa [APPLE_ICON] ja valitse <strong>Järjestelmäasetukset</strong> (tai <strong>Järjestelmäasetukset</strong>)",
+        "list_item_2": "Napsauta <strong>Yksityisyys & turvallisuus</strong> (tai <strong>Turvallisuus & yksityisyys</strong>) sivupalkissa ",
+        "list_item_3": "Napsauta <strong>Myöhemmin</strong> ponnahdusikkunassa",
+        "list_item_3_cam": "Napsauta <strong>Kameraa</strong> ja aktivoi kytkin (tai valintaruutu) kohdassa [BROWSER_ICON]",
+        "list_item_4": "Napsauta <strong>Lopeta ja avaa uudelleen</strong> -painiketta ponnahdusikkunassa ja palaa takaisin tälle sivulle",
+        "list_item_4_mic": "Napsauta <strong>Mikrofoni</strong> ja aktivoi kytkin (tai valintaruutu) kohdassa [BROWSER_ICON]"
       }
     },
     "desktop_safari": {
       "browser_settings": {
-        "list_item_1": "Osoitepalkissa selaimessasi, napsauta oikealla ja valitse Asetukset",
-        "list_item_2_cam": "Napsauta pudotusvalikkoa kohdassa Kamera ja valitse Salli",
-        "list_item_2_mic": "Napsauta pudotusvalikkoa kohdassa Mikrofoni ja valitse Salli",
-        "list_item_3": "Palaa takaisin tälle sivulle ja napsauta Olen tehnyt muutokset -painiketta"
+        "list_item_1": "Osoitepalkissa selaimessasi, napsauta oikealla ja valitse <strong>Asetukset</strong>",
+        "list_item_2_cam": "Napsauta pudotusvalikkoa kohdassa <strong>Kamera</strong> ja valitse <strong>Salli</strong>",
+        "list_item_2_mic": "Napsauta pudotusvalikkoa kohdassa <strong>Mikrofoni</strong> ja valitse <strong>Salli</strong>",
+        "list_item_3": "Palaa takaisin tälle sivulle ja napsauta <strong>Olen tehnyt muutokset</strong> -painiketta"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "Tietokoneellasi, napsauta Windows-valikkoa [WINDOWS_ICON] ja valitse Asetukset [SETTINGS_ICON_WINDOWS]",
-        "list_item_2": "Napsauta Yksityisyys (tai Yksityisyys & Turvallisuus)",
-        "list_item_3_cam": "Napsauta Kameraa kohdassa Sovelluslupien alla ja aktivoi kytkin vieressä [BROWSER_ICON] ",
-        "list_item_3_mic": "Napsauta Mikrofoni kohdassa Sovelluksen oikeudet ja aktivoi kytkin vieressä [BROWSER_ICON]",
+        "list_item_1": "Tietokoneellasi, napsauta Windows-valikkoa [WINDOWS_ICON] ja valitse <strong>Asetukset</strong> [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "Napsauta <strong>Yksityisyys</strong> (tai <strong>Yksityisyys & Turvallisuus</strong>)",
+        "list_item_3_cam": "Napsauta <strong>Kameraa</strong> kohdassa <strong>Sovelluslupien</strong> alla ja aktivoi kytkin vieressä [BROWSER_ICON] ",
+        "list_item_3_mic": "Napsauta <strong>Mikrofoni</strong> kohdassa <strong>Sovelluksen oikeudet</strong> ja aktivoi kytkin vieressä [BROWSER_ICON]",
         "list_item_4": "Käynnistä selain tarvittaessa uudelleen ja palaa tälle sivulle"
       }
     },
     "info": "Palautus",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "Napauta Olen tehnyt muutokset -painiketta. Sinua pyydetään sallimaan kamera- ja mikrofonikäyttö uudelleen. Kun ponnahdusikkuna tulee näkyviin, valitse Salli (tai OK)",
-        "list_item_1_cam": "Napauta Olen tehnyt muutokset -painiketta. Sinua pyydetään sallimaan kameran käyttö uudelleen. Kun ponnahdusikkuna tulee näkyviin, valitse Salli (tai OK)",
-        "list_item_1_mic": "Napauta Olen tehnyt muutokset -painiketta. Sinua pyydetään sallimaan mikrofonin käyttö uudelleen. Kun ponnahdusikkuna tulee näkyviin, valitse Salli (tai OK)"
+        "list_item_1_both": "Napauta <strong>Olen tehnyt muutokset</strong> -painiketta. Sinua pyydetään sallimaan kamera- ja mikrofonikäyttö uudelleen. Kun ponnahdusikkuna tulee näkyviin, valitse <strong>Salli</strong> (tai <strong>OK</strong>)",
+        "list_item_1_cam": "Napauta <strong>Olen tehnyt muutokset</strong> -painiketta. Sinua pyydetään sallimaan kameran käyttö uudelleen. Kun ponnahdusikkuna tulee näkyviin, valitse <strong>Salli</strong> (tai <strong>OK</strong>)",
+        "list_item_1_mic": "Napauta <strong>Olen tehnyt muutokset</strong> -painiketta. Sinua pyydetään sallimaan mikrofonin käyttö uudelleen. Kun ponnahdusikkuna tulee näkyviin, valitse <strong>Salli</strong> (tai <strong>OK</strong>)"
       },
       "device_settings": {
-        "list_item_1": "Avaa Asetukset -sovellus laitteellasi",
+        "list_item_1": "Avaa <strong>Asetukset</strong> -sovellus laitteellasi",
         "list_item_2": "Vieritä luetteloa ja napauta [BROWSER_ICON]",
-        "list_item_3_cam": "Ota käyttöön vipu Kamera -kohdan vieressä",
-        "list_item_3_mic": "Ota käyttöön vipu vieressä Mikrofoni",
-        "list_item_4": "Palaa takaisin tälle sivulle ja napauta Olen tehnyt muutokset -painiketta"
+        "list_item_3_cam": "Ota käyttöön vipu <strong>Kamera</strong> -kohdan vieressä",
+        "list_item_3_mic": "Ota käyttöön vipu vieressä <strong>Mikrofoni</strong>",
+        "list_item_4": "Palaa takaisin tälle sivulle ja napauta <strong>Olen tehnyt muutokset</strong> -painiketta"
       }
     },
     "ios_safari": {
       "device_settings": {
-        "list_item_1": "Avaa Asetukset -sovellus laitteellasi",
+        "list_item_1": "Avaa <strong>Asetukset</strong> -sovellus laitteellasi",
         "list_item_2": "Vieritä luetteloa ja napauta [BROWSER_ICON]",
-        "list_item_3_cam": "Napauta Kameraa ja valitse Salli",
-        "list_item_3_mic": "Napauta Mikrofoni ja valitse Salli",
-        "list_item_4": "Palaa takaisin tälle sivulle ja napauta Olen tehnyt muutokset -painiketta"
+        "list_item_3_cam": "Napauta <strong>Kameraa</strong> ja valitse <strong>Salli</strong>",
+        "list_item_3_mic": "Napauta <strong>Mikrofoni</strong> ja valitse <strong>Salli</strong>",
+        "list_item_4": "Palaa takaisin tälle sivulle ja napauta <strong>Olen tehnyt muutokset</strong> -painiketta"
       }
     },
     "list_header_both": "Palauta molempien käyttöoikeudet näin:",

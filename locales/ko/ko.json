@@ -444,139 +444,139 @@
   "permission_recovery": {
     "android": {
       "device_settings": {
-        "list_item_1": "당신의 장치에서 설정 앱을 엽니다",
-        "list_item_2": "앱을 탭하세요",
-        "list_item_3": "[BROWSER_ICON]을 탭하세요. 찾을 수 없다면 모든 앱 보기 또는 앱 관리를 탭하고 브라우저 앱을 선택하세요.",
-        "list_item_4": "권한을 탭하세요",
-        "list_item_5_cam": "카메라를 탭하고 허용을 선택하세요",
-        "list_item_5_mic": "마이크를 탭하고 허용을 선택하세요",
-        "list_item_6": "이 페이지로 돌아와서 변경 사항을 적용했습니다 버튼을 누르세요"
+        "list_item_1": "당신의 장치에서 <strong>설정</strong> 앱을 엽니다",
+        "list_item_2": "<strong>앱</strong>을 탭하세요",
+        "list_item_3": "[BROWSER_ICON]을 탭하세요. 찾을 수 없다면 <strong>모든 앱 보기</strong> 또는 <strong>앱 관리</strong>를 탭하고 브라우저 앱을 선택하세요.",
+        "list_item_4": "<strong>권한</strong>을 탭하세요",
+        "list_item_5_cam": "<strong>카메라</strong>를 탭하고 <strong>허용</strong>을 선택하세요",
+        "list_item_5_mic": "<strong>마이크</strong>를 탭하고 <strong>허용</strong>을 선택하세요",
+        "list_item_6": "이 페이지로 돌아와서 <strong>변경 사항을 적용했습니다</strong> 버튼을 누르세요"
       }
     },
     "android_chrome": {
       "browser_settings": {
         "list_item_1": "브라우저에서 주소 표시 줄에 있는 자물쇠 아이콘 [LOCK_ICON]을 탭하세요",
-        "list_item_2": "권한을 탭하세요",
-        "list_item_3_cam": "카메라 옆의 토글을 활성화하세요",
-        "list_item_3_mic": "마이크 옆의 토글을 활성화하세요",
-        "list_item_4": "이 페이지로 돌아와서 변경 사항을 적용했습니다 버튼을 누르세요"
+        "list_item_2": "<strong>권한</strong>을 탭하세요",
+        "list_item_3_cam": "<strong>카메라</strong> 옆의 토글을 활성화하세요",
+        "list_item_3_mic": "<strong>마이크</strong> 옆의 토글을 활성화하세요",
+        "list_item_4": "이 페이지로 돌아와서 <strong>변경 사항을 적용했습니다</strong> 버튼을 누르세요"
       }
     },
     "android_firefox": {
       "browser_settings": {
         "list_item_1": "브라우저에서 주소 표시 줄에 있는 자물쇠 아이콘 [LOCK_ICON]을 탭하세요",
-        "list_item_2_cam": "차단 옆에 있는 카메라를 탭하여 허용으로 전환하세요.",
-        "list_item_2_mic": "마이크 옆에 있는 차단됨을 탭하여 허용됨으로 전환하세요",
-        "list_item_3": "이 페이지로 돌아와 변경 사항을 적용했습니다 버튼을 누르세요"
+        "list_item_2_cam": "<strong>차단</strong> 옆에 있는 <strong>카메라</strong>를 탭하여 <strong>허용</strong>으로 전환하세요.",
+        "list_item_2_mic": "<strong>마이크</strong> 옆에 있는 <strong>차단됨</strong>을 탭하여 <strong>허용됨</strong>으로 전환하세요",
+        "list_item_3": "이 페이지로 돌아와 <strong>변경 사항을 적용했습니다</strong> 버튼을 누르세요"
       }
     },
     "android_generic": {
       "browser_settings": {
         "list_item_1": "브라우저에서 웹사이트 설정을 엽니다. 이는 주소 표시 줄에 있는 자물쇠 아이콘 [LOCK_ICON]인 경우가 많습니다",
         "list_item_2": "권한에 대한 섹션을 찾으십시오",
-        "list_item_3_cam": "카메라 권한을 활성화하십시오",
-        "list_item_3_mic": "마이크 권한을 활성화하십시오",
-        "list_item_4": "이 페이지로 돌아와 변경 사항을 적용했습니다 버튼을 누르세요"
+        "list_item_3_cam": "<strong>카메라</strong> 권한을 활성화하십시오",
+        "list_item_3_mic": "<strong>마이크</strong> 권한을 활성화하십시오",
+        "list_item_4": "이 페이지로 돌아와 <strong>변경 사항을 적용했습니다</strong> 버튼을 누르세요"
       }
     },
     "android_samsung": {
       "browser_settings": {
         "list_item_1": "브라우저에서 주소 표시 줄에 있는 자물쇠 아이콘 [LOCK_ICON]을 탭하세요",
-        "list_item_2_cam": "카메라 옆의 토글을 활성화하세요",
-        "list_item_2_mic": "마이크 옆의 토글을 활성화하세요",
-        "list_item_3": "이 페이지로 돌아와 변경 사항을 적용했습니다 버튼을 누르세요"
+        "list_item_2_cam": "<strong>카메라</strong> 옆의 토글을 활성화하세요",
+        "list_item_2_mic": "<strong>마이크</strong> 옆의 토글을 활성화하세요",
+        "list_item_3": "이 페이지로 돌아와 <strong>변경 사항을 적용했습니다</strong> 버튼을 누르세요"
       }
     },
     "button_primary": "새로 고침",
     "desktop_chrome": {
       "browser_settings": {
         "list_item_1": "브라우저에서 주소 표시 줄에 있는 자물쇠 아이콘 [LOCK_ICON]을 클릭하세요",
-        "list_item_2_cam": "카메라 옆의 토글을 활성화하세요",
-        "list_item_2_mic": "마이크 옆의 토글을 활성화하세요",
-        "list_item_3": "이 페이지로 돌아와서 변경 사항을 적용했습니다 버튼을 클릭하세요"
+        "list_item_2_cam": "<strong>카메라</strong> 옆의 토글을 활성화하세요",
+        "list_item_2_mic": "<strong>마이크</strong> 옆의 토글을 활성화하세요",
+        "list_item_3": "이 페이지로 돌아와서 <strong>변경 사항을 적용했습니다</strong> 버튼을 클릭하세요"
       }
     },
     "desktop_edge": {
       "browser_settings": {
         "list_item_1": "브라우저에서 주소 표시 줄에 있는 자물쇠 아이콘 [LOCK_ICON]을 클릭하세요.",
-        "list_item_2_cam": "카메라 옆의 드롭다운을 클릭하고 허용을 선택하세요",
-        "list_item_2_mic": "마이크 옆의 드롭다운을 클릭하고 허용을 선택하세요",
-        "list_item_3": "이 페이지로 돌아와서 변경 사항을 적용했습니다 버튼을 클릭하세요"
+        "list_item_2_cam": "<strong>카메라</strong> 옆의 드롭다운을 클릭하고 <strong>허용</strong>을 선택하세요",
+        "list_item_2_mic": "<strong>마이크</strong> 옆의 드롭다운을 클릭하고 <strong>허용</strong>을 선택하세요",
+        "list_item_3": "이 페이지로 돌아와서 <strong>변경 사항을 적용했습니다</strong> 버튼을 클릭하세요"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
         "list_item_1": "브라우저에서 주소 표시 줄에 있는 설정 아이콘 [SETTINGS_ICON_FIREFOX]을 클릭하세요.",
-        "list_item_2_cam": "차단을 클릭하고 카메라 사용 옆에 있습니다",
-        "list_item_2_mic": "마이크 사용 옆에 있는 차단을 클릭하세요",
-        "list_item_3": "이 페이지로 돌아와서 변경 사항을 적용했습니다 버튼을 클릭하세요"
+        "list_item_2_cam": "<strong>차단</strong>을 클릭하고 <strong>카메라 사용</strong> 옆에 있습니다",
+        "list_item_2_mic": "<strong>마이크 사용</strong> 옆에 있는 <strong>차단</strong>을 클릭하세요",
+        "list_item_3": "이 페이지로 돌아와서 <strong>변경 사항을 적용했습니다</strong> 버튼을 클릭하세요"
       }
     },
     "desktop_generic": {
       "browser_settings": {
         "list_item_1": "브라우저에서 웹사이트 설정을 엽니다. 이는 주소 표시 줄에 있는 자물쇠 아이콘 [LOCK_ICON]인 경우가 많습니다",
         "list_item_2": "권한에 관한 섹션을 찾으십시오",
-        "list_item_3_cam": "카메라 권한을 활성화하십시오",
-        "list_item_3_mic": "마이크 권한을 활성화하십시오",
-        "list_item_4": "이 페이지로 돌아와 변경했습니다 버튼을 클릭하세요"
+        "list_item_3_cam": "<strong>카메라</strong> 권한을 활성화하십시오",
+        "list_item_3_mic": "<strong>마이크</strong> 권한을 활성화하십시오",
+        "list_item_4": "이 페이지로 돌아와 <strong>변경했습니다</strong> 버튼을 클릭하세요"
       },
       "device_settings": {
-        "list_item_1": "컴퓨터에서 설정을 엽니다",
-        "list_item_2": "(개인 정보 보호 보통 아래에 있는) 권한에 관한 섹션을 찾으십시오.",
-        "list_item_3_cam": "[BROWSER_ICON]에 대한 카메라 권한을 활성화하세요",
-        "list_item_3_mic": "[BROWSER_ICON]에 대한 마이크 권한을 활성화하세요.",
+        "list_item_1": "컴퓨터에서 <strong>설정</strong>을 엽니다",
+        "list_item_2": "(<strong>개인 정보 보호</strong> 보통 아래에 있는) 권한에 관한 섹션을 찾으십시오.",
+        "list_item_3_cam": "[BROWSER_ICON]에 대한 <strong>카메라</strong> 권한을 활성화하세요",
+        "list_item_3_mic": "[BROWSER_ICON]에 대한 <strong>마이크</strong> 권한을 활성화하세요.",
         "list_item_4": "필요한 경우 브라우저를 다시 시작하고 이 페이지로 돌아오세요"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "컴퓨터에서 Apple 메뉴 [APPLE_ICON]를 클릭하고 시스템 설정 또는 시스템 환경설정을 선택하세요.",
-        "list_item_2": "사이드바에서 개인정보 및 보안 (또는 보안 및 개인정보)를 클릭하세요 ",
-        "list_item_3": "팝업에서 나중에를 클릭하세요",
-        "list_item_3_cam": "카메라를 클릭하고 [BROWSER_ICON] 옆의 토글(또는 체크박스)을 활성화하세요.",
-        "list_item_4": "팝업에서 종료 후 다시 열기를 클릭하고 이 페이지로 돌아오세요",
-        "list_item_4_mic": "마이크를 클릭하고 [BROWSER_ICON] 옆의 토글(또는 체크박스)을 활성화하세요."
+        "list_item_1": "컴퓨터에서 Apple 메뉴 [APPLE_ICON]를 클릭하고 <strong>시스템 설정</strong> 또는 <strong>시스템 환경설정</strong>을 선택하세요.",
+        "list_item_2": "사이드바에서 <strong>개인정보 및 보안</strong> (또는 <strong>보안 및 개인정보</strong>)를 클릭하세요 ",
+        "list_item_3": "팝업에서 <strong>나중에</strong>를 클릭하세요",
+        "list_item_3_cam": "<strong>카메라</strong>를 클릭하고 [BROWSER_ICON] 옆의 토글(또는 체크박스)을 활성화하세요.",
+        "list_item_4": "팝업에서 <strong>종료 후 다시 열기</strong>를 클릭하고 이 페이지로 돌아오세요",
+        "list_item_4_mic": "<strong>마이크</strong>를 클릭하고 [BROWSER_ICON] 옆의 토글(또는 체크박스)을 활성화하세요."
       }
     },
     "desktop_safari": {
       "browser_settings": {
-        "list_item_1": "브라우저에서 주소 표시 줄을 마우스 오른쪽 버튼으로 클릭하고 설정을 선택하세요.",
-        "list_item_2_cam": "카메라 옆의 드롭다운을 클릭하고 허용을 선택하세요",
-        "list_item_2_mic": "마이크 옆의 드롭다운을 클릭하고 허용을 선택하세요",
-        "list_item_3": "이 페이지로 돌아와서 변경 사항을 적용했습니다 버튼을 클릭하세요"
+        "list_item_1": "브라우저에서 주소 표시 줄을 마우스 오른쪽 버튼으로 클릭하고 <strong>설정</strong>을 선택하세요.",
+        "list_item_2_cam": "<strong>카메라</strong> 옆의 드롭다운을 클릭하고 <strong>허용</strong>을 선택하세요",
+        "list_item_2_mic": "<strong>마이크</strong> 옆의 드롭다운을 클릭하고 <strong>허용</strong>을 선택하세요",
+        "list_item_3": "이 페이지로 돌아와서 <strong>변경 사항을 적용했습니다</strong> 버튼을 클릭하세요"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "컴퓨터에서 Windows 메뉴 [WINDOWS_ICON]를 클릭하고 설정 [SETTINGS_ICON_WINDOWS]을 선택하세요.",
-        "list_item_2": "개인정보 (또는 개인정보 & 보안)을 클릭하세요.",
-        "list_item_3_cam": "앱 권한 아래의 카메라를 클릭하고 [BROWSER_ICON] 옆의 토글을 활성화하세요 ",
-        "list_item_3_mic": "앱 권한 아래의 마이크를 클릭하고 [BROWSER_ICON] 옆의 토글을 활성화하세요.",
+        "list_item_1": "컴퓨터에서 Windows 메뉴 [WINDOWS_ICON]를 클릭하고 <strong>설정</strong> [SETTINGS_ICON_WINDOWS]을 선택하세요.",
+        "list_item_2": "<strong>개인정보</strong> (또는 <strong>개인정보 & 보안</strong>)을 클릭하세요.",
+        "list_item_3_cam": "<strong>앱 권한</strong> 아래의 <strong>카메라</strong>를 클릭하고 [BROWSER_ICON] 옆의 토글을 활성화하세요 ",
+        "list_item_3_mic": "<strong>앱 권한</strong> 아래의 <strong>마이크</strong>를 클릭하고 [BROWSER_ICON] 옆의 토글을 활성화하세요.",
         "list_item_4": "필요한 경우 브라우저를 다시 시작하고 이 페이지로 돌아오세요"
       }
     },
     "info": "복원",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "변경을 완료했습니다 버튼을 누르세요. 카메라와 마이크 접근을 다시 활성화하라는 요청이 나올 것입니다. 팝업이 나타나면, 허용 (또는 확인)을 선택하세요.",
-        "list_item_1_cam": "변경 사항을 적용했습니다 버튼을 누르세요. 다시 카메라 접근을 허용하라는 요청이 나올 것입니다. 팝업이 나타나면 허용 (또는 확인)을 선택하세요.",
-        "list_item_1_mic": "변경 사항을 적용했습니다 버튼을 누르세요. 마이크 접근 권한을 다시 활성화하라는 요청이 나올 것입니다. 팝업이 나타나면 허용 (또는 확인)을 선택하세요."
+        "list_item_1_both": "<strong>변경을 완료했습니다</strong> 버튼을 누르세요. 카메라와 마이크 접근을 다시 활성화하라는 요청이 나올 것입니다. 팝업이 나타나면, <strong>허용</strong> (또는 <strong>확인</strong>)을 선택하세요.",
+        "list_item_1_cam": "<strong>변경 사항을 적용했습니다</strong> 버튼을 누르세요. 다시 카메라 접근을 허용하라는 요청이 나올 것입니다. 팝업이 나타나면 <strong>허용</strong> (또는 <strong>확인</strong>)을 선택하세요.",
+        "list_item_1_mic": "<strong>변경 사항을 적용했습니다</strong> 버튼을 누르세요. 마이크 접근 권한을 다시 활성화하라는 요청이 나올 것입니다. 팝업이 나타나면 <strong>허용</strong> (또는 <strong>확인</strong>)을 선택하세요."
       },
       "device_settings": {
-        "list_item_1": "기기에서 설정 앱을 엽니다",
+        "list_item_1": "기기에서 <strong>설정</strong> 앱을 엽니다",
         "list_item_2": "목록을 스크롤하고 [BROWSER_ICON]을 탭하세요",
-        "list_item_3_cam": "카메라 옆의 토글을 활성화하세요",
-        "list_item_3_mic": "마이크 옆의 토글을 활성화하세요",
-        "list_item_4": "이 페이지로 돌아와서 변경 사항을 적용했습니다 버튼을 누르세요"
+        "list_item_3_cam": "<strong>카메라</strong> 옆의 토글을 활성화하세요",
+        "list_item_3_mic": "<strong>마이크</strong> 옆의 토글을 활성화하세요",
+        "list_item_4": "이 페이지로 돌아와서 <strong>변경 사항을 적용했습니다</strong> 버튼을 누르세요"
       }
     },
     "ios_safari": {
       "device_settings": {
-        "list_item_1": "기기에서 설정 앱을 엽니다",
+        "list_item_1": "기기에서 <strong>설정</strong> 앱을 엽니다",
         "list_item_2": "목록을 스크롤하고 [BROWSER_ICON]을 탭하세요",
-        "list_item_3_cam": "카메라를 탭하고 허용을 선택하세요",
-        "list_item_3_mic": "마이크를 탭하고 허용을 선택하세요",
-        "list_item_4": "이 페이지로 돌아와 변경 사항을 적용했습니다 버튼을 누르세요"
+        "list_item_3_cam": "<strong>카메라</strong>를 탭하고 <strong>허용</strong>을 선택하세요",
+        "list_item_3_mic": "<strong>마이크</strong>를 탭하고 <strong>허용</strong>을 선택하세요",
+        "list_item_4": "이 페이지로 돌아와 <strong>변경 사항을 적용했습니다</strong> 버튼을 누르세요"
       }
     },
     "list_header_both": "두 기능 모두에 대한 접근 권한을 복원하려면 다음 단계를 따르세요",

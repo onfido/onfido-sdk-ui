@@ -444,139 +444,139 @@
   "permission_recovery": {
     "android": {
       "device_settings": {
-        "list_item_1": "Na swoim urządzeniu otwórz aplikację Ustawienia",
-        "list_item_2": "Stuknij Aplikacje",
-        "list_item_3": "Stuknij [BROWSER_ICON]. Jeśli nie możesz go znaleźć, stuknij Zobacz wszystkie aplikacje lub Zarządzaj aplikacjami i wybierz swoją aplikację przeglądarki",
-        "list_item_4": "Stuknij Uprawnienia",
-        "list_item_5_cam": "Dotknij Aparat i wybierz Zezwól",
-        "list_item_5_mic": "Dotknij Mikrofon i wybierz Zezwól",
-        "list_item_6": "Wróć do tej strony i naciśnij przycisk Dokonałem zmian"
+        "list_item_1": "Na swoim urządzeniu otwórz aplikację <strong>Ustawienia</strong>",
+        "list_item_2": "Stuknij <strong>Aplikacje</strong>",
+        "list_item_3": "Stuknij [BROWSER_ICON]. Jeśli nie możesz go znaleźć, stuknij <strong>Zobacz wszystkie aplikacje</strong> lub <strong>Zarządzaj aplikacjami</strong> i wybierz swoją aplikację przeglądarki",
+        "list_item_4": "Stuknij <strong>Uprawnienia</strong>",
+        "list_item_5_cam": "Dotknij <strong>Aparat</strong> i wybierz <strong>Zezwól</strong>",
+        "list_item_5_mic": "Dotknij <strong>Mikrofon</strong> i wybierz <strong>Zezwól</strong>",
+        "list_item_6": "Wróć do tej strony i naciśnij przycisk <strong>Dokonałem zmian</strong>"
       }
     },
     "android_chrome": {
       "browser_settings": {
         "list_item_1": "W swojej przeglądarce, naciśnij ikonę zabezpieczeń [LOCK_ICON] na pasku adresu",
-        "list_item_2": "Stuknij Uprawnienia",
-        "list_item_3_cam": "Aktywuj przełącznik obok Kamery",
-        "list_item_3_mic": "Aktywuj przełącznik obok Mikrofonu",
-        "list_item_4": "Wróć do tej strony i naciśnij przycisk Dokonałem zmian"
+        "list_item_2": "Stuknij <strong>Uprawnienia</strong>",
+        "list_item_3_cam": "Aktywuj przełącznik obok <strong>Kamery</strong>",
+        "list_item_3_mic": "Aktywuj przełącznik obok <strong>Mikrofonu</strong>",
+        "list_item_4": "Wróć do tej strony i naciśnij przycisk <strong>Dokonałem zmian</strong>"
       }
     },
     "android_firefox": {
       "browser_settings": {
         "list_item_1": "W swojej przeglądarce, naciśnij ikonę zabezpieczeń [LOCK_ICON] na pasku adresu",
-        "list_item_2_cam": "Stuknij Zablokowane obok Kamery, aby przełączyć na Dozwolone",
-        "list_item_2_mic": "Stuknij Zablokowane obok Mikrofonu, aby przełączyć na Dozwolone",
-        "list_item_3": "Wróć do tej strony i naciśnij przycisk Dokonałem zmian"
+        "list_item_2_cam": "Stuknij <strong>Zablokowane</strong> obok <strong>Kamery</strong>, aby przełączyć na <strong>Dozwolone</strong>",
+        "list_item_2_mic": "Stuknij <strong>Zablokowane</strong> obok <strong>Mikrofonu</strong>, aby przełączyć na <strong>Dozwolone</strong>",
+        "list_item_3": "Wróć do tej strony i naciśnij przycisk <strong>Dokonałem zmian</strong>"
       }
     },
     "android_generic": {
       "browser_settings": {
         "list_item_1": "W swojej przeglądarce otwórz ustawienia strony. Często jest to ikona zamka [LOCK_ICON] na pasku adresu",
         "list_item_2": "Znajdź sekcję dotyczącą uprawnień",
-        "list_item_3_cam": "Włącz uprawnienia dla Kamery",
-        "list_item_3_mic": "Włącz uprawnienia do Mikrofonu",
-        "list_item_4": "Wróć do tej strony i naciśnij przycisk Dokonałem zmian"
+        "list_item_3_cam": "Włącz uprawnienia dla <strong>Kamery</strong>",
+        "list_item_3_mic": "Włącz uprawnienia do <strong>Mikrofonu</strong>",
+        "list_item_4": "Wróć do tej strony i naciśnij przycisk <strong>Dokonałem zmian</strong>"
       }
     },
     "android_samsung": {
       "browser_settings": {
         "list_item_1": "W swojej przeglądarce, naciśnij ikonę zabezpieczenia [LOCK_ICON] na pasku adresu",
-        "list_item_2_cam": "Aktywuj przełącznik obok Kamery",
-        "list_item_2_mic": "Aktywuj przełącznik obok Mikrofonu",
-        "list_item_3": "Wróć do tej strony i naciśnij przycisk Dokonałem zmian"
+        "list_item_2_cam": "Aktywuj przełącznik obok <strong>Kamery</strong>",
+        "list_item_2_mic": "Aktywuj przełącznik obok <strong>Mikrofonu</strong>",
+        "list_item_3": "Wróć do tej strony i naciśnij przycisk <strong>Dokonałem zmian</strong>"
       }
     },
     "button_primary": "Odśwież",
     "desktop_chrome": {
       "browser_settings": {
         "list_item_1": "W swojej przeglądarce kliknij ikonę zabezpieczenia [LOCK_ICON] na pasku adresu",
-        "list_item_2_cam": "Aktywuj przełącznik obok Kamery",
-        "list_item_2_mic": "Aktywuj przełącznik obok Mikrofonu",
-        "list_item_3": "Wróć do tej strony i kliknij przycisk Dokonałem zmian"
+        "list_item_2_cam": "Aktywuj przełącznik obok <strong>Kamery</strong>",
+        "list_item_2_mic": "Aktywuj przełącznik obok <strong>Mikrofonu</strong>",
+        "list_item_3": "Wróć do tej strony i kliknij przycisk <strong>Dokonałem zmian</strong>"
       }
     },
     "desktop_edge": {
       "browser_settings": {
         "list_item_1": "W swojej przeglądarce kliknij ikonę zabezpieczenia [LOCK_ICON] na pasku adresu",
-        "list_item_2_cam": "Kliknij rozwijane menu obok Kamera i wybierz Zezwól",
-        "list_item_2_mic": "Kliknij rozwijane menu obok Mikrofonu i wybierz Zezwól",
-        "list_item_3": "Wróć do tej strony i kliknij przycisk Dokonałem zmian"
+        "list_item_2_cam": "Kliknij rozwijane menu obok <strong>Kamera</strong> i wybierz <strong>Zezwól</strong>",
+        "list_item_2_mic": "Kliknij rozwijane menu obok <strong>Mikrofonu</strong> i wybierz <strong>Zezwól</strong>",
+        "list_item_3": "Wróć do tej strony i kliknij przycisk <strong>Dokonałem zmian</strong>"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
         "list_item_1": "W swojej przeglądarce kliknij ikonę ustawień [SETTINGS_ICON_FIREFOX] na pasku adresu",
-        "list_item_2_cam": "Kliknij Zablokowane obok Użyj kamery",
-        "list_item_2_mic": "Kliknij Zablokowane obok Użyj mikrofonu",
-        "list_item_3": "Wróć do tej strony i kliknij przycisk Dokonałem zmian"
+        "list_item_2_cam": "Kliknij <strong>Zablokowane</strong> obok <strong>Użyj kamery</strong>",
+        "list_item_2_mic": "Kliknij <strong>Zablokowane</strong> obok <strong>Użyj mikrofonu</strong>",
+        "list_item_3": "Wróć do tej strony i kliknij przycisk <strong>Dokonałem zmian</strong>"
       }
     },
     "desktop_generic": {
       "browser_settings": {
         "list_item_1": "W swojej przeglądarce otwórz ustawienia strony. Często jest to ikona zamka [LOCK_ICON] na pasku adresu",
         "list_item_2": "Znajdź sekcję dotyczącą uprawnień",
-        "list_item_3_cam": "Włącz uprawnienia dla Kamery",
-        "list_item_3_mic": "Włącz uprawnienia do Mikrofonu",
-        "list_item_4": "Wróć na tę stronę i kliknij przycisk Dokonałem zmian"
+        "list_item_3_cam": "Włącz uprawnienia dla <strong>Kamery</strong>",
+        "list_item_3_mic": "Włącz uprawnienia do <strong>Mikrofonu</strong>",
+        "list_item_4": "Wróć na tę stronę i kliknij przycisk <strong>Dokonałem zmian</strong>"
       },
       "device_settings": {
-        "list_item_1": "Na swoim komputerze otwórz Ustawienia",
-        "list_item_2": "Znajdź sekcję dotyczącą uprawnień (zazwyczaj pod Prywatność)",
-        "list_item_3_cam": "Włącz uprawnienia dla Kamery dla [BROWSER_ICON]",
-        "list_item_3_mic": "Włącz uprawnienia do Mikrofonu dla [BROWSER_ICON]",
+        "list_item_1": "Na swoim komputerze otwórz <strong>Ustawienia</strong>",
+        "list_item_2": "Znajdź sekcję dotyczącą uprawnień (zazwyczaj pod <strong>Prywatność</strong>)",
+        "list_item_3_cam": "Włącz uprawnienia dla <strong>Kamery</strong> dla [BROWSER_ICON]",
+        "list_item_3_mic": "Włącz uprawnienia do <strong>Mikrofonu</strong> dla [BROWSER_ICON]",
         "list_item_4": "Zrestartuj swoją przeglądarkę, jeśli to konieczne, i wróć na tę stronę"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "Na swoim komputerze kliknij menu Apple [APPLE_ICON] i wybierz Ustawienia systemu (lub Preferencje systemowe)",
-        "list_item_2": "Kliknij Prywatność i bezpieczeństwo (lub Bezpieczeństwo i prywatność) w pasku bocznym ",
-        "list_item_3": "Kliknij Później w wyskakującym okienku",
-        "list_item_3_cam": "Kliknij Kamera i aktywuj przełącznik (lub pole wyboru) obok [BROWSER_ICON]",
-        "list_item_4": "Kliknij Zamknij i otwórz ponownie w wyskakującym okienku i wróć na tę stronę",
-        "list_item_4_mic": "Kliknij Mikrofon i aktywuj przełącznik (lub pole wyboru) obok [BROWSER_ICON]"
+        "list_item_1": "Na swoim komputerze kliknij menu Apple [APPLE_ICON] i wybierz <strong>Ustawienia systemu</strong> (lub <strong>Preferencje systemowe</strong>)",
+        "list_item_2": "Kliknij <strong>Prywatność i bezpieczeństwo</strong> (lub <strong>Bezpieczeństwo i prywatność</strong>) w pasku bocznym ",
+        "list_item_3": "Kliknij <strong>Później</strong> w wyskakującym okienku",
+        "list_item_3_cam": "Kliknij <strong>Kamera</strong> i aktywuj przełącznik (lub pole wyboru) obok [BROWSER_ICON]",
+        "list_item_4": "Kliknij <strong>Zamknij i otwórz ponownie</strong> w wyskakującym okienku i wróć na tę stronę",
+        "list_item_4_mic": "Kliknij <strong>Mikrofon</strong> i aktywuj przełącznik (lub pole wyboru) obok [BROWSER_ICON]"
       }
     },
     "desktop_safari": {
       "browser_settings": {
-        "list_item_1": "W swojej przeglądarce kliknij prawym przyciskiem myszy na pasku adresu i wybierz Ustawienia",
-        "list_item_2_cam": "Kliknij rozwijane menu obok Kamery i wybierz Zezwól",
-        "list_item_2_mic": "Kliknij rozwijane menu obok Mikrofonu i wybierz Zezwól",
-        "list_item_3": "Wróć do tej strony i kliknij przycisk Dokonałem zmian"
+        "list_item_1": "W swojej przeglądarce kliknij prawym przyciskiem myszy na pasku adresu i wybierz <strong>Ustawienia</strong>",
+        "list_item_2_cam": "Kliknij rozwijane menu obok <strong>Kamery</strong> i wybierz <strong>Zezwól</strong>",
+        "list_item_2_mic": "Kliknij rozwijane menu obok <strong>Mikrofonu</strong> i wybierz <strong>Zezwól</strong>",
+        "list_item_3": "Wróć do tej strony i kliknij przycisk <strong>Dokonałem zmian</strong>"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "Na swoim komputerze kliknij menu Windows [WINDOWS_ICON] i wybierz Ustawienia [SETTINGS_ICON_WINDOWS]",
-        "list_item_2": "Kliknij Prywatność (lub Prywatność i bezpieczeństwo)",
-        "list_item_3_cam": "Kliknij Kamera pod Uprawnienia aplikacji i aktywuj przełącznik obok [BROWSER_ICON] ",
-        "list_item_3_mic": "Kliknij Mikrofon w sekcji Uprawnienia aplikacji i aktywuj przełącznik obok [BROWSER_ICON]",
+        "list_item_1": "Na swoim komputerze kliknij menu Windows [WINDOWS_ICON] i wybierz <strong>Ustawienia</strong> [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "Kliknij <strong>Prywatność</strong> (lub <strong>Prywatność i bezpieczeństwo</strong>)",
+        "list_item_3_cam": "Kliknij <strong>Kamera</strong> pod <strong>Uprawnienia aplikacji</strong> i aktywuj przełącznik obok [BROWSER_ICON] ",
+        "list_item_3_mic": "Kliknij <strong>Mikrofon</strong> w sekcji <strong>Uprawnienia aplikacji</strong> i aktywuj przełącznik obok [BROWSER_ICON]",
         "list_item_4": "Zrestartuj swoją przeglądarkę, jeśli to konieczne, i wróć na tę stronę"
       }
     },
     "info": "Przywróć",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "Dotknij przycisku Dokonałem zmian. Zostaniesz poproszony o ponowne włączenie dostępu do kamery i mikrofonu. Kiedy pojawi się okienko, wybierz Zezwól (lub OK)",
-        "list_item_1_cam": "Naciśnij przycisk Dokonałem zmian. Zostaniesz poproszony o ponowne włączenie dostępu do kamery. Kiedy pojawi się okienko, wybierz Zezwól (lub OK)",
-        "list_item_1_mic": "Naciśnij przycisk Dokonałem zmian. Zostaniesz poproszony o ponowne włączenie dostępu do mikrofonu. Kiedy pojawi się okienko, wybierz Zezwól (lub OK)"
+        "list_item_1_both": "Dotknij przycisku <strong>Dokonałem zmian</strong>. Zostaniesz poproszony o ponowne włączenie dostępu do kamery i mikrofonu. Kiedy pojawi się okienko, wybierz <strong>Zezwól</strong> (lub <strong>OK</strong>)",
+        "list_item_1_cam": "Naciśnij przycisk <strong>Dokonałem zmian</strong>. Zostaniesz poproszony o ponowne włączenie dostępu do kamery. Kiedy pojawi się okienko, wybierz <strong>Zezwól</strong> (lub <strong>OK</strong>)",
+        "list_item_1_mic": "Naciśnij przycisk <strong>Dokonałem zmian</strong>. Zostaniesz poproszony o ponowne włączenie dostępu do mikrofonu. Kiedy pojawi się okienko, wybierz <strong>Zezwól</strong> (lub <strong>OK</strong>)"
       },
       "device_settings": {
-        "list_item_1": "Na swoim urządzeniu otwórz aplikację Ustawienia",
+        "list_item_1": "Na swoim urządzeniu otwórz aplikację <strong>Ustawienia</strong>",
         "list_item_2": "Przewiń listę i naciśnij [BROWSER_ICON]",
-        "list_item_3_cam": "Aktywuj przełącznik obok Kamery",
-        "list_item_3_mic": "Aktywuj przełącznik obok Mikrofonu",
-        "list_item_4": "Wróć do tej strony i naciśnij przycisk Dokonałem zmian"
+        "list_item_3_cam": "Aktywuj przełącznik obok <strong>Kamery</strong>",
+        "list_item_3_mic": "Aktywuj przełącznik obok <strong>Mikrofonu</strong>",
+        "list_item_4": "Wróć do tej strony i naciśnij przycisk <strong>Dokonałem zmian</strong>"
       }
     },
     "ios_safari": {
       "device_settings": {
-        "list_item_1": "Na swoim urządzeniu otwórz aplikację Ustawienia",
+        "list_item_1": "Na swoim urządzeniu otwórz aplikację <strong>Ustawienia</strong>",
         "list_item_2": "Przewiń listę i naciśnij [BROWSER_ICON]",
-        "list_item_3_cam": "Dotknij Aparat i wybierz Zezwól",
-        "list_item_3_mic": "Dotknij Mikrofon i wybierz Zezwól",
-        "list_item_4": "Wróć do tej strony i naciśnij przycisk Dokonałem zmian"
+        "list_item_3_cam": "Dotknij <strong>Aparat</strong> i wybierz <strong>Zezwól</strong>",
+        "list_item_3_mic": "Dotknij <strong>Mikrofon</strong> i wybierz <strong>Zezwól</strong>",
+        "list_item_4": "Wróć do tej strony i naciśnij przycisk <strong>Dokonałem zmian</strong>"
       }
     },
     "list_header_both": "Wykonaj poniższe kroki, aby przywrócić dostęp do obu urządzeń:",

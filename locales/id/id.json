@@ -444,139 +444,139 @@
   "permission_recovery": {
     "android": {
       "device_settings": {
-        "list_item_1": "Di perangkat Anda, buka aplikasi Pengaturan",
-        "list_item_2": "Ketuk Aplikasi",
-        "list_item_3": "Ketuk [BROWSER_ICON]. Jika Anda tidak dapat menemukannya, ketuk Lihat semua aplikasi atau Kelola aplikasi dan pilih aplikasi browser Anda",
-        "list_item_4": "Ketuk Izin",
-        "list_item_5_cam": "Ketuk Kamera dan pilih Izinkan",
-        "list_item_5_mic": "Ketuk Mikrofon dan pilih Izinkan",
-        "list_item_6": "Kembali ke halaman ini dan tekan tombol Saya telah membuat perubahan"
+        "list_item_1": "Di perangkat Anda, buka aplikasi <strong>Pengaturan</strong>",
+        "list_item_2": "Ketuk <strong>Aplikasi</strong>",
+        "list_item_3": "Ketuk [BROWSER_ICON]. Jika Anda tidak dapat menemukannya, ketuk <strong>Lihat semua aplikasi</strong> atau <strong>Kelola aplikasi</strong> dan pilih aplikasi browser Anda",
+        "list_item_4": "Ketuk <strong>Izin</strong>",
+        "list_item_5_cam": "Ketuk <strong>Kamera</strong> dan pilih <strong>Izinkan</strong>",
+        "list_item_5_mic": "Ketuk <strong>Mikrofon</strong> dan pilih <strong>Izinkan</strong>",
+        "list_item_6": "Kembali ke halaman ini dan tekan tombol <strong>Saya telah membuat perubahan</strong>"
       }
     },
     "android_chrome": {
       "browser_settings": {
         "list_item_1": "Di peramban Anda, ketuk ikon kunci [LOCK_ICON] di bilah alamat",
-        "list_item_2": "Ketuk Izin",
-        "list_item_3_cam": "Aktifkan tombol di sebelah Kamera",
-        "list_item_3_mic": "Aktifkan tombol di sebelah Mikrofon",
-        "list_item_4": "Kembali ke halaman ini dan tekan tombol Saya telah membuat perubahan"
+        "list_item_2": "Ketuk <strong>Izin</strong>",
+        "list_item_3_cam": "Aktifkan tombol di sebelah <strong>Kamera</strong>",
+        "list_item_3_mic": "Aktifkan tombol di sebelah <strong>Mikrofon</strong>",
+        "list_item_4": "Kembali ke halaman ini dan tekan tombol <strong>Saya telah membuat perubahan</strong>"
       }
     },
     "android_firefox": {
       "browser_settings": {
         "list_item_1": "Di peramban Anda, ketuk ikon kunci [LOCK_ICON] di bilah alamat",
-        "list_item_2_cam": "Ketuk Diblokir di sebelah Kamera untuk beralih ke Diizinkan",
-        "list_item_2_mic": "Ketuk Diblokir di sebelah Mikrofon untuk beralih ke Diizinkan",
-        "list_item_3": "Kembali ke halaman ini dan tekan tombol Saya telah membuat perubahan"
+        "list_item_2_cam": "Ketuk <strong>Diblokir</strong> di sebelah <strong>Kamera</strong> untuk beralih ke <strong>Diizinkan</strong>",
+        "list_item_2_mic": "Ketuk <strong>Diblokir</strong> di sebelah <strong>Mikrofon</strong> untuk beralih ke <strong>Diizinkan</strong>",
+        "list_item_3": "Kembali ke halaman ini dan tekan tombol <strong>Saya telah membuat perubahan</strong>"
       }
     },
     "android_generic": {
       "browser_settings": {
         "list_item_1": "Di browser Anda, buka pengaturan situs web. Ini seringkali merupakan ikon gembok [LOCK_ICON] di bilah alamat",
         "list_item_2": "Temukan bagian tentang izin",
-        "list_item_3_cam": "Aktifkan izin Kamera",
-        "list_item_3_mic": "Aktifkan izin Mikrofon",
-        "list_item_4": "Kembali ke halaman ini dan tekan tombol Saya telah membuat perubahan"
+        "list_item_3_cam": "Aktifkan izin <strong>Kamera</strong>",
+        "list_item_3_mic": "Aktifkan izin <strong>Mikrofon</strong>",
+        "list_item_4": "Kembali ke halaman ini dan tekan tombol <strong>Saya telah membuat perubahan</strong>"
       }
     },
     "android_samsung": {
       "browser_settings": {
         "list_item_1": "Di browser Anda, ketuk ikon kunci [LOCK_ICON] di bilah alamat",
-        "list_item_2_cam": "Aktifkan tombol di sebelah Kamera",
-        "list_item_2_mic": "Aktifkan tombol di sebelah Mikrofon",
-        "list_item_3": "Kembali ke halaman ini dan tekan tombol Saya telah membuat perubahan"
+        "list_item_2_cam": "Aktifkan tombol di sebelah <strong>Kamera</strong>",
+        "list_item_2_mic": "Aktifkan tombol di sebelah <strong>Mikrofon</strong>",
+        "list_item_3": "Kembali ke halaman ini dan tekan tombol <strong>Saya telah membuat perubahan</strong>"
       }
     },
     "button_primary": "Muat ulang",
     "desktop_chrome": {
       "browser_settings": {
         "list_item_1": "Di browser Anda, klik ikon gembok [LOCK_ICON] di bilah alamat",
-        "list_item_2_cam": "Aktifkan tombol di sebelah Kamera",
-        "list_item_2_mic": "Aktifkan tombol di sebelah Mikrofon",
-        "list_item_3": "Kembali ke halaman ini dan klik tombol Saya telah membuat perubahan"
+        "list_item_2_cam": "Aktifkan tombol di sebelah <strong>Kamera</strong>",
+        "list_item_2_mic": "Aktifkan tombol di sebelah <strong>Mikrofon</strong>",
+        "list_item_3": "Kembali ke halaman ini dan klik tombol <strong>Saya telah membuat perubahan</strong>"
       }
     },
     "desktop_edge": {
       "browser_settings": {
         "list_item_1": "Di browser Anda, klik ikon gembok [LOCK_ICON] di bilah alamat",
-        "list_item_2_cam": "Klik dropdown di sebelah Mikrofon dan pilih Izinkan",
-        "list_item_2_mic": "Klik dropdown di sebelah Mikrofon dan pilih Izinkan",
-        "list_item_3": "Kembali ke halaman ini dan klik tombol Saya telah membuat perubahan"
+        "list_item_2_cam": "Klik dropdown di sebelah <strong>Mikrofon</strong> dan pilih <strong>Izinkan</strong>",
+        "list_item_2_mic": "Klik dropdown di sebelah <strong>Mikrofon</strong> dan pilih <strong>Izinkan</strong>",
+        "list_item_3": "Kembali ke halaman ini dan klik tombol <strong>Saya telah membuat perubahan</strong>"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
         "list_item_1": "Di browser Anda, klik ikon pengaturan [SETTINGS_ICON_FIREFOX] di bilah alamat",
-        "list_item_2_cam": "Klik Diblokir di sebelah Gunakan kamera",
-        "list_item_2_mic": "Klik Diblokir di sebelah Gunakan mikrofon",
-        "list_item_3": "Kembali ke halaman ini dan klik tombol Saya telah membuat perubahan"
+        "list_item_2_cam": "Klik <strong>Diblokir</strong> di sebelah <strong>Gunakan kamera</strong>",
+        "list_item_2_mic": "Klik <strong>Diblokir</strong> di sebelah <strong>Gunakan mikrofon</strong>",
+        "list_item_3": "Kembali ke halaman ini dan klik tombol <strong>Saya telah membuat perubahan</strong>"
       }
     },
     "desktop_generic": {
       "browser_settings": {
         "list_item_1": "Di browser Anda, buka pengaturan situs web. Ini seringkali merupakan ikon gembok [LOCK_ICON] di bilah alamat",
         "list_item_2": "Temukan bagian tentang izin",
-        "list_item_3_cam": "Aktifkan izin Kamera",
-        "list_item_3_mic": "Aktifkan izin Mikrofon",
-        "list_item_4": "Kembali ke halaman ini dan klik tombol Saya telah membuat perubahan"
+        "list_item_3_cam": "Aktifkan izin <strong>Kamera</strong>",
+        "list_item_3_mic": "Aktifkan izin <strong>Mikrofon</strong>",
+        "list_item_4": "Kembali ke halaman ini dan klik tombol <strong>Saya telah membuat perubahan</strong>"
       },
       "device_settings": {
-        "list_item_1": "Di komputer Anda, buka Pengaturan Anda",
-        "list_item_2": "Temukan bagian tentang izin (biasanya di bawah Privasi)",
-        "list_item_3_cam": "Aktifkan izin Kamera untuk [BROWSER_ICON]",
-        "list_item_3_mic": "Aktifkan izin Mikrofon untuk [BROWSER_ICON]",
+        "list_item_1": "Di komputer Anda, buka <strong>Pengaturan</strong> Anda",
+        "list_item_2": "Temukan bagian tentang izin (biasanya di bawah <strong>Privasi</strong>)",
+        "list_item_3_cam": "Aktifkan izin <strong>Kamera</strong> untuk [BROWSER_ICON]",
+        "list_item_3_mic": "Aktifkan izin <strong>Mikrofon</strong> untuk [BROWSER_ICON]",
         "list_item_4": "Restart browser Anda jika perlu dan kembali ke halaman ini"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "Di komputer Anda, klik menu Apple [APPLE_ICON] dan pilih Pengaturan Sistem (atau Preferensi Sistem)",
-        "list_item_2": "Klik Privasi & Keamanan (atau Keamanan & Privasi) di sidebar",
-        "list_item_3": "Klik Nanti di pop-up",
-        "list_item_3_cam": "Klik Kamera dan aktifkan tombol (atau kotak centang) di sebelah [BROWSER_ICON]",
-        "list_item_4": "Klik Keluar & Buka Ulang di pop-up dan kembali ke halaman ini",
-        "list_item_4_mic": "Klik Mikrofon dan aktifkan tombol (atau kotak centang) di sebelah [BROWSER_ICON]"
+        "list_item_1": "Di komputer Anda, klik menu Apple [APPLE_ICON] dan pilih <strong>Pengaturan Sistem</strong> (atau <strong>Preferensi Sistem</strong>)",
+        "list_item_2": "Klik <strong>Privasi & Keamanan</strong> (atau <strong>Keamanan & Privasi</strong>) di sidebar",
+        "list_item_3": "Klik <strong>Nanti</strong> di pop-up",
+        "list_item_3_cam": "Klik <strong>Kamera</strong> dan aktifkan tombol (atau kotak centang) di sebelah [BROWSER_ICON]",
+        "list_item_4": "Klik <strong>Keluar & Buka Ulang</strong> di pop-up dan kembali ke halaman ini",
+        "list_item_4_mic": "Klik <strong>Mikrofon</strong> dan aktifkan tombol (atau kotak centang) di sebelah [BROWSER_ICON]"
       }
     },
     "desktop_safari": {
       "browser_settings": {
-        "list_item_1": "Di browser Anda, klik kanan pada bilah alamat dan pilih Pengaturan",
-        "list_item_2_cam": "Klik dropdown di sebelah Kamera dan pilih Izinkan",
-        "list_item_2_mic": "Klik dropdown di sebelah Mikrofon dan pilih Izinkan",
-        "list_item_3": "Kembali ke halaman ini dan klik tombol Saya telah membuat perubahan"
+        "list_item_1": "Di browser Anda, klik kanan pada bilah alamat dan pilih <strong>Pengaturan</strong>",
+        "list_item_2_cam": "Klik dropdown di sebelah <strong>Kamera</strong> dan pilih <strong>Izinkan</strong>",
+        "list_item_2_mic": "Klik dropdown di sebelah <strong>Mikrofon</strong> dan pilih <strong>Izinkan</strong>",
+        "list_item_3": "Kembali ke halaman ini dan klik tombol <strong>Saya telah membuat perubahan</strong>"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "Di komputer Anda, klik menu Windows [WINDOWS_ICON] dan pilih Pengaturan [SETTINGS_ICON_WINDOWS]",
-        "list_item_2": "Klik Privasi (atau Privasi & Keamanan)",
-        "list_item_3_cam": "Klik Kamera di bawah Izin Aplikasi dan aktifkan tombol di sebelah [BROWSER_ICON] ",
-        "list_item_3_mic": "Klik Mikrofon di bawah Izin Aplikasi dan aktifkan tombol di sebelah [BROWSER_ICON]",
+        "list_item_1": "Di komputer Anda, klik menu Windows [WINDOWS_ICON] dan pilih <strong>Pengaturan</strong> [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "Klik <strong>Privasi</strong> (atau <strong>Privasi & Keamanan</strong>)",
+        "list_item_3_cam": "Klik <strong>Kamera</strong> di bawah <strong>Izin Aplikasi</strong> dan aktifkan tombol di sebelah [BROWSER_ICON] ",
+        "list_item_3_mic": "Klik <strong>Mikrofon</strong> di bawah <strong>Izin Aplikasi</strong> dan aktifkan tombol di sebelah [BROWSER_ICON]",
         "list_item_4": "Restart browser Anda jika perlu dan kembali ke halaman ini"
       }
     },
     "info": "Pemulihan",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "Ketuk tombol Saya telah membuat perubahan. Anda akan diminta untuk mengaktifkan kembali akses kamera dan mikrofon. Ketika muncul pop-up, pilih Izinkan (atau OK)",
-        "list_item_1_cam": "Ketuk tombol Saya telah membuat perubahan. Anda akan diminta untuk mengaktifkan akses kamera lagi. Ketika muncul pop-up, pilih Izinkan (atau OK)",
-        "list_item_1_mic": "Ketuk tombol Saya telah membuat perubahan. Anda akan diminta untuk mengaktifkan akses mikrofon lagi. Ketika muncul pop-up, pilih Izinkan (atau OK)"
+        "list_item_1_both": "Ketuk tombol <strong>Saya telah membuat perubahan</strong>. Anda akan diminta untuk mengaktifkan kembali akses kamera dan mikrofon. Ketika muncul pop-up, pilih <strong>Izinkan</strong> (atau <strong>OK</strong>)",
+        "list_item_1_cam": "Ketuk tombol <strong>Saya telah membuat perubahan</strong>. Anda akan diminta untuk mengaktifkan akses kamera lagi. Ketika muncul pop-up, pilih <strong>Izinkan</strong> (atau <strong>OK</strong>)",
+        "list_item_1_mic": "Ketuk tombol <strong>Saya telah membuat perubahan</strong>. Anda akan diminta untuk mengaktifkan akses mikrofon lagi. Ketika muncul pop-up, pilih <strong>Izinkan</strong> (atau <strong>OK</strong>)"
       },
       "device_settings": {
-        "list_item_1": "Di perangkat Anda, buka aplikasi Pengaturan",
+        "list_item_1": "Di perangkat Anda, buka aplikasi <strong>Pengaturan</strong>",
         "list_item_2": "Gulir melalui daftar dan ketuk [BROWSER_ICON]",
-        "list_item_3_cam": "Aktifkan tombol di sebelah Kamera",
-        "list_item_3_mic": "Aktifkan tombol di sebelah Mikrofon",
-        "list_item_4": "Kembali ke halaman ini dan tekan tombol Saya telah membuat perubahan"
+        "list_item_3_cam": "Aktifkan tombol di sebelah <strong>Kamera</strong>",
+        "list_item_3_mic": "Aktifkan tombol di sebelah <strong>Mikrofon</strong>",
+        "list_item_4": "Kembali ke halaman ini dan tekan tombol <strong>Saya telah membuat perubahan</strong>"
       }
     },
     "ios_safari": {
       "device_settings": {
-        "list_item_1": "Di perangkat Anda, buka aplikasi Pengaturan",
+        "list_item_1": "Di perangkat Anda, buka aplikasi <strong>Pengaturan</strong>",
         "list_item_2": "Gulir melalui daftar dan ketuk [BROWSER_ICON]",
-        "list_item_3_cam": "Ketuk Kamera dan pilih Izinkan",
-        "list_item_3_mic": "Ketuk Mikrofon dan pilih Izinkan",
-        "list_item_4": "Kembali ke halaman ini dan tekan tombol Saya telah membuat perubahan"
+        "list_item_3_cam": "Ketuk <strong>Kamera</strong> dan pilih <strong>Izinkan</strong>",
+        "list_item_3_mic": "Ketuk <strong>Mikrofon</strong> dan pilih <strong>Izinkan</strong>",
+        "list_item_4": "Kembali ke halaman ini dan tekan tombol <strong>Saya telah membuat perubahan</strong>"
       }
     },
     "list_header_both": "Ikuti langkah-langkah berikut untuk memulihkan akses:",
@@ -642,7 +642,7 @@
     "subtitle_bank_statement": "Harus diterbitkan dalam ​​3 bulan terakhir​​",
     "subtitle_benefits_letter": "Harus diterbitkan dalam ​​12 bulan terakhir​​",
     "subtitle_bill": "Harus diterbitkan dalam ​​3 bulan terakhir​​",
-    "subtitle_tax_letter": "Harus diterbitkan dalam ​​12 bulan terakhir​​"
+    "subtitle_tax_letter": "Harus diterbitkan dalam ​​12 bulan terakhir​"
   },
   "poa_intro": {
     "button_primary": "Mulai verifikasi",

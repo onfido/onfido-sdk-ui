@@ -444,139 +444,139 @@
   "permission_recovery": {
     "android": {
       "device_settings": {
-        "list_item_1": "Savo įrenginyje atidarykite programą Nustatymai",
-        "list_item_2": "Spustelėkite Programos",
-        "list_item_3": "Spustelėkite [BROWSER_ICON]. Jei negalite jo rasti, spustelėkite Peržiūrėti visas programas arba Tvarkyti programas ir pasirinkite savo naršyklės programą",
-        "list_item_4": "Spustelėkite Leidimai",
-        "list_item_5_cam": "Spustelėkite Kamera ir pasirinkite Leisti",
-        "list_item_5_mic": "Spustelėkite Mikrofoną ir pasirinkite Leisti",
-        "list_item_6": "Grįžkite į šį puslapį ir paspauskite mygtuką Aš atlikau pakeitimus"
+        "list_item_1": "Savo įrenginyje atidarykite programą <strong>Nustatymai</strong>",
+        "list_item_2": "Spustelėkite <strong>Programos</strong>",
+        "list_item_3": "Spustelėkite [BROWSER_ICON]. Jei negalite jo rasti, spustelėkite <strong>Peržiūrėti visas programas</strong> arba <strong>Tvarkyti programas</strong> ir pasirinkite savo naršyklės programą",
+        "list_item_4": "Spustelėkite <strong>Leidimai</strong>",
+        "list_item_5_cam": "Spustelėkite <strong>Kamera</strong> ir pasirinkite <strong>Leisti</strong>",
+        "list_item_5_mic": "Spustelėkite <strong>Mikrofoną</strong> ir pasirinkite <strong>Leisti</strong>",
+        "list_item_6": "Grįžkite į šį puslapį ir paspauskite mygtuką <strong>Aš atlikau pakeitimus</strong>"
       }
     },
     "android_chrome": {
       "browser_settings": {
         "list_item_1": "Savo naršyklėje paspauskite užrakto piktogramą [LOCK_ICON] adreso juostoje",
-        "list_item_2": "Spustelėkite Leidimai",
-        "list_item_3_cam": "Aktyvuokite perjungiklį šalia Kamera",
-        "list_item_3_mic": "Aktyvuokite perjungiklį šalia Mikrofono",
-        "list_item_4": "Grįžkite į šį puslapį ir paspauskite mygtuką Aš atlikau pakeitimus"
+        "list_item_2": "Spustelėkite <strong>Leidimai</strong>",
+        "list_item_3_cam": "Aktyvuokite perjungiklį šalia <strong>Kamera</strong>",
+        "list_item_3_mic": "Aktyvuokite perjungiklį šalia <strong>Mikrofono</strong>",
+        "list_item_4": "Grįžkite į šį puslapį ir paspauskite mygtuką <strong>Aš atlikau pakeitimus</strong>"
       }
     },
     "android_firefox": {
       "browser_settings": {
         "list_item_1": "Savo naršyklėje paspauskite užrakto piktogramą [LOCK_ICON] adreso juostoje",
-        "list_item_2_cam": "Spustelėkite Užblokuota šalia Kameros, kad perjungtumėte į Leidžiama",
-        "list_item_2_mic": "Spustelėkite Užblokuotas šalia Mikrofono, kad perjungtumėte į Leidžiama",
-        "list_item_3": "Grįžkite į šį puslapį ir paspauskite mygtuką Aš atlikau pakeitimus"
+        "list_item_2_cam": "Spustelėkite <strong>Užblokuota</strong> šalia <strong>Kameros</strong>, kad perjungtumėte į <strong>Leidžiama</strong>",
+        "list_item_2_mic": "Spustelėkite <strong>Užblokuotas</strong> šalia <strong>Mikrofono</strong>, kad perjungtumėte į <strong>Leidžiama</strong>",
+        "list_item_3": "Grįžkite į šį puslapį ir paspauskite mygtuką <strong>Aš atlikau pakeitimus</strong>"
       }
     },
     "android_generic": {
       "browser_settings": {
         "list_item_1": "Savo naršyklėje atidarykite svetainės nustatymus. Dažnai tai yra užrakto piktograma [LOCK_ICON] adreso juostoje",
         "list_item_2": "Raskite skyrių apie leidimus",
-        "list_item_3_cam": "Įjunkite Kamera leidimus",
-        "list_item_3_mic": "Įjunkite Mikrofono leidimus",
-        "list_item_4": "Grįžkite į šį puslapį ir paspauskite mygtuką Aš atlikau pakeitimus"
+        "list_item_3_cam": "Įjunkite <strong>Kamera</strong> leidimus",
+        "list_item_3_mic": "Įjunkite <strong>Mikrofono</strong> leidimus",
+        "list_item_4": "Grįžkite į šį puslapį ir paspauskite mygtuką <strong>Aš atlikau pakeitimus</strong>"
       }
     },
     "android_samsung": {
       "browser_settings": {
         "list_item_1": "Savo naršyklėje paspauskite užrakto piktogramą [LOCK_ICON] adreso juostoje",
-        "list_item_2_cam": "Aktyvuokite perjungiklį šalia Kamera",
-        "list_item_2_mic": "Aktyvuokite perjungiklį šalia Mikrofono",
-        "list_item_3": "Grįžkite į šį puslapį ir paspauskite mygtuką Aš atlikau pakeitimus"
+        "list_item_2_cam": "Aktyvuokite perjungiklį šalia <strong>Kamera</strong>",
+        "list_item_2_mic": "Aktyvuokite perjungiklį šalia <strong>Mikrofono</strong>",
+        "list_item_3": "Grįžkite į šį puslapį ir paspauskite mygtuką <strong>Aš atlikau pakeitimus</strong>"
       }
     },
     "button_primary": "Atnaujinti",
     "desktop_chrome": {
       "browser_settings": {
         "list_item_1": "Savo naršyklėje spustelėkite užrakto piktogramą [LOCK_ICON] adreso juostoje",
-        "list_item_2_cam": "Aktyvuokite perjungiklį šalia Kamera",
-        "list_item_2_mic": "Aktyvuokite perjungiklį šalia Mikrofono",
-        "list_item_3": "Grįžkite į šį puslapį ir paspauskite mygtuką Aš atlikau pakeitimus"
+        "list_item_2_cam": "Aktyvuokite perjungiklį šalia <strong>Kamera</strong>",
+        "list_item_2_mic": "Aktyvuokite perjungiklį šalia <strong>Mikrofono</strong>",
+        "list_item_3": "Grįžkite į šį puslapį ir paspauskite mygtuką <strong>Aš atlikau pakeitimus</strong>"
       }
     },
     "desktop_edge": {
       "browser_settings": {
         "list_item_1": "Savo naršyklėje spustelėkite užrakto piktogramą [LOCK_ICON] adreso juostoje",
-        "list_item_2_cam": "Spustelėkite išskleidžiamąjį meniu šalia Kamera ir pasirinkite Leisti",
-        "list_item_2_mic": "Spustelėkite išskleidžiamąjį meniu šalia Mikrofono ir pasirinkite Leisti",
-        "list_item_3": "Grįžkite į šį puslapį ir paspauskite mygtuką Aš atlikau pakeitimus"
+        "list_item_2_cam": "Spustelėkite išskleidžiamąjį meniu šalia <strong>Kamera</strong> ir pasirinkite <strong>Leisti</strong>",
+        "list_item_2_mic": "Spustelėkite išskleidžiamąjį meniu šalia <strong>Mikrofono</strong> ir pasirinkite <strong>Leisti</strong>",
+        "list_item_3": "Grįžkite į šį puslapį ir paspauskite mygtuką <strong>Aš atlikau pakeitimus</strong>"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
         "list_item_1": "Savo naršyklėje spustelėkite nustatymų piktogramą [SETTINGS_ICON_FIREFOX] adreso juostoje",
-        "list_item_2_cam": "Spustelėkite Užblokuota šalia Naudoti kamerą",
-        "list_item_2_mic": "Spustelėkite Užblokuotas šalia Naudoti mikrofoną",
-        "list_item_3": "Grįžkite į šį puslapį ir paspauskite mygtuką Aš atlikau pakeitimus"
+        "list_item_2_cam": "Spustelėkite <strong>Užblokuota</strong> šalia <strong>Naudoti kamerą</strong>",
+        "list_item_2_mic": "Spustelėkite <strong>Užblokuotas</strong> šalia <strong>Naudoti mikrofoną</strong>",
+        "list_item_3": "Grįžkite į šį puslapį ir paspauskite mygtuką <strong>Aš atlikau pakeitimus</strong>"
       }
     },
     "desktop_generic": {
       "browser_settings": {
         "list_item_1": "Savo naršyklėje atidarykite svetainės nustatymus. Dažnai tai yra užrakto piktograma [LOCK_ICON] adreso juostoje",
         "list_item_2": "Raskite skyrių apie leidimus",
-        "list_item_3_cam": "Įjunkite Kamera leidimus",
-        "list_item_3_mic": "Įjunkite Mikrofono leidimus",
-        "list_item_4": "Grįžkite į šį puslapį ir paspauskite mygtuką Aš atlikau pakeitimus"
+        "list_item_3_cam": "Įjunkite <strong>Kamera</strong> leidimus",
+        "list_item_3_mic": "Įjunkite <strong>Mikrofono</strong> leidimus",
+        "list_item_4": "Grįžkite į šį puslapį ir paspauskite mygtuką <strong>Aš atlikau pakeitimus</strong>"
       },
       "device_settings": {
-        "list_item_1": "Savo kompiuteryje atidarykite Nustatymus",
-        "list_item_2": "Raskite skyrių apie leidimus (paprastai po Privatumas)",
-        "list_item_3_cam": "Įjunkite Kamera leidimus [BROWSER_ICON]",
-        "list_item_3_mic": "Įjunkite Mikrofono leidimus [BROWSER_ICON]",
+        "list_item_1": "Savo kompiuteryje atidarykite <strong>Nustatymus</strong>",
+        "list_item_2": "Raskite skyrių apie leidimus (paprastai po <strong>Privatumas</strong>)",
+        "list_item_3_cam": "Įjunkite <strong>Kamera</strong> leidimus [BROWSER_ICON]",
+        "list_item_3_mic": "Įjunkite <strong>Mikrofono</strong> leidimus [BROWSER_ICON]",
         "list_item_4": "Jeigu reikia, iš naujo paleiskite naršyklę ir grįžkite į šį puslapį"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "Savo kompiuteryje spustelėkite Apple meniu [APPLE_ICON] ir pasirinkite Sistemos nustatymai (arba Sistemos nuostatos)",
-        "list_item_2": "Spustelėkite Privatumas ir saugumas (arba Saugumas ir privatumas) šoninėje juostoje ",
-        "list_item_3": "Spustelėkite Vėliau iššokančiame lange",
-        "list_item_3_cam": "Spustelėkite Kamera ir aktyvuokite perjungiklį (arba žymimąjį langelį) šalia [BROWSER_ICON]",
-        "list_item_4": "Spustelėkite Išeiti ir atidaryti iš naujo iššokančiame lange ir grįžkite į šį puslapį",
-        "list_item_4_mic": "Spustelėkite Mikrofoną ir aktyvuokite perjungiklį (arba žymimąjį langelį) šalia [BROWSER_ICON]"
+        "list_item_1": "Savo kompiuteryje spustelėkite Apple meniu [APPLE_ICON] ir pasirinkite <strong>Sistemos nustatymai</strong> (arba <strong>Sistemos nuostatos</strong>)",
+        "list_item_2": "Spustelėkite <strong>Privatumas ir saugumas</strong> (arba <strong>Saugumas ir privatumas</strong>) šoninėje juostoje ",
+        "list_item_3": "Spustelėkite <strong>Vėliau</strong> iššokančiame lange",
+        "list_item_3_cam": "Spustelėkite <strong>Kamera</strong> ir aktyvuokite perjungiklį (arba žymimąjį langelį) šalia [BROWSER_ICON]",
+        "list_item_4": "Spustelėkite <strong>Išeiti ir atidaryti iš naujo</strong> iššokančiame lange ir grįžkite į šį puslapį",
+        "list_item_4_mic": "Spustelėkite <strong>Mikrofoną</strong> ir aktyvuokite perjungiklį (arba žymimąjį langelį) šalia [BROWSER_ICON]"
       }
     },
     "desktop_safari": {
       "browser_settings": {
-        "list_item_1": "Savo naršyklėje spustelėkite dešiniuoju pelės mygtuku adreso juostoje ir pasirinkite Nustatymai",
-        "list_item_2_cam": "Spustelėkite išskleidžiamąjį meniu šalia Kamera ir pasirinkite Leisti",
-        "list_item_2_mic": "Spustelėkite išskleidžiamąjį meniu šalia Mikrofono ir pasirinkite Leisti",
-        "list_item_3": "Grįžkite į šį puslapį ir paspauskite mygtuką Aš atlikau pakeitimus"
+        "list_item_1": "Savo naršyklėje spustelėkite dešiniuoju pelės mygtuku adreso juostoje ir pasirinkite <strong>Nustatymai</strong>",
+        "list_item_2_cam": "Spustelėkite išskleidžiamąjį meniu šalia <strong>Kamera</strong> ir pasirinkite <strong>Leisti</strong>",
+        "list_item_2_mic": "Spustelėkite išskleidžiamąjį meniu šalia <strong>Mikrofono</strong> ir pasirinkite <strong>Leisti</strong>",
+        "list_item_3": "Grįžkite į šį puslapį ir paspauskite mygtuką <strong>Aš atlikau pakeitimus</strong>"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "Savo kompiuteryje spustelėkite Windows meniu [WINDOWS_ICON] ir pasirinkite Nustatymai [SETTINGS_ICON_WINDOWS]",
-        "list_item_2": "Spustelėkite Privatumas (arba Privatumas & Saugumas)",
-        "list_item_3_cam": "Spustelėkite Kamera po Programos leidimai ir aktyvuokite jungiklį šalia [BROWSER_ICON] ",
-        "list_item_3_mic": "Spustelėkite Mikrofoną po Programos leidimais ir aktyvuokite jungiklį šalia [BROWSER_ICON]",
+        "list_item_1": "Savo kompiuteryje spustelėkite Windows meniu [WINDOWS_ICON] ir pasirinkite <strong>Nustatymai</strong> [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "Spustelėkite <strong>Privatumas</strong> (arba <strong>Privatumas & Saugumas</strong>)",
+        "list_item_3_cam": "Spustelėkite <strong>Kamera</strong> po <strong>Programos leidimai</strong> ir aktyvuokite jungiklį šalia [BROWSER_ICON] ",
+        "list_item_3_mic": "Spustelėkite <strong>Mikrofoną</strong> po <strong>Programos leidimais</strong> ir aktyvuokite jungiklį šalia [BROWSER_ICON]",
         "list_item_4": "Jeigu reikia, iš naujo paleiskite naršyklę ir grįžkite į šį puslapį"
       }
     },
     "info": "Atkūrimas",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "Spustelėkite mygtuką Aš atlikau pakeitimus. Jums vėl bus paprašyta leisti prieigą prie kameros ir mikrofono. Kai iššoks langelis, pasirinkite Leisti (arba Gerai)",
-        "list_item_1_cam": "Spustelėkite mygtuką Aš atlikau pakeitimus. Jums vėl bus paprašyta leisti prieigą prie kameros. Kai iššoks langelis, pasirinkite Leisti (arba Gerai)",
-        "list_item_1_mic": "Spustelėkite mygtuką Aš atlikau pakeitimus. Jums bus paprašyta vėl suteikti prieigą prie mikrofono. Kai iššoks langelis, pasirinkite Leisti (arba Gerai)"
+        "list_item_1_both": "Spustelėkite mygtuką <strong>Aš atlikau pakeitimus</strong>. Jums vėl bus paprašyta leisti prieigą prie kameros ir mikrofono. Kai iššoks langelis, pasirinkite <strong>Leisti</strong> (arba <strong>Gerai</strong>)",
+        "list_item_1_cam": "Spustelėkite mygtuką <strong>Aš atlikau pakeitimus</strong>. Jums vėl bus paprašyta leisti prieigą prie kameros. Kai iššoks langelis, pasirinkite <strong>Leisti</strong> (arba <strong>Gerai</strong>)",
+        "list_item_1_mic": "Spustelėkite mygtuką <strong>Aš atlikau pakeitimus</strong>. Jums bus paprašyta vėl suteikti prieigą prie mikrofono. Kai iššoks langelis, pasirinkite <strong>Leisti</strong> (arba <strong>Gerai</strong>)"
       },
       "device_settings": {
-        "list_item_1": "Savo įrenginyje atidarykite programą Nustatymai",
+        "list_item_1": "Savo įrenginyje atidarykite programą <strong>Nustatymai</strong>",
         "list_item_2": "Peržiūrėkite sąrašą ir paspauskite [BROWSER_ICON]",
-        "list_item_3_cam": "Aktyvuokite perjungiklį šalia Kamera",
-        "list_item_3_mic": "Aktyvuokite perjungiklį šalia Mikrofono",
-        "list_item_4": "Grįžkite į šį puslapį ir paspauskite mygtuką Aš atlikau pakeitimus"
+        "list_item_3_cam": "Aktyvuokite perjungiklį šalia <strong>Kamera</strong>",
+        "list_item_3_mic": "Aktyvuokite perjungiklį šalia <strong>Mikrofono</strong>",
+        "list_item_4": "Grįžkite į šį puslapį ir paspauskite mygtuką <strong>Aš atlikau pakeitimus</strong>"
       }
     },
     "ios_safari": {
       "device_settings": {
-        "list_item_1": "Savo įrenginyje atidarykite programą Nustatymai",
+        "list_item_1": "Savo įrenginyje atidarykite programą <strong>Nustatymai</strong>",
         "list_item_2": "Peržiūrėkite sąrašą ir paspauskite [BROWSER_ICON]",
-        "list_item_3_cam": "Spustelėkite Kamera ir pasirinkite Leisti",
-        "list_item_3_mic": "Spustelėkite Mikrofoną ir pasirinkite Leisti",
-        "list_item_4": "Grįžkite į šį puslapį ir paspauskite mygtuką Aš atlikau pakeitimus"
+        "list_item_3_cam": "Spustelėkite <strong>Kamera</strong> ir pasirinkite <strong>Leisti</strong>",
+        "list_item_3_mic": "Spustelėkite <strong>Mikrofoną</strong> ir pasirinkite <strong>Leisti</strong>",
+        "list_item_4": "Grįžkite į šį puslapį ir paspauskite mygtuką <strong>Aš atlikau pakeitimus</strong>"
       }
     },
     "list_header_both": "Atlikite šiuos veiksmus, kad atkurtumėte prieigą prie abiejų:",
@@ -641,7 +641,7 @@
     "subtitle_address_card": "Turi būti galiojanti adreso kortelė",
     "subtitle_bank_statement": "Turi būti išduotas per ​​pastaruosius 3 mėnesius​​",
     "subtitle_benefits_letter": "Turi būti išduotas per ​​pastaruosius 12 mėnesių​​",
-    "subtitle_bill": "Turi būti išduota per ​​pastaruosius 3 mėnesius​​",
+    "subtitle_bill": "Turi būti išduota per ​​pastaruosius 3 mėnesius​",
     "subtitle_tax_letter": "Turi būti išduotas per ​​pastaruosius 12 mėnesių​​"
   },
   "poa_intro": {

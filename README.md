@@ -185,7 +185,7 @@ The CSS style will be included inline with the JS code when the library is impor
 
 You can see an [example app using npm style import](https://github.com/onfido/onfido-sdk-web-sample-app/).
 
-#### Split bundle
+#### 4.4 Split bundle
 
 To decrease the size of your production bundle, you can use the split version of the library:
 

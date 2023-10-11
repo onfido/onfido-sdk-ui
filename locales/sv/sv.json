@@ -444,139 +444,139 @@
   "permission_recovery": {
     "android": {
       "device_settings": {
-        "list_item_1": "På din enhet, öppna Inställningar appen",
-        "list_item_2": "Tryck på Appar",
-        "list_item_3": "Tryck på [BROWSER_ICON]. Om du inte kan hitta den, tryck på Se alla appar eller Hantera appar och välj din webbläsarapp",
-        "list_item_4": "Tryck på Behörigheter",
-        "list_item_5_cam": "Tryck på Kamera och välj Tillåt",
-        "list_item_5_mic": "Tryck på Mikrofon och välj Tillåt",
-        "list_item_6": "Återvänd till denna sida och tryck på knappen Jag har gjort ändringarna"
+        "list_item_1": "På din enhet, öppna <strong>Inställningar</strong> appen",
+        "list_item_2": "Tryck på <strong>Appar</strong>",
+        "list_item_3": "Tryck på [BROWSER_ICON]. Om du inte kan hitta den, tryck på <strong>Se alla appar</strong> eller <strong>Hantera appar</strong> och välj din webbläsarapp",
+        "list_item_4": "Tryck på <strong>Behörigheter</strong>",
+        "list_item_5_cam": "Tryck på <strong>Kamera</strong> och välj <strong>Tillåt</strong>",
+        "list_item_5_mic": "Tryck på <strong>Mikrofon</strong> och välj <strong>Tillåt</strong>",
+        "list_item_6": "Återvänd till denna sida och tryck på knappen <strong>Jag har gjort ändringarna</strong>"
       }
     },
     "android_chrome": {
       "browser_settings": {
         "list_item_1": "I din webbläsare, tryck på låsikonen [LOCK_ICON] i adressfältet",
-        "list_item_2": "Tryck på Behörigheter",
-        "list_item_3_cam": "Aktivera reglaget bredvid Kamera",
-        "list_item_3_mic": "Aktivera reglaget bredvid Mikrofon",
-        "list_item_4": "Återvänd till denna sida och tryck på knappen Jag har gjort ändringarna"
+        "list_item_2": "Tryck på <strong>Behörigheter</strong>",
+        "list_item_3_cam": "Aktivera reglaget bredvid <strong>Kamera</strong>",
+        "list_item_3_mic": "Aktivera reglaget bredvid <strong>Mikrofon</strong>",
+        "list_item_4": "Återvänd till denna sida och tryck på knappen <strong>Jag har gjort ändringarna</strong>"
       }
     },
     "android_firefox": {
       "browser_settings": {
         "list_item_1": "I din webbläsare, tryck på låsikonen [LOCK_ICON] i adressfältet",
-        "list_item_2_cam": "Tryck på Blockerad bredvid Kamera för att byta till Tillåten",
-        "list_item_2_mic": "Tryck på Blockerad bredvid Mikrofon för att byta till Tillåten",
-        "list_item_3": "Återvänd till denna sida och tryck på knappen Jag har gjort ändringarna"
+        "list_item_2_cam": "Tryck på <strong>Blockerad</strong> bredvid <strong>Kamera</strong> för att byta till <strong>Tillåten</strong>",
+        "list_item_2_mic": "Tryck på <strong>Blockerad</strong> bredvid <strong>Mikrofon</strong> för att byta till <strong>Tillåten</strong>",
+        "list_item_3": "Återvänd till denna sida och tryck på knappen <strong>Jag har gjort ändringarna</strong>"
       }
     },
     "android_generic": {
       "browser_settings": {
         "list_item_1": "I din webbläsare, öppna webbplatsinställningarna. Detta är ofta en låsikon [LOCK_ICON] i adressfältet",
         "list_item_2": "Hitta avsnittet om behörigheter",
-        "list_item_3_cam": "Aktivera Kamera-behörigheterna",
-        "list_item_3_mic": "Aktivera Mikrofon-behörigheterna",
-        "list_item_4": "Återvänd till denna sida och tryck på knappen Jag har gjort ändringarna"
+        "list_item_3_cam": "Aktivera <strong>Kamera</strong>-behörigheterna",
+        "list_item_3_mic": "Aktivera <strong>Mikrofon</strong>-behörigheterna",
+        "list_item_4": "Återvänd till denna sida och tryck på knappen <strong>Jag har gjort ändringarna</strong>"
       }
     },
     "android_samsung": {
       "browser_settings": {
         "list_item_1": "I din webbläsare, tryck på låsikonen [LOCK_ICON] i adressfältet",
-        "list_item_2_cam": "Aktivera reglaget bredvid Kamera",
-        "list_item_2_mic": "Aktivera reglaget bredvid Mikrofon",
-        "list_item_3": "Återvänd till denna sida och tryck på knappen Jag har gjort ändringarna"
+        "list_item_2_cam": "Aktivera reglaget bredvid <strong>Kamera</strong>",
+        "list_item_2_mic": "Aktivera reglaget bredvid <strong>Mikrofon</strong>",
+        "list_item_3": "Återvänd till denna sida och tryck på knappen <strong>Jag har gjort ändringarna</strong>"
       }
     },
     "button_primary": "Uppdatera",
     "desktop_chrome": {
       "browser_settings": {
         "list_item_1": "I din webbläsare, klicka på låsikonen [LOCK_ICON] i adressfältet",
-        "list_item_2_cam": "Aktivera reglaget bredvid Kamera",
-        "list_item_2_mic": "Aktivera reglaget bredvid Mikrofon",
-        "list_item_3": "Återvänd till denna sida och klicka på knappen Jag har gjort ändringarna"
+        "list_item_2_cam": "Aktivera reglaget bredvid <strong>Kamera</strong>",
+        "list_item_2_mic": "Aktivera reglaget bredvid <strong>Mikrofon</strong>",
+        "list_item_3": "Återvänd till denna sida och klicka på knappen <strong>Jag har gjort ändringarna</strong>"
       }
     },
     "desktop_edge": {
       "browser_settings": {
         "list_item_1": "I din webbläsare, klicka på låsikonen [LOCK_ICON] i adressfältet",
-        "list_item_2_cam": "Klicka på rullgardinsmenyn bredvid Kamera och välj Tillåt",
-        "list_item_2_mic": "Klicka på rullgardinsmenyn bredvid Mikrofon och välj Tillåt",
-        "list_item_3": "Återvänd till denna sida och klicka på knappen Jag har gjort ändringarna"
+        "list_item_2_cam": "Klicka på rullgardinsmenyn bredvid <strong>Kamera</strong> och välj <strong>Tillåt</strong>",
+        "list_item_2_mic": "Klicka på rullgardinsmenyn bredvid <strong>Mikrofon</strong> och välj <strong>Tillåt</strong>",
+        "list_item_3": "Återvänd till denna sida och klicka på knappen <strong>Jag har gjort ändringarna</strong>"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
         "list_item_1": "I din webbläsare, klicka på inställningsikonen [SETTINGS_ICON_FIREFOX] i adressfältet",
-        "list_item_2_cam": "Klicka på Blockerad bredvid Använd kameran",
-        "list_item_2_mic": "Klicka på Blockerad bredvid Använd mikrofonen",
-        "list_item_3": "Återvänd till denna sida och klicka på knappen Jag har gjort ändringarna"
+        "list_item_2_cam": "Klicka på <strong>Blockerad</strong> bredvid <strong>Använd kameran</strong>",
+        "list_item_2_mic": "Klicka på <strong>Blockerad</strong> bredvid <strong>Använd mikrofonen</strong>",
+        "list_item_3": "Återvänd till denna sida och klicka på knappen <strong>Jag har gjort ändringarna</strong>"
       }
     },
     "desktop_generic": {
       "browser_settings": {
         "list_item_1": "I din webbläsare, öppna webbplatsinställningarna. Detta är ofta en låsikon [LOCK_ICON] i adressfältet",
         "list_item_2": "Hitta avsnittet om behörigheter",
-        "list_item_3_cam": "Aktivera Kamera-behörigheterna",
-        "list_item_3_mic": "Aktivera Mikrofon-behörigheterna",
-        "list_item_4": "Återvänd till denna sida och klicka på knappen Jag har gjort ändringarna"
+        "list_item_3_cam": "Aktivera <strong>Kamera</strong>-behörigheterna",
+        "list_item_3_mic": "Aktivera <strong>Mikrofon</strong>-behörigheterna",
+        "list_item_4": "Återvänd till denna sida och klicka på knappen <strong>Jag har gjort ändringarna</strong>"
       },
       "device_settings": {
-        "list_item_1": "På din dator, öppna dina Inställningar",
-        "list_item_2": "Hitta avsnittet om behörigheter (vanligtvis under Integritet)",
-        "list_item_3_cam": "Aktivera Kamera-behörigheterna för [BROWSER_ICON]",
-        "list_item_3_mic": "Aktivera Mikrofon-behörigheterna för [BROWSER_ICON]",
+        "list_item_1": "På din dator, öppna dina <strong>Inställningar</strong>",
+        "list_item_2": "Hitta avsnittet om behörigheter (vanligtvis under <strong>Integritet</strong>)",
+        "list_item_3_cam": "Aktivera <strong>Kamera</strong>-behörigheterna för [BROWSER_ICON]",
+        "list_item_3_mic": "Aktivera <strong>Mikrofon</strong>-behörigheterna för [BROWSER_ICON]",
         "list_item_4": "Starta om din webbläsare om nödvändigt och återvänd till denna sida"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "På din dator, klicka på Apple-menyn [APPLE_ICON] och välj Systeminställningar (eller Systempreferenser)",
-        "list_item_2": "Klicka på Integritet & Säkerhet (eller Säkerhet & Integritet) i sidofältet ",
-        "list_item_3": "Klicka på Senare i popup-fönstret",
-        "list_item_3_cam": "Klicka på Kamera och aktivera reglaget (eller kryssrutan) bredvid [BROWSER_ICON]",
-        "list_item_4": "Klicka på Avsluta & Öppna igen i popup-fönstret och återvänd till denna sida",
-        "list_item_4_mic": "Klicka på Mikrofon och aktivera reglaget (eller kryssrutan) bredvid [BROWSER_ICON]"
+        "list_item_1": "På din dator, klicka på Apple-menyn [APPLE_ICON] och välj <strong>Systeminställningar</strong> (eller <strong>Systempreferenser</strong>)",
+        "list_item_2": "Klicka på <strong>Integritet & Säkerhet</strong> (eller <strong>Säkerhet & Integritet</strong>) i sidofältet ",
+        "list_item_3": "Klicka på <strong>Senare</strong> i popup-fönstret",
+        "list_item_3_cam": "Klicka på <strong>Kamera</strong> och aktivera reglaget (eller kryssrutan) bredvid [BROWSER_ICON]",
+        "list_item_4": "Klicka på <strong>Avsluta & Öppna igen</strong> i popup-fönstret och återvänd till denna sida",
+        "list_item_4_mic": "Klicka på <strong>Mikrofon</strong> och aktivera reglaget (eller kryssrutan) bredvid [BROWSER_ICON]"
       }
     },
     "desktop_safari": {
       "browser_settings": {
-        "list_item_1": "I din webbläsare, högerklicka i adressfältet och välj Inställningar",
-        "list_item_2_cam": "Klicka på rullgardinsmenyn bredvid Kamera och välj Tillåt",
-        "list_item_2_mic": "Klicka på rullgardinsmenyn bredvid Mikrofon och välj Tillåt",
-        "list_item_3": "Återvänd till denna sida och klicka på knappen Jag har gjort ändringarna"
+        "list_item_1": "I din webbläsare, högerklicka i adressfältet och välj <strong>Inställningar</strong>",
+        "list_item_2_cam": "Klicka på rullgardinsmenyn bredvid <strong>Kamera</strong> och välj <strong>Tillåt</strong>",
+        "list_item_2_mic": "Klicka på rullgardinsmenyn bredvid <strong>Mikrofon</strong> och välj <strong>Tillåt</strong>",
+        "list_item_3": "Återvänd till denna sida och klicka på knappen <strong>Jag har gjort ändringarna</strong>"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "På din dator, klicka på Windows-menyn [WINDOWS_ICON] och välj Inställningar [SETTINGS_ICON_WINDOWS]",
-        "list_item_2": "Klicka på Integritet (eller Integritet & Säkerhet)",
-        "list_item_3_cam": "Klicka på Kamera under Appbehörigheter och aktivera reglaget bredvid [BROWSER_ICON] ",
-        "list_item_3_mic": "Klicka på Mikrofon under Appbehörigheter och aktivera reglaget bredvid [BROWSER_ICON]",
+        "list_item_1": "På din dator, klicka på Windows-menyn [WINDOWS_ICON] och välj <strong>Inställningar</strong> [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "Klicka på <strong>Integritet</strong> (eller <strong>Integritet & Säkerhet</strong>)",
+        "list_item_3_cam": "Klicka på <strong>Kamera</strong> under <strong>Appbehörigheter</strong> och aktivera reglaget bredvid [BROWSER_ICON] ",
+        "list_item_3_mic": "Klicka på <strong>Mikrofon</strong> under <strong>Appbehörigheter</strong> och aktivera reglaget bredvid [BROWSER_ICON]",
         "list_item_4": "Starta om din webbläsare om nödvändigt och återvänd till denna sida"
       }
     },
     "info": "Återställ",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "Tryck på knappen Jag har gjort ändringarna. Du kommer att bli ombedd att återigen aktivera åtkomst till kamera och mikrofon. När popup-fönstret dyker upp, välj Tillåt (eller OK)",
-        "list_item_1_cam": "Tryck på knappen Jag har gjort ändringarna. Du kommer att bli ombedd att återaktivera kameratillgången. När popup-fönstret dyker upp, välj Tillåt (eller OK)",
-        "list_item_1_mic": "Tryck på knappen Jag har gjort ändringarna. Du kommer att bli ombedd att återigen aktivera mikrofontillgång. När popup-fönstret dyker upp, välj Tillåt (eller OK)"
+        "list_item_1_both": "Tryck på knappen <strong>Jag har gjort ändringarna</strong>. Du kommer att bli ombedd att återigen aktivera åtkomst till kamera och mikrofon. När popup-fönstret dyker upp, välj <strong>Tillåt</strong> (eller <strong>OK</strong>)",
+        "list_item_1_cam": "Tryck på knappen <strong>Jag har gjort ändringarna</strong>. Du kommer att bli ombedd att återaktivera kameratillgången. När popup-fönstret dyker upp, välj <strong>Tillåt</strong> (eller <strong>OK</strong>)",
+        "list_item_1_mic": "Tryck på knappen <strong>Jag har gjort ändringarna</strong>. Du kommer att bli ombedd att återigen aktivera mikrofontillgång. När popup-fönstret dyker upp, välj <strong>Tillåt</strong> (eller <strong>OK</strong>)"
       },
       "device_settings": {
-        "list_item_1": "På din enhet, öppna Inställningar appen",
+        "list_item_1": "På din enhet, öppna <strong>Inställningar</strong> appen",
         "list_item_2": "Bläddra genom listan och tryck på [BROWSER_ICON]",
-        "list_item_3_cam": "Aktivera reglaget bredvid Kamera",
-        "list_item_3_mic": "Aktivera reglaget bredvid Mikrofon",
-        "list_item_4": "Återvänd till denna sida och tryck på knappen Jag har gjort ändringarna"
+        "list_item_3_cam": "Aktivera reglaget bredvid <strong>Kamera</strong>",
+        "list_item_3_mic": "Aktivera reglaget bredvid <strong>Mikrofon</strong>",
+        "list_item_4": "Återvänd till denna sida och tryck på knappen <strong>Jag har gjort ändringarna</strong>"
       }
     },
     "ios_safari": {
       "device_settings": {
-        "list_item_1": "På din enhet, öppna Inställningar appen",
+        "list_item_1": "På din enhet, öppna <strong>Inställningar</strong> appen",
         "list_item_2": "Bläddra genom listan och tryck på [BROWSER_ICON]",
-        "list_item_3_cam": "Tryck på Kamera och välj Tillåt",
-        "list_item_3_mic": "Tryck på Mikrofon och välj Tillåt",
-        "list_item_4": "Återvänd till denna sida och tryck på knappen Jag har gjort ändringarna"
+        "list_item_3_cam": "Tryck på <strong>Kamera</strong> och välj <strong>Tillåt</strong>",
+        "list_item_3_mic": "Tryck på <strong>Mikrofon</strong> och välj <strong>Tillåt</strong>",
+        "list_item_4": "Återvänd till denna sida och tryck på knappen <strong>Jag har gjort ändringarna</strong>"
       }
     },
     "list_header_both": "Följ dessa steg för att återställa åtkomst för båda:",

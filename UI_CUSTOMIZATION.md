@@ -137,12 +137,12 @@ The Web SDK supports customization options across the SDK screen including text,
   | `colorBackgroundLinkHover`  | Change Link background color on hover     |
   | `colorBackgroundLinkActive` | Change Link background color on click/tap |
 
-  | Warning Popups                    | Description                                                |
-  | --------------------------------- | ---------------------------------------------------------- |
-  | `colorContentAlertInfo`           | Change warning popup text color                            |
-  | `colorBackgroundAlertInfo`        | Change warning popup background color                      |
-  | `colorContentAlertInfoLinkHover`  | Change warning popup fallback Link background on hover     |
-  | `colorContentAlertInfoLinkActive` | Change warning popup fallback Link background on click/tap |
+  | Warning Popups                       | Description                                                |
+  | ------------------------------------ | ---------------------------------------------------------- |
+  | `colorContentAlertInfo`              | Change warning popup text color                            |
+  | `colorBackgroundAlertInfo`           | Change warning popup background color                      |
+  | `colorBackgroundAlertInfoLinkHover`  | Change warning popup fallback Link background on hover     |
+  | `colorBackgroundAlertInfoLinkActive` | Change warning popup fallback Link background on click/tap |
 
   | Error Popups                       | Description                                              |
   | ---------------------------------- | -------------------------------------------------------- |

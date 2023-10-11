@@ -444,139 +444,139 @@
   "permission_recovery": {
     "android": {
       "device_settings": {
-        "list_item_1": "Cihazınızda, Ayarlar uygulamasını açın",
-        "list_item_2": "Uygulamalar'a dokunun",
-        "list_item_3": "[BROWSER_ICON] dokunun. Bulamazsanız, Tüm uygulamaları gör veya Uygulamaları yönet seçeneğine dokunun ve tarayıcı uygulamanızı seçin",
-        "list_item_4": "İzinler'e dokunun",
-        "list_item_5_cam": "Kamera öğesine dokunun ve İzin Ver seçeneğini seçin",
-        "list_item_5_mic": "Mikrofonu tıklayın ve İzin Ver seçeneğini seçin",
-        "list_item_6": "Bu sayfaya geri dönün ve Değişiklikleri yaptım düğmesine tıklayın"
+        "list_item_1": "Cihazınızda, <strong>Ayarlar</strong> uygulamasını açın",
+        "list_item_2": "<strong>Uygulamalar</strong>'a dokunun",
+        "list_item_3": "[BROWSER_ICON] dokunun. Bulamazsanız, <strong>Tüm uygulamaları gör</strong> veya <strong>Uygulamaları yönet</strong> seçeneğine dokunun ve tarayıcı uygulamanızı seçin",
+        "list_item_4": "<strong>İzinler</strong>'e dokunun",
+        "list_item_5_cam": "<strong>Kamera</strong> öğesine dokunun ve <strong>İzin Ver</strong> seçeneğini seçin",
+        "list_item_5_mic": "<strong>Mikrofon</strong>u tıklayın ve <strong>İzin Ver</strong> seçeneğini seçin",
+        "list_item_6": "Bu sayfaya geri dönün ve <strong>Değişiklikleri yaptım</strong> düğmesine tıklayın"
       }
     },
     "android_chrome": {
       "browser_settings": {
         "list_item_1": "Tarayıcınızda, adres çubuğunda kilit simgesine [LOCK_ICON] dokunun",
-        "list_item_2": "İzinler'e dokunun",
-        "list_item_3_cam": "Kamera yanındaki geçişi etkinleştirin",
-        "list_item_3_mic": "Mikrofon yanındaki anahtarı etkinleştirin",
-        "list_item_4": "Bu sayfaya geri dönün ve Değişiklikleri yaptım düğmesine tıklayın"
+        "list_item_2": "<strong>İzinler</strong>'e dokunun",
+        "list_item_3_cam": "<strong>Kamera</strong> yanındaki geçişi etkinleştirin",
+        "list_item_3_mic": "<strong>Mikrofon</strong> yanındaki anahtarı etkinleştirin",
+        "list_item_4": "Bu sayfaya geri dönün ve <strong>Değişiklikleri yaptım</strong> düğmesine tıklayın"
       }
     },
     "android_firefox": {
       "browser_settings": {
         "list_item_1": "Tarayıcınızda, adres çubuğunda kilit simgesine [LOCK_ICON] dokunun",
-        "list_item_2_cam": "Engellenmiş yanındaki Kamera seçeneğine dokunun ve İzin Verildi seçeneğine geçin",
-        "list_item_2_mic": "Engellenmiş yanındaki Mikrofon seçeneğine dokunun ve İzin Verildi seçeneğine geçin",
-        "list_item_3": "Bu sayfaya geri dönün ve Değişiklikleri yaptım düğmesine tıklayın"
+        "list_item_2_cam": "<strong>Engellenmiş</strong> yanındaki <strong>Kamera</strong> seçeneğine dokunun ve <strong>İzin Verildi</strong> seçeneğine geçin",
+        "list_item_2_mic": "<strong>Engellenmiş</strong> yanındaki <strong>Mikrofon</strong> seçeneğine dokunun ve <strong>İzin Verildi</strong> seçeneğine geçin",
+        "list_item_3": "Bu sayfaya geri dönün ve <strong>Değişiklikleri yaptım</strong> düğmesine tıklayın"
       }
     },
     "android_generic": {
       "browser_settings": {
         "list_item_1": "Tarayıcınızda, web sitesi ayarlarını açın. Bu genellikle adres çubuğunda bir kilit simgesi [LOCK_ICON] olur",
         "list_item_2": "İzinler hakkındaki bölümü bulun",
-        "list_item_3_cam": "Kamera izinlerini etkinleştirin",
-        "list_item_3_mic": "Mikrofon izinlerini etkinleştirin",
-        "list_item_4": "Bu sayfaya geri dönün ve Değişiklikleri yaptım düğmesine tıklayın"
+        "list_item_3_cam": "<strong>Kamera</strong> izinlerini etkinleştirin",
+        "list_item_3_mic": "<strong>Mikrofon</strong> izinlerini etkinleştirin",
+        "list_item_4": "Bu sayfaya geri dönün ve <strong>Değişiklikleri yaptım</strong> düğmesine tıklayın"
       }
     },
     "android_samsung": {
       "browser_settings": {
         "list_item_1": "Tarayıcınızda, adres çubuğunda kilit simgesine [LOCK_ICON] dokunun",
-        "list_item_2_cam": "Kamera yanındaki anahtarı etkinleştirin",
-        "list_item_2_mic": "Mikrofon yanındaki anahtarı etkinleştirin",
-        "list_item_3": "Bu sayfaya geri dönün ve Değişiklikleri yaptım düğmesine tıklayın"
+        "list_item_2_cam": "<strong>Kamera</strong> yanındaki anahtarı etkinleştirin",
+        "list_item_2_mic": "<strong>Mikrofon</strong> yanındaki anahtarı etkinleştirin",
+        "list_item_3": "Bu sayfaya geri dönün ve <strong>Değişiklikleri yaptım</strong> düğmesine tıklayın"
       }
     },
     "button_primary": "Yenile",
     "desktop_chrome": {
       "browser_settings": {
         "list_item_1": "Tarayıcınızda, adres çubuğunda kilit simgesine [LOCK_ICON] tıklayın",
-        "list_item_2_cam": "Kamera yanındaki anahtarı etkinleştirin",
-        "list_item_2_mic": "Mikrofon yanındaki anahtarı etkinleştirin",
-        "list_item_3": "Bu sayfaya geri dönün ve Değişiklikleri yaptım düğmesini tıklayın"
+        "list_item_2_cam": "<strong>Kamera</strong> yanındaki anahtarı etkinleştirin",
+        "list_item_2_mic": "<strong>Mikrofon</strong> yanındaki anahtarı etkinleştirin",
+        "list_item_3": "Bu sayfaya geri dönün ve <strong>Değişiklikleri yaptım</strong> düğmesini tıklayın"
       }
     },
     "desktop_edge": {
       "browser_settings": {
         "list_item_1": "Tarayıcınızda, adres çubuğunda kilit simgesine [LOCK_ICON] tıklayın",
-        "list_item_2_cam": "Kamera yanındaki açılır menüye tıklayın ve İzin Ver seçeneğini seçin",
-        "list_item_2_mic": "Mikrofon yanındaki açılır menüye tıklayın ve İzin Ver seçeneğini seçin",
-        "list_item_3": "Bu sayfaya geri dönün ve Değişiklikleri yaptım düğmesini tıklayın"
+        "list_item_2_cam": "<strong>Kamera</strong> yanındaki açılır menüye tıklayın ve <strong>İzin Ver</strong> seçeneğini seçin",
+        "list_item_2_mic": "<strong>Mikrofon</strong> yanındaki açılır menüye tıklayın ve <strong>İzin Ver</strong> seçeneğini seçin",
+        "list_item_3": "Bu sayfaya geri dönün ve <strong>Değişiklikleri yaptım</strong> düğmesini tıklayın"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
         "list_item_1": "Tarayıcınızda, adres çubuğunda ayarlar simgesini [SETTINGS_ICON_FIREFOX] tıklayın",
-        "list_item_2_cam": "Engellenmiş seçeneğine tıklayın, Kamerayı kullan yanında",
-        "list_item_2_mic": "Engellenmiş seçeneğine tıklayın ve Mikrofonu kullan seçeneğinin yanında bulunur",
-        "list_item_3": "Bu sayfaya geri dönün ve Değişiklikleri yaptım düğmesini tıklayın"
+        "list_item_2_cam": "<strong>Engellenmiş</strong> seçeneğine tıklayın, <strong>Kamerayı kullan</strong> yanında",
+        "list_item_2_mic": "<strong>Engellenmiş</strong> seçeneğine tıklayın ve <strong>Mikrofonu kullan</strong> seçeneğinin yanında bulunur",
+        "list_item_3": "Bu sayfaya geri dönün ve <strong>Değişiklikleri yaptım</strong> düğmesini tıklayın"
       }
     },
     "desktop_generic": {
       "browser_settings": {
         "list_item_1": "Tarayıcınızda, web sitesi ayarlarını açın. Bu genellikle adres çubuğunda bir kilit simgesi [LOCK_ICON] olur",
         "list_item_2": "İzinler hakkındaki bölümü bulun",
-        "list_item_3_cam": "Kamera izinlerini etkinleştirin",
-        "list_item_3_mic": "Mikrofon izinlerini etkinleştirin",
-        "list_item_4": "Bu sayfaya dönün ve Değişiklikleri yaptım düğmesine tıklayın"
+        "list_item_3_cam": "<strong>Kamera</strong> izinlerini etkinleştirin",
+        "list_item_3_mic": "<strong>Mikrofon</strong> izinlerini etkinleştirin",
+        "list_item_4": "Bu sayfaya dönün ve <strong>Değişiklikleri yaptım</strong> düğmesine tıklayın"
       },
       "device_settings": {
-        "list_item_1": "Bilgisayarınızda, Ayarlarınızı açın",
-        "list_item_2": "(Gizlilik altında genellikle bulunan) izinler hakkındaki bölümü bulun",
-        "list_item_3_cam": "[BROWSER_ICON] için Kamera izinlerini etkinleştirin",
-        "list_item_3_mic": "[BROWSER_ICON] için Mikrofon izinlerini etkinleştirin",
+        "list_item_1": "Bilgisayarınızda, <strong>Ayarlarınızı</strong> açın",
+        "list_item_2": "(<strong>Gizlilik</strong> altında genellikle bulunan) izinler hakkındaki bölümü bulun",
+        "list_item_3_cam": "[BROWSER_ICON] için <strong>Kamera</strong> izinlerini etkinleştirin",
+        "list_item_3_mic": "[BROWSER_ICON] için <strong>Mikrofon</strong> izinlerini etkinleştirin",
         "list_item_4": "Gerekirse tarayıcınızı yeniden başlatın ve bu sayfaya geri dönün"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "Bilgisayarınızda, Apple menüsünü [APPLE_ICON] tıklayın ve Sistem Ayarları (veya Sistem Tercihleri) seçin",
-        "list_item_2": "Kenar çubuğunda Gizlilik & Güvenlik (veya Güvenlik & Gizlilik) seçeneğine tıklayın ",
-        "list_item_3": "Pop-up'ta Sonra tıklayın",
-        "list_item_3_cam": "Kamera üzerine tıklayın ve [BROWSER_ICON] yanındaki anahtarı (veya onay kutusunu) aktifleştirin",
-        "list_item_4": "Açılan pencerede Çıkış Yap & Yeniden Aç seçeneğine tıklayın ve bu sayfaya geri dönün",
-        "list_item_4_mic": "Mikrofonu tıklayın ve [BROWSER_ICON] yanındaki anahtarı (veya onay kutusunu) etkinleştirin"
+        "list_item_1": "Bilgisayarınızda, Apple menüsünü [APPLE_ICON] tıklayın ve <strong>Sistem Ayarları</strong> (veya <strong>Sistem Tercihleri</strong>) seçin",
+        "list_item_2": "Kenar çubuğunda <strong>Gizlilik & Güvenlik</strong> (veya <strong>Güvenlik & Gizlilik</strong>) seçeneğine tıklayın ",
+        "list_item_3": "Pop-up'ta <strong>Sonra</strong> tıklayın",
+        "list_item_3_cam": "<strong>Kamera</strong> üzerine tıklayın ve [BROWSER_ICON] yanındaki anahtarı (veya onay kutusunu) aktifleştirin",
+        "list_item_4": "Açılan pencerede <strong>Çıkış Yap & Yeniden Aç</strong> seçeneğine tıklayın ve bu sayfaya geri dönün",
+        "list_item_4_mic": "<strong>Mikrofon</strong>u tıklayın ve [BROWSER_ICON] yanındaki anahtarı (veya onay kutusunu) etkinleştirin"
       }
     },
     "desktop_safari": {
       "browser_settings": {
-        "list_item_1": "Tarayıcınızda, adres çubuğunda sağ tıklayın ve Ayarlar seçeneğini seçin",
-        "list_item_2_cam": "Kamera yanındaki açılır menüye tıklayın ve İzin Ver seçeneğini seçin",
-        "list_item_2_mic": "Mikrofon yanındaki açılır menüye tıklayın ve İzin Ver seçeneğini seçin",
-        "list_item_3": "Bu sayfaya geri dönün ve Değişiklikleri yaptım düğmesini tıklayın"
+        "list_item_1": "Tarayıcınızda, adres çubuğunda sağ tıklayın ve <strong>Ayarlar</strong> seçeneğini seçin",
+        "list_item_2_cam": "<strong>Kamera</strong> yanındaki açılır menüye tıklayın ve <strong>İzin Ver</strong> seçeneğini seçin",
+        "list_item_2_mic": "<strong>Mikrofon</strong> yanındaki açılır menüye tıklayın ve <strong>İzin Ver</strong> seçeneğini seçin",
+        "list_item_3": "Bu sayfaya geri dönün ve <strong>Değişiklikleri yaptım</strong> düğmesini tıklayın"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "Bilgisayarınızda, Windows menüsünü [WINDOWS_ICON] tıklayın ve Ayarları seçin [SETTINGS_ICON_WINDOWS]",
-        "list_item_2": "Gizlilik (veya Gizlilik & Güvenlik) tıklayın",
-        "list_item_3_cam": "Uygulama izinleri altındaki Kamera öğesini tıklayın ve [BROWSER_ICON] yanındaki anahtarı etkinleştirin",
-        "list_item_3_mic": "Uygulama izinleri altındaki Mikrofon öğesini tıklayın ve [BROWSER_ICON] yanındaki anahtarı etkinleştirin",
+        "list_item_1": "Bilgisayarınızda, Windows menüsünü [WINDOWS_ICON] tıklayın ve <strong>Ayarlar</strong>ı seçin [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "<strong>Gizlilik</strong> (veya <strong>Gizlilik & Güvenlik</strong>) tıklayın",
+        "list_item_3_cam": "<strong>Uygulama izinleri</strong> altındaki <strong>Kamera</strong> öğesini tıklayın ve [BROWSER_ICON] yanındaki anahtarı etkinleştirin",
+        "list_item_3_mic": "<strong>Uygulama izinleri</strong> altındaki <strong>Mikrofon</strong> öğesini tıklayın ve [BROWSER_ICON] yanındaki anahtarı etkinleştirin",
         "list_item_4": "Gerekirse tarayıcınızı yeniden başlatın ve bu sayfaya geri dönün"
       }
     },
     "info": "Kurtarma",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "Değişiklikleri yaptım düğmesine dokunun. Kamera ve mikrofon erişimini tekrar etkinleştirmeniz istenecektir. Açılır pencere belirdiğinde, İzin Ver (veya Tamam) seçeneğini seçin.",
-        "list_item_1_cam": "Değişiklikleri yaptım düğmesine dokunun. Kameraya erişimi tekrar etkinleştirmeniz istenecektir. Açılır pencere belirdiğinde, İzin Ver (veya Tamam) seçeneğini seçin.",
-        "list_item_1_mic": "Değişiklikleri yaptım düğmesine dokunun. Mikrofon erişimini tekrar etkinleştirmeniz istenecektir. Açılan pencere belirdiğinde, İzin Ver (veya Tamam) seçeneğini seçin."
+        "list_item_1_both": "<strong>Değişiklikleri yaptım</strong> düğmesine dokunun. Kamera ve mikrofon erişimini tekrar etkinleştirmeniz istenecektir. Açılır pencere belirdiğinde, <strong>İzin Ver</strong> (veya <strong>Tamam</strong>) seçeneğini seçin.",
+        "list_item_1_cam": "<strong>Değişiklikleri yaptım</strong> düğmesine dokunun. Kameraya erişimi tekrar etkinleştirmeniz istenecektir. Açılır pencere belirdiğinde, <strong>İzin Ver</strong> (veya <strong>Tamam</strong>) seçeneğini seçin.",
+        "list_item_1_mic": "<strong>Değişiklikleri yaptım</strong> düğmesine dokunun. Mikrofon erişimini tekrar etkinleştirmeniz istenecektir. Açılan pencere belirdiğinde, <strong>İzin Ver</strong> (veya <strong>Tamam</strong>) seçeneğini seçin."
       },
       "device_settings": {
-        "list_item_1": "Cihazınızda, Ayarlar uygulamasını açın",
+        "list_item_1": "Cihazınızda, <strong>Ayarlar</strong> uygulamasını açın",
         "list_item_2": "Listeyi kaydırın ve [BROWSER_ICON] öğesine dokunun",
-        "list_item_3_cam": "Kamera yanındaki anahtarı etkinleştirin",
-        "list_item_3_mic": "Mikrofon yanındaki anahtarı etkinleştirin",
-        "list_item_4": "Bu sayfaya geri dönün ve Değişiklikleri yaptım düğmesine tıklayın"
+        "list_item_3_cam": "<strong>Kamera</strong> yanındaki anahtarı etkinleştirin",
+        "list_item_3_mic": "<strong>Mikrofon</strong> yanındaki anahtarı etkinleştirin",
+        "list_item_4": "Bu sayfaya geri dönün ve <strong>Değişiklikleri yaptım</strong> düğmesine tıklayın"
       }
     },
     "ios_safari": {
       "device_settings": {
-        "list_item_1": "Cihazınızda, Ayarlar uygulamasını açın",
+        "list_item_1": "Cihazınızda, <strong>Ayarlar</strong> uygulamasını açın",
         "list_item_2": "Listeyi kaydırın ve [BROWSER_ICON] öğesine dokunun",
-        "list_item_3_cam": "Kamera seçeneğine dokunun ve İzin Ver seçeneğini seçin",
-        "list_item_3_mic": "Mikrofonu tıklayın ve İzin Ver seçeneğini seçin",
-        "list_item_4": "Bu sayfaya geri dönün ve Değişiklikleri yaptım düğmesine tıklayın"
+        "list_item_3_cam": "<strong>Kamera</strong> seçeneğine dokunun ve <strong>İzin Ver</strong> seçeneğini seçin",
+        "list_item_3_mic": "<strong>Mikrofon</strong>u tıklayın ve <strong>İzin Ver</strong> seçeneğini seçin",
+        "list_item_4": "Bu sayfaya geri dönün ve <strong>Değişiklikleri yaptım</strong> düğmesine tıklayın"
       }
     },
     "list_header_both": "Her ikisine de erişimi sağlamak için aşağıdaki adımları izleyin:",
@@ -642,7 +642,7 @@
     "subtitle_bank_statement": "Son 3 ay içinde düzenlenmiş olmalıdır",
     "subtitle_benefits_letter": "Son 12 ay içinde düzenlenmiş olmalıdır",
     "subtitle_bill": "​​Son 3 ay​​ içinde düzenlenmiş olmalıdır",
-    "subtitle_tax_letter": "Son 12 ay içinde düzenlenmiş olmalıdır"
+    "subtitle_tax_letter": "Son 12 ayiçinde düzenlenmiş olmalıdır"
   },
   "poa_intro": {
     "button_primary": "Doğrulamayı başlat",

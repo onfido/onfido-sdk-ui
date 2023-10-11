@@ -444,139 +444,139 @@
   "permission_recovery": {
     "android": {
       "device_settings": {
-        "list_item_1": "Na vašom zariadení otvorte aplikáciu Nastavenia",
-        "list_item_2": "Kliknite na Aplikácie",
-        "list_item_3": "Kliknite na [BROWSER_ICON]. Ak ho nemôžete nájsť, kliknite na Zobraziť všetky aplikácie alebo Spravovať aplikácie a vyberte svoju aplikáciu prehliadača",
-        "list_item_4": "Kliknite na Povolenia",
-        "list_item_5_cam": "Kliknite na Kamera a vyberte Povoliť",
-        "list_item_5_mic": "Kliknite na Mikrofón a vyberte Povoliť",
-        "list_item_6": "Vráťte sa na túto stránku a stlačte tlačidlo Urobil som zmeny"
+        "list_item_1": "Na vašom zariadení otvorte aplikáciu <strong>Nastavenia</strong>",
+        "list_item_2": "Kliknite na <strong>Aplikácie</strong>",
+        "list_item_3": "Kliknite na [BROWSER_ICON]. Ak ho nemôžete nájsť, kliknite na <strong>Zobraziť všetky aplikácie</strong> alebo <strong>Spravovať aplikácie</strong> a vyberte svoju aplikáciu prehliadača",
+        "list_item_4": "Kliknite na <strong>Povolenia</strong>",
+        "list_item_5_cam": "Kliknite na <strong>Kamera</strong> a vyberte <strong>Povoliť</strong>",
+        "list_item_5_mic": "Kliknite na <strong>Mikrofón</strong> a vyberte <strong>Povoliť</strong>",
+        "list_item_6": "Vráťte sa na túto stránku a stlačte tlačidlo <strong>Urobil som zmeny</strong>"
       }
     },
     "android_chrome": {
       "browser_settings": {
         "list_item_1": "V prehliadači kliknite na ikonu zámku [LOCK_ICON] v adresnom riadku",
-        "list_item_2": "Kliknite na Povolenia",
-        "list_item_3_cam": "Aktivujte prepínač vedľa Kamery",
-        "list_item_3_mic": "Aktivujte prepínač vedľa Mikrofón",
-        "list_item_4": "Vráťte sa na túto stránku a stlačte tlačidlo Urobil som zmeny"
+        "list_item_2": "Kliknite na <strong>Povolenia</strong>",
+        "list_item_3_cam": "Aktivujte prepínač vedľa <strong>Kamery</strong>",
+        "list_item_3_mic": "Aktivujte prepínač vedľa <strong>Mikrofón</strong>",
+        "list_item_4": "Vráťte sa na túto stránku a stlačte tlačidlo <strong>Urobil som zmeny</strong>"
       }
     },
     "android_firefox": {
       "browser_settings": {
         "list_item_1": "V prehliadači kliknite na ikonu zámku [LOCK_ICON] v adresnom riadku",
-        "list_item_2_cam": "Klepnite na Blokované vedľa Kamery pre prepnutie na Povolené",
-        "list_item_2_mic": "Klepnite na Blokované vedľa Mikrofón pre prepnutie na Povolené",
-        "list_item_3": "Vráťte sa na túto stránku a stlačte tlačidlo Urobil som zmeny"
+        "list_item_2_cam": "Klepnite na <strong>Blokované</strong> vedľa <strong>Kamery</strong> pre prepnutie na <strong>Povolené</strong>",
+        "list_item_2_mic": "Klepnite na <strong>Blokované</strong> vedľa <strong>Mikrofón</strong> pre prepnutie na <strong>Povolené</strong>",
+        "list_item_3": "Vráťte sa na túto stránku a stlačte tlačidlo <strong>Urobil som zmeny</strong>"
       }
     },
     "android_generic": {
       "browser_settings": {
         "list_item_1": "V prehliadači otvorte nastavenia webovej stránky. Často je to ikona zámku [LOCK_ICON] v adresnom riadku",
         "list_item_2": "Nájdite sekciu o povoleniach",
-        "list_item_3_cam": "Povoliť povolenia pre Kameru",
-        "list_item_3_mic": "Povoliť povolenia pre Mikrofón",
-        "list_item_4": "Vráťte sa na túto stránku a stlačte tlačidlo Urobil som zmeny"
+        "list_item_3_cam": "Povoliť povolenia pre <strong>Kameru</strong>",
+        "list_item_3_mic": "Povoliť povolenia pre <strong>Mikrofón</strong>",
+        "list_item_4": "Vráťte sa na túto stránku a stlačte tlačidlo <strong>Urobil som zmeny</strong>"
       }
     },
     "android_samsung": {
       "browser_settings": {
         "list_item_1": "V prehliadači kliknite na ikonu zámku [LOCK_ICON] v adresnom riadku",
-        "list_item_2_cam": "Aktivujte prepínač vedľa Kamery",
-        "list_item_2_mic": "Aktivujte prepínač vedľa Mikrofónu",
-        "list_item_3": "Vráťte sa na túto stránku a stlačte tlačidlo Urobil som zmeny"
+        "list_item_2_cam": "Aktivujte prepínač vedľa <strong>Kamery</strong>",
+        "list_item_2_mic": "Aktivujte prepínač vedľa <strong>Mikrofónu</strong>",
+        "list_item_3": "Vráťte sa na túto stránku a stlačte tlačidlo <strong>Urobil som zmeny</strong>"
       }
     },
     "button_primary": "Obnoviť",
     "desktop_chrome": {
       "browser_settings": {
         "list_item_1": "V prehliadači kliknite na ikonu zámku [LOCK_ICON] v adresnom riadku",
-        "list_item_2_cam": "Aktivujte prepínač vedľa Kamery",
-        "list_item_2_mic": "Aktivujte prepínač vedľa Mikrofónu",
-        "list_item_3": "Vráťte sa na túto stránku a kliknite na tlačidlo Urobil som zmeny"
+        "list_item_2_cam": "Aktivujte prepínač vedľa <strong>Kamery</strong>",
+        "list_item_2_mic": "Aktivujte prepínač vedľa <strong>Mikrofónu</strong>",
+        "list_item_3": "Vráťte sa na túto stránku a kliknite na tlačidlo <strong>Urobil som zmeny</strong>"
       }
     },
     "desktop_edge": {
       "browser_settings": {
         "list_item_1": "Kliknite v prehliadači na ikonu zámku [LOCK_ICON] v adresnom riadku",
-        "list_item_2_cam": "Kliknite na rozbaľovaciu ponuku vedľa Kamery a vyberte Povoliť",
-        "list_item_2_mic": "Kliknite na rozbaľovaciu ponuku vedľa Mikrofón a vyberte Povoliť",
-        "list_item_3": "Vráťte sa na túto stránku a kliknite na tlačidlo Urobil som zmeny"
+        "list_item_2_cam": "Kliknite na rozbaľovaciu ponuku vedľa <strong>Kamery</strong> a vyberte <strong>Povoliť</strong>",
+        "list_item_2_mic": "Kliknite na rozbaľovaciu ponuku vedľa <strong>Mikrofón</strong> a vyberte <strong>Povoliť</strong>",
+        "list_item_3": "Vráťte sa na túto stránku a kliknite na tlačidlo <strong>Urobil som zmeny</strong>"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
         "list_item_1": "V prehliadači kliknite na ikonu nastavení [SETTINGS_ICON_FIREFOX] v adresnom riadku",
-        "list_item_2_cam": "Kliknite na Blokované vedľa Použiť kameru",
-        "list_item_2_mic": "Kliknite na Blokované vedľa Použiť mikrofón",
-        "list_item_3": "Vráťte sa na túto stránku a kliknite na tlačidlo Urobil som zmeny"
+        "list_item_2_cam": "Kliknite na <strong>Blokované</strong> vedľa <strong>Použiť kameru</strong>",
+        "list_item_2_mic": "Kliknite na <strong>Blokované</strong> vedľa <strong>Použiť mikrofón</strong>",
+        "list_item_3": "Vráťte sa na túto stránku a kliknite na tlačidlo <strong>Urobil som zmeny</strong>"
       }
     },
     "desktop_generic": {
       "browser_settings": {
         "list_item_1": "V prehliadači otvorte nastavenia webovej stránky. Často je to ikona zámku [LOCK_ICON] v adresnom riadku",
         "list_item_2": "Nájdite sekciu o povoleniach",
-        "list_item_3_cam": "Povoliť povolenia pre Kameru",
-        "list_item_3_mic": "Povoliť oprávnenia pre Mikrofón pre [BROWSER_ICON]",
-        "list_item_4": "Vráťte sa na túto stránku a kliknite na tlačidlo Urobil som zmeny"
+        "list_item_3_cam": "Povoliť povolenia pre <strong>Kameru</strong>",
+        "list_item_3_mic": "Povoliť oprávnenia pre <strong>Mikrofón</strong> pre [BROWSER_ICON]",
+        "list_item_4": "Vráťte sa na túto stránku a kliknite na tlačidlo <strong>Urobil som zmeny</strong>"
       },
       "device_settings": {
-        "list_item_1": "Na svojom počítači otvorte svoje Nastavenia",
-        "list_item_2": "Nájdite sekciu o povoleniach (zvyčajne pod Súkromie)",
-        "list_item_3_cam": "Povoliť oprávnenia pre Kameru pre [BROWSER_ICON]",
-        "list_item_3_mic": "Povoliť oprávnenia pre Mikrofón pre [BROWSER_ICON]",
+        "list_item_1": "Na svojom počítači otvorte svoje <strong>Nastavenia</strong>",
+        "list_item_2": "Nájdite sekciu o povoleniach (zvyčajne pod <strong>Súkromie</strong>)",
+        "list_item_3_cam": "Povoliť oprávnenia pre <strong>Kameru</strong> pre [BROWSER_ICON]",
+        "list_item_3_mic": "Povoliť oprávnenia pre <strong>Mikrofón</strong> pre [BROWSER_ICON]",
         "list_item_4": "Reštartujte svoj prehliadač, ak je to potrebné, a vráťte sa na túto stránku"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "Na svojom počítači kliknite na menu Apple [APPLE_ICON] a vyberte Systémové nastavenia (alebo Systémové preferencie)",
-        "list_item_2": "Kliknite na Súkromie a bezpečnosť (alebo Bezpečnosť a súkromie) v bočnom paneli ",
-        "list_item_3": "Kliknite na Neskôr v kontextovom okne",
-        "list_item_3_cam": "Kliknite na Kamera a aktivujte prepínač (alebo zaškrtávacie políčko) vedľa [BROWSER_ICON]",
-        "list_item_4": "Kliknite na Ukončiť a znovu otvoriť v kontextovom menu a vráťte sa na túto stránku",
-        "list_item_4_mic": "Kliknite na Mikrofón a aktivujte prepínač (alebo zaškrtávacie políčko) vedľa [BROWSER_ICON]"
+        "list_item_1": "Na svojom počítači kliknite na menu Apple [APPLE_ICON] a vyberte <strong>Systémové nastavenia</strong> (alebo <strong>Systémové preferencie</strong>)",
+        "list_item_2": "Kliknite na <strong>Súkromie a bezpečnosť</strong> (alebo <strong>Bezpečnosť a súkromie</strong>) v bočnom paneli ",
+        "list_item_3": "Kliknite na <strong>Neskôr</strong> v kontextovom okne",
+        "list_item_3_cam": "Kliknite na <strong>Kamera</strong> a aktivujte prepínač (alebo zaškrtávacie políčko) vedľa [BROWSER_ICON]",
+        "list_item_4": "Kliknite na <strong>Ukončiť a znovu otvoriť</strong> v kontextovom menu a vráťte sa na túto stránku",
+        "list_item_4_mic": "Kliknite na <strong>Mikrofón</strong> a aktivujte prepínač (alebo zaškrtávacie políčko) vedľa [BROWSER_ICON]"
       }
     },
     "desktop_safari": {
       "browser_settings": {
-        "list_item_1": "V prehliadači kliknite pravým tlačidlom myši na adresný riadok a vyberte možnosť Nastavenia",
-        "list_item_2_cam": "Kliknite na rozbaľovaciu ponuku vedľa Kamery a vyberte Povoliť",
-        "list_item_2_mic": "Kliknite na rozbaľovaciu ponuku vedľa Mikrofón a vyberte Povoliť",
-        "list_item_3": "Vráťte sa na túto stránku a kliknite na tlačidlo Urobil som zmeny"
+        "list_item_1": "V prehliadači kliknite pravým tlačidlom myši na adresný riadok a vyberte možnosť <strong>Nastavenia</strong>",
+        "list_item_2_cam": "Kliknite na rozbaľovaciu ponuku vedľa <strong>Kamery</strong> a vyberte <strong>Povoliť</strong>",
+        "list_item_2_mic": "Kliknite na rozbaľovaciu ponuku vedľa <strong>Mikrofón</strong> a vyberte <strong>Povoliť</strong>",
+        "list_item_3": "Vráťte sa na túto stránku a kliknite na tlačidlo <strong>Urobil som zmeny</strong>"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "Na svojom počítači kliknite na menu Windows [WINDOWS_ICON] a vyberte Nastavenia [SETTINGS_ICON_WINDOWS]",
-        "list_item_2": "Kliknite na Súkromie (alebo Súkromie & Bezpečnosť)",
-        "list_item_3_cam": "Kliknite na Kamera pod Povolenia aplikácie a aktivujte prepínač vedľa [BROWSER_ICON] ",
-        "list_item_3_mic": "Kliknite na Mikrofón pod Oprávneniami aplikácie a aktivujte prepínač vedľa [BROWSER_ICON]",
+        "list_item_1": "Na svojom počítači kliknite na menu Windows [WINDOWS_ICON] a vyberte <strong>Nastavenia</strong> [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "Kliknite na <strong>Súkromie</strong> (alebo <strong>Súkromie & Bezpečnosť</strong>)",
+        "list_item_3_cam": "Kliknite na <strong>Kamera</strong> pod <strong>Povolenia aplikácie</strong> a aktivujte prepínač vedľa [BROWSER_ICON] ",
+        "list_item_3_mic": "Kliknite na <strong>Mikrofón</strong> pod <strong>Oprávneniami aplikácie</strong> a aktivujte prepínač vedľa [BROWSER_ICON]",
         "list_item_4": "Reštartujte svoj prehliadač, ak je to potrebné, a vráťte sa na túto stránku"
       }
     },
     "info": "Obnovenie",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "Kliknite na tlačidlo Vykonali sa zmeny. Budete vyzvaní, aby ste znova povolili prístup k kamere a mikrofónu. Keď sa zobrazí vyskakovacie okno, vyberte možnosť Povoliť (alebo OK)",
-        "list_item_1_cam": "Kliknite na tlačidlo Vykonali sa zmeny. Bude vás požiadané o opätovné povolenie prístupu k kamere. Keď sa zobrazí vyskakovacie okno, vyberte možnosť Povoliť (alebo OK)",
-        "list_item_1_mic": "Kliknite na tlačidlo Vykonali sa zmeny. Bude vás požiadané o opätovné povolenie prístupu k mikrofónu. Keď sa zobrazí vyskakovacie okno, vyberte Povoliť (alebo OK)"
+        "list_item_1_both": "Kliknite na tlačidlo <strong>Vykonali sa zmeny</strong>. Budete vyzvaní, aby ste znova povolili prístup k kamere a mikrofónu. Keď sa zobrazí vyskakovacie okno, vyberte možnosť <strong>Povoliť</strong> (alebo <strong>OK</strong>)",
+        "list_item_1_cam": "Kliknite na tlačidlo <strong>Vykonali sa zmeny</strong>. Bude vás požiadané o opätovné povolenie prístupu k kamere. Keď sa zobrazí vyskakovacie okno, vyberte možnosť <strong>Povoliť</strong> (alebo <strong>OK</strong>)",
+        "list_item_1_mic": "Kliknite na tlačidlo <strong>Vykonali sa zmeny</strong>. Bude vás požiadané o opätovné povolenie prístupu k mikrofónu. Keď sa zobrazí vyskakovacie okno, vyberte <strong>Povoliť</strong> (alebo <strong>OK</strong>)"
       },
       "device_settings": {
-        "list_item_1": "Na vašom zariadení otvorte aplikáciu Nastavenia",
+        "list_item_1": "Na vašom zariadení otvorte aplikáciu <strong>Nastavenia</strong>",
         "list_item_2": "Prejdite zoznamom a ťuknite na [BROWSER_ICON]",
-        "list_item_3_cam": "Aktivujte prepínač vedľa Kamery",
-        "list_item_3_mic": "Aktivujte prepínač vedľa Mikrofónu",
-        "list_item_4": "Vráťte sa na túto stránku a stlačte tlačidlo Urobil som zmeny"
+        "list_item_3_cam": "Aktivujte prepínač vedľa <strong>Kamery</strong>",
+        "list_item_3_mic": "Aktivujte prepínač vedľa <strong>Mikrofónu</strong>",
+        "list_item_4": "Vráťte sa na túto stránku a stlačte tlačidlo <strong>Urobil som zmeny</strong>"
       }
     },
     "ios_safari": {
       "device_settings": {
-        "list_item_1": "Na vašom zariadení otvorte aplikáciu Nastavenia",
+        "list_item_1": "Na vašom zariadení otvorte aplikáciu <strong>Nastavenia</strong>",
         "list_item_2": "Prejdite zoznamom a ťuknite na [BROWSER_ICON]",
-        "list_item_3_cam": "Kliknite na Kamera a vyberte Povoliť",
-        "list_item_3_mic": "Kliknite na Mikrofón a vyberte Povoliť",
-        "list_item_4": "Vráťte sa na túto stránku a stlačte tlačidlo Urobil som zmeny"
+        "list_item_3_cam": "Kliknite na <strong>Kamera</strong> a vyberte <strong>Povoliť</strong>",
+        "list_item_3_mic": "Kliknite na <strong>Mikrofón</strong> a vyberte <strong>Povoliť</strong>",
+        "list_item_4": "Vráťte sa na túto stránku a stlačte tlačidlo <strong>Urobil som zmeny</strong>"
       }
     },
     "list_header_both": "Ak chcete obnoviť prístup k obom, postupujte takto:",
@@ -647,8 +647,8 @@
   "poa_intro": {
     "button_primary": "Spustite overenie",
     "list_matches_signup": "Adresa sa zhoduje s tou, ktorú ste použili pri registrácii",
-    "list_most_recent": "Je to váš najnovšídoklad",
-    "list_shows_address": "Je na ňom uvedená vaša aktuálnaadresa",
+    "list_most_recent": "Je to váš najnovší doklad",
+    "list_shows_address": "Je na ňom uvedená vaša aktuálna adresa",
     "subtitle": "Budete potrebovať doklad, ktorý spĺňa tieto podmienky:",
     "title": "Poďme overiť vašu adresu"
   },

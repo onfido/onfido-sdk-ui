@@ -444,139 +444,139 @@
   "permission_recovery": {
     "android": {
       "device_settings": {
-        "list_item_1": "במכשיר שלך, פתח את האפליקציה הגדרות",
-        "list_item_2": "הקש על  אפליקציות ",
-        "list_item_3": "הקש על [BROWSER_ICON]. אם אתה לא מוצא אותו, הקש על ראה את כל האפליקציות או נהל אפליקציות ובחר את אפליקציית הדפדפן שלך",
-        "list_item_4": "הקש הרשאות",
-        "list_item_5_cam": "הקש על מצלמה ובחר אפשר",
-        "list_item_5_mic": "הקש על מיקרופון ובחר אפשר",
-        "list_item_6": "חזור לדף זה ולחץ על הכפתור ביצעתי את השינויים"
+        "list_item_1": "במכשיר שלך, פתח את האפליקציה <strong>הגדרות</strong>",
+        "list_item_2": "הקש על <strong> אפליקציות </strong>",
+        "list_item_3": "הקש על [BROWSER_ICON]. אם אתה לא מוצא אותו, הקש על <strong>ראה את כל האפליקציות</strong> או <strong>נהל אפליקציות</strong> ובחר את אפליקציית הדפדפן שלך",
+        "list_item_4": "הקש <strong>הרשאות</strong>",
+        "list_item_5_cam": "הקש על <strong>מצלמה</strong> ובחר <strong>אפשר</strong>",
+        "list_item_5_mic": "הקש על <strong>מיקרופון</strong> ובחר <strong>אפשר</strong>",
+        "list_item_6": "חזור לדף זה ולחץ על הכפתור <strong>ביצעתי את השינויים</strong>"
       }
     },
     "android_chrome": {
       "browser_settings": {
         "list_item_1": "בדפדפן שלך, הקש על סמל הנעילה [LOCK_ICON] בשורת הכתובת",
-        "list_item_2": "הקש על הרשאות",
-        "list_item_3_cam": "הפעל את המתג ליד מצלמה",
-        "list_item_3_mic": "הפעל את המתג ליד המיקרופון",
-        "list_item_4": "חזור לדף זה ולחץ על הכפתור ביצעתי את השינויים"
+        "list_item_2": "הקש על <strong>הרשאות</strong>",
+        "list_item_3_cam": "הפעל את המתג ליד <strong>מצלמה</strong>",
+        "list_item_3_mic": "הפעל את המתג ליד <strong>המיקרופון</strong>",
+        "list_item_4": "חזור לדף זה ולחץ על הכפתור <strong>ביצעתי את השינויים</strong>"
       }
     },
     "android_firefox": {
       "browser_settings": {
         "list_item_1": "בדפדפן שלך, הקש על סמל הנעילה [LOCK_ICON] בשורת הכתובת",
-        "list_item_2_cam": "הקש על חסום ליד מצלמה כדי להחליף ל מותר",
-        "list_item_2_mic": "הקש על חסום ליד מיקרופון כדי להחליף ל מותר",
-        "list_item_3": "חזור לדף זה ולחץ על הכפתור ביצעתי את השינויים"
+        "list_item_2_cam": "הקש על <strong>חסום</strong> ליד <strong>מצלמה</strong> כדי להחליף ל <strong>מותר</strong>",
+        "list_item_2_mic": "הקש על <strong>חסום</strong> ליד <strong>מיקרופון</strong> כדי להחליף ל <strong>מותר</strong>",
+        "list_item_3": "חזור לדף זה ולחץ על הכפתור <strong>ביצעתי את השינויים</strong>"
       }
     },
     "android_generic": {
       "browser_settings": {
         "list_item_1": "בדפדפן שלך, פתח את הגדרות האתר. לעיתים קרובות זהו סמל של מנעול [LOCK_ICON] בשורת הכתובת",
         "list_item_2": "מצא את הסעיף שעוסק בהרשאות",
-        "list_item_3_cam": "אפשר את הרשאות המצלמה",
-        "list_item_3_mic": "אפשר את הרשאות המיקרופון",
-        "list_item_4": "חזור לדף זה ולחץ על הכפתור ביצעתי את השינויים"
+        "list_item_3_cam": "אפשר את הרשאות ה<strong>מצלמה</strong>",
+        "list_item_3_mic": "אפשר את הרשאות ה<strong>מיקרופון</strong>",
+        "list_item_4": "חזור לדף זה ולחץ על הכפתור <strong>ביצעתי את השינויים</strong>"
       }
     },
     "android_samsung": {
       "browser_settings": {
         "list_item_1": "בדפדפן שלך, הקש על סמל הנעילה [LOCK_ICON] בשורת הכתובת",
-        "list_item_2_cam": "הפעל את המתג ליד מצלמה",
-        "list_item_2_mic": "הפעל את המתג ליד המיקרופון",
-        "list_item_3": "חזור לדף זה ולחץ על הכפתור ביצעתי את השינויים"
+        "list_item_2_cam": "הפעל את המתג ליד <strong>מצלמה</strong>",
+        "list_item_2_mic": "הפעל את המתג ליד <strong>המיקרופון</strong>",
+        "list_item_3": "חזור לדף זה ולחץ על הכפתור <strong>ביצעתי את השינויים</strong>"
       }
     },
     "button_primary": "רענן",
     "desktop_chrome": {
       "browser_settings": {
         "list_item_1": "בדפדפן שלך, לחץ על סמל הנעילה [LOCK_ICON] בשורת הכתובת",
-        "list_item_2_cam": "הפעל את המתג ליד מצלמה",
-        "list_item_2_mic": "הפעל את המתג ליד המיקרופון",
-        "list_item_3": "חזור לדף זה ולחץ על הכפתור ביצעתי את השינויים"
+        "list_item_2_cam": "הפעל את המתג ליד <strong>מצלמה</strong>",
+        "list_item_2_mic": "הפעל את המתג ליד <strong>המיקרופון</strong>",
+        "list_item_3": "חזור לדף זה ולחץ על הכפתור <strong>ביצעתי את השינויים</strong>"
       }
     },
     "desktop_edge": {
       "browser_settings": {
         "list_item_1": "בדפדפן שלך, לחץ על סמל הנעילה [LOCK_ICON] בשורת הכתובת",
-        "list_item_2_cam": "לחץ על התפריט הנפתח ליד מצלמה ובחר אפשר",
-        "list_item_2_mic": "לחץ על התפריט הנפתח ליד מיקרופון ובחר אפשר",
-        "list_item_3": "חזור לדף זה ולחץ על הכפתור ביצעתי את השינויים"
+        "list_item_2_cam": "לחץ על התפריט הנפתח ליד <strong>מצלמה</strong> ובחר <strong>אפשר</strong>",
+        "list_item_2_mic": "לחץ על התפריט הנפתח ליד <strong>מיקרופון</strong> ובחר <strong>אפשר</strong>",
+        "list_item_3": "חזור לדף זה ולחץ על הכפתור <strong>ביצעתי את השינויים</strong>"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
         "list_item_1": "בדפדפן שלך, לחץ על סמל ההגדרות [SETTINGS_ICON_FIREFOX] בשורת הכתובת",
-        "list_item_2_cam": "לחץ על חסום ליד השתמש במצלמה",
-        "list_item_2_mic": "לחץ על חסום ליד השתמש במיקרופון",
-        "list_item_3": "חזור לדף זה ולחץ על הכפתור ביצעתי את השינויים"
+        "list_item_2_cam": "לחץ על <strong>חסום</strong> ליד <strong>השתמש במצלמה</strong>",
+        "list_item_2_mic": "לחץ על <strong>חסום</strong> ליד <strong>השתמש במיקרופון</strong>",
+        "list_item_3": "חזור לדף זה ולחץ על הכפתור <strong>ביצעתי את השינויים</strong>"
       }
     },
     "desktop_generic": {
       "browser_settings": {
         "list_item_1": "בדפדפן שלך, פתח את הגדרות האתר. לעיתים קרובות זהו סמל של מנעול [LOCK_ICON] בשורת הכתובת",
         "list_item_2": "מצא את הסעיף שעוסק בהרשאות",
-        "list_item_3_cam": "אפשר את הרשאות המצלמה",
-        "list_item_3_mic": "אפשר את הרשאות המיקרופון",
-        "list_item_4": "חזור לדף זה ולחץ על הכפתור ביצעתי את השינויים"
+        "list_item_3_cam": "אפשר את הרשאות ה<strong>מצלמה</strong>",
+        "list_item_3_mic": "אפשר את הרשאות ה<strong>מיקרופון</strong>",
+        "list_item_4": "חזור לדף זה ולחץ על הכפתור <strong>ביצעתי את השינויים</strong>"
       },
       "device_settings": {
-        "list_item_1": "במחשב שלכם, פתחו את ההגדרות שלכם",
-        "list_item_2": "מצא את הסעיף שעוסק בהרשאות (בדרך כלל תחת פרטיות)",
-        "list_item_3_cam": "אפשר את ההרשאות למצלמה עבור [BROWSER_ICON]",
-        "list_item_3_mic": "אפשר את ההרשאות למיקרופון עבור [BROWSER_ICON]",
+        "list_item_1": "במחשב שלכם, פתחו את ה<strong>הגדרות</strong> שלכם",
+        "list_item_2": "מצא את הסעיף שעוסק בהרשאות (בדרך כלל תחת <strong>פרטיות</strong>)",
+        "list_item_3_cam": "אפשר את ההרשאות ל<strong>מצלמה</strong> עבור [BROWSER_ICON]",
+        "list_item_3_mic": "אפשר את ההרשאות ל<strong>מיקרופון</strong> עבור [BROWSER_ICON]",
         "list_item_4": "אם נדרש, הפעל מחדש את הדפדפן שלך וחזור לדף זה"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "במחשב שלך, לחץ על תפריט Apple [APPLE_ICON] ובחר הגדרות מערכת (או העדפות מערכת)",
-        "list_item_2": "לחץ על פרטיות ואבטחה (או אבטחה ופרטיות) בסרגל הצד",
-        "list_item_3": "לחץ על מאוחר יותר בחלון הקופץ",
-        "list_item_3_cam": "לחץ על מצלמה והפעל את המתג (או תיבת הסימון) ליד [BROWSER_ICON]",
-        "list_item_4": "לחץ על צא & פתח מחדש בחלון הקופץ וחזור לדף זה",
-        "list_item_4_mic": "לחץ על מיקרופון והפעל את המתג (או תיבת הסימון) ליד [BROWSER_ICON]"
+        "list_item_1": "במחשב שלך, לחץ על תפריט Apple [APPLE_ICON] ובחר <strong>הגדרות מערכת</strong> (או <strong>העדפות מערכת</strong>)",
+        "list_item_2": "לחץ על <strong>פרטיות ואבטחה</strong> (או <strong>אבטחה ופרטיות</strong>) בסרגל הצד",
+        "list_item_3": "לחץ על <strong>מאוחר יותר</strong> בחלון הקופץ",
+        "list_item_3_cam": "לחץ על <strong>מצלמה</strong> והפעל את המתג (או תיבת הסימון) ליד [BROWSER_ICON]",
+        "list_item_4": "לחץ על <strong>צא & פתח מחדש</strong> בחלון הקופץ וחזור לדף זה",
+        "list_item_4_mic": "לחץ על <strong>מיקרופון</strong> והפעל את המתג (או תיבת הסימון) ליד [BROWSER_ICON]"
       }
     },
     "desktop_safari": {
       "browser_settings": {
-        "list_item_1": "בדפדפן שלך, לחץ עם הכפתור הימני בשורת הכתובת ובחר הגדרות",
-        "list_item_2_cam": "לחץ על התפריט הנפתח ליד מצלמה ובחר אפשר",
-        "list_item_2_mic": "לחץ על התפריט הנפתח ליד מיקרופון ובחר אפשר",
-        "list_item_3": "חזור לדף זה ולחץ על הכפתור ביצעתי את השינויים"
+        "list_item_1": "בדפדפן שלך, לחץ עם הכפתור הימני בשורת הכתובת ובחר <strong>הגדרות</strong>",
+        "list_item_2_cam": "לחץ על התפריט הנפתח ליד <strong>מצלמה</strong> ובחר <strong>אפשר</strong>",
+        "list_item_2_mic": "לחץ על התפריט הנפתח ליד <strong>מיקרופון</strong> ובחר <strong>אפשר</strong>",
+        "list_item_3": "חזור לדף זה ולחץ על הכפתור <strong>ביצעתי את השינויים</strong>"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "במחשב שלך, לחץ על תפריט Windows [WINDOWS_ICON] ובחר הגדרות [SETTINGS_ICON_WINDOWS]",
-        "list_item_2": "לחץ על פרטיות (או פרטיות & אבטחה)",
-        "list_item_3_cam": "לחץ על מצלמה תחת הרשאות יישום והפעל את המתג ליד [BROWSER_ICON] ",
-        "list_item_3_mic": "לחץ על מיקרופון תחת הרשאות יישום והפעל את המתג ליד [BROWSER_ICON]",
+        "list_item_1": "במחשב שלך, לחץ על תפריט Windows [WINDOWS_ICON] ובחר <strong>הגדרות</strong> [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "לחץ על <strong>פרטיות</strong> (או <strong>פרטיות & אבטחה</strong>)",
+        "list_item_3_cam": "לחץ על <strong>מצלמה</strong> תחת <strong>הרשאות יישום</strong> והפעל את המתג ליד [BROWSER_ICON] ",
+        "list_item_3_mic": "לחץ על <strong>מיקרופון</strong> תחת <strong>הרשאות יישום</strong> והפעל את המתג ליד [BROWSER_ICON]",
         "list_item_4": "אם נדרש, הפעל מחדש את הדפדפן שלך וחזור לדף זה"
       }
     },
     "info": "שחזור",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "הקש על הכפתור ביצעתי את השינויים. יבקשו ממך שוב לאפשר גישה למצלמה ולמיקרופון. כאשר החלונית מופיעה, בחר אפשר (או אישור)",
-        "list_item_1_cam": "הקש על הכפתור ביצעתי את השינויים. יבקשו ממך שוב לאפשר גישה למצלמה. כאשר מופיעה החלונית, בחר אפשר (או אישור)",
-        "list_item_1_mic": "הקש על הכפתור ביצעתי את השינויים. יבקשו ממך שוב לאפשר גישה למיקרופון. כאשר מופיעה החלונית, בחר אשר (או אישור)"
+        "list_item_1_both": "הקש על הכפתור <strong>ביצעתי את השינויים</strong>. יבקשו ממך שוב לאפשר גישה למצלמה ולמיקרופון. כאשר החלונית מופיעה, בחר <strong>אפשר</strong> (או <strong>אישור</strong>)",
+        "list_item_1_cam": "הקש על הכפתור <strong>ביצעתי את השינויים</strong>. יבקשו ממך שוב לאפשר גישה למצלמה. כאשר מופיעה החלונית, בחר <strong>אפשר</strong> (או <strong>אישור</strong>)",
+        "list_item_1_mic": "הקש על הכפתור <strong>ביצעתי את השינויים</strong>. יבקשו ממך שוב לאפשר גישה למיקרופון. כאשר מופיעה החלונית, בחר <strong>אשר</strong> (או <strong>אישור</strong>)"
       },
       "device_settings": {
-        "list_item_1": "במכשיר שלך, פתח את האפליקציה הגדרות",
+        "list_item_1": "במכשיר שלך, פתח את האפליקציה <strong>הגדרות</strong>",
         "list_item_2": "גלול ברשימה והקש על [BROWSER_ICON]",
-        "list_item_3_cam": "הפעל את המתג ליד מצלמה",
-        "list_item_3_mic": "הפעל את המתג ליד המיקרופון",
-        "list_item_4": "חזור לדף זה ולחץ על הכפתור ביצעתי את השינויים"
+        "list_item_3_cam": "הפעל את המתג ליד <strong>מצלמה</strong>",
+        "list_item_3_mic": "הפעל את המתג ליד <strong>המיקרופון</strong>",
+        "list_item_4": "חזור לדף זה ולחץ על הכפתור <strong>ביצעתי את השינויים</strong>"
       }
     },
     "ios_safari": {
       "device_settings": {
-        "list_item_1": "במכשיר שלך, פתח את האפליקציה הגדרות",
+        "list_item_1": "במכשיר שלך, פתח את האפליקציה <strong>הגדרות</strong>",
         "list_item_2": "גלול ברשימה והקש על [BROWSER_ICON]",
-        "list_item_3_cam": "הקש על מצלמה ובחר אפשר",
-        "list_item_3_mic": "הקש על מיקרופון ובחר אפשר",
-        "list_item_4": "חזור לדף זה ולחץ על הכפתור ביצעתי את השינויים"
+        "list_item_3_cam": "הקש על <strong>מצלמה</strong> ובחר <strong>אפשר</strong>",
+        "list_item_3_mic": "הקש על <strong>מיקרופון</strong> ובחר <strong>אפשר</strong>",
+        "list_item_4": "חזור לדף זה ולחץ על הכפתור <strong>ביצעתי את השינויים</strong>"
       }
     },
     "list_header_both": "בצע את השלבים הבאים כדי לשחזר את הגישה למצלמה:",
@@ -641,7 +641,7 @@
     "subtitle_address_card": "הכתובת לחיוב חייבת להיות חוקית",
     "subtitle_bank_statement": "תאריך ההנפקה חייב להיות ​​ב-3 החודשים האחרונים​​",
     "subtitle_benefits_letter": "תאריך ההנפקה חייב להיות ​​ב-3 החודשים האחרונים​​",
-    "subtitle_bill": "תאריך ההנפקה חייב להיות ​​ב-3 החודשים האחרונים​​",
+    "subtitle_bill": "תאריך ההנפקה חייב להיות ​ב-3 החודשים האחרונים​​",
     "subtitle_tax_letter": "תאריך ההנפקה חייב להיות ​​ב-3 החודשים האחרונים​​"
   },
   "poa_intro": {

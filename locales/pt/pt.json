@@ -444,139 +444,139 @@
   "permission_recovery": {
     "android": {
       "device_settings": {
-        "list_item_1": "No seu dispositivo, abra a aplicação Definições",
-        "list_item_2": "Toque em Aplicações",
-        "list_item_3": "Toque em [BROWSER_ICON]. Se não conseguir encontrá-lo, toque em Ver todas as apps ou Gerir apps e selecione a sua aplicação de navegador",
-        "list_item_4": "Toque em Permissões",
-        "list_item_5_cam": "Toque em Câmara e selecione Permitir",
-        "list_item_5_mic": "Toque em Microfone e selecione Permitir",
-        "list_item_6": "Volte a esta página e toque no botão Fiz as alterações"
+        "list_item_1": "No seu dispositivo, abra a aplicação <strong>Definições</strong>",
+        "list_item_2": "Toque em <strong>Aplicações</strong>",
+        "list_item_3": "Toque em [BROWSER_ICON]. Se não conseguir encontrá-lo, toque em <strong>Ver todas as apps</strong> ou <strong>Gerir apps</strong> e selecione a sua aplicação de navegador",
+        "list_item_4": "Toque em <strong>Permissões</strong>",
+        "list_item_5_cam": "Toque em <strong>Câmara</strong> e selecione <strong>Permitir</strong>",
+        "list_item_5_mic": "Toque em <strong>Microfone</strong> e selecione <strong>Permitir</strong>",
+        "list_item_6": "Volte a esta página e toque no botão <strong>Fiz as alterações</strong>"
       }
     },
     "android_chrome": {
       "browser_settings": {
         "list_item_1": "No seu navegador, toque no ícone de bloqueio [LOCK_ICON] na barra de endereços",
-        "list_item_2": "Toque em Permissões",
-        "list_item_3_cam": "Ative a alavanca ao lado de Câmara",
-        "list_item_3_mic": "Ative a alavanca ao lado de Microfone",
-        "list_item_4": "Volte a esta página e toque no botão Fiz as alterações"
+        "list_item_2": "Toque em <strong>Permissões</strong>",
+        "list_item_3_cam": "Ative a alavanca ao lado de <strong>Câmara</strong>",
+        "list_item_3_mic": "Ative a alavanca ao lado de <strong>Microfone</strong>",
+        "list_item_4": "Volte a esta página e toque no botão <strong>Fiz as alterações</strong>"
       }
     },
     "android_firefox": {
       "browser_settings": {
         "list_item_1": "No seu navegador, toque no ícone de bloqueio [LOCK_ICON] na barra de endereços",
-        "list_item_2_cam": "Toque em Bloqueado ao lado de Câmara para mudar para Permitido",
-        "list_item_2_mic": "Toque em Bloqueado ao lado de Microfone para mudar para Permitido",
-        "list_item_3": "Volte a esta página e toque no botão Fiz as alterações"
+        "list_item_2_cam": "Toque em <strong>Bloqueado</strong> ao lado de <strong>Câmara</strong> para mudar para <strong>Permitido</strong>",
+        "list_item_2_mic": "Toque em <strong>Bloqueado</strong> ao lado de <strong>Microfone</strong> para mudar para <strong>Permitido</strong>",
+        "list_item_3": "Volte a esta página e toque no botão <strong>Fiz as alterações</strong>"
       }
     },
     "android_generic": {
       "browser_settings": {
         "list_item_1": "No seu navegador, abra as configurações do site. Isto é frequentemente um ícone de cadeado [LOCK_ICON] na barra de endereços",
         "list_item_2": "Encontre a secção sobre permissões",
-        "list_item_3_cam": "Ative as permissões da Câmara",
-        "list_item_3_mic": "Ative as permissões do Microfone",
-        "list_item_4": "Volte a esta página e toque no botão Fiz as alterações"
+        "list_item_3_cam": "Ative as permissões da <strong>Câmara</strong>",
+        "list_item_3_mic": "Ative as permissões do <strong>Microfone</strong>",
+        "list_item_4": "Volte a esta página e toque no botão <strong>Fiz as alterações</strong>"
       }
     },
     "android_samsung": {
       "browser_settings": {
         "list_item_1": "No seu navegador, toque no ícone de bloqueio [LOCK_ICON] na barra de endereços",
-        "list_item_2_cam": "Ative a alavanca ao lado de Câmara",
-        "list_item_2_mic": "Ative a alavanca ao lado de Microfone",
-        "list_item_3": "Volte a esta página e toque no botão Fiz as alterações"
+        "list_item_2_cam": "Ative a alavanca ao lado de <strong>Câmara</strong>",
+        "list_item_2_mic": "Ative a alavanca ao lado de <strong>Microfone</strong>",
+        "list_item_3": "Volte a esta página e toque no botão <strong>Fiz as alterações</strong>"
       }
     },
     "button_primary": "Atualizar",
     "desktop_chrome": {
       "browser_settings": {
         "list_item_1": "No seu navegador, clique no ícone de cadeado [LOCK_ICON] na barra de endereços",
-        "list_item_2_cam": "Ative a alavanca ao lado de Câmara",
-        "list_item_2_mic": "Ative a alavanca ao lado de Microfone",
-        "list_item_3": "Volte a esta página e clique no botão Fiz as alterações"
+        "list_item_2_cam": "Ative a alavanca ao lado de <strong>Câmara</strong>",
+        "list_item_2_mic": "Ative a alavanca ao lado de <strong>Microfone</strong>",
+        "list_item_3": "Volte a esta página e clique no botão <strong>Fiz as alterações</strong>"
       }
     },
     "desktop_edge": {
       "browser_settings": {
         "list_item_1": "No seu navegador, clique no ícone de bloqueio [LOCK_ICON] na barra de endereços",
-        "list_item_2_cam": "Clique na seta ao lado de Câmara e selecione Permitir",
-        "list_item_2_mic": "Clique na caixa de seleção ao lado de Microfone e selecione Permitir",
-        "list_item_3": "Volte a esta página e clique no botão Fiz as alterações"
+        "list_item_2_cam": "Clique na seta ao lado de <strong>Câmara</strong> e selecione <strong>Permitir</strong>",
+        "list_item_2_mic": "Clique na caixa de seleção ao lado de <strong>Microfone</strong> e selecione <strong>Permitir</strong>",
+        "list_item_3": "Volte a esta página e clique no botão <strong>Fiz as alterações</strong>"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
         "list_item_1": "No seu navegador, clique no ícone de configurações [SETTINGS_ICON_FIREFOX] na barra de endereços",
-        "list_item_2_cam": "Clique em Bloqueado ao lado de Usar a câmara",
-        "list_item_2_mic": "Clique em Bloqueado ao lado de Usar o microfone",
-        "list_item_3": "Volte a esta página e clique no botão Fiz as alterações"
+        "list_item_2_cam": "Clique em <strong>Bloqueado</strong> ao lado de <strong>Usar a câmara</strong>",
+        "list_item_2_mic": "Clique em <strong>Bloqueado</strong> ao lado de <strong>Usar o microfone</strong>",
+        "list_item_3": "Volte a esta página e clique no botão <strong>Fiz as alterações</strong>"
       }
     },
     "desktop_generic": {
       "browser_settings": {
         "list_item_1": "No seu navegador, abra as configurações do site. Isso é frequentemente um ícone de cadeado [LOCK_ICON] na barra de endereços",
         "list_item_2": "Encontre a secção sobre permissões",
-        "list_item_3_cam": "Ative as permissões da Câmara",
-        "list_item_3_mic": "Ative as permissões do Microfone",
-        "list_item_4": "Volte a esta página e clique no botão Fiz as alterações"
+        "list_item_3_cam": "Ative as permissões da <strong>Câmara</strong>",
+        "list_item_3_mic": "Ative as permissões do <strong>Microfone</strong>",
+        "list_item_4": "Volte a esta página e clique no botão <strong>Fiz as alterações</strong>"
       },
       "device_settings": {
-        "list_item_1": "No seu computador, abra as suas Definições",
-        "list_item_2": "Encontre a secção sobre permissões (geralmente em Privacidade)",
-        "list_item_3_cam": "Ative as permissões da Câmara para [BROWSER_ICON]",
-        "list_item_3_mic": "Ative as permissões do Microfone para [BROWSER_ICON]",
+        "list_item_1": "No seu computador, abra as suas <strong>Definições</strong>",
+        "list_item_2": "Encontre a secção sobre permissões (geralmente em <strong>Privacidade</strong>)",
+        "list_item_3_cam": "Ative as permissões da <strong>Câmara</strong> para [BROWSER_ICON]",
+        "list_item_3_mic": "Ative as permissões do <strong>Microfone</strong> para [BROWSER_ICON]",
         "list_item_4": "Reinicie o seu navegador, se necessário, e volte a esta página"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "No seu computador, clique no menu Apple [APPLE_ICON] e selecione Configurações do Sistema (ou Preferências do Sistema)",
-        "list_item_2": "Clique em Privacidade & Segurança (ou Segurança & Privacidade) na barra lateral ",
-        "list_item_3": "Clique em Mais tarde na janela pop-up",
-        "list_item_3_cam": "Clique em Câmara e ative a alavanca (ou caixa de seleção) ao lado de [BROWSER_ICON]",
-        "list_item_4": "Clique em Sair & Reabrir na janela pop-up e volte para esta página",
-        "list_item_4_mic": "Clique em Microfone e ative a alavanca (ou caixa de seleção) ao lado de [BROWSER_ICON]"
+        "list_item_1": "No seu computador, clique no menu Apple [APPLE_ICON] e selecione <strong>Configurações do Sistema</strong> (ou <strong>Preferências do Sistema</strong>)",
+        "list_item_2": "Clique em <strong>Privacidade & Segurança</strong> (ou <strong>Segurança & Privacidade</strong>) na barra lateral ",
+        "list_item_3": "Clique em <strong>Mais tarde</strong> na janela pop-up",
+        "list_item_3_cam": "Clique em <strong>Câmara</strong> e ative a alavanca (ou caixa de seleção) ao lado de [BROWSER_ICON]",
+        "list_item_4": "Clique em <strong>Sair & Reabrir</strong> na janela pop-up e volte para esta página",
+        "list_item_4_mic": "Clique em <strong>Microfone</strong> e ative a alavanca (ou caixa de seleção) ao lado de [BROWSER_ICON]"
       }
     },
     "desktop_safari": {
       "browser_settings": {
-        "list_item_1": "No seu navegador, clique com o botão direito na barra de endereços e selecione Configurações",
-        "list_item_2_cam": "Clique na seta ao lado de Câmara e selecione Permitir",
-        "list_item_2_mic": "Clique na seta ao lado de Microfone e selecione Permitir",
-        "list_item_3": "Volte a esta página e clique no botão Fiz as alterações"
+        "list_item_1": "No seu navegador, clique com o botão direito na barra de endereços e selecione <strong>Configurações</strong>",
+        "list_item_2_cam": "Clique na seta ao lado de <strong>Câmara</strong> e selecione <strong>Permitir</strong>",
+        "list_item_2_mic": "Clique na seta ao lado de <strong>Microfone</strong> e selecione <strong>Permitir</strong>",
+        "list_item_3": "Volte a esta página e clique no botão <strong>Fiz as alterações</strong>"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "No seu computador, clique no menu Windows [WINDOWS_ICON] e selecione Definições [SETTINGS_ICON_WINDOWS]",
-        "list_item_2": "Clique em Privacidade (ou Privacidade & Segurança)",
-        "list_item_3_cam": "Clique em Câmara em Permissões de aplicação e ative a alavanca ao lado de [BROWSER_ICON] ",
-        "list_item_3_mic": "Clique em Microfone em Permissões de aplicação e ative a alavanca ao lado de [BROWSER_ICON]",
+        "list_item_1": "No seu computador, clique no menu Windows [WINDOWS_ICON] e selecione <strong>Definições</strong> [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "Clique em <strong>Privacidade</strong> (ou <strong>Privacidade & Segurança</strong>)",
+        "list_item_3_cam": "Clique em <strong>Câmara</strong> em <strong>Permissões de aplicação</strong> e ative a alavanca ao lado de [BROWSER_ICON] ",
+        "list_item_3_mic": "Clique em <strong>Microfone</strong> em <strong>Permissões de aplicação</strong> e ative a alavanca ao lado de [BROWSER_ICON]",
         "list_item_4": "Reinicie o seu navegador, se necessário, e volte a esta página"
       }
     },
     "info": "Recuperação",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "Toque no botão Fiz as alterações. Será solicitado que ative novamente o acesso à câmara e ao microfone. Quando aparecer a janela pop-up, selecione Permitir (ou OK)",
-        "list_item_1_cam": "Toque no botão Fiz as alterações. Será solicitado que ative novamente o acesso à câmara. Quando a janela pop-up aparecer, selecione Permitir (ou OK)",
-        "list_item_1_mic": "Toque no botão Fiz as alterações. Será solicitado que ative novamente o acesso ao microfone. Quando a janela pop-up aparecer, selecione Permitir (ou OK)"
+        "list_item_1_both": "Toque no botão <strong>Fiz as alterações</strong>. Será solicitado que ative novamente o acesso à câmara e ao microfone. Quando aparecer a janela pop-up, selecione <strong>Permitir</strong> (ou <strong>OK</strong>)",
+        "list_item_1_cam": "Toque no botão <strong>Fiz as alterações</strong>. Será solicitado que ative novamente o acesso à câmara. Quando a janela pop-up aparecer, selecione <strong>Permitir</strong> (ou <strong>OK</strong>)",
+        "list_item_1_mic": "Toque no botão <strong>Fiz as alterações</strong>. Será solicitado que ative novamente o acesso ao microfone. Quando a janela pop-up aparecer, selecione <strong>Permitir</strong> (ou <strong>OK</strong>)"
       },
       "device_settings": {
-        "list_item_1": "No seu dispositivo, abra a aplicação Definições",
+        "list_item_1": "No seu dispositivo, abra a aplicação <strong>Definições</strong>",
         "list_item_2": "Deslize pela lista e toque em [BROWSER_ICON]",
-        "list_item_3_cam": "Ative a alavanca ao lado de Câmara",
-        "list_item_3_mic": "Ative a alavanca ao lado de Microfone",
-        "list_item_4": "Volte a esta página e toque no botão Fiz as alterações"
+        "list_item_3_cam": "Ative a alavanca ao lado de <strong>Câmara</strong>",
+        "list_item_3_mic": "Ative a alavanca ao lado de <strong>Microfone</strong>",
+        "list_item_4": "Volte a esta página e toque no botão <strong>Fiz as alterações</strong>"
       }
     },
     "ios_safari": {
       "device_settings": {
-        "list_item_1": "No seu dispositivo, abra a aplicação Definições",
+        "list_item_1": "No seu dispositivo, abra a aplicação <strong>Definições</strong>",
         "list_item_2": "Deslize pela lista e toque em [BROWSER_ICON]",
-        "list_item_3_cam": "Toque em Câmara e selecione Permitir",
-        "list_item_3_mic": "Toque em Microfone e selecione Permitir",
-        "list_item_4": "Volte a esta página e toque no botão Fiz as alterações"
+        "list_item_3_cam": "Toque em <strong>Câmara</strong> e selecione <strong>Permitir</strong>",
+        "list_item_3_mic": "Toque em <strong>Microfone</strong> e selecione <strong>Permitir</strong>",
+        "list_item_4": "Volte a esta página e toque no botão <strong>Fiz as alterações</strong>"
       }
     },
     "list_header_both": "Siga estes passos para recuperar o acesso a ambos:",

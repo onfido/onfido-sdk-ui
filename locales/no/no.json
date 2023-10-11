@@ -444,139 +444,139 @@
   "permission_recovery": {
     "android": {
       "device_settings": {
-        "list_item_1": "På enheten din, åpne Innstillinger appen",
-        "list_item_2": "Trykk på Apps",
-        "list_item_3": "Trykk på [BROWSER_ICON]. Hvis du ikke finner den, trykk på Se alle apper eller Administrer apper og velg nettleserappen din",
-        "list_item_4": "Trykk på Tillatelser",
-        "list_item_5_cam": "Trykk på Kamera og velg Tillat",
-        "list_item_5_mic": "Trykk på Mikrofon og velg Tillat",
-        "list_item_6": "Kom tilbake til denne siden og trykk på Jeg har gjort endringene knappen"
+        "list_item_1": "På enheten din, åpne <strong>Innstillinger</strong> appen",
+        "list_item_2": "Trykk på <strong>Apps</strong>",
+        "list_item_3": "Trykk på [BROWSER_ICON]. Hvis du ikke finner den, trykk på <strong>Se alle apper</strong> eller <strong>Administrer apper</strong> og velg nettleserappen din",
+        "list_item_4": "Trykk på <strong>Tillatelser</strong>",
+        "list_item_5_cam": "Trykk på <strong>Kamera</strong> og velg <strong>Tillat</strong>",
+        "list_item_5_mic": "Trykk på <strong>Mikrofon</strong> og velg <strong>Tillat</strong>",
+        "list_item_6": "Kom tilbake til denne siden og trykk på <strong>Jeg har gjort endringene</strong> knappen"
       }
     },
     "android_chrome": {
       "browser_settings": {
         "list_item_1": "I nettleseren din, trykk på låsikonet [LOCK_ICON] i adressefeltet",
-        "list_item_2": "Trykk på Tillatelser",
-        "list_item_3_cam": "Aktiver vippebryteren ved siden av Kamera",
-        "list_item_3_mic": "Aktiver vippebryteren ved siden av Mikrofon",
-        "list_item_4": "Kom tilbake til denne siden og trykk på Jeg har gjort endringene knappen"
+        "list_item_2": "Trykk på <strong>Tillatelser</strong>",
+        "list_item_3_cam": "Aktiver vippebryteren ved siden av <strong>Kamera</strong>",
+        "list_item_3_mic": "Aktiver vippebryteren ved siden av <strong>Mikrofon</strong>",
+        "list_item_4": "Kom tilbake til denne siden og trykk på <strong>Jeg har gjort endringene</strong> knappen"
       }
     },
     "android_firefox": {
       "browser_settings": {
         "list_item_1": "I nettleseren din, trykk på låsikonet [LOCK_ICON] i adressefeltet",
-        "list_item_2_cam": "Trykk på Blokkert ved siden av Kamera for å bytte til Tillatt",
-        "list_item_2_mic": "Trykk på Blokkert ved siden av Mikrofon for å bytte til Tillatt",
-        "list_item_3": "Kom tilbake til denne siden og trykk på Jeg har gjort endringene knappen"
+        "list_item_2_cam": "Trykk på <strong>Blokkert</strong> ved siden av <strong>Kamera</strong> for å bytte til <strong>Tillatt</strong>",
+        "list_item_2_mic": "Trykk på <strong>Blokkert</strong> ved siden av <strong>Mikrofon</strong> for å bytte til <strong>Tillatt</strong>",
+        "list_item_3": "Kom tilbake til denne siden og trykk på <strong>Jeg har gjort endringene</strong> knappen"
       }
     },
     "android_generic": {
       "browser_settings": {
         "list_item_1": "I nettleseren din, åpne nettstedinnstillingene. Dette er ofte et låsikon [LOCK_ICON] i adressefeltet",
         "list_item_2": "Finn avsnittet om tillatelser",
-        "list_item_3_cam": "Aktiver Kamera tillatelser",
-        "list_item_3_mic": "Aktiver Mikrofon tillatelser",
-        "list_item_4": "Kom tilbake til denne siden og trykk på Jeg har gjort endringene knappen"
+        "list_item_3_cam": "Aktiver <strong>Kamera</strong> tillatelser",
+        "list_item_3_mic": "Aktiver <strong>Mikrofon</strong> tillatelser",
+        "list_item_4": "Kom tilbake til denne siden og trykk på <strong>Jeg har gjort endringene</strong> knappen"
       }
     },
     "android_samsung": {
       "browser_settings": {
         "list_item_1": "I nettleseren din, trykk på låsikonet [LOCK_ICON] i adressefeltet",
-        "list_item_2_cam": "Aktiver vippebryteren ved siden av Kamera",
-        "list_item_2_mic": "Aktiver vippebryteren ved siden av Mikrofon",
-        "list_item_3": "Kom tilbake til denne siden og trykk på Jeg har gjort endringene knappen"
+        "list_item_2_cam": "Aktiver vippebryteren ved siden av <strong>Kamera</strong>",
+        "list_item_2_mic": "Aktiver vippebryteren ved siden av <strong>Mikrofon</strong>",
+        "list_item_3": "Kom tilbake til denne siden og trykk på <strong>Jeg har gjort endringene</strong> knappen"
       }
     },
     "button_primary": "Oppdater",
     "desktop_chrome": {
       "browser_settings": {
         "list_item_1": "I nettleseren din, klikk på låsikonet [LOCK_ICON] i adressefeltet",
-        "list_item_2_cam": "Aktiver vippebryteren ved siden av Kamera",
-        "list_item_2_mic": "Aktiver vippebryteren ved siden av Mikrofon",
-        "list_item_3": "Kom tilbake til denne siden og klikk på Jeg har gjort endringene knappen"
+        "list_item_2_cam": "Aktiver vippebryteren ved siden av <strong>Kamera</strong>",
+        "list_item_2_mic": "Aktiver vippebryteren ved siden av <strong>Mikrofon</strong>",
+        "list_item_3": "Kom tilbake til denne siden og klikk på <strong>Jeg har gjort endringene</strong> knappen"
       }
     },
     "desktop_edge": {
       "browser_settings": {
         "list_item_1": "I nettleseren din, klikk på låsikonet [LOCK_ICON] i adressefeltet",
-        "list_item_2_cam": "Klikk på rullegardinmenyen ved siden av Kamera og velg Tillat",
-        "list_item_2_mic": "Klikk på rullegardinmenyen ved siden av Mikrofon og velg Tillat",
-        "list_item_3": "Kom tilbake til denne siden og klikk på Jeg har gjort endringene knappen"
+        "list_item_2_cam": "Klikk på rullegardinmenyen ved siden av <strong>Kamera</strong> og velg <strong>Tillat</strong>",
+        "list_item_2_mic": "Klikk på rullegardinmenyen ved siden av <strong>Mikrofon</strong> og velg <strong>Tillat</strong>",
+        "list_item_3": "Kom tilbake til denne siden og klikk på <strong>Jeg har gjort endringene</strong> knappen"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
         "list_item_1": "I nettleseren din, klikk på innstillingsikonet [SETTINGS_ICON_FIREFOX] i adressefeltet",
-        "list_item_2_cam": "Klikk på Blokkert ved siden av Bruk kameraet",
-        "list_item_2_mic": "Klikk på Blokkert ved siden av Bruk mikrofonen",
-        "list_item_3": "Kom tilbake til denne siden og klikk på Jeg har gjort endringene knappen"
+        "list_item_2_cam": "Klikk på <strong>Blokkert</strong> ved siden av <strong>Bruk kameraet</strong>",
+        "list_item_2_mic": "Klikk på <strong>Blokkert</strong> ved siden av <strong>Bruk mikrofonen</strong>",
+        "list_item_3": "Kom tilbake til denne siden og klikk på <strong>Jeg har gjort endringene</strong> knappen"
       }
     },
     "desktop_generic": {
       "browser_settings": {
         "list_item_1": "I nettleseren din, åpne nettstedinnstillingene. Dette er ofte et låsikon [LOCK_ICON] i adressefeltet",
         "list_item_2": "Finne avsnittet om tillatelser",
-        "list_item_3_cam": "Aktiver Kamera tillatelser",
-        "list_item_3_mic": "Aktiver Mikrofon tillatelser",
-        "list_item_4": "Kom tilbake til denne siden og klikk på Jeg har gjort endringene knappen"
+        "list_item_3_cam": "Aktiver <strong>Kamera</strong> tillatelser",
+        "list_item_3_mic": "Aktiver <strong>Mikrofon</strong> tillatelser",
+        "list_item_4": "Kom tilbake til denne siden og klikk på <strong>Jeg har gjort endringene</strong> knappen"
       },
       "device_settings": {
-        "list_item_1": "På datamaskinen din, åpne Innstillinger",
-        "list_item_2": "Finn avsnittet om tillatelser (vanligvis under Personvern)",
-        "list_item_3_cam": "Aktiver Kamera tillatelser for [BROWSER_ICON]",
-        "list_item_3_mic": "Aktiver Mikrofon tillatelser for [BROWSER_ICON]",
+        "list_item_1": "På datamaskinen din, åpne <strong>Innstillinger</strong>",
+        "list_item_2": "Finn avsnittet om tillatelser (vanligvis under <strong>Personvern</strong>)",
+        "list_item_3_cam": "Aktiver <strong>Kamera</strong> tillatelser for [BROWSER_ICON]",
+        "list_item_3_mic": "Aktiver <strong>Mikrofon</strong> tillatelser for [BROWSER_ICON]",
         "list_item_4": "Start nettleseren din på nytt om nødvendig og kom tilbake til denne siden"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "På datamaskinen din, klikk på Apple-menyen [APPLE_ICON] og velg Systeminnstillinger (eller Systempreferanser)",
-        "list_item_2": "Klikk på Personvern & Sikkerhet (eller Sikkerhet & Personvern) i sidefeltet ",
-        "list_item_3": "Klikk på Senere i popup-vinduet",
-        "list_item_3_cam": "Klikk på Kamera og aktiver vekselen (eller avkrysningsboksen) ved siden av [BROWSER_ICON]",
-        "list_item_4": "Klikk på Avslutt & Åpne på nytt i popup-vinduet og kom tilbake til denne siden",
-        "list_item_4_mic": "Klikk på Mikrofon og aktiver vekselen (eller avkrysningsboksen) ved siden av [BROWSER_ICON]"
+        "list_item_1": "På datamaskinen din, klikk på Apple-menyen [APPLE_ICON] og velg <strong>Systeminnstillinger</strong> (eller <strong>Systempreferanser</strong>)",
+        "list_item_2": "Klikk på <strong>Personvern & Sikkerhet</strong> (eller <strong>Sikkerhet & Personvern</strong>) i sidefeltet ",
+        "list_item_3": "Klikk på <strong>Senere</strong> i popup-vinduet",
+        "list_item_3_cam": "Klikk på <strong>Kamera</strong> og aktiver vekselen (eller avkrysningsboksen) ved siden av [BROWSER_ICON]",
+        "list_item_4": "Klikk på <strong>Avslutt & Åpne på nytt</strong> i popup-vinduet og kom tilbake til denne siden",
+        "list_item_4_mic": "Klikk på <strong>Mikrofon</strong> og aktiver vekselen (eller avkrysningsboksen) ved siden av [BROWSER_ICON]"
       }
     },
     "desktop_safari": {
       "browser_settings": {
-        "list_item_1": "I nettleseren din, høyreklikk i adressefeltet og velg Innstillinger",
-        "list_item_2_cam": "Klikk på rullegardinmenyen ved siden av Kamera og velg Tillat",
-        "list_item_2_mic": "Klikk på rullegardinmenyen ved siden av Mikrofon og velg Tillat",
-        "list_item_3": "Kom tilbake til denne siden og klikk på Jeg har gjort endringene knappen"
+        "list_item_1": "I nettleseren din, høyreklikk i adressefeltet og velg <strong>Innstillinger</strong>",
+        "list_item_2_cam": "Klikk på rullegardinmenyen ved siden av <strong>Kamera</strong> og velg <strong>Tillat</strong>",
+        "list_item_2_mic": "Klikk på rullegardinmenyen ved siden av <strong>Mikrofon</strong> og velg <strong>Tillat</strong>",
+        "list_item_3": "Kom tilbake til denne siden og klikk på <strong>Jeg har gjort endringene</strong> knappen"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "På datamaskinen din, klikk på Windows-menyen [WINDOWS_ICON] og velg Innstillinger [SETTINGS_ICON_WINDOWS]",
-        "list_item_2": "Klikk på Personvern (eller Personvern & Sikkerhet)",
-        "list_item_3_cam": "Klikk på Kamera under App-tillatelser og aktiver vekselen ved siden av [BROWSER_ICON] ",
-        "list_item_3_mic": "Klikk på Mikrofon under App-tillatelser og aktiver vekselen ved siden av [BROWSER_ICON]",
+        "list_item_1": "På datamaskinen din, klikk på Windows-menyen [WINDOWS_ICON] og velg <strong>Innstillinger</strong> [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "Klikk på <strong>Personvern</strong> (eller <strong>Personvern & Sikkerhet</strong>)",
+        "list_item_3_cam": "Klikk på <strong>Kamera</strong> under <strong>App-tillatelser</strong> og aktiver vekselen ved siden av [BROWSER_ICON] ",
+        "list_item_3_mic": "Klikk på <strong>Mikrofon</strong> under <strong>App-tillatelser</strong> og aktiver vekselen ved siden av [BROWSER_ICON]",
         "list_item_4": "Start nettleseren din på nytt om nødvendig og kom tilbake til denne siden"
       }
     },
     "info": "Gjenoppretning",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "Trykk på Jeg har gjort endringene knappen. Du vil bli bedt om å aktivere kamera og mikrofon tilgang igjen. Når pop-up vises, velg Tillat (eller OK)",
-        "list_item_1_cam": "Trykk på Jeg har gjort endringene knappen. Du vil bli bedt om å aktivere kameraadgang igjen. Når pop-up-vinduet vises, velg Tillat (eller OK)",
-        "list_item_1_mic": "Trykk på Jeg har gjort endringene knappen. Du vil bli bedt om å aktivere mikrofontilgang igjen. Når pop-up-vinduet vises, velg Tillat (eller OK)"
+        "list_item_1_both": "Trykk på <strong>Jeg har gjort endringene</strong> knappen. Du vil bli bedt om å aktivere kamera og mikrofon tilgang igjen. Når pop-up vises, velg <strong>Tillat</strong> (eller <strong>OK</strong>)",
+        "list_item_1_cam": "Trykk på <strong>Jeg har gjort endringene</strong> knappen. Du vil bli bedt om å aktivere kameraadgang igjen. Når pop-up-vinduet vises, velg <strong>Tillat</strong> (eller <strong>OK</strong>)",
+        "list_item_1_mic": "Trykk på <strong>Jeg har gjort endringene</strong> knappen. Du vil bli bedt om å aktivere mikrofontilgang igjen. Når pop-up-vinduet vises, velg <strong>Tillat</strong> (eller <strong>OK</strong>)"
       },
       "device_settings": {
-        "list_item_1": "På enheten din, åpne Innstillinger appen",
+        "list_item_1": "På enheten din, åpne <strong>Innstillinger</strong> appen",
         "list_item_2": "Rull gjennom listen og trykk på [BROWSER_ICON]",
-        "list_item_3_cam": "Aktiver vippebryteren ved siden av Kamera",
-        "list_item_3_mic": "Aktiver vippebryteren ved siden av Mikrofon",
-        "list_item_4": "Kom tilbake til denne siden og trykk på Jeg har gjort endringene knappen"
+        "list_item_3_cam": "Aktiver vippebryteren ved siden av <strong>Kamera</strong>",
+        "list_item_3_mic": "Aktiver vippebryteren ved siden av <strong>Mikrofon</strong>",
+        "list_item_4": "Kom tilbake til denne siden og trykk på <strong>Jeg har gjort endringene</strong> knappen"
       }
     },
     "ios_safari": {
       "device_settings": {
-        "list_item_1": "På enheten din, åpne Innstillinger appen",
+        "list_item_1": "På enheten din, åpne <strong>Innstillinger</strong> appen",
         "list_item_2": "Rull gjennom listen og trykk på [BROWSER_ICON]",
-        "list_item_3_cam": "Trykk på Kamera og velg Tillat",
-        "list_item_3_mic": "Trykk på Mikrofon og velg Tillat",
-        "list_item_4": "Kom tilbake til denne siden og trykk på Jeg har gjort endringene knappen"
+        "list_item_3_cam": "Trykk på <strong>Kamera</strong> og velg <strong>Tillat</strong>",
+        "list_item_3_mic": "Trykk på <strong>Mikrofon</strong> og velg <strong>Tillat</strong>",
+        "list_item_4": "Kom tilbake til denne siden og trykk på <strong>Jeg har gjort endringene</strong> knappen"
       }
     },
     "list_header_both": "Følg disse trinnene for å gjenopprette tilgang til begge:",

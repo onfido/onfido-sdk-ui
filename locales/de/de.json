@@ -444,139 +444,139 @@
   "permission_recovery": {
     "android": {
       "device_settings": {
-        "list_item_1": "Auf Ihrem Gerät öffnen Sie die Einstellungen App",
-        "list_item_2": "Tippen Sie auf Apps",
-        "list_item_3": "Tippen Sie auf [BROWSER_ICON]. Wenn Sie es nicht finden können, tippen Sie auf Alle Apps anzeigen oder Apps verwalten und wählen Sie Ihre Browser-App aus",
-        "list_item_4": "Tippen Sie auf Berechtigungen",
-        "list_item_5_cam": "Tippen Sie auf Kamera und wählen Sie Zulassen aus",
-        "list_item_5_mic": "Tippen Sie auf Mikrofon und wählen Sie Zulassen",
-        "list_item_6": "Kehren Sie zu dieser Seite zurück und tippen Sie auf den Ich habe die Änderungen vorgenommen Button"
+        "list_item_1": "Auf Ihrem Gerät öffnen Sie die <strong>Einstellungen</strong> App",
+        "list_item_2": "Tippen Sie auf <strong>Apps</strong>",
+        "list_item_3": "Tippen Sie auf [BROWSER_ICON]. Wenn Sie es nicht finden können, tippen Sie auf <strong>Alle Apps anzeigen</strong> oder <strong>Apps verwalten</strong> und wählen Sie Ihre Browser-App aus",
+        "list_item_4": "Tippen Sie auf <strong>Berechtigungen</strong>",
+        "list_item_5_cam": "Tippen Sie auf <strong>Kamera</strong> und wählen Sie <strong>Zulassen</strong> aus",
+        "list_item_5_mic": "Tippen Sie auf <strong>Mikrofon</strong> und wählen Sie <strong>Zulassen</strong>",
+        "list_item_6": "Kehren Sie zu dieser Seite zurück und tippen Sie auf den <strong>Ich habe die Änderungen vorgenommen</strong> Button"
       }
     },
     "android_chrome": {
       "browser_settings": {
         "list_item_1": "In Ihrem Browser tippen Sie auf das Schloss-Symbol [LOCK_ICON] in der Adressleiste",
-        "list_item_2": "Tippen Sie auf Berechtigungen",
-        "list_item_3_cam": "Aktivieren Sie den Umschalter neben Kamera",
-        "list_item_3_mic": "Aktivieren Sie den Schalter neben Mikrofon",
-        "list_item_4": "Kehren Sie zu dieser Seite zurück und tippen Sie auf die Schaltfläche Ich habe die Änderungen vorgenommen"
+        "list_item_2": "Tippen Sie auf <strong>Berechtigungen</strong>",
+        "list_item_3_cam": "Aktivieren Sie den Umschalter neben <strong>Kamera</strong>",
+        "list_item_3_mic": "Aktivieren Sie den Schalter neben <strong>Mikrofon</strong>",
+        "list_item_4": "Kehren Sie zu dieser Seite zurück und tippen Sie auf die Schaltfläche <strong>Ich habe die Änderungen vorgenommen</strong>"
       }
     },
     "android_firefox": {
       "browser_settings": {
         "list_item_1": "In Ihrem Browser tippen Sie auf das Schloss-Symbol [LOCK_ICON] in der Adressleiste",
-        "list_item_2_cam": "Tippen Sie neben Kamera auf Blockiert, um auf Zugelassen zu wechseln",
-        "list_item_2_mic": "Tippen Sie neben Mikrofon auf Blockiert, um auf Erlaubt zu wechseln",
-        "list_item_3": "Kehren Sie zu dieser Seite zurück und tippen Sie auf die Schaltfläche Ich habe die Änderungen vorgenommen"
+        "list_item_2_cam": "Tippen Sie neben <strong>Kamera</strong> auf <strong>Blockiert</strong>, um auf <strong>Zugelassen</strong> zu wechseln",
+        "list_item_2_mic": "Tippen Sie neben <strong>Mikrofon</strong> auf <strong>Blockiert</strong>, um auf <strong>Erlaubt</strong> zu wechseln",
+        "list_item_3": "Kehren Sie zu dieser Seite zurück und tippen Sie auf die Schaltfläche <strong>Ich habe die Änderungen vorgenommen</strong>"
       }
     },
     "android_generic": {
       "browser_settings": {
         "list_item_1": "Öffnen Sie in Ihrem Browser die Website-Einstellungen. Dies ist oft ein Schloss-Symbol [LOCK_ICON] in der Adressleiste",
         "list_item_2": "Finden Sie den Abschnitt über Berechtigungen",
-        "list_item_3_cam": "Aktivieren Sie die Kamera Berechtigungen",
-        "list_item_3_mic": "Aktivieren Sie die Mikrofon Berechtigungen",
-        "list_item_4": "Kehren Sie zu dieser Seite zurück und tippen Sie auf den Ich habe die Änderungen vorgenommen Button"
+        "list_item_3_cam": "Aktivieren Sie die <strong>Kamera</strong> Berechtigungen",
+        "list_item_3_mic": "Aktivieren Sie die <strong>Mikrofon</strong> Berechtigungen",
+        "list_item_4": "Kehren Sie zu dieser Seite zurück und tippen Sie auf den <strong>Ich habe die Änderungen vorgenommen</strong> Button"
       }
     },
     "android_samsung": {
       "browser_settings": {
         "list_item_1": "In Ihrem Browser tippen Sie auf das Schloss-Symbol [LOCK_ICON] in der Adressleiste",
-        "list_item_2_cam": "Aktivieren Sie den Umschalter neben Kamera",
-        "list_item_2_mic": "Aktivieren Sie den Umschalter neben Mikrofon",
-        "list_item_3": "Kehren Sie zu dieser Seite zurück und tippen Sie auf den Ich habe die Änderungen vorgenommen Button"
+        "list_item_2_cam": "Aktivieren Sie den Umschalter neben <strong>Kamera</strong>",
+        "list_item_2_mic": "Aktivieren Sie den Umschalter neben <strong>Mikrofon</strong>",
+        "list_item_3": "Kehren Sie zu dieser Seite zurück und tippen Sie auf den <strong>Ich habe die Änderungen vorgenommen</strong> Button"
       }
     },
     "button_primary": "Aktualisieren",
     "desktop_chrome": {
       "browser_settings": {
         "list_item_1": "Klicken Sie in Ihrem Browser auf das Schloss-Symbol [LOCK_ICON] in der Adressleiste",
-        "list_item_2_cam": "Aktivieren Sie den Umschalter neben Kamera",
-        "list_item_2_mic": "Aktivieren Sie den Umschalter neben Mikrofon",
-        "list_item_3": "Kehren Sie zu dieser Seite zurück und klicken Sie auf die Schaltfläche Ich habe die Änderungen vorgenommen"
+        "list_item_2_cam": "Aktivieren Sie den Umschalter neben <strong>Kamera</strong>",
+        "list_item_2_mic": "Aktivieren Sie den Umschalter neben <strong>Mikrofon</strong>",
+        "list_item_3": "Kehren Sie zu dieser Seite zurück und klicken Sie auf die Schaltfläche <strong>Ich habe die Änderungen vorgenommen</strong>"
       }
     },
     "desktop_edge": {
       "browser_settings": {
         "list_item_1": "Klicken Sie in Ihrem Browser auf das Schloss-Symbol [LOCK_ICON] in der Adressleiste",
-        "list_item_2_cam": "Klicken Sie auf das Dropdown-Menü neben Kamera und wählen Sie Zulassen aus",
-        "list_item_2_mic": "Klicken Sie auf das Dropdown-Menü neben Mikrofon und wählen Sie Zulassen aus",
-        "list_item_3": "Kehren Sie zu dieser Seite zurück und klicken Sie auf den Ich habe die Änderungen vorgenommen Button"
+        "list_item_2_cam": "Klicken Sie auf das Dropdown-Menü neben <strong>Kamera</strong> und wählen Sie <strong>Zulassen</strong> aus",
+        "list_item_2_mic": "Klicken Sie auf das Dropdown-Menü neben <strong>Mikrofon</strong> und wählen Sie <strong>Zulassen</strong> aus",
+        "list_item_3": "Kehren Sie zu dieser Seite zurück und klicken Sie auf den <strong>Ich habe die Änderungen vorgenommen</strong> Button"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
         "list_item_1": "Klicken Sie in Ihrem Browser auf das Einstellungssymbol [SETTINGS_ICON_FIREFOX] in der Adressleiste",
-        "list_item_2_cam": "Klicken Sie neben Kamera verwenden auf Blockiert",
-        "list_item_2_mic": "Klicken Sie neben Mikrofon verwenden auf Blockiert",
-        "list_item_3": "Kehren Sie zu dieser Seite zurück und klicken Sie auf die Schaltfläche Ich habe die Änderungen vorgenommen"
+        "list_item_2_cam": "Klicken Sie neben <strong>Kamera verwenden</strong> auf <strong>Blockiert</strong>",
+        "list_item_2_mic": "Klicken Sie neben <strong>Mikrofon verwenden</strong> auf <strong>Blockiert</strong>",
+        "list_item_3": "Kehren Sie zu dieser Seite zurück und klicken Sie auf die Schaltfläche <strong>Ich habe die Änderungen vorgenommen</strong>"
       }
     },
     "desktop_generic": {
       "browser_settings": {
         "list_item_1": "Öffnen Sie in Ihrem Browser die Website-Einstellungen. Dies ist oft ein Schloss-Symbol [LOCK_ICON] in der Adressleiste",
         "list_item_2": "Finden Sie den Abschnitt über Berechtigungen",
-        "list_item_3_cam": "Aktivieren Sie die Kamera Berechtigungen",
-        "list_item_3_mic": "Aktivieren Sie die Mikrofon Berechtigungen",
-        "list_item_4": "Kehren Sie zu dieser Seite zurück und klicken Sie auf den Ich habe die Änderungen vorgenommen Button"
+        "list_item_3_cam": "Aktivieren Sie die <strong>Kamera</strong> Berechtigungen",
+        "list_item_3_mic": "Aktivieren Sie die <strong>Mikrofon</strong> Berechtigungen",
+        "list_item_4": "Kehren Sie zu dieser Seite zurück und klicken Sie auf den <strong>Ich habe die Änderungen vorgenommen</strong> Button"
       },
       "device_settings": {
-        "list_item_1": "Auf Ihrem Computer öffnen Sie Ihre Einstellungen",
-        "list_item_2": "Finden Sie den Abschnitt über Berechtigungen (normalerweise unter Datenschutz)",
-        "list_item_3_cam": "Aktivieren Sie die Kamera Berechtigungen für [BROWSER_ICON]",
-        "list_item_3_mic": "Aktivieren Sie die Mikrofon Berechtigungen für [BROWSER_ICON]",
+        "list_item_1": "Auf Ihrem Computer öffnen Sie Ihre <strong>Einstellungen</strong>",
+        "list_item_2": "Finden Sie den Abschnitt über Berechtigungen (normalerweise unter <strong>Datenschutz</strong>)",
+        "list_item_3_cam": "Aktivieren Sie die <strong>Kamera</strong> Berechtigungen für [BROWSER_ICON]",
+        "list_item_3_mic": "Aktivieren Sie die <strong>Mikrofon</strong> Berechtigungen für [BROWSER_ICON]",
         "list_item_4": "Starten Sie Ihren Browser bei Bedarf neu und kehren Sie zu dieser Seite zurück"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "Auf Ihrem Computer klicken Sie auf das Apple-Menü [APPLE_ICON] und wählen Sie Systemeinstellungen (oder Systempräferenzen)",
-        "list_item_2": "Klicken Sie auf Datenschutz & Sicherheit (oder Sicherheit & Datenschutz) in der Seitenleiste",
-        "list_item_3": "Klicken Sie in dem Pop-up auf Später",
-        "list_item_3_cam": "Klicken Sie auf Kamera und aktivieren Sie den Schalter (oder das Kontrollkästchen) neben [BROWSER_ICON]",
-        "list_item_4": "Klicken Sie in dem Pop-up auf Beenden & Neu öffnen und kehren Sie zu dieser Seite zurück",
-        "list_item_4_mic": "Klicken Sie auf Mikrofon und aktivieren Sie den Schalter (oder das Kontrollkästchen) neben [BROWSER_ICON]"
+        "list_item_1": "Auf Ihrem Computer klicken Sie auf das Apple-Menü [APPLE_ICON] und wählen Sie <strong>Systemeinstellungen</strong> (oder <strong>Systempräferenzen</strong>)",
+        "list_item_2": "Klicken Sie auf <strong>Datenschutz & Sicherheit</strong> (oder <strong>Sicherheit & Datenschutz</strong>) in der Seitenleiste",
+        "list_item_3": "Klicken Sie in dem Pop-up auf <strong>Später</strong>",
+        "list_item_3_cam": "Klicken Sie auf <strong>Kamera</strong> und aktivieren Sie den Schalter (oder das Kontrollkästchen) neben [BROWSER_ICON]",
+        "list_item_4": "Klicken Sie in dem Pop-up auf <strong>Beenden & Neu öffnen</strong> und kehren Sie zu dieser Seite zurück",
+        "list_item_4_mic": "Klicken Sie auf <strong>Mikrofon</strong> und aktivieren Sie den Schalter (oder das Kontrollkästchen) neben [BROWSER_ICON]"
       }
     },
     "desktop_safari": {
       "browser_settings": {
-        "list_item_1": "Klicken Sie in Ihrem Browser mit der rechten Maustaste in die Adressleiste und wählen Sie Einstellungen",
-        "list_item_2_cam": "Klicken Sie auf das Dropdown-Menü neben Kamera und wählen Sie Zulassen aus",
-        "list_item_2_mic": "Klicken Sie auf das Dropdown-Menü neben Mikrofon und wählen Sie Zulassen aus",
-        "list_item_3": "Kehren Sie zu dieser Seite zurück und klicken Sie auf den Ich habe die Änderungen vorgenommen Button"
+        "list_item_1": "Klicken Sie in Ihrem Browser mit der rechten Maustaste in die Adressleiste und wählen Sie <strong>Einstellungen</strong>",
+        "list_item_2_cam": "Klicken Sie auf das Dropdown-Menü neben <strong>Kamera</strong> und wählen Sie <strong>Zulassen</strong> aus",
+        "list_item_2_mic": "Klicken Sie auf das Dropdown-Menü neben <strong>Mikrofon</strong> und wählen Sie <strong>Zulassen</strong> aus",
+        "list_item_3": "Kehren Sie zu dieser Seite zurück und klicken Sie auf den <strong>Ich habe die Änderungen vorgenommen</strong> Button"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "Auf Ihrem Computer klicken Sie auf das Windows-Menü [WINDOWS_ICON] und wählen Einstellungen [SETTINGS_ICON_WINDOWS] aus",
-        "list_item_2": "Klicken Sie auf Datenschutz (oder Datenschutz & Sicherheit)",
-        "list_item_3_cam": "Klicken Sie unter App-Berechtigungen auf Kamera und aktivieren Sie den Schalter neben [BROWSER_ICON]",
-        "list_item_3_mic": "Klicken Sie unter App-Berechtigungen auf Mikrofon und aktivieren Sie den Schalter neben [BROWSER_ICON]",
+        "list_item_1": "Auf Ihrem Computer klicken Sie auf das Windows-Menü [WINDOWS_ICON] und wählen <strong>Einstellungen</strong> [SETTINGS_ICON_WINDOWS] aus",
+        "list_item_2": "Klicken Sie auf <strong>Datenschutz</strong> (oder <strong>Datenschutz & Sicherheit</strong>)",
+        "list_item_3_cam": "Klicken Sie unter <strong>App-Berechtigungen</strong> auf <strong>Kamera</strong> und aktivieren Sie den Schalter neben [BROWSER_ICON]",
+        "list_item_3_mic": "Klicken Sie unter <strong>App-Berechtigungen</strong> auf <strong>Mikrofon</strong> und aktivieren Sie den Schalter neben [BROWSER_ICON]",
         "list_item_4": "Starten Sie Ihren Browser bei Bedarf neu und kehren Sie zu dieser Seite zurück"
       }
     },
     "info": "Wiederherstellen",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "Tippen Sie auf die Schaltfläche Ich habe die Änderungen vorgenommen. Sie werden erneut aufgefordert, den Zugriff auf Kamera und Mikrofon zu aktivieren. Wenn das Pop-up erscheint, wählen Sie Erlauben (oder OK)",
-        "list_item_1_cam": "Tippen Sie auf die Schaltfläche Ich habe die Änderungen vorgenommen. Sie werden erneut aufgefordert, den Kamerazugriff zu aktivieren. Wenn das Pop-up erscheint, wählen Sie Erlauben (oder OK)",
-        "list_item_1_mic": "Tippen Sie auf die Schaltfläche Ich habe die Änderungen vorgenommen. Sie werden erneut aufgefordert, den Zugriff auf das Mikrofon zu aktivieren. Wenn das Pop-up erscheint, wählen Sie Erlauben (oder OK)"
+        "list_item_1_both": "Tippen Sie auf die Schaltfläche <strong>Ich habe die Änderungen vorgenommen</strong>. Sie werden erneut aufgefordert, den Zugriff auf Kamera und Mikrofon zu aktivieren. Wenn das Pop-up erscheint, wählen Sie <strong>Erlauben</strong> (oder <strong>OK</strong>)",
+        "list_item_1_cam": "Tippen Sie auf die Schaltfläche <strong>Ich habe die Änderungen vorgenommen</strong>. Sie werden erneut aufgefordert, den Kamerazugriff zu aktivieren. Wenn das Pop-up erscheint, wählen Sie <strong>Erlauben</strong> (oder <strong>OK</strong>)",
+        "list_item_1_mic": "Tippen Sie auf die Schaltfläche <strong>Ich habe die Änderungen vorgenommen</strong>. Sie werden erneut aufgefordert, den Zugriff auf das Mikrofon zu aktivieren. Wenn das Pop-up erscheint, wählen Sie <strong>Erlauben</strong> (oder <strong>OK</strong>)"
       },
       "device_settings": {
-        "list_item_1": "Auf Ihrem Gerät öffnen Sie die Einstellungen App",
+        "list_item_1": "Auf Ihrem Gerät öffnen Sie die <strong>Einstellungen</strong> App",
         "list_item_2": "Scrollen Sie durch die Liste und tippen Sie auf [BROWSER_ICON]",
-        "list_item_3_cam": "Aktivieren Sie den Umschalter neben Kamera",
-        "list_item_3_mic": "Aktivieren Sie den Umschalter neben Mikrofon",
-        "list_item_4": "Kehren Sie zu dieser Seite zurück und tippen Sie auf den Ich habe die Änderungen vorgenommen Button"
+        "list_item_3_cam": "Aktivieren Sie den Umschalter neben <strong>Kamera</strong>",
+        "list_item_3_mic": "Aktivieren Sie den Umschalter neben <strong>Mikrofon</strong>",
+        "list_item_4": "Kehren Sie zu dieser Seite zurück und tippen Sie auf den <strong>Ich habe die Änderungen vorgenommen</strong> Button"
       }
     },
     "ios_safari": {
       "device_settings": {
-        "list_item_1": "Auf Ihrem Gerät öffnen Sie die Einstellungen App",
+        "list_item_1": "Auf Ihrem Gerät öffnen Sie die <strong>Einstellungen</strong> App",
         "list_item_2": "Scrollen Sie durch die Liste und tippen Sie auf [BROWSER_ICON]",
-        "list_item_3_cam": "Tippen Sie auf Kamera und wählen Sie Zulassen aus",
-        "list_item_3_mic": "Tippen Sie auf Mikrofon und wählen Sie Zulassen",
-        "list_item_4": "Kehren Sie zu dieser Seite zurück und tippen Sie auf den Ich habe die Änderungen vorgenommen Button"
+        "list_item_3_cam": "Tippen Sie auf <strong>Kamera</strong> und wählen Sie <strong>Zulassen</strong> aus",
+        "list_item_3_mic": "Tippen Sie auf <strong>Mikrofon</strong> und wählen Sie <strong>Zulassen</strong>",
+        "list_item_4": "Kehren Sie zu dieser Seite zurück und tippen Sie auf den <strong>Ich habe die Änderungen vorgenommen</strong> Button"
       }
     },
     "list_header_both": "Befolgen Sie diese Schritte, um den Zugriff auf beides wiederherzustellen:",

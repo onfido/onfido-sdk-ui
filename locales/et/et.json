@@ -444,139 +444,139 @@
   "permission_recovery": {
     "android": {
       "device_settings": {
-        "list_item_1": "Avage oma seadmes Seaded rakendus",
-        "list_item_2": "Koputa Rakendused",
-        "list_item_3": "Klõpsake [BROWSER_ICON]. Kui te seda ei leia, klõpsake Vaata kõiki rakendusi või Halda rakendusi ja valige oma brauseri rakendus",
-        "list_item_4": "Klõpsake Lubadused",
-        "list_item_5_cam": "Koputage Kaamera ja valige Luba",
-        "list_item_5_mic": "Koputage Mikrofoni ja valige Luba",
-        "list_item_6": "Tulge tagasi sellele lehele ja vajutage nuppu Olen teinud muudatused"
+        "list_item_1": "Avage oma seadmes <strong>Seaded</strong> rakendus",
+        "list_item_2": "Koputa <strong>Rakendused</strong>",
+        "list_item_3": "Klõpsake [BROWSER_ICON]. Kui te seda ei leia, klõpsake <strong>Vaata kõiki rakendusi</strong> või <strong>Halda rakendusi</strong> ja valige oma brauseri rakendus",
+        "list_item_4": "Klõpsake <strong>Lubadused</strong>",
+        "list_item_5_cam": "Koputage <strong>Kaamera</strong> ja valige <strong>Luba</strong>",
+        "list_item_5_mic": "Koputage <strong>Mikrofoni</strong> ja valige <strong>Luba</strong>",
+        "list_item_6": "Tulge tagasi sellele lehele ja vajutage nuppu <strong>Olen teinud muudatused</strong>"
       }
     },
     "android_chrome": {
       "browser_settings": {
         "list_item_1": "Oma brauseris klõpsake aadressiribal lukusümbolil [LOCK_ICON]",
-        "list_item_2": "Koputa Lubadused",
-        "list_item_3_cam": "Aktiveerige lüliti kõrval Kaamera",
-        "list_item_3_mic": "Aktiveerige lüliti kõrval Mikrofon",
-        "list_item_4": "Pöörduge tagasi sellele lehele ja vajutage nuppu Olen teinud muudatused"
+        "list_item_2": "Koputa <strong>Lubadused</strong>",
+        "list_item_3_cam": "Aktiveerige lüliti kõrval <strong>Kaamera</strong>",
+        "list_item_3_mic": "Aktiveerige lüliti kõrval <strong>Mikrofon</strong>",
+        "list_item_4": "Pöörduge tagasi sellele lehele ja vajutage nuppu <strong>Olen teinud muudatused</strong>"
       }
     },
     "android_firefox": {
       "browser_settings": {
         "list_item_1": "Oma brauseris klõpsake aadressiribal lukusümbolil [LOCK_ICON]",
-        "list_item_2_cam": "Klõpsake Blokeeritud kõrval asuval Kaamera, et lülituda Lubatud režiimile",
-        "list_item_2_mic": "Klõpsake Blokeeritud kõrval asuval Mikrofon, et lülituda Lubatud režiimile",
-        "list_item_3": "Tulge tagasi sellele lehele ja vajutage nuppu Olen teinud muudatused"
+        "list_item_2_cam": "Klõpsake <strong>Blokeeritud</strong> kõrval asuval <strong>Kaamera</strong>, et lülituda <strong>Lubatud</strong> režiimile",
+        "list_item_2_mic": "Klõpsake <strong>Blokeeritud</strong> kõrval asuval <strong>Mikrofon</strong>, et lülituda <strong>Lubatud</strong> režiimile",
+        "list_item_3": "Tulge tagasi sellele lehele ja vajutage nuppu <strong>Olen teinud muudatused</strong>"
       }
     },
     "android_generic": {
       "browser_settings": {
         "list_item_1": "Avage oma brauseris veebisaidi seaded. See on sageli aadressiribal asuv lukusümbol [LOCK_ICON]",
         "list_item_2": "Leidke jaotis lubade kohta",
-        "list_item_3_cam": "Luba kaamera õigused",
-        "list_item_3_mic": "Luba Mikrofoni õigused",
-        "list_item_4": "Tulge tagasi sellele lehele ja vajutage nuppu Olen teinud muudatused"
+        "list_item_3_cam": "Luba <strong>kaamera</strong> õigused",
+        "list_item_3_mic": "Luba <strong>Mikrofoni</strong> õigused",
+        "list_item_4": "Tulge tagasi sellele lehele ja vajutage nuppu <strong>Olen teinud muudatused</strong>"
       }
     },
     "android_samsung": {
       "browser_settings": {
         "list_item_1": "Oma brauseris klõpsake aadressiribal lukusümbolil [LOCK_ICON]",
-        "list_item_2_cam": "Aktiveerige lüliti kõrval Kaamera",
-        "list_item_2_mic": "Aktiveerige lüliti kõrval Mikrofon",
-        "list_item_3": "Pöörduge tagasi sellele lehele ja vajutage nuppu Olen teinud muudatused"
+        "list_item_2_cam": "Aktiveerige lüliti kõrval <strong>Kaamera</strong>",
+        "list_item_2_mic": "Aktiveerige lüliti kõrval <strong>Mikrofon</strong>",
+        "list_item_3": "Pöörduge tagasi sellele lehele ja vajutage nuppu <strong>Olen teinud muudatused</strong>"
       }
     },
     "button_primary": "Värskenda",
     "desktop_chrome": {
       "browser_settings": {
         "list_item_1": "Klõpsake oma brauseris aadressiribal lukuikoonil [LOCK_ICON]",
-        "list_item_2_cam": "Aktiveerige lüliti kõrval Kaamera",
-        "list_item_2_mic": "Aktiveerige lüliti kõrval Mikrofon",
-        "list_item_3": "Tulge tagasi sellele lehele ja klõpsake nupul Olen teinud muudatused"
+        "list_item_2_cam": "Aktiveerige lüliti kõrval <strong>Kaamera</strong>",
+        "list_item_2_mic": "Aktiveerige lüliti kõrval <strong>Mikrofon</strong>",
+        "list_item_3": "Tulge tagasi sellele lehele ja klõpsake nupul <strong>Olen teinud muudatused</strong>"
       }
     },
     "desktop_edge": {
       "browser_settings": {
         "list_item_1": "Klõpsake oma brauseris aadressiribal luku ikoonil [LOCK_ICON]",
-        "list_item_2_cam": "Klõpsake rippmenüül kõrval Kaamera ja valige Luba",
-        "list_item_2_mic": "Klõpsake rippmenüül kõrval Mikrofon ja valige Luba",
-        "list_item_3": "Tulge tagasi sellele lehele ja klõpsake nupul Olen teinud muudatused"
+        "list_item_2_cam": "Klõpsake rippmenüül kõrval <strong>Kaamera</strong> ja valige <strong>Luba</strong>",
+        "list_item_2_mic": "Klõpsake rippmenüül kõrval <strong>Mikrofon</strong> ja valige <strong>Luba</strong>",
+        "list_item_3": "Tulge tagasi sellele lehele ja klõpsake nupul <strong>Olen teinud muudatused</strong>"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
         "list_item_1": "Klõpsake brauseris aadressiribal seadete ikoonil [SETTINGS_ICON_FIREFOX]",
-        "list_item_2_cam": "Klõpsake Blokeeritud kõrval Kasuta kaamerat",
-        "list_item_2_mic": "Klõpsake Blokeeritud kõrval Kasuta mikrofoni",
-        "list_item_3": "Tulge tagasi sellele lehele ja klõpsake nupul Olen teinud muudatused"
+        "list_item_2_cam": "Klõpsake <strong>Blokeeritud</strong> kõrval <strong>Kasuta kaamerat</strong>",
+        "list_item_2_mic": "Klõpsake <strong>Blokeeritud</strong> kõrval <strong>Kasuta mikrofoni</strong>",
+        "list_item_3": "Tulge tagasi sellele lehele ja klõpsake nupul <strong>Olen teinud muudatused</strong>"
       }
     },
     "desktop_generic": {
       "browser_settings": {
         "list_item_1": "Avage oma brauseris veebisaidi seaded. See on sageli aadressiribal asuv lukusümbol [LOCK_ICON]",
         "list_item_2": "Leidke jaotis lubade kohta",
-        "list_item_3_cam": "Luba kaamera õigused",
-        "list_item_3_mic": "Luba mikrofoni õigused",
-        "list_item_4": "Pöörduge tagasi sellele lehele ja klõpsake nupul Olen teinud muudatused"
+        "list_item_3_cam": "Luba <strong>kaamera</strong> õigused",
+        "list_item_3_mic": "Luba <strong>mikrofoni</strong> õigused",
+        "list_item_4": "Pöörduge tagasi sellele lehele ja klõpsake nupul <strong>Olen teinud muudatused</strong>"
       },
       "device_settings": {
-        "list_item_1": "Avage oma arvutis Seaded",
-        "list_item_2": "Leidke jaotis lubade kohta (tavaliselt Privaatsus all)",
-        "list_item_3_cam": "Luba kaamera õigused [BROWSER_ICON]-le",
-        "list_item_3_mic": "Luba Mikrofoni õigused [BROWSER_ICON] jaoks",
+        "list_item_1": "Avage oma arvutis <strong>Seaded</strong>",
+        "list_item_2": "Leidke jaotis lubade kohta (tavaliselt <strong>Privaatsus</strong> all)",
+        "list_item_3_cam": "Luba <strong>kaamera</strong> õigused [BROWSER_ICON]-le",
+        "list_item_3_mic": "Luba <strong>Mikrofoni</strong> õigused [BROWSER_ICON] jaoks",
         "list_item_4": "Taaskäivitage vajadusel oma brauser ja tulge tagasi sellele lehele"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "Oma arvutis klõpsake Apple'i menüül [APPLE_ICON] ja valige Süsteemi seaded (või Süsteemi eelistused)",
-        "list_item_2": "Klõpsake küljeribal Privaatsus & Turvalisus (või Turvalisus & Privaatsus)",
-        "list_item_3": "Klõpsake hüpikaknas Hiljem",
-        "list_item_3_cam": "Klõpsake Kaamera ja aktiveerige lüliti (või märkeruut) ikooni [BROWSER_ICON] kõrval",
-        "list_item_4": "Klõpsake hüpikaknas Välju & Ava uuesti ja tulge tagasi sellele lehele",
-        "list_item_4_mic": "Klõpsake Mikrofoni ja aktiveerige lüliti (või märkeruut) ikooni [BROWSER_ICON] kõrval"
+        "list_item_1": "Oma arvutis klõpsake Apple'i menüül [APPLE_ICON] ja valige <strong>Süsteemi seaded</strong> (või <strong>Süsteemi eelistused</strong>)",
+        "list_item_2": "Klõpsake küljeribal <strong>Privaatsus & Turvalisus</strong> (või <strong>Turvalisus & Privaatsus</strong>)",
+        "list_item_3": "Klõpsake hüpikaknas <strong>Hiljem</strong>",
+        "list_item_3_cam": "Klõpsake <strong>Kaamera</strong> ja aktiveerige lüliti (või märkeruut) ikooni [BROWSER_ICON] kõrval",
+        "list_item_4": "Klõpsake hüpikaknas <strong>Välju & Ava uuesti</strong> ja tulge tagasi sellele lehele",
+        "list_item_4_mic": "Klõpsake <strong>Mikrofoni</strong> ja aktiveerige lüliti (või märkeruut) ikooni [BROWSER_ICON] kõrval"
       }
     },
     "desktop_safari": {
       "browser_settings": {
-        "list_item_1": "Oma brauseris paremklõpsake aadressiribal ja valige Seaded",
-        "list_item_2_cam": "Klõpsake rippmenüül kõrval Kaamera ja valige Luba",
-        "list_item_2_mic": "Klõpsake rippmenüül kõrval Mikrofon ja valige Luba",
-        "list_item_3": "Pöörduge tagasi sellele lehele ja klõpsake nuppu Olen teinud muudatused"
+        "list_item_1": "Oma brauseris paremklõpsake aadressiribal ja valige <strong>Seaded</strong>",
+        "list_item_2_cam": "Klõpsake rippmenüül kõrval <strong>Kaamera</strong> ja valige <strong>Luba</strong>",
+        "list_item_2_mic": "Klõpsake rippmenüül kõrval <strong>Mikrofon</strong> ja valige <strong>Luba</strong>",
+        "list_item_3": "Pöörduge tagasi sellele lehele ja klõpsake nuppu <strong>Olen teinud muudatused</strong>"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "Oma arvutis klõpsake Windowsi menüül [WINDOWS_ICON] ja valige Sätted [SETTINGS_ICON_WINDOWS]",
-        "list_item_2": "Klõpsake Privaatsus (või Privaatsus & Turvalisus)",
-        "list_item_3_cam": "Klõpsake jaotisel Kaamera alajaotises Rakenduse õigused ja aktiveerige lüliti kõrval [BROWSER_ICON]",
-        "list_item_3_mic": "Klõpsake jaotisel Mikrofon alajaotises Rakenduse õigused ja aktiveerige lüliti kõrval [BROWSER_ICON]",
+        "list_item_1": "Oma arvutis klõpsake Windowsi menüül [WINDOWS_ICON] ja valige <strong>Sätted</strong> [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "Klõpsake <strong>Privaatsus</strong> (või <strong>Privaatsus & Turvalisus</strong>)",
+        "list_item_3_cam": "Klõpsake jaotisel <strong>Kaamera</strong> alajaotises <strong>Rakenduse õigused</strong> ja aktiveerige lüliti kõrval [BROWSER_ICON]",
+        "list_item_3_mic": "Klõpsake jaotisel <strong>Mikrofon</strong> alajaotises <strong>Rakenduse õigused</strong> ja aktiveerige lüliti kõrval [BROWSER_ICON]",
         "list_item_4": "Taaskäivitage vajadusel oma brauser ja tulge tagasi sellele lehele"
       }
     },
     "info": "Taastamine",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "Klõpsake nupul Olen teinud muudatused. Teilt küsitakse uuesti kaamera ja mikrofoni juurdepääsu lubamist. Kui hüpikaken ilmub, valige Luba (või OK)",
-        "list_item_1_cam": "Vajutage nuppu Olen teinud muudatused. Teilt küsitakse uuesti kaamera juurdepääsu lubamist. Kui hüpikaken ilmub, valige Luba (või OK)",
-        "list_item_1_mic": "Vajutage nuppu Olen teinud muudatused. Teilt küsitakse uuesti mikrofoni juurdepääsu lubamist. Kui hüpikaken ilmub, valige Luba (või OK)"
+        "list_item_1_both": "Klõpsake nupul <strong>Olen teinud muudatused</strong>. Teilt küsitakse uuesti kaamera ja mikrofoni juurdepääsu lubamist. Kui hüpikaken ilmub, valige <strong>Luba</strong> (või <strong>OK</strong>)",
+        "list_item_1_cam": "Vajutage nuppu <strong>Olen teinud muudatused</strong>. Teilt küsitakse uuesti kaamera juurdepääsu lubamist. Kui hüpikaken ilmub, valige <strong>Luba</strong> (või <strong>OK</strong>)",
+        "list_item_1_mic": "Vajutage nuppu <strong>Olen teinud muudatused</strong>. Teilt küsitakse uuesti mikrofoni juurdepääsu lubamist. Kui hüpikaken ilmub, valige <strong>Luba</strong> (või <strong>OK</strong>)"
       },
       "device_settings": {
-        "list_item_1": "Avage oma seadmes Seaded rakendus",
+        "list_item_1": "Avage oma seadmes <strong>Seaded</strong> rakendus",
         "list_item_2": "Kerige loendist läbi ja puudutage [BROWSER_ICON]",
-        "list_item_3_cam": "Aktiveerige lüliti kõrval Kaamera",
-        "list_item_3_mic": "Aktiveerige lüliti kõrval Mikrofon",
-        "list_item_4": "Pöörduge tagasi sellele lehele ja vajutage nuppu Olen teinud muudatused"
+        "list_item_3_cam": "Aktiveerige lüliti kõrval <strong>Kaamera</strong>",
+        "list_item_3_mic": "Aktiveerige lüliti kõrval <strong>Mikrofon</strong>",
+        "list_item_4": "Pöörduge tagasi sellele lehele ja vajutage nuppu <strong>Olen teinud muudatused</strong>"
       }
     },
     "ios_safari": {
       "device_settings": {
-        "list_item_1": "Avage oma seadmes Seaded rakendus",
+        "list_item_1": "Avage oma seadmes <strong>Seaded</strong> rakendus",
         "list_item_2": "Kerige loendist läbi ja koputage [BROWSER_ICON]",
-        "list_item_3_cam": "Koputage Kaamera ja valige Luba",
-        "list_item_3_mic": "Koputa Mikrofoni ja vali Luba",
-        "list_item_4": "Pöörduge tagasi sellele lehele ja vajutage nuppu Olen teinud muudatused"
+        "list_item_3_cam": "Koputage <strong>Kaamera</strong> ja valige <strong>Luba</strong>",
+        "list_item_3_mic": "Koputa <strong>Mikrofoni</strong> ja vali <strong>Luba</strong>",
+        "list_item_4": "Pöörduge tagasi sellele lehele ja vajutage nuppu <strong>Olen teinud muudatused</strong>"
       }
     },
     "list_header_both": "Mõlema juurdepääsu taastamiseks toimige järgmiselt.",
@@ -639,16 +639,16 @@
     "instructions_expiry_date": "Kehtivusaeg (vajaduse korral)",
     "instructions_full_address": "Täielik aadress",
     "subtitle_address_card": "Peab olema kehtiv aadressikaart",
-    "subtitle_bank_statement": "Peab olema väljastatud ​​viimase 3 kuu jooksul​​",
+    "subtitle_bank_statement": "Peab olema väljastatud ​​viimase 3 kuu jooksul​",
     "subtitle_benefits_letter": "Peab olema väljastatud ​​viimase 12 kuu jooksul​​",
-    "subtitle_bill": "Peab olema väljastatud ​​viimase 3 kuu jooksul​​",
-    "subtitle_tax_letter": "Peab olema väljastatud ​​viimase 12 kuu jooksul​​"
+    "subtitle_bill": "Peab olema väljastatud ​​viimase 3 kuu jooksul​",
+    "subtitle_tax_letter": "Peab olema väljastatud ​​viimase 12 kuu jooksul​"
   },
   "poa_intro": {
     "button_primary": "Alustage tuvastamist",
     "list_matches_signup": "Vastab teie poolt registreerumisel esitatud aadressile",
     "list_most_recent": "On teie ​​uusim​​ dokument",
-    "list_shows_address": "Näitab teie ​​praegust​​ aadressi",
+    "list_shows_address": "Näitab teie ​​praegust​ aadressi",
     "subtitle": "Teil on vaja dokumenti, mis vastab järgmistele tingimustele.",
     "title": "Kontrollime teie aadressi"
   },
