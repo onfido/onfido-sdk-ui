@@ -444,139 +444,139 @@
   "permission_recovery": {
     "android": {
       "device_settings": {
-        "list_item_1": "Az eszközén nyissa meg a Beállítások alkalmazást",
-        "list_item_2": "Érintse meg a Alkalmazások opciót",
-        "list_item_3": "Érintse meg a [BROWSER_ICON] ikont. Ha nem találja, érintse meg a Összes alkalmazás megtekintése vagy a Alkalmazások kezelése lehetőséget, és válassza ki a böngésző alkalmazást",
-        "list_item_4": "Érintse meg a Engedélyek opciót",
-        "list_item_5_cam": "Érintse meg a Kamera opciót, majd válassza a Engedélyezés lehetőséget",
-        "list_item_5_mic": "Érintse meg a Mikrofon opciót, majd válassza a Engedélyezés lehetőséget",
-        "list_item_6": "Térjen vissza erre az oldalra, és koppintson a Végrehajtottam a módosításokat gombra"
+        "list_item_1": "Az eszközén nyissa meg a <strong>Beállítások</strong> alkalmazást",
+        "list_item_2": "Érintse meg a <strong>Alkalmazások</strong> opciót",
+        "list_item_3": "Érintse meg a [BROWSER_ICON] ikont. Ha nem találja, érintse meg a <strong>Összes alkalmazás megtekintése</strong> vagy a <strong>Alkalmazások kezelése</strong> lehetőséget, és válassza ki a böngésző alkalmazást",
+        "list_item_4": "Érintse meg a <strong>Engedélyek</strong> opciót",
+        "list_item_5_cam": "Érintse meg a <strong>Kamera</strong> opciót, majd válassza a <strong>Engedélyezés</strong> lehetőséget",
+        "list_item_5_mic": "Érintse meg a <strong>Mikrofon</strong> opciót, majd válassza a <strong>Engedélyezés</strong> lehetőséget",
+        "list_item_6": "Térjen vissza erre az oldalra, és koppintson a <strong>Végrehajtottam a módosításokat</strong> gombra"
       }
     },
     "android_chrome": {
       "browser_settings": {
         "list_item_1": "A böngészőjében koppintson a lakat ikonra [LOCK_ICON] a címsorban",
-        "list_item_2": "Érintse meg a Engedélyek opciót",
-        "list_item_3_cam": "Aktiválja a kapcsolót a Kamera mellett",
-        "list_item_3_mic": "Aktiválja a kapcsolót a Mikrofon mellett",
-        "list_item_4": "Térjen vissza erre az oldalra, és koppintson a Végrehajtottam a módosításokat gombra"
+        "list_item_2": "Érintse meg a <strong>Engedélyek</strong> opciót",
+        "list_item_3_cam": "Aktiválja a kapcsolót a <strong>Kamera</strong> mellett",
+        "list_item_3_mic": "Aktiválja a kapcsolót a <strong>Mikrofon</strong> mellett",
+        "list_item_4": "Térjen vissza erre az oldalra, és koppintson a <strong>Végrehajtottam a módosításokat</strong> gombra"
       }
     },
     "android_firefox": {
       "browser_settings": {
         "list_item_1": "A böngészőjében koppintson a lakat ikonra [LOCK_ICON] a címsorban",
-        "list_item_2_cam": "Érintse meg a Blokkolt lehetőséget a Kamera mellett, hogy átváltsa a Engedélyezett lehetőségre",
-        "list_item_2_mic": "Érintse meg a Blokkolt lehetőséget a Mikrofon mellett, hogy átváltsa a Engedélyezett lehetőségre",
-        "list_item_3": "Térjen vissza erre az oldalra, és kattintson a Végrehajtottam a módosításokat gombra"
+        "list_item_2_cam": "Érintse meg a <strong>Blokkolt</strong> lehetőséget a <strong>Kamera</strong> mellett, hogy átváltsa a <strong>Engedélyezett</strong> lehetőségre",
+        "list_item_2_mic": "Érintse meg a <strong>Blokkolt</strong> lehetőséget a <strong>Mikrofon</strong> mellett, hogy átváltsa a <strong>Engedélyezett</strong> lehetőségre",
+        "list_item_3": "Térjen vissza erre az oldalra, és kattintson a <strong>Végrehajtottam a módosításokat</strong> gombra"
       }
     },
     "android_generic": {
       "browser_settings": {
         "list_item_1": "Nyissa meg a böngészőben a webhely beállításait. Ez gyakran egy lakat ikon [LOCK_ICON] a címsorban",
         "list_item_2": "Keresse meg a jogosultságokkal kapcsolatos szakaszt",
-        "list_item_3_cam": "Engedélyezze a Kamera hozzáféréseket",
-        "list_item_3_mic": "Engedélyezze a Mikrofon jogosultságokat",
-        "list_item_4": "Térjen vissza erre az oldalra, és kattintson a Végrehajtottam a módosításokat gombra"
+        "list_item_3_cam": "Engedélyezze a <strong>Kamera</strong> hozzáféréseket",
+        "list_item_3_mic": "Engedélyezze a <strong>Mikrofon</strong> jogosultságokat",
+        "list_item_4": "Térjen vissza erre az oldalra, és kattintson a <strong>Végrehajtottam a módosításokat</strong> gombra"
       }
     },
     "android_samsung": {
       "browser_settings": {
         "list_item_1": "A böngészőjében koppintson a lakat ikonra [LOCK_ICON] a címsorban",
-        "list_item_2_cam": "Aktiválja a kapcsolót a Kamera mellett",
-        "list_item_2_mic": "Aktiválja a kapcsolót a Mikrofon mellett",
-        "list_item_3": "Térjen vissza erre az oldalra, és koppintson a Végrehajtottam a módosításokat gombra"
+        "list_item_2_cam": "Aktiválja a kapcsolót a <strong>Kamera</strong> mellett",
+        "list_item_2_mic": "Aktiválja a kapcsolót a <strong>Mikrofon</strong> mellett",
+        "list_item_3": "Térjen vissza erre az oldalra, és koppintson a <strong>Végrehajtottam a módosításokat</strong> gombra"
       }
     },
     "button_primary": "Frissítés",
     "desktop_chrome": {
       "browser_settings": {
         "list_item_1": "A böngészőjében kattintson a címsorban található zárolás ikonra [LOCK_ICON]",
-        "list_item_2_cam": "Aktiválja a kapcsolót a Kamera mellett",
-        "list_item_2_mic": "Aktiválja a kapcsolót a Mikrofon mellett",
-        "list_item_3": "Térjen vissza erre az oldalra, és kattintson az Elvégeztem a módosításokat gombra"
+        "list_item_2_cam": "Aktiválja a kapcsolót a <strong>Kamera</strong> mellett",
+        "list_item_2_mic": "Aktiválja a kapcsolót a <strong>Mikrofon</strong> mellett",
+        "list_item_3": "Térjen vissza erre az oldalra, és kattintson az <strong>Elvégeztem a módosításokat</strong> gombra"
       }
     },
     "desktop_edge": {
       "browser_settings": {
         "list_item_1": "A böngészőjében kattintson a lakat ikonra [LOCK_ICON] a címsorban",
-        "list_item_2_cam": "Kattintson a Kamera melletti legördülő menüre, és válassza a Engedélyezés opciót",
-        "list_item_2_mic": "Kattintson a legördülő menüre a Mikrofon mellett és válassza a Engedélyezés opciót",
-        "list_item_3": "Térjen vissza erre az oldalra, és kattintson az Végrehajtottam a módosításokat gombra"
+        "list_item_2_cam": "Kattintson a <strong>Kamera</strong> melletti legördülő menüre, és válassza a <strong>Engedélyezés</strong> opciót",
+        "list_item_2_mic": "Kattintson a legördülő menüre a <strong>Mikrofon</strong> mellett és válassza a <strong>Engedélyezés</strong> opciót",
+        "list_item_3": "Térjen vissza erre az oldalra, és kattintson az <strong>Végrehajtottam a módosításokat</strong> gombra"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
         "list_item_1": "A böngészőjében kattintson a beállítások ikonra [SETTINGS_ICON_FIREFOX] a címsorban",
-        "list_item_2_cam": "Kattintson a Blokkolt gombra a Kamera használata mellett",
-        "list_item_2_mic": "Kattintson a Blokkolt gombra a Mikrofon használata mellett",
-        "list_item_3": "Térjen vissza erre az oldalra, és kattintson a Végrehajtottam a módosításokat gombra"
+        "list_item_2_cam": "Kattintson a <strong>Blokkolt</strong> gombra a <strong>Kamera használata</strong> mellett",
+        "list_item_2_mic": "Kattintson a <strong>Blokkolt</strong> gombra a <strong>Mikrofon használata</strong> mellett",
+        "list_item_3": "Térjen vissza erre az oldalra, és kattintson a <strong>Végrehajtottam a módosításokat</strong> gombra"
       }
     },
     "desktop_generic": {
       "browser_settings": {
         "list_item_1": "Nyissa meg a böngészőben a webhely beállításait. Ez gyakran egy lakat ikon [LOCK_ICON] a címsorban",
         "list_item_2": "Keresse meg a jogosultságokra vonatkozó részt",
-        "list_item_3_cam": "Engedélyezze a Kamera hozzáféréseket",
-        "list_item_3_mic": "Engedélyezze a Mikrofon hozzáféréseket",
-        "list_item_4": "Térjen vissza erre az oldalra és kattintson a Módosításokat eszközöltem gombra"
+        "list_item_3_cam": "Engedélyezze a <strong>Kamera</strong> hozzáféréseket",
+        "list_item_3_mic": "Engedélyezze a <strong>Mikrofon</strong> hozzáféréseket",
+        "list_item_4": "Térjen vissza erre az oldalra és kattintson a <strong>Módosításokat eszközöltem</strong> gombra"
       },
       "device_settings": {
-        "list_item_1": "A számítógépen nyissa meg a Beállításokat",
-        "list_item_2": "Keresse meg a jogosultságokkal kapcsolatos részt (általában a Adatvédelem alatt)",
-        "list_item_3_cam": "Engedélyezze a Kamera jogosultságokat a [BROWSER_ICON] számára",
-        "list_item_3_mic": "Engedélyezze a Mikrofon hozzáférést a [BROWSER_ICON] számára",
+        "list_item_1": "A számítógépen nyissa meg a <strong>Beállításokat</strong>",
+        "list_item_2": "Keresse meg a jogosultságokkal kapcsolatos részt (általában a <strong>Adatvédelem</strong> alatt)",
+        "list_item_3_cam": "Engedélyezze a <strong>Kamera</strong> jogosultságokat a [BROWSER_ICON] számára",
+        "list_item_3_mic": "Engedélyezze a <strong>Mikrofon</strong> hozzáférést a [BROWSER_ICON] számára",
         "list_item_4": "Indítsa újra a böngészőjét, ha szükséges, és térjen vissza erre az oldalra"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "A számítógépén kattintson az Apple menüre [APPLE_ICON] és válassza a Rendszerbeállítások (vagy Rendszerpreferenciák) lehetőséget",
-        "list_item_2": "Kattintson a Adatvédelem és biztonság (vagy Biztonság és adatvédelem) lehetőségre az oldalsávon",
-        "list_item_3": "Kattintson a Később gombra a felugró ablakban",
-        "list_item_3_cam": "Kattintson a Kamera elemre, és aktiválja a kapcsolót (vagy jelölőnégyzetet) a [BROWSER_ICON] mellett",
-        "list_item_4": "Kattintson a Kilépés és újranyitás gombra a felugró ablakban, majd térjen vissza erre az oldalra",
-        "list_item_4_mic": "Kattintson a Mikrofon elemre, és aktiválja a kapcsolót (vagy jelölőnégyzetet) a [BROWSER_ICON] mellett"
+        "list_item_1": "A számítógépén kattintson az Apple menüre [APPLE_ICON] és válassza a <strong>Rendszerbeállítások</strong> (vagy <strong>Rendszerpreferenciák</strong>) lehetőséget",
+        "list_item_2": "Kattintson a <strong>Adatvédelem és biztonság</strong> (vagy <strong>Biztonság és adatvédelem</strong>) lehetőségre az oldalsávon",
+        "list_item_3": "Kattintson a <strong>Később</strong> gombra a felugró ablakban",
+        "list_item_3_cam": "Kattintson a <strong>Kamera</strong> elemre, és aktiválja a kapcsolót (vagy jelölőnégyzetet) a [BROWSER_ICON] mellett",
+        "list_item_4": "Kattintson a <strong>Kilépés és újranyitás</strong> gombra a felugró ablakban, majd térjen vissza erre az oldalra",
+        "list_item_4_mic": "Kattintson a <strong>Mikrofon</strong> elemre, és aktiválja a kapcsolót (vagy jelölőnégyzetet) a [BROWSER_ICON] mellett"
       }
     },
     "desktop_safari": {
       "browser_settings": {
-        "list_item_1": "A böngészőjében kattintson jobb gombbal a címsorban, és válassza a Beállítások opciót",
-        "list_item_2_cam": "Kattintson a Kamera melletti legördülő menüre, és válassza a Engedélyezés opciót",
-        "list_item_2_mic": "Kattintson a legördülő menüre a Mikrofon mellett és válassza a Engedélyezés opciót",
-        "list_item_3": "Térjen vissza erre az oldalra, és kattintson a Végrehajtottam a módosításokat gombra"
+        "list_item_1": "A böngészőjében kattintson jobb gombbal a címsorban, és válassza a <strong>Beállítások</strong> opciót",
+        "list_item_2_cam": "Kattintson a <strong>Kamera</strong> melletti legördülő menüre, és válassza a <strong>Engedélyezés</strong> opciót",
+        "list_item_2_mic": "Kattintson a legördülő menüre a <strong>Mikrofon</strong> mellett és válassza a <strong>Engedélyezés</strong> opciót",
+        "list_item_3": "Térjen vissza erre az oldalra, és kattintson a <strong>Végrehajtottam a módosításokat</strong> gombra"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "A számítógépen kattintson a Windows menüre [WINDOWS_ICON] és válassza a Beállítások [SETTINGS_ICON_WINDOWS] lehetőséget",
-        "list_item_2": "Kattintson a Adatvédelem (vagy Adatvédelem & Biztonság) lehetőségre",
-        "list_item_3_cam": "Kattintson a Kamera lehetőségre az Alkalmazás engedélyek alatt, és aktiválja a kapcsolót a [BROWSER_ICON] mellett",
-        "list_item_3_mic": "Kattintson a Mikrofon elemre az Alkalmazás engedélyek alatt, és aktiválja a kapcsolót a [BROWSER_ICON] mellett",
+        "list_item_1": "A számítógépen kattintson a Windows menüre [WINDOWS_ICON] és válassza a <strong>Beállítások</strong> [SETTINGS_ICON_WINDOWS] lehetőséget",
+        "list_item_2": "Kattintson a <strong>Adatvédelem</strong> (vagy <strong>Adatvédelem & Biztonság</strong>) lehetőségre",
+        "list_item_3_cam": "Kattintson a <strong>Kamera</strong> lehetőségre az <strong>Alkalmazás engedélyek</strong> alatt, és aktiválja a kapcsolót a [BROWSER_ICON] mellett",
+        "list_item_3_mic": "Kattintson a <strong>Mikrofon</strong> elemre az <strong>Alkalmazás engedélyek</strong> alatt, és aktiválja a kapcsolót a [BROWSER_ICON] mellett",
         "list_item_4": "Indítsa újra a böngészőjét, ha szükséges, és térjen vissza erre az oldalra"
       }
     },
     "info": "Újraindítás",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "Érintse meg az Elvégeztem a módosításokat gombot. Újra felkérik, hogy engedélyezze a kamera és a mikrofon hozzáférését. Amikor a felugró ablak megjelenik, válassza az Engedélyezés (vagy OK) lehetőséget.",
-        "list_item_1_cam": "Érintse meg az Elvégeztem a módosításokat gombot. Újra felkérik, hogy engedélyezze a kamera hozzáférését. Amikor a felugró ablak megjelenik, válassza az Engedélyezés (vagy OK) lehetőséget.",
-        "list_item_1_mic": "Érintse meg az Elvégeztem a módosításokat gombot. Újra felkérik majd, hogy engedélyezze a mikrofon hozzáférését. Amikor megjelenik a felugró ablak, válassza az Engedélyezés (vagy OK) opciót."
+        "list_item_1_both": "Érintse meg az <strong>Elvégeztem a módosításokat</strong> gombot. Újra felkérik, hogy engedélyezze a kamera és a mikrofon hozzáférését. Amikor a felugró ablak megjelenik, válassza az <strong>Engedélyezés</strong> (vagy <strong>OK</strong>) lehetőséget.",
+        "list_item_1_cam": "Érintse meg az <strong>Elvégeztem a módosításokat</strong> gombot. Újra felkérik, hogy engedélyezze a kamera hozzáférését. Amikor a felugró ablak megjelenik, válassza az <strong>Engedélyezés</strong> (vagy <strong>OK</strong>) lehetőséget.",
+        "list_item_1_mic": "Érintse meg az <strong>Elvégeztem a módosításokat</strong> gombot. Újra felkérik majd, hogy engedélyezze a mikrofon hozzáférését. Amikor megjelenik a felugró ablak, válassza az <strong>Engedélyezés</strong> (vagy <strong>OK</strong>) opciót."
       },
       "device_settings": {
-        "list_item_1": "Az eszközén nyissa meg a Beállítások alkalmazást",
+        "list_item_1": "Az eszközén nyissa meg a <strong>Beállítások</strong> alkalmazást",
         "list_item_2": "Görgessen végig a listán, és koppintson a [BROWSER_ICON] ikonra",
-        "list_item_3_cam": "Aktiválja a kapcsolót a Kamera mellett",
-        "list_item_3_mic": "Aktiválja a kapcsolót a Mikrofon mellett",
-        "list_item_4": "Térjen vissza erre az oldalra, és koppintson a Végrehajtottam a módosításokat gombra"
+        "list_item_3_cam": "Aktiválja a kapcsolót a <strong>Kamera</strong> mellett",
+        "list_item_3_mic": "Aktiválja a kapcsolót a <strong>Mikrofon</strong> mellett",
+        "list_item_4": "Térjen vissza erre az oldalra, és koppintson a <strong>Végrehajtottam a módosításokat</strong> gombra"
       }
     },
     "ios_safari": {
       "device_settings": {
-        "list_item_1": "Az eszközén nyissa meg a Beállítások alkalmazást",
+        "list_item_1": "Az eszközén nyissa meg a <strong>Beállítások</strong> alkalmazást",
         "list_item_2": "Görgessen végig a listán, és koppintson a [BROWSER_ICON]-ra",
-        "list_item_3_cam": "Érintse meg a Kamera opciót, majd válassza a Engedélyezés lehetőséget",
-        "list_item_3_mic": "Érintse meg a Mikrofon lehetőséget, majd válassza a Engedélyezés opciót",
-        "list_item_4": "Térjen vissza erre az oldalra, és koppintson a Végrehajtottam a módosításokat gombra"
+        "list_item_3_cam": "Érintse meg a <strong>Kamera</strong> opciót, majd válassza a <strong>Engedélyezés</strong> lehetőséget",
+        "list_item_3_mic": "Érintse meg a <strong>Mikrofon</strong> lehetőséget, majd válassza a <strong>Engedélyezés</strong> opciót",
+        "list_item_4": "Térjen vissza erre az oldalra, és koppintson a <strong>Végrehajtottam a módosításokat</strong> gombra"
       }
     },
     "list_header_both": "Mindkét eszközhöz való hozzáférés helyreállításához kövesse az alábbi lépéseket:",

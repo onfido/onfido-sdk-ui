@@ -444,139 +444,139 @@
   "permission_recovery": {
     "android": {
       "device_settings": {
-        "list_item_1": "Na vaši napravi odprite aplikacijo Nastavitve",
-        "list_item_2": "Pritisnite Aplikacije",
-        "list_item_3": "Pritisnite [BROWSER_ICON]. Če ga ne najdete, pritisnite Prikaži vse aplikacije ali Upravljanje aplikacij in izberite svojo brskalnik aplikacijo",
-        "list_item_4": "Pritisnite Dovoljenja",
-        "list_item_5_cam": "Pritisnite Kamera in izberite Dovoli",
-        "list_item_5_mic": "Pritisnite Mikrofon in izberite Dovoli",
-        "list_item_6": "Pojdite nazaj na to stran in tapnite gumb Spremembe sem naredil"
+        "list_item_1": "Na vaši napravi odprite aplikacijo <strong>Nastavitve</strong>",
+        "list_item_2": "Pritisnite <strong>Aplikacije</strong>",
+        "list_item_3": "Pritisnite [BROWSER_ICON]. Če ga ne najdete, pritisnite <strong>Prikaži vse aplikacije</strong> ali <strong>Upravljanje aplikacij</strong> in izberite svojo brskalnik aplikacijo",
+        "list_item_4": "Pritisnite <strong>Dovoljenja</strong>",
+        "list_item_5_cam": "Pritisnite <strong>Kamera</strong> in izberite <strong>Dovoli</strong>",
+        "list_item_5_mic": "Pritisnite <strong>Mikrofon</strong> in izberite <strong>Dovoli</strong>",
+        "list_item_6": "Pojdite nazaj na to stran in tapnite gumb <strong>Spremembe sem naredil</strong>"
       }
     },
     "android_chrome": {
       "browser_settings": {
         "list_item_1": "V svojem brskalniku tapnite ikono za zaklepanje [LOCK_ICON] v naslovni vrstici",
-        "list_item_2": "Pritisnite Dovoljenja",
-        "list_item_3_cam": "Aktivirajte stikalo poleg Kamere",
-        "list_item_3_mic": "Aktivirajte stikalo poleg Mikrofona",
-        "list_item_4": "Pojdite nazaj na to stran in tapnite gumb Spremembe sem naredil"
+        "list_item_2": "Pritisnite <strong>Dovoljenja</strong>",
+        "list_item_3_cam": "Aktivirajte stikalo poleg <strong>Kamere</strong>",
+        "list_item_3_mic": "Aktivirajte stikalo poleg <strong>Mikrofona</strong>",
+        "list_item_4": "Pojdite nazaj na to stran in tapnite gumb <strong>Spremembe sem naredil</strong>"
       }
     },
     "android_firefox": {
       "browser_settings": {
         "list_item_1": "V svojem brskalniku tapnite ikono za zaklepanje [LOCK_ICON] v naslovni vrstici",
-        "list_item_2_cam": "Pritisnite Blokirano poleg Kamere, da preklopite na Dovoljeno",
-        "list_item_2_mic": "Pritisnite Blokirano poleg Mikrofona, da preklopite na Dovoljeno",
-        "list_item_3": "Pojdite nazaj na to stran in tapnite gumb Spremembe sem naredil"
+        "list_item_2_cam": "Pritisnite <strong>Blokirano</strong> poleg <strong>Kamere</strong>, da preklopite na <strong>Dovoljeno</strong>",
+        "list_item_2_mic": "Pritisnite <strong>Blokirano</strong> poleg <strong>Mikrofona</strong>, da preklopite na <strong>Dovoljeno</strong>",
+        "list_item_3": "Pojdite nazaj na to stran in tapnite gumb <strong>Spremembe sem naredil</strong>"
       }
     },
     "android_generic": {
       "browser_settings": {
         "list_item_1": "V svojem brskalniku odprite nastavitve spletnega mesta. To je pogosto ikona za zaklepanje [LOCK_ICON] v naslovni vrstici",
         "list_item_2": "Najdite razdelek o dovoljenjih",
-        "list_item_3_cam": "Omogočite dovoljenja za Kamero",
-        "list_item_3_mic": "Omogočite dovoljenja za mikrofon",
-        "list_item_4": "Pojdite nazaj na to stran in tapnite gumb Spremembe sem naredil"
+        "list_item_3_cam": "Omogočite dovoljenja za <strong>Kamero</strong>",
+        "list_item_3_mic": "Omogočite dovoljenja za <strong>mikrofon</strong>",
+        "list_item_4": "Pojdite nazaj na to stran in tapnite gumb <strong>Spremembe sem naredil</strong>"
       }
     },
     "android_samsung": {
       "browser_settings": {
         "list_item_1": "V svojem brskalniku tapnite ikono za zaklepanje [LOCK_ICON] v naslovni vrstici",
-        "list_item_2_cam": "Aktivirajte stikalo poleg Kamere",
-        "list_item_2_mic": "Aktivirajte stikalo poleg Mikrofona",
-        "list_item_3": "Pojdite nazaj na to stran in pritisnite gumb Spremembe sem naredil"
+        "list_item_2_cam": "Aktivirajte stikalo poleg <strong>Kamere</strong>",
+        "list_item_2_mic": "Aktivirajte stikalo poleg <strong>Mikrofona</strong>",
+        "list_item_3": "Pojdite nazaj na to stran in pritisnite gumb <strong>Spremembe sem naredil</strong>"
       }
     },
     "button_primary": "Osveži",
     "desktop_chrome": {
       "browser_settings": {
         "list_item_1": "V svojem brskalniku kliknite na ikono za zaklepanje [LOCK_ICON] v naslovni vrstici",
-        "list_item_2_cam": "Aktivirajte stikalo poleg Kamere",
-        "list_item_2_mic": "Aktivirajte stikalo poleg Mikrofona",
-        "list_item_3": "Vrnite se na to stran in kliknite na gumb Spremembe sem naredil"
+        "list_item_2_cam": "Aktivirajte stikalo poleg <strong>Kamere</strong>",
+        "list_item_2_mic": "Aktivirajte stikalo poleg <strong>Mikrofona</strong>",
+        "list_item_3": "Vrnite se na to stran in kliknite na gumb <strong>Spremembe sem naredil</strong>"
       }
     },
     "desktop_edge": {
       "browser_settings": {
         "list_item_1": "V svojem brskalniku kliknite na ikono za zaklepanje [LOCK_ICON] v naslovni vrstici",
-        "list_item_2_cam": "Kliknite na spustni meni poleg Kamere in izberite Dovoli",
-        "list_item_2_mic": "Kliknite na spustni meni poleg Mikrofon in izberite Dovoli",
-        "list_item_3": "Pojdite nazaj na to stran in kliknite na gumb Spremembe sem naredil"
+        "list_item_2_cam": "Kliknite na spustni meni poleg <strong>Kamere</strong> in izberite <strong>Dovoli</strong>",
+        "list_item_2_mic": "Kliknite na spustni meni poleg <strong>Mikrofon</strong> in izberite <strong>Dovoli</strong>",
+        "list_item_3": "Pojdite nazaj na to stran in kliknite na gumb <strong>Spremembe sem naredil</strong>"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
         "list_item_1": "V vašem brskalniku kliknite ikono nastavitev [SETTINGS_ICON_FIREFOX] v naslovni vrstici",
-        "list_item_2_cam": "Kliknite Blokirano poleg Uporabi kamero",
-        "list_item_2_mic": "Kliknite Blokirano poleg Uporabi mikrofon",
-        "list_item_3": "Vrnite se na to stran in kliknite na gumb Spremembe sem naredil"
+        "list_item_2_cam": "Kliknite <strong>Blokirano</strong> poleg <strong>Uporabi kamero</strong>",
+        "list_item_2_mic": "Kliknite <strong>Blokirano</strong> poleg <strong>Uporabi mikrofon</strong>",
+        "list_item_3": "Vrnite se na to stran in kliknite na gumb <strong>Spremembe sem naredil</strong>"
       }
     },
     "desktop_generic": {
       "browser_settings": {
         "list_item_1": "V svojem brskalniku odprite nastavitve spletnega mesta. To je pogosto ikona za zaklepanje [LOCK_ICON] v naslovni vrstici",
         "list_item_2": "Najdite razdelek o dovoljenjih",
-        "list_item_3_cam": "Omogočite dovoljenja za kamero",
-        "list_item_3_mic": "Omogočite dovoljenja za mikrofon",
-        "list_item_4": "Pojdite nazaj na to stran in kliknite gumb Spremembe sem naredil"
+        "list_item_3_cam": "Omogočite dovoljenja za <strong>kamero</strong>",
+        "list_item_3_mic": "Omogočite dovoljenja za <strong>mikrofon</strong>",
+        "list_item_4": "Pojdite nazaj na to stran in kliknite gumb <strong>Spremembe sem naredil</strong>"
       },
       "device_settings": {
-        "list_item_1": "Na vašem računalniku odprite svoje Nastavitve",
-        "list_item_2": "Najdite razdelek o dovoljenjih (običajno pod Zasebnost)",
-        "list_item_3_cam": "Omogočite dovoljenja za Kamero za [BROWSER_ICON]",
-        "list_item_3_mic": "Omogočite dovoljenja za Mikrofon za [BROWSER_ICON]",
+        "list_item_1": "Na vašem računalniku odprite svoje <strong>Nastavitve</strong>",
+        "list_item_2": "Najdite razdelek o dovoljenjih (običajno pod <strong>Zasebnost</strong>)",
+        "list_item_3_cam": "Omogočite dovoljenja za <strong>Kamero</strong> za [BROWSER_ICON]",
+        "list_item_3_mic": "Omogočite dovoljenja za <strong>Mikrofon</strong> za [BROWSER_ICON]",
         "list_item_4": "Ponovno zaženite brskalnik, če je potrebno, in se vrnite na to stran"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "Na vašem računalniku kliknite meni Apple [APPLE_ICON] in izberite Sistemske nastavitve (ali Sistemske preference)",
-        "list_item_2": "Kliknite Zasebnost & Varnost (ali Varnost & Zasebnost) v stranskem meniju ",
-        "list_item_3": "Kliknite Kasneje v pojavnem oknu",
-        "list_item_3_cam": "Kliknite Kamera in aktivirajte stikalo (ali potrditveno polje) poleg [BROWSER_ICON]",
-        "list_item_4": "Kliknite na Zapri in ponovno odpri v pojavnem oknu in se vrnite na to stran",
-        "list_item_4_mic": "Kliknite Mikrofon in aktivirajte stikalo (ali potrditveno polje) poleg [BROWSER_ICON]"
+        "list_item_1": "Na vašem računalniku kliknite meni Apple [APPLE_ICON] in izberite <strong>Sistemske nastavitve</strong> (ali <strong>Sistemske preference</strong>)",
+        "list_item_2": "Kliknite <strong>Zasebnost & Varnost</strong> (ali <strong>Varnost & Zasebnost</strong>) v stranskem meniju ",
+        "list_item_3": "Kliknite <strong>Kasneje</strong> v pojavnem oknu",
+        "list_item_3_cam": "Kliknite <strong>Kamera</strong> in aktivirajte stikalo (ali potrditveno polje) poleg [BROWSER_ICON]",
+        "list_item_4": "Kliknite na <strong>Zapri in ponovno odpri</strong> v pojavnem oknu in se vrnite na to stran",
+        "list_item_4_mic": "Kliknite <strong>Mikrofon</strong> in aktivirajte stikalo (ali potrditveno polje) poleg [BROWSER_ICON]"
       }
     },
     "desktop_safari": {
       "browser_settings": {
-        "list_item_1": "V svojem brskalniku z desnim klikom kliknite na naslovno vrstico in izberite Nastavitve",
-        "list_item_2_cam": "Kliknite na spustni meni poleg Kamere in izberite Dovoli",
-        "list_item_2_mic": "Kliknite na spustni meni poleg Mikrofon in izberite Dovoli",
-        "list_item_3": "Povrnite se na to stran in kliknite na gumb Spremembe sem izvedel"
+        "list_item_1": "V svojem brskalniku z desnim klikom kliknite na naslovno vrstico in izberite <strong>Nastavitve</strong>",
+        "list_item_2_cam": "Kliknite na spustni meni poleg <strong>Kamere</strong> in izberite <strong>Dovoli</strong>",
+        "list_item_2_mic": "Kliknite na spustni meni poleg <strong>Mikrofon</strong> in izberite <strong>Dovoli</strong>",
+        "list_item_3": "Povrnite se na to stran in kliknite na gumb <strong>Spremembe sem izvedel</strong>"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "Na vašem računalniku kliknite meni Windows [WINDOWS_ICON] in izberite Nastavitve [SETTINGS_ICON_WINDOWS]",
-        "list_item_2": "Kliknite Zasebnost (ali Zasebnost & Varnost)",
-        "list_item_3_cam": "Kliknite na Kamera pod Dovoljenja za aplikacije in aktivirajte stikalo poleg [BROWSER_ICON] ",
-        "list_item_3_mic": "Kliknite na Mikrofon pod Dovoljenja za aplikacije in aktivirajte stikalo poleg [BROWSER_ICON]",
+        "list_item_1": "Na vašem računalniku kliknite meni Windows [WINDOWS_ICON] in izberite <strong>Nastavitve</strong> [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "Kliknite <strong>Zasebnost</strong> (ali <strong>Zasebnost & Varnost</strong>)",
+        "list_item_3_cam": "Kliknite na <strong>Kamera</strong> pod <strong>Dovoljenja za aplikacije</strong> in aktivirajte stikalo poleg [BROWSER_ICON] ",
+        "list_item_3_mic": "Kliknite na <strong>Mikrofon</strong> pod <strong>Dovoljenja za aplikacije</strong> in aktivirajte stikalo poleg [BROWSER_ICON]",
         "list_item_4": "Ponovno zaženite brskalnik, če je potrebno, in se vrnite na to stran"
       }
     },
     "info": "Obnovitev",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "Pritisnite gumb Spremembe sem izvedel. Ponovno vam bo ponujen dostop do kamere in mikrofona. Ko se pojavi pojavno okno, izberite Dovoli (ali V redu)",
-        "list_item_1_cam": "Pritisnite gumb Spremembe sem izvedel. Ponovno vam bo ponujeno, da omogočite dostop do kamere. Ko se pojavi pojavno okno, izberite Dovoli (ali V redu)",
-        "list_item_1_mic": "Pritisnite gumb Spremembe sem izvedel. Ponovno vam bo ponujen dostop do mikrofona. Ko se pojavi pojavno okno, izberite Dovoli (ali V redu)"
+        "list_item_1_both": "Pritisnite gumb <strong>Spremembe sem izvedel</strong>. Ponovno vam bo ponujen dostop do kamere in mikrofona. Ko se pojavi pojavno okno, izberite <strong>Dovoli</strong> (ali <strong>V redu</strong>)",
+        "list_item_1_cam": "Pritisnite gumb <strong>Spremembe sem izvedel</strong>. Ponovno vam bo ponujeno, da omogočite dostop do kamere. Ko se pojavi pojavno okno, izberite <strong>Dovoli</strong> (ali <strong>V redu</strong>)",
+        "list_item_1_mic": "Pritisnite gumb <strong>Spremembe sem izvedel</strong>. Ponovno vam bo ponujen dostop do mikrofona. Ko se pojavi pojavno okno, izberite <strong>Dovoli</strong> (ali <strong>V redu</strong>)"
       },
       "device_settings": {
-        "list_item_1": "Na vaši napravi odprite aplikacijo Nastavitve",
+        "list_item_1": "Na vaši napravi odprite aplikacijo <strong>Nastavitve</strong>",
         "list_item_2": "Pomaknite se po seznamu in tapnite na [BROWSER_ICON]",
-        "list_item_3_cam": "Aktivirajte stikalo poleg Kamere",
-        "list_item_3_mic": "Aktivirajte stikalo poleg Mikrofona",
-        "list_item_4": "Pojdite nazaj na to stran in tapnite gumb Spremembe sem naredil"
+        "list_item_3_cam": "Aktivirajte stikalo poleg <strong>Kamere</strong>",
+        "list_item_3_mic": "Aktivirajte stikalo poleg <strong>Mikrofona</strong>",
+        "list_item_4": "Pojdite nazaj na to stran in tapnite gumb <strong>Spremembe sem naredil</strong>"
       }
     },
     "ios_safari": {
       "device_settings": {
-        "list_item_1": "Na vaši napravi odprite aplikacijo Nastavitve",
+        "list_item_1": "Na vaši napravi odprite aplikacijo <strong>Nastavitve</strong>",
         "list_item_2": "Pomaknite se po seznamu in tapnite na [BROWSER_ICON]",
-        "list_item_3_cam": "Pritisnite Kamera in izberite Dovoli",
-        "list_item_3_mic": "Pritisnite Mikrofon in izberite Dovoli",
-        "list_item_4": "Pojdite nazaj na to stran in tapnite gumb Spremembe sem naredil"
+        "list_item_3_cam": "Pritisnite <strong>Kamera</strong> in izberite <strong>Dovoli</strong>",
+        "list_item_3_mic": "Pritisnite <strong>Mikrofon</strong> in izberite <strong>Dovoli</strong>",
+        "list_item_4": "Pojdite nazaj na to stran in tapnite gumb <strong>Spremembe sem naredil</strong>"
       }
     },
     "list_header_both": "Če želite obnoviti dostop za oboje, upoštevajte ta navodila:",

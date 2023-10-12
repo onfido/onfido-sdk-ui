@@ -444,139 +444,139 @@
   "permission_recovery": {
     "android": {
       "device_settings": {
-        "list_item_1": "Sul tuo dispositivo, apri l'app Impostazioni",
-        "list_item_2": "Tocca App",
-        "list_item_3": "Tocca [BROWSER_ICON]. Se non riesci a trovarlo, tocca Vedi tutte le app o Gestisci app e seleziona la tua app del browser",
-        "list_item_4": "Tocca Permessi",
-        "list_item_5_cam": "Tocca Fotocamera e seleziona Consenti",
-        "list_item_5_mic": "Tocca Microfono e seleziona Consenti",
-        "list_item_6": "Torna a questa pagina e tocca il pulsante Ho apportato le modifiche"
+        "list_item_1": "Sul tuo dispositivo, apri l'app <strong>Impostazioni</strong>",
+        "list_item_2": "Tocca <strong>App</strong>",
+        "list_item_3": "Tocca [BROWSER_ICON]. Se non riesci a trovarlo, tocca <strong>Vedi tutte le app</strong> o <strong>Gestisci app</strong> e seleziona la tua app del browser",
+        "list_item_4": "Tocca <strong>Permessi</strong>",
+        "list_item_5_cam": "Tocca <strong>Fotocamera</strong> e seleziona <strong>Consenti</strong>",
+        "list_item_5_mic": "Tocca <strong>Microfono</strong> e seleziona <strong>Consenti</strong>",
+        "list_item_6": "Torna a questa pagina e tocca il pulsante <strong>Ho apportato le modifiche</strong>"
       }
     },
     "android_chrome": {
       "browser_settings": {
         "list_item_1": "Nel tuo browser, tocca l'icona del lucchetto [LOCK_ICON] nella barra degli indirizzi",
-        "list_item_2": "Tocca Permessi",
-        "list_item_3_cam": "Attiva l'interruttore accanto a Fotocamera",
-        "list_item_3_mic": "Attiva l'interruttore accanto a Microfono",
-        "list_item_4": "Torna a questa pagina e tocca il pulsante Ho apportato le modifiche"
+        "list_item_2": "Tocca <strong>Permessi</strong>",
+        "list_item_3_cam": "Attiva l'interruttore accanto a <strong>Fotocamera</strong>",
+        "list_item_3_mic": "Attiva l'interruttore accanto a <strong>Microfono</strong>",
+        "list_item_4": "Torna a questa pagina e tocca il pulsante <strong>Ho apportato le modifiche</strong>"
       }
     },
     "android_firefox": {
       "browser_settings": {
         "list_item_1": "Nel tuo browser, tocca l'icona del lucchetto [LOCK_ICON] nella barra degli indirizzi",
-        "list_item_2_cam": "Tocca Bloccato accanto a Fotocamera per passare a Consentito",
-        "list_item_2_mic": "Tocca Bloccato accanto a Microfono per passare a Consentito",
-        "list_item_3": "Torna a questa pagina e tocca il pulsante Ho apportato le modifiche"
+        "list_item_2_cam": "Tocca <strong>Bloccato</strong> accanto a <strong>Fotocamera</strong> per passare a <strong>Consentito</strong>",
+        "list_item_2_mic": "Tocca <strong>Bloccato</strong> accanto a <strong>Microfono</strong> per passare a <strong>Consentito</strong>",
+        "list_item_3": "Torna a questa pagina e tocca il pulsante <strong>Ho apportato le modifiche</strong>"
       }
     },
     "android_generic": {
       "browser_settings": {
         "list_item_1": "Nel tuo browser, apri le impostazioni del sito web. Questo è spesso un'icona di blocco [LOCK_ICON] nella barra degli indirizzi",
         "list_item_2": "Trova la sezione sulle autorizzazioni",
-        "list_item_3_cam": "Abilita le autorizzazioni della Fotocamera",
-        "list_item_3_mic": "Abilita le autorizzazioni per il Microfono",
-        "list_item_4": "Torna a questa pagina e tocca il pulsante Ho apportato le modifiche"
+        "list_item_3_cam": "Abilita le autorizzazioni della <strong>Fotocamera</strong>",
+        "list_item_3_mic": "Abilita le autorizzazioni per il <strong>Microfono</strong>",
+        "list_item_4": "Torna a questa pagina e tocca il pulsante <strong>Ho apportato le modifiche</strong>"
       }
     },
     "android_samsung": {
       "browser_settings": {
         "list_item_1": "Nel tuo browser, tocca l'icona del lucchetto [LOCK_ICON] nella barra degli indirizzi",
-        "list_item_2_cam": "Attiva l'interruttore accanto a Fotocamera",
-        "list_item_2_mic": "Attiva l'interruttore accanto a Microfono",
-        "list_item_3": "Torna a questa pagina e tocca il pulsante Ho apportato le modifiche"
+        "list_item_2_cam": "Attiva l'interruttore accanto a <strong>Fotocamera</strong>",
+        "list_item_2_mic": "Attiva l'interruttore accanto a <strong>Microfono</strong>",
+        "list_item_3": "Torna a questa pagina e tocca il pulsante <strong>Ho apportato le modifiche</strong>"
       }
     },
     "button_primary": "Ricarica",
     "desktop_chrome": {
       "browser_settings": {
         "list_item_1": "Nel tuo browser, fai clic sull'icona del lucchetto [LOCK_ICON] nella barra degli indirizzi",
-        "list_item_2_cam": "Attiva l'interruttore accanto a Fotocamera",
-        "list_item_2_mic": "Attiva l'interruttore accanto a Microfono",
-        "list_item_3": "Torna a questa pagina e clicca sul pulsante Ho effettuato le modifiche"
+        "list_item_2_cam": "Attiva l'interruttore accanto a <strong>Fotocamera</strong>",
+        "list_item_2_mic": "Attiva l'interruttore accanto a <strong>Microfono</strong>",
+        "list_item_3": "Torna a questa pagina e clicca sul pulsante <strong>Ho effettuato le modifiche</strong>"
       }
     },
     "desktop_edge": {
       "browser_settings": {
         "list_item_1": "Nel tuo browser, fai clic sull'icona del lucchetto [LOCK_ICON] nella barra degli indirizzi",
-        "list_item_2_cam": "Fai clic sul menu a discesa accanto a Fotocamera e seleziona Consenti",
-        "list_item_2_mic": "Fai clic sul menu a discesa accanto a Microfono e seleziona Consenti",
-        "list_item_3": "Torna a questa pagina e clicca sul pulsante Ho effettuato le modifiche"
+        "list_item_2_cam": "Fai clic sul menu a discesa accanto a <strong>Fotocamera</strong> e seleziona <strong>Consenti</strong>",
+        "list_item_2_mic": "Fai clic sul menu a discesa accanto a <strong>Microfono</strong> e seleziona <strong>Consenti</strong>",
+        "list_item_3": "Torna a questa pagina e clicca sul pulsante <strong>Ho effettuato le modifiche</strong>"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
         "list_item_1": "Nel tuo browser, fai clic sull'icona delle impostazioni [SETTINGS_ICON_FIREFOX] nella barra degli indirizzi",
-        "list_item_2_cam": "Fai clic su Bloccato accanto a Usa la fotocamera",
-        "list_item_2_mic": "Fai clic su Bloccato accanto a Usa il microfono",
-        "list_item_3": "Torna a questa pagina e fai clic sul pulsante Ho apportato le modifiche"
+        "list_item_2_cam": "Fai clic su <strong>Bloccato</strong> accanto a <strong>Usa la fotocamera</strong>",
+        "list_item_2_mic": "Fai clic su <strong>Bloccato</strong> accanto a <strong>Usa il microfono</strong>",
+        "list_item_3": "Torna a questa pagina e fai clic sul pulsante <strong>Ho apportato le modifiche</strong>"
       }
     },
     "desktop_generic": {
       "browser_settings": {
         "list_item_1": "Nel tuo browser, apri le impostazioni del sito web. Questo è spesso un'icona di blocco [LOCK_ICON] nella barra degli indirizzi",
         "list_item_2": "Trova la sezione sulle autorizzazioni",
-        "list_item_3_cam": "Abilita le autorizzazioni della Fotocamera",
-        "list_item_3_mic": "Abilita le autorizzazioni per il Microfono",
-        "list_item_4": "Torna a questa pagina e clicca il pulsante Ho effettuato le modifiche"
+        "list_item_3_cam": "Abilita le autorizzazioni della <strong>Fotocamera</strong>",
+        "list_item_3_mic": "Abilita le autorizzazioni per il <strong>Microfono</strong>",
+        "list_item_4": "Torna a questa pagina e clicca il pulsante <strong>Ho effettuato le modifiche</strong>"
       },
       "device_settings": {
-        "list_item_1": "Sul tuo computer, apri le tue Impostazioni",
-        "list_item_2": "Trova la sezione riguardante i permessi (di solito sotto Privacy)",
-        "list_item_3_cam": "Abilita le autorizzazioni per la Fotocamera per [BROWSER_ICON]",
-        "list_item_3_mic": "Abilita le autorizzazioni per il Microfono per [BROWSER_ICON]",
+        "list_item_1": "Sul tuo computer, apri le tue <strong>Impostazioni</strong>",
+        "list_item_2": "Trova la sezione riguardante i permessi (di solito sotto <strong>Privacy</strong>)",
+        "list_item_3_cam": "Abilita le autorizzazioni per la <strong>Fotocamera</strong> per [BROWSER_ICON]",
+        "list_item_3_mic": "Abilita le autorizzazioni per il <strong>Microfono</strong> per [BROWSER_ICON]",
         "list_item_4": "Riavvia il tuo browser se necessario e torna su questa pagina"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "Sul tuo computer, fai clic sul menu Apple [APPLE_ICON] e seleziona Impostazioni di sistema (o Preferenze di sistema)",
-        "list_item_2": "Fai clic su Privacy & Sicurezza (o Sicurezza & Privacy) nella barra laterale",
-        "list_item_3": "Fai clic su Dopo nel pop-up",
-        "list_item_3_cam": "Fai clic su Fotocamera e attiva l'interruttore (o la casella di controllo) accanto a [BROWSER_ICON]",
-        "list_item_4": "Fai clic su Esci e riapri nel pop-up e torna a questa pagina",
-        "list_item_4_mic": "Fai clic su Microfono e attiva l'interruttore (o la casella di controllo) accanto a [BROWSER_ICON]"
+        "list_item_1": "Sul tuo computer, fai clic sul menu Apple [APPLE_ICON] e seleziona <strong>Impostazioni di sistema</strong> (o <strong>Preferenze di sistema</strong>)",
+        "list_item_2": "Fai clic su <strong>Privacy & Sicurezza</strong> (o <strong>Sicurezza & Privacy</strong>) nella barra laterale",
+        "list_item_3": "Fai clic su <strong>Dopo</strong> nel pop-up",
+        "list_item_3_cam": "Fai clic su <strong>Fotocamera</strong> e attiva l'interruttore (o la casella di controllo) accanto a [BROWSER_ICON]",
+        "list_item_4": "Fai clic su <strong>Esci e riapri</strong> nel pop-up e torna a questa pagina",
+        "list_item_4_mic": "Fai clic su <strong>Microfono</strong> e attiva l'interruttore (o la casella di controllo) accanto a [BROWSER_ICON]"
       }
     },
     "desktop_safari": {
       "browser_settings": {
-        "list_item_1": "Nel tuo browser, fai clic con il tasto destro nella barra degli indirizzi e seleziona Impostazioni",
-        "list_item_2_cam": "Fai clic sul menu a discesa accanto a Fotocamera e seleziona Consenti",
-        "list_item_2_mic": "Fai clic sul menu a discesa accanto a Microfono e seleziona Consenti",
-        "list_item_3": "Torna a questa pagina e fai clic sul pulsante Ho apportato le modifiche"
+        "list_item_1": "Nel tuo browser, fai clic con il tasto destro nella barra degli indirizzi e seleziona <strong>Impostazioni</strong>",
+        "list_item_2_cam": "Fai clic sul menu a discesa accanto a <strong>Fotocamera</strong> e seleziona <strong>Consenti</strong>",
+        "list_item_2_mic": "Fai clic sul menu a discesa accanto a <strong>Microfono</strong> e seleziona <strong>Consenti</strong>",
+        "list_item_3": "Torna a questa pagina e fai clic sul pulsante <strong>Ho apportato le modifiche</strong>"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "Sul tuo computer, fai clic sul menu Windows [WINDOWS_ICON] e seleziona Impostazioni [SETTINGS_ICON_WINDOWS]",
-        "list_item_2": "Fai clic su Privacy (o Privacy & Sicurezza)",
-        "list_item_3_cam": "Fai clic su Fotocamera sotto Permessi app e attiva l'interruttore accanto a [BROWSER_ICON] ",
-        "list_item_3_mic": "Fai clic su Microfono sotto Permessi app e attiva l'interruttore accanto a [BROWSER_ICON]",
+        "list_item_1": "Sul tuo computer, fai clic sul menu Windows [WINDOWS_ICON] e seleziona <strong>Impostazioni</strong> [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "Fai clic su <strong>Privacy</strong> (o <strong>Privacy & Sicurezza</strong>)",
+        "list_item_3_cam": "Fai clic su <strong>Fotocamera</strong> sotto <strong>Permessi app</strong> e attiva l'interruttore accanto a [BROWSER_ICON] ",
+        "list_item_3_mic": "Fai clic su <strong>Microfono</strong> sotto <strong>Permessi app</strong> e attiva l'interruttore accanto a [BROWSER_ICON]",
         "list_item_4": "Riavvia il tuo browser se necessario e torna su questa pagina"
       }
     },
     "info": "Ripristino",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "Tocca il pulsante Ho effettuato le modifiche. Ti verrà chiesto di abilitare nuovamente l'accesso a fotocamera e microfono. Quando compare il pop-up, seleziona Consenti (o OK)",
-        "list_item_1_cam": "Tocca il pulsante Ho effettuato le modifiche. Ti verrà chiesto di abilitare nuovamente l'accesso alla fotocamera. Quando compare il pop-up, seleziona Consenti (o OK)",
-        "list_item_1_mic": "Tocca il pulsante Ho effettuato le modifiche. Ti verrà chiesto di abilitare nuovamente l'accesso al microfono. Quando compare il pop-up, seleziona Consenti (o OK)"
+        "list_item_1_both": "Tocca il pulsante <strong>Ho effettuato le modifiche</strong>. Ti verrà chiesto di abilitare nuovamente l'accesso a fotocamera e microfono. Quando compare il pop-up, seleziona <strong>Consenti</strong> (o <strong>OK</strong>)",
+        "list_item_1_cam": "Tocca il pulsante <strong>Ho effettuato le modifiche</strong>. Ti verrà chiesto di abilitare nuovamente l'accesso alla fotocamera. Quando compare il pop-up, seleziona <strong>Consenti</strong> (o <strong>OK</strong>)",
+        "list_item_1_mic": "Tocca il pulsante <strong>Ho effettuato le modifiche</strong>. Ti verrà chiesto di abilitare nuovamente l'accesso al microfono. Quando compare il pop-up, seleziona <strong>Consenti</strong> (o <strong>OK</strong>)"
       },
       "device_settings": {
-        "list_item_1": "Sul tuo dispositivo, apri l'app Impostazioni",
+        "list_item_1": "Sul tuo dispositivo, apri l'app <strong>Impostazioni</strong>",
         "list_item_2": "Scorri l'elenco e tocca [BROWSER_ICON]",
-        "list_item_3_cam": "Attiva l'interruttore accanto a Fotocamera",
-        "list_item_3_mic": "Attiva l'interruttore accanto a Microfono",
-        "list_item_4": "Torna a questa pagina e tocca il pulsante Ho apportato le modifiche"
+        "list_item_3_cam": "Attiva l'interruttore accanto a <strong>Fotocamera</strong>",
+        "list_item_3_mic": "Attiva l'interruttore accanto a <strong>Microfono</strong>",
+        "list_item_4": "Torna a questa pagina e tocca il pulsante <strong>Ho apportato le modifiche</strong>"
       }
     },
     "ios_safari": {
       "device_settings": {
-        "list_item_1": "Sul tuo dispositivo, apri l'app Impostazioni",
+        "list_item_1": "Sul tuo dispositivo, apri l'app <strong>Impostazioni</strong>",
         "list_item_2": "Scorri l'elenco e tocca [BROWSER_ICON]",
-        "list_item_3_cam": "Tocca Fotocamera e seleziona Consenti",
-        "list_item_3_mic": "Tocca Microfono e seleziona Consenti",
-        "list_item_4": "Torna a questa pagina e tocca il pulsante Ho apportato le modifiche"
+        "list_item_3_cam": "Tocca <strong>Fotocamera</strong> e seleziona <strong>Consenti</strong>",
+        "list_item_3_mic": "Tocca <strong>Microfono</strong> e seleziona <strong>Consenti</strong>",
+        "list_item_4": "Torna a questa pagina e tocca il pulsante <strong>Ho apportato le modifiche</strong>"
       }
     },
     "list_header_both": "Segui questi passaggi per ripristinare l’accesso alla entrambi:",

@@ -444,139 +444,139 @@
   "permission_recovery": {
     "android": {
       "device_settings": {
-        "list_item_1": "お使いのデバイスで、設定アプリを開きます",
-        "list_item_2": "アプリをタップします",
-        "list_item_3": "[BROWSER_ICON]をタップします。見つからない場合は、すべてのアプリを見るまたはアプリを管理するをタップし、ブラウザアプリを選択します",
-        "list_item_4": "権限をタップします",
-        "list_item_5_cam": "カメラをタップし、許可を選択します",
-        "list_item_5_mic": "マイクをタップし、許可を選択します",
-        "list_item_6": "このページに戻って、変更を行いましたボタンをタップしてください"
+        "list_item_1": "お使いのデバイスで、<strong>設定</strong>アプリを開きます",
+        "list_item_2": "<strong>アプリ</strong>をタップします",
+        "list_item_3": "[BROWSER_ICON]をタップします。見つからない場合は、<strong>すべてのアプリを見る</strong>または<strong>アプリを管理する</strong>をタップし、ブラウザアプリを選択します",
+        "list_item_4": "<strong>権限</strong>をタップします",
+        "list_item_5_cam": "<strong>カメラ</strong>をタップし、<strong>許可</strong>を選択します",
+        "list_item_5_mic": "<strong>マイク</strong>をタップし、<strong>許可</strong>を選択します",
+        "list_item_6": "このページに戻って、<strong>変更を行いました</strong>ボタンをタップしてください"
       }
     },
     "android_chrome": {
       "browser_settings": {
         "list_item_1": "ブラウザで、アドレスバーにあるロックアイコン[LOCK_ICON]をタップします",
-        "list_item_2": "権限をタップします",
-        "list_item_3_cam": "カメラの隣にあるトグルを有効にしてください",
-        "list_item_3_mic": "マイクの隣にあるトグルを有効にしてください",
-        "list_item_4": "このページに戻って、変更を行いましたボタンをタップしてください"
+        "list_item_2": "<strong>権限</strong>をタップします",
+        "list_item_3_cam": "<strong>カメラ</strong>の隣にあるトグルを有効にしてください",
+        "list_item_3_mic": "<strong>マイク</strong>の隣にあるトグルを有効にしてください",
+        "list_item_4": "このページに戻って、<strong>変更を行いました</strong>ボタンをタップしてください"
       }
     },
     "android_firefox": {
       "browser_settings": {
         "list_item_1": "ブラウザで、アドレスバーにあるロックアイコン[LOCK_ICON]をタップします",
-        "list_item_2_cam": "ブロックの隣のカメラをタップして、許可に切り替えます",
-        "list_item_2_mic": "ブロックの隣のマイクをタップして、許可に切り替えます",
-        "list_item_3": "このページに戻って、変更を行いましたボタンをタップしてください"
+        "list_item_2_cam": "<strong>ブロック</strong>の隣の<strong>カメラ</strong>をタップして、<strong>許可</strong>に切り替えます",
+        "list_item_2_mic": "<strong>ブロック</strong>の隣の<strong>マイク</strong>をタップして、<strong>許可</strong>に切り替えます",
+        "list_item_3": "このページに戻って、<strong>変更を行いました</strong>ボタンをタップしてください"
       }
     },
     "android_generic": {
       "browser_settings": {
         "list_item_1": "ブラウザでウェブサイトの設定を開きます。これは通常、アドレスバーにあるロックアイコン[LOCK_ICON]です",
         "list_item_2": "パーミッションに関するセクションを探す",
-        "list_item_3_cam": "カメラの権限を有効にする",
-        "list_item_3_mic": "マイクの権限を有効にする",
-        "list_item_4": "このページに戻って、変更を行いましたボタンをタップしてください"
+        "list_item_3_cam": "<strong>カメラ</strong>の権限を有効にする",
+        "list_item_3_mic": "<strong>マイク</strong>の権限を有効にする",
+        "list_item_4": "このページに戻って、<strong>変更を行いました</strong>ボタンをタップしてください"
       }
     },
     "android_samsung": {
       "browser_settings": {
         "list_item_1": "ブラウザで、アドレスバーにあるロックアイコン[LOCK_ICON]をタップします",
-        "list_item_2_cam": "カメラの隣にあるトグルを有効にしてください",
-        "list_item_2_mic": "マイクの隣にあるトグルを有効にしてください",
-        "list_item_3": "このページに戻って、変更を行いましたボタンをタップしてください"
+        "list_item_2_cam": "<strong>カメラ</strong>の隣にあるトグルを有効にしてください",
+        "list_item_2_mic": "<strong>マイク</strong>の隣にあるトグルを有効にしてください",
+        "list_item_3": "このページに戻って、<strong>変更を行いました</strong>ボタンをタップしてください"
       }
     },
     "button_primary": "更新",
     "desktop_chrome": {
       "browser_settings": {
         "list_item_1": "ブラウザで、アドレスバーにあるロックアイコン [LOCK_ICON] をクリックしてください",
-        "list_item_2_cam": "カメラの隣にあるトグルを有効にしてください",
-        "list_item_2_mic": "マイクの隣にあるトグルを有効にしてください",
-        "list_item_3": "このページに戻って、変更を行いましたボタンをクリックしてください"
+        "list_item_2_cam": "<strong>カメラ</strong>の隣にあるトグルを有効にしてください",
+        "list_item_2_mic": "<strong>マイク</strong>の隣にあるトグルを有効にしてください",
+        "list_item_3": "このページに戻って、<strong>変更を行いました</strong>ボタンをクリックしてください"
       }
     },
     "desktop_edge": {
       "browser_settings": {
         "list_item_1": "ブラウザで、アドレスバーにあるロックアイコン [LOCK_ICON] をクリックしてください",
-        "list_item_2_cam": "カメラの隣のドロップダウンをクリックし、許可を選択します",
-        "list_item_2_mic": "マイクの隣のドロップダウンをクリックし、許可を選択します",
-        "list_item_3": "このページに戻って、変更を行いましたボタンをクリックしてください"
+        "list_item_2_cam": "<strong>カメラ</strong>の隣のドロップダウンをクリックし、<strong>許可</strong>を選択します",
+        "list_item_2_mic": "<strong>マイク</strong>の隣のドロップダウンをクリックし、<strong>許可</strong>を選択します",
+        "list_item_3": "このページに戻って、<strong>変更を行いました</strong>ボタンをクリックしてください"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
         "list_item_1": "ブラウザで、アドレスバーにある設定アイコン [SETTINGS_ICON_FIREFOX] をクリックします",
-        "list_item_2_cam": "ブロックをクリックし、カメラを使用の隣にある",
-        "list_item_2_mic": "ブロックをクリックし、マイクを使用するの隣にある",
-        "list_item_3": "このページに戻って、変更を行いましたボタンをクリックしてください"
+        "list_item_2_cam": "<strong>ブロック</strong>をクリックし、<strong>カメラを使用</strong>の隣にある",
+        "list_item_2_mic": "<strong>ブロック</strong>をクリックし、<strong>マイクを使用する</strong>の隣にある",
+        "list_item_3": "このページに戻って、<strong>変更を行いました</strong>ボタンをクリックしてください"
       }
     },
     "desktop_generic": {
       "browser_settings": {
         "list_item_1": "ブラウザでウェブサイトの設定を開きます。これは通常、アドレスバーにあるロックアイコン[LOCK_ICON]です",
         "list_item_2": "パーミッションに関するセクションを探してください",
-        "list_item_3_cam": "カメラの権限を有効にする",
-        "list_item_3_mic": "マイクの権限を有効にする",
-        "list_item_4": "このページに戻り、変更しましたボタンをクリックしてください"
+        "list_item_3_cam": "<strong>カメラ</strong>の権限を有効にする",
+        "list_item_3_mic": "<strong>マイク</strong>の権限を有効にする",
+        "list_item_4": "このページに戻り、<strong>変更しました</strong>ボタンをクリックしてください"
       },
       "device_settings": {
-        "list_item_1": "コンピュータで設定を開きます",
-        "list_item_2": "パーミッションに関するセクションを見つけてください（通常はプライバシーの下にあります）",
-        "list_item_3_cam": "[BROWSER_ICON]のカメラ権限を有効にしてください",
-        "list_item_3_mic": "[BROWSER_ICON]のマイクの権限を有効にしてください",
+        "list_item_1": "コンピュータで<strong>設定</strong>を開きます",
+        "list_item_2": "パーミッションに関するセクションを見つけてください（通常は<strong>プライバシー</strong>の下にあります）",
+        "list_item_3_cam": "[BROWSER_ICON]の<strong>カメラ</strong>権限を有効にしてください",
+        "list_item_3_mic": "[BROWSER_ICON]の<strong>マイク</strong>の権限を有効にしてください",
         "list_item_4": "必要であればブラウザを再起動し、このページに戻ってきてください"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "お使いのコンピュータで、Appleメニュー[APPLE_ICON]をクリックし、システム設定（またはシステム環境設定）を選択します",
-        "list_item_2": "サイドバーでプライバシー＆セキュリティ（またはセキュリティ＆プライバシー）をクリックします",
-        "list_item_3": "ポップアップで後でをクリックしてください",
-        "list_item_3_cam": "カメラをクリックし、[BROWSER_ICON]の隣にあるトグル（またはチェックボックス）を有効にしてください",
-        "list_item_4": "ポップアップで終了して再開をクリックし、このページに戻ってきてください",
-        "list_item_4_mic": "マイクロフォンをクリックし、[BROWSER_ICON]の隣にあるトグル（またはチェックボックス）を有効にします"
+        "list_item_1": "お使いのコンピュータで、Appleメニュー[APPLE_ICON]をクリックし、<strong>システム設定</strong>（または<strong>システム環境設定</strong>）を選択します",
+        "list_item_2": "サイドバーで<strong>プライバシー＆セキュリティ</strong>（または<strong>セキュリティ＆プライバシー</strong>）をクリックします",
+        "list_item_3": "ポップアップで<strong>後で</strong>をクリックしてください",
+        "list_item_3_cam": "<strong>カメラ</strong>をクリックし、[BROWSER_ICON]の隣にあるトグル（またはチェックボックス）を有効にしてください",
+        "list_item_4": "ポップアップで<strong>終了して再開</strong>をクリックし、このページに戻ってきてください",
+        "list_item_4_mic": "<strong>マイクロフォン</strong>をクリックし、[BROWSER_ICON]の隣にあるトグル（またはチェックボックス）を有効にします"
       }
     },
     "desktop_safari": {
       "browser_settings": {
-        "list_item_1": "ブラウザで、アドレスバーを右クリックし、設定を選択します",
-        "list_item_2_cam": "カメラの隣のドロップダウンをクリックし、許可を選択します",
-        "list_item_2_mic": "マイクの隣のドロップダウンをクリックし、許可を選択します",
-        "list_item_3": "このページに戻って、変更を行いましたボタンをクリックしてください"
+        "list_item_1": "ブラウザで、アドレスバーを右クリックし、<strong>設定</strong>を選択します",
+        "list_item_2_cam": "<strong>カメラ</strong>の隣のドロップダウンをクリックし、<strong>許可</strong>を選択します",
+        "list_item_2_mic": "<strong>マイク</strong>の隣のドロップダウンをクリックし、<strong>許可</strong>を選択します",
+        "list_item_3": "このページに戻って、<strong>変更を行いました</strong>ボタンをクリックしてください"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "お使いのコンピューターで、Windowsメニュー [WINDOWS_ICON] をクリックし、設定 [SETTINGS_ICON_WINDOWS] を選択します",
-        "list_item_2": "プライバシー（またはプライバシー & セキュリティ）をクリックしてください",
-        "list_item_3_cam": "アプリの権限の下のカメラをクリックし、[BROWSER_ICON]の隣にあるトグルを有効にします",
-        "list_item_3_mic": "アプリの権限の下のマイクをクリックし、[BROWSER_ICON]の隣のトグルを有効にします",
+        "list_item_1": "お使いのコンピューターで、Windowsメニュー [WINDOWS_ICON] をクリックし、<strong>設定</strong> [SETTINGS_ICON_WINDOWS] を選択します",
+        "list_item_2": "<strong>プライバシー</strong>（または<strong>プライバシー & セキュリティ</strong>）をクリックしてください",
+        "list_item_3_cam": "<strong>アプリの権限</strong>の下の<strong>カメラ</strong>をクリックし、[BROWSER_ICON]の隣にあるトグルを有効にします",
+        "list_item_3_mic": "<strong>アプリの権限</strong>の下の<strong>マイク</strong>をクリックし、[BROWSER_ICON]の隣のトグルを有効にします",
         "list_item_4": "必要であればブラウザを再起動し、このページに戻ってきてください"
       }
     },
     "info": "回復",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "変更を行いましたボタンをタップします。再度、カメラとマイクのアクセスを許可するように求められます。ポップアップが表示されたら、許可する（またはOK）を選択します。",
-        "list_item_1_cam": "変更を行いましたボタンをタップします。再度カメラへのアクセスを許可するように求められます。ポップアップが表示されたら、許可する（またはOK）を選択します。",
-        "list_item_1_mic": "変更を行いましたボタンをタップします。再度マイクへのアクセスを許可するように求められます。ポップアップが表示されたら、許可する（またはOK）を選択します。"
+        "list_item_1_both": "<strong>変更を行いました</strong>ボタンをタップします。再度、カメラとマイクのアクセスを許可するように求められます。ポップアップが表示されたら、<strong>許可する</strong>（または<strong>OK</strong>）を選択します。",
+        "list_item_1_cam": "<strong>変更を行いました</strong>ボタンをタップします。再度カメラへのアクセスを許可するように求められます。ポップアップが表示されたら、<strong>許可する</strong>（または<strong>OK</strong>）を選択します。",
+        "list_item_1_mic": "<strong>変更を行いました</strong>ボタンをタップします。再度マイクへのアクセスを許可するように求められます。ポップアップが表示されたら、<strong>許可する</strong>（または<strong>OK</strong>）を選択します。"
       },
       "device_settings": {
-        "list_item_1": "お使いのデバイスで、設定アプリを開きます",
+        "list_item_1": "お使いのデバイスで、<strong>設定</strong>アプリを開きます",
         "list_item_2": "リストをスクロールして、[BROWSER_ICON]をタップします",
-        "list_item_3_cam": "カメラの隣にあるトグルを有効にしてください",
-        "list_item_3_mic": "マイクの隣にあるトグルを有効にしてください",
-        "list_item_4": "このページに戻って、変更を行いましたボタンをタップしてください"
+        "list_item_3_cam": "<strong>カメラ</strong>の隣にあるトグルを有効にしてください",
+        "list_item_3_mic": "<strong>マイク</strong>の隣にあるトグルを有効にしてください",
+        "list_item_4": "このページに戻って、<strong>変更を行いました</strong>ボタンをタップしてください"
       }
     },
     "ios_safari": {
       "device_settings": {
-        "list_item_1": "お使いのデバイスで、設定アプリを開きます",
+        "list_item_1": "お使いのデバイスで、<strong>設定</strong>アプリを開きます",
         "list_item_2": "リストをスクロールして、[BROWSER_ICON]をタップします",
-        "list_item_3_cam": "カメラをタップし、許可を選択します",
-        "list_item_3_mic": "マイクをタップし、許可を選択します",
-        "list_item_4": "このページに戻って、変更を行いましたボタンをタップしてください"
+        "list_item_3_cam": "<strong>カメラ</strong>をタップし、<strong>許可</strong>を選択します",
+        "list_item_3_mic": "<strong>マイク</strong>をタップし、<strong>許可</strong>を選択します",
+        "list_item_4": "このページに戻って、<strong>変更を行いました</strong>ボタンをタップしてください"
       }
     },
     "list_header_both": "両方へのアクセスを回復する方法は次のとおりです。",
@@ -642,7 +642,7 @@
     "subtitle_bank_statement": "過去3か月以内に発行されたものである必要があります",
     "subtitle_benefits_letter": "​​過去3か月​​以内に発行されたものである必要があります",
     "subtitle_bill": "​​過去3か月​​以内に発行されたものである必要があります",
-    "subtitle_tax_letter": "​​過去3か月​​以内に発行されたものである必要があります"
+    "subtitle_tax_letter": "​過去3か月​​以内に発行されたものである必要があります"
   },
   "poa_intro": {
     "button_primary": "認証を開始",

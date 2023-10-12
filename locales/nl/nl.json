@@ -444,139 +444,139 @@
   "permission_recovery": {
     "android": {
       "device_settings": {
-        "list_item_1": "Open op uw apparaat de Instellingen app",
-        "list_item_2": "Tik op Apps",
-        "list_item_3": "Tik op [BROWSER_ICON]. Als je het niet kunt vinden, tik dan op Bekijk alle apps of Beheer apps en selecteer je browser-app",
-        "list_item_4": "Tik op Toestemmingen",
-        "list_item_5_cam": "Tik op Camera en selecteer Toestaan",
-        "list_item_5_mic": "Tik op Microfoon en selecteer Toestaan",
-        "list_item_6": "Kom terug naar deze pagina en tik op de knop Ik heb de wijzigingen aangebracht"
+        "list_item_1": "Open op uw apparaat de <strong>Instellingen</strong> app",
+        "list_item_2": "Tik op <strong>Apps</strong>",
+        "list_item_3": "Tik op [BROWSER_ICON]. Als je het niet kunt vinden, tik dan op <strong>Bekijk alle apps</strong> of <strong>Beheer apps</strong> en selecteer je browser-app",
+        "list_item_4": "Tik op <strong>Toestemmingen</strong>",
+        "list_item_5_cam": "Tik op <strong>Camera</strong> en selecteer <strong>Toestaan</strong>",
+        "list_item_5_mic": "Tik op <strong>Microfoon</strong> en selecteer <strong>Toestaan</strong>",
+        "list_item_6": "Kom terug naar deze pagina en tik op de knop <strong>Ik heb de wijzigingen aangebracht</strong>"
       }
     },
     "android_chrome": {
       "browser_settings": {
         "list_item_1": "In uw browser tikt u op het slotpictogram [LOCK_ICON] in de adresbalk",
-        "list_item_2": "Tik op Toestemmingen",
-        "list_item_3_cam": "Activeer de schakelaar naast Camera",
-        "list_item_3_mic": "Activeer de schakelaar naast Microfoon",
-        "list_item_4": "Kom terug naar deze pagina en tik op de knop Ik heb de wijzigingen aangebracht"
+        "list_item_2": "Tik op <strong>Toestemmingen</strong>",
+        "list_item_3_cam": "Activeer de schakelaar naast <strong>Camera</strong>",
+        "list_item_3_mic": "Activeer de schakelaar naast <strong>Microfoon</strong>",
+        "list_item_4": "Kom terug naar deze pagina en tik op de knop <strong>Ik heb de wijzigingen aangebracht</strong>"
       }
     },
     "android_firefox": {
       "browser_settings": {
         "list_item_1": "In uw browser tikt u op het slotpictogram [LOCK_ICON] in de adresbalk",
-        "list_item_2_cam": "Tik op Geblokkeerd naast Camera om te schakelen naar Toegestaan",
-        "list_item_2_mic": "Tik op Geblokkeerd naast Microfoon om te schakelen naar Toegestaan",
-        "list_item_3": "Kom terug naar deze pagina en tik op de knop Ik heb de wijzigingen aangebracht"
+        "list_item_2_cam": "Tik op <strong>Geblokkeerd</strong> naast <strong>Camera</strong> om te schakelen naar <strong>Toegestaan</strong>",
+        "list_item_2_mic": "Tik op <strong>Geblokkeerd</strong> naast <strong>Microfoon</strong> om te schakelen naar <strong>Toegestaan</strong>",
+        "list_item_3": "Kom terug naar deze pagina en tik op de knop <strong>Ik heb de wijzigingen aangebracht</strong>"
       }
     },
     "android_generic": {
       "browser_settings": {
         "list_item_1": "Open in uw browser de website-instellingen. Dit is vaak een slotpictogram [LOCK_ICON] in de adresbalk",
         "list_item_2": "Vind de sectie over toestemmingen",
-        "list_item_3_cam": "Schakel de Camera toestemmingen in",
-        "list_item_3_mic": "Schakel de Microfoon toestemmingen in",
-        "list_item_4": "Kom terug naar deze pagina en tik op de knop Ik heb de wijzigingen aangebracht"
+        "list_item_3_cam": "Schakel de <strong>Camera</strong> toestemmingen in",
+        "list_item_3_mic": "Schakel de <strong>Microfoon</strong> toestemmingen in",
+        "list_item_4": "Kom terug naar deze pagina en tik op de knop <strong>Ik heb de wijzigingen aangebracht</strong>"
       }
     },
     "android_samsung": {
       "browser_settings": {
         "list_item_1": "In uw browser tikt u op het slotpictogram [LOCK_ICON] in de adresbalk",
-        "list_item_2_cam": "Activeer de schakelaar naast Camera",
-        "list_item_2_mic": "Activeer de schakelaar naast Microfoon",
-        "list_item_3": "Kom terug naar deze pagina en tik op de knop Ik heb de wijzigingen aangebracht"
+        "list_item_2_cam": "Activeer de schakelaar naast <strong>Camera</strong>",
+        "list_item_2_mic": "Activeer de schakelaar naast <strong>Microfoon</strong>",
+        "list_item_3": "Kom terug naar deze pagina en tik op de knop <strong>Ik heb de wijzigingen aangebracht</strong>"
       }
     },
     "button_primary": "Verversen",
     "desktop_chrome": {
       "browser_settings": {
         "list_item_1": "Klik in uw browser op het slotpictogram [LOCK_ICON] in de adresbalk",
-        "list_item_2_cam": "Activeer de schakelaar naast Camera",
-        "list_item_2_mic": "Activeer de schakelaar naast Microfoon",
-        "list_item_3": "Kom terug naar deze pagina en klik op de knop Ik heb de wijzigingen aangebracht"
+        "list_item_2_cam": "Activeer de schakelaar naast <strong>Camera</strong>",
+        "list_item_2_mic": "Activeer de schakelaar naast <strong>Microfoon</strong>",
+        "list_item_3": "Kom terug naar deze pagina en klik op de knop <strong>Ik heb de wijzigingen aangebracht</strong>"
       }
     },
     "desktop_edge": {
       "browser_settings": {
         "list_item_1": "Klik in uw browser op het slotpictogram [LOCK_ICON] in de adresbalk",
-        "list_item_2_cam": "Klik op het dropdown-menu naast Camera en selecteer Toestaan",
-        "list_item_2_mic": "Klik op het dropdown-menu naast Microfoon en selecteer Toestaan",
-        "list_item_3": "Kom terug naar deze pagina en klik op de knop Ik heb de wijzigingen aangebracht"
+        "list_item_2_cam": "Klik op het dropdown-menu naast <strong>Camera</strong> en selecteer <strong>Toestaan</strong>",
+        "list_item_2_mic": "Klik op het dropdown-menu naast <strong>Microfoon</strong> en selecteer <strong>Toestaan</strong>",
+        "list_item_3": "Kom terug naar deze pagina en klik op de knop <strong>Ik heb de wijzigingen aangebracht</strong>"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
         "list_item_1": "Klik in uw browser op het instellingenpictogram [SETTINGS_ICON_FIREFOX] in de adresbalk",
-        "list_item_2_cam": "Klik op Geblokkeerd naast Gebruik de camera",
-        "list_item_2_mic": "Klik op Geblokkeerd naast Gebruik de microfoon",
-        "list_item_3": "Kom terug naar deze pagina en klik op de knop Ik heb de wijzigingen aangebracht"
+        "list_item_2_cam": "Klik op <strong>Geblokkeerd</strong> naast <strong>Gebruik de camera</strong>",
+        "list_item_2_mic": "Klik op <strong>Geblokkeerd</strong> naast <strong>Gebruik de microfoon</strong>",
+        "list_item_3": "Kom terug naar deze pagina en klik op de knop <strong>Ik heb de wijzigingen aangebracht</strong>"
       }
     },
     "desktop_generic": {
       "browser_settings": {
         "list_item_1": "Open in uw browser de website-instellingen. Dit is vaak een slotpictogram [LOCK_ICON] in de adresbalk",
         "list_item_2": "Vind de sectie over toestemmingen",
-        "list_item_3_cam": "Schakel de Camera toestemmingen in",
-        "list_item_3_mic": "Schakel de Microfoon toestemmingen in",
-        "list_item_4": "Kom terug naar deze pagina en klik op de knop Ik heb de wijzigingen aangebracht"
+        "list_item_3_cam": "Schakel de <strong>Camera</strong> toestemmingen in",
+        "list_item_3_mic": "Schakel de <strong>Microfoon</strong> toestemmingen in",
+        "list_item_4": "Kom terug naar deze pagina en klik op de knop <strong>Ik heb de wijzigingen aangebracht</strong>"
       },
       "device_settings": {
-        "list_item_1": "Open op uw computer uw Instellingen",
-        "list_item_2": "Zoek het gedeelte over machtigingen (meestal onder Privacy)",
-        "list_item_3_cam": "Schakel de Camera toestemmingen in voor [BROWSER_ICON]",
-        "list_item_3_mic": "Schakel de Microfoon toestemmingen in voor [BROWSER_ICON]",
+        "list_item_1": "Open op uw computer uw <strong>Instellingen</strong>",
+        "list_item_2": "Zoek het gedeelte over machtigingen (meestal onder <strong>Privacy</strong>)",
+        "list_item_3_cam": "Schakel de <strong>Camera</strong> toestemmingen in voor [BROWSER_ICON]",
+        "list_item_3_mic": "Schakel de <strong>Microfoon</strong> toestemmingen in voor [BROWSER_ICON]",
         "list_item_4": "Herstart indien nodig uw browser en keer terug naar deze pagina"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "Op uw computer, klik op het Apple-menu [APPLE_ICON] en selecteer Systeeminstellingen (of Systeemvoorkeuren)",
-        "list_item_2": "Klik op Privacy & Beveiliging (of Beveiliging & Privacy) in de zijbalk",
-        "list_item_3": "Klik op Later in de pop-up",
-        "list_item_3_cam": "Klik op  Camera  en activeer de schakelaar (of het selectievakje) naast [BROWSER_ICON]",
-        "list_item_4": "Klik op Stoppen & Opnieuw openen in de pop-up en keer terug naar deze pagina",
-        "list_item_4_mic": "Klik op Microfoon en activeer de schakelaar (of het selectievakje) naast [BROWSER_ICON]"
+        "list_item_1": "Op uw computer, klik op het Apple-menu [APPLE_ICON] en selecteer <strong>Systeeminstellingen</strong> (of <strong>Systeemvoorkeuren</strong>)",
+        "list_item_2": "Klik op <strong>Privacy & Beveiliging</strong> (of <strong>Beveiliging & Privacy</strong>) in de zijbalk",
+        "list_item_3": "Klik op <strong>Later</strong> in de pop-up",
+        "list_item_3_cam": "Klik op <strong> Camera </strong> en activeer de schakelaar (of het selectievakje) naast [BROWSER_ICON]",
+        "list_item_4": "Klik op <strong>Stoppen & Opnieuw openen</strong> in de pop-up en keer terug naar deze pagina",
+        "list_item_4_mic": "Klik op <strong>Microfoon</strong> en activeer de schakelaar (of het selectievakje) naast [BROWSER_ICON]"
       }
     },
     "desktop_safari": {
       "browser_settings": {
-        "list_item_1": "Klik met de rechtermuisknop in de adresbalk van uw browser en selecteer Instellingen",
-        "list_item_2_cam": "Klik op het dropdown-menu naast Camera en selecteer Toestaan",
-        "list_item_2_mic": "Klik op het dropdown-menu naast Microfoon en selecteer Toestaan",
-        "list_item_3": "Kom terug naar deze pagina en klik op de knop Ik heb de wijzigingen aangebracht"
+        "list_item_1": "Klik met de rechtermuisknop in de adresbalk van uw browser en selecteer <strong>Instellingen</strong>",
+        "list_item_2_cam": "Klik op het dropdown-menu naast <strong>Camera</strong> en selecteer <strong>Toestaan</strong>",
+        "list_item_2_mic": "Klik op het dropdown-menu naast <strong>Microfoon</strong> en selecteer <strong>Toestaan</strong>",
+        "list_item_3": "Kom terug naar deze pagina en klik op de knop <strong>Ik heb de wijzigingen aangebracht</strong>"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "Op uw computer, klik op het Windows-menu [WINDOWS_ICON] en selecteer Instellingen [SETTINGS_ICON_WINDOWS]",
-        "list_item_2": "Klik op Privacy (of Privacy & Beveiliging)",
-        "list_item_3_cam": "Klik op Camera onder App-machtigingen en activeer de schakelaar naast [BROWSER_ICON] ",
-        "list_item_3_mic": "Klik op Microfoon onder App-machtigingen en activeer de schakelaar naast [BROWSER_ICON]",
+        "list_item_1": "Op uw computer, klik op het Windows-menu [WINDOWS_ICON] en selecteer <strong>Instellingen</strong> [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "Klik op <strong>Privacy</strong> (of <strong>Privacy & Beveiliging</strong>)",
+        "list_item_3_cam": "Klik op <strong>Camera</strong> onder <strong>App-machtigingen</strong> en activeer de schakelaar naast [BROWSER_ICON] ",
+        "list_item_3_mic": "Klik op <strong>Microfoon</strong> onder <strong>App-machtigingen</strong> en activeer de schakelaar naast [BROWSER_ICON]",
         "list_item_4": "Herstart indien nodig uw browser en keer terug naar deze pagina"
       }
     },
     "info": "Herstellen",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "Tik op de knop Ik heb de wijzigingen aangebracht. Er wordt opnieuw gevraagd om toegang tot de camera en microfoon in te schakelen. Wanneer de pop-up verschijnt, selecteer Toestaan (of OK)",
-        "list_item_1_cam": "Tik op de knop Ik heb de wijzigingen aangebracht. Er wordt opnieuw gevraagd om toegang tot de camera in te schakelen. Wanneer de pop-up verschijnt, selecteer Toestaan (of OK)",
-        "list_item_1_mic": "Tik op de knop Ik heb de wijzigingen aangebracht. Er wordt opnieuw gevraagd om toegang tot de microfoon in te schakelen. Wanneer de pop-up verschijnt, selecteer Toestaan (of OK)"
+        "list_item_1_both": "Tik op de knop <strong>Ik heb de wijzigingen aangebracht</strong>. Er wordt opnieuw gevraagd om toegang tot de camera en microfoon in te schakelen. Wanneer de pop-up verschijnt, selecteer <strong>Toestaan</strong> (of <strong>OK</strong>)",
+        "list_item_1_cam": "Tik op de knop <strong>Ik heb de wijzigingen aangebracht</strong>. Er wordt opnieuw gevraagd om toegang tot de camera in te schakelen. Wanneer de pop-up verschijnt, selecteer <strong>Toestaan</strong> (of <strong>OK</strong>)",
+        "list_item_1_mic": "Tik op de knop <strong>Ik heb de wijzigingen aangebracht</strong>. Er wordt opnieuw gevraagd om toegang tot de microfoon in te schakelen. Wanneer de pop-up verschijnt, selecteer <strong>Toestaan</strong> (of <strong>OK</strong>)"
       },
       "device_settings": {
-        "list_item_1": "Open op uw apparaat de Instellingen app",
+        "list_item_1": "Open op uw apparaat de <strong>Instellingen</strong> app",
         "list_item_2": "Scroll door de lijst en tik op [BROWSER_ICON]",
-        "list_item_3_cam": "Activeer de schakelaar naast Camera",
-        "list_item_3_mic": "Activeer de schakelaar naast Microfoon",
-        "list_item_4": "Kom terug naar deze pagina en tik op de knop Ik heb de wijzigingen aangebracht"
+        "list_item_3_cam": "Activeer de schakelaar naast <strong>Camera</strong>",
+        "list_item_3_mic": "Activeer de schakelaar naast <strong>Microfoon</strong>",
+        "list_item_4": "Kom terug naar deze pagina en tik op de knop <strong>Ik heb de wijzigingen aangebracht</strong>"
       }
     },
     "ios_safari": {
       "device_settings": {
-        "list_item_1": "Open op uw apparaat de Instellingen app",
+        "list_item_1": "Open op uw apparaat de <strong>Instellingen</strong> app",
         "list_item_2": "Scroll door de lijst en tik op [BROWSER_ICON]",
-        "list_item_3_cam": "Tik op Camera en selecteer Toestaan",
-        "list_item_3_mic": "Tik op Microfoon en selecteer Toestaan",
-        "list_item_4": "Kom terug naar deze pagina en tik op de knop Ik heb de wijzigingen aangebracht"
+        "list_item_3_cam": "Tik op <strong>Camera</strong> en selecteer <strong>Toestaan</strong>",
+        "list_item_3_mic": "Tik op <strong>Microfoon</strong> en selecteer <strong>Toestaan</strong>",
+        "list_item_4": "Kom terug naar deze pagina en tik op de knop <strong>Ik heb de wijzigingen aangebracht</strong>"
       }
     },
     "list_header_both": "Volg deze stappen om de toegang voor beide te herstellen:",

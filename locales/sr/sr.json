@@ -444,139 +444,139 @@
   "permission_recovery": {
     "android": {
       "device_settings": {
-        "list_item_1": "Na vašem uređaju, otvorite aplikaciju Postavke",
-        "list_item_2": "Tapnite na Aplikacije",
-        "list_item_3": "Tapnite na [BROWSER_ICON]. Ako ga ne možete pronaći, tapnite na Prikaži sve aplikacije ili Upravljaj aplikacijama i izaberite vašu aplikaciju za pretraživanje",
-        "list_item_4": "Kliknite na Dozvole",
-        "list_item_5_cam": "Tapnite na Kamera i izaberite Dozvoli",
-        "list_item_5_mic": "Tapnite na Mikrofon i izaberite Dozvoli",
-        "list_item_6": "Vratite se na ovu stranicu i pritisnite dugme Napravio sam promene"
+        "list_item_1": "Na vašem uređaju, otvorite aplikaciju <strong>Postavke</strong>",
+        "list_item_2": "Tapnite na <strong>Aplikacije</strong>",
+        "list_item_3": "Tapnite na [BROWSER_ICON]. Ako ga ne možete pronaći, tapnite na <strong>Prikaži sve aplikacije</strong> ili <strong>Upravljaj aplikacijama</strong> i izaberite vašu aplikaciju za pretraživanje",
+        "list_item_4": "Kliknite na <strong>Dozvole</strong>",
+        "list_item_5_cam": "Tapnite na <strong>Kamera</strong> i izaberite <strong>Dozvoli</strong>",
+        "list_item_5_mic": "Tapnite na <strong>Mikrofon</strong> i izaberite <strong>Dozvoli</strong>",
+        "list_item_6": "Vratite se na ovu stranicu i pritisnite dugme <strong>Napravio sam promene</strong>"
       }
     },
     "android_chrome": {
       "browser_settings": {
         "list_item_1": "U vašem pretraživaču, dodirnite ikonicu za zaključavanje [LOCK_ICON] u adresnoj traci",
-        "list_item_2": "Kliknite na Dozvole",
-        "list_item_3_cam": "Aktivirajte prekidač pored Kamere",
-        "list_item_3_mic": "Aktivirajte prekidač pored Mikrofona",
-        "list_item_4": "Vratite se na ovu stranicu i pritisnite dugme Napravio sam promene"
+        "list_item_2": "Kliknite na <strong>Dozvole</strong>",
+        "list_item_3_cam": "Aktivirajte prekidač pored <strong>Kamere</strong>",
+        "list_item_3_mic": "Aktivirajte prekidač pored <strong>Mikrofona</strong>",
+        "list_item_4": "Vratite se na ovu stranicu i pritisnite dugme <strong>Napravio sam promene</strong>"
       }
     },
     "android_firefox": {
       "browser_settings": {
         "list_item_1": "U vašem pretraživaču, dodirnite ikonicu za zaključavanje [LOCK_ICON] u adresnoj traci",
-        "list_item_2_cam": "Tapnite na Blokirano pored Kamere da pređete na Dozvoljeno",
-        "list_item_2_mic": "Tapnite na Blokirano pored Mikrofona da pređete na Dozvoljeno",
-        "list_item_3": "Vratite se na ovu stranicu i pritisnite dugme Napravio sam promene"
+        "list_item_2_cam": "Tapnite na <strong>Blokirano</strong> pored <strong>Kamere</strong> da pređete na <strong>Dozvoljeno</strong>",
+        "list_item_2_mic": "Tapnite na <strong>Blokirano</strong> pored <strong>Mikrofona</strong> da pređete na <strong>Dozvoljeno</strong>",
+        "list_item_3": "Vratite se na ovu stranicu i pritisnite dugme <strong>Napravio sam promene</strong>"
       }
     },
     "android_generic": {
       "browser_settings": {
         "list_item_1": "U vašem pretraživaču, otvorite postavke sajta. To je često ikonica brave [LOCK_ICON] u adresnoj traci",
         "list_item_2": "Pronađite deo o dozvolama",
-        "list_item_3_cam": "Omogućite dozvole za Kameru",
-        "list_item_3_mic": "Omogućite dozvole za Mikrofon",
-        "list_item_4": "Vratite se na ovu stranicu i pritisnite dugme Napravio sam promene"
+        "list_item_3_cam": "Omogućite dozvole za <strong>Kameru</strong>",
+        "list_item_3_mic": "Omogućite dozvole za <strong>Mikrofon</strong>",
+        "list_item_4": "Vratite se na ovu stranicu i pritisnite dugme <strong>Napravio sam promene</strong>"
       }
     },
     "android_samsung": {
       "browser_settings": {
         "list_item_1": "U vašem pretraživaču, dodirnite ikonicu za zaključavanje [LOCK_ICON] u adresnoj traci",
-        "list_item_2_cam": "Aktivirajte prekidač pored Kamere",
-        "list_item_2_mic": "Aktivirajte prekidač pored Mikrofona",
-        "list_item_3": "Vratite se na ovu stranicu i pritisnite dugme Napravio sam promene"
+        "list_item_2_cam": "Aktivirajte prekidač pored <strong>Kamere</strong>",
+        "list_item_2_mic": "Aktivirajte prekidač pored <strong>Mikrofona</strong>",
+        "list_item_3": "Vratite se na ovu stranicu i pritisnite dugme <strong>Napravio sam promene</strong>"
       }
     },
     "button_primary": "Osveži",
     "desktop_chrome": {
       "browser_settings": {
         "list_item_1": "U vašem pretraživaču, kliknite na ikonicu za zaključavanje [LOCK_ICON] u adresnoj traci",
-        "list_item_2_cam": "Aktivirajte prekidač pored Kamere",
-        "list_item_2_mic": "Aktivirajte prekidač pored Mikrofona",
-        "list_item_3": "Vratite se na ovu stranicu i kliknite na dugme Napravio sam izmene"
+        "list_item_2_cam": "Aktivirajte prekidač pored <strong>Kamere</strong>",
+        "list_item_2_mic": "Aktivirajte prekidač pored <strong>Mikrofona</strong>",
+        "list_item_3": "Vratite se na ovu stranicu i kliknite na dugme <strong>Napravio sam izmene</strong>"
       }
     },
     "desktop_edge": {
       "browser_settings": {
         "list_item_1": "U vašem pretraživaču, kliknite na ikonicu za zaključavanje [LOCK_ICON] u adresnoj traci",
-        "list_item_2_cam": "Kliknite na padajući meni pored Kamere i izaberite Dozvoli",
-        "list_item_2_mic": "Kliknite na padajući meni pored Mikrofona i izaberite Dozvoli",
-        "list_item_3": "Vratite se na ovu stranicu i kliknite na dugme Napravio sam izmene"
+        "list_item_2_cam": "Kliknite na padajući meni pored <strong>Kamere</strong> i izaberite <strong>Dozvoli</strong>",
+        "list_item_2_mic": "Kliknite na padajući meni pored <strong>Mikrofona</strong> i izaberite <strong>Dozvoli</strong>",
+        "list_item_3": "Vratite se na ovu stranicu i kliknite na dugme <strong>Napravio sam izmene</strong>"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
         "list_item_1": "U vašem pretraživaču, kliknite na ikonicu postavki [SETTINGS_ICON_FIREFOX] u adresnoj traci",
-        "list_item_2_cam": "Kliknite na Blokirano pored Koristi kameru",
-        "list_item_2_mic": "Kliknite na Blokirano pored Koristi mikrofon",
-        "list_item_3": "Vratite se na ovu stranicu i kliknite na dugme Napravio sam izmene"
+        "list_item_2_cam": "Kliknite na <strong>Blokirano</strong> pored <strong>Koristi kameru</strong>",
+        "list_item_2_mic": "Kliknite na <strong>Blokirano</strong> pored <strong>Koristi mikrofon</strong>",
+        "list_item_3": "Vratite se na ovu stranicu i kliknite na dugme <strong>Napravio sam izmene</strong>"
       }
     },
     "desktop_generic": {
       "browser_settings": {
         "list_item_1": "U vašem pretraživaču, otvorite postavke sajta. To je često ikonica brave [LOCK_ICON] u adresnoj traci",
         "list_item_2": "Pronađite deo o dozvolama",
-        "list_item_3_cam": "Omogućite dozvole za Kameru",
-        "list_item_3_mic": "Omogućite dozvole za Mikrofon",
-        "list_item_4": "Vratite se na ovu stranicu i kliknite na dugme Napravio sam promene"
+        "list_item_3_cam": "Omogućite dozvole za <strong>Kameru</strong>",
+        "list_item_3_mic": "Omogućite dozvole za <strong>Mikrofon</strong>",
+        "list_item_4": "Vratite se na ovu stranicu i kliknite na dugme <strong>Napravio sam promene</strong>"
       },
       "device_settings": {
-        "list_item_1": "Na vašem računaru, otvorite svoje Postavke",
-        "list_item_2": "Pronađite deo o dozvolama (obično pod Privatnost)",
-        "list_item_3_cam": "Omogućite dozvole za Kameru za [BROWSER_ICON]",
-        "list_item_3_mic": "Omogućite dozvole za Mikrofon za [BROWSER_ICON]",
+        "list_item_1": "Na vašem računaru, otvorite svoje <strong>Postavke</strong>",
+        "list_item_2": "Pronađite deo o dozvolama (obično pod <strong>Privatnost</strong>)",
+        "list_item_3_cam": "Omogućite dozvole za <strong>Kameru</strong> za [BROWSER_ICON]",
+        "list_item_3_mic": "Omogućite dozvole za <strong>Mikrofon</strong> za [BROWSER_ICON]",
         "list_item_4": "Ponovo pokrenite vaš pretraživač ako je potrebno i vratite se na ovu stranicu"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "Na vašem računaru, kliknite na Apple meni [APPLE_ICON] i izaberite Sistemske postavke (ili Sistemske preferencije)",
-        "list_item_2": "Kliknite na Privatnost & Sigurnost (ili Sigurnost & Privatnost) u bočnoj traci ",
-        "list_item_3": "Kliknite na Kasnije u iskačućem prozoru",
-        "list_item_3_cam": "Kliknite na Kamera i aktivirajte prekidač (ili polje za potvrdu) pored [BROWSER_ICON]",
-        "list_item_4": "Kliknite na Zatvori & Ponovo otvori u iskačućem prozoru i vratite se na ovu stranicu",
-        "list_item_4_mic": "Kliknite na Mikrofon i aktivirajte prekidač (ili polje za potvrdu) pored [BROWSER_ICON]"
+        "list_item_1": "Na vašem računaru, kliknite na Apple meni [APPLE_ICON] i izaberite <strong>Sistemske postavke</strong> (ili <strong>Sistemske preferencije</strong>)",
+        "list_item_2": "Kliknite na <strong>Privatnost & Sigurnost</strong> (ili <strong>Sigurnost & Privatnost</strong>) u bočnoj traci ",
+        "list_item_3": "Kliknite na <strong>Kasnije</strong> u iskačućem prozoru",
+        "list_item_3_cam": "Kliknite na <strong>Kamera</strong> i aktivirajte prekidač (ili polje za potvrdu) pored [BROWSER_ICON]",
+        "list_item_4": "Kliknite na <strong>Zatvori & Ponovo otvori</strong> u iskačućem prozoru i vratite se na ovu stranicu",
+        "list_item_4_mic": "Kliknite na <strong>Mikrofon</strong> i aktivirajte prekidač (ili polje za potvrdu) pored [BROWSER_ICON]"
       }
     },
     "desktop_safari": {
       "browser_settings": {
-        "list_item_1": "U vašem pretraživaču, desnim klikom na adresnu traku i izaberite Podešavanja",
-        "list_item_2_cam": "Kliknite na padajući meni pored Kamere i izaberite Dozvoli",
-        "list_item_2_mic": "Kliknite na padajući meni pored Mikrofona i izaberite Dozvoli",
-        "list_item_3": "Vratite se na ovu stranicu i kliknite na dugme Napravio sam izmene"
+        "list_item_1": "U vašem pretraživaču, desnim klikom na adresnu traku i izaberite <strong>Podešavanja</strong>",
+        "list_item_2_cam": "Kliknite na padajući meni pored <strong>Kamere</strong> i izaberite <strong>Dozvoli</strong>",
+        "list_item_2_mic": "Kliknite na padajući meni pored <strong>Mikrofona</strong> i izaberite <strong>Dozvoli</strong>",
+        "list_item_3": "Vratite se na ovu stranicu i kliknite na dugme <strong>Napravio sam izmene</strong>"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "Na vašem računaru, kliknite na Windows meni [WINDOWS_ICON] i izaberite Podešavanja [SETTINGS_ICON_WINDOWS]",
-        "list_item_2": "Kliknite na Privatnost (ili Privatnost & Sigurnost)",
-        "list_item_3_cam": "Kliknite na Kamera pod Dozvole za aplikacije i aktivirajte prekidač pored [BROWSER_ICON] ",
-        "list_item_3_mic": "Kliknite na Mikrofon ispod Dozvole za aplikacije i aktivirajte prekidač pored [BROWSER_ICON]",
+        "list_item_1": "Na vašem računaru, kliknite na Windows meni [WINDOWS_ICON] i izaberite <strong>Podešavanja</strong> [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "Kliknite na <strong>Privatnost</strong> (ili <strong>Privatnost & Sigurnost</strong>)",
+        "list_item_3_cam": "Kliknite na <strong>Kamera</strong> pod <strong>Dozvole za aplikacije</strong> i aktivirajte prekidač pored [BROWSER_ICON] ",
+        "list_item_3_mic": "Kliknite na <strong>Mikrofon</strong> ispod <strong>Dozvole za aplikacije</strong> i aktivirajte prekidač pored [BROWSER_ICON]",
         "list_item_4": "Ponovo pokrenite vaš pretraživač ako je potrebno i vratite se na ovu stranicu"
       }
     },
     "info": "Oporavak",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "Tapnite na dugme Napravio sam promene. Biće vam ponovo zatražen pristup kameri i mikrofonu. Kada se pojavi iskačući prozor, izaberite Dozvoli (ili U redu)",
-        "list_item_1_cam": "Tapnite na dugme Napravio sam promene. Biće vam ponovo zatražen pristup kameri. Kada se pojavi iskačući prozor, izaberite Dozvoli (ili U redu)",
-        "list_item_1_mic": "Tapnite na dugme Napravio sam promene. Biće vam ponovo zatražen pristup mikrofonu. Kada se pojavi iskačući prozor, izaberite Dozvoli (ili U redu)"
+        "list_item_1_both": "Tapnite na dugme <strong>Napravio sam promene</strong>. Biće vam ponovo zatražen pristup kameri i mikrofonu. Kada se pojavi iskačući prozor, izaberite <strong>Dozvoli</strong> (ili <strong>U redu</strong>)",
+        "list_item_1_cam": "Tapnite na dugme <strong>Napravio sam promene</strong>. Biće vam ponovo zatražen pristup kameri. Kada se pojavi iskačući prozor, izaberite <strong>Dozvoli</strong> (ili <strong>U redu</strong>)",
+        "list_item_1_mic": "Tapnite na dugme <strong>Napravio sam promene</strong>. Biće vam ponovo zatražen pristup mikrofonu. Kada se pojavi iskačući prozor, izaberite <strong>Dozvoli</strong> (ili <strong>U redu</strong>)"
       },
       "device_settings": {
-        "list_item_1": "Na vašem uređaju, otvorite aplikaciju Postavke",
+        "list_item_1": "Na vašem uređaju, otvorite aplikaciju <strong>Postavke</strong>",
         "list_item_2": "Pomerajte se kroz listu i dodirnite [BROWSER_ICON]",
-        "list_item_3_cam": "Aktivirajte prekidač pored Kamere",
-        "list_item_3_mic": "Aktivirajte prekidač pored Mikrofona",
-        "list_item_4": "Vratite se na ovu stranicu i pritisnite dugme Napravio sam promene"
+        "list_item_3_cam": "Aktivirajte prekidač pored <strong>Kamere</strong>",
+        "list_item_3_mic": "Aktivirajte prekidač pored <strong>Mikrofona</strong>",
+        "list_item_4": "Vratite se na ovu stranicu i pritisnite dugme <strong>Napravio sam promene</strong>"
       }
     },
     "ios_safari": {
       "device_settings": {
-        "list_item_1": "Na vašem uređaju, otvorite aplikaciju Postavke",
+        "list_item_1": "Na vašem uređaju, otvorite aplikaciju <strong>Postavke</strong>",
         "list_item_2": "Pomerajte se kroz listu i dodirnite [BROWSER_ICON]",
-        "list_item_3_cam": "Tapnite na Kamera i izaberite Dozvoli",
-        "list_item_3_mic": "Tapnite na Mikrofon i izaberite Dozvoli",
-        "list_item_4": "Vratite se na ovu stranicu i pritisnite dugme Napravio sam promene"
+        "list_item_3_cam": "Tapnite na <strong>Kamera</strong> i izaberite <strong>Dozvoli</strong>",
+        "list_item_3_mic": "Tapnite na <strong>Mikrofon</strong> i izaberite <strong>Dozvoli</strong>",
+        "list_item_4": "Vratite se na ovu stranicu i pritisnite dugme <strong>Napravio sam promene</strong>"
       }
     },
     "list_header_both": "Pratite ove korake da biste ponovo odobrili pristup:",

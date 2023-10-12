@@ -10,6 +10,20 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 
+## [13.5.1] - 2023-10-12
+
+### Changed
+
+- Fix: Duplicated back button on Motion loading screen
+
+## [13.5.0] - 2023-10-06
+
+### Changed
+
+- New permission screen instructions were added to guide users on various devices/browsers to recover from denied access to the camera.
+- Fix: A click on the search icon in the Country Selector will focus the input field
+- Fix: JS Document capture is now fixed for Firefox on Android
+
 ## [13.4.0] - 2023-09-27
 
 ### Changed
@@ -1617,7 +1631,9 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/13.4.0...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/13.5.1...development
+[13.5.1]: https://github.com/onfido/onfido-sdk-ui/compare/13.5.0...13.5.1
+[13.5.0]: https://github.com/onfido/onfido-sdk-ui/compare/13.4.0...13.5.0
 [13.4.0]: https://github.com/onfido/onfido-sdk-ui/compare/13.3.2...13.4.0
 [13.3.2]: https://github.com/onfido/onfido-sdk-ui/compare/13.3.1...13.3.2
 [13.3.1]: https://github.com/onfido/onfido-sdk-ui/compare/13.3.0...13.3.1

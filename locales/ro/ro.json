@@ -444,139 +444,139 @@
   "permission_recovery": {
     "android": {
       "device_settings": {
-        "list_item_1": "Pe dispozitivul dvs., deschideți aplicația Setări",
-        "list_item_2": "Apăsați Aplicații",
-        "list_item_3": "Atingeți [BROWSER_ICON]. Dacă nu îl găsiți, atingeți Vedeți toate aplicațiile sau Gestionați aplicațiile și selectați aplicația dvs. de navigare pe internet",
-        "list_item_4": "Apăsați Permisiuni",
-        "list_item_5_cam": "Apăsați Camera și selectați Permiteți",
-        "list_item_5_mic": "Atingeți Microfonul și selectați Permiteți",
-        "list_item_6": "Reveniți la această pagină și apăsați butonul Am făcut modificările"
+        "list_item_1": "Pe dispozitivul dvs., deschideți aplicația <strong>Setări</strong>",
+        "list_item_2": "Apăsați <strong>Aplicații</strong>",
+        "list_item_3": "Atingeți [BROWSER_ICON]. Dacă nu îl găsiți, atingeți <strong>Vedeți toate aplicațiile</strong> sau <strong>Gestionați aplicațiile</strong> și selectați aplicația dvs. de navigare pe internet",
+        "list_item_4": "Apăsați <strong>Permisiuni</strong>",
+        "list_item_5_cam": "Apăsați <strong>Camera</strong> și selectați <strong>Permiteți</strong>",
+        "list_item_5_mic": "Atingeți <strong>Microfonul</strong> și selectați <strong>Permiteți</strong>",
+        "list_item_6": "Reveniți la această pagină și apăsați butonul <strong>Am făcut modificările</strong>"
       }
     },
     "android_chrome": {
       "browser_settings": {
         "list_item_1": "În browserul tău, apasă pe pictograma de blocare [LOCK_ICON] din bara de adrese",
-        "list_item_2": "Apăsați Permisiuni",
-        "list_item_3_cam": "Activați comutatorul de lângă Camera",
-        "list_item_3_mic": "Activați comutatorul de lângă Microfon",
-        "list_item_4": "Reveniți la această pagină și apăsați butonul Am făcut modificările"
+        "list_item_2": "Apăsați <strong>Permisiuni</strong>",
+        "list_item_3_cam": "Activați comutatorul de lângă <strong>Camera</strong>",
+        "list_item_3_mic": "Activați comutatorul de lângă <strong>Microfon</strong>",
+        "list_item_4": "Reveniți la această pagină și apăsați butonul <strong>Am făcut modificările</strong>"
       }
     },
     "android_firefox": {
       "browser_settings": {
         "list_item_1": "În browserul tău, apasă pe pictograma de blocare [LOCK_ICON] din bara de adrese",
-        "list_item_2_cam": "Apăsați Blocat lângă Cameră pentru a comuta la Permis",
-        "list_item_2_mic": "Apăsați Blocat lângă Microfon pentru a comuta la Permis",
-        "list_item_3": "Reveniți la această pagină și apăsați butonul Am făcut modificările"
+        "list_item_2_cam": "Apăsați <strong>Blocat</strong> lângă <strong>Cameră</strong> pentru a comuta la <strong>Permis</strong>",
+        "list_item_2_mic": "Apăsați <strong>Blocat</strong> lângă <strong>Microfon</strong> pentru a comuta la <strong>Permis</strong>",
+        "list_item_3": "Reveniți la această pagină și apăsați butonul <strong>Am făcut modificările</strong>"
       }
     },
     "android_generic": {
       "browser_settings": {
         "list_item_1": "În browserul dvs., deschideți setările site-ului web. Aceasta este adesea o pictogramă de blocare [LOCK_ICON] în bara de adrese",
         "list_item_2": "Găsiți secțiunea despre permisiuni",
-        "list_item_3_cam": "Activați permisiunile pentru Camera",
-        "list_item_3_mic": "Activați permisiunile pentru Microfon",
-        "list_item_4": "Reveniți la această pagină și apăsați butonul Am făcut modificările"
+        "list_item_3_cam": "Activați permisiunile pentru <strong>Camera</strong>",
+        "list_item_3_mic": "Activați permisiunile pentru <strong>Microfon</strong>",
+        "list_item_4": "Reveniți la această pagină și apăsați butonul <strong>Am făcut modificările</strong>"
       }
     },
     "android_samsung": {
       "browser_settings": {
         "list_item_1": "În browserul tău, apasă pe pictograma de blocare [LOCK_ICON] din bara de adrese",
-        "list_item_2_cam": "Activați comutatorul de lângă Camera",
-        "list_item_2_mic": "Activați comutatorul de lângă Microfon",
-        "list_item_3": "Reveniți la această pagină și apăsați butonul Am făcut modificările"
+        "list_item_2_cam": "Activați comutatorul de lângă <strong>Camera</strong>",
+        "list_item_2_mic": "Activați comutatorul de lângă <strong>Microfon</strong>",
+        "list_item_3": "Reveniți la această pagină și apăsați butonul <strong>Am făcut modificările</strong>"
       }
     },
     "button_primary": "Reîmprospătați",
     "desktop_chrome": {
       "browser_settings": {
         "list_item_1": "În browserul tău, fă clic pe pictograma de blocare [LOCK_ICON] din bara de adrese",
-        "list_item_2_cam": "Activați comutatorul de lângă Camera",
-        "list_item_2_mic": "Activați comutatorul de lângă Microfon",
-        "list_item_3": "Reveniți la această pagină și faceți clic pe butonul Am făcut modificările"
+        "list_item_2_cam": "Activați comutatorul de lângă <strong>Camera</strong>",
+        "list_item_2_mic": "Activați comutatorul de lângă <strong>Microfon</strong>",
+        "list_item_3": "Reveniți la această pagină și faceți clic pe butonul <strong>Am făcut modificările</strong>"
       }
     },
     "desktop_edge": {
       "browser_settings": {
         "list_item_1": "În browserul tău, fă clic pe pictograma de blocare [LOCK_ICON] din bara de adrese",
-        "list_item_2_cam": "Faceți clic pe meniul derulant de lângă Microfon și selectați Permiteți",
-        "list_item_2_mic": "Faceți clic pe meniul derulant de lângă Microfon și selectați Permiteți",
-        "list_item_3": "Reveniți la această pagină și faceți clic pe butonul Am făcut modificările"
+        "list_item_2_cam": "Faceți clic pe meniul derulant de lângă <strong>Microfon</strong> și selectați <strong>Permiteți</strong>",
+        "list_item_2_mic": "Faceți clic pe meniul derulant de lângă <strong>Microfon</strong> și selectați <strong>Permiteți</strong>",
+        "list_item_3": "Reveniți la această pagină și faceți clic pe butonul <strong>Am făcut modificările</strong>"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
         "list_item_1": "În browserul dvs., faceți clic pe pictograma setări [SETTINGS_ICON_FIREFOX] din bara de adrese",
-        "list_item_2_cam": "Faceți clic pe Blocat lângă Utilizați camera",
-        "list_item_2_mic": "Faceți clic pe Blocat lângă Utilizați microfonul",
-        "list_item_3": "Reveniți la această pagină și faceți clic pe butonul Am făcut modificările"
+        "list_item_2_cam": "Faceți clic pe <strong>Blocat</strong> lângă <strong>Utilizați camera</strong>",
+        "list_item_2_mic": "Faceți clic pe <strong>Blocat</strong> lângă <strong>Utilizați microfonul</strong>",
+        "list_item_3": "Reveniți la această pagină și faceți clic pe butonul <strong>Am făcut modificările</strong>"
       }
     },
     "desktop_generic": {
       "browser_settings": {
         "list_item_1": "În browserul dvs., deschideți setările site-ului web. Aceasta este adesea o pictogramă de blocare [LOCK_ICON] în bara de adrese",
         "list_item_2": "Găsiți secțiunea despre permisiuni",
-        "list_item_3_cam": "Activați permisiunile pentru Camera",
-        "list_item_3_mic": "Activați permisiunile pentru Microfon",
-        "list_item_4": "Reveniți la această pagină și apăsați butonul Am făcut modificările"
+        "list_item_3_cam": "Activați permisiunile pentru <strong>Camera</strong>",
+        "list_item_3_mic": "Activați permisiunile pentru <strong>Microfon</strong>",
+        "list_item_4": "Reveniți la această pagină și apăsați butonul <strong>Am făcut modificările</strong>"
       },
       "device_settings": {
-        "list_item_1": "Pe computerul dvs., deschideți Setările",
-        "list_item_2": "Găsiți secțiunea despre permisiuni (de obicei sub Confidențialitate)",
-        "list_item_3_cam": "Activați permisiunile pentru Camera pentru [BROWSER_ICON]",
-        "list_item_3_mic": "Activați permisiunile pentru Microfon pentru [BROWSER_ICON]",
+        "list_item_1": "Pe computerul dvs., deschideți <strong>Setările</strong>",
+        "list_item_2": "Găsiți secțiunea despre permisiuni (de obicei sub <strong>Confidențialitate</strong>)",
+        "list_item_3_cam": "Activați permisiunile pentru <strong>Camera</strong> pentru [BROWSER_ICON]",
+        "list_item_3_mic": "Activați permisiunile pentru <strong>Microfon</strong> pentru [BROWSER_ICON]",
         "list_item_4": "Reporniți browserul dacă este necesar și reveniți la această pagină"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "Pe computerul dvs., faceți clic pe meniul Apple [APPLE_ICON] și selectați Setări sistem (sau Preferințe sistem)",
-        "list_item_2": "Faceți clic pe Confidențialitate și Securitate (sau Securitate și Confidențialitate) în bara laterală ",
-        "list_item_3": "Faceți clic pe Mai târziu în fereastra pop-up",
-        "list_item_3_cam": "Faceți clic pe Camera și activați comutatorul (sau căsuța de selectare) de lângă [BROWSER_ICON]",
-        "list_item_4": "Faceți clic pe Închideți și redeschideți în fereastra pop-up și reveniți la această pagină",
-        "list_item_4_mic": "Faceți clic pe Microfon și activați comutatorul (sau căsuța de selectare) de lângă [BROWSER_ICON]"
+        "list_item_1": "Pe computerul dvs., faceți clic pe meniul Apple [APPLE_ICON] și selectați <strong>Setări sistem</strong> (sau <strong>Preferințe sistem</strong>)",
+        "list_item_2": "Faceți clic pe <strong>Confidențialitate și Securitate</strong> (sau <strong>Securitate și Confidențialitate</strong>) în bara laterală ",
+        "list_item_3": "Faceți clic pe <strong>Mai târziu</strong> în fereastra pop-up",
+        "list_item_3_cam": "Faceți clic pe <strong>Camera</strong> și activați comutatorul (sau căsuța de selectare) de lângă [BROWSER_ICON]",
+        "list_item_4": "Faceți clic pe <strong>Închideți și redeschideți</strong> în fereastra pop-up și reveniți la această pagină",
+        "list_item_4_mic": "Faceți clic pe <strong>Microfon</strong> și activați comutatorul (sau căsuța de selectare) de lângă [BROWSER_ICON]"
       }
     },
     "desktop_safari": {
       "browser_settings": {
-        "list_item_1": "În browserul tău, fă clic dreapta în bara de adrese și selectează Setări",
-        "list_item_2_cam": "Faceți clic pe meniul derulant de lângă Camera și selectați Permiteți",
-        "list_item_2_mic": "Faceți clic pe meniul derulant de lângă Microfon și selectați Permiteți",
-        "list_item_3": "Reveniți la această pagină și faceți clic pe butonul Am făcut modificările"
+        "list_item_1": "În browserul tău, fă clic dreapta în bara de adrese și selectează <strong>Setări</strong>",
+        "list_item_2_cam": "Faceți clic pe meniul derulant de lângă <strong>Camera</strong> și selectați <strong>Permiteți</strong>",
+        "list_item_2_mic": "Faceți clic pe meniul derulant de lângă <strong>Microfon</strong> și selectați <strong>Permiteți</strong>",
+        "list_item_3": "Reveniți la această pagină și faceți clic pe butonul <strong>Am făcut modificările</strong>"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "Pe computerul dvs., faceți clic pe meniul Windows [WINDOWS_ICON] și selectați Setări [SETTINGS_ICON_WINDOWS]",
-        "list_item_2": "Faceți clic pe Confidențialitate (sau Confidențialitate & Securitate)",
-        "list_item_3_cam": "Faceți clic pe Camera sub Permisiuni aplicație și activați comutatorul de lângă [BROWSER_ICON] ",
-        "list_item_3_mic": "Faceți clic pe Microfon sub Permisiuni aplicație și activați comutatorul de lângă [BROWSER_ICON]",
+        "list_item_1": "Pe computerul dvs., faceți clic pe meniul Windows [WINDOWS_ICON] și selectați <strong>Setări</strong> [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "Faceți clic pe <strong>Confidențialitate</strong> (sau <strong>Confidențialitate & Securitate</strong>)",
+        "list_item_3_cam": "Faceți clic pe <strong>Camera</strong> sub <strong>Permisiuni aplicație</strong> și activați comutatorul de lângă [BROWSER_ICON] ",
+        "list_item_3_mic": "Faceți clic pe <strong>Microfon</strong> sub <strong>Permisiuni aplicație</strong> și activați comutatorul de lângă [BROWSER_ICON]",
         "list_item_4": "Reporniți browserul dacă este necesar și reveniți la această pagină"
       }
     },
     "info": "Recuperare",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "Apăsați butonul Am făcut modificările. Vi se va cere să activați din nou accesul la cameră și microfon. Când apare fereastra pop-up, selectați Permiteți (sau OK)",
-        "list_item_1_cam": "Apăsați butonul Am făcut modificările. Vi se va cere să activați din nou accesul la cameră. Când apare fereastra pop-up, selectați Permiteți (sau OK)",
-        "list_item_1_mic": "Apăsați butonul Am făcut modificările. Vi se va cere să activați din nou accesul la microfon. Când apare fereastra pop-up, selectați Permiteți (sau OK)"
+        "list_item_1_both": "Apăsați butonul <strong>Am făcut modificările</strong>. Vi se va cere să activați din nou accesul la cameră și microfon. Când apare fereastra pop-up, selectați <strong>Permiteți</strong> (sau <strong>OK</strong>)",
+        "list_item_1_cam": "Apăsați butonul <strong>Am făcut modificările</strong>. Vi se va cere să activați din nou accesul la cameră. Când apare fereastra pop-up, selectați <strong>Permiteți</strong> (sau <strong>OK</strong>)",
+        "list_item_1_mic": "Apăsați butonul <strong>Am făcut modificările</strong>. Vi se va cere să activați din nou accesul la microfon. Când apare fereastra pop-up, selectați <strong>Permiteți</strong> (sau <strong>OK</strong>)"
       },
       "device_settings": {
-        "list_item_1": "Pe dispozitivul dvs., deschideți aplicația Setări",
+        "list_item_1": "Pe dispozitivul dvs., deschideți aplicația <strong>Setări</strong>",
         "list_item_2": "Derulați prin listă și apăsați pe [BROWSER_ICON]",
-        "list_item_3_cam": "Activați comutatorul de lângă Camera",
-        "list_item_3_mic": "Activați comutatorul de lângă Microfon",
-        "list_item_4": "Reveniți la această pagină și apăsați butonul Am făcut modificările"
+        "list_item_3_cam": "Activați comutatorul de lângă <strong>Camera</strong>",
+        "list_item_3_mic": "Activați comutatorul de lângă <strong>Microfon</strong>",
+        "list_item_4": "Reveniți la această pagină și apăsați butonul <strong>Am făcut modificările</strong>"
       }
     },
     "ios_safari": {
       "device_settings": {
-        "list_item_1": "Pe dispozitivul dvs., deschideți aplicația Setări",
+        "list_item_1": "Pe dispozitivul dvs., deschideți aplicația <strong>Setări</strong>",
         "list_item_2": "Derulați prin listă și apăsați pe [BROWSER_ICON]",
-        "list_item_3_cam": "Apăsați Camera și selectați Permiteți",
-        "list_item_3_mic": "Atingeți Microfonul și selectați Permiteți",
-        "list_item_4": "Reveniți la această pagină și apăsați butonul Am făcut modificările"
+        "list_item_3_cam": "Apăsați <strong>Camera</strong> și selectați <strong>Permiteți</strong>",
+        "list_item_3_mic": "Atingeți <strong>Microfonul</strong> și selectați <strong>Permiteți</strong>",
+        "list_item_4": "Reveniți la această pagină și apăsați butonul <strong>Am făcut modificările</strong>"
       }
     },
     "list_header_both": "Urmați acești pași pentru a recupera acces pentru ambele:",

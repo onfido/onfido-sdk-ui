@@ -444,139 +444,139 @@
   "permission_recovery": {
     "android": {
       "device_settings": {
-        "list_item_1": "Savā ierīcē atveriet lietotni Iestatījumi",
-        "list_item_2": "Spiediet Lietotnes",
-        "list_item_3": "Spiediet uz [BROWSER_ICON]. Ja to nevarat atrast, spiediet uz Skatīt visas lietotnes vai Pārvaldīt lietotnes un izvēlieties savu pārlūkprogrammas lietotni",
-        "list_item_4": "Nospiediet Atļaujas",
-        "list_item_5_cam": "Pieskarieties Kamera un izvēlieties Atļaut",
-        "list_item_5_mic": "Nospiediet Mikrofons un izvēlieties Atļaut",
-        "list_item_6": "Atgriezieties šajā lapā un piespiediet pogu Es esmu veicis izmaiņas"
+        "list_item_1": "Savā ierīcē atveriet lietotni <strong>Iestatījumi</strong>",
+        "list_item_2": "Spiediet <strong>Lietotnes</strong>",
+        "list_item_3": "Spiediet uz [BROWSER_ICON]. Ja to nevarat atrast, spiediet uz <strong>Skatīt visas lietotnes</strong> vai <strong>Pārvaldīt lietotnes</strong> un izvēlieties savu pārlūkprogrammas lietotni",
+        "list_item_4": "Nospiediet <strong>Atļaujas</strong>",
+        "list_item_5_cam": "Pieskarieties <strong>Kamera</strong> un izvēlieties <strong>Atļaut</strong>",
+        "list_item_5_mic": "Nospiediet <strong>Mikrofons</strong> un izvēlieties <strong>Atļaut</strong>",
+        "list_item_6": "Atgriezieties šajā lapā un piespiediet pogu <strong>Es esmu veicis izmaiņas</strong>"
       }
     },
     "android_chrome": {
       "browser_settings": {
         "list_item_1": "Savā pārlūkprogrammā pieskarieties bloķēšanas ikonai [LOCK_ICON] adrešu joslā",
-        "list_item_2": "Nospiediet Atļaujas",
-        "list_item_3_cam": "Aktivizējiet pārslēdzēju blakus Kamera",
-        "list_item_3_mic": "Aktivizējiet pārslēdzēju blakus Mikrofonam",
-        "list_item_4": "Atgriezieties šajā lapā un pieskarieties pogai Es esmu veicis izmaiņas"
+        "list_item_2": "Nospiediet <strong>Atļaujas</strong>",
+        "list_item_3_cam": "Aktivizējiet pārslēdzēju blakus <strong>Kamera</strong>",
+        "list_item_3_mic": "Aktivizējiet pārslēdzēju blakus <strong>Mikrofonam</strong>",
+        "list_item_4": "Atgriezieties šajā lapā un pieskarieties pogai <strong>Es esmu veicis izmaiņas</strong>"
       }
     },
     "android_firefox": {
       "browser_settings": {
         "list_item_1": "Savā pārlūkprogrammā pieskarieties bloķēšanas ikonai [LOCK_ICON] adrešu joslā",
-        "list_item_2_cam": "Nospiediet Bloķēts blakus Kamera, lai pārslēgtos uz Atļauts",
-        "list_item_2_mic": "Nospiediet Bloķēts blakus Mikrofons, lai pārslēgtos uz Atļauts",
-        "list_item_3": "Atgriezieties šajā lapā un piespiediet pogu Es esmu veicis izmaiņas"
+        "list_item_2_cam": "Nospiediet <strong>Bloķēts</strong> blakus <strong>Kamera</strong>, lai pārslēgtos uz <strong>Atļauts</strong>",
+        "list_item_2_mic": "Nospiediet <strong>Bloķēts</strong> blakus <strong>Mikrofons</strong>, lai pārslēgtos uz <strong>Atļauts</strong>",
+        "list_item_3": "Atgriezieties šajā lapā un piespiediet pogu <strong>Es esmu veicis izmaiņas</strong>"
       }
     },
     "android_generic": {
       "browser_settings": {
         "list_item_1": "Savā pārlūkprogrammā atveriet vietnes iestatījumus. Bieži vien tas ir slēdzenes ikona [LOCK_ICON] adreses joslā",
         "list_item_2": "Atrast sadaļu par atļaujām",
-        "list_item_3_cam": "Iespējojiet Kameras atļaujas",
-        "list_item_3_mic": "Iespējojiet Mikrofona atļaujas",
-        "list_item_4": "Atgriezieties šajā lapā un piespiediet pogu Es esmu veicis izmaiņas"
+        "list_item_3_cam": "Iespējojiet <strong>Kameras</strong> atļaujas",
+        "list_item_3_mic": "Iespējojiet <strong>Mikrofona</strong> atļaujas",
+        "list_item_4": "Atgriezieties šajā lapā un piespiediet pogu <strong>Es esmu veicis izmaiņas</strong>"
       }
     },
     "android_samsung": {
       "browser_settings": {
         "list_item_1": "Savā pārlūkprogrammā pieskarieties bloķēšanas ikonai [LOCK_ICON] adrešu joslā",
-        "list_item_2_cam": "Aktivizējiet pārslēgšanas pogu blakus Kamera",
-        "list_item_2_mic": "Aktivizējiet pārslēdzēju blakus Mikrofonam",
-        "list_item_3": "Atgriezieties šajā lapā un pieskarieties pogai Es esmu veicis izmaiņas"
+        "list_item_2_cam": "Aktivizējiet pārslēgšanas pogu blakus <strong>Kamera</strong>",
+        "list_item_2_mic": "Aktivizējiet pārslēdzēju blakus <strong>Mikrofonam</strong>",
+        "list_item_3": "Atgriezieties šajā lapā un pieskarieties pogai <strong>Es esmu veicis izmaiņas</strong>"
       }
     },
     "button_primary": "Atsvaidzināt",
     "desktop_chrome": {
       "browser_settings": {
         "list_item_1": "Savā pārlūkprogrammā noklikšķiniet uz bloķēšanas ikonas [LOCK_ICON] adrešu joslā",
-        "list_item_2_cam": "Aktivizējiet pārslēdzēju blakus Kamera",
-        "list_item_2_mic": "Aktivizējiet pārslēdzēju blakus Mikrofonam",
-        "list_item_3": "Atgriezieties šajā lapā un noklikšķiniet uz pogas Es esmu veicis izmaiņas"
+        "list_item_2_cam": "Aktivizējiet pārslēdzēju blakus <strong>Kamera</strong>",
+        "list_item_2_mic": "Aktivizējiet pārslēdzēju blakus <strong>Mikrofonam</strong>",
+        "list_item_3": "Atgriezieties šajā lapā un noklikšķiniet uz pogas <strong>Es esmu veicis izmaiņas</strong>"
       }
     },
     "desktop_edge": {
       "browser_settings": {
         "list_item_1": "Savā pārlūkprogrammā noklikšķiniet uz bloķēšanas ikonas [LOCK_ICON] adrešu joslā",
-        "list_item_2_cam": "Noklikšķiniet uz nolaižamās izvēlnes blakus Kamera un izvēlieties Atļaut",
-        "list_item_2_mic": "Noklikšķiniet uz nolaižamās izvēlnes blakus Mikrofons un izvēlieties Atļaut",
-        "list_item_3": "Atgriezieties šajā lapā un noklikšķiniet uz pogas Es esmu veicis izmaiņas"
+        "list_item_2_cam": "Noklikšķiniet uz nolaižamās izvēlnes blakus <strong>Kamera</strong> un izvēlieties <strong>Atļaut</strong>",
+        "list_item_2_mic": "Noklikšķiniet uz nolaižamās izvēlnes blakus <strong>Mikrofons</strong> un izvēlieties <strong>Atļaut</strong>",
+        "list_item_3": "Atgriezieties šajā lapā un noklikšķiniet uz pogas <strong>Es esmu veicis izmaiņas</strong>"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
         "list_item_1": "Savā pārlūkprogrammā noklikšķiniet uz iestatījumu ikonas [SETTINGS_ICON_FIREFOX] adrešu joslā",
-        "list_item_2_cam": "Noklikšķiniet uz Bloķēts blakus Izmantot kameru",
-        "list_item_2_mic": "Noklikšķiniet uz Bloķēts blakus Izmantot mikrofonu",
-        "list_item_3": "Atgriezieties šajā lapā un noklikšķiniet uz pogas Es esmu veicis izmaiņas"
+        "list_item_2_cam": "Noklikšķiniet uz <strong>Bloķēts</strong> blakus <strong>Izmantot kameru</strong>",
+        "list_item_2_mic": "Noklikšķiniet uz <strong>Bloķēts</strong> blakus <strong>Izmantot mikrofonu</strong>",
+        "list_item_3": "Atgriezieties šajā lapā un noklikšķiniet uz pogas <strong>Es esmu veicis izmaiņas</strong>"
       }
     },
     "desktop_generic": {
       "browser_settings": {
         "list_item_1": "Savā pārlūkprogrammā atveriet vietnes iestatījumus. Bieži vien tas ir slēdzenes ikona [LOCK_ICON] adreses joslā",
         "list_item_2": "Atrast sadaļu par atļaujām",
-        "list_item_3_cam": "Iespējojiet Kameras atļaujas",
-        "list_item_3_mic": "Iespējojiet Mikrofona atļaujas",
-        "list_item_4": "Atgriezieties šajā lapā un noklikšķiniet uz pogas Es esmu veicis izmaiņas"
+        "list_item_3_cam": "Iespējojiet <strong>Kameras</strong> atļaujas",
+        "list_item_3_mic": "Iespējojiet <strong>Mikrofona</strong> atļaujas",
+        "list_item_4": "Atgriezieties šajā lapā un noklikšķiniet uz pogas <strong>Es esmu veicis izmaiņas</strong>"
       },
       "device_settings": {
-        "list_item_1": "Savā datorā atveriet savus Iestatījumus",
-        "list_item_2": "Atrast sadaļu par atļaujām (parasti zem Privātums)",
-        "list_item_3_cam": "Iespējojiet Kameras atļaujas priekš [BROWSER_ICON]",
-        "list_item_3_mic": "Iespējojiet Mikrofona atļaujas priekš [BROWSER_ICON]",
+        "list_item_1": "Savā datorā atveriet savus <strong>Iestatījumus</strong>",
+        "list_item_2": "Atrast sadaļu par atļaujām (parasti zem <strong>Privātums</strong>)",
+        "list_item_3_cam": "Iespējojiet <strong>Kameras</strong> atļaujas priekš [BROWSER_ICON]",
+        "list_item_3_mic": "Iespējojiet <strong>Mikrofona</strong> atļaujas priekš [BROWSER_ICON]",
         "list_item_4": "Ja nepieciešams, restartējiet savu pārlūkprogrammu un atgriezieties šajā lapā"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "Savā datorā noklikšķiniet uz Apple izvēlnes [APPLE_ICON] un izvēlieties Sistēmas iestatījumi (vai Sistēmas preferences)",
-        "list_item_2": "Noklikšķiniet uz Privātums un drošība (vai Drošība un privātums) sānjoslā ",
-        "list_item_3": "Noklikšķiniet uz Vēlāk uznirstošajā logā",
-        "list_item_3_cam": "Noklikšķiniet uz Kamera un aktivizējiet slēdzi (vai izvēles rūtiņu) blakus [BROWSER_ICON]",
-        "list_item_4": "Noklikšķiniet uz Aizvērt un atkārtoti atvērt uznirstošajā logā un atgriezieties šajā lapā",
-        "list_item_4_mic": "Noklikšķiniet uz Mikrofons un aktivizējiet slēdzi (vai izvēles rūtiņu) blakus [BROWSER_ICON]"
+        "list_item_1": "Savā datorā noklikšķiniet uz Apple izvēlnes [APPLE_ICON] un izvēlieties <strong>Sistēmas iestatījumi</strong> (vai <strong>Sistēmas preferences</strong>)",
+        "list_item_2": "Noklikšķiniet uz <strong>Privātums un drošība</strong> (vai <strong>Drošība un privātums</strong>) sānjoslā ",
+        "list_item_3": "Noklikšķiniet uz <strong>Vēlāk</strong> uznirstošajā logā",
+        "list_item_3_cam": "Noklikšķiniet uz <strong>Kamera</strong> un aktivizējiet slēdzi (vai izvēles rūtiņu) blakus [BROWSER_ICON]",
+        "list_item_4": "Noklikšķiniet uz <strong>Aizvērt un atkārtoti atvērt</strong> uznirstošajā logā un atgriezieties šajā lapā",
+        "list_item_4_mic": "Noklikšķiniet uz <strong>Mikrofons</strong> un aktivizējiet slēdzi (vai izvēles rūtiņu) blakus [BROWSER_ICON]"
       }
     },
     "desktop_safari": {
       "browser_settings": {
-        "list_item_1": "Savā pārlūkprogrammā, labajā peles klikšķī adreses joslā un izvēlieties Iestatījumi",
-        "list_item_2_cam": "Noklikšķiniet uz nolaižamās izvēlnes blakus Kamera un izvēlieties Atļaut",
-        "list_item_2_mic": "Noklikšķiniet uz nolaižamās izvēlnes blakus Mikrofonam un izvēlieties Atļaut",
-        "list_item_3": "Atgriezieties šajā lapā un noklikšķiniet uz pogas Es esmu veicis izmaiņas"
+        "list_item_1": "Savā pārlūkprogrammā, labajā peles klikšķī adreses joslā un izvēlieties <strong>Iestatījumi</strong>",
+        "list_item_2_cam": "Noklikšķiniet uz nolaižamās izvēlnes blakus <strong>Kamera</strong> un izvēlieties <strong>Atļaut</strong>",
+        "list_item_2_mic": "Noklikšķiniet uz nolaižamās izvēlnes blakus <strong>Mikrofonam</strong> un izvēlieties <strong>Atļaut</strong>",
+        "list_item_3": "Atgriezieties šajā lapā un noklikšķiniet uz pogas <strong>Es esmu veicis izmaiņas</strong>"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "Uz sava datora, noklikšķiniet uz Windows izvēlnes [WINDOWS_ICON] un izvēlieties Iestatījumi [SETTINGS_ICON_WINDOWS]",
-        "list_item_2": "Noklikšķiniet uz Privātums (vai Privātums & Drošība)",
-        "list_item_3_cam": "Noklikšķiniet uz Kamera sadaļā Lietotņu atļaujas un aktivizējiet pārslēdzēju blakus [BROWSER_ICON] ",
-        "list_item_3_mic": "Noklikšķiniet uz Mikrofons zem Lietotņu atļaujas un aktivizējiet slēdzi blakus [BROWSER_ICON]",
+        "list_item_1": "Uz sava datora, noklikšķiniet uz Windows izvēlnes [WINDOWS_ICON] un izvēlieties <strong>Iestatījumi</strong> [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "Noklikšķiniet uz <strong>Privātums</strong> (vai <strong>Privātums & Drošība</strong>)",
+        "list_item_3_cam": "Noklikšķiniet uz <strong>Kamera</strong> sadaļā <strong>Lietotņu atļaujas</strong> un aktivizējiet pārslēdzēju blakus [BROWSER_ICON] ",
+        "list_item_3_mic": "Noklikšķiniet uz <strong>Mikrofons</strong> zem <strong>Lietotņu atļaujas</strong> un aktivizējiet slēdzi blakus [BROWSER_ICON]",
         "list_item_4": "Ja nepieciešams, restartējiet savu pārlūkprogrammu un atgriezieties šajā lapā"
       }
     },
     "info": "Atjaunošana",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "Nospiediet pogu Es esmu veicis izmaiņas. Jums atkal tiks lūgts iespējot piekļuvi kamerai un mikrofonam. Kad parādās uznirstošais logs, izvēlieties Atļaut (vai Labi)",
-        "list_item_1_cam": "Nospiediet pogu Es esmu veicis izmaiņas. Jums tiks lūgts atkārtoti iespējot piekļuvi kamerai. Kad parādās uznirstošais logs, izvēlieties Atļaut (vai Labi)",
-        "list_item_1_mic": "Nospiediet pogu Es esmu veicis izmaiņas. Jums tiks lūgts atkārtoti iespējot piekļuvi mikrofonam. Kad parādās uznirstošais logs, izvēlieties Atļaut (vai Labi)"
+        "list_item_1_both": "Nospiediet pogu <strong>Es esmu veicis izmaiņas</strong>. Jums atkal tiks lūgts iespējot piekļuvi kamerai un mikrofonam. Kad parādās uznirstošais logs, izvēlieties <strong>Atļaut</strong> (vai <strong>Labi</strong>)",
+        "list_item_1_cam": "Nospiediet pogu <strong>Es esmu veicis izmaiņas</strong>. Jums tiks lūgts atkārtoti iespējot piekļuvi kamerai. Kad parādās uznirstošais logs, izvēlieties <strong>Atļaut</strong> (vai <strong>Labi</strong>)",
+        "list_item_1_mic": "Nospiediet pogu <strong>Es esmu veicis izmaiņas</strong>. Jums tiks lūgts atkārtoti iespējot piekļuvi mikrofonam. Kad parādās uznirstošais logs, izvēlieties <strong>Atļaut</strong> (vai <strong>Labi</strong>)"
       },
       "device_settings": {
-        "list_item_1": "Atveriet lietotni Iestatījumi savā ierīcē",
+        "list_item_1": "Atveriet lietotni <strong>Iestatījumi</strong> savā ierīcē",
         "list_item_2": "Ritiniet cauri sarakstam un pieskarieties [BROWSER_ICON]",
-        "list_item_3_cam": "Aktivizējiet pārslēdzēju blakus Kamera",
-        "list_item_3_mic": "Aktivizējiet pārslēdzēju blakus Mikrofonam",
-        "list_item_4": "Atgriezieties šajā lapā un piespiediet pogu Es esmu veicis izmaiņas"
+        "list_item_3_cam": "Aktivizējiet pārslēdzēju blakus <strong>Kamera</strong>",
+        "list_item_3_mic": "Aktivizējiet pārslēdzēju blakus <strong>Mikrofonam</strong>",
+        "list_item_4": "Atgriezieties šajā lapā un piespiediet pogu <strong>Es esmu veicis izmaiņas</strong>"
       }
     },
     "ios_safari": {
       "device_settings": {
-        "list_item_1": "Atveriet lietotni Iestatījumi savā ierīcē",
+        "list_item_1": "Atveriet lietotni <strong>Iestatījumi</strong> savā ierīcē",
         "list_item_2": "Ritiniet cauri sarakstam un pieskarieties [BROWSER_ICON]",
-        "list_item_3_cam": "Pieskarieties Kamera un izvēlieties Atļaut",
-        "list_item_3_mic": "Spiediet uz Mikrofons un izvēlieties Atļaut",
-        "list_item_4": "Atgriezieties šajā lapā un piespiediet pogu Es esmu veicis izmaiņas"
+        "list_item_3_cam": "Pieskarieties <strong>Kamera</strong> un izvēlieties <strong>Atļaut</strong>",
+        "list_item_3_mic": "Spiediet uz <strong>Mikrofons</strong> un izvēlieties <strong>Atļaut</strong>",
+        "list_item_4": "Atgriezieties šajā lapā un piespiediet pogu <strong>Es esmu veicis izmaiņas</strong>"
       }
     },
     "list_header_both": "Lai atjaunotu piekļuvi abiem, veiciet tālāk norādītās darbības.",
@@ -641,7 +641,7 @@
     "subtitle_address_card": "Jābūt derīgai adreses kartei",
     "subtitle_bank_statement": "Tai jābūt izdotai ​​pēdējo trīs mēnešu laikā​​",
     "subtitle_benefits_letter": "Tai jābūt izdotai pēdējo ​​12 mēnešu laikā​​",
-    "subtitle_bill": "Tam jābūt izdotam ​​pēdējo trīs mēnešu laikā​​",
+    "subtitle_bill": "Tam jābūt izdotam ​​pēdējo trīs mēnešu laikā​",
     "subtitle_tax_letter": "Tai jābūt izdotai pēdējo ​​12 mēnešu laikā​​"
   },
   "poa_intro": {

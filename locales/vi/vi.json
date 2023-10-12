@@ -444,139 +444,139 @@
   "permission_recovery": {
     "android": {
       "device_settings": {
-        "list_item_1": "Trên thiết bị của bạn, mở ứng dụng Cài đặt",
-        "list_item_2": "Chạm vào Ứng dụng",
-        "list_item_3": "Chạm vào [BROWSER_ICON]. Nếu bạn không tìm thấy, chạm vào Xem tất cả các ứng dụng hoặc Quản lý ứng dụng và chọn ứng dụng trình duyệt của bạn",
-        "list_item_4": "Chạm vào Quyền",
-        "list_item_5_cam": "Chạm vào Camera và chọn Cho phép",
-        "list_item_5_mic": "Chạm vào Microphone và chọn Cho phép",
-        "list_item_6": "Quay lại trang này và nhấn nút Tôi đã thực hiện các thay đổi"
+        "list_item_1": "Trên thiết bị của bạn, mở ứng dụng <strong>Cài đặt</strong>",
+        "list_item_2": "Chạm vào <strong>Ứng dụng</strong>",
+        "list_item_3": "Chạm vào [BROWSER_ICON]. Nếu bạn không tìm thấy, chạm vào <strong>Xem tất cả các ứng dụng</strong> hoặc <strong>Quản lý ứng dụng</strong> và chọn ứng dụng trình duyệt của bạn",
+        "list_item_4": "Chạm vào <strong>Quyền</strong>",
+        "list_item_5_cam": "Chạm vào <strong>Camera</strong> và chọn <strong>Cho phép</strong>",
+        "list_item_5_mic": "Chạm vào <strong>Microphone</strong> và chọn <strong>Cho phép</strong>",
+        "list_item_6": "Quay lại trang này và nhấn nút <strong>Tôi đã thực hiện các thay đổi</strong>"
       }
     },
     "android_chrome": {
       "browser_settings": {
         "list_item_1": "Trên trình duyệt của bạn, nhấn vào biểu tượng khóa [LOCK_ICON] trên thanh địa chỉ",
-        "list_item_2": "Chạm vào Quyền",
-        "list_item_3_cam": "Kích hoạt công tắc bên cạnh Camera",
-        "list_item_3_mic": "Kích hoạt công tắc bên cạnh Micro",
-        "list_item_4": "Quay lại trang này và nhấn nút Tôi đã thực hiện các thay đổi"
+        "list_item_2": "Chạm vào <strong>Quyền</strong>",
+        "list_item_3_cam": "Kích hoạt công tắc bên cạnh <strong>Camera</strong>",
+        "list_item_3_mic": "Kích hoạt công tắc bên cạnh <strong>Micro</strong>",
+        "list_item_4": "Quay lại trang này và nhấn nút <strong>Tôi đã thực hiện các thay đổi</strong>"
       }
     },
     "android_firefox": {
       "browser_settings": {
         "list_item_1": "Trên trình duyệt của bạn, nhấn vào biểu tượng khóa [LOCK_ICON] trên thanh địa chỉ",
-        "list_item_2_cam": "Chạm vào Đã chặn kế bên Camera để chuyển sang Được phép",
-        "list_item_2_mic": "Chạm vào Đã chặn kế bên Micro để chuyển sang Được phép",
-        "list_item_3": "Quay lại trang này và nhấn nút Tôi đã thực hiện các thay đổi"
+        "list_item_2_cam": "Chạm vào <strong>Đã chặn</strong> kế bên <strong>Camera</strong> để chuyển sang <strong>Được phép</strong>",
+        "list_item_2_mic": "Chạm vào <strong>Đã chặn</strong> kế bên <strong>Micro</strong> để chuyển sang <strong>Được phép</strong>",
+        "list_item_3": "Quay lại trang này và nhấn nút <strong>Tôi đã thực hiện các thay đổi</strong>"
       }
     },
     "android_generic": {
       "browser_settings": {
         "list_item_1": "Trên trình duyệt của bạn, mở cài đặt trang web. Đây thường là biểu tượng khóa [LOCK_ICON] ở thanh địa chỉ",
         "list_item_2": "Tìm phần về quyền hạn",
-        "list_item_3_cam": "Cho phép quyền Camera",
-        "list_item_3_mic": "Cho phép quyền Micro",
-        "list_item_4": "Quay lại trang này và nhấn nút Tôi đã thực hiện các thay đổi"
+        "list_item_3_cam": "Cho phép quyền <strong>Camera</strong>",
+        "list_item_3_mic": "Cho phép quyền <strong>Micro</strong>",
+        "list_item_4": "Quay lại trang này và nhấn nút <strong>Tôi đã thực hiện các thay đổi</strong>"
       }
     },
     "android_samsung": {
       "browser_settings": {
         "list_item_1": "Trên trình duyệt của bạn, nhấn vào biểu tượng khóa [LOCK_ICON] trên thanh địa chỉ",
-        "list_item_2_cam": "Kích hoạt công tắc bên cạnh Camera",
-        "list_item_2_mic": "Kích hoạt công tắc bên cạnh Micro",
-        "list_item_3": "Quay lại trang này và nhấn nút Tôi đã thực hiện các thay đổi"
+        "list_item_2_cam": "Kích hoạt công tắc bên cạnh <strong>Camera</strong>",
+        "list_item_2_mic": "Kích hoạt công tắc bên cạnh <strong>Micro</strong>",
+        "list_item_3": "Quay lại trang này và nhấn nút <strong>Tôi đã thực hiện các thay đổi</strong>"
       }
     },
     "button_primary": "Làm mới",
     "desktop_chrome": {
       "browser_settings": {
         "list_item_1": "Trên trình duyệt của bạn, nhấp vào biểu tượng khóa [LOCK_ICON] trên thanh địa chỉ",
-        "list_item_2_cam": "Kích hoạt công tắc bên cạnh Camera",
-        "list_item_2_mic": "Kích hoạt công tắc bên cạnh Micro",
-        "list_item_3": "Quay lại trang này và nhấp vào nút Tôi đã thực hiện các thay đổi"
+        "list_item_2_cam": "Kích hoạt công tắc bên cạnh <strong>Camera</strong>",
+        "list_item_2_mic": "Kích hoạt công tắc bên cạnh <strong>Micro</strong>",
+        "list_item_3": "Quay lại trang này và nhấp vào nút <strong>Tôi đã thực hiện các thay đổi</strong>"
       }
     },
     "desktop_edge": {
       "browser_settings": {
         "list_item_1": "Trên trình duyệt của bạn, nhấp vào biểu tượng khóa [LOCK_ICON] trên thanh địa chỉ",
-        "list_item_2_cam": "Nhấp vào hộp thả xuống bên cạnh Micro và chọn Cho phép",
-        "list_item_2_mic": "Nhấp vào hộp thả xuống bên cạnh Micro và chọn Cho phép",
-        "list_item_3": "Quay lại trang này và nhấp vào nút Tôi đã thực hiện các thay đổi"
+        "list_item_2_cam": "Nhấp vào hộp thả xuống bên cạnh <strong>Micro</strong> và chọn <strong>Cho phép</strong>",
+        "list_item_2_mic": "Nhấp vào hộp thả xuống bên cạnh <strong>Micro</strong> và chọn <strong>Cho phép</strong>",
+        "list_item_3": "Quay lại trang này và nhấp vào nút <strong>Tôi đã thực hiện các thay đổi</strong>"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
         "list_item_1": "Trên trình duyệt của bạn, nhấp vào biểu tượng cài đặt [SETTINGS_ICON_FIREFOX] trong thanh địa chỉ",
-        "list_item_2_cam": "Nhấp vào Đã chặn kế bên Sử dụng camera",
-        "list_item_2_mic": "Nhấp vào Đã chặn kế bên Sử dụng micro",
-        "list_item_3": "Quay lại trang này và nhấp vào nút Tôi đã thực hiện những thay đổi"
+        "list_item_2_cam": "Nhấp vào <strong>Đã chặn</strong> kế bên <strong>Sử dụng camera</strong>",
+        "list_item_2_mic": "Nhấp vào <strong>Đã chặn</strong> kế bên <strong>Sử dụng micro</strong>",
+        "list_item_3": "Quay lại trang này và nhấp vào nút <strong>Tôi đã thực hiện những thay đổi</strong>"
       }
     },
     "desktop_generic": {
       "browser_settings": {
         "list_item_1": "Trên trình duyệt của bạn, mở cài đặt trang web. Đây thường là biểu tượng khóa [LOCK_ICON] ở thanh địa chỉ",
         "list_item_2": "Tìm phần về quyền truy cập",
-        "list_item_3_cam": "Cho phép quyền Máy ảnh",
-        "list_item_3_mic": "Cho phép quyền Micro",
-        "list_item_4": "Quay lại trang này và nhấp vào nút Tôi đã thực hiện những thay đổi"
+        "list_item_3_cam": "Cho phép quyền <strong>Máy ảnh</strong>",
+        "list_item_3_mic": "Cho phép quyền <strong>Micro</strong>",
+        "list_item_4": "Quay lại trang này và nhấp vào nút <strong>Tôi đã thực hiện những thay đổi</strong>"
       },
       "device_settings": {
-        "list_item_1": "Trên máy tính của bạn, mở Cài đặt của bạn",
-        "list_item_2": "Tìm phần về quyền (thường nằm dưới mục Quyền riêng tư)",
-        "list_item_3_cam": "Cho phép quyền Máy ảnh cho [BROWSER_ICON]",
-        "list_item_3_mic": "Cho phép quyền Micro cho [BROWSER_ICON]",
+        "list_item_1": "Trên máy tính của bạn, mở <strong>Cài đặt</strong> của bạn",
+        "list_item_2": "Tìm phần về quyền (thường nằm dưới mục <strong>Quyền riêng tư</strong>)",
+        "list_item_3_cam": "Cho phép quyền <strong>Máy ảnh</strong> cho [BROWSER_ICON]",
+        "list_item_3_mic": "Cho phép quyền <strong>Micro</strong> cho [BROWSER_ICON]",
         "list_item_4": "Khởi động lại trình duyệt của bạn nếu cần và quay lại trang này"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "Trên máy tính của bạn, nhấp vào menu Apple [APPLE_ICON] và chọn Cài đặt Hệ thống (hoặc Tùy chọn Hệ thống)",
-        "list_item_2": "Nhấp vào Quyền riêng tư & Bảo mật (hoặc Bảo mật & Quyền riêng tư) trong thanh bên",
-        "list_item_3": "Nhấp vào Sau trong cửa sổ pop-up",
-        "list_item_3_cam": "Nhấp vào Camera và kích hoạt công tắc (hoặc hộp kiểm) bên cạnh [BROWSER_ICON]",
-        "list_item_4": "Nhấp vào Thoát & Mở lại trong cửa sổ pop-up và quay lại trang này",
-        "list_item_4_mic": "Nhấp vào Micro và kích hoạt công tắc (hoặc hộp kiểm) bên cạnh [BROWSER_ICON]"
+        "list_item_1": "Trên máy tính của bạn, nhấp vào menu Apple [APPLE_ICON] và chọn <strong>Cài đặt Hệ thống</strong> (hoặc <strong>Tùy chọn Hệ thống</strong>)",
+        "list_item_2": "Nhấp vào <strong>Quyền riêng tư & Bảo mật</strong> (hoặc <strong>Bảo mật & Quyền riêng tư</strong>) trong thanh bên",
+        "list_item_3": "Nhấp vào <strong>Sau</strong> trong cửa sổ pop-up",
+        "list_item_3_cam": "Nhấp vào <strong>Camera</strong> và kích hoạt công tắc (hoặc hộp kiểm) bên cạnh [BROWSER_ICON]",
+        "list_item_4": "Nhấp vào <strong>Thoát & Mở lại</strong> trong cửa sổ pop-up và quay lại trang này",
+        "list_item_4_mic": "Nhấp vào <strong>Micro</strong> và kích hoạt công tắc (hoặc hộp kiểm) bên cạnh [BROWSER_ICON]"
       }
     },
     "desktop_safari": {
       "browser_settings": {
-        "list_item_1": "Trên trình duyệt của bạn, nhấp chuột phải vào thanh địa chỉ và chọn Cài đặt",
-        "list_item_2_cam": "Nhấp vào hộp thả xuống bên cạnh Camera và chọn Cho phép",
-        "list_item_2_mic": "Nhấp vào hộp xổ xuống bên cạnh Micro và chọn Cho phép",
-        "list_item_3": "Quay lại trang này và nhấp vào nút Tôi đã thực hiện các thay đổi"
+        "list_item_1": "Trên trình duyệt của bạn, nhấp chuột phải vào thanh địa chỉ và chọn <strong>Cài đặt</strong>",
+        "list_item_2_cam": "Nhấp vào hộp thả xuống bên cạnh <strong>Camera</strong> và chọn <strong>Cho phép</strong>",
+        "list_item_2_mic": "Nhấp vào hộp xổ xuống bên cạnh <strong>Micro</strong> và chọn <strong>Cho phép</strong>",
+        "list_item_3": "Quay lại trang này và nhấp vào nút <strong>Tôi đã thực hiện các thay đổi</strong>"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "Trên máy tính của bạn, nhấp vào menu Windows [WINDOWS_ICON] và chọn Cài đặt [SETTINGS_ICON_WINDOWS]",
-        "list_item_2": "Nhấp vào Quyền riêng tư (hoặc Quyền riêng tư & Bảo mật)",
-        "list_item_3_cam": "Nhấp vào Camera dưới mục Quyền ứng dụng và kích hoạt công tắc bên cạnh [BROWSER_ICON] ",
-        "list_item_3_mic": "Nhấp vào Microphone dưới Quyền ứng dụng và kích hoạt công tắc bên cạnh [BROWSER_ICON]",
+        "list_item_1": "Trên máy tính của bạn, nhấp vào menu Windows [WINDOWS_ICON] và chọn <strong>Cài đặt</strong> [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "Nhấp vào <strong>Quyền riêng tư</strong> (hoặc <strong>Quyền riêng tư & Bảo mật</strong>)",
+        "list_item_3_cam": "Nhấp vào <strong>Camera</strong> dưới mục <strong>Quyền ứng dụng</strong> và kích hoạt công tắc bên cạnh [BROWSER_ICON] ",
+        "list_item_3_mic": "Nhấp vào <strong>Microphone</strong> dưới <strong>Quyền ứng dụng</strong> và kích hoạt công tắc bên cạnh [BROWSER_ICON]",
         "list_item_4": "Khởi động lại trình duyệt của bạn nếu cần và quay lại trang này"
       }
     },
     "info": "Khôi phục",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "Nhấn nút Tôi đã thực hiện các thay đổi. Bạn sẽ được yêu cầu kích hoạt lại quyền truy cập camera và microphone. Khi cửa sổ pop-up xuất hiện, chọn Cho phép (hoặc OK)",
-        "list_item_1_cam": "Nhấn nút Tôi đã thực hiện các thay đổi. Bạn sẽ được yêu cầu kích hoạt lại quyền truy cập camera. Khi cửa sổ pop-up xuất hiện, chọn Cho phép (hoặc OK)",
-        "list_item_1_mic": "Nhấn nút Tôi đã thực hiện các thay đổi. Bạn sẽ được yêu cầu kích hoạt lại quyền truy cập vào microphone. Khi cửa sổ pop-up xuất hiện, chọn Cho phép (hoặc OK)"
+        "list_item_1_both": "Nhấn nút <strong>Tôi đã thực hiện các thay đổi</strong>. Bạn sẽ được yêu cầu kích hoạt lại quyền truy cập camera và microphone. Khi cửa sổ pop-up xuất hiện, chọn <strong>Cho phép</strong> (hoặc <strong>OK</strong>)",
+        "list_item_1_cam": "Nhấn nút <strong>Tôi đã thực hiện các thay đổi</strong>. Bạn sẽ được yêu cầu kích hoạt lại quyền truy cập camera. Khi cửa sổ pop-up xuất hiện, chọn <strong>Cho phép</strong> (hoặc <strong>OK</strong>)",
+        "list_item_1_mic": "Nhấn nút <strong>Tôi đã thực hiện các thay đổi</strong>. Bạn sẽ được yêu cầu kích hoạt lại quyền truy cập vào microphone. Khi cửa sổ pop-up xuất hiện, chọn <strong>Cho phép</strong> (hoặc <strong>OK</strong>)"
       },
       "device_settings": {
-        "list_item_1": "Trên thiết bị của bạn, mở ứng dụng Cài đặt",
+        "list_item_1": "Trên thiết bị của bạn, mở ứng dụng <strong>Cài đặt</strong>",
         "list_item_2": "Di chuyển qua danh sách và chạm vào [BROWSER_ICON]",
-        "list_item_3_cam": "Kích hoạt công tắc bên cạnh Camera",
-        "list_item_3_mic": "Kích hoạt công tắc bên cạnh Micro",
-        "list_item_4": "Quay lại trang này và nhấn nút Tôi đã thực hiện các thay đổi"
+        "list_item_3_cam": "Kích hoạt công tắc bên cạnh <strong>Camera</strong>",
+        "list_item_3_mic": "Kích hoạt công tắc bên cạnh <strong>Micro</strong>",
+        "list_item_4": "Quay lại trang này và nhấn nút <strong>Tôi đã thực hiện các thay đổi</strong>"
       }
     },
     "ios_safari": {
       "device_settings": {
-        "list_item_1": "Trên thiết bị của bạn, mở ứng dụng Cài đặt",
+        "list_item_1": "Trên thiết bị của bạn, mở ứng dụng <strong>Cài đặt</strong>",
         "list_item_2": "Di chuyển qua danh sách và chạm vào [BROWSER_ICON]",
-        "list_item_3_cam": "Chạm vào Camera và chọn Cho phép",
-        "list_item_3_mic": "Chạm vào Micro và chọn Cho phép",
-        "list_item_4": "Quay lại trang này và nhấn nút Tôi đã thực hiện các thay đổi"
+        "list_item_3_cam": "Chạm vào <strong>Camera</strong> và chọn <strong>Cho phép</strong>",
+        "list_item_3_mic": "Chạm vào <strong>Micro</strong> và chọn <strong>Cho phép</strong>",
+        "list_item_4": "Quay lại trang này và nhấn nút <strong>Tôi đã thực hiện các thay đổi</strong>"
       }
     },
     "list_header_both": "Thực hiện theo các bước sau để khôi phục quyền truy cập vào cả hai:",
