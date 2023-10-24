@@ -185,7 +185,7 @@ The CSS style will be included inline with the JS code when the library is impor
 
 You can see an [example app using npm style import](https://github.com/onfido/onfido-sdk-web-sample-app/).
 
-#### Split bundle
+#### 4.4 Split bundle
 
 To decrease the size of your production bundle, you can use the split version of the library:
 
@@ -759,6 +759,13 @@ The custom options are:
   When enabled, it allows end-users to capture a selfie if their browser does not support MediaRecorder.
   When disabled, we will return an unsupported browser error if the end-user browser doesn’t support MediaRecorder.
 
+- `showIntro` (boolean - default: `true`)
+
+  This feature applies to [Video](https://developers.onfido.com/guide/facial-similarity-reports#video) and [Standard](https://developers.onfido.com/guide/facial-similarity-reports#standard) variants.
+
+  When disabled for the Standard variant, it will remove the entire intro screen from the flow.
+  When disabled for the Video variant, it will hide the example video displayed in the intro screen, only showing the text instructions.
+
 - `motionFallbackVariant` (string - default: `undefined`)
 
   This feature only applies to the [Motion](https://developers.onfido.com/guide/facial-similarity-reports#motion) variant and it allows to specify which face capture variant users will fallback to if Motion is not available on the end-user device due to MediaRecorder not being supported or to limited device capabilities.
@@ -1005,7 +1012,8 @@ In order to mitigate potential cross-site scripting issues, most modern browsers
   content="
   default-src 'self' https://assets.onfido.com;
   script-src 'self' 'unsafe-eval' https://assets.onfido.com https://sentry.io https://*.sardine.ai/;
-  style-src 'self' https://assets.onfido.com;
+  style-src 'self' 'unsafe-inline' https://assets.onfido.com https://sdk.onfido.com;
+  font-src 'self' https://sdk.onfido.com;
   connect-src 'self' data: blob: *.onfido.com wss://*.onfido.com https://sentry.io;
   img-src 'self' data: blob: https://assets.onfido.com/;
   media-src blob: https://assets.onfido.com;
@@ -1043,9 +1051,9 @@ Onfido Web SDK versions <13.0.0 have a parameter named `uploadFallback` that can
 
 ### Support
 
-Please open an issue through [GitHub](https://github.com/onfido/onfido-sdk-ui/issues). Please be as detailed as you can. Remember **not** to submit your token in the issue. Also check the closed issues to check whether it has been previously raised and answered.
+Should you encounter any technical issues during integration, please contact Onfido's Customer Support team via [email](mailto:support@onfido.com), including the word ISSUE: at the start of the subject line.
 
-If you have any issues that contain sensitive information please send us an email with the ISSUE: at the start of the subject to [web-sdk@onfido.com](mailto:web-sdk@onfido.com).
+Alternatively, you can search the support documentation available via the customer experience portal, [public.support.onfido.com](http://public.support.onfido.com).
 
 Previous versions of the SDK will be supported for a month after a new major version release. Note that when the support period has expired for an SDK version, no bug fixes will be provided, but the SDK will keep functioning (until further notice).
 

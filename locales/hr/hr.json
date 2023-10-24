@@ -188,15 +188,23 @@
       "odp_screenshot_title": "Otkriven je snimak zaslona"
     },
     "body": "Provjerite jeste li prenijeli cijelu stranicu dokumenta i jesu li detalji čitljivi te da nema zamućenja ni odsjaja",
+    "body_address_certificate": "Pobrinite se da ste prenijeli cijelu stranicu dokumenta i da su detalji jasno vidljivi bez zamućenja ili odsjaja",
     "body_bank_statement": "Provjerite jeste li prenijeli cijelu stranicu dokumenta i jesu li detalji čitljivi te da nema zamućenja ni odsjaja",
     "body_benefits_letter": "Provjerite jeste li prenijeli cijelu stranicu dokumenta i jesu li detalji čitljivi te da nema zamućenja ni odsjaja",
     "body_bill": "Provjerite jeste li prenijeli cijelu stranicu dokumenta i jesu li detalji čitljivi te da nema zamućenja ni odsjaja",
+    "body_exchange_house_statement": "Provjerite jeste li otpremili cijelu stranicu dokumenta i da su detalji jasno vidljivi bez zamućenja ili odbljeska",
+    "body_general_letter": "Provjerite jeste li otpremili cijelu stranicu dokumenta i da su detalji jasno vidljivi bez zamućenja ili odbljeska",
     "body_generic_document": "Pobrinite se da vaši podaci budu jasni i da ih ništa ne zakriva",
     "body_id": "Pobrinite se da vaši podaci budu jasni i da ih ništa ne zakriva",
+    "body_identity_document_with_address": "Provjerite jeste li otpremili cijelu stranicu dokumenta i jesu li detalji jasno vidljivi bez zamućenja ili odbljeska",
     "body_image_medium": "Trebat će nam više vremena da potvrdimo vaš identitet ako dokument nije čitljiv",
     "body_image_poor": "Kako bismo mogli neometano obaviti provjeru, potrebna nam je bolja fotografija",
+    "body_insurance_statement": "Provjerite jeste li otpremili cijelu stranicu dokumenta i jesu li detalji jasno vidljivi bez zamućenja ili odbljeska",
     "body_license": "Pobrinite se da vaši podaci budu jasni i da ih ništa ne zakriva",
+    "body_mobile_phone_bill": "Provjerite jeste li otpremili cijelu stranicu dokumenta i jesu li detalji jasno vidljivi bez zamućenja ili odbljeska",
+    "body_mortgage_statement": "Pobrinite se da ste prenijeli cijelu stranicu dokumenta i da su detalji jasno vidljivi bez zamućenja ili odbljeska",
     "body_passport": "Pobrinite se da vaši podaci budu jasni i da ih ništa ne zakriva",
+    "body_pension_property_statement_letter": "Provjerite jeste li otpremili cijelu stranicu dokumenta i jesu li detalji jasno vidljivi bez zamućenja ili odbljeska",
     "body_permit": "Pobrinite se da vaši podaci budu jasni i da ih ništa ne zakriva",
     "body_tax_letter": "Provjerite jeste li prenijeli cijelu stranicu dokumenta i jesu li detalji čitljivi te da nema zamućenja ni odsjaja",
     "button_close": "Zatvori",
@@ -217,21 +225,39 @@
   },
   "doc_select": {
     "button_address_card": "Potvrda o adresi",
+    "button_address_card_back": "Adresna kartica (straga)",
     "button_address_card_detail": "Prihvaćaju se privremene i trajne iskaznice",
+    "button_address_card_front": "Adresna kartica (prednja strana)",
     "button_bank_statement": "Izjava banke ili izjava o stambenoj štednji",
     "button_bank_statement_non_uk": "Bankovni izvod",
     "button_benefits_letter": "Potvrda o primanju naknada",
     "button_benefits_letter_detail": "Vladine odobrene pogodnosti za kućanstva npr. Naknada za nezaposlene, naknada za stanovanje, porezne olakšice",
     "button_bill": "Račun za komunalije",
     "button_bill_detail": "Plin, struja, voda, fiksni telefon i mobitel",
+    "button_exchange_house_statement": "Izjava Mjenjačnice",
+    "button_exchange_house_statement_detail": "Izjava pošiljatelja o prijenosu ili doznaci",
+    "button_general_letter": "Opće pismo",
+    "button_general_letter_detail": "Pismo od financijske institucije ili komunalnog poduzeća",
     "button_government_letter": "Vladina potvrda",
     "button_government_letter_detail": "Bilo kakva potvrda koju izdaje nadležno tijelo Vlade npr. pravo na naknade, glasačka potvrda, porezna potvrda itd.",
     "button_id": "Osobna iskaznica",
     "button_id_detail": "Sprijeda i straga",
+    "button_identity_document_with_address": "Identifikacijski dokument s adresom",
+    "button_identity_document_with_address_back": "Identifikacijski dokument s adresom (straga)",
+    "button_identity_document_with_address_detail": "Izdano od strane vladine institucije",
+    "button_identity_document_with_address_front": "Identifikacijski dokument s adresom (prednja strana)",
+    "button_insurance_statement": "Izjava o osiguranju",
+    "button_insurance_statement_detail": "Izdano od privatne osiguravajuće ili brokerske tvrtke",
     "button_license": "Vozačka dozvola",
     "button_license_detail": "Sprijeda i straga",
+    "button_mobile_phone_bill": "Račun za mobilni telefon",
+    "button_mobile_phone_bill_detail": "Izdano od pružatelja usluga mobilne mreže",
+    "button_mortgage_statement": "Izjava o hipoteci",
+    "button_mortgage_statement_detail": "Izdano od financijske kreditne institucije",
     "button_passport": "Putovnica",
     "button_passport_detail": "Stranica s fotografijom",
+    "button_pension_property_statement_letter": "Izjava/Pismo o mirovini ili nekretnini",
+    "button_pension_property_statement_letter_detail": "Izjava ili pismo o mirovini i Izjava ili pismo o porezu na nekretnine",
     "button_permit": "Boravišna dozvola",
     "button_permit_detail": "Sprijeda i straga",
     "button_tax_letter": "Potvrda o općinskom porezu",
@@ -258,17 +284,29 @@
     "button_link_upload": "ili prenesite fotografiju – skenovi i fotokopije nisu dopušteni",
     "button_primary": "Nastavite na mobitelu",
     "subtitle": "Snimite fotografiju mobitelom",
+    "title_address_certificate": "Pošalji adresnu karticu",
+    "title_address_certificate_back": "Pošalji adresnu karticu (straga)",
+    "title_address_certificate_front": "Predajte adresnu karticu (prednja strana)",
     "title_bank_statement": "Pošalji izjavu",
     "title_benefits_letter": "Pošalji potvrdu",
     "title_bill": "Pošalji račun",
+    "title_exchange_house_statement": "Predajte izjavu mjenjačnice",
+    "title_general_letter": "Pošalji općenito pismo",
     "title_generic_document_back": "Pošaljite dokument (poleđinu)",
     "title_generic_document_front": "Pošaljite dokument (prednju stranu)",
     "title_government_letter": "Vladina potvrda",
     "title_id_back": "Pošalji osobnu iskaznicu (snimku straga)",
     "title_id_front": "Pošalji osobnu iskaznicu (snimku sprijeda)",
+    "title_identity_document_with_address": "Predajte identifikacijski dokument s adresom",
+    "title_identity_document_with_address_back": "Predajte identifikacijski dokument s adresom (straga)",
+    "title_identity_document_with_address_front": "Predajte identifikacijski dokument s adresom (prednja strana)",
+    "title_insurance_statement": "Predajte izjavu o osiguranju",
     "title_license_back": "Pošalji dozvolu (snimku straga)",
     "title_license_front": "Pošalji dozvolu (snimku sprijeda)",
+    "title_mobile_phone_bill": "Predajte račun za mobilni telefon",
+    "title_mortgage_statement": "Predajte izjavu o hipoteci",
     "title_passport": "Pošalji stranicu s fotografijom iz putovnice",
+    "title_pension_property_statement_letter": "Pošalji izjavu ili pismo",
     "title_permit_back": "Pošaljite boravišnu dozvolu (snimku straga)",
     "title_permit_front": "Pošaljite boravišnu dozvolu (snimku sprijeda)",
     "title_tax_letter": "Pošalji potvrdu"
@@ -422,6 +460,29 @@
       "success": "Skeniranje uspješno"
     }
   },
+  "otp": {
+    "code_input": {
+      "error": {
+        "technical": "Došlo je do tehničke pogreške, molimo pokušajte ponovno kasnije",
+        "wrong_code": "Pogrešan kod unesen, molimo pokušajte ponovno"
+      },
+      "intro": "Kod poslan na vaš broj telefona bit će aktivan 5 minuta",
+      "resend": {
+        "cta": "Pošalji ponovno",
+        "label": "Poslan kod (do {limit})"
+      },
+      "title": "Jednokratna lozinka"
+    },
+    "send_code": {
+      "cta": "Pošalji kod",
+      "error": {
+        "limit": "Dosegli ste limit poslanih SMS poruka",
+        "technical": "Došlo je do tehničke pogreške, molimo pokušajte ponovno kasnije"
+      },
+      "intro": "Kako bismo provjerili vaš broj telefona, poslatćemo vam jednokratni kod koji trebate unijeti na sljedećem zaslonu.",
+      "title": "Jednokratna lozinka"
+    }
+  },
   "outro": {
     "body": "To je sve što nam je potrebno da pokrenemo postupak provjere vašeg identiteta",
     "body_government_letter": "Za najbolje rezultate pošaljite cijelu stranicu dokumenta",
@@ -444,139 +505,139 @@
   "permission_recovery": {
     "android": {
       "device_settings": {
-        "list_item_1": "Na vašem uređaju otvorite aplikaciju Postavke",
-        "list_item_2": "Dodirnite Aplikacije",
-        "list_item_3": "Dodirnite [BROWSER_ICON]. Ako ga ne možete pronaći, dodirnite Prikaži sve aplikacije ili Upravljanje aplikacijama i odaberite svoju aplikaciju za pregledavanje",
-        "list_item_4": "Odaberite Dozvole",
-        "list_item_5_cam": "Dodirnite Kamera i odaberite Dopusti",
-        "list_item_5_mic": "Dodirnite Mikrofon i odaberite Dopusti",
-        "list_item_6": "Vratite se na ovu stranicu i pritisnite gumb Napravio sam promjene"
+        "list_item_1": "Na vašem uređaju otvorite aplikaciju <strong>Postavke</strong>",
+        "list_item_2": "Dodirnite <strong>Aplikacije</strong>",
+        "list_item_3": "Dodirnite [BROWSER_ICON]. Ako ga ne možete pronaći, dodirnite <strong>Prikaži sve aplikacije</strong> ili <strong>Upravljanje aplikacijama</strong> i odaberite svoju aplikaciju za pregledavanje",
+        "list_item_4": "Odaberite <strong>Dozvole</strong>",
+        "list_item_5_cam": "Dodirnite <strong>Kamera</strong> i odaberite <strong>Dopusti</strong>",
+        "list_item_5_mic": "Dodirnite <strong>Mikrofon</strong> i odaberite <strong>Dopusti</strong>",
+        "list_item_6": "Vratite se na ovu stranicu i pritisnite gumb <strong>Napravio sam promjene</strong>"
       }
     },
     "android_chrome": {
       "browser_settings": {
         "list_item_1": "U svom pregledniku, dodirnite ikonu lokota [LOCK_ICON] u adresnoj traci",
-        "list_item_2": "Dodirnite Dozvole",
-        "list_item_3_cam": "Aktivirajte prekidač pored Kamere",
-        "list_item_3_mic": "Aktivirajte prekidač pored Mikrofona",
-        "list_item_4": "Vratite se na ovu stranicu i pritisnite gumb Napravio sam promjene"
+        "list_item_2": "Dodirnite <strong>Dozvole</strong>",
+        "list_item_3_cam": "Aktivirajte prekidač pored <strong>Kamere</strong>",
+        "list_item_3_mic": "Aktivirajte prekidač pored <strong>Mikrofona</strong>",
+        "list_item_4": "Vratite se na ovu stranicu i pritisnite gumb <strong>Napravio sam promjene</strong>"
       }
     },
     "android_firefox": {
       "browser_settings": {
         "list_item_1": "U svom pregledniku, dodirnite ikonu lokota [LOCK_ICON] u adresnoj traci",
-        "list_item_2_cam": "Dodirnite Blokirano pored Kamere da prebacite na Dozvoljeno",
-        "list_item_2_mic": "Dodirnite Blokirano pored Mikrofona da prebacite na Dozvoljeno",
-        "list_item_3": "Vratite se na ovu stranicu i pritisnite gumb Napravio sam promjene"
+        "list_item_2_cam": "Dodirnite <strong>Blokirano</strong> pored <strong>Kamere</strong> da prebacite na <strong>Dozvoljeno</strong>",
+        "list_item_2_mic": "Dodirnite <strong>Blokirano</strong> pored <strong>Mikrofona</strong> da prebacite na <strong>Dozvoljeno</strong>",
+        "list_item_3": "Vratite se na ovu stranicu i pritisnite gumb <strong>Napravio sam promjene</strong>"
       }
     },
     "android_generic": {
       "browser_settings": {
         "list_item_1": "U svom pregledniku otvorite postavke web stranice. To je često ikona lokota [LOCK_ICON] u adresnoj traci",
         "list_item_2": "Pronađite odjeljak o dozvolama",
-        "list_item_3_cam": "Omogućite dozvole za Kameru",
-        "list_item_3_mic": "Omogućite dozvole za Mikrofon",
-        "list_item_4": "Vratite se na ovu stranicu i pritisnite gumb Napravio sam promjene"
+        "list_item_3_cam": "Omogućite dozvole za <strong>Kameru</strong>",
+        "list_item_3_mic": "Omogućite dozvole za <strong>Mikrofon</strong>",
+        "list_item_4": "Vratite se na ovu stranicu i pritisnite gumb <strong>Napravio sam promjene</strong>"
       }
     },
     "android_samsung": {
       "browser_settings": {
         "list_item_1": "U svom pregledniku, dodirnite ikonu lokota [LOCK_ICON] u adresnoj traci",
-        "list_item_2_cam": "Aktivirajte prekidač pored Kamere",
-        "list_item_2_mic": "Aktivirajte prekidač pored Mikrofona",
-        "list_item_3": "Vratite se na ovu stranicu i pritisnite gumb Napravio sam promjene"
+        "list_item_2_cam": "Aktivirajte prekidač pored <strong>Kamere</strong>",
+        "list_item_2_mic": "Aktivirajte prekidač pored <strong>Mikrofona</strong>",
+        "list_item_3": "Vratite se na ovu stranicu i pritisnite gumb <strong>Napravio sam promjene</strong>"
       }
     },
     "button_primary": "Osvježi",
     "desktop_chrome": {
       "browser_settings": {
         "list_item_1": "U svom pregledniku, kliknite na ikonu lokota [LOCK_ICON] u adresnoj traci",
-        "list_item_2_cam": "Aktivirajte prekidač pored Kamere",
-        "list_item_2_mic": "Aktivirajte prekidač pored Mikrofona",
-        "list_item_3": "Vratite se na ovu stranicu i kliknite na gumb Napravio sam promjene"
+        "list_item_2_cam": "Aktivirajte prekidač pored <strong>Kamere</strong>",
+        "list_item_2_mic": "Aktivirajte prekidač pored <strong>Mikrofona</strong>",
+        "list_item_3": "Vratite se na ovu stranicu i kliknite na gumb <strong>Napravio sam promjene</strong>"
       }
     },
     "desktop_edge": {
       "browser_settings": {
         "list_item_1": "U svom pregledniku, kliknite na ikonu lokota [LOCK_ICON] u adresnoj traci",
-        "list_item_2_cam": "Kliknite na padajući izbornik pored Kamere i odaberite Dopusti",
-        "list_item_2_mic": "Kliknite padajući izbornik pokraj  Mikrofon  i odaberite  Dopusti ",
-        "list_item_3": "Vratite se na ovu stranicu i kliknite na gumb Napravio sam promjene"
+        "list_item_2_cam": "Kliknite na padajući izbornik pored <strong>Kamere</strong> i odaberite <strong>Dopusti</strong>",
+        "list_item_2_mic": "Kliknite padajući izbornik pokraj <strong> Mikrofon </strong> i odaberite <strong> Dopusti </strong>",
+        "list_item_3": "Vratite se na ovu stranicu i kliknite na gumb <strong>Napravio sam promjene</strong>"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
         "list_item_1": "U svom pregledniku, kliknite na ikonu postavki [SETTINGS_ICON_FIREFOX] u adresnoj traci",
-        "list_item_2_cam": "Kliknite na Blokirano pored Koristi kameru",
-        "list_item_2_mic": "Kliknite na Blokirano pored Koristi mikrofon",
-        "list_item_3": "Vratite se na ovu stranicu i kliknite na gumb Napravio sam promjene"
+        "list_item_2_cam": "Kliknite na <strong>Blokirano</strong> pored <strong>Koristi kameru</strong>",
+        "list_item_2_mic": "Kliknite na <strong>Blokirano</strong> pored <strong>Koristi mikrofon</strong>",
+        "list_item_3": "Vratite se na ovu stranicu i kliknite na gumb <strong>Napravio sam promjene</strong>"
       }
     },
     "desktop_generic": {
       "browser_settings": {
         "list_item_1": "U svom pregledniku otvorite postavke web stranice. To je često ikona lokota [LOCK_ICON] u adresnoj traci",
         "list_item_2": "Pronađite odjeljak o dozvolama",
-        "list_item_3_cam": "Omogućite dozvole za Kameru",
-        "list_item_3_mic": "Omogućite dozvole za Mikrofon",
-        "list_item_4": "Vratite se na ovu stranicu i kliknite na gumb Napravio sam promjene"
+        "list_item_3_cam": "Omogućite dozvole za <strong>Kameru</strong>",
+        "list_item_3_mic": "Omogućite dozvole za <strong>Mikrofon</strong>",
+        "list_item_4": "Vratite se na ovu stranicu i kliknite na gumb <strong>Napravio sam promjene</strong>"
       },
       "device_settings": {
-        "list_item_1": "Na svom računalu otvorite svoje Postavke",
-        "list_item_2": "Pronađite odjeljak o dozvolama (obično pod Privatnost)",
-        "list_item_3_cam": "Omogućite dozvole za Kameru za [BROWSER_ICON]",
-        "list_item_3_mic": "Omogućite dozvole za Mikrofon za [BROWSER_ICON]",
+        "list_item_1": "Na svom računalu otvorite svoje <strong>Postavke</strong>",
+        "list_item_2": "Pronađite odjeljak o dozvolama (obično pod <strong>Privatnost</strong>)",
+        "list_item_3_cam": "Omogućite dozvole za <strong>Kameru</strong> za [BROWSER_ICON]",
+        "list_item_3_mic": "Omogućite dozvole za <strong>Mikrofon</strong> za [BROWSER_ICON]",
         "list_item_4": "Ponovno pokrenite preglednik ako je potrebno i vratite se na ovu stranicu"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "Na svom računalu, kliknite na Apple izbornik [APPLE_ICON] i odaberite Sistemske postavke (ili Postavke sustava)",
-        "list_item_2": "Kliknite na Privatnost i sigurnost (ili Sigurnost i privatnost) u bočnoj traci ",
-        "list_item_3": "Kliknite na Kasnije u skočnom prozoru",
-        "list_item_3_cam": "Kliknite na Kamera i aktivirajte prekidač (ili potvrdni okvir) pored [BROWSER_ICON]",
-        "list_item_4": "Kliknite na Zatvori i ponovno otvori u skočnom prozoru i vratite se na ovu stranicu",
-        "list_item_4_mic": "Kliknite na Mikrofon i aktivirajte prekidač (ili potvrdni okvir) pored [BROWSER_ICON]"
+        "list_item_1": "Na svom računalu, kliknite na Apple izbornik [APPLE_ICON] i odaberite <strong>Sistemske postavke</strong> (ili <strong>Postavke sustava</strong>)",
+        "list_item_2": "Kliknite na <strong>Privatnost i sigurnost</strong> (ili <strong>Sigurnost i privatnost</strong>) u bočnoj traci ",
+        "list_item_3": "Kliknite na <strong>Kasnije</strong> u skočnom prozoru",
+        "list_item_3_cam": "Kliknite na <strong>Kamera</strong> i aktivirajte prekidač (ili potvrdni okvir) pored [BROWSER_ICON]",
+        "list_item_4": "Kliknite na <strong>Zatvori i ponovno otvori</strong> u skočnom prozoru i vratite se na ovu stranicu",
+        "list_item_4_mic": "Kliknite na <strong>Mikrofon</strong> i aktivirajte prekidač (ili potvrdni okvir) pored [BROWSER_ICON]"
       }
     },
     "desktop_safari": {
       "browser_settings": {
-        "list_item_1": "U svom pregledniku, desnom tipkom miša kliknite na adresnu traku i odaberite Postavke",
-        "list_item_2_cam": "Kliknite na padajući izbornik pored Kamere i odaberite Dopusti",
-        "list_item_2_mic": "Kliknite na padajući izbornik pored Mikrofona i odaberite Dopusti",
-        "list_item_3": "Vratite se na ovu stranicu i kliknite na gumb Napravio sam promjene"
+        "list_item_1": "U svom pregledniku, desnom tipkom miša kliknite na adresnu traku i odaberite <strong>Postavke</strong>",
+        "list_item_2_cam": "Kliknite na padajući izbornik pored <strong>Kamere</strong> i odaberite <strong>Dopusti</strong>",
+        "list_item_2_mic": "Kliknite na padajući izbornik pored <strong>Mikrofona</strong> i odaberite <strong>Dopusti</strong>",
+        "list_item_3": "Vratite se na ovu stranicu i kliknite na gumb <strong>Napravio sam promjene</strong>"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "Na svom računalu, kliknite na Windows izbornik [WINDOWS_ICON] i odaberite Postavke [SETTINGS_ICON_WINDOWS]",
-        "list_item_2": "Kliknite Privatnost (ili Privatnost & Sigurnost)",
-        "list_item_3_cam": "Kliknite na Kamera pod Dozvole za aplikacije i aktivirajte prekidač pored [BROWSER_ICON]",
-        "list_item_3_mic": "Kliknite na Mikrofon pod Dozvole za aplikacije i aktivirajte prekidač pored [BROWSER_ICON]",
+        "list_item_1": "Na svom računalu, kliknite na Windows izbornik [WINDOWS_ICON] i odaberite <strong>Postavke</strong> [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "Kliknite <strong>Privatnost</strong> (ili <strong>Privatnost & Sigurnost</strong>)",
+        "list_item_3_cam": "Kliknite na <strong>Kamera</strong> pod <strong>Dozvole za aplikacije</strong> i aktivirajte prekidač pored [BROWSER_ICON]",
+        "list_item_3_mic": "Kliknite na <strong>Mikrofon</strong> pod <strong>Dozvole za aplikacije</strong> i aktivirajte prekidač pored [BROWSER_ICON]",
         "list_item_4": "Ponovno pokrenite preglednik ako je potrebno i vratite se na ovu stranicu"
       }
     },
     "info": "Ponovno dopuštanje pristupa",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "Dotaknite gumb Napravio sam promjene. Bit će vam ponovno zatražen pristup kameri i mikrofonu. Kada se pojavi skočni prozor, odaberite Dopusti (ili U redu)",
-        "list_item_1_cam": "Odaberite gumb Napravio sam promjene. Bit će vam zatraženo da ponovno omogućite pristup kameri. Kada se pojavi skočni prozor, odaberite Dopusti (ili U redu)",
-        "list_item_1_mic": "Odaberite gumb Napravio sam promjene. Bit će vam ponovno zatražen pristup mikrofonu. Kada se pojavi skočni prozor, odaberite Dopusti (ili U redu)"
+        "list_item_1_both": "Dotaknite gumb <strong>Napravio sam promjene</strong>. Bit će vam ponovno zatražen pristup kameri i mikrofonu. Kada se pojavi skočni prozor, odaberite <strong>Dopusti</strong> (ili <strong>U redu</strong>)",
+        "list_item_1_cam": "Odaberite gumb <strong>Napravio sam promjene</strong>. Bit će vam zatraženo da ponovno omogućite pristup kameri. Kada se pojavi skočni prozor, odaberite <strong>Dopusti</strong> (ili <strong>U redu</strong>)",
+        "list_item_1_mic": "Odaberite gumb <strong>Napravio sam promjene</strong>. Bit će vam ponovno zatražen pristup mikrofonu. Kada se pojavi skočni prozor, odaberite <strong>Dopusti</strong> (ili <strong>U redu</strong>)"
       },
       "device_settings": {
-        "list_item_1": "Na vašem uređaju otvorite aplikaciju Postavke",
+        "list_item_1": "Na vašem uređaju otvorite aplikaciju <strong>Postavke</strong>",
         "list_item_2": "Pomaknite se kroz popis i dodirnite [BROWSER_ICON]",
-        "list_item_3_cam": "Aktivirajte prekidač pored Kamere",
-        "list_item_3_mic": "Aktivirajte prekidač pored Mikrofona",
-        "list_item_4": "Vratite se na ovu stranicu i pritisnite gumb Napravio sam promjene"
+        "list_item_3_cam": "Aktivirajte prekidač pored <strong>Kamere</strong>",
+        "list_item_3_mic": "Aktivirajte prekidač pored <strong>Mikrofona</strong>",
+        "list_item_4": "Vratite se na ovu stranicu i pritisnite gumb <strong>Napravio sam promjene</strong>"
       }
     },
     "ios_safari": {
       "device_settings": {
-        "list_item_1": "Na vašem uređaju otvorite aplikaciju Postavke",
+        "list_item_1": "Na vašem uređaju otvorite aplikaciju <strong>Postavke</strong>",
         "list_item_2": "Pomaknite se kroz popis i dodirnite [BROWSER_ICON]",
-        "list_item_3_cam": "Dodirnite Kamera i odaberite Dopusti",
-        "list_item_3_mic": "Dodirnite Mikrofon i odaberite Dopusti",
-        "list_item_4": "Vratite se na ovu stranicu i pritisnite gumb Napravio sam promjene"
+        "list_item_3_cam": "Dodirnite <strong>Kamera</strong> i odaberite <strong>Dopusti</strong>",
+        "list_item_3_mic": "Dodirnite <strong>Mikrofon</strong> i odaberite <strong>Dopusti</strong>",
+        "list_item_4": "Vratite se na ovu stranicu i pritisnite gumb <strong>Napravio sam promjene</strong>"
       }
     },
     "list_header_both": "Da biste ponovno odobrili pristup, učinite sljedeće:",
@@ -585,7 +646,7 @@
     "list_item_how_to_both": "Dajte svoje dopuštenje za pristup kameri i mikrofonu u postavkama preglednika",
     "list_item_how_to_cam": "Dajte svoje dopuštenje za pristup kameri u postavkama preglednika",
     "list_item_how_to_mic": "Dopustite pristup svojem mikrofonu u postavkama preglednika",
-    "subtitle_both": "Ponovno dopustite pristup mikrofonu kako biste mogli snimiti videozapis i dovršiti postupak provjere identiteta",
+    "subtitle_both": "Potrebna nam je pristup vašoj kameri i mikrofonu kako bismo provjerili vaš identitet. Slijedite upute u nastavku kako biste povratili pristup",
     "subtitle_cam": "Potrebna nam je pristup vašoj kameri kako bismo provjerili vaš identitet. Slijedite upute u nastavku kako biste povratili pristup",
     "subtitle_cam_old": "Ponovno dopustite pristup kameri kako bismo mogli nastaviti s provjerom",
     "subtitle_mic": "Potrebna nam je pristup vašem mikrofonu kako bismo provjerili vaš identitet. Slijedite upute u nastavku kako biste povratili pristup",
@@ -604,16 +665,27 @@
     }
   },
   "photo_upload": {
+    "body_address_certificate_back": "Prenesite stražnju stranu dokumenta s vašeg računala",
+    "body_address_certificate_front": "Prenesite prednju stranu dokumenta s vašeg računala",
     "body_bank_statement": "Za najbolje rezultate pošaljite cijelu stranicu dokumenta",
     "body_benefits_letter": "Za najbolje rezultate pošaljite cijelu stranicu dokumenta",
     "body_bill": "Za najbolje rezultate pošaljite cijelu stranicu dokumenta",
+    "body_exchange_house_statement": "Pružite cijelu stranicu dokumenta za najbolje rezultate",
+    "body_general_letter": "Pružite cijelu stranicu dokumenta za najbolje rezultate",
     "body_generic_document_back": "Prenesite snimku poleđine dokumenta sa svojeg računala",
     "body_generic_document_front": "Prenesite snimku prednje strane dokumenta sa svojeg računala",
     "body_id_back": "Prenesite snimku stražnje strane osobne iskaznice sa svog računala",
     "body_id_front": "Prenesite snimku prednje strane osobne iskaznice sa svog računala",
+    "body_identity_document_with_address": "Pružite cijelu stranicu dokumenta za najbolje rezultate",
+    "body_identity_document_with_address_back": "Prenesite stražnju stranu dokumenta s vašeg računala",
+    "body_identity_document_with_address_front": "Prenesite prednju stranu dokumenta s vašeg računala",
+    "body_insurance_statement": "Pružite cijelu stranicu dokumenta za najbolje rezultate",
     "body_license_back": "Prenesite snimku stražnje strane dozvole sa svog računala",
     "body_license_front": "Prenesite snimku prednje strane dozvole sa svog računala",
+    "body_mobile_phone_bill": "Pružite cijelu stranicu dokumenta za najbolje rezultate",
+    "body_mortgage_statement": "Pružite cijelu stranicu dokumenta za najbolje rezultate",
     "body_passport": "Prenesite snimku stranice s fotografijom iz putovnice sa svog računala",
+    "body_pension_property_statement_letter": "Pružite cijelu stranicu dokumenta za najbolje rezultate",
     "body_selfie": "Prenesite selfie snimku sa svog računala",
     "body_tax_letter": "Za najbolje rezultate pošaljite cijelu stranicu dokumenta",
     "button_take_photo": "Snimite fotografiju",
@@ -641,13 +713,15 @@
     "subtitle_address_card": "Potvrda s adresom mora biti valjana",
     "subtitle_bank_statement": "Ne smije biti starija od ​​3 mjeseca​​",
     "subtitle_benefits_letter": "Ne smije biti starije od ​​12 mjeseci​​",
-    "subtitle_bill": "Ne smije biti stariji od ​​3 mjeseca​​",
-    "subtitle_tax_letter": "Ne smije biti starije od ​​12 mjeseci​​"
+    "subtitle_bill": "Ne smije biti stariji od ​​3 mjeseca​",
+    "subtitle_dynamic_empty_grace_period": "Mora biti valjani dokument",
+    "subtitle_dynamic_grace_period": "Izdano mora biti u zadnjih <graceperiod></graceperiod> mjeseci",
+    "subtitle_tax_letter": "Ne smije biti starije od ​​12 mjeseci​"
   },
   "poa_intro": {
     "button_primary": "Pokrenite postupak provjere",
     "list_matches_signup": "Adresa s dokumenta mora se podudarati s onom koju ste upotrijebili prilikom registracije",
-    "list_most_recent": "Dokument koji šaljete mora ​​biti friškijeg datuma​​ izdavanja",
+    "list_most_recent": "Dokument koji šaljete mora ​biti friškijeg datuma​​ izdavanja",
     "list_shows_address": "Na dokumentu mora biti vidljiva vaša ​​trenutačna​​ adresa",
     "subtitle": "Evo kakav vam je dokument potreban:",
     "title": "Najprije ćemo provjeriti vašu adresu"
@@ -952,6 +1026,51 @@
       "details_timeout": "Započnite iznova",
       "header_timeout": "Čini se da vam je trebalo previše vremena za to"
     }
+  },
+  "qes": {
+    "consent": {
+      "common": {
+        "steps": "Kreirajte svoj potpis"
+      },
+      "confirmation": {
+        "bullet_1": "Nakon čitanja vašeg dokumenta, dodirnite gumb \"Potpiši dokument\".",
+        "bullet_2": "Jednom kada Onfido potvrdi vaš identitet, vaš potpis će se koristiti na ovom dokumentu.",
+        "button_next_step": "Potpiši dokument",
+        "review_document": "Pregledajte <fallback>vaš dokument</fallback> za potpisivanje",
+        "step2": "2 od 2",
+        "steps": "Potpišite svoj dokument",
+        "subtitle": "Da biste potvrdili svoj identitet u skladu s europskim pravilima, morate digitalno potpisati dokument.",
+        "title": "Stvorite i koristite svoj digitalni potpis"
+      },
+      "introduction": {
+        "button_confirmation_step": "Kreiraj moj potpis",
+        "certificate_application_form": "Obrazac za prijavu certifikata",
+        "privacy_notice": "Obavijest o privatnosti",
+        "step1": "1 od 2",
+        "subtitle": "Da biste potvrdili svoj identitet u skladu s europskim pravilima, morate digitalno potpisati dokument.",
+        "terms_and_conditions": "Uvjeti i odredbe",
+        "third_party_description": "<fallback>Namirial SpA</fallback> je pouzdani globalni pružatelj koji će izdati certifikat koji potvrđuje vaš elektronički potpis.",
+        "title": "Stvorite i koristite svoj digitalni potpis"
+      }
+    }
+  },
+  "qes_consent": {
+    "button": "Kreiraj moj potpis",
+    "link_certificate": "Obrazac za prijavu certifikata",
+    "link_privacy_notice": "Obavijest o privatnosti",
+    "link_terms_and_conditions": "Uvjeti i odredbe",
+    "namirial_intro": "Namirial SpA je pouzdani globalni pružatelj koji će izdati certifikat koji potvrđuje vaš elektronički potpis.",
+    "subtitle": "Da biste potvrdili svoj identitet u skladu s europskim pravilima, morate digitalno potpisati dokument.",
+    "title": "Stvorite i koristite svoj digitalni potpis"
+  },
+  "qes_sign": {
+    "button": "Potpiši dokument",
+    "link_document": "Pregledajte svoj dokument za potpisivanje",
+    "list_item_1": "Nakon čitanja vašeg dokumenta, dodirnite gumb \"Potpiši dokument\".",
+    "list_item_2": "Jednom kada Onfido potvrdi vaš identitet, vaš će potpis biti korišten na ovom dokumentu.",
+    "step_title": "Potpišite svoj dokument",
+    "subtitle": "Da biste potvrdili svoj identitet u skladu s europskim pravilima, morate digitalno potpisati dokument.",
+    "title": "Stvorite i koristite svoj digitalni potpis"
   },
   "retry_feedback": {
     "button_primary": "Pokušajte ponovno"

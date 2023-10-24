@@ -10,6 +10,23 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 
+## [13.6.0] - 2023-10-24
+
+### Changed
+
+- Document capture: Add integrator events 'DOCUMENT_CAPTURE_FRONT' and 'DOCUMENT_CAPTURE_BACK' for the Javascript camera.
+- Document country selection: Automatically close the keyboard after country is selected
+- Add support a selection of Google fonts
+
+## [13.5.0] - 2023-10-06
+
+### Changed
+
+- Fix: A click on the search icon in the Country Selector will focus the input field
+- Fix: JS Document capture is now fixed for Firefox on Android
+- Fix: Show spinner while we're waiting for the next studio task to be ready
+- Add new `showIntro` configuration for the Standard and Video capture steps
+
 ## [13.4.0] - 2023-09-27
 
 ### Changed
@@ -1617,7 +1634,9 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/13.4.0...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/13.6.0...development
+[13.6.0]: https://github.com/onfido/onfido-sdk-ui/compare/13.5.0...13.6.0
+[13.5.0]: https://github.com/onfido/onfido-sdk-ui/compare/13.4.0...13.5.0
 [13.4.0]: https://github.com/onfido/onfido-sdk-ui/compare/13.3.2...13.4.0
 [13.3.2]: https://github.com/onfido/onfido-sdk-ui/compare/13.3.1...13.3.2
 [13.3.1]: https://github.com/onfido/onfido-sdk-ui/compare/13.3.0...13.3.1

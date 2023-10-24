@@ -137,12 +137,12 @@ The Web SDK supports customization options across the SDK screen including text,
   | `colorBackgroundLinkHover`  | Change Link background color on hover     |
   | `colorBackgroundLinkActive` | Change Link background color on click/tap |
 
-  | Warning Popups                    | Description                                                |
-  | --------------------------------- | ---------------------------------------------------------- |
-  | `colorContentAlertInfo`           | Change warning popup text color                            |
-  | `colorBackgroundAlertInfo`        | Change warning popup background color                      |
-  | `colorContentAlertInfoLinkHover`  | Change warning popup fallback Link background on hover     |
-  | `colorContentAlertInfoLinkActive` | Change warning popup fallback Link background on click/tap |
+  | Warning Popups                       | Description                                                |
+  | ------------------------------------ | ---------------------------------------------------------- |
+  | `colorContentAlertInfo`              | Change warning popup text color                            |
+  | `colorBackgroundAlertInfo`           | Change warning popup background color                      |
+  | `colorBackgroundAlertInfoLinkHover`  | Change warning popup fallback Link background on hover     |
+  | `colorBackgroundAlertInfoLinkActive` | Change warning popup fallback Link background on click/tap |
 
   | Error Popups                       | Description                                              |
   | ---------------------------------- | -------------------------------------------------------- |
@@ -169,3 +169,23 @@ The Web SDK supports customization options across the SDK screen including text,
   | Cross-device            | Description                                                       |
   | ----------------------- | ----------------------------------------------------------------- |
   | `colorBackgroundQRCode` | Change background color of the QR code on the Cross device screen |
+
+  #### Google Font
+
+  | Option        | Description                      |
+  | ------------- | -------------------------------- |
+  | `googleFonts` | Load Google Font(s) into the SDK |
+
+  The following fonts are available:
+
+  - [Overpass](https://fonts.google.com/specimen/Overpass)
+  - To request support for additional fonts, please reach out to your Customer Support Manager or email [Onfido Support](mailto:support@onfido)\*
+
+  ```javascript
+  customUI: {
+    "googleFonts": ["Overpass"],
+    "fontFamilyTitle": "'Overpass', sans-serif",
+  }
+  ```
+
+  ⚠️ **The fonts are hosted by Onfido and won't be loaded from Google's servers.**

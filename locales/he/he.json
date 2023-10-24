@@ -188,15 +188,23 @@
       "odp_screenshot_title": "צילום מסך זוהה"
     },
     "body": "ודא שהעלית את עמוד המסמך בשלמותו ושהפרטים ברורים לקריאה ללא טשטוש או השתקפות",
+    "body_address_certificate": "ודא שהעלית את כל עמוד המסמך, והפרטים ברורים לקריאה ללא טשטוש או הבהוב",
     "body_bank_statement": "ודא שהעלית את עמוד המסמך בשלמותו ושהפרטים ברורים לקריאה ללא טשטוש או השתקפות",
     "body_benefits_letter": "ודא שהעלית את עמוד המסמך בשלמותו ושהפרטים ברורים לקריאה ללא טשטוש או השתקפות",
     "body_bill": "ודא שהעלית את עמוד המסמך בשלמותו ושהפרטים ברורים לקריאה ללא טשטוש או השתקפות",
+    "body_exchange_house_statement": "ודא שהעלית את כל עמוד המסמך, והפרטים ברורים לקריאה ללא טשטוש או בהירות יתר",
+    "body_general_letter": "ודא שהעלית את כל עמוד המסמך, והפרטים ברורים לקריאה ללא טשטוש או בהירות יתר",
     "body_generic_document": "ודא שהפרטים ברורים ולא חסומים",
     "body_id": "ודא שהפרטים ברורים ולא חסומים",
+    "body_identity_document_with_address": "ודא שהעלית את כל עמוד המסמך, והפרטים ברורים לקריאה ללא טשטוש או בהירות יתר",
     "body_image_medium": "אם לא נוכל לקרוא את המידע, ייקח יותר זמן לאמת את זהותך",
     "body_image_poor": "אנחנו צריכים תמונה טובה יותר כדי לאמת את זהותך",
+    "body_insurance_statement": "ודא שהעלית את כל עמוד המסמך, והפרטים ברורים לקריאה ללא טשטוש או בהירות יתר",
     "body_license": "ודא שהפרטים ברורים ולא חסומים",
+    "body_mobile_phone_bill": "ודא שהעלית את כל עמוד המסמך, והפרטים ברורים לקריאה ללא טשטוש או בהירות יתר",
+    "body_mortgage_statement": "ודא שהעלית את כל עמוד המסמך, והפרטים ברורים לקריאה ללא טשטוש או בהירות יתר",
     "body_passport": "ודא שהפרטים ברורים ולא חסומים",
+    "body_pension_property_statement_letter": "ודא שהעלית את כל עמוד המסמך, והפרטים ברורים לקריאה ללא טשטוש או בהירות יתר",
     "body_permit": "ודא שהפרטים ברורים ולא חסומים",
     "body_tax_letter": "ודא שהעלית את עמוד המסמך בשלמותו ושהפרטים ברורים לקריאה ללא טשטוש או השתקפות",
     "button_close": "סגור",
@@ -217,21 +225,39 @@
   },
   "doc_select": {
     "button_address_card": "כתובת לחיוב",
+    "button_address_card_back": "כרטיס כתובת (אחור)",
     "button_address_card_detail": "אנו מקבלים כרטיסים זמניים וקבועים",
+    "button_address_card_front": "כרטיס כתובת (חזית)",
     "button_bank_statement": "הצהרת בנק או חברת בנייה",
     "button_bank_statement_non_uk": "דף חשבון בנק",
     "button_benefits_letter": "אישור קבלת קצבאות",
     "button_benefits_letter_detail": "למשל, הטבות ממשלתיות מורשות למשק בית. קצבה למחפשי עבודה, הטבת דיור, נקודות זיכוי במס",
     "button_bill": "חשבון חשמל",
     "button_bill_detail": "גז, חשמל, מים, טלפון קווי או פס רחב",
+    "button_exchange_house_statement": "הצהרת בית החליפין",
+    "button_exchange_house_statement_detail": "הצהרת השולח על העברה או המשלוח",
+    "button_general_letter": "מכתב כללי",
+    "button_general_letter_detail": "מכתב ממוסד כספי או חברת שירותים",
     "button_government_letter": "מכתב ממשלתי",
     "button_government_letter_detail": "כל מכתב ממשלתי שהונפק, למשל זכאות להטבות, הודעה לבוחר, מכתבים מרשויות המס וכו'",
     "button_id": "תעודת זהות",
     "button_id_detail": "צד קדמי וצד אחורי",
+    "button_identity_document_with_address": "מסמך זהות עם כתובת",
+    "button_identity_document_with_address_back": "תעודת זהות עם כתובת (אחור)",
+    "button_identity_document_with_address_detail": "הונפק על ידי רשות ממשלתית",
+    "button_identity_document_with_address_front": "תעודת זהות עם כתובת (חזית)",
+    "button_insurance_statement": "הצהרת ביטוח",
+    "button_insurance_statement_detail": "הונפק מחברת ביטוח או חברת ברוקראז' פרטית",
     "button_license": "רישיון נהיגה",
     "button_license_detail": "צד קדמי וצד אחורי",
+    "button_mobile_phone_bill": "חשבון טלפון נייד",
+    "button_mobile_phone_bill_detail": "הונפק מספק רשת לטלפון נייד",
+    "button_mortgage_statement": "דוח משכנתא",
+    "button_mortgage_statement_detail": "הונפק ממוסד האשראי הפיננסי",
     "button_passport": "דרכון",
     "button_passport_detail": "עמוד תמונה",
+    "button_pension_property_statement_letter": "הצהרת/מכתב פנסיה או נכס",
+    "button_pension_property_statement_letter_detail": "הצהרת פנסיה או מכתב והצהרת מס נכסים או מכתב",
     "button_permit": "היתר שהייה",
     "button_permit_detail": "צד קדמי וצד אחורי",
     "button_tax_letter": "אישור ארנונה",
@@ -258,17 +284,29 @@
     "button_link_upload": "או העלה תמונה – ללא סריקות או צילומים",
     "button_primary": "המשך בטלפון הנייד",
     "subtitle": "צלם תמונה עם הטלפון",
+    "title_address_certificate": "שלח כרטיס כתובת",
+    "title_address_certificate_back": "שלח כרטיס כתובת (אחור)",
+    "title_address_certificate_front": "שלח כרטיס כתובת (חזית)",
     "title_bank_statement": "שלח הצהרה",
     "title_benefits_letter": "שלח מכתב",
     "title_bill": "שלח חשבון",
+    "title_exchange_house_statement": "שלח הצהרת בית החליפין",
+    "title_general_letter": "שלח מכתב כללי",
     "title_generic_document_back": "שלח מסמך (גב)",
     "title_generic_document_front": "שלח מסמך (החלק הקדמי)",
     "title_government_letter": "מכתב ממשלתי",
     "title_id_back": "שלח תעודת זהות (חלק אחורי)",
     "title_id_front": "שלח תעודת זהות (חלק קדמי)",
+    "title_identity_document_with_address": "שלח מסמך זהות עם כתובת",
+    "title_identity_document_with_address_back": "שלח מסמך זהות עם כתובת (חלק האחורי)",
+    "title_identity_document_with_address_front": "שלח מסמך זהות עם כתובת (חזית)",
+    "title_insurance_statement": "שלח דוח ביטוח",
     "title_license_back": "שלח רישיון (צד אחורי)",
     "title_license_front": "שלח רישיון (צד קדמי)",
+    "title_mobile_phone_bill": "שלח חשבון טלפון נייד",
+    "title_mortgage_statement": "שלח דוח משכנתא",
     "title_passport": "שלח עמוד דרכון עם תמונה",
+    "title_pension_property_statement_letter": "שלח הצהרה או מכתב",
     "title_permit_back": "שלח היתר שהייה (צד אחורי)",
     "title_permit_front": "שלח היתר שהייה (צד קדמי)",
     "title_tax_letter": "שלח מכתב"
@@ -422,6 +460,29 @@
       "success": "הסריקה הצליחה"
     }
   },
+  "otp": {
+    "code_input": {
+      "error": {
+        "technical": "אירעה שגיאה טכנית, אנא נסה שוב מאוחר יותר",
+        "wrong_code": "הוזן קוד שגוי, אנא נסה שוב"
+      },
+      "intro": "הקוד שנשלח אל מספר הטלפון שלך יהיה פעיל למשך 5 דקות",
+      "resend": {
+        "cta": "שלח שוב",
+        "label": "קוד נשלח (עד {limit})"
+      },
+      "title": "סיסמה חד פעמית"
+    },
+    "send_code": {
+      "cta": "שלח קוד",
+      "error": {
+        "limit": "הגעת למגבלת ה-SMS שנשלחו",
+        "technical": "אירעה שגיאה טכנית, אנא נסה שוב מאוחר יותר"
+      },
+      "intro": "על מנת לאמת את מספר הטלפון שלך, אנו הולכים לשלוח לך קוד לשימוש חד פעמי להזנה במסך הבא.",
+      "title": "סיסמה חד פעמית"
+    }
+  },
   "outro": {
     "body": "זה כל מה שאנחנו צריכים כדי להתחיל לאמת את זהותך",
     "body_government_letter": "שלח את עמוד המסמך בשלמותו כדי לקבל התוצאות הטובות ביותר",
@@ -444,139 +505,139 @@
   "permission_recovery": {
     "android": {
       "device_settings": {
-        "list_item_1": "במכשיר שלך, פתח את האפליקציה הגדרות",
-        "list_item_2": "הקש על  אפליקציות ",
-        "list_item_3": "הקש על [BROWSER_ICON]. אם אתה לא מוצא אותו, הקש על ראה את כל האפליקציות או נהל אפליקציות ובחר את אפליקציית הדפדפן שלך",
-        "list_item_4": "הקש הרשאות",
-        "list_item_5_cam": "הקש על מצלמה ובחר אפשר",
-        "list_item_5_mic": "הקש על מיקרופון ובחר אפשר",
-        "list_item_6": "חזור לדף זה ולחץ על הכפתור ביצעתי את השינויים"
+        "list_item_1": "במכשיר שלך, פתח את האפליקציה <strong>הגדרות</strong>",
+        "list_item_2": "הקש על <strong> אפליקציות </strong>",
+        "list_item_3": "הקש על [BROWSER_ICON]. אם אתה לא מוצא אותו, הקש על <strong>ראה את כל האפליקציות</strong> או <strong>נהל אפליקציות</strong> ובחר את אפליקציית הדפדפן שלך",
+        "list_item_4": "הקש <strong>הרשאות</strong>",
+        "list_item_5_cam": "הקש על <strong>מצלמה</strong> ובחר <strong>אפשר</strong>",
+        "list_item_5_mic": "הקש על <strong>מיקרופון</strong> ובחר <strong>אפשר</strong>",
+        "list_item_6": "חזור לדף זה ולחץ על הכפתור <strong>ביצעתי את השינויים</strong>"
       }
     },
     "android_chrome": {
       "browser_settings": {
         "list_item_1": "בדפדפן שלך, הקש על סמל הנעילה [LOCK_ICON] בשורת הכתובת",
-        "list_item_2": "הקש על הרשאות",
-        "list_item_3_cam": "הפעל את המתג ליד מצלמה",
-        "list_item_3_mic": "הפעל את המתג ליד המיקרופון",
-        "list_item_4": "חזור לדף זה ולחץ על הכפתור ביצעתי את השינויים"
+        "list_item_2": "הקש על <strong>הרשאות</strong>",
+        "list_item_3_cam": "הפעל את המתג ליד <strong>מצלמה</strong>",
+        "list_item_3_mic": "הפעל את המתג ליד <strong>המיקרופון</strong>",
+        "list_item_4": "חזור לדף זה ולחץ על הכפתור <strong>ביצעתי את השינויים</strong>"
       }
     },
     "android_firefox": {
       "browser_settings": {
         "list_item_1": "בדפדפן שלך, הקש על סמל הנעילה [LOCK_ICON] בשורת הכתובת",
-        "list_item_2_cam": "הקש על חסום ליד מצלמה כדי להחליף ל מותר",
-        "list_item_2_mic": "הקש על חסום ליד מיקרופון כדי להחליף ל מותר",
-        "list_item_3": "חזור לדף זה ולחץ על הכפתור ביצעתי את השינויים"
+        "list_item_2_cam": "הקש על <strong>חסום</strong> ליד <strong>מצלמה</strong> כדי להחליף ל <strong>מותר</strong>",
+        "list_item_2_mic": "הקש על <strong>חסום</strong> ליד <strong>מיקרופון</strong> כדי להחליף ל <strong>מותר</strong>",
+        "list_item_3": "חזור לדף זה ולחץ על הכפתור <strong>ביצעתי את השינויים</strong>"
       }
     },
     "android_generic": {
       "browser_settings": {
         "list_item_1": "בדפדפן שלך, פתח את הגדרות האתר. לעיתים קרובות זהו סמל של מנעול [LOCK_ICON] בשורת הכתובת",
         "list_item_2": "מצא את הסעיף שעוסק בהרשאות",
-        "list_item_3_cam": "אפשר את הרשאות המצלמה",
-        "list_item_3_mic": "אפשר את הרשאות המיקרופון",
-        "list_item_4": "חזור לדף זה ולחץ על הכפתור ביצעתי את השינויים"
+        "list_item_3_cam": "אפשר את הרשאות ה<strong>מצלמה</strong>",
+        "list_item_3_mic": "אפשר את הרשאות ה<strong>מיקרופון</strong>",
+        "list_item_4": "חזור לדף זה ולחץ על הכפתור <strong>ביצעתי את השינויים</strong>"
       }
     },
     "android_samsung": {
       "browser_settings": {
         "list_item_1": "בדפדפן שלך, הקש על סמל הנעילה [LOCK_ICON] בשורת הכתובת",
-        "list_item_2_cam": "הפעל את המתג ליד מצלמה",
-        "list_item_2_mic": "הפעל את המתג ליד המיקרופון",
-        "list_item_3": "חזור לדף זה ולחץ על הכפתור ביצעתי את השינויים"
+        "list_item_2_cam": "הפעל את המתג ליד <strong>מצלמה</strong>",
+        "list_item_2_mic": "הפעל את המתג ליד <strong>המיקרופון</strong>",
+        "list_item_3": "חזור לדף זה ולחץ על הכפתור <strong>ביצעתי את השינויים</strong>"
       }
     },
     "button_primary": "רענן",
     "desktop_chrome": {
       "browser_settings": {
         "list_item_1": "בדפדפן שלך, לחץ על סמל הנעילה [LOCK_ICON] בשורת הכתובת",
-        "list_item_2_cam": "הפעל את המתג ליד מצלמה",
-        "list_item_2_mic": "הפעל את המתג ליד המיקרופון",
-        "list_item_3": "חזור לדף זה ולחץ על הכפתור ביצעתי את השינויים"
+        "list_item_2_cam": "הפעל את המתג ליד <strong>מצלמה</strong>",
+        "list_item_2_mic": "הפעל את המתג ליד <strong>המיקרופון</strong>",
+        "list_item_3": "חזור לדף זה ולחץ על הכפתור <strong>ביצעתי את השינויים</strong>"
       }
     },
     "desktop_edge": {
       "browser_settings": {
         "list_item_1": "בדפדפן שלך, לחץ על סמל הנעילה [LOCK_ICON] בשורת הכתובת",
-        "list_item_2_cam": "לחץ על התפריט הנפתח ליד מצלמה ובחר אפשר",
-        "list_item_2_mic": "לחץ על התפריט הנפתח ליד מיקרופון ובחר אפשר",
-        "list_item_3": "חזור לדף זה ולחץ על הכפתור ביצעתי את השינויים"
+        "list_item_2_cam": "לחץ על התפריט הנפתח ליד <strong>מצלמה</strong> ובחר <strong>אפשר</strong>",
+        "list_item_2_mic": "לחץ על התפריט הנפתח ליד <strong>מיקרופון</strong> ובחר <strong>אפשר</strong>",
+        "list_item_3": "חזור לדף זה ולחץ על הכפתור <strong>ביצעתי את השינויים</strong>"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
         "list_item_1": "בדפדפן שלך, לחץ על סמל ההגדרות [SETTINGS_ICON_FIREFOX] בשורת הכתובת",
-        "list_item_2_cam": "לחץ על חסום ליד השתמש במצלמה",
-        "list_item_2_mic": "לחץ על חסום ליד השתמש במיקרופון",
-        "list_item_3": "חזור לדף זה ולחץ על הכפתור ביצעתי את השינויים"
+        "list_item_2_cam": "לחץ על <strong>חסום</strong> ליד <strong>השתמש במצלמה</strong>",
+        "list_item_2_mic": "לחץ על <strong>חסום</strong> ליד <strong>השתמש במיקרופון</strong>",
+        "list_item_3": "חזור לדף זה ולחץ על הכפתור <strong>ביצעתי את השינויים</strong>"
       }
     },
     "desktop_generic": {
       "browser_settings": {
         "list_item_1": "בדפדפן שלך, פתח את הגדרות האתר. לעיתים קרובות זהו סמל של מנעול [LOCK_ICON] בשורת הכתובת",
         "list_item_2": "מצא את הסעיף שעוסק בהרשאות",
-        "list_item_3_cam": "אפשר את הרשאות המצלמה",
-        "list_item_3_mic": "אפשר את הרשאות המיקרופון",
-        "list_item_4": "חזור לדף זה ולחץ על הכפתור ביצעתי את השינויים"
+        "list_item_3_cam": "אפשר את הרשאות ה<strong>מצלמה</strong>",
+        "list_item_3_mic": "אפשר את הרשאות ה<strong>מיקרופון</strong>",
+        "list_item_4": "חזור לדף זה ולחץ על הכפתור <strong>ביצעתי את השינויים</strong>"
       },
       "device_settings": {
-        "list_item_1": "במחשב שלכם, פתחו את ההגדרות שלכם",
-        "list_item_2": "מצא את הסעיף שעוסק בהרשאות (בדרך כלל תחת פרטיות)",
-        "list_item_3_cam": "אפשר את ההרשאות למצלמה עבור [BROWSER_ICON]",
-        "list_item_3_mic": "אפשר את ההרשאות למיקרופון עבור [BROWSER_ICON]",
+        "list_item_1": "במחשב שלכם, פתחו את ה<strong>הגדרות</strong> שלכם",
+        "list_item_2": "מצא את הסעיף שעוסק בהרשאות (בדרך כלל תחת <strong>פרטיות</strong>)",
+        "list_item_3_cam": "אפשר את ההרשאות ל<strong>מצלמה</strong> עבור [BROWSER_ICON]",
+        "list_item_3_mic": "אפשר את ההרשאות ל<strong>מיקרופון</strong> עבור [BROWSER_ICON]",
         "list_item_4": "אם נדרש, הפעל מחדש את הדפדפן שלך וחזור לדף זה"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "במחשב שלך, לחץ על תפריט Apple [APPLE_ICON] ובחר הגדרות מערכת (או העדפות מערכת)",
-        "list_item_2": "לחץ על פרטיות ואבטחה (או אבטחה ופרטיות) בסרגל הצד",
-        "list_item_3": "לחץ על מאוחר יותר בחלון הקופץ",
-        "list_item_3_cam": "לחץ על מצלמה והפעל את המתג (או תיבת הסימון) ליד [BROWSER_ICON]",
-        "list_item_4": "לחץ על צא & פתח מחדש בחלון הקופץ וחזור לדף זה",
-        "list_item_4_mic": "לחץ על מיקרופון והפעל את המתג (או תיבת הסימון) ליד [BROWSER_ICON]"
+        "list_item_1": "במחשב שלך, לחץ על תפריט Apple [APPLE_ICON] ובחר <strong>הגדרות מערכת</strong> (או <strong>העדפות מערכת</strong>)",
+        "list_item_2": "לחץ על <strong>פרטיות ואבטחה</strong> (או <strong>אבטחה ופרטיות</strong>) בסרגל הצד",
+        "list_item_3": "לחץ על <strong>מאוחר יותר</strong> בחלון הקופץ",
+        "list_item_3_cam": "לחץ על <strong>מצלמה</strong> והפעל את המתג (או תיבת הסימון) ליד [BROWSER_ICON]",
+        "list_item_4": "לחץ על <strong>צא & פתח מחדש</strong> בחלון הקופץ וחזור לדף זה",
+        "list_item_4_mic": "לחץ על <strong>מיקרופון</strong> והפעל את המתג (או תיבת הסימון) ליד [BROWSER_ICON]"
       }
     },
     "desktop_safari": {
       "browser_settings": {
-        "list_item_1": "בדפדפן שלך, לחץ עם הכפתור הימני בשורת הכתובת ובחר הגדרות",
-        "list_item_2_cam": "לחץ על התפריט הנפתח ליד מצלמה ובחר אפשר",
-        "list_item_2_mic": "לחץ על התפריט הנפתח ליד מיקרופון ובחר אפשר",
-        "list_item_3": "חזור לדף זה ולחץ על הכפתור ביצעתי את השינויים"
+        "list_item_1": "בדפדפן שלך, לחץ עם הכפתור הימני בשורת הכתובת ובחר <strong>הגדרות</strong>",
+        "list_item_2_cam": "לחץ על התפריט הנפתח ליד <strong>מצלמה</strong> ובחר <strong>אפשר</strong>",
+        "list_item_2_mic": "לחץ על התפריט הנפתח ליד <strong>מיקרופון</strong> ובחר <strong>אפשר</strong>",
+        "list_item_3": "חזור לדף זה ולחץ על הכפתור <strong>ביצעתי את השינויים</strong>"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "במחשב שלך, לחץ על תפריט Windows [WINDOWS_ICON] ובחר הגדרות [SETTINGS_ICON_WINDOWS]",
-        "list_item_2": "לחץ על פרטיות (או פרטיות & אבטחה)",
-        "list_item_3_cam": "לחץ על מצלמה תחת הרשאות יישום והפעל את המתג ליד [BROWSER_ICON] ",
-        "list_item_3_mic": "לחץ על מיקרופון תחת הרשאות יישום והפעל את המתג ליד [BROWSER_ICON]",
+        "list_item_1": "במחשב שלך, לחץ על תפריט Windows [WINDOWS_ICON] ובחר <strong>הגדרות</strong> [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "לחץ על <strong>פרטיות</strong> (או <strong>פרטיות & אבטחה</strong>)",
+        "list_item_3_cam": "לחץ על <strong>מצלמה</strong> תחת <strong>הרשאות יישום</strong> והפעל את המתג ליד [BROWSER_ICON] ",
+        "list_item_3_mic": "לחץ על <strong>מיקרופון</strong> תחת <strong>הרשאות יישום</strong> והפעל את המתג ליד [BROWSER_ICON]",
         "list_item_4": "אם נדרש, הפעל מחדש את הדפדפן שלך וחזור לדף זה"
       }
     },
     "info": "שחזור",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "הקש על הכפתור ביצעתי את השינויים. יבקשו ממך שוב לאפשר גישה למצלמה ולמיקרופון. כאשר החלונית מופיעה, בחר אפשר (או אישור)",
-        "list_item_1_cam": "הקש על הכפתור ביצעתי את השינויים. יבקשו ממך שוב לאפשר גישה למצלמה. כאשר מופיעה החלונית, בחר אפשר (או אישור)",
-        "list_item_1_mic": "הקש על הכפתור ביצעתי את השינויים. יבקשו ממך שוב לאפשר גישה למיקרופון. כאשר מופיעה החלונית, בחר אשר (או אישור)"
+        "list_item_1_both": "הקש על הכפתור <strong>ביצעתי את השינויים</strong>. יבקשו ממך שוב לאפשר גישה למצלמה ולמיקרופון. כאשר החלונית מופיעה, בחר <strong>אפשר</strong> (או <strong>אישור</strong>)",
+        "list_item_1_cam": "הקש על הכפתור <strong>ביצעתי את השינויים</strong>. יבקשו ממך שוב לאפשר גישה למצלמה. כאשר מופיעה החלונית, בחר <strong>אפשר</strong> (או <strong>אישור</strong>)",
+        "list_item_1_mic": "הקש על הכפתור <strong>ביצעתי את השינויים</strong>. יבקשו ממך שוב לאפשר גישה למיקרופון. כאשר מופיעה החלונית, בחר <strong>אשר</strong> (או <strong>אישור</strong>)"
       },
       "device_settings": {
-        "list_item_1": "במכשיר שלך, פתח את האפליקציה הגדרות",
+        "list_item_1": "במכשיר שלך, פתח את האפליקציה <strong>הגדרות</strong>",
         "list_item_2": "גלול ברשימה והקש על [BROWSER_ICON]",
-        "list_item_3_cam": "הפעל את המתג ליד מצלמה",
-        "list_item_3_mic": "הפעל את המתג ליד המיקרופון",
-        "list_item_4": "חזור לדף זה ולחץ על הכפתור ביצעתי את השינויים"
+        "list_item_3_cam": "הפעל את המתג ליד <strong>מצלמה</strong>",
+        "list_item_3_mic": "הפעל את המתג ליד <strong>המיקרופון</strong>",
+        "list_item_4": "חזור לדף זה ולחץ על הכפתור <strong>ביצעתי את השינויים</strong>"
       }
     },
     "ios_safari": {
       "device_settings": {
-        "list_item_1": "במכשיר שלך, פתח את האפליקציה הגדרות",
+        "list_item_1": "במכשיר שלך, פתח את האפליקציה <strong>הגדרות</strong>",
         "list_item_2": "גלול ברשימה והקש על [BROWSER_ICON]",
-        "list_item_3_cam": "הקש על מצלמה ובחר אפשר",
-        "list_item_3_mic": "הקש על מיקרופון ובחר אפשר",
-        "list_item_4": "חזור לדף זה ולחץ על הכפתור ביצעתי את השינויים"
+        "list_item_3_cam": "הקש על <strong>מצלמה</strong> ובחר <strong>אפשר</strong>",
+        "list_item_3_mic": "הקש על <strong>מיקרופון</strong> ובחר <strong>אפשר</strong>",
+        "list_item_4": "חזור לדף זה ולחץ על הכפתור <strong>ביצעתי את השינויים</strong>"
       }
     },
     "list_header_both": "בצע את השלבים הבאים כדי לשחזר את הגישה למצלמה:",
@@ -585,7 +646,7 @@
     "list_item_how_to_both": "הענק גישה למצלמה מהגדרות הדפדפן שלך",
     "list_item_how_to_cam": "הענק גישה למצלמה מהגדרות הדפדפן שלך",
     "list_item_how_to_mic": "הענק גישה למיקרופון מהגדרות הדפדפן שלך",
-    "subtitle_both": "שחזר גישה למצלמה כדי לצלם סרטון ולהשלים את תהליך האימות",
+    "subtitle_both": "אנחנו זקוקים לגישה למצלמה ולמיקרופון שלך כדי לאמת את זהותך. עקוב אחרי ההוראות למטה כדי לשחזר את הגישה",
     "subtitle_cam": "אנו זקוקים לגישה למצלמה שלך כדי לאמת את זהותך. אנא עקוב אחר ההוראות שלהלן כדי לשחזר את הגישה",
     "subtitle_cam_old": "שחזר את הגישה למצלמה כדי להמשיך באימות הפנים",
     "subtitle_mic": "אנו זקוקים לגישה למיקרופון שלך כדי לאמת את זהותך. עקוב אחר ההוראות למטה כדי לשחזר את הגישה",
@@ -604,16 +665,27 @@
     }
   },
   "photo_upload": {
+    "body_address_certificate_back": "העלה את גב המסמך מהמחשב שלך",
+    "body_address_certificate_front": "העלה את חזית המסמך מהמחשב שלך",
     "body_bank_statement": "שלח את עמוד המסמך בשלמותו כדי לקבל התוצאות הטובות ביותר",
     "body_benefits_letter": "שלח את עמוד המסמך בשלמותו כדי לקבל התוצאות הטובות ביותר",
     "body_bill": "שלח את עמוד המסמך בשלמותו כדי לקבל התוצאות הטובות ביותר",
+    "body_exchange_house_statement": "ספק את כל דף המסמך לקבלת התוצאות הטובות ביותר",
+    "body_general_letter": "ספק את כל דף המסמך לקבלת התוצאות הטובות ביותר",
     "body_generic_document_back": "העלה את גב המסמך מהמחשב שלך",
     "body_generic_document_front": "העלה את החלק הקדמי של המסמך מהמחשב שלך",
     "body_id_back": "העלה תמונה של החלק האחורי של התעודה מהמחשב שלך",
     "body_id_front": "העלה תמונה של החלק הקדמי של הרישיון מהמחשב שלך",
+    "body_identity_document_with_address": "ספק את כל דף המסמך לקבלת התוצאות הטובות ביותר",
+    "body_identity_document_with_address_back": "העלה את גב המסמך מהמחשב שלך",
+    "body_identity_document_with_address_front": "העלה את חזית המסמך מהמחשב שלך",
+    "body_insurance_statement": "ספק את כל דף המסמך לקבלת התוצאות הטובות ביותר",
     "body_license_back": "העלה תמונה של החלק האחורי הרישיון מהמחשב שלך",
     "body_license_front": "העלה את הצד הקדמי של הרישיון מהמחשב שלך",
+    "body_mobile_phone_bill": "ספק את כל דף המסמך לקבלת התוצאות הטובות ביותר",
+    "body_mortgage_statement": "ספק את כל דף המסמך לקבלת התוצאות הטובות ביותר",
     "body_passport": "העלה את עמוד הדרכון עם תמונה מהמחשב שלך",
+    "body_pension_property_statement_letter": "ספק את כל דף המסמך לקבלת התוצאות הטובות ביותר",
     "body_selfie": "העלה תמונת סלפי מהמחשב שלך",
     "body_tax_letter": "שלח את עמוד המסמך בשלמותו כדי לקבל התוצאות הטובות ביותר",
     "button_take_photo": "צלם תמונה",
@@ -641,7 +713,9 @@
     "subtitle_address_card": "הכתובת לחיוב חייבת להיות חוקית",
     "subtitle_bank_statement": "תאריך ההנפקה חייב להיות ​​ב-3 החודשים האחרונים​​",
     "subtitle_benefits_letter": "תאריך ההנפקה חייב להיות ​​ב-3 החודשים האחרונים​​",
-    "subtitle_bill": "תאריך ההנפקה חייב להיות ​​ב-3 החודשים האחרונים​​",
+    "subtitle_bill": "תאריך ההנפקה חייב להיות ​ב-3 החודשים האחרונים​​",
+    "subtitle_dynamic_empty_grace_period": "חייב להיות מסמך חוקי",
+    "subtitle_dynamic_grace_period": "חייב להינתן במהלך ה-<graceperiod></graceperiod> חודשים האחרונים",
     "subtitle_tax_letter": "תאריך ההנפקה חייב להיות ​​ב-3 החודשים האחרונים​​"
   },
   "poa_intro": {
@@ -952,6 +1026,51 @@
       "details_timeout": "התחל מחדש",
       "header_timeout": "נראה שלקח לך יותר מדי זמן"
     }
+  },
+  "qes": {
+    "consent": {
+      "common": {
+        "steps": "צור את החתימה שלך"
+      },
+      "confirmation": {
+        "bullet_1": "לאחר קריאת המסמך שלך, הקש על כפתור \"חתום על המסמך\".",
+        "bullet_2": "לאחר ש-Onfido מאמתת את זהותך, החתימה שלך תשמש במסמך זה.",
+        "button_next_step": "חתום על מסמך",
+        "review_document": "בדוק <fallback>את המסמך שלך</fallback> לחתימה",
+        "step2": "2 מתוך 2",
+        "steps": "חתום על המסמך שלך",
+        "subtitle": "כדי לאמת את זהותך בהתאם לחוקים האירופיים, אתה חייב לחתום דיגיטלית על מסמך.",
+        "title": "צור והשתמש בחתימה הדיגיטלית שלך"
+      },
+      "introduction": {
+        "button_confirmation_step": "צור את החתימה שלי",
+        "certificate_application_form": "טופס בקשה לתעודה",
+        "privacy_notice": "הודעת פרטיות",
+        "step1": "1 מתוך 2",
+        "subtitle": "כדי לאמת את זהותך בהתאם לחוקים האירופיים, אתה חייב לחתום דיגיטלית על מסמך.",
+        "terms_and_conditions": "תנאים והגבלות",
+        "third_party_description": "<fallback>Namirial SpA</fallback> היא ספקית מהימנה ברחבי העולם שתיתן תעודה שמאמתת את החתימה האלקטרונית שלך.",
+        "title": "צור והשתמש בחתימה הדיגיטלית שלך"
+      }
+    }
+  },
+  "qes_consent": {
+    "button": "צור את החתימה שלי",
+    "link_certificate": "טופס בקשה לתעודה",
+    "link_privacy_notice": "הודעה על פרטיות",
+    "link_terms_and_conditions": "תנאים והגבלות",
+    "namirial_intro": "Namirial SpA היא ספקית מהימנה ברחבי העולם שתיתן תעודה שמאמתת את החתימה האלקטרונית שלך.",
+    "subtitle": "כדי לאמת את זהותך בהתאם לחוקים האירופיים, אתה חייב לחתום דיגיטלית על מסמך.",
+    "title": "צור והשתמש בחתימה הדיגיטלית שלך"
+  },
+  "qes_sign": {
+    "button": "חתום על מסמך",
+    "link_document": "בדוק את המסמך שלך לחתימה",
+    "list_item_1": "לאחר קריאת המסמך שלך, הקש על כפתור \"חתום על המסמך\".",
+    "list_item_2": "לאחר ש-Onfido מאמתת את זהותך, החתימה שלך תשמש במסמך זה.",
+    "step_title": "חתום על המסמך שלך",
+    "subtitle": "כדי לאמת את זהותך בהתאם לחוקים האירופיים, אתה חייב לחתום דיגיטלית על מסמך.",
+    "title": "צור והשתמש בחתימה הדיגיטלית שלך"
   },
   "retry_feedback": {
     "button_primary": "נסה שוב"

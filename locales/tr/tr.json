@@ -188,15 +188,23 @@
       "odp_screenshot_title": "Ekran görüntüsü algılandı"
     },
     "body": "Belge sayfasının tamamını yüklediğinizden ve ayrıntıların bulanıklık veya parlama olmadan okunabilecek netlikte olduğundan emin olun",
+    "body_address_certificate": "Tüm belge sayfasını yüklediğinizden ve detayların bulanıklık veya parlamasız okunabilir olduğundan emin olun",
     "body_bank_statement": "Belge sayfasının tamamını yüklediğinizden ve ayrıntıların bulanıklık veya parlama olmadan okunabilecek netlikte olduğundan emin olun",
     "body_benefits_letter": "Belge sayfasının tamamını yüklediğinizden ve ayrıntıların bulanıklık veya parlama olmadan okunabilecek netlikte olduğundan emin olun",
     "body_bill": "Belge sayfasının tamamını yüklediğinizden ve ayrıntıların bulanıklık veya parlama olmadan okunabilecek netlikte olduğundan emin olun",
+    "body_exchange_house_statement": "Tüm belge sayfasını yüklediğinizden ve ayrıntıların bulanıklık veya parlamasız okunabilir olduğundan emin olun",
+    "body_general_letter": "Tüm belge sayfasını yüklediğinizden ve detayların bulanıklık veya parlamasız okunabilir olduğundan emin olun",
     "body_generic_document": "Bilgilerinizin net olduğundan ve tamamen göründüğünden emin olun",
     "body_id": "Bilgilerinizin net olduğundan ve tamamen göründüğünden emin olun",
+    "body_identity_document_with_address": "Tüm belge sayfasını yüklediğinizden ve ayrıntıların bulanıklık veya parlamasız okunabilir olduğundan emin olun",
     "body_image_medium": "Okunamaz olması durumunda doğrulanma süreciniz daha uzun sürer",
     "body_image_poor": "Sizi sorunsuz bir şekilde doğrulayabilmemiz için daha iyi bir fotoğrafa ihtiyacımız var",
+    "body_insurance_statement": "Tüm belge sayfasını yüklediğinizden ve ayrıntıların bulanıklık veya parlamasız okunabilir olduğundan emin olun",
     "body_license": "Bilgilerinizin net olduğundan ve tamamen göründüğünden emin olun",
+    "body_mobile_phone_bill": "Tüm belge sayfasını yüklediğinizden ve detayların bulanıklık veya parlamadan net bir şekilde okunabildiğinden emin olun",
+    "body_mortgage_statement": "Tüm belge sayfasını yüklediğinizden ve detayların bulanıklık veya parlamadan net bir şekilde okunabildiğinden emin olun",
     "body_passport": "Bilgilerinizin net olduğundan ve tamamen göründüğünden emin olun",
+    "body_pension_property_statement_letter": "Tüm belge sayfasını yüklediğinizden ve ayrıntıların bulanıklık veya parlamasız okunabilir olduğundan emin olun",
     "body_permit": "Bilgilerinizin net olduğundan ve tamamen göründüğünden emin olun",
     "body_tax_letter": "Belge sayfasının tamamını yüklediğinizden ve ayrıntıların bulanıklık veya parlama olmadan okunabilecek netlikte olduğundan emin olun",
     "button_close": "Kapat",
@@ -217,21 +225,39 @@
   },
   "doc_select": {
     "button_address_card": "Adres kartı",
+    "button_address_card_back": "Adres Kartı (Arka)",
     "button_address_card_detail": "Geçici ve kalıcı kartlar kabul edilir",
+    "button_address_card_front": "Adres Kartı (Ön)",
     "button_bank_statement": "Banka veya kooperatif beyanı",
     "button_bank_statement_non_uk": "Banka hesap özeti",
     "button_benefits_letter": "Sosyal Yardım Mektubu",
     "button_benefits_letter_detail": "Devlet tarafından yetkilendirilmiş hane halkı yardımları, ör. İş arayan ödeneği, Konut yardımı, Vergi kredileri",
     "button_bill": "Fatura",
     "button_bill_detail": "Gaz, elektrik, su, sabit hat veya internet",
+    "button_exchange_house_statement": "Döviz Evi Beyanı",
+    "button_exchange_house_statement_detail": "Gönderenin transfer veya havale beyanı",
+    "button_general_letter": "Genel Mektup",
+    "button_general_letter_detail": "Finans kuruluşu veya hizmet şirketinden mektup",
     "button_government_letter": "Resmî Mektup",
     "button_government_letter_detail": "Herhangi bir resmî mektup, ör. Yardım hakkı, Oy mektupları, Vergi mektupları vb.",
     "button_id": "Kimlik kartı",
     "button_id_detail": "Ön ve arka",
+    "button_identity_document_with_address": "Adresli Kimlik Belgesi",
+    "button_identity_document_with_address_back": "Adresli Kimlik Belgesi (Arka)",
+    "button_identity_document_with_address_detail": "Bir hükümet otoritesi tarafından verilmiştir",
+    "button_identity_document_with_address_front": "Adresli Kimlik Belgesi (Ön)",
+    "button_insurance_statement": "Sigorta Beyanı",
+    "button_insurance_statement_detail": "Özel bir sigorta veya aracılık şirketinden çıkarılmış",
     "button_license": "Sürücü belgesi",
     "button_license_detail": "Ön ve arka",
+    "button_mobile_phone_bill": "Mobil Telefon Faturası",
+    "button_mobile_phone_bill_detail": "Bir mobil telefon ağı sağlayıcısından verildi",
+    "button_mortgage_statement": "İpotek Beyanı",
+    "button_mortgage_statement_detail": "Finansal kredi kuruluşundan verilmiştir",
     "button_passport": "Pasaport",
     "button_passport_detail": "Fotoğraf sayfası",
+    "button_pension_property_statement_letter": "Emeklilik veya Mülkiyet Beyanı/Mektubu",
+    "button_pension_property_statement_letter_detail": "Emeklilik beyanı veya mektubu ve Emlak vergisi beyanı veya mektubu",
     "button_permit": "Oturma izni",
     "button_permit_detail": "Ön ve arka",
     "button_tax_letter": "Belediye Meclisi Vergi Mektubu",
@@ -258,17 +284,29 @@
     "button_link_upload": "veya fotoğraf yükleyin (tarama veya fotokopi kabul edilmez)",
     "button_primary": "Telefonda devam et",
     "subtitle": "Telefonunuzla fotoğraf çekin",
+    "title_address_certificate": "Adres kartını gönder",
+    "title_address_certificate_back": "Adres kartını (arka) gönder",
+    "title_address_certificate_front": "Adres kartını (ön yüz) gönder",
     "title_bank_statement": "Beyan gönder",
     "title_benefits_letter": "Mektup gönder",
     "title_bill": "Faturayı gönder",
+    "title_exchange_house_statement": "Döviz bürosu beyanını gönder",
+    "title_general_letter": "Genel mektubu gönder",
     "title_generic_document_back": "Belgeyi gönder (arka yüz)",
     "title_generic_document_front": "Belgeyi gönder (ön yüz)",
     "title_government_letter": "Resmî Mektup",
     "title_id_back": "Kimliği gönder (arka yüz)",
     "title_id_front": "Kimliği gönder (ön yüz)",
+    "title_identity_document_with_address": "Adresli kimlik belgesini gönderin",
+    "title_identity_document_with_address_back": "Adresli kimlik belgesini (arka) gönderin",
+    "title_identity_document_with_address_front": "Adresli kimlik belgesini (ön yüz) gönderin",
+    "title_insurance_statement": "Sigorta beyanını gönder",
     "title_license_back": "Sürücü belgesini gönder (arka yüz)",
     "title_license_front": "Sürücü belgesini gönder (ön yüz)",
+    "title_mobile_phone_bill": "Mobil telefon faturasını gönder",
+    "title_mortgage_statement": "İpotek beyanını gönder",
     "title_passport": "Pasaport fotoğraf sayfasını gönder",
+    "title_pension_property_statement_letter": "Beyanname veya mektup gönderin",
     "title_permit_back": "Oturma iznini gönder (arka yüz)",
     "title_permit_front": "Oturma iznini gönder (ön yüz)",
     "title_tax_letter": "Mektup gönder"
@@ -422,6 +460,29 @@
       "success": "Tarama başarılı"
     }
   },
+  "otp": {
+    "code_input": {
+      "error": {
+        "technical": "Teknik bir hata oluştu, lütfen daha sonra tekrar deneyin",
+        "wrong_code": "Yanlış kod girildi, lütfen tekrar deneyin"
+      },
+      "intro": "Telefon numaranıza gönderilen kod 5 dakika boyunca aktif olacak",
+      "resend": {
+        "cta": "Yeniden gönder",
+        "label": "Gönderilen kod ({limit} kadar)"
+      },
+      "title": "Bir Kerelik Şifre"
+    },
+    "send_code": {
+      "cta": "Kodu gönder",
+      "error": {
+        "limit": "Gönderilen SMS limitine ulaştınız",
+        "technical": "Teknik bir hata oluştu, lütfen daha sonra tekrar deneyin"
+      },
+      "intro": "Telefon numaranızı doğrulamak için size tek kullanımlık bir kod göndereceğiz ve bunu bir sonraki ekranda girmeniz gerekecek.",
+      "title": "Tek Seferlik Şifre"
+    }
+  },
   "outro": {
     "body": "Kimliğinizi doğrulamaya başlamak için ihtiyacımız olan tek şey bu",
     "body_government_letter": "En iyi sonuçlar için belge sayfasının tamamını gönderin",
@@ -444,139 +505,139 @@
   "permission_recovery": {
     "android": {
       "device_settings": {
-        "list_item_1": "Cihazınızda, Ayarlar uygulamasını açın",
-        "list_item_2": "Uygulamalar'a dokunun",
-        "list_item_3": "[BROWSER_ICON] dokunun. Bulamazsanız, Tüm uygulamaları gör veya Uygulamaları yönet seçeneğine dokunun ve tarayıcı uygulamanızı seçin",
-        "list_item_4": "İzinler'e dokunun",
-        "list_item_5_cam": "Kamera öğesine dokunun ve İzin Ver seçeneğini seçin",
-        "list_item_5_mic": "Mikrofonu tıklayın ve İzin Ver seçeneğini seçin",
-        "list_item_6": "Bu sayfaya geri dönün ve Değişiklikleri yaptım düğmesine tıklayın"
+        "list_item_1": "Cihazınızda, <strong>Ayarlar</strong> uygulamasını açın",
+        "list_item_2": "<strong>Uygulamalar</strong>'a dokunun",
+        "list_item_3": "[BROWSER_ICON] dokunun. Bulamazsanız, <strong>Tüm uygulamaları gör</strong> veya <strong>Uygulamaları yönet</strong> seçeneğine dokunun ve tarayıcı uygulamanızı seçin",
+        "list_item_4": "<strong>İzinler</strong>'e dokunun",
+        "list_item_5_cam": "<strong>Kamera</strong> öğesine dokunun ve <strong>İzin Ver</strong> seçeneğini seçin",
+        "list_item_5_mic": "<strong>Mikrofon</strong>u tıklayın ve <strong>İzin Ver</strong> seçeneğini seçin",
+        "list_item_6": "Bu sayfaya geri dönün ve <strong>Değişiklikleri yaptım</strong> düğmesine tıklayın"
       }
     },
     "android_chrome": {
       "browser_settings": {
         "list_item_1": "Tarayıcınızda, adres çubuğunda kilit simgesine [LOCK_ICON] dokunun",
-        "list_item_2": "İzinler'e dokunun",
-        "list_item_3_cam": "Kamera yanındaki geçişi etkinleştirin",
-        "list_item_3_mic": "Mikrofon yanındaki anahtarı etkinleştirin",
-        "list_item_4": "Bu sayfaya geri dönün ve Değişiklikleri yaptım düğmesine tıklayın"
+        "list_item_2": "<strong>İzinler</strong>'e dokunun",
+        "list_item_3_cam": "<strong>Kamera</strong> yanındaki geçişi etkinleştirin",
+        "list_item_3_mic": "<strong>Mikrofon</strong> yanındaki anahtarı etkinleştirin",
+        "list_item_4": "Bu sayfaya geri dönün ve <strong>Değişiklikleri yaptım</strong> düğmesine tıklayın"
       }
     },
     "android_firefox": {
       "browser_settings": {
         "list_item_1": "Tarayıcınızda, adres çubuğunda kilit simgesine [LOCK_ICON] dokunun",
-        "list_item_2_cam": "Engellenmiş yanındaki Kamera seçeneğine dokunun ve İzin Verildi seçeneğine geçin",
-        "list_item_2_mic": "Engellenmiş yanındaki Mikrofon seçeneğine dokunun ve İzin Verildi seçeneğine geçin",
-        "list_item_3": "Bu sayfaya geri dönün ve Değişiklikleri yaptım düğmesine tıklayın"
+        "list_item_2_cam": "<strong>Engellenmiş</strong> yanındaki <strong>Kamera</strong> seçeneğine dokunun ve <strong>İzin Verildi</strong> seçeneğine geçin",
+        "list_item_2_mic": "<strong>Engellenmiş</strong> yanındaki <strong>Mikrofon</strong> seçeneğine dokunun ve <strong>İzin Verildi</strong> seçeneğine geçin",
+        "list_item_3": "Bu sayfaya geri dönün ve <strong>Değişiklikleri yaptım</strong> düğmesine tıklayın"
       }
     },
     "android_generic": {
       "browser_settings": {
         "list_item_1": "Tarayıcınızda, web sitesi ayarlarını açın. Bu genellikle adres çubuğunda bir kilit simgesi [LOCK_ICON] olur",
         "list_item_2": "İzinler hakkındaki bölümü bulun",
-        "list_item_3_cam": "Kamera izinlerini etkinleştirin",
-        "list_item_3_mic": "Mikrofon izinlerini etkinleştirin",
-        "list_item_4": "Bu sayfaya geri dönün ve Değişiklikleri yaptım düğmesine tıklayın"
+        "list_item_3_cam": "<strong>Kamera</strong> izinlerini etkinleştirin",
+        "list_item_3_mic": "<strong>Mikrofon</strong> izinlerini etkinleştirin",
+        "list_item_4": "Bu sayfaya geri dönün ve <strong>Değişiklikleri yaptım</strong> düğmesine tıklayın"
       }
     },
     "android_samsung": {
       "browser_settings": {
         "list_item_1": "Tarayıcınızda, adres çubuğunda kilit simgesine [LOCK_ICON] dokunun",
-        "list_item_2_cam": "Kamera yanındaki anahtarı etkinleştirin",
-        "list_item_2_mic": "Mikrofon yanındaki anahtarı etkinleştirin",
-        "list_item_3": "Bu sayfaya geri dönün ve Değişiklikleri yaptım düğmesine tıklayın"
+        "list_item_2_cam": "<strong>Kamera</strong> yanındaki anahtarı etkinleştirin",
+        "list_item_2_mic": "<strong>Mikrofon</strong> yanındaki anahtarı etkinleştirin",
+        "list_item_3": "Bu sayfaya geri dönün ve <strong>Değişiklikleri yaptım</strong> düğmesine tıklayın"
       }
     },
     "button_primary": "Yenile",
     "desktop_chrome": {
       "browser_settings": {
         "list_item_1": "Tarayıcınızda, adres çubuğunda kilit simgesine [LOCK_ICON] tıklayın",
-        "list_item_2_cam": "Kamera yanındaki anahtarı etkinleştirin",
-        "list_item_2_mic": "Mikrofon yanındaki anahtarı etkinleştirin",
-        "list_item_3": "Bu sayfaya geri dönün ve Değişiklikleri yaptım düğmesini tıklayın"
+        "list_item_2_cam": "<strong>Kamera</strong> yanındaki anahtarı etkinleştirin",
+        "list_item_2_mic": "<strong>Mikrofon</strong> yanındaki anahtarı etkinleştirin",
+        "list_item_3": "Bu sayfaya geri dönün ve <strong>Değişiklikleri yaptım</strong> düğmesini tıklayın"
       }
     },
     "desktop_edge": {
       "browser_settings": {
         "list_item_1": "Tarayıcınızda, adres çubuğunda kilit simgesine [LOCK_ICON] tıklayın",
-        "list_item_2_cam": "Kamera yanındaki açılır menüye tıklayın ve İzin Ver seçeneğini seçin",
-        "list_item_2_mic": "Mikrofon yanındaki açılır menüye tıklayın ve İzin Ver seçeneğini seçin",
-        "list_item_3": "Bu sayfaya geri dönün ve Değişiklikleri yaptım düğmesini tıklayın"
+        "list_item_2_cam": "<strong>Kamera</strong> yanındaki açılır menüye tıklayın ve <strong>İzin Ver</strong> seçeneğini seçin",
+        "list_item_2_mic": "<strong>Mikrofon</strong> yanındaki açılır menüye tıklayın ve <strong>İzin Ver</strong> seçeneğini seçin",
+        "list_item_3": "Bu sayfaya geri dönün ve <strong>Değişiklikleri yaptım</strong> düğmesini tıklayın"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
         "list_item_1": "Tarayıcınızda, adres çubuğunda ayarlar simgesini [SETTINGS_ICON_FIREFOX] tıklayın",
-        "list_item_2_cam": "Engellenmiş seçeneğine tıklayın, Kamerayı kullan yanında",
-        "list_item_2_mic": "Engellenmiş seçeneğine tıklayın ve Mikrofonu kullan seçeneğinin yanında bulunur",
-        "list_item_3": "Bu sayfaya geri dönün ve Değişiklikleri yaptım düğmesini tıklayın"
+        "list_item_2_cam": "<strong>Engellenmiş</strong> seçeneğine tıklayın, <strong>Kamerayı kullan</strong> yanında",
+        "list_item_2_mic": "<strong>Engellenmiş</strong> seçeneğine tıklayın ve <strong>Mikrofonu kullan</strong> seçeneğinin yanında bulunur",
+        "list_item_3": "Bu sayfaya geri dönün ve <strong>Değişiklikleri yaptım</strong> düğmesini tıklayın"
       }
     },
     "desktop_generic": {
       "browser_settings": {
         "list_item_1": "Tarayıcınızda, web sitesi ayarlarını açın. Bu genellikle adres çubuğunda bir kilit simgesi [LOCK_ICON] olur",
         "list_item_2": "İzinler hakkındaki bölümü bulun",
-        "list_item_3_cam": "Kamera izinlerini etkinleştirin",
-        "list_item_3_mic": "Mikrofon izinlerini etkinleştirin",
-        "list_item_4": "Bu sayfaya dönün ve Değişiklikleri yaptım düğmesine tıklayın"
+        "list_item_3_cam": "<strong>Kamera</strong> izinlerini etkinleştirin",
+        "list_item_3_mic": "<strong>Mikrofon</strong> izinlerini etkinleştirin",
+        "list_item_4": "Bu sayfaya dönün ve <strong>Değişiklikleri yaptım</strong> düğmesine tıklayın"
       },
       "device_settings": {
-        "list_item_1": "Bilgisayarınızda, Ayarlarınızı açın",
-        "list_item_2": "(Gizlilik altında genellikle bulunan) izinler hakkındaki bölümü bulun",
-        "list_item_3_cam": "[BROWSER_ICON] için Kamera izinlerini etkinleştirin",
-        "list_item_3_mic": "[BROWSER_ICON] için Mikrofon izinlerini etkinleştirin",
+        "list_item_1": "Bilgisayarınızda, <strong>Ayarlarınızı</strong> açın",
+        "list_item_2": "(<strong>Gizlilik</strong> altında genellikle bulunan) izinler hakkındaki bölümü bulun",
+        "list_item_3_cam": "[BROWSER_ICON] için <strong>Kamera</strong> izinlerini etkinleştirin",
+        "list_item_3_mic": "[BROWSER_ICON] için <strong>Mikrofon</strong> izinlerini etkinleştirin",
         "list_item_4": "Gerekirse tarayıcınızı yeniden başlatın ve bu sayfaya geri dönün"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "Bilgisayarınızda, Apple menüsünü [APPLE_ICON] tıklayın ve Sistem Ayarları (veya Sistem Tercihleri) seçin",
-        "list_item_2": "Kenar çubuğunda Gizlilik & Güvenlik (veya Güvenlik & Gizlilik) seçeneğine tıklayın ",
-        "list_item_3": "Pop-up'ta Sonra tıklayın",
-        "list_item_3_cam": "Kamera üzerine tıklayın ve [BROWSER_ICON] yanındaki anahtarı (veya onay kutusunu) aktifleştirin",
-        "list_item_4": "Açılan pencerede Çıkış Yap & Yeniden Aç seçeneğine tıklayın ve bu sayfaya geri dönün",
-        "list_item_4_mic": "Mikrofonu tıklayın ve [BROWSER_ICON] yanındaki anahtarı (veya onay kutusunu) etkinleştirin"
+        "list_item_1": "Bilgisayarınızda, Apple menüsünü [APPLE_ICON] tıklayın ve <strong>Sistem Ayarları</strong> (veya <strong>Sistem Tercihleri</strong>) seçin",
+        "list_item_2": "Kenar çubuğunda <strong>Gizlilik & Güvenlik</strong> (veya <strong>Güvenlik & Gizlilik</strong>) seçeneğine tıklayın ",
+        "list_item_3": "Pop-up'ta <strong>Sonra</strong> tıklayın",
+        "list_item_3_cam": "<strong>Kamera</strong> üzerine tıklayın ve [BROWSER_ICON] yanındaki anahtarı (veya onay kutusunu) aktifleştirin",
+        "list_item_4": "Açılan pencerede <strong>Çıkış Yap & Yeniden Aç</strong> seçeneğine tıklayın ve bu sayfaya geri dönün",
+        "list_item_4_mic": "<strong>Mikrofon</strong>u tıklayın ve [BROWSER_ICON] yanındaki anahtarı (veya onay kutusunu) etkinleştirin"
       }
     },
     "desktop_safari": {
       "browser_settings": {
-        "list_item_1": "Tarayıcınızda, adres çubuğunda sağ tıklayın ve Ayarlar seçeneğini seçin",
-        "list_item_2_cam": "Kamera yanındaki açılır menüye tıklayın ve İzin Ver seçeneğini seçin",
-        "list_item_2_mic": "Mikrofon yanındaki açılır menüye tıklayın ve İzin Ver seçeneğini seçin",
-        "list_item_3": "Bu sayfaya geri dönün ve Değişiklikleri yaptım düğmesini tıklayın"
+        "list_item_1": "Tarayıcınızda, adres çubuğunda sağ tıklayın ve <strong>Ayarlar</strong> seçeneğini seçin",
+        "list_item_2_cam": "<strong>Kamera</strong> yanındaki açılır menüye tıklayın ve <strong>İzin Ver</strong> seçeneğini seçin",
+        "list_item_2_mic": "<strong>Mikrofon</strong> yanındaki açılır menüye tıklayın ve <strong>İzin Ver</strong> seçeneğini seçin",
+        "list_item_3": "Bu sayfaya geri dönün ve <strong>Değişiklikleri yaptım</strong> düğmesini tıklayın"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "Bilgisayarınızda, Windows menüsünü [WINDOWS_ICON] tıklayın ve Ayarları seçin [SETTINGS_ICON_WINDOWS]",
-        "list_item_2": "Gizlilik (veya Gizlilik & Güvenlik) tıklayın",
-        "list_item_3_cam": "Uygulama izinleri altındaki Kamera öğesini tıklayın ve [BROWSER_ICON] yanındaki anahtarı etkinleştirin",
-        "list_item_3_mic": "Uygulama izinleri altındaki Mikrofon öğesini tıklayın ve [BROWSER_ICON] yanındaki anahtarı etkinleştirin",
+        "list_item_1": "Bilgisayarınızda, Windows menüsünü [WINDOWS_ICON] tıklayın ve <strong>Ayarlar</strong>ı seçin [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "<strong>Gizlilik</strong> (veya <strong>Gizlilik & Güvenlik</strong>) tıklayın",
+        "list_item_3_cam": "<strong>Uygulama izinleri</strong> altındaki <strong>Kamera</strong> öğesini tıklayın ve [BROWSER_ICON] yanındaki anahtarı etkinleştirin",
+        "list_item_3_mic": "<strong>Uygulama izinleri</strong> altındaki <strong>Mikrofon</strong> öğesini tıklayın ve [BROWSER_ICON] yanındaki anahtarı etkinleştirin",
         "list_item_4": "Gerekirse tarayıcınızı yeniden başlatın ve bu sayfaya geri dönün"
       }
     },
     "info": "Kurtarma",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "Değişiklikleri yaptım düğmesine dokunun. Kamera ve mikrofon erişimini tekrar etkinleştirmeniz istenecektir. Açılır pencere belirdiğinde, İzin Ver (veya Tamam) seçeneğini seçin.",
-        "list_item_1_cam": "Değişiklikleri yaptım düğmesine dokunun. Kameraya erişimi tekrar etkinleştirmeniz istenecektir. Açılır pencere belirdiğinde, İzin Ver (veya Tamam) seçeneğini seçin.",
-        "list_item_1_mic": "Değişiklikleri yaptım düğmesine dokunun. Mikrofon erişimini tekrar etkinleştirmeniz istenecektir. Açılan pencere belirdiğinde, İzin Ver (veya Tamam) seçeneğini seçin."
+        "list_item_1_both": "<strong>Değişiklikleri yaptım</strong> düğmesine dokunun. Kamera ve mikrofon erişimini tekrar etkinleştirmeniz istenecektir. Açılır pencere belirdiğinde, <strong>İzin Ver</strong> (veya <strong>Tamam</strong>) seçeneğini seçin.",
+        "list_item_1_cam": "<strong>Değişiklikleri yaptım</strong> düğmesine dokunun. Kameraya erişimi tekrar etkinleştirmeniz istenecektir. Açılır pencere belirdiğinde, <strong>İzin Ver</strong> (veya <strong>Tamam</strong>) seçeneğini seçin.",
+        "list_item_1_mic": "<strong>Değişiklikleri yaptım</strong> düğmesine dokunun. Mikrofon erişimini tekrar etkinleştirmeniz istenecektir. Açılan pencere belirdiğinde, <strong>İzin Ver</strong> (veya <strong>Tamam</strong>) seçeneğini seçin."
       },
       "device_settings": {
-        "list_item_1": "Cihazınızda, Ayarlar uygulamasını açın",
+        "list_item_1": "Cihazınızda, <strong>Ayarlar</strong> uygulamasını açın",
         "list_item_2": "Listeyi kaydırın ve [BROWSER_ICON] öğesine dokunun",
-        "list_item_3_cam": "Kamera yanındaki anahtarı etkinleştirin",
-        "list_item_3_mic": "Mikrofon yanındaki anahtarı etkinleştirin",
-        "list_item_4": "Bu sayfaya geri dönün ve Değişiklikleri yaptım düğmesine tıklayın"
+        "list_item_3_cam": "<strong>Kamera</strong> yanındaki anahtarı etkinleştirin",
+        "list_item_3_mic": "<strong>Mikrofon</strong> yanındaki anahtarı etkinleştirin",
+        "list_item_4": "Bu sayfaya geri dönün ve <strong>Değişiklikleri yaptım</strong> düğmesine tıklayın"
       }
     },
     "ios_safari": {
       "device_settings": {
-        "list_item_1": "Cihazınızda, Ayarlar uygulamasını açın",
+        "list_item_1": "Cihazınızda, <strong>Ayarlar</strong> uygulamasını açın",
         "list_item_2": "Listeyi kaydırın ve [BROWSER_ICON] öğesine dokunun",
-        "list_item_3_cam": "Kamera seçeneğine dokunun ve İzin Ver seçeneğini seçin",
-        "list_item_3_mic": "Mikrofonu tıklayın ve İzin Ver seçeneğini seçin",
-        "list_item_4": "Bu sayfaya geri dönün ve Değişiklikleri yaptım düğmesine tıklayın"
+        "list_item_3_cam": "<strong>Kamera</strong> seçeneğine dokunun ve <strong>İzin Ver</strong> seçeneğini seçin",
+        "list_item_3_mic": "<strong>Mikrofon</strong>u tıklayın ve <strong>İzin Ver</strong> seçeneğini seçin",
+        "list_item_4": "Bu sayfaya geri dönün ve <strong>Değişiklikleri yaptım</strong> düğmesine tıklayın"
       }
     },
     "list_header_both": "Her ikisine de erişimi sağlamak için aşağıdaki adımları izleyin:",
@@ -585,7 +646,7 @@
     "list_item_how_to_both": "Tarayıcı ayarlarınızdan kameranıza ve mikrofonunuza erişim izni verin",
     "list_item_how_to_cam": "Tarayıcı ayarlarınızdan kameranıza erişim izni verin",
     "list_item_how_to_mic": "Tarayıcı ayarlarınızdan mikrofonunuza erişim izni verin",
-    "subtitle_both": "Video çekmek ve hem kamera hem de doğrulama sürecini tamamlamak için kamera erişimini sağlayın",
+    "subtitle_both": "Kimliğinizi doğrulamak için kameranıza ve mikrofonunuza erişim gerekiyoruz. Erişimi geri almak için aşağıdaki talimatları izleyin",
     "subtitle_cam": "Kimliğinizi doğrulamak için kameranıza erişim hakkına ihtiyacımız var. Erişimi geri almak için aşağıdaki talimatları izleyin",
     "subtitle_cam_old": "Yüz doğrulamasına devam etmek için kamera erişimini kurtarın",
     "subtitle_mic": "Kimliğinizi doğrulamak için mikrofonunuza erişim hakkına ihtiyacımız var. Erişimi geri almak için aşağıdaki talimatları izleyin",
@@ -604,16 +665,27 @@
     }
   },
   "photo_upload": {
+    "body_address_certificate_back": "Bilgisayarınızdan belgenin arka yüzünü yükleyin",
+    "body_address_certificate_front": "Bilgisayarınızdan belgenin önünü yükleyin",
     "body_bank_statement": "En iyi sonuçlar için belge sayfasının tamamını gönderin",
     "body_benefits_letter": "En iyi sonuçlar için belge sayfasının tamamını gönderin",
     "body_bill": "En iyi sonuçlar için belge sayfasının tamamını gönderin",
+    "body_exchange_house_statement": "En iyi sonuçlar için tüm belge sayfasını sağlayın",
+    "body_general_letter": "En iyi sonuçlar için tüm belge sayfasını sağlayın",
     "body_generic_document_back": "Bilgisayarınızdan belgenin arka yüzünü yükleyin",
     "body_generic_document_front": "Bilgisayarınızdan belgenin ön yüzünü yükleyin",
     "body_id_back": "Bilgisayarınızdan kimliğin arka yüzünü yükleyin",
     "body_id_front": "Bilgisayarınızdan kimliğin ön yüzünü yükleyin",
+    "body_identity_document_with_address": "En iyi sonuçlar için tüm belge sayfasını sağlayın",
+    "body_identity_document_with_address_back": "Bilgisayarınızdan belgenin arka yüzünü yükleyin",
+    "body_identity_document_with_address_front": "Bilgisayarınızdan belgenin önünü yükleyin",
+    "body_insurance_statement": "En iyi sonuçlar için tüm belge sayfasını sağlayın",
     "body_license_back": "Bilgisayarınızdan sürücü belgenizin arka yüzünü yükleyin",
     "body_license_front": "Bilgisayarınızdan sürücü belgenizin ön yüzünü yükleyin",
+    "body_mobile_phone_bill": "En iyi sonuçlar için tüm belge sayfasını sağlayın",
+    "body_mortgage_statement": "En iyi sonuçlar için tüm belge sayfasını sağlayın",
     "body_passport": "Bilgisayarınızdan pasaport fotoğraf sayfasını yükleyin",
+    "body_pension_property_statement_letter": "En iyi sonuçlar için tüm belge sayfasını sağlayın",
     "body_selfie": "Bilgisayarınızdan bir selfie yükleyin",
     "body_tax_letter": "En iyi sonuçlar için belge sayfasının tamamını gönderin",
     "button_take_photo": "Fotoğraf çekin",
@@ -642,7 +714,9 @@
     "subtitle_bank_statement": "Son 3 ay içinde düzenlenmiş olmalıdır",
     "subtitle_benefits_letter": "Son 12 ay içinde düzenlenmiş olmalıdır",
     "subtitle_bill": "​​Son 3 ay​​ içinde düzenlenmiş olmalıdır",
-    "subtitle_tax_letter": "Son 12 ay içinde düzenlenmiş olmalıdır"
+    "subtitle_dynamic_empty_grace_period": "Geçerli bir belge olmalı",
+    "subtitle_dynamic_grace_period": "Son <graceperiod></graceperiod> ayda düzenlenmiş olmalı",
+    "subtitle_tax_letter": "Son 12 ayiçinde düzenlenmiş olmalıdır"
   },
   "poa_intro": {
     "button_primary": "Doğrulamayı başlat",
@@ -952,6 +1026,51 @@
       "details_timeout": "Yeniden başlat",
       "header_timeout": "Çok uzun sürmüş gibi görünüyor"
     }
+  },
+  "qes": {
+    "consent": {
+      "common": {
+        "steps": "İmzanızı oluşturun"
+      },
+      "confirmation": {
+        "bullet_1": "Belgenizi okuduktan sonra, \"Belgeyi imzala\" düğmesine dokunun.",
+        "bullet_2": "Onfido kimliğinizi doğruladığında, imzanız bu belge üzerinde kullanılacak.",
+        "button_next_step": "Belgeyi imzala",
+        "review_document": "İmzalamak için <fallback>belgenizi</fallback> gözden geçirin",
+        "step2": "2'den 2",
+        "steps": "Belgenizi imzalayın",
+        "subtitle": "Avrupa kurallarına uygun olarak kimliğinizi doğrulamak için bir belgeyi dijital olarak imzalamalısınız.",
+        "title": "Dijital imzanızı oluşturun ve kullanın"
+      },
+      "introduction": {
+        "button_confirmation_step": "İmzamı oluştur",
+        "certificate_application_form": "Sertifika başvuru formu",
+        "privacy_notice": "Gizlilik bildirimi",
+        "step1": "2'nin 1'i",
+        "subtitle": "Avrupa kurallarına uygun olarak kimliğinizi doğrulamak için bir belgeyi dijital olarak imzalamalısınız.",
+        "terms_and_conditions": "Şartlar ve koşullar",
+        "third_party_description": "<fallback>Namirial SpA</fallback>, elektronik imzanızı doğrulayan bir sertifika veren güvenilir bir küresel sağlayıcıdır.",
+        "title": "Dijital imzanızı oluşturun ve kullanın"
+      }
+    }
+  },
+  "qes_consent": {
+    "button": "İmzamı oluştur",
+    "link_certificate": "Sertifika başvuru formu",
+    "link_privacy_notice": "Gizlilik bildirimi",
+    "link_terms_and_conditions": "Şartlar ve koşullar",
+    "namirial_intro": "Namirial SpA, elektronik imzanızı doğrulayan bir sertifika verecek güvenilir bir küresel sağlayıcıdır.",
+    "subtitle": "Avrupa kurallarına uygun olarak kimliğinizi doğrulamak için bir belgeyi dijital olarak imzalamalısınız.",
+    "title": "Dijital imzanızı oluşturun ve kullanın"
+  },
+  "qes_sign": {
+    "button": "Belgeyi imzala",
+    "link_document": "İmzalamak için belgenizi gözden geçirin",
+    "list_item_1": "Belgenizi okuduktan sonra, \"Belgeyi imzala\" düğmesine dokunun.",
+    "list_item_2": "Onfido kimliğinizi doğruladıktan sonra, imzanız bu belge üzerinde kullanılacak.",
+    "step_title": "Belgenizi imzalayın",
+    "subtitle": "Avrupa kurallarına uygun olarak kimliğinizi doğrulamak için bir belgeyi dijital olarak imzalamalısınız.",
+    "title": "Dijital imzanızı oluşturun ve kullanın"
   },
   "retry_feedback": {
     "button_primary": "Tekrar deneyin"

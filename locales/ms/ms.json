@@ -188,15 +188,23 @@
       "odp_screenshot_title": "Pengambilan skrin dikesan"
     },
     "body": "Pastikan anda telah memuat naik keseluruhan halaman dokumen dan butiran adalah jelas untuk dibaca tanpa kabur atau silau",
+    "body_address_certificate": "Pastikan anda telah memuat naik keseluruhan halaman dokumen, dan butiran adalah jelas untuk dibaca tanpa kabur atau silau",
     "body_bank_statement": "Pastikan anda telah memuat naik keseluruhan halaman dokumen dan butiran adalah jelas untuk dibaca tanpa kabur atau silau",
     "body_benefits_letter": "Pastikan anda telah memuat naik keseluruhan halaman dokumen dan butiran adalah jelas untuk dibaca tanpa kabur atau silau",
     "body_bill": "Pastikan anda telah memuat naik keseluruhan halaman dokumen dan butiran adalah jelas untuk dibaca tanpa kabur atau silau",
+    "body_exchange_house_statement": "Pastikan anda telah memuat naik keseluruhan halaman dokumen, dan butiran adalah jelas untuk dibaca tanpa kabur atau silau",
+    "body_general_letter": "Pastikan anda telah memuat naik keseluruhan halaman dokumen, dan butiran jelas untuk dibaca tanpa kabur atau silau",
     "body_generic_document": "Pastikan butiran anda jelas dan tidak terlindung",
     "body_id": "Pastikan butiran anda jelas dan tidak terlindung",
+    "body_identity_document_with_address": "Pastikan anda telah memuat naik keseluruhan halaman dokumen, dan butiran adalah jelas untuk dibaca tanpa kabur atau silau",
     "body_image_medium": "Ia akan mengambil masa yang lebih lama untuk mengesahkan anda jika kami tidak dapat membacanya",
     "body_image_poor": "Untuk mengesahkan anda dengan lancar, kami memerlukan gambar yang berkualiti lebih baik",
+    "body_insurance_statement": "Pastikan anda telah memuat naik keseluruhan halaman dokumen, dan butiran adalah jelas untuk dibaca tanpa kabur atau silau",
     "body_license": "Pastikan butiran anda jelas dan tidak terlindung",
+    "body_mobile_phone_bill": "Pastikan anda telah memuat naik keseluruhan halaman dokumen, dan butiran adalah jelas untuk dibaca tanpa kabur atau silau",
+    "body_mortgage_statement": "Pastikan anda telah memuat naik keseluruhan halaman dokumen, dan butiran adalah jelas untuk dibaca tanpa kabur atau silau",
     "body_passport": "Pastikan butiran anda jelas dan tidak terlindung",
+    "body_pension_property_statement_letter": "Pastikan anda telah memuat naik keseluruhan halaman dokumen, dan butiran adalah jelas untuk dibaca tanpa kabur atau silau",
     "body_permit": "Pastikan butiran anda jelas dan tidak terlindung",
     "body_tax_letter": "Pastikan anda telah memuat naik keseluruhan halaman dokumen dan butiran adalah jelas untuk dibaca tanpa kabur atau silau",
     "button_close": "Tutup",
@@ -217,21 +225,39 @@
   },
   "doc_select": {
     "button_address_card": "Kad alamat",
+    "button_address_card_back": "Kad Alamat (Belakang)",
     "button_address_card_detail": "Kad sementara dan kekal diterima",
+    "button_address_card_front": "Kad Alamat (Depan)",
     "button_bank_statement": "Penyata bank atau penyata persatuan pembinaan",
     "button_bank_statement_non_uk": "Penyata bank",
     "button_benefits_letter": "Surat Faedah",
     "button_benefits_letter_detail": "Faedah isi rumah yang dibenarkan oleh kerajaan cth. Elaun pencari kerja, Faedah perumahan, Kredit cukai",
     "button_bill": "Bil Utiliti",
     "button_bill_detail": "Gas, elektrik, air, talian tetap atau jalur lebar",
+    "button_exchange_house_statement": "Kenyataan Rumah Pertukaran",
+    "button_exchange_house_statement_detail": "Kenyataan pengirim tentang pemindahan atau pengiriman wang",
+    "button_general_letter": "Surat Umum",
+    "button_general_letter_detail": "Surat daripada institusi kewangan atau syarikat utiliti",
     "button_government_letter": "Surat Kerajaan",
     "button_government_letter_detail": "Sebarang surat yang dikeluarkan oleh kerajaan cth. Kelayakan manfaat, Surat pengundian, Surat cukai, dll.",
     "button_id": "Kad pengenalan",
     "button_id_detail": "Bahagian depan dan belakang",
+    "button_identity_document_with_address": "Dokumen Identiti Dengan Alamat",
+    "button_identity_document_with_address_back": "Dokumen Identiti Dengan Alamat (Belakang)",
+    "button_identity_document_with_address_detail": "Dikeluarkan oleh pihak berkuasa kerajaan",
+    "button_identity_document_with_address_front": "Dokumen Identiti Dengan Alamat (Depan)",
+    "button_insurance_statement": "Penyata Insurans",
+    "button_insurance_statement_detail": "Dikeluarkan dari syarikat insurans atau broker swasta",
     "button_license": "Lesen memandu",
     "button_license_detail": "Bahagian depan dan belakang",
+    "button_mobile_phone_bill": "Bil Telefon Bimbit",
+    "button_mobile_phone_bill_detail": "Dikeluarkan dari penyedia rangkaian telefon bimbit",
+    "button_mortgage_statement": "Penyata Gadai Janji",
+    "button_mortgage_statement_detail": "Dikeluarkan dari institusi pinjaman kewangan",
     "button_passport": "Pasport",
     "button_passport_detail": "Halaman foto",
+    "button_pension_property_statement_letter": "Penyata/Penyerahan Pencen atau Harta",
+    "button_pension_property_statement_letter_detail": "Penyata pencen atau surat dan Penyata cukai harta atau surat",
     "button_permit": "Permit kediaman",
     "button_permit_detail": "Bahagian depan dan belakang",
     "button_tax_letter": "Surat Cukai Majlis",
@@ -258,17 +284,29 @@
     "button_link_upload": "atau muat naik gambar – imbasan atau fotokopi tidak dibenarkan",
     "button_primary": "Teruskan di telefon",
     "subtitle": "Ambil gambar dengan menggunakan telefon anda",
+    "title_address_certificate": "Hantar kad alamat",
+    "title_address_certificate_back": "Hantar kad alamat (belakang)",
+    "title_address_certificate_front": "Hantar kad alamat (depan)",
     "title_bank_statement": "Hantar penyata",
     "title_benefits_letter": "Hantar surat",
     "title_bill": "Hantar bil",
+    "title_exchange_house_statement": "Hantar penyata rumah pertukaran",
+    "title_general_letter": "Hantar surat umum",
     "title_generic_document_back": "Serahkan dokumen (belakang)",
     "title_generic_document_front": "Serahkan dokumen (hadapan)",
     "title_government_letter": "Surat Kerajaan",
     "title_id_back": "Hantar kad pengenalan (bahagian belakang)",
     "title_id_front": "Hantar kad pengenalan (bahagian depan)",
+    "title_identity_document_with_address": "Hantar dokumen identiti dengan alamat",
+    "title_identity_document_with_address_back": "Hantar dokumen identiti dengan alamat (belakang)",
+    "title_identity_document_with_address_front": "Hantar dokumen identiti dengan alamat (depan)",
+    "title_insurance_statement": "Hantar penyata insurans",
     "title_license_back": "Hantar lesen (bahagian belakang)",
     "title_license_front": "Hantar lesen (bahagian depan)",
+    "title_mobile_phone_bill": "Hantar bil telefon bimbit",
+    "title_mortgage_statement": "Hantar penyata gadai janji",
     "title_passport": "Hantar halaman foto pasport",
+    "title_pension_property_statement_letter": "Hantar kenyataan atau surat",
     "title_permit_back": "Hantar permit kediaman (bahagian belakang)",
     "title_permit_front": "Hantar permit kediaman (bahagian depan)",
     "title_tax_letter": "Hantar surat"
@@ -422,6 +460,29 @@
       "success": "Pengimbasan berjaya"
     }
   },
+  "otp": {
+    "code_input": {
+      "error": {
+        "technical": "Sebuah ralat teknikal telah berlaku, sila cuba lagi kemudian",
+        "wrong_code": "Kod yang dimasukkan salah, sila cuba lagi"
+      },
+      "intro": "Kod yang dihantar ke nombor telefon anda akan aktif selama 5 minit",
+      "resend": {
+        "cta": "Hantar Semula",
+        "label": "Kod dihantar (sehingga {limit})"
+      },
+      "title": "Kata Laluan Sekali Guna"
+    },
+    "send_code": {
+      "cta": "Hantar kod",
+      "error": {
+        "limit": "Anda telah mencapai had SMS yang dihantar",
+        "technical": "Ralat teknikal telah berlaku, sila cuba lagi kemudian"
+      },
+      "intro": "Untuk mengesahkan nombor telefon anda, kami akan menghantar kod sekali guna untuk anda masukkan di skrin seterusnya.",
+      "title": "Kata Laluan Sekali Guna"
+    }
+  },
   "outro": {
     "body": "Itu sahaja yang kami perlukan untuk mula mengesahkan identiti anda",
     "body_government_letter": "Sediakan seluruh halaman dokumen untuk mendapatkan hasil terbaik",
@@ -444,139 +505,139 @@
   "permission_recovery": {
     "android": {
       "device_settings": {
-        "list_item_1": "Pada peranti anda, buka aplikasi Tetapan",
-        "list_item_2": "Ketuk Aplikasi",
-        "list_item_3": "Ketuk [BROWSER_ICON]. Jika anda tidak dapat mencarinya, ketuk Lihat semua aplikasi atau Urus aplikasi dan pilih aplikasi pelayar anda",
-        "list_item_4": "Ketuk Keizinan",
-        "list_item_5_cam": "Ketuk Kamera dan pilih Benarkan",
-        "list_item_5_mic": "Ketuk Mikrofon dan pilih Benarkan",
-        "list_item_6": "Kembali ke halaman ini dan tekan butang Saya telah membuat perubahan"
+        "list_item_1": "Pada peranti anda, buka aplikasi <strong>Tetapan</strong>",
+        "list_item_2": "Ketuk <strong>Aplikasi</strong>",
+        "list_item_3": "Ketuk [BROWSER_ICON]. Jika anda tidak dapat mencarinya, ketuk <strong>Lihat semua aplikasi</strong> atau <strong>Urus aplikasi</strong> dan pilih aplikasi pelayar anda",
+        "list_item_4": "Ketuk <strong>Keizinan</strong>",
+        "list_item_5_cam": "Ketuk <strong>Kamera</strong> dan pilih <strong>Benarkan</strong>",
+        "list_item_5_mic": "Ketuk <strong>Mikrofon</strong> dan pilih <strong>Benarkan</strong>",
+        "list_item_6": "Kembali ke halaman ini dan tekan butang <strong>Saya telah membuat perubahan</strong>"
       }
     },
     "android_chrome": {
       "browser_settings": {
         "list_item_1": "Di pelayar anda, ketuk ikon kunci [LOCK_ICON] di bar alamat",
-        "list_item_2": "Ketuk Keizinan",
-        "list_item_3_cam": "Aktifkan suis sebelah Kamera",
-        "list_item_3_mic": "Aktifkan suis sebelah Mikrofon",
-        "list_item_4": "Kembali ke halaman ini dan tekan butang Saya telah membuat perubahan"
+        "list_item_2": "Ketuk <strong>Keizinan</strong>",
+        "list_item_3_cam": "Aktifkan suis sebelah <strong>Kamera</strong>",
+        "list_item_3_mic": "Aktifkan suis sebelah <strong>Mikrofon</strong>",
+        "list_item_4": "Kembali ke halaman ini dan tekan butang <strong>Saya telah membuat perubahan</strong>"
       }
     },
     "android_firefox": {
       "browser_settings": {
         "list_item_1": "Di pelayar anda, ketuk ikon kunci [LOCK_ICON] di bar alamat",
-        "list_item_2_cam": "Ketuk Disekat bersebelahan dengan Kamera untuk bertukar ke Dibenarkan",
-        "list_item_2_mic": "Ketuk Disekat bersebelahan dengan Mikrofon untuk bertukar ke Dibenarkan",
-        "list_item_3": "Kembali ke halaman ini dan tekan butang Saya telah membuat perubahan"
+        "list_item_2_cam": "Ketuk <strong>Disekat</strong> bersebelahan dengan <strong>Kamera</strong> untuk bertukar ke <strong>Dibenarkan</strong>",
+        "list_item_2_mic": "Ketuk <strong>Disekat</strong> bersebelahan dengan <strong>Mikrofon</strong> untuk bertukar ke <strong>Dibenarkan</strong>",
+        "list_item_3": "Kembali ke halaman ini dan tekan butang <strong>Saya telah membuat perubahan</strong>"
       }
     },
     "android_generic": {
       "browser_settings": {
         "list_item_1": "Dalam pelayar anda, buka tetapan laman web. Ini seringkali merupakan ikon kunci [LOCK_ICON] di bar alamat",
         "list_item_2": "Cari bahagian tentang kebenaran",
-        "list_item_3_cam": "Dayakan kebenaran Kamera",
-        "list_item_3_mic": "Dayakan kebenaran Mikrofon",
-        "list_item_4": "Kembali ke halaman ini dan tekan butang Saya telah membuat perubahan"
+        "list_item_3_cam": "Dayakan kebenaran <strong>Kamera</strong>",
+        "list_item_3_mic": "Dayakan kebenaran <strong>Mikrofon</strong>",
+        "list_item_4": "Kembali ke halaman ini dan tekan butang <strong>Saya telah membuat perubahan</strong>"
       }
     },
     "android_samsung": {
       "browser_settings": {
         "list_item_1": "Di pelayar anda, ketuk ikon kunci [LOCK_ICON] di bar alamat",
-        "list_item_2_cam": "Aktifkan suis sebelah Kamera",
-        "list_item_2_mic": "Aktifkan suis sebelah Mikrofon",
-        "list_item_3": "Kembali ke halaman ini dan tekan butang Saya telah membuat perubahan"
+        "list_item_2_cam": "Aktifkan suis sebelah <strong>Kamera</strong>",
+        "list_item_2_mic": "Aktifkan suis sebelah <strong>Mikrofon</strong>",
+        "list_item_3": "Kembali ke halaman ini dan tekan butang <strong>Saya telah membuat perubahan</strong>"
       }
     },
     "button_primary": "Segar semula",
     "desktop_chrome": {
       "browser_settings": {
         "list_item_1": "Dalam pelayar anda, klik ikon kunci [LOCK_ICON] di bar alamat",
-        "list_item_2_cam": "Aktifkan suis sebelah Kamera",
-        "list_item_2_mic": "Aktifkan suis sebelah Mikrofon",
-        "list_item_3": "Kembali ke halaman ini dan klik butang Saya telah membuat perubahan"
+        "list_item_2_cam": "Aktifkan suis sebelah <strong>Kamera</strong>",
+        "list_item_2_mic": "Aktifkan suis sebelah <strong>Mikrofon</strong>",
+        "list_item_3": "Kembali ke halaman ini dan klik butang <strong>Saya telah membuat perubahan</strong>"
       }
     },
     "desktop_edge": {
       "browser_settings": {
         "list_item_1": "Di pelayar anda, klik ikon kunci [LOCK_ICON] di bar alamat",
-        "list_item_2_cam": "Klik pada dropdown sebelah Kamera dan pilih Benarkan",
-        "list_item_2_mic": "Klik pada dropdown di sebelah Mikrofon dan pilih Benarkan",
-        "list_item_3": "Kembali ke halaman ini dan klik butang Saya telah membuat perubahan"
+        "list_item_2_cam": "Klik pada dropdown sebelah <strong>Kamera</strong> dan pilih <strong>Benarkan</strong>",
+        "list_item_2_mic": "Klik pada dropdown di sebelah <strong>Mikrofon</strong> dan pilih <strong>Benarkan</strong>",
+        "list_item_3": "Kembali ke halaman ini dan klik butang <strong>Saya telah membuat perubahan</strong>"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
         "list_item_1": "Di pelayar anda, klik ikon tetapan [SETTINGS_ICON_FIREFOX] di bar alamat",
-        "list_item_2_cam": "Klik Disekat bersebelahan dengan Gunakan kamera",
-        "list_item_2_mic": "Klik Disekat bersebelahan dengan Gunakan mikrofon",
-        "list_item_3": "Kembali ke halaman ini dan klik butang Saya telah membuat perubahan"
+        "list_item_2_cam": "Klik <strong>Disekat</strong> bersebelahan dengan <strong>Gunakan kamera</strong>",
+        "list_item_2_mic": "Klik <strong>Disekat</strong> bersebelahan dengan <strong>Gunakan mikrofon</strong>",
+        "list_item_3": "Kembali ke halaman ini dan klik butang <strong>Saya telah membuat perubahan</strong>"
       }
     },
     "desktop_generic": {
       "browser_settings": {
         "list_item_1": "Dalam pelayar anda, buka tetapan laman web. Ini seringkali merupakan ikon kunci [LOCK_ICON] di bar alamat",
         "list_item_2": "Cari bahagian tentang kebenaran",
-        "list_item_3_cam": "Dayakan kebenaran Kamera",
-        "list_item_3_mic": "Dayakan kebenaran Mikrofon",
-        "list_item_4": "Kembali ke halaman ini dan klik butang Saya telah membuat perubahan"
+        "list_item_3_cam": "Dayakan kebenaran <strong>Kamera</strong>",
+        "list_item_3_mic": "Dayakan kebenaran <strong>Mikrofon</strong>",
+        "list_item_4": "Kembali ke halaman ini dan klik butang <strong>Saya telah membuat perubahan</strong>"
       },
       "device_settings": {
-        "list_item_1": "Pada komputer anda, buka Tetapan anda",
-        "list_item_2": "Cari bahagian tentang kebenaran (biasanya di bawah Privasi)",
-        "list_item_3_cam": "Dayakan kebenaran Kamera untuk [BROWSER_ICON]",
-        "list_item_3_mic": "Dayakan kebenaran Mikrofon untuk [BROWSER_ICON]",
+        "list_item_1": "Pada komputer anda, buka <strong>Tetapan</strong> anda",
+        "list_item_2": "Cari bahagian tentang kebenaran (biasanya di bawah <strong>Privasi</strong>)",
+        "list_item_3_cam": "Dayakan kebenaran <strong>Kamera</strong> untuk [BROWSER_ICON]",
+        "list_item_3_mic": "Dayakan kebenaran <strong>Mikrofon</strong> untuk [BROWSER_ICON]",
         "list_item_4": "Mulakan semula pelayar anda jika perlu dan kembali ke halaman ini"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "Pada komputer anda, klik menu Apple [APPLE_ICON] dan pilih Tetapan Sistem (atau Keutamaan Sistem)",
-        "list_item_2": "Klik Privasi & Keselamatan (atau Keselamatan & Privasi) di bar sisi ",
-        "list_item_3": "Klik Kemudian dalam pop-up",
-        "list_item_3_cam": "Klik Kamera dan aktifkan suis (atau kotak semak) di sebelah [BROWSER_ICON]",
-        "list_item_4": "Klik Keluar & Buka Semula dalam pop-up dan kembali ke halaman ini",
-        "list_item_4_mic": "Klik Mikrofon dan aktifkan suis (atau kotak semak) di sebelah [BROWSER_ICON]"
+        "list_item_1": "Pada komputer anda, klik menu Apple [APPLE_ICON] dan pilih <strong>Tetapan Sistem</strong> (atau <strong>Keutamaan Sistem</strong>)",
+        "list_item_2": "Klik <strong>Privasi & Keselamatan</strong> (atau <strong>Keselamatan & Privasi</strong>) di bar sisi ",
+        "list_item_3": "Klik <strong>Kemudian</strong> dalam pop-up",
+        "list_item_3_cam": "Klik <strong>Kamera</strong> dan aktifkan suis (atau kotak semak) di sebelah [BROWSER_ICON]",
+        "list_item_4": "Klik <strong>Keluar & Buka Semula</strong> dalam pop-up dan kembali ke halaman ini",
+        "list_item_4_mic": "Klik <strong>Mikrofon</strong> dan aktifkan suis (atau kotak semak) di sebelah [BROWSER_ICON]"
       }
     },
     "desktop_safari": {
       "browser_settings": {
-        "list_item_1": "Dalam pelayar anda, klik kanan pada bar alamat dan pilih Tetapan",
-        "list_item_2_cam": "Klik pada dropdown sebelah Kamera dan pilih Benarkan",
-        "list_item_2_mic": "Klik pada dropdown sebelah Mikrofon dan pilih Benarkan",
-        "list_item_3": "Kembali ke halaman ini dan klik butang Saya telah membuat perubahan"
+        "list_item_1": "Dalam pelayar anda, klik kanan pada bar alamat dan pilih <strong>Tetapan</strong>",
+        "list_item_2_cam": "Klik pada dropdown sebelah <strong>Kamera</strong> dan pilih <strong>Benarkan</strong>",
+        "list_item_2_mic": "Klik pada dropdown sebelah <strong>Mikrofon</strong> dan pilih <strong>Benarkan</strong>",
+        "list_item_3": "Kembali ke halaman ini dan klik butang <strong>Saya telah membuat perubahan</strong>"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "Pada komputer anda, klik menu Windows [WINDOWS_ICON] dan pilih Tetapan [SETTINGS_ICON_WINDOWS]",
-        "list_item_2": "Klik Privasi (atau Privasi & Keselamatan)",
-        "list_item_3_cam": "Klik Kamera di bawah Keizinan Aplikasi dan aktifkan suis di sebelah [BROWSER_ICON] ",
-        "list_item_3_mic": "Klik Mikrofon di bawah Keizinan Aplikasi dan aktifkan suis sebelah [BROWSER_ICON]",
+        "list_item_1": "Pada komputer anda, klik menu Windows [WINDOWS_ICON] dan pilih <strong>Tetapan</strong> [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "Klik <strong>Privasi</strong> (atau <strong>Privasi & Keselamatan</strong>)",
+        "list_item_3_cam": "Klik <strong>Kamera</strong> di bawah <strong>Keizinan Aplikasi</strong> dan aktifkan suis di sebelah [BROWSER_ICON] ",
+        "list_item_3_mic": "Klik <strong>Mikrofon</strong> di bawah <strong>Keizinan Aplikasi</strong> dan aktifkan suis sebelah [BROWSER_ICON]",
         "list_item_4": "Mulakan semula pelayar anda jika perlu dan kembali ke halaman ini"
       }
     },
     "info": "Pemulihan",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "Ketuk butang Saya telah membuat perubahan. Anda akan diminta untuk mengaktifkan semula akses kamera dan mikrofon. Apabila muncul pop-up, pilih Benarkan (atau OK)",
-        "list_item_1_cam": "Ketuk butang Saya telah membuat perubahan. Anda akan diminta untuk mengaktifkan semula akses kamera. Apabila muncul pop-up, pilih Benarkan (atau OK)",
-        "list_item_1_mic": "Ketuk butang Saya telah membuat perubahan. Anda akan diminta untuk mengaktifkan semula akses mikrofon. Apabila muncul pop-up, pilih Benarkan (atau OK)"
+        "list_item_1_both": "Ketuk butang <strong>Saya telah membuat perubahan</strong>. Anda akan diminta untuk mengaktifkan semula akses kamera dan mikrofon. Apabila muncul pop-up, pilih <strong>Benarkan</strong> (atau <strong>OK</strong>)",
+        "list_item_1_cam": "Ketuk butang <strong>Saya telah membuat perubahan</strong>. Anda akan diminta untuk mengaktifkan semula akses kamera. Apabila muncul pop-up, pilih <strong>Benarkan</strong> (atau <strong>OK</strong>)",
+        "list_item_1_mic": "Ketuk butang <strong>Saya telah membuat perubahan</strong>. Anda akan diminta untuk mengaktifkan semula akses mikrofon. Apabila muncul pop-up, pilih <strong>Benarkan</strong> (atau <strong>OK</strong>)"
       },
       "device_settings": {
-        "list_item_1": "Pada peranti anda, buka aplikasi Tetapan",
+        "list_item_1": "Pada peranti anda, buka aplikasi <strong>Tetapan</strong>",
         "list_item_2": "Tatal melalui senarai dan ketuk [BROWSER_ICON]",
-        "list_item_3_cam": "Aktifkan suis sebelah Kamera",
-        "list_item_3_mic": "Aktifkan suis sebelah Mikrofon",
-        "list_item_4": "Kembali ke halaman ini dan tekan butang Saya telah membuat perubahan"
+        "list_item_3_cam": "Aktifkan suis sebelah <strong>Kamera</strong>",
+        "list_item_3_mic": "Aktifkan suis sebelah <strong>Mikrofon</strong>",
+        "list_item_4": "Kembali ke halaman ini dan tekan butang <strong>Saya telah membuat perubahan</strong>"
       }
     },
     "ios_safari": {
       "device_settings": {
-        "list_item_1": "Pada peranti anda, buka aplikasi Tetapan",
+        "list_item_1": "Pada peranti anda, buka aplikasi <strong>Tetapan</strong>",
         "list_item_2": "Gulir melalui senarai dan ketuk [BROWSER_ICON]",
-        "list_item_3_cam": "Ketuk Kamera dan pilih Benarkan",
-        "list_item_3_mic": "Ketuk Mikrofon dan pilih Benarkan",
-        "list_item_4": "Kembali ke halaman ini dan tekan butang Saya telah membuat perubahan"
+        "list_item_3_cam": "Ketuk <strong>Kamera</strong> dan pilih <strong>Benarkan</strong>",
+        "list_item_3_mic": "Ketuk <strong>Mikrofon</strong> dan pilih <strong>Benarkan</strong>",
+        "list_item_4": "Kembali ke halaman ini dan tekan butang <strong>Saya telah membuat perubahan</strong>"
       }
     },
     "list_header_both": "Ikuti langkah-langkah ini untuk mengembalikan akses kamera dan juga mikrofon:",
@@ -585,7 +646,7 @@
     "list_item_how_to_both": "Benarkan akses kepada kamera dan mikrofon anda melalui tetapan pelayar anda",
     "list_item_how_to_cam": "Benarkan akses kepada kamera anda melalui tetapan pelayar anda",
     "list_item_how_to_mic": "Benarkan akses kepada mikrofon daripada tetapan pelayar anda",
-    "subtitle_both": "Kembalikan akses kamera dan mikrofon untuk merakam video dan melengkapkan proses pengesahan",
+    "subtitle_both": "Kami memerlukan akses ke kamera dan mikrofon anda untuk mengesahkan identiti anda. Ikuti arahan di bawah untuk mendapatkan semula akses",
     "subtitle_cam": "Kami memerlukan akses ke kamera anda untuk mengesahkan identiti anda. Ikuti arahan di bawah untuk mendapatkan semula akses",
     "subtitle_cam_old": "Kembalikan akses kamera untuk meneruskan pengesahan wajah",
     "subtitle_mic": "Kami memerlukan akses ke mikrofon anda untuk mengesahkan identiti anda. Ikuti arahan di bawah untuk mendapatkan semula akses",
@@ -604,16 +665,27 @@
     }
   },
   "photo_upload": {
+    "body_address_certificate_back": "Muat naik belakang dokumen dari komputer anda",
+    "body_address_certificate_front": "Muat naik bahagian depan dokumen dari komputer anda",
     "body_bank_statement": "Sediakan seluruh halaman dokumen untuk mendapatkan hasil terbaik",
     "body_benefits_letter": "Sediakan seluruh halaman dokumen untuk mendapatkan hasil terbaik",
     "body_bill": "Sediakan seluruh halaman dokumen untuk mendapatkan hasil terbaik",
+    "body_exchange_house_statement": "Sediakan keseluruhan halaman dokumen untuk hasil terbaik",
+    "body_general_letter": "Sediakan keseluruhan halaman dokumen untuk hasil terbaik",
     "body_generic_document_back": "Muat naik bahagian belakang dokumen daripada komputer anda",
     "body_generic_document_front": "Muat naik bahagian hadapan dokumen daripada komputer anda",
     "body_id_back": "Muat naik bahagian belakang kad pengenalan dengan menggunakan komputer anda",
     "body_id_front": "Muat naik bahagian depan kad pengenalan dengan menggunakan komputer anda",
+    "body_identity_document_with_address": "Sediakan keseluruhan halaman dokumen untuk hasil terbaik",
+    "body_identity_document_with_address_back": "Muat naik belakang dokumen dari komputer anda",
+    "body_identity_document_with_address_front": "Muat naik bahagian depan dokumen dari komputer anda",
+    "body_insurance_statement": "Sediakan keseluruhan halaman dokumen untuk hasil terbaik",
     "body_license_back": "Muat naik bahagian belakang lesen dengan menggunakan komputer anda",
     "body_license_front": "Muat naik bahagian depan lesen dengan menggunakan komputer anda",
+    "body_mobile_phone_bill": "Sediakan keseluruhan halaman dokumen untuk hasil terbaik",
+    "body_mortgage_statement": "Sediakan keseluruhan halaman dokumen untuk hasil terbaik",
     "body_passport": "Muat naik halaman foto pasport dengan menggunakan komputer anda",
+    "body_pension_property_statement_letter": "Sediakan keseluruhan halaman dokumen untuk hasil terbaik",
     "body_selfie": "Muat naik swafoto dengan menggunakan komputer anda",
     "body_tax_letter": "Sediakan seluruh halaman dokumen untuk mendapatkan hasil terbaik",
     "button_take_photo": "Tangkap gambar",
@@ -641,7 +713,9 @@
     "subtitle_address_card": "Mesti kad alamat yang sah",
     "subtitle_bank_statement": "Mesti dikeluarkan dalam tempoh ​​3 bulan terakhir​​",
     "subtitle_benefits_letter": "Mesti dikeluarkan dalam tempoh ​​12 bulan terakhir​​",
-    "subtitle_bill": "Mesti dikeluarkan dalam tempoh ​​3 bulan terakhir​​",
+    "subtitle_bill": "Mesti dikeluarkan dalam tempoh ​​3 bulan terakhir​",
+    "subtitle_dynamic_empty_grace_period": "Mesti merupakan dokumen yang sah",
+    "subtitle_dynamic_grace_period": "Harus dikeluarkan dalam <graceperiod></graceperiod> bulan terakhir",
     "subtitle_tax_letter": "Mesti dikeluarkan dalam tempoh ​​12 bulan terakhir​​"
   },
   "poa_intro": {
@@ -952,6 +1026,51 @@
       "details_timeout": "Mula semula",
       "header_timeout": "Nampaknya anda mengambil masa yang terlalu lama"
     }
+  },
+  "qes": {
+    "consent": {
+      "common": {
+        "steps": "Cipta tandatangan anda"
+      },
+      "confirmation": {
+        "bullet_1": "Selepas membaca dokumen anda, ketuk butang \"Tandatangan dokumen\".",
+        "bullet_2": "Setelah Onfido mengesahkan identiti anda, tandatangan anda akan digunakan pada dokumen ini.",
+        "button_next_step": "Tandatangani dokumen",
+        "review_document": "Semak <fallback>dokumen anda</fallback> untuk menandatangani",
+        "step2": "2 daripada 2",
+        "steps": "Tandatangani dokumen anda",
+        "subtitle": "Untuk mengesahkan identiti anda mengikut peraturan Eropah, anda mesti menandatangani dokumen secara digital.",
+        "title": "Cipta dan gunakan tandatangan digital anda"
+      },
+      "introduction": {
+        "button_confirmation_step": "Cipta tandatangan saya",
+        "certificate_application_form": "Borang permohonan sijil",
+        "privacy_notice": "Notis privasi",
+        "step1": "1 daripada 2",
+        "subtitle": "Untuk mengesahkan identiti anda mengikut peraturan Eropah, anda mesti menandatangani dokumen secara digital.",
+        "terms_and_conditions": "Terma dan syarat",
+        "third_party_description": "<fallback>Namirial SpA</fallback> adalah penyedia global yang dipercayai yang akan mengeluarkan sijil yang mengesahkan tandatangan elektronik anda.",
+        "title": "Cipta dan gunakan tandatangan digital anda"
+      }
+    }
+  },
+  "qes_consent": {
+    "button": "Cipta tandatangan saya",
+    "link_certificate": "Borang permohonan sijil",
+    "link_privacy_notice": "Notis privasi",
+    "link_terms_and_conditions": "Terma dan syarat",
+    "namirial_intro": "Namirial SpA adalah penyedia global yang dipercayai yang akan mengeluarkan sijil yang mengesahkan tandatangan elektronik anda. ",
+    "subtitle": "Untuk mengesahkan identiti anda mengikut peraturan Eropah, anda mesti menandatangani dokumen secara digital.",
+    "title": "Cipta dan gunakan tandatangan digital anda"
+  },
+  "qes_sign": {
+    "button": "Tandatangani dokumen",
+    "link_document": "Semak dokumen anda untuk tandatangan",
+    "list_item_1": "Selepas membaca dokumen anda, ketuk butang \"Tandatangan dokumen\".",
+    "list_item_2": "Setelah Onfido mengesahkan identiti anda, tandatangan anda akan digunakan pada dokumen ini.",
+    "step_title": "Tandatangani dokumen anda",
+    "subtitle": "Untuk mengesahkan identiti anda mengikut peraturan Eropah, anda mesti menandatangani dokumen secara digital.",
+    "title": "Cipta dan gunakan tandatangan digital anda"
   },
   "retry_feedback": {
     "button_primary": "Cuba lagi"

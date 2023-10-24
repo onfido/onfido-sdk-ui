@@ -188,15 +188,23 @@
       "odp_screenshot_title": "Đã phát hiện ảnh chụp màn hình"
     },
     "body": "Đảm bảo bạn đã tải lên toàn bộ trang giấy tờ và chi tiết phải rõ ràng để đọc mà không bị mờ hoặc lóa",
+    "body_address_certificate": "Hãy đảm bảo bạn đã tải lên toàn bộ trang tài liệu, và chi tiết rõ ràng để đọc mà không có độ mờ hoặc chói lóa",
     "body_bank_statement": "Đảm bảo bạn đã tải lên toàn bộ trang giấy tờ và chi tiết phải rõ ràng để đọc mà không bị mờ hoặc lóa",
     "body_benefits_letter": "Đảm bảo bạn đã tải lên toàn bộ trang giấy tờ và chi tiết phải rõ ràng để đọc mà không bị mờ hoặc lóa",
     "body_bill": "Đảm bảo bạn đã tải lên toàn bộ trang giấy tờ và chi tiết phải rõ ràng để đọc mà không bị mờ hoặc lóa",
+    "body_exchange_house_statement": "Hãy đảm bảo bạn đã tải lên toàn bộ trang tài liệu, và chi tiết rõ ràng để đọc mà không có độ mờ hoặc chói lóa",
+    "body_general_letter": "Hãy đảm bảo bạn đã tải lên toàn bộ trang tài liệu, và chi tiết rõ ràng để đọc mà không có độ mờ hoặc chói lọi",
     "body_generic_document": "Đảm bảo thông tin của bạn rõ ràng và dễ nhìn",
     "body_id": "Đảm bảo thông tin của bạn rõ ràng và dễ nhìn",
+    "body_identity_document_with_address": "Hãy đảm bảo bạn đã tải lên toàn bộ trang tài liệu, và chi tiết rõ ràng để đọc mà không có độ mờ hoặc chói lóa",
     "body_image_medium": "Sẽ mất nhiều thời gian xác minh hơn nếu chúng tôi không đọc được",
     "body_image_poor": "Để xác minh nhanh chóng, chúng tôi cần ảnh chụp sắc nét hơn",
+    "body_insurance_statement": "Hãy đảm bảo bạn đã tải lên toàn bộ trang tài liệu, và chi tiết rõ ràng để đọc mà không có độ mờ hoặc chói lọi",
     "body_license": "Đảm bảo thông tin của bạn rõ ràng và dễ nhìn",
+    "body_mobile_phone_bill": "Hãy đảm bảo bạn đã tải lên toàn bộ trang tài liệu, và chi tiết rõ ràng để đọc mà không có độ mờ hoặc chói lóa",
+    "body_mortgage_statement": "Hãy đảm bảo bạn đã tải lên toàn bộ trang tài liệu, và chi tiết rõ ràng để đọc mà không có độ mờ hoặc chói lóa",
     "body_passport": "Đảm bảo thông tin của bạn rõ ràng và dễ nhìn",
+    "body_pension_property_statement_letter": "Hãy đảm bảo bạn đã tải lên toàn bộ trang tài liệu, và chi tiết rõ ràng để đọc mà không có độ mờ hoặc chói lóa",
     "body_permit": "Đảm bảo thông tin của bạn rõ ràng và dễ nhìn",
     "body_tax_letter": "Đảm bảo bạn đã tải lên toàn bộ trang giấy tờ và chi tiết phải rõ ràng để đọc mà không bị mờ hoặc lóa",
     "button_close": "Đóng",
@@ -217,21 +225,39 @@
   },
   "doc_select": {
     "button_address_card": "Thẻ địa chỉ",
+    "button_address_card_back": "Thẻ Địa chỉ (Mặt sau)",
     "button_address_card_detail": "Thẻ tạm thời và thẻ vĩnh viễn được chấp nhận",
+    "button_address_card_front": "Thẻ Địa chỉ (Mặt trước)",
     "button_bank_statement": "Bảng sao kê của ngân hàng hoặc hiệp hội xây dựng",
     "button_bank_statement_non_uk": "Bảng sao kê của ngân hàng",
     "button_benefits_letter": "Công văn phúc lợi",
     "button_benefits_letter_detail": "Trợ cấp cho hộ gia đình do chính phủ cấp, ví dụ: Trợ cấp cho người tìm việc, Trợ cấp nhà ở, Tín dụng thuế",
     "button_bill": "Hóa đơn dịch vụ thiết yếu",
     "button_bill_detail": "Khí đốt, điện, nước, điện thoại cố định hoặc internet",
+    "button_exchange_house_statement": "Bản báo cáo của Sở Giao dịch",
+    "button_exchange_house_statement_detail": "Thông báo của người gửi về việc chuyển khoản hoặc chuyển tiền",
+    "button_general_letter": "Thư chung",
+    "button_general_letter_detail": "Thư từ tổ chức tài chính hoặc công ty cung cấp dịch vụ tiện ích",
     "button_government_letter": "Công văn của chính phủ",
     "button_government_letter_detail": "Bất kỳ công văn nào do chính phủ ban hành, ví dụ: Công văn thông báo được nhận trợ cấp, Thư mời bỏ phiếu, Thông báo thuế, v.v.",
     "button_id": "Thẻ căn cước",
     "button_id_detail": "Mặt trước và mặt sau",
+    "button_identity_document_with_address": "Giấy tờ tùy thân có địa chỉ",
+    "button_identity_document_with_address_back": "Giấy tờ tùy thân có địa chỉ (Mặt sau)",
+    "button_identity_document_with_address_detail": "Được phát hành bởi cơ quan chính phủ",
+    "button_identity_document_with_address_front": "Giấy tờ tùy thân có địa chỉ (Mặt trước)",
+    "button_insurance_statement": "Bản kê khai Bảo hiểm",
+    "button_insurance_statement_detail": "Được phát hành từ một công ty bảo hiểm hoặc công ty môi giới tư nhân",
     "button_license": "Giấy phép lái xe",
     "button_license_detail": "Mặt trước và mặt sau",
+    "button_mobile_phone_bill": "Hóa đơn điện thoại di động",
+    "button_mobile_phone_bill_detail": "Được phát hành từ nhà cung cấp mạng điện thoại di động",
+    "button_mortgage_statement": "Bản kê khai thế chấp",
+    "button_mortgage_statement_detail": "Được phát hành từ một tổ chức tài chính cho vay",
     "button_passport": "Hộ chiếu",
     "button_passport_detail": "Trang có ảnh",
+    "button_pension_property_statement_letter": "Giấy tờ/Thư báo cáo về Lương hưu hoặc Bất động sản",
+    "button_pension_property_statement_letter_detail": "Bản kê khai hoặc thư về lương hưu và Bản kê khai hoặc thư về thuế tài sản",
     "button_permit": "Giấy phép cư trú",
     "button_permit_detail": "Mặt trước và mặt sau",
     "button_tax_letter": "Công văn thuế của hội đồng",
@@ -258,17 +284,29 @@
     "button_link_upload": "hoặc tải ảnh lên – không dùng bản scan hoặc bản sao",
     "button_primary": "Tiếp tục trên điện thoại",
     "subtitle": "Chụp ảnh bằng điện thoại của bạn",
+    "title_address_certificate": "Gửi thẻ địa chỉ",
+    "title_address_certificate_back": "Gửi thẻ địa chỉ (mặt sau)",
+    "title_address_certificate_front": "Gửi thẻ địa chỉ (mặt trước)",
     "title_bank_statement": "Gửi bảng sao kê",
     "title_benefits_letter": "Gửi thư",
     "title_bill": "Gửi hóa đơn",
+    "title_exchange_house_statement": "Nộp báo cáo ngân hàng giao dịch",
+    "title_general_letter": "Gửi thư chung",
     "title_generic_document_back": "Gửi tài liệu (mặt sau)",
     "title_generic_document_front": "Gửi tài liệu (mặt trước)",
     "title_government_letter": "Công văn của chính phủ",
     "title_id_back": "Gửi thẻ căn cước (mặt sau)",
     "title_id_front": "Gửi thẻ căn cước (mặt trước)",
+    "title_identity_document_with_address": "Nộp tài liệu nhận dạng có địa chỉ",
+    "title_identity_document_with_address_back": "Nộp tài liệu nhận dạng có địa chỉ (mặt sau)",
+    "title_identity_document_with_address_front": "Nộp tài liệu xác minh danh tính có địa chỉ (mặt trước)",
+    "title_insurance_statement": "Nộp báo cáo bảo hiểm",
     "title_license_back": "Gửi giấy phép (mặt sau)",
     "title_license_front": "Gửi giấy phép (mặt trước)",
+    "title_mobile_phone_bill": "Nộp hóa đơn điện thoại di động",
+    "title_mortgage_statement": "Gửi báo cáo khoản vay thế chấp",
     "title_passport": "Gửi trang có ảnh hộ chiếu",
+    "title_pension_property_statement_letter": "Gửi bản tuyên bố hoặc thư",
     "title_permit_back": "Gửi giấy phép cư trú (mặt sau)",
     "title_permit_front": "Gửi giấy phép cư trú (mặt trước)",
     "title_tax_letter": "Gửi thư"
@@ -422,6 +460,29 @@
       "success": "Scan thành công"
     }
   },
+  "otp": {
+    "code_input": {
+      "error": {
+        "technical": "Một lỗi kỹ thuật đã xảy ra, vui lòng thử lại sau",
+        "wrong_code": "Mã đã nhập không đúng, vui lòng thử lại"
+      },
+      "intro": "Mã được gửi đến số điện thoại của bạn sẽ hoạt động trong 5 phút",
+      "resend": {
+        "cta": "Gửi lại",
+        "label": "Mã đã được gửi (lên đến {limit})"
+      },
+      "title": "Mật khẩu một lần"
+    },
+    "send_code": {
+      "cta": "Gửi mã",
+      "error": {
+        "limit": "Bạn đã đạt giới hạn số tin nhắn SMS đã gửi",
+        "technical": "Một lỗi kỹ thuật đã xảy ra, vui lòng thử lại sau"
+      },
+      "intro": "Để xác minh số điện thoại của bạn, chúng tôi sẽ gửi cho bạn một mã dùng một lần để nhập vào màn hình tiếp theo.",
+      "title": "Mật khẩu một lần"
+    }
+  },
   "outro": {
     "body": "Chúng tôi đã có đầy đủ thông tin cần thiết để bắt đầu xác minh danh tính của bạn",
     "body_government_letter": "Cung cấp toàn bộ trang tài liệu để có kết quả tốt nhất",
@@ -444,139 +505,139 @@
   "permission_recovery": {
     "android": {
       "device_settings": {
-        "list_item_1": "Trên thiết bị của bạn, mở ứng dụng Cài đặt",
-        "list_item_2": "Chạm vào Ứng dụng",
-        "list_item_3": "Chạm vào [BROWSER_ICON]. Nếu bạn không tìm thấy, chạm vào Xem tất cả các ứng dụng hoặc Quản lý ứng dụng và chọn ứng dụng trình duyệt của bạn",
-        "list_item_4": "Chạm vào Quyền",
-        "list_item_5_cam": "Chạm vào Camera và chọn Cho phép",
-        "list_item_5_mic": "Chạm vào Microphone và chọn Cho phép",
-        "list_item_6": "Quay lại trang này và nhấn nút Tôi đã thực hiện các thay đổi"
+        "list_item_1": "Trên thiết bị của bạn, mở ứng dụng <strong>Cài đặt</strong>",
+        "list_item_2": "Chạm vào <strong>Ứng dụng</strong>",
+        "list_item_3": "Chạm vào [BROWSER_ICON]. Nếu bạn không tìm thấy, chạm vào <strong>Xem tất cả các ứng dụng</strong> hoặc <strong>Quản lý ứng dụng</strong> và chọn ứng dụng trình duyệt của bạn",
+        "list_item_4": "Chạm vào <strong>Quyền</strong>",
+        "list_item_5_cam": "Chạm vào <strong>Camera</strong> và chọn <strong>Cho phép</strong>",
+        "list_item_5_mic": "Chạm vào <strong>Microphone</strong> và chọn <strong>Cho phép</strong>",
+        "list_item_6": "Quay lại trang này và nhấn nút <strong>Tôi đã thực hiện các thay đổi</strong>"
       }
     },
     "android_chrome": {
       "browser_settings": {
         "list_item_1": "Trên trình duyệt của bạn, nhấn vào biểu tượng khóa [LOCK_ICON] trên thanh địa chỉ",
-        "list_item_2": "Chạm vào Quyền",
-        "list_item_3_cam": "Kích hoạt công tắc bên cạnh Camera",
-        "list_item_3_mic": "Kích hoạt công tắc bên cạnh Micro",
-        "list_item_4": "Quay lại trang này và nhấn nút Tôi đã thực hiện các thay đổi"
+        "list_item_2": "Chạm vào <strong>Quyền</strong>",
+        "list_item_3_cam": "Kích hoạt công tắc bên cạnh <strong>Camera</strong>",
+        "list_item_3_mic": "Kích hoạt công tắc bên cạnh <strong>Micro</strong>",
+        "list_item_4": "Quay lại trang này và nhấn nút <strong>Tôi đã thực hiện các thay đổi</strong>"
       }
     },
     "android_firefox": {
       "browser_settings": {
         "list_item_1": "Trên trình duyệt của bạn, nhấn vào biểu tượng khóa [LOCK_ICON] trên thanh địa chỉ",
-        "list_item_2_cam": "Chạm vào Đã chặn kế bên Camera để chuyển sang Được phép",
-        "list_item_2_mic": "Chạm vào Đã chặn kế bên Micro để chuyển sang Được phép",
-        "list_item_3": "Quay lại trang này và nhấn nút Tôi đã thực hiện các thay đổi"
+        "list_item_2_cam": "Chạm vào <strong>Đã chặn</strong> kế bên <strong>Camera</strong> để chuyển sang <strong>Được phép</strong>",
+        "list_item_2_mic": "Chạm vào <strong>Đã chặn</strong> kế bên <strong>Micro</strong> để chuyển sang <strong>Được phép</strong>",
+        "list_item_3": "Quay lại trang này và nhấn nút <strong>Tôi đã thực hiện các thay đổi</strong>"
       }
     },
     "android_generic": {
       "browser_settings": {
         "list_item_1": "Trên trình duyệt của bạn, mở cài đặt trang web. Đây thường là biểu tượng khóa [LOCK_ICON] ở thanh địa chỉ",
         "list_item_2": "Tìm phần về quyền hạn",
-        "list_item_3_cam": "Cho phép quyền Camera",
-        "list_item_3_mic": "Cho phép quyền Micro",
-        "list_item_4": "Quay lại trang này và nhấn nút Tôi đã thực hiện các thay đổi"
+        "list_item_3_cam": "Cho phép quyền <strong>Camera</strong>",
+        "list_item_3_mic": "Cho phép quyền <strong>Micro</strong>",
+        "list_item_4": "Quay lại trang này và nhấn nút <strong>Tôi đã thực hiện các thay đổi</strong>"
       }
     },
     "android_samsung": {
       "browser_settings": {
         "list_item_1": "Trên trình duyệt của bạn, nhấn vào biểu tượng khóa [LOCK_ICON] trên thanh địa chỉ",
-        "list_item_2_cam": "Kích hoạt công tắc bên cạnh Camera",
-        "list_item_2_mic": "Kích hoạt công tắc bên cạnh Micro",
-        "list_item_3": "Quay lại trang này và nhấn nút Tôi đã thực hiện các thay đổi"
+        "list_item_2_cam": "Kích hoạt công tắc bên cạnh <strong>Camera</strong>",
+        "list_item_2_mic": "Kích hoạt công tắc bên cạnh <strong>Micro</strong>",
+        "list_item_3": "Quay lại trang này và nhấn nút <strong>Tôi đã thực hiện các thay đổi</strong>"
       }
     },
     "button_primary": "Làm mới",
     "desktop_chrome": {
       "browser_settings": {
         "list_item_1": "Trên trình duyệt của bạn, nhấp vào biểu tượng khóa [LOCK_ICON] trên thanh địa chỉ",
-        "list_item_2_cam": "Kích hoạt công tắc bên cạnh Camera",
-        "list_item_2_mic": "Kích hoạt công tắc bên cạnh Micro",
-        "list_item_3": "Quay lại trang này và nhấp vào nút Tôi đã thực hiện các thay đổi"
+        "list_item_2_cam": "Kích hoạt công tắc bên cạnh <strong>Camera</strong>",
+        "list_item_2_mic": "Kích hoạt công tắc bên cạnh <strong>Micro</strong>",
+        "list_item_3": "Quay lại trang này và nhấp vào nút <strong>Tôi đã thực hiện các thay đổi</strong>"
       }
     },
     "desktop_edge": {
       "browser_settings": {
         "list_item_1": "Trên trình duyệt của bạn, nhấp vào biểu tượng khóa [LOCK_ICON] trên thanh địa chỉ",
-        "list_item_2_cam": "Nhấp vào hộp thả xuống bên cạnh Micro và chọn Cho phép",
-        "list_item_2_mic": "Nhấp vào hộp thả xuống bên cạnh Micro và chọn Cho phép",
-        "list_item_3": "Quay lại trang này và nhấp vào nút Tôi đã thực hiện các thay đổi"
+        "list_item_2_cam": "Nhấp vào hộp thả xuống bên cạnh <strong>Micro</strong> và chọn <strong>Cho phép</strong>",
+        "list_item_2_mic": "Nhấp vào hộp thả xuống bên cạnh <strong>Micro</strong> và chọn <strong>Cho phép</strong>",
+        "list_item_3": "Quay lại trang này và nhấp vào nút <strong>Tôi đã thực hiện các thay đổi</strong>"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
         "list_item_1": "Trên trình duyệt của bạn, nhấp vào biểu tượng cài đặt [SETTINGS_ICON_FIREFOX] trong thanh địa chỉ",
-        "list_item_2_cam": "Nhấp vào Đã chặn kế bên Sử dụng camera",
-        "list_item_2_mic": "Nhấp vào Đã chặn kế bên Sử dụng micro",
-        "list_item_3": "Quay lại trang này và nhấp vào nút Tôi đã thực hiện những thay đổi"
+        "list_item_2_cam": "Nhấp vào <strong>Đã chặn</strong> kế bên <strong>Sử dụng camera</strong>",
+        "list_item_2_mic": "Nhấp vào <strong>Đã chặn</strong> kế bên <strong>Sử dụng micro</strong>",
+        "list_item_3": "Quay lại trang này và nhấp vào nút <strong>Tôi đã thực hiện những thay đổi</strong>"
       }
     },
     "desktop_generic": {
       "browser_settings": {
         "list_item_1": "Trên trình duyệt của bạn, mở cài đặt trang web. Đây thường là biểu tượng khóa [LOCK_ICON] ở thanh địa chỉ",
         "list_item_2": "Tìm phần về quyền truy cập",
-        "list_item_3_cam": "Cho phép quyền Máy ảnh",
-        "list_item_3_mic": "Cho phép quyền Micro",
-        "list_item_4": "Quay lại trang này và nhấp vào nút Tôi đã thực hiện những thay đổi"
+        "list_item_3_cam": "Cho phép quyền <strong>Máy ảnh</strong>",
+        "list_item_3_mic": "Cho phép quyền <strong>Micro</strong>",
+        "list_item_4": "Quay lại trang này và nhấp vào nút <strong>Tôi đã thực hiện những thay đổi</strong>"
       },
       "device_settings": {
-        "list_item_1": "Trên máy tính của bạn, mở Cài đặt của bạn",
-        "list_item_2": "Tìm phần về quyền (thường nằm dưới mục Quyền riêng tư)",
-        "list_item_3_cam": "Cho phép quyền Máy ảnh cho [BROWSER_ICON]",
-        "list_item_3_mic": "Cho phép quyền Micro cho [BROWSER_ICON]",
+        "list_item_1": "Trên máy tính của bạn, mở <strong>Cài đặt</strong> của bạn",
+        "list_item_2": "Tìm phần về quyền (thường nằm dưới mục <strong>Quyền riêng tư</strong>)",
+        "list_item_3_cam": "Cho phép quyền <strong>Máy ảnh</strong> cho [BROWSER_ICON]",
+        "list_item_3_mic": "Cho phép quyền <strong>Micro</strong> cho [BROWSER_ICON]",
         "list_item_4": "Khởi động lại trình duyệt của bạn nếu cần và quay lại trang này"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "Trên máy tính của bạn, nhấp vào menu Apple [APPLE_ICON] và chọn Cài đặt Hệ thống (hoặc Tùy chọn Hệ thống)",
-        "list_item_2": "Nhấp vào Quyền riêng tư & Bảo mật (hoặc Bảo mật & Quyền riêng tư) trong thanh bên",
-        "list_item_3": "Nhấp vào Sau trong cửa sổ pop-up",
-        "list_item_3_cam": "Nhấp vào Camera và kích hoạt công tắc (hoặc hộp kiểm) bên cạnh [BROWSER_ICON]",
-        "list_item_4": "Nhấp vào Thoát & Mở lại trong cửa sổ pop-up và quay lại trang này",
-        "list_item_4_mic": "Nhấp vào Micro và kích hoạt công tắc (hoặc hộp kiểm) bên cạnh [BROWSER_ICON]"
+        "list_item_1": "Trên máy tính của bạn, nhấp vào menu Apple [APPLE_ICON] và chọn <strong>Cài đặt Hệ thống</strong> (hoặc <strong>Tùy chọn Hệ thống</strong>)",
+        "list_item_2": "Nhấp vào <strong>Quyền riêng tư & Bảo mật</strong> (hoặc <strong>Bảo mật & Quyền riêng tư</strong>) trong thanh bên",
+        "list_item_3": "Nhấp vào <strong>Sau</strong> trong cửa sổ pop-up",
+        "list_item_3_cam": "Nhấp vào <strong>Camera</strong> và kích hoạt công tắc (hoặc hộp kiểm) bên cạnh [BROWSER_ICON]",
+        "list_item_4": "Nhấp vào <strong>Thoát & Mở lại</strong> trong cửa sổ pop-up và quay lại trang này",
+        "list_item_4_mic": "Nhấp vào <strong>Micro</strong> và kích hoạt công tắc (hoặc hộp kiểm) bên cạnh [BROWSER_ICON]"
       }
     },
     "desktop_safari": {
       "browser_settings": {
-        "list_item_1": "Trên trình duyệt của bạn, nhấp chuột phải vào thanh địa chỉ và chọn Cài đặt",
-        "list_item_2_cam": "Nhấp vào hộp thả xuống bên cạnh Camera và chọn Cho phép",
-        "list_item_2_mic": "Nhấp vào hộp xổ xuống bên cạnh Micro và chọn Cho phép",
-        "list_item_3": "Quay lại trang này và nhấp vào nút Tôi đã thực hiện các thay đổi"
+        "list_item_1": "Trên trình duyệt của bạn, nhấp chuột phải vào thanh địa chỉ và chọn <strong>Cài đặt</strong>",
+        "list_item_2_cam": "Nhấp vào hộp thả xuống bên cạnh <strong>Camera</strong> và chọn <strong>Cho phép</strong>",
+        "list_item_2_mic": "Nhấp vào hộp xổ xuống bên cạnh <strong>Micro</strong> và chọn <strong>Cho phép</strong>",
+        "list_item_3": "Quay lại trang này và nhấp vào nút <strong>Tôi đã thực hiện các thay đổi</strong>"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "Trên máy tính của bạn, nhấp vào menu Windows [WINDOWS_ICON] và chọn Cài đặt [SETTINGS_ICON_WINDOWS]",
-        "list_item_2": "Nhấp vào Quyền riêng tư (hoặc Quyền riêng tư & Bảo mật)",
-        "list_item_3_cam": "Nhấp vào Camera dưới mục Quyền ứng dụng và kích hoạt công tắc bên cạnh [BROWSER_ICON] ",
-        "list_item_3_mic": "Nhấp vào Microphone dưới Quyền ứng dụng và kích hoạt công tắc bên cạnh [BROWSER_ICON]",
+        "list_item_1": "Trên máy tính của bạn, nhấp vào menu Windows [WINDOWS_ICON] và chọn <strong>Cài đặt</strong> [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "Nhấp vào <strong>Quyền riêng tư</strong> (hoặc <strong>Quyền riêng tư & Bảo mật</strong>)",
+        "list_item_3_cam": "Nhấp vào <strong>Camera</strong> dưới mục <strong>Quyền ứng dụng</strong> và kích hoạt công tắc bên cạnh [BROWSER_ICON] ",
+        "list_item_3_mic": "Nhấp vào <strong>Microphone</strong> dưới <strong>Quyền ứng dụng</strong> và kích hoạt công tắc bên cạnh [BROWSER_ICON]",
         "list_item_4": "Khởi động lại trình duyệt của bạn nếu cần và quay lại trang này"
       }
     },
     "info": "Khôi phục",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "Nhấn nút Tôi đã thực hiện các thay đổi. Bạn sẽ được yêu cầu kích hoạt lại quyền truy cập camera và microphone. Khi cửa sổ pop-up xuất hiện, chọn Cho phép (hoặc OK)",
-        "list_item_1_cam": "Nhấn nút Tôi đã thực hiện các thay đổi. Bạn sẽ được yêu cầu kích hoạt lại quyền truy cập camera. Khi cửa sổ pop-up xuất hiện, chọn Cho phép (hoặc OK)",
-        "list_item_1_mic": "Nhấn nút Tôi đã thực hiện các thay đổi. Bạn sẽ được yêu cầu kích hoạt lại quyền truy cập vào microphone. Khi cửa sổ pop-up xuất hiện, chọn Cho phép (hoặc OK)"
+        "list_item_1_both": "Nhấn nút <strong>Tôi đã thực hiện các thay đổi</strong>. Bạn sẽ được yêu cầu kích hoạt lại quyền truy cập camera và microphone. Khi cửa sổ pop-up xuất hiện, chọn <strong>Cho phép</strong> (hoặc <strong>OK</strong>)",
+        "list_item_1_cam": "Nhấn nút <strong>Tôi đã thực hiện các thay đổi</strong>. Bạn sẽ được yêu cầu kích hoạt lại quyền truy cập camera. Khi cửa sổ pop-up xuất hiện, chọn <strong>Cho phép</strong> (hoặc <strong>OK</strong>)",
+        "list_item_1_mic": "Nhấn nút <strong>Tôi đã thực hiện các thay đổi</strong>. Bạn sẽ được yêu cầu kích hoạt lại quyền truy cập vào microphone. Khi cửa sổ pop-up xuất hiện, chọn <strong>Cho phép</strong> (hoặc <strong>OK</strong>)"
       },
       "device_settings": {
-        "list_item_1": "Trên thiết bị của bạn, mở ứng dụng Cài đặt",
+        "list_item_1": "Trên thiết bị của bạn, mở ứng dụng <strong>Cài đặt</strong>",
         "list_item_2": "Di chuyển qua danh sách và chạm vào [BROWSER_ICON]",
-        "list_item_3_cam": "Kích hoạt công tắc bên cạnh Camera",
-        "list_item_3_mic": "Kích hoạt công tắc bên cạnh Micro",
-        "list_item_4": "Quay lại trang này và nhấn nút Tôi đã thực hiện các thay đổi"
+        "list_item_3_cam": "Kích hoạt công tắc bên cạnh <strong>Camera</strong>",
+        "list_item_3_mic": "Kích hoạt công tắc bên cạnh <strong>Micro</strong>",
+        "list_item_4": "Quay lại trang này và nhấn nút <strong>Tôi đã thực hiện các thay đổi</strong>"
       }
     },
     "ios_safari": {
       "device_settings": {
-        "list_item_1": "Trên thiết bị của bạn, mở ứng dụng Cài đặt",
+        "list_item_1": "Trên thiết bị của bạn, mở ứng dụng <strong>Cài đặt</strong>",
         "list_item_2": "Di chuyển qua danh sách và chạm vào [BROWSER_ICON]",
-        "list_item_3_cam": "Chạm vào Camera và chọn Cho phép",
-        "list_item_3_mic": "Chạm vào Micro và chọn Cho phép",
-        "list_item_4": "Quay lại trang này và nhấn nút Tôi đã thực hiện các thay đổi"
+        "list_item_3_cam": "Chạm vào <strong>Camera</strong> và chọn <strong>Cho phép</strong>",
+        "list_item_3_mic": "Chạm vào <strong>Micro</strong> và chọn <strong>Cho phép</strong>",
+        "list_item_4": "Quay lại trang này và nhấn nút <strong>Tôi đã thực hiện các thay đổi</strong>"
       }
     },
     "list_header_both": "Thực hiện theo các bước sau để khôi phục quyền truy cập vào cả hai:",
@@ -585,7 +646,7 @@
     "list_item_how_to_both": "Cấp quyền truy cập vào máy ảnh và micrô từ cài đặt trình duyệt của bạn",
     "list_item_how_to_cam": "Cấp quyền truy cập vào máy ảnh từ cài đặt trình duyệt của bạn",
     "list_item_how_to_mic": "Cấp quyền truy cập vào micrô của bạn từ cài đặt trình duyệt của bạn",
-    "subtitle_both": "Khôi phục quyền truy cập máy ảnh và micrô để quay video và hoàn tất quy trình xác minh",
+    "subtitle_both": "Chúng tôi cần quyền truy cập vào camera và microphone của bạn để xác minh danh tính. Hãy làm theo hướng dẫn dưới đây để khôi phục quyền truy cập",
     "subtitle_cam": "Chúng tôi cần quyền truy cập vào camera của bạn để xác minh danh tính. Vui lòng làm theo hướng dẫn dưới đây để khôi phục quyền truy cập",
     "subtitle_cam_old": "Khôi phục quyền truy cập vào máy ảnh để tiếp tục xác minh khuôn mặt",
     "subtitle_mic": "Chúng tôi cần quyền truy cập vào microphone của bạn để xác minh danh tính. Hãy làm theo hướng dẫn dưới đây để khôi phục quyền truy cập",
@@ -604,16 +665,27 @@
     }
   },
   "photo_upload": {
+    "body_address_certificate_back": "Tải lên mặt sau của tài liệu từ máy tính của bạn",
+    "body_address_certificate_front": "Tải lên mặt trước của tài liệu từ máy tính của bạn",
     "body_bank_statement": "Cung cấp toàn bộ trang tài liệu để có kết quả tốt nhất",
     "body_benefits_letter": "Cung cấp toàn bộ trang tài liệu để có kết quả tốt nhất",
     "body_bill": "Cung cấp toàn bộ trang tài liệu để có kết quả tốt nhất",
+    "body_exchange_house_statement": "Cung cấp toàn bộ trang tài liệu để có kết quả tốt nhất",
+    "body_general_letter": "Cung cấp toàn bộ trang tài liệu để có kết quả tốt nhất",
     "body_generic_document_back": "Tải lên mặt sau tài liệu từ máy tính của bạn",
     "body_generic_document_front": "Tải lên mặt trước tài liệu từ máy tính của bạn",
     "body_id_back": "Tải lên mặt sau của thẻ căn cước từ máy tính của bạn",
     "body_id_front": "Tải lên mặt trước thẻ căn cước từ máy tính của bạn",
+    "body_identity_document_with_address": "Cung cấp toàn bộ trang tài liệu để có kết quả tốt nhất",
+    "body_identity_document_with_address_back": "Tải lên mặt sau của tài liệu từ máy tính của bạn",
+    "body_identity_document_with_address_front": "Tải lên mặt trước của tài liệu từ máy tính của bạn",
+    "body_insurance_statement": "Cung cấp toàn bộ trang tài liệu để có kết quả tốt nhất",
     "body_license_back": "Tải lên mặt sau giấy phép từ máy tính của bạn",
     "body_license_front": "Tải lên mặt trước giấy phép từ máy tính của bạn",
+    "body_mobile_phone_bill": "Cung cấp toàn bộ trang tài liệu để có kết quả tốt nhất",
+    "body_mortgage_statement": "Cung cấp toàn bộ trang tài liệu để có kết quả tốt nhất",
     "body_passport": "Tải lên trang có ảnh hộ chiếu từ máy tính của bạn",
+    "body_pension_property_statement_letter": "Cung cấp toàn bộ trang tài liệu để có kết quả tốt nhất",
     "body_selfie": "Tải lên ảnh selfie từ máy tính của bạn",
     "body_tax_letter": "Cung cấp toàn bộ trang tài liệu để có kết quả tốt nhất",
     "button_take_photo": "Chụp ảnh",
@@ -642,6 +714,8 @@
     "subtitle_bank_statement": "Phải được phát hành trong 3 tháng gần đây nhất",
     "subtitle_benefits_letter": "Phải được phát hành trong 12 tháng gần đây nhất",
     "subtitle_bill": "Phải được phát hành trong 3 tháng gần đây nhất",
+    "subtitle_dynamic_empty_grace_period": "Phải là một tài liệu hợp lệ",
+    "subtitle_dynamic_grace_period": "Phải được cấp trong vòng <graceperiod></graceperiod> tháng gần đây",
     "subtitle_tax_letter": "Phải được phát hành trong 12 tháng gần đây nhất"
   },
   "poa_intro": {
@@ -952,6 +1026,51 @@
       "details_timeout": "Bắt đầu lại",
       "header_timeout": "Dường như bạn đã mất quá nhiều thời gian"
     }
+  },
+  "qes": {
+    "consent": {
+      "common": {
+        "steps": "Tạo chữ ký của bạn"
+      },
+      "confirmation": {
+        "bullet_1": "Sau khi đọc tài liệu của bạn, nhấn nút \"Ký tài liệu\".",
+        "bullet_2": "Một khi Onfido xác minh danh tính của bạn, chữ ký của bạn sẽ được sử dụng trên tài liệu này.",
+        "button_next_step": "Ký tài liệu",
+        "review_document": "Xem lại <fallback>tài liệu của bạn</fallback> để ký",
+        "step2": "2 trên 2",
+        "steps": "Ký vào tài liệu của bạn",
+        "subtitle": "Để xác nhận danh tính của bạn theo quy định của Châu Âu, bạn phải ký số vào một tài liệu.",
+        "title": "Tạo và sử dụng chữ ký số của bạn"
+      },
+      "introduction": {
+        "button_confirmation_step": "Tạo chữ ký của tôi",
+        "certificate_application_form": "Đơn đăng ký chứng chỉ",
+        "privacy_notice": "Thông báo bảo mật",
+        "step1": "1 trong 2",
+        "subtitle": "Để xác nhận danh tính của bạn theo quy định của Châu Âu, bạn phải ký số vào một tài liệu.",
+        "terms_and_conditions": "Điều khoản và điều kiện",
+        "third_party_description": "<fallback>Namirial SpA</fallback> là một nhà cung cấp uy tín toàn cầu sẽ cấp chứng chỉ xác thực chữ ký điện tử của bạn.",
+        "title": "Tạo và sử dụng chữ ký số của bạn"
+      }
+    }
+  },
+  "qes_consent": {
+    "button": "Tạo chữ ký của tôi",
+    "link_certificate": "Mẫu đơn xin chứng chỉ",
+    "link_privacy_notice": "Thông báo về quyền riêng tư",
+    "link_terms_and_conditions": "Điều khoản và điều kiện",
+    "namirial_intro": "Namirial SpA là nhà cung cấp uy tín toàn cầu sẽ cấp chứng chỉ xác thực chữ ký điện tử của bạn.",
+    "subtitle": "Để xác nhận danh tính của bạn theo quy định của Châu Âu, bạn phải ký số vào một tài liệu.",
+    "title": "Tạo và sử dụng chữ ký số của bạn"
+  },
+  "qes_sign": {
+    "button": "Ký tài liệu",
+    "link_document": "Xem lại tài liệu của bạn để ký",
+    "list_item_1": "Sau khi đọc tài liệu của bạn, nhấn nút \"Ký tài liệu\".",
+    "list_item_2": "Một khi Onfido xác minh danh tính của bạn, chữ ký của bạn sẽ được sử dụng trên tài liệu này.",
+    "step_title": "Ký vào tài liệu của bạn",
+    "subtitle": "Để xác nhận danh tính của bạn theo quy định của Châu Âu, bạn phải ký số vào một tài liệu.",
+    "title": "Tạo và sử dụng chữ ký số của bạn"
   },
   "retry_feedback": {
     "button_primary": "Thử lại"

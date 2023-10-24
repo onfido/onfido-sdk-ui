@@ -188,15 +188,23 @@
       "odp_screenshot_title": "Skærmbillede registreret"
     },
     "body": "Sørg for, at du har uploadet hele siden af dokumentet, og at oplysningerne fremstår tydelige, uden at de er slørede eller har genskin",
+    "body_address_certificate": "Sørg for, at du har uploadet hele dokumentets side, og detaljerne er klare til at læse uden sløring eller blænding",
     "body_bank_statement": "Sørg for, at du har uploadet hele siden af dokumentet, og at oplysningerne fremstår tydelige, uden at de er slørede eller har genskin",
     "body_benefits_letter": "Sørg for, at du har uploadet hele siden af dokumentet, og at oplysningerne fremstår tydelige, uden at de er slørede eller har genskin",
     "body_bill": "Sørg for, at du har uploadet hele siden af dokumentet, og at oplysningerne fremstår tydelige, uden at de er slørede eller har genskin",
+    "body_exchange_house_statement": "Sørg for, at du har uploadet hele dokumentets side, og detaljerne er klare til at læse uden sløring eller blænding",
+    "body_general_letter": "Sørg for, at du har uploadet hele dokumentets side, og detaljerne er klare til at læse uden sløring eller blænding",
     "body_generic_document": "Sørg for, at dine oplysninger er tydelige og ikke er dækket af noget",
     "body_id": "Sørg for, at dine oplysninger er tydelige og ikke er dækket af noget",
+    "body_identity_document_with_address": "Sørg for, at du har uploadet hele dokumentets side, og detaljerne er klare til at læse uden sløring eller blænding",
     "body_image_medium": "Det tager længere tid at verificere dig, hvis vi ikke kan læse det",
     "body_image_poor": "Vi har brug for et bedre foto for nemt at kunne verificere dig",
+    "body_insurance_statement": "Sørg for, at du har uploadet hele dokumentets side, og detaljerne er klare til at læse uden sløring eller blænding",
     "body_license": "Sørg for, at dine oplysninger er tydelige og ikke er dækket af noget",
+    "body_mobile_phone_bill": "Sørg for, at du har uploadet hele dokumentets side, og detaljerne er klare til at læse uden sløring eller blænding",
+    "body_mortgage_statement": "Sørg for, at du har uploadet hele dokumentets side, og detaljerne er klare til at læse uden sløring eller blænding",
     "body_passport": "Sørg for, at dine oplysninger er tydelige og ikke er dækket af noget",
+    "body_pension_property_statement_letter": "Sørg for, at du har uploadet hele dokumentets side, og detaljerne er klare til at læse uden sløring eller blænding",
     "body_permit": "Sørg for, at dine oplysninger er tydelige og ikke er dækket af noget",
     "body_tax_letter": "Sørg for, at du har uploadet hele siden af dokumentet, og at oplysningerne fremstår tydelige, uden at de er slørede eller har genskin",
     "button_close": "Luk",
@@ -217,21 +225,39 @@
   },
   "doc_select": {
     "button_address_card": "Adressekort",
+    "button_address_card_back": "Adressekort (bagside)",
     "button_address_card_detail": "Vi accepterer midlertidige og permanente kort",
+    "button_address_card_front": "Adressekort (Forside)",
     "button_bank_statement": "Erklæring fra din bank eller kreditforening",
     "button_bank_statement_non_uk": "Kontoudtog",
     "button_benefits_letter": "Brev om sociale ydelser",
     "button_benefits_letter_detail": "Myndighedsgodkendte boligydelser, f.eks. Arbejdsløshedsunderstøttelse, boligstøtte, skattefradrag",
     "button_bill": "Regning på forbrugsydelser",
     "button_bill_detail": "Gas, elektricitet, vand, fastnet eller bredbånd",
+    "button_exchange_house_statement": "Udtalelse fra Børshuset",
+    "button_exchange_house_statement_detail": "Afsender udtalelse om overførsel eller remittance",
+    "button_general_letter": "Generelt brev",
+    "button_general_letter_detail": "Brev fra finansiel institution eller forsyningsvirksomhed",
     "button_government_letter": "Brev fra myndighederne",
     "button_government_letter_detail": "Enhvert myndighedsudstedt brev, f.eks. Ret til sociale ydelser, stemmerettighed, skatteopgørelser osv.",
     "button_id": "ID-kort",
     "button_id_detail": "For- og bagside",
+    "button_identity_document_with_address": "Identitetsdokument med adresse",
+    "button_identity_document_with_address_back": "Identitetsdokument med adresse (bagside)",
+    "button_identity_document_with_address_detail": "Udstedt af en regeringsmyndighed",
+    "button_identity_document_with_address_front": "Identitetsdokument med adresse (Forside)",
+    "button_insurance_statement": "Forsikringserklæring",
+    "button_insurance_statement_detail": "Udstedt fra et privat forsikringsselskab eller mæglerfirma",
     "button_license": "Kørekort",
     "button_license_detail": "For- og bagside",
+    "button_mobile_phone_bill": "Mobiltelefonregning",
+    "button_mobile_phone_bill_detail": "Udstedt fra en mobiltelefon netværksudbyder",
+    "button_mortgage_statement": "Hypotekserklæring",
+    "button_mortgage_statement_detail": "Udstedt fra en finansiel udlånsinstitution",
     "button_passport": "Pas",
     "button_passport_detail": "Side med billede",
+    "button_pension_property_statement_letter": "Pensions- eller Ejendomserklæring/-brev",
+    "button_pension_property_statement_letter_detail": "Pensionsudtalelse eller brev og Ejendomsskatteerklæring eller brev",
     "button_permit": "Opholdstilladelse",
     "button_permit_detail": "For- og bagside",
     "button_tax_letter": "Brev om kommuneskat",
@@ -258,17 +284,29 @@
     "button_link_upload": "eller upload et billede – ingen scanninger eller fotokopier",
     "button_primary": "Fortsæt på telefon",
     "subtitle": "Tag et billede med din telefon",
+    "title_address_certificate": "Indsend adressekort",
+    "title_address_certificate_back": "Indsend adressekort (bagside)",
+    "title_address_certificate_front": "Indsend adressekort (foran)",
     "title_bank_statement": "Indsend erklæring",
     "title_benefits_letter": "Indsend brev",
     "title_bill": "Indsend regning",
+    "title_exchange_house_statement": "Indsend vekselbureauets erklæring",
+    "title_general_letter": "Indsend generelt brev",
     "title_generic_document_back": "Indsend dokument (bagside)",
     "title_generic_document_front": "Indsend dokument (forside)",
     "title_government_letter": "Brev fra myndighederne",
     "title_id_back": "Indsend ID-kort (bagside)",
     "title_id_front": "Indsend ID-kort (forside)",
+    "title_identity_document_with_address": "Indsend identitetsdokument med adresse",
+    "title_identity_document_with_address_back": "Indsend identitetsdokument med adresse (bagside)",
+    "title_identity_document_with_address_front": "Indsend identitetsdokument med adresse (foran)",
+    "title_insurance_statement": "Indsend forsikringsopgørelse",
     "title_license_back": "Indsend ID (bagside)",
     "title_license_front": "Indsend ID (forside)",
+    "title_mobile_phone_bill": "Indsend mobiltelefonregning",
+    "title_mortgage_statement": "Indsend realkreditudskrift",
     "title_passport": "Indsend siden i passet, hvor billedet fremgår",
+    "title_pension_property_statement_letter": "Indsend erklæring eller brev",
     "title_permit_back": "Indsend opholdstilladelse (bagside)",
     "title_permit_front": "Indsend opholdstilladelse (forside)",
     "title_tax_letter": "Indsend brev"
@@ -422,6 +460,29 @@
       "success": "Scanning vellykket"
     }
   },
+  "otp": {
+    "code_input": {
+      "error": {
+        "technical": "En teknisk fejl er opstået, prøv venligst igen senere",
+        "wrong_code": "Forkert kode indtastet, prøv igen"
+      },
+      "intro": "Koden sendt til dit telefonnummer vil være aktiv i 5 minutter",
+      "resend": {
+        "cta": "Send igen",
+        "label": "Kode sendt (op til {limit})"
+      },
+      "title": "Engangsadgangskode"
+    },
+    "send_code": {
+      "cta": "Send kode",
+      "error": {
+        "limit": "Du nåede grænsen for sendte SMS'er",
+        "technical": "En teknisk fejl er opstået, prøv venligst igen senere"
+      },
+      "intro": "For at verificere dit telefonnummer vil vi sende dig en engangskode, som du skal indtaste på næste skærm.",
+      "title": "Engangsadgangskode"
+    }
+  },
   "outro": {
     "body": "Det er alt, hvad vi behøver for at starte verificeringen af din identitet",
     "body_government_letter": "Hele dokumentets side skal fremgå for at få det bedste resultat",
@@ -444,139 +505,139 @@
   "permission_recovery": {
     "android": {
       "device_settings": {
-        "list_item_1": "På din enhed, åbn Indstillinger appen",
-        "list_item_2": "Tryk på Apps",
-        "list_item_3": "Tryk på [BROWSER_ICON]. Hvis du ikke kan finde den, skal du trykke på Se alle apps eller Administrer apps og vælge din browser-app",
-        "list_item_4": "Tryk på Tilladelser",
-        "list_item_5_cam": "Tryk på Kamera og vælg Tillad",
-        "list_item_5_mic": "Tryk på Mikrofon og vælg Tillad",
-        "list_item_6": "Vend tilbage til denne side og tryk på knappen Jeg har foretaget ændringerne"
+        "list_item_1": "På din enhed, åbn <strong>Indstillinger</strong> appen",
+        "list_item_2": "Tryk på <strong>Apps</strong>",
+        "list_item_3": "Tryk på [BROWSER_ICON]. Hvis du ikke kan finde den, skal du trykke på <strong>Se alle apps</strong> eller <strong>Administrer apps</strong> og vælge din browser-app",
+        "list_item_4": "Tryk på <strong>Tilladelser</strong>",
+        "list_item_5_cam": "Tryk på <strong>Kamera</strong> og vælg <strong>Tillad</strong>",
+        "list_item_5_mic": "Tryk på <strong>Mikrofon</strong> og vælg <strong>Tillad</strong>",
+        "list_item_6": "Vend tilbage til denne side og tryk på knappen <strong>Jeg har foretaget ændringerne</strong>"
       }
     },
     "android_chrome": {
       "browser_settings": {
         "list_item_1": "I din browser skal du trykke på låseikonet [LOCK_ICON] i adresselinjen",
-        "list_item_2": "Tryk på Tilladelser",
-        "list_item_3_cam": "Aktiver kontakten ved siden af Kamera",
-        "list_item_3_mic": "Aktiver kontakten ved siden af Mikrofon",
-        "list_item_4": "Vend tilbage til denne side og tryk på knappen Jeg har foretaget ændringerne"
+        "list_item_2": "Tryk på <strong>Tilladelser</strong>",
+        "list_item_3_cam": "Aktiver kontakten ved siden af <strong>Kamera</strong>",
+        "list_item_3_mic": "Aktiver kontakten ved siden af <strong>Mikrofon</strong>",
+        "list_item_4": "Vend tilbage til denne side og tryk på knappen <strong>Jeg har foretaget ændringerne</strong>"
       }
     },
     "android_firefox": {
       "browser_settings": {
         "list_item_1": "I din browser skal du trykke på låseikonet [LOCK_ICON] i adresselinjen",
-        "list_item_2_cam": "Tryk på Blokeret ved siden af Kamera for at skifte til Tilladt",
-        "list_item_2_mic": "Tryk på Blokeret ved siden af Mikrofon for at skifte til Tilladt",
-        "list_item_3": "Kom tilbage til denne side og tryk på knappen Jeg har foretaget ændringerne"
+        "list_item_2_cam": "Tryk på <strong>Blokeret</strong> ved siden af <strong>Kamera</strong> for at skifte til <strong>Tilladt</strong>",
+        "list_item_2_mic": "Tryk på <strong>Blokeret</strong> ved siden af <strong>Mikrofon</strong> for at skifte til <strong>Tilladt</strong>",
+        "list_item_3": "Kom tilbage til denne side og tryk på knappen <strong>Jeg har foretaget ændringerne</strong>"
       }
     },
     "android_generic": {
       "browser_settings": {
         "list_item_1": "I din browser skal du åbne webstedsindstillingerne. Dette er ofte et låseikon [LOCK_ICON] i adresselinjen",
         "list_item_2": "Find afsnittet om tilladelser",
-        "list_item_3_cam": "Aktivér Kamera tilladelserne",
-        "list_item_3_mic": "Aktivér Mikrofon tilladelserne",
-        "list_item_4": "Kom tilbage til denne side og tryk på knappen Jeg har foretaget ændringerne"
+        "list_item_3_cam": "Aktivér <strong>Kamera</strong> tilladelserne",
+        "list_item_3_mic": "Aktivér <strong>Mikrofon</strong> tilladelserne",
+        "list_item_4": "Kom tilbage til denne side og tryk på knappen <strong>Jeg har foretaget ændringerne</strong>"
       }
     },
     "android_samsung": {
       "browser_settings": {
         "list_item_1": "I din browser skal du trykke på låseikonet [LOCK_ICON] i adresselinjen",
-        "list_item_2_cam": "Aktiver kontakten ved siden af Kamera",
-        "list_item_2_mic": "Aktiver kontakten ved siden af Mikrofon",
-        "list_item_3": "Kom tilbage til denne side og tryk på knappen Jeg har foretaget ændringerne"
+        "list_item_2_cam": "Aktiver kontakten ved siden af <strong>Kamera</strong>",
+        "list_item_2_mic": "Aktiver kontakten ved siden af <strong>Mikrofon</strong>",
+        "list_item_3": "Kom tilbage til denne side og tryk på knappen <strong>Jeg har foretaget ændringerne</strong>"
       }
     },
     "button_primary": "Genindlæs",
     "desktop_chrome": {
       "browser_settings": {
         "list_item_1": "I din browser skal du klikke på låseikonet [LOCK_ICON] i adresselinjen",
-        "list_item_2_cam": "Aktiver kontakten ved siden af Kamera",
-        "list_item_2_mic": "Aktiver kontakten ved siden af Mikrofon",
-        "list_item_3": "Kom tilbage til denne side og klik på knappen Jeg har foretaget ændringerne"
+        "list_item_2_cam": "Aktiver kontakten ved siden af <strong>Kamera</strong>",
+        "list_item_2_mic": "Aktiver kontakten ved siden af <strong>Mikrofon</strong>",
+        "list_item_3": "Kom tilbage til denne side og klik på knappen <strong>Jeg har foretaget ændringerne</strong>"
       }
     },
     "desktop_edge": {
       "browser_settings": {
         "list_item_1": "I din browser skal du klikke på låseikonet [LOCK_ICON] i adresselinjen",
-        "list_item_2_cam": "Klik på rullemenuen ved siden af Kamera og vælg Tillad",
-        "list_item_2_mic": "Klik på rullemenuen ved siden af Mikrofon og vælg Tillad",
-        "list_item_3": "Kom tilbage til denne side og klik på knappen Jeg har foretaget ændringerne"
+        "list_item_2_cam": "Klik på rullemenuen ved siden af <strong>Kamera</strong> og vælg <strong>Tillad</strong>",
+        "list_item_2_mic": "Klik på rullemenuen ved siden af <strong>Mikrofon</strong> og vælg <strong>Tillad</strong>",
+        "list_item_3": "Kom tilbage til denne side og klik på knappen <strong>Jeg har foretaget ændringerne</strong>"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
         "list_item_1": "I din browser skal du klikke på indstillingsikonet [SETTINGS_ICON_FIREFOX] i adresselinjen",
-        "list_item_2_cam": "Klik på Blokeret ved siden af Brug kameraet",
-        "list_item_2_mic": "Klik på Blokeret ved siden af Brug mikrofonen",
-        "list_item_3": "Kom tilbage til denne side og klik på knappen Jeg har foretaget ændringerne"
+        "list_item_2_cam": "Klik på <strong>Blokeret</strong> ved siden af <strong>Brug kameraet</strong>",
+        "list_item_2_mic": "Klik på <strong>Blokeret</strong> ved siden af <strong>Brug mikrofonen</strong>",
+        "list_item_3": "Kom tilbage til denne side og klik på knappen <strong>Jeg har foretaget ændringerne</strong>"
       }
     },
     "desktop_generic": {
       "browser_settings": {
         "list_item_1": "I din browser skal du åbne webstedsindstillingerne. Dette er ofte et låseikon [LOCK_ICON] i adresselinjen",
         "list_item_2": "Find afsnittet om tilladelser",
-        "list_item_3_cam": "Aktivér Kamera tilladelserne",
-        "list_item_3_mic": "Aktivér Mikrofon tilladelserne",
-        "list_item_4": "Gå tilbage til denne side og klik på knappen Jeg har foretaget ændringerne"
+        "list_item_3_cam": "Aktivér <strong>Kamera</strong> tilladelserne",
+        "list_item_3_mic": "Aktivér <strong>Mikrofon</strong> tilladelserne",
+        "list_item_4": "Gå tilbage til denne side og klik på knappen <strong>Jeg har foretaget ændringerne</strong>"
       },
       "device_settings": {
-        "list_item_1": "På din computer, åbn dine Indstillinger",
-        "list_item_2": "Find afsnittet om tilladelser (normalt under Privatliv)",
-        "list_item_3_cam": "Aktivér Kamera tilladelser for [BROWSER_ICON]",
-        "list_item_3_mic": "Aktivér Mikrofon tilladelser for [BROWSER_ICON]",
+        "list_item_1": "På din computer, åbn dine <strong>Indstillinger</strong>",
+        "list_item_2": "Find afsnittet om tilladelser (normalt under <strong>Privatliv</strong>)",
+        "list_item_3_cam": "Aktivér <strong>Kamera</strong> tilladelser for [BROWSER_ICON]",
+        "list_item_3_mic": "Aktivér <strong>Mikrofon</strong> tilladelser for [BROWSER_ICON]",
         "list_item_4": "Genstart din browser om nødvendigt og vend tilbage til denne side"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "På din computer, klik på Apple-menuen [APPLE_ICON] og vælg Systemindstillinger (eller Systempræferencer)",
-        "list_item_2": "Klik på Privatliv & Sikkerhed (eller Sikkerhed & Privatliv) i sidebaren ",
-        "list_item_3": "Klik på Senere i pop op-vinduet",
-        "list_item_3_cam": "Klik på Kamera og aktiver kontakten (eller afkrydsningsfeltet) ved siden af [BROWSER_ICON]",
-        "list_item_4": "Klik på Afslut & Genåbn i pop op-vinduet og vend tilbage til denne side",
-        "list_item_4_mic": "Klik på Mikrofon og aktiver kontakten (eller afkrydsningsfeltet) ved siden af [BROWSER_ICON]"
+        "list_item_1": "På din computer, klik på Apple-menuen [APPLE_ICON] og vælg <strong>Systemindstillinger</strong> (eller <strong>Systempræferencer</strong>)",
+        "list_item_2": "Klik på <strong>Privatliv & Sikkerhed</strong> (eller <strong>Sikkerhed & Privatliv</strong>) i sidebaren ",
+        "list_item_3": "Klik på <strong>Senere</strong> i pop op-vinduet",
+        "list_item_3_cam": "Klik på <strong>Kamera</strong> og aktiver kontakten (eller afkrydsningsfeltet) ved siden af [BROWSER_ICON]",
+        "list_item_4": "Klik på <strong>Afslut & Genåbn</strong> i pop op-vinduet og vend tilbage til denne side",
+        "list_item_4_mic": "Klik på <strong>Mikrofon</strong> og aktiver kontakten (eller afkrydsningsfeltet) ved siden af [BROWSER_ICON]"
       }
     },
     "desktop_safari": {
       "browser_settings": {
-        "list_item_1": "I din browser skal du højreklikke i adresselinjen og vælge Indstillinger",
-        "list_item_2_cam": "Klik på rullemenuen ved siden af Kamera og vælg Tillad",
-        "list_item_2_mic": "Klik på rullemenuen ved siden af Mikrofon og vælg Tillad",
-        "list_item_3": "Vend tilbage til denne side og klik på knappen Jeg har foretaget ændringerne"
+        "list_item_1": "I din browser skal du højreklikke i adresselinjen og vælge <strong>Indstillinger</strong>",
+        "list_item_2_cam": "Klik på rullemenuen ved siden af <strong>Kamera</strong> og vælg <strong>Tillad</strong>",
+        "list_item_2_mic": "Klik på rullemenuen ved siden af <strong>Mikrofon</strong> og vælg <strong>Tillad</strong>",
+        "list_item_3": "Vend tilbage til denne side og klik på knappen <strong>Jeg har foretaget ændringerne</strong>"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "På din computer, klik på Windows-menuen [WINDOWS_ICON] og vælg Indstillinger [SETTINGS_ICON_WINDOWS]",
-        "list_item_2": "Klik på Privatliv (eller Privatliv & Sikkerhed)",
-        "list_item_3_cam": "Klik på Kamera under App tilladelser og aktiver kontakten ved siden af [BROWSER_ICON] ",
-        "list_item_3_mic": "Klik på Mikrofon under App tilladelser og aktiver kontakten ved siden af [BROWSER_ICON]",
+        "list_item_1": "På din computer, klik på Windows-menuen [WINDOWS_ICON] og vælg <strong>Indstillinger</strong> [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "Klik på <strong>Privatliv</strong> (eller <strong>Privatliv & Sikkerhed</strong>)",
+        "list_item_3_cam": "Klik på <strong>Kamera</strong> under <strong>App tilladelser</strong> og aktiver kontakten ved siden af [BROWSER_ICON] ",
+        "list_item_3_mic": "Klik på <strong>Mikrofon</strong> under <strong>App tilladelser</strong> og aktiver kontakten ved siden af [BROWSER_ICON]",
         "list_item_4": "Genstart din browser om nødvendigt og vend tilbage til denne side"
       }
     },
     "info": "Gendannelse",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "Tryk på knappen Jeg har foretaget ændringerne. Du vil blive bedt om igen at give adgang til kamera og mikrofon. Når pop op-vinduet vises, skal du vælge Tillad (eller OK)",
-        "list_item_1_cam": "Tryk på knappen Jeg har foretaget ændringerne. Du vil blive bedt om at aktivere kameraadgang igen. Når pop op-vinduet vises, skal du vælge Tillad (eller OK)",
-        "list_item_1_mic": "Tryk på knappen Jeg har foretaget ændringerne. Du vil blive bedt om at aktivere mikrofonadgang igen. Når pop op-vinduet vises, skal du vælge Tillad (eller OK)"
+        "list_item_1_both": "Tryk på knappen <strong>Jeg har foretaget ændringerne</strong>. Du vil blive bedt om igen at give adgang til kamera og mikrofon. Når pop op-vinduet vises, skal du vælge <strong>Tillad</strong> (eller <strong>OK</strong>)",
+        "list_item_1_cam": "Tryk på knappen <strong>Jeg har foretaget ændringerne</strong>. Du vil blive bedt om at aktivere kameraadgang igen. Når pop op-vinduet vises, skal du vælge <strong>Tillad</strong> (eller <strong>OK</strong>)",
+        "list_item_1_mic": "Tryk på knappen <strong>Jeg har foretaget ændringerne</strong>. Du vil blive bedt om at aktivere mikrofonadgang igen. Når pop op-vinduet vises, skal du vælge <strong>Tillad</strong> (eller <strong>OK</strong>)"
       },
       "device_settings": {
-        "list_item_1": "På din enhed, åbn Indstillinger appen",
+        "list_item_1": "På din enhed, åbn <strong>Indstillinger</strong> appen",
         "list_item_2": "Rul gennem listen og tryk på [BROWSER_ICON]",
-        "list_item_3_cam": "Aktiver kontakten ved siden af Kamera",
-        "list_item_3_mic": "Aktiver kontakten ved siden af Mikrofon",
-        "list_item_4": "Vend tilbage til denne side og tryk på knappen Jeg har foretaget ændringerne"
+        "list_item_3_cam": "Aktiver kontakten ved siden af <strong>Kamera</strong>",
+        "list_item_3_mic": "Aktiver kontakten ved siden af <strong>Mikrofon</strong>",
+        "list_item_4": "Vend tilbage til denne side og tryk på knappen <strong>Jeg har foretaget ændringerne</strong>"
       }
     },
     "ios_safari": {
       "device_settings": {
-        "list_item_1": "På din enhed, åbn Indstillinger appen",
+        "list_item_1": "På din enhed, åbn <strong>Indstillinger</strong> appen",
         "list_item_2": "Rul gennem listen og tryk på [BROWSER_ICON]",
-        "list_item_3_cam": "Tryk på Kamera og vælg Tillad",
-        "list_item_3_mic": "Tryk på Mikrofon og vælg Tillad",
-        "list_item_4": "Vend tilbage til denne side og tryk på knappen Jeg har foretaget ændringerne"
+        "list_item_3_cam": "Tryk på <strong>Kamera</strong> og vælg <strong>Tillad</strong>",
+        "list_item_3_mic": "Tryk på <strong>Mikrofon</strong> og vælg <strong>Tillad</strong>",
+        "list_item_4": "Vend tilbage til denne side og tryk på knappen <strong>Jeg har foretaget ændringerne</strong>"
       }
     },
     "list_header_both": "Følg disse trin for at gendanne adgang til begge dele:",
@@ -585,7 +646,7 @@
     "list_item_how_to_both": "Giv adgang til dit kamera og din mikrofon fra dine browserindstillinger",
     "list_item_how_to_cam": "Giv adgang til dit kamera fra dine browserindstillinger",
     "list_item_how_to_mic": "Giv adgang til din mikrofon fra dine browserindstillinger",
-    "subtitle_both": "Gendan adgang til kameraet og mikrofonen, så du kan optage en video og fuldføre verificeringen",
+    "subtitle_both": "Vi har brug for adgang til dit kamera og mikrofon for at verificere din identitet. Følg instruktionerne nedenfor for at gendanne adgang",
     "subtitle_cam": "Vi har brug for adgang til dit kamera for at verificere din identitet. Følg instruktionerne nedenfor for at gendanne adgangen",
     "subtitle_cam_old": "Gendan adgang til kameraet, så du kan fortsætte ansigtverificeringen",
     "subtitle_mic": "Vi har brug for adgang til din mikrofon for at verificere din identitet. Følg instruktionerne nedenfor for at gendanne adgang",
@@ -604,16 +665,27 @@
     }
   },
   "photo_upload": {
+    "body_address_certificate_back": "Upload bagsiden af dokumentet fra din computer",
+    "body_address_certificate_front": "Upload forsiden af dokumentet fra din computer",
     "body_bank_statement": "Hele dokumentets side skal fremgå for at få det bedste resultat",
     "body_benefits_letter": "Hele dokumentets side skal fremgå for at få det bedste resultat",
     "body_bill": "Hele dokumentets side skal fremgå for at få det bedste resultat",
+    "body_exchange_house_statement": "Lever hele dokumentets side for de bedste resultater",
+    "body_general_letter": "Angiv hele dokumentets side for de bedste resultater",
     "body_generic_document_back": "Upload dokumentets bagside fra din computer",
     "body_generic_document_front": "Upload dokumentets forside fra din computer",
     "body_id_back": "Upload kortets bagside fra din computer",
     "body_id_front": "Upload kortets forside fra din computer",
+    "body_identity_document_with_address": "Angiv hele dokumentets side for de bedste resultater",
+    "body_identity_document_with_address_back": "Upload bagsiden af dokumentet fra din computer",
+    "body_identity_document_with_address_front": "Upload forsiden af dokumentet fra din computer",
+    "body_insurance_statement": "Angiv hele dokumentets side for de bedste resultater",
     "body_license_back": "Upload ID'ets bagside fra din computer",
     "body_license_front": "Upload ID'ets forside fra din computer",
+    "body_mobile_phone_bill": "Angiv hele dokumentets side for de bedste resultater",
+    "body_mortgage_statement": "Angiv hele dokumentets side for de bedste resultater",
     "body_passport": "Upload siden i passet, hvor billedet fremgår fra din computer",
+    "body_pension_property_statement_letter": "Angiv hele dokumentets side for de bedste resultater",
     "body_selfie": "Upload en selfie fra din computer",
     "body_tax_letter": "Hele dokumentets side skal fremgå for at få det bedste resultat",
     "button_take_photo": "Tag et billede",
@@ -641,8 +713,10 @@
     "subtitle_address_card": "Det skal være et gyldigt adressekort",
     "subtitle_bank_statement": "Skal være udstedt inden for de ​​seneste tre måneder​​",
     "subtitle_benefits_letter": "Skal være udstedt inden for de ​​seneste 12 måneder​​",
-    "subtitle_bill": "Skal være udstedt inden for de ​​seneste tre måneder​​",
-    "subtitle_tax_letter": "Skal være udstedt inden for de ​​seneste 12 måneder​​"
+    "subtitle_bill": "Skal være udstedt inden for de ​​seneste tre måneder​",
+    "subtitle_dynamic_empty_grace_period": "Skal være et gyldigt dokument",
+    "subtitle_dynamic_grace_period": "Skal være udstedt i løbet af de sidste <graceperiod></graceperiod> måneder",
+    "subtitle_tax_letter": "Skal være udstedt inden for de ​​seneste 12 måneder​"
   },
   "poa_intro": {
     "button_primary": "Start verificering",
@@ -952,6 +1026,51 @@
       "details_timeout": "Prøv igen",
       "header_timeout": "Det ser ud til, at du var for længe om det"
     }
+  },
+  "qes": {
+    "consent": {
+      "common": {
+        "steps": "Opret din underskrift"
+      },
+      "confirmation": {
+        "bullet_1": "Efter at have læst dit dokument, tryk på \"Signer dokument\" knappen.",
+        "bullet_2": "Når Onfido har verificeret din identitet, vil din underskrift blive brugt på dette dokument.",
+        "button_next_step": "Underskriv dokument",
+        "review_document": "Gennemgå <fallback>din dokument</fallback> til underskrift",
+        "step2": "2 af 2",
+        "steps": "Underskriv dit dokument",
+        "subtitle": "For at bekræfte din identitet i overensstemmelse med europæiske regler, skal du digitalt underskrive et dokument.",
+        "title": "Opret og brug din digitale signatur"
+      },
+      "introduction": {
+        "button_confirmation_step": "Opret min underskrift",
+        "certificate_application_form": "Certifikat ansøgningsformular",
+        "privacy_notice": "Privatlivsmeddelelse",
+        "step1": "1 af 2",
+        "subtitle": "For at bekræfte din identitet i overensstemmelse med europæiske regler, skal du digitalt underskrive et dokument.",
+        "terms_and_conditions": "Vilkår og betingelser",
+        "third_party_description": "<fallback>Namirial SpA</fallback> er en betroet global udbyder, der vil udstede et certifikat, der validerer din elektroniske underskrift.",
+        "title": "Opret og brug din digitale signatur"
+      }
+    }
+  },
+  "qes_consent": {
+    "button": "Opret min signatur",
+    "link_certificate": "Certifikat ansøgningsskema",
+    "link_privacy_notice": "Privatlivsmeddelelse",
+    "link_terms_and_conditions": "Vilkår og betingelser",
+    "namirial_intro": "Namirial SpA er en betroet global udbyder, der vil udstede et certifikat, der validerer din elektroniske underskrift.",
+    "subtitle": "For at bekræfte din identitet i overensstemmelse med europæiske regler, skal du digitalt underskrive et dokument.",
+    "title": "Opret og brug din digitale signatur"
+  },
+  "qes_sign": {
+    "button": "Undertegn dokument",
+    "link_document": "Gennemgå dit dokument til underskrift",
+    "list_item_1": "Efter at have læst dit dokument, tryk på \"Signer dokument\" knappen.",
+    "list_item_2": "Når Onfido har verificeret din identitet, vil din underskrift blive brugt på dette dokument.",
+    "step_title": "Underskriv dit dokument",
+    "subtitle": "For at bekræfte din identitet i overensstemmelse med europæiske regler, skal du digitalt underskrive et dokument.",
+    "title": "Opret og brug din digitale signatur"
   },
   "retry_feedback": {
     "button_primary": "Prøv igen"
