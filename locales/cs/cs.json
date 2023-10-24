@@ -188,15 +188,23 @@
       "odp_screenshot_title": "Detekován snímek obrazovky"
     },
     "body": "Ujistěte se, že jste nahráli celou stránku dokumentu a detaily jsou dobře čitelné bez rozmazání nebo odlesků.",
+    "body_address_certificate": "Ujistěte se, že jste nahráli celou stránku dokumentu a detaily jsou jasně čitelné bez rozmazání nebo odlesku",
     "body_bank_statement": "Ujistěte se, že jste nahráli celou stránku dokumentu a detaily jsou dobře čitelné bez rozmazání nebo odlesků.",
     "body_benefits_letter": "Ujistěte se, že jste nahráli celou stránku dokumentu a detaily jsou dobře čitelné bez rozmazání nebo odlesků.",
     "body_bill": "Ujistěte se, že jste nahráli celou stránku dokumentu a detaily jsou dobře čitelné bez rozmazání nebo odlesků.",
+    "body_exchange_house_statement": "Ujistěte se, že jste nahráli celou stránku dokumentu a detaily jsou jasně čitelné bez rozmazání nebo odlesku",
+    "body_general_letter": "Ujistěte se, že jste nahráli celou stránku dokumentu a detaily jsou jasně čitelné bez rozmazání nebo odlesku",
     "body_generic_document": "Ujistěte se, že jsou Vaše údaje jasné a nezkreslené",
     "body_id": "Ujistěte se, že jsou Vaše údaje jasné a nezkreslené",
+    "body_identity_document_with_address": "Ujistěte se, že jste nahráli celou stránku dokumentu a detaily jsou jasně čitelné bez rozmazání nebo odlesku",
     "body_image_medium": "Ověření bude trvat déle, pokud nebudeme moci dokument přečíst",
     "body_image_poor": "Pro hladké ověření potřebujeme lepší fotografii",
+    "body_insurance_statement": "Ujistěte se, že jste nahráli celou stránku dokumentu a detaily jsou jasně čitelné bez rozmazání nebo odlesku",
     "body_license": "Ujistěte se, že jsou Vaše údaje jasné a nezkreslené",
+    "body_mobile_phone_bill": "Ujistěte se, že jste nahráli celou stránku dokumentu a detaily jsou jasně čitelné bez rozmazání nebo odlesku",
+    "body_mortgage_statement": "Ujistěte se, že jste nahráli celou stránku dokumentu a detaily jsou jasně čitelné bez rozmazání nebo odlesku",
     "body_passport": "Ujistěte se, že jsou Vaše údaje jasné a nezkreslené",
+    "body_pension_property_statement_letter": "Ujistěte se, že jste nahráli celou stránku dokumentu a detaily jsou jasně čitelné bez rozmazání nebo odlesku",
     "body_permit": "Ujistěte se, že jsou Vaše údaje jasné a nezkreslené",
     "body_tax_letter": "Ujistěte se, že jste nahráli celou stránku dokumentu a detaily jsou dobře čitelné bez rozmazání nebo odlesků.",
     "button_close": "Zavřít",
@@ -217,21 +225,39 @@
   },
   "doc_select": {
     "button_address_card": "Adresní karta",
+    "button_address_card_back": "Adresář (zadní strana)",
     "button_address_card_detail": "Přijímají se dočasné i trvalé karty",
+    "button_address_card_front": "Adresář (přední strana)",
     "button_bank_statement": "Výpis z účtu banky nebo stavební spořitelny",
     "button_bank_statement_non_uk": "Bankovní výpis",
     "button_benefits_letter": "Dopis o výhodách",
     "button_benefits_letter_detail": "Vládou schválené dávky pro domácnosti, např. příspěvek pro uchazeče o zaměstnání, příspěvek na bydlení, daňové úlevy.",
     "button_bill": "Účet za komunální služby",
     "button_bill_detail": "Plyn, elektřina, voda, pevná linka nebo internetové připojení",
+    "button_exchange_house_statement": "Prohlášení směnárny",
+    "button_exchange_house_statement_detail": "Prohlášení odesílatele o převodu nebo převodu peněz",
+    "button_general_letter": "Obecný dopis",
+    "button_general_letter_detail": "Dopis od finanční instituce nebo dodavatele služeb",
     "button_government_letter": "Vládní dopis",
     "button_government_letter_detail": "Jakýkoli dopis vydaný vládou, například dopis o nároku na dávky, dopis o volbách, dopis o daních atd.",
     "button_id": "Průkaz totožnosti",
     "button_id_detail": "Přední a zadní strana",
+    "button_identity_document_with_address": "Identifikační dokument s adresou",
+    "button_identity_document_with_address_back": "Identifikační dokument s adresou (zadní strana)",
+    "button_identity_document_with_address_detail": "Vydáno vládním orgánem",
+    "button_identity_document_with_address_front": "Identifikační dokument s adresou (přední strana)",
+    "button_insurance_statement": "Prohlášení o pojištění",
+    "button_insurance_statement_detail": "Vydané soukromou pojišťovnou nebo makléřskou společností",
     "button_license": "Řidičský průkaz",
     "button_license_detail": "Přední a zadní strana",
+    "button_mobile_phone_bill": "Účet za mobilní telefon",
+    "button_mobile_phone_bill_detail": "Vydané od poskytovatele mobilní telefonní sítě",
+    "button_mortgage_statement": "Výpis z hypotéky",
+    "button_mortgage_statement_detail": "Vydané finanční úvěrovou institucí",
     "button_passport": "Pas",
     "button_passport_detail": "Stránka pro fotografie",
+    "button_pension_property_statement_letter": "Výpis nebo dopis o penzi/nemovitosti",
+    "button_pension_property_statement_letter_detail": "Výpis z penzijního spoření nebo dopis a Výpis z daně z nemovitostí nebo dopis",
     "button_permit": "Povolení k pobytu",
     "button_permit_detail": "Přední a zadní strana",
     "button_tax_letter": "Dopis o dani",
@@ -258,17 +284,29 @@
     "button_link_upload": "nebo nahrát fotografii - žádné skeny nebo fotokopie",
     "button_primary": "Pokračujte v telefonu",
     "subtitle": "Vyfotografujte se telefonem",
+    "title_address_certificate": "Odeslat adresní kartu",
+    "title_address_certificate_back": "Odeslat adresní kartu (zadní strana)",
+    "title_address_certificate_front": "Odeslat adresní kartu (přední strana)",
     "title_bank_statement": "Odeslat prohlášení",
     "title_benefits_letter": "Odeslat dopis",
     "title_bill": "Předložit účet",
+    "title_exchange_house_statement": "Odevzdejte výpis z měnárny",
+    "title_general_letter": "Odeslat obecný dopis",
     "title_generic_document_back": "Odeslat dokument (zadní strana)",
     "title_generic_document_front": "Odeslat dokument (přední strana)",
     "title_government_letter": "Vládní dopis",
     "title_id_back": "Předložit průkaz totožnosti (zadní strana)",
     "title_id_front": "Předložit průkaz totožnosti (přední strana)",
+    "title_identity_document_with_address": "Odevzdejte doklad totožnosti s adresou",
+    "title_identity_document_with_address_back": "Odevzdejte doklad totožnosti s adresou (zadní strana)",
+    "title_identity_document_with_address_front": "Odevzdejte doklad totožnosti s adresou (přední strana)",
+    "title_insurance_statement": "Odevzdejte pojistné prohlášení",
     "title_license_back": "Předložit řidičský průkaz (zadní strana)",
     "title_license_front": "Předložit řidičský průkaz (přední strana)",
+    "title_mobile_phone_bill": "Odeslat účet za mobilní telefon",
+    "title_mortgage_statement": "Odevzdejte výpis z hypotéky",
     "title_passport": "Odeslat pasovou fotografii",
+    "title_pension_property_statement_letter": "Odeslat prohlášení nebo dopis",
     "title_permit_back": "Předložit povolení k pobytu (zadní stranu)",
     "title_permit_front": "Předložit povolení k pobytu (přední stranu)",
     "title_tax_letter": "Odeslat dopis"
@@ -422,6 +460,29 @@
       "success": "Úspěšné skenování"
     }
   },
+  "otp": {
+    "code_input": {
+      "error": {
+        "technical": "Došlo k technické chybě, zkuste to prosím později",
+        "wrong_code": "Zadán nesprávný kód, zkuste to prosím znovu"
+      },
+      "intro": "Kód odeslaný na váš telefonní číslo bude aktivní 5 minut",
+      "resend": {
+        "cta": "Znovu odeslat",
+        "label": "Odeslaný kód (až do {limit})"
+      },
+      "title": "Jednorázové heslo"
+    },
+    "send_code": {
+      "cta": "Pošlete kód",
+      "error": {
+        "limit": "Dosáhli jste limitu odeslaných SMS",
+        "technical": "Došlo k technické chybě, zkuste to prosím později"
+      },
+      "intro": "Abychom ověřili vaše telefonní číslo, pošleme vám jednorázový kód, který zadáte na příští obrazovce.",
+      "title": "Jednorázové heslo"
+    }
+  },
   "outro": {
     "body": "To je vše, co potřebujeme, abychom mohli začít ověřovat Vaši totožnost",
     "body_government_letter": "Pro dosažení nejlepších výsledků použijte celou stránku dokumentu",
@@ -444,139 +505,139 @@
   "permission_recovery": {
     "android": {
       "device_settings": {
-        "list_item_1": "Na svém zařízení otevřete aplikaci Nastavení",
-        "list_item_2": "Klepněte na Aplikace",
-        "list_item_3": "Klepněte na [BROWSER_ICON]. Pokud jej nemůžete najít, klepněte na Zobrazit všechny aplikace nebo Spravovat aplikace a vyberte aplikaci prohlížeče",
-        "list_item_4": "Klepněte na Oprávnění",
-        "list_item_5_cam": "Klepněte na Kamera a vyberte Povolit",
-        "list_item_5_mic": "Klepněte na Mikrofon a vyberte Povolit",
-        "list_item_6": "Vraťte se na tuto stránku a klepněte na tlačítko Provedl jsem změny"
+        "list_item_1": "Na svém zařízení otevřete aplikaci <strong>Nastavení</strong>",
+        "list_item_2": "Klepněte na <strong>Aplikace</strong>",
+        "list_item_3": "Klepněte na [BROWSER_ICON]. Pokud jej nemůžete najít, klepněte na <strong>Zobrazit všechny aplikace</strong> nebo <strong>Spravovat aplikace</strong> a vyberte aplikaci prohlížeče",
+        "list_item_4": "Klepněte na <strong>Oprávnění</strong>",
+        "list_item_5_cam": "Klepněte na <strong>Kamera</strong> a vyberte <strong>Povolit</strong>",
+        "list_item_5_mic": "Klepněte na <strong>Mikrofon</strong> a vyberte <strong>Povolit</strong>",
+        "list_item_6": "Vraťte se na tuto stránku a klepněte na tlačítko <strong>Provedl jsem změny</strong>"
       }
     },
     "android_chrome": {
       "browser_settings": {
         "list_item_1": "V prohlížeči klepněte na ikonu zámku [LOCK_ICON] v adresním řádku",
-        "list_item_2": "Klepněte na Oprávnění",
-        "list_item_3_cam": "Aktivujte přepínač vedle Kamery",
-        "list_item_3_mic": "Aktivujte přepínač vedle Mikrofonu",
-        "list_item_4": "Vraťte se na tuto stránku a klepněte na tlačítko Provedl jsem změny"
+        "list_item_2": "Klepněte na <strong>Oprávnění</strong>",
+        "list_item_3_cam": "Aktivujte přepínač vedle <strong>Kamery</strong>",
+        "list_item_3_mic": "Aktivujte přepínač vedle <strong>Mikrofonu</strong>",
+        "list_item_4": "Vraťte se na tuto stránku a klepněte na tlačítko <strong>Provedl jsem změny</strong>"
       }
     },
     "android_firefox": {
       "browser_settings": {
         "list_item_1": "V prohlížeči klepněte na ikonu zámku [LOCK_ICON] v adresním řádku",
-        "list_item_2_cam": "Klepněte na Blokovaná vedle Kamery pro přepnutí na Povoleno",
-        "list_item_2_mic": "Klepněte na Blokováno vedle Mikrofonu pro přepnutí na <",
-        "list_item_3": "Vraťte se na tuto stránku a klepněte na tlačítko Provedl jsem změny"
+        "list_item_2_cam": "Klepněte na <strong>Blokovaná</strong> vedle <strong>Kamery</strong> pro přepnutí na <strong>Povoleno</strong>",
+        "list_item_2_mic": "Klepněte na <strong>Blokováno</strong> vedle <strong>Mikrofonu</strong> pro přepnutí na <",
+        "list_item_3": "Vraťte se na tuto stránku a klepněte na tlačítko <strong>Provedl jsem změny</strong>"
       }
     },
     "android_generic": {
       "browser_settings": {
         "list_item_1": "V prohlížeči otevřete nastavení webové stránky. To je často ikona zámku [LOCK_ICON] v adresním řádku",
         "list_item_2": "Najděte sekci o oprávněních",
-        "list_item_3_cam": "Povolte oprávnění pro Kameru",
-        "list_item_3_mic": "Povolte oprávnění pro Mikrofon",
-        "list_item_4": "Vraťte se na tuto stránku a klepněte na tlačítko Provedl jsem změny"
+        "list_item_3_cam": "Povolte oprávnění pro <strong>Kameru</strong>",
+        "list_item_3_mic": "Povolte oprávnění pro <strong>Mikrofon</strong>",
+        "list_item_4": "Vraťte se na tuto stránku a klepněte na tlačítko <strong>Provedl jsem změny</strong>"
       }
     },
     "android_samsung": {
       "browser_settings": {
         "list_item_1": "V prohlížeči klepněte na ikonu zámku [LOCK_ICON] v adresním řádku",
-        "list_item_2_cam": "Aktivujte přepínač vedle Kamery",
-        "list_item_2_mic": "Aktivujte přepínač vedle Mikrofonu",
-        "list_item_3": "Vraťte se na tuto stránku a klepněte na tlačítko Provedl jsem změny"
+        "list_item_2_cam": "Aktivujte přepínač vedle <strong>Kamery</strong>",
+        "list_item_2_mic": "Aktivujte přepínač vedle <strong>Mikrofonu</strong>",
+        "list_item_3": "Vraťte se na tuto stránku a klepněte na tlačítko <strong>Provedl jsem změny</strong>"
       }
     },
     "button_primary": "Obnovit",
     "desktop_chrome": {
       "browser_settings": {
         "list_item_1": "Klikněte v prohlížeči na ikonu zámku [LOCK_ICON] v adresním řádku",
-        "list_item_2_cam": "Aktivujte přepínač vedle Kamery",
-        "list_item_2_mic": "Aktivujte přepínač vedle Mikrofonu",
-        "list_item_3": "Vraťte se na tuto stránku a klikněte na tlačítko Provedl jsem změny"
+        "list_item_2_cam": "Aktivujte přepínač vedle <strong>Kamery</strong>",
+        "list_item_2_mic": "Aktivujte přepínač vedle <strong>Mikrofonu</strong>",
+        "list_item_3": "Vraťte se na tuto stránku a klikněte na tlačítko <strong>Provedl jsem změny</strong>"
       }
     },
     "desktop_edge": {
       "browser_settings": {
         "list_item_1": "Klikněte v prohlížeči na ikonu zámku [LOCK_ICON] v adresním řádku",
-        "list_item_2_cam": "Klikněte na rozevírací nabídku vedle Kamery a vyberte Povolit",
-        "list_item_2_mic": "Klikněte na rozevírací nabídku vedle Mikrofonu a vyberte Povolit",
-        "list_item_3": "Vraťte se na tuto stránku a klikněte na tlačítko Provedl jsem změny"
+        "list_item_2_cam": "Klikněte na rozevírací nabídku vedle <strong>Kamery</strong> a vyberte <strong>Povolit</strong>",
+        "list_item_2_mic": "Klikněte na rozevírací nabídku vedle <strong>Mikrofonu</strong> a vyberte <strong>Povolit</strong>",
+        "list_item_3": "Vraťte se na tuto stránku a klikněte na tlačítko <strong>Provedl jsem změny</strong>"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
         "list_item_1": "Klikněte v prohlížeči na ikonu nastavení [SETTINGS_ICON_FIREFOX] v adresním řádku",
-        "list_item_2_cam": "Klikněte na Blokováno vedle Použít kameru",
-        "list_item_2_mic": "Klikněte na Blokováno vedle Použít mikrofon",
-        "list_item_3": "Vraťte se na tuto stránku a klikněte na tlačítko Provedl jsem změny"
+        "list_item_2_cam": "Klikněte na <strong>Blokováno</strong> vedle <strong>Použít kameru</strong>",
+        "list_item_2_mic": "Klikněte na <strong>Blokováno</strong> vedle <strong>Použít mikrofon</strong>",
+        "list_item_3": "Vraťte se na tuto stránku a klikněte na tlačítko <strong>Provedl jsem změny</strong>"
       }
     },
     "desktop_generic": {
       "browser_settings": {
         "list_item_1": "V prohlížeči otevřete nastavení webové stránky. To je často ikona zámku [LOCK_ICON] v adresním řádku",
         "list_item_2": "Najděte sekci o oprávněních",
-        "list_item_3_cam": "Povolte oprávnění pro Kameru",
-        "list_item_3_mic": "Povolte oprávnění pro Mikrofon",
-        "list_item_4": "Vraťte se na tuto stránku a klikněte na tlačítko Provedl jsem změny"
+        "list_item_3_cam": "Povolte oprávnění pro <strong>Kameru</strong>",
+        "list_item_3_mic": "Povolte oprávnění pro <strong>Mikrofon</strong>",
+        "list_item_4": "Vraťte se na tuto stránku a klikněte na tlačítko <strong>Provedl jsem změny</strong>"
       },
       "device_settings": {
-        "list_item_1": "Na svém počítači otevřete své Nastavení",
-        "list_item_2": "Najděte sekci o oprávněních (obvykle pod Ochrana osobních údajů)",
-        "list_item_3_cam": "Povolte oprávnění pro Kameru pro [BROWSER_ICON]",
-        "list_item_3_mic": "Povolte oprávnění pro Mikrofon pro [BROWSER_ICON]",
+        "list_item_1": "Na svém počítači otevřete své <strong>Nastavení</strong>",
+        "list_item_2": "Najděte sekci o oprávněních (obvykle pod <strong>Ochrana osobních údajů</strong>)",
+        "list_item_3_cam": "Povolte oprávnění pro <strong>Kameru</strong> pro [BROWSER_ICON]",
+        "list_item_3_mic": "Povolte oprávnění pro <strong>Mikrofon</strong> pro [BROWSER_ICON]",
         "list_item_4": "Restartujte svůj prohlížeč, pokud je to nutné, a vraťte se na tuto stránku"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "Na svém počítači klikněte na nabídku Apple [APPLE_ICON] a vyberte Systémová nastavení (nebo Systémové předvolby)",
-        "list_item_2": "Klikněte na Ochrana osobních údajů & Bezpečnost (nebo Bezpečnost & Ochrana osobních údajů) v postranním panelu",
-        "list_item_3": "Klikněte na Později v otevřeném okně",
-        "list_item_3_cam": "Klikněte na Kamera a aktivujte přepínač (nebo zaškrtávací políčko) vedle [BROWSER_ICON]",
-        "list_item_4": "Klikněte na Ukončit a znovu otevřít v otevřeném okně a vraťte se na tuto stránku",
-        "list_item_4_mic": "Klikněte na Mikrofon a aktivujte přepínač (nebo zaškrtávací políčko) vedle [BROWSER_ICON]"
+        "list_item_1": "Na svém počítači klikněte na nabídku Apple [APPLE_ICON] a vyberte <strong>Systémová nastavení</strong> (nebo <strong>Systémové předvolby</strong>)",
+        "list_item_2": "Klikněte na <strong>Ochrana osobních údajů & Bezpečnost</strong> (nebo <strong>Bezpečnost & Ochrana osobních údajů</strong>) v postranním panelu",
+        "list_item_3": "Klikněte na <strong>Později</strong> v otevřeném okně",
+        "list_item_3_cam": "Klikněte na <strong>Kamera</strong> a aktivujte přepínač (nebo zaškrtávací políčko) vedle [BROWSER_ICON]",
+        "list_item_4": "Klikněte na <strong>Ukončit a znovu otevřít</strong> v otevřeném okně a vraťte se na tuto stránku",
+        "list_item_4_mic": "Klikněte na <strong>Mikrofon</strong> a aktivujte přepínač (nebo zaškrtávací políčko) vedle [BROWSER_ICON]"
       }
     },
     "desktop_safari": {
       "browser_settings": {
-        "list_item_1": "V prohlížeči klikněte pravým tlačítkem myši na adresní řádek a vyberte Nastavení",
-        "list_item_2_cam": "Klikněte na rozevírací nabídku vedle Kamery a vyberte Povolit",
-        "list_item_2_mic": "Klikněte na rozbalovací nabídku vedle Mikrofonu a vyberte Povolit",
-        "list_item_3": "Vraťte se na tuto stránku a klikněte na tlačítko Provedl jsem změny"
+        "list_item_1": "V prohlížeči klikněte pravým tlačítkem myši na adresní řádek a vyberte <strong>Nastavení</strong>",
+        "list_item_2_cam": "Klikněte na rozevírací nabídku vedle <strong>Kamery</strong> a vyberte <strong>Povolit</strong>",
+        "list_item_2_mic": "Klikněte na rozbalovací nabídku vedle <strong>Mikrofonu</strong> a vyberte <strong>Povolit</strong>",
+        "list_item_3": "Vraťte se na tuto stránku a klikněte na tlačítko <strong>Provedl jsem změny</strong>"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "Na svém počítači klikněte na nabídku Windows [WINDOWS_ICON] a vyberte Nastavení [SETTINGS_ICON_WINDOWS]",
-        "list_item_2": "Klikněte na Soukromí (nebo Soukromí & Bezpečnost)",
-        "list_item_3_cam": "Klikněte na Kamera pod Oprávnění aplikace a aktivujte přepínač vedle [BROWSER_ICON]",
-        "list_item_3_mic": "Klikněte na Mikrofon pod Oprávnění aplikace a aktivujte přepínač vedle [BROWSER_ICON]",
+        "list_item_1": "Na svém počítači klikněte na nabídku Windows [WINDOWS_ICON] a vyberte <strong>Nastavení</strong> [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "Klikněte na <strong>Soukromí</strong> (nebo <strong>Soukromí & Bezpečnost</strong>)",
+        "list_item_3_cam": "Klikněte na <strong>Kamera</strong> pod <strong>Oprávnění aplikace</strong> a aktivujte přepínač vedle [BROWSER_ICON]",
+        "list_item_3_mic": "Klikněte na <strong>Mikrofon</strong> pod <strong>Oprávnění aplikace</strong> a aktivujte přepínač vedle [BROWSER_ICON]",
         "list_item_4": "Restartujte svůj prohlížeč, pokud je to nutné, a vraťte se na tuto stránku"
       }
     },
     "info": "Obnova",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "Klepněte na tlačítko Provedl jsem změny. Budete vyzváni k opětovnému povolení přístupu ke kameře a mikrofonu. Když se objeví vyskakovací okno, vyberte Povolit (nebo OK)",
-        "list_item_1_cam": "Klepněte na tlačítko Provedl jsem změny. Budete vyzváni k opětovnému povolení přístupu k fotoaparátu. Když se objeví vyskakovací okno, vyberte Povolit (nebo OK)",
-        "list_item_1_mic": "Klepněte na tlačítko Provedl jsem změny. Budete vyzváni k opětovnému povolení přístupu k mikrofonu. Když se objeví vyskakovací okno, vyberte Povolit (nebo OK)"
+        "list_item_1_both": "Klepněte na tlačítko <strong>Provedl jsem změny</strong>. Budete vyzváni k opětovnému povolení přístupu ke kameře a mikrofonu. Když se objeví vyskakovací okno, vyberte <strong>Povolit</strong> (nebo <strong>OK</strong>)",
+        "list_item_1_cam": "Klepněte na tlačítko <strong>Provedl jsem změny</strong>. Budete vyzváni k opětovnému povolení přístupu k fotoaparátu. Když se objeví vyskakovací okno, vyberte <strong>Povolit</strong> (nebo <strong>OK</strong>)",
+        "list_item_1_mic": "Klepněte na tlačítko <strong>Provedl jsem změny</strong>. Budete vyzváni k opětovnému povolení přístupu k mikrofonu. Když se objeví vyskakovací okno, vyberte <strong>Povolit</strong> (nebo <strong>OK</strong>)"
       },
       "device_settings": {
-        "list_item_1": "Na svém zařízení otevřete aplikaci Nastavení",
+        "list_item_1": "Na svém zařízení otevřete aplikaci <strong>Nastavení</strong>",
         "list_item_2": "Projíždějte seznamem a klepněte na [BROWSER_ICON]",
-        "list_item_3_cam": "Aktivujte přepínač vedle Kamery",
-        "list_item_3_mic": "Aktivujte přepínač vedle Mikrofonu",
-        "list_item_4": "Vraťte se na tuto stránku a klepněte na tlačítko Provedl jsem změny"
+        "list_item_3_cam": "Aktivujte přepínač vedle <strong>Kamery</strong>",
+        "list_item_3_mic": "Aktivujte přepínač vedle <strong>Mikrofonu</strong>",
+        "list_item_4": "Vraťte se na tuto stránku a klepněte na tlačítko <strong>Provedl jsem změny</strong>"
       }
     },
     "ios_safari": {
       "device_settings": {
-        "list_item_1": "Na svém zařízení otevřete aplikaci Nastavení",
+        "list_item_1": "Na svém zařízení otevřete aplikaci <strong>Nastavení</strong>",
         "list_item_2": "Projíždějte seznamem a klepněte na [BROWSER_ICON]",
-        "list_item_3_cam": "Klepněte na Kamera a vyberte Povolit",
-        "list_item_3_mic": "Klepněte na Mikrofon a vyberte Povolit",
-        "list_item_4": "Vraťte se na tuto stránku a klepněte na tlačítko Provedl jsem změny"
+        "list_item_3_cam": "Klepněte na <strong>Kamera</strong> a vyberte <strong>Povolit</strong>",
+        "list_item_3_mic": "Klepněte na <strong>Mikrofon</strong> a vyberte <strong>Povolit</strong>",
+        "list_item_4": "Vraťte se na tuto stránku a klepněte na tlačítko <strong>Provedl jsem změny</strong>"
       }
     },
     "list_header_both": "Podle následujících kroků obnovíte přístup k oběma přístrojům:",
@@ -585,7 +646,7 @@
     "list_item_how_to_both": "Povolení přístupu ke kameře a mikrofonu v nastavení prohlížeče",
     "list_item_how_to_cam": "Udělení přístupu ke kameře v nastavení prohlížeče",
     "list_item_how_to_mic": "Povolení přístupu k mikrofonu pomocí nastavení prohlížeče",
-    "subtitle_both": "Obnovení přístupu ke kameře a mikrofonu pro pořízení videa a dokončení procesu ověřování",
+    "subtitle_both": "Potřebujeme přístup k vaší kameře a mikrofonu, abychom ověřili vaši totožnost. Postupujte podle níže uvedených pokynů, abyste obnovili přístup",
     "subtitle_cam": "Potřebujeme přístup k vaší kameře pro ověření vaší identity. Postupujte podle níže uvedených pokynů pro obnovení přístupu",
     "subtitle_cam_old": "Obnovení přístupu ke kameře pro další ověřování obličeje",
     "subtitle_mic": "Potřebujeme přístup k vašemu mikrofonu pro ověření vaší identity. Postupujte podle níže uvedených pokynů k obnovení přístupu",
@@ -604,16 +665,27 @@
     }
   },
   "photo_upload": {
+    "body_address_certificate_back": "Nahrajte zadní stranu dokumentu z vašeho počítače",
+    "body_address_certificate_front": "Nahrajte přední stranu dokumentu z vašeho počítače",
     "body_bank_statement": "Pro dosažení nejlepších výsledků použijte celou stránku dokumentu",
     "body_benefits_letter": "Pro dosažení nejlepších výsledků použijte celou stránku dokumentu",
     "body_bill": "Pro dosažení nejlepších výsledků použijte celou stránku dokumentu",
+    "body_exchange_house_statement": "Pro nejlepší výsledky poskytněte celou stránku dokumentu",
+    "body_general_letter": "Pro nejlepší výsledky poskytněte celou stránku dokumentu",
     "body_generic_document_back": "Nahrání zadní části dokumentu z počítače",
     "body_generic_document_front": "Nahrání přední části dokumentu z počítače",
     "body_id_back": "Nahrání zadní strany karty z počítače",
     "body_id_front": "Nahrát přední stranu karty z počítače",
+    "body_identity_document_with_address": "Pro nejlepší výsledky poskytněte celou stránku dokumentu",
+    "body_identity_document_with_address_back": "Nahrajte zadní stranu dokumentu z vašeho počítače",
+    "body_identity_document_with_address_front": "Nahrajte přední stranu dokumentu z vašeho počítače",
+    "body_insurance_statement": "Pro nejlepší výsledky poskytněte celou stránku dokumentu",
     "body_license_back": "Nahrání zadní části licence z počítače",
     "body_license_front": "Nahrání přední části licence z počítače",
+    "body_mobile_phone_bill": "Pro nejlepší výsledky poskytněte celou stránku dokumentu",
+    "body_mortgage_statement": "Pro nejlepší výsledky poskytněte celou stránku dokumentu",
     "body_passport": "Nahrát pasovou fotografii z počítače",
+    "body_pension_property_statement_letter": "Pro nejlepší výsledky poskytněte celou stránku dokumentu",
     "body_selfie": "Nahrání selfie z počítače",
     "body_tax_letter": "Pro dosažení nejlepších výsledků použijte celou stránku dokumentu",
     "button_take_photo": "Vyfotografovat",
@@ -642,6 +714,8 @@
     "subtitle_bank_statement": "Musí být vydáno v posledních 3 měsících",
     "subtitle_benefits_letter": "Musí být vydáno v posledních 12 měsících",
     "subtitle_bill": "Musí být vydáno v posledních 3 měsících",
+    "subtitle_dynamic_empty_grace_period": "Musí být platný dokument",
+    "subtitle_dynamic_grace_period": "Musí být vydané v posledních <graceperiod></graceperiod> měsících",
     "subtitle_tax_letter": "Musí být vydáno v posledních 12 měsících"
   },
   "poa_intro": {
@@ -952,6 +1026,51 @@
       "details_timeout": "Začít znovu",
       "header_timeout": "Vypadá to, že vám to trvalo příliš dlouho"
     }
+  },
+  "qes": {
+    "consent": {
+      "common": {
+        "steps": "Vytvořte svůj podpis"
+      },
+      "confirmation": {
+        "bullet_1": "Po přečtení vašeho dokumentu klepněte na tlačítko „Podepsat dokument“.",
+        "bullet_2": "Jakmile Onfido ověří vaši identitu, váš podpis bude použit na tomto dokumentu.",
+        "button_next_step": "Podepište dokument",
+        "review_document": "Prohlédněte si <fallback>svůj dokument</fallback> k podpisu",
+        "step2": "2 z 2",
+        "steps": "Podepište svůj dokument",
+        "subtitle": "Pro potvrzení vaší identity v souladu s evropskými pravidly musíte digitálně podepsat dokument.",
+        "title": "Vytvořte a použijte svůj digitální podpis"
+      },
+      "introduction": {
+        "button_confirmation_step": "Vytvořit můj podpis",
+        "certificate_application_form": "Formulář pro žádost o certifikát",
+        "privacy_notice": "Oznámení o ochraně soukromí",
+        "step1": "1 z 2",
+        "subtitle": "Pro potvrzení vaší identity v souladu s evropskými pravidly musíte digitálně podepsat dokument.",
+        "terms_and_conditions": "Podmínky a smluvní ujednání",
+        "third_party_description": "<fallback>Namirial SpA</fallback> je důvěryhodný globální poskytovatel, který vydá certifikát ověřující vaši elektronický podpis.",
+        "title": "Vytvořte a použijte svůj digitální podpis"
+      }
+    }
+  },
+  "qes_consent": {
+    "button": "Vytvořit můj podpis",
+    "link_certificate": "Formulář pro žádost o certifikát",
+    "link_privacy_notice": "Oznámení o ochraně soukromí",
+    "link_terms_and_conditions": "Podmínky a podmínky",
+    "namirial_intro": "Namirial SpA je důvěryhodný globální poskytovatel, který vydá certifikát ověřující vaši elektronický podpis.",
+    "subtitle": "Pro potvrzení vaší identity v souladu s evropskými pravidly musíte digitálně podepsat dokument.",
+    "title": "Vytvořte a použijte svůj digitální podpis"
+  },
+  "qes_sign": {
+    "button": "Podepište dokument",
+    "link_document": "Prohlédněte si svůj dokument k podpisu",
+    "list_item_1": "Po přečtení vašeho dokumentu klepněte na tlačítko „Podepsat dokument“.",
+    "list_item_2": "Jakmile Onfido ověří vaši identitu, váš podpis bude použit na tomto dokumentu.",
+    "step_title": "Podepište svůj dokument",
+    "subtitle": "Pro potvrzení vaší identity v souladu s evropskými pravidly musíte digitálně podepsat dokument.",
+    "title": "Vytvořte a použijte svůj digitální podpis"
   },
   "retry_feedback": {
     "button_primary": "Zkuste to znovu"

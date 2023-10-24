@@ -188,15 +188,23 @@
       "odp_screenshot_title": "Captura de ecrã detetada"
     },
     "body": "Certifique-se de que carregou a página inteira do documento e que os detalhes são facilmente legíveis, sem desfoque ou brilho",
+    "body_address_certificate": "Certifique-se de que carregou a página inteira do documento, e os detalhes estão claros para ler sem desfoque ou reflexo",
     "body_bank_statement": "Certifique-se de que carregou a página inteira do documento e que os detalhes são facilmente legíveis, sem desfoque ou brilho",
     "body_benefits_letter": "Certifique-se de que carregou a página inteira do documento e que os detalhes são facilmente legíveis, sem desfoque ou brilho",
     "body_bill": "Certifique-se de que carregou a página inteira do documento e que os detalhes são facilmente legíveis, sem desfoque ou brilho",
+    "body_exchange_house_statement": "Certifique-se de que carregou a página inteira do documento, e os detalhes estão claros para ler sem desfoque ou reflexo",
+    "body_general_letter": "Certifique-se de que carregou a página inteira do documento, e os detalhes estão claros para ler sem desfoque ou reflexo",
     "body_generic_document": "Certifique-se de que os seus dados são nítidos e não estão obstruídos",
     "body_id": "Certifique-se de que os seus dados são nítidos e não estão obstruídos",
+    "body_identity_document_with_address": "Certifique-se de que carregou a página inteira do documento, e os detalhes estão claros para ler sem desfoque ou reflexo",
     "body_image_medium": "Vamos demorar mais tempo a verificar a sua identidade se não conseguirmos efetuar a leitura",
     "body_image_poor": "Para confirmar melhor a sua identidade, precisamos de uma fotografia melhor",
+    "body_insurance_statement": "Certifique-se de que carregou a página inteira do documento, e os detalhes estão claros para ler sem desfoque ou reflexo",
     "body_license": "Certifique-se de que os seus dados são nítidos e não estão obstruídos",
+    "body_mobile_phone_bill": "Certifique-se de que carregou a página inteira do documento, e os detalhes estão claros para ler sem desfoque ou reflexo",
+    "body_mortgage_statement": "Certifique-se de que carregou a página inteira do documento, e os detalhes estão claros para ler sem desfoque ou reflexo",
     "body_passport": "Certifique-se de que os seus dados são nítidos e não estão obstruídos",
+    "body_pension_property_statement_letter": "Certifique-se de que carregou a página inteira do documento, e os detalhes estão claros para ler sem desfoque ou reflexo",
     "body_permit": "Certifique-se de que os seus dados são nítidos e não estão obstruídos",
     "body_tax_letter": "Certifique-se de que carregou a página inteira do documento e que os detalhes são facilmente legíveis, sem desfoque ou brilho",
     "button_close": "Fechar",
@@ -217,21 +225,39 @@
   },
   "doc_select": {
     "button_address_card": "Cartão de endereço",
+    "button_address_card_back": "Cartão de Endereço (Verso)",
     "button_address_card_detail": "São aceites cartões temporários e permanentes",
+    "button_address_card_front": "Cartão de Endereço (Frente)",
     "button_bank_statement": "Extrato bancário ou de uma sociedade de crédito imobiliário",
     "button_bank_statement_non_uk": "Extrato bancário",
     "button_benefits_letter": "Declaração de Benefícios",
     "button_benefits_letter_detail": "Benefícios autorizados pelo governo, p.e. subsídio de desemprego, subsídio de habitação, créditos fiscais",
     "button_bill": "Fatura de serviço essencial",
     "button_bill_detail": "Gás, eletricidade, água, telefone fixo ou banda larga",
+    "button_exchange_house_statement": "Declaração da Casa de Câmbio",
+    "button_exchange_house_statement_detail": "Declaração do remetente de transferência ou remessa",
+    "button_general_letter": "Carta Geral",
+    "button_general_letter_detail": "Carta de instituição financeira ou empresa de utilidade pública",
     "button_government_letter": "Carta governamental",
     "button_government_letter_detail": "Qualquer carta emitida pelo governo como, por exemplo, direito a prestações, cartas de voto, cartas fiscais, etc.",
     "button_id": "Cartão de identidade",
     "button_id_detail": "Frente e verso",
+    "button_identity_document_with_address": "Documento de Identidade com Endereço",
+    "button_identity_document_with_address_back": "Documento de Identidade com Endereço (Verso)",
+    "button_identity_document_with_address_detail": "Emitido por uma autoridade governamental",
+    "button_identity_document_with_address_front": "Documento de Identidade com Endereço (Frente)",
+    "button_insurance_statement": "Declaração de Seguro",
+    "button_insurance_statement_detail": "Emitido por uma empresa de seguros privada ou corretora",
     "button_license": "Carta de condução",
     "button_license_detail": "Frente e verso",
+    "button_mobile_phone_bill": "Conta de Telefone Móvel",
+    "button_mobile_phone_bill_detail": "Emitido por um provedor de rede de telefonia móvel",
+    "button_mortgage_statement": "Extrato de Hipoteca",
+    "button_mortgage_statement_detail": "Emitido por uma instituição financeira de empréstimo",
     "button_passport": "Passaporte",
     "button_passport_detail": "Página com fotografia",
+    "button_pension_property_statement_letter": "Declaração/Carta de Pensão ou Propriedade",
+    "button_pension_property_statement_letter_detail": "Declaração ou carta de pensão e Declaração ou carta de imposto sobre a propriedade",
     "button_permit": "Autorização de residência",
     "button_permit_detail": "Frente e verso",
     "button_tax_letter": "Carta sobre Impostos Municipais",
@@ -258,17 +284,29 @@
     "button_link_upload": "ou carregar foto – digitalizações ou fotocópias não são permitidas",
     "button_primary": "Continue no telefone",
     "subtitle": "Tire uma foto com o seu telefone",
+    "title_address_certificate": "Enviar cartão de endereço",
+    "title_address_certificate_back": "Enviar cartão de endereço (verso)",
+    "title_address_certificate_front": "Enviar cartão de endereço (frente)",
     "title_bank_statement": "Enviar declaração",
     "title_benefits_letter": "Enviar carta",
     "title_bill": "Enviar fatura",
+    "title_exchange_house_statement": "Envie o extrato da casa de câmbio",
+    "title_general_letter": "Enviar carta geral",
     "title_generic_document_back": "Submeter o documento (verso)",
     "title_generic_document_front": "Submeter o documento (frente)",
     "title_government_letter": "Carta governamental",
     "title_id_back": "Submeter cartão de identidade (verso)",
     "title_id_front": "Submeter cartão de identidade (frente)",
+    "title_identity_document_with_address": "Envie o documento de identidade com endereço",
+    "title_identity_document_with_address_back": "Envie o documento de identidade com endereço (verso)",
+    "title_identity_document_with_address_front": "Envie o documento de identidade com endereço (frente)",
+    "title_insurance_statement": "Enviar declaração de seguro",
     "title_license_back": "Submeter carta (verso)",
     "title_license_front": "Submeter carta (frente)",
+    "title_mobile_phone_bill": "Enviar fatura do celular",
+    "title_mortgage_statement": "Enviar extrato de hipoteca",
     "title_passport": "Submeta a página com fotografia do passaporte",
+    "title_pension_property_statement_letter": "Enviar declaração ou carta",
     "title_permit_back": "Enviar autorização de residência (verso)",
     "title_permit_front": "Enviar autorização de residência (frente)",
     "title_tax_letter": "Enviar carta"
@@ -422,6 +460,29 @@
       "success": "Digitalização bem sucedida"
     }
   },
+  "otp": {
+    "code_input": {
+      "error": {
+        "technical": "Ocorreu um erro técnico, por favor tente novamente mais tarde",
+        "wrong_code": "Código errado inserido, por favor tente novamente"
+      },
+      "intro": "O código enviado para o seu número de telefone estará ativo por 5 minutos",
+      "resend": {
+        "cta": "Reenviar",
+        "label": "Código enviado (até {limit})"
+      },
+      "title": "Senha Única"
+    },
+    "send_code": {
+      "cta": "Enviar código",
+      "error": {
+        "limit": "Você atingiu o limite de SMS enviados",
+        "technical": "Ocorreu um erro técnico, por favor tente novamente mais tarde"
+      },
+      "intro": "Para verificar o seu número de telefone, vamos enviar-lhe um código de uso único para inserir na próxima tela.",
+      "title": "Senha Única"
+    }
+  },
   "outro": {
     "body": "É tudo o que precisamos para começar a verificar a sua identidade",
     "body_government_letter": "Forneça a página completa do documento para melhores resultados",
@@ -444,139 +505,139 @@
   "permission_recovery": {
     "android": {
       "device_settings": {
-        "list_item_1": "No seu dispositivo, abra a aplicação Definições",
-        "list_item_2": "Toque em Aplicações",
-        "list_item_3": "Toque em [BROWSER_ICON]. Se não conseguir encontrá-lo, toque em Ver todas as apps ou Gerir apps e selecione a sua aplicação de navegador",
-        "list_item_4": "Toque em Permissões",
-        "list_item_5_cam": "Toque em Câmara e selecione Permitir",
-        "list_item_5_mic": "Toque em Microfone e selecione Permitir",
-        "list_item_6": "Volte a esta página e toque no botão Fiz as alterações"
+        "list_item_1": "No seu dispositivo, abra a aplicação <strong>Definições</strong>",
+        "list_item_2": "Toque em <strong>Aplicações</strong>",
+        "list_item_3": "Toque em [BROWSER_ICON]. Se não conseguir encontrá-lo, toque em <strong>Ver todas as apps</strong> ou <strong>Gerir apps</strong> e selecione a sua aplicação de navegador",
+        "list_item_4": "Toque em <strong>Permissões</strong>",
+        "list_item_5_cam": "Toque em <strong>Câmara</strong> e selecione <strong>Permitir</strong>",
+        "list_item_5_mic": "Toque em <strong>Microfone</strong> e selecione <strong>Permitir</strong>",
+        "list_item_6": "Volte a esta página e toque no botão <strong>Fiz as alterações</strong>"
       }
     },
     "android_chrome": {
       "browser_settings": {
         "list_item_1": "No seu navegador, toque no ícone de bloqueio [LOCK_ICON] na barra de endereços",
-        "list_item_2": "Toque em Permissões",
-        "list_item_3_cam": "Ative a alavanca ao lado de Câmara",
-        "list_item_3_mic": "Ative a alavanca ao lado de Microfone",
-        "list_item_4": "Volte a esta página e toque no botão Fiz as alterações"
+        "list_item_2": "Toque em <strong>Permissões</strong>",
+        "list_item_3_cam": "Ative a alavanca ao lado de <strong>Câmara</strong>",
+        "list_item_3_mic": "Ative a alavanca ao lado de <strong>Microfone</strong>",
+        "list_item_4": "Volte a esta página e toque no botão <strong>Fiz as alterações</strong>"
       }
     },
     "android_firefox": {
       "browser_settings": {
         "list_item_1": "No seu navegador, toque no ícone de bloqueio [LOCK_ICON] na barra de endereços",
-        "list_item_2_cam": "Toque em Bloqueado ao lado de Câmara para mudar para Permitido",
-        "list_item_2_mic": "Toque em Bloqueado ao lado de Microfone para mudar para Permitido",
-        "list_item_3": "Volte a esta página e toque no botão Fiz as alterações"
+        "list_item_2_cam": "Toque em <strong>Bloqueado</strong> ao lado de <strong>Câmara</strong> para mudar para <strong>Permitido</strong>",
+        "list_item_2_mic": "Toque em <strong>Bloqueado</strong> ao lado de <strong>Microfone</strong> para mudar para <strong>Permitido</strong>",
+        "list_item_3": "Volte a esta página e toque no botão <strong>Fiz as alterações</strong>"
       }
     },
     "android_generic": {
       "browser_settings": {
         "list_item_1": "No seu navegador, abra as configurações do site. Isto é frequentemente um ícone de cadeado [LOCK_ICON] na barra de endereços",
         "list_item_2": "Encontre a secção sobre permissões",
-        "list_item_3_cam": "Ative as permissões da Câmara",
-        "list_item_3_mic": "Ative as permissões do Microfone",
-        "list_item_4": "Volte a esta página e toque no botão Fiz as alterações"
+        "list_item_3_cam": "Ative as permissões da <strong>Câmara</strong>",
+        "list_item_3_mic": "Ative as permissões do <strong>Microfone</strong>",
+        "list_item_4": "Volte a esta página e toque no botão <strong>Fiz as alterações</strong>"
       }
     },
     "android_samsung": {
       "browser_settings": {
         "list_item_1": "No seu navegador, toque no ícone de bloqueio [LOCK_ICON] na barra de endereços",
-        "list_item_2_cam": "Ative a alavanca ao lado de Câmara",
-        "list_item_2_mic": "Ative a alavanca ao lado de Microfone",
-        "list_item_3": "Volte a esta página e toque no botão Fiz as alterações"
+        "list_item_2_cam": "Ative a alavanca ao lado de <strong>Câmara</strong>",
+        "list_item_2_mic": "Ative a alavanca ao lado de <strong>Microfone</strong>",
+        "list_item_3": "Volte a esta página e toque no botão <strong>Fiz as alterações</strong>"
       }
     },
     "button_primary": "Atualizar",
     "desktop_chrome": {
       "browser_settings": {
         "list_item_1": "No seu navegador, clique no ícone de cadeado [LOCK_ICON] na barra de endereços",
-        "list_item_2_cam": "Ative a alavanca ao lado de Câmara",
-        "list_item_2_mic": "Ative a alavanca ao lado de Microfone",
-        "list_item_3": "Volte a esta página e clique no botão Fiz as alterações"
+        "list_item_2_cam": "Ative a alavanca ao lado de <strong>Câmara</strong>",
+        "list_item_2_mic": "Ative a alavanca ao lado de <strong>Microfone</strong>",
+        "list_item_3": "Volte a esta página e clique no botão <strong>Fiz as alterações</strong>"
       }
     },
     "desktop_edge": {
       "browser_settings": {
         "list_item_1": "No seu navegador, clique no ícone de bloqueio [LOCK_ICON] na barra de endereços",
-        "list_item_2_cam": "Clique na seta ao lado de Câmara e selecione Permitir",
-        "list_item_2_mic": "Clique na caixa de seleção ao lado de Microfone e selecione Permitir",
-        "list_item_3": "Volte a esta página e clique no botão Fiz as alterações"
+        "list_item_2_cam": "Clique na seta ao lado de <strong>Câmara</strong> e selecione <strong>Permitir</strong>",
+        "list_item_2_mic": "Clique na caixa de seleção ao lado de <strong>Microfone</strong> e selecione <strong>Permitir</strong>",
+        "list_item_3": "Volte a esta página e clique no botão <strong>Fiz as alterações</strong>"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
         "list_item_1": "No seu navegador, clique no ícone de configurações [SETTINGS_ICON_FIREFOX] na barra de endereços",
-        "list_item_2_cam": "Clique em Bloqueado ao lado de Usar a câmara",
-        "list_item_2_mic": "Clique em Bloqueado ao lado de Usar o microfone",
-        "list_item_3": "Volte a esta página e clique no botão Fiz as alterações"
+        "list_item_2_cam": "Clique em <strong>Bloqueado</strong> ao lado de <strong>Usar a câmara</strong>",
+        "list_item_2_mic": "Clique em <strong>Bloqueado</strong> ao lado de <strong>Usar o microfone</strong>",
+        "list_item_3": "Volte a esta página e clique no botão <strong>Fiz as alterações</strong>"
       }
     },
     "desktop_generic": {
       "browser_settings": {
         "list_item_1": "No seu navegador, abra as configurações do site. Isso é frequentemente um ícone de cadeado [LOCK_ICON] na barra de endereços",
         "list_item_2": "Encontre a secção sobre permissões",
-        "list_item_3_cam": "Ative as permissões da Câmara",
-        "list_item_3_mic": "Ative as permissões do Microfone",
-        "list_item_4": "Volte a esta página e clique no botão Fiz as alterações"
+        "list_item_3_cam": "Ative as permissões da <strong>Câmara</strong>",
+        "list_item_3_mic": "Ative as permissões do <strong>Microfone</strong>",
+        "list_item_4": "Volte a esta página e clique no botão <strong>Fiz as alterações</strong>"
       },
       "device_settings": {
-        "list_item_1": "No seu computador, abra as suas Definições",
-        "list_item_2": "Encontre a secção sobre permissões (geralmente em Privacidade)",
-        "list_item_3_cam": "Ative as permissões da Câmara para [BROWSER_ICON]",
-        "list_item_3_mic": "Ative as permissões do Microfone para [BROWSER_ICON]",
+        "list_item_1": "No seu computador, abra as suas <strong>Definições</strong>",
+        "list_item_2": "Encontre a secção sobre permissões (geralmente em <strong>Privacidade</strong>)",
+        "list_item_3_cam": "Ative as permissões da <strong>Câmara</strong> para [BROWSER_ICON]",
+        "list_item_3_mic": "Ative as permissões do <strong>Microfone</strong> para [BROWSER_ICON]",
         "list_item_4": "Reinicie o seu navegador, se necessário, e volte a esta página"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "No seu computador, clique no menu Apple [APPLE_ICON] e selecione Configurações do Sistema (ou Preferências do Sistema)",
-        "list_item_2": "Clique em Privacidade & Segurança (ou Segurança & Privacidade) na barra lateral ",
-        "list_item_3": "Clique em Mais tarde na janela pop-up",
-        "list_item_3_cam": "Clique em Câmara e ative a alavanca (ou caixa de seleção) ao lado de [BROWSER_ICON]",
-        "list_item_4": "Clique em Sair & Reabrir na janela pop-up e volte para esta página",
-        "list_item_4_mic": "Clique em Microfone e ative a alavanca (ou caixa de seleção) ao lado de [BROWSER_ICON]"
+        "list_item_1": "No seu computador, clique no menu Apple [APPLE_ICON] e selecione <strong>Configurações do Sistema</strong> (ou <strong>Preferências do Sistema</strong>)",
+        "list_item_2": "Clique em <strong>Privacidade & Segurança</strong> (ou <strong>Segurança & Privacidade</strong>) na barra lateral ",
+        "list_item_3": "Clique em <strong>Mais tarde</strong> na janela pop-up",
+        "list_item_3_cam": "Clique em <strong>Câmara</strong> e ative a alavanca (ou caixa de seleção) ao lado de [BROWSER_ICON]",
+        "list_item_4": "Clique em <strong>Sair & Reabrir</strong> na janela pop-up e volte para esta página",
+        "list_item_4_mic": "Clique em <strong>Microfone</strong> e ative a alavanca (ou caixa de seleção) ao lado de [BROWSER_ICON]"
       }
     },
     "desktop_safari": {
       "browser_settings": {
-        "list_item_1": "No seu navegador, clique com o botão direito na barra de endereços e selecione Configurações",
-        "list_item_2_cam": "Clique na seta ao lado de Câmara e selecione Permitir",
-        "list_item_2_mic": "Clique na seta ao lado de Microfone e selecione Permitir",
-        "list_item_3": "Volte a esta página e clique no botão Fiz as alterações"
+        "list_item_1": "No seu navegador, clique com o botão direito na barra de endereços e selecione <strong>Configurações</strong>",
+        "list_item_2_cam": "Clique na seta ao lado de <strong>Câmara</strong> e selecione <strong>Permitir</strong>",
+        "list_item_2_mic": "Clique na seta ao lado de <strong>Microfone</strong> e selecione <strong>Permitir</strong>",
+        "list_item_3": "Volte a esta página e clique no botão <strong>Fiz as alterações</strong>"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "No seu computador, clique no menu Windows [WINDOWS_ICON] e selecione Definições [SETTINGS_ICON_WINDOWS]",
-        "list_item_2": "Clique em Privacidade (ou Privacidade & Segurança)",
-        "list_item_3_cam": "Clique em Câmara em Permissões de aplicação e ative a alavanca ao lado de [BROWSER_ICON] ",
-        "list_item_3_mic": "Clique em Microfone em Permissões de aplicação e ative a alavanca ao lado de [BROWSER_ICON]",
+        "list_item_1": "No seu computador, clique no menu Windows [WINDOWS_ICON] e selecione <strong>Definições</strong> [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "Clique em <strong>Privacidade</strong> (ou <strong>Privacidade & Segurança</strong>)",
+        "list_item_3_cam": "Clique em <strong>Câmara</strong> em <strong>Permissões de aplicação</strong> e ative a alavanca ao lado de [BROWSER_ICON] ",
+        "list_item_3_mic": "Clique em <strong>Microfone</strong> em <strong>Permissões de aplicação</strong> e ative a alavanca ao lado de [BROWSER_ICON]",
         "list_item_4": "Reinicie o seu navegador, se necessário, e volte a esta página"
       }
     },
     "info": "Recuperação",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "Toque no botão Fiz as alterações. Será solicitado que ative novamente o acesso à câmara e ao microfone. Quando aparecer a janela pop-up, selecione Permitir (ou OK)",
-        "list_item_1_cam": "Toque no botão Fiz as alterações. Será solicitado que ative novamente o acesso à câmara. Quando a janela pop-up aparecer, selecione Permitir (ou OK)",
-        "list_item_1_mic": "Toque no botão Fiz as alterações. Será solicitado que ative novamente o acesso ao microfone. Quando a janela pop-up aparecer, selecione Permitir (ou OK)"
+        "list_item_1_both": "Toque no botão <strong>Fiz as alterações</strong>. Será solicitado que ative novamente o acesso à câmara e ao microfone. Quando aparecer a janela pop-up, selecione <strong>Permitir</strong> (ou <strong>OK</strong>)",
+        "list_item_1_cam": "Toque no botão <strong>Fiz as alterações</strong>. Será solicitado que ative novamente o acesso à câmara. Quando a janela pop-up aparecer, selecione <strong>Permitir</strong> (ou <strong>OK</strong>)",
+        "list_item_1_mic": "Toque no botão <strong>Fiz as alterações</strong>. Será solicitado que ative novamente o acesso ao microfone. Quando a janela pop-up aparecer, selecione <strong>Permitir</strong> (ou <strong>OK</strong>)"
       },
       "device_settings": {
-        "list_item_1": "No seu dispositivo, abra a aplicação Definições",
+        "list_item_1": "No seu dispositivo, abra a aplicação <strong>Definições</strong>",
         "list_item_2": "Deslize pela lista e toque em [BROWSER_ICON]",
-        "list_item_3_cam": "Ative a alavanca ao lado de Câmara",
-        "list_item_3_mic": "Ative a alavanca ao lado de Microfone",
-        "list_item_4": "Volte a esta página e toque no botão Fiz as alterações"
+        "list_item_3_cam": "Ative a alavanca ao lado de <strong>Câmara</strong>",
+        "list_item_3_mic": "Ative a alavanca ao lado de <strong>Microfone</strong>",
+        "list_item_4": "Volte a esta página e toque no botão <strong>Fiz as alterações</strong>"
       }
     },
     "ios_safari": {
       "device_settings": {
-        "list_item_1": "No seu dispositivo, abra a aplicação Definições",
+        "list_item_1": "No seu dispositivo, abra a aplicação <strong>Definições</strong>",
         "list_item_2": "Deslize pela lista e toque em [BROWSER_ICON]",
-        "list_item_3_cam": "Toque em Câmara e selecione Permitir",
-        "list_item_3_mic": "Toque em Microfone e selecione Permitir",
-        "list_item_4": "Volte a esta página e toque no botão Fiz as alterações"
+        "list_item_3_cam": "Toque em <strong>Câmara</strong> e selecione <strong>Permitir</strong>",
+        "list_item_3_mic": "Toque em <strong>Microfone</strong> e selecione <strong>Permitir</strong>",
+        "list_item_4": "Volte a esta página e toque no botão <strong>Fiz as alterações</strong>"
       }
     },
     "list_header_both": "Siga estes passos para recuperar o acesso a ambos:",
@@ -585,7 +646,7 @@
     "list_item_how_to_both": "Conceda acesso à sua câmara e ao microfone a partir das definições do navegador",
     "list_item_how_to_cam": "Conceda acesso à sua câmara a partir das definições do navegador",
     "list_item_how_to_mic": "Conceda acesso ao seu microfone a partir das definições do seu navegador",
-    "subtitle_both": "Recuperar o acesso à câmara e ao microfone para tirar um vídeo e completar o processo de verificação",
+    "subtitle_both": "Necessitamos de acesso à sua câmara e microfone para verificar a sua identidade. Siga as instruções abaixo para recuperar o acesso",
     "subtitle_cam": "Necessitamos de aceder à sua câmara para verificar a sua identidade. Siga as instruções abaixo para recuperar o acesso",
     "subtitle_cam_old": "Recupere o acesso à câmara para continuar a verificação da face",
     "subtitle_mic": "Necessitamos de acesso ao seu microfone para verificar a sua identidade. Siga as instruções abaixo para recuperar o acesso",
@@ -604,16 +665,27 @@
     }
   },
   "photo_upload": {
+    "body_address_certificate_back": "Faça upload do verso do documento do seu computador",
+    "body_address_certificate_front": "Faça upload da frente do documento do seu computador",
     "body_bank_statement": "Forneça a página completa do documento para melhores resultados",
     "body_benefits_letter": "Forneça a página completa do documento para melhores resultados",
     "body_bill": "Forneça a página completa do documento para melhores resultados",
+    "body_exchange_house_statement": "Forneça a página inteira do documento para obter os melhores resultados",
+    "body_general_letter": "Forneça a página inteira do documento para obter os melhores resultados",
     "body_generic_document_back": "Carregue o verso do documento a partir do seu computador",
     "body_generic_document_front": "Carregue a frente do documento a partir do seu computador",
     "body_id_back": "Carregue o verso do cartão a partir do seu computador",
     "body_id_front": "Carregue a frente do cartão a partir do seu computador",
+    "body_identity_document_with_address": "Forneça a página inteira do documento para obter os melhores resultados",
+    "body_identity_document_with_address_back": "Faça upload do verso do documento do seu computador",
+    "body_identity_document_with_address_front": "Faça upload da frente do documento do seu computador",
+    "body_insurance_statement": "Forneça a página inteira do documento para obter os melhores resultados",
     "body_license_back": "Carregue o verso da carta a partir do seu computador",
     "body_license_front": "Carregue a frente da carta a partir do seu computador",
+    "body_mobile_phone_bill": "Forneça a página inteira do documento para obter os melhores resultados",
+    "body_mortgage_statement": "Forneça a página inteira do documento para obter os melhores resultados",
     "body_passport": "Carregue a página da foto do passaporte a partir do seu computador",
+    "body_pension_property_statement_letter": "Forneça a página inteira do documento para obter os melhores resultados",
     "body_selfie": "Carregue uma selfie a partir do seu computador",
     "body_tax_letter": "Forneça a página completa do documento para melhores resultados",
     "button_take_photo": "Tirar fotografia",
@@ -642,6 +714,8 @@
     "subtitle_bank_statement": "Deverá ter sido emitido nos últimos 3 meses",
     "subtitle_benefits_letter": "Deverá ter sido emitido nos últimos 12 meses",
     "subtitle_bill": "Deverá ter sido emitido nos últimos 3 meses",
+    "subtitle_dynamic_empty_grace_period": "Deve ser um documento válido",
+    "subtitle_dynamic_grace_period": "Deve ter sido emitido nos últimos <graceperiod></graceperiod> meses",
     "subtitle_tax_letter": "Deverá ter sido emitido nos últimos 12 meses"
   },
   "poa_intro": {
@@ -952,6 +1026,51 @@
       "details_timeout": "Começar de novo",
       "header_timeout": "Parece que demorou demasiado tempo"
     }
+  },
+  "qes": {
+    "consent": {
+      "common": {
+        "steps": "Crie a sua assinatura"
+      },
+      "confirmation": {
+        "bullet_1": "Após ler o seu documento, toque no botão \"Assinar documento\".",
+        "bullet_2": "Uma vez que a Onfido verifica a sua identidade, a sua assinatura será usada neste documento.",
+        "button_next_step": "Assine o documento",
+        "review_document": "Revise <fallback>o seu documento</fallback> para assinar",
+        "step2": "2 de 2",
+        "steps": "Assine o seu documento",
+        "subtitle": "Para confirmar sua identidade de acordo com as regras europeias, você deve assinar digitalmente um documento.",
+        "title": "Crie e use sua assinatura digital"
+      },
+      "introduction": {
+        "button_confirmation_step": "Criar minha assinatura",
+        "certificate_application_form": "Formulário de solicitação de certificado",
+        "privacy_notice": "Aviso de privacidade",
+        "step1": "1 de 2",
+        "subtitle": "Para confirmar sua identidade de acordo com as regras europeias, você deve assinar digitalmente um documento.",
+        "terms_and_conditions": "Termos e condições",
+        "third_party_description": "<fallback>Namirial SpA</fallback> é um fornecedor global de confiança que emitirá um certificado validando sua assinatura eletrônica.",
+        "title": "Crie e use sua assinatura digital"
+      }
+    }
+  },
+  "qes_consent": {
+    "button": "Criar a minha assinatura",
+    "link_certificate": "Formulário de solicitação de certificado",
+    "link_privacy_notice": "Aviso de privacidade",
+    "link_terms_and_conditions": "Termos e condições",
+    "namirial_intro": "A Namirial SpA é um fornecedor global de confiança que emitirá um certificado validando sua assinatura eletrônica.",
+    "subtitle": "Para confirmar sua identidade de acordo com as regras europeias, você deve assinar digitalmente um documento.",
+    "title": "Crie e use a sua assinatura digital"
+  },
+  "qes_sign": {
+    "button": "Assine o documento",
+    "link_document": "Revise o seu documento para assinar",
+    "list_item_1": "Após ler o seu documento, toque no botão \"Assinar documento\".",
+    "list_item_2": "Uma vez que a Onfido verifica a sua identidade, a sua assinatura será usada neste documento.",
+    "step_title": "Assine o seu documento",
+    "subtitle": "Para confirmar sua identidade de acordo com as regras europeias, você deve assinar digitalmente um documento.",
+    "title": "Crie e use a sua assinatura digital"
   },
   "retry_feedback": {
     "button_primary": "Tente novamente"

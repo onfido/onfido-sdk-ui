@@ -188,15 +188,23 @@
       "odp_screenshot_title": "Ekraanipilt tuvastatud"
     },
     "body": "Veenduge, et olete kogu dokumendi lehe üles laadinud ja andmed on loetavad ning ei ole hägused ega ülevalgustatud",
+    "body_address_certificate": "Veenduge, et olete üles laadinud kogu dokumendi lehekülje ja detailid on selgelt loetavad ilma udususe või helenduseta",
     "body_bank_statement": "Veenduge, et olete kogu dokumendi lehe üles laadinud ja andmed on loetavad ning ei ole hägused ega ülevalgustatud",
     "body_benefits_letter": "Veenduge, et olete kogu dokumendi lehe üles laadinud ja andmed on loetavad ning ei ole hägused ega ülevalgustatud",
     "body_bill": "Veenduge, et olete kogu dokumendi lehe üles laadinud ja andmed on loetavad ning ei ole hägused ega ülevalgustatud",
+    "body_exchange_house_statement": "Veenduge, et olete üles laadinud kogu dokumendi lehekülje ja detailid on selgelt loetavad ilma udususe või helenduseta",
+    "body_general_letter": "Veenduge, et olete üles laadinud kogu dokumendi lehe ja detailid on selgelt loetavad ilma udususe või helenduseta",
     "body_generic_document": "Veenduge, et teie andmed on selged ja katmata",
     "body_id": "Veenduge, et teie andmed on selged ja katmata",
+    "body_identity_document_with_address": "Veenduge, et olete üles laadinud kogu dokumendi lehe ja detailid on selgelt loetavad ilma udususe või helenduseta",
     "body_image_medium": "Teie isiku kinnitamine võtab kauem aega, kui me seda lugeda ei saa",
     "body_image_poor": "Teie isiku sujuvaks tuvastamiseks vajame paremat fotot",
+    "body_insurance_statement": "Veenduge, et olete üles laadinud kogu dokumendi lehe ja detailid on selgelt loetavad ilma udususe või helenduseta",
     "body_license": "Veenduge, et teie andmed on selged ja katmata",
+    "body_mobile_phone_bill": "Veenduge, et olete üles laadinud kogu dokumendi lehe ja detailid on selgelt loetavad ilma udususe või helenduseta",
+    "body_mortgage_statement": "Veenduge, et olete üles laadinud kogu dokumendi lehe ja detailid on selgelt loetavad ilma udususe või helenduseta",
     "body_passport": "Veenduge, et teie andmed on selged ja katmata",
+    "body_pension_property_statement_letter": "Veenduge, et olete üles laadinud kogu dokumendi lehe ja detailid on selgelt loetavad ilma udususe või helenduseta",
     "body_permit": "Veenduge, et teie andmed on selged ja katmata",
     "body_tax_letter": "Veenduge, et olete kogu dokumendi lehe üles laadinud ja andmed on loetavad ning ei ole hägused ega ülevalgustatud",
     "button_close": "Sulgege",
@@ -217,21 +225,39 @@
   },
   "doc_select": {
     "button_address_card": "Aadressikaart",
+    "button_address_card_back": "Aadressikaart (tagakülg)",
     "button_address_card_detail": "Sobivad nii ajutised kui ka alalised kaardid",
+    "button_address_card_front": "Aadressikaart (Ees)",
     "button_bank_statement": "Panga või korteriühistu väljavõte",
     "button_bank_statement_non_uk": "Pangakonto väljavõte",
     "button_benefits_letter": "Sotsiaalhüvede teavitus",
     "button_benefits_letter_detail": "Valitsuse heakskiidetud toetused, nt töötu abiraha, eluasemetoetus, maksukrediit",
     "button_bill": "Kommunaalteenuste arve",
     "button_bill_detail": "Gaas, elekter, vesi, lauatelefon või lairibaühendus",
+    "button_exchange_house_statement": "Vahetuse Maja avaldus",
+    "button_exchange_house_statement_detail": "Saatja ülekande või rahaülekande avaldus",
+    "button_general_letter": "Üldkiri",
+    "button_general_letter_detail": "Kiri finantsasutuselt või kommunaalteenuste ettevõttelt",
     "button_government_letter": "Kiri riigiasutuselt",
     "button_government_letter_detail": "Mis tahes kiri riigiasutuselt, nt kirjad, mis on seotud õigusega hüvedele, valimisõiguse ja maksudega",
     "button_id": "ID-kaart",
     "button_id_detail": "Esi- ja tagakülg",
+    "button_identity_document_with_address": "Aadressiga isikut tõendav dokument",
+    "button_identity_document_with_address_back": "Aadressiga isikut tõendav dokument (tagakülg)",
+    "button_identity_document_with_address_detail": "Välja antud valitsusasutuse poolt",
+    "button_identity_document_with_address_front": "Aadressiga isikut tõendav dokument (esikülg)",
+    "button_insurance_statement": "Kindlustuse avaldus",
+    "button_insurance_statement_detail": "Väljastatud eraõiguslikust kindlustus- või maaklerifirmast",
     "button_license": "Juhiluba",
     "button_license_detail": "Esi- ja tagakülg",
+    "button_mobile_phone_bill": "Mobiiltelefoni arve",
+    "button_mobile_phone_bill_detail": "Väljastatud mobiilsidevõrgu teenusepakkujalt",
+    "button_mortgage_statement": "Hüpoteegi väljavõte",
+    "button_mortgage_statement_detail": "Väljastatud finantslaenu andvalt asutuselt",
     "button_passport": "Pass",
     "button_passport_detail": "Fotoga lehekülg",
+    "button_pension_property_statement_letter": "Pensioni või kinnisvara avaldus/kiri",
+    "button_pension_property_statement_letter_detail": "Pensioni väljavõte või kiri ja kinnisvaramaksu väljavõte või kiri",
     "button_permit": "Elamisluba",
     "button_permit_detail": "Esi- ja tagakülg",
     "button_tax_letter": "Kohaliku maksu teavitus",
@@ -258,17 +284,29 @@
     "button_link_upload": "või laadige foto üles – skaneeringud ja koopiad ei sobi",
     "button_primary": "Jätkake telefonis",
     "subtitle": "Tehke telefoniga foto",
+    "title_address_certificate": "Esita aadressikaart",
+    "title_address_certificate_back": "Esitage aadressikaart (tagakülg)",
+    "title_address_certificate_front": "Esitage aadressikaart (esikülg)",
     "title_bank_statement": "Esitage väljavõte",
     "title_benefits_letter": "Esitage kiri",
     "title_bill": "Esitage arve",
+    "title_exchange_house_statement": "Esitage vahetuspunkti aruanne",
+    "title_general_letter": "Esita üldkiri",
     "title_generic_document_back": "Dokumendi esitamine (tagakülg)",
     "title_generic_document_front": "Dokumendi esitamine (esikülg)",
     "title_government_letter": "Kiri riigiasutuselt",
     "title_id_back": "Esita ID-kaart (tagakülg)",
     "title_id_front": "Esitage ID-kaart (esikülg)",
+    "title_identity_document_with_address": "Esitage isikut tõendav dokument aadressiga",
+    "title_identity_document_with_address_back": "Esitage aadressiga isikut tõendav dokument (tagakülg)",
+    "title_identity_document_with_address_front": "Esitage aadressiga isikut tõendav dokument (esikülg)",
+    "title_insurance_statement": "Esitage kindlustusavaldus",
     "title_license_back": "Esitage luba (tagakülg)",
     "title_license_front": "Esitage luba (esikülg)",
+    "title_mobile_phone_bill": "Esitage mobiiltelefoni arve",
+    "title_mortgage_statement": "Esitage hüpoteegi avaldus",
     "title_passport": "Esitage passi fotoleht",
+    "title_pension_property_statement_letter": "Esitage avaldus või kiri",
     "title_permit_back": "Esitage elamisluba (tagakülg)",
     "title_permit_front": "Esitage elamisluba (esikülg)",
     "title_tax_letter": "Esitage kiri"
@@ -422,6 +460,29 @@
       "success": "Skaneerimine edukas"
     }
   },
+  "otp": {
+    "code_input": {
+      "error": {
+        "technical": "Tehniline viga on ilmnenud, palun proovige hiljem uuesti",
+        "wrong_code": "Vale kood sisestatud, palun proovige uuesti"
+      },
+      "intro": "Teie telefoninumbrile saadetud kood on aktiivne 5 minutit",
+      "resend": {
+        "cta": "Saada uuesti",
+        "label": "Saadetud kood (kuni {limit})"
+      },
+      "title": "Ühekordne parool"
+    },
+    "send_code": {
+      "cta": "Saada kood",
+      "error": {
+        "limit": "Sa saavutasid saadetud SMSide limiidi",
+        "technical": "Tehniline viga on ilmnenud, palun proovige hiljem uuesti"
+      },
+      "intro": "Selleks, et teie telefoninumbrit kinnitada, saadame teile järgmisel ekraanil sisestamiseks ühekordse koodi.",
+      "title": "Ühekordne parool"
+    }
+  },
   "outro": {
     "body": "Sellest piisab teie isiku tuvastamise alustamiseks",
     "body_government_letter": "Parima tulemuse saamiseks esitage kogu dokumendileht",
@@ -444,139 +505,139 @@
   "permission_recovery": {
     "android": {
       "device_settings": {
-        "list_item_1": "Avage oma seadmes Seaded rakendus",
-        "list_item_2": "Koputa Rakendused",
-        "list_item_3": "Klõpsake [BROWSER_ICON]. Kui te seda ei leia, klõpsake Vaata kõiki rakendusi või Halda rakendusi ja valige oma brauseri rakendus",
-        "list_item_4": "Klõpsake Lubadused",
-        "list_item_5_cam": "Koputage Kaamera ja valige Luba",
-        "list_item_5_mic": "Koputage Mikrofoni ja valige Luba",
-        "list_item_6": "Tulge tagasi sellele lehele ja vajutage nuppu Olen teinud muudatused"
+        "list_item_1": "Avage oma seadmes <strong>Seaded</strong> rakendus",
+        "list_item_2": "Koputa <strong>Rakendused</strong>",
+        "list_item_3": "Klõpsake [BROWSER_ICON]. Kui te seda ei leia, klõpsake <strong>Vaata kõiki rakendusi</strong> või <strong>Halda rakendusi</strong> ja valige oma brauseri rakendus",
+        "list_item_4": "Klõpsake <strong>Lubadused</strong>",
+        "list_item_5_cam": "Koputage <strong>Kaamera</strong> ja valige <strong>Luba</strong>",
+        "list_item_5_mic": "Koputage <strong>Mikrofoni</strong> ja valige <strong>Luba</strong>",
+        "list_item_6": "Tulge tagasi sellele lehele ja vajutage nuppu <strong>Olen teinud muudatused</strong>"
       }
     },
     "android_chrome": {
       "browser_settings": {
         "list_item_1": "Oma brauseris klõpsake aadressiribal lukusümbolil [LOCK_ICON]",
-        "list_item_2": "Koputa Lubadused",
-        "list_item_3_cam": "Aktiveerige lüliti kõrval Kaamera",
-        "list_item_3_mic": "Aktiveerige lüliti kõrval Mikrofon",
-        "list_item_4": "Pöörduge tagasi sellele lehele ja vajutage nuppu Olen teinud muudatused"
+        "list_item_2": "Koputa <strong>Lubadused</strong>",
+        "list_item_3_cam": "Aktiveerige lüliti kõrval <strong>Kaamera</strong>",
+        "list_item_3_mic": "Aktiveerige lüliti kõrval <strong>Mikrofon</strong>",
+        "list_item_4": "Pöörduge tagasi sellele lehele ja vajutage nuppu <strong>Olen teinud muudatused</strong>"
       }
     },
     "android_firefox": {
       "browser_settings": {
         "list_item_1": "Oma brauseris klõpsake aadressiribal lukusümbolil [LOCK_ICON]",
-        "list_item_2_cam": "Klõpsake Blokeeritud kõrval asuval Kaamera, et lülituda Lubatud režiimile",
-        "list_item_2_mic": "Klõpsake Blokeeritud kõrval asuval Mikrofon, et lülituda Lubatud režiimile",
-        "list_item_3": "Tulge tagasi sellele lehele ja vajutage nuppu Olen teinud muudatused"
+        "list_item_2_cam": "Klõpsake <strong>Blokeeritud</strong> kõrval asuval <strong>Kaamera</strong>, et lülituda <strong>Lubatud</strong> režiimile",
+        "list_item_2_mic": "Klõpsake <strong>Blokeeritud</strong> kõrval asuval <strong>Mikrofon</strong>, et lülituda <strong>Lubatud</strong> režiimile",
+        "list_item_3": "Tulge tagasi sellele lehele ja vajutage nuppu <strong>Olen teinud muudatused</strong>"
       }
     },
     "android_generic": {
       "browser_settings": {
         "list_item_1": "Avage oma brauseris veebisaidi seaded. See on sageli aadressiribal asuv lukusümbol [LOCK_ICON]",
         "list_item_2": "Leidke jaotis lubade kohta",
-        "list_item_3_cam": "Luba kaamera õigused",
-        "list_item_3_mic": "Luba Mikrofoni õigused",
-        "list_item_4": "Tulge tagasi sellele lehele ja vajutage nuppu Olen teinud muudatused"
+        "list_item_3_cam": "Luba <strong>kaamera</strong> õigused",
+        "list_item_3_mic": "Luba <strong>Mikrofoni</strong> õigused",
+        "list_item_4": "Tulge tagasi sellele lehele ja vajutage nuppu <strong>Olen teinud muudatused</strong>"
       }
     },
     "android_samsung": {
       "browser_settings": {
         "list_item_1": "Oma brauseris klõpsake aadressiribal lukusümbolil [LOCK_ICON]",
-        "list_item_2_cam": "Aktiveerige lüliti kõrval Kaamera",
-        "list_item_2_mic": "Aktiveerige lüliti kõrval Mikrofon",
-        "list_item_3": "Pöörduge tagasi sellele lehele ja vajutage nuppu Olen teinud muudatused"
+        "list_item_2_cam": "Aktiveerige lüliti kõrval <strong>Kaamera</strong>",
+        "list_item_2_mic": "Aktiveerige lüliti kõrval <strong>Mikrofon</strong>",
+        "list_item_3": "Pöörduge tagasi sellele lehele ja vajutage nuppu <strong>Olen teinud muudatused</strong>"
       }
     },
     "button_primary": "Värskenda",
     "desktop_chrome": {
       "browser_settings": {
         "list_item_1": "Klõpsake oma brauseris aadressiribal lukuikoonil [LOCK_ICON]",
-        "list_item_2_cam": "Aktiveerige lüliti kõrval Kaamera",
-        "list_item_2_mic": "Aktiveerige lüliti kõrval Mikrofon",
-        "list_item_3": "Tulge tagasi sellele lehele ja klõpsake nupul Olen teinud muudatused"
+        "list_item_2_cam": "Aktiveerige lüliti kõrval <strong>Kaamera</strong>",
+        "list_item_2_mic": "Aktiveerige lüliti kõrval <strong>Mikrofon</strong>",
+        "list_item_3": "Tulge tagasi sellele lehele ja klõpsake nupul <strong>Olen teinud muudatused</strong>"
       }
     },
     "desktop_edge": {
       "browser_settings": {
         "list_item_1": "Klõpsake oma brauseris aadressiribal luku ikoonil [LOCK_ICON]",
-        "list_item_2_cam": "Klõpsake rippmenüül kõrval Kaamera ja valige Luba",
-        "list_item_2_mic": "Klõpsake rippmenüül kõrval Mikrofon ja valige Luba",
-        "list_item_3": "Tulge tagasi sellele lehele ja klõpsake nupul Olen teinud muudatused"
+        "list_item_2_cam": "Klõpsake rippmenüül kõrval <strong>Kaamera</strong> ja valige <strong>Luba</strong>",
+        "list_item_2_mic": "Klõpsake rippmenüül kõrval <strong>Mikrofon</strong> ja valige <strong>Luba</strong>",
+        "list_item_3": "Tulge tagasi sellele lehele ja klõpsake nupul <strong>Olen teinud muudatused</strong>"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
         "list_item_1": "Klõpsake brauseris aadressiribal seadete ikoonil [SETTINGS_ICON_FIREFOX]",
-        "list_item_2_cam": "Klõpsake Blokeeritud kõrval Kasuta kaamerat",
-        "list_item_2_mic": "Klõpsake Blokeeritud kõrval Kasuta mikrofoni",
-        "list_item_3": "Tulge tagasi sellele lehele ja klõpsake nupul Olen teinud muudatused"
+        "list_item_2_cam": "Klõpsake <strong>Blokeeritud</strong> kõrval <strong>Kasuta kaamerat</strong>",
+        "list_item_2_mic": "Klõpsake <strong>Blokeeritud</strong> kõrval <strong>Kasuta mikrofoni</strong>",
+        "list_item_3": "Tulge tagasi sellele lehele ja klõpsake nupul <strong>Olen teinud muudatused</strong>"
       }
     },
     "desktop_generic": {
       "browser_settings": {
         "list_item_1": "Avage oma brauseris veebisaidi seaded. See on sageli aadressiribal asuv lukusümbol [LOCK_ICON]",
         "list_item_2": "Leidke jaotis lubade kohta",
-        "list_item_3_cam": "Luba kaamera õigused",
-        "list_item_3_mic": "Luba mikrofoni õigused",
-        "list_item_4": "Pöörduge tagasi sellele lehele ja klõpsake nupul Olen teinud muudatused"
+        "list_item_3_cam": "Luba <strong>kaamera</strong> õigused",
+        "list_item_3_mic": "Luba <strong>mikrofoni</strong> õigused",
+        "list_item_4": "Pöörduge tagasi sellele lehele ja klõpsake nupul <strong>Olen teinud muudatused</strong>"
       },
       "device_settings": {
-        "list_item_1": "Avage oma arvutis Seaded",
-        "list_item_2": "Leidke jaotis lubade kohta (tavaliselt Privaatsus all)",
-        "list_item_3_cam": "Luba kaamera õigused [BROWSER_ICON]-le",
-        "list_item_3_mic": "Luba Mikrofoni õigused [BROWSER_ICON] jaoks",
+        "list_item_1": "Avage oma arvutis <strong>Seaded</strong>",
+        "list_item_2": "Leidke jaotis lubade kohta (tavaliselt <strong>Privaatsus</strong> all)",
+        "list_item_3_cam": "Luba <strong>kaamera</strong> õigused [BROWSER_ICON]-le",
+        "list_item_3_mic": "Luba <strong>Mikrofoni</strong> õigused [BROWSER_ICON] jaoks",
         "list_item_4": "Taaskäivitage vajadusel oma brauser ja tulge tagasi sellele lehele"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "Oma arvutis klõpsake Apple'i menüül [APPLE_ICON] ja valige Süsteemi seaded (või Süsteemi eelistused)",
-        "list_item_2": "Klõpsake küljeribal Privaatsus & Turvalisus (või Turvalisus & Privaatsus)",
-        "list_item_3": "Klõpsake hüpikaknas Hiljem",
-        "list_item_3_cam": "Klõpsake Kaamera ja aktiveerige lüliti (või märkeruut) ikooni [BROWSER_ICON] kõrval",
-        "list_item_4": "Klõpsake hüpikaknas Välju & Ava uuesti ja tulge tagasi sellele lehele",
-        "list_item_4_mic": "Klõpsake Mikrofoni ja aktiveerige lüliti (või märkeruut) ikooni [BROWSER_ICON] kõrval"
+        "list_item_1": "Oma arvutis klõpsake Apple'i menüül [APPLE_ICON] ja valige <strong>Süsteemi seaded</strong> (või <strong>Süsteemi eelistused</strong>)",
+        "list_item_2": "Klõpsake küljeribal <strong>Privaatsus & Turvalisus</strong> (või <strong>Turvalisus & Privaatsus</strong>)",
+        "list_item_3": "Klõpsake hüpikaknas <strong>Hiljem</strong>",
+        "list_item_3_cam": "Klõpsake <strong>Kaamera</strong> ja aktiveerige lüliti (või märkeruut) ikooni [BROWSER_ICON] kõrval",
+        "list_item_4": "Klõpsake hüpikaknas <strong>Välju & Ava uuesti</strong> ja tulge tagasi sellele lehele",
+        "list_item_4_mic": "Klõpsake <strong>Mikrofoni</strong> ja aktiveerige lüliti (või märkeruut) ikooni [BROWSER_ICON] kõrval"
       }
     },
     "desktop_safari": {
       "browser_settings": {
-        "list_item_1": "Oma brauseris paremklõpsake aadressiribal ja valige Seaded",
-        "list_item_2_cam": "Klõpsake rippmenüül kõrval Kaamera ja valige Luba",
-        "list_item_2_mic": "Klõpsake rippmenüül kõrval Mikrofon ja valige Luba",
-        "list_item_3": "Pöörduge tagasi sellele lehele ja klõpsake nuppu Olen teinud muudatused"
+        "list_item_1": "Oma brauseris paremklõpsake aadressiribal ja valige <strong>Seaded</strong>",
+        "list_item_2_cam": "Klõpsake rippmenüül kõrval <strong>Kaamera</strong> ja valige <strong>Luba</strong>",
+        "list_item_2_mic": "Klõpsake rippmenüül kõrval <strong>Mikrofon</strong> ja valige <strong>Luba</strong>",
+        "list_item_3": "Pöörduge tagasi sellele lehele ja klõpsake nuppu <strong>Olen teinud muudatused</strong>"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "Oma arvutis klõpsake Windowsi menüül [WINDOWS_ICON] ja valige Sätted [SETTINGS_ICON_WINDOWS]",
-        "list_item_2": "Klõpsake Privaatsus (või Privaatsus & Turvalisus)",
-        "list_item_3_cam": "Klõpsake jaotisel Kaamera alajaotises Rakenduse õigused ja aktiveerige lüliti kõrval [BROWSER_ICON]",
-        "list_item_3_mic": "Klõpsake jaotisel Mikrofon alajaotises Rakenduse õigused ja aktiveerige lüliti kõrval [BROWSER_ICON]",
+        "list_item_1": "Oma arvutis klõpsake Windowsi menüül [WINDOWS_ICON] ja valige <strong>Sätted</strong> [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "Klõpsake <strong>Privaatsus</strong> (või <strong>Privaatsus & Turvalisus</strong>)",
+        "list_item_3_cam": "Klõpsake jaotisel <strong>Kaamera</strong> alajaotises <strong>Rakenduse õigused</strong> ja aktiveerige lüliti kõrval [BROWSER_ICON]",
+        "list_item_3_mic": "Klõpsake jaotisel <strong>Mikrofon</strong> alajaotises <strong>Rakenduse õigused</strong> ja aktiveerige lüliti kõrval [BROWSER_ICON]",
         "list_item_4": "Taaskäivitage vajadusel oma brauser ja tulge tagasi sellele lehele"
       }
     },
     "info": "Taastamine",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "Klõpsake nupul Olen teinud muudatused. Teilt küsitakse uuesti kaamera ja mikrofoni juurdepääsu lubamist. Kui hüpikaken ilmub, valige Luba (või OK)",
-        "list_item_1_cam": "Vajutage nuppu Olen teinud muudatused. Teilt küsitakse uuesti kaamera juurdepääsu lubamist. Kui hüpikaken ilmub, valige Luba (või OK)",
-        "list_item_1_mic": "Vajutage nuppu Olen teinud muudatused. Teilt küsitakse uuesti mikrofoni juurdepääsu lubamist. Kui hüpikaken ilmub, valige Luba (või OK)"
+        "list_item_1_both": "Klõpsake nupul <strong>Olen teinud muudatused</strong>. Teilt küsitakse uuesti kaamera ja mikrofoni juurdepääsu lubamist. Kui hüpikaken ilmub, valige <strong>Luba</strong> (või <strong>OK</strong>)",
+        "list_item_1_cam": "Vajutage nuppu <strong>Olen teinud muudatused</strong>. Teilt küsitakse uuesti kaamera juurdepääsu lubamist. Kui hüpikaken ilmub, valige <strong>Luba</strong> (või <strong>OK</strong>)",
+        "list_item_1_mic": "Vajutage nuppu <strong>Olen teinud muudatused</strong>. Teilt küsitakse uuesti mikrofoni juurdepääsu lubamist. Kui hüpikaken ilmub, valige <strong>Luba</strong> (või <strong>OK</strong>)"
       },
       "device_settings": {
-        "list_item_1": "Avage oma seadmes Seaded rakendus",
+        "list_item_1": "Avage oma seadmes <strong>Seaded</strong> rakendus",
         "list_item_2": "Kerige loendist läbi ja puudutage [BROWSER_ICON]",
-        "list_item_3_cam": "Aktiveerige lüliti kõrval Kaamera",
-        "list_item_3_mic": "Aktiveerige lüliti kõrval Mikrofon",
-        "list_item_4": "Pöörduge tagasi sellele lehele ja vajutage nuppu Olen teinud muudatused"
+        "list_item_3_cam": "Aktiveerige lüliti kõrval <strong>Kaamera</strong>",
+        "list_item_3_mic": "Aktiveerige lüliti kõrval <strong>Mikrofon</strong>",
+        "list_item_4": "Pöörduge tagasi sellele lehele ja vajutage nuppu <strong>Olen teinud muudatused</strong>"
       }
     },
     "ios_safari": {
       "device_settings": {
-        "list_item_1": "Avage oma seadmes Seaded rakendus",
+        "list_item_1": "Avage oma seadmes <strong>Seaded</strong> rakendus",
         "list_item_2": "Kerige loendist läbi ja koputage [BROWSER_ICON]",
-        "list_item_3_cam": "Koputage Kaamera ja valige Luba",
-        "list_item_3_mic": "Koputa Mikrofoni ja vali Luba",
-        "list_item_4": "Pöörduge tagasi sellele lehele ja vajutage nuppu Olen teinud muudatused"
+        "list_item_3_cam": "Koputage <strong>Kaamera</strong> ja valige <strong>Luba</strong>",
+        "list_item_3_mic": "Koputa <strong>Mikrofoni</strong> ja vali <strong>Luba</strong>",
+        "list_item_4": "Pöörduge tagasi sellele lehele ja vajutage nuppu <strong>Olen teinud muudatused</strong>"
       }
     },
     "list_header_both": "Mõlema juurdepääsu taastamiseks toimige järgmiselt.",
@@ -585,7 +646,7 @@
     "list_item_how_to_both": "Juurdepääsu andmine kaamerale ja mikrofonile brauseri seadetest",
     "list_item_how_to_cam": "Juurdepääsu andmine kaamerale brauseri seadetest",
     "list_item_how_to_mic": "Juurdepääsu andmine mikrofonile brauseri seadetest",
-    "subtitle_both": "Võimaldage juurdepääs kaamerale ja mikrofonile video tegemiseks ja kinnitamise lõpuleviimiseks",
+    "subtitle_both": "Meil on vaja juurdepääsu teie kaamerale ja mikrofonile, et kinnitada teie identiteeti. Järgige allpool toodud juhiseid juurdepääsu taastamiseks",
     "subtitle_cam": "Meil on vaja juurdepääsu teie kaamerale, et kinnitada teie isikut. Järgige allpool toodud juhiseid juurdepääsu taastamiseks",
     "subtitle_cam_old": "Kaamerale juurdepääsu taastamine näo tuvastamise jätkamiseks",
     "subtitle_mic": "Meil on vaja juurdepääsu teie mikrofonile, et kinnitada teie isikut. Järgige allpool toodud juhiseid juurdepääsu taastamiseks",
@@ -604,16 +665,27 @@
     }
   },
   "photo_upload": {
+    "body_address_certificate_back": "Laadige oma arvutist dokumendi tagakülg üles",
+    "body_address_certificate_front": "Laadige oma arvutist dokumendi esikülg üles",
     "body_bank_statement": "Parima tulemuse saamiseks esitage kogu dokumendileht",
     "body_benefits_letter": "Parima tulemuse saamiseks esitage kogu dokumendileht",
     "body_bill": "Parima tulemuse saamiseks esitage kogu dokumendileht",
+    "body_exchange_house_statement": "Parimate tulemuste saamiseks esitage kogu dokumendi leht",
+    "body_general_letter": "Pakkuge parimate tulemuste saamiseks kogu dokumendi leht",
     "body_generic_document_back": "Dokumendi tagakülje üleslaadimine arvutist",
     "body_generic_document_front": "Dokumendi esikülje üleslaadimine arvutist",
     "body_id_back": "Kaardi tagakülje üleslaadimine arvutist",
     "body_id_front": "Kaardi esikülje üleslaadimine arvutist",
+    "body_identity_document_with_address": "Esitage parimate tulemuste saamiseks kogu dokumendi leht",
+    "body_identity_document_with_address_back": "Laadige oma arvutist dokumendi tagakülg üles",
+    "body_identity_document_with_address_front": "Laadige oma arvutist dokumendi esikülg üles",
+    "body_insurance_statement": "Pakkuge parimate tulemuste saamiseks kogu dokumendi leht",
     "body_license_back": "Loa tagakülje üleslaadimine arvutist",
     "body_license_front": "Loa esikülje üleslaadimine arvutist",
+    "body_mobile_phone_bill": "Parimate tulemuste saamiseks esitage kogu dokumendi leht",
+    "body_mortgage_statement": "Pakkuge parimate tulemuste saamiseks kogu dokumendi leht",
     "body_passport": "Passi fotolehe üleslaadimine arvutist",
+    "body_pension_property_statement_letter": "Paremate tulemuste saamiseks esitage kogu dokumendi leht",
     "body_selfie": "Laadige oma arvutist üles selfi",
     "body_tax_letter": "Parima tulemuse saamiseks esitage kogu dokumendileht",
     "button_take_photo": "Tehke foto",
@@ -639,16 +711,18 @@
     "instructions_expiry_date": "Kehtivusaeg (vajaduse korral)",
     "instructions_full_address": "Täielik aadress",
     "subtitle_address_card": "Peab olema kehtiv aadressikaart",
-    "subtitle_bank_statement": "Peab olema väljastatud ​​viimase 3 kuu jooksul​​",
+    "subtitle_bank_statement": "Peab olema väljastatud ​​viimase 3 kuu jooksul​",
     "subtitle_benefits_letter": "Peab olema väljastatud ​​viimase 12 kuu jooksul​​",
-    "subtitle_bill": "Peab olema väljastatud ​​viimase 3 kuu jooksul​​",
-    "subtitle_tax_letter": "Peab olema väljastatud ​​viimase 12 kuu jooksul​​"
+    "subtitle_bill": "Peab olema väljastatud ​​viimase 3 kuu jooksul​",
+    "subtitle_dynamic_empty_grace_period": "Peab olema kehtiv dokument",
+    "subtitle_dynamic_grace_period": "Peab olema väljastatud viimase <graceperiod></graceperiod> kuu jooksul",
+    "subtitle_tax_letter": "Peab olema väljastatud ​​viimase 12 kuu jooksul​"
   },
   "poa_intro": {
     "button_primary": "Alustage tuvastamist",
     "list_matches_signup": "Vastab teie poolt registreerumisel esitatud aadressile",
     "list_most_recent": "On teie ​​uusim​​ dokument",
-    "list_shows_address": "Näitab teie ​​praegust​​ aadressi",
+    "list_shows_address": "Näitab teie ​​praegust​ aadressi",
     "subtitle": "Teil on vaja dokumenti, mis vastab järgmistele tingimustele.",
     "title": "Kontrollime teie aadressi"
   },
@@ -952,6 +1026,51 @@
       "details_timeout": "Alustage uuesti",
       "header_timeout": "Paistab, et kulus liiga kaua aega"
     }
+  },
+  "qes": {
+    "consent": {
+      "common": {
+        "steps": "Loo oma allkiri"
+      },
+      "confirmation": {
+        "bullet_1": "Pärast oma dokumendi lugemist vajutage nuppu „Allkirjasta dokument“.",
+        "bullet_2": "Kui Onfido on teie isikutuvastuse kinnitanud, kasutatakse teie allkirja selles dokumendis.",
+        "button_next_step": "Allkirjasta dokument",
+        "review_document": "Vaata <fallback>oma dokumenti</fallback> allkirjastamiseks",
+        "step2": "2-st 2",
+        "steps": "Allkirjasta oma dokument",
+        "subtitle": "Et kinnitada oma isikut vastavalt Euroopa eeskirjadele, peate digitaalselt allkirjastama dokumendi.",
+        "title": "Loo ja kasuta oma digitaalset allkirja"
+      },
+      "introduction": {
+        "button_confirmation_step": "Loo minu allkiri",
+        "certificate_application_form": "Sertifikaadi taotlusvorm",
+        "privacy_notice": "Privaatsusteade",
+        "step1": "1 2-st",
+        "subtitle": "Et kinnitada oma isikut vastavalt Euroopa eeskirjadele, peate digitaalselt allkirjastama dokumendi.",
+        "terms_and_conditions": "Kasutustingimused",
+        "third_party_description": "<fallback>Namirial SpA</fallback> on usaldusväärne globaalne teenusepakkuja, kes väljastab sertifikaadi, kinnitades teie elektroonilist allkirja.",
+        "title": "Loo ja kasuta oma digitaalset allkirja"
+      }
+    }
+  },
+  "qes_consent": {
+    "button": "Loo minu allkiri",
+    "link_certificate": "Sertifikaadi taotlusvorm",
+    "link_privacy_notice": "Privaatsusteade",
+    "link_terms_and_conditions": "Tingimused ja tingimused",
+    "namirial_intro": "Namirial SpA on usaldusväärne globaalne teenusepakkuja, kes väljastab sertifikaadi, kinnitades teie elektroonilist allkirja.",
+    "subtitle": "Et kinnitada oma isikut vastavalt Euroopa eeskirjadele, peate digitaalselt allkirjastama dokumendi.",
+    "title": "Loo ja kasuta oma digitaalset allkirja"
+  },
+  "qes_sign": {
+    "button": "Allkirjasta dokument",
+    "link_document": "Vaata oma dokument üle, et allkirjastada",
+    "list_item_1": "Pärast teie dokumendi lugemist vajutage nuppu „Allkirjasta dokument“.",
+    "list_item_2": "Kui Onfido on teie isikutuvastuse kinnitanud, kasutatakse teie allkirja sellel dokumendil.",
+    "step_title": "Allkirjasta oma dokument",
+    "subtitle": "Et kinnitada oma isikut vastavalt Euroopa eeskirjadele, peate digitaalselt allkirjastama dokumendi.",
+    "title": "Loo ja kasuta oma digitaalset allkirja"
   },
   "retry_feedback": {
     "button_primary": "Proovige uuesti"

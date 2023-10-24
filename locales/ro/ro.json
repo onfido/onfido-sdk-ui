@@ -188,15 +188,23 @@
       "odp_screenshot_title": "Captură de ecran detectată"
     },
     "body": "Asigurați-vă că ați încărcat întreaga pagină a documentului și că detaliile sunt clare, fără estompări sau luciri, pentru a fi citite",
+    "body_address_certificate": "Asigurați-vă că ați încărcat întreaga pagină a documentului și detaliile sunt clare pentru a fi citite, fără blur sau strălucire",
     "body_bank_statement": "Asigurați-vă că ați încărcat întreaga pagină a documentului și că detaliile sunt clare, fără estompări sau luciri, pentru a fi citite",
     "body_benefits_letter": "Asigurați-vă că ați încărcat întreaga pagină a documentului și că detaliile sunt clare, fără estompări sau luciri, pentru a fi citite",
     "body_bill": "Asigurați-vă că ați încărcat întreaga pagină a documentului și că detaliile sunt clare, fără estompări sau luciri, pentru a fi citite",
+    "body_exchange_house_statement": "Asigurați-vă că ați încărcat întreaga pagină a documentului și detaliile sunt clare pentru a fi citite, fără blur sau strălucire",
+    "body_general_letter": "Asigurați-vă că ați încărcat întreaga pagină a documentului și detaliile sunt clare pentru a fi citite, fără blur sau strălucire",
     "body_generic_document": "Asigurați-vă că detaliile dvs. sunt clare și neacoperite",
     "body_id": "Asigurați-vă că detaliile dvs. sunt clare și neacoperite",
+    "body_identity_document_with_address": "Asigurați-vă că ați încărcat întreaga pagină a documentului și detaliile sunt clare pentru a fi citite, fără blur sau strălucire",
     "body_image_medium": "Va dura mai mult să vă verificăm dacă nu putem citi elementul",
     "body_image_poor": "Pentru a vă verifica mai ușor, avem nevoie de o poză mai bună",
+    "body_insurance_statement": "Asigurați-vă că ați încărcat întreaga pagină a documentului și detaliile sunt clare pentru a fi citite, fără blur sau strălucire",
     "body_license": "Asigurați-vă că detaliile dvs. sunt clare și neacoperite",
+    "body_mobile_phone_bill": "Asigurați-vă că ați încărcat întreaga pagină a documentului și detaliile sunt clare pentru a fi citite, fără blur sau strălucire",
+    "body_mortgage_statement": "Asigurați-vă că ați încărcat întreaga pagină a documentului și detaliile sunt clare pentru a fi citite, fără blur sau strălucire",
     "body_passport": "Asigurați-vă că detaliile dvs. sunt clare și neacoperite",
+    "body_pension_property_statement_letter": "Asigurați-vă că ați încărcat întreaga pagină a documentului și detaliile sunt clare pentru citire, fără blur sau strălucire",
     "body_permit": "Asigurați-vă că detaliile dvs. sunt clare și neacoperite",
     "body_tax_letter": "Asigurați-vă că ați încărcat întreaga pagină a documentului și că detaliile sunt clare, fără estompări sau luciri, pentru a fi citite",
     "button_close": "Închideți",
@@ -217,21 +225,39 @@
   },
   "doc_select": {
     "button_address_card": "Carte de adrese",
+    "button_address_card_back": "Carte de adresă (Spate)",
     "button_address_card_detail": "Se acceptă carduri temporare și permanente",
+    "button_address_card_front": "Carte de Adresă (Față)",
     "button_bank_statement": "Extras de la bancă sau societatea mutuală de credit",
     "button_bank_statement_non_uk": "Extras de cont",
     "button_benefits_letter": "Scrisoare beneficii",
     "button_benefits_letter_detail": "Beneficii pentru gospodărie autorizate de guvern, de exemplu, indemnizație de șomer, beneficii gospodărie, credite fiscale",
     "button_bill": "Factură de utilități",
     "button_bill_detail": "Gaz, electricitate, apă, telefon fix sau internet de bandă largă",
+    "button_exchange_house_statement": "Declarație Casa de Schimb",
+    "button_exchange_house_statement_detail": "Declarația expeditorului de transfer sau remitere",
+    "button_general_letter": "Scrisoare generală",
+    "button_general_letter_detail": "Scrisoare de la instituția financiară sau compania de utilități",
     "button_government_letter": "Scrisoare de la guvern",
     "button_government_letter_detail": "Orice scrisoare emisă de guvern, de exemplu, scrisori privind dreptul la beneficii, scrisori de votare, scrisori privind impozitele etc.",
     "button_id": "Card de identitate",
     "button_id_detail": "Față și verso",
+    "button_identity_document_with_address": "Document de identitate cu adresă",
+    "button_identity_document_with_address_back": "Document de identitate cu adresă (Spate)",
+    "button_identity_document_with_address_detail": "Emis de o autoritate guvernamentală",
+    "button_identity_document_with_address_front": "Document de identitate cu adresă (Față)",
+    "button_insurance_statement": "Declarație de asigurare",
+    "button_insurance_statement_detail": "Emis de o companie de asigurări privată sau de brokeraj",
     "button_license": "Permis de conducere",
     "button_license_detail": "Față și verso",
+    "button_mobile_phone_bill": "Factură telefon mobil",
+    "button_mobile_phone_bill_detail": "Emis de un furnizor de rețea de telefoane mobile",
+    "button_mortgage_statement": "Declarație de ipotecă",
+    "button_mortgage_statement_detail": "Emis de o instituție financiară de împrumut",
     "button_passport": "Pașaport",
     "button_passport_detail": "Pagină poză",
+    "button_pension_property_statement_letter": "Declarație/Scrisoare de pensie sau proprietate",
+    "button_pension_property_statement_letter_detail": "Declarație sau scrisoare de pensie și Declarație sau scrisoare de impozit pe proprietate",
     "button_permit": "Permis de ședere",
     "button_permit_detail": "Față și verso",
     "button_tax_letter": "Scrisoare de la Consiliul impozite",
@@ -258,17 +284,29 @@
     "button_link_upload": "sau încărcați poză – fără scanări sau fotocopii",
     "button_primary": "Continuați pe telefonul dvs.",
     "subtitle": "Faceți o poză cu telefonul dvs.",
+    "title_address_certificate": "Trimiteți cardul de adresă",
+    "title_address_certificate_back": "Trimiteți cardul de adresă (spate)",
+    "title_address_certificate_front": "Trimiteți cardul de adresă (față)",
     "title_bank_statement": "Trimiteți extras",
     "title_benefits_letter": "Trimiteți scrisoare",
     "title_bill": "Trimiteți factură",
+    "title_exchange_house_statement": "Trimite declarația casei de schimb",
+    "title_general_letter": "Trimiteți scrisoare generală",
     "title_generic_document_back": "Trimiteți documentul (spatele)",
     "title_generic_document_front": "Trimiteți documentul (fața)",
     "title_government_letter": "Scrisoare de la guvern",
     "title_id_back": "Trimiteți cardul de identitate (verso)",
     "title_id_front": "Trimiteți cardul de identitate (față)",
+    "title_identity_document_with_address": "Trimiteți documentul de identitate cu adresă",
+    "title_identity_document_with_address_back": "Trimiteți documentul de identitate cu adresă (spate)",
+    "title_identity_document_with_address_front": "Trimiteți documentul de identitate cu adresă (față)",
+    "title_insurance_statement": "Trimite declarația de asigurare",
     "title_license_back": "Trimiteți permisul de conducere (verso)",
     "title_license_front": "Trimiteți permisul de conducere (față)",
+    "title_mobile_phone_bill": "Trimite factura telefonului mobil",
+    "title_mortgage_statement": "Trimiteți declarația ipotecară",
     "title_passport": "Trimiteți pagina cu poză a pașaportului",
+    "title_pension_property_statement_letter": "Trimiteți declarația sau scrisoarea",
     "title_permit_back": "Trimiteți permisul de ședere (verso)",
     "title_permit_front": "Trimiteți permisul de ședere (față)",
     "title_tax_letter": "Trimiteți scrisoare"
@@ -422,6 +460,29 @@
       "success": "Scanare reușită"
     }
   },
+  "otp": {
+    "code_input": {
+      "error": {
+        "technical": "A apărut o eroare tehnică, vă rugăm încercați din nou mai târziu",
+        "wrong_code": "Cod greșit introdus, vă rugăm să încercați din nou"
+      },
+      "intro": "Codul trimis la numărul tău de telefon va fi activ timp de 5 minute",
+      "resend": {
+        "cta": "Retrimite",
+        "label": "Cod trimis (până la {limit})"
+      },
+      "title": "Parolă unică"
+    },
+    "send_code": {
+      "cta": "Trimite codul",
+      "error": {
+        "limit": "Ați atins limita de SMS-uri trimise",
+        "technical": "A apărut o eroare tehnică, vă rugăm încercați din nou mai târziu"
+      },
+      "intro": "Pentru a verifica numărul dvs. de telefon, vom trimite un cod de unică folosință pe care să îl introduceți în ecranul următor.",
+      "title": "Parolă unică"
+    }
+  },
   "outro": {
     "body": "Este tot ce avem nevoie pentru a începe verificarea identității dvs.",
     "body_government_letter": "Furnizați întreaga pagină a documentului pentru rezultate mai bune",
@@ -444,139 +505,139 @@
   "permission_recovery": {
     "android": {
       "device_settings": {
-        "list_item_1": "Pe dispozitivul dvs., deschideți aplicația Setări",
-        "list_item_2": "Apăsați Aplicații",
-        "list_item_3": "Atingeți [BROWSER_ICON]. Dacă nu îl găsiți, atingeți Vedeți toate aplicațiile sau Gestionați aplicațiile și selectați aplicația dvs. de navigare pe internet",
-        "list_item_4": "Apăsați Permisiuni",
-        "list_item_5_cam": "Apăsați Camera și selectați Permiteți",
-        "list_item_5_mic": "Atingeți Microfonul și selectați Permiteți",
-        "list_item_6": "Reveniți la această pagină și apăsați butonul Am făcut modificările"
+        "list_item_1": "Pe dispozitivul dvs., deschideți aplicația <strong>Setări</strong>",
+        "list_item_2": "Apăsați <strong>Aplicații</strong>",
+        "list_item_3": "Atingeți [BROWSER_ICON]. Dacă nu îl găsiți, atingeți <strong>Vedeți toate aplicațiile</strong> sau <strong>Gestionați aplicațiile</strong> și selectați aplicația dvs. de navigare pe internet",
+        "list_item_4": "Apăsați <strong>Permisiuni</strong>",
+        "list_item_5_cam": "Apăsați <strong>Camera</strong> și selectați <strong>Permiteți</strong>",
+        "list_item_5_mic": "Atingeți <strong>Microfonul</strong> și selectați <strong>Permiteți</strong>",
+        "list_item_6": "Reveniți la această pagină și apăsați butonul <strong>Am făcut modificările</strong>"
       }
     },
     "android_chrome": {
       "browser_settings": {
         "list_item_1": "În browserul tău, apasă pe pictograma de blocare [LOCK_ICON] din bara de adrese",
-        "list_item_2": "Apăsați Permisiuni",
-        "list_item_3_cam": "Activați comutatorul de lângă Camera",
-        "list_item_3_mic": "Activați comutatorul de lângă Microfon",
-        "list_item_4": "Reveniți la această pagină și apăsați butonul Am făcut modificările"
+        "list_item_2": "Apăsați <strong>Permisiuni</strong>",
+        "list_item_3_cam": "Activați comutatorul de lângă <strong>Camera</strong>",
+        "list_item_3_mic": "Activați comutatorul de lângă <strong>Microfon</strong>",
+        "list_item_4": "Reveniți la această pagină și apăsați butonul <strong>Am făcut modificările</strong>"
       }
     },
     "android_firefox": {
       "browser_settings": {
         "list_item_1": "În browserul tău, apasă pe pictograma de blocare [LOCK_ICON] din bara de adrese",
-        "list_item_2_cam": "Apăsați Blocat lângă Cameră pentru a comuta la Permis",
-        "list_item_2_mic": "Apăsați Blocat lângă Microfon pentru a comuta la Permis",
-        "list_item_3": "Reveniți la această pagină și apăsați butonul Am făcut modificările"
+        "list_item_2_cam": "Apăsați <strong>Blocat</strong> lângă <strong>Cameră</strong> pentru a comuta la <strong>Permis</strong>",
+        "list_item_2_mic": "Apăsați <strong>Blocat</strong> lângă <strong>Microfon</strong> pentru a comuta la <strong>Permis</strong>",
+        "list_item_3": "Reveniți la această pagină și apăsați butonul <strong>Am făcut modificările</strong>"
       }
     },
     "android_generic": {
       "browser_settings": {
         "list_item_1": "În browserul dvs., deschideți setările site-ului web. Aceasta este adesea o pictogramă de blocare [LOCK_ICON] în bara de adrese",
         "list_item_2": "Găsiți secțiunea despre permisiuni",
-        "list_item_3_cam": "Activați permisiunile pentru Camera",
-        "list_item_3_mic": "Activați permisiunile pentru Microfon",
-        "list_item_4": "Reveniți la această pagină și apăsați butonul Am făcut modificările"
+        "list_item_3_cam": "Activați permisiunile pentru <strong>Camera</strong>",
+        "list_item_3_mic": "Activați permisiunile pentru <strong>Microfon</strong>",
+        "list_item_4": "Reveniți la această pagină și apăsați butonul <strong>Am făcut modificările</strong>"
       }
     },
     "android_samsung": {
       "browser_settings": {
         "list_item_1": "În browserul tău, apasă pe pictograma de blocare [LOCK_ICON] din bara de adrese",
-        "list_item_2_cam": "Activați comutatorul de lângă Camera",
-        "list_item_2_mic": "Activați comutatorul de lângă Microfon",
-        "list_item_3": "Reveniți la această pagină și apăsați butonul Am făcut modificările"
+        "list_item_2_cam": "Activați comutatorul de lângă <strong>Camera</strong>",
+        "list_item_2_mic": "Activați comutatorul de lângă <strong>Microfon</strong>",
+        "list_item_3": "Reveniți la această pagină și apăsați butonul <strong>Am făcut modificările</strong>"
       }
     },
     "button_primary": "Reîmprospătați",
     "desktop_chrome": {
       "browser_settings": {
         "list_item_1": "În browserul tău, fă clic pe pictograma de blocare [LOCK_ICON] din bara de adrese",
-        "list_item_2_cam": "Activați comutatorul de lângă Camera",
-        "list_item_2_mic": "Activați comutatorul de lângă Microfon",
-        "list_item_3": "Reveniți la această pagină și faceți clic pe butonul Am făcut modificările"
+        "list_item_2_cam": "Activați comutatorul de lângă <strong>Camera</strong>",
+        "list_item_2_mic": "Activați comutatorul de lângă <strong>Microfon</strong>",
+        "list_item_3": "Reveniți la această pagină și faceți clic pe butonul <strong>Am făcut modificările</strong>"
       }
     },
     "desktop_edge": {
       "browser_settings": {
         "list_item_1": "În browserul tău, fă clic pe pictograma de blocare [LOCK_ICON] din bara de adrese",
-        "list_item_2_cam": "Faceți clic pe meniul derulant de lângă Microfon și selectați Permiteți",
-        "list_item_2_mic": "Faceți clic pe meniul derulant de lângă Microfon și selectați Permiteți",
-        "list_item_3": "Reveniți la această pagină și faceți clic pe butonul Am făcut modificările"
+        "list_item_2_cam": "Faceți clic pe meniul derulant de lângă <strong>Microfon</strong> și selectați <strong>Permiteți</strong>",
+        "list_item_2_mic": "Faceți clic pe meniul derulant de lângă <strong>Microfon</strong> și selectați <strong>Permiteți</strong>",
+        "list_item_3": "Reveniți la această pagină și faceți clic pe butonul <strong>Am făcut modificările</strong>"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
         "list_item_1": "În browserul dvs., faceți clic pe pictograma setări [SETTINGS_ICON_FIREFOX] din bara de adrese",
-        "list_item_2_cam": "Faceți clic pe Blocat lângă Utilizați camera",
-        "list_item_2_mic": "Faceți clic pe Blocat lângă Utilizați microfonul",
-        "list_item_3": "Reveniți la această pagină și faceți clic pe butonul Am făcut modificările"
+        "list_item_2_cam": "Faceți clic pe <strong>Blocat</strong> lângă <strong>Utilizați camera</strong>",
+        "list_item_2_mic": "Faceți clic pe <strong>Blocat</strong> lângă <strong>Utilizați microfonul</strong>",
+        "list_item_3": "Reveniți la această pagină și faceți clic pe butonul <strong>Am făcut modificările</strong>"
       }
     },
     "desktop_generic": {
       "browser_settings": {
         "list_item_1": "În browserul dvs., deschideți setările site-ului web. Aceasta este adesea o pictogramă de blocare [LOCK_ICON] în bara de adrese",
         "list_item_2": "Găsiți secțiunea despre permisiuni",
-        "list_item_3_cam": "Activați permisiunile pentru Camera",
-        "list_item_3_mic": "Activați permisiunile pentru Microfon",
-        "list_item_4": "Reveniți la această pagină și apăsați butonul Am făcut modificările"
+        "list_item_3_cam": "Activați permisiunile pentru <strong>Camera</strong>",
+        "list_item_3_mic": "Activați permisiunile pentru <strong>Microfon</strong>",
+        "list_item_4": "Reveniți la această pagină și apăsați butonul <strong>Am făcut modificările</strong>"
       },
       "device_settings": {
-        "list_item_1": "Pe computerul dvs., deschideți Setările",
-        "list_item_2": "Găsiți secțiunea despre permisiuni (de obicei sub Confidențialitate)",
-        "list_item_3_cam": "Activați permisiunile pentru Camera pentru [BROWSER_ICON]",
-        "list_item_3_mic": "Activați permisiunile pentru Microfon pentru [BROWSER_ICON]",
+        "list_item_1": "Pe computerul dvs., deschideți <strong>Setările</strong>",
+        "list_item_2": "Găsiți secțiunea despre permisiuni (de obicei sub <strong>Confidențialitate</strong>)",
+        "list_item_3_cam": "Activați permisiunile pentru <strong>Camera</strong> pentru [BROWSER_ICON]",
+        "list_item_3_mic": "Activați permisiunile pentru <strong>Microfon</strong> pentru [BROWSER_ICON]",
         "list_item_4": "Reporniți browserul dacă este necesar și reveniți la această pagină"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "Pe computerul dvs., faceți clic pe meniul Apple [APPLE_ICON] și selectați Setări sistem (sau Preferințe sistem)",
-        "list_item_2": "Faceți clic pe Confidențialitate și Securitate (sau Securitate și Confidențialitate) în bara laterală ",
-        "list_item_3": "Faceți clic pe Mai târziu în fereastra pop-up",
-        "list_item_3_cam": "Faceți clic pe Camera și activați comutatorul (sau căsuța de selectare) de lângă [BROWSER_ICON]",
-        "list_item_4": "Faceți clic pe Închideți și redeschideți în fereastra pop-up și reveniți la această pagină",
-        "list_item_4_mic": "Faceți clic pe Microfon și activați comutatorul (sau căsuța de selectare) de lângă [BROWSER_ICON]"
+        "list_item_1": "Pe computerul dvs., faceți clic pe meniul Apple [APPLE_ICON] și selectați <strong>Setări sistem</strong> (sau <strong>Preferințe sistem</strong>)",
+        "list_item_2": "Faceți clic pe <strong>Confidențialitate și Securitate</strong> (sau <strong>Securitate și Confidențialitate</strong>) în bara laterală ",
+        "list_item_3": "Faceți clic pe <strong>Mai târziu</strong> în fereastra pop-up",
+        "list_item_3_cam": "Faceți clic pe <strong>Camera</strong> și activați comutatorul (sau căsuța de selectare) de lângă [BROWSER_ICON]",
+        "list_item_4": "Faceți clic pe <strong>Închideți și redeschideți</strong> în fereastra pop-up și reveniți la această pagină",
+        "list_item_4_mic": "Faceți clic pe <strong>Microfon</strong> și activați comutatorul (sau căsuța de selectare) de lângă [BROWSER_ICON]"
       }
     },
     "desktop_safari": {
       "browser_settings": {
-        "list_item_1": "În browserul tău, fă clic dreapta în bara de adrese și selectează Setări",
-        "list_item_2_cam": "Faceți clic pe meniul derulant de lângă Camera și selectați Permiteți",
-        "list_item_2_mic": "Faceți clic pe meniul derulant de lângă Microfon și selectați Permiteți",
-        "list_item_3": "Reveniți la această pagină și faceți clic pe butonul Am făcut modificările"
+        "list_item_1": "În browserul tău, fă clic dreapta în bara de adrese și selectează <strong>Setări</strong>",
+        "list_item_2_cam": "Faceți clic pe meniul derulant de lângă <strong>Camera</strong> și selectați <strong>Permiteți</strong>",
+        "list_item_2_mic": "Faceți clic pe meniul derulant de lângă <strong>Microfon</strong> și selectați <strong>Permiteți</strong>",
+        "list_item_3": "Reveniți la această pagină și faceți clic pe butonul <strong>Am făcut modificările</strong>"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "Pe computerul dvs., faceți clic pe meniul Windows [WINDOWS_ICON] și selectați Setări [SETTINGS_ICON_WINDOWS]",
-        "list_item_2": "Faceți clic pe Confidențialitate (sau Confidențialitate & Securitate)",
-        "list_item_3_cam": "Faceți clic pe Camera sub Permisiuni aplicație și activați comutatorul de lângă [BROWSER_ICON] ",
-        "list_item_3_mic": "Faceți clic pe Microfon sub Permisiuni aplicație și activați comutatorul de lângă [BROWSER_ICON]",
+        "list_item_1": "Pe computerul dvs., faceți clic pe meniul Windows [WINDOWS_ICON] și selectați <strong>Setări</strong> [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "Faceți clic pe <strong>Confidențialitate</strong> (sau <strong>Confidențialitate & Securitate</strong>)",
+        "list_item_3_cam": "Faceți clic pe <strong>Camera</strong> sub <strong>Permisiuni aplicație</strong> și activați comutatorul de lângă [BROWSER_ICON] ",
+        "list_item_3_mic": "Faceți clic pe <strong>Microfon</strong> sub <strong>Permisiuni aplicație</strong> și activați comutatorul de lângă [BROWSER_ICON]",
         "list_item_4": "Reporniți browserul dacă este necesar și reveniți la această pagină"
       }
     },
     "info": "Recuperare",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "Apăsați butonul Am făcut modificările. Vi se va cere să activați din nou accesul la cameră și microfon. Când apare fereastra pop-up, selectați Permiteți (sau OK)",
-        "list_item_1_cam": "Apăsați butonul Am făcut modificările. Vi se va cere să activați din nou accesul la cameră. Când apare fereastra pop-up, selectați Permiteți (sau OK)",
-        "list_item_1_mic": "Apăsați butonul Am făcut modificările. Vi se va cere să activați din nou accesul la microfon. Când apare fereastra pop-up, selectați Permiteți (sau OK)"
+        "list_item_1_both": "Apăsați butonul <strong>Am făcut modificările</strong>. Vi se va cere să activați din nou accesul la cameră și microfon. Când apare fereastra pop-up, selectați <strong>Permiteți</strong> (sau <strong>OK</strong>)",
+        "list_item_1_cam": "Apăsați butonul <strong>Am făcut modificările</strong>. Vi se va cere să activați din nou accesul la cameră. Când apare fereastra pop-up, selectați <strong>Permiteți</strong> (sau <strong>OK</strong>)",
+        "list_item_1_mic": "Apăsați butonul <strong>Am făcut modificările</strong>. Vi se va cere să activați din nou accesul la microfon. Când apare fereastra pop-up, selectați <strong>Permiteți</strong> (sau <strong>OK</strong>)"
       },
       "device_settings": {
-        "list_item_1": "Pe dispozitivul dvs., deschideți aplicația Setări",
+        "list_item_1": "Pe dispozitivul dvs., deschideți aplicația <strong>Setări</strong>",
         "list_item_2": "Derulați prin listă și apăsați pe [BROWSER_ICON]",
-        "list_item_3_cam": "Activați comutatorul de lângă Camera",
-        "list_item_3_mic": "Activați comutatorul de lângă Microfon",
-        "list_item_4": "Reveniți la această pagină și apăsați butonul Am făcut modificările"
+        "list_item_3_cam": "Activați comutatorul de lângă <strong>Camera</strong>",
+        "list_item_3_mic": "Activați comutatorul de lângă <strong>Microfon</strong>",
+        "list_item_4": "Reveniți la această pagină și apăsați butonul <strong>Am făcut modificările</strong>"
       }
     },
     "ios_safari": {
       "device_settings": {
-        "list_item_1": "Pe dispozitivul dvs., deschideți aplicația Setări",
+        "list_item_1": "Pe dispozitivul dvs., deschideți aplicația <strong>Setări</strong>",
         "list_item_2": "Derulați prin listă și apăsați pe [BROWSER_ICON]",
-        "list_item_3_cam": "Apăsați Camera și selectați Permiteți",
-        "list_item_3_mic": "Atingeți Microfonul și selectați Permiteți",
-        "list_item_4": "Reveniți la această pagină și apăsați butonul Am făcut modificările"
+        "list_item_3_cam": "Apăsați <strong>Camera</strong> și selectați <strong>Permiteți</strong>",
+        "list_item_3_mic": "Atingeți <strong>Microfonul</strong> și selectați <strong>Permiteți</strong>",
+        "list_item_4": "Reveniți la această pagină și apăsați butonul <strong>Am făcut modificările</strong>"
       }
     },
     "list_header_both": "Urmați acești pași pentru a recupera acces pentru ambele:",
@@ -585,7 +646,7 @@
     "list_item_how_to_both": "Permiteți accesul la camera video și microfonul dvs. din setările dvs. de browser",
     "list_item_how_to_cam": "Permiteți accesul la camera dvs. video din setările dvs. de browser",
     "list_item_how_to_mic": "Permiteți accesul la microfonul dvs. din setările dvs. de browser",
-    "subtitle_both": "Recuperați accesul la camera video și microfon pentru a face un clip video și a finaliza procesul de verificare",
+    "subtitle_both": "Avem nevoie de acces la camera și microfonul dvs. pentru a vă verifica identitatea. Urmați instrucțiunile de mai jos pentru a recupera accesul",
     "subtitle_cam": "Avem nevoie de acces la camera dvs. pentru a vă verifica identitatea. Urmați instrucțiunile de mai jos pentru a recupera accesul",
     "subtitle_cam_old": "Recuperați accesul la camera video pentru a continua verificarea feței",
     "subtitle_mic": "Avem nevoie de acces la microfonul dvs. pentru a vă verifica identitatea. Urmați instrucțiunile de mai jos pentru a recupera accesul",
@@ -604,16 +665,27 @@
     }
   },
   "photo_upload": {
+    "body_address_certificate_back": "Încărcați partea din spate a documentului de pe computerul dvs.",
+    "body_address_certificate_front": "Încărcați fața documentului de pe computerul dvs.",
     "body_bank_statement": "Furnizați întreaga pagină a documentului pentru mai bune rezultate",
     "body_benefits_letter": "Furnizați întreaga pagină a documentului pentru mai bune rezultate",
     "body_bill": "Furnizați întreaga pagină a documentului pentru mai bune rezultate",
+    "body_exchange_house_statement": "Oferiți întreaga pagină a documentului pentru cele mai bune rezultate",
+    "body_general_letter": "Oferiți întreaga pagină a documentului pentru cele mai bune rezultate",
     "body_generic_document_back": "Încărcați pagina verso a documentului din computerul dvs.",
     "body_generic_document_front": "Încărcați pagina din față a documentului din computerul dvs.",
     "body_id_back": "Încărcați pagina verso a cardului din computerul dvs.",
     "body_id_front": "Încărcați pagina față a cardului din computerul dvs.",
+    "body_identity_document_with_address": "Oferiți întreaga pagină a documentului pentru cele mai bune rezultate",
+    "body_identity_document_with_address_back": "Încărcați partea din spate a documentului de pe computerul dvs.",
+    "body_identity_document_with_address_front": "Încărcați fața documentului de pe computerul dvs.",
+    "body_insurance_statement": "Oferiți întreaga pagină a documentului pentru cele mai bune rezultate",
     "body_license_back": "Încărcați pagina verso a permisului de conducere din computerul dvs.",
     "body_license_front": "Încărcați pagina față a permisului de conducere din computerul dvs.",
+    "body_mobile_phone_bill": "Oferiți întreaga pagină a documentului pentru cele mai bune rezultate",
+    "body_mortgage_statement": "Oferiți întreaga pagină a documentului pentru cele mai bune rezultate",
     "body_passport": "Încărcați pagina cu poză a pașaportului din computerul dvs.",
+    "body_pension_property_statement_letter": "Oferiți întreaga pagină a documentului pentru cele mai bune rezultate",
     "body_selfie": "Încărcați o poză selfie din computerul dvs.",
     "body_tax_letter": "Furnizați întreaga pagină a documentului pentru mai bune rezultate",
     "button_take_photo": "Faceți poză",
@@ -642,6 +714,8 @@
     "subtitle_bank_statement": "Trebuie să fie emis în ultimele 3 luni",
     "subtitle_benefits_letter": "Trebuie să fie emis în ultimele 12 luni",
     "subtitle_bill": "Trebuie să fi fost emis în ultimele 3 luni",
+    "subtitle_dynamic_empty_grace_period": "Trebuie să fie un document valid",
+    "subtitle_dynamic_grace_period": "Trebuie să fie eliberat în ultimele <graceperiod></graceperiod> luni",
     "subtitle_tax_letter": "Trebuie să fie emis în ultimele 12 luni"
   },
   "poa_intro": {
@@ -952,6 +1026,51 @@
       "details_timeout": "Începeți din nou",
       "header_timeout": "Se pare că acțiunea dvs. a durat prea mult"
     }
+  },
+  "qes": {
+    "consent": {
+      "common": {
+        "steps": "Creează-ți semnătura"
+      },
+      "confirmation": {
+        "bullet_1": "După ce ați citit documentul, apăsați butonul \"Semnați documentul\".",
+        "bullet_2": "Odată ce Onfido îți verifică identitatea, semnătura ta va fi folosită pe acest document.",
+        "button_next_step": "Semnează documentul",
+        "review_document": "Revizuiți <fallback>documentul dvs.</fallback> pentru a semna",
+        "step2": "2 din 2",
+        "steps": "Semnează-ți documentul",
+        "subtitle": "Pentru a confirma identitatea dumneavoastră în conformitate cu regulile europene, trebuie să semnați digital un document.",
+        "title": "Creează și folosește semnătura ta digitală"
+      },
+      "introduction": {
+        "button_confirmation_step": "Creează-mi semnătura",
+        "certificate_application_form": "Formular de cerere pentru certificat",
+        "privacy_notice": "Notificare de confidențialitate",
+        "step1": "1 din 2",
+        "subtitle": "Pentru a confirma identitatea dumneavoastră în conformitate cu regulile europene, trebuie să semnați digital un document.",
+        "terms_and_conditions": "Termeni și condiții",
+        "third_party_description": "<fallback>Namirial SpA</fallback> este un furnizor global de încredere care va emite un certificat pentru validarea semnăturii dvs. electronice.",
+        "title": "Creează și folosește semnătura ta digitală"
+      }
+    }
+  },
+  "qes_consent": {
+    "button": "Creează-mi semnătura",
+    "link_certificate": "Formular de cerere pentru certificat",
+    "link_privacy_notice": "Notificare de confidențialitate",
+    "link_terms_and_conditions": "Termeni și condiții",
+    "namirial_intro": "Namirial SpA este un furnizor global de încredere care va emite un certificat pentru validarea semnăturii electronice. ",
+    "subtitle": "Pentru a vă confirma identitatea în conformitate cu regulile europene, trebuie să semnați digital un document.",
+    "title": "Creați și utilizați semnătura dvs. digitală"
+  },
+  "qes_sign": {
+    "button": "Semnează documentul",
+    "link_document": "Revizuiți documentul pentru a semna",
+    "list_item_1": "După ce ați citit documentul, apăsați butonul \"Semnați documentul\".",
+    "list_item_2": "Odată ce Onfido îți verifică identitatea, semnătura ta va fi folosită pe acest document.",
+    "step_title": "Semnează-ți documentul",
+    "subtitle": "Pentru a vă confirma identitatea în conformitate cu regulile europene, trebuie să semnați digital un document.",
+    "title": "Creați și utilizați semnătura dvs. digitală"
   },
   "retry_feedback": {
     "button_primary": "Încercați din nou"

@@ -188,15 +188,23 @@
       "odp_screenshot_title": "Schermafbeelding gedetecteerd"
     },
     "body": "Zorg ervoor dat u de volledige documentpagina heeft geüpload, en dat de details duidelijk en zonder wazigheid of spiegeling te lezen zijn",
+    "body_address_certificate": "Zorg ervoor dat u de volledige documentpagina heeft geüpload, en dat de details duidelijk leesbaar zijn zonder wazigheid of schittering",
     "body_bank_statement": "Zorg ervoor dat u de volledige documentpagina heeft geüpload, en dat de details duidelijk en zonder wazigheid of spiegeling te lezen zijn",
     "body_benefits_letter": "Zorg ervoor dat u de volledige documentpagina heeft geüpload, en dat de details duidelijk en zonder wazigheid of spiegeling te lezen zijn",
     "body_bill": "Zorg ervoor dat u de volledige documentpagina heeft geüpload, en dat de details duidelijk en zonder wazigheid of spiegeling te lezen zijn",
+    "body_exchange_house_statement": "Zorg ervoor dat u de volledige documentpagina heeft geüpload, en dat de details duidelijk leesbaar zijn zonder wazigheid of schittering",
+    "body_general_letter": "Zorg ervoor dat u de volledige documentpagina heeft geüpload, en dat de details duidelijk leesbaar zijn zonder wazigheid of schittering",
     "body_generic_document": "Controleer of uw gegevens goed en volledig zichtbaar zijn",
     "body_id": "Controleer of uw gegevens goed en volledig zichtbaar zijn",
+    "body_identity_document_with_address": "Zorg ervoor dat u de volledige documentpagina heeft geüpload, en dat de details duidelijk leesbaar zijn zonder wazigheid of schittering",
     "body_image_medium": "Het duurt langer u te verifiëren als we deze niet kunnen lezen",
     "body_image_poor": "Om u gemakkelijk te kunnen verifiëren, hebben we een betere foto nodig",
+    "body_insurance_statement": "Zorg ervoor dat u de volledige documentpagina heeft geüpload, en dat de details duidelijk leesbaar zijn zonder wazigheid of schittering",
     "body_license": "Controleer of uw gegevens goed en volledig zichtbaar zijn",
+    "body_mobile_phone_bill": "Zorg ervoor dat u de volledige documentpagina heeft geüpload, en dat de details duidelijk leesbaar zijn zonder wazigheid of schittering",
+    "body_mortgage_statement": "Zorg ervoor dat u de volledige documentpagina heeft geüpload, en dat de details duidelijk leesbaar zijn zonder wazigheid of schittering",
     "body_passport": "Controleer of uw gegevens goed en volledig zichtbaar zijn",
+    "body_pension_property_statement_letter": "Zorg ervoor dat u de volledige documentpagina heeft geüpload, en dat de details duidelijk leesbaar zijn zonder wazigheid of schittering",
     "body_permit": "Controleer of uw gegevens goed en volledig zichtbaar zijn",
     "body_tax_letter": "Zorg ervoor dat u de volledige documentpagina heeft geüpload, en dat de details duidelijk en zonder wazigheid of spiegeling te lezen zijn",
     "button_close": "Sluiten",
@@ -217,21 +225,39 @@
   },
   "doc_select": {
     "button_address_card": "Adres kaart",
+    "button_address_card_back": "Adreskaart (Achterkant)",
     "button_address_card_detail": "Tijdelijke en permanente kaarten worden geaccepteerd",
+    "button_address_card_front": "Adreskaart (Voorkant)",
     "button_bank_statement": "Afschriften van de bank of bouwvereniging",
     "button_bank_statement_non_uk": "Bankafschrift",
     "button_benefits_letter": "Brief belastingvoordelen",
     "button_benefits_letter_detail": "Door de overheid toegestane uitkeringen voor huishoudens, bv. uitkering voor werkzoekenden, huursubsidie, heffingskorting",
     "button_bill": "Energierekening",
     "button_bill_detail": "Gas, elektriciteit, water, vaste telefoonlijn of breedband",
+    "button_exchange_house_statement": "Verklaring van het Wisselkantoor",
+    "button_exchange_house_statement_detail": "Verklaring van de verzender over overdracht of overmaking",
+    "button_general_letter": "Algemene Brief",
+    "button_general_letter_detail": "Brief van financiële instelling of nutsbedrijf",
     "button_government_letter": "Brief van de overheid",
     "button_government_letter_detail": "Alle brieven van de overheid, bv. uitkeringsrechten, stembrieven, belastingbrieven, enz",
     "button_id": "Identiteitskaart",
     "button_id_detail": "Voor- en achterkant",
+    "button_identity_document_with_address": "Identiteitsdocument met adres",
+    "button_identity_document_with_address_back": "Identiteitsdocument Met Adres (Achterkant)",
+    "button_identity_document_with_address_detail": "Uitgegeven door een overheidsinstantie",
+    "button_identity_document_with_address_front": "Identiteitsdocument met adres (voorzijde)",
+    "button_insurance_statement": "Verzekeringsverklaring",
+    "button_insurance_statement_detail": "Uitgegeven door een particuliere verzekeringsmaatschappij of makelaarskantoor",
     "button_license": "Rijbewijs",
     "button_license_detail": "Voor- en achterkant",
+    "button_mobile_phone_bill": "Mobiele Telefoonrekening",
+    "button_mobile_phone_bill_detail": "Uitgegeven door een mobiele telefoonnetwerkprovider",
+    "button_mortgage_statement": "Hypotheekoverzicht",
+    "button_mortgage_statement_detail": "Uitgegeven door een financiële kredietinstelling",
     "button_passport": "Paspoort",
     "button_passport_detail": "Fotopagina",
+    "button_pension_property_statement_letter": "Pensioen- of Eigendomsverklaring/Brief",
+    "button_pension_property_statement_letter_detail": "Pensioenoverzicht of brief en Eigendomsbelasting overzicht of brief",
     "button_permit": "Verblijfsvergunning",
     "button_permit_detail": "Voor- en achterkant",
     "button_tax_letter": "Brief gemeentelijke belastingen",
@@ -258,17 +284,29 @@
     "button_link_upload": "of upload een foto - geen scans of kopieën",
     "button_primary": "Ga door op telefoon",
     "subtitle": "Neem een foto met uw telefoon",
+    "title_address_certificate": "Adreskaart indienen",
+    "title_address_certificate_back": "Adreskaart inleveren (achterkant)",
+    "title_address_certificate_front": "Adreskaart inleveren (voorkant)",
     "title_bank_statement": "Afschrift indienen",
     "title_benefits_letter": "Brief indienen",
     "title_bill": "Factuur indienen",
+    "title_exchange_house_statement": "Verzend verklaring van wisselkantoor",
+    "title_general_letter": "Algemene brief indienen",
     "title_generic_document_back": "Document indienen (achterkant)",
     "title_generic_document_front": "Document indienen (voorkant)",
     "title_government_letter": "Brief van de overheid",
     "title_id_back": "Verzend identiteitskaart (achterkant)",
     "title_id_front": "Verzend identiteitskaart (voorkant)",
+    "title_identity_document_with_address": "Identiteitsdocument met adres indienen",
+    "title_identity_document_with_address_back": "Identiteitsdocument met adres inleveren (achterkant)",
+    "title_identity_document_with_address_front": "Identiteitsdocument met adres inleveren (voorkant)",
+    "title_insurance_statement": "Verzekeringsverklaring indienen",
     "title_license_back": "Verzend rijbewijs (achterkant)",
     "title_license_front": "Verzend rijbewijs (voorkant)",
+    "title_mobile_phone_bill": "Zend mobiele telefoonrekening in",
+    "title_mortgage_statement": "Hypotheekverklaring indienen",
     "title_passport": "Verstuur de fotopagina van uw paspoort",
+    "title_pension_property_statement_letter": "Verklaring of brief indienen",
     "title_permit_back": "Verzend verblijfsvergunning (achterkant)",
     "title_permit_front": "Verzend verblijfsvergunning (voorkant)",
     "title_tax_letter": "Brief indienen"
@@ -422,6 +460,29 @@
       "success": "Scan succesvol gemaakt"
     }
   },
+  "otp": {
+    "code_input": {
+      "error": {
+        "technical": "Er is een technische fout opgetreden, probeer het later opnieuw",
+        "wrong_code": "Verkeerde code ingevoerd, probeer het opnieuw"
+      },
+      "intro": "De code die naar uw telefoonnummer is verzonden, is 5 minuten actief",
+      "resend": {
+        "cta": "Opnieuw verzenden",
+        "label": "Verzonden code (tot {limit})"
+      },
+      "title": "Eenmalig Wachtwoord"
+    },
+    "send_code": {
+      "cta": "Stuur code",
+      "error": {
+        "limit": "U heeft de limiet van verzonden SMS bereikt",
+        "technical": "Er is een technische fout opgetreden, probeer het later opnieuw"
+      },
+      "intro": "Om uw telefoonnummer te verifiëren, gaan we u een eenmalige code sturen om in te voeren op het volgende scherm.",
+      "title": "Eenmalig Wachtwoord"
+    }
+  },
   "outro": {
     "body": "Dit is alles wat we nodig hebben om uw identiteit te verifiëren",
     "body_government_letter": "Verstrek de hele documentpagina voor de beste resultaten",
@@ -444,139 +505,139 @@
   "permission_recovery": {
     "android": {
       "device_settings": {
-        "list_item_1": "Open op uw apparaat de Instellingen app",
-        "list_item_2": "Tik op Apps",
-        "list_item_3": "Tik op [BROWSER_ICON]. Als je het niet kunt vinden, tik dan op Bekijk alle apps of Beheer apps en selecteer je browser-app",
-        "list_item_4": "Tik op Toestemmingen",
-        "list_item_5_cam": "Tik op Camera en selecteer Toestaan",
-        "list_item_5_mic": "Tik op Microfoon en selecteer Toestaan",
-        "list_item_6": "Kom terug naar deze pagina en tik op de knop Ik heb de wijzigingen aangebracht"
+        "list_item_1": "Open op uw apparaat de <strong>Instellingen</strong> app",
+        "list_item_2": "Tik op <strong>Apps</strong>",
+        "list_item_3": "Tik op [BROWSER_ICON]. Als je het niet kunt vinden, tik dan op <strong>Bekijk alle apps</strong> of <strong>Beheer apps</strong> en selecteer je browser-app",
+        "list_item_4": "Tik op <strong>Toestemmingen</strong>",
+        "list_item_5_cam": "Tik op <strong>Camera</strong> en selecteer <strong>Toestaan</strong>",
+        "list_item_5_mic": "Tik op <strong>Microfoon</strong> en selecteer <strong>Toestaan</strong>",
+        "list_item_6": "Kom terug naar deze pagina en tik op de knop <strong>Ik heb de wijzigingen aangebracht</strong>"
       }
     },
     "android_chrome": {
       "browser_settings": {
         "list_item_1": "In uw browser tikt u op het slotpictogram [LOCK_ICON] in de adresbalk",
-        "list_item_2": "Tik op Toestemmingen",
-        "list_item_3_cam": "Activeer de schakelaar naast Camera",
-        "list_item_3_mic": "Activeer de schakelaar naast Microfoon",
-        "list_item_4": "Kom terug naar deze pagina en tik op de knop Ik heb de wijzigingen aangebracht"
+        "list_item_2": "Tik op <strong>Toestemmingen</strong>",
+        "list_item_3_cam": "Activeer de schakelaar naast <strong>Camera</strong>",
+        "list_item_3_mic": "Activeer de schakelaar naast <strong>Microfoon</strong>",
+        "list_item_4": "Kom terug naar deze pagina en tik op de knop <strong>Ik heb de wijzigingen aangebracht</strong>"
       }
     },
     "android_firefox": {
       "browser_settings": {
         "list_item_1": "In uw browser tikt u op het slotpictogram [LOCK_ICON] in de adresbalk",
-        "list_item_2_cam": "Tik op Geblokkeerd naast Camera om te schakelen naar Toegestaan",
-        "list_item_2_mic": "Tik op Geblokkeerd naast Microfoon om te schakelen naar Toegestaan",
-        "list_item_3": "Kom terug naar deze pagina en tik op de knop Ik heb de wijzigingen aangebracht"
+        "list_item_2_cam": "Tik op <strong>Geblokkeerd</strong> naast <strong>Camera</strong> om te schakelen naar <strong>Toegestaan</strong>",
+        "list_item_2_mic": "Tik op <strong>Geblokkeerd</strong> naast <strong>Microfoon</strong> om te schakelen naar <strong>Toegestaan</strong>",
+        "list_item_3": "Kom terug naar deze pagina en tik op de knop <strong>Ik heb de wijzigingen aangebracht</strong>"
       }
     },
     "android_generic": {
       "browser_settings": {
         "list_item_1": "Open in uw browser de website-instellingen. Dit is vaak een slotpictogram [LOCK_ICON] in de adresbalk",
         "list_item_2": "Vind de sectie over toestemmingen",
-        "list_item_3_cam": "Schakel de Camera toestemmingen in",
-        "list_item_3_mic": "Schakel de Microfoon toestemmingen in",
-        "list_item_4": "Kom terug naar deze pagina en tik op de knop Ik heb de wijzigingen aangebracht"
+        "list_item_3_cam": "Schakel de <strong>Camera</strong> toestemmingen in",
+        "list_item_3_mic": "Schakel de <strong>Microfoon</strong> toestemmingen in",
+        "list_item_4": "Kom terug naar deze pagina en tik op de knop <strong>Ik heb de wijzigingen aangebracht</strong>"
       }
     },
     "android_samsung": {
       "browser_settings": {
         "list_item_1": "In uw browser tikt u op het slotpictogram [LOCK_ICON] in de adresbalk",
-        "list_item_2_cam": "Activeer de schakelaar naast Camera",
-        "list_item_2_mic": "Activeer de schakelaar naast Microfoon",
-        "list_item_3": "Kom terug naar deze pagina en tik op de knop Ik heb de wijzigingen aangebracht"
+        "list_item_2_cam": "Activeer de schakelaar naast <strong>Camera</strong>",
+        "list_item_2_mic": "Activeer de schakelaar naast <strong>Microfoon</strong>",
+        "list_item_3": "Kom terug naar deze pagina en tik op de knop <strong>Ik heb de wijzigingen aangebracht</strong>"
       }
     },
     "button_primary": "Verversen",
     "desktop_chrome": {
       "browser_settings": {
         "list_item_1": "Klik in uw browser op het slotpictogram [LOCK_ICON] in de adresbalk",
-        "list_item_2_cam": "Activeer de schakelaar naast Camera",
-        "list_item_2_mic": "Activeer de schakelaar naast Microfoon",
-        "list_item_3": "Kom terug naar deze pagina en klik op de knop Ik heb de wijzigingen aangebracht"
+        "list_item_2_cam": "Activeer de schakelaar naast <strong>Camera</strong>",
+        "list_item_2_mic": "Activeer de schakelaar naast <strong>Microfoon</strong>",
+        "list_item_3": "Kom terug naar deze pagina en klik op de knop <strong>Ik heb de wijzigingen aangebracht</strong>"
       }
     },
     "desktop_edge": {
       "browser_settings": {
         "list_item_1": "Klik in uw browser op het slotpictogram [LOCK_ICON] in de adresbalk",
-        "list_item_2_cam": "Klik op het dropdown-menu naast Camera en selecteer Toestaan",
-        "list_item_2_mic": "Klik op het dropdown-menu naast Microfoon en selecteer Toestaan",
-        "list_item_3": "Kom terug naar deze pagina en klik op de knop Ik heb de wijzigingen aangebracht"
+        "list_item_2_cam": "Klik op het dropdown-menu naast <strong>Camera</strong> en selecteer <strong>Toestaan</strong>",
+        "list_item_2_mic": "Klik op het dropdown-menu naast <strong>Microfoon</strong> en selecteer <strong>Toestaan</strong>",
+        "list_item_3": "Kom terug naar deze pagina en klik op de knop <strong>Ik heb de wijzigingen aangebracht</strong>"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
         "list_item_1": "Klik in uw browser op het instellingenpictogram [SETTINGS_ICON_FIREFOX] in de adresbalk",
-        "list_item_2_cam": "Klik op Geblokkeerd naast Gebruik de camera",
-        "list_item_2_mic": "Klik op Geblokkeerd naast Gebruik de microfoon",
-        "list_item_3": "Kom terug naar deze pagina en klik op de knop Ik heb de wijzigingen aangebracht"
+        "list_item_2_cam": "Klik op <strong>Geblokkeerd</strong> naast <strong>Gebruik de camera</strong>",
+        "list_item_2_mic": "Klik op <strong>Geblokkeerd</strong> naast <strong>Gebruik de microfoon</strong>",
+        "list_item_3": "Kom terug naar deze pagina en klik op de knop <strong>Ik heb de wijzigingen aangebracht</strong>"
       }
     },
     "desktop_generic": {
       "browser_settings": {
         "list_item_1": "Open in uw browser de website-instellingen. Dit is vaak een slotpictogram [LOCK_ICON] in de adresbalk",
         "list_item_2": "Vind de sectie over toestemmingen",
-        "list_item_3_cam": "Schakel de Camera toestemmingen in",
-        "list_item_3_mic": "Schakel de Microfoon toestemmingen in",
-        "list_item_4": "Kom terug naar deze pagina en klik op de knop Ik heb de wijzigingen aangebracht"
+        "list_item_3_cam": "Schakel de <strong>Camera</strong> toestemmingen in",
+        "list_item_3_mic": "Schakel de <strong>Microfoon</strong> toestemmingen in",
+        "list_item_4": "Kom terug naar deze pagina en klik op de knop <strong>Ik heb de wijzigingen aangebracht</strong>"
       },
       "device_settings": {
-        "list_item_1": "Open op uw computer uw Instellingen",
-        "list_item_2": "Zoek het gedeelte over machtigingen (meestal onder Privacy)",
-        "list_item_3_cam": "Schakel de Camera toestemmingen in voor [BROWSER_ICON]",
-        "list_item_3_mic": "Schakel de Microfoon toestemmingen in voor [BROWSER_ICON]",
+        "list_item_1": "Open op uw computer uw <strong>Instellingen</strong>",
+        "list_item_2": "Zoek het gedeelte over machtigingen (meestal onder <strong>Privacy</strong>)",
+        "list_item_3_cam": "Schakel de <strong>Camera</strong> toestemmingen in voor [BROWSER_ICON]",
+        "list_item_3_mic": "Schakel de <strong>Microfoon</strong> toestemmingen in voor [BROWSER_ICON]",
         "list_item_4": "Herstart indien nodig uw browser en keer terug naar deze pagina"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "Op uw computer, klik op het Apple-menu [APPLE_ICON] en selecteer Systeeminstellingen (of Systeemvoorkeuren)",
-        "list_item_2": "Klik op Privacy & Beveiliging (of Beveiliging & Privacy) in de zijbalk",
-        "list_item_3": "Klik op Later in de pop-up",
-        "list_item_3_cam": "Klik op  Camera  en activeer de schakelaar (of het selectievakje) naast [BROWSER_ICON]",
-        "list_item_4": "Klik op Stoppen & Opnieuw openen in de pop-up en keer terug naar deze pagina",
-        "list_item_4_mic": "Klik op Microfoon en activeer de schakelaar (of het selectievakje) naast [BROWSER_ICON]"
+        "list_item_1": "Op uw computer, klik op het Apple-menu [APPLE_ICON] en selecteer <strong>Systeeminstellingen</strong> (of <strong>Systeemvoorkeuren</strong>)",
+        "list_item_2": "Klik op <strong>Privacy & Beveiliging</strong> (of <strong>Beveiliging & Privacy</strong>) in de zijbalk",
+        "list_item_3": "Klik op <strong>Later</strong> in de pop-up",
+        "list_item_3_cam": "Klik op <strong> Camera </strong> en activeer de schakelaar (of het selectievakje) naast [BROWSER_ICON]",
+        "list_item_4": "Klik op <strong>Stoppen & Opnieuw openen</strong> in de pop-up en keer terug naar deze pagina",
+        "list_item_4_mic": "Klik op <strong>Microfoon</strong> en activeer de schakelaar (of het selectievakje) naast [BROWSER_ICON]"
       }
     },
     "desktop_safari": {
       "browser_settings": {
-        "list_item_1": "Klik met de rechtermuisknop in de adresbalk van uw browser en selecteer Instellingen",
-        "list_item_2_cam": "Klik op het dropdown-menu naast Camera en selecteer Toestaan",
-        "list_item_2_mic": "Klik op het dropdown-menu naast Microfoon en selecteer Toestaan",
-        "list_item_3": "Kom terug naar deze pagina en klik op de knop Ik heb de wijzigingen aangebracht"
+        "list_item_1": "Klik met de rechtermuisknop in de adresbalk van uw browser en selecteer <strong>Instellingen</strong>",
+        "list_item_2_cam": "Klik op het dropdown-menu naast <strong>Camera</strong> en selecteer <strong>Toestaan</strong>",
+        "list_item_2_mic": "Klik op het dropdown-menu naast <strong>Microfoon</strong> en selecteer <strong>Toestaan</strong>",
+        "list_item_3": "Kom terug naar deze pagina en klik op de knop <strong>Ik heb de wijzigingen aangebracht</strong>"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "Op uw computer, klik op het Windows-menu [WINDOWS_ICON] en selecteer Instellingen [SETTINGS_ICON_WINDOWS]",
-        "list_item_2": "Klik op Privacy (of Privacy & Beveiliging)",
-        "list_item_3_cam": "Klik op Camera onder App-machtigingen en activeer de schakelaar naast [BROWSER_ICON] ",
-        "list_item_3_mic": "Klik op Microfoon onder App-machtigingen en activeer de schakelaar naast [BROWSER_ICON]",
+        "list_item_1": "Op uw computer, klik op het Windows-menu [WINDOWS_ICON] en selecteer <strong>Instellingen</strong> [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "Klik op <strong>Privacy</strong> (of <strong>Privacy & Beveiliging</strong>)",
+        "list_item_3_cam": "Klik op <strong>Camera</strong> onder <strong>App-machtigingen</strong> en activeer de schakelaar naast [BROWSER_ICON] ",
+        "list_item_3_mic": "Klik op <strong>Microfoon</strong> onder <strong>App-machtigingen</strong> en activeer de schakelaar naast [BROWSER_ICON]",
         "list_item_4": "Herstart indien nodig uw browser en keer terug naar deze pagina"
       }
     },
     "info": "Herstellen",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "Tik op de knop Ik heb de wijzigingen aangebracht. Er wordt opnieuw gevraagd om toegang tot de camera en microfoon in te schakelen. Wanneer de pop-up verschijnt, selecteer Toestaan (of OK)",
-        "list_item_1_cam": "Tik op de knop Ik heb de wijzigingen aangebracht. Er wordt opnieuw gevraagd om toegang tot de camera in te schakelen. Wanneer de pop-up verschijnt, selecteer Toestaan (of OK)",
-        "list_item_1_mic": "Tik op de knop Ik heb de wijzigingen aangebracht. Er wordt opnieuw gevraagd om toegang tot de microfoon in te schakelen. Wanneer de pop-up verschijnt, selecteer Toestaan (of OK)"
+        "list_item_1_both": "Tik op de knop <strong>Ik heb de wijzigingen aangebracht</strong>. Er wordt opnieuw gevraagd om toegang tot de camera en microfoon in te schakelen. Wanneer de pop-up verschijnt, selecteer <strong>Toestaan</strong> (of <strong>OK</strong>)",
+        "list_item_1_cam": "Tik op de knop <strong>Ik heb de wijzigingen aangebracht</strong>. Er wordt opnieuw gevraagd om toegang tot de camera in te schakelen. Wanneer de pop-up verschijnt, selecteer <strong>Toestaan</strong> (of <strong>OK</strong>)",
+        "list_item_1_mic": "Tik op de knop <strong>Ik heb de wijzigingen aangebracht</strong>. Er wordt opnieuw gevraagd om toegang tot de microfoon in te schakelen. Wanneer de pop-up verschijnt, selecteer <strong>Toestaan</strong> (of <strong>OK</strong>)"
       },
       "device_settings": {
-        "list_item_1": "Open op uw apparaat de Instellingen app",
+        "list_item_1": "Open op uw apparaat de <strong>Instellingen</strong> app",
         "list_item_2": "Scroll door de lijst en tik op [BROWSER_ICON]",
-        "list_item_3_cam": "Activeer de schakelaar naast Camera",
-        "list_item_3_mic": "Activeer de schakelaar naast Microfoon",
-        "list_item_4": "Kom terug naar deze pagina en tik op de knop Ik heb de wijzigingen aangebracht"
+        "list_item_3_cam": "Activeer de schakelaar naast <strong>Camera</strong>",
+        "list_item_3_mic": "Activeer de schakelaar naast <strong>Microfoon</strong>",
+        "list_item_4": "Kom terug naar deze pagina en tik op de knop <strong>Ik heb de wijzigingen aangebracht</strong>"
       }
     },
     "ios_safari": {
       "device_settings": {
-        "list_item_1": "Open op uw apparaat de Instellingen app",
+        "list_item_1": "Open op uw apparaat de <strong>Instellingen</strong> app",
         "list_item_2": "Scroll door de lijst en tik op [BROWSER_ICON]",
-        "list_item_3_cam": "Tik op Camera en selecteer Toestaan",
-        "list_item_3_mic": "Tik op Microfoon en selecteer Toestaan",
-        "list_item_4": "Kom terug naar deze pagina en tik op de knop Ik heb de wijzigingen aangebracht"
+        "list_item_3_cam": "Tik op <strong>Camera</strong> en selecteer <strong>Toestaan</strong>",
+        "list_item_3_mic": "Tik op <strong>Microfoon</strong> en selecteer <strong>Toestaan</strong>",
+        "list_item_4": "Kom terug naar deze pagina en tik op de knop <strong>Ik heb de wijzigingen aangebracht</strong>"
       }
     },
     "list_header_both": "Volg deze stappen om de toegang voor beide te herstellen:",
@@ -585,7 +646,7 @@
     "list_item_how_to_both": "Verleen via uw browserinstellingen toegang tot uw camera en microfoon",
     "list_item_how_to_cam": "Schakel toegang tot uw camera in vanuit de browserinstellingen",
     "list_item_how_to_mic": "Schakel toegang tot uw microfoon in vanuit de browserinstellingen",
-    "subtitle_both": "Herstel toegang tot de camera en de microfoon om een filmpje op te nemen en de verificatie van uw gezicht te voltooien",
+    "subtitle_both": "We hebben toegang nodig tot uw camera en microfoon om uw identiteit te verifiëren. Volg de onderstaande instructies om toegang te herstellen",
     "subtitle_cam": "We hebben toegang tot uw camera nodig om uw identiteit te verifiëren. Volg de onderstaande instructies om toegang te herstellen",
     "subtitle_cam_old": "Herstel toegang tot de camera om door te gaan met de verificatie van uw gezicht",
     "subtitle_mic": "We hebben toegang tot uw microfoon nodig om uw identiteit te verifiëren. Volg de onderstaande instructies om toegang te herstellen",
@@ -604,16 +665,27 @@
     }
   },
   "photo_upload": {
+    "body_address_certificate_back": "Upload de achterkant van het document vanaf uw computer",
+    "body_address_certificate_front": "Upload de voorkant van het document vanaf uw computer",
     "body_bank_statement": "Verstrek de hele documentpagina voor de beste resultaten",
     "body_benefits_letter": "Verstrek de hele documentpagina voor de beste resultaten",
     "body_bill": "Verstrek de hele documentpagina voor de beste resultaten",
+    "body_exchange_house_statement": "Geef de hele documentpagina voor de beste resultaten",
+    "body_general_letter": "Geef de hele documentpagina voor de beste resultaten",
     "body_generic_document_back": "Upload de achterkant van uw document vanaf uw computer",
     "body_generic_document_front": "Upload de voorkant van uw document vanaf uw computer",
     "body_id_back": "Upload de achterkant van uw kaart vanaf uw computer",
     "body_id_front": "Upload de voorkant van uw kaart vanaf uw computer",
+    "body_identity_document_with_address": "Geef de hele documentpagina voor de beste resultaten",
+    "body_identity_document_with_address_back": "Upload de achterkant van het document vanaf uw computer",
+    "body_identity_document_with_address_front": "Upload de voorkant van het document vanaf uw computer",
+    "body_insurance_statement": "Geef de hele documentpagina voor de beste resultaten",
     "body_license_back": "Upload de achterkant van uw rijbewijs vanaf uw computer",
     "body_license_front": "Upload de voorkant van uw rijbewijs vanaf uw computer",
+    "body_mobile_phone_bill": "Geef de hele documentpagina voor de beste resultaten",
+    "body_mortgage_statement": "Geef de hele documentpagina voor de beste resultaten",
     "body_passport": "Upload de fotopagina van uw paspoort vanaf uw computer",
+    "body_pension_property_statement_letter": "Geef de hele documentpagina voor de beste resultaten",
     "body_selfie": "Upload een selfie vanaf uw computer",
     "body_tax_letter": "Verstrek de hele documentpagina voor de beste resultaten",
     "button_take_photo": "Neem een foto",
@@ -642,6 +714,8 @@
     "subtitle_bank_statement": "Moet in de laatste 3 maanden zijn afgegeven",
     "subtitle_benefits_letter": "Moet in de laatste 12 maanden zijn afgegeven",
     "subtitle_bill": "Moet in de laatste 3 maanden zijn afgegeven",
+    "subtitle_dynamic_empty_grace_period": "Moet een geldig document zijn",
+    "subtitle_dynamic_grace_period": "Moet in de afgelopen <graceperiod></graceperiod> maanden zijn uitgegeven",
     "subtitle_tax_letter": "Moet in de laatste 12 maanden zijn afgegeven"
   },
   "poa_intro": {
@@ -952,6 +1026,51 @@
       "details_timeout": "Start opnieuw",
       "header_timeout": "Het lijkt erop dat het te lang duurde"
     }
+  },
+  "qes": {
+    "consent": {
+      "common": {
+        "steps": "Maak uw handtekening"
+      },
+      "confirmation": {
+        "bullet_1": "Na het lezen van uw document, tik op de knop \"Document ondertekenen\".",
+        "bullet_2": "Zodra Onfido uw identiteit heeft geverifieerd, wordt uw handtekening gebruikt op dit document.",
+        "button_next_step": "Document ondertekenen",
+        "review_document": "Beoordeel <fallback>uw document</fallback> om te ondertekenen",
+        "step2": "2 van 2",
+        "steps": "Onderteken uw document",
+        "subtitle": "Om uw identiteit te bevestigen in overeenstemming met Europese regels, moet u een document digitaal ondertekenen.",
+        "title": "Maak en gebruik uw digitale handtekening"
+      },
+      "introduction": {
+        "button_confirmation_step": "Maak mijn handtekening",
+        "certificate_application_form": "Aanvraagformulier voor certificaat",
+        "privacy_notice": "Privacyverklaring",
+        "step1": "1 van 2",
+        "subtitle": "Om uw identiteit te bevestigen in overeenstemming met Europese regels, moet u een document digitaal ondertekenen.",
+        "terms_and_conditions": "Algemene voorwaarden",
+        "third_party_description": "<fallback>Namirial SpA</fallback> is een vertrouwde wereldwijde aanbieder die een certificaat zal uitgeven om uw elektronische handtekening te valideren.",
+        "title": "Maak en gebruik uw digitale handtekening"
+      }
+    }
+  },
+  "qes_consent": {
+    "button": "Maak mijn handtekening",
+    "link_certificate": "Aanvraagformulier voor certificaat",
+    "link_privacy_notice": "Privacyverklaring",
+    "link_terms_and_conditions": "Algemene voorwaarden",
+    "namirial_intro": "Namirial SpA is een betrouwbare wereldwijde aanbieder die een certificaat zal uitgeven om uw elektronische handtekening te valideren.",
+    "subtitle": "Om uw identiteit te bevestigen in overeenstemming met Europese regels, moet u een document digitaal ondertekenen.",
+    "title": "Maak en gebruik uw digitale handtekening"
+  },
+  "qes_sign": {
+    "button": "Document ondertekenen",
+    "link_document": "Bekijk uw document om te ondertekenen",
+    "list_item_1": "Na het lezen van uw document, tik op de knop \"Document ondertekenen\".",
+    "list_item_2": "Zodra Onfido uw identiteit heeft geverifieerd, wordt uw handtekening op dit document gebruikt.",
+    "step_title": "Onderteken uw document",
+    "subtitle": "Om uw identiteit te bevestigen in overeenstemming met Europese regels, moet u een document digitaal ondertekenen.",
+    "title": "Maak en gebruik uw digitale handtekening"
   },
   "retry_feedback": {
     "button_primary": "Probeer het opnieuw"
