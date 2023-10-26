@@ -188,15 +188,23 @@
       "odp_screenshot_title": "스크린샷이 감지되었습니다"
     },
     "body": "전체 서류 페이지를 업로드했는지 확인하고, 세부 정보가 선명하게 읽히며 빛 반사되는 부분이 없는지 확인하세요",
+    "body_address_certificate": "전체 문서 페이지를 업로드했는지 확인하고, 세부 사항이 흐림이나 반사 없이 명확하게 읽히는지 확인하세요",
     "body_bank_statement": "전체 서류 페이지를 업로드했는지 확인하고, 세부 정보가 선명하게 읽히며 빛 반사되는 부분이 없는지 확인하세요",
     "body_benefits_letter": "전체 서류 페이지를 업로드했는지 확인하고, 세부 정보가 선명하게 읽히며 빛 반사되는 부분이 없는지 확인하세요",
     "body_bill": "전체 서류 페이지를 업로드했는지 확인하고, 세부 정보가 선명하게 읽히며 빛 반사되는 부분이 없는지 확인하세요",
+    "body_exchange_house_statement": "전체 문서 페이지를 업로드했는지 확인하고, 세부 사항이 흐림이나 반사 없이 명확하게 읽히는지 확인하세요",
+    "body_general_letter": "전체 문서 페이지를 업로드했는지 확인하고, 세부 사항이 흐릿하거나 눈부심 없이 명확하게 읽을 수 있는지 확인하세요",
     "body_generic_document": "세부 정보가 명확하게 나타나고 가려진 부분이 없는지 확인하세요",
     "body_id": "세부 정보가 명확하게 나타나고 가려진 부분이 없는지 확인하세요",
+    "body_identity_document_with_address": "전체 문서 페이지를 업로드했는지 확인하고, 세부 사항이 흐림이나 반사 없이 명확하게 읽히는지 확인하세요",
     "body_image_medium": "저희 측에서 정보를 읽을 수 없으면, 인증 절차에 시간이 오래 걸리게 됩니다",
     "body_image_poor": "원활한 본인 인증을 위해 더 명확한 사진 이미지가 필요합니다",
+    "body_insurance_statement": "전체 문서 페이지를 업로드했는지 확인하고, 세부 사항이 흐림이나 반사 없이 명확하게 읽히는지 확인하세요",
     "body_license": "세부 정보가 명확하게 나타나고 가려진 부분이 없는지 확인하세요",
+    "body_mobile_phone_bill": "전체 문서 페이지를 업로드했는지 확인하고, 세부 사항이 흐릿하거나 반사광 없이 명확하게 읽을 수 있는지 확인하세요",
+    "body_mortgage_statement": "전체 문서 페이지를 업로드했는지 확인하고, 세부 사항이 흐림이나 반사 없이 명확하게 읽히는지 확인하세요",
     "body_passport": "세부 정보가 명확하게 나타나고 가려진 부분이 없는지 확인하세요",
+    "body_pension_property_statement_letter": "전체 문서 페이지를 업로드했는지 확인하고, 세부 사항이 흐림이나 반사 없이 명확하게 읽히는지 확인하세요",
     "body_permit": "세부 정보가 명확하게 나타나고 가려진 부분이 없는지 확인하세요",
     "body_tax_letter": "전체 서류 페이지를 업로드했는지 확인하고, 세부 정보가 선명하게 읽히며 빛 반사되는 부분이 없는지 확인하세요",
     "button_close": "닫기",
@@ -217,21 +225,39 @@
   },
   "doc_select": {
     "button_address_card": "주소 카드",
+    "button_address_card_back": "주소 카드 (뒷면)",
     "button_address_card_detail": "임시 거주증(temporary card) 및 영주권 카드(permanent card)를 사용할 수 있습니다",
+    "button_address_card_front": "주소 카드 (앞면)",
     "button_bank_statement": "통장 입출금 내역서 또는 건설공제조합명세서(building society statement)",
     "button_bank_statement_non_uk": "통장 입출금 내역서",
     "button_benefits_letter": "복지 급여 서신",
     "button_benefits_letter_detail": "정부 지원 복지 혜택(예: 구직자 수당, 주거 급여, 세액 공제)",
     "button_bill": "공과금 청구서",
     "button_bill_detail": "가스, 전기, 수도, 유선전화 또는 광대역 요금 청구서",
+    "button_exchange_house_statement": "환전소 성명서",
+    "button_exchange_house_statement_detail": "송금 또는 이체에 대한 발신자의 진술",
+    "button_general_letter": "일반 편지",
+    "button_general_letter_detail": "금융기관 또는 유틸리티 회사로부터의 편지",
     "button_government_letter": "정부 발급 통지서",
     "button_government_letter_detail": "모든 정부 발급 통지서(예: 복지 수급 자격 인정, 우편 투표지, 세금 고지서 등",
     "button_id": "신분증",
     "button_id_detail": "앞면과 뒷면",
+    "button_identity_document_with_address": "주소가 있는 신분증",
+    "button_identity_document_with_address_back": "주소가 있는 신분증 (뒷면)",
+    "button_identity_document_with_address_detail": "정부 기관에서 발행한",
+    "button_identity_document_with_address_front": "주소가 있는 신분증 (앞면)",
+    "button_insurance_statement": "보험 명세서",
+    "button_insurance_statement_detail": "개인 보험 또는 중개 회사에서 발행된",
     "button_license": "운전면허증",
     "button_license_detail": "앞면과 뒷면",
+    "button_mobile_phone_bill": "휴대폰 요금",
+    "button_mobile_phone_bill_detail": "모바일 폰 네트워크 제공업체에서 발행됨",
+    "button_mortgage_statement": "모기지 명세서",
+    "button_mortgage_statement_detail": "금융 대출 기관에서 발행된",
     "button_passport": "여권",
     "button_passport_detail": "사진 페이지",
+    "button_pension_property_statement_letter": "연금 또는 재산 선언서/편지",
+    "button_pension_property_statement_letter_detail": "연금 명세서 또는 편지와 재산세 명세서 또는 편지",
     "button_permit": "거주 허가증",
     "button_permit_detail": "앞면과 뒷면",
     "button_tax_letter": "주민세 통지서(Council Tax Letter)",
@@ -258,17 +284,29 @@
     "button_link_upload": "또는 사진 업로드 – 스캔본 또는 복사본 불가",
     "button_primary": "휴대폰으로 계속하기",
     "subtitle": "휴대폰으로 사진 촬영하기",
+    "title_address_certificate": "주소 카드 제출",
+    "title_address_certificate_back": "주소 카드 제출 (뒷면)",
+    "title_address_certificate_front": "주소 카드 제출 (앞면)",
     "title_bank_statement": "명세서 제출",
     "title_benefits_letter": "정부 서신 제출",
     "title_bill": "청구서 제출",
+    "title_exchange_house_statement": "환전소 명세서 제출",
+    "title_general_letter": "일반 편지 제출",
     "title_generic_document_back": "서류(뒷면) 제출",
     "title_generic_document_front": "서류(앞면) 제출",
     "title_government_letter": "정부 발급 통지서",
     "title_id_back": "신분증(뒷면) 제출",
     "title_id_front": "신분증(앞면) 제출",
+    "title_identity_document_with_address": "주소가 있는 신원증명서를 제출하십시오",
+    "title_identity_document_with_address_back": "주소가 기재된 신원증명서 (뒷면) 제출",
+    "title_identity_document_with_address_front": "주소가 있는 신원증명서 제출 (앞면)",
+    "title_insurance_statement": "보험 청구서 제출",
     "title_license_back": "면허증(뒷면) 제출",
     "title_license_front": "면허증 제출(앞면)",
+    "title_mobile_phone_bill": "휴대폰 요금 청구서 제출",
+    "title_mortgage_statement": "담보 대출 서류 제출",
     "title_passport": "여권의 사진 부착 면 제출",
+    "title_pension_property_statement_letter": "서류 또는 편지 제출",
     "title_permit_back": "거주 허가증(뒷면) 제출",
     "title_permit_front": "거주 허가증(앞면) 제출",
     "title_tax_letter": "정부 서신 제출"
@@ -422,6 +460,29 @@
       "success": "스캔 성공"
     }
   },
+  "otp": {
+    "code_input": {
+      "error": {
+        "technical": "기술적인 오류가 발생했습니다, 나중에 다시 시도해 주세요",
+        "wrong_code": "잘못된 코드가 입력되었습니다, 다시 시도해 주세요"
+      },
+      "intro": "전송된 코드는 귀하의 전화번호로 5분 동안 활성화됩니다",
+      "resend": {
+        "cta": "다시 보내기",
+        "label": "(최대 {limit}까지) 코드 전송됨"
+      },
+      "title": "일회용 비밀번호"
+    },
+    "send_code": {
+      "cta": "코드 보내기",
+      "error": {
+        "limit": "보낸 SMS의 한도에 도달하셨습니다",
+        "technical": "기술적인 오류가 발생했습니다, 나중에 다시 시도해 주세요"
+      },
+      "intro": "전화번호를 확인하기 위해 단일 사용 코드를 보내 다음 화면에 입력하게 하겠습니다.",
+      "title": "일회용 비밀번호"
+    }
+  },
   "outro": {
     "body": "본인 인증 절차를 시작하기 위해 필요한 것은 이것이 다입니다",
     "body_government_letter": "최상의 결과를 위해 서류 전체 페이지를 제출하세요",
@@ -444,139 +505,139 @@
   "permission_recovery": {
     "android": {
       "device_settings": {
-        "list_item_1": "당신의 장치에서 설정 앱을 엽니다",
-        "list_item_2": "앱을 탭하세요",
-        "list_item_3": "[BROWSER_ICON]을 탭하세요. 찾을 수 없다면 모든 앱 보기 또는 앱 관리를 탭하고 브라우저 앱을 선택하세요.",
-        "list_item_4": "권한을 탭하세요",
-        "list_item_5_cam": "카메라를 탭하고 허용을 선택하세요",
-        "list_item_5_mic": "마이크를 탭하고 허용을 선택하세요",
-        "list_item_6": "이 페이지로 돌아와서 변경 사항을 적용했습니다 버튼을 누르세요"
+        "list_item_1": "당신의 장치에서 <strong>설정</strong> 앱을 엽니다",
+        "list_item_2": "<strong>앱</strong>을 탭하세요",
+        "list_item_3": "[BROWSER_ICON]을 탭하세요. 찾을 수 없다면 <strong>모든 앱 보기</strong> 또는 <strong>앱 관리</strong>를 탭하고 브라우저 앱을 선택하세요.",
+        "list_item_4": "<strong>권한</strong>을 탭하세요",
+        "list_item_5_cam": "<strong>카메라</strong>를 탭하고 <strong>허용</strong>을 선택하세요",
+        "list_item_5_mic": "<strong>마이크</strong>를 탭하고 <strong>허용</strong>을 선택하세요",
+        "list_item_6": "이 페이지로 돌아와서 <strong>변경 사항을 적용했습니다</strong> 버튼을 누르세요"
       }
     },
     "android_chrome": {
       "browser_settings": {
         "list_item_1": "브라우저에서 주소 표시 줄에 있는 자물쇠 아이콘 [LOCK_ICON]을 탭하세요",
-        "list_item_2": "권한을 탭하세요",
-        "list_item_3_cam": "카메라 옆의 토글을 활성화하세요",
-        "list_item_3_mic": "마이크 옆의 토글을 활성화하세요",
-        "list_item_4": "이 페이지로 돌아와서 변경 사항을 적용했습니다 버튼을 누르세요"
+        "list_item_2": "<strong>권한</strong>을 탭하세요",
+        "list_item_3_cam": "<strong>카메라</strong> 옆의 토글을 활성화하세요",
+        "list_item_3_mic": "<strong>마이크</strong> 옆의 토글을 활성화하세요",
+        "list_item_4": "이 페이지로 돌아와서 <strong>변경 사항을 적용했습니다</strong> 버튼을 누르세요"
       }
     },
     "android_firefox": {
       "browser_settings": {
         "list_item_1": "브라우저에서 주소 표시 줄에 있는 자물쇠 아이콘 [LOCK_ICON]을 탭하세요",
-        "list_item_2_cam": "차단 옆에 있는 카메라를 탭하여 허용으로 전환하세요.",
-        "list_item_2_mic": "마이크 옆에 있는 차단됨을 탭하여 허용됨으로 전환하세요",
-        "list_item_3": "이 페이지로 돌아와 변경 사항을 적용했습니다 버튼을 누르세요"
+        "list_item_2_cam": "<strong>차단</strong> 옆에 있는 <strong>카메라</strong>를 탭하여 <strong>허용</strong>으로 전환하세요.",
+        "list_item_2_mic": "<strong>마이크</strong> 옆에 있는 <strong>차단됨</strong>을 탭하여 <strong>허용됨</strong>으로 전환하세요",
+        "list_item_3": "이 페이지로 돌아와 <strong>변경 사항을 적용했습니다</strong> 버튼을 누르세요"
       }
     },
     "android_generic": {
       "browser_settings": {
         "list_item_1": "브라우저에서 웹사이트 설정을 엽니다. 이는 주소 표시 줄에 있는 자물쇠 아이콘 [LOCK_ICON]인 경우가 많습니다",
         "list_item_2": "권한에 대한 섹션을 찾으십시오",
-        "list_item_3_cam": "카메라 권한을 활성화하십시오",
-        "list_item_3_mic": "마이크 권한을 활성화하십시오",
-        "list_item_4": "이 페이지로 돌아와 변경 사항을 적용했습니다 버튼을 누르세요"
+        "list_item_3_cam": "<strong>카메라</strong> 권한을 활성화하십시오",
+        "list_item_3_mic": "<strong>마이크</strong> 권한을 활성화하십시오",
+        "list_item_4": "이 페이지로 돌아와 <strong>변경 사항을 적용했습니다</strong> 버튼을 누르세요"
       }
     },
     "android_samsung": {
       "browser_settings": {
         "list_item_1": "브라우저에서 주소 표시 줄에 있는 자물쇠 아이콘 [LOCK_ICON]을 탭하세요",
-        "list_item_2_cam": "카메라 옆의 토글을 활성화하세요",
-        "list_item_2_mic": "마이크 옆의 토글을 활성화하세요",
-        "list_item_3": "이 페이지로 돌아와 변경 사항을 적용했습니다 버튼을 누르세요"
+        "list_item_2_cam": "<strong>카메라</strong> 옆의 토글을 활성화하세요",
+        "list_item_2_mic": "<strong>마이크</strong> 옆의 토글을 활성화하세요",
+        "list_item_3": "이 페이지로 돌아와 <strong>변경 사항을 적용했습니다</strong> 버튼을 누르세요"
       }
     },
     "button_primary": "새로 고침",
     "desktop_chrome": {
       "browser_settings": {
         "list_item_1": "브라우저에서 주소 표시 줄에 있는 자물쇠 아이콘 [LOCK_ICON]을 클릭하세요",
-        "list_item_2_cam": "카메라 옆의 토글을 활성화하세요",
-        "list_item_2_mic": "마이크 옆의 토글을 활성화하세요",
-        "list_item_3": "이 페이지로 돌아와서 변경 사항을 적용했습니다 버튼을 클릭하세요"
+        "list_item_2_cam": "<strong>카메라</strong> 옆의 토글을 활성화하세요",
+        "list_item_2_mic": "<strong>마이크</strong> 옆의 토글을 활성화하세요",
+        "list_item_3": "이 페이지로 돌아와서 <strong>변경 사항을 적용했습니다</strong> 버튼을 클릭하세요"
       }
     },
     "desktop_edge": {
       "browser_settings": {
         "list_item_1": "브라우저에서 주소 표시 줄에 있는 자물쇠 아이콘 [LOCK_ICON]을 클릭하세요.",
-        "list_item_2_cam": "카메라 옆의 드롭다운을 클릭하고 허용을 선택하세요",
-        "list_item_2_mic": "마이크 옆의 드롭다운을 클릭하고 허용을 선택하세요",
-        "list_item_3": "이 페이지로 돌아와서 변경 사항을 적용했습니다 버튼을 클릭하세요"
+        "list_item_2_cam": "<strong>카메라</strong> 옆의 드롭다운을 클릭하고 <strong>허용</strong>을 선택하세요",
+        "list_item_2_mic": "<strong>마이크</strong> 옆의 드롭다운을 클릭하고 <strong>허용</strong>을 선택하세요",
+        "list_item_3": "이 페이지로 돌아와서 <strong>변경 사항을 적용했습니다</strong> 버튼을 클릭하세요"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
         "list_item_1": "브라우저에서 주소 표시 줄에 있는 설정 아이콘 [SETTINGS_ICON_FIREFOX]을 클릭하세요.",
-        "list_item_2_cam": "차단을 클릭하고 카메라 사용 옆에 있습니다",
-        "list_item_2_mic": "마이크 사용 옆에 있는 차단을 클릭하세요",
-        "list_item_3": "이 페이지로 돌아와서 변경 사항을 적용했습니다 버튼을 클릭하세요"
+        "list_item_2_cam": "<strong>차단</strong>을 클릭하고 <strong>카메라 사용</strong> 옆에 있습니다",
+        "list_item_2_mic": "<strong>마이크 사용</strong> 옆에 있는 <strong>차단</strong>을 클릭하세요",
+        "list_item_3": "이 페이지로 돌아와서 <strong>변경 사항을 적용했습니다</strong> 버튼을 클릭하세요"
       }
     },
     "desktop_generic": {
       "browser_settings": {
         "list_item_1": "브라우저에서 웹사이트 설정을 엽니다. 이는 주소 표시 줄에 있는 자물쇠 아이콘 [LOCK_ICON]인 경우가 많습니다",
         "list_item_2": "권한에 관한 섹션을 찾으십시오",
-        "list_item_3_cam": "카메라 권한을 활성화하십시오",
-        "list_item_3_mic": "마이크 권한을 활성화하십시오",
-        "list_item_4": "이 페이지로 돌아와 변경했습니다 버튼을 클릭하세요"
+        "list_item_3_cam": "<strong>카메라</strong> 권한을 활성화하십시오",
+        "list_item_3_mic": "<strong>마이크</strong> 권한을 활성화하십시오",
+        "list_item_4": "이 페이지로 돌아와 <strong>변경했습니다</strong> 버튼을 클릭하세요"
       },
       "device_settings": {
-        "list_item_1": "컴퓨터에서 설정을 엽니다",
-        "list_item_2": "(개인 정보 보호 보통 아래에 있는) 권한에 관한 섹션을 찾으십시오.",
-        "list_item_3_cam": "[BROWSER_ICON]에 대한 카메라 권한을 활성화하세요",
-        "list_item_3_mic": "[BROWSER_ICON]에 대한 마이크 권한을 활성화하세요.",
+        "list_item_1": "컴퓨터에서 <strong>설정</strong>을 엽니다",
+        "list_item_2": "(<strong>개인 정보 보호</strong> 보통 아래에 있는) 권한에 관한 섹션을 찾으십시오.",
+        "list_item_3_cam": "[BROWSER_ICON]에 대한 <strong>카메라</strong> 권한을 활성화하세요",
+        "list_item_3_mic": "[BROWSER_ICON]에 대한 <strong>마이크</strong> 권한을 활성화하세요.",
         "list_item_4": "필요한 경우 브라우저를 다시 시작하고 이 페이지로 돌아오세요"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "컴퓨터에서 Apple 메뉴 [APPLE_ICON]를 클릭하고 시스템 설정 또는 시스템 환경설정을 선택하세요.",
-        "list_item_2": "사이드바에서 개인정보 및 보안 (또는 보안 및 개인정보)를 클릭하세요 ",
-        "list_item_3": "팝업에서 나중에를 클릭하세요",
-        "list_item_3_cam": "카메라를 클릭하고 [BROWSER_ICON] 옆의 토글(또는 체크박스)을 활성화하세요.",
-        "list_item_4": "팝업에서 종료 후 다시 열기를 클릭하고 이 페이지로 돌아오세요",
-        "list_item_4_mic": "마이크를 클릭하고 [BROWSER_ICON] 옆의 토글(또는 체크박스)을 활성화하세요."
+        "list_item_1": "컴퓨터에서 Apple 메뉴 [APPLE_ICON]를 클릭하고 <strong>시스템 설정</strong> 또는 <strong>시스템 환경설정</strong>을 선택하세요.",
+        "list_item_2": "사이드바에서 <strong>개인정보 및 보안</strong> (또는 <strong>보안 및 개인정보</strong>)를 클릭하세요 ",
+        "list_item_3": "팝업에서 <strong>나중에</strong>를 클릭하세요",
+        "list_item_3_cam": "<strong>카메라</strong>를 클릭하고 [BROWSER_ICON] 옆의 토글(또는 체크박스)을 활성화하세요.",
+        "list_item_4": "팝업에서 <strong>종료 후 다시 열기</strong>를 클릭하고 이 페이지로 돌아오세요",
+        "list_item_4_mic": "<strong>마이크</strong>를 클릭하고 [BROWSER_ICON] 옆의 토글(또는 체크박스)을 활성화하세요."
       }
     },
     "desktop_safari": {
       "browser_settings": {
-        "list_item_1": "브라우저에서 주소 표시 줄을 마우스 오른쪽 버튼으로 클릭하고 설정을 선택하세요.",
-        "list_item_2_cam": "카메라 옆의 드롭다운을 클릭하고 허용을 선택하세요",
-        "list_item_2_mic": "마이크 옆의 드롭다운을 클릭하고 허용을 선택하세요",
-        "list_item_3": "이 페이지로 돌아와서 변경 사항을 적용했습니다 버튼을 클릭하세요"
+        "list_item_1": "브라우저에서 주소 표시 줄을 마우스 오른쪽 버튼으로 클릭하고 <strong>설정</strong>을 선택하세요.",
+        "list_item_2_cam": "<strong>카메라</strong> 옆의 드롭다운을 클릭하고 <strong>허용</strong>을 선택하세요",
+        "list_item_2_mic": "<strong>마이크</strong> 옆의 드롭다운을 클릭하고 <strong>허용</strong>을 선택하세요",
+        "list_item_3": "이 페이지로 돌아와서 <strong>변경 사항을 적용했습니다</strong> 버튼을 클릭하세요"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "컴퓨터에서 Windows 메뉴 [WINDOWS_ICON]를 클릭하고 설정 [SETTINGS_ICON_WINDOWS]을 선택하세요.",
-        "list_item_2": "개인정보 (또는 개인정보 & 보안)을 클릭하세요.",
-        "list_item_3_cam": "앱 권한 아래의 카메라를 클릭하고 [BROWSER_ICON] 옆의 토글을 활성화하세요 ",
-        "list_item_3_mic": "앱 권한 아래의 마이크를 클릭하고 [BROWSER_ICON] 옆의 토글을 활성화하세요.",
+        "list_item_1": "컴퓨터에서 Windows 메뉴 [WINDOWS_ICON]를 클릭하고 <strong>설정</strong> [SETTINGS_ICON_WINDOWS]을 선택하세요.",
+        "list_item_2": "<strong>개인정보</strong> (또는 <strong>개인정보 & 보안</strong>)을 클릭하세요.",
+        "list_item_3_cam": "<strong>앱 권한</strong> 아래의 <strong>카메라</strong>를 클릭하고 [BROWSER_ICON] 옆의 토글을 활성화하세요 ",
+        "list_item_3_mic": "<strong>앱 권한</strong> 아래의 <strong>마이크</strong>를 클릭하고 [BROWSER_ICON] 옆의 토글을 활성화하세요.",
         "list_item_4": "필요한 경우 브라우저를 다시 시작하고 이 페이지로 돌아오세요"
       }
     },
     "info": "복원",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "변경을 완료했습니다 버튼을 누르세요. 카메라와 마이크 접근을 다시 활성화하라는 요청이 나올 것입니다. 팝업이 나타나면, 허용 (또는 확인)을 선택하세요.",
-        "list_item_1_cam": "변경 사항을 적용했습니다 버튼을 누르세요. 다시 카메라 접근을 허용하라는 요청이 나올 것입니다. 팝업이 나타나면 허용 (또는 확인)을 선택하세요.",
-        "list_item_1_mic": "변경 사항을 적용했습니다 버튼을 누르세요. 마이크 접근 권한을 다시 활성화하라는 요청이 나올 것입니다. 팝업이 나타나면 허용 (또는 확인)을 선택하세요."
+        "list_item_1_both": "<strong>변경을 완료했습니다</strong> 버튼을 누르세요. 카메라와 마이크 접근을 다시 활성화하라는 요청이 나올 것입니다. 팝업이 나타나면, <strong>허용</strong> (또는 <strong>확인</strong>)을 선택하세요.",
+        "list_item_1_cam": "<strong>변경 사항을 적용했습니다</strong> 버튼을 누르세요. 다시 카메라 접근을 허용하라는 요청이 나올 것입니다. 팝업이 나타나면 <strong>허용</strong> (또는 <strong>확인</strong>)을 선택하세요.",
+        "list_item_1_mic": "<strong>변경 사항을 적용했습니다</strong> 버튼을 누르세요. 마이크 접근 권한을 다시 활성화하라는 요청이 나올 것입니다. 팝업이 나타나면 <strong>허용</strong> (또는 <strong>확인</strong>)을 선택하세요."
       },
       "device_settings": {
-        "list_item_1": "기기에서 설정 앱을 엽니다",
+        "list_item_1": "기기에서 <strong>설정</strong> 앱을 엽니다",
         "list_item_2": "목록을 스크롤하고 [BROWSER_ICON]을 탭하세요",
-        "list_item_3_cam": "카메라 옆의 토글을 활성화하세요",
-        "list_item_3_mic": "마이크 옆의 토글을 활성화하세요",
-        "list_item_4": "이 페이지로 돌아와서 변경 사항을 적용했습니다 버튼을 누르세요"
+        "list_item_3_cam": "<strong>카메라</strong> 옆의 토글을 활성화하세요",
+        "list_item_3_mic": "<strong>마이크</strong> 옆의 토글을 활성화하세요",
+        "list_item_4": "이 페이지로 돌아와서 <strong>변경 사항을 적용했습니다</strong> 버튼을 누르세요"
       }
     },
     "ios_safari": {
       "device_settings": {
-        "list_item_1": "기기에서 설정 앱을 엽니다",
+        "list_item_1": "기기에서 <strong>설정</strong> 앱을 엽니다",
         "list_item_2": "목록을 스크롤하고 [BROWSER_ICON]을 탭하세요",
-        "list_item_3_cam": "카메라를 탭하고 허용을 선택하세요",
-        "list_item_3_mic": "마이크를 탭하고 허용을 선택하세요",
-        "list_item_4": "이 페이지로 돌아와 변경 사항을 적용했습니다 버튼을 누르세요"
+        "list_item_3_cam": "<strong>카메라</strong>를 탭하고 <strong>허용</strong>을 선택하세요",
+        "list_item_3_mic": "<strong>마이크</strong>를 탭하고 <strong>허용</strong>을 선택하세요",
+        "list_item_4": "이 페이지로 돌아와 <strong>변경 사항을 적용했습니다</strong> 버튼을 누르세요"
       }
     },
     "list_header_both": "두 기능 모두에 대한 접근 권한을 복원하려면 다음 단계를 따르세요",
@@ -585,7 +646,7 @@
     "list_item_how_to_both": "브라우저 설정에서 카메라와 마이크에 대한 접근 권한을 부여하세요",
     "list_item_how_to_cam": "브라우저 설정에서 카메라 접근 권한을 부여하세요",
     "list_item_how_to_mic": "브라우저 설정에서 마이크에 대한 접근 권한을 부여하세요",
-    "subtitle_both": "동영상을 촬영하고 인증 절차를 완료하려면 카메라 및 마이크에 대한 접근 권한을 복원하세요",
+    "subtitle_both": "당신의 신원을 확인하기 위해 카메라와 마이크에 접근할 필요가 있습니다. 아래의 지시사항을 따라 접근을 복구하세요.",
     "subtitle_cam": "당신의 신원을 확인하기 위해 카메라에 접근할 필요가 있습니다. 아래의 지시사항을 따라 접근을 복구하십시오.",
     "subtitle_cam_old": "얼굴 인식 인증 절차를 계속하려면 카메라 접근 권한을 복원하세요",
     "subtitle_mic": "당신의 신원을 확인하기 위해 마이크에 접근할 필요가 있습니다. 아래의 지시사항을 따라 접근을 복구하세요.",
@@ -604,16 +665,27 @@
     }
   },
   "photo_upload": {
+    "body_address_certificate_back": "당신의 컴퓨터에서 문서의 뒷면을 업로드하세요",
+    "body_address_certificate_front": "당신의 컴퓨터에서 문서의 앞면을 업로드하세요",
     "body_bank_statement": "최상의 결과를 위해 서류 전체 페이지를 제출하세요",
     "body_benefits_letter": "최상의 결과를 위해 서류 전체 페이지를 제출하세요",
     "body_bill": "최상의 결과를 위해 서류 전체 페이지를 제출하세요",
+    "body_exchange_house_statement": "최상의 결과를 위해 전체 문서 페이지를 제공하십시오",
+    "body_general_letter": "최상의 결과를 얻으려면 전체 문서 페이지를 제공하십시오",
     "body_generic_document_back": "컴퓨터에서 서류 뒷면을 업로드하세요",
     "body_generic_document_front": "컴퓨터에서 서류 앞면을 업로드하세요",
     "body_id_back": "컴퓨터에서 신분증 뒷면 이미지를 업로드하세요",
     "body_id_front": "컴퓨터에서 신분증 앞면 이미지를 업로드하세요",
+    "body_identity_document_with_address": "최상의 결과를 얻기 위해 전체 문서 페이지를 제공하십시오",
+    "body_identity_document_with_address_back": "당신의 컴퓨터에서 문서의 뒷면을 업로드하세요",
+    "body_identity_document_with_address_front": "당신의 컴퓨터에서 문서의 앞면을 업로드하세요",
+    "body_insurance_statement": "최상의 결과를 위해 전체 문서 페이지를 제공하십시오",
     "body_license_back": "컴퓨터에서 면허증 뒷면 이미지를 업로드하세요",
     "body_license_front": "컴퓨터에서 면허증 앞면 이미지를 업로드하세요",
+    "body_mobile_phone_bill": "최상의 결과를 위해 전체 문서 페이지를 제공하십시오",
+    "body_mortgage_statement": "최상의 결과를 얻으려면 전체 문서 페이지를 제공하십시오",
     "body_passport": "컴퓨터에서 여권의 사진 부착 면 이미지를 업로드하세요",
+    "body_pension_property_statement_letter": "최상의 결과를 얻으려면 전체 문서 페이지를 제공하십시오",
     "body_selfie": "컴퓨터에서 셀카 사진을 업로드하세요",
     "body_tax_letter": "최상의 결과를 위해 서류 전체 페이지를 제출하세요",
     "button_take_photo": "사진 촬영",
@@ -642,6 +714,8 @@
     "subtitle_bank_statement": "반드시 ​​최근 3개월​​ 이내에 발급된 청구서여야 합니다",
     "subtitle_benefits_letter": "반드시 ​​최근 12개월​​ 이내에 발급된 정부 서신이어야 합니다",
     "subtitle_bill": "반드시 ​​최근 3개월​​ 이내에 발급된 청구서여야 합니다",
+    "subtitle_dynamic_empty_grace_period": "유효한 문서여야 합니다",
+    "subtitle_dynamic_grace_period": "최근 <graceperiod></graceperiod> 개월 이내에 발행되어야 합니다",
     "subtitle_tax_letter": "반드시 ​​최근 12개월​​ 이내에 발급된 정부 서신이어야 합니다"
   },
   "poa_intro": {
@@ -952,6 +1026,51 @@
       "details_timeout": "다시 시작하기",
       "header_timeout": "진행 과정에서 시간이 너무 지체된 것 같습니다"
     }
+  },
+  "qes": {
+    "consent": {
+      "common": {
+        "steps": "서명을 생성하세요"
+      },
+      "confirmation": {
+        "bullet_1": "당신의 문서를 읽은 후에는 \"문서 서명\" 버튼을 누르세요.",
+        "bullet_2": "Onfido가 귀하의 신원을 확인하면, 이 문서에 귀하의 서명이 사용됩니다.",
+        "button_next_step": "문서 서명",
+        "review_document": "서명하기 위해 <fallback>문서를</fallback> 검토하십시오",
+        "step2": "2 중 2",
+        "steps": "당신의 문서에 서명하세요",
+        "subtitle": "유럽 규정에 따라 본인 확인을 위해 문서에 디지털 서명을 해야 합니다.",
+        "title": "디지털 서명을 생성하고 사용하세요"
+      },
+      "introduction": {
+        "button_confirmation_step": "나의 서명 만들기",
+        "certificate_application_form": "증명서 신청 양식",
+        "privacy_notice": "개인정보 보호 공지",
+        "step1": "2 중 1",
+        "subtitle": "유럽 규정에 따라 본인 확인을 위해 문서에 디지털 서명을 해야 합니다.",
+        "terms_and_conditions": "이용 약관",
+        "third_party_description": "<fallback>Namirial SpA</fallback>는 전자 서명을 확인하는 인증서를 발급하는 신뢰할 수 있는 글로벌 공급자입니다.",
+        "title": "디지털 서명을 생성하고 사용하세요"
+      }
+    }
+  },
+  "qes_consent": {
+    "button": "나의 서명 생성하기",
+    "link_certificate": "인증서 신청 양식",
+    "link_privacy_notice": "개인정보 보호 공지",
+    "link_terms_and_conditions": "이용 약관",
+    "namirial_intro": "Namirial SpA는 전자 서명을 확인하는 인증서를 발급하는 신뢰할 수 있는 글로벌 공급자입니다.",
+    "subtitle": "유럽 규정에 따라 본인 확인을 위해 문서에 디지털 서명을 해야 합니다.",
+    "title": "디지털 서명을 생성하고 사용하세요"
+  },
+  "qes_sign": {
+    "button": "문서 서명",
+    "link_document": "서명할 문서를 검토하세요",
+    "list_item_1": "문서를 읽은 후 \"문서 서명\" 버튼을 누르세요.",
+    "list_item_2": "Onfido가 귀하의 신원을 확인하면, 이 문서에 귀하의 서명이 사용됩니다.",
+    "step_title": "문서에 서명하십시오",
+    "subtitle": "유럽 규정에 따라 본인 확인을 위해 문서에 디지털 서명을 해야 합니다.",
+    "title": "디지털 서명을 생성하고 사용하세요"
   },
   "retry_feedback": {
     "button_primary": "다시 시도하기"

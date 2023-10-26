@@ -188,15 +188,23 @@
       "odp_screenshot_title": "スクリーンショットが検出されました"
     },
     "body": "ドキュメントページ全体をアップロードしており、ぼかしや照り返しがなく、詳細がはっきりしていることを確認してください",
+    "body_address_certificate": "ドキュメントの全ページがアップロードされていること、そして詳細がはっきりと読め、ぼやけや眩しさがないことを確認してください",
     "body_bank_statement": "ドキュメントページ全体をアップロードしており、ぼかしや照り返しがなく、詳細がはっきりしていることを確認してください",
     "body_benefits_letter": "ドキュメントページ全体をアップロードしており、ぼかしや照り返しがなく、詳細がはっきりしていることを確認してください",
     "body_bill": "ドキュメントページ全体をアップロードしており、ぼかしや照り返しがなく、詳細がはっきりしていることを確認してください",
+    "body_exchange_house_statement": "全体のドキュメントページがアップロードされていること、そして詳細がぼやけたり、眩しさがないように読みやすいことを確認してください",
+    "body_general_letter": "全体のドキュメントページがアップロードされていること、そして詳細がぼやけたり、グレアがないように読みやすいことを確認してください",
     "body_generic_document": "詳細が明確で遮られていないことを確認してください",
     "body_id": "詳細が明確で遮られていないことを確認してください",
+    "body_identity_document_with_address": "全体のドキュメントページがアップロードされていること、そして詳細がぼやけたり、眩しさがないように読みやすいことを確認してください",
     "body_image_medium": "確認できない場合、認証に時間がかかります",
     "body_image_poor": "ご本人確認をスムーズに行うには、より良い写真が必要です",
+    "body_insurance_statement": "全体のドキュメントページがアップロードされていること、そして詳細がぼやけたり、眩しさがないように読みやすいことを確認してください",
     "body_license": "詳細が明確で遮られていないことを確認してください",
+    "body_mobile_phone_bill": "全体のドキュメントページがアップロードされていること、そして詳細がぼやけたり、眩しさがないように読みやすいことを確認してください",
+    "body_mortgage_statement": "全体のドキュメントページがアップロードされていること、そして詳細がぼやけたり、グレアがないように読みやすいことを確認してください",
     "body_passport": "詳細が明確で遮られていないことを確認してください",
+    "body_pension_property_statement_letter": "全体のドキュメントページがアップロードされていること、そして詳細がぼやけたり、眩しさがないように読みやすいことを確認してください",
     "body_permit": "詳細が明確で遮られていないことを確認してください",
     "body_tax_letter": "ドキュメントページ全体をアップロードしており、ぼかしや照り返しがなく、詳細がはっきりしていることを確認してください",
     "button_close": "閉じる",
@@ -217,21 +225,39 @@
   },
   "doc_select": {
     "button_address_card": "住所カード",
+    "button_address_card_back": "住所カード（裏面）",
     "button_address_card_detail": "仮カードと永久カードが利用可能です",
+    "button_address_card_front": "アドレスカード（表）",
     "button_bank_statement": "銀行または住宅金融組合の明細書",
     "button_bank_statement_non_uk": "銀行取引明細書",
     "button_benefits_letter": "特典レター",
     "button_benefits_letter_detail": "政府が認可した家計給付など求職者手当、住宅給付、税額控除",
     "button_bill": "公共料金請求書",
     "button_bill_detail": "ガス、電気、水道、固定電話、ブロードバンド",
+    "button_exchange_house_statement": "エクスチェンジハウスステートメント",
+    "button_exchange_house_statement_detail": "送金または送金の送信者声明",
+    "button_general_letter": "一般的な手紙",
+    "button_general_letter_detail": "金融機関または公益事業会社からの書簡",
     "button_government_letter": "政府発行の手紙",
     "button_government_letter_detail": "政府が発行した手紙（例：給付金の権利、投票用紙、納税用紙など）",
     "button_id": "身分証明書",
     "button_id_detail": "表面と裏面",
+    "button_identity_document_with_address": "住所付き身分証明書",
+    "button_identity_document_with_address_back": "住所付き身分証明書（裏面）",
+    "button_identity_document_with_address_detail": "政府機関によって発行された",
+    "button_identity_document_with_address_front": "住所付き身分証明書（表）",
+    "button_insurance_statement": "保険明細書",
+    "button_insurance_statement_detail": "プライヴェート保険またはブローカー会社から発行された",
     "button_license": "運転免許証",
     "button_license_detail": "表面と裏面",
+    "button_mobile_phone_bill": "携帯電話の請求書",
+    "button_mobile_phone_bill_detail": "携帯電話ネットワークプロバイダから発行されました",
+    "button_mortgage_statement": "住宅ローン明細書",
+    "button_mortgage_statement_detail": "金融貸付機関から発行された",
     "button_passport": "パスポート",
     "button_passport_detail": "写真ページ",
+    "button_pension_property_statement_letter": "年金または財産の声明/手紙",
+    "button_pension_property_statement_letter_detail": "年金の明細書または書簡、および不動産税の明細書または書簡",
     "button_permit": "在留許可証",
     "button_permit_detail": "表面と裏面",
     "button_tax_letter": "地方税書類",
@@ -258,17 +284,29 @@
     "button_link_upload": "または写真をアップロードする（スキャンやコピーはできません）",
     "button_primary": "スマートフォンで続行",
     "subtitle": "携帯電話で写真を撮る",
+    "title_address_certificate": "住所カードを提出する",
+    "title_address_certificate_back": "住所カード（裏面）を提出する",
+    "title_address_certificate_front": "住所カード（表）を提出してください",
     "title_bank_statement": "明細書を送信",
     "title_benefits_letter": "手紙を送信",
     "title_bill": "請求書を送信",
+    "title_exchange_house_statement": "両替所の明細を提出する",
+    "title_general_letter": "一般的な手紙を提出する",
     "title_generic_document_back": "ドキュメント（裏面）を送信",
     "title_generic_document_front": "ドキュメント（前面）を送信",
     "title_government_letter": "政府発行の手紙",
     "title_id_back": "身分証明書を提出する（裏面）",
     "title_id_front": "身分証明書を提出する（表）",
+    "title_identity_document_with_address": "住所付きの身分証明書を提出してください",
+    "title_identity_document_with_address_back": "住所記載の身分証明書（裏面）を提出してください",
+    "title_identity_document_with_address_front": "住所付き身分証明書（表面）を提出してください",
+    "title_insurance_statement": "保険申告書を提出する",
     "title_license_back": "免許証を提出する（裏面）",
     "title_license_front": "免許証を提出する（前面）",
+    "title_mobile_phone_bill": "携帯電話の請求書を提出する",
+    "title_mortgage_statement": "住宅ローンの明細書を提出する",
     "title_passport": "パスポートの写真ページを送信する",
+    "title_pension_property_statement_letter": "ステートメントまたはレターを提出する",
     "title_permit_back": "在留許可証を提出する（裏面）",
     "title_permit_front": "在留許可証を提出する（表面）",
     "title_tax_letter": "手紙を送信"
@@ -422,6 +460,29 @@
       "success": "スキャンに成功"
     }
   },
+  "otp": {
+    "code_input": {
+      "error": {
+        "technical": "技術的なエラーが発生しました、後で再試行してください",
+        "wrong_code": "間違ったコードが入力されました、もう一度お試しください"
+      },
+      "intro": "あなたの電話番号に送信されたコードは5分間有効です",
+      "resend": {
+        "cta": "再送",
+        "label": "(最大{limit}まで)送信されたコード"
+      },
+      "title": "ワンタイムパスワード"
+    },
+    "send_code": {
+      "cta": "コードを送信",
+      "error": {
+        "limit": "送信SMSの上限に達しました",
+        "technical": "技術的なエラーが発生しました、後で再試行してください"
+      },
+      "intro": "電話番号を確認するために、次の画面で入力するための一回限りのコードを送信します。",
+      "title": "ワンタイムパスワード"
+    }
+  },
   "outro": {
     "body": "本人確認を開始するために必要なお手続きは以上です",
     "body_government_letter": "最高の結果が得られるよう、ドキュメントページの全体を写してください",
@@ -444,139 +505,139 @@
   "permission_recovery": {
     "android": {
       "device_settings": {
-        "list_item_1": "お使いのデバイスで、設定アプリを開きます",
-        "list_item_2": "アプリをタップします",
-        "list_item_3": "[BROWSER_ICON]をタップします。見つからない場合は、すべてのアプリを見るまたはアプリを管理するをタップし、ブラウザアプリを選択します",
-        "list_item_4": "権限をタップします",
-        "list_item_5_cam": "カメラをタップし、許可を選択します",
-        "list_item_5_mic": "マイクをタップし、許可を選択します",
-        "list_item_6": "このページに戻って、変更を行いましたボタンをタップしてください"
+        "list_item_1": "お使いのデバイスで、<strong>設定</strong>アプリを開きます",
+        "list_item_2": "<strong>アプリ</strong>をタップします",
+        "list_item_3": "[BROWSER_ICON]をタップします。見つからない場合は、<strong>すべてのアプリを見る</strong>または<strong>アプリを管理する</strong>をタップし、ブラウザアプリを選択します",
+        "list_item_4": "<strong>権限</strong>をタップします",
+        "list_item_5_cam": "<strong>カメラ</strong>をタップし、<strong>許可</strong>を選択します",
+        "list_item_5_mic": "<strong>マイク</strong>をタップし、<strong>許可</strong>を選択します",
+        "list_item_6": "このページに戻って、<strong>変更を行いました</strong>ボタンをタップしてください"
       }
     },
     "android_chrome": {
       "browser_settings": {
         "list_item_1": "ブラウザで、アドレスバーにあるロックアイコン[LOCK_ICON]をタップします",
-        "list_item_2": "権限をタップします",
-        "list_item_3_cam": "カメラの隣にあるトグルを有効にしてください",
-        "list_item_3_mic": "マイクの隣にあるトグルを有効にしてください",
-        "list_item_4": "このページに戻って、変更を行いましたボタンをタップしてください"
+        "list_item_2": "<strong>権限</strong>をタップします",
+        "list_item_3_cam": "<strong>カメラ</strong>の隣にあるトグルを有効にしてください",
+        "list_item_3_mic": "<strong>マイク</strong>の隣にあるトグルを有効にしてください",
+        "list_item_4": "このページに戻って、<strong>変更を行いました</strong>ボタンをタップしてください"
       }
     },
     "android_firefox": {
       "browser_settings": {
         "list_item_1": "ブラウザで、アドレスバーにあるロックアイコン[LOCK_ICON]をタップします",
-        "list_item_2_cam": "ブロックの隣のカメラをタップして、許可に切り替えます",
-        "list_item_2_mic": "ブロックの隣のマイクをタップして、許可に切り替えます",
-        "list_item_3": "このページに戻って、変更を行いましたボタンをタップしてください"
+        "list_item_2_cam": "<strong>ブロック</strong>の隣の<strong>カメラ</strong>をタップして、<strong>許可</strong>に切り替えます",
+        "list_item_2_mic": "<strong>ブロック</strong>の隣の<strong>マイク</strong>をタップして、<strong>許可</strong>に切り替えます",
+        "list_item_3": "このページに戻って、<strong>変更を行いました</strong>ボタンをタップしてください"
       }
     },
     "android_generic": {
       "browser_settings": {
         "list_item_1": "ブラウザでウェブサイトの設定を開きます。これは通常、アドレスバーにあるロックアイコン[LOCK_ICON]です",
         "list_item_2": "パーミッションに関するセクションを探す",
-        "list_item_3_cam": "カメラの権限を有効にする",
-        "list_item_3_mic": "マイクの権限を有効にする",
-        "list_item_4": "このページに戻って、変更を行いましたボタンをタップしてください"
+        "list_item_3_cam": "<strong>カメラ</strong>の権限を有効にする",
+        "list_item_3_mic": "<strong>マイク</strong>の権限を有効にする",
+        "list_item_4": "このページに戻って、<strong>変更を行いました</strong>ボタンをタップしてください"
       }
     },
     "android_samsung": {
       "browser_settings": {
         "list_item_1": "ブラウザで、アドレスバーにあるロックアイコン[LOCK_ICON]をタップします",
-        "list_item_2_cam": "カメラの隣にあるトグルを有効にしてください",
-        "list_item_2_mic": "マイクの隣にあるトグルを有効にしてください",
-        "list_item_3": "このページに戻って、変更を行いましたボタンをタップしてください"
+        "list_item_2_cam": "<strong>カメラ</strong>の隣にあるトグルを有効にしてください",
+        "list_item_2_mic": "<strong>マイク</strong>の隣にあるトグルを有効にしてください",
+        "list_item_3": "このページに戻って、<strong>変更を行いました</strong>ボタンをタップしてください"
       }
     },
     "button_primary": "更新",
     "desktop_chrome": {
       "browser_settings": {
         "list_item_1": "ブラウザで、アドレスバーにあるロックアイコン [LOCK_ICON] をクリックしてください",
-        "list_item_2_cam": "カメラの隣にあるトグルを有効にしてください",
-        "list_item_2_mic": "マイクの隣にあるトグルを有効にしてください",
-        "list_item_3": "このページに戻って、変更を行いましたボタンをクリックしてください"
+        "list_item_2_cam": "<strong>カメラ</strong>の隣にあるトグルを有効にしてください",
+        "list_item_2_mic": "<strong>マイク</strong>の隣にあるトグルを有効にしてください",
+        "list_item_3": "このページに戻って、<strong>変更を行いました</strong>ボタンをクリックしてください"
       }
     },
     "desktop_edge": {
       "browser_settings": {
         "list_item_1": "ブラウザで、アドレスバーにあるロックアイコン [LOCK_ICON] をクリックしてください",
-        "list_item_2_cam": "カメラの隣のドロップダウンをクリックし、許可を選択します",
-        "list_item_2_mic": "マイクの隣のドロップダウンをクリックし、許可を選択します",
-        "list_item_3": "このページに戻って、変更を行いましたボタンをクリックしてください"
+        "list_item_2_cam": "<strong>カメラ</strong>の隣のドロップダウンをクリックし、<strong>許可</strong>を選択します",
+        "list_item_2_mic": "<strong>マイク</strong>の隣のドロップダウンをクリックし、<strong>許可</strong>を選択します",
+        "list_item_3": "このページに戻って、<strong>変更を行いました</strong>ボタンをクリックしてください"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
         "list_item_1": "ブラウザで、アドレスバーにある設定アイコン [SETTINGS_ICON_FIREFOX] をクリックします",
-        "list_item_2_cam": "ブロックをクリックし、カメラを使用の隣にある",
-        "list_item_2_mic": "ブロックをクリックし、マイクを使用するの隣にある",
-        "list_item_3": "このページに戻って、変更を行いましたボタンをクリックしてください"
+        "list_item_2_cam": "<strong>ブロック</strong>をクリックし、<strong>カメラを使用</strong>の隣にある",
+        "list_item_2_mic": "<strong>ブロック</strong>をクリックし、<strong>マイクを使用する</strong>の隣にある",
+        "list_item_3": "このページに戻って、<strong>変更を行いました</strong>ボタンをクリックしてください"
       }
     },
     "desktop_generic": {
       "browser_settings": {
         "list_item_1": "ブラウザでウェブサイトの設定を開きます。これは通常、アドレスバーにあるロックアイコン[LOCK_ICON]です",
         "list_item_2": "パーミッションに関するセクションを探してください",
-        "list_item_3_cam": "カメラの権限を有効にする",
-        "list_item_3_mic": "マイクの権限を有効にする",
-        "list_item_4": "このページに戻り、変更しましたボタンをクリックしてください"
+        "list_item_3_cam": "<strong>カメラ</strong>の権限を有効にする",
+        "list_item_3_mic": "<strong>マイク</strong>の権限を有効にする",
+        "list_item_4": "このページに戻り、<strong>変更しました</strong>ボタンをクリックしてください"
       },
       "device_settings": {
-        "list_item_1": "コンピュータで設定を開きます",
-        "list_item_2": "パーミッションに関するセクションを見つけてください（通常はプライバシーの下にあります）",
-        "list_item_3_cam": "[BROWSER_ICON]のカメラ権限を有効にしてください",
-        "list_item_3_mic": "[BROWSER_ICON]のマイクの権限を有効にしてください",
+        "list_item_1": "コンピュータで<strong>設定</strong>を開きます",
+        "list_item_2": "パーミッションに関するセクションを見つけてください（通常は<strong>プライバシー</strong>の下にあります）",
+        "list_item_3_cam": "[BROWSER_ICON]の<strong>カメラ</strong>権限を有効にしてください",
+        "list_item_3_mic": "[BROWSER_ICON]の<strong>マイク</strong>の権限を有効にしてください",
         "list_item_4": "必要であればブラウザを再起動し、このページに戻ってきてください"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "お使いのコンピュータで、Appleメニュー[APPLE_ICON]をクリックし、システム設定（またはシステム環境設定）を選択します",
-        "list_item_2": "サイドバーでプライバシー＆セキュリティ（またはセキュリティ＆プライバシー）をクリックします",
-        "list_item_3": "ポップアップで後でをクリックしてください",
-        "list_item_3_cam": "カメラをクリックし、[BROWSER_ICON]の隣にあるトグル（またはチェックボックス）を有効にしてください",
-        "list_item_4": "ポップアップで終了して再開をクリックし、このページに戻ってきてください",
-        "list_item_4_mic": "マイクロフォンをクリックし、[BROWSER_ICON]の隣にあるトグル（またはチェックボックス）を有効にします"
+        "list_item_1": "お使いのコンピュータで、Appleメニュー[APPLE_ICON]をクリックし、<strong>システム設定</strong>（または<strong>システム環境設定</strong>）を選択します",
+        "list_item_2": "サイドバーで<strong>プライバシー＆セキュリティ</strong>（または<strong>セキュリティ＆プライバシー</strong>）をクリックします",
+        "list_item_3": "ポップアップで<strong>後で</strong>をクリックしてください",
+        "list_item_3_cam": "<strong>カメラ</strong>をクリックし、[BROWSER_ICON]の隣にあるトグル（またはチェックボックス）を有効にしてください",
+        "list_item_4": "ポップアップで<strong>終了して再開</strong>をクリックし、このページに戻ってきてください",
+        "list_item_4_mic": "<strong>マイクロフォン</strong>をクリックし、[BROWSER_ICON]の隣にあるトグル（またはチェックボックス）を有効にします"
       }
     },
     "desktop_safari": {
       "browser_settings": {
-        "list_item_1": "ブラウザで、アドレスバーを右クリックし、設定を選択します",
-        "list_item_2_cam": "カメラの隣のドロップダウンをクリックし、許可を選択します",
-        "list_item_2_mic": "マイクの隣のドロップダウンをクリックし、許可を選択します",
-        "list_item_3": "このページに戻って、変更を行いましたボタンをクリックしてください"
+        "list_item_1": "ブラウザで、アドレスバーを右クリックし、<strong>設定</strong>を選択します",
+        "list_item_2_cam": "<strong>カメラ</strong>の隣のドロップダウンをクリックし、<strong>許可</strong>を選択します",
+        "list_item_2_mic": "<strong>マイク</strong>の隣のドロップダウンをクリックし、<strong>許可</strong>を選択します",
+        "list_item_3": "このページに戻って、<strong>変更を行いました</strong>ボタンをクリックしてください"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "お使いのコンピューターで、Windowsメニュー [WINDOWS_ICON] をクリックし、設定 [SETTINGS_ICON_WINDOWS] を選択します",
-        "list_item_2": "プライバシー（またはプライバシー & セキュリティ）をクリックしてください",
-        "list_item_3_cam": "アプリの権限の下のカメラをクリックし、[BROWSER_ICON]の隣にあるトグルを有効にします",
-        "list_item_3_mic": "アプリの権限の下のマイクをクリックし、[BROWSER_ICON]の隣のトグルを有効にします",
+        "list_item_1": "お使いのコンピューターで、Windowsメニュー [WINDOWS_ICON] をクリックし、<strong>設定</strong> [SETTINGS_ICON_WINDOWS] を選択します",
+        "list_item_2": "<strong>プライバシー</strong>（または<strong>プライバシー & セキュリティ</strong>）をクリックしてください",
+        "list_item_3_cam": "<strong>アプリの権限</strong>の下の<strong>カメラ</strong>をクリックし、[BROWSER_ICON]の隣にあるトグルを有効にします",
+        "list_item_3_mic": "<strong>アプリの権限</strong>の下の<strong>マイク</strong>をクリックし、[BROWSER_ICON]の隣のトグルを有効にします",
         "list_item_4": "必要であればブラウザを再起動し、このページに戻ってきてください"
       }
     },
     "info": "回復",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "変更を行いましたボタンをタップします。再度、カメラとマイクのアクセスを許可するように求められます。ポップアップが表示されたら、許可する（またはOK）を選択します。",
-        "list_item_1_cam": "変更を行いましたボタンをタップします。再度カメラへのアクセスを許可するように求められます。ポップアップが表示されたら、許可する（またはOK）を選択します。",
-        "list_item_1_mic": "変更を行いましたボタンをタップします。再度マイクへのアクセスを許可するように求められます。ポップアップが表示されたら、許可する（またはOK）を選択します。"
+        "list_item_1_both": "<strong>変更を行いました</strong>ボタンをタップします。再度、カメラとマイクのアクセスを許可するように求められます。ポップアップが表示されたら、<strong>許可する</strong>（または<strong>OK</strong>）を選択します。",
+        "list_item_1_cam": "<strong>変更を行いました</strong>ボタンをタップします。再度カメラへのアクセスを許可するように求められます。ポップアップが表示されたら、<strong>許可する</strong>（または<strong>OK</strong>）を選択します。",
+        "list_item_1_mic": "<strong>変更を行いました</strong>ボタンをタップします。再度マイクへのアクセスを許可するように求められます。ポップアップが表示されたら、<strong>許可する</strong>（または<strong>OK</strong>）を選択します。"
       },
       "device_settings": {
-        "list_item_1": "お使いのデバイスで、設定アプリを開きます",
+        "list_item_1": "お使いのデバイスで、<strong>設定</strong>アプリを開きます",
         "list_item_2": "リストをスクロールして、[BROWSER_ICON]をタップします",
-        "list_item_3_cam": "カメラの隣にあるトグルを有効にしてください",
-        "list_item_3_mic": "マイクの隣にあるトグルを有効にしてください",
-        "list_item_4": "このページに戻って、変更を行いましたボタンをタップしてください"
+        "list_item_3_cam": "<strong>カメラ</strong>の隣にあるトグルを有効にしてください",
+        "list_item_3_mic": "<strong>マイク</strong>の隣にあるトグルを有効にしてください",
+        "list_item_4": "このページに戻って、<strong>変更を行いました</strong>ボタンをタップしてください"
       }
     },
     "ios_safari": {
       "device_settings": {
-        "list_item_1": "お使いのデバイスで、設定アプリを開きます",
+        "list_item_1": "お使いのデバイスで、<strong>設定</strong>アプリを開きます",
         "list_item_2": "リストをスクロールして、[BROWSER_ICON]をタップします",
-        "list_item_3_cam": "カメラをタップし、許可を選択します",
-        "list_item_3_mic": "マイクをタップし、許可を選択します",
-        "list_item_4": "このページに戻って、変更を行いましたボタンをタップしてください"
+        "list_item_3_cam": "<strong>カメラ</strong>をタップし、<strong>許可</strong>を選択します",
+        "list_item_3_mic": "<strong>マイク</strong>をタップし、<strong>許可</strong>を選択します",
+        "list_item_4": "このページに戻って、<strong>変更を行いました</strong>ボタンをタップしてください"
       }
     },
     "list_header_both": "両方へのアクセスを回復する方法は次のとおりです。",
@@ -585,7 +646,7 @@
     "list_item_how_to_both": "ブラウザの設定からカメラとマイクへのアクセスを許可する",
     "list_item_how_to_cam": "ブラウザの設定からカメラへのアクセスを許可する",
     "list_item_how_to_mic": "ブラウザの設定からマイクへのアクセスを許可する",
-    "subtitle_both": "カメラとマイクへのアクセスを回復して動画を撮影し、認証プロセスを完了します",
+    "subtitle_both": "あなたの身元を確認するために、カメラとマイクへのアクセスが必要です。以下の指示に従ってアクセスを回復してください",
     "subtitle_cam": "あなたの身元を確認するために、カメラへのアクセスが必要です。以下の指示に従ってアクセスを回復してください。",
     "subtitle_cam_old": "カメラへのアクセスを回復して顔認証を続行する",
     "subtitle_mic": "あなたの身元を確認するために、マイクへのアクセスが必要です。以下の指示に従ってアクセスを回復してください。",
@@ -604,16 +665,27 @@
     }
   },
   "photo_upload": {
+    "body_address_certificate_back": "あなたのコンピュータから文書の裏面をアップロードしてください",
+    "body_address_certificate_front": "あなたのコンピュータから文書の表面をアップロードしてください",
     "body_bank_statement": "最高の結果が得られるよう、ドキュメントページの全体を写してください",
     "body_benefits_letter": "最高の結果が得られるよう、ドキュメントページの全体を写してください",
     "body_bill": "最高の結果が得られるよう、ドキュメントページの全体を写してください",
+    "body_exchange_house_statement": "最良の結果を得るために、ドキュメントの全ページを提供してください",
+    "body_general_letter": "最良の結果を得るために、ドキュメントの全ページを提供してください",
     "body_generic_document_back": "パソコンからドキュメントの裏面をアップロード",
     "body_generic_document_front": "パソコンからドキュメントの前面をアップロード",
     "body_id_back": "パソコンからカードの裏面をアップロードする",
     "body_id_front": "パソコンから免許証の前面をアップロードする",
+    "body_identity_document_with_address": "最良の結果を得るために、ドキュメントの全ページを提供してください",
+    "body_identity_document_with_address_back": "あなたのコンピュータから文書の裏面をアップロードしてください",
+    "body_identity_document_with_address_front": "あなたのコンピュータから文書の表面をアップロードしてください",
+    "body_insurance_statement": "最良の結果を得るために、ドキュメントの全ページを提供してください",
     "body_license_back": "パソコンから免許証の裏面をアップロードする",
     "body_license_front": "パソコンから免許証の前面をアップロードする",
+    "body_mobile_phone_bill": "最良の結果を得るために、ドキュメントの全ページを提供してください",
+    "body_mortgage_statement": "最良の結果を得るために、ドキュメントの全ページを提供してください",
     "body_passport": "パソコンからパスポートの写真ページをアップロードする",
+    "body_pension_property_statement_letter": "最良の結果を得るために、ドキュメントの全ページを提供してください",
     "body_selfie": "パソコンから自撮り写真をアップロードする",
     "body_tax_letter": "最高の結果が得られるよう、ドキュメントページの全体を写してください",
     "button_take_photo": "写真を撮る",
@@ -642,7 +714,9 @@
     "subtitle_bank_statement": "過去3か月以内に発行されたものである必要があります",
     "subtitle_benefits_letter": "​​過去3か月​​以内に発行されたものである必要があります",
     "subtitle_bill": "​​過去3か月​​以内に発行されたものである必要があります",
-    "subtitle_tax_letter": "​​過去3か月​​以内に発行されたものである必要があります"
+    "subtitle_dynamic_empty_grace_period": "有効なドキュメントでなければなりません",
+    "subtitle_dynamic_grace_period": "最後の<graceperiod></graceperiod>ヶ月以内に発行する必要があります",
+    "subtitle_tax_letter": "​過去3か月​​以内に発行されたものである必要があります"
   },
   "poa_intro": {
     "button_primary": "認証を開始",
@@ -952,6 +1026,51 @@
       "details_timeout": "やり直す",
       "header_timeout": "時間がかかりすぎたようです"
     }
+  },
+  "qes": {
+    "consent": {
+      "common": {
+        "steps": "あなたの署名を作成する"
+      },
+      "confirmation": {
+        "bullet_1": "あなたのドキュメントを読んだ後、「ドキュメントに署名する」ボタンをタップしてください。",
+        "bullet_2": "Onfidoがあなたの身元を確認すると、あなたの署名がこの文書に使用されます。",
+        "button_next_step": "文書に署名する",
+        "review_document": "署名するために<fallback>あなたのドキュメント</fallback>をレビューしてください",
+        "step2": "2つ中の2つ",
+        "steps": "あなたの文書に署名してください",
+        "subtitle": "ヨーロッパの規則に従ってあなたの身元を確認するために、文書にデジタル署名をする必要があります。",
+        "title": "デジタル署名を作成して使用する"
+      },
+      "introduction": {
+        "button_confirmation_step": "私の署名を作成する",
+        "certificate_application_form": "証明書申請書",
+        "privacy_notice": "プライバシー通知",
+        "step1": "2つのうち1つ",
+        "subtitle": "ヨーロッパの規則に従ってあなたの身元を確認するために、文書にデジタル署名をする必要があります。",
+        "terms_and_conditions": "利用規約",
+        "third_party_description": "<fallback>Namirial SpA</fallback>は、あなたの電子署名の検証証明書を発行する信頼できるグローバルプロバイダーです。",
+        "title": "デジタル署名を作成して使用する"
+      }
+    }
+  },
+  "qes_consent": {
+    "button": "私の署名を作成する",
+    "link_certificate": "証明書申請書",
+    "link_privacy_notice": "プライバシー通知",
+    "link_terms_and_conditions": "利用規約と条件",
+    "namirial_intro": "Namirial SpAは、あなたの電子署名の検証を行う信頼できるグローバルプロバイダーです。",
+    "subtitle": "ヨーロッパの規則に従ってあなたの身元を確認するために、文書にデジタル署名をする必要があります。",
+    "title": "デジタル署名を作成して使用する"
+  },
+  "qes_sign": {
+    "button": "ドキュメントに署名する",
+    "link_document": "署名するためのドキュメントを確認してください",
+    "list_item_1": "あなたのドキュメントを読んだ後、「ドキュメントに署名する」ボタンをタップしてください。",
+    "list_item_2": "Onfidoがあなたの身元を確認すると、この文書にあなたの署名が使用されます。",
+    "step_title": "あなたのドキュメントに署名してください",
+    "subtitle": "ヨーロッパの規則に従ってあなたの身元を確認するために、文書にデジタル署名をする必要があります。",
+    "title": "デジタル署名を作成して使用する"
   },
   "retry_feedback": {
     "button_primary": "再試行"

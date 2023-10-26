@@ -188,15 +188,23 @@
       "odp_screenshot_title": "Screenshot detected"
     },
     "body": "Make sure you have uploaded the entire document page, and details are clear to read with no blur or glare",
+    "body_address_certificate": "Ensure you've uploaded the entire document page, and details are clear to read with no blur or glare",
     "body_bank_statement": "Make sure you have uploaded the entire document page, and details are clear to read with no blur or glare",
     "body_benefits_letter": "Make sure you have uploaded the entire document page, and details are clear to read with no blur or glare",
     "body_bill": "Make sure you have uploaded the entire document page, and details are clear to read with no blur or glare",
+    "body_exchange_house_statement": "Ensure you've uploaded the entire document page, and details are clear to read with no blur or glare",
+    "body_general_letter": "Ensure you've uploaded the entire document page, and details are clear to read with no blur or glare",
     "body_generic_document": "Make sure your details are clear and unobstructed",
     "body_id": "Make sure your details are clear and unobstructed",
+    "body_identity_document_with_address": "Ensure you've uploaded the entire document page, and details are clear to read with no blur or glare",
     "body_image_medium": "It’ll take longer to verify you if we can’t read it",
     "body_image_poor": "To smoothly verify you, we need a better photo",
+    "body_insurance_statement": "Ensure you've uploaded the entire document page, and details are clear to read with no blur or glare",
     "body_license": "Make sure your details are clear and unobstructed",
+    "body_mobile_phone_bill": "Ensure you have uploaded the entire document page, and details are clear to read with no blur or glare",
+    "body_mortgage_statement": "Ensure you've uploaded the entire document page, and details are clear to read with no blur or glare",
     "body_passport": "Make sure your details are clear and unobstructed",
+    "body_pension_property_statement_letter": "Ensure you've uploaded the entire document page, and details are clear to read with no blur or glare",
     "body_permit": "Make sure your details are clear and unobstructed",
     "body_tax_letter": "Make sure you have uploaded the entire document page, and details are clear to read with no blur or glare",
     "button_close": "Close",
@@ -217,21 +225,39 @@
   },
   "doc_select": {
     "button_address_card": "Address card",
+    "button_address_card_back": "Address Card (Back)",
     "button_address_card_detail": "Temporary and permanent cards are accepted",
+    "button_address_card_front": "Address Card (Front)",
     "button_bank_statement": "Bank or building society statement",
     "button_bank_statement_non_uk": "Bank statement",
     "button_benefits_letter": "Benefits Letter",
     "button_benefits_letter_detail": "Government authorised household benefits eg. Jobseeker allowance, Housing benefit, Tax credits",
     "button_bill": "Utility Bill",
     "button_bill_detail": "Gas, electricity, water, landline or broadband",
+    "button_exchange_house_statement": "Exchange House Statement",
+    "button_exchange_house_statement_detail": "Sender statement of transfer or remittance",
+    "button_general_letter": "General Letter",
+    "button_general_letter_detail": "Letter from financial institution or utility company",
     "button_government_letter": "Government Letter",
     "button_government_letter_detail": "Any government issued letter eg. Benefits entitlement, Voting letters, Tax letters, etc",
     "button_id": "Identity card",
     "button_id_detail": "Front and back",
+    "button_identity_document_with_address": "Identity Document With Address",
+    "button_identity_document_with_address_back": "Identity Document With Address (Back)",
+    "button_identity_document_with_address_detail": "Issued by a government authority",
+    "button_identity_document_with_address_front": "Identity Document With Address (Front)",
+    "button_insurance_statement": "Insurance Statement",
+    "button_insurance_statement_detail": "Issued from a private insurance or brokerage company",
     "button_license": "Driving licence",
     "button_license_detail": "Front and back",
+    "button_mobile_phone_bill": "Mobile Phone Bill",
+    "button_mobile_phone_bill_detail": "Issued from a mobile phone network provider",
+    "button_mortgage_statement": "Mortgage Statement",
+    "button_mortgage_statement_detail": "Issued from a financial lending institution",
     "button_passport": "Passport",
     "button_passport_detail": "Photo page",
+    "button_pension_property_statement_letter": "Pension or Property Statement/Letter",
+    "button_pension_property_statement_letter_detail": "Pension statement or letter and Council tax statement or letter",
     "button_permit": "Residence permit",
     "button_permit_detail": "Front and back",
     "button_tax_letter": "Council Tax Letter",
@@ -258,17 +284,29 @@
     "button_link_upload": "or upload photo – no scans or photocopies",
     "button_primary": "Continue on phone",
     "subtitle": "Take a photo with your phone",
+    "title_address_certificate": "Submit address card",
+    "title_address_certificate_back": "Submit address card (back)",
+    "title_address_certificate_front": "Submit address card (front)",
     "title_bank_statement": "Submit statement",
     "title_benefits_letter": "Submit letter",
     "title_bill": "Submit bill",
+    "title_exchange_house_statement": "Submit bureau de change statement",
+    "title_general_letter": "Submit general letter",
     "title_generic_document_back": "Submit document (back)",
     "title_generic_document_front": "Submit document (front)",
     "title_government_letter": "Government Letter",
     "title_id_back": "Submit identity card (back)",
     "title_id_front": "Submit identity card (front)",
+    "title_identity_document_with_address": "Submit identity document with address",
+    "title_identity_document_with_address_back": "Submit identity document with address (back)",
+    "title_identity_document_with_address_front": "Submit identity document with address (front)",
+    "title_insurance_statement": "Submit insurance statement",
     "title_license_back": "Submit licence (back)",
     "title_license_front": "Submit licence (front)",
+    "title_mobile_phone_bill": "Submit mobile phone bill",
+    "title_mortgage_statement": "Submit mortgage statement",
     "title_passport": "Submit passport photo page",
+    "title_pension_property_statement_letter": "Submit statement or letter",
     "title_permit_back": "Submit residence permit (back)",
     "title_permit_front": "Submit residence permit (front)",
     "title_tax_letter": "Submit letter"
@@ -422,6 +460,29 @@
       "success": "Scanning successful"
     }
   },
+  "otp": {
+    "code_input": {
+      "error": {
+        "technical": "A technical error has occurred, please try again later",
+        "wrong_code": "Incorrect code entered, please try again"
+      },
+      "intro": "The code sent to your mobile number will be active for 5 minutes",
+      "resend": {
+        "cta": "Resend",
+        "label": "Code sent (up to {limit})"
+      },
+      "title": "One Time Password"
+    },
+    "send_code": {
+      "cta": "Send code",
+      "error": {
+        "limit": "You've reached the limit of sent text messages",
+        "technical": "A technical error has occurred, please try again later"
+      },
+      "intro": "In order to verify your phone number we are going to send you a one-time code to input on the next screen.",
+      "title": "One Time Password"
+    }
+  },
   "outro": {
     "body": "That’s all we need to start verifying your identity",
     "body_government_letter": "Provide the whole document page for best results",
@@ -444,139 +505,139 @@
   "permission_recovery": {
     "android": {
       "device_settings": {
-        "list_item_1": "On your device, open the Settings app",
-        "list_item_2": "Tap Apps",
-        "list_item_3": "Tap [BROWSER_ICON]. If you can't find it, tap See all apps or Manage apps and select your browser app",
-        "list_item_4": "Tap Permissions",
-        "list_item_5_cam": "Tap Camera and select Allow",
-        "list_item_5_mic": "Tap Microphone and select Allow",
-        "list_item_6": "Come back to this page and tap the I've made the changes button"
+        "list_item_1": "On your device, open the <strong>Settings</strong> app",
+        "list_item_2": "Tap <strong>Apps</strong>",
+        "list_item_3": "Tap [BROWSER_ICON]. If you can't find it, tap <strong>See all apps</strong> or <strong>Manage apps</strong> and select your browser app",
+        "list_item_4": "Tap <strong>Permissions</strong>",
+        "list_item_5_cam": "Tap <strong>Camera</strong> and select <strong>Allow</strong>",
+        "list_item_5_mic": "Tap <strong>Microphone</strong> and select <strong>Allow</strong>",
+        "list_item_6": "Come back to this page and tap the <strong>I've made the changes</strong> button"
       }
     },
     "android_chrome": {
       "browser_settings": {
         "list_item_1": "In your browser, tap the lock icon [LOCK_ICON] in the address bar",
-        "list_item_2": "Tap Permissions",
-        "list_item_3_cam": "Activate the toggle next to Camera",
-        "list_item_3_mic": "Activate the toggle next to Microphone",
-        "list_item_4": "Come back to this page and tap the I've made the changes button"
+        "list_item_2": "Tap <strong>Permissions</strong>",
+        "list_item_3_cam": "Activate the toggle next to <strong>Camera</strong>",
+        "list_item_3_mic": "Activate the toggle next to <strong>Microphone</strong>",
+        "list_item_4": "Come back to this page and tap the <strong>I've made the changes</strong> button"
       }
     },
     "android_firefox": {
       "browser_settings": {
         "list_item_1": "In your browser, tap the lock icon [LOCK_ICON] in the address bar",
-        "list_item_2_cam": "Tap Blocked next to Camera to switch to Allowed",
-        "list_item_2_mic": "Tap Blocked next to Microphone to switch to Allowed",
-        "list_item_3": "Come back to this page and tap the I've made the changes button"
+        "list_item_2_cam": "Tap <strong>Blocked</strong> next to <strong>Camera</strong> to switch to <strong>Allowed</strong>",
+        "list_item_2_mic": "Tap <strong>Blocked</strong> next to <strong>Microphone</strong> to switch to <strong>Allowed</strong>",
+        "list_item_3": "Come back to this page and tap the <strong>I've made the changes</strong> button"
       }
     },
     "android_generic": {
       "browser_settings": {
         "list_item_1": "In your browser, open the website settings. This is often a lock icon [LOCK_ICON] in the address bar",
         "list_item_2": "Find the section about permissions",
-        "list_item_3_cam": "Enable the Camera permissions",
-        "list_item_3_mic": "Enable the Microphone permissions",
-        "list_item_4": "Come back to this page and tap the I've made the changes button"
+        "list_item_3_cam": "Enable the <strong>Camera</strong> permissions",
+        "list_item_3_mic": "Enable the <strong>Microphone</strong> permissions",
+        "list_item_4": "Come back to this page and tap the <strong>I've made the changes</strong> button"
       }
     },
     "android_samsung": {
       "browser_settings": {
         "list_item_1": "In your browser, tap the lock icon [LOCK_ICON] in the address bar",
-        "list_item_2_cam": "Activate the toggle next to Camera",
-        "list_item_2_mic": "Activate the toggle next to Microphone",
-        "list_item_3": "Come back to this page and tap the I've made the changes button"
+        "list_item_2_cam": "Activate the toggle next to <strong>Camera</strong>",
+        "list_item_2_mic": "Activate the toggle next to <strong>Microphone</strong>",
+        "list_item_3": "Come back to this page and tap the <strong>I've made the changes</strong> button"
       }
     },
     "button_primary": "Refresh",
     "desktop_chrome": {
       "browser_settings": {
         "list_item_1": "In your browser, click the lock icon [LOCK_ICON] in the address bar",
-        "list_item_2_cam": "Activate the toggle next to Camera",
-        "list_item_2_mic": "Activate the toggle next to Microphone",
-        "list_item_3": "Come back to this page and click the I've made the changes button"
+        "list_item_2_cam": "Activate the toggle next to <strong>Camera</strong>",
+        "list_item_2_mic": "Activate the toggle next to <strong>Microphone</strong>",
+        "list_item_3": "Come back to this page and click the <strong>I've made the changes</strong> button"
       }
     },
     "desktop_edge": {
       "browser_settings": {
         "list_item_1": "In your browser, click the lock icon [LOCK_ICON] in the address bar",
-        "list_item_2_cam": "Click the dropdown next to Camera and select Allow",
-        "list_item_2_mic": "Click the dropdown next to Microphone and select Allow",
-        "list_item_3": "Come back to this page and click the I've made the changes button"
+        "list_item_2_cam": "Click the dropdown next to <strong>Camera</strong> and select <strong>Allow</strong>",
+        "list_item_2_mic": "Click the dropdown next to <strong>Microphone</strong> and select <strong>Allow</strong>",
+        "list_item_3": "Come back to this page and click the <strong>I've made the changes</strong> button"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
         "list_item_1": "In your browser, click the settings icon [SETTINGS_ICON_FIREFOX] in the address bar",
-        "list_item_2_cam": "Click Blocked next to Use the camera",
-        "list_item_2_mic": "Click Blocked next to Use the microphone",
-        "list_item_3": "Come back to this page and click the I've made the changes button"
+        "list_item_2_cam": "Click <strong>Blocked</strong> next to <strong>Use the camera</strong>",
+        "list_item_2_mic": "Click <strong>Blocked</strong> next to <strong>Use the microphone</strong>",
+        "list_item_3": "Come back to this page and click the <strong>I've made the changes</strong> button"
       }
     },
     "desktop_generic": {
       "browser_settings": {
         "list_item_1": "In your browser, open the website settings. This is often a lock icon [LOCK_ICON] in the address bar",
         "list_item_2": "Find the section about permissions",
-        "list_item_3_cam": "Enable the Camera permissions",
-        "list_item_3_mic": "Enable the Microphone permissions",
-        "list_item_4": "Come back to this page and click the I've made the changes button"
+        "list_item_3_cam": "Enable the <strong>Camera</strong> permissions",
+        "list_item_3_mic": "Enable the <strong>Microphone</strong> permissions",
+        "list_item_4": "Come back to this page and click the <strong>I've made the changes</strong> button"
       },
       "device_settings": {
-        "list_item_1": "On your computer, open your Settings",
-        "list_item_2": "Find the section about permissions (usually under Privacy)",
-        "list_item_3_cam": "Enable the Camera permissions for [BROWSER_ICON]",
-        "list_item_3_mic": "Enable the Microphone permissions for [BROWSER_ICON]",
+        "list_item_1": "On your computer, open your <strong>Settings</strong>",
+        "list_item_2": "Find the section about permissions (usually under <strong>Privacy</strong>)",
+        "list_item_3_cam": "Enable the <strong>Camera</strong> permissions for [BROWSER_ICON]",
+        "list_item_3_mic": "Enable the <strong>Microphone</strong> permissions for [BROWSER_ICON]",
         "list_item_4": "Restart your browser if necessary and come back to this page"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "On your computer, click the Apple menu [APPLE_ICON] and select System Settings (or System Preferences)",
-        "list_item_2": "Click Privacy & Security (or Security & Privacy) in the sidebar ",
-        "list_item_3": "Click Later in the pop-up",
-        "list_item_3_cam": "Click Camera and activate the toggle (or checkbox) next to [BROWSER_ICON]",
-        "list_item_4": "Click Quit & Reopen in the pop-up and come back to this page",
-        "list_item_4_mic": "Click Microphone and activate the toggle (or checkbox) next to [BROWSER_ICON]"
+        "list_item_1": "On your computer, click the Apple menu [APPLE_ICON] and select <strong>System Settings</strong> (or <strong>System Preferences</strong>)",
+        "list_item_2": "Click <strong>Privacy & Security</strong> (or <strong>Security & Privacy</strong>) in the sidebar ",
+        "list_item_3": "Click <strong>Later</strong> in the pop-up",
+        "list_item_3_cam": "Click <strong>Camera</strong> and activate the toggle (or checkbox) next to [BROWSER_ICON]",
+        "list_item_4": "Click <strong>Quit & Reopen</strong> in the pop-up and come back to this page",
+        "list_item_4_mic": "Click <strong>Microphone</strong> and activate the toggle (or checkbox) next to [BROWSER_ICON]"
       }
     },
     "desktop_safari": {
       "browser_settings": {
-        "list_item_1": "In your browser, right-click in the address bar and select Settings",
-        "list_item_2_cam": "Click the dropdown next to Camera and select Allow",
-        "list_item_2_mic": "Click the dropdown next to Microphone and select Allow",
-        "list_item_3": "Come back to this page and click the I've made the changes button"
+        "list_item_1": "In your browser, right-click in the address bar and select <strong>Settings</strong>",
+        "list_item_2_cam": "Click the dropdown next to <strong>Camera</strong> and select <strong>Allow</strong>",
+        "list_item_2_mic": "Click the dropdown next to <strong>Microphone</strong> and select <strong>Allow</strong>",
+        "list_item_3": "Come back to this page and click the <strong>I've made the changes</strong> button"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "On your computer, click the Windows menu [WINDOWS_ICON] and select Settings [SETTINGS_ICON_WINDOWS]",
-        "list_item_2": "Click Privacy (or Privacy & Security)",
-        "list_item_3_cam": "Click Camera under App permissions and activate the toggle next to [BROWSER_ICON] ",
-        "list_item_3_mic": "Click Microphone under App permissions and activate the toggle next to [BROWSER_ICON]",
+        "list_item_1": "On your computer, click the Windows menu [WINDOWS_ICON] and select <strong>Settings</strong> [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "Click <strong>Privacy</strong> (or <strong>Privacy & Security</strong>)",
+        "list_item_3_cam": "Click <strong>Camera</strong> under <strong>App permissions</strong> and activate the toggle next to [BROWSER_ICON] ",
+        "list_item_3_mic": "Click <strong>Microphone</strong> under <strong>App permissions</strong> and activate the toggle next to [BROWSER_ICON]",
         "list_item_4": "Restart your browser if necessary and come back to this page"
       }
     },
     "info": "Recovery",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "Tap the I've made the changes button. You will be asked to enable camera and microphone access again. When the pop-up appears, select Allow (or OK)",
-        "list_item_1_cam": "Tap the I've made the changes button. You will be asked to enable camera access again. When the pop-up appears, select <>Allow (or OK)",
-        "list_item_1_mic": "Tap the I've made the changes button. You will be asked to enable microphone access again. When the pop-up appears, select Allow (or OK)"
+        "list_item_1_both": "Tap the <strong>I've made the changes</strong> button. You will be asked to enable camera and microphone access again. When the pop-up appears, select <strong>Allow</strong> (or <strong>OK</strong>)",
+        "list_item_1_cam": "Tap the <strong>I've made the changes</strong> button. You will be asked to enable camera access again. When the pop-up appears, select <strong>Allow</strong> (or <strong>OK</strong>)",
+        "list_item_1_mic": "Tap the <strong>I've made the changes</strong> button. You will be asked to enable microphone access again. When the pop-up appears, select <strong>Allow</strong> (or <strong>OK</strong>)"
       },
       "device_settings": {
-        "list_item_1": "On your device, open the Settings app",
+        "list_item_1": "On your device, open the <strong>Settings</strong> app",
         "list_item_2": "Scroll through the list and tap [BROWSER_ICON]",
-        "list_item_3_cam": "Activate the toggle next to Camera",
-        "list_item_3_mic": "Activate the toggle next to Microphone",
-        "list_item_4": "Return to this page and tap the I've made the changes button"
+        "list_item_3_cam": "Activate the toggle next to <strong>Camera</strong>",
+        "list_item_3_mic": "Activate the toggle next to <strong>Microphone</strong>",
+        "list_item_4": "Return to this page and tap the <strong>I've made the changes</strong> button"
       }
     },
     "ios_safari": {
       "device_settings": {
-        "list_item_1": "On your device, open the Settings app",
+        "list_item_1": "On your device, open the <strong>Settings</strong> app",
         "list_item_2": "Scroll through the list and tap [BROWSER_ICON]",
-        "list_item_3_cam": "Tap Camera and select Allow",
-        "list_item_3_mic": "Tap Microphone and select Allow",
-        "list_item_4": "Return to this page and tap the I've made the changes button"
+        "list_item_3_cam": "Tap <strong>Camera</strong> and select <strong>Allow</strong>",
+        "list_item_3_mic": "Tap <strong>Microphone</strong> and select <strong>Allow</strong>",
+        "list_item_4": "Return to this page and tap the <strong>I've made the changes</strong> button"
       }
     },
     "list_header_both": "Follow these steps to recover access for both:",
@@ -585,7 +646,7 @@
     "list_item_how_to_both": "Grant access to your camera and microphone from your browser settings",
     "list_item_how_to_cam": "Grant access to your camera from your browser settings",
     "list_item_how_to_mic": "Grant access to your microphone from your browser settings",
-    "subtitle_both": "Recover camera and microphone access to take a video and complete the verification process",
+    "subtitle_both": "We need access to your camera and microphone to verify your identity. Follow the instructions below to recover access",
     "subtitle_cam": "We need access to your camera to verify your identity. Follow the instructions below to recover access",
     "subtitle_cam_old": "Recover camera access to continue face verification",
     "subtitle_mic": "We need access to your microphone to verify your identity. Follow the instructions below to recover access",
@@ -604,16 +665,27 @@
     }
   },
   "photo_upload": {
+    "body_address_certificate_back": "Upload back of document from your computer",
+    "body_address_certificate_front": "Upload front of document from your computer",
     "body_bank_statement": "Provide the whole document page for best results",
     "body_benefits_letter": "Provide the whole document page for best results",
     "body_bill": "Provide the whole document page for best results",
+    "body_exchange_house_statement": "Provide the whole document page for best results",
+    "body_general_letter": "Provide the whole document page for best results",
     "body_generic_document_back": "Upload back of document from your computer",
     "body_generic_document_front": "Upload front of document from your computer",
     "body_id_back": "Upload back of card from your computer",
     "body_id_front": "Upload front of card from your computer",
+    "body_identity_document_with_address": "Provide the whole document page for best results",
+    "body_identity_document_with_address_back": "Upload back of document from your computer",
+    "body_identity_document_with_address_front": "Upload front of document from your computer",
+    "body_insurance_statement": "Provide the whole document page for best results",
     "body_license_back": "Upload back of licence from your computer",
     "body_license_front": "Upload front of licence from your computer",
+    "body_mobile_phone_bill": "Provide the whole document page for best results",
+    "body_mortgage_statement": "Provide the whole document page for best results",
     "body_passport": "Upload passport photo page from your computer",
+    "body_pension_property_statement_letter": "Provide the whole document page for best results",
     "body_selfie": "Upload a selfie from your computer",
     "body_tax_letter": "Provide the whole document page for best results",
     "button_take_photo": "Take photo",
@@ -642,6 +714,8 @@
     "subtitle_bank_statement": "Must have been issued in the last 3 months",
     "subtitle_benefits_letter": "Must be issued in the last 12 months",
     "subtitle_bill": "Must have been issued in the last 3 months",
+    "subtitle_dynamic_empty_grace_period": "Must be a valid document",
+    "subtitle_dynamic_grace_period": "Must have been issued in the past <graceperiod></graceperiod> months",
     "subtitle_tax_letter": "Must be issued in the last 12 months"
   },
   "poa_intro": {
@@ -952,6 +1026,51 @@
       "details_timeout": "Start again",
       "header_timeout": "Looks like you took too long"
     }
+  },
+  "qes": {
+    "consent": {
+      "common": {
+        "steps": "Create your signature"
+      },
+      "confirmation": {
+        "bullet_1": "After reading your document, tap the “Sign document” button.",
+        "bullet_2": "Once Onfido verifies your identity, your signature will be used on this document.",
+        "button_next_step": "Sign document",
+        "review_document": "Review <fallback>your document</fallback> to sign",
+        "step2": "2 of 2",
+        "steps": "Sign your document",
+        "subtitle": "To confirm your identity in accordance with European rules, you must digitally sign a document.",
+        "title": "Create and use your digital signature"
+      },
+      "introduction": {
+        "button_confirmation_step": "Create my signature",
+        "certificate_application_form": "Certificate application form",
+        "privacy_notice": "Privacy notice",
+        "step1": "1 of 2",
+        "subtitle": "To confirm your identity in accordance with European rules, you must digitally sign a document.",
+        "terms_and_conditions": "Terms and conditions",
+        "third_party_description": "<fallback>Namirial SpA</fallback> is a trusted global provider who'll issue a certificate validating your electronic signature.",
+        "title": "Create and use your digital signature"
+      }
+    }
+  },
+  "qes_consent": {
+    "button": "Create my signature",
+    "link_certificate": "Certificate application form",
+    "link_privacy_notice": "Privacy Notice",
+    "link_terms_and_conditions": "Terms and conditions",
+    "namirial_intro": "Namirial SpA is a trusted global provider who'll issue a certificate validating your electronic signature. ",
+    "subtitle": "To confirm your identity in accordance with European rules, you must digitally sign a document.",
+    "title": "Create and utilise your digital signature"
+  },
+  "qes_sign": {
+    "button": "Sign document",
+    "link_document": "Review your document to sign",
+    "list_item_1": "After reading your document, tap the “Sign document” button.",
+    "list_item_2": "Once Onfido verifies your identity, your signature will be used on this document.",
+    "step_title": "Sign your document",
+    "subtitle": "To confirm your identity in accordance with European rules, you must digitally sign a document.",
+    "title": "Create and use your digital signature"
   },
   "retry_feedback": {
     "button_primary": "Try again"

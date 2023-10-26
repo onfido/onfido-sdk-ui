@@ -42,7 +42,7 @@
     "list_item_two": "Tada lėtai pasukite galvą į abi puses",
     "subtitle": "Taip patvirtinsite, kad esate tikras asmuo",
     "title": "Padaryti vaizdo įrašą",
-    "title_accessibility": "Padarykite savo veido vaizdo įrašą",
+    "title_accessibility": "Padarysite savo veido vaizdo įrašą",
     "video_accessibility": "Vaizdo įrašo, kaip žmogus sukinėja galvą į abi puses iki pabaigos, pavyzdys"
   },
   "avc_no_face_detected": {
@@ -124,7 +124,7 @@
     "button_accessibility": "Fotografuoti",
     "footer": {
       "captured": "Nufotografuota nuotrauka",
-      "capturing": "Nuotraukos darymas",
+      "capturing": "Nuotraukos fiksavimas",
       "manual_fallback_generic_document_back": "Nufotografuokite galinę dokumento pusę",
       "manual_fallback_generic_document_front": "Nufotografuokite priekinę dokumento pusę",
       "manual_fallback_identity_card_back": "Nufotografuokite galinę kortelės pusę",
@@ -188,15 +188,23 @@
       "odp_screenshot_title": "Užfiksuotas ekrano kopijavimas"
     },
     "body": "Įsitikinkite, kad įkėlėte visą dokumento puslapį ir kad informacija yra aiškiai matoma, kad ją būtų galima perskaityti, nesusiliejusi ir be atspindžių",
+    "body_address_certificate": "Įsitikinkite, kad įkėlėte visą dokumento puslapį ir detalės yra aiškiai skaitomos, be jokių dūmų ar blizgesio",
     "body_bank_statement": "Įsitikinkite, kad įkėlėte visą dokumento puslapį ir kad informacija yra aiškiai matoma, kad ją būtų galima perskaityti, nesusiliejusi ir be atspindžių",
     "body_benefits_letter": "Įsitikinkite, kad įkėlėte visą dokumento puslapį ir kad informacija yra aiškiai matoma, kad ją būtų galima perskaityti, nesusiliejusi ir be atspindžių",
     "body_bill": "Įsitikinkite, kad įkėlėte visą dokumento puslapį ir kad informacija yra aiškiai matoma, kad ją būtų galima perskaityti, nesusiliejusi ir be atspindžių",
+    "body_exchange_house_statement": "Įsitikinkite, kad įkėlėte visą dokumento puslapį ir detalės yra aiškiai skaitomos, be jokių dūmų ar blizgesio",
+    "body_general_letter": "Įsitikinkite, kad įkėlėte visą dokumento puslapį ir detalės yra aiškiai skaitomos, be jokių dūmų ar blizgesio",
     "body_generic_document": "Įsitikinkite, kad jūsų informacija yra aiškiai matoma ir neuždengta",
     "body_id": "Įsitikinkite, kad jūsų informacija yra aiškiai matoma ir neuždengta",
+    "body_identity_document_with_address": "Įsitikinkite, kad įkėlėte visą dokumento puslapį ir detalės yra aiškiai skaitomos, be jokių dūmų ar blizgesio",
     "body_image_medium": "Jei negalėsime perskaityti, užtruks ilgiau, kol jus patvirtinsime",
     "body_image_poor": "Kad galėtume sklandžiai jus patvirtinti, mums reikia geresnės kokybės nuotraukos",
+    "body_insurance_statement": "Įsitikinkite, kad įkėlėte visą dokumento puslapį ir detalės yra aiškiai skaitomos, be jokių dūmų ar blizgesio",
     "body_license": "Įsitikinkite, kad jūsų informacija yra aiškiai matoma ir neuždengta",
+    "body_mobile_phone_bill": "Įsitikinkite, kad įkėlėte visą dokumento puslapį ir detalės yra aiškiai skaitomos, be jokių dūmų ar blizgesio",
+    "body_mortgage_statement": "Įsitikinkite, kad įkėlėte visą dokumento puslapį ir detalės yra aiškiai skaitomos, be jokių dūmų ar blizgesio",
     "body_passport": "Įsitikinkite, kad jūsų informacija yra aiškiai matoma ir neuždengta",
+    "body_pension_property_statement_letter": "Įsitikinkite, kad įkėlėte visą dokumento puslapį ir detalės yra aiškiai skaitomos, be jokių dūmų ar blizgesio",
     "body_permit": "Įsitikinkite, kad jūsų informacija yra aiškiai matoma ir neuždengta",
     "body_tax_letter": "Įsitikinkite, kad įkėlėte visą dokumento puslapį ir kad informacija yra aiškiai matoma, kad ją būtų galima perskaityti, nesusiliejusi ir be atspindžių",
     "button_close": "Uždaryti",
@@ -217,21 +225,39 @@
   },
   "doc_select": {
     "button_address_card": "Adreso kortelė",
+    "button_address_card_back": "Adreso kortelė (galinė pusė)",
     "button_address_card_detail": "Priimamos laikinos ir nuolatinės kortelės",
+    "button_address_card_front": "Adreso kortelė (priekis)",
     "button_bank_statement": "Banko arba būstų savininkų bendrijos išrašas",
     "button_bank_statement_non_uk": "Banko išrašas",
     "button_benefits_letter": "Pažyma apie išmokas",
     "button_benefits_letter_detail": "Vyriausybės patvirtintos išmokos namų ūkiui, pvz.: pašalpa darbo ieškančiajam, būsto pašalpa, mokesčių kreditai",
     "button_bill": "Sąskaita už komunalines paslaugas",
     "button_bill_detail": "Dujos, elektra, vanduo, fiksuotasis ryšys arba plačiajuostis ryšys",
+    "button_exchange_house_statement": "Biržos namo pareiškimas",
+    "button_exchange_house_statement_detail": "Siuntėjo perleidimo ar pervedimo pareiškimas",
+    "button_general_letter": "Bendras laiškas",
+    "button_general_letter_detail": "Laiškas iš finansinės institucijos arba komunalinių paslaugų įmonės",
     "button_government_letter": "Vyriausybės raštas",
     "button_government_letter_detail": "Bet koks vyriausybės išduotas raštas, pvz. Teisė gauti išmokas, balsavimo lapeliai, mokesčių raštai ir kt.",
     "button_id": "Asmens tapatybės kortelė",
     "button_id_detail": "Priekinė ir galinė pusė",
+    "button_identity_document_with_address": "Tapatybės dokumentas su adresu",
+    "button_identity_document_with_address_back": "Tapatybės dokumentas su adresu (galinė pusė)",
+    "button_identity_document_with_address_detail": "Išduotas valdžios institucijos",
+    "button_identity_document_with_address_front": "Tapatybės dokumentas su adresu (priekis)",
+    "button_insurance_statement": "Draudimo pareiškimas",
+    "button_insurance_statement_detail": "Išduotas privačios draudimo ar brokerio įmonės",
     "button_license": "Vairuotojo pažymėjimas",
     "button_license_detail": "Priekinė ir galinė pusė",
+    "button_mobile_phone_bill": "Mobiliojo telefono sąskaita",
+    "button_mobile_phone_bill_detail": "Išduotas iš mobilaus ryšio tiekėjo",
+    "button_mortgage_statement": "Busto paskolos ataskaita",
+    "button_mortgage_statement_detail": "Išduotas finansinės paskolos institucijos",
     "button_passport": "Pasas",
     "button_passport_detail": "Nuotraukos puslapis",
+    "button_pension_property_statement_letter": "Pensijos arba nekilnojamojo turto pareiškimas/laiškas",
+    "button_pension_property_statement_letter_detail": "Pensijos išrašas arba laiškas ir Nekilnojamojo turto mokesčio išrašas arba laiškas",
     "button_permit": "Leidimas gyventi",
     "button_permit_detail": "Priekinė ir galinė pusė",
     "button_tax_letter": "Tarybos mokestinis raštas",
@@ -240,13 +266,13 @@
     "list_accessibility": "Dokumentai, kuriuos galite naudoti savo tapatybei patvirtinti",
     "pill": "greičiausias",
     "section": {
-      "header_country": "Išdavusi šalis",
-      "header_doc_type": "Priimtini dokumentai",
+      "header_country": "Dokumentą išdavusi šalis",
+      "header_doc_type": "Priimami dokumentai",
       "input_country_not_found": "Nėra rezultatų",
       "input_placeholder_country": "Pasirinkite išdavusią šalį"
     },
     "subtitle": "Tai turi būti oficialus asmens tapatybės dokumentas su nuotrauka",
-    "subtitle_country": "Pasirinkite išdavusią šalį, kad pamatytumėte, kuriuos dokumentus priimame",
+    "subtitle_country": "Pasirinkite dokumento išdavimo šalį, kad pamatytumėte dokumentus, kuriuos priimame",
     "subtitle_entire_page": "Visas puslapį",
     "subtitle_front_back": "Priekinė ir galinė pusė",
     "subtitle_photo_page": "Nuotraukos puslapis",
@@ -258,17 +284,29 @@
     "button_link_upload": "arba įkelkite nuotrauką – jokių skenuotų ar atšviestų",
     "button_primary": "Tęsti telefonu",
     "subtitle": "Fotografuokite telefonu",
+    "title_address_certificate": "Pateikti adresų kortelę",
+    "title_address_certificate_back": "Pateikti adreso kortelę (galas)",
+    "title_address_certificate_front": "Pateikti adreso kortelę (priekis)",
     "title_bank_statement": "Pateikti išrašą",
     "title_benefits_letter": "Pateikti laišką",
     "title_bill": "Pateikti sąskaitą",
+    "title_exchange_house_statement": "Pateikti keityklos ataskaitą",
+    "title_general_letter": "Pateikti bendrąjį laišką",
     "title_generic_document_back": "Pateikti dokumentą (galinę pusę)",
     "title_generic_document_front": "Pateikti dokumentą (priekinę pusę)",
     "title_government_letter": "Vyriausybės raštas",
     "title_id_back": "Pateikite asmens tapatybės kortelę (galinę pusę)",
     "title_id_front": "Pateikite asmens tapatybės kortelę (priekinę pusę)",
+    "title_identity_document_with_address": "Pateikite tapatybės dokumentą su adresu",
+    "title_identity_document_with_address_back": "Pateikite asmens dokumentą su adresu (galas)",
+    "title_identity_document_with_address_front": "Pateikite asmens tapatybės dokumentą su adresu (priekis)",
+    "title_insurance_statement": "Pateikti draudimo pareiškimą",
     "title_license_back": "Pateikti pažymėjimą (galinę pusę)",
     "title_license_front": "Pateikti pažymėjimą (priekinę pusę)",
+    "title_mobile_phone_bill": "Pateikti mobiliojo telefono sąskaitą",
+    "title_mortgage_statement": "Pateikti hipotekos išrašą",
     "title_passport": "Pateikti paso nuotraukos puslapį",
+    "title_pension_property_statement_letter": "Pateikti pareiškimą ar laišką",
     "title_permit_back": "Pateikti leidimą gyventi (galinę pusę)",
     "title_permit_front": "Pateikti leidimą gyventi (priekinę pusę)",
     "title_tax_letter": "Pateikti laišką"
@@ -422,6 +460,29 @@
       "success": "Sėkmingas nuskaitymas"
     }
   },
+  "otp": {
+    "code_input": {
+      "error": {
+        "technical": "Įvyko techninė klaida, prašome bandyti vėliau",
+        "wrong_code": "Įvestas neteisingas kodas, bandykite dar kartą"
+      },
+      "intro": "Kodas, išsiųstas į jūsų telefoną, bus aktyvus 5 minutes",
+      "resend": {
+        "cta": "Išsiųsti iš naujo",
+        "label": "Išsiųstas kodas (iki {limit})"
+      },
+      "title": "Vienkartinis slaptažodis"
+    },
+    "send_code": {
+      "cta": "Siųsti kodą",
+      "error": {
+        "limit": "Jūs pasiekėte išsiųstų SMS ribą",
+        "technical": "Įvyko techninė klaida, prašome bandyti vėliau"
+      },
+      "intro": "Kad patikrintume jūsų telefono numerį, siųsime jums vienkartinį kodą, kurį turėsite įvesti kitame ekrane.",
+      "title": "Vienkartinis slaptažodis"
+    }
+  },
   "outro": {
     "body": "Tai viskas, ko mums reikia, kad galėtume pradėti tikrinti jūsų tapatybę",
     "body_government_letter": "Pateikite visą dokumento puslapį, kad pasiektumėte geriausių rezultatų",
@@ -429,7 +490,7 @@
   },
   "permission": {
     "body_both": "Negalime jūsų patvirtinti, jei kamera ir mikrofonas nenaudojami kartu",
-    "body_cam": "Negalime jūsų patvirtinti be jūsų kameros",
+    "body_cam": "Negalime patvirtinti Jūsų be prieigos prie kameros",
     "body_mic": "Negalime jūsų patvirtinti nenaudojant mikrofono",
     "button_primary_both": "Įjungti abu",
     "button_primary_cam": "Įjungti kamerą",
@@ -444,139 +505,139 @@
   "permission_recovery": {
     "android": {
       "device_settings": {
-        "list_item_1": "Savo įrenginyje atidarykite programą Nustatymai",
-        "list_item_2": "Spustelėkite Programos",
-        "list_item_3": "Spustelėkite [BROWSER_ICON]. Jei negalite jo rasti, spustelėkite Peržiūrėti visas programas arba Tvarkyti programas ir pasirinkite savo naršyklės programą",
-        "list_item_4": "Spustelėkite Leidimai",
-        "list_item_5_cam": "Spustelėkite Kamera ir pasirinkite Leisti",
-        "list_item_5_mic": "Spustelėkite Mikrofoną ir pasirinkite Leisti",
-        "list_item_6": "Grįžkite į šį puslapį ir paspauskite mygtuką Aš atlikau pakeitimus"
+        "list_item_1": "Savo įrenginyje atidarykite programą <strong>Nustatymai</strong>",
+        "list_item_2": "Spustelėkite <strong>Programos</strong>",
+        "list_item_3": "Spustelėkite [BROWSER_ICON]. Jei negalite jo rasti, spustelėkite <strong>Peržiūrėti visas programas</strong> arba <strong>Tvarkyti programas</strong> ir pasirinkite savo naršyklės programą",
+        "list_item_4": "Spustelėkite <strong>Leidimai</strong>",
+        "list_item_5_cam": "Spustelėkite <strong>Kamera</strong> ir pasirinkite <strong>Leisti</strong>",
+        "list_item_5_mic": "Spustelėkite <strong>Mikrofoną</strong> ir pasirinkite <strong>Leisti</strong>",
+        "list_item_6": "Grįžkite į šį puslapį ir paspauskite mygtuką <strong>Aš atlikau pakeitimus</strong>"
       }
     },
     "android_chrome": {
       "browser_settings": {
         "list_item_1": "Savo naršyklėje paspauskite užrakto piktogramą [LOCK_ICON] adreso juostoje",
-        "list_item_2": "Spustelėkite Leidimai",
-        "list_item_3_cam": "Aktyvuokite perjungiklį šalia Kamera",
-        "list_item_3_mic": "Aktyvuokite perjungiklį šalia Mikrofono",
-        "list_item_4": "Grįžkite į šį puslapį ir paspauskite mygtuką Aš atlikau pakeitimus"
+        "list_item_2": "Spustelėkite <strong>Leidimai</strong>",
+        "list_item_3_cam": "Aktyvuokite perjungiklį šalia <strong>Kamera</strong>",
+        "list_item_3_mic": "Aktyvuokite perjungiklį šalia <strong>Mikrofono</strong>",
+        "list_item_4": "Grįžkite į šį puslapį ir paspauskite mygtuką <strong>Aš atlikau pakeitimus</strong>"
       }
     },
     "android_firefox": {
       "browser_settings": {
         "list_item_1": "Savo naršyklėje paspauskite užrakto piktogramą [LOCK_ICON] adreso juostoje",
-        "list_item_2_cam": "Spustelėkite Užblokuota šalia Kameros, kad perjungtumėte į Leidžiama",
-        "list_item_2_mic": "Spustelėkite Užblokuotas šalia Mikrofono, kad perjungtumėte į Leidžiama",
-        "list_item_3": "Grįžkite į šį puslapį ir paspauskite mygtuką Aš atlikau pakeitimus"
+        "list_item_2_cam": "Spustelėkite <strong>Užblokuota</strong> šalia <strong>Kameros</strong>, kad perjungtumėte į <strong>Leidžiama</strong>",
+        "list_item_2_mic": "Spustelėkite <strong>Užblokuotas</strong> šalia <strong>Mikrofono</strong>, kad perjungtumėte į <strong>Leidžiama</strong>",
+        "list_item_3": "Grįžkite į šį puslapį ir paspauskite mygtuką <strong>Aš atlikau pakeitimus</strong>"
       }
     },
     "android_generic": {
       "browser_settings": {
         "list_item_1": "Savo naršyklėje atidarykite svetainės nustatymus. Dažnai tai yra užrakto piktograma [LOCK_ICON] adreso juostoje",
         "list_item_2": "Raskite skyrių apie leidimus",
-        "list_item_3_cam": "Įjunkite Kamera leidimus",
-        "list_item_3_mic": "Įjunkite Mikrofono leidimus",
-        "list_item_4": "Grįžkite į šį puslapį ir paspauskite mygtuką Aš atlikau pakeitimus"
+        "list_item_3_cam": "Įjunkite <strong>Kamera</strong> leidimus",
+        "list_item_3_mic": "Įjunkite <strong>Mikrofono</strong> leidimus",
+        "list_item_4": "Grįžkite į šį puslapį ir paspauskite mygtuką <strong>Aš atlikau pakeitimus</strong>"
       }
     },
     "android_samsung": {
       "browser_settings": {
         "list_item_1": "Savo naršyklėje paspauskite užrakto piktogramą [LOCK_ICON] adreso juostoje",
-        "list_item_2_cam": "Aktyvuokite perjungiklį šalia Kamera",
-        "list_item_2_mic": "Aktyvuokite perjungiklį šalia Mikrofono",
-        "list_item_3": "Grįžkite į šį puslapį ir paspauskite mygtuką Aš atlikau pakeitimus"
+        "list_item_2_cam": "Aktyvuokite perjungiklį šalia <strong>Kamera</strong>",
+        "list_item_2_mic": "Aktyvuokite perjungiklį šalia <strong>Mikrofono</strong>",
+        "list_item_3": "Grįžkite į šį puslapį ir paspauskite mygtuką <strong>Aš atlikau pakeitimus</strong>"
       }
     },
     "button_primary": "Atnaujinti",
     "desktop_chrome": {
       "browser_settings": {
         "list_item_1": "Savo naršyklėje spustelėkite užrakto piktogramą [LOCK_ICON] adreso juostoje",
-        "list_item_2_cam": "Aktyvuokite perjungiklį šalia Kamera",
-        "list_item_2_mic": "Aktyvuokite perjungiklį šalia Mikrofono",
-        "list_item_3": "Grįžkite į šį puslapį ir paspauskite mygtuką Aš atlikau pakeitimus"
+        "list_item_2_cam": "Aktyvuokite perjungiklį šalia <strong>Kamera</strong>",
+        "list_item_2_mic": "Aktyvuokite perjungiklį šalia <strong>Mikrofono</strong>",
+        "list_item_3": "Grįžkite į šį puslapį ir paspauskite mygtuką <strong>Aš atlikau pakeitimus</strong>"
       }
     },
     "desktop_edge": {
       "browser_settings": {
         "list_item_1": "Savo naršyklėje spustelėkite užrakto piktogramą [LOCK_ICON] adreso juostoje",
-        "list_item_2_cam": "Spustelėkite išskleidžiamąjį meniu šalia Kamera ir pasirinkite Leisti",
-        "list_item_2_mic": "Spustelėkite išskleidžiamąjį meniu šalia Mikrofono ir pasirinkite Leisti",
-        "list_item_3": "Grįžkite į šį puslapį ir paspauskite mygtuką Aš atlikau pakeitimus"
+        "list_item_2_cam": "Spustelėkite išskleidžiamąjį meniu šalia <strong>Kamera</strong> ir pasirinkite <strong>Leisti</strong>",
+        "list_item_2_mic": "Spustelėkite išskleidžiamąjį meniu šalia <strong>Mikrofono</strong> ir pasirinkite <strong>Leisti</strong>",
+        "list_item_3": "Grįžkite į šį puslapį ir paspauskite mygtuką <strong>Aš atlikau pakeitimus</strong>"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
         "list_item_1": "Savo naršyklėje spustelėkite nustatymų piktogramą [SETTINGS_ICON_FIREFOX] adreso juostoje",
-        "list_item_2_cam": "Spustelėkite Užblokuota šalia Naudoti kamerą",
-        "list_item_2_mic": "Spustelėkite Užblokuotas šalia Naudoti mikrofoną",
-        "list_item_3": "Grįžkite į šį puslapį ir paspauskite mygtuką Aš atlikau pakeitimus"
+        "list_item_2_cam": "Spustelėkite <strong>Užblokuota</strong> šalia <strong>Naudoti kamerą</strong>",
+        "list_item_2_mic": "Spustelėkite <strong>Užblokuotas</strong> šalia <strong>Naudoti mikrofoną</strong>",
+        "list_item_3": "Grįžkite į šį puslapį ir paspauskite mygtuką <strong>Aš atlikau pakeitimus</strong>"
       }
     },
     "desktop_generic": {
       "browser_settings": {
         "list_item_1": "Savo naršyklėje atidarykite svetainės nustatymus. Dažnai tai yra užrakto piktograma [LOCK_ICON] adreso juostoje",
         "list_item_2": "Raskite skyrių apie leidimus",
-        "list_item_3_cam": "Įjunkite Kamera leidimus",
-        "list_item_3_mic": "Įjunkite Mikrofono leidimus",
-        "list_item_4": "Grįžkite į šį puslapį ir paspauskite mygtuką Aš atlikau pakeitimus"
+        "list_item_3_cam": "Įjunkite <strong>Kamera</strong> leidimus",
+        "list_item_3_mic": "Įjunkite <strong>Mikrofono</strong> leidimus",
+        "list_item_4": "Grįžkite į šį puslapį ir paspauskite mygtuką <strong>Aš atlikau pakeitimus</strong>"
       },
       "device_settings": {
-        "list_item_1": "Savo kompiuteryje atidarykite Nustatymus",
-        "list_item_2": "Raskite skyrių apie leidimus (paprastai po Privatumas)",
-        "list_item_3_cam": "Įjunkite Kamera leidimus [BROWSER_ICON]",
-        "list_item_3_mic": "Įjunkite Mikrofono leidimus [BROWSER_ICON]",
+        "list_item_1": "Savo kompiuteryje atidarykite <strong>Nustatymus</strong>",
+        "list_item_2": "Raskite skyrių apie leidimus (paprastai po <strong>Privatumas</strong>)",
+        "list_item_3_cam": "Įjunkite <strong>Kamera</strong> leidimus [BROWSER_ICON]",
+        "list_item_3_mic": "Įjunkite <strong>Mikrofono</strong> leidimus [BROWSER_ICON]",
         "list_item_4": "Jeigu reikia, iš naujo paleiskite naršyklę ir grįžkite į šį puslapį"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "Savo kompiuteryje spustelėkite Apple meniu [APPLE_ICON] ir pasirinkite Sistemos nustatymai (arba Sistemos nuostatos)",
-        "list_item_2": "Spustelėkite Privatumas ir saugumas (arba Saugumas ir privatumas) šoninėje juostoje ",
-        "list_item_3": "Spustelėkite Vėliau iššokančiame lange",
-        "list_item_3_cam": "Spustelėkite Kamera ir aktyvuokite perjungiklį (arba žymimąjį langelį) šalia [BROWSER_ICON]",
-        "list_item_4": "Spustelėkite Išeiti ir atidaryti iš naujo iššokančiame lange ir grįžkite į šį puslapį",
-        "list_item_4_mic": "Spustelėkite Mikrofoną ir aktyvuokite perjungiklį (arba žymimąjį langelį) šalia [BROWSER_ICON]"
+        "list_item_1": "Savo kompiuteryje spustelėkite Apple meniu [APPLE_ICON] ir pasirinkite <strong>Sistemos nustatymai</strong> (arba <strong>Sistemos nuostatos</strong>)",
+        "list_item_2": "Spustelėkite <strong>Privatumas ir saugumas</strong> (arba <strong>Saugumas ir privatumas</strong>) šoninėje juostoje ",
+        "list_item_3": "Spustelėkite <strong>Vėliau</strong> iššokančiame lange",
+        "list_item_3_cam": "Spustelėkite <strong>Kamera</strong> ir aktyvuokite perjungiklį (arba žymimąjį langelį) šalia [BROWSER_ICON]",
+        "list_item_4": "Spustelėkite <strong>Išeiti ir atidaryti iš naujo</strong> iššokančiame lange ir grįžkite į šį puslapį",
+        "list_item_4_mic": "Spustelėkite <strong>Mikrofoną</strong> ir aktyvuokite perjungiklį (arba žymimąjį langelį) šalia [BROWSER_ICON]"
       }
     },
     "desktop_safari": {
       "browser_settings": {
-        "list_item_1": "Savo naršyklėje spustelėkite dešiniuoju pelės mygtuku adreso juostoje ir pasirinkite Nustatymai",
-        "list_item_2_cam": "Spustelėkite išskleidžiamąjį meniu šalia Kamera ir pasirinkite Leisti",
-        "list_item_2_mic": "Spustelėkite išskleidžiamąjį meniu šalia Mikrofono ir pasirinkite Leisti",
-        "list_item_3": "Grįžkite į šį puslapį ir paspauskite mygtuką Aš atlikau pakeitimus"
+        "list_item_1": "Savo naršyklėje spustelėkite dešiniuoju pelės mygtuku adreso juostoje ir pasirinkite <strong>Nustatymai</strong>",
+        "list_item_2_cam": "Spustelėkite išskleidžiamąjį meniu šalia <strong>Kamera</strong> ir pasirinkite <strong>Leisti</strong>",
+        "list_item_2_mic": "Spustelėkite išskleidžiamąjį meniu šalia <strong>Mikrofono</strong> ir pasirinkite <strong>Leisti</strong>",
+        "list_item_3": "Grįžkite į šį puslapį ir paspauskite mygtuką <strong>Aš atlikau pakeitimus</strong>"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "Savo kompiuteryje spustelėkite Windows meniu [WINDOWS_ICON] ir pasirinkite Nustatymai [SETTINGS_ICON_WINDOWS]",
-        "list_item_2": "Spustelėkite Privatumas (arba Privatumas & Saugumas)",
-        "list_item_3_cam": "Spustelėkite Kamera po Programos leidimai ir aktyvuokite jungiklį šalia [BROWSER_ICON] ",
-        "list_item_3_mic": "Spustelėkite Mikrofoną po Programos leidimais ir aktyvuokite jungiklį šalia [BROWSER_ICON]",
+        "list_item_1": "Savo kompiuteryje spustelėkite Windows meniu [WINDOWS_ICON] ir pasirinkite <strong>Nustatymai</strong> [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "Spustelėkite <strong>Privatumas</strong> (arba <strong>Privatumas & Saugumas</strong>)",
+        "list_item_3_cam": "Spustelėkite <strong>Kamera</strong> po <strong>Programos leidimai</strong> ir aktyvuokite jungiklį šalia [BROWSER_ICON] ",
+        "list_item_3_mic": "Spustelėkite <strong>Mikrofoną</strong> po <strong>Programos leidimais</strong> ir aktyvuokite jungiklį šalia [BROWSER_ICON]",
         "list_item_4": "Jeigu reikia, iš naujo paleiskite naršyklę ir grįžkite į šį puslapį"
       }
     },
     "info": "Atkūrimas",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "Spustelėkite mygtuką Aš atlikau pakeitimus. Jums vėl bus paprašyta leisti prieigą prie kameros ir mikrofono. Kai iššoks langelis, pasirinkite Leisti (arba Gerai)",
-        "list_item_1_cam": "Spustelėkite mygtuką Aš atlikau pakeitimus. Jums vėl bus paprašyta leisti prieigą prie kameros. Kai iššoks langelis, pasirinkite Leisti (arba Gerai)",
-        "list_item_1_mic": "Spustelėkite mygtuką Aš atlikau pakeitimus. Jums bus paprašyta vėl suteikti prieigą prie mikrofono. Kai iššoks langelis, pasirinkite Leisti (arba Gerai)"
+        "list_item_1_both": "Spustelėkite mygtuką <strong>Aš atlikau pakeitimus</strong>. Jums vėl bus paprašyta leisti prieigą prie kameros ir mikrofono. Kai iššoks langelis, pasirinkite <strong>Leisti</strong> (arba <strong>Gerai</strong>)",
+        "list_item_1_cam": "Spustelėkite mygtuką <strong>Aš atlikau pakeitimus</strong>. Jums vėl bus paprašyta leisti prieigą prie kameros. Kai iššoks langelis, pasirinkite <strong>Leisti</strong> (arba <strong>Gerai</strong>)",
+        "list_item_1_mic": "Spustelėkite mygtuką <strong>Aš atlikau pakeitimus</strong>. Jums bus paprašyta vėl suteikti prieigą prie mikrofono. Kai iššoks langelis, pasirinkite <strong>Leisti</strong> (arba <strong>Gerai</strong>)"
       },
       "device_settings": {
-        "list_item_1": "Savo įrenginyje atidarykite programą Nustatymai",
+        "list_item_1": "Savo įrenginyje atidarykite programą <strong>Nustatymai</strong>",
         "list_item_2": "Peržiūrėkite sąrašą ir paspauskite [BROWSER_ICON]",
-        "list_item_3_cam": "Aktyvuokite perjungiklį šalia Kamera",
-        "list_item_3_mic": "Aktyvuokite perjungiklį šalia Mikrofono",
-        "list_item_4": "Grįžkite į šį puslapį ir paspauskite mygtuką Aš atlikau pakeitimus"
+        "list_item_3_cam": "Aktyvuokite perjungiklį šalia <strong>Kamera</strong>",
+        "list_item_3_mic": "Aktyvuokite perjungiklį šalia <strong>Mikrofono</strong>",
+        "list_item_4": "Grįžkite į šį puslapį ir paspauskite mygtuką <strong>Aš atlikau pakeitimus</strong>"
       }
     },
     "ios_safari": {
       "device_settings": {
-        "list_item_1": "Savo įrenginyje atidarykite programą Nustatymai",
+        "list_item_1": "Savo įrenginyje atidarykite programą <strong>Nustatymai</strong>",
         "list_item_2": "Peržiūrėkite sąrašą ir paspauskite [BROWSER_ICON]",
-        "list_item_3_cam": "Spustelėkite Kamera ir pasirinkite Leisti",
-        "list_item_3_mic": "Spustelėkite Mikrofoną ir pasirinkite Leisti",
-        "list_item_4": "Grįžkite į šį puslapį ir paspauskite mygtuką Aš atlikau pakeitimus"
+        "list_item_3_cam": "Spustelėkite <strong>Kamera</strong> ir pasirinkite <strong>Leisti</strong>",
+        "list_item_3_mic": "Spustelėkite <strong>Mikrofoną</strong> ir pasirinkite <strong>Leisti</strong>",
+        "list_item_4": "Grįžkite į šį puslapį ir paspauskite mygtuką <strong>Aš atlikau pakeitimus</strong>"
       }
     },
     "list_header_both": "Atlikite šiuos veiksmus, kad atkurtumėte prieigą prie abiejų:",
@@ -585,7 +646,7 @@
     "list_item_how_to_both": "Suteikite prieigą prie fotoaparato ir mikrofono naudodami naršyklės nustatymus",
     "list_item_how_to_cam": "Suteikite prieigą prie kameros naudodami naršyklės nustatymus",
     "list_item_how_to_mic": "Suteikite prieigą prie mikrofono naudodami naršyklės nustatymus",
-    "subtitle_both": "Atkurkite prieigą prie kameros ir mikrofono, kad galėtumėte padaryti vaizdo įrašą ir užbaigti patvirtinimo procesą",
+    "subtitle_both": "Mums reikia prieigos prie jūsų kameros ir mikrofono, kad patikrintume jūsų tapatybę. Sekite žemiau pateiktas instrukcijas, kad atkurtumėte prieigą",
     "subtitle_cam": "Mums reikia prieigos prie jūsų kameros, kad patikrintume jūsų tapatybę. Sekite žemiau pateiktas instrukcijas, kad atkurtumėte prieigą",
     "subtitle_cam_old": "Atkurkite prieigą prie kameros, kad galėtumėte tęsti veido patikrinimą",
     "subtitle_mic": "Mums reikia prieigos prie jūsų mikrofono, kad patikrintume jūsų tapatybę. Sekite žemiau pateiktas instrukcijas, kad atkurtumėte prieigą",
@@ -604,16 +665,27 @@
     }
   },
   "photo_upload": {
+    "body_address_certificate_back": "Įkelkite dokumento nugarėlę iš savo kompiuterio",
+    "body_address_certificate_front": "Įkelkite dokumento priekinę dalį iš savo kompiuterio",
     "body_bank_statement": "Pateikite visą dokumento puslapį, kad pasiektumėte geriausių rezultatų",
     "body_benefits_letter": "Pateikite visą dokumento puslapį, kad pasiektumėte geriausių rezultatų",
     "body_bill": "Pateikite visą dokumento puslapį, kad pasiektumėte geriausių rezultatų",
+    "body_exchange_house_statement": "Pateikite visą dokumento puslapį geriausiems rezultatams",
+    "body_general_letter": "Pateikite visą dokumento puslapį geriausiems rezultatams",
     "body_generic_document_back": "Įkelkite galinę dokumento pusę iš kompiuterio",
     "body_generic_document_front": "Įkelkite priekinę dokumento pusę iš kompiuterio",
     "body_id_back": "Įkelkite galinę kortelės pusę iš kompiuterio",
     "body_id_front": "Įkelkite priekinę kortelės pusę iš kompiuterio",
+    "body_identity_document_with_address": "Pateikite visą dokumento puslapį geriausiems rezultatams",
+    "body_identity_document_with_address_back": "Įkelkite dokumento nugarėlę iš savo kompiuterio",
+    "body_identity_document_with_address_front": "Įkelkite dokumento priekinę dalį iš savo kompiuterio",
+    "body_insurance_statement": "Pateikite visą dokumento puslapį geriausiems rezultatams",
     "body_license_back": "Įkelkite galinę pažymėjimo pusę iš kompiuterio",
     "body_license_front": "Įkelkite priekinę pažymėjimo pusę iš kompiuterio",
+    "body_mobile_phone_bill": "Pateikite visą dokumento puslapį geriausiems rezultatams",
+    "body_mortgage_statement": "Pateikite visą dokumento puslapį geriausiems rezultatams",
     "body_passport": "Įkelti iš kompiuterio paso nuotraukos puslapį",
+    "body_pension_property_statement_letter": "Pateikite visą dokumento puslapį geriausiems rezultatams",
     "body_selfie": "Įkelkite asmenukę iš kompiuterio",
     "body_tax_letter": "Pateikite visą dokumento puslapį, kad pasiektumėte geriausių rezultatų",
     "button_take_photo": "Fotografuoti",
@@ -641,7 +713,9 @@
     "subtitle_address_card": "Turi būti galiojanti adreso kortelė",
     "subtitle_bank_statement": "Turi būti išduotas per ​​pastaruosius 3 mėnesius​​",
     "subtitle_benefits_letter": "Turi būti išduotas per ​​pastaruosius 12 mėnesių​​",
-    "subtitle_bill": "Turi būti išduota per ​​pastaruosius 3 mėnesius​​",
+    "subtitle_bill": "Turi būti išduota per ​​pastaruosius 3 mėnesius​",
+    "subtitle_dynamic_empty_grace_period": "Turi būti galiojantis dokumentas",
+    "subtitle_dynamic_grace_period": "Privalo būti išduotas per paskutinius <graceperiod></graceperiod> mėnesius",
     "subtitle_tax_letter": "Turi būti išduotas per ​​pastaruosius 12 mėnesių​​"
   },
   "poa_intro": {
@@ -953,6 +1027,51 @@
       "header_timeout": "Atrodo, kad užtrukote per ilgai"
     }
   },
+  "qes": {
+    "consent": {
+      "common": {
+        "steps": "Sukurkite savo parašą"
+      },
+      "confirmation": {
+        "bullet_1": "Po to, kai perskaitysite savo dokumentą, paspauskite mygtuką „Pasirašyti dokumentą“.",
+        "bullet_2": "Kai Onfido patvirtins jūsų tapatybę, jūsų parašas bus naudojamas šiame dokumente.",
+        "button_next_step": "Pasirašykite dokumentą",
+        "review_document": "Peržiūrėkite <fallback>savo dokumentą</fallback> pasirašymui",
+        "step2": "2 iš 2",
+        "steps": "Pasirašykite savo dokumentą",
+        "subtitle": "Kad patvirtintumėte savo tapatybę pagal Europos taisykles, turite skaitmeniškai pasirašyti dokumentą.",
+        "title": "Sukurkite ir naudokite savo skaitmeninį parašą"
+      },
+      "introduction": {
+        "button_confirmation_step": "Sukurti mano parašą",
+        "certificate_application_form": "Sertifikato paraiškos forma",
+        "privacy_notice": "Privatumo pranešimas",
+        "step1": "1 iš 2",
+        "subtitle": "Kad patvirtintumėte savo tapatybę pagal Europos taisykles, turite skaitmeniškai pasirašyti dokumentą.",
+        "terms_and_conditions": "Naudojimosi sąlygos ir taisyklės",
+        "third_party_description": "<fallback>Namirial SpA</fallback> yra pasitikimas pasaulinis tiekėjas, kuris išduos sertifikatą, patvirtinantį jūsų elektroninį parašą.",
+        "title": "Sukurkite ir naudokite savo skaitmeninį parašą"
+      }
+    }
+  },
+  "qes_consent": {
+    "button": "Sukurti mano parašą",
+    "link_certificate": "Sertifikato paraiškos forma",
+    "link_privacy_notice": "Privatumo pranešimas",
+    "link_terms_and_conditions": "Terminai ir sąlygos",
+    "namirial_intro": "Namirial SpA yra pasitikimas paslaugų teikėjas visame pasaulyje, kuris išduos sertifikatą, patvirtinantį jūsų elektroninį parašą.",
+    "subtitle": "Kad patvirtintumėte savo tapatybę pagal Europos taisykles, turite skaitmeniškai pasirašyti dokumentą.",
+    "title": "Sukurkite ir naudokite savo skaitmeninį parašą"
+  },
+  "qes_sign": {
+    "button": "Pasirašykite dokumentą",
+    "link_document": "Peržiūrėkite savo dokumentą prieš pasirašydami",
+    "list_item_1": "Po to, kai perskaitysite savo dokumentą, paspauskite mygtuką „Pasirašyti dokumentą“.",
+    "list_item_2": "Kai Onfido patvirtins jūsų tapatybę, jūsų parašas bus naudojamas šiame dokumente.",
+    "step_title": "Pasirašykite savo dokumentą",
+    "subtitle": "Kad patvirtintumėte savo tapatybę pagal Europos taisykles, turite skaitmeniškai pasirašyti dokumentą.",
+    "title": "Sukurkite ir naudokite savo skaitmeninį parašą"
+  },
   "retry_feedback": {
     "button_primary": "Bandyti dar kartą"
   },
@@ -1092,16 +1211,16 @@
   "welcome": {
     "doc_video_subtitle": "Tai turėtų užtrukti kelias minutes",
     "info_original_document": "Nufotografuokite dokumento originalą. Skenuoti, fotografuoti ekranų ar fotokopijų negalima.",
-    "list_header": "Naudodami savo įrenginį, galite:",
+    "list_header": "Naudodami savo įrenginį:",
     "list_header_doc_video": "Naudodamiesi įrenginiu įrašykite:",
     "list_header_webcam": "Fotografuokite naudodami internetinę kamerą arba telefoną:",
     "list_item_doc": "jūsų asmens tapatybės dokumentas",
     "list_item_doc_generic": "Įrašykite vaizdo įrašą su savo asmens tapatybės dokumentu",
-    "list_item_doc_photo": "Nufotografuokite savo asmens tapatybės dokumentą",
-    "list_item_doc_video": "Padarykite savo asmens tapatybės dokumento vaizdo įrašą",
+    "list_item_doc_photo": "Nufotografuosite savo asmens tapatybės dokumentą",
+    "list_item_doc_video": "Padarysite savo asmens tapatybės dokumento vaizdo įrašą",
     "list_item_doc_video_timeout": "Įrašymo trukmė ribojama iki ​<timeout>​​</timeout>​ sek.",
-    "list_item_face_photo": "Nufotografuokite savo veidą",
-    "list_item_face_video": "Padarykite savo veido vaizdo įrašą",
+    "list_item_face_photo": "Nufotografuosite savo veidą",
+    "list_item_face_video": "Padarysite savo veido vaizdo įrašą",
     "list_item_poa": "adreso patvirtinimas",
     "list_item_selfie": "jūsų veidas",
     "next_button": "Pasirinkite dokumentą",

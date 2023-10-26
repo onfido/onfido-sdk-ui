@@ -188,15 +188,23 @@
       "odp_screenshot_title": "Skärmdump upptäckt"
     },
     "body": "Se till att du har laddat upp hela dokumentsidan, att detaljerna är tydliga och att det inte finns några oskarpa områden eller ljusreflexer",
+    "body_address_certificate": "Se till att du har laddat upp hela dokument sidan, och detaljerna är tydliga att läsa utan suddighet eller bländning",
     "body_bank_statement": "Se till att du har laddat upp hela dokumentsidan, att detaljerna är tydliga och att det inte finns några oskarpa områden eller ljusreflexer",
     "body_benefits_letter": "Se till att du har laddat upp hela dokumentsidan, att detaljerna är tydliga och att det inte finns några oskarpa områden eller ljusreflexer",
     "body_bill": "Se till att du har laddat upp hela dokumentsidan, att detaljerna är tydliga och att det inte finns några oskarpa områden eller ljusreflexer",
+    "body_exchange_house_statement": "Se till att du har laddat upp hela dokument sidan, och detaljerna är tydliga att läsa utan suddighet eller bländning",
+    "body_general_letter": "Se till att du har laddat upp hela dokument sidan, och detaljerna är tydliga att läsa utan suddighet eller bländning",
     "body_generic_document": "Se till att dina uppgifter syns tydligt och inte skyms",
     "body_id": "Se till att dina uppgifter syns tydligt och inte skyms",
+    "body_identity_document_with_address": "Se till att du har laddat upp hela dokument sidan, och detaljerna är tydliga att läsa utan suddighet eller bländning",
     "body_image_medium": "Det tar längre tid att verifiera dig om vi inte kan läsa det",
     "body_image_poor": "För att verifiera dig på ett smidigt sätt behöver vi ett bättre foto",
+    "body_insurance_statement": "Se till att du har laddat upp hela dokument sidan, och detaljerna är tydliga att läsa utan suddighet eller bländning",
     "body_license": "Se till att dina uppgifter syns tydligt och inte skyms",
+    "body_mobile_phone_bill": "Se till att du har laddat upp hela dokument sidan, och detaljerna är tydliga att läsa utan suddighet eller bländning",
+    "body_mortgage_statement": "Se till att du har laddat upp hela dokument sidan, och detaljerna är tydliga att läsa utan suddighet eller bländning",
     "body_passport": "Se till att dina uppgifter syns tydligt och inte skyms",
+    "body_pension_property_statement_letter": "Se till att du har laddat upp hela dokument sidan, och detaljerna är tydliga att läsa utan suddighet eller bländning",
     "body_permit": "Se till att dina uppgifter syns tydligt och inte skyms",
     "body_tax_letter": "Se till att du har laddat upp hela dokumentsidan, att detaljerna är tydliga och att det inte finns några oskarpa områden eller ljusreflexer",
     "button_close": "Stäng",
@@ -217,21 +225,39 @@
   },
   "doc_select": {
     "button_address_card": "Adresskort",
+    "button_address_card_back": "Adresskort (Baksida)",
     "button_address_card_detail": "Tillfälliga och permanenta kort accepteras",
+    "button_address_card_front": "Adresskort (Fram)",
     "button_bank_statement": "Kontoutdrag från bank eller hypoteksinstitut",
     "button_bank_statement_non_uk": "Bankkontoutdrag",
     "button_benefits_letter": "Brev gällande bidrag",
     "button_benefits_letter_detail": "Statligt godkända förmåner som t.ex. Bidrag till arbetssökande, bostadsbidrag, skatteavdrag",
     "button_bill": "Elräkning",
     "button_bill_detail": "Bensin, el, vatten, fast telefon eller bredband",
+    "button_exchange_house_statement": "Utbyteshusets uttalande",
+    "button_exchange_house_statement_detail": "Avsändarens uttalande om överföring eller remittering",
+    "button_general_letter": "Allmänt brev",
+    "button_general_letter_detail": "Brev från finansinstitut eller försörjningsföretag",
     "button_government_letter": "Brev från myndighet",
     "button_government_letter_detail": "Alla statligt utfärdade brev som t.ex. Brev angående bidrag, röstbrev, skattebrev m.m.",
     "button_id": "Identitetskort",
     "button_id_detail": "Fram- och baksida",
+    "button_identity_document_with_address": "Identitetshandling med adress",
+    "button_identity_document_with_address_back": "Identitetshandling med adress (Baksida)",
+    "button_identity_document_with_address_detail": "Utfärdat av en statlig myndighet",
+    "button_identity_document_with_address_front": "Identitetshandling med adress (Fram)",
+    "button_insurance_statement": "Försäkringsutdrag",
+    "button_insurance_statement_detail": "Utfärdat från ett privat försäkrings- eller mäklarföretag",
     "button_license": "Körkort",
     "button_license_detail": "Fram- och baksida",
+    "button_mobile_phone_bill": "Mobiltelefonräkning",
+    "button_mobile_phone_bill_detail": "Utfärdat från en mobiltelefonnätverksleverantör",
+    "button_mortgage_statement": "Hypoteksinformation",
+    "button_mortgage_statement_detail": "Utfärdat från en finansiell utlåningsinstitution",
     "button_passport": "Pass",
     "button_passport_detail": "Fotosida",
+    "button_pension_property_statement_letter": "Pensions- eller fastighetsuttalande/brev",
+    "button_pension_property_statement_letter_detail": "Pensionsutdrag eller brev och Fastighetsskatteutdrag eller brev",
     "button_permit": "Uppehållstillstånd",
     "button_permit_detail": "Fram- och baksida",
     "button_tax_letter": "Brev från skattemyndighet",
@@ -258,17 +284,29 @@
     "button_link_upload": "eller ladda upp foto – inga skanningar eller fotokopior",
     "button_primary": "Fortsätt på telefon",
     "subtitle": "Ta ett foto med din telefon",
+    "title_address_certificate": "Skicka adresskort",
+    "title_address_certificate_back": "Lämna in adresskort (baksida)",
+    "title_address_certificate_front": "Skicka adresskort (fram)",
     "title_bank_statement": "Skicka in utdrag",
     "title_benefits_letter": "Skicka in brev",
     "title_bill": "Skicka in räkning",
+    "title_exchange_house_statement": "Lämna in växlingshusets uttalande",
+    "title_general_letter": "Skicka allmänt brev",
     "title_generic_document_back": "Skicka in dokument (baksida)",
     "title_generic_document_front": "Skicka in dokument (framsida)",
     "title_government_letter": "Brev från myndighet",
     "title_id_back": "Skicka in identitetskort (baksida)",
     "title_id_front": "Skicka in identitetskort (framsida)",
+    "title_identity_document_with_address": "Lämna in identitetshandling med adress",
+    "title_identity_document_with_address_back": "Lämna in identitetshandling med adress (baksida)",
+    "title_identity_document_with_address_front": "Skicka identitetshandling med adress (framsida)",
+    "title_insurance_statement": "Lämna in försäkringsintyg",
     "title_license_back": "Ladda upp körkort (baksida)",
     "title_license_front": "Ladda upp körkort (framsida)",
+    "title_mobile_phone_bill": "Lämna in mobiltelefonräkning",
+    "title_mortgage_statement": "Skicka in låneavi",
     "title_passport": "Skicka in fotosida från pass",
+    "title_pension_property_statement_letter": "Skicka in uttalande eller brev",
     "title_permit_back": "Skicka in uppehållstillstånd (baksida)",
     "title_permit_front": "Skicka in uppehållstillstånd (framsida)",
     "title_tax_letter": "Skicka in brev"
@@ -422,6 +460,29 @@
       "success": "Skanning lyckad"
     }
   },
+  "otp": {
+    "code_input": {
+      "error": {
+        "technical": "Ett tekniskt fel har inträffat, vänligen försök igen senare",
+        "wrong_code": "Fel kod angiven, försök igen"
+      },
+      "intro": "Koden som skickades till ditt telefonnummer kommer att vara aktiv i 5 minuter",
+      "resend": {
+        "cta": "Skicka igen",
+        "label": "Kod skickad (upp till {limit})"
+      },
+      "title": "Engångslösenord"
+    },
+    "send_code": {
+      "cta": "Skicka kod",
+      "error": {
+        "limit": "Du har nått gränsen för skickade SMS",
+        "technical": "Ett tekniskt fel har inträffat, vänligen försök igen senare"
+      },
+      "intro": "För att verifiera ditt telefonnummer kommer vi att skicka dig en engångskod att ange på nästa skärm.",
+      "title": "Engångslösenord"
+    }
+  },
   "outro": {
     "body": "Det är allt vi behöver för att börja verifiera din identitet",
     "body_government_letter": "Se till att skicka in hela dokumentsidan för bästa resultat",
@@ -444,139 +505,139 @@
   "permission_recovery": {
     "android": {
       "device_settings": {
-        "list_item_1": "På din enhet, öppna Inställningar appen",
-        "list_item_2": "Tryck på Appar",
-        "list_item_3": "Tryck på [BROWSER_ICON]. Om du inte kan hitta den, tryck på Se alla appar eller Hantera appar och välj din webbläsarapp",
-        "list_item_4": "Tryck på Behörigheter",
-        "list_item_5_cam": "Tryck på Kamera och välj Tillåt",
-        "list_item_5_mic": "Tryck på Mikrofon och välj Tillåt",
-        "list_item_6": "Återvänd till denna sida och tryck på knappen Jag har gjort ändringarna"
+        "list_item_1": "På din enhet, öppna <strong>Inställningar</strong> appen",
+        "list_item_2": "Tryck på <strong>Appar</strong>",
+        "list_item_3": "Tryck på [BROWSER_ICON]. Om du inte kan hitta den, tryck på <strong>Se alla appar</strong> eller <strong>Hantera appar</strong> och välj din webbläsarapp",
+        "list_item_4": "Tryck på <strong>Behörigheter</strong>",
+        "list_item_5_cam": "Tryck på <strong>Kamera</strong> och välj <strong>Tillåt</strong>",
+        "list_item_5_mic": "Tryck på <strong>Mikrofon</strong> och välj <strong>Tillåt</strong>",
+        "list_item_6": "Återvänd till denna sida och tryck på knappen <strong>Jag har gjort ändringarna</strong>"
       }
     },
     "android_chrome": {
       "browser_settings": {
         "list_item_1": "I din webbläsare, tryck på låsikonen [LOCK_ICON] i adressfältet",
-        "list_item_2": "Tryck på Behörigheter",
-        "list_item_3_cam": "Aktivera reglaget bredvid Kamera",
-        "list_item_3_mic": "Aktivera reglaget bredvid Mikrofon",
-        "list_item_4": "Återvänd till denna sida och tryck på knappen Jag har gjort ändringarna"
+        "list_item_2": "Tryck på <strong>Behörigheter</strong>",
+        "list_item_3_cam": "Aktivera reglaget bredvid <strong>Kamera</strong>",
+        "list_item_3_mic": "Aktivera reglaget bredvid <strong>Mikrofon</strong>",
+        "list_item_4": "Återvänd till denna sida och tryck på knappen <strong>Jag har gjort ändringarna</strong>"
       }
     },
     "android_firefox": {
       "browser_settings": {
         "list_item_1": "I din webbläsare, tryck på låsikonen [LOCK_ICON] i adressfältet",
-        "list_item_2_cam": "Tryck på Blockerad bredvid Kamera för att byta till Tillåten",
-        "list_item_2_mic": "Tryck på Blockerad bredvid Mikrofon för att byta till Tillåten",
-        "list_item_3": "Återvänd till denna sida och tryck på knappen Jag har gjort ändringarna"
+        "list_item_2_cam": "Tryck på <strong>Blockerad</strong> bredvid <strong>Kamera</strong> för att byta till <strong>Tillåten</strong>",
+        "list_item_2_mic": "Tryck på <strong>Blockerad</strong> bredvid <strong>Mikrofon</strong> för att byta till <strong>Tillåten</strong>",
+        "list_item_3": "Återvänd till denna sida och tryck på knappen <strong>Jag har gjort ändringarna</strong>"
       }
     },
     "android_generic": {
       "browser_settings": {
         "list_item_1": "I din webbläsare, öppna webbplatsinställningarna. Detta är ofta en låsikon [LOCK_ICON] i adressfältet",
         "list_item_2": "Hitta avsnittet om behörigheter",
-        "list_item_3_cam": "Aktivera Kamera-behörigheterna",
-        "list_item_3_mic": "Aktivera Mikrofon-behörigheterna",
-        "list_item_4": "Återvänd till denna sida och tryck på knappen Jag har gjort ändringarna"
+        "list_item_3_cam": "Aktivera <strong>Kamera</strong>-behörigheterna",
+        "list_item_3_mic": "Aktivera <strong>Mikrofon</strong>-behörigheterna",
+        "list_item_4": "Återvänd till denna sida och tryck på knappen <strong>Jag har gjort ändringarna</strong>"
       }
     },
     "android_samsung": {
       "browser_settings": {
         "list_item_1": "I din webbläsare, tryck på låsikonen [LOCK_ICON] i adressfältet",
-        "list_item_2_cam": "Aktivera reglaget bredvid Kamera",
-        "list_item_2_mic": "Aktivera reglaget bredvid Mikrofon",
-        "list_item_3": "Återvänd till denna sida och tryck på knappen Jag har gjort ändringarna"
+        "list_item_2_cam": "Aktivera reglaget bredvid <strong>Kamera</strong>",
+        "list_item_2_mic": "Aktivera reglaget bredvid <strong>Mikrofon</strong>",
+        "list_item_3": "Återvänd till denna sida och tryck på knappen <strong>Jag har gjort ändringarna</strong>"
       }
     },
     "button_primary": "Uppdatera",
     "desktop_chrome": {
       "browser_settings": {
         "list_item_1": "I din webbläsare, klicka på låsikonen [LOCK_ICON] i adressfältet",
-        "list_item_2_cam": "Aktivera reglaget bredvid Kamera",
-        "list_item_2_mic": "Aktivera reglaget bredvid Mikrofon",
-        "list_item_3": "Återvänd till denna sida och klicka på knappen Jag har gjort ändringarna"
+        "list_item_2_cam": "Aktivera reglaget bredvid <strong>Kamera</strong>",
+        "list_item_2_mic": "Aktivera reglaget bredvid <strong>Mikrofon</strong>",
+        "list_item_3": "Återvänd till denna sida och klicka på knappen <strong>Jag har gjort ändringarna</strong>"
       }
     },
     "desktop_edge": {
       "browser_settings": {
         "list_item_1": "I din webbläsare, klicka på låsikonen [LOCK_ICON] i adressfältet",
-        "list_item_2_cam": "Klicka på rullgardinsmenyn bredvid Kamera och välj Tillåt",
-        "list_item_2_mic": "Klicka på rullgardinsmenyn bredvid Mikrofon och välj Tillåt",
-        "list_item_3": "Återvänd till denna sida och klicka på knappen Jag har gjort ändringarna"
+        "list_item_2_cam": "Klicka på rullgardinsmenyn bredvid <strong>Kamera</strong> och välj <strong>Tillåt</strong>",
+        "list_item_2_mic": "Klicka på rullgardinsmenyn bredvid <strong>Mikrofon</strong> och välj <strong>Tillåt</strong>",
+        "list_item_3": "Återvänd till denna sida och klicka på knappen <strong>Jag har gjort ändringarna</strong>"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
         "list_item_1": "I din webbläsare, klicka på inställningsikonen [SETTINGS_ICON_FIREFOX] i adressfältet",
-        "list_item_2_cam": "Klicka på Blockerad bredvid Använd kameran",
-        "list_item_2_mic": "Klicka på Blockerad bredvid Använd mikrofonen",
-        "list_item_3": "Återvänd till denna sida och klicka på knappen Jag har gjort ändringarna"
+        "list_item_2_cam": "Klicka på <strong>Blockerad</strong> bredvid <strong>Använd kameran</strong>",
+        "list_item_2_mic": "Klicka på <strong>Blockerad</strong> bredvid <strong>Använd mikrofonen</strong>",
+        "list_item_3": "Återvänd till denna sida och klicka på knappen <strong>Jag har gjort ändringarna</strong>"
       }
     },
     "desktop_generic": {
       "browser_settings": {
         "list_item_1": "I din webbläsare, öppna webbplatsinställningarna. Detta är ofta en låsikon [LOCK_ICON] i adressfältet",
         "list_item_2": "Hitta avsnittet om behörigheter",
-        "list_item_3_cam": "Aktivera Kamera-behörigheterna",
-        "list_item_3_mic": "Aktivera Mikrofon-behörigheterna",
-        "list_item_4": "Återvänd till denna sida och klicka på knappen Jag har gjort ändringarna"
+        "list_item_3_cam": "Aktivera <strong>Kamera</strong>-behörigheterna",
+        "list_item_3_mic": "Aktivera <strong>Mikrofon</strong>-behörigheterna",
+        "list_item_4": "Återvänd till denna sida och klicka på knappen <strong>Jag har gjort ändringarna</strong>"
       },
       "device_settings": {
-        "list_item_1": "På din dator, öppna dina Inställningar",
-        "list_item_2": "Hitta avsnittet om behörigheter (vanligtvis under Integritet)",
-        "list_item_3_cam": "Aktivera Kamera-behörigheterna för [BROWSER_ICON]",
-        "list_item_3_mic": "Aktivera Mikrofon-behörigheterna för [BROWSER_ICON]",
+        "list_item_1": "På din dator, öppna dina <strong>Inställningar</strong>",
+        "list_item_2": "Hitta avsnittet om behörigheter (vanligtvis under <strong>Integritet</strong>)",
+        "list_item_3_cam": "Aktivera <strong>Kamera</strong>-behörigheterna för [BROWSER_ICON]",
+        "list_item_3_mic": "Aktivera <strong>Mikrofon</strong>-behörigheterna för [BROWSER_ICON]",
         "list_item_4": "Starta om din webbläsare om nödvändigt och återvänd till denna sida"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "På din dator, klicka på Apple-menyn [APPLE_ICON] och välj Systeminställningar (eller Systempreferenser)",
-        "list_item_2": "Klicka på Integritet & Säkerhet (eller Säkerhet & Integritet) i sidofältet ",
-        "list_item_3": "Klicka på Senare i popup-fönstret",
-        "list_item_3_cam": "Klicka på Kamera och aktivera reglaget (eller kryssrutan) bredvid [BROWSER_ICON]",
-        "list_item_4": "Klicka på Avsluta & Öppna igen i popup-fönstret och återvänd till denna sida",
-        "list_item_4_mic": "Klicka på Mikrofon och aktivera reglaget (eller kryssrutan) bredvid [BROWSER_ICON]"
+        "list_item_1": "På din dator, klicka på Apple-menyn [APPLE_ICON] och välj <strong>Systeminställningar</strong> (eller <strong>Systempreferenser</strong>)",
+        "list_item_2": "Klicka på <strong>Integritet & Säkerhet</strong> (eller <strong>Säkerhet & Integritet</strong>) i sidofältet ",
+        "list_item_3": "Klicka på <strong>Senare</strong> i popup-fönstret",
+        "list_item_3_cam": "Klicka på <strong>Kamera</strong> och aktivera reglaget (eller kryssrutan) bredvid [BROWSER_ICON]",
+        "list_item_4": "Klicka på <strong>Avsluta & Öppna igen</strong> i popup-fönstret och återvänd till denna sida",
+        "list_item_4_mic": "Klicka på <strong>Mikrofon</strong> och aktivera reglaget (eller kryssrutan) bredvid [BROWSER_ICON]"
       }
     },
     "desktop_safari": {
       "browser_settings": {
-        "list_item_1": "I din webbläsare, högerklicka i adressfältet och välj Inställningar",
-        "list_item_2_cam": "Klicka på rullgardinsmenyn bredvid Kamera och välj Tillåt",
-        "list_item_2_mic": "Klicka på rullgardinsmenyn bredvid Mikrofon och välj Tillåt",
-        "list_item_3": "Återvänd till denna sida och klicka på knappen Jag har gjort ändringarna"
+        "list_item_1": "I din webbläsare, högerklicka i adressfältet och välj <strong>Inställningar</strong>",
+        "list_item_2_cam": "Klicka på rullgardinsmenyn bredvid <strong>Kamera</strong> och välj <strong>Tillåt</strong>",
+        "list_item_2_mic": "Klicka på rullgardinsmenyn bredvid <strong>Mikrofon</strong> och välj <strong>Tillåt</strong>",
+        "list_item_3": "Återvänd till denna sida och klicka på knappen <strong>Jag har gjort ändringarna</strong>"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "På din dator, klicka på Windows-menyn [WINDOWS_ICON] och välj Inställningar [SETTINGS_ICON_WINDOWS]",
-        "list_item_2": "Klicka på Integritet (eller Integritet & Säkerhet)",
-        "list_item_3_cam": "Klicka på Kamera under Appbehörigheter och aktivera reglaget bredvid [BROWSER_ICON] ",
-        "list_item_3_mic": "Klicka på Mikrofon under Appbehörigheter och aktivera reglaget bredvid [BROWSER_ICON]",
+        "list_item_1": "På din dator, klicka på Windows-menyn [WINDOWS_ICON] och välj <strong>Inställningar</strong> [SETTINGS_ICON_WINDOWS]",
+        "list_item_2": "Klicka på <strong>Integritet</strong> (eller <strong>Integritet & Säkerhet</strong>)",
+        "list_item_3_cam": "Klicka på <strong>Kamera</strong> under <strong>Appbehörigheter</strong> och aktivera reglaget bredvid [BROWSER_ICON] ",
+        "list_item_3_mic": "Klicka på <strong>Mikrofon</strong> under <strong>Appbehörigheter</strong> och aktivera reglaget bredvid [BROWSER_ICON]",
         "list_item_4": "Starta om din webbläsare om nödvändigt och återvänd till denna sida"
       }
     },
     "info": "Återställ",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "Tryck på knappen Jag har gjort ändringarna. Du kommer att bli ombedd att återigen aktivera åtkomst till kamera och mikrofon. När popup-fönstret dyker upp, välj Tillåt (eller OK)",
-        "list_item_1_cam": "Tryck på knappen Jag har gjort ändringarna. Du kommer att bli ombedd att återaktivera kameratillgången. När popup-fönstret dyker upp, välj Tillåt (eller OK)",
-        "list_item_1_mic": "Tryck på knappen Jag har gjort ändringarna. Du kommer att bli ombedd att återigen aktivera mikrofontillgång. När popup-fönstret dyker upp, välj Tillåt (eller OK)"
+        "list_item_1_both": "Tryck på knappen <strong>Jag har gjort ändringarna</strong>. Du kommer att bli ombedd att återigen aktivera åtkomst till kamera och mikrofon. När popup-fönstret dyker upp, välj <strong>Tillåt</strong> (eller <strong>OK</strong>)",
+        "list_item_1_cam": "Tryck på knappen <strong>Jag har gjort ändringarna</strong>. Du kommer att bli ombedd att återaktivera kameratillgången. När popup-fönstret dyker upp, välj <strong>Tillåt</strong> (eller <strong>OK</strong>)",
+        "list_item_1_mic": "Tryck på knappen <strong>Jag har gjort ändringarna</strong>. Du kommer att bli ombedd att återigen aktivera mikrofontillgång. När popup-fönstret dyker upp, välj <strong>Tillåt</strong> (eller <strong>OK</strong>)"
       },
       "device_settings": {
-        "list_item_1": "På din enhet, öppna Inställningar appen",
+        "list_item_1": "På din enhet, öppna <strong>Inställningar</strong> appen",
         "list_item_2": "Bläddra genom listan och tryck på [BROWSER_ICON]",
-        "list_item_3_cam": "Aktivera reglaget bredvid Kamera",
-        "list_item_3_mic": "Aktivera reglaget bredvid Mikrofon",
-        "list_item_4": "Återvänd till denna sida och tryck på knappen Jag har gjort ändringarna"
+        "list_item_3_cam": "Aktivera reglaget bredvid <strong>Kamera</strong>",
+        "list_item_3_mic": "Aktivera reglaget bredvid <strong>Mikrofon</strong>",
+        "list_item_4": "Återvänd till denna sida och tryck på knappen <strong>Jag har gjort ändringarna</strong>"
       }
     },
     "ios_safari": {
       "device_settings": {
-        "list_item_1": "På din enhet, öppna Inställningar appen",
+        "list_item_1": "På din enhet, öppna <strong>Inställningar</strong> appen",
         "list_item_2": "Bläddra genom listan och tryck på [BROWSER_ICON]",
-        "list_item_3_cam": "Tryck på Kamera och välj Tillåt",
-        "list_item_3_mic": "Tryck på Mikrofon och välj Tillåt",
-        "list_item_4": "Återvänd till denna sida och tryck på knappen Jag har gjort ändringarna"
+        "list_item_3_cam": "Tryck på <strong>Kamera</strong> och välj <strong>Tillåt</strong>",
+        "list_item_3_mic": "Tryck på <strong>Mikrofon</strong> och välj <strong>Tillåt</strong>",
+        "list_item_4": "Återvänd till denna sida och tryck på knappen <strong>Jag har gjort ändringarna</strong>"
       }
     },
     "list_header_both": "Följ dessa steg för att återställa åtkomst för båda:",
@@ -585,7 +646,7 @@
     "list_item_how_to_both": "Bevilja åtkomst till din kamera och mikrofon från dina webbläsarinställningar",
     "list_item_how_to_cam": "Bevilja åtkomst till din kamera från dina webbläsarinställningar",
     "list_item_how_to_mic": "Bevilja åtkomst till din mikrofon från dina webbläsarinställningar",
-    "subtitle_both": "Återställ kamera- och mikrofonåtkomst för att göra en video och slutföra verifieringsprocessen",
+    "subtitle_both": "Vi behöver tillgång till din kamera och mikrofon för att verifiera din identitet. Följ instruktionerna nedan för att återfå tillgång",
     "subtitle_cam": "Vi behöver tillgång till din kamera för att verifiera din identitet. Följ instruktionerna nedan för att återfå tillgång",
     "subtitle_cam_old": "Återställ kameraåtkomst för att fortsätta med din verifiering",
     "subtitle_mic": "Vi behöver tillgång till din mikrofon för att verifiera din identitet. Följ instruktionerna nedan för att återfå tillgång",
@@ -604,16 +665,27 @@
     }
   },
   "photo_upload": {
+    "body_address_certificate_back": "Ladda upp baksidan av dokumentet från din dator",
+    "body_address_certificate_front": "Ladda upp framsidan av dokumentet från din dator",
     "body_bank_statement": "Se till att skicka in hela dokumentsidan för bästa resultat",
     "body_benefits_letter": "Se till att skicka in hela dokumentsidan för bästa resultat",
     "body_bill": "Se till att skicka in hela dokumentsidan för bästa resultat",
+    "body_exchange_house_statement": "Tillhandahåll hela dokument sidan för bästa resultat",
+    "body_general_letter": "Tillhandahåll hela dokument sidan för bästa resultat",
     "body_generic_document_back": "Ladda upp baksidan av dokumentet från din dator",
     "body_generic_document_front": "Ladda upp framsidan av dokumentet från din dator",
     "body_id_back": "Ladda upp baksidan av identitetskortet från din dator",
     "body_id_front": "Ladda upp framsidan av identitetskortet från din dator",
+    "body_identity_document_with_address": "Tillhandahåll hela dokument sidan för bästa resultat",
+    "body_identity_document_with_address_back": "Ladda upp baksidan av dokumentet från din dator",
+    "body_identity_document_with_address_front": "Ladda upp framsidan av dokumentet från din dator",
+    "body_insurance_statement": "Tillhandahåll hela dokument sidan för bästa resultat",
     "body_license_back": "Ladda upp baksidan av körkortet från din dator",
     "body_license_front": "Ladda upp framsidan av körkortet från din dator",
+    "body_mobile_phone_bill": "Tillhandahåll hela dokument sidan för bästa resultat",
+    "body_mortgage_statement": "Tillhandahåll hela dokument sidan för bästa resultat",
     "body_passport": "Ladda upp fotosidan från passet från din dator",
+    "body_pension_property_statement_letter": "Tillhandahåll hela dokument sidan för bästa resultat",
     "body_selfie": "Ladda upp en selfie från din dator",
     "body_tax_letter": "Se till att skicka in hela dokumentsidan för bästa resultat",
     "button_take_photo": "Ta foto",
@@ -642,6 +714,8 @@
     "subtitle_bank_statement": "Måste ha utfärdats under de senaste 3 månaderna",
     "subtitle_benefits_letter": "Måste ha utfärdats under de senaste 12 månaderna",
     "subtitle_bill": "Måste ha utfärdats under de senaste 3 månaderna",
+    "subtitle_dynamic_empty_grace_period": "Måste vara ett giltigt dokument",
+    "subtitle_dynamic_grace_period": "Behöver ha utfärdats under de senaste <graceperiod></graceperiod> månaderna",
     "subtitle_tax_letter": "Måste ha utfärdats under de senaste 12 månaderna"
   },
   "poa_intro": {
@@ -952,6 +1026,51 @@
       "details_timeout": "Börja om",
       "header_timeout": "Det verkar ha tagit för lång tid"
     }
+  },
+  "qes": {
+    "consent": {
+      "common": {
+        "steps": "Skapa din signatur"
+      },
+      "confirmation": {
+        "bullet_1": "Efter att ha läst ditt dokument, tryck på knappen \"Signera dokument\".",
+        "bullet_2": "När Onfido har verifierat din identitet kommer din signatur att användas på detta dokument.",
+        "button_next_step": "Signera dokument",
+        "review_document": "Granska <fallback>ditt dokument</fallback> för att signera",
+        "step2": "2 av 2",
+        "steps": "Signera ditt dokument",
+        "subtitle": "För att bekräfta din identitet i enlighet med europeiska regler måste du digitalt signera ett dokument.",
+        "title": "Skapa och använd din digitala signatur"
+      },
+      "introduction": {
+        "button_confirmation_step": "Skapa min signatur",
+        "certificate_application_form": "Ansökningsformulär för certifikat",
+        "privacy_notice": "Integritetsmeddelande",
+        "step1": "1 av 2",
+        "subtitle": "För att bekräfta din identitet i enlighet med europeiska regler måste du digitalt signera ett dokument.",
+        "terms_and_conditions": "Allmänna villkor",
+        "third_party_description": "<fallback>Namirial SpA</fallback> är en betrodd global leverantör som kommer att utfärda ett certifikat som validerar din elektroniska signatur.",
+        "title": "Skapa och använd din digitala signatur"
+      }
+    }
+  },
+  "qes_consent": {
+    "button": "Skapa min signatur",
+    "link_certificate": "Ansökningsformulär för certifikat",
+    "link_privacy_notice": "Integritetsmeddelande",
+    "link_terms_and_conditions": "Allmänna villkor",
+    "namirial_intro": "Namirial SpA är en betrodd global leverantör som kommer att utfärda ett certifikat som validerar din elektroniska signatur.",
+    "subtitle": "För att bekräfta din identitet i enlighet med europeiska regler måste du digitalt signera ett dokument.",
+    "title": "Skapa och använd din digitala signatur"
+  },
+  "qes_sign": {
+    "button": "Signera dokument",
+    "link_document": "Granska ditt dokument för att signera",
+    "list_item_1": "Efter att ha läst ditt dokument, tryck på knappen \"Signera dokument\".",
+    "list_item_2": "När Onfido har verifierat din identitet kommer din signatur att användas på detta dokument.",
+    "step_title": "Signera ditt dokument",
+    "subtitle": "För att bekräfta din identitet i enlighet med europeiska regler måste du digitalt signera ett dokument.",
+    "title": "Skapa och använd din digitala signatur"
   },
   "retry_feedback": {
     "button_primary": "Försök igen"

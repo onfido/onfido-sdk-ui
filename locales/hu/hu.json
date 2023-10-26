@@ -188,15 +188,23 @@
       "odp_screenshot_title": "Képernyőfotó észlelve"
     },
     "body": "Győződjön meg róla, hogy feltöltötte a teljes dokumentumoldalt, és az adatok tisztán, elmosódás- és tükröződésmentesen olvashatók",
+    "body_address_certificate": "Győződjön meg róla, hogy feltöltötte az egész dokumentum oldalt, és az adatok jól olvashatóak, nincs elmosódás vagy vakítás",
     "body_bank_statement": "Győződjön meg róla, hogy feltöltötte a teljes dokumentumoldalt, és az adatok tisztán, elmosódás- és tükröződésmentesen olvashatók",
     "body_benefits_letter": "Győződjön meg róla, hogy feltöltötte a teljes dokumentumoldalt, és az adatok tisztán, elmosódás- és tükröződésmentesen olvashatók",
     "body_bill": "Győződjön meg róla, hogy feltöltötte a teljes dokumentumoldalt, és az adatok tisztán, elmosódás- és tükröződésmentesen olvashatók",
+    "body_exchange_house_statement": "Győződjön meg róla, hogy feltöltötte az egész dokumentum oldalt, és az adatok jól olvashatóak, nincs elmosódás vagy vakítás",
+    "body_general_letter": "Győződjön meg róla, hogy feltöltötte a teljes dokumentum oldalt, és az adatok jól olvashatóak, nincs elmosódás vagy vakítás",
     "body_generic_document": "Gondoskodjon arról, hogy az adatai világosan és egyértelműen olvashatók legyenek",
     "body_id": "Gondoskodjon arról, hogy az adatai világosan és egyértelműen olvashatók legyenek",
+    "body_identity_document_with_address": "Győződjön meg róla, hogy feltöltötte az egész dokumentum oldalt, és az adatok jól olvashatóak, nincs elmosódás vagy vakítás",
     "body_image_medium": "Ha nem tudjuk elolvasni, tovább fog tartani, amíg ellenőrizzük a személyazonosságát",
     "body_image_poor": "A problémamentes azonosításhoz jobb fényképre van szükségünk",
+    "body_insurance_statement": "Győződjön meg róla, hogy feltöltötte az egész dokumentum oldalt, és az adatok jól olvashatóak, nincs elmosódás vagy vakítás",
     "body_license": "Gondoskodjon arról, hogy az adatai világosan és egyértelműen olvashatók legyenek",
+    "body_mobile_phone_bill": "Győződjön meg róla, hogy feltöltötte az egész dokumentum oldalt, és az adatok jól olvashatóak, nincs elmosódás vagy vakítás",
+    "body_mortgage_statement": "Győződjön meg róla, hogy feltöltötte az egész dokumentum oldalt, és az részletek jól olvashatóak, nincs elmosódás vagy vakítás",
     "body_passport": "Gondoskodjon arról, hogy az adatai világosan és egyértelműen olvashatók legyenek",
+    "body_pension_property_statement_letter": "Győződjön meg róla, hogy feltöltötte az egész dokumentum oldalt, és az adatok jól olvashatóak, nincs elmosódás vagy vakítás",
     "body_permit": "Gondoskodjon arról, hogy az adatai világosan és egyértelműen olvashatók legyenek",
     "body_tax_letter": "Győződjön meg róla, hogy feltöltötte a teljes dokumentumoldalt, és az adatok tisztán, elmosódás- és tükröződésmentesen olvashatók",
     "button_close": "Bezár",
@@ -217,21 +225,39 @@
   },
   "doc_select": {
     "button_address_card": "Lakcímkártya",
+    "button_address_card_back": "Cím kártya (Hátul)",
     "button_address_card_detail": "Ideiglenes és állandó kártyák is elfogadottak",
+    "button_address_card_front": "Cím kártya (Elöl)",
     "button_bank_statement": "Banki vagy lakás-takarékpénztári számlakivonat",
     "button_bank_statement_non_uk": "Bankszámlakivonat",
     "button_benefits_letter": "Társadalombiztosítási igazolás",
     "button_benefits_letter_detail": "A kormány által engedélyezett háztartási juttatások, pl. álláskeresési támogatás, lakhatási támogatás, adójóváírás",
     "button_bill": "Közüzemi számla",
     "button_bill_detail": "Gáz, villamos energia, víz, vezetékes telefon vagy szélessávú kapcsolat",
+    "button_exchange_house_statement": "Tőzsdei Ház Nyilatkozata",
+    "button_exchange_house_statement_detail": "Küldő átutalási vagy pénzküldési nyilatkozata",
+    "button_general_letter": "Általános levél",
+    "button_general_letter_detail": "Levél pénzügyi intézménytől vagy szolgáltató cégtől",
     "button_government_letter": "Kormányzati levél",
     "button_government_letter_detail": "Bármely, a kormány által kibocsájtott levél pl. Juttatásokkal, szavazással, adózással kapcsolatos levelek stb.",
     "button_id": "Személyi igazolvány",
     "button_id_detail": "Elülső és hátsó oldal",
+    "button_identity_document_with_address": "Lakcímmel ellátott személyazonosító dokumentum",
+    "button_identity_document_with_address_back": "Lakcímmel ellátott személyazonosító dokumentum (hátul)",
+    "button_identity_document_with_address_detail": "Kormányzati hatóság által kiadva",
+    "button_identity_document_with_address_front": "Lakcímmel ellátott személyazonosító dokumentum (elöl)",
+    "button_insurance_statement": "Biztosítási nyilatkozat",
+    "button_insurance_statement_detail": "Kiadva egy magánbiztosító vagy bróker cég által",
     "button_license": "Vezetői engedély",
     "button_license_detail": "Elülső és hátsó oldal",
+    "button_mobile_phone_bill": "Mobiltelefon számla",
+    "button_mobile_phone_bill_detail": "Mobiltelefon-hálózati szolgáltató által kiadva",
+    "button_mortgage_statement": "Jelzálog nyilatkozat",
+    "button_mortgage_statement_detail": "Pénzügyi hitelintézet által kiadva",
     "button_passport": "Útlevél",
     "button_passport_detail": "Arcképes oldal",
+    "button_pension_property_statement_letter": "Nyugdíj vagy Ingatlan Nyilatkozat/Levél",
+    "button_pension_property_statement_letter_detail": "Nyugdíjigazolás vagy levél és Ingatlanadó-igazolás vagy levél",
     "button_permit": "Tartózkodási engedély",
     "button_permit_detail": "Elülső és hátsó oldal",
     "button_tax_letter": "Önkormányzati adóigazolás",
@@ -258,17 +284,29 @@
     "button_link_upload": "vagy töltsön fel egy nem szkennelt és nem fénymásolt fényképet",
     "button_primary": "Folytassa telefonján",
     "subtitle": "Készítsen egy fotót a telefonjával",
+    "title_address_certificate": "Cím kártya beküldése",
+    "title_address_certificate_back": "Cím kártya (hátul) beküldése",
+    "title_address_certificate_front": "Cím kártya (elöl) beküldése",
     "title_bank_statement": "Dokumentum beküldése",
     "title_benefits_letter": "Levél beküldése",
     "title_bill": "Számla beküldése",
+    "title_exchange_house_statement": "Adja be a pénzváltó ház nyilatkozatát",
+    "title_general_letter": "Általános levél benyújtása",
     "title_generic_document_back": "Dokumentum beküldése (hátlap)",
     "title_generic_document_front": "Dokumentum beküldése (előlap)",
     "title_government_letter": "Kormányzati levél",
     "title_id_back": "Személyazonosító igazolvány beküldése (hátlap)",
     "title_id_front": "Személyazonosító igazolvány beküldése (előlap)",
+    "title_identity_document_with_address": "Címmel ellátott személyazonosító dokumentum benyújtása",
+    "title_identity_document_with_address_back": "Nyújtson be személyazonosító dokumentumot címmel (hátul)",
+    "title_identity_document_with_address_front": "Nyújtson be személyazonosító dokumentumot címmel (elöl)",
+    "title_insurance_statement": "Biztosítási nyilatkozat benyújtása",
     "title_license_back": "Jogosítvány beküldése (hátlap)",
     "title_license_front": "Jogosítvány beküldése (előlap)",
+    "title_mobile_phone_bill": "Mobiltelefon-számla benyújtása",
+    "title_mortgage_statement": "Jelzálognyilatkozat benyújtása",
     "title_passport": "Útlevél fényképes oldalának beküldése",
+    "title_pension_property_statement_letter": "Nyilatkozat vagy levél benyújtása",
     "title_permit_back": "Küldje be a tartózkodási engedélyt (hátlap)",
     "title_permit_front": "Küldje be a tartózkodási engedélyt (előlap)",
     "title_tax_letter": "Levél beküldése"
@@ -422,6 +460,29 @@
       "success": "A szkennelés sikeres"
     }
   },
+  "otp": {
+    "code_input": {
+      "error": {
+        "technical": "Műszaki hiba történt, kérjük próbálja meg újra később",
+        "wrong_code": "Hibás kód lett megadva, kérjük próbálja újra"
+      },
+      "intro": "A telefon számára küldött kód 5 percig lesz aktív",
+      "resend": {
+        "cta": "Újraküldés",
+        "label": "Elküldött kód (maximum {limit})"
+      },
+      "title": "Egyszeri jelszó"
+    },
+    "send_code": {
+      "cta": "Küldj kódot",
+      "error": {
+        "limit": "Elérte az elküldött SMS-ek limitjét",
+        "technical": "Műszaki hiba történt, kérjük próbálja újra később"
+      },
+      "intro": "A telefon számának ellenőrzése érdekében egy egyszer használatos kódot küldünk Önnek, amelyet a következő képernyőn kell beírnia.",
+      "title": "Egyszeri jelszó"
+    }
+  },
   "outro": {
     "body": "Ez minden, amire szükségünk van személyazonossága ellenőrzésének megkezdéséhez",
     "body_government_letter": "A legjobb eredményhez adja meg a teljes dokumentumoldalt",
@@ -444,139 +505,139 @@
   "permission_recovery": {
     "android": {
       "device_settings": {
-        "list_item_1": "Az eszközén nyissa meg a Beállítások alkalmazást",
-        "list_item_2": "Érintse meg a Alkalmazások opciót",
-        "list_item_3": "Érintse meg a [BROWSER_ICON] ikont. Ha nem találja, érintse meg a Összes alkalmazás megtekintése vagy a Alkalmazások kezelése lehetőséget, és válassza ki a böngésző alkalmazást",
-        "list_item_4": "Érintse meg a Engedélyek opciót",
-        "list_item_5_cam": "Érintse meg a Kamera opciót, majd válassza a Engedélyezés lehetőséget",
-        "list_item_5_mic": "Érintse meg a Mikrofon opciót, majd válassza a Engedélyezés lehetőséget",
-        "list_item_6": "Térjen vissza erre az oldalra, és koppintson a Végrehajtottam a módosításokat gombra"
+        "list_item_1": "Az eszközén nyissa meg a <strong>Beállítások</strong> alkalmazást",
+        "list_item_2": "Érintse meg a <strong>Alkalmazások</strong> opciót",
+        "list_item_3": "Érintse meg a [BROWSER_ICON] ikont. Ha nem találja, érintse meg a <strong>Összes alkalmazás megtekintése</strong> vagy a <strong>Alkalmazások kezelése</strong> lehetőséget, és válassza ki a böngésző alkalmazást",
+        "list_item_4": "Érintse meg a <strong>Engedélyek</strong> opciót",
+        "list_item_5_cam": "Érintse meg a <strong>Kamera</strong> opciót, majd válassza a <strong>Engedélyezés</strong> lehetőséget",
+        "list_item_5_mic": "Érintse meg a <strong>Mikrofon</strong> opciót, majd válassza a <strong>Engedélyezés</strong> lehetőséget",
+        "list_item_6": "Térjen vissza erre az oldalra, és koppintson a <strong>Végrehajtottam a módosításokat</strong> gombra"
       }
     },
     "android_chrome": {
       "browser_settings": {
         "list_item_1": "A böngészőjében koppintson a lakat ikonra [LOCK_ICON] a címsorban",
-        "list_item_2": "Érintse meg a Engedélyek opciót",
-        "list_item_3_cam": "Aktiválja a kapcsolót a Kamera mellett",
-        "list_item_3_mic": "Aktiválja a kapcsolót a Mikrofon mellett",
-        "list_item_4": "Térjen vissza erre az oldalra, és koppintson a Végrehajtottam a módosításokat gombra"
+        "list_item_2": "Érintse meg a <strong>Engedélyek</strong> opciót",
+        "list_item_3_cam": "Aktiválja a kapcsolót a <strong>Kamera</strong> mellett",
+        "list_item_3_mic": "Aktiválja a kapcsolót a <strong>Mikrofon</strong> mellett",
+        "list_item_4": "Térjen vissza erre az oldalra, és koppintson a <strong>Végrehajtottam a módosításokat</strong> gombra"
       }
     },
     "android_firefox": {
       "browser_settings": {
         "list_item_1": "A böngészőjében koppintson a lakat ikonra [LOCK_ICON] a címsorban",
-        "list_item_2_cam": "Érintse meg a Blokkolt lehetőséget a Kamera mellett, hogy átváltsa a Engedélyezett lehetőségre",
-        "list_item_2_mic": "Érintse meg a Blokkolt lehetőséget a Mikrofon mellett, hogy átváltsa a Engedélyezett lehetőségre",
-        "list_item_3": "Térjen vissza erre az oldalra, és kattintson a Végrehajtottam a módosításokat gombra"
+        "list_item_2_cam": "Érintse meg a <strong>Blokkolt</strong> lehetőséget a <strong>Kamera</strong> mellett, hogy átváltsa a <strong>Engedélyezett</strong> lehetőségre",
+        "list_item_2_mic": "Érintse meg a <strong>Blokkolt</strong> lehetőséget a <strong>Mikrofon</strong> mellett, hogy átváltsa a <strong>Engedélyezett</strong> lehetőségre",
+        "list_item_3": "Térjen vissza erre az oldalra, és kattintson a <strong>Végrehajtottam a módosításokat</strong> gombra"
       }
     },
     "android_generic": {
       "browser_settings": {
         "list_item_1": "Nyissa meg a böngészőben a webhely beállításait. Ez gyakran egy lakat ikon [LOCK_ICON] a címsorban",
         "list_item_2": "Keresse meg a jogosultságokkal kapcsolatos szakaszt",
-        "list_item_3_cam": "Engedélyezze a Kamera hozzáféréseket",
-        "list_item_3_mic": "Engedélyezze a Mikrofon jogosultságokat",
-        "list_item_4": "Térjen vissza erre az oldalra, és kattintson a Végrehajtottam a módosításokat gombra"
+        "list_item_3_cam": "Engedélyezze a <strong>Kamera</strong> hozzáféréseket",
+        "list_item_3_mic": "Engedélyezze a <strong>Mikrofon</strong> jogosultságokat",
+        "list_item_4": "Térjen vissza erre az oldalra, és kattintson a <strong>Végrehajtottam a módosításokat</strong> gombra"
       }
     },
     "android_samsung": {
       "browser_settings": {
         "list_item_1": "A böngészőjében koppintson a lakat ikonra [LOCK_ICON] a címsorban",
-        "list_item_2_cam": "Aktiválja a kapcsolót a Kamera mellett",
-        "list_item_2_mic": "Aktiválja a kapcsolót a Mikrofon mellett",
-        "list_item_3": "Térjen vissza erre az oldalra, és koppintson a Végrehajtottam a módosításokat gombra"
+        "list_item_2_cam": "Aktiválja a kapcsolót a <strong>Kamera</strong> mellett",
+        "list_item_2_mic": "Aktiválja a kapcsolót a <strong>Mikrofon</strong> mellett",
+        "list_item_3": "Térjen vissza erre az oldalra, és koppintson a <strong>Végrehajtottam a módosításokat</strong> gombra"
       }
     },
     "button_primary": "Frissítés",
     "desktop_chrome": {
       "browser_settings": {
         "list_item_1": "A böngészőjében kattintson a címsorban található zárolás ikonra [LOCK_ICON]",
-        "list_item_2_cam": "Aktiválja a kapcsolót a Kamera mellett",
-        "list_item_2_mic": "Aktiválja a kapcsolót a Mikrofon mellett",
-        "list_item_3": "Térjen vissza erre az oldalra, és kattintson az Elvégeztem a módosításokat gombra"
+        "list_item_2_cam": "Aktiválja a kapcsolót a <strong>Kamera</strong> mellett",
+        "list_item_2_mic": "Aktiválja a kapcsolót a <strong>Mikrofon</strong> mellett",
+        "list_item_3": "Térjen vissza erre az oldalra, és kattintson az <strong>Elvégeztem a módosításokat</strong> gombra"
       }
     },
     "desktop_edge": {
       "browser_settings": {
         "list_item_1": "A böngészőjében kattintson a lakat ikonra [LOCK_ICON] a címsorban",
-        "list_item_2_cam": "Kattintson a Kamera melletti legördülő menüre, és válassza a Engedélyezés opciót",
-        "list_item_2_mic": "Kattintson a legördülő menüre a Mikrofon mellett és válassza a Engedélyezés opciót",
-        "list_item_3": "Térjen vissza erre az oldalra, és kattintson az Végrehajtottam a módosításokat gombra"
+        "list_item_2_cam": "Kattintson a <strong>Kamera</strong> melletti legördülő menüre, és válassza a <strong>Engedélyezés</strong> opciót",
+        "list_item_2_mic": "Kattintson a legördülő menüre a <strong>Mikrofon</strong> mellett és válassza a <strong>Engedélyezés</strong> opciót",
+        "list_item_3": "Térjen vissza erre az oldalra, és kattintson az <strong>Végrehajtottam a módosításokat</strong> gombra"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
         "list_item_1": "A böngészőjében kattintson a beállítások ikonra [SETTINGS_ICON_FIREFOX] a címsorban",
-        "list_item_2_cam": "Kattintson a Blokkolt gombra a Kamera használata mellett",
-        "list_item_2_mic": "Kattintson a Blokkolt gombra a Mikrofon használata mellett",
-        "list_item_3": "Térjen vissza erre az oldalra, és kattintson a Végrehajtottam a módosításokat gombra"
+        "list_item_2_cam": "Kattintson a <strong>Blokkolt</strong> gombra a <strong>Kamera használata</strong> mellett",
+        "list_item_2_mic": "Kattintson a <strong>Blokkolt</strong> gombra a <strong>Mikrofon használata</strong> mellett",
+        "list_item_3": "Térjen vissza erre az oldalra, és kattintson a <strong>Végrehajtottam a módosításokat</strong> gombra"
       }
     },
     "desktop_generic": {
       "browser_settings": {
         "list_item_1": "Nyissa meg a böngészőben a webhely beállításait. Ez gyakran egy lakat ikon [LOCK_ICON] a címsorban",
         "list_item_2": "Keresse meg a jogosultságokra vonatkozó részt",
-        "list_item_3_cam": "Engedélyezze a Kamera hozzáféréseket",
-        "list_item_3_mic": "Engedélyezze a Mikrofon hozzáféréseket",
-        "list_item_4": "Térjen vissza erre az oldalra és kattintson a Módosításokat eszközöltem gombra"
+        "list_item_3_cam": "Engedélyezze a <strong>Kamera</strong> hozzáféréseket",
+        "list_item_3_mic": "Engedélyezze a <strong>Mikrofon</strong> hozzáféréseket",
+        "list_item_4": "Térjen vissza erre az oldalra és kattintson a <strong>Módosításokat eszközöltem</strong> gombra"
       },
       "device_settings": {
-        "list_item_1": "A számítógépen nyissa meg a Beállításokat",
-        "list_item_2": "Keresse meg a jogosultságokkal kapcsolatos részt (általában a Adatvédelem alatt)",
-        "list_item_3_cam": "Engedélyezze a Kamera jogosultságokat a [BROWSER_ICON] számára",
-        "list_item_3_mic": "Engedélyezze a Mikrofon hozzáférést a [BROWSER_ICON] számára",
+        "list_item_1": "A számítógépen nyissa meg a <strong>Beállításokat</strong>",
+        "list_item_2": "Keresse meg a jogosultságokkal kapcsolatos részt (általában a <strong>Adatvédelem</strong> alatt)",
+        "list_item_3_cam": "Engedélyezze a <strong>Kamera</strong> jogosultságokat a [BROWSER_ICON] számára",
+        "list_item_3_mic": "Engedélyezze a <strong>Mikrofon</strong> hozzáférést a [BROWSER_ICON] számára",
         "list_item_4": "Indítsa újra a böngészőjét, ha szükséges, és térjen vissza erre az oldalra"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "A számítógépén kattintson az Apple menüre [APPLE_ICON] és válassza a Rendszerbeállítások (vagy Rendszerpreferenciák) lehetőséget",
-        "list_item_2": "Kattintson a Adatvédelem és biztonság (vagy Biztonság és adatvédelem) lehetőségre az oldalsávon",
-        "list_item_3": "Kattintson a Később gombra a felugró ablakban",
-        "list_item_3_cam": "Kattintson a Kamera elemre, és aktiválja a kapcsolót (vagy jelölőnégyzetet) a [BROWSER_ICON] mellett",
-        "list_item_4": "Kattintson a Kilépés és újranyitás gombra a felugró ablakban, majd térjen vissza erre az oldalra",
-        "list_item_4_mic": "Kattintson a Mikrofon elemre, és aktiválja a kapcsolót (vagy jelölőnégyzetet) a [BROWSER_ICON] mellett"
+        "list_item_1": "A számítógépén kattintson az Apple menüre [APPLE_ICON] és válassza a <strong>Rendszerbeállítások</strong> (vagy <strong>Rendszerpreferenciák</strong>) lehetőséget",
+        "list_item_2": "Kattintson a <strong>Adatvédelem és biztonság</strong> (vagy <strong>Biztonság és adatvédelem</strong>) lehetőségre az oldalsávon",
+        "list_item_3": "Kattintson a <strong>Később</strong> gombra a felugró ablakban",
+        "list_item_3_cam": "Kattintson a <strong>Kamera</strong> elemre, és aktiválja a kapcsolót (vagy jelölőnégyzetet) a [BROWSER_ICON] mellett",
+        "list_item_4": "Kattintson a <strong>Kilépés és újranyitás</strong> gombra a felugró ablakban, majd térjen vissza erre az oldalra",
+        "list_item_4_mic": "Kattintson a <strong>Mikrofon</strong> elemre, és aktiválja a kapcsolót (vagy jelölőnégyzetet) a [BROWSER_ICON] mellett"
       }
     },
     "desktop_safari": {
       "browser_settings": {
-        "list_item_1": "A böngészőjében kattintson jobb gombbal a címsorban, és válassza a Beállítások opciót",
-        "list_item_2_cam": "Kattintson a Kamera melletti legördülő menüre, és válassza a Engedélyezés opciót",
-        "list_item_2_mic": "Kattintson a legördülő menüre a Mikrofon mellett és válassza a Engedélyezés opciót",
-        "list_item_3": "Térjen vissza erre az oldalra, és kattintson a Végrehajtottam a módosításokat gombra"
+        "list_item_1": "A böngészőjében kattintson jobb gombbal a címsorban, és válassza a <strong>Beállítások</strong> opciót",
+        "list_item_2_cam": "Kattintson a <strong>Kamera</strong> melletti legördülő menüre, és válassza a <strong>Engedélyezés</strong> opciót",
+        "list_item_2_mic": "Kattintson a legördülő menüre a <strong>Mikrofon</strong> mellett és válassza a <strong>Engedélyezés</strong> opciót",
+        "list_item_3": "Térjen vissza erre az oldalra, és kattintson a <strong>Végrehajtottam a módosításokat</strong> gombra"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "A számítógépen kattintson a Windows menüre [WINDOWS_ICON] és válassza a Beállítások [SETTINGS_ICON_WINDOWS] lehetőséget",
-        "list_item_2": "Kattintson a Adatvédelem (vagy Adatvédelem & Biztonság) lehetőségre",
-        "list_item_3_cam": "Kattintson a Kamera lehetőségre az Alkalmazás engedélyek alatt, és aktiválja a kapcsolót a [BROWSER_ICON] mellett",
-        "list_item_3_mic": "Kattintson a Mikrofon elemre az Alkalmazás engedélyek alatt, és aktiválja a kapcsolót a [BROWSER_ICON] mellett",
+        "list_item_1": "A számítógépen kattintson a Windows menüre [WINDOWS_ICON] és válassza a <strong>Beállítások</strong> [SETTINGS_ICON_WINDOWS] lehetőséget",
+        "list_item_2": "Kattintson a <strong>Adatvédelem</strong> (vagy <strong>Adatvédelem & Biztonság</strong>) lehetőségre",
+        "list_item_3_cam": "Kattintson a <strong>Kamera</strong> lehetőségre az <strong>Alkalmazás engedélyek</strong> alatt, és aktiválja a kapcsolót a [BROWSER_ICON] mellett",
+        "list_item_3_mic": "Kattintson a <strong>Mikrofon</strong> elemre az <strong>Alkalmazás engedélyek</strong> alatt, és aktiválja a kapcsolót a [BROWSER_ICON] mellett",
         "list_item_4": "Indítsa újra a böngészőjét, ha szükséges, és térjen vissza erre az oldalra"
       }
     },
     "info": "Újraindítás",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "Érintse meg az Elvégeztem a módosításokat gombot. Újra felkérik, hogy engedélyezze a kamera és a mikrofon hozzáférését. Amikor a felugró ablak megjelenik, válassza az Engedélyezés (vagy OK) lehetőséget.",
-        "list_item_1_cam": "Érintse meg az Elvégeztem a módosításokat gombot. Újra felkérik, hogy engedélyezze a kamera hozzáférését. Amikor a felugró ablak megjelenik, válassza az Engedélyezés (vagy OK) lehetőséget.",
-        "list_item_1_mic": "Érintse meg az Elvégeztem a módosításokat gombot. Újra felkérik majd, hogy engedélyezze a mikrofon hozzáférését. Amikor megjelenik a felugró ablak, válassza az Engedélyezés (vagy OK) opciót."
+        "list_item_1_both": "Érintse meg az <strong>Elvégeztem a módosításokat</strong> gombot. Újra felkérik, hogy engedélyezze a kamera és a mikrofon hozzáférését. Amikor a felugró ablak megjelenik, válassza az <strong>Engedélyezés</strong> (vagy <strong>OK</strong>) lehetőséget.",
+        "list_item_1_cam": "Érintse meg az <strong>Elvégeztem a módosításokat</strong> gombot. Újra felkérik, hogy engedélyezze a kamera hozzáférését. Amikor a felugró ablak megjelenik, válassza az <strong>Engedélyezés</strong> (vagy <strong>OK</strong>) lehetőséget.",
+        "list_item_1_mic": "Érintse meg az <strong>Elvégeztem a módosításokat</strong> gombot. Újra felkérik majd, hogy engedélyezze a mikrofon hozzáférését. Amikor megjelenik a felugró ablak, válassza az <strong>Engedélyezés</strong> (vagy <strong>OK</strong>) opciót."
       },
       "device_settings": {
-        "list_item_1": "Az eszközén nyissa meg a Beállítások alkalmazást",
+        "list_item_1": "Az eszközén nyissa meg a <strong>Beállítások</strong> alkalmazást",
         "list_item_2": "Görgessen végig a listán, és koppintson a [BROWSER_ICON] ikonra",
-        "list_item_3_cam": "Aktiválja a kapcsolót a Kamera mellett",
-        "list_item_3_mic": "Aktiválja a kapcsolót a Mikrofon mellett",
-        "list_item_4": "Térjen vissza erre az oldalra, és koppintson a Végrehajtottam a módosításokat gombra"
+        "list_item_3_cam": "Aktiválja a kapcsolót a <strong>Kamera</strong> mellett",
+        "list_item_3_mic": "Aktiválja a kapcsolót a <strong>Mikrofon</strong> mellett",
+        "list_item_4": "Térjen vissza erre az oldalra, és koppintson a <strong>Végrehajtottam a módosításokat</strong> gombra"
       }
     },
     "ios_safari": {
       "device_settings": {
-        "list_item_1": "Az eszközén nyissa meg a Beállítások alkalmazást",
+        "list_item_1": "Az eszközén nyissa meg a <strong>Beállítások</strong> alkalmazást",
         "list_item_2": "Görgessen végig a listán, és koppintson a [BROWSER_ICON]-ra",
-        "list_item_3_cam": "Érintse meg a Kamera opciót, majd válassza a Engedélyezés lehetőséget",
-        "list_item_3_mic": "Érintse meg a Mikrofon lehetőséget, majd válassza a Engedélyezés opciót",
-        "list_item_4": "Térjen vissza erre az oldalra, és koppintson a Végrehajtottam a módosításokat gombra"
+        "list_item_3_cam": "Érintse meg a <strong>Kamera</strong> opciót, majd válassza a <strong>Engedélyezés</strong> lehetőséget",
+        "list_item_3_mic": "Érintse meg a <strong>Mikrofon</strong> lehetőséget, majd válassza a <strong>Engedélyezés</strong> opciót",
+        "list_item_4": "Térjen vissza erre az oldalra, és koppintson a <strong>Végrehajtottam a módosításokat</strong> gombra"
       }
     },
     "list_header_both": "Mindkét eszközhöz való hozzáférés helyreállításához kövesse az alábbi lépéseket:",
@@ -585,7 +646,7 @@
     "list_item_how_to_both": "Engedélyezze a fényképezőgéphez és a mikrofonhoz való hozzáférést a böngésző beállításaiban",
     "list_item_how_to_cam": "Engedélyezze a fényképezőgéphez való hozzáférést a böngésző beállításaiban",
     "list_item_how_to_mic": "Adjon hozzáférést mikrofonjának a böngészőbeállításokban",
-    "subtitle_both": "Videó készítéséhez és az ellenőrzési folyamat befejezéséhez állítsa vissza a kamera és a mikrofon hozzáférését",
+    "subtitle_both": "Szükségünk van a kamera és a mikrofon hozzáférésére azonosításához. Kövesse az alábbi utasításokat a hozzáférés visszaszerzéséhez",
     "subtitle_cam": "Szükségünk van a kamerájához való hozzáférésre azonosításának ellenőrzése érdekében. Kövesse az alábbi utasításokat a hozzáférés visszaszerzéséhez",
     "subtitle_cam_old": "Állítsa vissza a kamera hozzáférését az arcellenőrzés folytatásához",
     "subtitle_mic": "Szükségünk van a mikrofonjához való hozzáférésre azonosításának ellenőrzéséhez. Kövesse az alábbi utasításokat a hozzáférés visszaszerzéséhez",
@@ -604,16 +665,27 @@
     }
   },
   "photo_upload": {
+    "body_address_certificate_back": "Töltsd fel a dokumentum hátoldalát a számítógépedről",
+    "body_address_certificate_front": "Töltsd fel a dokumentum előlapját a számítógépedről",
     "body_bank_statement": "A legjobb eredményhez adja meg a teljes dokumentumoldalt",
     "body_benefits_letter": "A legjobb eredményhez adja meg a teljes dokumentumoldalt",
     "body_bill": "A legjobb eredményhez adja meg a teljes dokumentumoldalt",
+    "body_exchange_house_statement": "A legjobb eredmények érdekében adja meg a teljes dokumentum oldalt",
+    "body_general_letter": "A legjobb eredmények érdekében adja meg a teljes dokumentum oldalt",
     "body_generic_document_back": "A dokumentum hátlapjának feltöltése a számítógépről",
     "body_generic_document_front": "A dokumentum előlapjának feltöltése a számítógépről",
     "body_id_back": "A kártya hátoldalának feltöltése a számítógépről",
     "body_id_front": "A jogosítvány előlapjának feltöltése a számítógépről",
+    "body_identity_document_with_address": "A legjobb eredmények érdekében adja meg a teljes dokumentum oldalt",
+    "body_identity_document_with_address_back": "Töltsd fel a dokumentum hátoldalát a számítógépedről",
+    "body_identity_document_with_address_front": "Töltsd fel a dokumentum előlapját a számítógépedről",
+    "body_insurance_statement": "Adja meg a teljes dokumentum oldalt a legjobb eredmények érdekében",
     "body_license_back": "Töltse fel a jogosítvány hátlapját a számítógépéről",
     "body_license_front": "A jogosítvány előlapjának feltöltése a számítógépről",
+    "body_mobile_phone_bill": "A legjobb eredmények érdekében adja meg a teljes dokumentum oldalt",
+    "body_mortgage_statement": "Adja meg a teljes dokumentum oldalt a legjobb eredmények érdekében",
     "body_passport": "Útlevélkép oldal feltöltése a számítógépről",
+    "body_pension_property_statement_letter": "A legjobb eredmények érdekében adja meg a teljes dokumentum oldalt",
     "body_selfie": "Szelfi feltöltése a számítógépről",
     "body_tax_letter": "A legjobb eredményhez adja meg a teljes dokumentumoldalt",
     "button_take_photo": "Készítsen egy fényképet",
@@ -642,6 +714,8 @@
     "subtitle_bank_statement": "​​3 hónapnál​​ nem régebbi",
     "subtitle_benefits_letter": "​​12 hónapnál​​ nem régebbi",
     "subtitle_bill": "​​3 hónapnál​​ nem régebbi",
+    "subtitle_dynamic_empty_grace_period": "Érvényes dokumentumnak kell lennie",
+    "subtitle_dynamic_grace_period": "Az utolsó <graceperiod></graceperiod> hónapban kell kiadni",
     "subtitle_tax_letter": "​​12 hónapnál​​ nem régebbi"
   },
   "poa_intro": {
@@ -952,6 +1026,51 @@
       "details_timeout": "Kezdje újra",
       "header_timeout": "Úgy tűnik, túllépte az időkorlátot"
     }
+  },
+  "qes": {
+    "consent": {
+      "common": {
+        "steps": "Hozza létre az aláírását"
+      },
+      "confirmation": {
+        "bullet_1": "A dokumentum elolvasása után koppintson a „Dokumentum aláírása” gombra.",
+        "bullet_2": "Amint az Onfido hitelesíti az ön személyazonosságát, az aláírása ezen a dokumentumon lesz használva.",
+        "button_next_step": "Iratot írjon alá",
+        "review_document": "Ellenőrizze <fallback>a dokumentumát</fallback> mielőtt aláírná",
+        "step2": "2 a 2-ből",
+        "steps": "Írja alá a dokumentumát",
+        "subtitle": "Az Európai szabályoknak megfelelően, digitálisan alá kell írnia egy dokumentumot, hogy igazolja azonosságát.",
+        "title": "Hozzon létre és használjon digitális aláírást"
+      },
+      "introduction": {
+        "button_confirmation_step": "Hozza létre az aláírásomat",
+        "certificate_application_form": "Igazolás kérelmező űrlap",
+        "privacy_notice": "Adatvédelmi tájékoztató",
+        "step1": "1 a 2-ből",
+        "subtitle": "Az Európai szabályoknak megfelelően, a személyazonosságának megerősítéséhez digitálisan alá kell írnia egy dokumentumot.",
+        "terms_and_conditions": "Általános szerződési feltételek",
+        "third_party_description": "A <fallback>Namirial SpA</fallback> egy világszerte megbízható szolgáltató, aki tanúsítványt állít ki az elektronikus aláírásának érvényesítésére.",
+        "title": "Hozzon létre és használjon digitális aláírást"
+      }
+    }
+  },
+  "qes_consent": {
+    "button": "Hozza létre az aláírásomat",
+    "link_certificate": "Igazolványkérelmi űrlap",
+    "link_privacy_notice": "Adatvédelmi tájékoztató",
+    "link_terms_and_conditions": "Általános szerződési feltételek",
+    "namirial_intro": "A Namirial SpA egy világszerte megbízható szolgáltató, aki tanúsítványt állít ki az elektronikus aláírásának érvényesítésére.",
+    "subtitle": "Az Európai szabályoknak megfelelően, a személyazonosságának megerősítéséhez digitálisan alá kell írnia egy dokumentumot.",
+    "title": "Hozza létre és használja digitális aláírását"
+  },
+  "qes_sign": {
+    "button": "Dokumentum aláírása",
+    "link_document": "Tekintse át a dokumentumot aláíráshoz",
+    "list_item_1": "A dokumentum elolvasása után koppintson a „Dokumentum aláírása” gombra.",
+    "list_item_2": "Amint Onfido megerősíti az ön személyazonosságát, az aláírását ezen a dokumentumon fogják használni.",
+    "step_title": "Írja al a dokumentumot",
+    "subtitle": "Egy dokumentum digitális aláírásával kell megerősítenie a személyazonosságát az Európai szabályoknak megfelelően.",
+    "title": "Hozza létre és használja digitális aláírását"
   },
   "retry_feedback": {
     "button_primary": "Próbálja újra"
