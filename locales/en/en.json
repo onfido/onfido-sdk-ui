@@ -421,6 +421,11 @@
     "title": "Get your secure link",
     "url_field_label": "Copy the link to your mobile browser"
   },
+  "interactive_task": {
+    "waiting": {
+      "title_5": "Uploading media..."
+    }
+  },
   "livenessV2": {
     "error_reload_instructions": "Reload instructions",
     "intro_note_no1": "First, position your face in the frame",
@@ -460,26 +465,48 @@
       "success": "Scanning successful"
     }
   },
+  "nfc_scan_error_can": {
+    "primary_button": "Exit verification",
+    "subtitle": "You’ve reached the maximum attempts to enter your CAN number"
+  },
+  "nfc_scan_error_can:title": "Maximum attempts reached",
   "otp": {
     "code_input": {
       "error": {
+        "code_expired": "Your code has expired, please request a new one.",
+        "code_invalid": "Wrong code entered, please try again.",
         "technical": "A technical error has occurred, please try again later",
+        "too_many_attempts": "You've tried this code too many times, please request a new one.",
         "wrong_code": "Wrong code entered, please try again"
       },
-      "intro": "The code sent to your phone number will be active for 5 minutes",
+      "intro": "You have 5 minutes to validate the code sent via SMS to <phonenumber></phonenumber>",
       "resend": {
-        "cta": "Resend",
-        "label": "Code sent (up to {limit})"
+        "cta": "Request a new code",
+        "cta_timeout": "Request a new code (<timeout></timeout> seconds)",
+        "label": "Code sent",
+        "tracker": "<remaining></remaining> of <limit></limit>"
       },
       "title": "One Time Password"
+    },
+    "error": {
+      "cta": "Go back",
+      "subtitle": "Please wait a few seconds and try again",
+      "title": "Something went wrong"
+    },
+    "failure": {
+      "cta": "Continue",
+      "subtitle": "We can no longer verify your phone number",
+      "title": "Allowed attempts exceeded"
     },
     "send_code": {
       "cta": "Send code",
       "error": {
+        "invalid_phone_number": "Please provide a valid phone number.",
         "limit": "You reached the limit of sent SMS",
         "technical": "A technical error has occurred, please try again later"
       },
-      "intro": "In order to verify your phone number we are going to send you a single-use code to input in the next screen.",
+      "input_label": "Phone number",
+      "intro": "To verify your phone number we'll ask you to enter a one time password.",
       "title": "One Time Password"
     }
   },
@@ -504,99 +531,123 @@
   },
   "permission_recovery": {
     "android": {
+      "browser_settings": {
+        "title": "Solution 1: Browser settings"
+      },
       "device_settings": {
         "list_item_1": "On your device, open the <strong>Settings</strong> app",
         "list_item_2": "Tap <strong>Apps</strong>",
-        "list_item_3": "Tap [BROWSER_ICON]. If you can't find it, tap <strong>See all apps</strong> or <strong>Manage apps</strong> and select your browser app",
+        "list_item_3": "Tap <browser_icon></browser_icon>. If you can't find it, tap <strong>See all apps</strong> or <strong>Manage apps</strong> and select your browser app",
         "list_item_4": "Tap <strong>Permissions</strong>",
         "list_item_5_cam": "Tap <strong>Camera</strong> and select <strong>Allow</strong>",
         "list_item_5_mic": "Tap <strong>Microphone</strong> and select <strong>Allow</strong>",
-        "list_item_6": "Come back to this page and tap the <strong>I've made the changes</strong> button"
+        "list_item_6": "Come back to this page and tap the <strong>Refresh the page</strong> button",
+        "title": "Solution 2: Device settings"
+      },
+      "refresh_page": {
+        "list_item_1_both": "Tap the <strong>Refresh the page</strong> button. You will be asked to enable camera and microphone access again. When the pop-up shows up, select <strong>Allow</strong> (or <strong>OK</strong>)",
+        "list_item_1_cam": "Tap the <strong>Refresh the page</strong> button. You will be asked to enable camera access again. When the pop-up shows up, select <strong>Allow</strong> (or <strong>OK</strong>)",
+        "list_item_1_mic": "Tap the <strong>Refresh the page</strong> button. You will be asked to enable microphone access again. When the pop-up shows up, select <strong>Allow</strong> (or <strong>OK</strong>)"
       }
     },
     "android_chrome": {
       "browser_settings": {
-        "list_item_1": "In your browser, tap the lock icon [LOCK_ICON] in the address bar",
+        "list_item_1": "In your browser, tap the settings icon <settings_icon_chrome></settings_icon_chrome> in the address bar",
         "list_item_2": "Tap <strong>Permissions</strong>",
         "list_item_3_cam": "Activate the toggle next to <strong>Camera</strong>",
         "list_item_3_mic": "Activate the toggle next to <strong>Microphone</strong>",
-        "list_item_4": "Come back to this page and tap the <strong>I've made the changes</strong> button"
+        "list_item_4": "Come back to this page and tap the <strong>Refresh the page</strong> button"
       }
     },
     "android_firefox": {
       "browser_settings": {
-        "list_item_1": "In your browser, tap the lock icon [LOCK_ICON] in the address bar",
+        "list_item_1": "In your browser, tap the lock icon <lock_icon></lock_icon> in the address bar",
         "list_item_2_cam": "Tap <strong>Blocked</strong> next to <strong>Camera</strong> to switch to <strong>Allowed</strong>",
         "list_item_2_mic": "Tap <strong>Blocked</strong> next to <strong>Microphone</strong> to switch to <strong>Allowed</strong>",
-        "list_item_3": "Come back to this page and tap the <strong>I've made the changes</strong> button"
+        "list_item_3": "Come back to this page and tap the <strong>Refresh the page</strong> button",
+        "title": "Solution 2: Browser settings"
+      },
+      "device_settings": {
+        "title": "Solution 3: Device settings"
+      },
+      "refresh_page": {
+        "title": "Solution 1: Refresh the page"
       }
     },
     "android_generic": {
       "browser_settings": {
-        "list_item_1": "In your browser, open the website settings. This is often a lock icon [LOCK_ICON] in the address bar",
+        "list_item_1": "In your browser, open the website settings. This is often a lock icon <lock_icon></lock_icon> in the address bar",
         "list_item_2": "Find the section about permissions",
         "list_item_3_cam": "Enable the <strong>Camera</strong> permissions",
         "list_item_3_mic": "Enable the <strong>Microphone</strong> permissions",
-        "list_item_4": "Come back to this page and tap the <strong>I've made the changes</strong> button"
+        "list_item_4": "Come back to this page and tap the <strong>Refresh the page</strong> button"
       }
     },
     "android_samsung": {
       "browser_settings": {
-        "list_item_1": "In your browser, tap the lock icon [LOCK_ICON] in the address bar",
+        "list_item_1": "In your browser, tap the lock icon <lock_icon></lock_icon> in the address bar",
         "list_item_2_cam": "Activate the toggle next to <strong>Camera</strong>",
         "list_item_2_mic": "Activate the toggle next to <strong>Microphone</strong>",
-        "list_item_3": "Come back to this page and tap the <strong>I've made the changes</strong> button"
+        "list_item_3": "Come back to this page and tap the <strong>Refresh the page</strong> button"
       }
     },
     "button_primary": "Refresh",
+    "desktop": {
+      "browser_settings": {
+        "title": "Solution 1: Browser settings"
+      },
+      "device_settings": {
+        "title": "Solution 2: Device settings"
+      }
+    },
     "desktop_chrome": {
       "browser_settings": {
-        "list_item_1": "In your browser, click the lock icon [LOCK_ICON] in the address bar",
+        "list_item_1": "In your browser, click the settings icon <settings_icon_chrome></settings_icon_chrome> in the address bar",
         "list_item_2_cam": "Activate the toggle next to <strong>Camera</strong>",
         "list_item_2_mic": "Activate the toggle next to <strong>Microphone</strong>",
-        "list_item_3": "Come back to this page and click the <strong>I've made the changes</strong> button"
+        "list_item_3": "Come back to this page and click the <strong>Refresh the page</strong> button"
       }
     },
     "desktop_edge": {
       "browser_settings": {
-        "list_item_1": "In your browser, click the lock icon [LOCK_ICON] in the address bar",
+        "list_item_1": "In your browser, click the lock icon <lock_icon></lock_icon> in the address bar",
         "list_item_2_cam": "Click the dropdown next to <strong>Camera</strong> and select <strong>Allow</strong>",
         "list_item_2_mic": "Click the dropdown next to <strong>Microphone</strong> and select <strong>Allow</strong>",
-        "list_item_3": "Come back to this page and click the <strong>I've made the changes</strong> button"
+        "list_item_3": "Come back to this page and click the <strong>Refresh the page</strong> button"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
-        "list_item_1": "In your browser, click the settings icon [SETTINGS_ICON_FIREFOX] in the address bar",
+        "list_item_1": "In your browser, click the settings icon <settings_icon_firefox></settings_icon_firefox> in the address bar",
         "list_item_2_cam": "Click <strong>Blocked</strong> next to <strong>Use the camera</strong>",
         "list_item_2_mic": "Click <strong>Blocked</strong> next to <strong>Use the microphone</strong>",
-        "list_item_3": "Come back to this page and click the <strong>I've made the changes</strong> button"
+        "list_item_3": "Come back to this page and click the <strong>Refresh the page</strong> button"
       }
     },
     "desktop_generic": {
       "browser_settings": {
-        "list_item_1": "In your browser, open the website settings. This is often a lock icon [LOCK_ICON] in the address bar",
+        "list_item_1": "In your browser, open the website settings. This is often a lock icon <lock_icon></lock_icon> in the address bar",
         "list_item_2": "Find the section about permissions",
         "list_item_3_cam": "Enable the <strong>Camera</strong> permissions",
         "list_item_3_mic": "Enable the <strong>Microphone</strong> permissions",
-        "list_item_4": "Come back to this page and click the <strong>I've made the changes</strong> button"
+        "list_item_4": "Come back to this page and click the <strong>Refresh the page</strong> button"
       },
       "device_settings": {
         "list_item_1": "On your computer, open your <strong>Settings</strong>",
         "list_item_2": "Find the section about permissions (usually under <strong>Privacy</strong>)",
-        "list_item_3_cam": "Enable the <strong>Camera</strong> permissions for [BROWSER_ICON]",
-        "list_item_3_mic": "Enable the <strong>Microphone</strong> permissions for [BROWSER_ICON]",
+        "list_item_3_cam": "Enable the <strong>Camera</strong> permissions for <browser_icon></browser_icon>",
+        "list_item_3_mic": "Enable the <strong>Microphone</strong> permissions for <browser_icon></browser_icon>",
         "list_item_4": "Restart your browser if necessary and come back to this page"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "On your computer, click the Apple menu [APPLE_ICON] and select <strong>System Settings</strong> (or <strong>System Preferences</strong>)",
+        "list_item_1": "On your computer, click the Apple menu <apple_icon></apple_icon> and select <strong>System Settings</strong> (or <strong>System Preferences</strong>)",
         "list_item_2": "Click <strong>Privacy & Security</strong> (or <strong>Security & Privacy</strong>) in the sidebar ",
         "list_item_3": "Click <strong>Later</strong> in the pop-up",
-        "list_item_3_cam": "Click <strong>Camera</strong> and activate the toggle (or checkbox) next to [BROWSER_ICON]",
+        "list_item_3_cam": "Click <strong>Camera</strong> and activate the toggle (or checkbox) next to <browser_icon></browser_icon>",
         "list_item_4": "Click <strong>Quit & Reopen</strong> in the pop-up and come back to this page",
-        "list_item_4_mic": "Click <strong>Microphone</strong> and activate the toggle (or checkbox) next to [BROWSER_ICON]"
+        "list_item_4_mic": "Click <strong>Microphone</strong> and activate the toggle (or checkbox) next to <browser_icon></browser_icon>"
       }
     },
     "desktop_safari": {
@@ -604,40 +655,44 @@
         "list_item_1": "In your browser, right-click in the address bar and select <strong>Settings</strong>",
         "list_item_2_cam": "Click the dropdown next to <strong>Camera</strong> and select <strong>Allow</strong>",
         "list_item_2_mic": "Click the dropdown next to <strong>Microphone</strong> and select <strong>Allow</strong>",
-        "list_item_3": "Come back to this page and click the <strong>I've made the changes</strong> button"
+        "list_item_3": "Come back to this page and click the <strong>Refresh the page</strong> button"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "On your computer, click the Windows menu [WINDOWS_ICON] and select <strong>Settings</strong> [SETTINGS_ICON_WINDOWS]",
+        "list_item_1": "On your computer, click the Windows menu <windows_icon></windows_icon> and select <strong>Settings</strong> <settings_icon_windows></settings_icon_windows>",
         "list_item_2": "Click <strong>Privacy</strong> (or <strong>Privacy & Security</strong>)",
-        "list_item_3_cam": "Click <strong>Camera</strong> under <strong>App permissions</strong> and activate the toggle next to [BROWSER_ICON] ",
-        "list_item_3_mic": "Click <strong>Microphone</strong> under <strong>App permissions</strong> and activate the toggle next to [BROWSER_ICON]",
+        "list_item_3_cam": "Click <strong>Camera</strong> under <strong>App permissions</strong> and activate the toggle next to <browser_icon></browser_icon> ",
+        "list_item_3_mic": "Click <strong>Microphone</strong> under <strong>App permissions</strong> and activate the toggle next to <browser_icon></browser_icon>",
         "list_item_4": "Restart your browser if necessary and come back to this page"
       }
     },
     "info": "Recovery",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "Tap the <strong>I've made the changes</strong> button. You will be asked to enable camera and microphone access again. When the pop-up shows up, select <strong>Allow</strong> (or <strong>OK</strong>)",
-        "list_item_1_cam": "Tap the <strong>I've made the changes</strong> button. You will be asked to enable camera access again. When the pop-up shows up, select <strong>Allow</strong> (or <strong>OK</strong>)",
-        "list_item_1_mic": "Tap the <strong>I've made the changes</strong> button. You will be asked to enable microphone access again. When the pop-up shows up, select <strong>Allow</strong> (or <strong>OK</strong>)"
+        "list_item_1_both": "Tap the <strong>Refresh the page</strong> button. You will be asked to enable camera and microphone access again. When the pop-up shows up, select <strong>Allow</strong> (or <strong>OK</strong>)",
+        "list_item_1_cam": "Tap the <strong>Refresh the page</strong> button. You will be asked to enable camera access again. When the pop-up shows up, select <strong>Allow</strong> (or <strong>OK</strong>)",
+        "list_item_1_mic": "Tap the <strong>Refresh the page</strong> button. You will be asked to enable microphone access again. When the pop-up shows up, select <strong>Allow</strong> (or <strong>OK</strong>)"
       },
       "device_settings": {
         "list_item_1": "On your device, open the <strong>Settings</strong> app",
-        "list_item_2": "Scroll through the list and tap [BROWSER_ICON]",
+        "list_item_2": "Scroll through the list and tap <browser_icon></browser_icon>",
         "list_item_3_cam": "Activate the toggle next to <strong>Camera</strong>",
         "list_item_3_mic": "Activate the toggle next to <strong>Microphone</strong>",
-        "list_item_4": "Come back to this page and tap the <strong>I've made the changes</strong> button"
+        "list_item_4": "Come back to this page and tap the <strong>Refresh the page</strong> button",
+        "title": "Solution 2: Device settings"
+      },
+      "refresh_page": {
+        "title": "Solution 1: Refresh the page"
       }
     },
     "ios_safari": {
       "device_settings": {
         "list_item_1": "On your device, open the <strong>Settings</strong> app",
-        "list_item_2": "Scroll through the list and tap [BROWSER_ICON]",
+        "list_item_2": "Scroll through the list and tap <browser_icon></browser_icon>",
         "list_item_3_cam": "Tap <strong>Camera</strong> and select <strong>Allow</strong>",
         "list_item_3_mic": "Tap <strong>Microphone</strong> and select <strong>Allow</strong>",
-        "list_item_4": "Come back to this page and tap the <strong>I've made the changes</strong> button"
+        "list_item_4": "Come back to this page and tap the <strong>Refresh the page</strong> button"
       }
     },
     "list_header_both": "Follow these steps to recover access for both:",
@@ -654,13 +709,7 @@
     "title_cam": "Camera access is denied",
     "title_mic": "Microphone access denied",
     "web": {
-      "browser_settings": {
-        "title": "Solution 1: Browser settings"
-      },
-      "button_primary": "I've made the changes",
-      "device_settings": {
-        "title": "Solution 2: Device settings"
-      },
+      "button_primary": "Refresh the page",
       "disclaimer": "The identity verification process might restart. Sorry for any inconvenience"
     }
   },
@@ -1049,7 +1098,7 @@
         "step1": "1 of 2",
         "subtitle": "To confirm your identity in accordance with European rules, you must digitally sign a document.",
         "terms_and_conditions": "Terms and conditions",
-        "third_party_description": "<fallback>Namirial SpA</fallback> is a trusted global provider who'll issue a certificate validating your electronic signature.",
+        "third_party_description": "<fallback>Namirial SpA</fallback> is a trusted global provider who will issue a certificate validating your electronic signature.",
         "title": "Create and use your digital signature"
       }
     }
@@ -1059,7 +1108,7 @@
     "link_certificate": "Certificate application form",
     "link_privacy_notice": "Privacy notice",
     "link_terms_and_conditions": "Terms and conditions",
-    "namirial_intro": "Namirial SpA is a trusted global provider who'll issue a certificate validating your electronic signature. ",
+    "namirial_intro": "Namirial SpA is a trusted global provider who will issue a certificate validating your electronic signature. ",
     "subtitle": "To confirm your identity in accordance with European rules, you must digitally sign a document.",
     "title": "Create and use your digital signature"
   },
@@ -1071,6 +1120,25 @@
     "step_title": "Sign your document",
     "subtitle": "To confirm your identity in accordance with European rules, you must digitally sign a document.",
     "title": "Create and use your digital signature"
+  },
+  "retry": {
+    "button": {
+      "generic_selfie_issue": "Try again"
+    },
+    "description": {
+      "default": "Please try again",
+      "expired_document": "Please try again with a valid photo ID and make sure your information is clearly visible",
+      "generic_document_issue": "Please try again with a valid photo ID and make sure your information is clearly visible",
+      "generic_selfie_issue": "Please try again, and make sure your face is visible and well lit",
+      "unaccepted_document": "Please try again with a valid photo ID and make sure your information is clearly visible"
+    },
+    "headline": {
+      "default": "There was a problem",
+      "expired_document": "Your document has expired",
+      "generic_document_issue": "There was a problem with your document",
+      "generic_selfie_issue": "There was a problem with your selfie",
+      "unaccepted_document": "Unaccepted document"
+    }
   },
   "retry_feedback": {
     "button_primary": "Try again"

@@ -421,6 +421,11 @@
     "title": "개별 보안 링크 받기",
     "url_field_label": "모바일 브라우저로 링크 복사"
   },
+  "interactive_task": {
+    "waiting": {
+      "title_5": "미디어 업로드 중..."
+    }
+  },
   "livenessV2": {
     "error_reload_instructions": "지침 다시 불러오기",
     "intro_note_no1": "먼저, 프레임 안에 얼굴이 배치되도록 하세요",
@@ -460,26 +465,48 @@
       "success": "스캔 성공"
     }
   },
+  "nfc_scan_error_can": {
+    "primary_button": "출구 검증",
+    "subtitle": "당신은 CAN 번호를 입력하는 최대 시도 횟수에 도달했습니다"
+  },
+  "nfc_scan_error_can:title": "최대 시도 횟수에 도달했습니다",
   "otp": {
     "code_input": {
       "error": {
+        "code_expired": "귀하의 코드가 만료되었습니다, 새로운 코드를 요청해 주세요.",
+        "code_invalid": "잘못된 코드를 입력하셨습니다, 다시 시도해 주세요.",
         "technical": "기술적인 오류가 발생했습니다, 나중에 다시 시도해 주세요",
+        "too_many_attempts": "이 코드를 너무 많이 시도했습니다, 새로운 것을 요청해 주세요.",
         "wrong_code": "잘못된 코드가 입력되었습니다, 다시 시도해 주세요"
       },
-      "intro": "전송된 코드는 귀하의 전화번호로 5분 동안 활성화됩니다",
+      "intro": "SMS로 보낸 코드를 확인하기 위해 5분이 있습니다. <phonenumber></phonenumber>",
       "resend": {
-        "cta": "다시 보내기",
-        "label": "(최대 {limit}까지) 코드 전송됨"
+        "cta": "새 코드 요청",
+        "cta_timeout": "새 코드 요청 (<timeout></timeout> 초)",
+        "label": "코드를 보냈습니다",
+        "tracker": "<remaining></remaining>의 <limit></limit>"
       },
       "title": "일회용 비밀번호"
+    },
+    "error": {
+      "cta": "돌아가기",
+      "subtitle": "몇 초 기다렸다가 다시 시도해 주세요",
+      "title": "무언가 잘못되었습니다"
+    },
+    "failure": {
+      "cta": "계속",
+      "subtitle": "더 이상 귀하의 전화번호를 확인할 수 없습니다",
+      "title": "허용된 시도 횟수를 초과하였습니다"
     },
     "send_code": {
       "cta": "코드 보내기",
       "error": {
+        "invalid_phone_number": "유효한 전화번호를 제공해 주세요.",
         "limit": "보낸 SMS의 한도에 도달하셨습니다",
         "technical": "기술적인 오류가 발생했습니다, 나중에 다시 시도해 주세요"
       },
-      "intro": "전화번호를 확인하기 위해 단일 사용 코드를 보내 다음 화면에 입력하게 하겠습니다.",
+      "input_label": "전화 번호",
+      "intro": "전화번호를 확인하기 위해 일회용 비밀번호를 입력하라는 요청을 드릴 것입니다.",
       "title": "일회용 비밀번호"
     }
   },
@@ -504,99 +531,123 @@
   },
   "permission_recovery": {
     "android": {
+      "browser_settings": {
+        "title": "솔루션 1: 브라우저 설정"
+      },
       "device_settings": {
         "list_item_1": "당신의 장치에서 <strong>설정</strong> 앱을 엽니다",
         "list_item_2": "<strong>앱</strong>을 탭하세요",
-        "list_item_3": "[BROWSER_ICON]을 탭하세요. 찾을 수 없다면 <strong>모든 앱 보기</strong> 또는 <strong>앱 관리</strong>를 탭하고 브라우저 앱을 선택하세요.",
+        "list_item_3": "<browser_icon></browser_icon>을 탭하세요. 찾을 수 없다면 <strong>모든 앱 보기</strong> 또는 <strong>앱 관리</strong>를 탭하고 브라우저 앱을 선택하세요.",
         "list_item_4": "<strong>권한</strong>을 탭하세요",
         "list_item_5_cam": "<strong>카메라</strong>를 탭하고 <strong>허용</strong>을 선택하세요",
         "list_item_5_mic": "<strong>마이크</strong>를 탭하고 <strong>허용</strong>을 선택하세요",
-        "list_item_6": "이 페이지로 돌아와서 <strong>변경 사항을 적용했습니다</strong> 버튼을 누르세요"
+        "list_item_6": "이 페이지로 돌아와서 <strong>페이지 새로 고침</strong> 버튼을 누르세요",
+        "title": "솔루션 2: 디바이스 설정"
+      },
+      "refresh_page": {
+        "list_item_1_both": "<strong>페이지 새로 고침</strong> 버튼을 누르세요. 카메라와 마이크 접근을 다시 활성화하라는 요청이 나올 것입니다. 팝업이 나타나면, <strong>허용</strong> (또는 <strong>확인</strong>)을 선택하세요.",
+        "list_item_1_cam": "<strong>페이지 새로 고침</strong> 버튼을 누르세요. 다시 카메라 접근을 허용하라는 요청이 나올 것입니다. 팝업이 나타나면, <strong>허용</strong> (또는 <strong>확인</strong>)을 선택하세요.",
+        "list_item_1_mic": "<strong>페이지 새로 고침</strong> 버튼을 누르세요. 다시 마이크 접근을 허용하라는 메시지가 나타납니다. 팝업이 나타나면, <strong>허용</strong>(또는 <strong>확인</strong>)을 선택하세요."
       }
     },
     "android_chrome": {
       "browser_settings": {
-        "list_item_1": "브라우저에서 주소 표시 줄에 있는 자물쇠 아이콘 [LOCK_ICON]을 탭하세요",
+        "list_item_1": "브라우저에서 주소 표시 줄에 있는 설정 아이콘 <settings_icon_chrome></settings_icon_chrome>을 탭하세요",
         "list_item_2": "<strong>권한</strong>을 탭하세요",
         "list_item_3_cam": "<strong>카메라</strong> 옆의 토글을 활성화하세요",
         "list_item_3_mic": "<strong>마이크</strong> 옆의 토글을 활성화하세요",
-        "list_item_4": "이 페이지로 돌아와서 <strong>변경 사항을 적용했습니다</strong> 버튼을 누르세요"
+        "list_item_4": "이 페이지로 돌아와서 <strong>페이지 새로 고침</strong> 버튼을 누르세요"
       }
     },
     "android_firefox": {
       "browser_settings": {
-        "list_item_1": "브라우저에서 주소 표시 줄에 있는 자물쇠 아이콘 [LOCK_ICON]을 탭하세요",
+        "list_item_1": "브라우저에서 주소 표시 줄에 있는 자물쇠 아이콘 <lock_icon></lock_icon>을 탭하세요",
         "list_item_2_cam": "<strong>차단</strong> 옆에 있는 <strong>카메라</strong>를 탭하여 <strong>허용</strong>으로 전환하세요.",
         "list_item_2_mic": "<strong>마이크</strong> 옆에 있는 <strong>차단됨</strong>을 탭하여 <strong>허용됨</strong>으로 전환하세요",
-        "list_item_3": "이 페이지로 돌아와 <strong>변경 사항을 적용했습니다</strong> 버튼을 누르세요"
+        "list_item_3": "이 페이지로 돌아와서 <strong>페이지 새로 고침</strong> 버튼을 누르세요",
+        "title": "솔루션 2: 브라우저 설정"
+      },
+      "device_settings": {
+        "title": "솔루션 3: 디바이스 설정"
+      },
+      "refresh_page": {
+        "title": "해결책 1: 페이지를 새로 고침하세요"
       }
     },
     "android_generic": {
       "browser_settings": {
-        "list_item_1": "브라우저에서 웹사이트 설정을 엽니다. 이는 주소 표시 줄에 있는 자물쇠 아이콘 [LOCK_ICON]인 경우가 많습니다",
+        "list_item_1": "브라우저에서 웹사이트 설정을 엽니다. 이는 주소 표시 줄에 있는 자물쇠 아이콘 <lock_icon></lock_icon>인 경우가 많습니다",
         "list_item_2": "권한에 대한 섹션을 찾으십시오",
         "list_item_3_cam": "<strong>카메라</strong> 권한을 활성화하십시오",
         "list_item_3_mic": "<strong>마이크</strong> 권한을 활성화하십시오",
-        "list_item_4": "이 페이지로 돌아와 <strong>변경 사항을 적용했습니다</strong> 버튼을 누르세요"
+        "list_item_4": "이 페이지로 돌아와서 <strong>페이지 새로 고침</strong> 버튼을 누르세요"
       }
     },
     "android_samsung": {
       "browser_settings": {
-        "list_item_1": "브라우저에서 주소 표시 줄에 있는 자물쇠 아이콘 [LOCK_ICON]을 탭하세요",
+        "list_item_1": "브라우저에서 주소 표시 줄에 있는 자물쇠 아이콘 <lock_icon></lock_icon>을 탭하세요",
         "list_item_2_cam": "<strong>카메라</strong> 옆의 토글을 활성화하세요",
         "list_item_2_mic": "<strong>마이크</strong> 옆의 토글을 활성화하세요",
-        "list_item_3": "이 페이지로 돌아와 <strong>변경 사항을 적용했습니다</strong> 버튼을 누르세요"
+        "list_item_3": "이 페이지로 돌아와서 <strong>페이지 새로 고침</strong> 버튼을 누르세요"
       }
     },
     "button_primary": "새로 고침",
+    "desktop": {
+      "browser_settings": {
+        "title": "솔루션 1: 브라우저 설정"
+      },
+      "device_settings": {
+        "title": "솔루션 2: 장치 설정"
+      }
+    },
     "desktop_chrome": {
       "browser_settings": {
-        "list_item_1": "브라우저에서 주소 표시 줄에 있는 자물쇠 아이콘 [LOCK_ICON]을 클릭하세요",
+        "list_item_1": "브라우저에서 주소 표시줄에 있는 설정 아이콘 <settings_icon_chrome></settings_icon_chrome>을 클릭하세요.",
         "list_item_2_cam": "<strong>카메라</strong> 옆의 토글을 활성화하세요",
         "list_item_2_mic": "<strong>마이크</strong> 옆의 토글을 활성화하세요",
-        "list_item_3": "이 페이지로 돌아와서 <strong>변경 사항을 적용했습니다</strong> 버튼을 클릭하세요"
+        "list_item_3": "이 페이지로 돌아와서 <strong>페이지 새로 고침</strong> 버튼을 클릭하세요"
       }
     },
     "desktop_edge": {
       "browser_settings": {
-        "list_item_1": "브라우저에서 주소 표시 줄에 있는 자물쇠 아이콘 [LOCK_ICON]을 클릭하세요.",
+        "list_item_1": "브라우저에서 주소 표시 줄에 있는 자물쇠 아이콘 <lock_icon></lock_icon>을 클릭하세요.",
         "list_item_2_cam": "<strong>카메라</strong> 옆의 드롭다운을 클릭하고 <strong>허용</strong>을 선택하세요",
         "list_item_2_mic": "<strong>마이크</strong> 옆의 드롭다운을 클릭하고 <strong>허용</strong>을 선택하세요",
-        "list_item_3": "이 페이지로 돌아와서 <strong>변경 사항을 적용했습니다</strong> 버튼을 클릭하세요"
+        "list_item_3": "이 페이지로 돌아와서 <strong>페이지 새로 고침</strong> 버튼을 클릭하세요"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
-        "list_item_1": "브라우저에서 주소 표시 줄에 있는 설정 아이콘 [SETTINGS_ICON_FIREFOX]을 클릭하세요.",
+        "list_item_1": "브라우저에서 주소 표시 줄에 있는 설정 아이콘 <settings_icon_firefox></settings_icon_firefox>을 클릭하세요.",
         "list_item_2_cam": "<strong>차단</strong>을 클릭하고 <strong>카메라 사용</strong> 옆에 있습니다",
         "list_item_2_mic": "<strong>마이크 사용</strong> 옆에 있는 <strong>차단</strong>을 클릭하세요",
-        "list_item_3": "이 페이지로 돌아와서 <strong>변경 사항을 적용했습니다</strong> 버튼을 클릭하세요"
+        "list_item_3": "이 페이지로 돌아와서 <strong>페이지 새로 고침</strong> 버튼을 클릭하세요"
       }
     },
     "desktop_generic": {
       "browser_settings": {
-        "list_item_1": "브라우저에서 웹사이트 설정을 엽니다. 이는 주소 표시 줄에 있는 자물쇠 아이콘 [LOCK_ICON]인 경우가 많습니다",
+        "list_item_1": "브라우저에서 웹사이트 설정을 엽니다. 이는 주소 표시 줄에 있는 자물쇠 아이콘 <lock_icon></lock_icon>인 경우가 많습니다",
         "list_item_2": "권한에 관한 섹션을 찾으십시오",
         "list_item_3_cam": "<strong>카메라</strong> 권한을 활성화하십시오",
         "list_item_3_mic": "<strong>마이크</strong> 권한을 활성화하십시오",
-        "list_item_4": "이 페이지로 돌아와 <strong>변경했습니다</strong> 버튼을 클릭하세요"
+        "list_item_4": "이 페이지로 돌아와서 <strong>페이지 새로 고침</strong> 버튼을 클릭하세요"
       },
       "device_settings": {
         "list_item_1": "컴퓨터에서 <strong>설정</strong>을 엽니다",
         "list_item_2": "(<strong>개인 정보 보호</strong> 보통 아래에 있는) 권한에 관한 섹션을 찾으십시오.",
-        "list_item_3_cam": "[BROWSER_ICON]에 대한 <strong>카메라</strong> 권한을 활성화하세요",
-        "list_item_3_mic": "[BROWSER_ICON]에 대한 <strong>마이크</strong> 권한을 활성화하세요.",
+        "list_item_3_cam": "<browser_icon></browser_icon>에 대한 <strong>카메라</strong> 권한을 활성화하세요",
+        "list_item_3_mic": "<browser_icon></browser_icon>에 대한 <strong>마이크</strong> 권한을 활성화하세요.",
         "list_item_4": "필요한 경우 브라우저를 다시 시작하고 이 페이지로 돌아오세요"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "컴퓨터에서 Apple 메뉴 [APPLE_ICON]를 클릭하고 <strong>시스템 설정</strong> 또는 <strong>시스템 환경설정</strong>을 선택하세요.",
+        "list_item_1": "컴퓨터에서 Apple 메뉴 <apple_icon></apple_icon>를 클릭하고 <strong>시스템 설정</strong> 또는 <strong>시스템 환경설정</strong>을 선택하세요.",
         "list_item_2": "사이드바에서 <strong>개인정보 및 보안</strong> (또는 <strong>보안 및 개인정보</strong>)를 클릭하세요 ",
         "list_item_3": "팝업에서 <strong>나중에</strong>를 클릭하세요",
-        "list_item_3_cam": "<strong>카메라</strong>를 클릭하고 [BROWSER_ICON] 옆의 토글(또는 체크박스)을 활성화하세요.",
+        "list_item_3_cam": "<strong>카메라</strong>를 클릭하고 <browser_icon></browser_icon> 옆의 토글(또는 체크박스)을 활성화하세요.",
         "list_item_4": "팝업에서 <strong>종료 후 다시 열기</strong>를 클릭하고 이 페이지로 돌아오세요",
-        "list_item_4_mic": "<strong>마이크</strong>를 클릭하고 [BROWSER_ICON] 옆의 토글(또는 체크박스)을 활성화하세요."
+        "list_item_4_mic": "<strong>마이크</strong>를 클릭하고 <browser_icon></browser_icon> 옆의 토글(또는 체크박스)을 활성화하세요."
       }
     },
     "desktop_safari": {
@@ -604,40 +655,44 @@
         "list_item_1": "브라우저에서 주소 표시 줄을 마우스 오른쪽 버튼으로 클릭하고 <strong>설정</strong>을 선택하세요.",
         "list_item_2_cam": "<strong>카메라</strong> 옆의 드롭다운을 클릭하고 <strong>허용</strong>을 선택하세요",
         "list_item_2_mic": "<strong>마이크</strong> 옆의 드롭다운을 클릭하고 <strong>허용</strong>을 선택하세요",
-        "list_item_3": "이 페이지로 돌아와서 <strong>변경 사항을 적용했습니다</strong> 버튼을 클릭하세요"
+        "list_item_3": "이 페이지로 돌아와서 <strong>페이지 새로 고침</strong> 버튼을 클릭하세요"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "컴퓨터에서 Windows 메뉴 [WINDOWS_ICON]를 클릭하고 <strong>설정</strong> [SETTINGS_ICON_WINDOWS]을 선택하세요.",
+        "list_item_1": "컴퓨터에서 Windows 메뉴 <windows_icon></windows_icon>를 클릭하고 <strong>설정</strong> <settings_icon_windows></settings_icon_windows>을 선택하세요.",
         "list_item_2": "<strong>개인정보</strong> (또는 <strong>개인정보 & 보안</strong>)을 클릭하세요.",
-        "list_item_3_cam": "<strong>앱 권한</strong> 아래의 <strong>카메라</strong>를 클릭하고 [BROWSER_ICON] 옆의 토글을 활성화하세요 ",
-        "list_item_3_mic": "<strong>앱 권한</strong> 아래의 <strong>마이크</strong>를 클릭하고 [BROWSER_ICON] 옆의 토글을 활성화하세요.",
+        "list_item_3_cam": "<strong>앱 권한</strong> 아래의 <strong>카메라</strong>를 클릭하고 <browser_icon></browser_icon> 옆의 토글을 활성화하세요 ",
+        "list_item_3_mic": "<strong>앱 권한</strong> 아래의 <strong>마이크</strong>를 클릭하고 <browser_icon></browser_icon> 옆의 토글을 활성화하세요.",
         "list_item_4": "필요한 경우 브라우저를 다시 시작하고 이 페이지로 돌아오세요"
       }
     },
     "info": "복원",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "<strong>변경을 완료했습니다</strong> 버튼을 누르세요. 카메라와 마이크 접근을 다시 활성화하라는 요청이 나올 것입니다. 팝업이 나타나면, <strong>허용</strong> (또는 <strong>확인</strong>)을 선택하세요.",
-        "list_item_1_cam": "<strong>변경 사항을 적용했습니다</strong> 버튼을 누르세요. 다시 카메라 접근을 허용하라는 요청이 나올 것입니다. 팝업이 나타나면 <strong>허용</strong> (또는 <strong>확인</strong>)을 선택하세요.",
-        "list_item_1_mic": "<strong>변경 사항을 적용했습니다</strong> 버튼을 누르세요. 마이크 접근 권한을 다시 활성화하라는 요청이 나올 것입니다. 팝업이 나타나면 <strong>허용</strong> (또는 <strong>확인</strong>)을 선택하세요."
+        "list_item_1_both": "<strong>페이지 새로 고침</strong> 버튼을 누르세요. 카메라와 마이크 접근을 다시 활성화하라는 요청이 나올 것입니다. 팝업이 나타나면, <strong>허용</strong> (또는 <strong>확인</strong>)을 선택하세요.",
+        "list_item_1_cam": "<strong>페이지 새로 고침</strong> 버튼을 누르세요. 다시 카메라 접근을 허용하라는 요청이 나올 것입니다. 팝업이 나타나면, <strong>허용</strong> (또는 <strong>확인</strong>)을 선택하세요.",
+        "list_item_1_mic": "<strong>페이지 새로 고침</strong> 버튼을 누르세요. 다시 마이크 접근을 허용하라는 메시지가 나타납니다. 팝업이 나타나면, <strong>허용</strong>(또는 <strong>확인</strong>)을 선택하세요."
       },
       "device_settings": {
         "list_item_1": "기기에서 <strong>설정</strong> 앱을 엽니다",
-        "list_item_2": "목록을 스크롤하고 [BROWSER_ICON]을 탭하세요",
+        "list_item_2": "목록을 스크롤하고 <browser_icon></browser_icon>을 탭하세요",
         "list_item_3_cam": "<strong>카메라</strong> 옆의 토글을 활성화하세요",
         "list_item_3_mic": "<strong>마이크</strong> 옆의 토글을 활성화하세요",
-        "list_item_4": "이 페이지로 돌아와서 <strong>변경 사항을 적용했습니다</strong> 버튼을 누르세요"
+        "list_item_4": "이 페이지로 돌아와서 <strong>페이지 새로 고침</strong> 버튼을 누르세요",
+        "title": "솔루션 2: 디바이스 설정"
+      },
+      "refresh_page": {
+        "title": "해결책 1: 페이지를 새로 고침하세요"
       }
     },
     "ios_safari": {
       "device_settings": {
         "list_item_1": "기기에서 <strong>설정</strong> 앱을 엽니다",
-        "list_item_2": "목록을 스크롤하고 [BROWSER_ICON]을 탭하세요",
+        "list_item_2": "목록을 스크롤하고 <browser_icon></browser_icon>을 탭하세요",
         "list_item_3_cam": "<strong>카메라</strong>를 탭하고 <strong>허용</strong>을 선택하세요",
         "list_item_3_mic": "<strong>마이크</strong>를 탭하고 <strong>허용</strong>을 선택하세요",
-        "list_item_4": "이 페이지로 돌아와 <strong>변경 사항을 적용했습니다</strong> 버튼을 누르세요"
+        "list_item_4": "이 페이지로 돌아와서 <strong>페이지 새로 고침</strong> 버튼을 누르세요"
       }
     },
     "list_header_both": "두 기능 모두에 대한 접근 권한을 복원하려면 다음 단계를 따르세요",
@@ -654,13 +709,7 @@
     "title_cam": "카메라 접근 권한이 거부되었습니다",
     "title_mic": "마이크 접근 권한이 거부되었습니다",
     "web": {
-      "browser_settings": {
-        "title": "솔루션 1: 브라우저 설정"
-      },
-      "button_primary": "변경사항을 적용했습니다",
-      "device_settings": {
-        "title": "솔루션 2: 장치 설정"
-      },
+      "button_primary": "페이지를 새로 고치세요",
       "disclaimer": "신원 확인 과정이 재시작될 수 있습니다. 불편을 끼쳐 드려 죄송합니다"
     }
   },
@@ -1071,6 +1120,25 @@
     "step_title": "문서에 서명하십시오",
     "subtitle": "유럽 규정에 따라 본인 확인을 위해 문서에 디지털 서명을 해야 합니다.",
     "title": "디지털 서명을 생성하고 사용하세요"
+  },
+  "retry": {
+    "button": {
+      "generic_selfie_issue": "다시 시도하기"
+    },
+    "description": {
+      "default": "다시 시도해주세요",
+      "expired_document": "사진이 부착된 유효한 신분증으로 다시 시도하고 정보가 선명하게 보이는지 확인하세요",
+      "generic_document_issue": "사진이 부착된 유효한 신분증으로 다시 시도하고 정보가 선명하게 보이는지 확인하세요",
+      "generic_selfie_issue": "조명이 밝고 얼굴이 선명하게 나타나도록 하여 다시 시도해주세요",
+      "unaccepted_document": "사진이 부착된 유효한 신분증으로 다시 시도하고 정보가 선명하게 보이는지 확인하세요"
+    },
+    "headline": {
+      "default": "문제가 발생했습니다",
+      "expired_document": "서류가 만료되었습니다",
+      "generic_document_issue": "문서에 문제가 있었습니다",
+      "generic_selfie_issue": "당신의 셀카에 문제가 있었습니다",
+      "unaccepted_document": "허용되지 않는 서류"
+    }
   },
   "retry_feedback": {
     "button_primary": "다시 시도하기"
