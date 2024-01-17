@@ -421,6 +421,11 @@
     "title": "取得您的安全連結",
     "url_field_label": "將連結複製至手機瀏覽器"
   },
+  "interactive_task": {
+    "waiting": {
+      "title_5": "正在上峰媒體..."
+    }
+  },
   "livenessV2": {
     "error_reload_instructions": "重新載入說明",
     "intro_note_no1": "首先，請將臉部置於框架中",
@@ -460,26 +465,48 @@
       "success": "掃描成功"
     }
   },
+  "nfc_scan_error_can": {
+    "primary_button": "退出驗證",
+    "subtitle": "您已達到輸入CAN號碼的最大嘗試次數"
+  },
+  "nfc_scan_error_can:title": "已達到最大嘗試次數",
   "otp": {
     "code_input": {
       "error": {
+        "code_expired": "您的代碼已過期，請請求新的一個。",
+        "code_invalid": "輸入的代碼錯誤，請再試一次。",
         "technical": "發生了技術錯誤，請稍後再試",
+        "too_many_attempts": "您已嘗試此代碼太多次，請請求一個新的。",
         "wrong_code": "輸入的代碼錯誤，請再試一次"
       },
-      "intro": "發送到您的手機號碼的代碼將在5分鐘內有效",
+      "intro": "您有5分鐘的時間來驗證通過短信發送到<phonenumber></phonenumber>的代碼",
       "resend": {
-        "cta": "重新發送",
-        "label": "已發送代碼（最多{limit}）"
+        "cta": "請求新的代碼",
+        "cta_timeout": "請求新的代碼（<timeout></timeout>秒）",
+        "label": "已發送代碼",
+        "tracker": "<remaining></remaining> 的 <limit></limit>"
       },
       "title": "一次性密碼"
+    },
+    "error": {
+      "cta": "返回",
+      "subtitle": "請等待幾秒鐘，然後再試一次",
+      "title": "出了些問題"
+    },
+    "failure": {
+      "cta": "繼續",
+      "subtitle": "我們無法再驗證您的電話號碼",
+      "title": "允許的嘗試次數已超過"
     },
     "send_code": {
       "cta": "發送代碼",
       "error": {
+        "invalid_phone_number": "請提供有效的電話號碼。",
         "limit": "您已達到發送短信的限制",
         "technical": "發生了技術錯誤，請稍後再試"
       },
-      "intro": "為了驗證您的電話號碼，我們將向您發送一次性代碼，以在下一個畫面中輸入。",
+      "input_label": "電話號碼",
+      "intro": "為了驗證您的電話號碼，我們將要求您輸入一次性密碼。",
       "title": "一次性密碼"
     }
   },
@@ -504,99 +531,123 @@
   },
   "permission_recovery": {
     "android": {
+      "browser_settings": {
+        "title": "解決方案1：瀏覽器設定"
+      },
       "device_settings": {
         "list_item_1": "在您的裝置上，打開<strong>設定</strong>應用程式",
         "list_item_2": "點擊 <strong>應用程式</strong>",
-        "list_item_3": "點擊 [BROWSER_ICON]。如果找不到，請點擊<strong>查看所有應用</strong>或<strong>管理應用</strong>，然後選擇您的瀏覽器應用",
+        "list_item_3": "點擊 <browser_icon></browser_icon>。如果找不到，請點擊<strong>查看所有應用</strong>或<strong>管理應用</strong>，然後選擇您的瀏覽器應用",
         "list_item_4": "點擊 <strong>權限</strong>",
         "list_item_5_cam": "點擊 <strong>相機</strong> 並選擇 <strong>允許</strong>",
         "list_item_5_mic": "點擊 <strong>麥克風</strong> 並選擇 <strong>允許</strong>",
-        "list_item_6": "返回此頁面並點擊<strong>我已進行更改</strong>按鈕"
+        "list_item_6": "返回此頁面並點擊<strong>刷新頁面</strong>按鈕",
+        "title": "解決方案2：裝置設定"
+      },
+      "refresh_page": {
+        "list_item_1_both": "點擊<strong>刷新頁面</strong>按鈕。您將被要求再次啟用相機和麥克風訪問權限。當彈出窗口出現時，選擇<strong>允許</strong>（或<strong>確定</strong>）",
+        "list_item_1_cam": "點擊<strong>刷新頁面</strong>按鈕。系統將再次要求您啟用相機訪問權限。當彈出窗口出現時，選擇<strong>允許</strong>（或<strong>確定</strong>）",
+        "list_item_1_mic": "點擊<strong>刷新頁面</strong>按鈕。您將被要求再次啟用麥克風訪問權限。當彈出窗口出現時，選擇<strong>允許</strong>（或<strong>確定</strong>）"
       }
     },
     "android_chrome": {
       "browser_settings": {
-        "list_item_1": "在您的瀏覽器中，點擊地址欄中的鎖定圖標[LOCK_ICON]",
+        "list_item_1": "在您的瀏覽器中，點擊地址欄中的設定圖標<settings_icon_chrome></settings_icon_chrome>",
         "list_item_2": "點擊 <strong>權限</strong>",
         "list_item_3_cam": "啟動位於 <strong>相機</strong> 旁的切換開關",
         "list_item_3_mic": "啟動位於 <strong>麥克風</strong> 旁的切換開關",
-        "list_item_4": "返回此頁面，然後點擊<strong>我已進行了更改</strong>按鈕"
+        "list_item_4": "返回此頁面並點擊<strong>刷新頁面</strong>按鈕"
       }
     },
     "android_firefox": {
       "browser_settings": {
-        "list_item_1": "在您的瀏覽器中，點擊地址欄中的鎖定圖標[LOCK_ICON]",
+        "list_item_1": "在您的瀏覽器中，點擊地址欄中的鎖定圖標<lock_icon></lock_icon>",
         "list_item_2_cam": "點擊 <strong>已封鎖</strong> 旁邊的 <strong>相機</strong> 切換到 <strong>允許</strong>",
         "list_item_2_mic": "點擊 <strong>已封鎖</strong> 旁的 <strong>麥克風</strong> 切換至 <strong>允許</strong>",
-        "list_item_3": "返回此頁面並點擊<strong>我已進行更改</strong>按鈕"
+        "list_item_3": "返回此頁面並點擊<strong>刷新頁面</strong>按鈕",
+        "title": "解決方案2：瀏覽器設定"
+      },
+      "device_settings": {
+        "title": "解決方案3：裝置設定"
+      },
+      "refresh_page": {
+        "title": "解決方案1：刷新頁面"
       }
     },
     "android_generic": {
       "browser_settings": {
-        "list_item_1": "在您的瀏覽器中，打開網站設置。這通常是位於地址欄的鎖定圖標[LOCK_ICON]",
+        "list_item_1": "在您的瀏覽器中，打開網站設置。這通常是位於地址欄的鎖定圖標<lock_icon></lock_icon>",
         "list_item_2": "找到有關權限的部分",
         "list_item_3_cam": "啟用 <strong>相機</strong> 權限",
         "list_item_3_mic": "啟用 <strong>麥克風</strong> 權限",
-        "list_item_4": "返回此頁面並點擊<strong>我已進行更改</strong>按鈕"
+        "list_item_4": "返回此頁面並點擊<strong>刷新頁面</strong>按鈕"
       }
     },
     "android_samsung": {
       "browser_settings": {
-        "list_item_1": "在您的瀏覽器中，點擊地址欄中的鎖定圖標[LOCK_ICON]",
+        "list_item_1": "在您的瀏覽器中，點擊地址欄中的鎖定圖標<lock_icon></lock_icon>",
         "list_item_2_cam": "啟動位於 <strong>相機</strong> 旁的切換開關",
         "list_item_2_mic": "啟動位於 <strong>麥克風</strong> 旁的切換開關",
-        "list_item_3": "返回此頁面，然後點擊<strong>我已做出更改</strong>按鈕"
+        "list_item_3": "返回此頁面並點擊<strong>刷新頁面</strong>按鈕"
       }
     },
     "button_primary": "重新整理",
+    "desktop": {
+      "browser_settings": {
+        "title": "解決方案1：瀏覽器設定"
+      },
+      "device_settings": {
+        "title": "解決方案2：裝置設定"
+      }
+    },
     "desktop_chrome": {
       "browser_settings": {
-        "list_item_1": "在您的瀏覽器中，點擊地址欄中的鎖定圖標[LOCK_ICON]",
+        "list_item_1": "在您的瀏覽器中，點擊地址欄的設定圖標<settings_icon_chrome></settings_icon_chrome>",
         "list_item_2_cam": "啟動位於 <strong>相機</strong> 旁的切換開關",
         "list_item_2_mic": "啟動位於 <strong>麥克風</strong> 旁的切換開關",
-        "list_item_3": "返回此頁面，然後點擊<strong>我已做出更改</strong>按鈕"
+        "list_item_3": "返回此頁面，然後點擊<strong>刷新頁面</strong>按鈕"
       }
     },
     "desktop_edge": {
       "browser_settings": {
-        "list_item_1": "在您的瀏覽器中，點擊地址欄中的鎖定圖標[LOCK_ICON]",
+        "list_item_1": "在您的瀏覽器中，點擊地址欄中的鎖定圖標<lock_icon></lock_icon>",
         "list_item_2_cam": "點擊 <strong>相機</strong> 旁的下拉式選單，並選擇 <strong>允許</strong>",
         "list_item_2_mic": "點擊 <strong>麥克風</strong> 旁的下拉式選單，並選擇 <strong>允許</strong>",
-        "list_item_3": "返回此頁面，然後點擊<strong>我已做出更改</strong>按鈕"
+        "list_item_3": "返回此頁面並點擊<strong>刷新頁面</strong>按鈕"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
-        "list_item_1": "在您的瀏覽器中，點擊地址欄中的設定圖標 [SETTINGS_ICON_FIREFOX]",
+        "list_item_1": "在您的瀏覽器中，點擊地址欄中的設定圖標 <settings_icon_firefox></settings_icon_firefox>",
         "list_item_2_cam": "點擊 <strong>已封鎖</strong>，位於 <strong>使用相機</strong> 旁邊",
         "list_item_2_mic": "點擊 <strong>已封鎖</strong>，位於 <strong>使用麥克風</strong> 旁邊",
-        "list_item_3": "返回此頁面，然後點擊<strong>我已做出更改</strong>按鈕"
+        "list_item_3": "返回此頁面並點擊<strong>刷新頁面</strong>按鈕"
       }
     },
     "desktop_generic": {
       "browser_settings": {
-        "list_item_1": "在您的瀏覽器中，打開網站設置。這通常是位於地址欄的鎖定圖標[LOCK_ICON]",
+        "list_item_1": "在您的瀏覽器中，打開網站設置。這通常是位於地址欄的鎖定圖標<lock_icon></lock_icon>",
         "list_item_2": "找到有關權限的部分",
         "list_item_3_cam": "啟用 <strong>相機</strong> 權限",
         "list_item_3_mic": "啟用 <strong>麥克風</strong> 權限",
-        "list_item_4": "返回此頁並點擊<strong>我已做出更改</strong>按鈕"
+        "list_item_4": "返回此頁面並點擊<strong>刷新頁面</strong>按鈕"
       },
       "device_settings": {
         "list_item_1": "在您的電腦上，打開您的<strong>設定</strong>",
         "list_item_2": "找到有關權限的部分（通常在<strong>隱私</strong>下）",
-        "list_item_3_cam": "啟用 [BROWSER_ICON] 的 <strong>相機</strong> 權限",
-        "list_item_3_mic": "啟用 [BROWSER_ICON] 的 <strong>麥克風</strong> 權限",
+        "list_item_3_cam": "啟用 <browser_icon></browser_icon> 的 <strong>相機</strong> 權限",
+        "list_item_3_mic": "啟用 <browser_icon></browser_icon> 的 <strong>麥克風</strong> 權限",
         "list_item_4": "如有必要，請重新啟動您的瀏覽器並返回此頁面"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "在您的電腦上，點擊蘋果菜單 [APPLE_ICON]，然後選擇<strong>系統設置</strong>（或<strong>系統偏好設置</strong>）",
+        "list_item_1": "在您的電腦上，點擊蘋果菜單 <apple_icon></apple_icon>，然後選擇<strong>系統設置</strong>（或<strong>系統偏好設置</strong>）",
         "list_item_2": "在側邊欄中點擊<strong>隱私與安全</strong>（或<strong>安全與隱私</strong>）",
         "list_item_3": "在彈出視窗中點擊 <strong>稍後</strong>",
-        "list_item_3_cam": "點擊 <strong>相機</strong>，並啟動 [BROWSER_ICON] 旁邊的切換鈕（或複選框）",
+        "list_item_3_cam": "點擊 <strong>相機</strong>，並啟動 <browser_icon></browser_icon> 旁邊的切換鈕（或複選框）",
         "list_item_4": "在彈出視窗中點擊<strong>退出並重新開啟</strong>，然後返回此頁面",
-        "list_item_4_mic": "點擊 <strong>麥克風</strong>，並啟動旁邊的切換鈕（或複選框）[BROWSER_ICON]"
+        "list_item_4_mic": "點擊 <strong>麥克風</strong>，並啟動旁邊的切換鈕（或複選框）<browser_icon></browser_icon>"
       }
     },
     "desktop_safari": {
@@ -604,40 +655,44 @@
         "list_item_1": "在您的瀏覽器中，右鍵點擊地址欄並選擇<strong>設定</strong>",
         "list_item_2_cam": "點擊 <strong>相機</strong> 旁的下拉式選單，並選擇 <strong>允許</strong>",
         "list_item_2_mic": "點擊 <strong>麥克風</strong> 旁的下拉式選單，並選擇 <strong>允許</strong>",
-        "list_item_3": "返回此頁面，然後點擊<strong>我已進行了更改</strong>按鈕"
+        "list_item_3": "返回此頁面並點擊<strong>刷新頁面</strong>按鈕"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "在您的電腦上，點擊Windows選單 [WINDOWS_ICON]，然後選擇<strong>設定</strong> [SETTINGS_ICON_WINDOWS]",
+        "list_item_1": "在您的電腦上，點擊Windows選單 <windows_icon></windows_icon>，然後選擇<strong>設定</strong> <settings_icon_windows></settings_icon_windows>",
         "list_item_2": "點擊 <strong>隱私</strong> (或 <strong>隱私 & 安全</strong>)",
-        "list_item_3_cam": "點擊 <strong>相機</strong> 在 <strong>應用程式權限</strong> 下，並啟動 [BROWSER_ICON] 旁邊的切換開關 ",
-        "list_item_3_mic": "點擊 <strong>麥克風</strong> 在 <strong>應用程式權限</strong> 下，並啟動 [BROWSER_ICON] 旁邊的切換開關",
+        "list_item_3_cam": "點擊 <strong>相機</strong> 在 <strong>應用程式權限</strong> 下，並啟動 <browser_icon></browser_icon> 旁邊的切換開關 ",
+        "list_item_3_mic": "點擊 <strong>麥克風</strong> 在 <strong>應用程式權限</strong> 下，並啟動 <browser_icon></browser_icon> 旁邊的切換開關",
         "list_item_4": "如有必要，請重新啟動您的瀏覽器並返回此頁面"
       }
     },
     "info": "復原",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "點擊<strong>我已進行更改</strong>按鈕。系統將再次要求您啟用相機和麥克風訪問權限。當彈出視窗出現時，選擇<strong>允許</strong>（或<strong>確定</strong>）",
-        "list_item_1_cam": "點擊<strong>我已做出更改</strong>按鈕。系統將再次要求您啟用相機訪問權限。當彈出視窗出現時，選擇<strong>允許</strong>（或<strong>確定</strong>）",
-        "list_item_1_mic": "點擊<strong>我已做出更改</strong>按鈕。系統將再次要求您啟用麥克風訪問權限。當彈出視窗時，選擇<strong>允許</strong>（或<strong>確定</strong>）"
+        "list_item_1_both": "點擊<strong>刷新頁面</strong>按鈕。您將被要求再次啟用相機和麥克風訪問權限。當彈出窗口出現時，選擇<strong>允許</strong>（或<strong>確定</strong>）",
+        "list_item_1_cam": "點擊<strong>刷新頁面</strong>按鈕。系統將再次要求您啟用相機訪問權限。當彈出窗口出現時，選擇<strong>允許</strong>（或<strong>確定</strong>）",
+        "list_item_1_mic": "點擊<strong>刷新頁面</strong>按鈕。您將被要求再次啟用麥克風訪問權限。當彈出窗口出現時，選擇<strong>允許</strong>（或<strong>確定</strong>）"
       },
       "device_settings": {
         "list_item_1": "在您的裝置上，打開<strong>設定</strong>應用程式",
-        "list_item_2": "滾動列表並點擊 [BROWSER_ICON]",
+        "list_item_2": "滾動列表並點擊 <browser_icon></browser_icon>",
         "list_item_3_cam": "啟動位於 <strong>相機</strong> 旁的切換開關",
         "list_item_3_mic": "啟動位於 <strong>麥克風</strong> 旁的切換開關",
-        "list_item_4": "返回此頁面，然後點擊<strong>我已做出更改</strong>按鈕"
+        "list_item_4": "返回此頁面並點擊<strong>刷新頁面</strong>按鈕",
+        "title": "解決方案2：裝置設定"
+      },
+      "refresh_page": {
+        "title": "解決方案1：刷新頁面"
       }
     },
     "ios_safari": {
       "device_settings": {
         "list_item_1": "在您的裝置上，打開<strong>設定</strong>應用程式",
-        "list_item_2": "滾動列表並點擊 [BROWSER_ICON]",
+        "list_item_2": "滾動列表並點擊 <browser_icon></browser_icon>",
         "list_item_3_cam": "點擊 <strong>相機</strong> 並選擇 <strong>允許</strong>",
         "list_item_3_mic": "點擊 <strong>麥克風</strong> 並選擇 <strong>允許</strong>",
-        "list_item_4": "返回此頁面，然後點擊<strong>我已做出更改</strong>按鈕"
+        "list_item_4": "返回此頁面並點擊<strong>刷新頁面</strong>按鈕"
       }
     },
     "list_header_both": "按照以下步驟恢復兩者的存取權限：",
@@ -654,13 +709,7 @@
     "title_cam": "相機存取被拒絕",
     "title_mic": "麥克風存取被拒絕",
     "web": {
-      "browser_settings": {
-        "title": "解決方案1：瀏覽器設定"
-      },
-      "button_primary": "我已經做了變更",
-      "device_settings": {
-        "title": "解決方案2：裝置設定"
-      },
+      "button_primary": "刷新頁面",
       "disclaimer": "身份驗證過程可能會重新開始。 對於任何不便，我們深感抱歉"
     }
   },
@@ -1071,6 +1120,25 @@
     "step_title": "簽署您的文件",
     "subtitle": "為了依照歐洲規定確認您的身份，您必須數位簽署一份文件。",
     "title": "創建並使用您的數位簽名"
+  },
+  "retry": {
+    "button": {
+      "generic_selfie_issue": "再試一次"
+    },
+    "description": {
+      "default": "請再試一次",
+      "expired_document": "請使用含有相片的有效 ID 重試，並確保您的資料清楚可見",
+      "generic_document_issue": "請使用含有相片的有效 ID 重試，並確保您的資料清楚可見",
+      "generic_selfie_issue": "請再試一次，並確保臉部清楚可見，光線充足",
+      "unaccepted_document": "請使用含有相片的有效 ID 重試，並確保您的資料清楚可見"
+    },
+    "headline": {
+      "default": "出現了問題",
+      "expired_document": "您的文件已過期",
+      "generic_document_issue": "您的文件出現了問題",
+      "generic_selfie_issue": "您的自拍照出了問題",
+      "unaccepted_document": "不接受的文件"
+    }
   },
   "retry_feedback": {
     "button_primary": "再試一次"

@@ -421,6 +421,11 @@
     "title": "Hankige turvaline link",
     "url_field_label": "Kopeerige link oma mobiilibrauserisse"
   },
+  "interactive_task": {
+    "waiting": {
+      "title_5": "Meedia üleslaadimine..."
+    }
+  },
   "livenessV2": {
     "error_reload_instructions": "Laadige juhised uuesti",
     "intro_note_no1": "Kõigepealt asetage oma nägu kaadrisse",
@@ -460,26 +465,48 @@
       "success": "Skaneerimine edukas"
     }
   },
+  "nfc_scan_error_can": {
+    "primary_button": "Väljumise kontroll",
+    "subtitle": "Olete jõudnud oma CAN-numbri sisestamise maksimaalse katsete arvuni"
+  },
+  "nfc_scan_error_can:title": "Maksimaalne katsete arv on saavutatud",
   "otp": {
     "code_input": {
       "error": {
+        "code_expired": "Teie kood on aegunud, palun taotlege uus.",
+        "code_invalid": "Vale kood sisestatud, palun proovige uuesti.",
         "technical": "Tehniline viga on ilmnenud, palun proovige hiljem uuesti",
+        "too_many_attempts": "Olete seda koodi liiga palju kordi proovinud, palun taotlege uus.",
         "wrong_code": "Vale kood sisestatud, palun proovige uuesti"
       },
-      "intro": "Teie telefoninumbrile saadetud kood on aktiivne 5 minutit",
+      "intro": "Teil on 5 minutit aega SMS-i teel saadetud koodi kinnitamiseks <phonenumber></phonenumber>",
       "resend": {
-        "cta": "Saada uuesti",
-        "label": "Saadetud kood (kuni {limit})"
+        "cta": "Paluge uus kood",
+        "cta_timeout": "Taotlege uus kood (<timeout></timeout> sekundit)",
+        "label": "Kood on saadetud",
+        "tracker": "<remaining></remaining> -st <limit></limit>"
       },
       "title": "Ühekordne parool"
+    },
+    "error": {
+      "cta": "Tagasi",
+      "subtitle": "Palun oodake mõni sekund ja proovige uuesti",
+      "title": "Midagi läks valesti"
+    },
+    "failure": {
+      "cta": "Jätka",
+      "subtitle": "Me ei saa enam teie telefoninumbrit kinnitada",
+      "title": "Lubatud katsete arv on ületatud"
     },
     "send_code": {
       "cta": "Saada kood",
       "error": {
+        "invalid_phone_number": "Palun esitage kehtiv telefoninumber.",
         "limit": "Sa saavutasid saadetud SMSide limiidi",
         "technical": "Tehniline viga on ilmnenud, palun proovige hiljem uuesti"
       },
-      "intro": "Selleks, et teie telefoninumbrit kinnitada, saadame teile järgmisel ekraanil sisestamiseks ühekordse koodi.",
+      "input_label": "Telefoninumber",
+      "intro": "Telefoninumbri kinnitamiseks palume teil sisestada ühekordne parool.",
       "title": "Ühekordne parool"
     }
   },
@@ -504,99 +531,123 @@
   },
   "permission_recovery": {
     "android": {
+      "browser_settings": {
+        "title": "Lahendus 1: Brauseri seaded"
+      },
       "device_settings": {
         "list_item_1": "Avage oma seadmes <strong>Seaded</strong> rakendus",
         "list_item_2": "Koputa <strong>Rakendused</strong>",
-        "list_item_3": "Klõpsake [BROWSER_ICON]. Kui te seda ei leia, klõpsake <strong>Vaata kõiki rakendusi</strong> või <strong>Halda rakendusi</strong> ja valige oma brauseri rakendus",
+        "list_item_3": "Klõpsake <browser_icon></browser_icon>. Kui te seda ei leia, klõpsake <strong>Vaata kõiki rakendusi</strong> või <strong>Halda rakendusi</strong> ja valige oma brauseri rakendus",
         "list_item_4": "Klõpsake <strong>Lubadused</strong>",
         "list_item_5_cam": "Koputage <strong>Kaamera</strong> ja valige <strong>Luba</strong>",
         "list_item_5_mic": "Koputage <strong>Mikrofoni</strong> ja valige <strong>Luba</strong>",
-        "list_item_6": "Tulge tagasi sellele lehele ja vajutage nuppu <strong>Olen teinud muudatused</strong>"
+        "list_item_6": "Tulge tagasi sellele lehele ja vajutage nuppu <strong>Värskenda lehte</strong>",
+        "title": "Lahendus 2: Seadme sätted"
+      },
+      "refresh_page": {
+        "list_item_1_both": "Klõpsake nupul <strong>Värskenda lehte</strong>. Teilt küsitakse uuesti kaamera ja mikrofoni juurdepääsu lubamist. Kui hüpikaken ilmub, valige <strong>Luba</strong> (või <strong>OK</strong>)",
+        "list_item_1_cam": "Vajuta <strong>Värskenda lehte</strong> nuppu. Sinult küsitakse uuesti kaamera juurdepääsu lubamist. Kui hüpikaken ilmub, vali <strong>Luba</strong> (või <strong>OK</strong>)",
+        "list_item_1_mic": "Klõpsake nupul <strong>Värskenda lehte</strong>. Teilt küsitakse uuesti mikrofoni juurdepääsu lubamist. Kui hüpikaken ilmub, valige <strong>Luba</strong> (või <strong>OK</strong>)"
       }
     },
     "android_chrome": {
       "browser_settings": {
-        "list_item_1": "Oma brauseris klõpsake aadressiribal lukusümbolil [LOCK_ICON]",
+        "list_item_1": "Oma brauseris klõpsake aadressiribal seadete ikoonil <settings_icon_chrome></settings_icon_chrome>",
         "list_item_2": "Koputa <strong>Lubadused</strong>",
         "list_item_3_cam": "Aktiveerige lüliti kõrval <strong>Kaamera</strong>",
         "list_item_3_mic": "Aktiveerige lüliti kõrval <strong>Mikrofon</strong>",
-        "list_item_4": "Pöörduge tagasi sellele lehele ja vajutage nuppu <strong>Olen teinud muudatused</strong>"
+        "list_item_4": "Tulge tagasi sellele lehele ja vajutage nuppu <strong>Värskenda lehte</strong>"
       }
     },
     "android_firefox": {
       "browser_settings": {
-        "list_item_1": "Oma brauseris klõpsake aadressiribal lukusümbolil [LOCK_ICON]",
+        "list_item_1": "Oma brauseris klõpsake aadressiribal lukusümbolil <lock_icon></lock_icon>",
         "list_item_2_cam": "Klõpsake <strong>Blokeeritud</strong> kõrval asuval <strong>Kaamera</strong>, et lülituda <strong>Lubatud</strong> režiimile",
         "list_item_2_mic": "Klõpsake <strong>Blokeeritud</strong> kõrval asuval <strong>Mikrofon</strong>, et lülituda <strong>Lubatud</strong> režiimile",
-        "list_item_3": "Tulge tagasi sellele lehele ja vajutage nuppu <strong>Olen teinud muudatused</strong>"
+        "list_item_3": "Tulge tagasi sellele lehele ja vajutage nuppu <strong>Värskenda lehte</strong>",
+        "title": "Lahendus 2: Brauseri seaded"
+      },
+      "device_settings": {
+        "title": "Lahendus 3: Seadme sätted"
+      },
+      "refresh_page": {
+        "title": "Lahendus 1: Värskenda lehte"
       }
     },
     "android_generic": {
       "browser_settings": {
-        "list_item_1": "Avage oma brauseris veebisaidi seaded. See on sageli aadressiribal asuv lukusümbol [LOCK_ICON]",
+        "list_item_1": "Avage oma brauseris veebisaidi seaded. See on sageli aadressiribal asuv lukusümbol <lock_icon></lock_icon>",
         "list_item_2": "Leidke jaotis lubade kohta",
         "list_item_3_cam": "Luba <strong>kaamera</strong> õigused",
         "list_item_3_mic": "Luba <strong>Mikrofoni</strong> õigused",
-        "list_item_4": "Tulge tagasi sellele lehele ja vajutage nuppu <strong>Olen teinud muudatused</strong>"
+        "list_item_4": "Tulge tagasi sellele lehele ja vajutage nuppu <strong>Värskenda lehte</strong>"
       }
     },
     "android_samsung": {
       "browser_settings": {
-        "list_item_1": "Oma brauseris klõpsake aadressiribal lukusümbolil [LOCK_ICON]",
+        "list_item_1": "Oma brauseris klõpsake aadressiribal lukusümbolil <lock_icon></lock_icon>",
         "list_item_2_cam": "Aktiveerige lüliti kõrval <strong>Kaamera</strong>",
         "list_item_2_mic": "Aktiveerige lüliti kõrval <strong>Mikrofon</strong>",
-        "list_item_3": "Pöörduge tagasi sellele lehele ja vajutage nuppu <strong>Olen teinud muudatused</strong>"
+        "list_item_3": "Tulge tagasi sellele lehele ja vajutage nuppu <strong>Värskenda lehte</strong>"
       }
     },
     "button_primary": "Värskenda",
+    "desktop": {
+      "browser_settings": {
+        "title": "Lahendus 1: Brauseri seaded"
+      },
+      "device_settings": {
+        "title": "Lahendus 2: Seadme seaded"
+      }
+    },
     "desktop_chrome": {
       "browser_settings": {
-        "list_item_1": "Klõpsake oma brauseris aadressiribal lukuikoonil [LOCK_ICON]",
+        "list_item_1": "Klõpsake brauseris aadressiribal seadete ikoonil <settings_icon_chrome></settings_icon_chrome>",
         "list_item_2_cam": "Aktiveerige lüliti kõrval <strong>Kaamera</strong>",
         "list_item_2_mic": "Aktiveerige lüliti kõrval <strong>Mikrofon</strong>",
-        "list_item_3": "Tulge tagasi sellele lehele ja klõpsake nupul <strong>Olen teinud muudatused</strong>"
+        "list_item_3": "Tulge tagasi sellele lehele ja klõpsake nupul <strong>Lehe värskendamine</strong>"
       }
     },
     "desktop_edge": {
       "browser_settings": {
-        "list_item_1": "Klõpsake oma brauseris aadressiribal luku ikoonil [LOCK_ICON]",
+        "list_item_1": "Klõpsake oma brauseris aadressiribal luku ikoonil <lock_icon></lock_icon>",
         "list_item_2_cam": "Klõpsake rippmenüül kõrval <strong>Kaamera</strong> ja valige <strong>Luba</strong>",
         "list_item_2_mic": "Klõpsake rippmenüül kõrval <strong>Mikrofon</strong> ja valige <strong>Luba</strong>",
-        "list_item_3": "Tulge tagasi sellele lehele ja klõpsake nupul <strong>Olen teinud muudatused</strong>"
+        "list_item_3": "Tulge tagasi sellele lehele ja klõpsake nupul <strong>Lehe värskendamine</strong>"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
-        "list_item_1": "Klõpsake brauseris aadressiribal seadete ikoonil [SETTINGS_ICON_FIREFOX]",
+        "list_item_1": "Klõpsake brauseris aadressiribal seadete ikoonil <settings_icon_firefox></settings_icon_firefox>",
         "list_item_2_cam": "Klõpsake <strong>Blokeeritud</strong> kõrval <strong>Kasuta kaamerat</strong>",
         "list_item_2_mic": "Klõpsake <strong>Blokeeritud</strong> kõrval <strong>Kasuta mikrofoni</strong>",
-        "list_item_3": "Tulge tagasi sellele lehele ja klõpsake nupul <strong>Olen teinud muudatused</strong>"
+        "list_item_3": "Tulge tagasi sellele lehele ja klõpsake nupul <strong>Värskenda lehte</strong>"
       }
     },
     "desktop_generic": {
       "browser_settings": {
-        "list_item_1": "Avage oma brauseris veebisaidi seaded. See on sageli aadressiribal asuv lukusümbol [LOCK_ICON]",
+        "list_item_1": "Avage oma brauseris veebisaidi seaded. See on sageli aadressiribal asuv lukusümbol <lock_icon></lock_icon>",
         "list_item_2": "Leidke jaotis lubade kohta",
         "list_item_3_cam": "Luba <strong>kaamera</strong> õigused",
         "list_item_3_mic": "Luba <strong>mikrofoni</strong> õigused",
-        "list_item_4": "Pöörduge tagasi sellele lehele ja klõpsake nupul <strong>Olen teinud muudatused</strong>"
+        "list_item_4": "Tulge tagasi sellele lehele ja klõpsake nupul <strong>Lehe värskendamine</strong>"
       },
       "device_settings": {
         "list_item_1": "Avage oma arvutis <strong>Seaded</strong>",
         "list_item_2": "Leidke jaotis lubade kohta (tavaliselt <strong>Privaatsus</strong> all)",
-        "list_item_3_cam": "Luba <strong>kaamera</strong> õigused [BROWSER_ICON]-le",
-        "list_item_3_mic": "Luba <strong>Mikrofoni</strong> õigused [BROWSER_ICON] jaoks",
+        "list_item_3_cam": "Luba <strong>kaamera</strong> õigused <browser_icon></browser_icon>-le",
+        "list_item_3_mic": "Luba <strong>Mikrofoni</strong> õigused <browser_icon></browser_icon> jaoks",
         "list_item_4": "Taaskäivitage vajadusel oma brauser ja tulge tagasi sellele lehele"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "Oma arvutis klõpsake Apple'i menüül [APPLE_ICON] ja valige <strong>Süsteemi seaded</strong> (või <strong>Süsteemi eelistused</strong>)",
+        "list_item_1": "Oma arvutis klõpsake Apple'i menüül <apple_icon></apple_icon> ja valige <strong>Süsteemi seaded</strong> (või <strong>Süsteemi eelistused</strong>)",
         "list_item_2": "Klõpsake küljeribal <strong>Privaatsus & Turvalisus</strong> (või <strong>Turvalisus & Privaatsus</strong>)",
         "list_item_3": "Klõpsake hüpikaknas <strong>Hiljem</strong>",
-        "list_item_3_cam": "Klõpsake <strong>Kaamera</strong> ja aktiveerige lüliti (või märkeruut) ikooni [BROWSER_ICON] kõrval",
+        "list_item_3_cam": "Klõpsake <strong>Kaamera</strong> ja aktiveerige lüliti (või märkeruut) ikooni <browser_icon></browser_icon> kõrval",
         "list_item_4": "Klõpsake hüpikaknas <strong>Välju & Ava uuesti</strong> ja tulge tagasi sellele lehele",
-        "list_item_4_mic": "Klõpsake <strong>Mikrofoni</strong> ja aktiveerige lüliti (või märkeruut) ikooni [BROWSER_ICON] kõrval"
+        "list_item_4_mic": "Klõpsake <strong>Mikrofoni</strong> ja aktiveerige lüliti (või märkeruut) ikooni <browser_icon></browser_icon> kõrval"
       }
     },
     "desktop_safari": {
@@ -604,40 +655,44 @@
         "list_item_1": "Oma brauseris paremklõpsake aadressiribal ja valige <strong>Seaded</strong>",
         "list_item_2_cam": "Klõpsake rippmenüül kõrval <strong>Kaamera</strong> ja valige <strong>Luba</strong>",
         "list_item_2_mic": "Klõpsake rippmenüül kõrval <strong>Mikrofon</strong> ja valige <strong>Luba</strong>",
-        "list_item_3": "Pöörduge tagasi sellele lehele ja klõpsake nuppu <strong>Olen teinud muudatused</strong>"
+        "list_item_3": "Tulge tagasi sellele lehele ja klõpsake nupul <strong>Lehe värskendamine</strong>"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "Oma arvutis klõpsake Windowsi menüül [WINDOWS_ICON] ja valige <strong>Sätted</strong> [SETTINGS_ICON_WINDOWS]",
+        "list_item_1": "Oma arvutis klõpsake Windowsi menüül <windows_icon></windows_icon> ja valige <strong>Sätted</strong> <settings_icon_windows></settings_icon_windows>",
         "list_item_2": "Klõpsake <strong>Privaatsus</strong> (või <strong>Privaatsus & Turvalisus</strong>)",
-        "list_item_3_cam": "Klõpsake jaotisel <strong>Kaamera</strong> alajaotises <strong>Rakenduse õigused</strong> ja aktiveerige lüliti kõrval [BROWSER_ICON]",
-        "list_item_3_mic": "Klõpsake jaotisel <strong>Mikrofon</strong> alajaotises <strong>Rakenduse õigused</strong> ja aktiveerige lüliti kõrval [BROWSER_ICON]",
+        "list_item_3_cam": "Klõpsake jaotisel <strong>Kaamera</strong> alajaotises <strong>Rakenduse õigused</strong> ja aktiveerige lüliti kõrval <browser_icon></browser_icon>",
+        "list_item_3_mic": "Klõpsake jaotisel <strong>Mikrofon</strong> alajaotises <strong>Rakenduse õigused</strong> ja aktiveerige lüliti kõrval <browser_icon></browser_icon>",
         "list_item_4": "Taaskäivitage vajadusel oma brauser ja tulge tagasi sellele lehele"
       }
     },
     "info": "Taastamine",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "Klõpsake nupul <strong>Olen teinud muudatused</strong>. Teilt küsitakse uuesti kaamera ja mikrofoni juurdepääsu lubamist. Kui hüpikaken ilmub, valige <strong>Luba</strong> (või <strong>OK</strong>)",
-        "list_item_1_cam": "Vajutage nuppu <strong>Olen teinud muudatused</strong>. Teilt küsitakse uuesti kaamera juurdepääsu lubamist. Kui hüpikaken ilmub, valige <strong>Luba</strong> (või <strong>OK</strong>)",
-        "list_item_1_mic": "Vajutage nuppu <strong>Olen teinud muudatused</strong>. Teilt küsitakse uuesti mikrofoni juurdepääsu lubamist. Kui hüpikaken ilmub, valige <strong>Luba</strong> (või <strong>OK</strong>)"
+        "list_item_1_both": "Klõpsake nupul <strong>Värskenda lehte</strong>. Teilt küsitakse uuesti kaamera ja mikrofoni juurdepääsu lubamist. Kui hüpikaken ilmub, valige <strong>Luba</strong> (või <strong>OK</strong>)",
+        "list_item_1_cam": "Vajuta <strong>Värskenda lehte</strong> nuppu. Sinult küsitakse uuesti kaamera juurdepääsu lubamist. Kui hüpikaken ilmub, vali <strong>Luba</strong> (või <strong>OK</strong>)",
+        "list_item_1_mic": "Klõpsake nupul <strong>Värskenda lehte</strong>. Teilt küsitakse uuesti mikrofoni juurdepääsu lubamist. Kui hüpikaken ilmub, valige <strong>Luba</strong> (või <strong>OK</strong>)"
       },
       "device_settings": {
         "list_item_1": "Avage oma seadmes <strong>Seaded</strong> rakendus",
-        "list_item_2": "Kerige loendist läbi ja puudutage [BROWSER_ICON]",
+        "list_item_2": "Kerige loendist läbi ja puudutage <browser_icon></browser_icon>",
         "list_item_3_cam": "Aktiveerige lüliti kõrval <strong>Kaamera</strong>",
         "list_item_3_mic": "Aktiveerige lüliti kõrval <strong>Mikrofon</strong>",
-        "list_item_4": "Pöörduge tagasi sellele lehele ja vajutage nuppu <strong>Olen teinud muudatused</strong>"
+        "list_item_4": "Tulge tagasi sellele lehele ja vajutage nuppu <strong>Värskenda lehte</strong>",
+        "title": "Lahendus 2: Seadme sätted"
+      },
+      "refresh_page": {
+        "title": "Lahendus 1: Värskenda lehte"
       }
     },
     "ios_safari": {
       "device_settings": {
         "list_item_1": "Avage oma seadmes <strong>Seaded</strong> rakendus",
-        "list_item_2": "Kerige loendist läbi ja koputage [BROWSER_ICON]",
+        "list_item_2": "Kerige loendist läbi ja koputage <browser_icon></browser_icon>",
         "list_item_3_cam": "Koputage <strong>Kaamera</strong> ja valige <strong>Luba</strong>",
         "list_item_3_mic": "Koputa <strong>Mikrofoni</strong> ja vali <strong>Luba</strong>",
-        "list_item_4": "Pöörduge tagasi sellele lehele ja vajutage nuppu <strong>Olen teinud muudatused</strong>"
+        "list_item_4": "Tulge tagasi sellele lehele ja vajutage nuppu <strong>Värskenda lehte</strong>"
       }
     },
     "list_header_both": "Mõlema juurdepääsu taastamiseks toimige järgmiselt.",
@@ -654,13 +709,7 @@
     "title_cam": "Juurdepääs kaamerale on keelatud",
     "title_mic": "Mikrofoni juurdepääs keelatud",
     "web": {
-      "browser_settings": {
-        "title": "Lahendus 1: Brauseri seaded"
-      },
-      "button_primary": "Ma olen teinud muudatused",
-      "device_settings": {
-        "title": "Lahendus 2: Seadme seaded"
-      },
+      "button_primary": "Värskenda lehte",
       "disclaimer": "Identiteedi kinnitamise protsess võib taaskäivituda. Vabandame ebamugavuste pärast"
     }
   },
@@ -1071,6 +1120,25 @@
     "step_title": "Allkirjasta oma dokument",
     "subtitle": "Et kinnitada oma isikut vastavalt Euroopa eeskirjadele, peate digitaalselt allkirjastama dokumendi.",
     "title": "Loo ja kasuta oma digitaalset allkirja"
+  },
+  "retry": {
+    "button": {
+      "generic_selfie_issue": "Proovige uuesti"
+    },
+    "description": {
+      "default": "Proovige uuesti",
+      "expired_document": "Proovige uuesti, kasutades kehtiva fotoga isikutunnistust ja veenduge, et teie andmed on selgelt nähtavad",
+      "generic_document_issue": "Proovige uuesti, kasutades kehtiva fotoga isikutunnistust ja veenduge, et teie andmed on selgelt nähtavad",
+      "generic_selfie_issue": "Proovige uuesti ja veenduge, et teie nägu on nähtav ja hästi valgustatud",
+      "unaccepted_document": "Proovige uuesti, kasutades kehtiva fotoga isikutunnistust ja veenduge, et teie andmed on selgelt nähtavad"
+    },
+    "headline": {
+      "default": "Esines probleem",
+      "expired_document": "Teie dokument on aegunud",
+      "generic_document_issue": "Teie dokumendiga oli probleem",
+      "generic_selfie_issue": "Teie selfie'ga oli probleem",
+      "unaccepted_document": "Mittesobiv dokument"
+    }
   },
   "retry_feedback": {
     "button_primary": "Proovige uuesti"

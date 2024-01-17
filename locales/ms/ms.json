@@ -421,6 +421,11 @@
     "title": "Dapatkan pautan yang selamat",
     "url_field_label": "Salin pautan ke pelayar telefon bimbit anda"
   },
+  "interactive_task": {
+    "waiting": {
+      "title_5": "Memuat naik media..."
+    }
+  },
   "livenessV2": {
     "error_reload_instructions": "Muat semula arahan",
     "intro_note_no1": "Pertama, letakkan wajah anda dalam bingkai",
@@ -460,25 +465,47 @@
       "success": "Pengimbasan berjaya"
     }
   },
+  "nfc_scan_error_can": {
+    "primary_button": "Pengesahan keluar",
+    "subtitle": "Anda telah mencapai percubaan maksimum untuk memasukkan nombor CAN anda"
+  },
+  "nfc_scan_error_can:title": "Percubaan maksimum dicapai",
   "otp": {
     "code_input": {
       "error": {
+        "code_expired": "Kod anda telah tamat tempoh, sila minta satu yang baru.",
+        "code_invalid": "Kod yang dimasukkan salah, sila cuba lagi.",
         "technical": "Sebuah ralat teknikal telah berlaku, sila cuba lagi kemudian",
+        "too_many_attempts": "Anda telah mencuba kod ini terlalu banyak kali, sila minta satu yang baru.",
         "wrong_code": "Kod yang dimasukkan salah, sila cuba lagi"
       },
       "intro": "Kod yang dihantar ke nombor telefon anda akan aktif selama 5 minit",
       "resend": {
         "cta": "Hantar Semula",
-        "label": "Kod dihantar (sehingga {limit})"
+        "cta_timeout": "Minta kod baru (<timeout></timeout> saat)",
+        "label": "Kod telah dikirim",
+        "tracker": "<remaining></remaining> daripada <limit></limit>"
       },
       "title": "Kata Laluan Sekali Guna"
+    },
+    "error": {
+      "cta": "Kembali",
+      "subtitle": "Sila tunggu beberapa saat dan cuba lagi",
+      "title": "Sesuatu telah berlaku salah"
+    },
+    "failure": {
+      "cta": "Sambung",
+      "subtitle": "Kami tidak lagi dapat mengesahkan nombor telefon anda",
+      "title": "Bilangan percubaan yang dibenarkan telah melebihi"
     },
     "send_code": {
       "cta": "Hantar kod",
       "error": {
+        "invalid_phone_number": "Sila berikan nombor telefon yang sah.",
         "limit": "Anda telah mencapai had SMS yang dihantar",
         "technical": "Ralat teknikal telah berlaku, sila cuba lagi kemudian"
       },
+      "input_label": "Nombor telefon",
       "intro": "Untuk mengesahkan nombor telefon anda, kami akan menghantar kod sekali guna untuk anda masukkan di skrin seterusnya.",
       "title": "Kata Laluan Sekali Guna"
     }
@@ -504,99 +531,123 @@
   },
   "permission_recovery": {
     "android": {
+      "browser_settings": {
+        "title": "Penyelesaian 1: Tetapan pelayar"
+      },
       "device_settings": {
         "list_item_1": "Pada peranti anda, buka aplikasi <strong>Tetapan</strong>",
         "list_item_2": "Ketuk <strong>Aplikasi</strong>",
-        "list_item_3": "Ketuk [BROWSER_ICON]. Jika anda tidak dapat mencarinya, ketuk <strong>Lihat semua aplikasi</strong> atau <strong>Urus aplikasi</strong> dan pilih aplikasi pelayar anda",
+        "list_item_3": "Ketuk <browser_icon></browser_icon>. Jika anda tidak dapat mencarinya, ketuk <strong>Lihat semua aplikasi</strong> atau <strong>Urus aplikasi</strong> dan pilih aplikasi pelayar anda",
         "list_item_4": "Ketuk <strong>Keizinan</strong>",
         "list_item_5_cam": "Ketuk <strong>Kamera</strong> dan pilih <strong>Benarkan</strong>",
         "list_item_5_mic": "Ketuk <strong>Mikrofon</strong> dan pilih <strong>Benarkan</strong>",
-        "list_item_6": "Kembali ke halaman ini dan tekan butang <strong>Saya telah membuat perubahan</strong>"
+        "list_item_6": "Kembali ke halaman ini dan tekan butang <strong>Segarkan halaman</strong>",
+        "title": "Penyelesaian 2: Tetapan peranti"
+      },
+      "refresh_page": {
+        "list_item_1_both": "Ketuk butang <strong>Segarkan halaman</strong>. Anda akan diminta untuk mengaktifkan semula akses kamera dan mikrofon. Apabila pop-up muncul, pilih <strong>Benarkan</strong> (atau <strong>OK</strong>)",
+        "list_item_1_cam": "Ketuk butang <strong>Segarkan halaman</strong>. Anda akan diminta untuk mengaktifkan akses kamera lagi. Apabila pop-up muncul, pilih <strong>Benarkan</strong> (atau <strong>OK</strong>)",
+        "list_item_1_mic": "Ketuk butang <strong>Segarkan halaman</strong>. Anda akan diminta untuk mengaktifkan akses mikrofon lagi. Apabila muncul pop-up, pilih <strong>Benarkan</strong> (atau <strong>OK</strong>)"
       }
     },
     "android_chrome": {
       "browser_settings": {
-        "list_item_1": "Di pelayar anda, ketuk ikon kunci [LOCK_ICON] di bar alamat",
+        "list_item_1": "Di pelayar anda, ketuk ikon tetapan <settings_icon_chrome></settings_icon_chrome> di bar alamat",
         "list_item_2": "Ketuk <strong>Keizinan</strong>",
         "list_item_3_cam": "Aktifkan suis sebelah <strong>Kamera</strong>",
         "list_item_3_mic": "Aktifkan suis sebelah <strong>Mikrofon</strong>",
-        "list_item_4": "Kembali ke halaman ini dan tekan butang <strong>Saya telah membuat perubahan</strong>"
+        "list_item_4": "Kembali ke halaman ini dan tekan butang <strong>Segarkan halaman</strong>"
       }
     },
     "android_firefox": {
       "browser_settings": {
-        "list_item_1": "Di pelayar anda, ketuk ikon kunci [LOCK_ICON] di bar alamat",
+        "list_item_1": "Di pelayar anda, ketuk ikon kunci <lock_icon></lock_icon> di bar alamat",
         "list_item_2_cam": "Ketuk <strong>Disekat</strong> bersebelahan dengan <strong>Kamera</strong> untuk bertukar ke <strong>Dibenarkan</strong>",
         "list_item_2_mic": "Ketuk <strong>Disekat</strong> bersebelahan dengan <strong>Mikrofon</strong> untuk bertukar ke <strong>Dibenarkan</strong>",
-        "list_item_3": "Kembali ke halaman ini dan tekan butang <strong>Saya telah membuat perubahan</strong>"
+        "list_item_3": "Kembali ke halaman ini dan tekan butang <strong>Segarkan halaman</strong>",
+        "title": "Penyelesaian 2: Tetapan pelayar"
+      },
+      "device_settings": {
+        "title": "Penyelesaian 3: Tetapan peranti"
+      },
+      "refresh_page": {
+        "title": "Penyelesaian 1: Segarkan halaman"
       }
     },
     "android_generic": {
       "browser_settings": {
-        "list_item_1": "Dalam pelayar anda, buka tetapan laman web. Ini seringkali merupakan ikon kunci [LOCK_ICON] di bar alamat",
+        "list_item_1": "Dalam pelayar anda, buka tetapan laman web. Ini seringkali merupakan ikon kunci <lock_icon></lock_icon> di bar alamat",
         "list_item_2": "Cari bahagian tentang kebenaran",
         "list_item_3_cam": "Dayakan kebenaran <strong>Kamera</strong>",
         "list_item_3_mic": "Dayakan kebenaran <strong>Mikrofon</strong>",
-        "list_item_4": "Kembali ke halaman ini dan tekan butang <strong>Saya telah membuat perubahan</strong>"
+        "list_item_4": "Kembali ke halaman ini dan tekan butang <strong>Segarkan halaman</strong>"
       }
     },
     "android_samsung": {
       "browser_settings": {
-        "list_item_1": "Di pelayar anda, ketuk ikon kunci [LOCK_ICON] di bar alamat",
+        "list_item_1": "Di pelayar anda, ketuk ikon kunci <lock_icon></lock_icon> di bar alamat",
         "list_item_2_cam": "Aktifkan suis sebelah <strong>Kamera</strong>",
         "list_item_2_mic": "Aktifkan suis sebelah <strong>Mikrofon</strong>",
-        "list_item_3": "Kembali ke halaman ini dan tekan butang <strong>Saya telah membuat perubahan</strong>"
+        "list_item_3": "Kembali ke halaman ini dan tekan butang <strong>Segarkan halaman</strong>"
       }
     },
     "button_primary": "Segar semula",
+    "desktop": {
+      "browser_settings": {
+        "title": "Penyelesaian 1: Tetapan pelayar"
+      },
+      "device_settings": {
+        "title": "Penyelesaian 2: Tetapan peranti"
+      }
+    },
     "desktop_chrome": {
       "browser_settings": {
-        "list_item_1": "Dalam pelayar anda, klik ikon kunci [LOCK_ICON] di bar alamat",
+        "list_item_1": "Di pelayar anda, klik ikon tetapan <settings_icon_chrome></settings_icon_chrome> di bar alamat",
         "list_item_2_cam": "Aktifkan suis sebelah <strong>Kamera</strong>",
         "list_item_2_mic": "Aktifkan suis sebelah <strong>Mikrofon</strong>",
-        "list_item_3": "Kembali ke halaman ini dan klik butang <strong>Saya telah membuat perubahan</strong>"
+        "list_item_3": "Kembali ke halaman ini dan klik butang <strong>Segarkan halaman</strong>"
       }
     },
     "desktop_edge": {
       "browser_settings": {
-        "list_item_1": "Di pelayar anda, klik ikon kunci [LOCK_ICON] di bar alamat",
+        "list_item_1": "Di pelayar anda, klik ikon kunci <lock_icon></lock_icon> di bar alamat",
         "list_item_2_cam": "Klik pada dropdown sebelah <strong>Kamera</strong> dan pilih <strong>Benarkan</strong>",
         "list_item_2_mic": "Klik pada dropdown di sebelah <strong>Mikrofon</strong> dan pilih <strong>Benarkan</strong>",
-        "list_item_3": "Kembali ke halaman ini dan klik butang <strong>Saya telah membuat perubahan</strong>"
+        "list_item_3": "Kembali ke halaman ini dan klik butang <strong>Segarkan halaman</strong>"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
-        "list_item_1": "Di pelayar anda, klik ikon tetapan [SETTINGS_ICON_FIREFOX] di bar alamat",
+        "list_item_1": "Di pelayar anda, klik ikon tetapan <settings_icon_firefox></settings_icon_firefox> di bar alamat",
         "list_item_2_cam": "Klik <strong>Disekat</strong> bersebelahan dengan <strong>Gunakan kamera</strong>",
         "list_item_2_mic": "Klik <strong>Disekat</strong> bersebelahan dengan <strong>Gunakan mikrofon</strong>",
-        "list_item_3": "Kembali ke halaman ini dan klik butang <strong>Saya telah membuat perubahan</strong>"
+        "list_item_3": "Kembali ke halaman ini dan klik butang <strong>Segarkan halaman</strong>"
       }
     },
     "desktop_generic": {
       "browser_settings": {
-        "list_item_1": "Dalam pelayar anda, buka tetapan laman web. Ini seringkali merupakan ikon kunci [LOCK_ICON] di bar alamat",
+        "list_item_1": "Dalam pelayar anda, buka tetapan laman web. Ini seringkali merupakan ikon kunci <lock_icon></lock_icon> di bar alamat",
         "list_item_2": "Cari bahagian tentang kebenaran",
         "list_item_3_cam": "Dayakan kebenaran <strong>Kamera</strong>",
         "list_item_3_mic": "Dayakan kebenaran <strong>Mikrofon</strong>",
-        "list_item_4": "Kembali ke halaman ini dan klik butang <strong>Saya telah membuat perubahan</strong>"
+        "list_item_4": "Kembali ke halaman ini dan klik butang <strong>Segarkan halaman</strong>"
       },
       "device_settings": {
         "list_item_1": "Pada komputer anda, buka <strong>Tetapan</strong> anda",
         "list_item_2": "Cari bahagian tentang kebenaran (biasanya di bawah <strong>Privasi</strong>)",
-        "list_item_3_cam": "Dayakan kebenaran <strong>Kamera</strong> untuk [BROWSER_ICON]",
-        "list_item_3_mic": "Dayakan kebenaran <strong>Mikrofon</strong> untuk [BROWSER_ICON]",
+        "list_item_3_cam": "Dayakan kebenaran <strong>Kamera</strong> untuk <browser_icon></browser_icon>",
+        "list_item_3_mic": "Dayakan kebenaran <strong>Mikrofon</strong> untuk <browser_icon></browser_icon>",
         "list_item_4": "Mulakan semula pelayar anda jika perlu dan kembali ke halaman ini"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "Pada komputer anda, klik menu Apple [APPLE_ICON] dan pilih <strong>Tetapan Sistem</strong> (atau <strong>Keutamaan Sistem</strong>)",
+        "list_item_1": "Pada komputer anda, klik menu Apple <apple_icon></apple_icon> dan pilih <strong>Tetapan Sistem</strong> (atau <strong>Keutamaan Sistem</strong>)",
         "list_item_2": "Klik <strong>Privasi & Keselamatan</strong> (atau <strong>Keselamatan & Privasi</strong>) di bar sisi ",
         "list_item_3": "Klik <strong>Kemudian</strong> dalam pop-up",
-        "list_item_3_cam": "Klik <strong>Kamera</strong> dan aktifkan suis (atau kotak semak) di sebelah [BROWSER_ICON]",
+        "list_item_3_cam": "Klik <strong>Kamera</strong> dan aktifkan suis (atau kotak semak) di sebelah <browser_icon></browser_icon>",
         "list_item_4": "Klik <strong>Keluar & Buka Semula</strong> dalam pop-up dan kembali ke halaman ini",
-        "list_item_4_mic": "Klik <strong>Mikrofon</strong> dan aktifkan suis (atau kotak semak) di sebelah [BROWSER_ICON]"
+        "list_item_4_mic": "Klik <strong>Mikrofon</strong> dan aktifkan suis (atau kotak semak) di sebelah <browser_icon></browser_icon>"
       }
     },
     "desktop_safari": {
@@ -604,40 +655,44 @@
         "list_item_1": "Dalam pelayar anda, klik kanan pada bar alamat dan pilih <strong>Tetapan</strong>",
         "list_item_2_cam": "Klik pada dropdown sebelah <strong>Kamera</strong> dan pilih <strong>Benarkan</strong>",
         "list_item_2_mic": "Klik pada dropdown sebelah <strong>Mikrofon</strong> dan pilih <strong>Benarkan</strong>",
-        "list_item_3": "Kembali ke halaman ini dan klik butang <strong>Saya telah membuat perubahan</strong>"
+        "list_item_3": "Kembali ke halaman ini dan klik butang <strong>Segarkan halaman</strong>"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "Pada komputer anda, klik menu Windows [WINDOWS_ICON] dan pilih <strong>Tetapan</strong> [SETTINGS_ICON_WINDOWS]",
+        "list_item_1": "Pada komputer anda, klik menu Windows <windows_icon></windows_icon> dan pilih <strong>Tetapan</strong> <settings_icon_windows></settings_icon_windows>",
         "list_item_2": "Klik <strong>Privasi</strong> (atau <strong>Privasi & Keselamatan</strong>)",
-        "list_item_3_cam": "Klik <strong>Kamera</strong> di bawah <strong>Keizinan Aplikasi</strong> dan aktifkan suis di sebelah [BROWSER_ICON] ",
-        "list_item_3_mic": "Klik <strong>Mikrofon</strong> di bawah <strong>Keizinan Aplikasi</strong> dan aktifkan suis sebelah [BROWSER_ICON]",
+        "list_item_3_cam": "Klik <strong>Kamera</strong> di bawah <strong>Keizinan Aplikasi</strong> dan aktifkan suis di sebelah <browser_icon></browser_icon> ",
+        "list_item_3_mic": "Klik <strong>Mikrofon</strong> di bawah <strong>Keizinan Aplikasi</strong> dan aktifkan suis sebelah <browser_icon></browser_icon>",
         "list_item_4": "Mulakan semula pelayar anda jika perlu dan kembali ke halaman ini"
       }
     },
     "info": "Pemulihan",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "Ketuk butang <strong>Saya telah membuat perubahan</strong>. Anda akan diminta untuk mengaktifkan semula akses kamera dan mikrofon. Apabila muncul pop-up, pilih <strong>Benarkan</strong> (atau <strong>OK</strong>)",
-        "list_item_1_cam": "Ketuk butang <strong>Saya telah membuat perubahan</strong>. Anda akan diminta untuk mengaktifkan semula akses kamera. Apabila muncul pop-up, pilih <strong>Benarkan</strong> (atau <strong>OK</strong>)",
-        "list_item_1_mic": "Ketuk butang <strong>Saya telah membuat perubahan</strong>. Anda akan diminta untuk mengaktifkan semula akses mikrofon. Apabila muncul pop-up, pilih <strong>Benarkan</strong> (atau <strong>OK</strong>)"
+        "list_item_1_both": "Ketuk butang <strong>Segarkan halaman</strong>. Anda akan diminta untuk mengaktifkan semula akses kamera dan mikrofon. Apabila pop-up muncul, pilih <strong>Benarkan</strong> (atau <strong>OK</strong>)",
+        "list_item_1_cam": "Ketuk butang <strong>Segarkan halaman</strong>. Anda akan diminta untuk mengaktifkan akses kamera lagi. Apabila pop-up muncul, pilih <strong>Benarkan</strong> (atau <strong>OK</strong>)",
+        "list_item_1_mic": "Ketuk butang <strong>Segarkan halaman</strong>. Anda akan diminta untuk mengaktifkan akses mikrofon lagi. Apabila muncul pop-up, pilih <strong>Benarkan</strong> (atau <strong>OK</strong>)"
       },
       "device_settings": {
         "list_item_1": "Pada peranti anda, buka aplikasi <strong>Tetapan</strong>",
-        "list_item_2": "Tatal melalui senarai dan ketuk [BROWSER_ICON]",
+        "list_item_2": "Tatal melalui senarai dan ketuk <browser_icon></browser_icon>",
         "list_item_3_cam": "Aktifkan suis sebelah <strong>Kamera</strong>",
         "list_item_3_mic": "Aktifkan suis sebelah <strong>Mikrofon</strong>",
-        "list_item_4": "Kembali ke halaman ini dan tekan butang <strong>Saya telah membuat perubahan</strong>"
+        "list_item_4": "Kembali ke halaman ini dan tekan butang <strong>Segarkan halaman</strong>",
+        "title": "Penyelesaian 2: Tetapan peranti"
+      },
+      "refresh_page": {
+        "title": "Penyelesaian 1: Segarkan halaman"
       }
     },
     "ios_safari": {
       "device_settings": {
         "list_item_1": "Pada peranti anda, buka aplikasi <strong>Tetapan</strong>",
-        "list_item_2": "Gulir melalui senarai dan ketuk [BROWSER_ICON]",
+        "list_item_2": "Gulir melalui senarai dan ketuk <browser_icon></browser_icon>",
         "list_item_3_cam": "Ketuk <strong>Kamera</strong> dan pilih <strong>Benarkan</strong>",
         "list_item_3_mic": "Ketuk <strong>Mikrofon</strong> dan pilih <strong>Benarkan</strong>",
-        "list_item_4": "Kembali ke halaman ini dan tekan butang <strong>Saya telah membuat perubahan</strong>"
+        "list_item_4": "Kembali ke halaman ini dan tekan butang <strong>Segarkan halaman</strong>"
       }
     },
     "list_header_both": "Ikuti langkah-langkah ini untuk mengembalikan akses kamera dan juga mikrofon:",
@@ -654,13 +709,7 @@
     "title_cam": "Akses kamera tidak dibenarkan",
     "title_mic": "Akses mikrofon tidak dibenarkan",
     "web": {
-      "browser_settings": {
-        "title": "Penyelesaian 1: Tetapan pelayar"
-      },
-      "button_primary": "Saya telah membuat perubahan",
-      "device_settings": {
-        "title": "Penyelesaian 2: Tetapan peranti"
-      },
+      "button_primary": "Muat semula halaman",
       "disclaimer": "Proses pengesahan identiti mungkin akan dimulakan semula. Maaf atas sebarang kesulitan"
     }
   },
@@ -1071,6 +1120,25 @@
     "step_title": "Tandatangani dokumen anda",
     "subtitle": "Untuk mengesahkan identiti anda mengikut peraturan Eropah, anda mesti menandatangani dokumen secara digital.",
     "title": "Cipta dan gunakan tandatangan digital anda"
+  },
+  "retry": {
+    "button": {
+      "generic_selfie_issue": "Cuba lagi"
+    },
+    "description": {
+      "default": "Sila cuba lagi",
+      "expired_document": "Sila cuba lagi dengan ID bergambar yang sah dan pastikan maklumat anda kelihatan dengan jelas",
+      "generic_document_issue": "Sila cuba lagi dengan ID bergambar yang sah dan pastikan maklumat anda kelihatan dengan jelas",
+      "generic_selfie_issue": "Sila cuba lagi serta pastikan wajah anda kelihatan dan terang",
+      "unaccepted_document": "Sila cuba lagi dengan ID bergambar yang sah dan pastikan maklumat anda kelihatan dengan jelas"
+    },
+    "headline": {
+      "default": "Ada masalah",
+      "expired_document": "Dokumen anda telah tamat tempoh",
+      "generic_document_issue": "Ada masalah dengan dokumen anda",
+      "generic_selfie_issue": "Ada masalah dengan selfie anda",
+      "unaccepted_document": "Dokumen tidak diterima"
+    }
   },
   "retry_feedback": {
     "button_primary": "Cuba lagi"

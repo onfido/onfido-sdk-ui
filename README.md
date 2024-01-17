@@ -12,13 +12,14 @@
 - [Removing the SDK](#removing-the-sdk)
 - [Initialization options](#initialization-options)
 - [Customizing the SDK](#customizing-the-sdk)
-- [Creating checks](#creating-checks)
+- [Generating verification reports](#generating-verification-reports)
 - [User Analytics](#user-analytics)
 - [Premium Enterprise Features](#premium-enterprise-features)
 - [Going live](#going-live)
 - [Accessibility](#accessibility)
 - [TypeScript](#typescript)
 - [More information](#more-information)
+- [Raise support issue](#support)
 
 ## Overview
 
@@ -31,7 +32,7 @@ The SDK offers a number of benefits to help you create the best identity verific
 - Advanced image quality detection technology to ensure the quality of the captured images meets the requirement of the Onfido identity verification process, guaranteeing the best success rate
 - Direct image upload to the Onfido service, to simplify integration
 
-⚠️ Note: the SDK is only responsible for capturing photos, videos, and motion captures. You still need to access the [Onfido API](https://documentation.onfido.com/) to manage applicants and perform checks.
+⚠️ Note: The SDK is only responsible for capturing and uploading document photos, live selfies, live videos and motion captures. You still need to access the [Onfido API](https://documentation.onfido.com/) to manage applicants and [Onfido Studio](https://developers.onfido.com/guide/onfido-studio-product) to build verification workflows.
 
 ![Various views from the SDK](demo/screenshots.jpg)
 
@@ -304,6 +305,17 @@ Callback that fires when an error occurs. The callback returns the following err
 {
   type: "expired_token",
   message: "The token has expired, please request a new one"
+}
+```
+
+- `permissions_unavailable`
+
+  `permissions_unavailable` will be returned if the SDK was unable to access or request the necessary permissions. This may occur when the web SDK is loaded within a webview or other custom browsers.
+
+```javascript
+{
+  type: "permissions_unavailable",
+  message: "Unable to retrieve or access required user permissions"
 }
 ```
 
@@ -864,25 +876,17 @@ onfidoOut.setOptions({ isModalOpen:true });
 
 The new options will be shallowly merged with the previous one, so you can only pass the differences to a get a new flow.
 
-## Creating checks
+## Generating verification reports
 
-The SDK is responsible for the capture of identity documents and selfie photos, videos, and motion captures. It doesn't perform any checks against the [Onfido API](https://documentation.onfido.com/). You need to access the Onfido API in order to manage applicants and perform checks.
+While the SDK is responsible for capturing and uploading document photos, live selfies, live videos and motion captures, identity verification reports themselves are generated based on workflows created using [Onfido Studio](https://developers.onfido.com/guide/onfido-studio-product).
 
-### 1. Creating a check
+For a step-by-step walkthrough of creating an identity verification using Onfido Studio and our SDKs, please refer to our [Quick Start Guide](https://developers.onfido.com/guide/quick-start-guide).
 
-For a walkthrough of how to create a document and facial similarity check using the Web SDK read our [Web SDK Quick Start guide](https://developers.onfido.com/guide/web-sdk-quick-start).
+Alternatively, you can [create checks](https://documentation.onfido.com/#create-check) and [retrieve report results](https://documentation.onfido.com/#retrieve-report) manually using the Onfido API. You can also configure [webhooks](https://documentation.onfido.com/#webhooks) to be notified asynchronously of report results.
 
-For further details on how to [create a check](https://documentation.onfido.com/#create-check) with the Onfido API.
+**Note**: If you are currently using API `v2` for API calls, please refer to [this migration guide](https://developers.onfido.com/guide/api-v2-to-v3-migration-guide) for more information.
 
-Note: If you are testing with a sandbox token, please be aware that the results are pre-determined. You can learn more about [sandbox responses](https://documentation.onfido.com/#pre-determined-responses).
-
-Note: If you are currently using API `v2` please refer to [this migration guide](https://developers.onfido.com/guide/api-v2-to-v3-migration-guide) for more information.
-
-### 2. Setting up webhooks
-
-Reports may not always return actual [results](https://documentation.onfido.com/#results) straightaway.
-
-You can [set up webhooks](https://developers.onfido.com/guide/get-started-integrating#set-up-a-webhook) to be notified upon completion of a check or report, or both.
+**Note**: If you are testing with a sandbox token, please be aware that report results are pre-determined. You can learn more about sandbox responses [here](https://documentation.onfido.com/#pre-determined-responses).
 
 ## User Analytics
 
@@ -1049,7 +1053,11 @@ If embedded inside a cross-origin iframe, the SDK may fail to access the camera 
 
 Onfido Web SDK versions <13.0.0 have a parameter named `uploadFallback` that can be set on both the document step and the face step. This parameter allowed clients to present end-users with a file input capability during the SDK flow. This client-side optional parameter has been removed in Web SDK 13 and above to enhance security which means users will not have the option to upload files during the SDK flow. However, file upload can be enabled as an option for end-users as a backend configuration if requested through the Onfido Support Team.
 
-### Support
+#### Permissions issues when using the web SDK in a webview
+
+For recommendations and code samples on how to embed the Onfido web SDK in a webview, please refer to the guide [Using the Onfido web SDK in a webview](https://developers.onfido.com/guide/sdk-webview-guide) available on Developer Hub.
+
+## Support
 
 Should you encounter any technical issues during integration, please contact Onfido's Customer Support team via [email](mailto:support@onfido.com), including the word ISSUE: at the start of the subject line.
 

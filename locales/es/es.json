@@ -296,13 +296,13 @@
     "title_generic_document_front": "Enviar documento (anverso)",
     "title_government_letter": "Carta del Gobierno",
     "title_id_back": "Reverso de la tarjeta de identificación",
-    "title_id_front": "Frente de la tarjeta de identificación",
+    "title_id_front": "Presentar la tarjeta de identidad (frente)",
     "title_identity_document_with_address": "Enviar documento de identidad con dirección",
     "title_identity_document_with_address_back": "Envíe el documento de identidad con dirección (dorso)",
     "title_identity_document_with_address_front": "Enviar documento de identidad con dirección (frente)",
     "title_insurance_statement": "Enviar declaración de seguro",
     "title_license_back": "Reverso de la licencia de conducir",
-    "title_license_front": "Frente de la licencia de conducir",
+    "title_license_front": "Presentar licencia (frente)",
     "title_mobile_phone_bill": "Enviar factura de teléfono móvil",
     "title_mortgage_statement": "Enviar estado de cuenta hipotecario",
     "title_passport": "Página del pasaporte con su foto",
@@ -421,6 +421,11 @@
     "title": "Obtener enlace seguro",
     "url_field_label": "Copie el enlace al navegador de internet de su teléfono"
   },
+  "interactive_task": {
+    "waiting": {
+      "title_5": "Subiendo medios..."
+    }
+  },
   "livenessV2": {
     "error_reload_instructions": "Recargar instrucciones",
     "intro_note_no1": "Primero, coloque la cara dentro del marco",
@@ -460,26 +465,48 @@
       "success": "Escaneado correcto"
     }
   },
+  "nfc_scan_error_can": {
+    "primary_button": "Verificación de salida",
+    "subtitle": "Has alcanzado el máximo de intentos para ingresar tu número CAN"
+  },
+  "nfc_scan_error_can:title": "Máximo de intentos alcanzado",
   "otp": {
     "code_input": {
       "error": {
+        "code_expired": "Tu código ha expirado, por favor solicita uno nuevo.",
+        "code_invalid": "Código incorrecto ingresado, por favor intente de nuevo.",
         "technical": "Ha ocurrido un error técnico, por favor intente de nuevo más tarde",
+        "too_many_attempts": "Has intentado este código demasiadas veces, por favor solicita uno nuevo.",
         "wrong_code": "Código incorrecto ingresado, por favor intente de nuevo"
       },
-      "intro": "El código enviado a su número de teléfono estará activo durante 5 minutos",
+      "intro": "Tienes 5 minutos para validar el código enviado por SMS a <phonenumber></phonenumber>",
       "resend": {
-        "cta": "Reenviar",
-        "label": "Código enviado (hasta {limit})"
+        "cta": "Solicitar un nuevo código",
+        "cta_timeout": "Solicita un nuevo código (<timeout></timeout> segundos)",
+        "label": "Código enviado",
+        "tracker": "<remaining></remaining> de <limit></limit>"
       },
       "title": "Contraseña de un solo uso"
+    },
+    "error": {
+      "cta": "Regresa",
+      "subtitle": "Por favor, espera unos segundos e intenta de nuevo",
+      "title": "Algo salió mal"
+    },
+    "failure": {
+      "cta": "Continuar",
+      "subtitle": "Ya no podemos verificar tu número de teléfono",
+      "title": "Se excedió el número permitido de intentos"
     },
     "send_code": {
       "cta": "Enviar código",
       "error": {
+        "invalid_phone_number": "Por favor, proporciona un número de teléfono válido.",
         "limit": "Has alcanzado el límite de SMS enviados",
         "technical": "Ha ocurrido un error técnico, por favor intente de nuevo más tarde"
       },
-      "intro": "Para verificar tu número de teléfono, vamos a enviarte un código de un solo uso para que lo ingreses en la próxima pantalla.",
+      "input_label": "Número de teléfono",
+      "intro": "Para verificar tu número de teléfono, te pediremos que ingreses una contraseña de un solo uso.",
       "title": "Contraseña de un solo uso"
     }
   },
@@ -504,99 +531,123 @@
   },
   "permission_recovery": {
     "android": {
+      "browser_settings": {
+        "title": "Solución 1: Configuración del navegador"
+      },
       "device_settings": {
         "list_item_1": "En tu móvil, abre la aplicación <strong>Configuración</strong>",
         "list_item_2": "Toca <strong>Aplicaciones</strong>",
-        "list_item_3": "Toca [BROWSER_ICON]. Si no puedes encontrarlo, toca <strong>Ver todas las aplicaciones</strong> o <strong>Gestionar aplicaciones</strong> y selecciona tu aplicación de navegador",
+        "list_item_3": "Toca <browser_icon></browser_icon>. Si no puedes encontrarlo, toca <strong>Ver todas las aplicaciones</strong> o <strong>Gestionar aplicaciones</strong> y selecciona tu aplicación de navegador",
         "list_item_4": "Toca <strong>Permisos</strong>",
         "list_item_5_cam": "Toca <strong>Cámara</strong> y selecciona <strong>Permitir</strong>",
         "list_item_5_mic": "Toca <strong>Micrófono</strong> y selecciona <strong>Permitir</strong>",
-        "list_item_6": "Vuelve a esta página y pulsa el botón <strong>He realizado los cambios</strong>"
+        "list_item_6": "Regresa a esta página y presiona el botón <strong>Actualizar la página</strong>",
+        "title": "Solución 2: Configuración del dispositivo"
+      },
+      "refresh_page": {
+        "list_item_1_both": "Toca el botón <strong>Actualizar la página</strong>. Se te pedirá que vuelvas a habilitar el acceso a la cámara y al micrófono. Cuando aparezca la ventana emergente, selecciona <strong>Permitir</strong> (o <strong>Aceptar</strong>)",
+        "list_item_1_cam": "Toca el botón <strong>Actualizar la página</strong>. Se te pedirá que vuelvas a habilitar el acceso a la cámara. Cuando aparezca la ventana emergente, selecciona <strong>Permitir</strong> (o <strong>Aceptar</strong>)",
+        "list_item_1_mic": "Toca el botón <strong>Actualizar la página</strong>. Se te pedirá que habilites el acceso al micrófono nuevamente. Cuando aparezca la ventana emergente, selecciona <strong>Permitir</strong> (o <strong>Aceptar</strong>)"
       }
     },
     "android_chrome": {
       "browser_settings": {
-        "list_item_1": "En tu navegador, toca el icono de candado [LOCK_ICON] en la barra de direcciones",
+        "list_item_1": "En tu navegador, toca el icono de configuración <settings_icon_chrome></settings_icon_chrome> en la barra de direcciones",
         "list_item_2": "Toca <strong>Permisos</strong>",
         "list_item_3_cam": "Activa el interruptor junto a <strong>Cámara</strong>",
         "list_item_3_mic": "Activa el interruptor junto a <strong>Micrófono</strong>",
-        "list_item_4": "Vuelve a esta página y pulsa el botón <strong>He realizado los cambios</strong>"
+        "list_item_4": "Regresa a esta página y presiona el botón <strong>Actualizar la página</strong>"
       }
     },
     "android_firefox": {
       "browser_settings": {
-        "list_item_1": "En tu navegador, toca el icono de candado [LOCK_ICON] en la barra de direcciones",
+        "list_item_1": "En tu navegador, toca el icono de candado <lock_icon></lock_icon> en la barra de direcciones",
         "list_item_2_cam": "Toca <strong>Bloqueado</strong> junto a <strong>Cámara</strong> para cambiar a <strong>Permitido</strong>",
         "list_item_2_mic": "Toca <strong>Bloqueado</strong> junto a <strong>Micrófono</strong> para cambiar a <strong>Permitido</strong>",
-        "list_item_3": "Vuelve a esta página y pulsa el botón <strong>He realizado los cambios</strong>"
+        "list_item_3": "Regresa a esta página y pulsa el botón <strong>Actualizar la página</strong>",
+        "title": "Solución 2: Configuración del navegador"
+      },
+      "device_settings": {
+        "title": "Solución 3: Configuración del dispositivo"
+      },
+      "refresh_page": {
+        "title": "Solución 1: Actualiza la página"
       }
     },
     "android_generic": {
       "browser_settings": {
-        "list_item_1": "En tu navegador, abre la configuración del sitio web. A menudo es un icono de candado [LOCK_ICON] en la barra de direcciones",
+        "list_item_1": "En tu navegador, abre la configuración del sitio web. A menudo es un icono de candado <lock_icon></lock_icon> en la barra de direcciones",
         "list_item_2": "Encuentra la sección sobre permisos",
         "list_item_3_cam": "Habilita los permisos de la <strong>Cámara</strong>",
         "list_item_3_mic": "Habilita los permisos del <strong>Micrófono</strong>",
-        "list_item_4": "Vuelve a esta página y pulsa el botón <strong>He realizado los cambios</strong>"
+        "list_item_4": "Regresa a esta página y presiona el botón <strong>Actualizar la página</strong>"
       }
     },
     "android_samsung": {
       "browser_settings": {
-        "list_item_1": "En tu navegador, toca el icono de candado [LOCK_ICON] en la barra de direcciones",
+        "list_item_1": "En tu navegador, toca el icono de candado <lock_icon></lock_icon> en la barra de direcciones",
         "list_item_2_cam": "Activa el interruptor junto a <strong>Cámara</strong>",
         "list_item_2_mic": "Activa el interruptor junto a <strong>Micrófono</strong>",
-        "list_item_3": "Vuelve a esta página y pulsa el botón <strong>He realizado los cambios</strong>"
+        "list_item_3": "Regresa a esta página y presiona el botón <strong>Actualizar la página</strong>"
       }
     },
     "button_primary": "Actualizar",
+    "desktop": {
+      "browser_settings": {
+        "title": "Solución 1: Configuración del navegador"
+      },
+      "device_settings": {
+        "title": "Solución 2: Configuración del móvil"
+      }
+    },
     "desktop_chrome": {
       "browser_settings": {
-        "list_item_1": "En tu navegador, haz clic en el icono de candado [LOCK_ICON] en la barra de direcciones",
+        "list_item_1": "En tu navegador, haz clic en el icono de configuración <settings_icon_chrome></settings_icon_chrome> en la barra de direcciones",
         "list_item_2_cam": "Activa el interruptor junto a <strong>Cámara</strong>",
         "list_item_2_mic": "Activa el interruptor junto a <strong>Micrófono</strong>",
-        "list_item_3": "Vuelve a esta página y haz clic en el botón <strong>He realizado los cambios</strong>"
+        "list_item_3": "Regresa a esta página y haz clic en el botón <strong>Actualizar la página</strong>"
       }
     },
     "desktop_edge": {
       "browser_settings": {
-        "list_item_1": "En tu navegador, haz clic en el icono de candado [LOCK_ICON] en la barra de direcciones",
+        "list_item_1": "En tu navegador, haz clic en el icono de candado <lock_icon></lock_icon> en la barra de direcciones",
         "list_item_2_cam": "Haz clic en el desplegable junto a <strong>Cámara</strong> y selecciona <strong>Permitir</strong>",
         "list_item_2_mic": "Haz clic en el desplegable junto a <strong>Micrófono</strong> y selecciona <strong>Permitir</strong>",
-        "list_item_3": "Vuelve a esta página y haz clic en el botón <strong>He realizado los cambios</strong>"
+        "list_item_3": "Regresa a esta página y haz clic en el botón <strong>Actualizar la página</strong>"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
-        "list_item_1": "En tu navegador, haz clic en el icono de configuración [SETTINGS_ICON_FIREFOX] en la barra de direcciones",
+        "list_item_1": "En tu navegador, haz clic en el icono de configuración <settings_icon_firefox></settings_icon_firefox> en la barra de direcciones",
         "list_item_2_cam": "Haz clic en <strong>Bloqueado</strong> junto a <strong>Usar la cámara</strong>",
         "list_item_2_mic": "Haz clic en <strong>Bloqueado</strong> junto a <strong>Usar el micrófono</strong>",
-        "list_item_3": "Vuelve a esta página y haz clic en el botón <strong>He realizado los cambios</strong>"
+        "list_item_3": "Regresa a esta página y haz clic en el botón <strong>Actualizar la página</strong>"
       }
     },
     "desktop_generic": {
       "browser_settings": {
-        "list_item_1": "En tu navegador, abre la configuración del sitio web. Esto suele ser un icono de candado [LOCK_ICON] en la barra de direcciones",
+        "list_item_1": "En tu navegador, abre la configuración del sitio web. Esto suele ser un icono de candado <lock_icon></lock_icon> en la barra de direcciones",
         "list_item_2": "Encuentra la sección sobre permisos",
         "list_item_3_cam": "Habilita los permisos de la <strong>Cámara</strong>",
         "list_item_3_mic": "Habilita los permisos del <strong>Micrófono</strong>",
-        "list_item_4": "Vuelve a esta página y haz clic en el botón <strong>He realizado los cambios</strong>"
+        "list_item_4": "Regresa a esta página y haz clic en el botón <strong>Actualizar la página</strong>"
       },
       "device_settings": {
         "list_item_1": "En su ordenador, abra sus <strong>Configuraciones</strong>",
         "list_item_2": "Busca la sección sobre permisos (generalmente bajo <strong>Privacidad</strong>)",
-        "list_item_3_cam": "Habilita los permisos de <strong>Cámara</strong> para [BROWSER_ICON]",
-        "list_item_3_mic": "Habilita los permisos de <strong>Micrófono</strong> para [BROWSER_ICON]",
+        "list_item_3_cam": "Habilita los permisos de <strong>Cámara</strong> para <browser_icon></browser_icon>",
+        "list_item_3_mic": "Habilita los permisos de <strong>Micrófono</strong> para <browser_icon></browser_icon>",
         "list_item_4": "Reinicia tu navegador si es necesario y vuelve a esta página"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "En su ordenador, haga clic en el menú Apple [APPLE_ICON] y seleccione <strong>Configuración del Sistema</strong> (o <strong>Preferencias del Sistema</strong>)",
+        "list_item_1": "En su ordenador, haga clic en el menú Apple <apple_icon></apple_icon> y seleccione <strong>Configuración del Sistema</strong> (o <strong>Preferencias del Sistema</strong>)",
         "list_item_2": "Haz clic en <strong>Privacidad y Seguridad</strong> (o <strong>Seguridad y Privacidad</strong>) en la barra lateral",
         "list_item_3": "Haz clic en <strong>Más tarde</strong> en el pop-up",
-        "list_item_3_cam": "Haz clic en <strong>Cámara</strong> y activa el interruptor (o casilla de verificación) junto a [BROWSER_ICON]",
+        "list_item_3_cam": "Haz clic en <strong>Cámara</strong> y activa el interruptor (o casilla de verificación) junto a <browser_icon></browser_icon>",
         "list_item_4": "Haz clic en <strong>Salir y volver a abrir</strong> en el pop-up y regresa a esta página",
-        "list_item_4_mic": "Haz clic en <strong>Micrófono</strong> y activa el interruptor (o casilla de verificación) junto a [BROWSER_ICON]"
+        "list_item_4_mic": "Haz clic en <strong>Micrófono</strong> y activa el interruptor (o casilla de verificación) junto a <browser_icon></browser_icon>"
       }
     },
     "desktop_safari": {
@@ -604,40 +655,44 @@
         "list_item_1": "En tu navegador, haz clic con el botón derecho en la barra de direcciones y selecciona <strong>Configuración</strong>",
         "list_item_2_cam": "Haz clic en el desplegable junto a <strong>Cámara</strong> y selecciona <strong>Permitir</strong>",
         "list_item_2_mic": "Haz clic en el desplegable junto a <strong>Micrófono</strong> y selecciona <strong>Permitir</strong>",
-        "list_item_3": "Vuelve a esta página y haz clic en el botón <strong>He realizado los cambios</strong>"
+        "list_item_3": "Regresa a esta página y haz clic en el botón <strong>Actualizar la página</strong>"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "En su ordenador, haga clic en el menú de Windows [WINDOWS_ICON] y seleccione <strong>Configuración</strong> [SETTINGS_ICON_WINDOWS]",
+        "list_item_1": "En su ordenador, haga clic en el menú de Windows <windows_icon></windows_icon> y seleccione <strong>Configuración</strong> <settings_icon_windows></settings_icon_windows>",
         "list_item_2": "Haz clic en <strong>Privacidad</strong> (o <strong>Privacidad & Seguridad</strong>)",
-        "list_item_3_cam": "Haz clic en <strong>Cámara</strong> bajo <strong>Permisos de la aplicación</strong> y activa el interruptor junto a [BROWSER_ICON] ",
-        "list_item_3_mic": "Haz clic en <strong>Micrófono</strong> bajo <strong>Permisos de la aplicación</strong> y activa el interruptor junto a [BROWSER_ICON]",
+        "list_item_3_cam": "Haz clic en <strong>Cámara</strong> bajo <strong>Permisos de la aplicación</strong> y activa el interruptor junto a <browser_icon></browser_icon> ",
+        "list_item_3_mic": "Haz clic en <strong>Micrófono</strong> bajo <strong>Permisos de la aplicación</strong> y activa el interruptor junto a <browser_icon></browser_icon>",
         "list_item_4": "Reinicia tu navegador si es necesario y vuelve a esta página"
       }
     },
     "info": "Recuperación",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "Toque el botón <strong>He realizado los cambios</strong>. Se le pedirá que vuelva a habilitar el acceso a la cámara y al micrófono. Cuando aparezca la ventana emergente, seleccione <strong>Permitir</strong> (o <strong>OK</strong>)",
-        "list_item_1_cam": "Toque el botón <strong>He realizado los cambios</strong>. Se le pedirá que vuelva a habilitar el acceso a la cámara. Cuando aparezca la ventana emergente, seleccione <strong>Permitir</strong> (o <strong>OK</strong>)",
-        "list_item_1_mic": "Toque el botón <strong>He realizado los cambios</strong>. Se le pedirá que vuelva a habilitar el acceso al micrófono. Cuando aparezca la ventana emergente, seleccione <strong>Permitir</strong> (o <strong>OK</strong>)"
+        "list_item_1_both": "Toca el botón <strong>Actualizar la página</strong>. Se te pedirá que vuelvas a habilitar el acceso a la cámara y al micrófono. Cuando aparezca la ventana emergente, selecciona <strong>Permitir</strong> (o <strong>Aceptar</strong>)",
+        "list_item_1_cam": "Toca el botón <strong>Actualizar la página</strong>. Se te pedirá que vuelvas a habilitar el acceso a la cámara. Cuando aparezca la ventana emergente, selecciona <strong>Permitir</strong> (o <strong>Aceptar</strong>)",
+        "list_item_1_mic": "Toca el botón <strong>Actualizar la página</strong>. Se te pedirá que habilites el acceso al micrófono nuevamente. Cuando aparezca la ventana emergente, selecciona <strong>Permitir</strong> (o <strong>Aceptar</strong>)"
       },
       "device_settings": {
         "list_item_1": "En tu móvil, abre la aplicación <strong>Configuración</strong>",
-        "list_item_2": "Desplázate por la lista y toca [BROWSER_ICON]",
+        "list_item_2": "Desplázate por la lista y toca <browser_icon></browser_icon>",
         "list_item_3_cam": "Activa el interruptor junto a <strong>Cámara</strong>",
         "list_item_3_mic": "Activa el interruptor junto a <strong>Micrófono</strong>",
-        "list_item_4": "Vuelve a esta página y pulsa el botón <strong>He realizado los cambios</strong>"
+        "list_item_4": "Regresa a esta página y presiona el botón <strong>Actualizar la página</strong>",
+        "title": "Solución 2: Configuración del dispositivo"
+      },
+      "refresh_page": {
+        "title": "Solución 1: Actualiza la página"
       }
     },
     "ios_safari": {
       "device_settings": {
         "list_item_1": "En tu móvil, abre la aplicación <strong>Configuración</strong>",
-        "list_item_2": "Desplázate por la lista y toca [BROWSER_ICON]",
+        "list_item_2": "Desplázate por la lista y toca <browser_icon></browser_icon>",
         "list_item_3_cam": "Toca <strong>Cámara</strong> y selecciona <strong>Permitir</strong>",
         "list_item_3_mic": "Toca <strong>Micrófono</strong> y selecciona <strong>Permitir</strong>",
-        "list_item_4": "Vuelve a esta página y pulsa el botón <strong>He realizado los cambios</strong>"
+        "list_item_4": "Regresa a esta página y presiona el botón <strong>Actualizar la página</strong>"
       }
     },
     "list_header_both": "Siga estos pasos para recuperar acceso a ambos:",
@@ -654,13 +709,7 @@
     "title_cam": "Acceso a la cámara no permitido",
     "title_mic": "Acceso al micrófono denegado",
     "web": {
-      "browser_settings": {
-        "title": "Solución 1: Configuración del navegador"
-      },
-      "button_primary": "He realizado los cambios",
-      "device_settings": {
-        "title": "Solución 2: Configuración del móvil"
-      },
+      "button_primary": "Actualiza la página",
       "disclaimer": "El proceso de verificación de identidad podría reiniciarse. Lamentamos cualquier inconveniente"
     }
   },
@@ -726,7 +775,7 @@
     "subtitle": "Necesitará un documento que:",
     "title": "Vamos a verificar su dirección"
   },
-  "poa_welcome_text": "Tome una foto del documento con la dirección",
+  "poa_welcome_text": "Tomar una foto del documento con la dirección",
   "profile_data": {
     "address_title": "Añada su dirección",
     "button_continue": "Continuar",
@@ -1071,6 +1120,25 @@
     "step_title": "Firma tu documento",
     "subtitle": "Para confirmar su identidad de acuerdo con las normas europeas, debe firmar digitalmente un documento.",
     "title": "Cree y use su firma digital"
+  },
+  "retry": {
+    "button": {
+      "generic_selfie_issue": "Intentar otra vez"
+    },
+    "description": {
+      "default": "Inténtelo de nuevo",
+      "expired_document": "Inténtelo de nuevo con un documento de identidad con fotografía válido y asegúrese de que sus datos se vean con claridad",
+      "generic_document_issue": "Inténtelo de nuevo con un documento de identidad con fotografía válido y asegúrese de que sus datos se vean con claridad",
+      "generic_selfie_issue": "Inténtelo de nuevo y asegúrese que su cara sea visible y esté bien iluminada",
+      "unaccepted_document": "Inténtelo de nuevo con un documento de identidad con fotografía válido y asegúrese de que sus datos se vean con claridad"
+    },
+    "headline": {
+      "default": "Hubo un problema",
+      "expired_document": "Su documento ha caducado",
+      "generic_document_issue": "Hubo un problema con tu documento",
+      "generic_selfie_issue": "Hubo un problema con tu selfie",
+      "unaccepted_document": "Documento no aceptado"
+    }
   },
   "retry_feedback": {
     "button_primary": "Intentar otra vez"

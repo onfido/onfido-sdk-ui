@@ -421,6 +421,11 @@
     "title": "الحصول على رابطك الآمن",
     "url_field_label": "انسخ الرابط إلى متصفح جهازك المحمول"
   },
+  "interactive_task": {
+    "waiting": {
+      "title_5": "جاري تحميل الوسائط..."
+    }
+  },
   "livenessV2": {
     "error_reload_instructions": "إعادة تحميل التعليمات",
     "intro_note_no1": "أولاً، ضع وجهك ضمن الإطار",
@@ -460,26 +465,48 @@
       "success": "المسح ناجح"
     }
   },
+  "nfc_scan_error_can": {
+    "primary_button": "التحقق من الخروج",
+    "subtitle": "لقد وصلت إلى الحد الأقصى لمحاولات إدخال رقم CAN الخاص بك"
+  },
+  "nfc_scan_error_can:title": "تم الوصول إلى الحد الأقصى للمحاولات",
   "otp": {
     "code_input": {
       "error": {
+        "code_expired": "لقد انتهت صلاحية الرمز الخاص بك، يرجى طلب واحد جديد.",
+        "code_invalid": "تم إدخال رمز خاطئ، يرجى المحاولة مرة أخرى.",
         "technical": "حدث خطأ تقني، يرجى المحاولة مرة أخرى لاحقا",
+        "too_many_attempts": "لقد حاولت استخدام هذا الرمز أكثر من اللازم، يرجى طلب واحد جديد.",
         "wrong_code": "تم إدخال رمز خاطئ، يرجى المحاولة مرة أخرى"
       },
-      "intro": "الرمز المرسل إلى رقم هاتفك سيكون نشطًا لمدة 5 دقائق",
+      "intro": "لديك 5 دقائق للتحقق من الرمز المرسل عبر الرسائل القصيرة إلى <phonenumber></phonenumber>",
       "resend": {
-        "cta": "أعد الإرسال",
-        "label": "تم إرسال الرمز (حتى {limit})"
+        "cta": "طلب رمز جديد",
+        "cta_timeout": "طلب رمز جديد (<timeout></timeout> ثواني)",
+        "label": "تم إرسال الرمز",
+        "tracker": "<remaining></remaining> من <limit></limit>"
       },
       "title": "كلمة المرور لمرة واحدة"
+    },
+    "error": {
+      "cta": "عُد للخلف",
+      "subtitle": "يرجى الانتظار بضع زوايا وحاول مرة أخرى",
+      "title": "حدث خطأ ما"
+    },
+    "failure": {
+      "cta": "استمر",
+      "subtitle": "لا يمكننا التحقق من رقم هاتفك بعد الآن",
+      "title": "تجاوزت العدد المسموح من المحاولات"
     },
     "send_code": {
       "cta": "أرسل الرمز",
       "error": {
+        "invalid_phone_number": "يرجى تقديم رقم هاتف صالح.",
         "limit": "لقد وصلت إلى الحد الأقصى للرسائل القصيرة المرسلة",
         "technical": "حدث خطأ فني، يرجى المحاولة مرة أخرى لاحقا"
       },
-      "intro": "للتحقق من رقم هاتفك، سنرسل لك رمزًا لاستخدام مرة واحدة لإدخاله في الشاشة التالية.",
+      "input_label": "رقم الهاتف",
+      "intro": "للتحقق من رقم هاتفك، سنطلب منك إدخال كلمة مرور لمرة واحدة.",
       "title": "كلمة المرور لمرة واحدة"
     }
   },
@@ -504,99 +531,123 @@
   },
   "permission_recovery": {
     "android": {
+      "browser_settings": {
+        "title": "الحل 1: إعدادات المتصفح"
+      },
       "device_settings": {
         "list_item_1": "على جهازك، افتح تطبيق <strong>الإعدادات</strong>",
         "list_item_2": "اضغط على <strong>التطبيقات</strong>",
-        "list_item_3": "اضغط على [BROWSER_ICON]. إذا لم تتمكن من العثور عليه، اضغط على <strong>رؤية جميع التطبيقات</strong> أو <strong>إدارة التطبيقات</strong> واختر تطبيق المتصفح الخاص بك",
+        "list_item_3": "اضغط على <browser_icon></browser_icon>. إذا لم تتمكن من العثور عليه، اضغط على <strong>رؤية جميع التطبيقات</strong> أو <strong>إدارة التطبيقات</strong> واختر تطبيق المتصفح الخاص بك",
         "list_item_4": "اضغط على <strong>الأذونات</strong>",
         "list_item_5_cam": "اضغط على <strong>الكاميرا</strong> واختر <strong>السماح</strong>",
         "list_item_5_mic": "اضغط على <strong>الميكروفون</strong> واختر <strong>السماح</strong>",
-        "list_item_6": "عُد إلى هذه الصفحة واضغط على الزر <strong>لقد أجريت التغييرات</strong>"
+        "list_item_6": "عد إلى هذه الصفحة واضغط على زر <strong>تحديث الصفحة</strong>",
+        "title": "الحل 2: إعدادات الجهاز"
+      },
+      "refresh_page": {
+        "list_item_1_both": "اضغط على زر <strong>تحديث الصفحة</strong>. سيُطلب منك تمكين الوصول إلى الكاميرا والميكروفون مرة أخرى. عندما تظهر النافذة المنبثقة، اختر <strong>السماح</strong> (أو <strong>موافق</strong>)",
+        "list_item_1_cam": "اضغط على زر <strong>تحديث الصفحة</strong>. سيُطلب منك تمكين الوصول إلى الكاميرا مرة أخرى. عندما تظهر النافذة المنبثقة، اختر <strong>السماح</strong> (أو <strong>موافق</strong>)",
+        "list_item_1_mic": "اضغط على زر <strong>تحديث الصفحة</strong>. سيُطلب منك تمكين الوصول إلى الميكروفون مرة أخرى. عندما تظهر النافذة المنبثقة، اختر <strong>السماح</strong> (أو <strong>موافق</strong>)"
       }
     },
     "android_chrome": {
       "browser_settings": {
-        "list_item_1": "في المتصفح الخاص بك، اضغط على أيقونة القفل [LOCK_ICON] في شريط العنوان",
+        "list_item_1": "في متصفحك، اضغط على أيقونة الإعدادات <settings_icon_chrome></settings_icon_chrome> في شريط العنوان",
         "list_item_2": "اضغط على <strong>الأذونات</strong>",
         "list_item_3_cam": "قم بتفعيل المفتاح بجوار <strong>الكاميرا</strong>",
         "list_item_3_mic": "قم بتفعيل المفتاح بجوار <strong>الميكروفون</strong>",
-        "list_item_4": "عُد إلى هذه الصفحة واضغط على زر <strong>لقد قمت بالتغييرات</strong>"
+        "list_item_4": "عد إلى هذه الصفحة واضغط على زر <strong>تحديث الصفحة</strong>"
       }
     },
     "android_firefox": {
       "browser_settings": {
-        "list_item_1": "في المتصفح الخاص بك، اضغط على أيقونة القفل [LOCK_ICON] في شريط العنوان",
+        "list_item_1": "في المتصفح الخاص بك، اضغط على أيقونة القفل <lock_icon></lock_icon> في شريط العنوان",
         "list_item_2_cam": "اضغط على <strong>محظور</strong> بجوار <strong>الكاميرا</strong> للتبديل إلى <strong>مسموح</strong>",
         "list_item_2_mic": "اضغط على <strong>محظور</strong> بجوار <strong>الميكروفون</strong> للتبديل إلى <strong>مسموح</strong>",
-        "list_item_3": "عُد إلى هذه الصفحة واضغط على الزر <strong>لقد أجريت التغييرات</strong>"
+        "list_item_3": "عد إلى هذه الصفحة واضغط على زر <strong>تحديث الصفحة</strong>",
+        "title": "الحل 2: إعدادات المتصفح"
+      },
+      "device_settings": {
+        "title": "الحل 3: إعدادات الجهاز"
+      },
+      "refresh_page": {
+        "title": "الحل 1: قم بتحديث الصفحة"
       }
     },
     "android_generic": {
       "browser_settings": {
-        "list_item_1": "في المتصفح الخاص بك، افتح إعدادات الموقع. غالبًا ما يكون هذا رمز القفل [LOCK_ICON] في شريط العنوان",
+        "list_item_1": "في المتصفح الخاص بك، افتح إعدادات الموقع. غالبًا ما يكون هذا رمز القفل <lock_icon></lock_icon> في شريط العنوان",
         "list_item_2": "ابحث عن القسم المتعلق بالأذونات",
         "list_item_3_cam": "قم بتمكين أذونات <strong>الكاميرا</strong>",
         "list_item_3_mic": "قم بتمكين أذونات <strong>الميكروفون</strong>",
-        "list_item_4": "عُد إلى هذه الصفحة واضغط على الزر <strong>لقد أجريت التغييرات</strong>"
+        "list_item_4": "عد إلى هذه الصفحة واضغط على زر <strong>تحديث الصفحة</strong>"
       }
     },
     "android_samsung": {
       "browser_settings": {
-        "list_item_1": "في المتصفح الخاص بك، اضغط على أيقونة القفل [LOCK_ICON] في شريط العنوان",
+        "list_item_1": "في المتصفح الخاص بك، اضغط على أيقونة القفل <lock_icon></lock_icon> في شريط العنوان",
         "list_item_2_cam": "قم بتفعيل المفتاح بجوار <strong>الكاميرا</strong>",
         "list_item_2_mic": "قم بتفعيل المفتاح بجوار <strong>الميكروفون</strong>",
-        "list_item_3": "عُد إلى هذه الصفحة واضغط على الزر <strong>لقد أجريت التغييرات</strong>"
+        "list_item_3": "عد إلى هذه الصفحة واضغط على زر <strong>تحديث الصفحة</strong>"
       }
     },
     "button_primary": "تنشيط",
+    "desktop": {
+      "browser_settings": {
+        "title": "الحل 1: إعدادات المتصفح"
+      },
+      "device_settings": {
+        "title": "الحل 2: إعدادات الجهاز"
+      }
+    },
     "desktop_chrome": {
       "browser_settings": {
-        "list_item_1": "في المتصفح الخاص بك، انقر على أيقونة القفل [LOCK_ICON] في شريط العنوان",
+        "list_item_1": "في متصفحك، انقر على أيقونة الإعدادات <settings_icon_chrome></settings_icon_chrome> في شريط العنوان",
         "list_item_2_cam": "قم بتفعيل المفتاح بجوار <strong>الكاميرا</strong>",
         "list_item_2_mic": "قم بتفعيل المفتاح بجوار <strong>الميكروفون</strong>",
-        "list_item_3": "عُد إلى هذه الصفحة واضغط على الزر <strong>لقد قمت بالتغييرات</strong>"
+        "list_item_3": "عد إلى هذه الصفحة واضغط على زر <strong>تحديث الصفحة</strong>"
       }
     },
     "desktop_edge": {
       "browser_settings": {
-        "list_item_1": "في المتصفح الخاص بك، انقر على أيقونة القفل [LOCK_ICON] في شريط العنوان",
+        "list_item_1": "في المتصفح الخاص بك، انقر على أيقونة القفل <lock_icon></lock_icon> في شريط العنوان",
         "list_item_2_cam": "انقر على القائمة المنسدلة بجوار <strong>الكاميرا</strong> واختر <strong>السماح</strong>",
         "list_item_2_mic": "انقر على القائمة المنسدلة بجوار <strong>الميكروفون</strong> واختر <strong>السماح</strong>",
-        "list_item_3": "عد إلى هذه الصفحة واضغط على الزر <strong>لقد قمت بالتغييرات</strong>"
+        "list_item_3": "عد إلى هذه الصفحة واضغط على زر <strong>تحديث الصفحة</strong>"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
-        "list_item_1": "في المتصفح الخاص بك، انقر على أيقونة الإعدادات [SETTINGS_ICON_FIREFOX] في شريط العنوان",
+        "list_item_1": "في المتصفح الخاص بك، انقر على أيقونة الإعدادات <settings_icon_firefox></settings_icon_firefox> في شريط العنوان",
         "list_item_2_cam": "انقر على <strong>محظور</strong> بجوار <strong>استخدم الكاميرا</strong>",
         "list_item_2_mic": "انقر على <strong>محظور</strong> بجوار <strong>استخدم الميكروفون</strong>",
-        "list_item_3": "عُد إلى هذه الصفحة واضغط على الزر <strong>لقد أجريت التغييرات</strong>"
+        "list_item_3": "عد إلى هذه الصفحة وانقر على زر <strong>تحديث الصفحة</strong>"
       }
     },
     "desktop_generic": {
       "browser_settings": {
-        "list_item_1": "في المتصفح الخاص بك، افتح إعدادات الموقع. غالبًا ما يكون هذا رمز القفل [LOCK_ICON] في شريط العنوان",
+        "list_item_1": "في المتصفح الخاص بك، افتح إعدادات الموقع. غالبًا ما يكون هذا رمز القفل <lock_icon></lock_icon> في شريط العنوان",
         "list_item_2": "ابحث عن القسم المتعلق بالأذونات",
         "list_item_3_cam": "قم بتمكين أذونات <strong>الكاميرا</strong>",
         "list_item_3_mic": "قم بتمكين أذونات <strong>الميكروفون</strong>",
-        "list_item_4": "عُد إلى هذه الصفحة واضغط على الزر <strong>لقد قمت بالتغييرات</strong>"
+        "list_item_4": "عد إلى هذه الصفحة واضغط على زر <strong>تحديث الصفحة</strong>"
       },
       "device_settings": {
         "list_item_1": "على جهاز الكمبيوتر الخاص بك، افتح <strong>الإعدادات</strong> الخاصة بك",
         "list_item_2": "ابحث عن القسم المتعلق بالأذونات (عادةً تحت <strong>الخصوصية</strong>)",
-        "list_item_3_cam": "قم بتمكين أذونات <strong>الكاميرا</strong> لـ [BROWSER_ICON]",
-        "list_item_3_mic": "قم بتمكين أذونات <strong>الميكروفون</strong> لـ [BROWSER_ICON]",
+        "list_item_3_cam": "قم بتمكين أذونات <strong>الكاميرا</strong> لـ <browser_icon></browser_icon>",
+        "list_item_3_mic": "قم بتمكين أذونات <strong>الميكروفون</strong> لـ <browser_icon></browser_icon>",
         "list_item_4": "أعد تشغيل المتصفح الخاص بك إذا لزم الأمر وعد إلى هذه الصفحة"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "على جهاز الكمبيوتر الخاص بك، انقر على قائمة Apple [APPLE_ICON] واختر <strong>إعدادات النظام</strong> (أو <strong>تفضيلات النظام</strong>)",
+        "list_item_1": "على جهاز الكمبيوتر الخاص بك، انقر على قائمة Apple <apple_icon></apple_icon> واختر <strong>إعدادات النظام</strong> (أو <strong>تفضيلات النظام</strong>)",
         "list_item_2": "انقر على <strong>الخصوصية والأمان</strong> (أو <strong>الأمان والخصوصية</strong>) في الشريط الجانبي",
         "list_item_3": "انقر على <strong> لاحقا </strong> في النافذة المنبثقة",
-        "list_item_3_cam": "انقر على <strong>الكاميرا</strong> وقم بتفعيل المفتاح (أو المربع) بجوار [BROWSER_ICON]",
+        "list_item_3_cam": "انقر على <strong>الكاميرا</strong> وقم بتفعيل المفتاح (أو المربع) بجوار <browser_icon></browser_icon>",
         "list_item_4": "انقر على <strong>إغلاق وإعادة فتح</strong> في النافذة المنبثقة وعُد إلى هذه الصفحة",
-        "list_item_4_mic": "انقر على <strong>الميكروفون</strong> وقم بتنشيط المفتاح (أو المربع) بجوار [BROWSER_ICON]"
+        "list_item_4_mic": "انقر على <strong>الميكروفون</strong> وقم بتنشيط المفتاح (أو المربع) بجوار <browser_icon></browser_icon>"
       }
     },
     "desktop_safari": {
@@ -604,40 +655,44 @@
         "list_item_1": "في المتصفح الخاص بك، انقر بزر الماوس الأيمن في شريط العنوان واختر <strong>الإعدادات</strong>",
         "list_item_2_cam": "انقر على القائمة المنسدلة بجوار <strong>الكاميرا</strong> واختر <strong>السماح</strong>",
         "list_item_2_mic": "انقر على القائمة المنسدلة بجوار <strong>الميكروفون</strong> واختر <strong>السماح</strong>",
-        "list_item_3": "عد إلى هذه الصفحة واضغط على الزر <strong>لقد أجريت التغييرات</strong>"
+        "list_item_3": "عد إلى هذه الصفحة واضغط على زر <strong>تحديث الصفحة</strong>"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "على جهاز الكمبيوتر الخاص بك، انقر على قائمة Windows [WINDOWS_ICON] واختر <strong>الإعدادات</strong> [SETTINGS_ICON_WINDOWS]",
+        "list_item_1": "على جهاز الكمبيوتر الخاص بك، انقر على قائمة Windows <windows_icon></windows_icon> واختر <strong>الإعدادات</strong> <settings_icon_windows></settings_icon_windows>",
         "list_item_2": "انقر على <strong>الخصوصية</strong> (أو <strong>الخصوصية والأمان</strong>)",
-        "list_item_3_cam": "انقر على <strong>الكاميرا</strong> تحت <strong>أذونات التطبيق</strong> وقم بتنشيط المفتاح بجوار [BROWSER_ICON]",
-        "list_item_3_mic": "انقر على <strong>الميكروفون</strong> تحت <strong>أذونات التطبيق</strong> وقم بتنشيط المفتاح بجوار [BROWSER_ICON]",
+        "list_item_3_cam": "انقر على <strong>الكاميرا</strong> تحت <strong>أذونات التطبيق</strong> وقم بتنشيط المفتاح بجوار <browser_icon></browser_icon>",
+        "list_item_3_mic": "انقر على <strong>الميكروفون</strong> تحت <strong>أذونات التطبيق</strong> وقم بتنشيط المفتاح بجوار <browser_icon></browser_icon>",
         "list_item_4": "أعد تشغيل المتصفح الخاص بك إذا لزم الأمر وعد إلى هذه الصفحة"
       }
     },
     "info": "التعافي",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "اضغط على الزر <strong>لقد قمت بالتغييرات</strong>. سيُطلب منك تمكين الوصول إلى الكاميرا والميكروفون مرة أخرى. عندما تظهر النافذة المنبثقة، اختر <strong>السماح</strong> (أو <strong>موافق</strong>)",
-        "list_item_1_cam": "اضغط على الزر <strong>لقد أجريت التغييرات</strong>. سيُطلب منك تمكين الوصول إلى الكاميرا مرة أخرى. عندما يظهر النافذة المنبثقة، اختر <strong>السماح</strong> (أو <strong>موافق</strong>)",
-        "list_item_1_mic": "اضغط على الزر <strong>لقد قمت بالتغييرات</strong>. سيُطلب منك تمكين الوصول إلى الميكروفون مرة أخرى. عندما يظهر الإعلان المنبثق، حدد <strong>السماح</strong> (أو <strong>موافق</strong>)"
+        "list_item_1_both": "اضغط على زر <strong>تحديث الصفحة</strong>. سيُطلب منك تمكين الوصول إلى الكاميرا والميكروفون مرة أخرى. عندما تظهر النافذة المنبثقة، اختر <strong>السماح</strong> (أو <strong>موافق</strong>)",
+        "list_item_1_cam": "اضغط على زر <strong>تحديث الصفحة</strong>. سيُطلب منك تمكين الوصول إلى الكاميرا مرة أخرى. عندما تظهر النافذة المنبثقة، اختر <strong>السماح</strong> (أو <strong>موافق</strong>)",
+        "list_item_1_mic": "اضغط على زر <strong>تحديث الصفحة</strong>. سيُطلب منك تمكين الوصول إلى الميكروفون مرة أخرى. عندما تظهر النافذة المنبثقة، اختر <strong>السماح</strong> (أو <strong>موافق</strong>)"
       },
       "device_settings": {
         "list_item_1": "على جهازك، افتح تطبيق <strong>الإعدادات</strong>",
-        "list_item_2": "قم بالتمرير عبر القائمة واضغط على [BROWSER_ICON]",
+        "list_item_2": "قم بالتمرير عبر القائمة واضغط على <browser_icon></browser_icon>",
         "list_item_3_cam": "اضغط على الزر <strong>لقد قمت بالتغييرات</strong>. سيُطلب منك تمكين الوصول إلى الكاميرا والميكروفون مرة أخرى. عندما تظهر النافذة المنبثقة، اختر <strong>السماح</strong> (أو <strong>موافق</strong>)",
         "list_item_3_mic": "قم بتفعيل المفتاح بجوار <strong>الميكروفون</strong>",
-        "list_item_4": "عُد إلى هذه الصفحة واضغط على الزر <strong>لقد قمت بالتغييرات</strong>"
+        "list_item_4": "عد إلى هذه الصفحة واضغط على زر <strong>تحديث الصفحة</strong>",
+        "title": "الحل 2: إعدادات الجهاز"
+      },
+      "refresh_page": {
+        "title": "الحل 1: قم بتحديث الصفحة"
       }
     },
     "ios_safari": {
       "device_settings": {
         "list_item_1": "على جهازك، افتح تطبيق <strong>الإعدادات</strong>",
-        "list_item_2": "قم بالتمرير عبر القائمة واضغط على [BROWSER_ICON]",
+        "list_item_2": "قم بالتمرير عبر القائمة واضغط على <browser_icon></browser_icon>",
         "list_item_3_cam": "اضغط على <strong>الكاميرا</strong> واختر <strong>السماح</strong>",
         "list_item_3_mic": "اضغط على <strong>الميكروفون</strong> واختر <strong>السماح</strong>",
-        "list_item_4": "عُد إلى هذه الصفحة واضغط على الزر <strong>لقد أجريت التغييرات</strong>"
+        "list_item_4": "عد إلى هذه الصفحة واضغط على زر <strong>تحديث الصفحة</strong>"
       }
     },
     "list_header_both": "اتبع هذه الخطوات لاستعادة الوصول لكليهما:",
@@ -654,13 +709,7 @@
     "title_cam": "تم رفض الوصول إلى الكاميرا",
     "title_mic": "تم رفض الوصول إلى الميكروفون",
     "web": {
-      "browser_settings": {
-        "title": "الحل 1: إعدادات المتصفح"
-      },
-      "button_primary": "لقد أجريت التغييرات",
-      "device_settings": {
-        "title": "الحل 2: إعدادات الجهاز"
-      },
+      "button_primary": "تحديث الصفحة",
       "disclaimer": "قد يتم إعادة تشغيل عملية التحقق من الهوية. نعتذر عن أي إزعاج"
     }
   },
@@ -1071,6 +1120,25 @@
     "step_title": "وقع على وثيقتك",
     "subtitle": "لتأكيد هويتك وفقًا للقواعد الأوروبية، يجب عليك التوقيع الرقمي على وثيقة.",
     "title": "أنشئ واستخدم توقيعك الرقمي"
+  },
+  "retry": {
+    "button": {
+      "generic_selfie_issue": "إعادة المحاولة"
+    },
+    "description": {
+      "default": "يُرجى إعادة المحاولة",
+      "expired_document": "يُرجى المحاولة مرة أخرى باستخدام بطاقة هوية صالحة تحمل صورة والتأكد من أن معلوماتك مرئية بوضوح",
+      "generic_document_issue": "يُرجى المحاولة مرة أخرى باستخدام بطاقة هوية صالحة تحمل صورة والتأكد من أن معلوماتك مرئية بوضوح",
+      "generic_selfie_issue": "يرجى المحاولة مرة أخرى، والتأكد من أن وجهك مرئي ومضاء جيدًا",
+      "unaccepted_document": "يُرجى المحاولة مرة أخرى باستخدام بطاقة هوية صالحة تحمل صورة والتأكد من أن معلوماتك مرئية بوضوح"
+    },
+    "headline": {
+      "default": "كان هناك مشكلة",
+      "expired_document": "انتهت صلاحية مستندك",
+      "generic_document_issue": "كان هناك مشكلة في وثيقتك",
+      "generic_selfie_issue": "كان هناك مشكلة مع صورتك الشخصية",
+      "unaccepted_document": "مستند غير مقبول"
+    }
   },
   "retry_feedback": {
     "button_primary": "إعادة المحاولة"

@@ -421,6 +421,11 @@
     "title": "Dapatkan tautan aman Anda",
     "url_field_label": "Salin tautan ke browser seluler Anda"
   },
+  "interactive_task": {
+    "waiting": {
+      "title_5": "Mengunggah media..."
+    }
+  },
   "livenessV2": {
     "error_reload_instructions": "Muat ulang instruksi",
     "intro_note_no1": "Pertama, posisikan wajah Anda dalam bingkai",
@@ -460,26 +465,48 @@
       "success": "Pemindaian berhasil"
     }
   },
+  "nfc_scan_error_can": {
+    "primary_button": "Verifikasi keluar",
+    "subtitle": "Anda telah mencapai batas maksimum percobaan untuk memasukkan nomor CAN Anda"
+  },
+  "nfc_scan_error_can:title": "Maksimal upaya telah dicapai",
   "otp": {
     "code_input": {
       "error": {
+        "code_expired": "Kode Anda telah kedaluwarsa, silakan minta yang baru.",
+        "code_invalid": "Kode yang dimasukkan salah, silakan coba lagi.",
         "technical": "Terjadi kesalahan teknis, silakan coba lagi nanti",
+        "too_many_attempts": "Anda telah mencoba kode ini terlalu banyak kali, silakan minta yang baru.",
         "wrong_code": "Kode yang dimasukkan salah, silakan coba lagi"
       },
-      "intro": "Kode yang dikirim ke nomor telepon Anda akan aktif selama 5 menit",
+      "intro": "Anda memiliki 5 menit untuk memvalidasi kode yang dikirim melalui SMS ke <phonenumber></phonenumber>",
       "resend": {
-        "cta": "Kirim Ulang",
-        "label": "Kode dikirim (hingga {limit})"
+        "cta": "Minta kode baru",
+        "cta_timeout": "Minta kode baru (<timeout></timeout> detik)",
+        "label": "Kode sudah dikirim",
+        "tracker": "<remaining></remaining> dari <limit></limit>"
       },
       "title": "Kata Sandi Sekali Pakai"
+    },
+    "error": {
+      "cta": "Kembali",
+      "subtitle": "Harap tunggu beberapa detik dan coba lagi",
+      "title": "Ada yang salah"
+    },
+    "failure": {
+      "cta": "Lanjutkan",
+      "subtitle": "Kami tidak lagi dapat memverifikasi nomor telepon Anda",
+      "title": "Jumlah percobaan yang diizinkan telah melebihi batas"
     },
     "send_code": {
       "cta": "Kirim kode",
       "error": {
+        "invalid_phone_number": "Silakan berikan nomor telepon yang valid.",
         "limit": "Anda telah mencapai batas SMS yang dikirim",
         "technical": "Terjadi kesalahan teknis, silakan coba lagi nanti"
       },
-      "intro": "Untuk memverifikasi nomor telepon Anda, kami akan mengirimkan kode sekali pakai untuk dimasukkan di layar berikutnya.",
+      "input_label": "Nomor telepon",
+      "intro": "Untuk memverifikasi nomor telepon Anda, kami akan meminta Anda untuk memasukkan kata sandi sekali pakai.",
       "title": "Satu Kali Sandi"
     }
   },
@@ -504,99 +531,123 @@
   },
   "permission_recovery": {
     "android": {
+      "browser_settings": {
+        "title": "Solusi 1: Pengaturan browser"
+      },
       "device_settings": {
         "list_item_1": "Di perangkat Anda, buka aplikasi <strong>Pengaturan</strong>",
         "list_item_2": "Ketuk <strong>Aplikasi</strong>",
-        "list_item_3": "Ketuk [BROWSER_ICON]. Jika Anda tidak dapat menemukannya, ketuk <strong>Lihat semua aplikasi</strong> atau <strong>Kelola aplikasi</strong> dan pilih aplikasi browser Anda",
+        "list_item_3": "Ketuk <browser_icon></browser_icon>. Jika Anda tidak dapat menemukannya, ketuk <strong>Lihat semua aplikasi</strong> atau <strong>Kelola aplikasi</strong> dan pilih aplikasi browser Anda",
         "list_item_4": "Ketuk <strong>Izin</strong>",
         "list_item_5_cam": "Ketuk <strong>Kamera</strong> dan pilih <strong>Izinkan</strong>",
         "list_item_5_mic": "Ketuk <strong>Mikrofon</strong> dan pilih <strong>Izinkan</strong>",
-        "list_item_6": "Kembali ke halaman ini dan tekan tombol <strong>Saya telah membuat perubahan</strong>"
+        "list_item_6": "Kembali ke halaman ini dan tekan tombol <strong>Segarkan halaman</strong>",
+        "title": "Solusi 2: Pengaturan perangkat"
+      },
+      "refresh_page": {
+        "list_item_1_both": "Ketuk tombol <strong>Segarkan halaman</strong>. Anda akan diminta untuk mengaktifkan kembali akses kamera dan mikrofon. Ketika muncul pop-up, pilih <strong>Izinkan</strong> (atau <strong>OK</strong>)",
+        "list_item_1_cam": "Ketuk tombol <strong>Segarkan halaman</strong>. Anda akan diminta untuk mengaktifkan akses kamera lagi. Ketika muncul pop-up, pilih <strong>Izinkan</strong> (atau <strong>OK</strong>)",
+        "list_item_1_mic": "Ketuk tombol <strong>Segarkan halaman</strong>. Anda akan diminta untuk mengaktifkan akses mikrofon lagi. Ketika muncul pop-up, pilih <strong>Izinkan</strong> (atau <strong>OK</strong>)"
       }
     },
     "android_chrome": {
       "browser_settings": {
-        "list_item_1": "Di peramban Anda, ketuk ikon kunci [LOCK_ICON] di bilah alamat",
+        "list_item_1": "Di browser Anda, ketuk ikon pengaturan <settings_icon_chrome></settings_icon_chrome> di bilah alamat",
         "list_item_2": "Ketuk <strong>Izin</strong>",
         "list_item_3_cam": "Aktifkan tombol di sebelah <strong>Kamera</strong>",
         "list_item_3_mic": "Aktifkan tombol di sebelah <strong>Mikrofon</strong>",
-        "list_item_4": "Kembali ke halaman ini dan tekan tombol <strong>Saya telah membuat perubahan</strong>"
+        "list_item_4": "Kembali ke halaman ini dan tekan tombol <strong>Segarkan halaman</strong>"
       }
     },
     "android_firefox": {
       "browser_settings": {
-        "list_item_1": "Di peramban Anda, ketuk ikon kunci [LOCK_ICON] di bilah alamat",
+        "list_item_1": "Di peramban Anda, ketuk ikon kunci <lock_icon></lock_icon> di bilah alamat",
         "list_item_2_cam": "Ketuk <strong>Diblokir</strong> di sebelah <strong>Kamera</strong> untuk beralih ke <strong>Diizinkan</strong>",
         "list_item_2_mic": "Ketuk <strong>Diblokir</strong> di sebelah <strong>Mikrofon</strong> untuk beralih ke <strong>Diizinkan</strong>",
-        "list_item_3": "Kembali ke halaman ini dan tekan tombol <strong>Saya telah membuat perubahan</strong>"
+        "list_item_3": "Kembali ke halaman ini dan tekan tombol <strong>Segarkan halaman</strong>",
+        "title": "Solusi 2: Pengaturan browser"
+      },
+      "device_settings": {
+        "title": "Solusi 3: Pengaturan perangkat"
+      },
+      "refresh_page": {
+        "title": "Solusi 1: Segarkan halaman"
       }
     },
     "android_generic": {
       "browser_settings": {
-        "list_item_1": "Di browser Anda, buka pengaturan situs web. Ini seringkali merupakan ikon gembok [LOCK_ICON] di bilah alamat",
+        "list_item_1": "Di browser Anda, buka pengaturan situs web. Ini seringkali merupakan ikon gembok <lock_icon></lock_icon> di bilah alamat",
         "list_item_2": "Temukan bagian tentang izin",
         "list_item_3_cam": "Aktifkan izin <strong>Kamera</strong>",
         "list_item_3_mic": "Aktifkan izin <strong>Mikrofon</strong>",
-        "list_item_4": "Kembali ke halaman ini dan tekan tombol <strong>Saya telah membuat perubahan</strong>"
+        "list_item_4": "Kembali ke halaman ini dan tekan tombol <strong>Segarkan halaman</strong>"
       }
     },
     "android_samsung": {
       "browser_settings": {
-        "list_item_1": "Di browser Anda, ketuk ikon kunci [LOCK_ICON] di bilah alamat",
+        "list_item_1": "Di browser Anda, ketuk ikon kunci <lock_icon></lock_icon> di bilah alamat",
         "list_item_2_cam": "Aktifkan tombol di sebelah <strong>Kamera</strong>",
         "list_item_2_mic": "Aktifkan tombol di sebelah <strong>Mikrofon</strong>",
-        "list_item_3": "Kembali ke halaman ini dan tekan tombol <strong>Saya telah membuat perubahan</strong>"
+        "list_item_3": "Kembali ke halaman ini dan tekan tombol <strong>Segarkan halaman</strong>"
       }
     },
     "button_primary": "Muat ulang",
+    "desktop": {
+      "browser_settings": {
+        "title": "Solusi 1: Pengaturan browser"
+      },
+      "device_settings": {
+        "title": "Solusi 2: Pengaturan perangkat"
+      }
+    },
     "desktop_chrome": {
       "browser_settings": {
-        "list_item_1": "Di browser Anda, klik ikon gembok [LOCK_ICON] di bilah alamat",
+        "list_item_1": "Di browser Anda, klik ikon pengaturan <settings_icon_chrome></settings_icon_chrome> di bilah alamat",
         "list_item_2_cam": "Aktifkan tombol di sebelah <strong>Kamera</strong>",
         "list_item_2_mic": "Aktifkan tombol di sebelah <strong>Mikrofon</strong>",
-        "list_item_3": "Kembali ke halaman ini dan klik tombol <strong>Saya telah membuat perubahan</strong>"
+        "list_item_3": "Kembali ke halaman ini dan klik tombol <strong>Segarkan halaman</strong>"
       }
     },
     "desktop_edge": {
       "browser_settings": {
-        "list_item_1": "Di browser Anda, klik ikon gembok [LOCK_ICON] di bilah alamat",
+        "list_item_1": "Di browser Anda, klik ikon gembok <lock_icon></lock_icon> di bilah alamat",
         "list_item_2_cam": "Klik dropdown di sebelah <strong>Mikrofon</strong> dan pilih <strong>Izinkan</strong>",
         "list_item_2_mic": "Klik dropdown di sebelah <strong>Mikrofon</strong> dan pilih <strong>Izinkan</strong>",
-        "list_item_3": "Kembali ke halaman ini dan klik tombol <strong>Saya telah membuat perubahan</strong>"
+        "list_item_3": "Kembali ke halaman ini dan klik tombol <strong>Segarkan halaman</strong>"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
-        "list_item_1": "Di browser Anda, klik ikon pengaturan [SETTINGS_ICON_FIREFOX] di bilah alamat",
+        "list_item_1": "Di browser Anda, klik ikon pengaturan <settings_icon_firefox></settings_icon_firefox> di bilah alamat",
         "list_item_2_cam": "Klik <strong>Diblokir</strong> di sebelah <strong>Gunakan kamera</strong>",
         "list_item_2_mic": "Klik <strong>Diblokir</strong> di sebelah <strong>Gunakan mikrofon</strong>",
-        "list_item_3": "Kembali ke halaman ini dan klik tombol <strong>Saya telah membuat perubahan</strong>"
+        "list_item_3": "Kembali ke halaman ini dan klik tombol <strong>Segarkan halaman</strong>"
       }
     },
     "desktop_generic": {
       "browser_settings": {
-        "list_item_1": "Di browser Anda, buka pengaturan situs web. Ini seringkali merupakan ikon gembok [LOCK_ICON] di bilah alamat",
+        "list_item_1": "Di browser Anda, buka pengaturan situs web. Ini seringkali merupakan ikon gembok <lock_icon></lock_icon> di bilah alamat",
         "list_item_2": "Temukan bagian tentang izin",
         "list_item_3_cam": "Aktifkan izin <strong>Kamera</strong>",
         "list_item_3_mic": "Aktifkan izin <strong>Mikrofon</strong>",
-        "list_item_4": "Kembali ke halaman ini dan klik tombol <strong>Saya telah membuat perubahan</strong>"
+        "list_item_4": "Kembali ke halaman ini dan klik tombol <strong>Segarkan halaman</strong>"
       },
       "device_settings": {
         "list_item_1": "Di komputer Anda, buka <strong>Pengaturan</strong> Anda",
         "list_item_2": "Temukan bagian tentang izin (biasanya di bawah <strong>Privasi</strong>)",
-        "list_item_3_cam": "Aktifkan izin <strong>Kamera</strong> untuk [BROWSER_ICON]",
-        "list_item_3_mic": "Aktifkan izin <strong>Mikrofon</strong> untuk [BROWSER_ICON]",
+        "list_item_3_cam": "Aktifkan izin <strong>Kamera</strong> untuk <browser_icon></browser_icon>",
+        "list_item_3_mic": "Aktifkan izin <strong>Mikrofon</strong> untuk <browser_icon></browser_icon>",
         "list_item_4": "Restart browser Anda jika perlu dan kembali ke halaman ini"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "Di komputer Anda, klik menu Apple [APPLE_ICON] dan pilih <strong>Pengaturan Sistem</strong> (atau <strong>Preferensi Sistem</strong>)",
+        "list_item_1": "Di komputer Anda, klik menu Apple <apple_icon></apple_icon> dan pilih <strong>Pengaturan Sistem</strong> (atau <strong>Preferensi Sistem</strong>)",
         "list_item_2": "Klik <strong>Privasi & Keamanan</strong> (atau <strong>Keamanan & Privasi</strong>) di sidebar",
         "list_item_3": "Klik <strong>Nanti</strong> di pop-up",
-        "list_item_3_cam": "Klik <strong>Kamera</strong> dan aktifkan tombol (atau kotak centang) di sebelah [BROWSER_ICON]",
+        "list_item_3_cam": "Klik <strong>Kamera</strong> dan aktifkan tombol (atau kotak centang) di sebelah <browser_icon></browser_icon>",
         "list_item_4": "Klik <strong>Keluar & Buka Ulang</strong> di pop-up dan kembali ke halaman ini",
-        "list_item_4_mic": "Klik <strong>Mikrofon</strong> dan aktifkan tombol (atau kotak centang) di sebelah [BROWSER_ICON]"
+        "list_item_4_mic": "Klik <strong>Mikrofon</strong> dan aktifkan tombol (atau kotak centang) di sebelah <browser_icon></browser_icon>"
       }
     },
     "desktop_safari": {
@@ -604,40 +655,44 @@
         "list_item_1": "Di browser Anda, klik kanan pada bilah alamat dan pilih <strong>Pengaturan</strong>",
         "list_item_2_cam": "Klik dropdown di sebelah <strong>Kamera</strong> dan pilih <strong>Izinkan</strong>",
         "list_item_2_mic": "Klik dropdown di sebelah <strong>Mikrofon</strong> dan pilih <strong>Izinkan</strong>",
-        "list_item_3": "Kembali ke halaman ini dan klik tombol <strong>Saya telah membuat perubahan</strong>"
+        "list_item_3": "Kembali ke halaman ini dan klik tombol <strong>Segarkan halaman</strong>"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "Di komputer Anda, klik menu Windows [WINDOWS_ICON] dan pilih <strong>Pengaturan</strong> [SETTINGS_ICON_WINDOWS]",
+        "list_item_1": "Di komputer Anda, klik menu Windows <windows_icon></windows_icon> dan pilih <strong>Pengaturan</strong> <settings_icon_windows></settings_icon_windows>",
         "list_item_2": "Klik <strong>Privasi</strong> (atau <strong>Privasi & Keamanan</strong>)",
-        "list_item_3_cam": "Klik <strong>Kamera</strong> di bawah <strong>Izin Aplikasi</strong> dan aktifkan tombol di sebelah [BROWSER_ICON] ",
-        "list_item_3_mic": "Klik <strong>Mikrofon</strong> di bawah <strong>Izin Aplikasi</strong> dan aktifkan tombol di sebelah [BROWSER_ICON]",
+        "list_item_3_cam": "Klik <strong>Kamera</strong> di bawah <strong>Izin Aplikasi</strong> dan aktifkan tombol di sebelah <browser_icon></browser_icon> ",
+        "list_item_3_mic": "Klik <strong>Mikrofon</strong> di bawah <strong>Izin Aplikasi</strong> dan aktifkan tombol di sebelah <browser_icon></browser_icon>",
         "list_item_4": "Restart browser Anda jika perlu dan kembali ke halaman ini"
       }
     },
     "info": "Pemulihan",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "Ketuk tombol <strong>Saya telah membuat perubahan</strong>. Anda akan diminta untuk mengaktifkan kembali akses kamera dan mikrofon. Ketika muncul pop-up, pilih <strong>Izinkan</strong> (atau <strong>OK</strong>)",
-        "list_item_1_cam": "Ketuk tombol <strong>Saya telah membuat perubahan</strong>. Anda akan diminta untuk mengaktifkan akses kamera lagi. Ketika muncul pop-up, pilih <strong>Izinkan</strong> (atau <strong>OK</strong>)",
-        "list_item_1_mic": "Ketuk tombol <strong>Saya telah membuat perubahan</strong>. Anda akan diminta untuk mengaktifkan akses mikrofon lagi. Ketika muncul pop-up, pilih <strong>Izinkan</strong> (atau <strong>OK</strong>)"
+        "list_item_1_both": "Ketuk tombol <strong>Segarkan halaman</strong>. Anda akan diminta untuk mengaktifkan kembali akses kamera dan mikrofon. Ketika muncul pop-up, pilih <strong>Izinkan</strong> (atau <strong>OK</strong>)",
+        "list_item_1_cam": "Ketuk tombol <strong>Segarkan halaman</strong>. Anda akan diminta untuk mengaktifkan akses kamera lagi. Ketika muncul pop-up, pilih <strong>Izinkan</strong> (atau <strong>OK</strong>)",
+        "list_item_1_mic": "Ketuk tombol <strong>Segarkan halaman</strong>. Anda akan diminta untuk mengaktifkan akses mikrofon lagi. Ketika muncul pop-up, pilih <strong>Izinkan</strong> (atau <strong>OK</strong>)"
       },
       "device_settings": {
         "list_item_1": "Di perangkat Anda, buka aplikasi <strong>Pengaturan</strong>",
-        "list_item_2": "Gulir melalui daftar dan ketuk [BROWSER_ICON]",
+        "list_item_2": "Gulir melalui daftar dan ketuk <browser_icon></browser_icon>",
         "list_item_3_cam": "Aktifkan tombol di sebelah <strong>Kamera</strong>",
         "list_item_3_mic": "Aktifkan tombol di sebelah <strong>Mikrofon</strong>",
-        "list_item_4": "Kembali ke halaman ini dan tekan tombol <strong>Saya telah membuat perubahan</strong>"
+        "list_item_4": "Kembali ke halaman ini dan tekan tombol <strong>Segarkan halaman</strong>",
+        "title": "Solusi 2: Pengaturan perangkat"
+      },
+      "refresh_page": {
+        "title": "Solusi 1: Segarkan halaman"
       }
     },
     "ios_safari": {
       "device_settings": {
         "list_item_1": "Di perangkat Anda, buka aplikasi <strong>Pengaturan</strong>",
-        "list_item_2": "Gulir melalui daftar dan ketuk [BROWSER_ICON]",
+        "list_item_2": "Gulir melalui daftar dan ketuk <browser_icon></browser_icon>",
         "list_item_3_cam": "Ketuk <strong>Kamera</strong> dan pilih <strong>Izinkan</strong>",
         "list_item_3_mic": "Ketuk <strong>Mikrofon</strong> dan pilih <strong>Izinkan</strong>",
-        "list_item_4": "Kembali ke halaman ini dan tekan tombol <strong>Saya telah membuat perubahan</strong>"
+        "list_item_4": "Kembali ke halaman ini dan tekan tombol <strong>Segarkan halaman</strong>"
       }
     },
     "list_header_both": "Ikuti langkah-langkah berikut untuk memulihkan akses:",
@@ -654,13 +709,7 @@
     "title_cam": "Akses kamera ditolak",
     "title_mic": "Akses mikrofon ditolak",
     "web": {
-      "browser_settings": {
-        "title": "Solusi 1: Pengaturan browser"
-      },
-      "button_primary": "Saya telah membuat perubahan",
-      "device_settings": {
-        "title": "Solusi 2: Pengaturan perangkat"
-      },
+      "button_primary": "Segarkan halaman",
       "disclaimer": "Proses verifikasi identitas mungkin akan dimulai lagi. Maaf atas ketidaknyamanan ini"
     }
   },
@@ -1071,6 +1120,25 @@
     "step_title": "Tanda tangani dokumen Anda",
     "subtitle": "Untuk mengkonfirmasi identitas Anda sesuai dengan aturan Eropa, Anda harus menandatangani dokumen secara digital.",
     "title": "Buat dan gunakan tanda tangan digital Anda"
+  },
+  "retry": {
+    "button": {
+      "generic_selfie_issue": "Coba lagi"
+    },
+    "description": {
+      "default": "Silakan mencoba lagi",
+      "expired_document": "Harap coba lagi dengan foto identitas yang valid dan pastikan informasi Anda terlihat jelas",
+      "generic_document_issue": "Harap coba lagi dengan foto identitas yang valid dan pastikan informasi Anda terlihat jelas",
+      "generic_selfie_issue": "Harap coba lagi, dan pastikan wajah Anda terlihat dan cukup terang",
+      "unaccepted_document": "Harap coba lagi dengan foto identitas yang valid dan pastikan informasi Anda terlihat jelas"
+    },
+    "headline": {
+      "default": "Ada masalah",
+      "expired_document": "Dokumen Anda telah kedaluwarsa",
+      "generic_document_issue": "Ada masalah dengan dokumen Anda",
+      "generic_selfie_issue": "Ada masalah dengan selfie Anda",
+      "unaccepted_document": "Dokumen tidak diterima"
+    }
   },
   "retry_feedback": {
     "button_primary": "Coba lagi"

@@ -182,7 +182,7 @@
       "no_doc_detail": "Assurez-vous que le document entier est sur la photo",
       "no_doc_title": "Aucun document détecté",
       "odp_detail": "Veuillez utiliser votre document original. Les photos d'écran ou les photocopies ne sont pas acceptées",
-      "odp_photo_of_screen_title": "Photo de l'écran détectée",
+      "odp_photo_of_screen_title": "Photo d'écran detectée",
       "odp_photocopy_title": "Photocopie détectée",
       "odp_scan_title": "Scan détecté",
       "odp_screenshot_title": "Capture d'écran détectée"
@@ -421,6 +421,11 @@
     "title": "Obtenez votre lien sécurisé",
     "url_field_label": "Copier le lien sur votre mobile"
   },
+  "interactive_task": {
+    "waiting": {
+      "title_5": "Téléchargement de médias..."
+    }
+  },
   "livenessV2": {
     "error_reload_instructions": "Recharger les instructions",
     "intro_note_no1": "D'abord, positionnez votre visage dans le cadre",
@@ -460,26 +465,48 @@
       "success": "Lecture réussie"
     }
   },
+  "nfc_scan_error_can": {
+    "primary_button": "Sortie de vérification",
+    "subtitle": "Vous avez atteint le nombre maximum de tentatives pour entrer votre numéro CAN"
+  },
+  "nfc_scan_error_can:title": "Nombre maximum de tentatives atteint",
   "otp": {
     "code_input": {
       "error": {
+        "code_expired": "Votre code a expiré, veuillez en demander un nouveau.",
+        "code_invalid": "Code incorrect entré, veuillez réessayer.",
         "technical": "Une erreur technique est survenue, veuillez réessayer plus tard",
+        "too_many_attempts": "Vous avez essayé ce code trop de fois, veuillez en demander un nouveau.",
         "wrong_code": "Code incorrect entré, veuillez réessayer"
       },
-      "intro": "Le code envoyé à votre numéro de téléphone sera actif pendant 5 minutes",
+      "intro": "Vous avez 5 minutes pour valider le code envoyé par SMS à <phonenumber></phonenumber>",
       "resend": {
-        "cta": "Renvoyer",
-        "label": "Code envoyé (jusqu'à {limit})"
+        "cta": "Demander un nouveau code",
+        "cta_timeout": "Demander un nouveau code (<timeout></timeout> secondes)",
+        "label": "Code envoyé",
+        "tracker": "<remaining></remaining> de <limit></limit>"
       },
       "title": "Mot de Passe Unique"
+    },
+    "error": {
+      "cta": "Retourner",
+      "subtitle": "Veuillez attendre quelques secondes et réessayer",
+      "title": "Quelque chose s'est mal passé"
+    },
+    "failure": {
+      "cta": "Continuer",
+      "subtitle": "Nous ne pouvons plus vérifier votre numéro de téléphone",
+      "title": "Nombre de tentatives autorisées dépassé"
     },
     "send_code": {
       "cta": "Envoyer le code",
       "error": {
+        "invalid_phone_number": "Veuillez fournir un numéro de téléphone valide.",
         "limit": "Vous avez atteint la limite des SMS envoyés",
         "technical": "Une erreur technique s'est produite, veuillez réessayer plus tard"
       },
-      "intro": "Afin de vérifier votre numéro de téléphone, nous allons vous envoyer un code à usage unique à saisir dans l'écran suivant.",
+      "input_label": "Numéro de téléphone",
+      "intro": "Pour vérifier votre numéro de téléphone, nous vous demanderons d'entrer un mot de passe à usage unique.",
       "title": "Mot de Passe à Usage Unique"
     }
   },
@@ -504,99 +531,123 @@
   },
   "permission_recovery": {
     "android": {
+      "browser_settings": {
+        "title": "Solution 1 : Paramètres du navigateur"
+      },
       "device_settings": {
         "list_item_1": "Sur votre mobile, ouvrez l'application <strong>Paramètres</strong>",
         "list_item_2": "Appuyez sur <strong>Applications</strong>",
-        "list_item_3": "Appuyez sur [BROWSER_ICON]. Si vous ne le trouvez pas, appuyez sur <strong>Voir toutes les applications</strong> ou <strong>Gérer les applications</strong> et sélectionnez votre application de navigateur",
+        "list_item_3": "Appuyez sur <browser_icon></browser_icon>. Si vous ne le trouvez pas, appuyez sur <strong>Voir toutes les applications</strong> ou <strong>Gérer les applications</strong> et sélectionnez votre application de navigateur",
         "list_item_4": "Appuyez sur <strong>Autorisations</strong>",
         "list_item_5_cam": "Appuyez sur <strong>Caméra</strong> et sélectionnez <strong>Autoriser</strong>",
         "list_item_5_mic": "Appuyez sur <strong>Microphone</strong> et sélectionnez <strong>Autoriser</strong>",
-        "list_item_6": "Revenez à cette page et appuyez sur le bouton <strong>J'ai effectué les modifications</strong>"
+        "list_item_6": "Revenez à cette page et appuyez sur le bouton <strong>Actualiser la page</strong>",
+        "title": "Solution 2 : Paramètres de l'appareil"
+      },
+      "refresh_page": {
+        "list_item_1_both": "Appuyez sur le bouton <strong>Actualiser la page</strong>. On vous demandera à nouveau d'activer l'accès à la caméra et au microphone. Lorsque la fenêtre contextuelle apparaît, sélectionnez <strong>Autoriser</strong> (ou <strong>OK</strong>)",
+        "list_item_1_cam": "Appuyez sur le bouton <strong>Actualiser la page</strong>. On vous demandera à nouveau d'activer l'accès à la caméra. Lorsque la fenêtre contextuelle apparaît, sélectionnez <strong>Autoriser</strong> (ou <strong>OK</strong>)",
+        "list_item_1_mic": "Appuyez sur le bouton <strong>Actualiser la page</strong>. On vous demandera à nouveau d'activer l'accès au microphone. Lorsque la pop-up apparaît, sélectionnez <strong>Autoriser</strong> (ou <strong>OK</strong>)"
       }
     },
     "android_chrome": {
       "browser_settings": {
-        "list_item_1": "Dans votre navigateur, appuyez sur l'icône de verrouillage [LOCK_ICON] dans la barre d'adresse",
+        "list_item_1": "Dans votre navigateur, appuyez sur l'icône des paramètres <settings_icon_chrome></settings_icon_chrome> dans la barre d'adresse",
         "list_item_2": "Appuyez sur <strong>Autorisations</strong>",
         "list_item_3_cam": "Activez le bouton à bascule à côté de <strong>Caméra</strong>",
         "list_item_3_mic": "Activez le bouton à bascule à côté de <strong>Microphone</strong>",
-        "list_item_4": "Revenez à cette page et appuyez sur le bouton <strong>J'ai effectué les modifications</strong>"
+        "list_item_4": "Revenez à cette page et appuyez sur le bouton <strong>Actualiser la page</strong>"
       }
     },
     "android_firefox": {
       "browser_settings": {
-        "list_item_1": "Dans votre navigateur, appuyez sur l'icône de verrouillage [LOCK_ICON] dans la barre d'adresse",
+        "list_item_1": "Dans votre navigateur, appuyez sur l'icône de verrouillage <lock_icon></lock_icon> dans la barre d'adresse",
         "list_item_2_cam": "Appuyez sur <strong>Bloqué</strong> à côté de <strong>Caméra</strong> pour passer à <strong>Autorisé</strong>",
         "list_item_2_mic": "Appuyez sur <strong>Bloqué</strong> à côté de <strong>Microphone</strong> pour passer à <strong>Autorisé</strong>",
-        "list_item_3": "Revenez à cette page et appuyez sur le bouton <strong>J'ai effectué les modifications</strong>"
+        "list_item_3": "Revenez à cette page et appuyez sur le bouton <strong>Actualiser la page</strong>",
+        "title": "Solution 2 : Paramètres du navigateur"
+      },
+      "device_settings": {
+        "title": "Solution 3 : Paramètres de l'appareil"
+      },
+      "refresh_page": {
+        "title": "Solution 1 : Actualisez la page"
       }
     },
     "android_generic": {
       "browser_settings": {
-        "list_item_1": "Dans votre navigateur, ouvrez les paramètres du site. C'est souvent une icône de verrou [LOCK_ICON] dans la barre d'adresse",
+        "list_item_1": "Dans votre navigateur, ouvrez les paramètres du site. C'est souvent une icône de verrou <lock_icon></lock_icon> dans la barre d'adresse",
         "list_item_2": "Trouvez la section concernant les autorisations",
         "list_item_3_cam": "Activez les permissions de la <strong>Caméra</strong>",
         "list_item_3_mic": "Activez les permissions du <strong>Microphone</strong>",
-        "list_item_4": "Revenez à cette page et appuyez sur le bouton <strong>J'ai effectué les modifications</strong>"
+        "list_item_4": "Revenez à cette page et appuyez sur le bouton <strong>Actualiser la page</strong>"
       }
     },
     "android_samsung": {
       "browser_settings": {
-        "list_item_1": "Dans votre navigateur, appuyez sur l'icône de verrouillage [LOCK_ICON] dans la barre d'adresse",
+        "list_item_1": "Dans votre navigateur, appuyez sur l'icône de verrouillage <lock_icon></lock_icon> dans la barre d'adresse",
         "list_item_2_cam": "Activez le bouton à bascule à côté de <strong>Caméra</strong>",
         "list_item_2_mic": "Activez le bouton à bascule à côté de <strong>Microphone</strong>",
-        "list_item_3": "Revenez à cette page et appuyez sur le bouton <strong>J'ai effectué les modifications</strong>"
+        "list_item_3": "Revenez à cette page et appuyez sur le bouton <strong>Actualiser la page</strong>"
       }
     },
     "button_primary": "Actualiser",
+    "desktop": {
+      "browser_settings": {
+        "title": "Solution 1 : Paramètres du navigateur"
+      },
+      "device_settings": {
+        "title": "Solution 2 : Paramètres du mobile"
+      }
+    },
     "desktop_chrome": {
       "browser_settings": {
-        "list_item_1": "Dans votre navigateur, cliquez sur l'icône de verrouillage [LOCK_ICON] dans la barre d'adresse",
+        "list_item_1": "Dans votre navigateur, cliquez sur l'icône des paramètres <settings_icon_chrome></settings_icon_chrome> dans la barre d'adresse",
         "list_item_2_cam": "Activez le bouton à bascule à côté de <strong>Caméra</strong>",
         "list_item_2_mic": "Activez le bouton à bascule à côté de <strong>Microphone</strong>",
-        "list_item_3": "Revenez à cette page et cliquez sur le bouton <strong>J'ai effectué les modifications</strong>"
+        "list_item_3": "Revenez à cette page et cliquez sur le bouton <strong>Actualiser la page</strong>"
       }
     },
     "desktop_edge": {
       "browser_settings": {
-        "list_item_1": "Dans votre navigateur, cliquez sur l'icône de verrouillage [LOCK_ICON] dans la barre d'adresse",
+        "list_item_1": "Dans votre navigateur, cliquez sur l'icône de verrouillage <lock_icon></lock_icon> dans la barre d'adresse",
         "list_item_2_cam": "Cliquez sur le menu déroulant à côté de <strong>Caméra</strong> et sélectionnez <strong>Autoriser</strong>",
         "list_item_2_mic": "Cliquez sur le menu déroulant à côté de <strong>Microphone</strong> et sélectionnez <strong>Autoriser</strong>",
-        "list_item_3": "Revenez à cette page et cliquez sur le bouton <strong>J'ai effectué les modifications</strong>"
+        "list_item_3": "Revenez à cette page et cliquez sur le bouton <strong>Actualiser la page</strong>"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
-        "list_item_1": "Dans votre navigateur, cliquez sur l'icône des paramètres [SETTINGS_ICON_FIREFOX] dans la barre d'adresse",
+        "list_item_1": "Dans votre navigateur, cliquez sur l'icône des paramètres <settings_icon_firefox></settings_icon_firefox> dans la barre d'adresse",
         "list_item_2_cam": "Cliquez sur <strong>Bloqué</strong> à côté de <strong>Utiliser la caméra</strong>",
         "list_item_2_mic": "Cliquez sur <strong>Bloqué</strong> à côté de <strong>Utiliser le microphone</strong>",
-        "list_item_3": "Revenez à cette page et cliquez sur le bouton <strong>J'ai effectué les modifications</strong>"
+        "list_item_3": "Revenez à cette page et cliquez sur le bouton <strong>Actualiser la page</strong>"
       }
     },
     "desktop_generic": {
       "browser_settings": {
-        "list_item_1": "Dans votre navigateur, ouvrez les paramètres du site web. C'est souvent une icône de verrou [LOCK_ICON] dans la barre d'adresse",
+        "list_item_1": "Dans votre navigateur, ouvrez les paramètres du site web. C'est souvent une icône de verrou <lock_icon></lock_icon> dans la barre d'adresse",
         "list_item_2": "Trouvez la section concernant les autorisations",
         "list_item_3_cam": "Activez les permissions de la <strong>Caméra</strong>",
         "list_item_3_mic": "Activez les permissions du <strong>Microphone</strong>",
-        "list_item_4": "Revenez à cette page et cliquez sur le bouton <strong>J'ai effectué les modifications</strong>"
+        "list_item_4": "Revenez à cette page et cliquez sur le bouton <strong>Actualiser la page</strong>"
       },
       "device_settings": {
         "list_item_1": "Sur votre ordinateur, ouvrez vos <strong>Paramètres</strong>",
         "list_item_2": "Trouvez la section concernant les autorisations (généralement sous <strong>Confidentialité</strong>)",
-        "list_item_3_cam": "Activez les permissions pour la <strong>Caméra</strong> pour [BROWSER_ICON]",
-        "list_item_3_mic": "Activez les permissions pour le <strong>Microphone</strong> pour [BROWSER_ICON]",
+        "list_item_3_cam": "Activez les permissions pour la <strong>Caméra</strong> pour <browser_icon></browser_icon>",
+        "list_item_3_mic": "Activez les permissions pour le <strong>Microphone</strong> pour <browser_icon></browser_icon>",
         "list_item_4": "Redémarrez votre navigateur si nécessaire et revenez sur cette page"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "Sur votre ordinateur, cliquez sur le menu Apple [APPLE_ICON] et sélectionnez <strong>Paramètres du système</strong> (ou <strong>Préférences Système</strong>)",
+        "list_item_1": "Sur votre ordinateur, cliquez sur le menu Apple <apple_icon></apple_icon> et sélectionnez <strong>Paramètres du système</strong> (ou <strong>Préférences Système</strong>)",
         "list_item_2": "Cliquez sur <strong>Confidentialité & Sécurité</strong> (ou <strong>Sécurité & Confidentialité</strong>) dans la barre latérale",
         "list_item_3": "Cliquez sur <strong>Plus tard</strong> dans la pop-up",
-        "list_item_3_cam": "Cliquez sur <strong>Caméra</strong> et activez le bouton (ou la case à cocher) à côté de [BROWSER_ICON]",
+        "list_item_3_cam": "Cliquez sur <strong>Caméra</strong> et activez le bouton (ou la case à cocher) à côté de <browser_icon></browser_icon>",
         "list_item_4": "Cliquez sur <strong>Quitter & Rouvrir</strong> dans la pop-up et revenez à cette page",
-        "list_item_4_mic": "Cliquez sur <strong>Microphone</strong> et activez le bouton (ou la case à cocher) à côté de [BROWSER_ICON]"
+        "list_item_4_mic": "Cliquez sur <strong>Microphone</strong> et activez le bouton (ou la case à cocher) à côté de <browser_icon></browser_icon>"
       }
     },
     "desktop_safari": {
@@ -604,40 +655,44 @@
         "list_item_1": "Dans votre navigateur, faites un clic droit dans la barre d'adresse et sélectionnez <strong>Paramètres</strong>",
         "list_item_2_cam": "Cliquez sur le menu déroulant à côté de <strong>Caméra</strong> et sélectionnez <strong>Autoriser</strong>",
         "list_item_2_mic": "Cliquez sur le menu déroulant à côté de <strong>Microphone</strong> et sélectionnez <strong>Autoriser</strong>",
-        "list_item_3": "Revenez à cette page et cliquez sur le bouton <strong>J'ai effectué les modifications</strong>"
+        "list_item_3": "Revenez à cette page et cliquez sur le bouton <strong>Actualiser la page</strong>"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "Sur votre ordinateur, cliquez sur le menu Windows [WINDOWS_ICON] et sélectionnez <strong>Paramètres</strong> [SETTINGS_ICON_WINDOWS]",
+        "list_item_1": "Sur votre ordinateur, cliquez sur le menu Windows <windows_icon></windows_icon> et sélectionnez <strong>Paramètres</strong> <settings_icon_windows></settings_icon_windows>",
         "list_item_2": "Cliquez sur <strong>Confidentialité</strong> (ou <strong>Confidentialité & Sécurité</strong>)",
-        "list_item_3_cam": "Cliquez sur <strong>Caméra</strong> sous <strong>Autorisations d'application</strong> et activez le bouton à côté de [BROWSER_ICON]",
-        "list_item_3_mic": "Cliquez sur <strong>Microphone</strong> sous <strong>Autorisations d'application</strong> et activez le bouton à côté de [BROWSER_ICON]",
+        "list_item_3_cam": "Cliquez sur <strong>Caméra</strong> sous <strong>Autorisations d'application</strong> et activez le bouton à côté de <browser_icon></browser_icon>",
+        "list_item_3_mic": "Cliquez sur <strong>Microphone</strong> sous <strong>Autorisations d'application</strong> et activez le bouton à côté de <browser_icon></browser_icon>",
         "list_item_4": "Redémarrez votre navigateur si nécessaire et revenez sur cette page"
       }
     },
     "info": "Récupération",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "Appuyez sur le bouton <strong>J'ai effectué les modifications</strong>. On vous demandera à nouveau d'activer l'accès à la caméra et au microphone. Lorsque la fenêtre contextuelle apparaît, sélectionnez <strong>Autoriser</strong> (ou <strong>OK</strong>)",
-        "list_item_1_cam": "Appuyez sur le bouton <strong>J'ai effectué les modifications</strong>. On vous demandera à nouveau d'activer l'accès à la caméra. Lorsque la fenêtre contextuelle apparaît, sélectionnez <strong>Autoriser</strong> (ou <strong>OK</strong>)",
-        "list_item_1_mic": "Appuyez sur le bouton <strong>J'ai effectué les modifications</strong>. On vous demandera à nouveau d'activer l'accès à la caméra. Lorsque la fenêtre contextuelle apparaît, sélectionnez <strong>Autoriser</strong> (ou <strong>OK</strong>)"
+        "list_item_1_both": "Appuyez sur le bouton <strong>Actualiser la page</strong>. On vous demandera à nouveau d'activer l'accès à la caméra et au microphone. Lorsque la fenêtre contextuelle apparaît, sélectionnez <strong>Autoriser</strong> (ou <strong>OK</strong>)",
+        "list_item_1_cam": "Appuyez sur le bouton <strong>Actualiser la page</strong>. On vous demandera à nouveau d'activer l'accès à la caméra. Lorsque la fenêtre contextuelle apparaît, sélectionnez <strong>Autoriser</strong> (ou <strong>OK</strong>)",
+        "list_item_1_mic": "Appuyez sur le bouton <strong>Actualiser la page</strong>. On vous demandera à nouveau d'activer l'accès au microphone. Lorsque la pop-up apparaît, sélectionnez <strong>Autoriser</strong> (ou <strong>OK</strong>)"
       },
       "device_settings": {
         "list_item_1": "Sur votre mobile, ouvrez l'application <strong>Paramètres</strong>",
-        "list_item_2": "Faites défiler la liste et appuyez sur [BROWSER_ICON]",
+        "list_item_2": "Faites défiler la liste et appuyez sur <browser_icon></browser_icon>",
         "list_item_3_cam": "Activez le bouton à bascule à côté de <strong>Caméra</strong>",
         "list_item_3_mic": "Activez le bouton à côté de <strong>Microphone</strong>",
-        "list_item_4": "Revenez à cette page et appuyez sur le bouton <strong>J'ai effectué les modifications</strong>"
+        "list_item_4": "Revenez à cette page et appuyez sur le bouton <strong>Actualiser la page</strong>",
+        "title": "Solution 2 : Paramètres de l'appareil"
+      },
+      "refresh_page": {
+        "title": "Solution 1 : Actualisez la page"
       }
     },
     "ios_safari": {
       "device_settings": {
         "list_item_1": "Sur votre mobile, ouvrez l'application <strong>Paramètres</strong>",
-        "list_item_2": "Faites défiler la liste et appuyez sur [BROWSER_ICON]",
+        "list_item_2": "Faites défiler la liste et appuyez sur <browser_icon></browser_icon>",
         "list_item_3_cam": "Appuyez sur <strong>Caméra</strong> et sélectionnez <strong>Autoriser</strong>",
         "list_item_3_mic": "Appuyez sur <strong>Microphone</strong> et sélectionnez <strong>Autoriser</strong>",
-        "list_item_4": "Revenez à cette page et appuyez sur le bouton <strong>J'ai effectué les modifications</strong>"
+        "list_item_4": "Revenez à cette page et appuyez sur le bouton <strong>Actualiser la page</strong>"
       }
     },
     "list_header_both": "Suivez ces étapes pour autoriser l’accès à l'un et à l'autre :",
@@ -654,13 +709,7 @@
     "title_cam": "L’accès à l’appareil photo n’est pas autorisé",
     "title_mic": "L’accès au micro n’est pas autorisé",
     "web": {
-      "browser_settings": {
-        "title": "Solution 1 : Paramètres du navigateur"
-      },
-      "button_primary": "J'ai effectué les modifications",
-      "device_settings": {
-        "title": "Solution 2 : Paramètres du mobile"
-      },
+      "button_primary": "Actualiser la page",
       "disclaimer": "Le processus de vérification d'identité pourrait redémarrer. Nous nous excusons pour tout désagrément"
     }
   },
@@ -1071,6 +1120,25 @@
     "step_title": "Signez votre document",
     "subtitle": "Pour confirmer votre identité conformément aux règles européennes, vous devez signer numériquement un document.",
     "title": "Créez et utilisez votre signature numérique"
+  },
+  "retry": {
+    "button": {
+      "generic_selfie_issue": "Réessayer"
+    },
+    "description": {
+      "default": "Veuillez réessayer",
+      "expired_document": "Veuillez réessayer avec une pièce d'identité valide avec photo et en vous assurant que vos coordonnées sont bien visibles",
+      "generic_document_issue": "Veuillez réessayer avec une pièce d'identité valide avec photo et en vous assurant que vos coordonnées sont bien visibles",
+      "generic_selfie_issue": "Veuillez réessayer en vous assurant que votre visage est visible et suffisamment éclairé",
+      "unaccepted_document": "Veuillez réessayer avec une pièce d'identité valide avec photo et en vous assurant que vos coordonnées sont bien visibles"
+    },
+    "headline": {
+      "default": "Il y avait un problème",
+      "expired_document": "Votre document a expiré",
+      "generic_document_issue": "Il y avait un problème avec votre document",
+      "generic_selfie_issue": "Il y a eu un problème avec votre selfie",
+      "unaccepted_document": "Document non accepté"
+    }
   },
   "retry_feedback": {
     "button_primary": "Réessayer"

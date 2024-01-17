@@ -421,6 +421,11 @@
     "title": "รับลิงก์ที่ปลอดภัยของคุณ",
     "url_field_label": "คัดลอกลิงก์ไปยังเบราว์เซอร์มือถือของคุณ"
   },
+  "interactive_task": {
+    "waiting": {
+      "title_5": "กำลังอัปโหลดสื่อ..."
+    }
+  },
   "livenessV2": {
     "error_reload_instructions": "โหลดคำแนะนำอีกครั้ง",
     "intro_note_no1": "อันดับแรก วางตำแหน่งใบหน้าของคุณไว้ในกรอบ",
@@ -460,25 +465,47 @@
       "success": "การสแกนสำเร็จ"
     }
   },
+  "nfc_scan_error_can": {
+    "primary_button": "การตรวจสอบการออก",
+    "subtitle": "คุณได้พยายามใส่หมายเลข CAN ของคุณเกินจำนวนสูงสุดแล้ว"
+  },
+  "nfc_scan_error_can:title": "ถึงความพยายามสูงสุดแล้ว",
   "otp": {
     "code_input": {
       "error": {
+        "code_expired": "รหัสของคุณหมดอายุแล้ว กรุณาขอรหัสใหม่",
+        "code_invalid": "ป้อนรหัสผิด โปรดลองอีกครั้ง",
         "technical": "เกิดข้อผิดพลาดทางเทคนิค กรุณาลองใหม่ในภายหลัง",
+        "too_many_attempts": "คุณได้ลองรหัสนี้หลายครั้งเกินไปแล้ว กรุณาขอรหัสใหม่",
         "wrong_code": "ป้อนรหัสผิด โปรดลองอีกครั้ง"
       },
       "intro": "รหัสที่ส่งไปยังหมายเลขโทรศัพทของคุณจะใ้งานไดในระยะเวลา 5 นาที",
       "resend": {
         "cta": "ส่งอีกครั้ง",
-        "label": "ส่งรหัสแล้ว (ไม่เกิน {limit})"
+        "cta_timeout": "ขอรหัสใหม่ (<timeout></timeout> วินาที)",
+        "label": "ส่งรหัสแล้ว",
+        "tracker": "<remaining></remaining> ของ <limit></limit>"
       },
       "title": "รหัสผ่านครั้งเดียว"
+    },
+    "error": {
+      "cta": "ย้อนกลับ",
+      "subtitle": "โปรดรอสักครู่แล้วลองอีกครั้ง",
+      "title": "เกิดข้อผิดพลาดบางอย่าง"
+    },
+    "failure": {
+      "cta": "ดำเนินการต่อ",
+      "subtitle": "เราไม่สามารถยืนยันหมายเลขโทรศัพท์ของคุณได้อีกต่อไป",
+      "title": "เกินจำนวนครั้งที่อนุญาต"
     },
     "send_code": {
       "cta": "ส่งรหัส",
       "error": {
+        "invalid_phone_number": "กรุณาให้หมายเลขโทรศัพท์ที่ถูกต้อง",
         "limit": "คุณได้ถึงขีดจำกัดของ SMS ที่ส่งแล้ว",
         "technical": "เกิดข้อผิดพลาดทางเทคนิค กรุณาลองใหม่อีกครั้งในภายหลัง"
       },
+      "input_label": "หมายเลขโทรศัพท์",
       "intro": "เพื่อที่จะตรวจสอบหมายเลขโทรศัพท์ของคุณ เราจะส่งรหัสใช้งานครั้งเดียวไปให้คุณ ซึ่งคุณจะต้องใส่ในหน้าจอถัดไป",
       "title": "รหัสผ่านครั้งเดียว"
     }
@@ -504,99 +531,123 @@
   },
   "permission_recovery": {
     "android": {
+      "browser_settings": {
+        "title": "วิธีที่ 1: การตั้งค่าบราวเซอร์"
+      },
       "device_settings": {
         "list_item_1": "บนอุปกรณ์ของคุณ เปิดแอป <strong>การตั้งค่า</strong>",
         "list_item_2": "แตะ <strong>แอป</strong>",
-        "list_item_3": "แตะที่ [BROWSER_ICON] หากคุณไม่พบ ให้แตะที่ <strong>ดูแอปทั้งหมด</strong> หรือ <strong>จัดการแอป</strong> และเลือกแอปเบราว์เซอร์ของคุณ",
+        "list_item_3": "แตะที่ <browser_icon></browser_icon> หากคุณไม่พบ ให้แตะที่ <strong>ดูแอปทั้งหมด</strong> หรือ <strong>จัดการแอป</strong> และเลือกแอปเบราว์เซอร์ของคุณ",
         "list_item_4": "แตะ <strong>สิทธิ์</strong>",
         "list_item_5_cam": "แตะ <strong>กล้อง</strong> และเลือก <strong>อนุญาต</strong>",
         "list_item_5_mic": "แตะ <strong>ไมโครโฟน</strong> และเลือก <strong>อนุญาต</strong>",
-        "list_item_6": "กลับมาที่หน้านี้และแตะที่ปุ่ม <strong>ฉันได้ทำการเปลี่ยนแปลงแล้ว</strong>"
+        "list_item_6": "กลับมาที่หน้านี้และกดปุ่ม <strong>รีเฟรชหน้า</strong>",
+        "title": "วิธีที่ 2: การตั้งค่าอุปกรณ์"
+      },
+      "refresh_page": {
+        "list_item_1_both": "แตะที่ปุ่ม <strong>รีเฟรชหน้า</strong> คุณจะถูกขอให้เปิดใช้งานการเข้าถึงกล้องและไมโครโฟนอีกครั้ง เมื่อป็อปอัปปรากฏขึ้น ให้เลือก <strong>อนุญาต</strong> (หรือ <strong>ตกลง</strong>)",
+        "list_item_1_cam": "แตะที่ปุ่ม <strong>รีเฟรชหน้า</strong> คุณจะถูกขอให้เปิดใช้งานการเข้าถึงกล้องอีกครั้ง เมื่อป็อปอัปปรากฏขึ้น ให้เลือก <strong>อนุญาต</strong> (หรือ <strong>ตกลง</strong>)",
+        "list_item_1_mic": "แตะที่ปุ่ม <strong>รีเฟรชหน้าเว็บ</strong> คุณจะถูกขอให้เปิดใช้งานการเข้าถึงไมโครโฟนอีกครั้ง เมื่อป็นป็อปอัปปรากฏขึ้น ให้เลือก <strong>อนุญาต</strong> (หรือ <strong>ตกลง</strong>)"
       }
     },
     "android_chrome": {
       "browser_settings": {
-        "list_item_1": "ในเบราว์เซอร์ของคุณ แตะที่ไอคอนล็อค [LOCK_ICON] ที่แถบที่อยู่",
+        "list_item_1": "ในเบราว์เซอร์ของคุณ แตะที่ไอคอนการตั้งค่า <settings_icon_chrome></settings_icon_chrome> ที่แถบที่อยู่",
         "list_item_2": "แตะ <strong>สิทธิ์</strong>",
         "list_item_3_cam": "เปิดสวิตช์ที่อยู่ถัดจาก <strong>กล้อง</strong>",
         "list_item_3_mic": "เปิดสวิตช์ที่อยู่ถัดจาก <strong>ไมโครโฟน</strong>",
-        "list_item_4": "กลับมาที่หน้านี้และแตะที่ปุ่ม <strong>ฉันได้ทำการเปลี่ยนแปลงแล้ว</strong>"
+        "list_item_4": "กลับมาที่หน้านี้และกดปุ่ม <strong>รีเฟรชหน้า</strong>"
       }
     },
     "android_firefox": {
       "browser_settings": {
-        "list_item_1": "ในเบราว์เซอร์ของคุณ แตะที่ไอคอนล็อค [LOCK_ICON] ที่แถบที่อยู่",
+        "list_item_1": "ในเบราว์เซอร์ของคุณ แตะที่ไอคอนล็อค <lock_icon></lock_icon> ที่แถบที่อยู่",
         "list_item_2_cam": "แตะ <strong>ถูกบล็อก</strong> ถัดจาก <strong>กล้อง</strong> เพื่อเปลี่ยนเป็น <strong>ได้รับอนุญาต</strong>",
         "list_item_2_mic": "แตะ <strong>ถูกบล็อก</strong> ถัดจาก <strong>ไมโครโฟน</strong> เพื่อเปลี่ยนเป็น <strong>ได้รับอนุญาต</strong>",
-        "list_item_3": "กลับมาที่หน้านี้และแตะที่ปุ่ม <strong>ฉันได้ทำการเปลี่ยนแปลงแล้ว</strong>"
+        "list_item_3": "กลับมาที่หน้านี้และกดปุ่ม <strong>รีเฟรชหน้า</strong>",
+        "title": "วิธีที่ 2: การตั้งค่าเบราว์เซอร์"
+      },
+      "device_settings": {
+        "title": "วิธีที่ 3: การตั้งค่าอุปกรณ์"
+      },
+      "refresh_page": {
+        "title": "วิธีที่ 1: รีเฟรชหน้าเว็บ"
       }
     },
     "android_generic": {
       "browser_settings": {
-        "list_item_1": "ในเบราว์เซอร์ของคุณ ให้เปิดการตั้งค่าเว็บไซต์ ซึ่งมักจะเป็นไอคอนล็อค [LOCK_ICON] ที่แถบที่อยู่",
+        "list_item_1": "ในเบราว์เซอร์ของคุณ ให้เปิดการตั้งค่าเว็บไซต์ ซึ่งมักจะเป็นไอคอนล็อค <lock_icon></lock_icon> ที่แถบที่อยู่",
         "list_item_2": "ค้นหาส่วนเกี่ยวกับสิทธิ์การเข้าถึง",
         "list_item_3_cam": "เปิดใช้งานสิทธิ์ <strong>กล้อง</strong>",
         "list_item_3_mic": "เปิดใช้งานสิทธิ์ <strong>ไมโครโฟน</strong>",
-        "list_item_4": "กลับมาที่หน้านี้และแตะที่ปุ่ม <strong>ฉันได้ทำการเปลี่ยนแปลงแล้ว</strong>"
+        "list_item_4": "กลับมาที่หน้านี้และกดปุ่ม <strong>รีเฟรชหน้า</strong>"
       }
     },
     "android_samsung": {
       "browser_settings": {
-        "list_item_1": "ในเบราว์เซอร์ของคุณ แตะที่ไอคอนล็อค [LOCK_ICON] ที่แถบที่อยู่",
+        "list_item_1": "ในเบราว์เซอร์ของคุณ แตะที่ไอคอนล็อค <lock_icon></lock_icon> ที่แถบที่อยู่",
         "list_item_2_cam": "เปิดสวิตช์ที่อยู่ถัดจาก <strong>กล้อง</strong>",
         "list_item_2_mic": "เปิดสวิตช์ที่อยู่ถัดจาก <strong>ไมโครโฟน</strong>",
-        "list_item_3": "กลับมาที่หน้านี้และแตะที่ปุ่ม <strong>ฉันได้ทำการเปลี่ยนแปลงแล้ว</strong>"
+        "list_item_3": "กลับมาที่หน้านี้และกดปุ่ม <strong>รีเฟรชหน้า</strong>"
       }
     },
     "button_primary": "รีเฟรช",
+    "desktop": {
+      "browser_settings": {
+        "title": "วิธีที่ 1: การตั้งค่าบราวเซอร์"
+      },
+      "device_settings": {
+        "title": "วิธีที่ 2: การตั้งค่าอุปกรณ์"
+      }
+    },
     "desktop_chrome": {
       "browser_settings": {
-        "list_item_1": "ในเบราว์เซอร์ของคุณ คลิกที่ไอคอนล็อค [LOCK_ICON] ที่แถบที่อยู่",
+        "list_item_1": "ในเบราว์เซอร์ของคุณ คลิกที่ไอคอนการตั้งค่า <settings_icon_chrome></settings_icon_chrome> ที่แถบที่อยู่",
         "list_item_2_cam": "เปิดสวิตช์ที่อยู่ถัดจาก <strong>กล้อง</strong>",
         "list_item_2_mic": "เปิดสวิตช์ที่อยู่ถัดจาก <strong>ไมโครโฟน</strong>",
-        "list_item_3": "กลับมาที่หน้านี้และคลิกที่ปุ่ม <strong>ฉันได้ทำการเปลี่ยนแปลงแล้ว</strong>"
+        "list_item_3": "กลับมาที่หน้านี้และคลิกที่ปุ่ม <strong>รีเฟรชหน้า</strong>"
       }
     },
     "desktop_edge": {
       "browser_settings": {
-        "list_item_1": "ในเบราว์เซอร์ของคุณ คลิกที่ไอคอนล็อค [LOCK_ICON] ที่แถบที่อยู่",
+        "list_item_1": "ในเบราว์เซอร์ของคุณ คลิกที่ไอคอนล็อค <lock_icon></lock_icon> ที่แถบที่อยู่",
         "list_item_2_cam": "คลิกที่เมนูแบบเลื่อนลงที่อยู่ถัดจาก <strong>กล้อง</strong> และเลือก <strong>อนุญาต</strong>",
         "list_item_2_mic": "คลิกที่เมนูแบบเลื่อนลงที่อยู่ถัดจาก <strong>ไมโครโฟน</strong> และเลือก <strong>อนุญาต</strong>",
-        "list_item_3": "กลับมาที่หน้านี้และคลิกที่ปุ่ม <strong>ฉันได้ทำการเปลี่ยนแปลงแล้ว</strong>"
+        "list_item_3": "กลับมาที่หน้านี้และคลิกที่ปุ่ม <strong>รีเฟรชหน้า</strong>"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
-        "list_item_1": "ในเบราว์เซอร์ของคุณ คลิกที่ไอคอนการตั้งค่า [SETTINGS_ICON_FIREFOX] ที่แถบที่อยู่",
+        "list_item_1": "ในเบราว์เซอร์ของคุณ คลิกที่ไอคอนการตั้งค่า <settings_icon_firefox></settings_icon_firefox> ที่แถบที่อยู่",
         "list_item_2_cam": "คลิก <strong>ถูกบล็อก</strong> ถัดจาก <strong>ใช้กล้อง</strong>",
         "list_item_2_mic": "คลิก <strong>ถูกบล็อก</strong> ถัดจาก <strong>ใช้ไมโครโฟน</strong>",
-        "list_item_3": "กลับมาที่หน้านี้และคลิกที่ปุ่ม <strong>ฉันได้ทำการเปลี่ยนแปลงแล้ว</strong>"
+        "list_item_3": "กลับมาที่หน้านี้และคลิกที่ปุ่ม <strong>รีเฟรชหน้า</strong>"
       }
     },
     "desktop_generic": {
       "browser_settings": {
-        "list_item_1": "ในเบราว์เซอร์ของคุณ ให้เปิดการตั้งค่าเว็บไซต์ ซึ่งมักจะเป็นไอคอนล็อค [LOCK_ICON] ที่แถบที่อยู่",
+        "list_item_1": "ในเบราว์เซอร์ของคุณ ให้เปิดการตั้งค่าเว็บไซต์ ซึ่งมักจะเป็นไอคอนล็อค <lock_icon></lock_icon> ที่แถบที่อยู่",
         "list_item_2": "ค้นหาส่วนเกี่ยวกับสิทธิ์การเข้าถึง",
         "list_item_3_cam": "เปิดใช้งานสิทธิ์<strong>กล้อง</strong>",
         "list_item_3_mic": "เปิดใช้งานสิทธิ์ <strong>ไมโครโฟน</strong>",
-        "list_item_4": "กลับมาที่หน้านี้และคลิกที่ปุ่ม <strong>ฉันได้ทำการเปลี่ยนแปลงแล้ว</strong>"
+        "list_item_4": "กลับมาที่หน้านี้และคลิกที่ปุ่ม <strong>รีเฟรชหน้า</strong>"
       },
       "device_settings": {
         "list_item_1": "บนคอมพิวเตอร์ของคุณ, เปิด <strong>การตั้งค่า</strong> ของคุณ",
         "list_item_2": "ค้นหาส่วนเกี่ยวกับสิทธิ์การเข้าถึง (โดยปกติจะอยู่ภายใต้ <strong>ความเป็นส่วนตัว</strong>)",
-        "list_item_3_cam": "เปิดใช้งานสิทธิ์ <strong>กล้อง</strong> สำหรับ [BROWSER_ICON]",
-        "list_item_3_mic": "เปิดใช้งานสิทธิ์ <strong>ไมโครโฟน</strong> สำหรับ [BROWSER_ICON]",
+        "list_item_3_cam": "เปิดใช้งานสิทธิ์ <strong>กล้อง</strong> สำหรับ <browser_icon></browser_icon>",
+        "list_item_3_mic": "เปิดใช้งานสิทธิ์ <strong>ไมโครโฟน</strong> สำหรับ <browser_icon></browser_icon>",
         "list_item_4": "ถ้าจำเป็นให้รีสตาร์ทเบราว์เซอร์ของคุณและลับมาที่หน้านี้"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "บนคอมพิวเตอร์ของคุณ คลิกที่เมนู Apple [APPLE_ICON] และเลือก <strong>การตั้งค่าระบบ</strong> (หรือ <strong>การตั้งค่าระบบ</strong>)",
+        "list_item_1": "บนคอมพิวเตอร์ของคุณ คลิกที่เมนู Apple <apple_icon></apple_icon> และเลือก <strong>การตั้งค่าระบบ</strong> (หรือ <strong>การตั้งค่าระบบ</strong>)",
         "list_item_2": "คลิก <strong>ความเป็นส่วนตัว & ความปลอดภัย</strong> (หรือ <strong>ความปลอดภัย & ความเป็นส่วนตัว</strong>) ที่แถบด้านข้าง",
         "list_item_3": "คลิก <strong>ภายหลัง</strong> ในหน้าต่างที่ขึ้นมา",
-        "list_item_3_cam": "คลิก <strong>กล้อง</strong> และเปิดสวิตช์ (หรือช่องทำเครื่องหมาย) ข้างๆ [BROWSER_ICON]",
+        "list_item_3_cam": "คลิก <strong>กล้อง</strong> และเปิดสวิตช์ (หรือช่องทำเครื่องหมาย) ข้างๆ <browser_icon></browser_icon>",
         "list_item_4": "คลิก <strong>ออก & เปิดใหม่</strong> ในหน้าต่างที่ปรากฏขึ้นและกลับมาที่หน้านี้",
-        "list_item_4_mic": "คลิก <strong>ไมโครโฟน</strong> และเปิดสวิตช์ (หรือช่องทำเครื่องหมาย) ที่อยู่ถัดจาก [BROWSER_ICON]"
+        "list_item_4_mic": "คลิก <strong>ไมโครโฟน</strong> และเปิดสวิตช์ (หรือช่องทำเครื่องหมาย) ที่อยู่ถัดจาก <browser_icon></browser_icon>"
       }
     },
     "desktop_safari": {
@@ -604,40 +655,44 @@
         "list_item_1": "ในเบราว์เซอร์ของคุณ คลิกขวาที่แถบที่อยู่และเลือก <strong>การตั้งค่า</strong>",
         "list_item_2_cam": "คลิกที่เมนูแบบเลื่อนลงที่อยู่ถัดจาก <strong>กล้อง</strong> และเลือก <strong>อนุญาต</strong>",
         "list_item_2_mic": "คลิกที่เมนูแบบเลื่อนลงที่อยู่ถัดจาก <strong>ไมโครโฟน</strong> และเลือก <strong>อนุญาต</strong>",
-        "list_item_3": "กลับมาที่หน้านี้และคลิกที่ปุ่ม <strong>ฉันได้ทำการเปลี่ยนแปลงแล้ว</strong>"
+        "list_item_3": "กลับมาที่หน้านี้และคลิกที่ปุ่ม <strong>รีเฟรชหน้า</strong>"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "บนคอมพิวเตอร์ของคุณ คลิกที่เมนู Windows [WINDOWS_ICON] และเลือก <strong>การตั้งค่า</strong> [SETTINGS_ICON_WINDOWS]",
+        "list_item_1": "บนคอมพิวเตอร์ของคุณ คลิกที่เมนู Windows <windows_icon></windows_icon> และเลือก <strong>การตั้งค่า</strong> <settings_icon_windows></settings_icon_windows>",
         "list_item_2": "คลิก <strong>ความเป็นส่วนตัว</strong> (หรือ <strong>ความเป็นส่วนตัว & ความปลอดภัย</strong>)",
-        "list_item_3_cam": "คลิกที่ <strong>กล้อง</strong> ใต้ <strong>สิทธิ์การใช้งานแอป</strong> และเปิดสวิตช์ที่อยู่ถัดจาก [BROWSER_ICON]",
-        "list_item_3_mic": "คลิกที่ <strong>ไมโครโฟน</strong> ใต้ <strong>สิทธิ์การใช้งานแอป</strong> และเปิดสวิตช์ที่อยู่ข้างๆ [BROWSER_ICON]",
+        "list_item_3_cam": "คลิกที่ <strong>กล้อง</strong> ใต้ <strong>สิทธิ์การใช้งานแอป</strong> และเปิดสวิตช์ที่อยู่ถัดจาก <browser_icon></browser_icon>",
+        "list_item_3_mic": "คลิกที่ <strong>ไมโครโฟน</strong> ใต้ <strong>สิทธิ์การใช้งานแอป</strong> และเปิดสวิตช์ที่อยู่ข้างๆ <browser_icon></browser_icon>",
         "list_item_4": "ถ้าจำเป็นให้รีสตาร์ทเบราว์เซอร์ของคุณและลับมาที่หน้านี้"
       }
     },
     "info": "การกู้คืน",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "แตะที่ปุ่ม <strong>ฉันได้ทำการเปลี่ยนแปลงแล้ว</strong> คุณจะถูกขอให้เปิดใช้งานการเข้าถึงกล้องและไมโครโฟนอีกครั้ง เมื่อป๊อปอัปปรากฏขึ้น ให้เลือก <strong>อนุญาต</strong> (หรือ <strong>ตกลง</strong>)",
-        "list_item_1_cam": "แตะที่ปุ่ม <strong>ฉันได้ทำการเปลี่ยนแปลงแล้ว</strong> คุณจะถูกขอให้เปิดใช้งานการเข้าถึงกล้องอีกครั้ง เมื่อป๊อปอัปปรากฏขึ้น ให้เลือก <strong>อนุญาต</strong> (หรือ <strong>ตกลง</strong>)",
-        "list_item_1_mic": "แตะที่ปุ่ม <strong>ฉันได้ทำการเปลี่ยนแปลงแล้ว</strong> คุณจะถูกขอให้เปิดใช้งานการเข้าถึงไมโครโฟนอีกครั้ง เมื่อป๊อปอัปปรากฏขึ้น ให้เลือก <strong>อนุญาต</strong> (หรือ <strong>ตกลง</strong>)"
+        "list_item_1_both": "แตะที่ปุ่ม <strong>รีเฟรชหน้า</strong> คุณจะถูกขอให้เปิดใช้งานการเข้าถึงกล้องและไมโครโฟนอีกครั้ง เมื่อป็อปอัปปรากฏขึ้น ให้เลือก <strong>อนุญาต</strong> (หรือ <strong>ตกลง</strong>)",
+        "list_item_1_cam": "แตะที่ปุ่ม <strong>รีเฟรชหน้า</strong> คุณจะถูกขอให้เปิดใช้งานการเข้าถึงกล้องอีกครั้ง เมื่อป็อปอัปปรากฏขึ้น ให้เลือก <strong>อนุญาต</strong> (หรือ <strong>ตกลง</strong>)",
+        "list_item_1_mic": "แตะที่ปุ่ม <strong>รีเฟรชหน้าเว็บ</strong> คุณจะถูกขอให้เปิดใช้งานการเข้าถึงไมโครโฟนอีกครั้ง เมื่อป็นป็อปอัปปรากฏขึ้น ให้เลือก <strong>อนุญาต</strong> (หรือ <strong>ตกลง</strong>)"
       },
       "device_settings": {
         "list_item_1": "บนอุปกรณ์ของคุณ เปิดแอป <strong>การตั้งค่า</strong>",
-        "list_item_2": "เลื่อนผ่านรายการและแตะที่ [BROWSER_ICON]",
+        "list_item_2": "เลื่อนผ่านรายการและแตะที่ <browser_icon></browser_icon>",
         "list_item_3_cam": "เปิดสวิตช์ที่อยู่ถัดจาก <strong>กล้อง</strong>",
         "list_item_3_mic": "เปิดสวิตช์ที่อยู่ถัดจาก <strong>ไมโครโฟน</strong>",
-        "list_item_4": "กลับมาที่หน้านี้และแตะที่ปุ่ม <strong>ฉันได้ทำการเปลี่ยนแปลงแล้ว</strong>"
+        "list_item_4": "กลับมาที่หน้านี้และกดปุ่ม <strong>รีเฟรชหน้า</strong>",
+        "title": "วิธีที่ 2: การตั้งค่าอุปกรณ์"
+      },
+      "refresh_page": {
+        "title": "วิธีที่ 1: รีเฟรชหน้าเว็บ"
       }
     },
     "ios_safari": {
       "device_settings": {
         "list_item_1": "บนอุปกรณ์ของคุณ เปิดแอป <strong>การตั้งค่า</strong>",
-        "list_item_2": "เลื่อนผ่านรายการและแตะที่ [BROWSER_ICON]",
+        "list_item_2": "เลื่อนผ่านรายการและแตะที่ <browser_icon></browser_icon>",
         "list_item_3_cam": "แตะ <strong>กล้อง</strong> และเลือก <strong>อนุญาต</strong>",
         "list_item_3_mic": "แตะ <strong>ไมโครโฟน</strong> และเลือก <strong>อนุญาต</strong>",
-        "list_item_4": "กลับมาที่หน้านี้และแตะที่ปุ่ม <strong>ฉันได้ทำการเปลี่ยนแปลงแล้ว</strong>"
+        "list_item_4": "กลับมาที่หน้านี้และกดปุ่ม <strong>รีเฟรชหน้า</strong>"
       }
     },
     "list_header_both": "ทำตามขั้นตอนต่อไปนี้เพื่อกู้คืนสิทธิ์การเข้าถึงทั้ง 2 รายการ:",
@@ -654,13 +709,7 @@
     "title_cam": "การเข้าถึงกล้องถูกปฏิเสธ",
     "title_mic": "การเข้าถึงไมโครโฟนถูกปฏิเสธ",
     "web": {
-      "browser_settings": {
-        "title": "วิธีที่ 1: การตั้งค่าบราวเซอร์"
-      },
-      "button_primary": "ฉันได้ทำการเปลี่ยนแปลงแล้ว",
-      "device_settings": {
-        "title": "วิธีที่ 2: การตั้งค่าอุปกรณ์"
-      },
+      "button_primary": "รีเฟรชหน้า",
       "disclaimer": "กระบวนการตรวจสอบตัวตนอาจจะเริ่มต้นใหม่ ขออภัยในความไม่สะดวก"
     }
   },
@@ -1071,6 +1120,25 @@
     "step_title": "ลงชื่อในเอกสารของคุณ",
     "subtitle": "เพื่อยืนยันตัวตนของคุณตามกฎหมายของยุโรป คุณต้องลงชื่อดิจิตอลในเอกสาร",
     "title": "สร้างและใช้ลายเซ็นดิจิตอลของคุณ"
+  },
+  "retry": {
+    "button": {
+      "generic_selfie_issue": "ลองอีกครั้ง"
+    },
+    "description": {
+      "default": "โปรดลองอีกครั้ง",
+      "expired_document": "โปรดลองอีกครั้งโดยใช้บัตรประจำตัวที่มีรูปถ่ายที่ถูกต้อง และตรวจให้แน่ใจว่าเห็นข้อมูลของคุณได้อย่างชัดเจน",
+      "generic_document_issue": "โปรดลองอีกครั้งโดยใช้บัตรประจำตัวที่มีรูปถ่ายที่ถูกต้อง และตรวจให้แน่ใจว่าเห็นข้อมูลของคุณได้อย่างชัดเจน",
+      "generic_selfie_issue": "โปรดลองอีกครั้ง และเช็คให้แน่ใจว่ามองเห็นใบหน้าของคุณได้ชัดเจนและมีแสงสว่างเพียงพอ",
+      "unaccepted_document": "โปรดลองอีกครั้งโดยใช้บัตรประจำตัวที่มีรูปถ่ายที่ถูกต้อง และตรวจให้แน่ใจว่าเห็นข้อมูลของคุณได้อย่างชัดเจน"
+    },
+    "headline": {
+      "default": "มีปัญหาเกิดขึ้น",
+      "expired_document": "เอกสารของคุณหมดอายุแล้ว",
+      "generic_document_issue": "เกิดปัญหากับเอกสารของคุณ",
+      "generic_selfie_issue": "มีปัญหาเกี่ยวกับภาพเซลฟี่ของคุณ",
+      "unaccepted_document": "เอกสารที่ไม่ยอมรับ"
+    }
   },
   "retry_feedback": {
     "button_primary": "ลองอีกครั้ง"
