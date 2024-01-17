@@ -307,6 +307,17 @@ Callback that fires when an error occurs. The callback returns the following err
 }
 ```
 
+- `permissions_unavailable`
+
+  `permissions_unavailable` will be returned if the SDK was unable to access or request the necessary permissions. This may occur when the web SDK is loaded within a webview or other custom browsers.
+
+```javascript
+{
+  type: "permissions_unavailable",
+  message: "Unable to retrieve or access required user permissions"
+}
+```
+
 ### `onUserExit {Function} optional`
 
 Callback that fires when the user abandons the flow without completing it.
@@ -1048,6 +1059,10 @@ If embedded inside a cross-origin iframe, the SDK may fail to access the camera 
 #### Upload fallback
 
 Onfido Web SDK versions <13.0.0 have a parameter named `uploadFallback` that can be set on both the document step and the face step. This parameter allowed clients to present end-users with a file input capability during the SDK flow. This client-side optional parameter has been removed in Web SDK 13 and above to enhance security which means users will not have the option to upload files during the SDK flow. However, file upload can be enabled as an option for end-users as a backend configuration if requested through the Onfido Support Team.
+
+#### Permissions issues when using the web SDK in a webview
+
+For recommendations and code samples on how to embed the Onfido web SDK in a webview, please refer to the guide [Using the Onfido web SDK in a webview](https://developers.onfido.com/guide/sdk-webview-guide) available on Developer Hub.
 
 ### Support
 
