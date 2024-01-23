@@ -8,6 +8,8 @@ The `uploadFallback` option has been removed. Users with mobile devices that do 
 
 `tearDown` is deprecated in favor of `safeTearDown` which is a promise that you can await to know when the sdk tear down is complete.
 
+`migrate_locales` scripts has been depricated and removed.
+
 For all supported language the copy for the following string(s) has been added:
 
 ## Added strings

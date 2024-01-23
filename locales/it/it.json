@@ -118,7 +118,7 @@
     "list_item_desktop_open": "Tenere aperta la finestra del browser",
     "list_item_sent_by_you": "Aver inviato tu il link — Cerca assistenza se pensi si possa trattare di una truffa",
     "subtitle": "Continua la verifica",
-    "title": "Connesso al computer"
+    "title": "Sessione mobile collegata al tuo computer"
   },
   "doc_auto_capture": {
     "button_accessibility": "Scatta una foto",
@@ -134,7 +134,7 @@
       "manual_fallback_passport": "Scatta una foto della pagina con foto del passaporto",
       "manual_fallback_residence_permit_back": "Scatta una foto del retro del permesso di soggiorno",
       "manual_fallback_residence_permit_front": "Scatta una foto del fronte del permesso di soggiorno",
-      "position_generic_document_back": "",
+      "position_generic_document_back": "Posizionare il retro del documento nel riquadro",
       "position_generic_document_front": "",
       "position_identity_card_back": "Posiziona il retro della carta nel riquadro",
       "position_identity_card_front": "Posiziona il fronte della carta nel riquadro",
@@ -243,7 +243,7 @@
     "button_id": "Carta d’identità",
     "button_id_detail": "Fronte e retro",
     "button_identity_document_with_address": "Documento di identità con indirizzo",
-    "button_identity_document_with_address_back": "Documento di Identità con Indirizzo (Retro)",
+    "button_identity_document_with_address_back": "Documento d'Identità con Indirizzo (Retro)",
     "button_identity_document_with_address_detail": "Rilasciato da un'autorità governativa",
     "button_identity_document_with_address_front": "Documento di Identità con Indirizzo (Fronte)",
     "button_insurance_statement": "Dichiarazione di Assicurazione",
@@ -260,7 +260,7 @@
     "button_pension_property_statement_letter_detail": "Dichiarazione o lettera di pensione e Dichiarazione o lettera di tassa sulla proprietà",
     "button_permit": "Permesso di soggiorno",
     "button_permit_detail": "Fronte e retro",
-    "button_tax_letter": "Lettera sull'imposta locale",
+    "button_tax_letter": "Lettera di Tassa del Governo Locale",
     "extra_estatements_ok": "sono accettati gli estratti conto elettronici",
     "extra_no_mobile": "Non sono ammesse le bollette di telefonia mobile",
     "list_accessibility": "Documenti che puoi utilizzare per verificare la tua identità",
@@ -309,7 +309,7 @@
     "title_pension_property_statement_letter": "Invia dichiarazione o lettera",
     "title_permit_back": "Invia permesso di soggiorno (retro)",
     "title_permit_front": "Invia permesso di soggiorno (fronte)",
-    "title_tax_letter": "Invia lettera"
+    "title_tax_letter": "Invia la Lettera Fiscale del Governo Locale"
   },
   "doc_video_capture": {
     "button_primary_fallback": "Avanti",
@@ -421,6 +421,11 @@
     "title": "Ricevi il tuo link sicuro",
     "url_field_label": "Copia il link nel browser del telefono"
   },
+  "interactive_task": {
+    "waiting": {
+      "title_5": "Caricamento dei media in corso..."
+    }
+  },
   "livenessV2": {
     "error_reload_instructions": "Ricarica le istruzioni",
     "intro_note_no1": "Innanzitutto, posiziona il viso nel riquadro",
@@ -460,26 +465,48 @@
       "success": "Scansione riuscita"
     }
   },
+  "nfc_scan_error_can": {
+    "primary_button": "Verifica dell'uscita",
+    "subtitle": "Hai raggiunto il numero massimo di tentativi per inserire il tuo numero CAN"
+  },
+  "nfc_scan_error_can:title": "Numero massimo di tentativi raggiunto",
   "otp": {
     "code_input": {
       "error": {
+        "code_expired": "Il tuo codice è scaduto, per favore richiedine uno nuovo.",
+        "code_invalid": "Codice errato inserito, si prega di riprovare.",
         "technical": "Si è verificato un errore tecnico, si prega di riprovare più tardi",
+        "too_many_attempts": "Hai provato questo codice troppe volte, per favore richiedi un nuovo.",
         "wrong_code": "Codice errato inserito, per favore prova ancora"
       },
-      "intro": "Il codice inviato al tuo numero di telefono sarà attivo per 5 minuti",
+      "intro": "Hai 5 minuti per validare il codice inviato via SMS a <phonenumber></phonenumber>",
       "resend": {
-        "cta": "Rinvia",
-        "label": "Codice inviato (fino a {limit})"
+        "cta": "Richiedi un nuovo codice",
+        "cta_timeout": "Richiedi un nuovo codice (<timeout></timeout> secondi)",
+        "label": "Codice inviato",
+        "tracker": "<remaining></remaining> di <limit></limit>"
       },
       "title": "Password monouso"
+    },
+    "error": {
+      "cta": "Torna indietro",
+      "subtitle": "Si prega di attendere qualche secondo e riprovare",
+      "title": "Qualcosa è andato storto"
+    },
+    "failure": {
+      "cta": "Continua",
+      "subtitle": "Non possiamo più verificare il tuo numero di telefono",
+      "title": "Tentativi consentiti superati"
     },
     "send_code": {
       "cta": "Invia codice",
       "error": {
+        "invalid_phone_number": "Si prega di fornire un numero di telefono valido.",
         "limit": "Hai raggiunto il limite di SMS inviati",
         "technical": "Si è verificato un errore tecnico, si prega di riprovare più tardi"
       },
-      "intro": "Per verificare il tuo numero di telefono, ti invieremo un codice monouso da inserire nella prossima schermata.",
+      "input_label": "Numero di telefono",
+      "intro": "Per verificare il tuo numero di telefono, ti chiederemo di inserire una password monouso.",
       "title": "Password monouso"
     }
   },
@@ -504,99 +531,123 @@
   },
   "permission_recovery": {
     "android": {
+      "browser_settings": {
+        "title": "Soluzione 1: Impostazioni del browser"
+      },
       "device_settings": {
         "list_item_1": "Sul tuo dispositivo, apri l'app <strong>Impostazioni</strong>",
         "list_item_2": "Tocca <strong>App</strong>",
-        "list_item_3": "Tocca [BROWSER_ICON]. Se non riesci a trovarlo, tocca <strong>Vedi tutte le app</strong> o <strong>Gestisci app</strong> e seleziona la tua app del browser",
+        "list_item_3": "Tocca <browser_icon></browser_icon>. Se non riesci a trovarlo, tocca <strong>Vedi tutte le app</strong> o <strong>Gestisci app</strong> e seleziona la tua app del browser",
         "list_item_4": "Tocca <strong>Permessi</strong>",
         "list_item_5_cam": "Tocca <strong>Fotocamera</strong> e seleziona <strong>Consenti</strong>",
         "list_item_5_mic": "Tocca <strong>Microfono</strong> e seleziona <strong>Consenti</strong>",
-        "list_item_6": "Torna a questa pagina e tocca il pulsante <strong>Ho apportato le modifiche</strong>"
+        "list_item_6": "Torna a questa pagina e tocca il pulsante <strong>Aggiorna la pagina</strong>",
+        "title": "Soluzione 2: Impostazioni del dispositivo"
+      },
+      "refresh_page": {
+        "list_item_1_both": "Tocca il pulsante <strong>Aggiorna la pagina</strong>. Ti verrà chiesto di abilitare nuovamente l'accesso a fotocamera e microfono. Quando compare il pop-up, seleziona <strong>Consenti</strong> (o <strong>OK</strong>)",
+        "list_item_1_cam": "Tocca il pulsante <strong>Aggiorna la pagina</strong>. Ti verrà chiesto di abilitare nuovamente l'accesso alla fotocamera. Quando compare il pop-up, seleziona <strong>Consenti</strong> (o <strong>OK</strong>)",
+        "list_item_1_mic": "Tocca il pulsante <strong>Aggiorna la pagina</strong>. Ti verrà chiesto di abilitare nuovamente l'accesso al microfono. Quando compare il pop-up, seleziona <strong>Consenti</strong> (o <strong>OK</strong>)"
       }
     },
     "android_chrome": {
       "browser_settings": {
-        "list_item_1": "Nel tuo browser, tocca l'icona del lucchetto [LOCK_ICON] nella barra degli indirizzi",
+        "list_item_1": "Nel tuo browser, tocca l'icona delle impostazioni <settings_icon_chrome></settings_icon_chrome> nella barra degli indirizzi",
         "list_item_2": "Tocca <strong>Permessi</strong>",
         "list_item_3_cam": "Attiva l'interruttore accanto a <strong>Fotocamera</strong>",
         "list_item_3_mic": "Attiva l'interruttore accanto a <strong>Microfono</strong>",
-        "list_item_4": "Torna a questa pagina e tocca il pulsante <strong>Ho apportato le modifiche</strong>"
+        "list_item_4": "Torna a questa pagina e tocca il pulsante <strong>Aggiorna la pagina</strong>"
       }
     },
     "android_firefox": {
       "browser_settings": {
-        "list_item_1": "Nel tuo browser, tocca l'icona del lucchetto [LOCK_ICON] nella barra degli indirizzi",
+        "list_item_1": "Nel tuo browser, tocca l'icona del lucchetto <lock_icon></lock_icon> nella barra degli indirizzi",
         "list_item_2_cam": "Tocca <strong>Bloccato</strong> accanto a <strong>Fotocamera</strong> per passare a <strong>Consentito</strong>",
         "list_item_2_mic": "Tocca <strong>Bloccato</strong> accanto a <strong>Microfono</strong> per passare a <strong>Consentito</strong>",
-        "list_item_3": "Torna a questa pagina e tocca il pulsante <strong>Ho apportato le modifiche</strong>"
+        "list_item_3": "Torna a questa pagina e tocca il pulsante <strong>Aggiorna la pagina</strong>",
+        "title": "Soluzione 2: Impostazioni del browser"
+      },
+      "device_settings": {
+        "title": "Soluzione 3: Impostazioni del dispositivo"
+      },
+      "refresh_page": {
+        "title": "Soluzione 1: Aggiorna la pagina"
       }
     },
     "android_generic": {
       "browser_settings": {
-        "list_item_1": "Nel tuo browser, apri le impostazioni del sito web. Questo è spesso un'icona di blocco [LOCK_ICON] nella barra degli indirizzi",
+        "list_item_1": "Nel tuo browser, apri le impostazioni del sito web. Questo è spesso un'icona di blocco <lock_icon></lock_icon> nella barra degli indirizzi",
         "list_item_2": "Trova la sezione sulle autorizzazioni",
         "list_item_3_cam": "Abilita le autorizzazioni della <strong>Fotocamera</strong>",
         "list_item_3_mic": "Abilita le autorizzazioni per il <strong>Microfono</strong>",
-        "list_item_4": "Torna a questa pagina e tocca il pulsante <strong>Ho apportato le modifiche</strong>"
+        "list_item_4": "Torna a questa pagina e tocca il pulsante <strong>Aggiorna la pagina</strong>"
       }
     },
     "android_samsung": {
       "browser_settings": {
-        "list_item_1": "Nel tuo browser, tocca l'icona del lucchetto [LOCK_ICON] nella barra degli indirizzi",
+        "list_item_1": "Nel tuo browser, tocca l'icona del lucchetto <lock_icon></lock_icon> nella barra degli indirizzi",
         "list_item_2_cam": "Attiva l'interruttore accanto a <strong>Fotocamera</strong>",
         "list_item_2_mic": "Attiva l'interruttore accanto a <strong>Microfono</strong>",
-        "list_item_3": "Torna a questa pagina e tocca il pulsante <strong>Ho apportato le modifiche</strong>"
+        "list_item_3": "Torna a questa pagina e tocca il pulsante <strong>Aggiorna la pagina</strong>"
       }
     },
     "button_primary": "Ricarica",
+    "desktop": {
+      "browser_settings": {
+        "title": "Soluzione 1: Impostazioni del browser"
+      },
+      "device_settings": {
+        "title": "Soluzione 2: Impostazioni del dispositivo"
+      }
+    },
     "desktop_chrome": {
       "browser_settings": {
-        "list_item_1": "Nel tuo browser, fai clic sull'icona del lucchetto [LOCK_ICON] nella barra degli indirizzi",
+        "list_item_1": "Nel tuo browser, fai clic sull'icona delle impostazioni <settings_icon_chrome></settings_icon_chrome> nella barra degli indirizzi",
         "list_item_2_cam": "Attiva l'interruttore accanto a <strong>Fotocamera</strong>",
         "list_item_2_mic": "Attiva l'interruttore accanto a <strong>Microfono</strong>",
-        "list_item_3": "Torna a questa pagina e clicca sul pulsante <strong>Ho effettuato le modifiche</strong>"
+        "list_item_3": "Torna a questa pagina e clicca sul pulsante <strong>Aggiorna la pagina</strong>"
       }
     },
     "desktop_edge": {
       "browser_settings": {
-        "list_item_1": "Nel tuo browser, fai clic sull'icona del lucchetto [LOCK_ICON] nella barra degli indirizzi",
+        "list_item_1": "Nel tuo browser, fai clic sull'icona del lucchetto <lock_icon></lock_icon> nella barra degli indirizzi",
         "list_item_2_cam": "Fai clic sul menu a discesa accanto a <strong>Fotocamera</strong> e seleziona <strong>Consenti</strong>",
         "list_item_2_mic": "Fai clic sul menu a discesa accanto a <strong>Microfono</strong> e seleziona <strong>Consenti</strong>",
-        "list_item_3": "Torna a questa pagina e clicca sul pulsante <strong>Ho effettuato le modifiche</strong>"
+        "list_item_3": "Torna a questa pagina e clicca sul pulsante <strong>Aggiorna la pagina</strong>"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
-        "list_item_1": "Nel tuo browser, fai clic sull'icona delle impostazioni [SETTINGS_ICON_FIREFOX] nella barra degli indirizzi",
+        "list_item_1": "Nel tuo browser, fai clic sull'icona delle impostazioni <settings_icon_firefox></settings_icon_firefox> nella barra degli indirizzi",
         "list_item_2_cam": "Fai clic su <strong>Bloccato</strong> accanto a <strong>Usa la fotocamera</strong>",
         "list_item_2_mic": "Fai clic su <strong>Bloccato</strong> accanto a <strong>Usa il microfono</strong>",
-        "list_item_3": "Torna a questa pagina e fai clic sul pulsante <strong>Ho apportato le modifiche</strong>"
+        "list_item_3": "Torna a questa pagina e clicca sul pulsante <strong>Aggiorna la pagina</strong>"
       }
     },
     "desktop_generic": {
       "browser_settings": {
-        "list_item_1": "Nel tuo browser, apri le impostazioni del sito web. Questo è spesso un'icona di blocco [LOCK_ICON] nella barra degli indirizzi",
+        "list_item_1": "Nel tuo browser, apri le impostazioni del sito web. Questo è spesso un'icona di blocco <lock_icon></lock_icon> nella barra degli indirizzi",
         "list_item_2": "Trova la sezione sulle autorizzazioni",
         "list_item_3_cam": "Abilita le autorizzazioni della <strong>Fotocamera</strong>",
         "list_item_3_mic": "Abilita le autorizzazioni per il <strong>Microfono</strong>",
-        "list_item_4": "Torna a questa pagina e clicca il pulsante <strong>Ho effettuato le modifiche</strong>"
+        "list_item_4": "Torna a questa pagina e clicca sul pulsante <strong>Aggiorna la pagina</strong>"
       },
       "device_settings": {
         "list_item_1": "Sul tuo computer, apri le tue <strong>Impostazioni</strong>",
         "list_item_2": "Trova la sezione riguardante i permessi (di solito sotto <strong>Privacy</strong>)",
-        "list_item_3_cam": "Abilita le autorizzazioni per la <strong>Fotocamera</strong> per [BROWSER_ICON]",
-        "list_item_3_mic": "Abilita le autorizzazioni per il <strong>Microfono</strong> per [BROWSER_ICON]",
+        "list_item_3_cam": "Abilita le autorizzazioni per la <strong>Fotocamera</strong> per <browser_icon></browser_icon>",
+        "list_item_3_mic": "Abilita le autorizzazioni per il <strong>Microfono</strong> per <browser_icon></browser_icon>",
         "list_item_4": "Riavvia il tuo browser se necessario e torna su questa pagina"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "Sul tuo computer, fai clic sul menu Apple [APPLE_ICON] e seleziona <strong>Impostazioni di sistema</strong> (o <strong>Preferenze di sistema</strong>)",
+        "list_item_1": "Sul tuo computer, fai clic sul menu Apple <apple_icon></apple_icon> e seleziona <strong>Impostazioni di sistema</strong> (o <strong>Preferenze di sistema</strong>)",
         "list_item_2": "Fai clic su <strong>Privacy & Sicurezza</strong> (o <strong>Sicurezza & Privacy</strong>) nella barra laterale",
         "list_item_3": "Fai clic su <strong>Dopo</strong> nel pop-up",
-        "list_item_3_cam": "Fai clic su <strong>Fotocamera</strong> e attiva l'interruttore (o la casella di controllo) accanto a [BROWSER_ICON]",
+        "list_item_3_cam": "Fai clic su <strong>Fotocamera</strong> e attiva l'interruttore (o la casella di controllo) accanto a <browser_icon></browser_icon>",
         "list_item_4": "Fai clic su <strong>Esci e riapri</strong> nel pop-up e torna a questa pagina",
-        "list_item_4_mic": "Fai clic su <strong>Microfono</strong> e attiva l'interruttore (o la casella di controllo) accanto a [BROWSER_ICON]"
+        "list_item_4_mic": "Fai clic su <strong>Microfono</strong> e attiva l'interruttore (o la casella di controllo) accanto a <browser_icon></browser_icon>"
       }
     },
     "desktop_safari": {
@@ -604,40 +655,44 @@
         "list_item_1": "Nel tuo browser, fai clic con il tasto destro nella barra degli indirizzi e seleziona <strong>Impostazioni</strong>",
         "list_item_2_cam": "Fai clic sul menu a discesa accanto a <strong>Fotocamera</strong> e seleziona <strong>Consenti</strong>",
         "list_item_2_mic": "Fai clic sul menu a discesa accanto a <strong>Microfono</strong> e seleziona <strong>Consenti</strong>",
-        "list_item_3": "Torna a questa pagina e fai clic sul pulsante <strong>Ho apportato le modifiche</strong>"
+        "list_item_3": "Torna a questa pagina e clicca sul pulsante <strong>Aggiorna la pagina</strong>"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "Sul tuo computer, fai clic sul menu Windows [WINDOWS_ICON] e seleziona <strong>Impostazioni</strong> [SETTINGS_ICON_WINDOWS]",
+        "list_item_1": "Sul tuo computer, fai clic sul menu Windows <windows_icon></windows_icon> e seleziona <strong>Impostazioni</strong> <settings_icon_windows></settings_icon_windows>",
         "list_item_2": "Fai clic su <strong>Privacy</strong> (o <strong>Privacy & Sicurezza</strong>)",
-        "list_item_3_cam": "Fai clic su <strong>Fotocamera</strong> sotto <strong>Permessi app</strong> e attiva l'interruttore accanto a [BROWSER_ICON] ",
-        "list_item_3_mic": "Fai clic su <strong>Microfono</strong> sotto <strong>Permessi app</strong> e attiva l'interruttore accanto a [BROWSER_ICON]",
+        "list_item_3_cam": "Fai clic su <strong>Fotocamera</strong> sotto <strong>Permessi app</strong> e attiva l'interruttore accanto a <browser_icon></browser_icon>",
+        "list_item_3_mic": "Fai clic su <strong>Microfono</strong> sotto <strong>Permessi app</strong> e attiva l'interruttore accanto a <browser_icon></browser_icon>",
         "list_item_4": "Riavvia il tuo browser se necessario e torna su questa pagina"
       }
     },
     "info": "Ripristino",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "Tocca il pulsante <strong>Ho effettuato le modifiche</strong>. Ti verrà chiesto di abilitare nuovamente l'accesso a fotocamera e microfono. Quando compare il pop-up, seleziona <strong>Consenti</strong> (o <strong>OK</strong>)",
-        "list_item_1_cam": "Tocca il pulsante <strong>Ho effettuato le modifiche</strong>. Ti verrà chiesto di abilitare nuovamente l'accesso alla fotocamera. Quando compare il pop-up, seleziona <strong>Consenti</strong> (o <strong>OK</strong>)",
-        "list_item_1_mic": "Tocca il pulsante <strong>Ho effettuato le modifiche</strong>. Ti verrà chiesto di abilitare nuovamente l'accesso al microfono. Quando compare il pop-up, seleziona <strong>Consenti</strong> (o <strong>OK</strong>)"
+        "list_item_1_both": "Tocca il pulsante <strong>Aggiorna la pagina</strong>. Ti verrà chiesto di abilitare nuovamente l'accesso a fotocamera e microfono. Quando compare il pop-up, seleziona <strong>Consenti</strong> (o <strong>OK</strong>)",
+        "list_item_1_cam": "Tocca il pulsante <strong>Aggiorna la pagina</strong>. Ti verrà chiesto di abilitare nuovamente l'accesso alla fotocamera. Quando compare il pop-up, seleziona <strong>Consenti</strong> (o <strong>OK</strong>)",
+        "list_item_1_mic": "Tocca il pulsante <strong>Aggiorna la pagina</strong>. Ti verrà chiesto di abilitare nuovamente l'accesso al microfono. Quando compare il pop-up, seleziona <strong>Consenti</strong> (o <strong>OK</strong>)"
       },
       "device_settings": {
         "list_item_1": "Sul tuo dispositivo, apri l'app <strong>Impostazioni</strong>",
-        "list_item_2": "Scorri l'elenco e tocca [BROWSER_ICON]",
+        "list_item_2": "Scorri l'elenco e tocca <browser_icon></browser_icon>",
         "list_item_3_cam": "Attiva l'interruttore accanto a <strong>Fotocamera</strong>",
         "list_item_3_mic": "Attiva l'interruttore accanto a <strong>Microfono</strong>",
-        "list_item_4": "Torna a questa pagina e tocca il pulsante <strong>Ho apportato le modifiche</strong>"
+        "list_item_4": "Torna a questa pagina e tocca il pulsante <strong>Aggiorna la pagina</strong>",
+        "title": "Soluzione 2: Impostazioni del dispositivo"
+      },
+      "refresh_page": {
+        "title": "Soluzione 1: Aggiorna la pagina"
       }
     },
     "ios_safari": {
       "device_settings": {
         "list_item_1": "Sul tuo dispositivo, apri l'app <strong>Impostazioni</strong>",
-        "list_item_2": "Scorri l'elenco e tocca [BROWSER_ICON]",
+        "list_item_2": "Scorri l'elenco e tocca <browser_icon></browser_icon>",
         "list_item_3_cam": "Tocca <strong>Fotocamera</strong> e seleziona <strong>Consenti</strong>",
         "list_item_3_mic": "Tocca <strong>Microfono</strong> e seleziona <strong>Consenti</strong>",
-        "list_item_4": "Torna a questa pagina e tocca il pulsante <strong>Ho apportato le modifiche</strong>"
+        "list_item_4": "Torna a questa pagina e tocca il pulsante <strong>Aggiorna la pagina</strong>"
       }
     },
     "list_header_both": "Segui questi passaggi per ripristinare l’accesso alla entrambi:",
@@ -654,13 +709,7 @@
     "title_cam": "Accesso alla fotocamera negato",
     "title_mic": "Accesso al microfono negato",
     "web": {
-      "browser_settings": {
-        "title": "Soluzione 1: Impostazioni del browser"
-      },
-      "button_primary": "Ho apportato le modifiche",
-      "device_settings": {
-        "title": "Soluzione 2: Impostazioni del dispositivo"
-      },
+      "button_primary": "Aggiorna la pagina",
       "disclaimer": "Il processo di verifica dell'identità potrebbe ripartire. Ci scusiamo per eventuali disagi"
     }
   },
@@ -728,7 +777,7 @@
   },
   "poa_welcome_text": "Scatta una foto del documento con il tuo indirizzo",
   "profile_data": {
-    "address_title": "Aggiungere l’indirizzo",
+    "address_title": "Inserisci il tuo indirizzo",
     "button_continue": "Continua",
     "components": {
       "country_residence_select": {
@@ -805,12 +854,12 @@
       "dnk_specific": {
         "national_id_value": "Numero RCP"
       },
-      "dob": "Data di nascita",
+      "dob": "Data di compleanno",
       "email": "Email",
       "fin_specific": {
         "national_id_value": "Codice di identità personale"
       },
-      "first_name": "Nome",
+      "first_name": "Nome di battesimo",
       "gbr_specific": {
         "postcode": "Codice postale",
         "town": "Città/comune"
@@ -827,16 +876,16 @@
       "jpn_specific": {
         "national_id_value": "\"Il mio numero\" / Codice di registrazione residente"
       },
-      "last_name": "Cognome",
+      "last_name": "Nome di famiglia",
       "line1": "Indirizzo 1",
       "line2": "Indirizzo 2",
-      "line3": "Indirizzo 3",
+      "line3": "Linea 3 dell'indirizzo",
       "lux_specific": {
         "national_id_value": "Numero di Social Security"
       },
       "mobile_number": "Numero di cellulare",
       "national_id_type": "Tipo di documento d'identità nazionale",
-      "national_id_value": "Numero di identificazione nazionale",
+      "national_id_value": "Numero d'identificazione nazionale",
       "nationality": "Nazionalità",
       "phl_specific": {
         "national_id_value": "Numero della carta PhilSys (PCN)"
@@ -849,16 +898,16 @@
       "prt_specific": {
         "national_id_value": "Codice fiscale"
       },
-      "town": "Comune",
+      "town": "Città/comune",
       "tur_specific": {
         "national_id_value": "Numero di identificazione turco"
       },
       "usa_specific": {
         "line1_helper_text": "Indirizzo, ad esempio 200 Albert Street",
         "line2_helper_text": "Appartamento, suite, unità ecc.",
-        "postcode": "Zip code",
+        "postcode": "Codice postale",
         "ssn": "Numero di previdenza sociale (SSN)",
-        "state": "Stato"
+        "state": "Riformulalo"
       }
     },
     "field_optional": "(facoltativo)",
@@ -934,7 +983,7 @@
       },
       "jpn_specific": {
         "invalid_national_id_value": "Inserisci un codice \"Il mio numero\"/Record di residenza valido",
-        "required_national_id_value": ""
+        "required_national_id_value": "Si prega di inserire il proprio \"Mio numero\" / codice di Anagrafe"
       },
       "ken_specific": {
         "invalid_other": "Inserisci un numero di carta Alien valido",
@@ -1012,7 +1061,7 @@
       "too_short_postcode": "Il codice postale è troppo breve",
       "tur_specific": {
         "invalid_national_id_value": "Inserisci un numero di identificazione turco valido",
-        "required_national_id_value": ""
+        "required_national_id_value": "Inserisci il tuo numero di ID turco"
       },
       "usa_specific": {
         "invalid_ssn": "Inserisci un SSN valido",
@@ -1071,6 +1120,25 @@
     "step_title": "Firma il tuo documento",
     "subtitle": "Per confermare la tua identità in conformità con le norme europee, devi firmare digitalmente un documento.",
     "title": "Crea e utilizza la tua firma digitale"
+  },
+  "retry": {
+    "button": {
+      "generic_selfie_issue": "Riprova"
+    },
+    "description": {
+      "default": "Riprova",
+      "expired_document": "Riprova con un documento d’identità valido e assicurati che le informazioni siano ben leggibili",
+      "generic_document_issue": "Riprova con un documento d’identità valido e assicurati che le informazioni siano ben leggibili",
+      "generic_selfie_issue": "Riprova e assicurati che il volto sia visibile e ben illuminato",
+      "unaccepted_document": "Riprova con un documento d’identità valido e assicurati che le informazioni siano ben leggibili"
+    },
+    "headline": {
+      "default": "C'era un problema",
+      "expired_document": "Il documento è scaduto",
+      "generic_document_issue": "C'è stato un problema con il tuo documento",
+      "generic_selfie_issue": "C'è stato un problema con il tuo selfie",
+      "unaccepted_document": "Documento non accettato"
+    }
   },
   "retry_feedback": {
     "button_primary": "Riprova"
@@ -1134,7 +1202,7 @@
     "info_link_expire": "Il tuo link scadrà tra un’ora",
     "info_link_window": "Tieni aperta questa finestra mentre usi il telefono",
     "link": "Prova un altro metodo",
-    "subtitle": "Abbiamo inviato un link sicuro a %{number}",
+    "subtitle": "Abbiamo inviato un link sicuro a <number></number>",
     "subtitle_minutes": "La ricezione potrebbe richiedere qualche minuto",
     "title": "Controlla il telefono"
   },
@@ -1242,10 +1310,10 @@
   },
   "workflow_erros": {
     "generic_title": "C'è stato un errore del server!",
-    "no_workflow_run_id": "L'ID della corsa del flusso di lavoro non è impostato.",
+    "no_workflow_run_id": "Non è stato impostato l'ID dell'esecuzione del flusso di lavoro.",
     "reload_app": "Provare a ricaricare l'applicazione e riprovare.",
-    "task_not_completed": "Impossibile completare l'attività del flusso di lavoro.",
-    "task_not_retrieved": "Impossibile recuperare l'attività del flusso di lavoro.",
+    "task_not_completed": "Non è stato possibile completare l'attività del flusso di lavoro.",
+    "task_not_retrieved": "Non è stato possibile recuperare l'attività del flusso di lavoro.",
     "task_not_supported": "L'attività non è attualmente supportata"
   }
 }

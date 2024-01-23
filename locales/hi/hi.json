@@ -66,7 +66,7 @@
     "button_primary": "डॉक्यूमेंट सबमिट करें",
     "poa_alert": {
       "country_not_found": "हमें इसका अफ़सोस है। हम और देशों में भी अपनी सेवाएँ देने की दिशा में काम कर रहे हैं।",
-      "intro": "आपका देश नहीं मिल रहा है? "
+      "intro": "आपका देश नहीं मिल रहा है?"
     },
     "search": {
       "accessibility": "देश चुनें",
@@ -86,7 +86,7 @@
     "list_item_poa": "पते का सबूत",
     "list_item_selfie": "सेल्फ़ी",
     "list_item_video": "वीडियो",
-    "subtitle": "यहा सारी चीज़ें आपके द्वारा अपलोड की गई है ",
+    "subtitle": "यहा सारी चीज़ें आपके द्वारा अपलोड की गई है",
     "title": "एक आखिरी स्टेप"
   },
   "cross_device_error_desktop": {
@@ -134,7 +134,7 @@
       "manual_fallback_passport": "अपने पासपोर्ट की फ़ोटो वाले पेज की फ़ोटो खींचें",
       "manual_fallback_residence_permit_back": "अपने निवास परमिट के पीछे के हिस्से की फ़ोटो खींचें",
       "manual_fallback_residence_permit_front": "अपने निवास परमिट के सामने की फ़ोटो लें",
-      "position_generic_document_back": "",
+      "position_generic_document_back": "अपने डॉक्यूमेंट के पीछे के हिस्से को फ़्रेम के बीच में रखें",
       "position_generic_document_front": "",
       "position_identity_card_back": "अपने कार्ड के पीछे के हिस्से को फ़्रेम के बीच में रखें",
       "position_identity_card_front": "अपने कार्ड के सामने वाले हिस्से को फ़्रेम के बीच में रखें",
@@ -260,7 +260,7 @@
     "button_pension_property_statement_letter_detail": "पेंशन विवरण या पत्र और संपत्ति कर विवरण या पत्र",
     "button_permit": "निवास परमिट",
     "button_permit_detail": "आगे और पीछे",
-    "button_tax_letter": "परिषद कर पत्र",
+    "button_tax_letter": "स्थानीय सरकार कर पत्र",
     "extra_estatements_ok": "ई-स्टेटमेंट स्वीकार किए जाते हैं",
     "extra_no_mobile": "माफ़ करें, मोबाइल फ़ोन के बिल स्वीकार नहीं किए जाते",
     "list_accessibility": "ऐसे डॉक्यूमेंट जिनसे आप अपनी पहचान को वेरिफ़ाई कर सकते हैं",
@@ -309,7 +309,7 @@
     "title_pension_property_statement_letter": "बयान या पत्र सबमिट करें",
     "title_permit_back": "निवास का परमिट सबमिट करें (पीछे का हिस्सा)",
     "title_permit_front": "निवास का परमिट सबमिट करें (सामने का हिस्सा)",
-    "title_tax_letter": "पत्र सबमिट करें"
+    "title_tax_letter": "स्थानीय सरकार कर पत्र जमा करें"
   },
   "doc_video_capture": {
     "button_primary_fallback": "अगला स्टेप",
@@ -421,6 +421,11 @@
     "title": "अपना सुरक्षित लिंक प्राप्त करें",
     "url_field_label": "लिंक को अपने मोबाइल ब्राउज़र पर कॉपी करें"
   },
+  "interactive_task": {
+    "waiting": {
+      "title_5": "मीडिया अपलोड कर रहा है..."
+    }
+  },
   "livenessV2": {
     "error_reload_instructions": "निर्देश फिर से लोड हो रहा है",
     "intro_note_no1": "सबसे पहले, अपने चेहरे को फ़्रेम में रखें",
@@ -460,26 +465,48 @@
       "success": "स्कैन करना सफल रहा"
     }
   },
+  "nfc_scan_error_can": {
+    "primary_button": "बाहर निकलने की सत्यापन",
+    "subtitle": "आपने अपना CAN नंबर दर्ज करने की अधिकतम कोशिशें पूरी कर दी हैं"
+  },
+  "nfc_scan_error_can:title": "अधिकतम प्रयास पूरे हो गए",
   "otp": {
     "code_input": {
       "error": {
+        "code_expired": "आपका कोड समाप्त हो गया है, कृपया एक नया अनुरोध करें।",
+        "code_invalid": "गलत कोड दर्ज किया गया है, कृपया पुनः प्रयास करें।",
         "technical": "तकनीकी त्रुटि हुई है, कृपया बाद में पुनः प्रयास करें",
+        "too_many_attempts": "आपने इस कोड का बहुत बार प्रयास किया है, कृपया एक नया अनुरोध करें।",
         "wrong_code": "गलत कोड दर्ज किया गया है, कृपया पुनः प्रयास करें"
       },
-      "intro": "आपके फ़ोन नंबर पर भेजा गया कोड 5 मिनट के लिए सक्रिय रहेगा",
+      "intro": "आपके पास SMS के माध्यम से भेजे गए कोड को मान्य करने के लिए 5 मिनट हैं <phonenumber></phonenumber>",
       "resend": {
-        "cta": "पुनः भेजें",
-        "label": "({limit} तक) भेजा गया कोड"
+        "cta": "नया कोड अनुरोध करें",
+        "cta_timeout": "एक नया कोड अनुरोध करें (<timeout></timeout> सेकंड)",
+        "label": "कोड भेजा गया है",
+        "tracker": "<remaining></remaining> का <limit></limit>"
       },
       "title": "एक समय पासवर्ड"
+    },
+    "error": {
+      "cta": "वापस जाओ",
+      "subtitle": "कृपया कुछ सेकंड प्रतीक्षा करें और पुनः प्रयास करें",
+      "title": "कुछ गलत हो गया"
+    },
+    "failure": {
+      "cta": "जारी रखें",
+      "subtitle": "हम अब आपका फ़ोन नंबर सत्यापित नहीं कर सकते",
+      "title": "अनुमति प्राप्त प्रयासों की सीमा पार हो गई"
     },
     "send_code": {
       "cta": "कोड भेजें",
       "error": {
+        "invalid_phone_number": "कृपया एक मान्य फ़ोन नंबर प्रदान करें।",
         "limit": "आपने भेजे गए एसएमएस की सीमा को पहुंच लिया है",
-        "technical": ""
+        "technical": "तकनीकी त्रुटि हुई है, कृपया बाद में पुनः प्रयास करें"
       },
-      "intro": "आपका फ़ोन नंबर सत्यापित करने के लिए हम आपको अगली स्क्रीन में इनपुट करने के लिए एक बार प्रयोग करने वाला कोड भेजने जा रहे हैं।",
+      "input_label": "फ़ोन नंबर",
+      "intro": "आपका फ़ोन नंबर सत्यापित करने के लिए हम आपसे एक बार का पासवर्ड दर्ज करने के लिए कहेंगे।",
       "title": "एक समय पासवर्ड"
     }
   },
@@ -504,99 +531,123 @@
   },
   "permission_recovery": {
     "android": {
+      "browser_settings": {
+        "title": "समाधान 1: ब्राउज़र सेटिंग्स"
+      },
       "device_settings": {
         "list_item_1": "अपने उपकरण पर, <strong>सेटिंग्स</strong> ऐप को खोलें",
         "list_item_2": "<strong>ऐप्स</strong> पर टैप करें",
-        "list_item_3": "[BROWSER_ICON] को छूना। यदि आप इसे नहीं ढूंढ सकते हैं, तो <strong>सभी ऐप्स देखें</strong> या <strong>ऐप्स प्रबंधित करें</strong> को छूना और अपने ब्राउज़र ऐप का चयन करें",
+        "list_item_3": "<browser_icon></browser_icon> को छूना। यदि आप इसे नहीं ढूंढ सकते हैं, तो <strong>सभी ऐप्स देखें</strong> या <strong>ऐप्स प्रबंधित करें</strong> को छूना और अपने ब्राउज़र ऐप का चयन करें",
         "list_item_4": "<strong>अनुमतियां</strong> पर टैप करें",
         "list_item_5_cam": "<strong>कैमरा</strong> पर टैप करें और <strong>अनुमति दें</strong> चुनें",
         "list_item_5_mic": "<strong>माइक्रोफ़ोन</strong> पर टैप करें और <strong>अनुमति दें</strong> चुनें",
-        "list_item_6": "इस पृष्ठ पर वापस आएं और <strong>मैंने परिवर्तन कर दिए हैं</strong> बटन दबाएं"
+        "list_item_6": "इस पृष्ठ पर वापस आएं और <strong>पृष्ठ को ताज़ा करें</strong> बटन दबाएं",
+        "title": "समाधान 2: उपकरण सेटिंग्स"
+      },
+      "refresh_page": {
+        "list_item_1_both": "<strong>पेज को ताज़ा करें</strong> बटन पर टैप करें। आपसे फिर से कैमरा और माइक्रोफोन की पहुंच को सक्षम करने के लिए कहा जाएगा। जब पॉप-अप दिखाई दे, तो <strong>अनुमति दें</strong> (या <strong>ठीक है</strong>) चुनें",
+        "list_item_1_cam": "<strong>पेज को ताज़ा करें</strong> बटन पर टैप करें। आपसे फिर से कैमरा एक्सेस सक्षम करने के लिए कहा जाएगा। जब पॉप-अप दिखाई दे, तो <strong>अनुमति दें</strong> (या <strong>ठीक है</strong>) चुनें",
+        "list_item_1_mic": "<strong>पेज को ताज़ा करें</strong> बटन पर टैप करें। आपसे फिर से माइक्रोफ़ोन की पहुंच सक्षम करने के लिए कहा जाएगा। जब पॉप-अप दिखाई दे, तो <strong>अनुमति दें</strong> (या <strong>ठीक है</strong>) चुनें।"
       }
     },
     "android_chrome": {
       "browser_settings": {
-        "list_item_1": "अपने ब्राउज़र में, पता पट्टी में ताला आइकन [LOCK_ICON] पर टैप करें",
+        "list_item_1": "अपने ब्राउज़र में, एड्रेस बार में सेटिंग्स आइकन <settings_icon_chrome></settings_icon_chrome> पर टैप करें",
         "list_item_2": "<strong>अनुमतियां</strong> पर टैप करें",
         "list_item_3_cam": "<strong>कैमरा</strong> के बगल में टॉगल सक्रिय करें",
         "list_item_3_mic": "<strong>माइक्रोफ़ोन</strong> के बगल में टॉगल सक्रिय करें",
-        "list_item_4": "इस पृष्ठ पर वापस आएं और <strong>मैंने परिवर्तन कर दिए हैं</strong> बटन दबाएं"
+        "list_item_4": "इस पृष्ठ पर वापस आएं और <strong>पृष्ठ को ताज़ा करें</strong> बटन दबाएं"
       }
     },
     "android_firefox": {
       "browser_settings": {
-        "list_item_1": "अपने ब्राउज़र में, पता पट्टी में ताला आइकन [LOCK_ICON] पर टैप करें",
+        "list_item_1": "अपने ब्राउज़र में, पता पट्टी में ताला आइकन <lock_icon></lock_icon> पर टैप करें",
         "list_item_2_cam": "<strong>अवरुद्ध</strong> को टैप करें और <strong>कैमरा</strong> के बगल में स्विच करें <strong>अनुमति दी गई</strong>",
         "list_item_2_mic": "<strong>Blocked</strong> के बगल में टैप करें और <strong>Microphone</strong> को <strong>Allowed</strong> में बदलें",
-        "list_item_3": "इस पृष्ठ पर वापस आएं और <strong>मैंने परिवर्तन कर दिए हैं</strong> बटन दबाएं"
+        "list_item_3": "इस पृष्ठ पर वापस आएं और <strong>पृष्ठ को ताज़ा करें</strong> बटन दबाएं",
+        "title": "समाधान 2: ब्राउज़र सेटिंग्स"
+      },
+      "device_settings": {
+        "title": "समाधान 3: उपकरण सेटिंग्स"
+      },
+      "refresh_page": {
+        "title": "समाधान 1: पृष्ठ को ताज़ा करें"
       }
     },
     "android_generic": {
       "browser_settings": {
-        "list_item_1": "अपने ब्राउज़र में, वेबसाइट सेटिंग्स खोलें। यह अक्सर पता पट्टी में एक ताला आइकन [LOCK_ICON] होता है",
+        "list_item_1": "अपने ब्राउज़र में, वेबसाइट सेटिंग्स खोलें। यह अक्सर पता पट्टी में एक ताला आइकन <lock_icon></lock_icon> होता है",
         "list_item_2": "अनुमतियों के बारे में खंड ढूंढें",
         "list_item_3_cam": "<strong>कैमरा</strong> अनुमतियाँ सक्षम करें",
         "list_item_3_mic": "<strong>माइक्रोफ़ोन</strong> अनुमतियाँ सक्षम करें",
-        "list_item_4": "इस पृष्ठ पर वापस आएं और <strong>मैंने परिवर्तन कर दिए हैं</strong> बटन दबाएं"
+        "list_item_4": "इस पृष्ठ पर वापस आएं और <strong>पृष्ठ को ताज़ा करें</strong> बटन दबाएं"
       }
     },
     "android_samsung": {
       "browser_settings": {
-        "list_item_1": "अपने ब्राउज़र में, पता पट्टी में ताला आइकन [LOCK_ICON] पर टैप करें",
+        "list_item_1": "अपने ब्राउज़र में, पता पट्टी में ताला आइकन <lock_icon></lock_icon> पर टैप करें",
         "list_item_2_cam": "<strong>कैमरा</strong> के बगल में टॉगल सक्रिय करें",
         "list_item_2_mic": "<strong>माइक्रोफ़ोन</strong> के बगल में टॉगल सक्रिय करें",
-        "list_item_3": "इस पृष्ठ पर वापस आएं और <strong>मैंने परिवर्तन कर दिए हैं</strong> बटन दबाएं"
+        "list_item_3": "इस पृष्ठ पर वापस आएं और <strong>पृष्ठ को ताज़ा करें</strong> बटन दबाएं"
       }
     },
     "button_primary": "रीफ़्रेश करें",
+    "desktop": {
+      "browser_settings": {
+        "title": "समाधान 1: ब्राउज़र सेटिंग्स"
+      },
+      "device_settings": {
+        "title": "समाधान 2: उपकरण सेटिंग्स"
+      }
+    },
     "desktop_chrome": {
       "browser_settings": {
-        "list_item_1": "अपने ब्राउज़र में, पता पट्टी में ताला आइकन [LOCK_ICON] पर क्लिक करें",
+        "list_item_1": "अपने ब्राउज़र में, पता पट्टी में सेटिंग्स आइकन <settings_icon_chrome></settings_icon_chrome> पर क्लिक करें",
         "list_item_2_cam": "<strong>कैमरा</strong> के बगल में टॉगल सक्रिय करें",
         "list_item_2_mic": "<strong>माइक्रोफ़ोन</strong> के बगल में टॉगल सक्रिय करें",
-        "list_item_3": "इस पृष्ठ पर वापस आएं और <strong>मैंने परिवर्तन कर दिए हैं</strong> बटन पर क्लिक करें"
+        "list_item_3": "इस पृष्ठ पर वापस आएं और <strong>पृष्ठ को ताज़ा करें</strong> बटन पर क्लिक करें"
       }
     },
     "desktop_edge": {
       "browser_settings": {
-        "list_item_1": "अपने ब्राउज़र में, पता पट्टी में ताला आइकन [LOCK_ICON] पर क्लिक करें",
+        "list_item_1": "अपने ब्राउज़र में, पता पट्टी में ताला आइकन <lock_icon></lock_icon> पर क्लिक करें",
         "list_item_2_cam": "<strong>कैमरा</strong> के बगल में ड्रॉपडाउन पर क्लिक करें और <strong>अनुमति दें</strong> चुनें",
         "list_item_2_mic": "<strong>माइक्रोफ़ोन</strong> के बगल में ड्रॉपडाउन पर क्लिक करें और <strong>अनुमति दें</strong> चुनें",
-        "list_item_3": "इस पृष्ठ पर वापस आएं और <strong>मैंने परिवर्तन कर दिए हैं</strong> बटन पर क्लिक करें"
+        "list_item_3": "इस पृष्ठ पर वापस आएं और <strong>पृष्ठ को ताज़ा करें</strong> बटन पर क्लिक करें"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
-        "list_item_1": "अपने ब्राउज़र में, पता पट्टी में सेटिंग्स आइकन [SETTINGS_ICON_FIREFOX] पर क्लिक करें",
+        "list_item_1": "अपने ब्राउज़र में, पता पट्टी में सेटिंग्स आइकन <settings_icon_firefox></settings_icon_firefox> पर क्लिक करें",
         "list_item_2_cam": "<strong>ब्लॉक</strong> पर क्लिक करें जो <strong>कैमरा का उपयोग करें</strong> के बगल में है",
         "list_item_2_mic": "<strong>ब्लॉक</strong> पर क्लिक करें जो <strong>माइक्रोफ़ोन का उपयोग करें</strong> के बगल में है",
-        "list_item_3": "इस पृष्ठ पर वापस आएं और <strong>मैंने परिवर्तन कर दिए हैं</strong> बटन पर क्लिक करें"
+        "list_item_3": "इस पृष्ठ पर वापस आएं और <strong>पृष्ठ को ताज़ा करें</strong> बटन पर क्लिक करें"
       }
     },
     "desktop_generic": {
       "browser_settings": {
-        "list_item_1": "अपने ब्राउज़र में, वेबसाइट सेटिंग्स खोलें। यह अक्सर पता पट्टी में एक ताला आइकन [LOCK_ICON] होता है",
+        "list_item_1": "अपने ब्राउज़र में, वेबसाइट सेटिंग्स खोलें। यह अक्सर पता पट्टी में एक ताला आइकन <lock_icon></lock_icon> होता है",
         "list_item_2": "अनुमतियों के बारे में खंड ढूंढें",
         "list_item_3_cam": "<strong>कैमरा</strong> अनुमतियाँ सक्षम करें",
         "list_item_3_mic": "<strong>माइक्रोफ़ोन</strong> अनुमतियाँ सक्षम करें",
-        "list_item_4": "इस पृष्ठ पर वापस आएं और <strong> मैंने परिवर्तन कर दिए हैं </strong> बटन पर क्लिक करें"
+        "list_item_4": "इस पृष्ठ पर वापस आएं और <strong>पृष्ठ को ताज़ा करें</strong> बटन पर क्लिक करें"
       },
       "device_settings": {
         "list_item_1": "अपने कंप्यूटर पर, अपनी <strong>सेटिंग्स</strong> खोलें",
         "list_item_2": "अनुमतियों के बारे में खंड ढूंढें (आमतौर पर <strong>गोपनीयता</strong> के तहत)",
-        "list_item_3_cam": "[BROWSER_ICON] के लिए <strong>कैमरा</strong> अनुमतियाँ सक्षम करें",
-        "list_item_3_mic": "[BROWSER_ICON] के लिए <strong>माइक्रोफ़ोन</strong> अनुमतियाँ सक्षम करें",
+        "list_item_3_cam": "<browser_icon></browser_icon> के लिए <strong>कैमरा</strong> अनुमतियाँ सक्षम करें",
+        "list_item_3_mic": "<browser_icon></browser_icon> के लिए <strong>माइक्रोफ़ोन</strong> अनुमतियाँ सक्षम करें",
         "list_item_4": "यदि आवश्यक हो तो अपने ब्राउज़र को पुनः आरंभ करें और इस पृष्ठ पर वापस आएं"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "अपने कंप्यूटर पर, Apple मेनू [APPLE_ICON] पर क्लिक करें और <strong>सिस्टम सेटिंग्स</strong> (या <strong>सिस्टम प्राथमिकताएं</strong>) का चयन करें",
-        "list_item_2": "साइडबार में <strong>प्राइवेसी और सुरक्षा</strong> (या <strong>सुरक्षा और प्राइवेसी</strong>) पर क्लिक करें ",
+        "list_item_1": "अपने कंप्यूटर पर, Apple मेनू <apple_icon></apple_icon> पर क्लिक करें और <strong>सिस्टम सेटिंग्स</strong> (या <strong>सिस्टम प्राथमिकताएं</strong>) का चयन करें",
+        "list_item_2": "साइडबार में <strong>प्राइवेसी और सुरक्षा</strong> (या <strong>सुरक्षा और प्राइवेसी</strong>) पर क्लिक करें",
         "list_item_3": "पॉप-अप में <strong>बाद में</strong> पर क्लिक करें",
-        "list_item_3_cam": "<strong>कैमरा</strong> पर क्लिक करें और [BROWSER_ICON] के बगल में टॉगल (या चेकबॉक्स) को सक्रिय करें",
+        "list_item_3_cam": "<strong>कैमरा</strong> पर क्लिक करें और <browser_icon></browser_icon> के बगल में टॉगल (या चेकबॉक्स) को सक्रिय करें",
         "list_item_4": "पॉप-अप में <strong>बंद करें और पुनः खोलें</strong> पर क्लिक करें और इस पृष्ठ पर वापस आएं",
-        "list_item_4_mic": "<strong>माइक्रोफ़ोन</strong> पर क्लिक करें और [BROWSER_ICON] के बगल में टॉगल (या चेकबॉक्स) को सक्रिय करें"
+        "list_item_4_mic": "<strong>माइक्रोफ़ोन</strong> पर क्लिक करें और <browser_icon></browser_icon> के बगल में टॉगल (या चेकबॉक्स) को सक्रिय करें"
       }
     },
     "desktop_safari": {
@@ -604,40 +655,44 @@
         "list_item_1": "अपने ब्राउज़र में, पता पट्टी पर दाएं क्लिक करें और <strong>सेटिंग्स</strong> का चयन करें",
         "list_item_2_cam": "<strong>कैमरा</strong> के बगल में ड्रॉपडाउन पर क्लिक करें और <strong>अनुमति दें</strong> चुनें",
         "list_item_2_mic": "<strong>माइक्रोफ़ोन</strong> के बगल में ड्रॉपडाउन पर क्लिक करें और <strong>अनुमति दें</strong> चुनें",
-        "list_item_3": "इस पृष्ठ पर वापस आएं और <strong>मैंने परिवर्तन कर दिए हैं</strong> बटन पर क्लिक करें"
+        "list_item_3": "इस पृष्ठ पर वापस आएं और <strong>पृष्ठ को ताज़ा करें</strong> बटन पर क्लिक करें"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "अपने कंप्यूटर पर, Windows मेनू [WINDOWS_ICON] पर क्लिक करें और <strong>सेटिंग्स</strong> [SETTINGS_ICON_WINDOWS] का चयन करें",
+        "list_item_1": "अपने कंप्यूटर पर, Windows मेनू <windows_icon></windows_icon> पर क्लिक करें और <strong>सेटिंग्स</strong> <settings_icon_windows></settings_icon_windows> का चयन करें",
         "list_item_2": "<strong>गोपनीयता</strong> (या <strong>गोपनीयता और सुरक्षा</strong>) पर क्लिक करें",
-        "list_item_3_cam": "<strong>कैमरा</strong> पर क्लिक करें, जो <strong>ऐप अनुमतियां</strong> के नीचे है, और [BROWSER_ICON] के बगल में टॉगल सक्रिय करें ",
-        "list_item_3_mic": "<strong>ऐप अनुमतियां</strong> के नीचे <strong>माइक्रोफ़ोन</strong> पर क्लिक करें और [BROWSER_ICON] के बगल में टॉगल सक्रिय करें",
+        "list_item_3_cam": "<strong>कैमरा</strong> पर क्लिक करें, जो <strong>ऐप अनुमतियां</strong> के नीचे है, और <browser_icon></browser_icon> के बगल में टॉगल सक्रिय करें",
+        "list_item_3_mic": "<strong>ऐप अनुमतियां</strong> के नीचे <strong>माइक्रोफ़ोन</strong> पर क्लिक करें और <browser_icon></browser_icon> के बगल में टॉगल सक्रिय करें",
         "list_item_4": "यदि आवश्यक हो तो अपने ब्राउज़र को पुनः आरंभ करें और इस पृष्ठ पर वापस आएं"
       }
     },
     "info": "रिकवरी",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "<strong>मैंने परिवर्तन कर दिए हैं</strong> बटन पर टैप करें। आपसे फिर से कैमरा और माइक्रोफोन की पहुंच सक्षम करने के लिए कहा जाएगा। जब पॉप-अप दिखाई दे, तो <strong>अनुमति दें</strong> (या <strong>ठीक है</strong>) चुनें।",
-        "list_item_1_cam": "<strong>मैंने परिवर्तन कर दिए हैं</strong> बटन पर टैप करें। आपसे फिर से कैमरा एक्सेस सक्षम करने के लिए कहा जाएगा। जब पॉप-अप दिखाई दे, तो <strong>अनुमति दें</strong> (या <strong>ठीक है</strong>) चुनें।",
-        "list_item_1_mic": "<strong>मैंने परिवर्तन कर दिए हैं</strong> बटन पर टैप करें। आपसे फिर से माइक्रोफोन पहुंच को सक्षम करने के लिए कहा जाएगा। जब पॉप-अप दिखाई दे, तो <strong>अनुमति दें</strong> (या <strong>ठीक है</strong>) चुनें।"
+        "list_item_1_both": "<strong>पेज को ताज़ा करें</strong> बटन पर टैप करें। आपसे फिर से कैमरा और माइक्रोफोन की पहुंच को सक्षम करने के लिए कहा जाएगा। जब पॉप-अप दिखाई दे, तो <strong>अनुमति दें</strong> (या <strong>ठीक है</strong>) चुनें",
+        "list_item_1_cam": "<strong>पेज को ताज़ा करें</strong> बटन पर टैप करें। आपसे फिर से कैमरा एक्सेस सक्षम करने के लिए कहा जाएगा। जब पॉप-अप दिखाई दे, तो <strong>अनुमति दें</strong> (या <strong>ठीक है</strong>) चुनें",
+        "list_item_1_mic": "<strong>पेज को ताज़ा करें</strong> बटन पर टैप करें। आपसे फिर से माइक्रोफ़ोन की पहुंच सक्षम करने के लिए कहा जाएगा। जब पॉप-अप दिखाई दे, तो <strong>अनुमति दें</strong> (या <strong>ठीक है</strong>) चुनें।"
       },
       "device_settings": {
         "list_item_1": "अपने उपकरण पर, <strong>सेटिंग्स</strong> ऐप को खोलें",
-        "list_item_2": "सूची के माध्यम से स्क्रॉल करें और [BROWSER_ICON] पर टैप करें",
+        "list_item_2": "सूची के माध्यम से स्क्रॉल करें और <browser_icon></browser_icon> पर टैप करें",
         "list_item_3_cam": "<strong>कैमरा</strong> के बगल में टॉगल सक्रिय करें",
         "list_item_3_mic": "<strong>माइक्रोफ़ोन</strong> के बगल में टॉगल सक्रिय करें",
-        "list_item_4": "इस पृष्ठ पर वापस आएं और <strong>मैंने परिवर्तन कर दिए हैं</strong> बटन दबाएं"
+        "list_item_4": "इस पृष्ठ पर वापस आएं और <strong>पृष्ठ को ताज़ा करें</strong> बटन दबाएं",
+        "title": "समाधान 2: उपकरण सेटिंग्स"
+      },
+      "refresh_page": {
+        "title": "समाधान 1: पृष्ठ को ताज़ा करें"
       }
     },
     "ios_safari": {
       "device_settings": {
         "list_item_1": "अपने उपकरण पर, <strong>सेटिंग्स</strong> ऐप को खोलें",
-        "list_item_2": "सूची के माध्यम से स्क्रॉल करें और [BROWSER_ICON] पर टैप करें",
+        "list_item_2": "सूची के माध्यम से स्क्रॉल करें और <browser_icon></browser_icon> पर टैप करें",
         "list_item_3_cam": "<strong>कैमरा</strong> पर टैप करें और <strong>अनुमति दें</strong> चुनें",
         "list_item_3_mic": "<strong>माइक्रोफ़ोन</strong> पर टैप करें और <strong>अनुमति दें</strong> चुनें",
-        "list_item_4": "इस पृष्ठ पर वापस आएं और <strong>मैंने परिवर्तन कर दिए हैं</strong> बटन दबाएं"
+        "list_item_4": "इस पृष्ठ पर वापस आएं और <strong>पृष्ठ को ताज़ा करें</strong> बटन दबाएं"
       }
     },
     "list_header_both": "दोनों का ऐक्सेस रिकवर करने के लिए, यहाँ दिए स्टेप का पालन करें:",
@@ -654,13 +709,7 @@
     "title_cam": "कैमरे का ऐक्सेस नहीं मिला",
     "title_mic": "माइक्रोफ़ोन का ऐक्सेस नहीं मिला",
     "web": {
-      "browser_settings": {
-        "title": "समाधान 1: ब्राउज़र सेटिंग्स"
-      },
-      "button_primary": "मैंने बदलाव कर दिए हैं",
-      "device_settings": {
-        "title": "समाधान 2: उपकरण सेटिंग्स"
-      },
+      "button_primary": "पृष्ठ को ताज़ा करें",
       "disclaimer": "पहचान सत्यापन प्रक्रिया पुनः शुरू हो सकती है। किसी भी असुविधा के लिए खेद है"
     }
   },
@@ -849,7 +898,7 @@
       "prt_specific": {
         "national_id_value": "कर नंबर"
       },
-      "town": "शहर",
+      "town": "शहर/कस्बा",
       "tur_specific": {
         "national_id_value": "तुर्की पहचान संख्या"
       },
@@ -934,7 +983,7 @@
       },
       "jpn_specific": {
         "invalid_national_id_value": "कृपया मान्य \"मेरा नंबर\" / निवासी रिकॉर्ड कोड दर्ज करें",
-        "required_national_id_value": ""
+        "required_national_id_value": "कृपया अपना \"माय नंबर\" / निवासी रिकॉर्ड कोड दर्ज करें"
       },
       "ken_specific": {
         "invalid_other": "कृपया मान्य एलियन कार्ड संख्या दर्ज करें",
@@ -1012,7 +1061,7 @@
       "too_short_postcode": "पिन कोड बहुत छोटा है",
       "tur_specific": {
         "invalid_national_id_value": "कृपया एक मान्य तुर्की आईडी संख्या दर्ज करें",
-        "required_national_id_value": ""
+        "required_national_id_value": "कृपया अपना तुर्की ID नंबर दर्ज करें"
       },
       "usa_specific": {
         "invalid_ssn": "कृपया मान्य SSN डालें",
@@ -1071,6 +1120,25 @@
     "step_title": "अपने दस्तावेज पर हस्ताक्षर करें",
     "subtitle": "यूरोपीय नियमों के अनुसार अपनी पहचान की पुष्टि करने के लिए, आपको एक दस्तावेज़ को डिजिटल रूप से हस्ताक्षर करना होगा।",
     "title": "अपने डिजिटल हस्ताक्षर बनाएं और उपयोग करें"
+  },
+  "retry": {
+    "button": {
+      "generic_selfie_issue": "फिर से कोशिश करें"
+    },
+    "description": {
+      "default": "कृपया फिर से कोशिश करें",
+      "expired_document": "कृपया एक मान्य फ़ोटो आईडी के साथ फिर से कोशिश करें और पक्का करें कि आपकी जानकारी साफ़-साफ़ दिख रही है",
+      "generic_document_issue": "कृपया एक मान्य फ़ोटो आईडी के साथ फिर से कोशिश करें और पक्का करें कि आपकी जानकारी साफ़-साफ़ दिख रही है",
+      "generic_selfie_issue": "कृपया फिर से कोशिश करें और पक्का करें कि आपका चेहरे पर अच्छी रोशनी पड़ रही है और वह दिख रहा है",
+      "unaccepted_document": "कृपया एक मान्य फ़ोटो आईडी के साथ फिर से कोशिश करें और पक्का करें कि आपकी जानकारी साफ़-साफ़ दिख रही है"
+    },
+    "headline": {
+      "default": "एक समस्या थी",
+      "expired_document": "आपके डॉक्यूमेंट की समय-अवधि खत्म हो गई है",
+      "generic_document_issue": "आपके दस्तावेज़ में एक समस्या थी",
+      "generic_selfie_issue": "आपकी सेल्फी के साथ एक समस्या थी",
+      "unaccepted_document": "स्वीकार नहीं किए जाने वाले डॉक्यूमेंट"
+    }
   },
   "retry_feedback": {
     "button_primary": "फिर से कोशिश करें"
@@ -1134,7 +1202,7 @@
     "info_link_expire": "एक घंटे बाद आपका लिंक काम नहीं करेगा",
     "info_link_window": "अपना मोबाइल इस्तेमाल करते समय इस विंडो को खुला रखें",
     "link": "दूसरी विधि आजमाएं",
-    "subtitle": "हमने %{number} पर एक सुरक्षित लिंक भेजा है",
+    "subtitle": "हमने <number></number> पर एक सुरक्षित लिंक भेजा है",
     "subtitle_minutes": "इसे मिलने में कुछ मिनट लग सकते हैं",
     "title": "अपना मोबाइल चेक करें"
   },

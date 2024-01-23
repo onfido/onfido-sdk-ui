@@ -134,7 +134,7 @@
       "manual_fallback_passport": "Maak een foto van de fotopagina van uw paspoort",
       "manual_fallback_residence_permit_back": "Maak een foto van de achterkant van uw verblijfsvergunning",
       "manual_fallback_residence_permit_front": "Maak een foto van de voorkant van uw verblijfsvergunning",
-      "position_generic_document_back": "",
+      "position_generic_document_back": "Plaats de achterkant van uw document in het kader",
       "position_generic_document_front": "",
       "position_identity_card_back": "Plaats de achterkant van uw kaart in het kader",
       "position_identity_card_front": "Plaats de voorkant van uw kaart in het kader",
@@ -260,7 +260,7 @@
     "button_pension_property_statement_letter_detail": "Pensioenoverzicht of brief en Eigendomsbelasting overzicht of brief",
     "button_permit": "Verblijfsvergunning",
     "button_permit_detail": "Voor- en achterkant",
-    "button_tax_letter": "Brief gemeentelijke belastingen",
+    "button_tax_letter": "Brief van de lokale overheid over belasting",
     "extra_estatements_ok": "Elektronische afschriften geaccepteerd",
     "extra_no_mobile": "Sorry, geen mobiele telefoon rekeningen",
     "list_accessibility": "Document die u kunt gebruiken voor het verifiëren van uw identiteit",
@@ -309,7 +309,7 @@
     "title_pension_property_statement_letter": "Verklaring of brief indienen",
     "title_permit_back": "Verzend verblijfsvergunning (achterkant)",
     "title_permit_front": "Verzend verblijfsvergunning (voorkant)",
-    "title_tax_letter": "Brief indienen"
+    "title_tax_letter": "Dien Lokale Overheidsbelastingbrief in"
   },
   "doc_video_capture": {
     "button_primary_fallback": "Volgende stap",
@@ -421,6 +421,11 @@
     "title": "Ontvang uw veilige link",
     "url_field_label": "Kopieer de link naar uw mobiele telefoon"
   },
+  "interactive_task": {
+    "waiting": {
+      "title_5": "Media uploaden..."
+    }
+  },
   "livenessV2": {
     "error_reload_instructions": "Laad de instructies opnieuw",
     "intro_note_no1": "Plaats eerst uw gezicht in het kader",
@@ -460,26 +465,48 @@
       "success": "Scan succesvol gemaakt"
     }
   },
+  "nfc_scan_error_can": {
+    "primary_button": "Toegangsverificatie",
+    "subtitle": "U heeft het maximale aantal pogingen bereikt om uw CAN-nummer in te voeren"
+  },
+  "nfc_scan_error_can:title": "Maximaal aantal pogingen bereikt",
   "otp": {
     "code_input": {
       "error": {
+        "code_expired": "Uw code is verlopen, vraag alstublieft een nieuwe aan.",
+        "code_invalid": "Verkeerde code ingevoerd, probeer het opnieuw.",
         "technical": "Er is een technische fout opgetreden, probeer het later opnieuw",
+        "too_many_attempts": "U heeft deze code te vaak geprobeerd, vraag alstublieft een nieuwe aan.",
         "wrong_code": "Verkeerde code ingevoerd, probeer het opnieuw"
       },
-      "intro": "De code die naar uw telefoonnummer is verzonden, is 5 minuten actief",
+      "intro": "U heeft 5 minuten om de code te valideren die via SMS is verzonden naar <phonenumber></phonenumber>",
       "resend": {
-        "cta": "Opnieuw verzenden",
-        "label": "Verzonden code (tot {limit})"
+        "cta": "Vraag een nieuwe code aan",
+        "cta_timeout": "Vraag een nieuwe code aan (<timeout></timeout> seconden)",
+        "label": "Verzonden code",
+        "tracker": "<remaining></remaining> van <limit></limit>"
       },
       "title": "Eenmalig Wachtwoord"
+    },
+    "error": {
+      "cta": "Ga terug",
+      "subtitle": "Wacht alstublieft een paar seconden en probeer het opnieuw",
+      "title": "Iets ging verkeerd"
+    },
+    "failure": {
+      "cta": "Doorgaan",
+      "subtitle": "We kunnen uw telefoonnummer niet langer verifiëren",
+      "title": "Toegestane pogingen overschreden"
     },
     "send_code": {
       "cta": "Stuur code",
       "error": {
+        "invalid_phone_number": "Geef een geldig telefoonnummer op.",
         "limit": "U heeft de limiet van verzonden SMS bereikt",
         "technical": "Er is een technische fout opgetreden, probeer het later opnieuw"
       },
-      "intro": "Om uw telefoonnummer te verifiëren, gaan we u een eenmalige code sturen om in te voeren op het volgende scherm.",
+      "input_label": "Telefoonnummer",
+      "intro": "Om uw telefoonnummer te verifiëren, vragen we u om een eenmalig wachtwoord in te voeren.",
       "title": "Eenmalig Wachtwoord"
     }
   },
@@ -504,99 +531,123 @@
   },
   "permission_recovery": {
     "android": {
+      "browser_settings": {
+        "title": "Oplossing 1: Browservoorkeuren"
+      },
       "device_settings": {
         "list_item_1": "Open op uw apparaat de <strong>Instellingen</strong> app",
         "list_item_2": "Tik op <strong>Apps</strong>",
-        "list_item_3": "Tik op [BROWSER_ICON]. Als je het niet kunt vinden, tik dan op <strong>Bekijk alle apps</strong> of <strong>Beheer apps</strong> en selecteer je browser-app",
+        "list_item_3": "Tik op <browser_icon></browser_icon>. Als je het niet kunt vinden, tik dan op <strong>Bekijk alle apps</strong> of <strong>Beheer apps</strong> en selecteer je browser-app",
         "list_item_4": "Tik op <strong>Toestemmingen</strong>",
         "list_item_5_cam": "Tik op <strong>Camera</strong> en selecteer <strong>Toestaan</strong>",
         "list_item_5_mic": "Tik op <strong>Microfoon</strong> en selecteer <strong>Toestaan</strong>",
-        "list_item_6": "Kom terug naar deze pagina en tik op de knop <strong>Ik heb de wijzigingen aangebracht</strong>"
+        "list_item_6": "Kom terug naar deze pagina en tik op de <strong>Pagina vernieuwen</strong> knop",
+        "title": "Oplossing 2: Apparaatinstellingen"
+      },
+      "refresh_page": {
+        "list_item_1_both": "Tik op de <strong>Vernieuw de pagina</strong> knop. Er zal opnieuw gevraagd worden om toegang tot de camera en microfoon te verlenen. Wanneer de pop-up verschijnt, selecteer <strong>Toestaan</strong> (of <strong>OK</strong>)",
+        "list_item_1_cam": "Tik op de <strong>Vernieuw de pagina</strong> knop. Er zal je gevraagd worden om opnieuw toegang tot de camera te geven. Wanneer de pop-up verschijnt, selecteer <strong>Toestaan</strong> (of <strong>OK</strong>)",
+        "list_item_1_mic": "Tik op de <strong>Pagina vernieuwen</strong> knop. Er zal je gevraagd worden om opnieuw toegang tot de microfoon te verlenen. Wanneer de pop-up verschijnt, selecteer <strong>Toestaan</strong> (of <strong>OK</strong>)"
       }
     },
     "android_chrome": {
       "browser_settings": {
-        "list_item_1": "In uw browser tikt u op het slotpictogram [LOCK_ICON] in de adresbalk",
+        "list_item_1": "In uw browser tikt u op het instellingenpictogram <settings_icon_chrome></settings_icon_chrome> in de adresbalk",
         "list_item_2": "Tik op <strong>Toestemmingen</strong>",
         "list_item_3_cam": "Activeer de schakelaar naast <strong>Camera</strong>",
         "list_item_3_mic": "Activeer de schakelaar naast <strong>Microfoon</strong>",
-        "list_item_4": "Kom terug naar deze pagina en tik op de knop <strong>Ik heb de wijzigingen aangebracht</strong>"
+        "list_item_4": "Kom terug naar deze pagina en tik op de <strong>Pagina vernieuwen</strong> knop"
       }
     },
     "android_firefox": {
       "browser_settings": {
-        "list_item_1": "In uw browser tikt u op het slotpictogram [LOCK_ICON] in de adresbalk",
+        "list_item_1": "In uw browser tikt u op het slotpictogram <lock_icon></lock_icon> in de adresbalk",
         "list_item_2_cam": "Tik op <strong>Geblokkeerd</strong> naast <strong>Camera</strong> om te schakelen naar <strong>Toegestaan</strong>",
         "list_item_2_mic": "Tik op <strong>Geblokkeerd</strong> naast <strong>Microfoon</strong> om te schakelen naar <strong>Toegestaan</strong>",
-        "list_item_3": "Kom terug naar deze pagina en tik op de knop <strong>Ik heb de wijzigingen aangebracht</strong>"
+        "list_item_3": "Kom terug naar deze pagina en tik op de <strong>Pagina vernieuwen</strong> knop",
+        "title": "Oplossing 2: Browserinstellingen"
+      },
+      "device_settings": {
+        "title": "Oplossing 3: Instellingen van het apparaat"
+      },
+      "refresh_page": {
+        "title": "Oplossing 1: Ververs de pagina"
       }
     },
     "android_generic": {
       "browser_settings": {
-        "list_item_1": "Open in uw browser de website-instellingen. Dit is vaak een slotpictogram [LOCK_ICON] in de adresbalk",
+        "list_item_1": "Open in uw browser de website-instellingen. Dit is vaak een slotpictogram <lock_icon></lock_icon> in de adresbalk",
         "list_item_2": "Vind de sectie over toestemmingen",
         "list_item_3_cam": "Schakel de <strong>Camera</strong> toestemmingen in",
         "list_item_3_mic": "Schakel de <strong>Microfoon</strong> toestemmingen in",
-        "list_item_4": "Kom terug naar deze pagina en tik op de knop <strong>Ik heb de wijzigingen aangebracht</strong>"
+        "list_item_4": "Kom terug naar deze pagina en tik op de <strong>Pagina vernieuwen</strong> knop"
       }
     },
     "android_samsung": {
       "browser_settings": {
-        "list_item_1": "In uw browser tikt u op het slotpictogram [LOCK_ICON] in de adresbalk",
+        "list_item_1": "In uw browser tikt u op het slotpictogram <lock_icon></lock_icon> in de adresbalk",
         "list_item_2_cam": "Activeer de schakelaar naast <strong>Camera</strong>",
         "list_item_2_mic": "Activeer de schakelaar naast <strong>Microfoon</strong>",
-        "list_item_3": "Kom terug naar deze pagina en tik op de knop <strong>Ik heb de wijzigingen aangebracht</strong>"
+        "list_item_3": "Kom terug naar deze pagina en tik op de <strong>Pagina vernieuwen</strong> knop"
       }
     },
     "button_primary": "Verversen",
+    "desktop": {
+      "browser_settings": {
+        "title": "Oplossing 1: Browserinstellingen"
+      },
+      "device_settings": {
+        "title": "Oplossing 2: Apparaatinstellingen"
+      }
+    },
     "desktop_chrome": {
       "browser_settings": {
-        "list_item_1": "Klik in uw browser op het slotpictogram [LOCK_ICON] in de adresbalk",
+        "list_item_1": "In uw browser, klik op het instellingenpictogram <settings_icon_chrome></settings_icon_chrome> in de adresbalk",
         "list_item_2_cam": "Activeer de schakelaar naast <strong>Camera</strong>",
         "list_item_2_mic": "Activeer de schakelaar naast <strong>Microfoon</strong>",
-        "list_item_3": "Kom terug naar deze pagina en klik op de knop <strong>Ik heb de wijzigingen aangebracht</strong>"
+        "list_item_3": "Kom terug naar deze pagina en klik op de <strong>Pagina vernieuwen</strong> knop"
       }
     },
     "desktop_edge": {
       "browser_settings": {
-        "list_item_1": "Klik in uw browser op het slotpictogram [LOCK_ICON] in de adresbalk",
+        "list_item_1": "Klik in uw browser op het slotpictogram <lock_icon></lock_icon> in de adresbalk",
         "list_item_2_cam": "Klik op het dropdown-menu naast <strong>Camera</strong> en selecteer <strong>Toestaan</strong>",
         "list_item_2_mic": "Klik op het dropdown-menu naast <strong>Microfoon</strong> en selecteer <strong>Toestaan</strong>",
-        "list_item_3": "Kom terug naar deze pagina en klik op de knop <strong>Ik heb de wijzigingen aangebracht</strong>"
+        "list_item_3": "Kom terug naar deze pagina en klik op de <strong>Pagina vernieuwen</strong> knop"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
-        "list_item_1": "Klik in uw browser op het instellingenpictogram [SETTINGS_ICON_FIREFOX] in de adresbalk",
+        "list_item_1": "Klik in uw browser op het instellingenpictogram <settings_icon_firefox></settings_icon_firefox> in de adresbalk",
         "list_item_2_cam": "Klik op <strong>Geblokkeerd</strong> naast <strong>Gebruik de camera</strong>",
         "list_item_2_mic": "Klik op <strong>Geblokkeerd</strong> naast <strong>Gebruik de microfoon</strong>",
-        "list_item_3": "Kom terug naar deze pagina en klik op de knop <strong>Ik heb de wijzigingen aangebracht</strong>"
+        "list_item_3": "Kom terug naar deze pagina en klik op de <strong>Pagina vernieuwen</strong> knop"
       }
     },
     "desktop_generic": {
       "browser_settings": {
-        "list_item_1": "Open in uw browser de website-instellingen. Dit is vaak een slotpictogram [LOCK_ICON] in de adresbalk",
+        "list_item_1": "Open in uw browser de website-instellingen. Dit is vaak een slotpictogram <lock_icon></lock_icon> in de adresbalk",
         "list_item_2": "Vind de sectie over toestemmingen",
         "list_item_3_cam": "Schakel de <strong>Camera</strong> toestemmingen in",
         "list_item_3_mic": "Schakel de <strong>Microfoon</strong> toestemmingen in",
-        "list_item_4": "Kom terug naar deze pagina en klik op de knop <strong>Ik heb de wijzigingen aangebracht</strong>"
+        "list_item_4": "Kom terug naar deze pagina en klik op de <strong>Pagina vernieuwen</strong> knop"
       },
       "device_settings": {
         "list_item_1": "Open op uw computer uw <strong>Instellingen</strong>",
         "list_item_2": "Zoek het gedeelte over machtigingen (meestal onder <strong>Privacy</strong>)",
-        "list_item_3_cam": "Schakel de <strong>Camera</strong> toestemmingen in voor [BROWSER_ICON]",
-        "list_item_3_mic": "Schakel de <strong>Microfoon</strong> toestemmingen in voor [BROWSER_ICON]",
+        "list_item_3_cam": "Schakel de <strong>Camera</strong> toestemmingen in voor <browser_icon></browser_icon>",
+        "list_item_3_mic": "Schakel de <strong>Microfoon</strong> toestemmingen in voor <browser_icon></browser_icon>",
         "list_item_4": "Herstart indien nodig uw browser en keer terug naar deze pagina"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "Op uw computer, klik op het Apple-menu [APPLE_ICON] en selecteer <strong>Systeeminstellingen</strong> (of <strong>Systeemvoorkeuren</strong>)",
+        "list_item_1": "Op uw computer, klik op het Apple-menu <apple_icon></apple_icon> en selecteer <strong>Systeeminstellingen</strong> (of <strong>Systeemvoorkeuren</strong>)",
         "list_item_2": "Klik op <strong>Privacy & Beveiliging</strong> (of <strong>Beveiliging & Privacy</strong>) in de zijbalk",
         "list_item_3": "Klik op <strong>Later</strong> in de pop-up",
-        "list_item_3_cam": "Klik op <strong> Camera </strong> en activeer de schakelaar (of het selectievakje) naast [BROWSER_ICON]",
+        "list_item_3_cam": "Klik op <strong> Camera </strong> en activeer de schakelaar (of het selectievakje) naast <browser_icon></browser_icon>",
         "list_item_4": "Klik op <strong>Stoppen & Opnieuw openen</strong> in de pop-up en keer terug naar deze pagina",
-        "list_item_4_mic": "Klik op <strong>Microfoon</strong> en activeer de schakelaar (of het selectievakje) naast [BROWSER_ICON]"
+        "list_item_4_mic": "Klik op <strong>Microfoon</strong> en activeer de schakelaar (of het selectievakje) naast <browser_icon></browser_icon>"
       }
     },
     "desktop_safari": {
@@ -604,40 +655,44 @@
         "list_item_1": "Klik met de rechtermuisknop in de adresbalk van uw browser en selecteer <strong>Instellingen</strong>",
         "list_item_2_cam": "Klik op het dropdown-menu naast <strong>Camera</strong> en selecteer <strong>Toestaan</strong>",
         "list_item_2_mic": "Klik op het dropdown-menu naast <strong>Microfoon</strong> en selecteer <strong>Toestaan</strong>",
-        "list_item_3": "Kom terug naar deze pagina en klik op de knop <strong>Ik heb de wijzigingen aangebracht</strong>"
+        "list_item_3": "Kom terug naar deze pagina en klik op de <strong>Pagina vernieuwen</strong> knop"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "Op uw computer, klik op het Windows-menu [WINDOWS_ICON] en selecteer <strong>Instellingen</strong> [SETTINGS_ICON_WINDOWS]",
+        "list_item_1": "Op uw computer, klik op het Windows-menu <windows_icon></windows_icon> en selecteer <strong>Instellingen</strong> <settings_icon_windows></settings_icon_windows>",
         "list_item_2": "Klik op <strong>Privacy</strong> (of <strong>Privacy & Beveiliging</strong>)",
-        "list_item_3_cam": "Klik op <strong>Camera</strong> onder <strong>App-machtigingen</strong> en activeer de schakelaar naast [BROWSER_ICON] ",
-        "list_item_3_mic": "Klik op <strong>Microfoon</strong> onder <strong>App-machtigingen</strong> en activeer de schakelaar naast [BROWSER_ICON]",
+        "list_item_3_cam": "Klik op <strong>Camera</strong> onder <strong>App-machtigingen</strong> en activeer de schakelaar naast <browser_icon></browser_icon>",
+        "list_item_3_mic": "Klik op <strong>Microfoon</strong> onder <strong>App-machtigingen</strong> en activeer de schakelaar naast <browser_icon></browser_icon>",
         "list_item_4": "Herstart indien nodig uw browser en keer terug naar deze pagina"
       }
     },
     "info": "Herstellen",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "Tik op de knop <strong>Ik heb de wijzigingen aangebracht</strong>. Er wordt opnieuw gevraagd om toegang tot de camera en microfoon in te schakelen. Wanneer de pop-up verschijnt, selecteer <strong>Toestaan</strong> (of <strong>OK</strong>)",
-        "list_item_1_cam": "Tik op de knop <strong>Ik heb de wijzigingen aangebracht</strong>. Er wordt opnieuw gevraagd om toegang tot de camera in te schakelen. Wanneer de pop-up verschijnt, selecteer <strong>Toestaan</strong> (of <strong>OK</strong>)",
-        "list_item_1_mic": "Tik op de knop <strong>Ik heb de wijzigingen aangebracht</strong>. Er wordt opnieuw gevraagd om toegang tot de microfoon in te schakelen. Wanneer de pop-up verschijnt, selecteer <strong>Toestaan</strong> (of <strong>OK</strong>)"
+        "list_item_1_both": "Tik op de <strong>Vernieuw de pagina</strong> knop. Er zal opnieuw gevraagd worden om toegang tot de camera en microfoon te verlenen. Wanneer de pop-up verschijnt, selecteer <strong>Toestaan</strong> (of <strong>OK</strong>)",
+        "list_item_1_cam": "Tik op de <strong>Vernieuw de pagina</strong> knop. Er zal je gevraagd worden om opnieuw toegang tot de camera te geven. Wanneer de pop-up verschijnt, selecteer <strong>Toestaan</strong> (of <strong>OK</strong>)",
+        "list_item_1_mic": "Tik op de <strong>Pagina vernieuwen</strong> knop. Er zal je gevraagd worden om opnieuw toegang tot de microfoon te verlenen. Wanneer de pop-up verschijnt, selecteer <strong>Toestaan</strong> (of <strong>OK</strong>)"
       },
       "device_settings": {
         "list_item_1": "Open op uw apparaat de <strong>Instellingen</strong> app",
-        "list_item_2": "Scroll door de lijst en tik op [BROWSER_ICON]",
+        "list_item_2": "Scroll door de lijst en tik op <browser_icon></browser_icon>",
         "list_item_3_cam": "Activeer de schakelaar naast <strong>Camera</strong>",
         "list_item_3_mic": "Activeer de schakelaar naast <strong>Microfoon</strong>",
-        "list_item_4": "Kom terug naar deze pagina en tik op de knop <strong>Ik heb de wijzigingen aangebracht</strong>"
+        "list_item_4": "Kom terug naar deze pagina en tik op de <strong>Pagina vernieuwen</strong> knop",
+        "title": "Oplossing 2: Apparaatinstellingen"
+      },
+      "refresh_page": {
+        "title": "Oplossing 1: Ververs de pagina"
       }
     },
     "ios_safari": {
       "device_settings": {
         "list_item_1": "Open op uw apparaat de <strong>Instellingen</strong> app",
-        "list_item_2": "Scroll door de lijst en tik op [BROWSER_ICON]",
+        "list_item_2": "Scroll door de lijst en tik op <browser_icon></browser_icon>",
         "list_item_3_cam": "Tik op <strong>Camera</strong> en selecteer <strong>Toestaan</strong>",
         "list_item_3_mic": "Tik op <strong>Microfoon</strong> en selecteer <strong>Toestaan</strong>",
-        "list_item_4": "Kom terug naar deze pagina en tik op de knop <strong>Ik heb de wijzigingen aangebracht</strong>"
+        "list_item_4": "Kom terug naar deze pagina en tik op de <strong>Pagina vernieuwen</strong> knop"
       }
     },
     "list_header_both": "Volg deze stappen om de toegang voor beide te herstellen:",
@@ -654,13 +709,7 @@
     "title_cam": "Toegang tot camera is geweigerd",
     "title_mic": "Toegang tot microfoon geweigerd",
     "web": {
-      "browser_settings": {
-        "title": "Oplossing 1: Browserinstellingen"
-      },
-      "button_primary": "Ik heb de wijzigingen aangebracht",
-      "device_settings": {
-        "title": "Oplossing 2: Apparaatinstellingen"
-      },
+      "button_primary": "Vernieuw de pagina",
       "disclaimer": "Het identiteitsverificatieproces kan opnieuw starten. Onze excuses voor het eventuele ongemak"
     }
   },
@@ -849,7 +898,7 @@
       "prt_specific": {
         "national_id_value": "Btw nummer"
       },
-      "town": "Stad",
+      "town": "Stad/Dorp",
       "tur_specific": {
         "national_id_value": "Turks identificatienummer"
       },
@@ -934,7 +983,7 @@
       },
       "jpn_specific": {
         "invalid_national_id_value": "Voer een geldige \"Mijn nummer\" / Resident Record-code in",
-        "required_national_id_value": ""
+        "required_national_id_value": "Vul alstublieft uw \"Mijn nummer\" / Inwoner Record code in"
       },
       "ken_specific": {
         "invalid_other": "Voer een geldig Alien Card-nummer in",
@@ -1012,7 +1061,7 @@
       "too_short_postcode": "Postcode is te kort",
       "tur_specific": {
         "invalid_national_id_value": "Voer een geldig Turks ID-nummer in",
-        "required_national_id_value": ""
+        "required_national_id_value": "Vul alstublieft uw Turkse ID-nummer in"
       },
       "usa_specific": {
         "invalid_ssn": "Voer een geldig SSN in",
@@ -1071,6 +1120,25 @@
     "step_title": "Onderteken uw document",
     "subtitle": "Om uw identiteit te bevestigen in overeenstemming met Europese regels, moet u een document digitaal ondertekenen.",
     "title": "Maak en gebruik uw digitale handtekening"
+  },
+  "retry": {
+    "button": {
+      "generic_selfie_issue": "Probeer het opnieuw"
+    },
+    "description": {
+      "default": "Probeer het opnieuw",
+      "expired_document": "Probeer het opnieuw met een geldig identiteitsbewijs met foto en zorg ervoor dat uw gegevens duidelijk leesbaar zijn",
+      "generic_document_issue": "Probeer het opnieuw met een geldig identiteitsbewijs met foto en zorg ervoor dat uw gegevens duidelijk leesbaar zijn",
+      "generic_selfie_issue": "Probeer het opnieuw en zorg ervoor dat uw gezicht goed zichtbaar en verlicht is",
+      "unaccepted_document": "Probeer het opnieuw met een geldig identiteitsbewijs met foto en zorg ervoor dat uw gegevens duidelijk leesbaar zijn"
+    },
+    "headline": {
+      "default": "Er was een probleem",
+      "expired_document": "Uw document is verlopen",
+      "generic_document_issue": "Er was een probleem met uw document",
+      "generic_selfie_issue": "Er was een probleem met je selfie",
+      "unaccepted_document": "Niet-geaccepteerd document"
+    }
   },
   "retry_feedback": {
     "button_primary": "Probeer het opnieuw"
@@ -1134,7 +1202,7 @@
     "info_link_expire": "Uw link verloopt over een uur",
     "info_link_window": "Houd dit venster open als u uw mobiele telefoon gebruikt",
     "link": "Probeer een andere methode",
-    "subtitle": "We hebben een beveiligde link gestuurd naar %{number}",
+    "subtitle": "We hebben een beveiligde link gestuurd naar <number></number>",
     "subtitle_minutes": "Het kan een paar minuten duren voordat u deze ontvangt",
     "title": "Check uw mobiele telefoon"
   },
@@ -1242,10 +1310,10 @@
   },
   "workflow_erros": {
     "generic_title": "Er was een server fout!",
-    "no_workflow_run_id": "Workflow run ID is niet ingesteld.",
+    "no_workflow_run_id": "De ID van de workflow-run is niet ingesteld.",
     "reload_app": "Probeer de app opnieuw te laden en probeer het opnieuw.",
-    "task_not_completed": "Kon de workflow taak niet voltooien.",
-    "task_not_retrieved": "Kon geen workflow taak ophalen.",
-    "task_not_supported": "De taak wordt momenteel niet ondersteund"
+    "task_not_completed": "Het was niet mogelijk om de workflow taak te voltooien.",
+    "task_not_retrieved": "Het was niet mogelijk om de workflow taak op te halen.",
+    "task_not_supported": "Op dit moment wordt de taak niet ondersteund"
   }
 }

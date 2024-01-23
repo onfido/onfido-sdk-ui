@@ -10,9 +10,43 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 
-## [13.6.1] - 2023-10-24
+## [13.8.2] - 2024-01-23
 
 ### Changed
+
+## [13.8.1] - 2024-01-17
+
+### Fixed
+
+- Removed check for audio permission in webview.
+
+## [13.8.0] - 2024-01-02
+
+### Changed
+
+- Removed migrate_locales scripts.
+- Removed performance benchmark
+
+### Fixed
+
+- Fix validation for Indonesia ID number
+- Fix National ID Number semantic type and display
+
+## [13.7.0] - 2023-11-08
+
+### Added
+
+- Added `permissions_unavailable` error type to the `onError` callback
+
+### Changed
+
+- Update camera icon for Document upload
+
+### Fixed
+
+- Disable Picture-in-Picture tooltip during Face capture
+
+## [13.6.1] - 2023-10-24
 
 ### Fixed
 
@@ -1652,7 +1686,11 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/13.6.1...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/13.8.2...development
+[13.8.2]: https://github.com/onfido/onfido-sdk-ui/compare/13.8.1...13.8.2
+[13.8.1]: https://github.com/onfido/onfido-sdk-ui/compare/13.8.0...13.8.1
+[13.8.0]: https://github.com/onfido/onfido-sdk-ui/compare/13.7.0...13.8.0
+[13.7.0]: https://github.com/onfido/onfido-sdk-ui/compare/13.6.1...13.7.0
 [13.6.1]: https://github.com/onfido/onfido-sdk-ui/compare/13.6.0...13.6.1
 [13.6.0]: https://github.com/onfido/onfido-sdk-ui/compare/13.5.1...13.6.0
 [13.5.1]: https://github.com/onfido/onfido-sdk-ui/compare/13.5.0...13.5.1

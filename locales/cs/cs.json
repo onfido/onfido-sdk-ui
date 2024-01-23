@@ -134,7 +134,7 @@
       "manual_fallback_passport": "Vyfoť stránku s fotografií v pasu",
       "manual_fallback_residence_permit_back": "Vyfoť přední stranu povolení k pobytu",
       "manual_fallback_residence_permit_front": "Vyfoť přední stranu povolení k pobytu",
-      "position_generic_document_back": "",
+      "position_generic_document_back": "Umístěte zadní stranu dokumentu do rámečku",
       "position_generic_document_front": "",
       "position_identity_card_back": "Umísti zadní stranu občanského průkazu do rámečku",
       "position_identity_card_front": "Umísti přední stranu občanského průkazu do rámečku",
@@ -246,7 +246,7 @@
     "button_identity_document_with_address_back": "Identifikační dokument s adresou (zadní strana)",
     "button_identity_document_with_address_detail": "Vydáno vládním orgánem",
     "button_identity_document_with_address_front": "Identifikační dokument s adresou (přední strana)",
-    "button_insurance_statement": "Prohlášení o pojištění",
+    "button_insurance_statement": "Výpis z pojištění",
     "button_insurance_statement_detail": "Vydané soukromou pojišťovnou nebo makléřskou společností",
     "button_license": "Řidičský průkaz",
     "button_license_detail": "Přední a zadní strana",
@@ -260,7 +260,7 @@
     "button_pension_property_statement_letter_detail": "Výpis z penzijního spoření nebo dopis a Výpis z daně z nemovitostí nebo dopis",
     "button_permit": "Povolení k pobytu",
     "button_permit_detail": "Přední a zadní strana",
-    "button_tax_letter": "Dopis o dani",
+    "button_tax_letter": "Dopis místní vlády o daních",
     "extra_estatements_ok": "Přijímání elektronických výpisů",
     "extra_no_mobile": "Litujeme, účty za mobilní telefon nepřijímáme",
     "list_accessibility": "Doklady, které můžete použít k ověření své totožnosti",
@@ -309,7 +309,7 @@
     "title_pension_property_statement_letter": "Odeslat prohlášení nebo dopis",
     "title_permit_back": "Předložit povolení k pobytu (zadní stranu)",
     "title_permit_front": "Předložit povolení k pobytu (přední stranu)",
-    "title_tax_letter": "Odeslat dopis"
+    "title_tax_letter": "Odeslat dopis místní vládě o daních"
   },
   "doc_video_capture": {
     "button_primary_fallback": "Další krok",
@@ -421,6 +421,11 @@
     "title": "Získejte zabezpečený odkaz",
     "url_field_label": "Zkopírujte odkaz do mobilního prohlížeče"
   },
+  "interactive_task": {
+    "waiting": {
+      "title_5": "Nahrávání médií..."
+    }
+  },
   "livenessV2": {
     "error_reload_instructions": "Pokyny pro opětovné nahrávání",
     "intro_note_no1": "Nejprve umístěte obličej do záběru",
@@ -460,26 +465,48 @@
       "success": "Úspěšné skenování"
     }
   },
+  "nfc_scan_error_can": {
+    "primary_button": "Ukončení ověření",
+    "subtitle": "Dosáhli jste maximálního počtu pokusů o zadání vašeho čísla CAN"
+  },
+  "nfc_scan_error_can:title": "Maximální počet pokusů dosažen",
   "otp": {
     "code_input": {
       "error": {
+        "code_expired": "Váš kód vypršel, požádejte prosím o nový.",
+        "code_invalid": "Byl zadán nesprávný kód, zkuste to prosím znovu.",
         "technical": "Došlo k technické chybě, zkuste to prosím později",
+        "too_many_attempts": "Tento kód jste zkusili příliš mnohokrát, vyžádejte si prosím nový.",
         "wrong_code": "Zadán nesprávný kód, zkuste to prosím znovu"
       },
-      "intro": "Kód odeslaný na váš telefonní číslo bude aktivní 5 minut",
+      "intro": "Máte 5 minut na ověření kódu zaslaného prostřednictvím SMS na <phonenumber></phonenumber>",
       "resend": {
-        "cta": "Znovu odeslat",
-        "label": "Odeslaný kód (až do {limit})"
+        "cta": "Vyžádat nový kód",
+        "cta_timeout": "Vyžádat nový kód (<timeout></timeout> sekund)",
+        "label": "Kód byl zaslán",
+        "tracker": "<remaining></remaining> z <limit></limit>"
       },
       "title": "Jednorázové heslo"
+    },
+    "error": {
+      "cta": "Jít zpět",
+      "subtitle": "Prosím počkejte několik sekund a zkuste to znovu",
+      "title": "Něco se pokazilo"
+    },
+    "failure": {
+      "cta": "Pokračovat",
+      "subtitle": "Již nemůžeme ověřit vaše telefonní číslo",
+      "title": "Překročen povolený počet pokusů"
     },
     "send_code": {
       "cta": "Pošlete kód",
       "error": {
+        "invalid_phone_number": "Prosím, zadejte platné telefonní číslo.",
         "limit": "Dosáhli jste limitu odeslaných SMS",
         "technical": "Došlo k technické chybě, zkuste to prosím později"
       },
-      "intro": "Abychom ověřili vaše telefonní číslo, pošleme vám jednorázový kód, který zadáte na příští obrazovce.",
+      "input_label": "Telefonní číslo",
+      "intro": "Pro ověření vašeho telefonního čísla vás požádáme, abyste zadali jednorázové heslo.",
       "title": "Jednorázové heslo"
     }
   },
@@ -504,99 +531,123 @@
   },
   "permission_recovery": {
     "android": {
+      "browser_settings": {
+        "title": "Řešení 1: Nastavení prohlížeče"
+      },
       "device_settings": {
         "list_item_1": "Na svém zařízení otevřete aplikaci <strong>Nastavení</strong>",
         "list_item_2": "Klepněte na <strong>Aplikace</strong>",
-        "list_item_3": "Klepněte na [BROWSER_ICON]. Pokud jej nemůžete najít, klepněte na <strong>Zobrazit všechny aplikace</strong> nebo <strong>Spravovat aplikace</strong> a vyberte aplikaci prohlížeče",
+        "list_item_3": "Klepněte na <browser_icon></browser_icon>. Pokud jej nemůžete najít, klepněte na <strong>Zobrazit všechny aplikace</strong> nebo <strong>Spravovat aplikace</strong> a vyberte aplikaci prohlížeče",
         "list_item_4": "Klepněte na <strong>Oprávnění</strong>",
         "list_item_5_cam": "Klepněte na <strong>Kamera</strong> a vyberte <strong>Povolit</strong>",
         "list_item_5_mic": "Klepněte na <strong>Mikrofon</strong> a vyberte <strong>Povolit</strong>",
-        "list_item_6": "Vraťte se na tuto stránku a klepněte na tlačítko <strong>Provedl jsem změny</strong>"
+        "list_item_6": "Vraťte se na tuto stránku a stiskněte tlačítko <strong>Obnovit stránku</strong>",
+        "title": "Řešení 2: Nastavení zařízení"
+      },
+      "refresh_page": {
+        "list_item_1_both": "Klepněte na tlačítko <strong>Obnovit stránku</strong>. Budete znovu vyzváni k povolení přístupu k kameře a mikrofonu. Když se objeví vyskakovací okno, vyberte <strong>Povolit</strong> (nebo <strong>OK</strong>)",
+        "list_item_1_cam": "Klepněte na tlačítko <strong>Obnovit stránku</strong>. Budete znovu vyzváni k povolení přístupu k fotoaparátu. Když se objeví vyskakovací okno, vyberte <strong>Povolit</strong> (nebo <strong>OK</strong>)",
+        "list_item_1_mic": "Klepněte na tlačítko <strong>Obnovit stránku</strong>. Budete znovu vyzváni k povolení přístupu k mikrofonu. Když se objeví vyskakovací okno, vyberte <strong>Povolit</strong> (nebo <strong>OK</strong>)"
       }
     },
     "android_chrome": {
       "browser_settings": {
-        "list_item_1": "V prohlížeči klepněte na ikonu zámku [LOCK_ICON] v adresním řádku",
+        "list_item_1": "V prohlížeči klepněte na ikonu nastavení <settings_icon_chrome></settings_icon_chrome> v adresním řádku",
         "list_item_2": "Klepněte na <strong>Oprávnění</strong>",
         "list_item_3_cam": "Aktivujte přepínač vedle <strong>Kamery</strong>",
         "list_item_3_mic": "Aktivujte přepínač vedle <strong>Mikrofonu</strong>",
-        "list_item_4": "Vraťte se na tuto stránku a klepněte na tlačítko <strong>Provedl jsem změny</strong>"
+        "list_item_4": "Vraťte se na tuto stránku a stiskněte tlačítko <strong>Obnovit stránku</strong>"
       }
     },
     "android_firefox": {
       "browser_settings": {
-        "list_item_1": "V prohlížeči klepněte na ikonu zámku [LOCK_ICON] v adresním řádku",
+        "list_item_1": "V prohlížeči klepněte na ikonu zámku <lock_icon></lock_icon> v adresním řádku",
         "list_item_2_cam": "Klepněte na <strong>Blokovaná</strong> vedle <strong>Kamery</strong> pro přepnutí na <strong>Povoleno</strong>",
         "list_item_2_mic": "Klepněte na <strong>Blokováno</strong> vedle <strong>Mikrofonu</strong> pro přepnutí na <",
-        "list_item_3": "Vraťte se na tuto stránku a klepněte na tlačítko <strong>Provedl jsem změny</strong>"
+        "list_item_3": "Vraťte se na tuto stránku a stiskněte tlačítko <strong>Obnovit stránku</strong>",
+        "title": "Řešení 2: Nastavení prohlížeče"
+      },
+      "device_settings": {
+        "title": "Řešení 3: Nastavení zařízení"
+      },
+      "refresh_page": {
+        "title": "Řešení 1: Obnovte stránku"
       }
     },
     "android_generic": {
       "browser_settings": {
-        "list_item_1": "V prohlížeči otevřete nastavení webové stránky. To je často ikona zámku [LOCK_ICON] v adresním řádku",
+        "list_item_1": "V prohlížeči otevřete nastavení webové stránky. To je často ikona zámku <lock_icon></lock_icon> v adresním řádku",
         "list_item_2": "Najděte sekci o oprávněních",
         "list_item_3_cam": "Povolte oprávnění pro <strong>Kameru</strong>",
         "list_item_3_mic": "Povolte oprávnění pro <strong>Mikrofon</strong>",
-        "list_item_4": "Vraťte se na tuto stránku a klepněte na tlačítko <strong>Provedl jsem změny</strong>"
+        "list_item_4": "Vraťte se na tuto stránku a stiskněte tlačítko <strong>Obnovit stránku</strong>"
       }
     },
     "android_samsung": {
       "browser_settings": {
-        "list_item_1": "V prohlížeči klepněte na ikonu zámku [LOCK_ICON] v adresním řádku",
+        "list_item_1": "V prohlížeči klepněte na ikonu zámku <lock_icon></lock_icon> v adresním řádku",
         "list_item_2_cam": "Aktivujte přepínač vedle <strong>Kamery</strong>",
         "list_item_2_mic": "Aktivujte přepínač vedle <strong>Mikrofonu</strong>",
-        "list_item_3": "Vraťte se na tuto stránku a klepněte na tlačítko <strong>Provedl jsem změny</strong>"
+        "list_item_3": "Vraťte se na tuto stránku a stiskněte tlačítko <strong>Obnovit stránku</strong>"
       }
     },
     "button_primary": "Obnovit",
+    "desktop": {
+      "browser_settings": {
+        "title": "Řešení 1: Nastavení prohlížeče"
+      },
+      "device_settings": {
+        "title": "Řešení 2: Nastavení zařízení"
+      }
+    },
     "desktop_chrome": {
       "browser_settings": {
-        "list_item_1": "Klikněte v prohlížeči na ikonu zámku [LOCK_ICON] v adresním řádku",
+        "list_item_1": "V prohlížeči klikněte na ikonu nastavení <settings_icon_chrome></settings_icon_chrome> v adresním řádku",
         "list_item_2_cam": "Aktivujte přepínač vedle <strong>Kamery</strong>",
         "list_item_2_mic": "Aktivujte přepínač vedle <strong>Mikrofonu</strong>",
-        "list_item_3": "Vraťte se na tuto stránku a klikněte na tlačítko <strong>Provedl jsem změny</strong>"
+        "list_item_3": "Vraťte se na tuto stránku a klikněte na tlačítko <strong>Obnovit stránku</strong>"
       }
     },
     "desktop_edge": {
       "browser_settings": {
-        "list_item_1": "Klikněte v prohlížeči na ikonu zámku [LOCK_ICON] v adresním řádku",
+        "list_item_1": "Klikněte v prohlížeči na ikonu zámku <lock_icon></lock_icon> v adresním řádku",
         "list_item_2_cam": "Klikněte na rozevírací nabídku vedle <strong>Kamery</strong> a vyberte <strong>Povolit</strong>",
         "list_item_2_mic": "Klikněte na rozevírací nabídku vedle <strong>Mikrofonu</strong> a vyberte <strong>Povolit</strong>",
-        "list_item_3": "Vraťte se na tuto stránku a klikněte na tlačítko <strong>Provedl jsem změny</strong>"
+        "list_item_3": "Vraťte se na tuto stránku a klikněte na tlačítko <strong>Obnovit stránku</strong>"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
-        "list_item_1": "Klikněte v prohlížeči na ikonu nastavení [SETTINGS_ICON_FIREFOX] v adresním řádku",
+        "list_item_1": "Klikněte v prohlížeči na ikonu nastavení <settings_icon_firefox></settings_icon_firefox> v adresním řádku",
         "list_item_2_cam": "Klikněte na <strong>Blokováno</strong> vedle <strong>Použít kameru</strong>",
         "list_item_2_mic": "Klikněte na <strong>Blokováno</strong> vedle <strong>Použít mikrofon</strong>",
-        "list_item_3": "Vraťte se na tuto stránku a klikněte na tlačítko <strong>Provedl jsem změny</strong>"
+        "list_item_3": "Vraťte se na tuto stránku a klikněte na tlačítko <strong>Obnovit stránku</strong>"
       }
     },
     "desktop_generic": {
       "browser_settings": {
-        "list_item_1": "V prohlížeči otevřete nastavení webové stránky. To je často ikona zámku [LOCK_ICON] v adresním řádku",
+        "list_item_1": "V prohlížeči otevřete nastavení webové stránky. To je často ikona zámku <lock_icon></lock_icon> v adresním řádku",
         "list_item_2": "Najděte sekci o oprávněních",
         "list_item_3_cam": "Povolte oprávnění pro <strong>Kameru</strong>",
         "list_item_3_mic": "Povolte oprávnění pro <strong>Mikrofon</strong>",
-        "list_item_4": "Vraťte se na tuto stránku a klikněte na tlačítko <strong>Provedl jsem změny</strong>"
+        "list_item_4": "Vraťte se na tuto stránku a klikněte na tlačítko <strong>Obnovit stránku</strong>"
       },
       "device_settings": {
         "list_item_1": "Na svém počítači otevřete své <strong>Nastavení</strong>",
         "list_item_2": "Najděte sekci o oprávněních (obvykle pod <strong>Ochrana osobních údajů</strong>)",
-        "list_item_3_cam": "Povolte oprávnění pro <strong>Kameru</strong> pro [BROWSER_ICON]",
-        "list_item_3_mic": "Povolte oprávnění pro <strong>Mikrofon</strong> pro [BROWSER_ICON]",
+        "list_item_3_cam": "Povolte oprávnění pro <strong>Kameru</strong> pro <browser_icon></browser_icon>",
+        "list_item_3_mic": "Povolte oprávnění pro <strong>Mikrofon</strong> pro <browser_icon></browser_icon>",
         "list_item_4": "Restartujte svůj prohlížeč, pokud je to nutné, a vraťte se na tuto stránku"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "Na svém počítači klikněte na nabídku Apple [APPLE_ICON] a vyberte <strong>Systémová nastavení</strong> (nebo <strong>Systémové předvolby</strong>)",
+        "list_item_1": "Na svém počítači klikněte na nabídku Apple <apple_icon></apple_icon> a vyberte <strong>Systémová nastavení</strong> (nebo <strong>Systémové předvolby</strong>)",
         "list_item_2": "Klikněte na <strong>Ochrana osobních údajů & Bezpečnost</strong> (nebo <strong>Bezpečnost & Ochrana osobních údajů</strong>) v postranním panelu",
         "list_item_3": "Klikněte na <strong>Později</strong> v otevřeném okně",
-        "list_item_3_cam": "Klikněte na <strong>Kamera</strong> a aktivujte přepínač (nebo zaškrtávací políčko) vedle [BROWSER_ICON]",
+        "list_item_3_cam": "Klikněte na <strong>Kamera</strong> a aktivujte přepínač (nebo zaškrtávací políčko) vedle <browser_icon></browser_icon>",
         "list_item_4": "Klikněte na <strong>Ukončit a znovu otevřít</strong> v otevřeném okně a vraťte se na tuto stránku",
-        "list_item_4_mic": "Klikněte na <strong>Mikrofon</strong> a aktivujte přepínač (nebo zaškrtávací políčko) vedle [BROWSER_ICON]"
+        "list_item_4_mic": "Klikněte na <strong>Mikrofon</strong> a aktivujte přepínač (nebo zaškrtávací políčko) vedle <browser_icon></browser_icon>"
       }
     },
     "desktop_safari": {
@@ -604,40 +655,44 @@
         "list_item_1": "V prohlížeči klikněte pravým tlačítkem myši na adresní řádek a vyberte <strong>Nastavení</strong>",
         "list_item_2_cam": "Klikněte na rozevírací nabídku vedle <strong>Kamery</strong> a vyberte <strong>Povolit</strong>",
         "list_item_2_mic": "Klikněte na rozbalovací nabídku vedle <strong>Mikrofonu</strong> a vyberte <strong>Povolit</strong>",
-        "list_item_3": "Vraťte se na tuto stránku a klikněte na tlačítko <strong>Provedl jsem změny</strong>"
+        "list_item_3": "Vraťte se na tuto stránku a klikněte na tlačítko <strong>Obnovit stránku</strong>"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "Na svém počítači klikněte na nabídku Windows [WINDOWS_ICON] a vyberte <strong>Nastavení</strong> [SETTINGS_ICON_WINDOWS]",
+        "list_item_1": "Na svém počítači klikněte na nabídku Windows <windows_icon></windows_icon> a vyberte <strong>Nastavení</strong> <settings_icon_windows></settings_icon_windows>",
         "list_item_2": "Klikněte na <strong>Soukromí</strong> (nebo <strong>Soukromí & Bezpečnost</strong>)",
-        "list_item_3_cam": "Klikněte na <strong>Kamera</strong> pod <strong>Oprávnění aplikace</strong> a aktivujte přepínač vedle [BROWSER_ICON]",
-        "list_item_3_mic": "Klikněte na <strong>Mikrofon</strong> pod <strong>Oprávnění aplikace</strong> a aktivujte přepínač vedle [BROWSER_ICON]",
+        "list_item_3_cam": "Klikněte na <strong>Kamera</strong> pod <strong>Oprávnění aplikace</strong> a aktivujte přepínač vedle <browser_icon></browser_icon>",
+        "list_item_3_mic": "Klikněte na <strong>Mikrofon</strong> pod <strong>Oprávnění aplikace</strong> a aktivujte přepínač vedle <browser_icon></browser_icon>",
         "list_item_4": "Restartujte svůj prohlížeč, pokud je to nutné, a vraťte se na tuto stránku"
       }
     },
     "info": "Obnova",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "Klepněte na tlačítko <strong>Provedl jsem změny</strong>. Budete vyzváni k opětovnému povolení přístupu ke kameře a mikrofonu. Když se objeví vyskakovací okno, vyberte <strong>Povolit</strong> (nebo <strong>OK</strong>)",
-        "list_item_1_cam": "Klepněte na tlačítko <strong>Provedl jsem změny</strong>. Budete vyzváni k opětovnému povolení přístupu k fotoaparátu. Když se objeví vyskakovací okno, vyberte <strong>Povolit</strong> (nebo <strong>OK</strong>)",
-        "list_item_1_mic": "Klepněte na tlačítko <strong>Provedl jsem změny</strong>. Budete vyzváni k opětovnému povolení přístupu k mikrofonu. Když se objeví vyskakovací okno, vyberte <strong>Povolit</strong> (nebo <strong>OK</strong>)"
+        "list_item_1_both": "Klepněte na tlačítko <strong>Obnovit stránku</strong>. Budete znovu vyzváni k povolení přístupu k kameře a mikrofonu. Když se objeví vyskakovací okno, vyberte <strong>Povolit</strong> (nebo <strong>OK</strong>)",
+        "list_item_1_cam": "Klepněte na tlačítko <strong>Obnovit stránku</strong>. Budete znovu vyzváni k povolení přístupu k fotoaparátu. Když se objeví vyskakovací okno, vyberte <strong>Povolit</strong> (nebo <strong>OK</strong>)",
+        "list_item_1_mic": "Klepněte na tlačítko <strong>Obnovit stránku</strong>. Budete znovu vyzváni k povolení přístupu k mikrofonu. Když se objeví vyskakovací okno, vyberte <strong>Povolit</strong> (nebo <strong>OK</strong>)"
       },
       "device_settings": {
         "list_item_1": "Na svém zařízení otevřete aplikaci <strong>Nastavení</strong>",
-        "list_item_2": "Projíždějte seznamem a klepněte na [BROWSER_ICON]",
+        "list_item_2": "Projíždějte seznamem a klepněte na <browser_icon></browser_icon>",
         "list_item_3_cam": "Aktivujte přepínač vedle <strong>Kamery</strong>",
         "list_item_3_mic": "Aktivujte přepínač vedle <strong>Mikrofonu</strong>",
-        "list_item_4": "Vraťte se na tuto stránku a klepněte na tlačítko <strong>Provedl jsem změny</strong>"
+        "list_item_4": "Vraťte se na tuto stránku a stiskněte tlačítko <strong>Obnovit stránku</strong>",
+        "title": "Řešení 2: Nastavení zařízení"
+      },
+      "refresh_page": {
+        "title": "Řešení 1: Obnovte stránku"
       }
     },
     "ios_safari": {
       "device_settings": {
         "list_item_1": "Na svém zařízení otevřete aplikaci <strong>Nastavení</strong>",
-        "list_item_2": "Projíždějte seznamem a klepněte na [BROWSER_ICON]",
+        "list_item_2": "Projíždějte seznamem a klepněte na <browser_icon></browser_icon>",
         "list_item_3_cam": "Klepněte na <strong>Kamera</strong> a vyberte <strong>Povolit</strong>",
         "list_item_3_mic": "Klepněte na <strong>Mikrofon</strong> a vyberte <strong>Povolit</strong>",
-        "list_item_4": "Vraťte se na tuto stránku a klepněte na tlačítko <strong>Provedl jsem změny</strong>"
+        "list_item_4": "Vraťte se na tuto stránku a stiskněte tlačítko <strong>Obnovit stránku</strong>"
       }
     },
     "list_header_both": "Podle následujících kroků obnovíte přístup k oběma přístrojům:",
@@ -654,13 +709,7 @@
     "title_cam": "Přístup ke kameře byl odepřen",
     "title_mic": "Odmítnutí přístupu k mikrofonu",
     "web": {
-      "browser_settings": {
-        "title": "Řešení 1: Nastavení prohlížeče"
-      },
-      "button_primary": "Provedl jsem změny",
-      "device_settings": {
-        "title": "Řešení 2: Nastavení zařízení"
-      },
+      "button_primary": "Obnovte stránku",
       "disclaimer": "Proces ověření identity se může restartovat. Omlouváme se za případné nepříjemnosti."
     }
   },
@@ -849,7 +898,7 @@
       "prt_specific": {
         "national_id_value": "Daňové číslo"
       },
-      "town": "Město",
+      "town": "Město/obec",
       "tur_specific": {
         "national_id_value": "Turecké identifikační číslo"
       },
@@ -934,7 +983,7 @@
       },
       "jpn_specific": {
         "invalid_national_id_value": "Zadejte prosím platný kód \"Moje číslo\" / Resident Record",
-        "required_national_id_value": ""
+        "required_national_id_value": "Zadejte prosím své \"Moje číslo\" / Kód obyvatelského záznamu"
       },
       "ken_specific": {
         "invalid_other": "Zadejte prosím platné číslo cizí karty",
@@ -1012,7 +1061,7 @@
       "too_short_postcode": "Poštovní směrovací číslo je příliš krátké",
       "tur_specific": {
         "invalid_national_id_value": "Zadejte prosím platné turecké identifikační číslo",
-        "required_national_id_value": ""
+        "required_national_id_value": "Zadejte prosím své turecké číslo ID"
       },
       "usa_specific": {
         "invalid_ssn": "Zadejte platné číslo SSN",
@@ -1072,6 +1121,25 @@
     "subtitle": "Pro potvrzení vaší identity v souladu s evropskými pravidly musíte digitálně podepsat dokument.",
     "title": "Vytvořte a použijte svůj digitální podpis"
   },
+  "retry": {
+    "button": {
+      "generic_selfie_issue": "Zkuste to znovu"
+    },
+    "description": {
+      "default": "Zkuste to znovu",
+      "expired_document": "Zkuste to znovu s platným průkazem totožnosti s fotografií a ujistěte se, že jsou Vaše údaje jasně viditelné.",
+      "generic_document_issue": "Zkuste to znovu s platným průkazem totožnosti s fotografií a ujistěte se, že jsou Vaše údaje jasně viditelné.",
+      "generic_selfie_issue": "Zkuste to znovu a ujistěte se, že je Váš obličej viditelný a dobře osvětlený.",
+      "unaccepted_document": "Zkuste to znovu s platným průkazem totožnosti s fotografií a ujistěte se, že jsou Vaše údaje jasně viditelné."
+    },
+    "headline": {
+      "default": "Nastal problém",
+      "expired_document": "Platnost Vašeho dokumentu vypršela",
+      "generic_document_issue": "Vyskytl se problém s vaším dokumentem",
+      "generic_selfie_issue": "Vyskytl se problém s vaší selfie",
+      "unaccepted_document": "Neakceptovatelný dokument"
+    }
+  },
   "retry_feedback": {
     "button_primary": "Zkuste to znovu"
   },
@@ -1109,7 +1177,7 @@
       }
     },
     "body": "Držte obličej v oválu",
-    "button_accessibility": "",
+    "button_accessibility": "Vyfoťte se",
     "button_primary": "Spuštění skenování obličeje",
     "frame_accessibility": "Pohled z kamery",
     "title": "Držte obličej v oválu"
@@ -1134,7 +1202,7 @@
     "info_link_expire": "Platnost Vašeho odkazu vyprší za hodinu",
     "info_link_window": "Při používání mobilního telefonu nechte toto okno otevřené",
     "link": "Vyzkoušejte jinou metodu",
-    "subtitle": "Odeslali jsme zabezpečený odkaz na %{number}",
+    "subtitle": "Odeslali jsme zabezpečený odkaz na <number></number>",
     "subtitle_minutes": "Může trvat několik minut, než dorazí",
     "title": "Zkontrolujte svůj mobilní telefon"
   },
@@ -1162,14 +1230,14 @@
     "button_secondary": "Do not accept",
     "prompt": {
       "button_primary": "Review again",
-      "button_secondary": "Yes, don’t verify me",
+      "button_secondary": "Ano, neověřuj mě",
       "no_consent_detail": "If you do not accept Onfido’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
       "no_consent_title": "Are you sure?"
     }
   },
   "user_consent_load_fail": {
     "button_primary": "Reload screen",
-    "detail": "Check that your connection is stable, then try again",
+    "detail": "Zkontrolujte stabilitu svého připojení a zkuste to znovu",
     "title": "Content failed to load"
   },
   "video_capture": {

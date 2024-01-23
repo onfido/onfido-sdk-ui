@@ -134,7 +134,7 @@
       "manual_fallback_passport": "Ota kuva passisi valokuvasivusta",
       "manual_fallback_residence_permit_back": "Ota kuva oleskelulupasi takaosasta",
       "manual_fallback_residence_permit_front": "Ota kuva oleskelulupasi etupuolesta",
-      "position_generic_document_back": "",
+      "position_generic_document_back": "Aseta asiakirjasi takaosa kehykseen",
       "position_generic_document_front": "",
       "position_identity_card_back": "Aseta korttisi takaosa kehykseen",
       "position_identity_card_front": "Aseta korttisi etuosa kehykseen",
@@ -260,7 +260,7 @@
     "button_pension_property_statement_letter_detail": "Eläketodistus tai -kirje ja kiinteistöverotodistus tai -kirje",
     "button_permit": "Oleskelulupa",
     "button_permit_detail": "Etu- ja takaosa",
-    "button_tax_letter": "Kiinteistöverokirje",
+    "button_tax_letter": "Paikallishallinnon verokirje",
     "extra_estatements_ok": "hyväksytyt sähköiset tiliotteet",
     "extra_no_mobile": "Pahoittelut, ei matkapuhelinlaskuja",
     "list_accessibility": "Asiakirjat, joilla voit vahvistaa henkilöllisyytesi",
@@ -309,7 +309,7 @@
     "title_pension_property_statement_letter": "Lähetä lausunto tai kirje",
     "title_permit_back": "Lähetä oleskelulupa (takaosa)",
     "title_permit_front": "Lähetä oleskelulupa (etuosa)",
-    "title_tax_letter": "Lähetä kirje"
+    "title_tax_letter": "Jätä paikallishallinnon verokirje"
   },
   "doc_video_capture": {
     "button_primary_fallback": "Seuraava vaihe",
@@ -421,6 +421,11 @@
     "title": "Hanki suojattu linkkisi",
     "url_field_label": "Kopioi linkki mobiiliselaimeesi"
   },
+  "interactive_task": {
+    "waiting": {
+      "title_5": "Ladataan mediaa..."
+    }
+  },
   "livenessV2": {
     "error_reload_instructions": "Lataa ohjeet uudelleen",
     "intro_note_no1": "Aseta ensin kasvosi kehykseen",
@@ -460,26 +465,48 @@
       "success": "Skannaus onnistui"
     }
   },
+  "nfc_scan_error_can": {
+    "primary_button": "Poistumisvahvistus",
+    "subtitle": "Olet yrittänyt syöttää CAN-numeroasi maksimimäärän kertoja"
+  },
+  "nfc_scan_error_can:title": "Maksimiyritysmäärä saavutettu",
   "otp": {
     "code_input": {
       "error": {
+        "code_expired": "Koodisi on vanhentunut, pyydä uutta.",
+        "code_invalid": "Väärä koodi syötetty, yritä uudelleen.",
         "technical": "Tekninen virhe on tapahtunut, yritä myöhemmin uudelleen",
+        "too_many_attempts": "Olet yrittänyt tätä koodia liian monta kertaa, pyydä uusi.",
         "wrong_code": "Väärä koodi syötetty, yritä uudelleen"
       },
-      "intro": "Lähetetty koodi on aktiivinen 5 minuuttia puhelinnumerosi kautta",
+      "intro": "Sinulla on 5 minuuttia aikaa vahvistaa tekstiviestitse lähetetty koodi numeroon <phonenumber></phonenumber>",
       "resend": {
-        "cta": "Lähetä uudelleen",
-        "label": "Lähetetty koodi (enintään {limit})"
+        "cta": "Pyydä uusi koodi",
+        "cta_timeout": "Pyydä uusi koodi (<timeout></timeout> sekuntia)",
+        "label": "Lähetetty koodi",
+        "tracker": "<remaining></remaining> jäljellä <limit></limit>"
       },
       "title": "Kertakäyttöinen salasana"
     },
+    "error": {
+      "cta": "Palaa takaisin",
+      "subtitle": "Odota muutama sekunti ja yritä uudelleen",
+      "title": "Jotain meni pieleen"
+    },
+    "failure": {
+      "cta": "Jatka",
+      "subtitle": "Emme voi enää varmistaa puhelinnumeroasi",
+      "title": "Sallitut yritykset ylittyneet"
+    },
     "send_code": {
-      "cta": "",
+      "cta": "Lähetä koodi",
       "error": {
+        "invalid_phone_number": "Anna voimassa oleva puhelinnumero.",
         "limit": "Olet saavuttanut lähetettyjen tekstiviestien rajan",
         "technical": "Tekninen virhe on tapahtunut, yritä myöhemmin uudelleen"
       },
-      "intro": "Vahvistaaksemme puhelinnumerosi lähetämme sinulle kertakäyttöisen koodin, jonka voit syöttää seuraavalla näytöllä.",
+      "input_label": "Puhelinnumero",
+      "intro": "Vahvistaaksesi puhelinnumerosi pyydämme sinua syöttämään kertakäyttöisen salasanan.",
       "title": "Kertakäyttöinen salasana"
     }
   },
@@ -504,99 +531,123 @@
   },
   "permission_recovery": {
     "android": {
+      "browser_settings": {
+        "title": "Ratkaisu 1: Selaimen asetukset"
+      },
       "device_settings": {
         "list_item_1": "Avaa <strong>Asetukset</strong> -sovellus laitteellasi",
         "list_item_2": "Napauta <strong>Sovellukset</strong>",
-        "list_item_3": "Napauta [BROWSER_ICON]. Jos et löydä sitä, napauta <strong>Näytä kaikki sovellukset</strong> tai <strong>Hallitse sovelluksia</strong> ja valitse selainsovelluksesi",
+        "list_item_3": "Napauta <browser_icon></browser_icon>. Jos et löydä sitä, napauta <strong>Näytä kaikki sovellukset</strong> tai <strong>Hallitse sovelluksia</strong> ja valitse selainsovelluksesi",
         "list_item_4": "Napauta <strong>Oikeudet</strong>",
         "list_item_5_cam": "Napauta <strong>Kameraa</strong> ja valitse <strong>Salli</strong>",
         "list_item_5_mic": "Napauta <strong>Mikrofoni</strong> ja valitse <strong>Salli</strong>",
-        "list_item_6": "Palaa tälle sivulle ja napauta <strong>Olen tehnyt muutokset</strong> -painiketta"
+        "list_item_6": "Palaa tälle sivulle ja napauta <strong>Päivitä sivu</strong> -painiketta",
+        "title": "Ratkaisu 2: Laitteen asetukset"
+      },
+      "refresh_page": {
+        "list_item_1_both": "Napauta <strong>Päivitä sivu</strong> -painiketta. Sinua pyydetään sallimaan kamera- ja mikrofonikäyttö uudelleen. Kun ponnahdusikkuna tulee näkyviin, valitse <strong>Salli</strong> (tai <strong>OK</strong>)",
+        "list_item_1_cam": "Napauta <strong>Päivitä sivu</strong> -painiketta. Sinua pyydetään sallimaan kameran käyttö uudelleen. Kun ponnahdusikkuna tulee näkyviin, valitse <strong>Salli</strong> (tai <strong>OK</strong>)",
+        "list_item_1_mic": "Napauta <strong>Päivitä sivu</strong> -painiketta. Sinua pyydetään sallimaan mikrofonin käyttö uudelleen. Kun ponnahdusikkuna tulee näkyviin, valitse <strong>Salli</strong> (tai <strong>OK</strong>)"
       }
     },
     "android_chrome": {
       "browser_settings": {
-        "list_item_1": "Napauta lukkokuvaketta [LOCK_ICON] osoiterivillä selaimessasi",
+        "list_item_1": "Valitse asetukset-kuvake <settings_icon_chrome></settings_icon_chrome> selaimen osoiteriviltä",
         "list_item_2": "Napauta <strong>Oikeudet</strong>",
         "list_item_3_cam": "Ota käyttöön vipu <strong>Kamera</strong> vieressä",
         "list_item_3_mic": "Ota käyttöön vipu vieressä <strong>Mikrofoni</strong>",
-        "list_item_4": "Palaa takaisin tälle sivulle ja napauta <strong>Olen tehnyt muutokset</strong> -painiketta"
+        "list_item_4": "Palaa tälle sivulle ja napauta <strong>Päivitä sivu</strong> -painiketta"
       }
     },
     "android_firefox": {
       "browser_settings": {
-        "list_item_1": "Valitse lukkokuvake [LOCK_ICON] osoiteriviltä selaimessasi",
+        "list_item_1": "Valitse lukkokuvake <lock_icon></lock_icon> osoiteriviltä selaimessasi",
         "list_item_2_cam": "Napauta <strong>Estetty</strong> vieressä <strong>Kamera</strong> vaihtaaksesi <strong>Sallittu</strong>",
         "list_item_2_mic": "Napauta <strong>Estetty</strong> vieressä <strong>Mikrofoni</strong> vaihtaaksesi <strong>Sallittu</strong>",
-        "list_item_3": "Palaa tälle sivulle ja napauta <strong>Olen tehnyt muutokset</strong> -painiketta"
+        "list_item_3": "Palaa tälle sivulle ja napauta <strong>Päivitä sivu</strong> -painiketta",
+        "title": "Ratkaisu 2: Selaimen asetukset"
+      },
+      "device_settings": {
+        "title": "Ratkaisu 3: Laitteen asetukset"
+      },
+      "refresh_page": {
+        "title": "Ratkaisu 1: Päivitä sivu"
       }
     },
     "android_generic": {
       "browser_settings": {
-        "list_item_1": "Avaa selaimessasi verkkosivuston asetukset. Tämä on usein lukon kuvake [LOCK_ICON] osoitepalkissa",
+        "list_item_1": "Avaa selaimessasi verkkosivuston asetukset. Tämä on usein lukon kuvake <lock_icon></lock_icon> osoitepalkissa",
         "list_item_2": "Etsi osio oikeuksista",
         "list_item_3_cam": "Ota käyttöön <strong>Kamera</strong> -oikeudet",
         "list_item_3_mic": "Ota käyttöön <strong>Mikrofoni</strong> -oikeudet",
-        "list_item_4": "Palaa takaisin tälle sivulle ja napauta <strong>Olen tehnyt muutokset</strong> -painiketta"
+        "list_item_4": "Palaa tälle sivulle ja napauta <strong>Päivitä sivu</strong> -painiketta"
       }
     },
     "android_samsung": {
       "browser_settings": {
-        "list_item_1": "Avaa selaimessasi lukitusikoni [LOCK_ICON] osoiterivillä",
+        "list_item_1": "Avaa selaimessasi lukitusikoni <lock_icon></lock_icon> osoiterivillä",
         "list_item_2_cam": "Ota käyttöön vipu vieressä <strong>Kamera</strong>",
         "list_item_2_mic": "Ota käyttöön vipu vieressä <strong>Mikrofoni</strong>",
-        "list_item_3": "Palaa takaisin tälle sivulle ja napauta <strong>Olen tehnyt muutokset</strong> -painiketta"
+        "list_item_3": "Palaa tälle sivulle ja napauta <strong>Päivitä sivu</strong> -painiketta"
       }
     },
     "button_primary": "Päivitä",
+    "desktop": {
+      "browser_settings": {
+        "title": "Ratkaisu 1: Selaimen asetukset"
+      },
+      "device_settings": {
+        "title": "Ratkaisu 2: Laitteen asetukset"
+      }
+    },
     "desktop_chrome": {
       "browser_settings": {
-        "list_item_1": "Napsauta lukkokuvaketta [LOCK_ICON] osoiterivillä selaimessasi",
+        "list_item_1": "Valitse asetukset-kuvake <settings_icon_chrome></settings_icon_chrome> selaimen osoiteriviltä",
         "list_item_2_cam": "Ota käyttöön vipu vieressä <strong>Kamera</strong>",
         "list_item_2_mic": "Ota käyttöön vipu vieressä <strong>Mikrofoni</strong>",
-        "list_item_3": "Palaa takaisin tälle sivulle ja klikkaa <strong>Olen tehnyt muutokset</strong> -painiketta"
+        "list_item_3": "Palaa tälle sivulle ja napsauta <strong>Päivitä sivu</strong> -painiketta"
       }
     },
     "desktop_edge": {
       "browser_settings": {
-        "list_item_1": "Napsauta lukkokuvaketta [LOCK_ICON] osoiterivillä selaimessasi",
+        "list_item_1": "Napsauta lukkokuvaketta <lock_icon></lock_icon> osoiterivillä selaimessasi",
         "list_item_2_cam": "Napsauta pudotusvalikkoa kohdassa <strong>Kamera</strong> ja valitse <strong>Salli</strong>",
         "list_item_2_mic": "Napsauta pudotusvalikkoa kohdassa <strong>Mikrofoni</strong> ja valitse <strong>Salli</strong>",
-        "list_item_3": "Palaa takaisin tälle sivulle ja klikkaa <strong>Olen tehnyt muutokset</strong> -painiketta"
+        "list_item_3": "Palaa tälle sivulle ja napsauta <strong>Päivitä sivu</strong> -painiketta"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
-        "list_item_1": "Napsauta selaimessasi asetuskuvaketta [SETTINGS_ICON_FIREFOX] osoiterivillä",
+        "list_item_1": "Napsauta selaimessasi asetuskuvaketta <settings_icon_firefox></settings_icon_firefox> osoiterivillä",
         "list_item_2_cam": "Napsauta <strong>Estetty</strong> kohtaa <strong>Käytä kameraa</strong>",
         "list_item_2_mic": "Napsauta <strong>Estetty</strong> kohdassa <strong>Käytä mikrofonia</strong>",
-        "list_item_3": "Palaa takaisin tälle sivulle ja klikkaa <strong>Olen tehnyt muutokset</strong> -painiketta"
+        "list_item_3": "Palaa tälle sivulle ja napsauta <strong>Päivitä sivu</strong> -painiketta"
       }
     },
     "desktop_generic": {
       "browser_settings": {
-        "list_item_1": "Avaa selaimessasi verkkosivuston asetukset. Tämä on usein lukon kuvake [LOCK_ICON] osoitepalkissa",
+        "list_item_1": "Avaa selaimessasi verkkosivuston asetukset. Tämä on usein lukon kuvake <lock_icon></lock_icon> osoitepalkissa",
         "list_item_2": "Etsi osio oikeuksista",
         "list_item_3_cam": "Ota käyttöön <strong>Kamera</strong> -oikeudet",
         "list_item_3_mic": "Ota käyttöön <strong>Mikrofoni</strong> -oikeudet",
-        "list_item_4": "Palaa tälle sivulle ja klikkaa <strong>Olen tehnyt muutokset</strong> -painiketta"
+        "list_item_4": "Palaa tälle sivulle ja napsauta <strong>Päivitä sivu</strong> -painiketta"
       },
       "device_settings": {
         "list_item_1": "Avaa <strong>Asetukset</strong> tietokoneellasi",
         "list_item_2": "Etsi osio, joka käsittelee oikeuksia (yleensä <strong>Yksityisyys</strong> -kohdassa)",
-        "list_item_3_cam": "Ota käyttöön <strong>Kamera</strong> -oikeudet kohteelle [BROWSER_ICON]",
-        "list_item_3_mic": "Ota käyttöön <strong>Mikrofoni</strong> -oikeudet kohteelle [BROWSER_ICON]",
+        "list_item_3_cam": "Ota käyttöön <strong>Kamera</strong> -oikeudet kohteelle <browser_icon></browser_icon>",
+        "list_item_3_mic": "Ota käyttöön <strong>Mikrofoni</strong> -oikeudet kohteelle <browser_icon></browser_icon>",
         "list_item_4": "Käynnistä selain tarvittaessa uudelleen ja palaa tälle sivulle"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "Tietokoneellasi, napsauta Apple-valikkoa [APPLE_ICON] ja valitse <strong>Järjestelmäasetukset</strong> (tai <strong>Järjestelmäasetukset</strong>)",
-        "list_item_2": "Napsauta <strong>Yksityisyys & turvallisuus</strong> (tai <strong>Turvallisuus & yksityisyys</strong>) sivupalkissa ",
+        "list_item_1": "Tietokoneellasi, napsauta Apple-valikkoa <apple_icon></apple_icon> ja valitse <strong>Järjestelmäasetukset</strong> (tai <strong>Järjestelmäasetukset</strong>)",
+        "list_item_2": "Napsauta <strong>Yksityisyys & turvallisuus</strong> (tai <strong>Turvallisuus & yksityisyys</strong>) sivupalkissa",
         "list_item_3": "Napsauta <strong>Myöhemmin</strong> ponnahdusikkunassa",
-        "list_item_3_cam": "Napsauta <strong>Kameraa</strong> ja aktivoi kytkin (tai valintaruutu) kohdassa [BROWSER_ICON]",
+        "list_item_3_cam": "Napsauta <strong>Kameraa</strong> ja aktivoi kytkin (tai valintaruutu) kohdassa <browser_icon></browser_icon>",
         "list_item_4": "Napsauta <strong>Lopeta ja avaa uudelleen</strong> -painiketta ponnahdusikkunassa ja palaa takaisin tälle sivulle",
-        "list_item_4_mic": "Napsauta <strong>Mikrofoni</strong> ja aktivoi kytkin (tai valintaruutu) kohdassa [BROWSER_ICON]"
+        "list_item_4_mic": "Napsauta <strong>Mikrofoni</strong> ja aktivoi kytkin (tai valintaruutu) kohdassa <browser_icon></browser_icon>"
       }
     },
     "desktop_safari": {
@@ -604,40 +655,44 @@
         "list_item_1": "Osoitepalkissa selaimessasi, napsauta oikealla ja valitse <strong>Asetukset</strong>",
         "list_item_2_cam": "Napsauta pudotusvalikkoa kohdassa <strong>Kamera</strong> ja valitse <strong>Salli</strong>",
         "list_item_2_mic": "Napsauta pudotusvalikkoa kohdassa <strong>Mikrofoni</strong> ja valitse <strong>Salli</strong>",
-        "list_item_3": "Palaa takaisin tälle sivulle ja napsauta <strong>Olen tehnyt muutokset</strong> -painiketta"
+        "list_item_3": "Palaa takaisin tälle sivulle ja napsauta <strong>Päivitä sivu</strong> -painiketta"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "Tietokoneellasi, napsauta Windows-valikkoa [WINDOWS_ICON] ja valitse <strong>Asetukset</strong> [SETTINGS_ICON_WINDOWS]",
+        "list_item_1": "Tietokoneellasi, napsauta Windows-valikkoa <windows_icon></windows_icon> ja valitse <strong>Asetukset</strong> <settings_icon_windows></settings_icon_windows>",
         "list_item_2": "Napsauta <strong>Yksityisyys</strong> (tai <strong>Yksityisyys & Turvallisuus</strong>)",
-        "list_item_3_cam": "Napsauta <strong>Kameraa</strong> kohdassa <strong>Sovelluslupien</strong> alla ja aktivoi kytkin vieressä [BROWSER_ICON] ",
-        "list_item_3_mic": "Napsauta <strong>Mikrofoni</strong> kohdassa <strong>Sovelluksen oikeudet</strong> ja aktivoi kytkin vieressä [BROWSER_ICON]",
+        "list_item_3_cam": "Napsauta <strong>Kameraa</strong> kohdassa <strong>Sovelluslupien</strong> alla ja aktivoi kytkin vieressä <browser_icon></browser_icon>",
+        "list_item_3_mic": "Napsauta <strong>Mikrofoni</strong> kohdassa <strong>Sovelluksen oikeudet</strong> ja aktivoi kytkin vieressä <browser_icon></browser_icon>",
         "list_item_4": "Käynnistä selain tarvittaessa uudelleen ja palaa tälle sivulle"
       }
     },
     "info": "Palautus",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "Napauta <strong>Olen tehnyt muutokset</strong> -painiketta. Sinua pyydetään sallimaan kamera- ja mikrofonikäyttö uudelleen. Kun ponnahdusikkuna tulee näkyviin, valitse <strong>Salli</strong> (tai <strong>OK</strong>)",
-        "list_item_1_cam": "Napauta <strong>Olen tehnyt muutokset</strong> -painiketta. Sinua pyydetään sallimaan kameran käyttö uudelleen. Kun ponnahdusikkuna tulee näkyviin, valitse <strong>Salli</strong> (tai <strong>OK</strong>)",
-        "list_item_1_mic": "Napauta <strong>Olen tehnyt muutokset</strong> -painiketta. Sinua pyydetään sallimaan mikrofonin käyttö uudelleen. Kun ponnahdusikkuna tulee näkyviin, valitse <strong>Salli</strong> (tai <strong>OK</strong>)"
+        "list_item_1_both": "Napauta <strong>Päivitä sivu</strong> -painiketta. Sinua pyydetään sallimaan kamera- ja mikrofonikäyttö uudelleen. Kun ponnahdusikkuna tulee näkyviin, valitse <strong>Salli</strong> (tai <strong>OK</strong>)",
+        "list_item_1_cam": "Napauta <strong>Päivitä sivu</strong> -painiketta. Sinua pyydetään sallimaan kameran käyttö uudelleen. Kun ponnahdusikkuna tulee näkyviin, valitse <strong>Salli</strong> (tai <strong>OK</strong>)",
+        "list_item_1_mic": "Napauta <strong>Päivitä sivu</strong> -painiketta. Sinua pyydetään sallimaan mikrofonin käyttö uudelleen. Kun ponnahdusikkuna tulee näkyviin, valitse <strong>Salli</strong> (tai <strong>OK</strong>)"
       },
       "device_settings": {
         "list_item_1": "Avaa <strong>Asetukset</strong> -sovellus laitteellasi",
-        "list_item_2": "Vieritä luetteloa ja napauta [BROWSER_ICON]",
+        "list_item_2": "Vieritä luetteloa ja napauta <browser_icon></browser_icon>",
         "list_item_3_cam": "Ota käyttöön vipu <strong>Kamera</strong> -kohdan vieressä",
         "list_item_3_mic": "Ota käyttöön vipu vieressä <strong>Mikrofoni</strong>",
-        "list_item_4": "Palaa takaisin tälle sivulle ja napauta <strong>Olen tehnyt muutokset</strong> -painiketta"
+        "list_item_4": "Palaa tälle sivulle ja napauta <strong>Päivitä sivu</strong> -painiketta",
+        "title": "Ratkaisu 2: Laitteen asetukset"
+      },
+      "refresh_page": {
+        "title": "Ratkaisu 1: Päivitä sivu"
       }
     },
     "ios_safari": {
       "device_settings": {
         "list_item_1": "Avaa <strong>Asetukset</strong> -sovellus laitteellasi",
-        "list_item_2": "Vieritä luetteloa ja napauta [BROWSER_ICON]",
+        "list_item_2": "Vieritä luetteloa ja napauta <browser_icon></browser_icon>",
         "list_item_3_cam": "Napauta <strong>Kameraa</strong> ja valitse <strong>Salli</strong>",
         "list_item_3_mic": "Napauta <strong>Mikrofoni</strong> ja valitse <strong>Salli</strong>",
-        "list_item_4": "Palaa takaisin tälle sivulle ja napauta <strong>Olen tehnyt muutokset</strong> -painiketta"
+        "list_item_4": "Palaa tälle sivulle ja napauta <strong>Päivitä sivu</strong> -painiketta"
       }
     },
     "list_header_both": "Palauta molempien käyttöoikeudet näin:",
@@ -654,13 +709,7 @@
     "title_cam": "Kameran käyttö on estetty",
     "title_mic": "Mikrofonin käyttö estetty",
     "web": {
-      "browser_settings": {
-        "title": "Ratkaisu 1: Selaimen asetukset"
-      },
-      "button_primary": "Olen tehnyt muutokset",
-      "device_settings": {
-        "title": "Ratkaisu 2: Laitteen asetukset"
-      },
+      "button_primary": "Päivitä sivu",
       "disclaimer": "Henkilöllisyyden vahvistusprosessi saattaa käynnistyä uudelleen. Pahoittelemme mahdollista haittaa"
     }
   },
@@ -934,7 +983,7 @@
       },
       "jpn_specific": {
         "invalid_national_id_value": "Anna kelvollinen \"Oma numero\" / asukastietuekoodi",
-        "required_national_id_value": ""
+        "required_national_id_value": "Anna \"Oma numeroni\" / Asukasrekisterikoodisi"
       },
       "ken_specific": {
         "invalid_other": "Anna voimassa oleva ulkomaalaisen kortin numero",
@@ -1012,7 +1061,7 @@
       "too_short_postcode": "Postinumero on liian lyhyt",
       "tur_specific": {
         "invalid_national_id_value": "Anna kelvollinen turkkilainen henkilötunnus",
-        "required_national_id_value": ""
+        "required_national_id_value": "Anna turkkilainen ID-numerosi"
       },
       "usa_specific": {
         "invalid_ssn": "Syötä kelvollinen henkilötunnus",
@@ -1039,7 +1088,7 @@
         "review_document": "Tarkista <fallback>asiakirjasi</fallback> allekirjoittaaksesi",
         "step2": "2/2",
         "steps": "Allekirjoita dokumenttisi",
-        "subtitle": "",
+        "subtitle": "Vahvistaaksesi henkilöllisyytesi Euroopan sääntöjen mukaisesti, sinun on digitaalisesti allekirjoitettava asiakirja.",
         "title": "Luo ja käytä digitaalista allekirjoitustasi"
       },
       "introduction": {
@@ -1071,6 +1120,25 @@
     "step_title": "Allekirjoita dokumenttisi",
     "subtitle": "Vahvistaaksesi henkilöllisyytesi Euroopan sääntöjen mukaisesti, sinun on digitaalisesti allekirjoitettava asiakirja.",
     "title": "Luo ja käytä digitaalista allekirjoitustasi"
+  },
+  "retry": {
+    "button": {
+      "generic_selfie_issue": "Yritä uud."
+    },
+    "description": {
+      "default": "Yritä uudelleen",
+      "expired_document": "Yritä uudelleen voimassa olevalla kuvallisella ID:llä ja varmista, että tietosi näkyvät selvästi",
+      "generic_document_issue": "Yritä uudelleen voimassa olevalla kuvallisella ID:llä ja varmista, että tietosi näkyvät selvästi",
+      "generic_selfie_issue": "Yritä uudelleen ja varmista, että kasvosi ovat näkyvissä ja hyvin valaistut",
+      "unaccepted_document": "Yritä uudelleen voimassa olevalla kuvallisella ID:llä ja varmista, että tietosi näkyvät selvästi"
+    },
+    "headline": {
+      "default": "Oli ongelma",
+      "expired_document": "Asiakirjasi on vanhentunut",
+      "generic_document_issue": "Asiakirjassasi oli ongelma",
+      "generic_selfie_issue": "Oli ongelma selfienne kanssa",
+      "unaccepted_document": "Asiakirjaa ei hyväksytä"
+    }
   },
   "retry_feedback": {
     "button_primary": "Yritä uud."
@@ -1134,7 +1202,7 @@
     "info_link_expire": "Linkkisi vanhenee tunnin kuluttua",
     "info_link_window": "Pidä tämä ikkuna auki matkapuhelinta käyttäessäsi",
     "link": "Kokeile toista menetelmää",
-    "subtitle": "Olemme lähettäneet suojatun linkin numeroon %{number}",
+    "subtitle": "Olemme lähettäneet suojatun linkin numeroon <number></number>",
     "subtitle_minutes": "Saapumiseen voi mennä muutama minuutti",
     "title": "Tarkista matkapuhelimesi"
   },
