@@ -29,7 +29,7 @@ All Onfido Smart Capture SDKs are orchestrated using [Onfido Studio](https://dev
 
 The Onfido Web SDK is specifically designed for integrating web applications and easily managing cross-device experiences.
 
-![Various views from the SDK](../demo/screenshots.jpg)
+![Various views from the SDK](./demo/screenshots.jpg)
 
 ### Environments and testing with the SDK
 
@@ -309,7 +309,7 @@ For further customization, please contact your Onfido Solution Engineer or Custo
 
   The most effective way to add your brand to the footer watermark, is by use of the `cobrand` property under `enterpriseFeatures`. This property takes a `text` parameter.
 
-  ![Example of text cobranding](../demo/text_co_brand.png)
+  ![Example of text cobranding](./demo/text_co_brand.png)
 
 ```javascript
 Onfido.init({
@@ -381,13 +381,13 @@ language: {
 
 In order to identify text that can be overridden and locate their exact keys, you should use a browser inspector and indentify `div` blocks with the attribute name `data-i18n-token`.
 
-![Example of how to use an html inspector to find a text key](../demo/inspector.png)
+![Example of how to use an html inspector to find a text key](./demo/inspector.png)
 
 ### Cross-device navigation
 
 The Web SDK offers a cross-device flow where desktop users are directed to continue on their mobile device browser to complete the capture process. This provides a vastly improved image quality versus a typical desktop webcam and increases the likelihood of successful live capture.
 
-![Force cross-device flow](../demo/cross-device.png)
+![Force cross-device flow](./demo/cross-device.png)
 
 Three options are offered to the user to resume the flow on a mobile device browser:
 
@@ -662,7 +662,7 @@ The Document Capture step is typically organised in three parts:
 The customization options available all relate to the country and document type selection screen.
 By default, the selection screen is shown with the country selection being empty.
 
-![Choose documents type](../demo/choose-document.png)
+![Choose documents type](./demo/choose-document.png)
 _The above images are for web SDK versions 8.3.0+_
 
 Depending on the customization options defined in this step or the 'allowed countries' defined in your [Dashboard](https://dashboard.onfido.com/), either the country or document type selection screens might not be shown:
@@ -676,7 +676,7 @@ You can specify allowed issuing countries and document types for the document ca
 
 - Dashboard : Otherwise, the recommended approach is to apply this configuration globally in the [Dashboard](https://dashboard.onfido.com/) under Accounts \ Supported Documents. This option also ensures that the list is enforced as part of the Document Report validation. Any document that has been uploaded by an end user against your guidance will result in a Document Report sub-result of "rejected" and be flagged as `Image Integrity` > `Supported Document`.
 
-  ![The Supported Documents tab in Dashboard](../demo/supported_documents_dashboard.png)
+  ![The Supported Documents tab in Dashboard](./demo/supported_documents_dashboard.png)
 
 - Run-time: For run-time configuration, the following `options` can be defined under the `document` step:
 
