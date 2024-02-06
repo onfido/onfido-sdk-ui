@@ -1,0 +1,7 @@
+---
+ name: Onfido SDK Demo
+ authors:
+   - Onfido Team
+ resources:
+   - https://sdk.onfido.com/v14/Onfido.iife.js
+...
