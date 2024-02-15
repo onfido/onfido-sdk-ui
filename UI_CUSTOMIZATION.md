@@ -179,6 +179,9 @@ The Web SDK supports customization options across the SDK screen including text,
   The following fonts are available:
 
   - [Overpass](https://fonts.google.com/specimen/Overpass)
+  - [Roboto](https://fonts.google.com/specimen/Roboto)
+  - [Poppins](https://fonts.google.com/specimen/Poppins)
+  - [Wix Madefor Text](https://fonts.google.com/specimen/Wix+Madefor+Text)
   - To request support for additional fonts, please reach out to your Customer Support Manager or email [Onfido Support](mailto:support@onfido)\*
 
   ```javascript
@@ -189,3 +192,4 @@ The Web SDK supports customization options across the SDK screen including text,
   ```
 
   ⚠️ **The fonts are hosted by Onfido and won't be loaded from Google's servers.**
+  
