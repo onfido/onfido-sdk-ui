@@ -134,7 +134,7 @@
       "manual_fallback_passport": "Fotografišite stranicu pasoša sa fotografijom",
       "manual_fallback_residence_permit_back": "Snimite fotografiju zadnje strane boravišne dozvole",
       "manual_fallback_residence_permit_front": "Snimite fotografiju prednje strane boravišne dozvole",
-      "position_generic_document_back": "",
+      "position_generic_document_back": "Postavite u okvir zadnju stranu dokumenta",
       "position_generic_document_front": "",
       "position_identity_card_back": "Postavite u okvir zadnju stranu kartice",
       "position_identity_card_front": "Postavite u okvir prednju stranu kartice",
@@ -260,7 +260,7 @@
     "button_pension_property_statement_letter_detail": "Izjava ili pismo o penziji i Izjava ili pismo o porezu na imovinu",
     "button_permit": "Boravišna dozvola",
     "button_permit_detail": "Prednja i zadnja strana",
-    "button_tax_letter": "Potvrda o gradskom porezu",
+    "button_tax_letter": "Pismo lokalne poreske uprave",
     "extra_estatements_ok": "se prihvataju",
     "extra_no_mobile": "Nažalost, ne i računi za mobilni telefon.",
     "list_accessibility": "Dokumenti koje možete da koristite za proveru identiteta",
@@ -309,7 +309,7 @@
     "title_pension_property_statement_letter": "Pošaljite izjavu ili pismo",
     "title_permit_back": "Pošalji boravišnu dozvolu (poleđinu)",
     "title_permit_front": "Pošalji boravišnu dozvolu (spreda)",
-    "title_tax_letter": "Pošalji potvrdu"
+    "title_tax_letter": "Pošaljite pismo lokalne poreske uprave"
   },
   "doc_video_capture": {
     "button_primary_fallback": "Sledeći korak",
@@ -421,6 +421,11 @@
     "title": "Preuzmite bezbedan link",
     "url_field_label": "Kopirajte link u pregledač za mobilne uređaje"
   },
+  "interactive_task": {
+    "waiting": {
+      "title_5": "Otpremanje medija..."
+    }
+  },
   "livenessV2": {
     "error_reload_instructions": "Ponovo učitaj uputstva",
     "intro_note_no1": "Prvo postavite lice u okvir",
@@ -460,25 +465,47 @@
       "success": "Скенирање је успешно"
     }
   },
+  "nfc_scan_error_can": {
+    "primary_button": "Izlazna verifikacija",
+    "subtitle": "Dostigli ste maksimalan broj pokušaja za unos vašeg CAN broja"
+  },
+  "nfc_scan_error_can:title": "Достигнут је максимум покушаја",
   "otp": {
     "code_input": {
       "error": {
+        "code_expired": "Vaš kod je istekao, molimo zahtevajte novi.",
+        "code_invalid": "Pogrešan kod unesen, molim pokušajte ponovo.",
         "technical": "Došlo je do tehničke greške, molimo pokušajte ponovo kasnije",
+        "too_many_attempts": "Previse puta ste pokušali sa ovim kodom, molimo vas da zatražite novi.",
         "wrong_code": "Pogrešan kod unesen, molim pokušajte ponovo"
       },
       "intro": "Kod poslat na vaš broj telefona biće aktivan 5 minuta",
       "resend": {
         "cta": "Pošalji ponovo",
-        "label": "Poslat kod (do {limit})"
+        "cta_timeout": "Zatražite novi kod (<timeout></timeout> sekundi)",
+        "label": "Poslat je kod",
+        "tracker": "<remaining></remaining> od <limit></limit>"
       },
       "title": "Jednokratna lozinka"
+    },
+    "error": {
+      "cta": "Vrati se",
+      "subtitle": "Molim vas sačekajte nekoliko sekundi i pokušajte ponovo",
+      "title": "Nešto je pošlo po zlu"
+    },
+    "failure": {
+      "cta": "Nastavi",
+      "subtitle": "Više ne možemo da verifikujemo vaš broj telefona",
+      "title": "Prekoračen dozvoljen broj pokušaja"
     },
     "send_code": {
       "cta": "Pošalji kod",
       "error": {
+        "invalid_phone_number": "Molimo vas da navedete važeći broj telefona.",
         "limit": "Dostigli ste limit poslatih SMS poruka",
         "technical": "Došlo je do tehničke greške, molimo pokušajte ponovo kasnije"
       },
+      "input_label": "Broj telefona",
       "intro": "Da bismo verifikovali vaš broj telefona, poslaćemo vam jednokratni kod koji treba da unesete na sledećem ekranu.",
       "title": "Jednokratna lozinka"
     }
@@ -504,99 +531,123 @@
   },
   "permission_recovery": {
     "android": {
+      "browser_settings": {
+        "title": "Rešenje 1: Podešavanja pretraživača"
+      },
       "device_settings": {
         "list_item_1": "Na vašem uređaju, otvorite aplikaciju <strong>Postavke</strong>",
         "list_item_2": "Tapnite na <strong>Aplikacije</strong>",
-        "list_item_3": "Tapnite na [BROWSER_ICON]. Ako ga ne možete pronaći, tapnite na <strong>Prikaži sve aplikacije</strong> ili <strong>Upravljaj aplikacijama</strong> i izaberite vašu aplikaciju za pretraživanje",
+        "list_item_3": "Tapnite na <browser_icon></browser_icon>. Ako ga ne možete pronaći, tapnite na <strong>Prikaži sve aplikacije</strong> ili <strong>Upravljaj aplikacijama</strong> i izaberite vašu aplikaciju za pretraživanje",
         "list_item_4": "Kliknite na <strong>Dozvole</strong>",
         "list_item_5_cam": "Tapnite na <strong>Kamera</strong> i izaberite <strong>Dozvoli</strong>",
         "list_item_5_mic": "Tapnite na <strong>Mikrofon</strong> i izaberite <strong>Dozvoli</strong>",
-        "list_item_6": "Vratite se na ovu stranicu i pritisnite dugme <strong>Napravio sam promene</strong>"
+        "list_item_6": "Vratite se na ovu stranicu i pritisnite dugme <strong>Osveži stranicu</strong>",
+        "title": "Rešenje 2: Podešavanja uređaja"
+      },
+      "refresh_page": {
+        "list_item_1_both": "Tapnite na dugme <strong>Osveži stranicu</strong>. Biće vam ponovo zatraženo da omogućite pristup kameri i mikrofonu. Kada se pojavi iskačući prozor, izaberite <strong>Dozvoli</strong> (ili <strong>U redu</strong>)",
+        "list_item_1_cam": "Kliknite na dugme <strong>Osveži stranicu</strong>. Biće vam ponovo zatraženo da omogućite pristup kameri. Kada se pojavi prozorčić, izaberite <strong>Dozvoli</strong> (ili <strong>U redu</strong>)",
+        "list_item_1_mic": "Kliknite na dugme <strong>Osveži stranicu</strong>. Biće vam ponovo zatražen pristup mikrofonu. Kada se pojavi prozorčić, izaberite <strong>Dozvoli</strong> (ili <strong>U redu</strong>)"
       }
     },
     "android_chrome": {
       "browser_settings": {
-        "list_item_1": "U vašem pretraživaču, dodirnite ikonicu za zaključavanje [LOCK_ICON] u adresnoj traci",
+        "list_item_1": "U vašem pretraživaču, dodirnite ikonicu za podešavanja <settings_icon_chrome></settings_icon_chrome> u adresnoj traci",
         "list_item_2": "Kliknite na <strong>Dozvole</strong>",
         "list_item_3_cam": "Aktivirajte prekidač pored <strong>Kamere</strong>",
         "list_item_3_mic": "Aktivirajte prekidač pored <strong>Mikrofona</strong>",
-        "list_item_4": "Vratite se na ovu stranicu i pritisnite dugme <strong>Napravio sam promene</strong>"
+        "list_item_4": "Vratite se na ovu stranicu i pritisnite dugme <strong>Osveži stranicu</strong>"
       }
     },
     "android_firefox": {
       "browser_settings": {
-        "list_item_1": "U vašem pretraživaču, dodirnite ikonicu za zaključavanje [LOCK_ICON] u adresnoj traci",
+        "list_item_1": "U vašem pretraživaču, dodirnite ikonicu za zaključavanje <lock_icon></lock_icon> u adresnoj traci",
         "list_item_2_cam": "Tapnite na <strong>Blokirano</strong> pored <strong>Kamere</strong> da pređete na <strong>Dozvoljeno</strong>",
         "list_item_2_mic": "Tapnite na <strong>Blokirano</strong> pored <strong>Mikrofona</strong> da pređete na <strong>Dozvoljeno</strong>",
-        "list_item_3": "Vratite se na ovu stranicu i pritisnite dugme <strong>Napravio sam promene</strong>"
+        "list_item_3": "Vratite se na ovu stranicu i pritisnite dugme <strong>Osveži stranicu</strong>",
+        "title": "Rešenje 2: Podešavanja pretraživača"
+      },
+      "device_settings": {
+        "title": "Rešenje 3: Podešavanja uređaja"
+      },
+      "refresh_page": {
+        "title": "Rešenje 1: Osvežite stranicu"
       }
     },
     "android_generic": {
       "browser_settings": {
-        "list_item_1": "U vašem pretraživaču, otvorite postavke sajta. To je često ikonica brave [LOCK_ICON] u adresnoj traci",
+        "list_item_1": "U vašem pretraživaču, otvorite postavke sajta. To je često ikonica brave <lock_icon></lock_icon> u adresnoj traci",
         "list_item_2": "Pronađite deo o dozvolama",
         "list_item_3_cam": "Omogućite dozvole za <strong>Kameru</strong>",
         "list_item_3_mic": "Omogućite dozvole za <strong>Mikrofon</strong>",
-        "list_item_4": "Vratite se na ovu stranicu i pritisnite dugme <strong>Napravio sam promene</strong>"
+        "list_item_4": "Vratite se na ovu stranicu i pritisnite dugme <strong>Osveži stranicu</strong>"
       }
     },
     "android_samsung": {
       "browser_settings": {
-        "list_item_1": "U vašem pretraživaču, dodirnite ikonicu za zaključavanje [LOCK_ICON] u adresnoj traci",
+        "list_item_1": "U vašem pretraživaču, dodirnite ikonicu za zaključavanje <lock_icon></lock_icon> u adresnoj traci",
         "list_item_2_cam": "Aktivirajte prekidač pored <strong>Kamere</strong>",
         "list_item_2_mic": "Aktivirajte prekidač pored <strong>Mikrofona</strong>",
-        "list_item_3": "Vratite se na ovu stranicu i pritisnite dugme <strong>Napravio sam promene</strong>"
+        "list_item_3": "Vratite se na ovu stranicu i pritisnite dugme <strong>Osveži stranicu</strong>"
       }
     },
     "button_primary": "Osveži",
+    "desktop": {
+      "browser_settings": {
+        "title": "Rešenje 1: Podešavanja pretraživača"
+      },
+      "device_settings": {
+        "title": "Rešenje 2: Postavke uređaja"
+      }
+    },
     "desktop_chrome": {
       "browser_settings": {
-        "list_item_1": "U vašem pretraživaču, kliknite na ikonicu za zaključavanje [LOCK_ICON] u adresnoj traci",
+        "list_item_1": "U vašem pretraživaču, kliknite na ikonicu postavki <settings_icon_chrome></settings_icon_chrome> u adresnoj traci",
         "list_item_2_cam": "Aktivirajte prekidač pored <strong>Kamere</strong>",
         "list_item_2_mic": "Aktivirajte prekidač pored <strong>Mikrofona</strong>",
-        "list_item_3": "Vratite se na ovu stranicu i kliknite na dugme <strong>Napravio sam izmene</strong>"
+        "list_item_3": "Vratite se na ovu stranicu i kliknite na dugme <strong>Osveži stranicu</strong>"
       }
     },
     "desktop_edge": {
       "browser_settings": {
-        "list_item_1": "U vašem pretraživaču, kliknite na ikonicu za zaključavanje [LOCK_ICON] u adresnoj traci",
+        "list_item_1": "U vašem pretraživaču, kliknite na ikonicu za zaključavanje <lock_icon></lock_icon> u adresnoj traci",
         "list_item_2_cam": "Kliknite na padajući meni pored <strong>Kamere</strong> i izaberite <strong>Dozvoli</strong>",
         "list_item_2_mic": "Kliknite na padajući meni pored <strong>Mikrofona</strong> i izaberite <strong>Dozvoli</strong>",
-        "list_item_3": "Vratite se na ovu stranicu i kliknite na dugme <strong>Napravio sam izmene</strong>"
+        "list_item_3": "Vratite se na ovu stranicu i kliknite na dugme <strong>Osveži stranicu</strong>"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
-        "list_item_1": "U vašem pretraživaču, kliknite na ikonicu postavki [SETTINGS_ICON_FIREFOX] u adresnoj traci",
+        "list_item_1": "U vašem pretraživaču, kliknite na ikonicu postavki <settings_icon_firefox></settings_icon_firefox> u adresnoj traci",
         "list_item_2_cam": "Kliknite na <strong>Blokirano</strong> pored <strong>Koristi kameru</strong>",
         "list_item_2_mic": "Kliknite na <strong>Blokirano</strong> pored <strong>Koristi mikrofon</strong>",
-        "list_item_3": "Vratite se na ovu stranicu i kliknite na dugme <strong>Napravio sam izmene</strong>"
+        "list_item_3": "Vratite se na ovu stranicu i kliknite na dugme <strong>Osveži stranicu</strong>"
       }
     },
     "desktop_generic": {
       "browser_settings": {
-        "list_item_1": "U vašem pretraživaču, otvorite postavke sajta. To je često ikonica brave [LOCK_ICON] u adresnoj traci",
+        "list_item_1": "U vašem pretraživaču, otvorite postavke sajta. To je često ikonica brave <lock_icon></lock_icon> u adresnoj traci",
         "list_item_2": "Pronađite deo o dozvolama",
         "list_item_3_cam": "Omogućite dozvole za <strong>Kameru</strong>",
         "list_item_3_mic": "Omogućite dozvole za <strong>Mikrofon</strong>",
-        "list_item_4": "Vratite se na ovu stranicu i kliknite na dugme <strong>Napravio sam promene</strong>"
+        "list_item_4": "Vratite se na ovu stranicu i kliknite na dugme <strong>Osveži stranicu</strong>"
       },
       "device_settings": {
         "list_item_1": "Na vašem računaru, otvorite svoje <strong>Postavke</strong>",
         "list_item_2": "Pronađite deo o dozvolama (obično pod <strong>Privatnost</strong>)",
-        "list_item_3_cam": "Omogućite dozvole za <strong>Kameru</strong> za [BROWSER_ICON]",
-        "list_item_3_mic": "Omogućite dozvole za <strong>Mikrofon</strong> za [BROWSER_ICON]",
+        "list_item_3_cam": "Omogućite dozvole za <strong>Kameru</strong> za <browser_icon></browser_icon>",
+        "list_item_3_mic": "Omogućite dozvole za <strong>Mikrofon</strong> za <browser_icon></browser_icon>",
         "list_item_4": "Ponovo pokrenite vaš pretraživač ako je potrebno i vratite se na ovu stranicu"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "Na vašem računaru, kliknite na Apple meni [APPLE_ICON] i izaberite <strong>Sistemske postavke</strong> (ili <strong>Sistemske preferencije</strong>)",
-        "list_item_2": "Kliknite na <strong>Privatnost & Sigurnost</strong> (ili <strong>Sigurnost & Privatnost</strong>) u bočnoj traci ",
+        "list_item_1": "Na vašem računaru, kliknite na Apple meni <apple_icon></apple_icon> i izaberite <strong>Sistemske postavke</strong> (ili <strong>Sistemske preferencije</strong>)",
+        "list_item_2": "Kliknite na <strong>Privatnost & Sigurnost</strong> (ili <strong>Sigurnost & Privatnost</strong>) u bočnoj traci",
         "list_item_3": "Kliknite na <strong>Kasnije</strong> u iskačućem prozoru",
-        "list_item_3_cam": "Kliknite na <strong>Kamera</strong> i aktivirajte prekidač (ili polje za potvrdu) pored [BROWSER_ICON]",
+        "list_item_3_cam": "Kliknite na <strong>Kamera</strong> i aktivirajte prekidač (ili polje za potvrdu) pored <browser_icon></browser_icon>",
         "list_item_4": "Kliknite na <strong>Zatvori & Ponovo otvori</strong> u iskačućem prozoru i vratite se na ovu stranicu",
-        "list_item_4_mic": "Kliknite na <strong>Mikrofon</strong> i aktivirajte prekidač (ili polje za potvrdu) pored [BROWSER_ICON]"
+        "list_item_4_mic": "Kliknite na <strong>Mikrofon</strong> i aktivirajte prekidač (ili polje za potvrdu) pored <browser_icon></browser_icon>"
       }
     },
     "desktop_safari": {
@@ -604,40 +655,44 @@
         "list_item_1": "U vašem pretraživaču, desnim klikom na adresnu traku i izaberite <strong>Podešavanja</strong>",
         "list_item_2_cam": "Kliknite na padajući meni pored <strong>Kamere</strong> i izaberite <strong>Dozvoli</strong>",
         "list_item_2_mic": "Kliknite na padajući meni pored <strong>Mikrofona</strong> i izaberite <strong>Dozvoli</strong>",
-        "list_item_3": "Vratite se na ovu stranicu i kliknite na dugme <strong>Napravio sam izmene</strong>"
+        "list_item_3": "Vratite se na ovu stranicu i kliknite na dugme <strong>Osveži stranicu</strong>"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "Na vašem računaru, kliknite na Windows meni [WINDOWS_ICON] i izaberite <strong>Podešavanja</strong> [SETTINGS_ICON_WINDOWS]",
+        "list_item_1": "Na vašem računaru, kliknite na Windows meni <windows_icon></windows_icon> i izaberite <strong>Podešavanja</strong> <settings_icon_windows></settings_icon_windows>",
         "list_item_2": "Kliknite na <strong>Privatnost</strong> (ili <strong>Privatnost & Sigurnost</strong>)",
-        "list_item_3_cam": "Kliknite na <strong>Kamera</strong> pod <strong>Dozvole za aplikacije</strong> i aktivirajte prekidač pored [BROWSER_ICON] ",
-        "list_item_3_mic": "Kliknite na <strong>Mikrofon</strong> ispod <strong>Dozvole za aplikacije</strong> i aktivirajte prekidač pored [BROWSER_ICON]",
+        "list_item_3_cam": "Kliknite na <strong>Kamera</strong> pod <strong>Dozvole za aplikacije</strong> i aktivirajte prekidač pored <browser_icon></browser_icon>",
+        "list_item_3_mic": "Kliknite na <strong>Mikrofon</strong> ispod <strong>Dozvole za aplikacije</strong> i aktivirajte prekidač pored <browser_icon></browser_icon>",
         "list_item_4": "Ponovo pokrenite vaš pretraživač ako je potrebno i vratite se na ovu stranicu"
       }
     },
     "info": "Oporavak",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "Tapnite na dugme <strong>Napravio sam promene</strong>. Biće vam ponovo zatražen pristup kameri i mikrofonu. Kada se pojavi iskačući prozor, izaberite <strong>Dozvoli</strong> (ili <strong>U redu</strong>)",
-        "list_item_1_cam": "Tapnite na dugme <strong>Napravio sam promene</strong>. Biće vam ponovo zatražen pristup kameri. Kada se pojavi iskačući prozor, izaberite <strong>Dozvoli</strong> (ili <strong>U redu</strong>)",
-        "list_item_1_mic": "Tapnite na dugme <strong>Napravio sam promene</strong>. Biće vam ponovo zatražen pristup mikrofonu. Kada se pojavi iskačući prozor, izaberite <strong>Dozvoli</strong> (ili <strong>U redu</strong>)"
+        "list_item_1_both": "Tapnite na dugme <strong>Osveži stranicu</strong>. Biće vam ponovo zatraženo da omogućite pristup kameri i mikrofonu. Kada se pojavi iskačući prozor, izaberite <strong>Dozvoli</strong> (ili <strong>U redu</strong>)",
+        "list_item_1_cam": "Kliknite na dugme <strong>Osveži stranicu</strong>. Biće vam ponovo zatraženo da omogućite pristup kameri. Kada se pojavi prozorčić, izaberite <strong>Dozvoli</strong> (ili <strong>U redu</strong>)",
+        "list_item_1_mic": "Kliknite na dugme <strong>Osveži stranicu</strong>. Biće vam ponovo zatražen pristup mikrofonu. Kada se pojavi prozorčić, izaberite <strong>Dozvoli</strong> (ili <strong>U redu</strong>)"
       },
       "device_settings": {
         "list_item_1": "Na vašem uređaju, otvorite aplikaciju <strong>Postavke</strong>",
-        "list_item_2": "Pomerajte se kroz listu i dodirnite [BROWSER_ICON]",
+        "list_item_2": "Pomerajte se kroz listu i dodirnite <browser_icon></browser_icon>",
         "list_item_3_cam": "Aktivirajte prekidač pored <strong>Kamere</strong>",
         "list_item_3_mic": "Aktivirajte prekidač pored <strong>Mikrofona</strong>",
-        "list_item_4": "Vratite se na ovu stranicu i pritisnite dugme <strong>Napravio sam promene</strong>"
+        "list_item_4": "Vratite se na ovu stranicu i pritisnite dugme <strong>Osveži stranicu</strong>",
+        "title": "Rešenje 2: Podešavanja uređaja"
+      },
+      "refresh_page": {
+        "title": "Rešenje 1: Osvežite stranicu"
       }
     },
     "ios_safari": {
       "device_settings": {
         "list_item_1": "Na vašem uređaju, otvorite aplikaciju <strong>Postavke</strong>",
-        "list_item_2": "Pomerajte se kroz listu i dodirnite [BROWSER_ICON]",
+        "list_item_2": "Pomerajte se kroz listu i dodirnite <browser_icon></browser_icon>",
         "list_item_3_cam": "Tapnite na <strong>Kamera</strong> i izaberite <strong>Dozvoli</strong>",
         "list_item_3_mic": "Tapnite na <strong>Mikrofon</strong> i izaberite <strong>Dozvoli</strong>",
-        "list_item_4": "Vratite se na ovu stranicu i pritisnite dugme <strong>Napravio sam promene</strong>"
+        "list_item_4": "Vratite se na ovu stranicu i pritisnite dugme <strong>Osveži stranicu</strong>"
       }
     },
     "list_header_both": "Pratite ove korake da biste ponovo odobrili pristup:",
@@ -654,13 +709,7 @@
     "title_cam": "Pristup kameri je odbijen",
     "title_mic": "Pristup mikrofonu je odbijen",
     "web": {
-      "browser_settings": {
-        "title": "Rešenje 1: Podešavanja pretraživača"
-      },
-      "button_primary": "Napravio sam promene",
-      "device_settings": {
-        "title": "Rešenje 2: Postavke uređaja"
-      },
+      "button_primary": "Osvežite stranicu",
       "disclaimer": "Proces verifikacije identiteta može se ponovo pokrenuti. Izvinjavamo se za bilo kakvu neprijatnost"
     }
   },
@@ -934,7 +983,7 @@
       },
       "jpn_specific": {
         "invalid_national_id_value": "Унесите важећи код „Мој број“/Резидент Рецорд",
-        "required_national_id_value": ""
+        "required_national_id_value": "Molimo unesite vaš \"Moj broj\" / kod iz registra stanovnika"
       },
       "ken_specific": {
         "invalid_other": "Унесите важећи број картице странца",
@@ -1012,7 +1061,7 @@
       "too_short_postcode": "Poštanski broj je prekratak",
       "tur_specific": {
         "invalid_national_id_value": "Унесите важећи турски лични број",
-        "required_national_id_value": ""
+        "required_national_id_value": "Molimo unesite vaš turski ID broj"
       },
       "usa_specific": {
         "invalid_ssn": "Unesite važeći PAN",
@@ -1059,7 +1108,7 @@
     "link_certificate": "Formular za prijavu sertifikata",
     "link_privacy_notice": "Obaveštenje o privatnosti",
     "link_terms_and_conditions": "Uslovi i odredbe",
-    "namirial_intro": "Namirial SpA je pouzdani globalni provajder koji će izdati sertifikat koji potvrđuje vaš elektronski potpis. ",
+    "namirial_intro": "Namirial SpA je pouzdani globalni provajder koji će izdati sertifikat koji potvrđuje vaš elektronski potpis.",
     "subtitle": "Da biste potvrdili svoj identitet u skladu sa evropskim pravilima, morate digitalno potpisati dokument.",
     "title": "Креирајте и користите свој дигитални потпис"
   },
@@ -1071,6 +1120,25 @@
     "step_title": "Potpišite vaš dokument",
     "subtitle": "Da biste potvrdili svoj identitet u skladu sa evropskim pravilima, morate digitalno potpisati dokument.",
     "title": "Креирајте и користите свој дигитални потпис"
+  },
+  "retry": {
+    "button": {
+      "generic_selfie_issue": "Probajte ponovo"
+    },
+    "description": {
+      "default": "Probajte ponovo",
+      "expired_document": "Probajte ponovo sa važećim ID-jem sa fotografijom i proverite da li se podaci jasno vide",
+      "generic_document_issue": "Probajte ponovo sa važećim ID-jem sa fotografijom i proverite da li se podaci jasno vide",
+      "generic_selfie_issue": "Probajte ponovo i proverite da li vam se vidi lice i da li je dobro osvetljeno",
+      "unaccepted_document": "Probajte ponovo sa važećim ID-jem sa fotografijom i proverite da li se podaci jasno vide"
+    },
+    "headline": {
+      "default": "Došlo je do problema",
+      "expired_document": "Vaš dokument je istekao",
+      "generic_document_issue": "Došlo je do problema sa vašim dokumentom",
+      "generic_selfie_issue": "Došlo je do problema sa vašim selfijem",
+      "unaccepted_document": "Neprihvaćen dokument"
+    }
   },
   "retry_feedback": {
     "button_primary": "Probajte ponovo"
@@ -1134,7 +1202,7 @@
     "info_link_expire": "Link ističe za jedan sat",
     "info_link_window": "Ostavite ovaj prozor otvoren dok koristite mobilni telefon",
     "link": "Pokušajte sa drugom metodom",
-    "subtitle": "Poslali smo bezbedan link na %{number}",
+    "subtitle": "Poslali smo bezbedan link na <number></number>",
     "subtitle_minutes": "Možda će trebati nekoliko minuta da vam stigne",
     "title": "Proverite mobilni telefon"
   },

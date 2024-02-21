@@ -134,7 +134,7 @@
       "manual_fallback_passport": "拍摄您护照照片页的照片",
       "manual_fallback_residence_permit_back": "拍摄您居留证背面的照片",
       "manual_fallback_residence_permit_front": "拍摄您居留证正面的照片",
-      "position_generic_document_back": "",
+      "position_generic_document_back": "将您的证件背面放置在框架内",
       "position_generic_document_front": "",
       "position_identity_card_back": "将您的身份证背面放在框中",
       "position_identity_card_front": "将您的身份证正面放在框中",
@@ -260,7 +260,7 @@
     "button_pension_property_statement_letter_detail": "养老金声明或信件和财产税声明或信件",
     "button_permit": "居留证",
     "button_permit_detail": "正面和背面",
-    "button_tax_letter": "市政税务函",
+    "button_tax_letter": "地方政府税务信函",
     "extra_estatements_ok": "已接受电子对账单",
     "extra_no_mobile": "抱歉，不可以是移动话费账单",
     "list_accessibility": "可用于验证身份的证明文件",
@@ -309,7 +309,7 @@
     "title_pension_property_statement_letter": "提交声明或信件",
     "title_permit_back": "提交居留证（背面）",
     "title_permit_front": "提交居留证（正面）",
-    "title_tax_letter": "提交信函"
+    "title_tax_letter": "提交地方政府税务信函"
   },
   "doc_video_capture": {
     "button_primary_fallback": "下一步",
@@ -421,6 +421,11 @@
     "title": "获取您的安全链接",
     "url_field_label": "将链接复制到您的手机浏览器"
   },
+  "interactive_task": {
+    "waiting": {
+      "title_5": "正在上传媒体..."
+    }
+  },
   "livenessV2": {
     "error_reload_instructions": "重新加载说明",
     "intro_note_no1": "首先，将面部移入框中",
@@ -460,26 +465,48 @@
       "success": "扫描成功"
     }
   },
+  "nfc_scan_error_can": {
+    "primary_button": "退出验证",
+    "subtitle": "您已达到输入CAN号码的最大尝试次数"
+  },
+  "nfc_scan_error_can:title": "已达到最大尝试次数",
   "otp": {
     "code_input": {
       "error": {
+        "code_expired": "您的代码已过期，请请求新的代码。",
+        "code_invalid": "输入的代码错误，请再试一次。",
         "technical": "发生了技术错误，请稍后再试",
+        "too_many_attempts": "您已尝试过多次此代码，请请求一个新的。",
         "wrong_code": "输入的代码错误，请再试一次"
       },
-      "intro": "发送到您的电话号码的代码将在5分钟内有效",
+      "intro": "您有5分钟的时间来验证通过短信发送到<phonenumber></phonenumber>的代码。",
       "resend": {
-        "cta": "重新发送",
-        "label": "已发送代码（最多{limit}）"
+        "cta": "请求新代码",
+        "cta_timeout": "请求新的代码（<timeout></timeout>秒）",
+        "label": "已发送代码",
+        "tracker": "<remaining></remaining> 的 <limit></limit>"
       },
       "title": "一次性密码"
+    },
+    "error": {
+      "cta": "返回",
+      "subtitle": "请等待几秒钟后再试",
+      "title": "出了些问题"
+    },
+    "failure": {
+      "cta": "继续",
+      "subtitle": "我们无法再验证您的电话号码",
+      "title": "允许的尝试次数已超过"
     },
     "send_code": {
       "cta": "发送代码",
       "error": {
+        "invalid_phone_number": "请提供有效的电话号码。",
         "limit": "您已达到发送短信的限制",
         "technical": "发生了技术错误，请稍后再试"
       },
-      "intro": "为了验证您的电话号码，我们将向您发送一次性代码，以便在下一个屏幕中输入。",
+      "input_label": "电话号码",
+      "intro": "为了验证您的电话号码，我们会要求您输入一次性密码。",
       "title": "一次性密码"
     }
   },
@@ -504,99 +531,123 @@
   },
   "permission_recovery": {
     "android": {
+      "browser_settings": {
+        "title": "解决方案1：浏览器设置"
+      },
       "device_settings": {
         "list_item_1": "在您的设备上，打开<strong>设置</strong>应用程序",
         "list_item_2": "点击 <strong>应用</strong>",
-        "list_item_3": "点击 [BROWSER_ICON]。如果找不到，点击<strong>查看所有应用</strong>或<strong>管理应用</strong>，然后选择你的浏览器应用",
+        "list_item_3": "点击 <browser_icon></browser_icon>。如果找不到，点击<strong>查看所有应用</strong>或<strong>管理应用</strong>，然后选择你的浏览器应用",
         "list_item_4": "点击 <strong>权限</strong>",
         "list_item_5_cam": "点击 <strong>相机</strong> 并选择 <strong>允许</strong>",
         "list_item_5_mic": "点击 <strong>麦克风</strong> 并选择 <strong>允许</strong>",
-        "list_item_6": "返回此页面并点击<strong>我已做出更改</strong>按钮"
+        "list_item_6": "返回此页面并点击<strong>刷新页面</strong>按钮",
+        "title": "解决方案2：设备设置"
+      },
+      "refresh_page": {
+        "list_item_1_both": "点击<strong>刷新页面</strong>按钮。系统会再次要求您启用摄像头和麦克风访问权限。弹出窗口出现时，选择<strong>允许</strong>（或<strong>确定</strong>）",
+        "list_item_1_cam": "点击<strong>刷新页面</strong>按钮。系统会再次要求您启用摄像头访问权限。弹出窗口出现时，选择<strong>允许</strong>（或<strong>确定</strong>）",
+        "list_item_1_mic": "点击<strong>刷新页面</strong>按钮。系统将再次要求您启用麦克风访问权限。当弹出窗口出现时，选择<strong>允许</strong>（或<strong>确定</strong>）"
       }
     },
     "android_chrome": {
       "browser_settings": {
-        "list_item_1": "在您的浏览器中，点击地址栏中的锁图标 [LOCK_ICON]",
+        "list_item_1": "在您的浏览器中，点击地址栏中的设置图标<settings_icon_chrome></settings_icon_chrome>",
         "list_item_2": "点击 <strong>权限</strong>",
         "list_item_3_cam": "激活位于 <strong>相机</strong> 旁边的切换开关",
         "list_item_3_mic": "激活位于 <strong>麦克风</strong> 旁边的切换开关",
-        "list_item_4": "返回此页面并点击<strong>我已做出更改</strong>按钮"
+        "list_item_4": "返回此页面并点击<strong>刷新页面</strong>按钮"
       }
     },
     "android_firefox": {
       "browser_settings": {
-        "list_item_1": "在您的浏览器中，点击地址栏中的锁图标 [LOCK_ICON]",
+        "list_item_1": "在您的浏览器中，点击地址栏中的锁图标 <lock_icon></lock_icon>",
         "list_item_2_cam": "点击 <strong>已阻止</strong> 旁边的 <strong>相机</strong> 切换到 <strong>已允许</strong>",
         "list_item_2_mic": "点击 <strong>已阻止</strong> 旁边的 <strong>麦克风</strong> 切换到 <strong>已允许</strong>",
-        "list_item_3": "返回此页面并点击<strong>我已做出更改</strong>按钮"
+        "list_item_3": "返回此页面并点击<strong>刷新页面</strong>按钮",
+        "title": "解决方案2：浏览器设置"
+      },
+      "device_settings": {
+        "title": "解决方案3：设备设置"
+      },
+      "refresh_page": {
+        "title": "解决方案1：刷新页面"
       }
     },
     "android_generic": {
       "browser_settings": {
-        "list_item_1": "在您的浏览器中，打开网站设置。这通常是地址栏中的一个锁图标 [LOCK_ICON]",
+        "list_item_1": "在您的浏览器中，打开网站设置。这通常是地址栏中的一个锁图标 <lock_icon></lock_icon>",
         "list_item_2": "找到有关权限的部分",
         "list_item_3_cam": "启用<strong>相机</strong>权限",
         "list_item_3_mic": "启用<strong>麦克风</strong>权限",
-        "list_item_4": "返回此页面并点击<strong>我已做出更改</strong>按钮"
+        "list_item_4": "返回此页面并点击<strong>刷新页面</strong>按钮"
       }
     },
     "android_samsung": {
       "browser_settings": {
-        "list_item_1": "在您的浏览器中，点击地址栏中的锁图标[LOCK_ICON]",
+        "list_item_1": "在您的浏览器中，点击地址栏中的锁图标<lock_icon></lock_icon>",
         "list_item_2_cam": "激活位于 <strong>相机</strong> 旁边的切换开关",
         "list_item_2_mic": "激活位于 <strong>麦克风</strong> 旁边的切换开关",
-        "list_item_3": "返回此页面并点击<strong>我已做出更改</strong>按钮"
+        "list_item_3": "返回此页面并点击<strong>刷新页面</strong>按钮"
       }
     },
     "button_primary": "刷新",
+    "desktop": {
+      "browser_settings": {
+        "title": "解决方案1：浏览器设置"
+      },
+      "device_settings": {
+        "title": "解决方案2：设备设置"
+      }
+    },
     "desktop_chrome": {
       "browser_settings": {
-        "list_item_1": "在您的浏览器中，点击地址栏中的锁图标 [LOCK_ICON]",
+        "list_item_1": "在您的浏览器中，点击地址栏中的设置图标<settings_icon_chrome></settings_icon_chrome>",
         "list_item_2_cam": "激活<strong>相机</strong>旁边的切换开关",
         "list_item_2_mic": "激活位于 <strong>麦克风</strong> 旁边的切换开关",
-        "list_item_3": "返回此页面并点击<strong>我已做出更改</strong>按钮"
+        "list_item_3": "返回此页面并点击<strong>刷新页面</strong>按钮"
       }
     },
     "desktop_edge": {
       "browser_settings": {
-        "list_item_1": "在您的浏览器中，点击地址栏中的锁图标[LOCK_ICON]",
+        "list_item_1": "在您的浏览器中，点击地址栏中的锁图标<lock_icon></lock_icon>",
         "list_item_2_cam": "点击 <strong>相机</strong>旁边的下拉菜单，然后选择<strong>允许</strong>",
         "list_item_2_mic": "点击 <strong>麦克风</strong>旁边的下拉菜单，然后选择<strong>允许</strong>",
-        "list_item_3": "返回此页面并点击<strong>我已做出更改</strong>按钮"
+        "list_item_3": "返回此页面并点击<strong>刷新页面</strong>按钮"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
-        "list_item_1": "在您的浏览器中，点击地址栏中的设置图标 [SETTINGS_ICON_FIREFOX]",
+        "list_item_1": "在您的浏览器中，点击地址栏中的设置图标 <settings_icon_firefox></settings_icon_firefox>",
         "list_item_2_cam": "点击<strong>已阻止</strong>，位于<strong>使用相机</strong>旁边",
         "list_item_2_mic": "点击<strong>已阻止</strong>，位于<strong>使用麦克风</strong>旁边",
-        "list_item_3": "返回此页面并点击<strong>我已做出更改</strong>按钮"
+        "list_item_3": "返回此页面并点击<strong>刷新页面</strong>按钮"
       }
     },
     "desktop_generic": {
       "browser_settings": {
-        "list_item_1": "在您的浏览器中，打开网站设置。这通常是地址栏中的一个锁图标 [LOCK_ICON]",
+        "list_item_1": "在您的浏览器中，打开网站设置。这通常是地址栏中的一个锁图标 <lock_icon></lock_icon>",
         "list_item_2": "找到关于权限的部分",
         "list_item_3_cam": "启用<strong>相机</strong>权限",
         "list_item_3_mic": "启用<strong>麦克风</strong>权限",
-        "list_item_4": "返回此页面并点击<strong>我已做出更改</strong>按钮"
+        "list_item_4": "返回此页面并点击<strong>刷新页面</strong>按钮"
       },
       "device_settings": {
         "list_item_1": "在您的电脑上，打开您的<strong>设置</strong>",
         "list_item_2": "找到有关权限的部分（通常在<strong>隐私</strong>下）",
-        "list_item_3_cam": "为 [BROWSER_ICON] 启用 <strong>相机</strong> 权限",
-        "list_item_3_mic": "为 [BROWSER_ICON] 启用 <strong>麦克风</strong> 权限",
+        "list_item_3_cam": "为 <browser_icon></browser_icon> 启用 <strong>相机</strong> 权限",
+        "list_item_3_mic": "为 <browser_icon></browser_icon> 启用 <strong>麦克风</strong> 权限",
         "list_item_4": "如有必要，请重启您的浏览器并返回此页面"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "在您的电脑上，点击苹果菜单 [APPLE_ICON] 并选择<strong>系统设置</strong>（或<strong>系统偏好设置</strong>）",
+        "list_item_1": "在您的电脑上，点击苹果菜单 <apple_icon></apple_icon> 并选择<strong>系统设置</strong>（或<strong>系统偏好设置</strong>）",
         "list_item_2": "点击侧边栏的<strong>隐私与安全</strong>（或<strong>安全与隐私</strong>）",
         "list_item_3": "点击弹出窗口中的<strong>稍后</strong>",
-        "list_item_3_cam": "点击 <strong>相机</strong> 并激活 [BROWSER_ICON] 旁边的切换按钮（或复选框）",
+        "list_item_3_cam": "点击 <strong>相机</strong> 并激活 <browser_icon></browser_icon> 旁边的切换按钮（或复选框）",
         "list_item_4": "点击弹出窗口中的<strong>退出并重新打开</strong>，然后返回到此页面",
-        "list_item_4_mic": "点击 <strong>麦克风</strong> 并激活 [BROWSER_ICON] 旁边的切换按钮（或复选框）"
+        "list_item_4_mic": "点击 <strong>麦克风</strong> 并激活 <browser_icon></browser_icon> 旁边的切换按钮（或复选框）"
       }
     },
     "desktop_safari": {
@@ -604,40 +655,44 @@
         "list_item_1": "在您的浏览器中，右键点击地址栏并选择<strong>设置</strong>",
         "list_item_2_cam": "点击 <strong>相机</strong>旁边的下拉菜单并选择<strong>允许</strong>",
         "list_item_2_mic": "点击 <strong>麦克风</strong>旁边的下拉菜单，然后选择<strong>允许</strong>",
-        "list_item_3": "返回此页面并点击<strong>我已做出更改</strong>按钮"
+        "list_item_3": "返回此页面并点击<strong>刷新页面</strong>按钮"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "在您的电脑上，点击Windows菜单 [WINDOWS_ICON] 并选择 <strong>设置</strong> [SETTINGS_ICON_WINDOWS]",
+        "list_item_1": "在您的电脑上，点击Windows菜单 <windows_icon></windows_icon> 并选择 <strong>设置</strong> <settings_icon_windows></settings_icon_windows>",
         "list_item_2": "点击 <strong>隐私</strong>（或 <strong>隐私和安全</strong>）",
-        "list_item_3_cam": "点击 <strong>相机</strong> 在 <strong>应用权限</strong> 下并激活 [BROWSER_ICON] 旁边的切换开关 ",
-        "list_item_3_mic": "点击 <strong>麦克风</strong> 位于 <strong>应用权限</strong> 下方，并激活 [BROWSER_ICON] 旁边的切换开关",
+        "list_item_3_cam": "点击 <strong>相机</strong> 在 <strong>应用权限</strong> 下并激活 <browser_icon></browser_icon> 旁边的切换开关",
+        "list_item_3_mic": "点击 <strong>麦克风</strong> 位于 <strong>应用权限</strong> 下方，并激活 <browser_icon></browser_icon> 旁边的切换开关",
         "list_item_4": "如有必要，请重启您的浏览器并返回此页面"
       }
     },
     "info": "恢复",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "点击<strong>我已做出更改</strong>按钮。系统将再次要求您启用摄像头和麦克风访问权限。当弹出窗口出现时，选择<strong>允许</strong>（或<strong>确定</strong>）",
-        "list_item_1_cam": "点击<strong>我已做出更改</strong>按钮。系统将再次要求您启用相机访问权限。当弹出窗口出现时，选择<strong>允许</strong>（或<strong>确定</strong>）",
-        "list_item_1_mic": "点击<strong>我已做出更改</strong>按钮。系统将再次要求您启用麦克风访问权限。当弹出窗口出现时，选择<strong>允许</strong>（或<strong>确定</strong>）"
+        "list_item_1_both": "点击<strong>刷新页面</strong>按钮。系统会再次要求您启用摄像头和麦克风访问权限。弹出窗口出现时，选择<strong>允许</strong>（或<strong>确定</strong>）",
+        "list_item_1_cam": "点击<strong>刷新页面</strong>按钮。系统会再次要求您启用摄像头访问权限。弹出窗口出现时，选择<strong>允许</strong>（或<strong>确定</strong>）",
+        "list_item_1_mic": "点击<strong>刷新页面</strong>按钮。系统将再次要求您启用麦克风访问权限。当弹出窗口出现时，选择<strong>允许</strong>（或<strong>确定</strong>）"
       },
       "device_settings": {
         "list_item_1": "在您的设备上，打开<strong>设置</strong>应用程序",
-        "list_item_2": "滚动浏览列表并点击[BROWSER_ICON]",
+        "list_item_2": "滚动浏览列表并点击<browser_icon></browser_icon>",
         "list_item_3_cam": "激活位于 <strong>相机</strong> 旁边的切换开关",
         "list_item_3_mic": "激活位于 <strong>麦克风</strong> 旁边的切换开关",
-        "list_item_4": "返回此页面并点击<strong>我已做出更改</strong>按钮"
+        "list_item_4": "返回此页面并点击<strong>刷新页面</strong>按钮",
+        "title": "解决方案2：设备设置"
+      },
+      "refresh_page": {
+        "title": "解决方案1：刷新页面"
       }
     },
     "ios_safari": {
       "device_settings": {
         "list_item_1": "在您的设备上，打开<strong>设置</strong>应用程序",
-        "list_item_2": "滚动浏览列表并点击[BROWSER_ICON]",
+        "list_item_2": "滚动浏览列表并点击<browser_icon></browser_icon>",
         "list_item_3_cam": "点击 <strong>相机</strong> 并选择 <strong>允许</strong>",
         "list_item_3_mic": "点击 <strong>麦克风</strong> 并选择 <strong>允许</strong>",
-        "list_item_4": "返回此页面并点击<strong>我已做出更改</strong>按钮"
+        "list_item_4": "返回此页面并点击<strong>刷新页面</strong>按钮"
       }
     },
     "list_header_both": "要恢复对这两者的访问，请按以下步骤操作：",
@@ -654,13 +709,7 @@
     "title_cam": "相机访问被拒绝",
     "title_mic": "麦克风访问被拒绝",
     "web": {
-      "browser_settings": {
-        "title": "解决方案1：浏览器设置"
-      },
-      "button_primary": "我已经做了更改",
-      "device_settings": {
-        "title": "解决方案2：设备设置"
-      },
+      "button_primary": "刷新页面",
       "disclaimer": "身份验证过程可能会重新开始。对任何不便表示歉意"
     }
   },
@@ -754,7 +803,7 @@
         },
         "identity_card": "身份证",
         "ind_specific": {
-          "tax_id": "个人帐号 (PAN)"
+          "tax_id": "个人账号 (PAN)"
         },
         "ken_specific": {
           "other": "外国人卡"
@@ -849,7 +898,7 @@
       "prt_specific": {
         "national_id_value": "税号"
       },
-      "town": "镇",
+      "town": "市/镇",
       "tur_specific": {
         "national_id_value": "土耳其身份证号码"
       },
@@ -920,7 +969,7 @@
         "required_pan": "请输入您的PAN"
       },
       "invalid": "请检查是否有无效字符或符号",
-      "invalid_dob": "请输入有效的出生日期",
+      "invalid_dob": "请输入有效地出生日期",
       "invalid_driving_license": "请输入有效的驾照号码",
       "invalid_email": "请输入有效的电子邮箱",
       "invalid_mobile_number": "请输入有效的手机号码",
@@ -934,7 +983,7 @@
       },
       "jpn_specific": {
         "invalid_national_id_value": "请输入有效的“我的号码”/居民票代码",
-        "required_national_id_value": ""
+        "required_national_id_value": "请输入您的“我的号码”/居民记录代码"
       },
       "ken_specific": {
         "invalid_other": "请输入有效的外国人卡号",
@@ -952,7 +1001,7 @@
       },
       "mys_specific": {
         "invalid_national_id_value": "请输入有效的身份证",
-        "required_national_id_value": "请输入您的身份证"
+        "required_national_id_value": "请填写您的身份证号码"
       },
       "nga_specific": {
         "invalid_identity_card": "请输入有效的国民身份证号码 (NIN)",
@@ -1012,7 +1061,7 @@
       "too_short_postcode": "邮编太短",
       "tur_specific": {
         "invalid_national_id_value": "请输入有效的土耳其身份证号码",
-        "required_national_id_value": ""
+        "required_national_id_value": "请输入您的土耳其ID号码"
       },
       "usa_specific": {
         "invalid_ssn": "请输入有效的SSN",
@@ -1037,7 +1086,7 @@
         "bullet_2": "一旦Onfido验证了您的身份，您的签名将会被用在这份文件上。",
         "button_next_step": "签署文件",
         "review_document": "审查<fallback>你的文件</fallback>以签署",
-        "step2": "2/2",
+        "step2": "2中的2",
         "steps": "签署您的文件",
         "subtitle": "为了按照欧洲的规定确认您的身份，您必须对一个文件进行数字签名。",
         "title": "创建并使用您的数字签名"
@@ -1071,6 +1120,25 @@
     "step_title": "签署您的文件",
     "subtitle": "根据欧洲规定，您必须对一份文件进行数字签名以确认您的身份。",
     "title": "创建并使用您的数字签名"
+  },
+  "retry": {
+    "button": {
+      "generic_selfie_issue": "请重试"
+    },
+    "description": {
+      "default": "请重试",
+      "expired_document": "请使用带照片的有效身份证件重试，并确保您的信息清晰可见",
+      "generic_document_issue": "请使用带照片的有效身份证件重试，并确保您的信息清晰可见",
+      "generic_selfie_issue": "请重试，并确保您的面部清晰且光线充足",
+      "unaccepted_document": "请使用带照片的有效身份证件重试，并确保您的信息清晰可见"
+    },
+    "headline": {
+      "default": "出现了一个问题",
+      "expired_document": "您的证明文件已过期",
+      "generic_document_issue": "您的文档出现了问题",
+      "generic_selfie_issue": "您的自拍照出现了问题",
+      "unaccepted_document": "未接受的证明文件"
+    }
   },
   "retry_feedback": {
     "button_primary": "请重试"
@@ -1134,7 +1202,7 @@
     "info_link_expire": "您的链接将在一小时后过期",
     "info_link_window": "使用手机时请勿关闭此窗口",
     "link": "尝试另一种方法",
-    "subtitle": "我们已将安全链接发送至%{number}",
+    "subtitle": "我们已将安全链接发送至<number></number>",
     "subtitle_minutes": "可能需要几分钟时间才能到达",
     "title": "请检查手机"
   },

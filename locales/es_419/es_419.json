@@ -134,7 +134,7 @@
       "manual_fallback_passport": "Toma una foto de la página con foto de tu pasaporte",
       "manual_fallback_residence_permit_back": "Toma una foto del reverso de tu permiso de residencia",
       "manual_fallback_residence_permit_front": "Toma una foto del anverso de tu permiso de residencia",
-      "position_generic_document_back": "",
+      "position_generic_document_back": "Coloca el reverso del documento en el marco",
       "position_generic_document_front": "",
       "position_identity_card_back": "Coloca el reverso del documento dentro del marco",
       "position_identity_card_front": "Coloca el anverso del documento dentro del marco",
@@ -260,7 +260,7 @@
     "button_pension_property_statement_letter_detail": "Declaración o carta de pensión y Declaración o carta de impuesto a la propiedad",
     "button_permit": "Permiso de residencia",
     "button_permit_detail": "Anverso y reverso",
-    "button_tax_letter": "Carta fiscal del consejo",
+    "button_tax_letter": "Carta de Impuesto del Gobierno Local",
     "extra_estatements_ok": "Estados de cuenta electrónicos aceptados",
     "extra_no_mobile": "Lo sentimos, no se aceptan facturas de teléfono celular",
     "list_accessibility": "Documentos que puedes usar para verificar tu identidad",
@@ -309,7 +309,7 @@
     "title_pension_property_statement_letter": "Enviar declaración o carta",
     "title_permit_back": "Enviar permiso de residencia (reverso)",
     "title_permit_front": "Enviar permiso de residencia (anverso)",
-    "title_tax_letter": "Enviar carta"
+    "title_tax_letter": "Envíe la Carta de Impuesto del Gobierno Local"
   },
   "doc_video_capture": {
     "button_primary_fallback": "Siguiente paso",
@@ -421,6 +421,11 @@
     "title": "Obtén tu enlace seguro",
     "url_field_label": "Copia el enlace al navegador de tu celular"
   },
+  "interactive_task": {
+    "waiting": {
+      "title_5": "Subiendo medios..."
+    }
+  },
   "livenessV2": {
     "error_reload_instructions": "Volver a cargar las instrucciones",
     "intro_note_no1": "Primero, coloca tu rostro en el marco",
@@ -460,26 +465,48 @@
       "success": "Escaneado correcto"
     }
   },
+  "nfc_scan_error_can": {
+    "primary_button": "Verificación de salida",
+    "subtitle": "Has alcanzado el máximo de intentos para ingresar tu número CAN"
+  },
+  "nfc_scan_error_can:title": "Se alcanzó el máximo de intentos",
   "otp": {
     "code_input": {
       "error": {
+        "code_expired": "Tu código ha expirado, por favor solicita uno nuevo.",
+        "code_invalid": "Código incorrecto ingresado, por favor intente de nuevo.",
         "technical": "Ha ocurrido un error técnico, por favor intente nuevamente más tarde",
+        "too_many_attempts": "Has intentado este código demasiadas veces, por favor solicita uno nuevo.",
         "wrong_code": "Código incorrecto ingresado, por favor intente de nuevo"
       },
-      "intro": "El código enviado a su número de teléfono estará activo durante 5 minutos",
+      "intro": "Tienes 5 minutos para validar el código enviado por SMS a <phonenumber></phonenumber>",
       "resend": {
-        "cta": "Reenviar",
-        "label": "Código enviado (hasta {limit})"
+        "cta": "Solicita un nuevo código",
+        "cta_timeout": "Solicitar un nuevo código (<timeout></timeout> segundos)",
+        "label": "Código enviado",
+        "tracker": "<remaining></remaining> de <limit></limit>"
       },
       "title": "Contraseña de un solo uso"
+    },
+    "error": {
+      "cta": "Regresa",
+      "subtitle": "Por favor espera unos segundos e intenta de nuevo",
+      "title": "Algo salió mal"
+    },
+    "failure": {
+      "cta": "Continuar",
+      "subtitle": "Ya no podemos verificar tu número de teléfono",
+      "title": "Se excedió el número permitido de intentos"
     },
     "send_code": {
       "cta": "Enviar código",
       "error": {
+        "invalid_phone_number": "Por favor, proporciona un número de teléfono válido.",
         "limit": "Alcanzaste el límite de SMS enviados",
         "technical": "Ha ocurrido un error técnico, por favor intente nuevamente más tarde"
       },
-      "intro": "Para verificar tu número de teléfono, vamos a enviarte un código de un solo uso para que lo ingreses en la próxima pantalla.",
+      "input_label": "Número de teléfono",
+      "intro": "Para verificar tu número de teléfono, te pediremos que ingreses una contraseña de un solo uso.",
       "title": "Contraseña de un solo uso"
     }
   },
@@ -504,99 +531,123 @@
   },
   "permission_recovery": {
     "android": {
+      "browser_settings": {
+        "title": "Solución 1: Configuración del navegador"
+      },
       "device_settings": {
         "list_item_1": "En tu dispositivo, abre la aplicación <strong>Configuración</strong>",
         "list_item_2": "Toque <strong>Aplicaciones</strong>",
-        "list_item_3": "Toca [BROWSER_ICON]. Si no puedes encontrarlo, toca <strong>Ver todas las aplicaciones</strong> o <strong>Administrar aplicaciones</strong> y selecciona tu aplicación de navegador",
+        "list_item_3": "Toca <browser_icon></browser_icon>. Si no puedes encontrarlo, toca <strong>Ver todas las aplicaciones</strong> o <strong>Administrar aplicaciones</strong> y selecciona tu aplicación de navegador",
         "list_item_4": "Toca <strong>Permisos</strong>",
         "list_item_5_cam": "Toque <strong>Cámara</strong> y seleccione <strong>Permitir</strong>",
         "list_item_5_mic": "Toca <strong>Micrófono</strong> y selecciona <strong>Permitir</strong>",
-        "list_item_6": "Regresa a esta página y presiona el botón <strong>He realizado los cambios</strong>"
+        "list_item_6": "Regresa a esta página y presiona el botón <strong>Actualizar la página</strong>",
+        "title": "Solución 2: Configuraciones del dispositivo"
+      },
+      "refresh_page": {
+        "list_item_1_both": "Toca el botón <strong>Actualizar la página</strong>. Se te pedirá que vuelvas a habilitar el acceso a la cámara y al micrófono. Cuando aparezca la ventana emergente, selecciona <strong>Permitir</strong> (o <strong>Aceptar</strong>)",
+        "list_item_1_cam": "Toca el botón <strong>Actualizar la página</strong>. Se te pedirá que vuelvas a habilitar el acceso a la cámara. Cuando aparezca la ventana emergente, selecciona <strong>Permitir</strong> (o <strong>Aceptar</strong>)",
+        "list_item_1_mic": "Toca el botón <strong>Actualizar la página</strong>. Se te pedirá que habilites nuevamente el acceso al micrófono. Cuando aparezca la ventana emergente, selecciona <strong>Permitir</strong> (o <strong>Aceptar</strong>)"
       }
     },
     "android_chrome": {
       "browser_settings": {
-        "list_item_1": "En tu navegador, toca el ícono de candado [LOCK_ICON] en la barra de direcciones",
+        "list_item_1": "En tu navegador, toca el ícono de configuración <settings_icon_chrome></settings_icon_chrome> en la barra de direcciones",
         "list_item_2": "Toca <strong>Permisos</strong>",
         "list_item_3_cam": "Activa el interruptor junto a <strong>Cámara</strong>",
         "list_item_3_mic": "Activa el interruptor junto a <strong>Micrófono</strong>",
-        "list_item_4": "Regresa a esta página y toca el botón <strong>He realizado los cambios</strong>"
+        "list_item_4": "Regresa a esta página y presiona el botón <strong>Actualizar la página</strong>"
       }
     },
     "android_firefox": {
       "browser_settings": {
-        "list_item_1": "En tu navegador, toca el ícono de candado [LOCK_ICON] en la barra de direcciones",
+        "list_item_1": "En tu navegador, toca el ícono de candado <lock_icon></lock_icon> en la barra de direcciones",
         "list_item_2_cam": "Toque <strong>Bloqueado</strong> junto a <strong>Cámara</strong> para cambiar a <strong>Permitido</strong>",
         "list_item_2_mic": "Toque <strong>Bloqueado</strong> junto a <strong>Micrófono</strong> para cambiar a <strong>Permitido</strong>",
-        "list_item_3": "Regresa a esta página y presiona el botón <strong>He realizado los cambios</strong>"
+        "list_item_3": "Regresa a esta página y presiona el botón <strong>Actualizar la página</strong>",
+        "title": "Solución 2: Configuración del navegador"
+      },
+      "device_settings": {
+        "title": "Solución 3: Configuraciones del dispositivo"
+      },
+      "refresh_page": {
+        "title": "Solución 1: Actualiza la página"
       }
     },
     "android_generic": {
       "browser_settings": {
-        "list_item_1": "En tu navegador, abre la configuración del sitio web. Esto a menudo es un ícono de candado [LOCK_ICON] en la barra de direcciones",
+        "list_item_1": "En tu navegador, abre la configuración del sitio web. Esto a menudo es un ícono de candado <lock_icon></lock_icon> en la barra de direcciones",
         "list_item_2": "Encuentra la sección sobre permisos",
         "list_item_3_cam": "Habilita los permisos de la <strong>Cámara</strong>",
         "list_item_3_mic": "Habilite los permisos del <strong>Micrófono</strong>",
-        "list_item_4": "Regresa a esta página y presiona el botón <strong>He realizado los cambios</strong>"
+        "list_item_4": "Regresa a esta página y presiona el botón <strong>Actualizar la página</strong>"
       }
     },
     "android_samsung": {
       "browser_settings": {
-        "list_item_1": "En tu navegador, toca el ícono de candado [LOCK_ICON] en la barra de direcciones",
+        "list_item_1": "En tu navegador, toca el ícono de candado <lock_icon></lock_icon> en la barra de direcciones",
         "list_item_2_cam": "Activa el interruptor junto a <strong>Cámara</strong>",
         "list_item_2_mic": "Activa el interruptor junto a <strong>Micrófono</strong>",
-        "list_item_3": "Regresa a esta página y presiona el botón <strong>He realizado los cambios</strong>"
+        "list_item_3": "Regresa a esta página y presiona el botón <strong>Actualizar la página</strong>"
       }
     },
     "button_primary": "Actualizar",
+    "desktop": {
+      "browser_settings": {
+        "title": "Solución 1: Configuración del navegador"
+      },
+      "device_settings": {
+        "title": "Solución 2: Configuración del dispositivo"
+      }
+    },
     "desktop_chrome": {
       "browser_settings": {
-        "list_item_1": "En tu navegador, haz clic en el ícono de candado [LOCK_ICON] en la barra de direcciones",
+        "list_item_1": "En tu navegador, haz clic en el ícono de configuración <settings_icon_chrome></settings_icon_chrome> en la barra de direcciones",
         "list_item_2_cam": "Activa el interruptor junto a <strong>Cámara</strong>",
         "list_item_2_mic": "Activa el interruptor junto a <strong>Micrófono</strong>",
-        "list_item_3": "Regresa a esta página y haz clic en el botón <strong>He realizado los cambios</strong>"
+        "list_item_3": "Regresa a esta página y haz clic en el botón <strong>Actualizar la página</strong>"
       }
     },
     "desktop_edge": {
       "browser_settings": {
-        "list_item_1": "En tu navegador, haz clic en el ícono de candado [LOCK_ICON] en la barra de direcciones",
+        "list_item_1": "En tu navegador, haz clic en el ícono de candado <lock_icon></lock_icon> en la barra de direcciones",
         "list_item_2_cam": "Haz clic en el menú desplegable junto a <strong>Cámara</strong> y selecciona <strong>Permitir</strong>",
         "list_item_2_mic": "Haz clic en el menú desplegable junto a <strong>Micrófono</strong> y selecciona <strong>Permitir</strong>",
-        "list_item_3": "Regresa a esta página y haz clic en el botón <strong>He realizado los cambios</strong>"
+        "list_item_3": "Regresa a esta página y haz clic en el botón <strong>Actualizar la página</strong>"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
-        "list_item_1": "En su navegador, haga clic en el ícono de configuración [SETTINGS_ICON_FIREFOX] en la barra de direcciones",
+        "list_item_1": "En su navegador, haga clic en el ícono de configuración <settings_icon_firefox></settings_icon_firefox> en la barra de direcciones",
         "list_item_2_cam": "Haz clic en <strong>Bloqueado</strong> junto a <strong>Usar la cámara</strong>",
         "list_item_2_mic": "Haz clic en <strong>Bloqueado</strong> junto a <strong>Usar el micrófono</strong>",
-        "list_item_3": "Regresa a esta página y haz clic en el botón <strong>He realizado los cambios</strong>"
+        "list_item_3": "Regresa a esta página y haz clic en el botón <strong>Actualizar la página</strong>"
       }
     },
     "desktop_generic": {
       "browser_settings": {
-        "list_item_1": "En tu navegador, abre la configuración del sitio web. Esto a menudo es un ícono de candado [LOCK_ICON] en la barra de direcciones",
+        "list_item_1": "En tu navegador, abre la configuración del sitio web. Esto a menudo es un ícono de candado <lock_icon></lock_icon> en la barra de direcciones",
         "list_item_2": "Encuentra la sección sobre permisos",
         "list_item_3_cam": "Habilita los permisos de la <strong>Cámara</strong>",
         "list_item_3_mic": "Habilita los permisos del <strong>Micrófono</strong>",
-        "list_item_4": "Regresa a esta página y haz clic en el botón <strong>He realizado los cambios</strong>"
+        "list_item_4": "Regresa a esta página y haz clic en el botón <strong>Actualizar la página</strong>"
       },
       "device_settings": {
         "list_item_1": "En su computadora, abra sus <strong>Configuraciones</strong>",
         "list_item_2": "Encuentra la sección sobre permisos (generalmente bajo <strong>Privacidad</strong>)",
-        "list_item_3_cam": "Habilita los permisos de <strong>Cámara</strong> para [BROWSER_ICON]",
-        "list_item_3_mic": "Habilite los permisos de <strong>Micrófono</strong> para [BROWSER_ICON]",
+        "list_item_3_cam": "Habilita los permisos de <strong>Cámara</strong> para <browser_icon></browser_icon>",
+        "list_item_3_mic": "Habilite los permisos de <strong>Micrófono</strong> para <browser_icon></browser_icon>",
         "list_item_4": "Reinicia tu navegador si es necesario y vuelve a esta página"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "En su computadora, haga clic en el menú Apple [APPLE_ICON] y seleccione <strong>Configuración del Sistema</strong> (o <strong>Preferencias del Sistema</strong>)",
+        "list_item_1": "En su computadora, haga clic en el menú Apple <apple_icon></apple_icon> y seleccione <strong>Configuración del Sistema</strong> (o <strong>Preferencias del Sistema</strong>)",
         "list_item_2": "Haz clic en <strong>Privacidad y seguridad</strong> (o <strong>Seguridad y privacidad</strong>) en la barra lateral",
         "list_item_3": "Haz clic en <strong>Más tarde</strong> en la ventana emergente",
-        "list_item_3_cam": "Haz clic en <strong>Cámara</strong> y activa el interruptor (o casilla de verificación) junto a [BROWSER_ICON]",
+        "list_item_3_cam": "Haz clic en <strong>Cámara</strong> y activa el interruptor (o casilla de verificación) junto a <browser_icon></browser_icon>",
         "list_item_4": "Haz clic en <strong>Salir y volver a abrir</strong> en el pop-up y regresa a esta página",
-        "list_item_4_mic": "Haz clic en <strong>Micrófono</strong> y activa el interruptor (o casilla de verificación) junto a [BROWSER_ICON]"
+        "list_item_4_mic": "Haz clic en <strong>Micrófono</strong> y activa el interruptor (o casilla de verificación) junto a <browser_icon></browser_icon>"
       }
     },
     "desktop_safari": {
@@ -604,40 +655,44 @@
         "list_item_1": "En tu navegador, haz clic derecho en la barra de direcciones y selecciona <strong>Configuración</strong>",
         "list_item_2_cam": "Haz clic en el menú desplegable junto a <strong>Cámara</strong> y selecciona <strong>Permitir</strong>",
         "list_item_2_mic": "Haz clic en el menú desplegable junto a <strong>Micrófono</strong> y selecciona <strong>Permitir</strong>",
-        "list_item_3": "Regresa a esta página y haz clic en el botón <strong>He realizado los cambios</strong>"
+        "list_item_3": "Regresa a esta página y haz clic en el botón <strong>Actualizar la página</strong>"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "En su computadora, haga clic en el menú de Windows [WINDOWS_ICON] y seleccione <strong>Configuración</strong> [SETTINGS_ICON_WINDOWS]",
+        "list_item_1": "En su computadora, haga clic en el menú de Windows <windows_icon></windows_icon> y seleccione <strong>Configuración</strong> <settings_icon_windows></settings_icon_windows>",
         "list_item_2": "Haz clic en <strong>Privacidad</strong> (o <strong>Privacidad & Seguridad</strong>)",
-        "list_item_3_cam": "Haz clic en <strong>Cámara</strong> bajo <strong>Permisos de la aplicación</strong> y activa el interruptor junto a [BROWSER_ICON] ",
-        "list_item_3_mic": "Haz clic en <strong>Micrófono</strong> bajo <strong>Permisos de la aplicación</strong> y activa el interruptor junto a [BROWSER_ICON]",
+        "list_item_3_cam": "Haz clic en <strong>Cámara</strong> bajo <strong>Permisos de la aplicación</strong> y activa el interruptor junto a <browser_icon></browser_icon>",
+        "list_item_3_mic": "Haz clic en <strong>Micrófono</strong> bajo <strong>Permisos de la aplicación</strong> y activa el interruptor junto a <browser_icon></browser_icon>",
         "list_item_4": "Reinicia tu navegador si es necesario y vuelve a esta página"
       }
     },
     "info": "Recuperación",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "Toque el botón <strong>He realizado los cambios</strong>. Se le pedirá que vuelva a habilitar el acceso a la cámara y al micrófono. Cuando aparezca la ventana emergente, seleccione <strong>Permitir</strong> (o <strong>OK</strong>)",
-        "list_item_1_cam": "Toque el botón <strong>He realizado los cambios</strong>. Se le pedirá que vuelva a habilitar el acceso a la cámara. Cuando aparezca la ventana emergente, seleccione <strong>Permitir</strong> (o <strong>OK</strong>)",
-        "list_item_1_mic": "Toque el botón <strong>He realizado los cambios</strong>. Se le pedirá que vuelva a habilitar el acceso al micrófono. Cuando aparezca la ventana emergente, seleccione <strong>Permitir</strong> (o <strong>OK</strong>)"
+        "list_item_1_both": "Toca el botón <strong>Actualizar la página</strong>. Se te pedirá que vuelvas a habilitar el acceso a la cámara y al micrófono. Cuando aparezca la ventana emergente, selecciona <strong>Permitir</strong> (o <strong>Aceptar</strong>)",
+        "list_item_1_cam": "Toca el botón <strong>Actualizar la página</strong>. Se te pedirá que vuelvas a habilitar el acceso a la cámara. Cuando aparezca la ventana emergente, selecciona <strong>Permitir</strong> (o <strong>Aceptar</strong>)",
+        "list_item_1_mic": "Toca el botón <strong>Actualizar la página</strong>. Se te pedirá que habilites nuevamente el acceso al micrófono. Cuando aparezca la ventana emergente, selecciona <strong>Permitir</strong> (o <strong>Aceptar</strong>)"
       },
       "device_settings": {
         "list_item_1": "En tu dispositivo, abre la aplicación <strong>Configuración</strong>",
-        "list_item_2": "Desplázate por la lista y toca [BROWSER_ICON]",
+        "list_item_2": "Desplázate por la lista y toca <browser_icon></browser_icon>",
         "list_item_3_cam": "Activa el interruptor junto a <strong>Cámara</strong>",
         "list_item_3_mic": "Activa el interruptor junto a <strong>Micrófono</strong>",
-        "list_item_4": "Regresa a esta página y presiona el botón <strong>He realizado los cambios</strong>"
+        "list_item_4": "Regresa a esta página y presiona el botón <strong>Actualizar la página</strong>",
+        "title": "Solución 2: Configuraciones del dispositivo"
+      },
+      "refresh_page": {
+        "title": "Solución 1: Actualiza la página"
       }
     },
     "ios_safari": {
       "device_settings": {
         "list_item_1": "En tu dispositivo, abre la aplicación <strong>Configuración</strong>",
-        "list_item_2": "Desplázate por la lista y toca [BROWSER_ICON]",
+        "list_item_2": "Desplázate por la lista y toca <browser_icon></browser_icon>",
         "list_item_3_cam": "Toque <strong>Cámara</strong> y seleccione <strong>Permitir</strong>",
         "list_item_3_mic": "Toque <strong>Micrófono</strong> y seleccione <strong>Permitir</strong>",
-        "list_item_4": "Regresa a esta página y presiona el botón <strong>He realizado los cambios</strong>"
+        "list_item_4": "Regresa a esta página y presiona el botón <strong>Actualizar la página</strong>"
       }
     },
     "list_header_both": "Sigue estos pasos para recuperar el acceso a ambos:",
@@ -654,13 +709,7 @@
     "title_cam": "Acceso a la cámara denegado",
     "title_mic": "Acceso al micrófono denegado",
     "web": {
-      "browser_settings": {
-        "title": "Solución 1: Configuración del navegador"
-      },
-      "button_primary": "He realizado los cambios",
-      "device_settings": {
-        "title": "Solución 2: Configuración del dispositivo"
-      },
+      "button_primary": "Actualiza la página",
       "disclaimer": "El proceso de verificación de identidad podría reiniciarse. Lamentamos cualquier inconveniente"
     }
   },
@@ -813,7 +862,7 @@
       "first_name": "Nombre",
       "gbr_specific": {
         "postcode": "Código postal",
-        "town": "Ciudad"
+        "town": "Pueblo/Ciudad"
       },
       "hkg_specific": {
         "national_id_value": "HKID"
@@ -836,7 +885,7 @@
       },
       "mobile_number": "Número de teléfono celular",
       "national_id_type": "Tipo de identificación nacional",
-      "national_id_value": "Numero de identificacion nacional",
+      "national_id_value": "Número de identificación nacional",
       "nationality": "Nacionalidad",
       "phl_specific": {
         "national_id_value": "Número de tarjeta PhilSys (PCN)"
@@ -849,7 +898,7 @@
       "prt_specific": {
         "national_id_value": "Número de impuesto"
       },
-      "town": "Ciudad",
+      "town": "Pueblo/Ciudad",
       "tur_specific": {
         "national_id_value": "Número de identificación turco"
       },
@@ -867,13 +916,13 @@
         "invalid_national_id_value": "Por favor introduce un DNI válido"
       },
       "bra_specific": {
-        "invalid_other": "Por favor, introduza un valor valido CNPJ",
-        "invalid_tax_id": "Por favor, introduza un valor valido CPF",
+        "invalid_other": "Por favor, introduzca un valor válido CNPJ",
+        "invalid_tax_id": "Por favor, introduzca un valor válido CPF",
         "required_other": "Por favor ingrese su CNPJ",
         "required_tax_id": "Por favor ingrese su CPF"
       },
       "can_specific": {
-        "invalid_national_id_value": "Por favor, introduza un valor valido SIN",
+        "invalid_national_id_value": "Por favor, introduzca un valor válido SIN",
         "required_national_id_value": "Por favor ingrese su SIN"
       },
       "chl_specific": {
@@ -893,8 +942,8 @@
         "required_national_id_value": "Por favor, introduzca su número de CPR"
       },
       "esp_specific": {
-        "invalid_identity_card": "Por favor, introduza un valor valido NIF/DNI",
-        "invalid_other": "Por favor, introduza un valor valido NIE",
+        "invalid_identity_card": "Por favor, introduzca un valor válido NIF/DNI",
+        "invalid_other": "Por favor, introduzca un valor válido NIE",
         "required_identity_card": "Por favor introduce tu NIF/DNI"
       },
       "fin_specific": {
@@ -934,7 +983,7 @@
       },
       "jpn_specific": {
         "invalid_national_id_value": "Ingrese un \"Mi número\" / código de registro de residente válido",
-        "required_national_id_value": ""
+        "required_national_id_value": "Por favor, ingrese su \"Mi número\" / código de Registro de Residente"
       },
       "ken_specific": {
         "invalid_other": "Introduzca un número de tarjeta de extranjería válido",
@@ -945,8 +994,8 @@
         "required_national_id_value": "Por favor ingrese su número de Seguro Social"
       },
       "mex_specific": {
-        "invalid_identity_card": "Por favor, introduza un valor valido CURP",
-        "invalid_tax_id": "Por favor, introduza un valor valido RFC",
+        "invalid_identity_card": "Por favor, introduzca un valor válido CURP",
+        "invalid_tax_id": "Por favor, introduzca un valor válido RFC",
         "required_identity_card": "Por favor ingrese su CURP",
         "required_tax_id": "Por favor ingrese su RFC"
       },
@@ -975,7 +1024,7 @@
         "required_national_id_value": "Por favor, introduzca su número de identificación fiscal"
       },
       "reference": {
-        "translation": "Por favor, introduza un valor valido"
+        "translation": "Por favor, introduzca un valor válido"
       },
       "required_consent": "Acepta autorizar verificaciones de identidad y fraude",
       "required_country": "Selecciona un país",
@@ -995,11 +1044,11 @@
       "required_phone_number": "Ingresa tu número de teléfono",
       "required_postcode": "Ingresa tu código postal",
       "sgp_specific": {
-        "invalid_national_id_value": "Por favor, introduza un valor valido NRIC",
+        "invalid_national_id_value": "Por favor, introduzca un valor válido NRIC",
         "required_national_id_value": "Por favor ingrese su NRIC"
       },
       "swe_specific": {
-        "invalid_national_id_value": "Por favor, introduza un valor valido PIN",
+        "invalid_national_id_value": "Por favor, introduzca un valor válido PIN",
         "required_national_id_value": "Por favor ingrese su PIN"
       },
       "too_long_first_name": "El nombre es demasiado largo",
@@ -1012,7 +1061,7 @@
       "too_short_postcode": "El código postal es demasiado corto",
       "tur_specific": {
         "invalid_national_id_value": "Ingrese un número de identificación turco válido",
-        "required_national_id_value": ""
+        "required_national_id_value": "Por favor, ingrese su número de identificación turco"
       },
       "usa_specific": {
         "invalid_ssn": "Ingresa un SSN válido",
@@ -1071,6 +1120,25 @@
     "step_title": "Firma tu documento",
     "subtitle": "Para confirmar su identidad de acuerdo con las normas europeas, debe firmar digitalmente un documento.",
     "title": "Cree y use su firma digital"
+  },
+  "retry": {
+    "button": {
+      "generic_selfie_issue": "Inténtalo de nuevo"
+    },
+    "description": {
+      "default": "Inténtalo de nuevo",
+      "expired_document": "Inténtalo de nuevo con una ID con foto válida y asegúrate de que tu información sea claramente visible",
+      "generic_document_issue": "Inténtalo de nuevo con una ID con foto válida y asegúrate de que tu información sea claramente visible",
+      "generic_selfie_issue": "Inténtalo de nuevo y asegúrate de que tu rostro sea visible y con buena iluminación",
+      "unaccepted_document": "Inténtalo de nuevo con una ID con foto válida y asegúrate de que tu información sea claramente visible"
+    },
+    "headline": {
+      "default": "Hubo un problema",
+      "expired_document": "Tu documento venció",
+      "generic_document_issue": "Hubo un problema con tu documento",
+      "generic_selfie_issue": "Hubo un problema con tu selfie",
+      "unaccepted_document": "Documento no aceptado"
+    }
   },
   "retry_feedback": {
     "button_primary": "Inténtalo de nuevo"
@@ -1134,7 +1202,7 @@
     "info_link_expire": "Tu enlace vencerá en una hora",
     "info_link_window": "Mantén esta ventana abierta mientras usas tu celular",
     "link": "Intenta con otro método",
-    "subtitle": "Te enviamos un enlace seguro a %{number}",
+    "subtitle": "Te enviamos un enlace seguro a <number></number>",
     "subtitle_minutes": "Puede tardar unos minutos en llegar",
     "title": "Verifica tu celular"
   },
@@ -1219,7 +1287,7 @@
     "list_item_doc_photo": "Tomar una foto de tu documento de identidad",
     "list_item_doc_video": "Grabar un video de tu documento de identidad",
     "list_item_doc_video_timeout": "La grabación se limita a <timeout></timeout> segundos",
-    "list_item_face_photo": "Tomar una foto de tu rostro",
+    "list_item_face_photo": "Tome una foto de su cara",
     "list_item_face_video": "Grabar un video de tu rostro",
     "list_item_poa": "tu comprobante de domicilio",
     "list_item_selfie": "tu rostro",

@@ -134,7 +134,7 @@
       "manual_fallback_passport": "Pasaport fotoğraf sayfanızın fotoğrafını çekin",
       "manual_fallback_residence_permit_back": "Oturma izninizin arka yüzünün fotoğrafını çekin",
       "manual_fallback_residence_permit_front": "Oturma izninizin ön yüzünün fotoğrafını çekin",
-      "position_generic_document_back": "",
+      "position_generic_document_back": "Belgenizin arka yüzünü çerçeveye yerleştirin",
       "position_generic_document_front": "",
       "position_identity_card_back": "Kartınızın arka yüzünü çerçevenin içine yerleştirin",
       "position_identity_card_front": "Kartınızın ön yüzünü çerçevenin içine yerleştirin",
@@ -260,7 +260,7 @@
     "button_pension_property_statement_letter_detail": "Emeklilik beyanı veya mektubu ve Emlak vergisi beyanı veya mektubu",
     "button_permit": "Oturma izni",
     "button_permit_detail": "Ön ve arka",
-    "button_tax_letter": "Belediye Meclisi Vergi Mektubu",
+    "button_tax_letter": "Yerel Yönetim Vergi Mektubu",
     "extra_estatements_ok": "e-beyannameler kabul edilir",
     "extra_no_mobile": "Üzgünüz, cep telefonu faturası kabul edilmez",
     "list_accessibility": "Kimliğinizi doğrulamak için kullanabileceğiniz belgeler",
@@ -309,7 +309,7 @@
     "title_pension_property_statement_letter": "Beyanname veya mektup gönderin",
     "title_permit_back": "Oturma iznini gönder (arka yüz)",
     "title_permit_front": "Oturma iznini gönder (ön yüz)",
-    "title_tax_letter": "Mektup gönder"
+    "title_tax_letter": "Yerel Hükümet Vergi Mektubunu Gönderin"
   },
   "doc_video_capture": {
     "button_primary_fallback": "Sonraki adım",
@@ -421,6 +421,11 @@
     "title": "Güvenli bağlantınızı alın",
     "url_field_label": "Bağlantıyı mobil tarayıcınıza kopyalayın"
   },
+  "interactive_task": {
+    "waiting": {
+      "title_5": "Medya yükleniyor..."
+    }
+  },
   "livenessV2": {
     "error_reload_instructions": "Talimatları yeniden yükle",
     "intro_note_no1": "İlk olarak, yüzünüzü çerçeveye yerleştirin",
@@ -460,26 +465,48 @@
       "success": "Tarama başarılı"
     }
   },
+  "nfc_scan_error_can": {
+    "primary_button": "Çıkış doğrulaması",
+    "subtitle": "CAN numaranızı girmek için maksimum deneme sayısına ulaştınız"
+  },
+  "nfc_scan_error_can:title": "Maksimum deneme sayısına ulaşıldı",
   "otp": {
     "code_input": {
       "error": {
+        "code_expired": "Kodunuzun süresi doldu, lütfen yeni bir tane isteyin.",
+        "code_invalid": "Yanlış kod girildi, lütfen tekrar deneyin.",
         "technical": "Teknik bir hata oluştu, lütfen daha sonra tekrar deneyin",
+        "too_many_attempts": "Bu kodu çok fazla kez denediniz, lütfen yeni bir tane isteyin.",
         "wrong_code": "Yanlış kod girildi, lütfen tekrar deneyin"
       },
-      "intro": "Telefon numaranıza gönderilen kod 5 dakika boyunca aktif olacak",
+      "intro": "SMS ile gönderilen kodu doğrulamak için 5 dakikanız var <phonenumber></phonenumber>",
       "resend": {
-        "cta": "Yeniden gönder",
-        "label": "Gönderilen kod ({limit} kadar)"
+        "cta": "Yeni bir kod isteyin",
+        "cta_timeout": "Yeni bir kod isteyin (<timeout></timeout> saniye)",
+        "label": "Gönderilmiş kod",
+        "tracker": "<remaining></remaining> - <limit></limit>"
       },
       "title": "Bir Kerelik Şifre"
+    },
+    "error": {
+      "cta": "Geri dön",
+      "subtitle": "Lütfen birkaç saniye bekleyin ve tekrar deneyin",
+      "title": "Bir şeyler yanlış gitti"
+    },
+    "failure": {
+      "cta": "Devam Et",
+      "subtitle": "Artık telefon numaranızı doğrulayamıyoruz",
+      "title": "İzin verilen deneme sayısı aşıldı"
     },
     "send_code": {
       "cta": "Kodu gönder",
       "error": {
+        "invalid_phone_number": "Lütfen geçerli bir telefon numarası girin.",
         "limit": "Gönderilen SMS limitine ulaştınız",
         "technical": "Teknik bir hata oluştu, lütfen daha sonra tekrar deneyin"
       },
-      "intro": "Telefon numaranızı doğrulamak için size tek kullanımlık bir kod göndereceğiz ve bunu bir sonraki ekranda girmeniz gerekecek.",
+      "input_label": "Telefon numarası",
+      "intro": "Telefon numaranızı doğrulamak için sizden bir seferlik şifre girmenizi isteyeceğiz.",
       "title": "Tek Seferlik Şifre"
     }
   },
@@ -504,99 +531,123 @@
   },
   "permission_recovery": {
     "android": {
+      "browser_settings": {
+        "title": "Çözüm 1: Tarayıcı ayarları"
+      },
       "device_settings": {
         "list_item_1": "Cihazınızda, <strong>Ayarlar</strong> uygulamasını açın",
         "list_item_2": "<strong>Uygulamalar</strong>'a dokunun",
-        "list_item_3": "[BROWSER_ICON] dokunun. Bulamazsanız, <strong>Tüm uygulamaları gör</strong> veya <strong>Uygulamaları yönet</strong> seçeneğine dokunun ve tarayıcı uygulamanızı seçin",
+        "list_item_3": "<browser_icon></browser_icon> dokunun. Bulamazsanız, <strong>Tüm uygulamaları gör</strong> veya <strong>Uygulamaları yönet</strong> seçeneğine dokunun ve tarayıcı uygulamanızı seçin",
         "list_item_4": "<strong>İzinler</strong>'e dokunun",
         "list_item_5_cam": "<strong>Kamera</strong> öğesine dokunun ve <strong>İzin Ver</strong> seçeneğini seçin",
         "list_item_5_mic": "<strong>Mikrofon</strong>u tıklayın ve <strong>İzin Ver</strong> seçeneğini seçin",
-        "list_item_6": "Bu sayfaya geri dönün ve <strong>Değişiklikleri yaptım</strong> düğmesine tıklayın"
+        "list_item_6": "Bu sayfaya geri dönün ve <strong>Sayfayı yenile</strong> düğmesine tıklayın",
+        "title": "Çözüm 2: Cihaz ayarları"
+      },
+      "refresh_page": {
+        "list_item_1_both": "<strong>Sayfayı yenile</strong> düğmesine dokunun. Kamera ve mikrofon erişimini tekrar etkinleştirmeniz istenecektir. Açılır pencere belirdiğinde, <strong>İzin Ver</strong> (veya <strong>Tamam</strong>) seçeneğini seçin.",
+        "list_item_1_cam": "<strong>Sayfayı yenile</strong> düğmesine dokunun. Kameraya erişimi tekrar etkinleştirmeniz istenecektir. Pop-up belirdiğinde, <strong>İzin Ver</strong> (veya <strong>Tamam</strong>) seçeneğini seçin.",
+        "list_item_1_mic": "<strong>Sayfayı yenile</strong> düğmesine dokunun. Mikrofon erişimini tekrar etkinleştirmeniz istenecektir. Pop-up belirdiğinde, <strong>İzin Ver</strong> (veya <strong>Tamam</strong>) seçeneğini seçin."
       }
     },
     "android_chrome": {
       "browser_settings": {
-        "list_item_1": "Tarayıcınızda, adres çubuğunda kilit simgesine [LOCK_ICON] dokunun",
+        "list_item_1": "Tarayıcınızda, adres çubuğunda ayarlar simgesine <settings_icon_chrome></settings_icon_chrome> tıklayın",
         "list_item_2": "<strong>İzinler</strong>'e dokunun",
         "list_item_3_cam": "<strong>Kamera</strong> yanındaki geçişi etkinleştirin",
         "list_item_3_mic": "<strong>Mikrofon</strong> yanındaki anahtarı etkinleştirin",
-        "list_item_4": "Bu sayfaya geri dönün ve <strong>Değişiklikleri yaptım</strong> düğmesine tıklayın"
+        "list_item_4": "Bu sayfaya geri dönün ve <strong>Sayfayı Yenile</strong> düğmesine tıklayın"
       }
     },
     "android_firefox": {
       "browser_settings": {
-        "list_item_1": "Tarayıcınızda, adres çubuğunda kilit simgesine [LOCK_ICON] dokunun",
+        "list_item_1": "Tarayıcınızda, adres çubuğunda kilit simgesine <lock_icon></lock_icon> dokunun",
         "list_item_2_cam": "<strong>Engellenmiş</strong> yanındaki <strong>Kamera</strong> seçeneğine dokunun ve <strong>İzin Verildi</strong> seçeneğine geçin",
         "list_item_2_mic": "<strong>Engellenmiş</strong> yanındaki <strong>Mikrofon</strong> seçeneğine dokunun ve <strong>İzin Verildi</strong> seçeneğine geçin",
-        "list_item_3": "Bu sayfaya geri dönün ve <strong>Değişiklikleri yaptım</strong> düğmesine tıklayın"
+        "list_item_3": "Bu sayfaya geri dönün ve <strong>Sayfayı yenile</strong> düğmesine tıklayın",
+        "title": "Çözüm 2: Tarayıcı ayarları"
+      },
+      "device_settings": {
+        "title": "Çözüm 3: Cihaz ayarları"
+      },
+      "refresh_page": {
+        "title": "Çözüm 1: Sayfayı yenileyin"
       }
     },
     "android_generic": {
       "browser_settings": {
-        "list_item_1": "Tarayıcınızda, web sitesi ayarlarını açın. Bu genellikle adres çubuğunda bir kilit simgesi [LOCK_ICON] olur",
+        "list_item_1": "Tarayıcınızda, web sitesi ayarlarını açın. Bu genellikle adres çubuğunda bir kilit simgesi <lock_icon></lock_icon> olur",
         "list_item_2": "İzinler hakkındaki bölümü bulun",
         "list_item_3_cam": "<strong>Kamera</strong> izinlerini etkinleştirin",
         "list_item_3_mic": "<strong>Mikrofon</strong> izinlerini etkinleştirin",
-        "list_item_4": "Bu sayfaya geri dönün ve <strong>Değişiklikleri yaptım</strong> düğmesine tıklayın"
+        "list_item_4": "Bu sayfaya geri dönün ve <strong>Sayfayı yenile</strong> düğmesine tıklayın"
       }
     },
     "android_samsung": {
       "browser_settings": {
-        "list_item_1": "Tarayıcınızda, adres çubuğunda kilit simgesine [LOCK_ICON] dokunun",
+        "list_item_1": "Tarayıcınızda, adres çubuğunda kilit simgesine <lock_icon></lock_icon> dokunun",
         "list_item_2_cam": "<strong>Kamera</strong> yanındaki anahtarı etkinleştirin",
         "list_item_2_mic": "<strong>Mikrofon</strong> yanındaki anahtarı etkinleştirin",
-        "list_item_3": "Bu sayfaya geri dönün ve <strong>Değişiklikleri yaptım</strong> düğmesine tıklayın"
+        "list_item_3": "Bu sayfaya geri dönün ve <strong>Sayfayı yenile</strong> düğmesine tıklayın"
       }
     },
     "button_primary": "Yenile",
+    "desktop": {
+      "browser_settings": {
+        "title": "Çözüm 1: Tarayıcı ayarları"
+      },
+      "device_settings": {
+        "title": "Çözüm 2: Cihaz ayarları"
+      }
+    },
     "desktop_chrome": {
       "browser_settings": {
-        "list_item_1": "Tarayıcınızda, adres çubuğunda kilit simgesine [LOCK_ICON] tıklayın",
+        "list_item_1": "Tarayıcınızda, adres çubuğunda ayarlar simgesini <settings_icon_chrome></settings_icon_chrome> tıklayın",
         "list_item_2_cam": "<strong>Kamera</strong> yanındaki anahtarı etkinleştirin",
         "list_item_2_mic": "<strong>Mikrofon</strong> yanındaki anahtarı etkinleştirin",
-        "list_item_3": "Bu sayfaya geri dönün ve <strong>Değişiklikleri yaptım</strong> düğmesini tıklayın"
+        "list_item_3": "Bu sayfaya geri dönün ve <strong>Sayfayı yenile</strong> düğmesine tıklayın"
       }
     },
     "desktop_edge": {
       "browser_settings": {
-        "list_item_1": "Tarayıcınızda, adres çubuğunda kilit simgesine [LOCK_ICON] tıklayın",
+        "list_item_1": "Tarayıcınızda, adres çubuğunda kilit simgesine <lock_icon></lock_icon> tıklayın",
         "list_item_2_cam": "<strong>Kamera</strong> yanındaki açılır menüye tıklayın ve <strong>İzin Ver</strong> seçeneğini seçin",
         "list_item_2_mic": "<strong>Mikrofon</strong> yanındaki açılır menüye tıklayın ve <strong>İzin Ver</strong> seçeneğini seçin",
-        "list_item_3": "Bu sayfaya geri dönün ve <strong>Değişiklikleri yaptım</strong> düğmesini tıklayın"
+        "list_item_3": "Bu sayfaya geri dönün ve <strong>Sayfayı yenile</strong> düğmesine tıklayın"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
-        "list_item_1": "Tarayıcınızda, adres çubuğunda ayarlar simgesini [SETTINGS_ICON_FIREFOX] tıklayın",
+        "list_item_1": "Tarayıcınızda, adres çubuğunda ayarlar simgesini <settings_icon_firefox></settings_icon_firefox> tıklayın",
         "list_item_2_cam": "<strong>Engellenmiş</strong> seçeneğine tıklayın, <strong>Kamerayı kullan</strong> yanında",
         "list_item_2_mic": "<strong>Engellenmiş</strong> seçeneğine tıklayın ve <strong>Mikrofonu kullan</strong> seçeneğinin yanında bulunur",
-        "list_item_3": "Bu sayfaya geri dönün ve <strong>Değişiklikleri yaptım</strong> düğmesini tıklayın"
+        "list_item_3": "Bu sayfaya geri dönün ve <strong>Sayfayı yenile</strong> düğmesine tıklayın"
       }
     },
     "desktop_generic": {
       "browser_settings": {
-        "list_item_1": "Tarayıcınızda, web sitesi ayarlarını açın. Bu genellikle adres çubuğunda bir kilit simgesi [LOCK_ICON] olur",
+        "list_item_1": "Tarayıcınızda, web sitesi ayarlarını açın. Bu genellikle adres çubuğunda bir kilit simgesi <lock_icon></lock_icon> olur",
         "list_item_2": "İzinler hakkındaki bölümü bulun",
         "list_item_3_cam": "<strong>Kamera</strong> izinlerini etkinleştirin",
         "list_item_3_mic": "<strong>Mikrofon</strong> izinlerini etkinleştirin",
-        "list_item_4": "Bu sayfaya dönün ve <strong>Değişiklikleri yaptım</strong> düğmesine tıklayın"
+        "list_item_4": "Bu sayfaya geri dönün ve <strong>Sayfayı yenile</strong> düğmesine tıklayın"
       },
       "device_settings": {
         "list_item_1": "Bilgisayarınızda, <strong>Ayarlarınızı</strong> açın",
         "list_item_2": "(<strong>Gizlilik</strong> altında genellikle bulunan) izinler hakkındaki bölümü bulun",
-        "list_item_3_cam": "[BROWSER_ICON] için <strong>Kamera</strong> izinlerini etkinleştirin",
-        "list_item_3_mic": "[BROWSER_ICON] için <strong>Mikrofon</strong> izinlerini etkinleştirin",
+        "list_item_3_cam": "<browser_icon></browser_icon> için <strong>Kamera</strong> izinlerini etkinleştirin",
+        "list_item_3_mic": "<browser_icon></browser_icon> için <strong>Mikrofon</strong> izinlerini etkinleştirin",
         "list_item_4": "Gerekirse tarayıcınızı yeniden başlatın ve bu sayfaya geri dönün"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "Bilgisayarınızda, Apple menüsünü [APPLE_ICON] tıklayın ve <strong>Sistem Ayarları</strong> (veya <strong>Sistem Tercihleri</strong>) seçin",
-        "list_item_2": "Kenar çubuğunda <strong>Gizlilik & Güvenlik</strong> (veya <strong>Güvenlik & Gizlilik</strong>) seçeneğine tıklayın ",
+        "list_item_1": "Bilgisayarınızda, Apple menüsünü <apple_icon></apple_icon> tıklayın ve <strong>Sistem Ayarları</strong> (veya <strong>Sistem Tercihleri</strong>) seçin",
+        "list_item_2": "Kenar çubuğunda <strong>Gizlilik & Güvenlik</strong> (veya <strong>Güvenlik & Gizlilik</strong>) seçeneğine tıklayın",
         "list_item_3": "Pop-up'ta <strong>Sonra</strong> tıklayın",
-        "list_item_3_cam": "<strong>Kamera</strong> üzerine tıklayın ve [BROWSER_ICON] yanındaki anahtarı (veya onay kutusunu) aktifleştirin",
+        "list_item_3_cam": "<strong>Kamera</strong> üzerine tıklayın ve <browser_icon></browser_icon> yanındaki anahtarı (veya onay kutusunu) aktifleştirin",
         "list_item_4": "Açılan pencerede <strong>Çıkış Yap & Yeniden Aç</strong> seçeneğine tıklayın ve bu sayfaya geri dönün",
-        "list_item_4_mic": "<strong>Mikrofon</strong>u tıklayın ve [BROWSER_ICON] yanındaki anahtarı (veya onay kutusunu) etkinleştirin"
+        "list_item_4_mic": "<strong>Mikrofon</strong>u tıklayın ve <browser_icon></browser_icon> yanındaki anahtarı (veya onay kutusunu) etkinleştirin"
       }
     },
     "desktop_safari": {
@@ -604,40 +655,44 @@
         "list_item_1": "Tarayıcınızda, adres çubuğunda sağ tıklayın ve <strong>Ayarlar</strong> seçeneğini seçin",
         "list_item_2_cam": "<strong>Kamera</strong> yanındaki açılır menüye tıklayın ve <strong>İzin Ver</strong> seçeneğini seçin",
         "list_item_2_mic": "<strong>Mikrofon</strong> yanındaki açılır menüye tıklayın ve <strong>İzin Ver</strong> seçeneğini seçin",
-        "list_item_3": "Bu sayfaya geri dönün ve <strong>Değişiklikleri yaptım</strong> düğmesini tıklayın"
+        "list_item_3": "Bu sayfaya geri dönün ve <strong>Sayfayı Yenile</strong> düğmesine tıklayın"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "Bilgisayarınızda, Windows menüsünü [WINDOWS_ICON] tıklayın ve <strong>Ayarlar</strong>ı seçin [SETTINGS_ICON_WINDOWS]",
+        "list_item_1": "Bilgisayarınızda, Windows menüsünü <windows_icon></windows_icon> tıklayın ve <strong>Ayarlar</strong>ı seçin <settings_icon_windows></settings_icon_windows>",
         "list_item_2": "<strong>Gizlilik</strong> (veya <strong>Gizlilik & Güvenlik</strong>) tıklayın",
-        "list_item_3_cam": "<strong>Uygulama izinleri</strong> altındaki <strong>Kamera</strong> öğesini tıklayın ve [BROWSER_ICON] yanındaki anahtarı etkinleştirin",
-        "list_item_3_mic": "<strong>Uygulama izinleri</strong> altındaki <strong>Mikrofon</strong> öğesini tıklayın ve [BROWSER_ICON] yanındaki anahtarı etkinleştirin",
+        "list_item_3_cam": "<strong>Uygulama izinleri</strong> altındaki <strong>Kamera</strong> öğesini tıklayın ve <browser_icon></browser_icon> yanındaki anahtarı etkinleştirin",
+        "list_item_3_mic": "<strong>Uygulama izinleri</strong> altındaki <strong>Mikrofon</strong> öğesini tıklayın ve <browser_icon></browser_icon> yanındaki anahtarı etkinleştirin",
         "list_item_4": "Gerekirse tarayıcınızı yeniden başlatın ve bu sayfaya geri dönün"
       }
     },
     "info": "Kurtarma",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "<strong>Değişiklikleri yaptım</strong> düğmesine dokunun. Kamera ve mikrofon erişimini tekrar etkinleştirmeniz istenecektir. Açılır pencere belirdiğinde, <strong>İzin Ver</strong> (veya <strong>Tamam</strong>) seçeneğini seçin.",
-        "list_item_1_cam": "<strong>Değişiklikleri yaptım</strong> düğmesine dokunun. Kameraya erişimi tekrar etkinleştirmeniz istenecektir. Açılır pencere belirdiğinde, <strong>İzin Ver</strong> (veya <strong>Tamam</strong>) seçeneğini seçin.",
-        "list_item_1_mic": "<strong>Değişiklikleri yaptım</strong> düğmesine dokunun. Mikrofon erişimini tekrar etkinleştirmeniz istenecektir. Açılan pencere belirdiğinde, <strong>İzin Ver</strong> (veya <strong>Tamam</strong>) seçeneğini seçin."
+        "list_item_1_both": "<strong>Sayfayı yenile</strong> düğmesine dokunun. Kamera ve mikrofon erişimini tekrar etkinleştirmeniz istenecektir. Açılır pencere belirdiğinde, <strong>İzin Ver</strong> (veya <strong>Tamam</strong>) seçeneğini seçin.",
+        "list_item_1_cam": "<strong>Sayfayı yenile</strong> düğmesine dokunun. Kameraya erişimi tekrar etkinleştirmeniz istenecektir. Pop-up belirdiğinde, <strong>İzin Ver</strong> (veya <strong>Tamam</strong>) seçeneğini seçin.",
+        "list_item_1_mic": "<strong>Sayfayı yenile</strong> düğmesine dokunun. Mikrofon erişimini tekrar etkinleştirmeniz istenecektir. Pop-up belirdiğinde, <strong>İzin Ver</strong> (veya <strong>Tamam</strong>) seçeneğini seçin."
       },
       "device_settings": {
         "list_item_1": "Cihazınızda, <strong>Ayarlar</strong> uygulamasını açın",
-        "list_item_2": "Listeyi kaydırın ve [BROWSER_ICON] öğesine dokunun",
+        "list_item_2": "Listeyi kaydırın ve <browser_icon></browser_icon> öğesine dokunun",
         "list_item_3_cam": "<strong>Kamera</strong> yanındaki anahtarı etkinleştirin",
         "list_item_3_mic": "<strong>Mikrofon</strong> yanındaki anahtarı etkinleştirin",
-        "list_item_4": "Bu sayfaya geri dönün ve <strong>Değişiklikleri yaptım</strong> düğmesine tıklayın"
+        "list_item_4": "Bu sayfaya geri dönün ve <strong>Sayfayı yenile</strong> düğmesine tıklayın",
+        "title": "Çözüm 2: Cihaz ayarları"
+      },
+      "refresh_page": {
+        "title": "Çözüm 1: Sayfayı yenileyin"
       }
     },
     "ios_safari": {
       "device_settings": {
         "list_item_1": "Cihazınızda, <strong>Ayarlar</strong> uygulamasını açın",
-        "list_item_2": "Listeyi kaydırın ve [BROWSER_ICON] öğesine dokunun",
+        "list_item_2": "Listeyi kaydırın ve <browser_icon></browser_icon> öğesine dokunun",
         "list_item_3_cam": "<strong>Kamera</strong> seçeneğine dokunun ve <strong>İzin Ver</strong> seçeneğini seçin",
         "list_item_3_mic": "<strong>Mikrofon</strong>u tıklayın ve <strong>İzin Ver</strong> seçeneğini seçin",
-        "list_item_4": "Bu sayfaya geri dönün ve <strong>Değişiklikleri yaptım</strong> düğmesine tıklayın"
+        "list_item_4": "Bu sayfaya geri dönün ve <strong>Sayfayı yenile</strong> düğmesine tıklayın"
       }
     },
     "list_header_both": "Her ikisine de erişimi sağlamak için aşağıdaki adımları izleyin:",
@@ -654,13 +709,7 @@
     "title_cam": "Kamera erişimi reddedildi",
     "title_mic": "Mikrofon erişimi reddedildi",
     "web": {
-      "browser_settings": {
-        "title": "Çözüm 1: Tarayıcı ayarları"
-      },
-      "button_primary": "Değişiklikleri yaptım",
-      "device_settings": {
-        "title": "Çözüm 2: Cihaz ayarları"
-      },
+      "button_primary": "Sayfayı yenileyin",
       "disclaimer": "Kimlik doğrulama süreci yeniden başlayabilir. Herhangi bir rahatsızlık için özür dileriz."
     }
   },
@@ -822,7 +871,7 @@
         "pan": "Kalıcı hesap numarası (PAN)"
       },
       "ita_specific": {
-        "national_id_value": "mali kod"
+        "national_id_value": "Vergi kodu"
       },
       "jpn_specific": {
         "national_id_value": "\"Numaram\" / Yerleşik Kayıt kodu"
@@ -849,7 +898,7 @@
       "prt_specific": {
         "national_id_value": "Vergi numarası"
       },
-      "town": "Şehir",
+      "town": "Şehir/Kasaba",
       "tur_specific": {
         "national_id_value": "TC Kimlik Numarası"
       },
@@ -934,7 +983,7 @@
       },
       "jpn_specific": {
         "invalid_national_id_value": "Lütfen geçerli bir \"Numaram\" / Yerleşik Kayıt kodu girin",
-        "required_national_id_value": ""
+        "required_national_id_value": "Lütfen \"Benim numaram\" / İkamet Kayıt kodunuzu girin"
       },
       "ken_specific": {
         "invalid_other": "Lütfen geçerli bir Alien Card numarası girin",
@@ -1012,7 +1061,7 @@
       "too_short_postcode": "Posta kodu çok kısa",
       "tur_specific": {
         "invalid_national_id_value": "Lütfen geçerli bir TC kimlik numarası giriniz.",
-        "required_national_id_value": ""
+        "required_national_id_value": "Lütfen Türk Kimlik Numaranızı girin"
       },
       "usa_specific": {
         "invalid_ssn": "Lütfen geçerli bir SSN girin",
@@ -1071,6 +1120,25 @@
     "step_title": "Belgenizi imzalayın",
     "subtitle": "Avrupa kurallarına uygun olarak kimliğinizi doğrulamak için bir belgeyi dijital olarak imzalamalısınız.",
     "title": "Dijital imzanızı oluşturun ve kullanın"
+  },
+  "retry": {
+    "button": {
+      "generic_selfie_issue": "Tekrar deneyin"
+    },
+    "description": {
+      "default": "Lütfen tekrar deneyin",
+      "expired_document": "Lütfen geçerli bir fotoğraflı kimlikle tekrar deneyin ve bilgilerinizin net bir şekilde göründüğünden emin olun",
+      "generic_document_issue": "Lütfen geçerli bir fotoğraflı kimlikle tekrar deneyin ve bilgilerinizin net bir şekilde göründüğünden emin olun",
+      "generic_selfie_issue": "Lütfen tekrar deneyin ve yüzünüzün görünür ve iyi aydınlatılmış olduğundan emin olun",
+      "unaccepted_document": "Lütfen geçerli bir fotoğraflı kimlikle tekrar deneyin ve bilgilerinizin net bir şekilde göründüğünden emin olun"
+    },
+    "headline": {
+      "default": "Bir problem oldu",
+      "expired_document": "Belgenizin süresi doldu",
+      "generic_document_issue": "Belgenizle ilgili bir sorun oldu",
+      "generic_selfie_issue": "Selfie'nizle ilgili bir sorun oldu",
+      "unaccepted_document": "Belge kabul edilmiyor"
+    }
   },
   "retry_feedback": {
     "button_primary": "Tekrar deneyin"
@@ -1134,7 +1202,7 @@
     "info_link_expire": "Bağlantınızın süresi bir saat içinde dolacak",
     "info_link_window": "Cep telefonunuzu kullanırken bu pencereyi açık tutun",
     "link": "Başka bir yöntem deneyin",
-    "subtitle": "%{number} numaralı telefona güvenli bir bağlantı gönderdik",
+    "subtitle": "<number></number> numaralı telefona güvenli bir bağlantı gönderdik",
     "subtitle_minutes": "Ulaşması birkaç dakika sürebilir",
     "title": "Cep telefonunuzu kontrol edin"
   },
