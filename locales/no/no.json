@@ -134,7 +134,7 @@
       "manual_fallback_passport": "Ta et bilde av bildesiden i passet ditt",
       "manual_fallback_residence_permit_back": "Ta et bilde av baksiden av oppholdstillatelsen din",
       "manual_fallback_residence_permit_front": "Ta et bilde av forsiden av oppholdstillatelsen din",
-      "position_generic_document_back": "",
+      "position_generic_document_back": "Plasser dokumentets bakside i rammen",
       "position_generic_document_front": "",
       "position_identity_card_back": "Plasser kortets bakside i rammen",
       "position_identity_card_front": "Plasser kortets forside i rammen",
@@ -260,7 +260,7 @@
     "button_pension_property_statement_letter_detail": "Pensjonsuttalelse eller brev og Eiendomsskattuttalelse eller brev",
     "button_permit": "Oppholdstillatelse",
     "button_permit_detail": "Forside og bakside",
-    "button_tax_letter": "Selvangivelse",
+    "button_tax_letter": "Brev om lokal skatt",
     "extra_estatements_ok": "e-setninger akseptert",
     "extra_no_mobile": "Beklager, ingen mobiltelefonregninger",
     "list_accessibility": "Dokumenter du kan bruke til å verifisere identiteten din",
@@ -309,7 +309,7 @@
     "title_pension_property_statement_letter": "Send inn uttalelse eller brev",
     "title_permit_back": "Send inn oppholdstillatelse (bakside)",
     "title_permit_front": "Send inn oppholdstillatelse (forside)",
-    "title_tax_letter": "Send inn brev"
+    "title_tax_letter": "Send inn skattebrev for lokalregjering"
   },
   "doc_video_capture": {
     "button_primary_fallback": "Neste trinn",
@@ -421,6 +421,11 @@
     "title": "Få deg en sikker lenke",
     "url_field_label": "Kopier lenken til mobilnettleseren din"
   },
+  "interactive_task": {
+    "waiting": {
+      "title_5": "Laster opp media..."
+    }
+  },
   "livenessV2": {
     "error_reload_instructions": "Last instruksjonene på nytt",
     "intro_note_no1": "Først, plasser ansiktet ditt i rammen",
@@ -460,26 +465,48 @@
       "success": "Skanningen var vellykket"
     }
   },
+  "nfc_scan_error_can": {
+    "primary_button": "Avslutt verifisering",
+    "subtitle": "Du har nådd maksimalt antall forsøk på å taste inn CAN-nummeret ditt"
+  },
+  "nfc_scan_error_can:title": "Maksimal antall forsøk nådd",
   "otp": {
     "code_input": {
       "error": {
+        "code_expired": "Din kode har utløpt, vennligst be om en ny.",
+        "code_invalid": "Feil kode angitt, vennligst prøv igjen.",
         "technical": "En teknisk feil har oppstått, vennligst prøv igjen senere",
+        "too_many_attempts": "Du har prøvd denne koden for mange ganger, vennligst be om en ny.",
         "wrong_code": "Feil kode angitt, vennligst prøv igjen"
       },
-      "intro": "Koden som ble sendt til telefonnummeret ditt vil være aktiv i 5 minutter",
+      "intro": "Du har 5 minutter på deg til å bekrefte koden som ble sendt via SMS til",
       "resend": {
-        "cta": "Send på nytt",
-        "label": "Kode sendt (opp til {limit})"
+        "cta": "Be om en ny kode",
+        "cta_timeout": "Be om en ny kode (<timeout></timeout> sekunder)",
+        "label": "Koden er sendt",
+        "tracker": "<remaining></remaining> av <limit></limit>"
       },
       "title": "Engangspassord"
+    },
+    "error": {
+      "cta": "Gå tilbake",
+      "subtitle": "Vennligst vent noen sekunder og prøv igjen",
+      "title": "Noe gikk galt"
+    },
+    "failure": {
+      "cta": "Fortsett",
+      "subtitle": "Vi kan ikke lenger verifisere telefonnummeret ditt",
+      "title": "Tillatte forsøk overskredet"
     },
     "send_code": {
       "cta": "Send kode",
       "error": {
+        "invalid_phone_number": "Vennligst oppgi et gyldig telefonnummer.",
         "limit": "Du nådde grensen for sendte SMS",
         "technical": "En teknisk feil har oppstått, vennligst prøv igjen senere"
       },
-      "intro": "For å verifisere telefonnummeret ditt, vil vi sende deg en engangskode som du skal legge inn på neste skjerm.",
+      "input_label": "Telefonnummer",
+      "intro": "For å bekrefte telefonnummeret ditt, vil vi be deg om å skrive inn en engangspassord.",
       "title": "Engangspassord"
     }
   },
@@ -504,99 +531,123 @@
   },
   "permission_recovery": {
     "android": {
+      "browser_settings": {
+        "title": "Løsning 1: Nettleserinnstillinger"
+      },
       "device_settings": {
         "list_item_1": "På enheten din, åpne <strong>Innstillinger</strong> appen",
         "list_item_2": "Trykk på <strong>Apps</strong>",
-        "list_item_3": "Trykk på [BROWSER_ICON]. Hvis du ikke finner den, trykk på <strong>Se alle apper</strong> eller <strong>Administrer apper</strong> og velg nettleserappen din",
+        "list_item_3": "Trykk på <browser_icon></browser_icon>. Hvis du ikke finner den, trykk på <strong>Se alle apper</strong> eller <strong>Administrer apper</strong> og velg nettleserappen din",
         "list_item_4": "Trykk på <strong>Tillatelser</strong>",
         "list_item_5_cam": "Trykk på <strong>Kamera</strong> og velg <strong>Tillat</strong>",
         "list_item_5_mic": "Trykk på <strong>Mikrofon</strong> og velg <strong>Tillat</strong>",
-        "list_item_6": "Kom tilbake til denne siden og trykk på <strong>Jeg har gjort endringene</strong> knappen"
+        "list_item_6": "Kom tilbake til denne siden og trykk på <strong>Oppdater siden</strong> knappen",
+        "title": "Løsning 2: Innstillinger for enheten"
+      },
+      "refresh_page": {
+        "list_item_1_both": "Trykk på <strong>Oppdater siden</strong> knappen. Du vil bli bedt om å aktivere kamera og mikrofon tilgang igjen. Når pop-up vises, velg <strong>Tillat</strong> (eller <strong>OK</strong>)",
+        "list_item_1_cam": "Trykk på <strong>Oppdater siden</strong> knappen. Du vil bli bedt om å aktivere kameraadgang igjen. Når pop-up-vinduet vises, velg <strong>Tillat</strong> (eller <strong>OK</strong>)",
+        "list_item_1_mic": "Trykk på <strong>Oppdater siden</strong> knappen. Du vil bli bedt om å aktivere mikrofontilgang igjen. Når pop-up-vinduet vises, velg <strong>Tillat</strong> (eller <strong>OK</strong>)"
       }
     },
     "android_chrome": {
       "browser_settings": {
-        "list_item_1": "I nettleseren din, trykk på låsikonet [LOCK_ICON] i adressefeltet",
+        "list_item_1": "I nettleseren din, trykk på innstillingsikonet <settings_icon_chrome></settings_icon_chrome> i adressefeltet",
         "list_item_2": "Trykk på <strong>Tillatelser</strong>",
         "list_item_3_cam": "Aktiver vippebryteren ved siden av <strong>Kamera</strong>",
         "list_item_3_mic": "Aktiver vippebryteren ved siden av <strong>Mikrofon</strong>",
-        "list_item_4": "Kom tilbake til denne siden og trykk på <strong>Jeg har gjort endringene</strong> knappen"
+        "list_item_4": "Kom tilbake til denne siden og trykk på <strong>Oppdater siden</strong> knappen"
       }
     },
     "android_firefox": {
       "browser_settings": {
-        "list_item_1": "I nettleseren din, trykk på låsikonet [LOCK_ICON] i adressefeltet",
+        "list_item_1": "I nettleseren din, trykk på låsikonet <lock_icon></lock_icon> i adressefeltet",
         "list_item_2_cam": "Trykk på <strong>Blokkert</strong> ved siden av <strong>Kamera</strong> for å bytte til <strong>Tillatt</strong>",
         "list_item_2_mic": "Trykk på <strong>Blokkert</strong> ved siden av <strong>Mikrofon</strong> for å bytte til <strong>Tillatt</strong>",
-        "list_item_3": "Kom tilbake til denne siden og trykk på <strong>Jeg har gjort endringene</strong> knappen"
+        "list_item_3": "Kom tilbake til denne siden og trykk på <strong>Oppdater siden</strong> knappen",
+        "title": "Løsning 2: Nettleserinnstillinger"
+      },
+      "device_settings": {
+        "title": "Løsning 3: Innstillinger for enheten"
+      },
+      "refresh_page": {
+        "title": "Løsning 1: Oppdater siden"
       }
     },
     "android_generic": {
       "browser_settings": {
-        "list_item_1": "I nettleseren din, åpne nettstedinnstillingene. Dette er ofte et låsikon [LOCK_ICON] i adressefeltet",
+        "list_item_1": "I nettleseren din, åpne nettstedinnstillingene. Dette er ofte et låsikon <lock_icon></lock_icon> i adressefeltet",
         "list_item_2": "Finn avsnittet om tillatelser",
         "list_item_3_cam": "Aktiver <strong>Kamera</strong> tillatelser",
         "list_item_3_mic": "Aktiver <strong>Mikrofon</strong> tillatelser",
-        "list_item_4": "Kom tilbake til denne siden og trykk på <strong>Jeg har gjort endringene</strong> knappen"
+        "list_item_4": "Kom tilbake til denne siden og trykk på <strong>Oppdater siden</strong> knappen"
       }
     },
     "android_samsung": {
       "browser_settings": {
-        "list_item_1": "I nettleseren din, trykk på låsikonet [LOCK_ICON] i adressefeltet",
+        "list_item_1": "I nettleseren din, trykk på låsikonet <lock_icon></lock_icon> i adressefeltet",
         "list_item_2_cam": "Aktiver vippebryteren ved siden av <strong>Kamera</strong>",
         "list_item_2_mic": "Aktiver vippebryteren ved siden av <strong>Mikrofon</strong>",
-        "list_item_3": "Kom tilbake til denne siden og trykk på <strong>Jeg har gjort endringene</strong> knappen"
+        "list_item_3": "Kom tilbake til denne siden og trykk på <strong>Oppdater siden</strong> knappen"
       }
     },
     "button_primary": "Oppdater",
+    "desktop": {
+      "browser_settings": {
+        "title": "Løsning 1: Nettleserinnstillinger"
+      },
+      "device_settings": {
+        "title": "Løsning 2: Innstillinger for enhet"
+      }
+    },
     "desktop_chrome": {
       "browser_settings": {
-        "list_item_1": "I nettleseren din, klikk på låsikonet [LOCK_ICON] i adressefeltet",
+        "list_item_1": "I nettleseren din, klikk på innstillingsikonet <settings_icon_chrome></settings_icon_chrome> i adressefeltet",
         "list_item_2_cam": "Aktiver vippebryteren ved siden av <strong>Kamera</strong>",
         "list_item_2_mic": "Aktiver vippebryteren ved siden av <strong>Mikrofon</strong>",
-        "list_item_3": "Kom tilbake til denne siden og klikk på <strong>Jeg har gjort endringene</strong> knappen"
+        "list_item_3": "Kom tilbake til denne siden og klikk på <strong>Oppdater siden</strong> knappen"
       }
     },
     "desktop_edge": {
       "browser_settings": {
-        "list_item_1": "I nettleseren din, klikk på låsikonet [LOCK_ICON] i adressefeltet",
+        "list_item_1": "I nettleseren din, klikk på låsikonet <lock_icon></lock_icon> i adressefeltet",
         "list_item_2_cam": "Klikk på rullegardinmenyen ved siden av <strong>Kamera</strong> og velg <strong>Tillat</strong>",
         "list_item_2_mic": "Klikk på rullegardinmenyen ved siden av <strong>Mikrofon</strong> og velg <strong>Tillat</strong>",
-        "list_item_3": "Kom tilbake til denne siden og klikk på <strong>Jeg har gjort endringene</strong> knappen"
+        "list_item_3": "Kom tilbake til denne siden og klikk på <strong>Oppdater siden</strong> knappen"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
-        "list_item_1": "I nettleseren din, klikk på innstillingsikonet [SETTINGS_ICON_FIREFOX] i adressefeltet",
+        "list_item_1": "I nettleseren din, klikk på innstillingsikonet <settings_icon_firefox></settings_icon_firefox> i adressefeltet",
         "list_item_2_cam": "Klikk på <strong>Blokkert</strong> ved siden av <strong>Bruk kameraet</strong>",
         "list_item_2_mic": "Klikk på <strong>Blokkert</strong> ved siden av <strong>Bruk mikrofonen</strong>",
-        "list_item_3": "Kom tilbake til denne siden og klikk på <strong>Jeg har gjort endringene</strong> knappen"
+        "list_item_3": "Kom tilbake til denne siden og klikk på <strong>Oppdater siden</strong> knappen"
       }
     },
     "desktop_generic": {
       "browser_settings": {
-        "list_item_1": "I nettleseren din, åpne nettstedinnstillingene. Dette er ofte et låsikon [LOCK_ICON] i adressefeltet",
+        "list_item_1": "I nettleseren din, åpne nettstedinnstillingene. Dette er ofte et låsikon <lock_icon></lock_icon> i adressefeltet",
         "list_item_2": "Finne avsnittet om tillatelser",
         "list_item_3_cam": "Aktiver <strong>Kamera</strong> tillatelser",
         "list_item_3_mic": "Aktiver <strong>Mikrofon</strong> tillatelser",
-        "list_item_4": "Kom tilbake til denne siden og klikk på <strong>Jeg har gjort endringene</strong> knappen"
+        "list_item_4": "Kom tilbake til denne siden og klikk på <strong>Oppdater siden</strong> knappen"
       },
       "device_settings": {
         "list_item_1": "På datamaskinen din, åpne <strong>Innstillinger</strong>",
         "list_item_2": "Finn avsnittet om tillatelser (vanligvis under <strong>Personvern</strong>)",
-        "list_item_3_cam": "Aktiver <strong>Kamera</strong> tillatelser for [BROWSER_ICON]",
-        "list_item_3_mic": "Aktiver <strong>Mikrofon</strong> tillatelser for [BROWSER_ICON]",
+        "list_item_3_cam": "Aktiver <strong>Kamera</strong> tillatelser for <browser_icon></browser_icon>",
+        "list_item_3_mic": "Aktiver <strong>Mikrofon</strong> tillatelser for <browser_icon></browser_icon>",
         "list_item_4": "Start nettleseren din på nytt om nødvendig og kom tilbake til denne siden"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "På datamaskinen din, klikk på Apple-menyen [APPLE_ICON] og velg <strong>Systeminnstillinger</strong> (eller <strong>Systempreferanser</strong>)",
-        "list_item_2": "Klikk på <strong>Personvern & Sikkerhet</strong> (eller <strong>Sikkerhet & Personvern</strong>) i sidefeltet ",
+        "list_item_1": "På datamaskinen din, klikk på Apple-menyen <apple_icon></apple_icon> og velg <strong>Systeminnstillinger</strong> (eller <strong>Systempreferanser</strong>)",
+        "list_item_2": "Klikk på <strong>Personvern & Sikkerhet</strong> (eller <strong>Sikkerhet & Personvern</strong>) i sidefeltet",
         "list_item_3": "Klikk på <strong>Senere</strong> i popup-vinduet",
-        "list_item_3_cam": "Klikk på <strong>Kamera</strong> og aktiver vekselen (eller avkrysningsboksen) ved siden av [BROWSER_ICON]",
+        "list_item_3_cam": "Klikk på <strong>Kamera</strong> og aktiver vekselen (eller avkrysningsboksen) ved siden av <browser_icon></browser_icon>",
         "list_item_4": "Klikk på <strong>Avslutt & Åpne på nytt</strong> i popup-vinduet og kom tilbake til denne siden",
-        "list_item_4_mic": "Klikk på <strong>Mikrofon</strong> og aktiver vekselen (eller avkrysningsboksen) ved siden av [BROWSER_ICON]"
+        "list_item_4_mic": "Klikk på <strong>Mikrofon</strong> og aktiver vekselen (eller avkrysningsboksen) ved siden av <browser_icon></browser_icon>"
       }
     },
     "desktop_safari": {
@@ -604,40 +655,44 @@
         "list_item_1": "I nettleseren din, høyreklikk i adressefeltet og velg <strong>Innstillinger</strong>",
         "list_item_2_cam": "Klikk på rullegardinmenyen ved siden av <strong>Kamera</strong> og velg <strong>Tillat</strong>",
         "list_item_2_mic": "Klikk på rullegardinmenyen ved siden av <strong>Mikrofon</strong> og velg <strong>Tillat</strong>",
-        "list_item_3": "Kom tilbake til denne siden og klikk på <strong>Jeg har gjort endringene</strong> knappen"
+        "list_item_3": "Kom tilbake til denne siden og klikk på <strong>Oppdater siden</strong> knappen"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "På datamaskinen din, klikk på Windows-menyen [WINDOWS_ICON] og velg <strong>Innstillinger</strong> [SETTINGS_ICON_WINDOWS]",
+        "list_item_1": "På datamaskinen din, klikk på Windows-menyen <windows_icon></windows_icon> og velg <strong>Innstillinger</strong> <settings_icon_windows></settings_icon_windows>",
         "list_item_2": "Klikk på <strong>Personvern</strong> (eller <strong>Personvern & Sikkerhet</strong>)",
-        "list_item_3_cam": "Klikk på <strong>Kamera</strong> under <strong>App-tillatelser</strong> og aktiver vekselen ved siden av [BROWSER_ICON] ",
-        "list_item_3_mic": "Klikk på <strong>Mikrofon</strong> under <strong>App-tillatelser</strong> og aktiver vekselen ved siden av [BROWSER_ICON]",
+        "list_item_3_cam": "Klikk på <strong>Kamera</strong> under <strong>App-tillatelser</strong> og aktiver vekselen ved siden av <browser_icon></browser_icon>",
+        "list_item_3_mic": "Klikk på <strong>Mikrofon</strong> under <strong>App-tillatelser</strong> og aktiver vekselen ved siden av <browser_icon></browser_icon>",
         "list_item_4": "Start nettleseren din på nytt om nødvendig og kom tilbake til denne siden"
       }
     },
     "info": "Gjenoppretning",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "Trykk på <strong>Jeg har gjort endringene</strong> knappen. Du vil bli bedt om å aktivere kamera og mikrofon tilgang igjen. Når pop-up vises, velg <strong>Tillat</strong> (eller <strong>OK</strong>)",
-        "list_item_1_cam": "Trykk på <strong>Jeg har gjort endringene</strong> knappen. Du vil bli bedt om å aktivere kameraadgang igjen. Når pop-up-vinduet vises, velg <strong>Tillat</strong> (eller <strong>OK</strong>)",
-        "list_item_1_mic": "Trykk på <strong>Jeg har gjort endringene</strong> knappen. Du vil bli bedt om å aktivere mikrofontilgang igjen. Når pop-up-vinduet vises, velg <strong>Tillat</strong> (eller <strong>OK</strong>)"
+        "list_item_1_both": "Trykk på <strong>Oppdater siden</strong> knappen. Du vil bli bedt om å aktivere kamera og mikrofon tilgang igjen. Når pop-up vises, velg <strong>Tillat</strong> (eller <strong>OK</strong>)",
+        "list_item_1_cam": "Trykk på <strong>Oppdater siden</strong> knappen. Du vil bli bedt om å aktivere kameraadgang igjen. Når pop-up-vinduet vises, velg <strong>Tillat</strong> (eller <strong>OK</strong>)",
+        "list_item_1_mic": "Trykk på <strong>Oppdater siden</strong> knappen. Du vil bli bedt om å aktivere mikrofontilgang igjen. Når pop-up-vinduet vises, velg <strong>Tillat</strong> (eller <strong>OK</strong>)"
       },
       "device_settings": {
         "list_item_1": "På enheten din, åpne <strong>Innstillinger</strong> appen",
-        "list_item_2": "Rull gjennom listen og trykk på [BROWSER_ICON]",
+        "list_item_2": "Rull gjennom listen og trykk på <browser_icon></browser_icon>",
         "list_item_3_cam": "Aktiver vippebryteren ved siden av <strong>Kamera</strong>",
         "list_item_3_mic": "Aktiver vippebryteren ved siden av <strong>Mikrofon</strong>",
-        "list_item_4": "Kom tilbake til denne siden og trykk på <strong>Jeg har gjort endringene</strong> knappen"
+        "list_item_4": "Kom tilbake til denne siden og trykk på <strong>Oppdater siden</strong> knappen",
+        "title": "Løsning 2: Innstillinger for enheten"
+      },
+      "refresh_page": {
+        "title": "Løsning 1: Oppdater siden"
       }
     },
     "ios_safari": {
       "device_settings": {
         "list_item_1": "På enheten din, åpne <strong>Innstillinger</strong> appen",
-        "list_item_2": "Rull gjennom listen og trykk på [BROWSER_ICON]",
+        "list_item_2": "Rull gjennom listen og trykk på <browser_icon></browser_icon>",
         "list_item_3_cam": "Trykk på <strong>Kamera</strong> og velg <strong>Tillat</strong>",
         "list_item_3_mic": "Trykk på <strong>Mikrofon</strong> og velg <strong>Tillat</strong>",
-        "list_item_4": "Kom tilbake til denne siden og trykk på <strong>Jeg har gjort endringene</strong> knappen"
+        "list_item_4": "Kom tilbake til denne siden og trykk på <strong>Oppdater siden</strong> knappen"
       }
     },
     "list_header_both": "Følg disse trinnene for å gjenopprette tilgang til begge:",
@@ -654,13 +709,7 @@
     "title_cam": "Kameratilgang er nektet",
     "title_mic": "Mikrofontilgang nektet",
     "web": {
-      "browser_settings": {
-        "title": "Løsning 1: Nettleserinnstillinger"
-      },
-      "button_primary": "Jeg har gjort endringene",
-      "device_settings": {
-        "title": "Løsning 2: Innstillinger for enhet"
-      },
+      "button_primary": "Oppdater siden",
       "disclaimer": "Identitetsbekreftelsesprosessen kan starte på nytt. Beklager eventuelle ulemper"
     }
   },
@@ -849,7 +898,7 @@
       "prt_specific": {
         "national_id_value": "Skattenummer"
       },
-      "town": "By",
+      "town": "By/tettsted",
       "tur_specific": {
         "national_id_value": "Tyrkisk identifikasjonsnummer"
       },
@@ -934,7 +983,7 @@
       },
       "jpn_specific": {
         "invalid_national_id_value": "Vennligst skriv inn en gyldig \"Mitt nummer\" / Resident Record-kode",
-        "required_national_id_value": ""
+        "required_national_id_value": "Vennligst skriv inn din \"Mitt nummer\" / Beboerregisterkode"
       },
       "ken_specific": {
         "invalid_other": "Vennligst skriv inn et gyldig Alien Card-nummer",
@@ -1012,7 +1061,7 @@
       "too_short_postcode": "Postnummeret er for kort",
       "tur_specific": {
         "invalid_national_id_value": "Vennligst skriv inn et gyldig tyrkisk ID-nummer",
-        "required_national_id_value": ""
+        "required_national_id_value": "Vennligst skriv inn ditt tyrkiske ID-nummer"
       },
       "usa_specific": {
         "invalid_ssn": "Skriv inn en gyldig personnummer",
@@ -1059,7 +1108,7 @@
     "link_certificate": "Søknadsskjema for sertifikat",
     "link_privacy_notice": "Personvernerklæring",
     "link_terms_and_conditions": "Vilkår og betingelser",
-    "namirial_intro": "Namirial SpA er en pålitelig global leverandør som vil utstede et sertifikat som bekrefter din elektroniske signatur. ",
+    "namirial_intro": "Namirial SpA er en pålitelig global leverandør som vil utstede et sertifikat som bekrefter din elektroniske signatur.",
     "subtitle": "For å bekrefte identiteten din i samsvar med europeiske regler, må du digitalt signere et dokument.",
     "title": "Opprett og bruk din digitale signatur"
   },
@@ -1071,6 +1120,25 @@
     "step_title": "Signer dokumentet ditt",
     "subtitle": "For å bekrefte identiteten din i samsvar med europeiske regler, må du digitalt signere et dokument.",
     "title": "Opprett og bruk din digitale signatur"
+  },
+  "retry": {
+    "button": {
+      "generic_selfie_issue": "Prøv på nytt"
+    },
+    "description": {
+      "default": "Prøv på nytt",
+      "expired_document": "Vennligst prøv igjen med en gyldig bilde-ID og sørg for at informasjonen din er godt synlig",
+      "generic_document_issue": "Vennligst prøv igjen med en gyldig bilde-ID og sørg for at informasjonen din er godt synlig",
+      "generic_selfie_issue": "Prøv på nytt og sørg for at ansiktet ditt er synlig og godt opplyst",
+      "unaccepted_document": "Vennligst prøv igjen med en gyldig bilde-ID og sørg for at informasjonen din er godt synlig"
+    },
+    "headline": {
+      "default": "Det var et problem",
+      "expired_document": "Dokumentet ditt er utløpt",
+      "generic_document_issue": "Det var et problem med dokumentet ditt",
+      "generic_selfie_issue": "Det var et problem med selfien din",
+      "unaccepted_document": "Ikke akseptert dokument"
+    }
   },
   "retry_feedback": {
     "button_primary": "Prøv på nytt"
@@ -1134,7 +1202,7 @@
     "info_link_expire": "Mobilkoblingen din utløper om én time",
     "info_link_window": "Hold dette vinduet åpent mens du bruker mobilen",
     "link": "Prøv en annen metode",
-    "subtitle": "Vi har sendt en sikker lenke til %{number}",
+    "subtitle": "Vi har sendt en sikker lenke til <number></number>",
     "subtitle_minutes": "Det kan ta noen minutter før du får den",
     "title": "Sjekk mobilen din"
   },

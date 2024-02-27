@@ -134,7 +134,7 @@
       "manual_fallback_passport": "Nofotografējiet pases fotoattēla lapu",
       "manual_fallback_residence_permit_back": "Nofotografējiet uzturēšanās atļaujas aizmuguri",
       "manual_fallback_residence_permit_front": "Nofotografējiet uzturēšanās atļaujas priekšpusi",
-      "position_generic_document_back": "",
+      "position_generic_document_back": "Ievietojiet dokumenta aizmuguri kadrā",
       "position_generic_document_front": "",
       "position_identity_card_back": "Ievietojiet kartes aizmuguri kadrā",
       "position_identity_card_front": "Ievietojiet kartes priekšpusi kadrā",
@@ -260,7 +260,7 @@
     "button_pension_property_statement_letter_detail": "Pensijas izraksts vai vēstule un Īpašuma nodokļa izraksts vai vēstule",
     "button_permit": "Uzturēšanās atļauja",
     "button_permit_detail": "Priekšpuse un aizmugure",
-    "button_tax_letter": "Vēstule par pašvaldības nodokli",
+    "button_tax_letter": "Pašvaldības nodokļu vēstule",
     "extra_estatements_ok": "tiek pieņemtas e-izziņas",
     "extra_no_mobile": "Atvainojiet, rēķini par mobilo tālruni netiek pieņemti",
     "list_accessibility": "Dokumenti, kurus varat izmantot identitātes pārbaudei",
@@ -309,7 +309,7 @@
     "title_pension_property_statement_letter": "Iesniegt paziņojumu vai vēstuli",
     "title_permit_back": "Iesniegt uzturēšanās atļauju (aizmugure)",
     "title_permit_front": "Iesniegt uzturēšanās atļauju (priekšpuse)",
-    "title_tax_letter": "Iesniegt vēstuli"
+    "title_tax_letter": "Iesniedziet vietējās pašvaldības nodokļu vēstuli"
   },
   "doc_video_capture": {
     "button_primary_fallback": "Nākamā darbība",
@@ -421,6 +421,11 @@
     "title": "Saņemt drošu saiti",
     "url_field_label": "Iekopējiet saiti savā mobilajā pārlūkā"
   },
+  "interactive_task": {
+    "waiting": {
+      "title_5": "Augšupielādē multividi..."
+    }
+  },
   "livenessV2": {
     "error_reload_instructions": "Atkārtoti ielādēt instrukcijas",
     "intro_note_no1": "Vispirms pozicionējiet seju kadrā",
@@ -460,26 +465,48 @@
       "success": "Veiksmīga skenēšana"
     }
   },
+  "nfc_scan_error_can": {
+    "primary_button": "Izejas pārbaude",
+    "subtitle": "Jūs esat sasniedzis maksimālo mēģinājumu skaitu, ievadot savu CAN numuru"
+  },
+  "nfc_scan_error_can:title": "Maksimālais mēģinājumu skaits sasniegts",
   "otp": {
     "code_input": {
       "error": {
+        "code_expired": "Jūsu kods ir beidzies, lūdzu, pieprasiet jaunu.",
+        "code_invalid": "Ievadīts nepareizs kods, lūdzu, mēģiniet vēlreiz.",
         "technical": "Radusies tehniska kļūda, lūdzu, mēģiniet vēlreiz vēlāk",
+        "too_many_attempts": "Jūs esat mēģinājis šo kodu pārāk daudz reižu, lūdzu, pieprasiet jaunu.",
         "wrong_code": "Ievadīts nepareizs kods, lūdzu, mēģiniet vēlreiz"
       },
-      "intro": "Kods, kas nosūtīts uz jūsu tālruņa numuru, būs aktīvs 5 minūtes",
+      "intro": "Jums ir 5 minūtes, lai apstiprinātu kodu, kas nosūtīts caur SMS uz <phonenumber></phonenumber>",
       "resend": {
-        "cta": "Atsūtīt vēlreiz",
-        "label": "Nosūtītais kods (līdz {limit})"
+        "cta": "Pieprasīt jaunu kodu",
+        "cta_timeout": "Pieprasīt jaunu kodu (<timeout></timeout> sekundes)",
+        "label": "Nosūtītais kods",
+        "tracker": "<remaining></remaining> no <limit></limit>"
       },
       "title": "Vienreizēja parole"
+    },
+    "error": {
+      "cta": "Atpakaļ",
+      "subtitle": "Lūdzu, uzgaidiet dažas sekundes un mēģiniet vēlreiz",
+      "title": "Kaut kas nogāja greizi"
+    },
+    "failure": {
+      "cta": "Turpināt",
+      "subtitle": "Mēs vairs nevaram pārbaudīt jūsu tālruņa numuru",
+      "title": "Atļauto mēģinājumu skaits pārsniegts"
     },
     "send_code": {
       "cta": "Sūtīt kodu",
       "error": {
+        "invalid_phone_number": "Lūdzu, ievadiet derīgu tālruņa numuru.",
         "limit": "Jūs sasniedzāt nosūtīto SMS limitu",
         "technical": "Radusies tehniska kļūda, lūdzu, mēģiniet vēlreiz vēlāk"
       },
-      "intro": "Lai pārbaudītu jūsu tālruņa numuru, mēs nosūtīsim jums vienreizēju kodu, ko jāievada nākamajā ekrānā.",
+      "input_label": "Tālruņa numurs",
+      "intro": "Lai pārbaudītu jūsu tālruņa numuru, mēs lūgsim jūs ievadīt vienreizēju paroli.",
       "title": "Vienreizēja parole"
     }
   },
@@ -504,99 +531,123 @@
   },
   "permission_recovery": {
     "android": {
+      "browser_settings": {
+        "title": "Risinājums 1: Pārlūka iestatījumi"
+      },
       "device_settings": {
         "list_item_1": "Savā ierīcē atveriet lietotni <strong>Iestatījumi</strong>",
         "list_item_2": "Spiediet <strong>Lietotnes</strong>",
-        "list_item_3": "Spiediet uz [BROWSER_ICON]. Ja to nevarat atrast, spiediet uz <strong>Skatīt visas lietotnes</strong> vai <strong>Pārvaldīt lietotnes</strong> un izvēlieties savu pārlūkprogrammas lietotni",
+        "list_item_3": "Spiediet uz <browser_icon></browser_icon>. Ja to nevarat atrast, spiediet uz <strong>Skatīt visas lietotnes</strong> vai <strong>Pārvaldīt lietotnes</strong> un izvēlieties savu pārlūkprogrammas lietotni",
         "list_item_4": "Nospiediet <strong>Atļaujas</strong>",
         "list_item_5_cam": "Pieskarieties <strong>Kamera</strong> un izvēlieties <strong>Atļaut</strong>",
         "list_item_5_mic": "Nospiediet <strong>Mikrofons</strong> un izvēlieties <strong>Atļaut</strong>",
-        "list_item_6": "Atgriezieties šajā lapā un piespiediet pogu <strong>Es esmu veicis izmaiņas</strong>"
+        "list_item_6": "Atgriezieties šajā lapā un nospiediet pogu <strong>Atsvaidzināt lapu</strong>",
+        "title": "Risinājums 2: Ierīces iestatījumi"
+      },
+      "refresh_page": {
+        "list_item_1_both": "Nospiediet pogu <strong>Atsvaidzināt lapu</strong>. Jums atkal tiks lūgts atļaut piekļuvi kamerai un mikrofonam. Kad parādās uznirstošais logs, izvēlieties <strong>Atļaut</strong> (vai <strong>OK</strong>)",
+        "list_item_1_cam": "Nospiediet pogu <strong>Atsvaidzināt lapu</strong>. Jums tiks lūgts atkārtoti iespējot piekļuvi kamerai. Kad parādās uznirstošais logs, izvēlieties <strong>Atļaut</strong> (vai <strong>OK</strong>)",
+        "list_item_1_mic": "Nospiediet pogu <strong>Atsvaidzināt lapu</strong>. Jums atkal tiks lūgts atļaut piekļuvi mikrofonam. Kad parādās uznirstošais logs, izvēlieties <strong>Atļaut</strong> (vai <strong>OK</strong>)"
       }
     },
     "android_chrome": {
       "browser_settings": {
-        "list_item_1": "Savā pārlūkprogrammā pieskarieties bloķēšanas ikonai [LOCK_ICON] adrešu joslā",
+        "list_item_1": "Savā pārlūkprogrammā pieskarieties iestatījumu ikonai <settings_icon_chrome></settings_icon_chrome> adrešu joslā",
         "list_item_2": "Nospiediet <strong>Atļaujas</strong>",
         "list_item_3_cam": "Aktivizējiet pārslēdzēju blakus <strong>Kamera</strong>",
         "list_item_3_mic": "Aktivizējiet pārslēdzēju blakus <strong>Mikrofonam</strong>",
-        "list_item_4": "Atgriezieties šajā lapā un pieskarieties pogai <strong>Es esmu veicis izmaiņas</strong>"
+        "list_item_4": "Atgriezieties šajā lapā un nospiediet pogu <strong>Atsvaidzināt lapu</strong>"
       }
     },
     "android_firefox": {
       "browser_settings": {
-        "list_item_1": "Savā pārlūkprogrammā pieskarieties bloķēšanas ikonai [LOCK_ICON] adrešu joslā",
+        "list_item_1": "Savā pārlūkprogrammā pieskarieties bloķēšanas ikonai <lock_icon></lock_icon> adrešu joslā",
         "list_item_2_cam": "Nospiediet <strong>Bloķēts</strong> blakus <strong>Kamera</strong>, lai pārslēgtos uz <strong>Atļauts</strong>",
         "list_item_2_mic": "Nospiediet <strong>Bloķēts</strong> blakus <strong>Mikrofons</strong>, lai pārslēgtos uz <strong>Atļauts</strong>",
-        "list_item_3": "Atgriezieties šajā lapā un piespiediet pogu <strong>Es esmu veicis izmaiņas</strong>"
+        "list_item_3": "Atgriezieties šajā lapā un nospiediet pogu <strong>Atsvaidzināt lapu</strong>",
+        "title": "Risinājums 2: Pārlūka iestatījumi"
+      },
+      "device_settings": {
+        "title": "Risinājums 3: Ierīces iestatījumi"
+      },
+      "refresh_page": {
+        "title": "Risinājums 1: Atsvaidziniet lapu"
       }
     },
     "android_generic": {
       "browser_settings": {
-        "list_item_1": "Savā pārlūkprogrammā atveriet vietnes iestatījumus. Bieži vien tas ir slēdzenes ikona [LOCK_ICON] adreses joslā",
+        "list_item_1": "Savā pārlūkprogrammā atveriet vietnes iestatījumus. Bieži vien tas ir slēdzenes ikona <lock_icon></lock_icon> adreses joslā",
         "list_item_2": "Atrast sadaļu par atļaujām",
         "list_item_3_cam": "Iespējojiet <strong>Kameras</strong> atļaujas",
         "list_item_3_mic": "Iespējojiet <strong>Mikrofona</strong> atļaujas",
-        "list_item_4": "Atgriezieties šajā lapā un piespiediet pogu <strong>Es esmu veicis izmaiņas</strong>"
+        "list_item_4": "Atgriezieties šajā lapā un nospiediet pogu <strong>Atsvaidzināt lapu</strong>"
       }
     },
     "android_samsung": {
       "browser_settings": {
-        "list_item_1": "Savā pārlūkprogrammā pieskarieties bloķēšanas ikonai [LOCK_ICON] adrešu joslā",
+        "list_item_1": "Savā pārlūkprogrammā pieskarieties bloķēšanas ikonai <lock_icon></lock_icon> adrešu joslā",
         "list_item_2_cam": "Aktivizējiet pārslēgšanas pogu blakus <strong>Kamera</strong>",
         "list_item_2_mic": "Aktivizējiet pārslēdzēju blakus <strong>Mikrofonam</strong>",
-        "list_item_3": "Atgriezieties šajā lapā un pieskarieties pogai <strong>Es esmu veicis izmaiņas</strong>"
+        "list_item_3": "Atgriezieties šajā lapā un nospiediet pogu <strong>Atsvaidzināt lapu</strong>"
       }
     },
     "button_primary": "Atsvaidzināt",
+    "desktop": {
+      "browser_settings": {
+        "title": "Risinājums 1: Pārlūka iestatījumi"
+      },
+      "device_settings": {
+        "title": "Risinājums 2: Ierīces iestatījumi"
+      }
+    },
     "desktop_chrome": {
       "browser_settings": {
-        "list_item_1": "Savā pārlūkprogrammā noklikšķiniet uz bloķēšanas ikonas [LOCK_ICON] adrešu joslā",
+        "list_item_1": "Savā pārlūkprogrammā noklikšķiniet uz iestatījumu ikonas <settings_icon_chrome></settings_icon_chrome> adrešu joslā",
         "list_item_2_cam": "Aktivizējiet pārslēdzēju blakus <strong>Kamera</strong>",
         "list_item_2_mic": "Aktivizējiet pārslēdzēju blakus <strong>Mikrofonam</strong>",
-        "list_item_3": "Atgriezieties šajā lapā un noklikšķiniet uz pogas <strong>Es esmu veicis izmaiņas</strong>"
+        "list_item_3": "Atgriezieties šajā lapā un noklikšķiniet uz pogas <strong>Atsvaidzināt lapu</strong>"
       }
     },
     "desktop_edge": {
       "browser_settings": {
-        "list_item_1": "Savā pārlūkprogrammā noklikšķiniet uz bloķēšanas ikonas [LOCK_ICON] adrešu joslā",
+        "list_item_1": "Savā pārlūkprogrammā noklikšķiniet uz bloķēšanas ikonas <lock_icon></lock_icon> adrešu joslā",
         "list_item_2_cam": "Noklikšķiniet uz nolaižamās izvēlnes blakus <strong>Kamera</strong> un izvēlieties <strong>Atļaut</strong>",
         "list_item_2_mic": "Noklikšķiniet uz nolaižamās izvēlnes blakus <strong>Mikrofons</strong> un izvēlieties <strong>Atļaut</strong>",
-        "list_item_3": "Atgriezieties šajā lapā un noklikšķiniet uz pogas <strong>Es esmu veicis izmaiņas</strong>"
+        "list_item_3": "Atgriezieties šajā lapā un noklikšķiniet uz pogas <strong>Atsvaidzināt lapu</strong>"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
-        "list_item_1": "Savā pārlūkprogrammā noklikšķiniet uz iestatījumu ikonas [SETTINGS_ICON_FIREFOX] adrešu joslā",
+        "list_item_1": "Savā pārlūkprogrammā noklikšķiniet uz iestatījumu ikonas <settings_icon_firefox></settings_icon_firefox> adrešu joslā",
         "list_item_2_cam": "Noklikšķiniet uz <strong>Bloķēts</strong> blakus <strong>Izmantot kameru</strong>",
         "list_item_2_mic": "Noklikšķiniet uz <strong>Bloķēts</strong> blakus <strong>Izmantot mikrofonu</strong>",
-        "list_item_3": "Atgriezieties šajā lapā un noklikšķiniet uz pogas <strong>Es esmu veicis izmaiņas</strong>"
+        "list_item_3": "Atgriezieties šajā lapā un noklikšķiniet uz pogas <strong>Atsvaidzināt lapu</strong>"
       }
     },
     "desktop_generic": {
       "browser_settings": {
-        "list_item_1": "Savā pārlūkprogrammā atveriet vietnes iestatījumus. Bieži vien tas ir slēdzenes ikona [LOCK_ICON] adreses joslā",
+        "list_item_1": "Savā pārlūkprogrammā atveriet vietnes iestatījumus. Bieži vien tas ir slēdzenes ikona <lock_icon></lock_icon> adreses joslā",
         "list_item_2": "Atrast sadaļu par atļaujām",
         "list_item_3_cam": "Iespējojiet <strong>Kameras</strong> atļaujas",
         "list_item_3_mic": "Iespējojiet <strong>Mikrofona</strong> atļaujas",
-        "list_item_4": "Atgriezieties šajā lapā un noklikšķiniet uz pogas <strong>Es esmu veicis izmaiņas</strong>"
+        "list_item_4": "Atgriezieties šajā lapā un noklikšķiniet uz pogas <strong>Atsvaidzināt lapu</strong>"
       },
       "device_settings": {
         "list_item_1": "Savā datorā atveriet savus <strong>Iestatījumus</strong>",
         "list_item_2": "Atrast sadaļu par atļaujām (parasti zem <strong>Privātums</strong>)",
-        "list_item_3_cam": "Iespējojiet <strong>Kameras</strong> atļaujas priekš [BROWSER_ICON]",
-        "list_item_3_mic": "Iespējojiet <strong>Mikrofona</strong> atļaujas priekš [BROWSER_ICON]",
+        "list_item_3_cam": "Iespējojiet <strong>Kameras</strong> atļaujas priekš <browser_icon></browser_icon>",
+        "list_item_3_mic": "Iespējojiet <strong>Mikrofona</strong> atļaujas priekš <browser_icon></browser_icon>",
         "list_item_4": "Ja nepieciešams, restartējiet savu pārlūkprogrammu un atgriezieties šajā lapā"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "Savā datorā noklikšķiniet uz Apple izvēlnes [APPLE_ICON] un izvēlieties <strong>Sistēmas iestatījumi</strong> (vai <strong>Sistēmas preferences</strong>)",
-        "list_item_2": "Noklikšķiniet uz <strong>Privātums un drošība</strong> (vai <strong>Drošība un privātums</strong>) sānjoslā ",
+        "list_item_1": "Savā datorā noklikšķiniet uz Apple izvēlnes <apple_icon></apple_icon> un izvēlieties <strong>Sistēmas iestatījumi</strong> (vai <strong>Sistēmas preferences</strong>)",
+        "list_item_2": "Noklikšķiniet uz <strong>Privātums un drošība</strong> (vai <strong>Drošība un privātums</strong>) sānjoslā",
         "list_item_3": "Noklikšķiniet uz <strong>Vēlāk</strong> uznirstošajā logā",
-        "list_item_3_cam": "Noklikšķiniet uz <strong>Kamera</strong> un aktivizējiet slēdzi (vai izvēles rūtiņu) blakus [BROWSER_ICON]",
+        "list_item_3_cam": "Noklikšķiniet uz <strong>Kamera</strong> un aktivizējiet slēdzi (vai izvēles rūtiņu) blakus <browser_icon></browser_icon>",
         "list_item_4": "Noklikšķiniet uz <strong>Aizvērt un atkārtoti atvērt</strong> uznirstošajā logā un atgriezieties šajā lapā",
-        "list_item_4_mic": "Noklikšķiniet uz <strong>Mikrofons</strong> un aktivizējiet slēdzi (vai izvēles rūtiņu) blakus [BROWSER_ICON]"
+        "list_item_4_mic": "Noklikšķiniet uz <strong>Mikrofons</strong> un aktivizējiet slēdzi (vai izvēles rūtiņu) blakus <browser_icon></browser_icon>"
       }
     },
     "desktop_safari": {
@@ -604,40 +655,44 @@
         "list_item_1": "Savā pārlūkprogrammā, labajā peles klikšķī adreses joslā un izvēlieties <strong>Iestatījumi</strong>",
         "list_item_2_cam": "Noklikšķiniet uz nolaižamās izvēlnes blakus <strong>Kamera</strong> un izvēlieties <strong>Atļaut</strong>",
         "list_item_2_mic": "Noklikšķiniet uz nolaižamās izvēlnes blakus <strong>Mikrofonam</strong> un izvēlieties <strong>Atļaut</strong>",
-        "list_item_3": "Atgriezieties šajā lapā un noklikšķiniet uz pogas <strong>Es esmu veicis izmaiņas</strong>"
+        "list_item_3": "Atgriezieties šajā lapā un noklikšķiniet uz pogas <strong>Atsvaidzināt lapu</strong>"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "Uz sava datora, noklikšķiniet uz Windows izvēlnes [WINDOWS_ICON] un izvēlieties <strong>Iestatījumi</strong> [SETTINGS_ICON_WINDOWS]",
+        "list_item_1": "Uz sava datora, noklikšķiniet uz Windows izvēlnes <windows_icon></windows_icon> un izvēlieties <strong>Iestatījumi</strong> <settings_icon_windows></settings_icon_windows>",
         "list_item_2": "Noklikšķiniet uz <strong>Privātums</strong> (vai <strong>Privātums & Drošība</strong>)",
-        "list_item_3_cam": "Noklikšķiniet uz <strong>Kamera</strong> sadaļā <strong>Lietotņu atļaujas</strong> un aktivizējiet pārslēdzēju blakus [BROWSER_ICON] ",
-        "list_item_3_mic": "Noklikšķiniet uz <strong>Mikrofons</strong> zem <strong>Lietotņu atļaujas</strong> un aktivizējiet slēdzi blakus [BROWSER_ICON]",
+        "list_item_3_cam": "Noklikšķiniet uz <strong>Kamera</strong> sadaļā <strong>Lietotņu atļaujas</strong> un aktivizējiet pārslēdzēju blakus <browser_icon></browser_icon>",
+        "list_item_3_mic": "Noklikšķiniet uz <strong>Mikrofons</strong> zem <strong>Lietotņu atļaujas</strong> un aktivizējiet slēdzi blakus <browser_icon></browser_icon>",
         "list_item_4": "Ja nepieciešams, restartējiet savu pārlūkprogrammu un atgriezieties šajā lapā"
       }
     },
     "info": "Atjaunošana",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "Nospiediet pogu <strong>Es esmu veicis izmaiņas</strong>. Jums atkal tiks lūgts iespējot piekļuvi kamerai un mikrofonam. Kad parādās uznirstošais logs, izvēlieties <strong>Atļaut</strong> (vai <strong>Labi</strong>)",
-        "list_item_1_cam": "Nospiediet pogu <strong>Es esmu veicis izmaiņas</strong>. Jums tiks lūgts atkārtoti iespējot piekļuvi kamerai. Kad parādās uznirstošais logs, izvēlieties <strong>Atļaut</strong> (vai <strong>Labi</strong>)",
-        "list_item_1_mic": "Nospiediet pogu <strong>Es esmu veicis izmaiņas</strong>. Jums tiks lūgts atkārtoti iespējot piekļuvi mikrofonam. Kad parādās uznirstošais logs, izvēlieties <strong>Atļaut</strong> (vai <strong>Labi</strong>)"
+        "list_item_1_both": "Nospiediet pogu <strong>Atsvaidzināt lapu</strong>. Jums atkal tiks lūgts atļaut piekļuvi kamerai un mikrofonam. Kad parādās uznirstošais logs, izvēlieties <strong>Atļaut</strong> (vai <strong>OK</strong>)",
+        "list_item_1_cam": "Nospiediet pogu <strong>Atsvaidzināt lapu</strong>. Jums tiks lūgts atkārtoti iespējot piekļuvi kamerai. Kad parādās uznirstošais logs, izvēlieties <strong>Atļaut</strong> (vai <strong>OK</strong>)",
+        "list_item_1_mic": "Nospiediet pogu <strong>Atsvaidzināt lapu</strong>. Jums atkal tiks lūgts atļaut piekļuvi mikrofonam. Kad parādās uznirstošais logs, izvēlieties <strong>Atļaut</strong> (vai <strong>OK</strong>)"
       },
       "device_settings": {
         "list_item_1": "Atveriet lietotni <strong>Iestatījumi</strong> savā ierīcē",
-        "list_item_2": "Ritiniet cauri sarakstam un pieskarieties [BROWSER_ICON]",
+        "list_item_2": "Ritiniet cauri sarakstam un pieskarieties <browser_icon></browser_icon>",
         "list_item_3_cam": "Aktivizējiet pārslēdzēju blakus <strong>Kamera</strong>",
         "list_item_3_mic": "Aktivizējiet pārslēdzēju blakus <strong>Mikrofonam</strong>",
-        "list_item_4": "Atgriezieties šajā lapā un piespiediet pogu <strong>Es esmu veicis izmaiņas</strong>"
+        "list_item_4": "Atgriezieties šajā lapā un nospiediet pogu <strong>Atsvaidzināt lapu</strong>",
+        "title": "Risinājums 2: Ierīces iestatījumi"
+      },
+      "refresh_page": {
+        "title": "Risinājums 1: Atsvaidziniet lapu"
       }
     },
     "ios_safari": {
       "device_settings": {
         "list_item_1": "Atveriet lietotni <strong>Iestatījumi</strong> savā ierīcē",
-        "list_item_2": "Ritiniet cauri sarakstam un pieskarieties [BROWSER_ICON]",
+        "list_item_2": "Ritiniet cauri sarakstam un pieskarieties <browser_icon></browser_icon>",
         "list_item_3_cam": "Pieskarieties <strong>Kamera</strong> un izvēlieties <strong>Atļaut</strong>",
         "list_item_3_mic": "Spiediet uz <strong>Mikrofons</strong> un izvēlieties <strong>Atļaut</strong>",
-        "list_item_4": "Atgriezieties šajā lapā un piespiediet pogu <strong>Es esmu veicis izmaiņas</strong>"
+        "list_item_4": "Atgriezieties šajā lapā un nospiediet pogu <strong>Atsvaidzināt lapu</strong>"
       }
     },
     "list_header_both": "Lai atjaunotu piekļuvi abiem, veiciet tālāk norādītās darbības.",
@@ -654,13 +709,7 @@
     "title_cam": "Piekļuve kamerai ir liegta",
     "title_mic": "Mikrofonam ir liegta piekļuve",
     "web": {
-      "browser_settings": {
-        "title": "Risinājums 1: Pārlūka iestatījumi"
-      },
-      "button_primary": "Es esmu veicis izmaiņas",
-      "device_settings": {
-        "title": "Risinājums 2: Ierīces iestatījumi"
-      },
+      "button_primary": "Atsvaidzināt lapu",
       "disclaimer": "Identitātes pārbaudes process var atsākties. Atvainojamies par sagādātajām neērtībām"
     }
   },
@@ -828,7 +877,7 @@
         "national_id_value": "\"Mans numurs\" / Iedzīvotāja ieraksta kods"
       },
       "last_name": "Uzvārds",
-      "line1": "Adrese (1. rinda)",
+      "line1": "Adrese (1. rinda)",
       "line2": "Adrese (2. rinda)",
       "line3": "Adrese (3. rinda)",
       "lux_specific": {
@@ -849,7 +898,7 @@
       "prt_specific": {
         "national_id_value": "Nodokļa numurs"
       },
-      "town": "Pilsēta",
+      "town": "Pilsēta/novads",
       "tur_specific": {
         "national_id_value": "Turcijas identifikācijas numurs"
       },
@@ -934,7 +983,7 @@
       },
       "jpn_specific": {
         "invalid_national_id_value": "Lūdzu, ievadiet derīgu \"Mans numurs\" / Iedzīvotāja ieraksta kodu",
-        "required_national_id_value": ""
+        "required_national_id_value": "Lūdzu, ievadiet savu \"Mans numurs\" / Iedzīvotāju reģistra kodu"
       },
       "ken_specific": {
         "invalid_other": "Lūdzu, ievadiet derīgu ārvalstnieka kartes numuru",
@@ -1012,7 +1061,7 @@
       "too_short_postcode": "Pasta indekss ir pārāk īss",
       "tur_specific": {
         "invalid_national_id_value": "Lūdzu, ievadiet derīgu Turcijas ID numuru",
-        "required_national_id_value": ""
+        "required_national_id_value": "Lūdzu, ievadiet savu Turcijas ID numuru"
       },
       "usa_specific": {
         "invalid_ssn": "Ievadiet derīgu PAN",
@@ -1071,6 +1120,25 @@
     "step_title": "Parakstiet savu dokumentu",
     "subtitle": "Lai apstiprinātu savu identitāti atbilstoši Eiropas noteikumiem, jums ir jāparaksta dokuments digitāli.",
     "title": "Izveidojiet un izmantojiet savu digitālo parakstu"
+  },
+  "retry": {
+    "button": {
+      "generic_selfie_issue": "Mēģināt vēlreiz"
+    },
+    "description": {
+      "default": "Mēģiniet vēlreiz",
+      "expired_document": "Mēģiniet vēlreiz, izmantojot derīgu ID ar fotoattēlu, un pārliecinieties, ka jūsu informācija ir skaidri redzama",
+      "generic_document_issue": "Mēģiniet vēlreiz, izmantojot derīgu ID ar fotoattēlu, un pārliecinieties, ka jūsu informācija ir skaidri redzama",
+      "generic_selfie_issue": "Mēģiniet vēlreiz un pārliecinieties, ka jūsu seja ir redzama un labi apgaismota",
+      "unaccepted_document": "Mēģiniet vēlreiz, izmantojot derīgu ID ar fotoattēlu, un pārliecinieties, ka jūsu informācija ir skaidri redzama"
+    },
+    "headline": {
+      "default": "Radās problēma",
+      "expired_document": "Jūsu dokumenta derīguma termiņš ir beidzies",
+      "generic_document_issue": "Ar jūsu dokumentu radās problēma",
+      "generic_selfie_issue": "Ar jūsu pašbildi radās problēma",
+      "unaccepted_document": "Nepieņemts dokuments"
+    }
   },
   "retry_feedback": {
     "button_primary": "Mēģināt vēlreiz"
@@ -1134,7 +1202,7 @@
     "info_link_expire": "Jūsu saites derīguma termiņš beigsies pēc stundas",
     "info_link_window": "Turiet šo logu atvērtu, kamēr izmantojat mobilo tālruni",
     "link": "Izmēģiniet citu metodi",
-    "subtitle": "Mēs nosūtījām drošu saiti uz %{number}",
+    "subtitle": "Mēs nosūtījām drošu saiti uz <number></number>",
     "subtitle_minutes": "Sūtīšana var aizņemt dažas minūtes",
     "title": "Pārbaudiet savu mobilo tālruni"
   },

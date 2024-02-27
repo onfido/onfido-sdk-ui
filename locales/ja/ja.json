@@ -134,7 +134,7 @@
       "manual_fallback_passport": "パスポートの写真ページを写真撮影してください",
       "manual_fallback_residence_permit_back": "居住許可証の裏面の写真を撮影してください",
       "manual_fallback_residence_permit_front": "居住許可証の表側の写真を撮影してください",
-      "position_generic_document_back": "",
+      "position_generic_document_back": "ドキュメントの背面を枠内に配置する",
       "position_generic_document_front": "",
       "position_identity_card_back": "カードの背面を枠内に配置する",
       "position_identity_card_front": "カードの前面を枠内に配置する",
@@ -260,7 +260,7 @@
     "button_pension_property_statement_letter_detail": "年金の明細書または書簡、および不動産税の明細書または書簡",
     "button_permit": "在留許可証",
     "button_permit_detail": "表面と裏面",
-    "button_tax_letter": "地方税書類",
+    "button_tax_letter": "地方自治体税の書状",
     "extra_estatements_ok": "受け入れられる電子明細書",
     "extra_no_mobile": "申し訳ありませんが、携帯電話の請求書は受け付けられません",
     "list_accessibility": "本人確認に使用できるドキュメント",
@@ -309,7 +309,7 @@
     "title_pension_property_statement_letter": "ステートメントまたはレターを提出する",
     "title_permit_back": "在留許可証を提出する（裏面）",
     "title_permit_front": "在留許可証を提出する（表面）",
-    "title_tax_letter": "手紙を送信"
+    "title_tax_letter": "地方自治体税の書類を提出する"
   },
   "doc_video_capture": {
     "button_primary_fallback": "次のステップ",
@@ -421,6 +421,11 @@
     "title": "安全なリンクを取得する",
     "url_field_label": "リンクを携帯電話のブラウザにコピー"
   },
+  "interactive_task": {
+    "waiting": {
+      "title_5": "メディアをアップロード中..."
+    }
+  },
   "livenessV2": {
     "error_reload_instructions": "指示を再読み込みする",
     "intro_note_no1": "まず、顔を枠内に配置します",
@@ -460,26 +465,48 @@
       "success": "スキャンに成功"
     }
   },
+  "nfc_scan_error_can": {
+    "primary_button": "終了の確認",
+    "subtitle": "あなたはCAN番号を入力する最大試行回数に達しました"
+  },
+  "nfc_scan_error_can:title": "最大試行回数に達しました",
   "otp": {
     "code_input": {
       "error": {
+        "code_expired": "あなたのコードは期限切れです、新しいものをリクエストしてください。",
+        "code_invalid": "間違ったコードが入力されました、もう一度お試しください。",
         "technical": "技術的なエラーが発生しました、後で再試行してください",
+        "too_many_attempts": "あなたはこのコードを何度も試しすぎました、新しいものをリクエストしてください。",
         "wrong_code": "間違ったコードが入力されました、もう一度お試しください"
       },
-      "intro": "あなたの電話番号に送信されたコードは5分間有効です",
+      "intro": "SMSで送信されたコードを確認するために5分間があります<phonenumber></phonenumber>",
       "resend": {
-        "cta": "再送",
-        "label": "(最大{limit}まで)送信されたコード"
+        "cta": "新しいコードをリクエストする",
+        "cta_timeout": "新しいコードをリクエストする（<timeout></timeout>秒）",
+        "label": "コードを送信しました",
+        "tracker": "<remaining></remaining> の <limit></limit>"
       },
       "title": "ワンタイムパスワード"
+    },
+    "error": {
+      "cta": "戻る",
+      "subtitle": "数秒待ってからもう一度お試しください",
+      "title": "何かが間違っていました"
+    },
+    "failure": {
+      "cta": "続ける",
+      "subtitle": "もうあなたの電話番号を確認することはできません",
+      "title": "許可された試行回数を超えました"
     },
     "send_code": {
       "cta": "コードを送信",
       "error": {
+        "invalid_phone_number": "有効な電話番号を提供してください。",
         "limit": "送信SMSの上限に達しました",
         "technical": "技術的なエラーが発生しました、後で再試行してください"
       },
-      "intro": "電話番号を確認するために、次の画面で入力するための一回限りのコードを送信します。",
+      "input_label": "電話番号",
+      "intro": "電話番号を確認するために、ワンタイムパスワードを入力していただくようお願いします。",
       "title": "ワンタイムパスワード"
     }
   },
@@ -504,99 +531,123 @@
   },
   "permission_recovery": {
     "android": {
+      "browser_settings": {
+        "title": "ソリューション1：ブラウザの設定"
+      },
       "device_settings": {
         "list_item_1": "お使いのデバイスで、<strong>設定</strong>アプリを開きます",
         "list_item_2": "<strong>アプリ</strong>をタップします",
-        "list_item_3": "[BROWSER_ICON]をタップします。見つからない場合は、<strong>すべてのアプリを見る</strong>または<strong>アプリを管理する</strong>をタップし、ブラウザアプリを選択します",
+        "list_item_3": "<browser_icon></browser_icon>をタップします。見つからない場合は、<strong>すべてのアプリを見る</strong>または<strong>アプリを管理する</strong>をタップし、ブラウザアプリを選択します",
         "list_item_4": "<strong>権限</strong>をタップします",
         "list_item_5_cam": "<strong>カメラ</strong>をタップし、<strong>許可</strong>を選択します",
         "list_item_5_mic": "<strong>マイク</strong>をタップし、<strong>許可</strong>を選択します",
-        "list_item_6": "このページに戻って、<strong>変更を行いました</strong>ボタンをタップしてください"
+        "list_item_6": "このページに戻って、<strong>ページを更新</strong>ボタンをタップしてください",
+        "title": "ソリューション2：デバイスの設定"
+      },
+      "refresh_page": {
+        "list_item_1_both": "<strong>ページを更新</strong>ボタンをタップします。再度、カメラとマイクのアクセスを許可するように求められます。ポップアップが表示されたら、<strong>許可</strong>（または<strong>OK</strong>）を選択します。",
+        "list_item_1_cam": "<strong>ページを更新</strong>ボタンをタップします。再度カメラへのアクセスを許可するように求められます。ポップアップが表示されたら、<strong>許可</strong>（または<strong>OK</strong>）を選択します。",
+        "list_item_1_mic": "<strong>ページを更新</strong>ボタンをタップします。再度マイクへのアクセスを許可するように求められます。ポップアップが表示されたら、<strong>許可</strong>（または<strong>OK</strong>）を選択します。"
       }
     },
     "android_chrome": {
       "browser_settings": {
-        "list_item_1": "ブラウザで、アドレスバーにあるロックアイコン[LOCK_ICON]をタップします",
+        "list_item_1": "ブラウザで、アドレスバーにある設定アイコン<settings_icon_chrome></settings_icon_chrome>をタップします",
         "list_item_2": "<strong>権限</strong>をタップします",
         "list_item_3_cam": "<strong>カメラ</strong>の隣にあるトグルを有効にしてください",
         "list_item_3_mic": "<strong>マイク</strong>の隣にあるトグルを有効にしてください",
-        "list_item_4": "このページに戻って、<strong>変更を行いました</strong>ボタンをタップしてください"
+        "list_item_4": "このページに戻って、<strong>ページを更新</strong>ボタンをタップしてください"
       }
     },
     "android_firefox": {
       "browser_settings": {
-        "list_item_1": "ブラウザで、アドレスバーにあるロックアイコン[LOCK_ICON]をタップします",
+        "list_item_1": "ブラウザで、アドレスバーにあるロックアイコン<lock_icon></lock_icon>をタップします",
         "list_item_2_cam": "<strong>ブロック</strong>の隣の<strong>カメラ</strong>をタップして、<strong>許可</strong>に切り替えます",
         "list_item_2_mic": "<strong>ブロック</strong>の隣の<strong>マイク</strong>をタップして、<strong>許可</strong>に切り替えます",
-        "list_item_3": "このページに戻って、<strong>変更を行いました</strong>ボタンをタップしてください"
+        "list_item_3": "このページに戻って、<strong>ページを更新</strong>ボタンをタップしてください",
+        "title": "ソリューション2：ブラウザの設定"
+      },
+      "device_settings": {
+        "title": "ソリューション3：デバイスの設定"
+      },
+      "refresh_page": {
+        "title": "ソリューション1：ページを更新する"
       }
     },
     "android_generic": {
       "browser_settings": {
-        "list_item_1": "ブラウザでウェブサイトの設定を開きます。これは通常、アドレスバーにあるロックアイコン[LOCK_ICON]です",
+        "list_item_1": "ブラウザでウェブサイトの設定を開きます。これは通常、アドレスバーにあるロックアイコン<lock_icon></lock_icon>です",
         "list_item_2": "パーミッションに関するセクションを探す",
         "list_item_3_cam": "<strong>カメラ</strong>の権限を有効にする",
         "list_item_3_mic": "<strong>マイク</strong>の権限を有効にする",
-        "list_item_4": "このページに戻って、<strong>変更を行いました</strong>ボタンをタップしてください"
+        "list_item_4": "このページに戻って、<strong>ページを更新</strong>ボタンをタップしてください"
       }
     },
     "android_samsung": {
       "browser_settings": {
-        "list_item_1": "ブラウザで、アドレスバーにあるロックアイコン[LOCK_ICON]をタップします",
+        "list_item_1": "ブラウザで、アドレスバーにあるロックアイコン<lock_icon></lock_icon>をタップします",
         "list_item_2_cam": "<strong>カメラ</strong>の隣にあるトグルを有効にしてください",
         "list_item_2_mic": "<strong>マイク</strong>の隣にあるトグルを有効にしてください",
-        "list_item_3": "このページに戻って、<strong>変更を行いました</strong>ボタンをタップしてください"
+        "list_item_3": "このページに戻って、<strong>ページを更新</strong>ボタンをタップしてください"
       }
     },
     "button_primary": "更新",
+    "desktop": {
+      "browser_settings": {
+        "title": "ソリューション1：ブラウザの設定"
+      },
+      "device_settings": {
+        "title": "ソリューション2：デバイス設定"
+      }
+    },
     "desktop_chrome": {
       "browser_settings": {
-        "list_item_1": "ブラウザで、アドレスバーにあるロックアイコン [LOCK_ICON] をクリックしてください",
+        "list_item_1": "ブラウザで、アドレスバーにある設定アイコン<settings_icon_chrome></settings_icon_chrome>をクリックします",
         "list_item_2_cam": "<strong>カメラ</strong>の隣にあるトグルを有効にしてください",
         "list_item_2_mic": "<strong>マイク</strong>の隣にあるトグルを有効にしてください",
-        "list_item_3": "このページに戻って、<strong>変更を行いました</strong>ボタンをクリックしてください"
+        "list_item_3": "このページに戻って、<strong>ページを更新</strong>ボタンをクリックしてください"
       }
     },
     "desktop_edge": {
       "browser_settings": {
-        "list_item_1": "ブラウザで、アドレスバーにあるロックアイコン [LOCK_ICON] をクリックしてください",
+        "list_item_1": "ブラウザで、アドレスバーにあるロックアイコン <lock_icon></lock_icon> をクリックしてください",
         "list_item_2_cam": "<strong>カメラ</strong>の隣のドロップダウンをクリックし、<strong>許可</strong>を選択します",
         "list_item_2_mic": "<strong>マイク</strong>の隣のドロップダウンをクリックし、<strong>許可</strong>を選択します",
-        "list_item_3": "このページに戻って、<strong>変更を行いました</strong>ボタンをクリックしてください"
+        "list_item_3": "このページに戻って、<strong>ページを更新</strong>ボタンをクリックしてください"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
-        "list_item_1": "ブラウザで、アドレスバーにある設定アイコン [SETTINGS_ICON_FIREFOX] をクリックします",
+        "list_item_1": "ブラウザで、アドレスバーにある設定アイコン <settings_icon_firefox></settings_icon_firefox> をクリックします",
         "list_item_2_cam": "<strong>ブロック</strong>をクリックし、<strong>カメラを使用</strong>の隣にある",
         "list_item_2_mic": "<strong>ブロック</strong>をクリックし、<strong>マイクを使用する</strong>の隣にある",
-        "list_item_3": "このページに戻って、<strong>変更を行いました</strong>ボタンをクリックしてください"
+        "list_item_3": "このページに戻って、<strong>ページを更新</strong>ボタンをクリックしてください"
       }
     },
     "desktop_generic": {
       "browser_settings": {
-        "list_item_1": "ブラウザでウェブサイトの設定を開きます。これは通常、アドレスバーにあるロックアイコン[LOCK_ICON]です",
+        "list_item_1": "ブラウザでウェブサイトの設定を開きます。これは通常、アドレスバーにあるロックアイコン<lock_icon></lock_icon>です",
         "list_item_2": "パーミッションに関するセクションを探してください",
         "list_item_3_cam": "<strong>カメラ</strong>の権限を有効にする",
         "list_item_3_mic": "<strong>マイク</strong>の権限を有効にする",
-        "list_item_4": "このページに戻り、<strong>変更しました</strong>ボタンをクリックしてください"
+        "list_item_4": "このページに戻って、<strong>ページを更新</strong>ボタンをクリックしてください"
       },
       "device_settings": {
         "list_item_1": "コンピュータで<strong>設定</strong>を開きます",
         "list_item_2": "パーミッションに関するセクションを見つけてください（通常は<strong>プライバシー</strong>の下にあります）",
-        "list_item_3_cam": "[BROWSER_ICON]の<strong>カメラ</strong>権限を有効にしてください",
-        "list_item_3_mic": "[BROWSER_ICON]の<strong>マイク</strong>の権限を有効にしてください",
+        "list_item_3_cam": "<browser_icon></browser_icon>の<strong>カメラ</strong>権限を有効にしてください",
+        "list_item_3_mic": "<browser_icon></browser_icon>の<strong>マイク</strong>の権限を有効にしてください",
         "list_item_4": "必要であればブラウザを再起動し、このページに戻ってきてください"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "お使いのコンピュータで、Appleメニュー[APPLE_ICON]をクリックし、<strong>システム設定</strong>（または<strong>システム環境設定</strong>）を選択します",
+        "list_item_1": "お使いのコンピュータで、Appleメニュー<apple_icon></apple_icon>をクリックし、<strong>システム設定</strong>（または<strong>システム環境設定</strong>）を選択します",
         "list_item_2": "サイドバーで<strong>プライバシー＆セキュリティ</strong>（または<strong>セキュリティ＆プライバシー</strong>）をクリックします",
         "list_item_3": "ポップアップで<strong>後で</strong>をクリックしてください",
-        "list_item_3_cam": "<strong>カメラ</strong>をクリックし、[BROWSER_ICON]の隣にあるトグル（またはチェックボックス）を有効にしてください",
+        "list_item_3_cam": "<strong>カメラ</strong>をクリックし、<browser_icon></browser_icon>の隣にあるトグル（またはチェックボックス）を有効にしてください",
         "list_item_4": "ポップアップで<strong>終了して再開</strong>をクリックし、このページに戻ってきてください",
-        "list_item_4_mic": "<strong>マイクロフォン</strong>をクリックし、[BROWSER_ICON]の隣にあるトグル（またはチェックボックス）を有効にします"
+        "list_item_4_mic": "<strong>マイクロフォン</strong>をクリックし、<browser_icon></browser_icon>の隣にあるトグル（またはチェックボックス）を有効にします"
       }
     },
     "desktop_safari": {
@@ -604,40 +655,44 @@
         "list_item_1": "ブラウザで、アドレスバーを右クリックし、<strong>設定</strong>を選択します",
         "list_item_2_cam": "<strong>カメラ</strong>の隣のドロップダウンをクリックし、<strong>許可</strong>を選択します",
         "list_item_2_mic": "<strong>マイク</strong>の隣のドロップダウンをクリックし、<strong>許可</strong>を選択します",
-        "list_item_3": "このページに戻って、<strong>変更を行いました</strong>ボタンをクリックしてください"
+        "list_item_3": "このページに戻って、<strong>ページを更新</strong>ボタンをクリックしてください"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "お使いのコンピューターで、Windowsメニュー [WINDOWS_ICON] をクリックし、<strong>設定</strong> [SETTINGS_ICON_WINDOWS] を選択します",
+        "list_item_1": "お使いのコンピューターで、Windowsメニュー <windows_icon></windows_icon> をクリックし、<strong>設定</strong> <settings_icon_windows></settings_icon_windows> を選択します",
         "list_item_2": "<strong>プライバシー</strong>（または<strong>プライバシー & セキュリティ</strong>）をクリックしてください",
-        "list_item_3_cam": "<strong>アプリの権限</strong>の下の<strong>カメラ</strong>をクリックし、[BROWSER_ICON]の隣にあるトグルを有効にします",
-        "list_item_3_mic": "<strong>アプリの権限</strong>の下の<strong>マイク</strong>をクリックし、[BROWSER_ICON]の隣のトグルを有効にします",
+        "list_item_3_cam": "<strong>アプリの権限</strong>の下の<strong>カメラ</strong>をクリックし、<browser_icon></browser_icon>の隣にあるトグルを有効にします",
+        "list_item_3_mic": "<strong>アプリの権限</strong>の下の<strong>マイク</strong>をクリックし、<browser_icon></browser_icon>の隣のトグルを有効にします",
         "list_item_4": "必要であればブラウザを再起動し、このページに戻ってきてください"
       }
     },
     "info": "回復",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "<strong>変更を行いました</strong>ボタンをタップします。再度、カメラとマイクのアクセスを許可するように求められます。ポップアップが表示されたら、<strong>許可する</strong>（または<strong>OK</strong>）を選択します。",
-        "list_item_1_cam": "<strong>変更を行いました</strong>ボタンをタップします。再度カメラへのアクセスを許可するように求められます。ポップアップが表示されたら、<strong>許可する</strong>（または<strong>OK</strong>）を選択します。",
-        "list_item_1_mic": "<strong>変更を行いました</strong>ボタンをタップします。再度マイクへのアクセスを許可するように求められます。ポップアップが表示されたら、<strong>許可する</strong>（または<strong>OK</strong>）を選択します。"
+        "list_item_1_both": "<strong>ページを更新</strong>ボタンをタップします。再度、カメラとマイクのアクセスを許可するように求められます。ポップアップが表示されたら、<strong>許可</strong>（または<strong>OK</strong>）を選択します。",
+        "list_item_1_cam": "<strong>ページを更新</strong>ボタンをタップします。再度カメラへのアクセスを許可するように求められます。ポップアップが表示されたら、<strong>許可</strong>（または<strong>OK</strong>）を選択します。",
+        "list_item_1_mic": "<strong>ページを更新</strong>ボタンをタップします。再度マイクへのアクセスを許可するように求められます。ポップアップが表示されたら、<strong>許可</strong>（または<strong>OK</strong>）を選択します。"
       },
       "device_settings": {
         "list_item_1": "お使いのデバイスで、<strong>設定</strong>アプリを開きます",
-        "list_item_2": "リストをスクロールして、[BROWSER_ICON]をタップします",
+        "list_item_2": "リストをスクロールして、<browser_icon></browser_icon>をタップします",
         "list_item_3_cam": "<strong>カメラ</strong>の隣にあるトグルを有効にしてください",
         "list_item_3_mic": "<strong>マイク</strong>の隣にあるトグルを有効にしてください",
-        "list_item_4": "このページに戻って、<strong>変更を行いました</strong>ボタンをタップしてください"
+        "list_item_4": "このページに戻って、<strong>ページを更新</strong>ボタンをタップしてください",
+        "title": "ソリューション2：デバイスの設定"
+      },
+      "refresh_page": {
+        "title": "解決策1：ページを更新する"
       }
     },
     "ios_safari": {
       "device_settings": {
         "list_item_1": "お使いのデバイスで、<strong>設定</strong>アプリを開きます",
-        "list_item_2": "リストをスクロールして、[BROWSER_ICON]をタップします",
+        "list_item_2": "リストをスクロールして、<browser_icon></browser_icon>をタップします",
         "list_item_3_cam": "<strong>カメラ</strong>をタップし、<strong>許可</strong>を選択します",
         "list_item_3_mic": "<strong>マイク</strong>をタップし、<strong>許可</strong>を選択します",
-        "list_item_4": "このページに戻って、<strong>変更を行いました</strong>ボタンをタップしてください"
+        "list_item_4": "このページに戻って、<strong>ページを更新</strong>ボタンをタップしてください"
       }
     },
     "list_header_both": "両方へのアクセスを回復する方法は次のとおりです。",
@@ -654,13 +709,7 @@
     "title_cam": "カメラへのアクセスが拒否されました",
     "title_mic": "マイクへのアクセスが拒否されました",
     "web": {
-      "browser_settings": {
-        "title": "ソリューション1：ブラウザの設定"
-      },
-      "button_primary": "変更を加えました",
-      "device_settings": {
-        "title": "ソリューション2：デバイス設定"
-      },
+      "button_primary": "ページを更新する",
       "disclaimer": "本人確認のプロセスが再開する可能性があります。ご不便をおかけして申し訳ありません"
     }
   },
@@ -849,7 +898,7 @@
       "prt_specific": {
         "national_id_value": "税番号"
       },
-      "town": "町",
+      "town": "都市名",
       "tur_specific": {
         "national_id_value": "トルコ識別番号"
       },
@@ -934,7 +983,7 @@
       },
       "jpn_specific": {
         "invalid_national_id_value": "有効な「マイナンバー」・住民票コードを入力してください",
-        "required_national_id_value": ""
+        "required_national_id_value": "「マイナンバー」/ 住民票コードを入力してください"
       },
       "ken_specific": {
         "invalid_other": "有効な外国人カード番号を入力してください",
@@ -1012,7 +1061,7 @@
       "too_short_postcode": "郵便番号が短すぎます",
       "tur_specific": {
         "invalid_national_id_value": "有効なトルコの ID 番号を入力してください",
-        "required_national_id_value": ""
+        "required_national_id_value": "トルコのID番号を入力してください"
       },
       "usa_specific": {
         "invalid_ssn": "有効なSSNを入力してください",
@@ -1071,6 +1120,25 @@
     "step_title": "あなたのドキュメントに署名してください",
     "subtitle": "ヨーロッパの規則に従ってあなたの身元を確認するために、文書にデジタル署名をする必要があります。",
     "title": "デジタル署名を作成して使用する"
+  },
+  "retry": {
+    "button": {
+      "generic_selfie_issue": "再試行"
+    },
+    "description": {
+      "default": "再度お試しください",
+      "expired_document": "有効な写真付き身分証明書で再度お試しいただき、情報がはっきりと見えるようにしてください",
+      "generic_document_issue": "有効な写真付き身分証明書で再度お試しいただき、情報がはっきりと見えるようにしてください",
+      "generic_selfie_issue": "もう一度お試しください。顔が見え、明るい場所にいることを確認してください",
+      "unaccepted_document": "有効な写真付き身分証明書で再度お試しいただき、情報がはっきりと見えるようにしてください"
+    },
+    "headline": {
+      "default": "問題が発生しました",
+      "expired_document": "ドキュメントの有効期限が切れています",
+      "generic_document_issue": "あなたのドキュメントに問題がありました",
+      "generic_selfie_issue": "あなたのセルフィーに問題がありました",
+      "unaccepted_document": "受け入れられないドキュメント"
+    }
   },
   "retry_feedback": {
     "button_primary": "再試行"
@@ -1134,7 +1202,7 @@
     "info_link_expire": "リンクは1時間後に期限切れになります",
     "info_link_window": "携帯電話を使用している間、このウィンドウを開いたままにしてください",
     "link": "別の方法を試してみてください",
-    "subtitle": "%{number}に安全なリンクを送信しました",
+    "subtitle": "<number></number>に安全なリンクを送信しました",
     "subtitle_minutes": "到着まで数分かかる場合があります",
     "title": "携帯電話を確認する"
   },

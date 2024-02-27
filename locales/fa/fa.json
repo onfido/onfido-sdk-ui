@@ -134,7 +134,7 @@
       "manual_fallback_passport": "از صفحه عکس‌دار گذرنامه خود عکس بگیرید",
       "manual_fallback_residence_permit_back": "از پشت مجوز اقامت خود عکس بگیرید",
       "manual_fallback_residence_permit_front": "از جلوی مجوز اقامت خود عکس بگیرید",
-      "position_generic_document_back": "",
+      "position_generic_document_back": "پشت سند خود را در قاب قرار دهید",
       "position_generic_document_front": "",
       "position_identity_card_back": "پشت کارت خود را درون کادر قرار دهید",
       "position_identity_card_front": "روی کارت خود را درون کادر قرار دهید",
@@ -421,6 +421,11 @@
     "title": "لینک امن خود را دریافت کنید",
     "url_field_label": "لینک را در مرورگر موبایل خود کپی کنید"
   },
+  "interactive_task": {
+    "waiting": {
+      "title_5": "بارگذاری رسانه..."
+    }
+  },
   "livenessV2": {
     "error_reload_instructions": "بارگذاری مجدد دستورالعمل‌ها",
     "intro_note_no1": "ابتدا چهره خود را درون کادر قرار دهید",
@@ -460,25 +465,47 @@
       "success": "اسکن با موفقیت انجام شد"
     }
   },
+  "nfc_scan_error_can": {
+    "primary_button": "تأیید خروج",
+    "subtitle": "شما به حداکثر تلاش ها برای وارد کردن شماره CAN خود رسیده اید"
+  },
+  "nfc_scan_error_can:title": "به حداکثر تلاش رسیده است",
   "otp": {
     "code_input": {
       "error": {
+        "code_expired": "کد شما منقضی شده است، لطفاً یکی جدید درخواست کنید.",
+        "code_invalid": "کد وارد شده اشتباه است، لطفا دوباره تلاش کنید.",
         "technical": "خطای فنی رخ داده است، لطفا بعدا دوباره امتحان کنید",
+        "too_many_attempts": "شما این کد را بیش از حد مجاز امتحان کرده‌اید، لطفاً یکی جدید درخواست کنید.",
         "wrong_code": "کد اشتباه وارد شده است، لطفا دوباره تلاش کنید"
       },
       "intro": "کد ارسال شده به شماره تلفن شما برای 5 دقیقه فعال خواهد بود",
       "resend": {
         "cta": "ارسال مجدد",
-        "label": "کد ارسال شد (تا {limit})"
+        "cta_timeout": "درخواست یک کد جدید (<timeout></timeout> ثانیه)",
+        "label": "کد ارسال شد",
+        "tracker": "<remaining></remaining> از <limit></limit>"
       },
       "title": "رمز یکبار مصرف"
+    },
+    "error": {
+      "cta": "برگرد",
+      "subtitle": "لطفا چند ثانیه صبر کنید و دوباره تلاش کنید",
+      "title": "چیزی اشتباه شد"
+    },
+    "failure": {
+      "cta": "ادامه",
+      "subtitle": "ما دیگر نمی توانیم شماره تلفن شما را تأیید کنیم",
+      "title": "تلاش های مجاز بیش از حد شده است"
     },
     "send_code": {
       "cta": "کد را ارسال کنید",
       "error": {
+        "invalid_phone_number": "لطفا شماره تلفن معتبری ارائه دهید.",
         "limit": "شما به حد ارسال پیامک رسیدید",
         "technical": "خطای فنی رخ داده است، لطفا بعدا دوباره امتحان کنید"
       },
+      "input_label": "شماره تلفن",
       "intro": "برای تأیید شماره تلفن شما، قصد داریم یک کد تک استفاده ای برای وارد کردن در صفحه بعدی به شما ارسال کنیم.",
       "title": "رمز یکبار مصرف"
     }
@@ -504,19 +531,28 @@
   },
   "permission_recovery": {
     "android": {
+      "browser_settings": {
+        "title": "راه حل 1: تنظیمات مرورگر"
+      },
       "device_settings": {
         "list_item_1": "روی دستگاه خود، برنامه <strong>تنظیمات</strong> را باز کنید",
         "list_item_2": "روی <strong>برنامه ها</strong> ضربه بزنید",
-        "list_item_3": "روی [BROWSER_ICON] ضربه بزنید. اگر نتوانستید آن را پیدا کنید، روی <strong>مشاهده تمام برنامه‌ها</strong> یا <strong>مدیریت برنامه‌ها</strong> ضربه بزنید و برنامه مرورگر خود را انتخاب کنید",
+        "list_item_3": "روی <browser_icon></browser_icon> ضربه بزنید. اگر نتوانستید آن را پیدا کنید، روی <strong>مشاهده تمام برنامه‌ها</strong> یا <strong>مدیریت برنامه‌ها</strong> ضربه بزنید و برنامه مرورگر خود را انتخاب کنید",
         "list_item_4": "روی <strong>مجوزها</strong> ضربه بزنید",
         "list_item_5_cam": "روی <strong>دوربین</strong> ضربه بزنید و <strong>اجازه</strong> را انتخاب کنید",
         "list_item_5_mic": "روی <strong>میکروفون</strong> ضربه بزنید و <strong>اجازه</strong> را انتخاب کنید",
-        "list_item_6": "به این صفحه برگردید و دکمه <strong>تغییرات را اعمال کردم</strong> را بزنید"
+        "list_item_6": "به این صفحه برگردید و دکمه <strong>تغییرات را اعمال کردم</strong> را بزنید",
+        "title": "راه حل 2: تنظیمات دستگاه"
+      },
+      "refresh_page": {
+        "list_item_1_both": "روی دکمه <strong>تغییرات را اعمال کردم</strong> ضربه بزنید. از شما خواسته خواهد شد دوباره دسترسی به دوربین و میکروفون را فعال کنید. وقتی پنجره پاپ آپ ظاهر می شود، <strong>اجازه</strong> (یا <strong>تایید</strong>) را انتخاب کنید.",
+        "list_item_1_cam": "روی دکمه <strong>تغییرات را اعمال کردم</strong> ضربه بزنید. از شما خواسته خواهد شد دوباره دسترسی به دوربین را فعال کنید. وقتی پنجره پاپ آپ ظاهر می شود، <strong>اجازه</strong> (یا <strong>تایید</strong>) را انتخاب کنید.",
+        "list_item_1_mic": "روی دکمه <strong>تغییرات را اعمال کردم</strong> ضربه بزنید. از شما خواسته خواهد شد که دوباره دسترسی به میکروفون را فعال کنید. وقتی پنجره پاپ آپ ظاهر می شود، <strong>اجازه</strong> (یا <strong>تایید</strong>) را انتخاب کنید."
       }
     },
     "android_chrome": {
       "browser_settings": {
-        "list_item_1": "در مرورگر خود، روی آیکون قفل [LOCK_ICON] در نوار آدرس ضربه بزنید",
+        "list_item_1": "در مرورگر خود، روی آیکون قفل <lock_icon></lock_icon> در نوار آدرس ضربه بزنید",
         "list_item_2": "روی <strong>مجوزها</strong> ضربه بزنید",
         "list_item_3_cam": "دکمه تغییر حالت کنار <strong>دوربین</strong> را فعال کنید",
         "list_item_3_mic": "دکمه تغییر حالت کنار <strong>میکروفون</strong> را فعال کنید",
@@ -525,15 +561,22 @@
     },
     "android_firefox": {
       "browser_settings": {
-        "list_item_1": "در مرورگر خود، روی آیکون قفل [LOCK_ICON] در نوار آدرس ضربه بزنید",
+        "list_item_1": "در مرورگر خود، روی آیکون قفل <lock_icon></lock_icon> در نوار آدرس ضربه بزنید",
         "list_item_2_cam": "روی <strong>مسدود</strong> کنار <strong>دوربین</strong> ضربه بزنید تا به <strong>مجاز</strong> تغییر کند",
         "list_item_2_mic": "روی <strong>مسدود</strong> کنار <strong>میکروفون</strong> ضربه بزنید تا به <strong>مجاز</strong> تغییر کند",
-        "list_item_3": "به این صفحه برگردید و دکمه <strong>تغییرات را اعمال کردم</strong> را بزنید"
+        "list_item_3": "به این صفحه برگردید و دکمه <strong>تغییرات را اعمال کردم</strong> را بزنید",
+        "title": "راه حل 2: تنظیمات مرورگر"
+      },
+      "device_settings": {
+        "title": "راه حل 3: تنظیمات دستگاه"
+      },
+      "refresh_page": {
+        "title": "راه حل 1: صفحه را تازه کنید"
       }
     },
     "android_generic": {
       "browser_settings": {
-        "list_item_1": "در مرورگر خود، تنظیمات وبسایت را باز کنید. این اغلب یک آیکون قفل [LOCK_ICON] در نوار آدرس است",
+        "list_item_1": "در مرورگر خود، تنظیمات وبسایت را باز کنید. این اغلب یک آیکون قفل <lock_icon></lock_icon> در نوار آدرس است",
         "list_item_2": "بخش مربوط به مجوزها را پیدا کنید",
         "list_item_3_cam": "دسترسی <strong>دوربین</strong> را فعال کنید",
         "list_item_3_mic": "دسترسی <strong>میکروفون</strong> را فعال کنید",
@@ -542,16 +585,24 @@
     },
     "android_samsung": {
       "browser_settings": {
-        "list_item_1": "در مرورگر خود، روی آیکون قفل [LOCK_ICON] در نوار آدرس ضربه بزنید",
+        "list_item_1": "در مرورگر خود، روی آیکون قفل <lock_icon></lock_icon> در نوار آدرس ضربه بزنید",
         "list_item_2_cam": "دکمه تغییر حالت کنار <strong>دوربین</strong> را فعال کنید",
         "list_item_2_mic": "دکمه تغییر حالت کنار <strong>میکروفون</strong> را فعال کنید",
         "list_item_3": "به این صفحه برگردید و دکمه <strong>تغییرات را اعمال کردم</strong> را بزنید"
       }
     },
     "button_primary": "تازه‌سازی",
+    "desktop": {
+      "browser_settings": {
+        "title": "راه حل 1: تنظیمات مرورگر"
+      },
+      "device_settings": {
+        "title": "راه حل 2: تنظیمات دستگاه"
+      }
+    },
     "desktop_chrome": {
       "browser_settings": {
-        "list_item_1": "در مرورگر خود، روی آیکون قفل [LOCK_ICON] در نوار آدرس کلیک کنید",
+        "list_item_1": "در مرورگر خود، روی آیکون قفل <lock_icon></lock_icon> در نوار آدرس کلیک کنید",
         "list_item_2_cam": "دکمه تغییر حالت کنار <strong>دوربین</strong> را فعال کنید",
         "list_item_2_mic": "دکمه تغییر حالت کنار <strong>میکروفون</strong> را فعال کنید",
         "list_item_3": "به این صفحه برگردید و روی دکمه <strong>تغییرات را اعمال کردم</strong> کلیک کنید"
@@ -559,7 +610,7 @@
     },
     "desktop_edge": {
       "browser_settings": {
-        "list_item_1": "در مرورگر خود، روی آیکون قفل [LOCK_ICON] در نوار آدرس کلیک کنید",
+        "list_item_1": "در مرورگر خود، روی آیکون قفل <lock_icon></lock_icon> در نوار آدرس کلیک کنید",
         "list_item_2_cam": "روی کادر بازشو کنار <strong>دوربین</strong> کلیک کنید و <strong>اجازه</strong> را انتخاب کنید",
         "list_item_2_mic": "روی کادر بازشو کنار <strong>میکروفون</strong> کلیک کنید و <strong>اجازه</strong> را انتخاب کنید",
         "list_item_3": "به این صفحه برگردید و روی دکمه <strong>تغییرات را اعمال کردم</strong> کلیک کنید"
@@ -567,7 +618,7 @@
     },
     "desktop_firefox": {
       "browser_settings": {
-        "list_item_1": "در مرورگر خود، روی آیکون تنظیمات [SETTINGS_ICON_FIREFOX] در نوار آدرس کلیک کنید",
+        "list_item_1": "در مرورگر خود، روی آیکون تنظیمات <settings_icon_firefox></settings_icon_firefox> در نوار آدرس کلیک کنید",
         "list_item_2_cam": "روی <strong>مسدود شده</strong> کنار <strong>استفاده از دوربین</strong> کلیک کنید",
         "list_item_2_mic": "روی <strong>مسدود</strong> کنار <strong>استفاده از میکروفون</strong> کلیک کنید",
         "list_item_3": "به این صفحه برگردید و روی دکمه <strong>تغییرات را اعمال کردم</strong> کلیک کنید"
@@ -575,7 +626,7 @@
     },
     "desktop_generic": {
       "browser_settings": {
-        "list_item_1": "در مرورگر خود، تنظیمات وبسایت را باز کنید. این اغلب یک آیکون قفل [LOCK_ICON] در نوار آدرس است",
+        "list_item_1": "در مرورگر خود، تنظیمات وبسایت را باز کنید. این اغلب یک آیکون قفل <lock_icon></lock_icon> در نوار آدرس است",
         "list_item_2": "بخش مربوط به مجوزها را پیدا کنید",
         "list_item_3_cam": "دسترسی <strong>دوربین</strong> را فعال کنید",
         "list_item_3_mic": "دسترسی <strong>میکروفون</strong> را فعال کنید",
@@ -584,19 +635,19 @@
       "device_settings": {
         "list_item_1": "روی کامپیوتر خود، تنظیمات <strong>Settings</strong> را باز کنید",
         "list_item_2": "بخش مربوط به مجوزها را پیدا کنید (معمولاً زیر <strong>حریم خصوصی</strong>)",
-        "list_item_3_cam": "دسترسی <strong>دوربین</strong> را برای [BROWSER_ICON] فعال کنید",
-        "list_item_3_mic": "دسترسی به <strong>میکروفون</strong> را برای [BROWSER_ICON] فعال کنید",
+        "list_item_3_cam": "دسترسی <strong>دوربین</strong> را برای <browser_icon></browser_icon> فعال کنید",
+        "list_item_3_mic": "دسترسی به <strong>میکروفون</strong> را برای <browser_icon></browser_icon> فعال کنید",
         "list_item_4": "در صورت لزوم مرورگر خود را راه اندازی مجدد کنید و به این صفحه برگردید"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "روی کامپیوتر خود، منوی Apple [APPLE_ICON] را کلیک کنید و <strong>تنظیمات سیستم</strong> (یا <strong>ترجیحات سیستم</strong>) را انتخاب کنید",
-        "list_item_2": "روی <strong>حریم خصوصی & امنیت</strong> (یا <strong>امنیت & حریم خصوصی</strong>) در نوار کناری کلیک کنید ",
+        "list_item_1": "روی کامپیوتر خود، منوی Apple <apple_icon></apple_icon> را کلیک کنید و <strong>تنظیمات سیستم</strong> (یا <strong>ترجیحات سیستم</strong>) را انتخاب کنید",
+        "list_item_2": "روی <strong>حریم خصوصی & امنیت</strong> (یا <strong>امنیت & حریم خصوصی</strong>) در نوار کناری کلیک کنید",
         "list_item_3": "روی <strong>بعدا</strong> در پنجره پاپ‌آپ کلیک کنید",
-        "list_item_3_cam": "روی <strong>دوربین</strong> کلیک کنید و کلید تعویض (یا جعبه تیک) کنار [BROWSER_ICON] را فعال کنید",
+        "list_item_3_cam": "روی <strong>دوربین</strong> کلیک کنید و کلید تعویض (یا جعبه تیک) کنار <browser_icon></browser_icon> را فعال کنید",
         "list_item_4": "روی <strong>خروج و بازگشت</strong> در پنجره پاپ‌آپ کلیک کنید و به این صفحه برگردید",
-        "list_item_4_mic": "روی <strong>میکروفون</strong> کلیک کنید و کلید تغییر وضعیت (یا جعبه انتخاب) کنار [BROWSER_ICON] را فعال کنید"
+        "list_item_4_mic": "روی <strong>میکروفون</strong> کلیک کنید و کلید تغییر وضعیت (یا جعبه انتخاب) کنار <browser_icon></browser_icon> را فعال کنید"
       }
     },
     "desktop_safari": {
@@ -609,10 +660,10 @@
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "روی کامپیوتر خود، منوی ویندوز [WINDOWS_ICON] را کلیک کنید و <strong>تنظیمات</strong> [SETTINGS_ICON_WINDOWS] را انتخاب کنید",
+        "list_item_1": "روی کامپیوتر خود، منوی ویندوز <windows_icon></windows_icon> را کلیک کنید و <strong>تنظیمات</strong> <settings_icon_windows></settings_icon_windows> را انتخاب کنید",
         "list_item_2": "روی <strong>حریم خصوصی</strong> کلیک کنید (یا <strong>حریم خصوصی & امنیت</strong>)",
-        "list_item_3_cam": "روی <strong>دوربین</strong> در زیر <strong>مجوزهای برنامه</strong> کلیک کنید و کلید کنار [BROWSER_ICON] را فعال کنید ",
-        "list_item_3_mic": "روی <strong>میکروفون</strong> در زیر <strong>مجوزهای برنامه</strong> کلیک کنید و کلید تعویض کنار [BROWSER_ICON] را فعال کنید",
+        "list_item_3_cam": "روی <strong>دوربین</strong> در زیر <strong>مجوزهای برنامه</strong> کلیک کنید و کلید کنار <browser_icon></browser_icon> را فعال کنید",
+        "list_item_3_mic": "روی <strong>میکروفون</strong> در زیر <strong>مجوزهای برنامه</strong> کلیک کنید و کلید تعویض کنار <browser_icon></browser_icon> را فعال کنید",
         "list_item_4": "در صورت لزوم مرورگر خود را راه اندازی مجدد کنید و به این صفحه برگردید"
       }
     },
@@ -625,16 +676,20 @@
       },
       "device_settings": {
         "list_item_1": "روی دستگاه خود، برنامه <strong>تنظیمات</strong> را باز کنید",
-        "list_item_2": "در لیست پیمایش کنید و روی [BROWSER_ICON] ضربه بزنید",
+        "list_item_2": "در لیست پیمایش کنید و روی <browser_icon></browser_icon> ضربه بزنید",
         "list_item_3_cam": "دکمه تغییر حالت کنار <strong>دوربین</strong> را فعال کنید",
         "list_item_3_mic": "دکمه تغییر حالت کنار <strong>میکروفون</strong> را فعال کنید",
-        "list_item_4": "به این صفحه برگردید و دکمه <strong>تغییرات را اعمال کردم</strong> را بزنید"
+        "list_item_4": "به این صفحه برگردید و دکمه <strong>تغییرات را اعمال کردم</strong> را بزنید",
+        "title": "راه حل 2: تنظیمات دستگاه"
+      },
+      "refresh_page": {
+        "title": "راه حل 1: صفحه را تازه کنید"
       }
     },
     "ios_safari": {
       "device_settings": {
         "list_item_1": "روی دستگاه خود، برنامه <strong>تنظیمات</strong> را باز کنید",
-        "list_item_2": "در لیست پیمایش کنید و روی [BROWSER_ICON] ضربه بزنید",
+        "list_item_2": "در لیست پیمایش کنید و روی <browser_icon></browser_icon> ضربه بزنید",
         "list_item_3_cam": "روی <strong>دوربین</strong> ضربه بزنید و <strong>اجازه</strong> را انتخاب کنید",
         "list_item_3_mic": "روی <strong>میکروفون</strong> ضربه بزنید و <strong>اجازه</strong> را انتخاب کنید",
         "list_item_4": "به این صفحه برگردید و دکمه <strong>تغییرات را اعمال کردم</strong> را بزنید"
@@ -654,13 +709,7 @@
     "title_cam": "دسترسی به دوربین منع شده است",
     "title_mic": "دسترسی به میکروفون رد شد",
     "web": {
-      "browser_settings": {
-        "title": "راه حل 1: تنظیمات مرورگر"
-      },
-      "button_primary": "تغییرات را اعمال کردم",
-      "device_settings": {
-        "title": "راه حل 2: تنظیمات دستگاه"
-      },
+      "button_primary": "صفحه را تازه کنید",
       "disclaimer": "ممکن است فرآیند تأیید هویت دوباره شروع شود. بابت هرگونه ناراحتی پوزش می طلبیم"
     }
   },
@@ -934,7 +983,7 @@
       },
       "jpn_specific": {
         "invalid_national_id_value": "لطفاً یک \"شماره من\" / کد سابقه ساکن معتبر وارد کنید",
-        "required_national_id_value": ""
+        "required_national_id_value": "لطفاً کد \"شماره من\" / سابقه سکونت خود را وارد کنید"
       },
       "ken_specific": {
         "invalid_other": "لطفاً یک شماره کارت بیگانه معتبر وارد کنید",
@@ -1012,7 +1061,7 @@
       "too_short_postcode": "کدپستی خیلی کوتاه است",
       "tur_specific": {
         "invalid_national_id_value": "لطفا یک شماره شناسایی معتبر ترکی وارد کنید",
-        "required_national_id_value": ""
+        "required_national_id_value": "لطفا شماره ID ترکیه خود را وارد کنید"
       },
       "usa_specific": {
         "invalid_ssn": "لطفاً یک SSN معتبر وارد کنید",
@@ -1071,6 +1120,25 @@
     "step_title": "سند خود را امضا کنید",
     "subtitle": "برای تأیید هویت خود طبق قوانین اروپایی، باید یک سند را به صورت دیجیتال امضا کنید.",
     "title": "امضای دیجیتال خود را ایجاد و استفاده کنید"
+  },
+  "retry": {
+    "button": {
+      "generic_selfie_issue": "سعی مجدد"
+    },
+    "description": {
+      "default": "لطفاً دوباره سعی کنید",
+      "expired_document": "لطفاً با یک کارت شناسایی عکس‌دار معتبر دوباره امتحان کنید و مطمئن شوید که اطلاعات شما به وضوح قابل مشاهده است",
+      "generic_document_issue": "لطفاً با یک کارت شناسایی عکس‌دار معتبر دوباره امتحان کنید و مطمئن شوید که اطلاعات شما به وضوح قابل مشاهده است",
+      "generic_selfie_issue": "لطفاً دوباره سعی کنید و مطمئن شوید که چهره شما قابل مشاهده بوده و محیط دارای نور مناسب است",
+      "unaccepted_document": "لطفاً با یک کارت شناسایی عکس‌دار معتبر دوباره امتحان کنید و مطمئن شوید که اطلاعات شما به وضوح قابل مشاهده است"
+    },
+    "headline": {
+      "default": "یک مشکل وجود داشت",
+      "expired_document": "مدرک شما منقضی شده است",
+      "generic_document_issue": "مشکلی با سند شما وجود داشت",
+      "generic_selfie_issue": "مشکلی با سلفی شما وجود داشت",
+      "unaccepted_document": "مدرک غیر قابل قبول است"
+    }
   },
   "retry_feedback": {
     "button_primary": "سعی مجدد"
@@ -1134,7 +1202,7 @@
     "info_link_expire": "لینک شما تا یک ساعت دیگر منقضی می‌شود",
     "info_link_window": "هنگام استفاده از موبایل خود، این پنجره را باز نگه دارید",
     "link": "روش دیگری را امتحان کنید",
-    "subtitle": "ما یک لینک امن به شماره %{number} ارسال کردیم",
+    "subtitle": "ما یک لینک امن به شماره <number></number> ارسال کردیم",
     "subtitle_minutes": "ممکن است چند دقیقه طول بکشد تا پیام برسد",
     "title": "موبایل خود را بررسی کنید"
   },

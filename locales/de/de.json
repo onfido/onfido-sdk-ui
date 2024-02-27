@@ -73,7 +73,7 @@
       "input_placeholder": "z.B. Deutschland",
       "label": "Suche nach Land"
     },
-    "title": "Ausstellungsland auswählen"
+    "title": "Wählen Sie das Ausstellungsland"
   },
   "cross_device": {
     "button_primary_upload": "Fortfahren"
@@ -134,7 +134,7 @@
       "manual_fallback_passport": "Machen Sie ein Foto von der Lichtbild-Seite ihres Passes",
       "manual_fallback_residence_permit_back": "Machen Sie ein Foto von der Rückseite ihrer Aufenthaltsgenehmigung",
       "manual_fallback_residence_permit_front": "Machen Sie ein Foto von der Vorderseite ihrer Aufenthaltserlaubnis",
-      "position_generic_document_back": "",
+      "position_generic_document_back": "Positionieren Sie die Rückseite Ihres Dokuments im Rahmen",
       "position_generic_document_front": "",
       "position_identity_card_back": "Positionieren Sie die Rückseite ihres Personalausweises innerhalb des Rahmens",
       "position_identity_card_front": "Positionieren Sie die Vorderseite ihres Personalausweises innerhalb des Rahmens",
@@ -260,7 +260,7 @@
     "button_pension_property_statement_letter_detail": "Rentenbescheid oder Brief und Grundsteuerbescheid oder Brief",
     "button_permit": "Karte der Aufenthaltsgenehmigung",
     "button_permit_detail": "Vorder- und Rückseite",
-    "button_tax_letter": "Gemeindesteuerschreiben",
+    "button_tax_letter": "Schreiben zur Kommunalsteuer",
     "extra_estatements_ok": "E-Auszüge werden akzeptiert",
     "extra_no_mobile": "Entschuldigen Sie bitte, keine Mobiltelefonrechnungen",
     "list_accessibility": "Dokumente, die Sie zur Überprüfung Ihrer Identität verwenden können",
@@ -309,7 +309,7 @@
     "title_pension_property_statement_letter": "Aussage oder Brief einreichen",
     "title_permit_back": "Aufenthaltsgenehmigung einreichen (Rückseite)",
     "title_permit_front": "Aufenthaltsgenehmigung einreichen (Vorderseite)",
-    "title_tax_letter": "Schreiben einreichen"
+    "title_tax_letter": "Lokale Steuerbescheinigung der Regierung einreichen"
   },
   "doc_video_capture": {
     "button_primary_fallback": "Nächster Schritt",
@@ -421,6 +421,11 @@
     "title": "Holen Sie sich Ihren Sicherheitslink",
     "url_field_label": "Kopieren Sie den Link in Ihren mobilen Browser"
   },
+  "interactive_task": {
+    "waiting": {
+      "title_5": "Medien hochladen..."
+    }
+  },
   "livenessV2": {
     "error_reload_instructions": "Anweisungen neu laden",
     "intro_note_no1": "Positionieren Sie Ihr Gesicht zunächst im Rahmen",
@@ -460,26 +465,48 @@
       "success": "Scannen erfolgreich"
     }
   },
+  "nfc_scan_error_can": {
+    "primary_button": "Ausgangsüberprüfung",
+    "subtitle": "Sie haben die maximale Anzahl an Versuchen erreicht, um Ihre CAN-Nummer einzugeben"
+  },
+  "nfc_scan_error_can:title": "Maximale Versuche erreicht",
   "otp": {
     "code_input": {
       "error": {
+        "code_expired": "Ihr Code ist abgelaufen, bitte fordern Sie einen neuen an.",
+        "code_invalid": "Falscher Code eingegeben, bitte versuchen Sie es erneut.",
         "technical": "Ein technischer Fehler ist aufgetreten, bitte versuchen Sie es später erneut",
+        "too_many_attempts": "Sie haben diesen Code zu oft versucht, bitte fordern Sie einen neuen an.",
         "wrong_code": "Falscher Code eingegeben, bitte versuchen Sie es erneut"
       },
-      "intro": "Der an Ihre Telefonnummer gesendete Code ist 5 Minuten lang aktiv",
+      "intro": "Sie haben 5 Minuten Zeit, um den per SMS gesendeten Code zu validieren <phonenumber></phonenumber>",
       "resend": {
-        "cta": "Erneut senden",
-        "label": "Gesendeter Code (bis zu {limit})"
+        "cta": "Einen neuen Code anfordern",
+        "cta_timeout": "Neuen Code anfordern (<timeout></timeout> Sekunden)",
+        "label": "Code wurde gesendet",
+        "tracker": "<remaining></remaining> von <limit></limit>"
       },
       "title": "Einmaliges Passwort"
+    },
+    "error": {
+      "cta": "Geh zurück",
+      "subtitle": "Bitte warten Sie ein paar Sekunden und versuchen Sie es erneut",
+      "title": "Etwas ist schief gelaufen"
+    },
+    "failure": {
+      "cta": "Fortfahren",
+      "subtitle": "Wir können Ihre Telefonnummer nicht mehr überprüfen",
+      "title": "Zulässige Versuche überschritten"
     },
     "send_code": {
       "cta": "Code senden",
       "error": {
+        "invalid_phone_number": "Bitte geben Sie eine gültige Telefonnummer an.",
         "limit": "Sie haben das Limit für gesendete SMS erreicht",
         "technical": "Ein technischer Fehler ist aufgetreten, bitte versuchen Sie es später erneut"
       },
-      "intro": "Um Ihre Telefonnummer zu überprüfen, senden wir Ihnen einen Einmalcode, den Sie im nächsten Bildschirm eingeben müssen.",
+      "input_label": "Telefonnummer",
+      "intro": "Um Ihre Telefonnummer zu überprüfen, werden wir Sie bitten, ein Einmalpasswort einzugeben.",
       "title": "Einmaliges Passwort"
     }
   },
@@ -504,99 +531,123 @@
   },
   "permission_recovery": {
     "android": {
+      "browser_settings": {
+        "title": "Lösung 1: Browsereinstellungen"
+      },
       "device_settings": {
         "list_item_1": "Auf Ihrem Gerät öffnen Sie die <strong>Einstellungen</strong> App",
         "list_item_2": "Tippen Sie auf <strong>Apps</strong>",
-        "list_item_3": "Tippen Sie auf [BROWSER_ICON]. Wenn Sie es nicht finden können, tippen Sie auf <strong>Alle Apps anzeigen</strong> oder <strong>Apps verwalten</strong> und wählen Sie Ihre Browser-App aus",
+        "list_item_3": "Tippen Sie auf <browser_icon></browser_icon>. Wenn Sie es nicht finden können, tippen Sie auf <strong>Alle Apps anzeigen</strong> oder <strong>Apps verwalten</strong> und wählen Sie Ihre Browser-App aus",
         "list_item_4": "Tippen Sie auf <strong>Berechtigungen</strong>",
         "list_item_5_cam": "Tippen Sie auf <strong>Kamera</strong> und wählen Sie <strong>Zulassen</strong> aus",
         "list_item_5_mic": "Tippen Sie auf <strong>Mikrofon</strong> und wählen Sie <strong>Zulassen</strong>",
-        "list_item_6": "Kehren Sie zu dieser Seite zurück und tippen Sie auf den <strong>Ich habe die Änderungen vorgenommen</strong> Button"
+        "list_item_6": "Kommen Sie zu dieser Seite zurück und tippen Sie auf die <strong>Seite aktualisieren</strong> Schaltfläche",
+        "title": "Lösung 2: Geräteeinstellungen"
+      },
+      "refresh_page": {
+        "list_item_1_both": "Tippen Sie auf die Schaltfläche <strong>Seite aktualisieren</strong>. Sie werden erneut aufgefordert, den Zugriff auf Kamera und Mikrofon zu ermöglichen. Wenn das Pop-up erscheint, wählen Sie <strong>Erlauben</strong> (oder <strong>OK</strong>)",
+        "list_item_1_cam": "Tippen Sie auf die <strong>Seite aktualisieren</strong> Schaltfläche. Sie werden erneut aufgefordert, den Kamerazugriff zu aktivieren. Wenn das Pop-up erscheint, wählen Sie <strong>Erlauben</strong> (oder <strong>OK</strong>)",
+        "list_item_1_mic": "Tippen Sie auf die <strong>Seite aktualisieren</strong> Schaltfläche. Sie werden erneut aufgefordert, den Zugriff auf das Mikrofon zu ermöglichen. Wenn das Pop-up erscheint, wählen Sie <strong>Erlauben</strong> (oder <strong>OK</strong>)"
       }
     },
     "android_chrome": {
       "browser_settings": {
-        "list_item_1": "In Ihrem Browser tippen Sie auf das Schloss-Symbol [LOCK_ICON] in der Adressleiste",
+        "list_item_1": "In Ihrem Browser tippen Sie auf das Einstellungssymbol <settings_icon_chrome></settings_icon_chrome> in der Adressleiste",
         "list_item_2": "Tippen Sie auf <strong>Berechtigungen</strong>",
         "list_item_3_cam": "Aktivieren Sie den Umschalter neben <strong>Kamera</strong>",
         "list_item_3_mic": "Aktivieren Sie den Schalter neben <strong>Mikrofon</strong>",
-        "list_item_4": "Kehren Sie zu dieser Seite zurück und tippen Sie auf die Schaltfläche <strong>Ich habe die Änderungen vorgenommen</strong>"
+        "list_item_4": "Kommen Sie zu dieser Seite zurück und tippen Sie auf die <strong>Seite aktualisieren</strong> Schaltfläche"
       }
     },
     "android_firefox": {
       "browser_settings": {
-        "list_item_1": "In Ihrem Browser tippen Sie auf das Schloss-Symbol [LOCK_ICON] in der Adressleiste",
+        "list_item_1": "In Ihrem Browser tippen Sie auf das Schloss-Symbol <lock_icon></lock_icon> in der Adressleiste",
         "list_item_2_cam": "Tippen Sie neben <strong>Kamera</strong> auf <strong>Blockiert</strong>, um auf <strong>Zugelassen</strong> zu wechseln",
         "list_item_2_mic": "Tippen Sie neben <strong>Mikrofon</strong> auf <strong>Blockiert</strong>, um auf <strong>Erlaubt</strong> zu wechseln",
-        "list_item_3": "Kehren Sie zu dieser Seite zurück und tippen Sie auf die Schaltfläche <strong>Ich habe die Änderungen vorgenommen</strong>"
+        "list_item_3": "Kehren Sie zu dieser Seite zurück und tippen Sie auf die <strong>Seite aktualisieren</strong> Schaltfläche",
+        "title": "Lösung 2: Browsereinstellungen"
+      },
+      "device_settings": {
+        "title": "Lösung 3: Geräteeinstellungen"
+      },
+      "refresh_page": {
+        "title": "Lösung 1: Aktualisieren Sie die Seite"
       }
     },
     "android_generic": {
       "browser_settings": {
-        "list_item_1": "Öffnen Sie in Ihrem Browser die Website-Einstellungen. Dies ist oft ein Schloss-Symbol [LOCK_ICON] in der Adressleiste",
+        "list_item_1": "Öffnen Sie in Ihrem Browser die Website-Einstellungen. Dies ist oft ein Schloss-Symbol <lock_icon></lock_icon> in der Adressleiste",
         "list_item_2": "Finden Sie den Abschnitt über Berechtigungen",
         "list_item_3_cam": "Aktivieren Sie die <strong>Kamera</strong> Berechtigungen",
         "list_item_3_mic": "Aktivieren Sie die <strong>Mikrofon</strong> Berechtigungen",
-        "list_item_4": "Kehren Sie zu dieser Seite zurück und tippen Sie auf den <strong>Ich habe die Änderungen vorgenommen</strong> Button"
+        "list_item_4": "Kommen Sie zu dieser Seite zurück und tippen Sie auf die <strong>Seite aktualisieren</strong> Schaltfläche"
       }
     },
     "android_samsung": {
       "browser_settings": {
-        "list_item_1": "In Ihrem Browser tippen Sie auf das Schloss-Symbol [LOCK_ICON] in der Adressleiste",
+        "list_item_1": "In Ihrem Browser tippen Sie auf das Schloss-Symbol <lock_icon></lock_icon> in der Adressleiste",
         "list_item_2_cam": "Aktivieren Sie den Umschalter neben <strong>Kamera</strong>",
         "list_item_2_mic": "Aktivieren Sie den Umschalter neben <strong>Mikrofon</strong>",
-        "list_item_3": "Kehren Sie zu dieser Seite zurück und tippen Sie auf den <strong>Ich habe die Änderungen vorgenommen</strong> Button"
+        "list_item_3": "Kommen Sie zu dieser Seite zurück und tippen Sie auf die <strong>Seite aktualisieren</strong> Schaltfläche"
       }
     },
     "button_primary": "Aktualisieren",
+    "desktop": {
+      "browser_settings": {
+        "title": "Lösung 1: Browsereinstellungen"
+      },
+      "device_settings": {
+        "title": "Lösung 2: Geräteeinstellungen"
+      }
+    },
     "desktop_chrome": {
       "browser_settings": {
-        "list_item_1": "Klicken Sie in Ihrem Browser auf das Schloss-Symbol [LOCK_ICON] in der Adressleiste",
+        "list_item_1": "In Ihrem Browser klicken Sie auf das Einstellungssymbol <settings_icon_chrome></settings_icon_chrome> in der Adressleiste",
         "list_item_2_cam": "Aktivieren Sie den Umschalter neben <strong>Kamera</strong>",
         "list_item_2_mic": "Aktivieren Sie den Umschalter neben <strong>Mikrofon</strong>",
-        "list_item_3": "Kehren Sie zu dieser Seite zurück und klicken Sie auf die Schaltfläche <strong>Ich habe die Änderungen vorgenommen</strong>"
+        "list_item_3": "Kommen Sie auf diese Seite zurück und klicken Sie auf die <strong>Seite aktualisieren</strong> Schaltfläche"
       }
     },
     "desktop_edge": {
       "browser_settings": {
-        "list_item_1": "Klicken Sie in Ihrem Browser auf das Schloss-Symbol [LOCK_ICON] in der Adressleiste",
+        "list_item_1": "Klicken Sie in Ihrem Browser auf das Schloss-Symbol <lock_icon></lock_icon> in der Adressleiste",
         "list_item_2_cam": "Klicken Sie auf das Dropdown-Menü neben <strong>Kamera</strong> und wählen Sie <strong>Zulassen</strong> aus",
         "list_item_2_mic": "Klicken Sie auf das Dropdown-Menü neben <strong>Mikrofon</strong> und wählen Sie <strong>Zulassen</strong> aus",
-        "list_item_3": "Kehren Sie zu dieser Seite zurück und klicken Sie auf den <strong>Ich habe die Änderungen vorgenommen</strong> Button"
+        "list_item_3": "Kommen Sie zu dieser Seite zurück und klicken Sie auf die <strong>Seite aktualisieren</strong> Schaltfläche"
       }
     },
     "desktop_firefox": {
       "browser_settings": {
-        "list_item_1": "Klicken Sie in Ihrem Browser auf das Einstellungssymbol [SETTINGS_ICON_FIREFOX] in der Adressleiste",
+        "list_item_1": "Klicken Sie in Ihrem Browser auf das Einstellungssymbol <settings_icon_firefox></settings_icon_firefox> in der Adressleiste",
         "list_item_2_cam": "Klicken Sie neben <strong>Kamera verwenden</strong> auf <strong>Blockiert</strong>",
         "list_item_2_mic": "Klicken Sie neben <strong>Mikrofon verwenden</strong> auf <strong>Blockiert</strong>",
-        "list_item_3": "Kehren Sie zu dieser Seite zurück und klicken Sie auf die Schaltfläche <strong>Ich habe die Änderungen vorgenommen</strong>"
+        "list_item_3": "Kommen Sie zurück zu dieser Seite und klicken Sie auf den <strong>Seite aktualisieren</strong> Knopf"
       }
     },
     "desktop_generic": {
       "browser_settings": {
-        "list_item_1": "Öffnen Sie in Ihrem Browser die Website-Einstellungen. Dies ist oft ein Schloss-Symbol [LOCK_ICON] in der Adressleiste",
+        "list_item_1": "Öffnen Sie in Ihrem Browser die Website-Einstellungen. Dies ist oft ein Schloss-Symbol <lock_icon></lock_icon> in der Adressleiste",
         "list_item_2": "Finden Sie den Abschnitt über Berechtigungen",
         "list_item_3_cam": "Aktivieren Sie die <strong>Kamera</strong> Berechtigungen",
         "list_item_3_mic": "Aktivieren Sie die <strong>Mikrofon</strong> Berechtigungen",
-        "list_item_4": "Kehren Sie zu dieser Seite zurück und klicken Sie auf den <strong>Ich habe die Änderungen vorgenommen</strong> Button"
+        "list_item_4": "Kommen Sie zu dieser Seite zurück und klicken Sie auf die <strong>Seite aktualisieren</strong> Schaltfläche"
       },
       "device_settings": {
         "list_item_1": "Auf Ihrem Computer öffnen Sie Ihre <strong>Einstellungen</strong>",
         "list_item_2": "Finden Sie den Abschnitt über Berechtigungen (normalerweise unter <strong>Datenschutz</strong>)",
-        "list_item_3_cam": "Aktivieren Sie die <strong>Kamera</strong> Berechtigungen für [BROWSER_ICON]",
-        "list_item_3_mic": "Aktivieren Sie die <strong>Mikrofon</strong> Berechtigungen für [BROWSER_ICON]",
+        "list_item_3_cam": "Aktivieren Sie die <strong>Kamera</strong> Berechtigungen für <browser_icon></browser_icon>",
+        "list_item_3_mic": "Aktivieren Sie die <strong>Mikrofon</strong> Berechtigungen für <browser_icon></browser_icon>",
         "list_item_4": "Starten Sie Ihren Browser bei Bedarf neu und kehren Sie zu dieser Seite zurück"
       }
     },
     "desktop_mac": {
       "device_settings": {
-        "list_item_1": "Auf Ihrem Computer klicken Sie auf das Apple-Menü [APPLE_ICON] und wählen Sie <strong>Systemeinstellungen</strong> (oder <strong>Systempräferenzen</strong>)",
+        "list_item_1": "Auf Ihrem Computer klicken Sie auf das Apple-Menü <apple_icon></apple_icon> und wählen Sie <strong>Systemeinstellungen</strong> (oder <strong>Systempräferenzen</strong>)",
         "list_item_2": "Klicken Sie auf <strong>Datenschutz & Sicherheit</strong> (oder <strong>Sicherheit & Datenschutz</strong>) in der Seitenleiste",
         "list_item_3": "Klicken Sie in dem Pop-up auf <strong>Später</strong>",
-        "list_item_3_cam": "Klicken Sie auf <strong>Kamera</strong> und aktivieren Sie den Schalter (oder das Kontrollkästchen) neben [BROWSER_ICON]",
+        "list_item_3_cam": "Klicken Sie auf <strong>Kamera</strong> und aktivieren Sie den Schalter (oder das Kontrollkästchen) neben <browser_icon></browser_icon>",
         "list_item_4": "Klicken Sie in dem Pop-up auf <strong>Beenden & Neu öffnen</strong> und kehren Sie zu dieser Seite zurück",
-        "list_item_4_mic": "Klicken Sie auf <strong>Mikrofon</strong> und aktivieren Sie den Schalter (oder das Kontrollkästchen) neben [BROWSER_ICON]"
+        "list_item_4_mic": "Klicken Sie auf <strong>Mikrofon</strong> und aktivieren Sie den Schalter (oder das Kontrollkästchen) neben <browser_icon></browser_icon>"
       }
     },
     "desktop_safari": {
@@ -604,40 +655,44 @@
         "list_item_1": "Klicken Sie in Ihrem Browser mit der rechten Maustaste in die Adressleiste und wählen Sie <strong>Einstellungen</strong>",
         "list_item_2_cam": "Klicken Sie auf das Dropdown-Menü neben <strong>Kamera</strong> und wählen Sie <strong>Zulassen</strong> aus",
         "list_item_2_mic": "Klicken Sie auf das Dropdown-Menü neben <strong>Mikrofon</strong> und wählen Sie <strong>Zulassen</strong> aus",
-        "list_item_3": "Kehren Sie zu dieser Seite zurück und klicken Sie auf den <strong>Ich habe die Änderungen vorgenommen</strong> Button"
+        "list_item_3": "Kehren Sie zu dieser Seite zurück und klicken Sie auf die <strong>Seite aktualisieren</strong> Schaltfläche"
       }
     },
     "desktop_windows": {
       "device_settings": {
-        "list_item_1": "Auf Ihrem Computer klicken Sie auf das Windows-Menü [WINDOWS_ICON] und wählen <strong>Einstellungen</strong> [SETTINGS_ICON_WINDOWS] aus",
+        "list_item_1": "Auf Ihrem Computer klicken Sie auf das Windows-Menü <windows_icon></windows_icon> und wählen <strong>Einstellungen</strong> <settings_icon_windows></settings_icon_windows> aus",
         "list_item_2": "Klicken Sie auf <strong>Datenschutz</strong> (oder <strong>Datenschutz & Sicherheit</strong>)",
-        "list_item_3_cam": "Klicken Sie unter <strong>App-Berechtigungen</strong> auf <strong>Kamera</strong> und aktivieren Sie den Schalter neben [BROWSER_ICON]",
-        "list_item_3_mic": "Klicken Sie unter <strong>App-Berechtigungen</strong> auf <strong>Mikrofon</strong> und aktivieren Sie den Schalter neben [BROWSER_ICON]",
+        "list_item_3_cam": "Klicken Sie unter <strong>App-Berechtigungen</strong> auf <strong>Kamera</strong> und aktivieren Sie den Schalter neben <browser_icon></browser_icon>",
+        "list_item_3_mic": "Klicken Sie unter <strong>App-Berechtigungen</strong> auf <strong>Mikrofon</strong> und aktivieren Sie den Schalter neben <browser_icon></browser_icon>",
         "list_item_4": "Starten Sie Ihren Browser bei Bedarf neu und kehren Sie zu dieser Seite zurück"
       }
     },
     "info": "Wiederherstellen",
     "ios": {
       "browser_settings": {
-        "list_item_1_both": "Tippen Sie auf die Schaltfläche <strong>Ich habe die Änderungen vorgenommen</strong>. Sie werden erneut aufgefordert, den Zugriff auf Kamera und Mikrofon zu aktivieren. Wenn das Pop-up erscheint, wählen Sie <strong>Erlauben</strong> (oder <strong>OK</strong>)",
-        "list_item_1_cam": "Tippen Sie auf die Schaltfläche <strong>Ich habe die Änderungen vorgenommen</strong>. Sie werden erneut aufgefordert, den Kamerazugriff zu aktivieren. Wenn das Pop-up erscheint, wählen Sie <strong>Erlauben</strong> (oder <strong>OK</strong>)",
-        "list_item_1_mic": "Tippen Sie auf die Schaltfläche <strong>Ich habe die Änderungen vorgenommen</strong>. Sie werden erneut aufgefordert, den Zugriff auf das Mikrofon zu aktivieren. Wenn das Pop-up erscheint, wählen Sie <strong>Erlauben</strong> (oder <strong>OK</strong>)"
+        "list_item_1_both": "Tippen Sie auf die Schaltfläche <strong>Seite aktualisieren</strong>. Sie werden erneut aufgefordert, den Zugriff auf Kamera und Mikrofon zu ermöglichen. Wenn das Pop-up erscheint, wählen Sie <strong>Erlauben</strong> (oder <strong>OK</strong>)",
+        "list_item_1_cam": "Tippen Sie auf die <strong>Seite aktualisieren</strong> Schaltfläche. Sie werden erneut aufgefordert, den Kamerazugriff zu aktivieren. Wenn das Pop-up erscheint, wählen Sie <strong>Erlauben</strong> (oder <strong>OK</strong>)",
+        "list_item_1_mic": "Tippen Sie auf die <strong>Seite aktualisieren</strong> Schaltfläche. Sie werden erneut aufgefordert, den Zugriff auf das Mikrofon zu ermöglichen. Wenn das Pop-up erscheint, wählen Sie <strong>Erlauben</strong> (oder <strong>OK</strong>)"
       },
       "device_settings": {
         "list_item_1": "Auf Ihrem Gerät öffnen Sie die <strong>Einstellungen</strong> App",
-        "list_item_2": "Scrollen Sie durch die Liste und tippen Sie auf [BROWSER_ICON]",
+        "list_item_2": "Scrollen Sie durch die Liste und tippen Sie auf <browser_icon></browser_icon>",
         "list_item_3_cam": "Aktivieren Sie den Umschalter neben <strong>Kamera</strong>",
         "list_item_3_mic": "Aktivieren Sie den Umschalter neben <strong>Mikrofon</strong>",
-        "list_item_4": "Kehren Sie zu dieser Seite zurück und tippen Sie auf den <strong>Ich habe die Änderungen vorgenommen</strong> Button"
+        "list_item_4": "Kehren Sie zu dieser Seite zurück und tippen Sie auf die <strong>Seite aktualisieren</strong> Schaltfläche",
+        "title": "Lösung 2: Geräteeinstellungen"
+      },
+      "refresh_page": {
+        "title": "Lösung 1: Aktualisieren Sie die Seite"
       }
     },
     "ios_safari": {
       "device_settings": {
         "list_item_1": "Auf Ihrem Gerät öffnen Sie die <strong>Einstellungen</strong> App",
-        "list_item_2": "Scrollen Sie durch die Liste und tippen Sie auf [BROWSER_ICON]",
+        "list_item_2": "Scrollen Sie durch die Liste und tippen Sie auf <browser_icon></browser_icon>",
         "list_item_3_cam": "Tippen Sie auf <strong>Kamera</strong> und wählen Sie <strong>Zulassen</strong> aus",
         "list_item_3_mic": "Tippen Sie auf <strong>Mikrofon</strong> und wählen Sie <strong>Zulassen</strong>",
-        "list_item_4": "Kehren Sie zu dieser Seite zurück und tippen Sie auf den <strong>Ich habe die Änderungen vorgenommen</strong> Button"
+        "list_item_4": "Kommen Sie zu dieser Seite zurück und tippen Sie auf die <strong>Seite aktualisieren</strong> Schaltfläche"
       }
     },
     "list_header_both": "Befolgen Sie diese Schritte, um den Zugriff auf beides wiederherzustellen:",
@@ -654,13 +709,7 @@
     "title_cam": "Kamerazugriff wird verweigert",
     "title_mic": "Mikrofonzugriff verweigert",
     "web": {
-      "browser_settings": {
-        "title": "Lösung 1: Browsereinstellungen"
-      },
-      "button_primary": "Ich habe die Änderungen vorgenommen",
-      "device_settings": {
-        "title": "Lösung 2: Geräteeinstellungen"
-      },
+      "button_primary": "Aktualisieren Sie die Seite",
       "disclaimer": "Der Identitätsüberprüfungsprozess könnte neu starten. Entschuldigung für etwaige Unannehmlichkeiten"
     }
   },
@@ -722,7 +771,7 @@
     "button_primary": "Bestätigung beginnen",
     "list_matches_signup": "Der von Ihnen bei der Registrierung verwendeten Adresse entspricht",
     "list_most_recent": "Ihr aktuellstes Dokument ist",
-    "list_shows_address": "Ihre  aktuelle Adresse zeigt",
+    "list_shows_address": "Ihre aktuelle Adresse zeigt",
     "subtitle": "Sie brauchen ein Dokument, das:",
     "title": "Bestätigen wir nun Ihre Adresse"
   },
@@ -934,7 +983,7 @@
       },
       "jpn_specific": {
         "invalid_national_id_value": "Bitte geben Sie einen gültigen \"Meine Nummer\" / Bewohnerdatensatz-Code ein",
-        "required_national_id_value": ""
+        "required_national_id_value": "Bitte geben Sie Ihren \"Meine Nummer\" / Einwohnermeldeamtscode ein"
       },
       "ken_specific": {
         "invalid_other": "Bitte geben Sie eine gültige Alien Card Nummer ein",
@@ -1012,7 +1061,7 @@
       "too_short_postcode": "Die Postleitzahl ist zu kurz",
       "tur_specific": {
         "invalid_national_id_value": "Bitte geben Sie eine gültige türkische Ausweisnummer ein",
-        "required_national_id_value": ""
+        "required_national_id_value": "Bitte geben Sie Ihre türkische ID-Nummer ein"
       },
       "usa_specific": {
         "invalid_ssn": "Bitte geben Sie eine gültige SVN ein",
@@ -1071,6 +1120,25 @@
     "step_title": "Unterschreiben Sie Ihr Dokument",
     "subtitle": "Um Ihre Identität gemäß den europäischen Regeln zu bestätigen, müssen Sie ein Dokument digital signieren.",
     "title": "Erstellen und verwenden Sie Ihre digitale Signatur"
+  },
+  "retry": {
+    "button": {
+      "generic_selfie_issue": "Versuchen Sie es erneut."
+    },
+    "description": {
+      "default": "Bitte versuchen Sie es erneut",
+      "expired_document": "Versuchen Sie es mit einem gültigen Lichtbildausweis erneut und stellen Sie sicher, dass die Angaben zu Ihrer Person gut sichtbar sind",
+      "generic_document_issue": "Versuchen Sie es mit einem gültigen Lichtbildausweis erneut und stellen Sie sicher, dass die Angaben zu Ihrer Person gut sichtbar sind",
+      "generic_selfie_issue": "Versuchen Sie es erneut und stellen Sie sicher, dass Ihr Gesicht sichtbar und gut beleuchtet ist",
+      "unaccepted_document": "Versuchen Sie es mit einem gültigen Lichtbildausweis erneut und stellen Sie sicher, dass die Angaben zu Ihrer Person gut sichtbar sind"
+    },
+    "headline": {
+      "default": "Es gab ein Problem",
+      "expired_document": "Ihr Ausweis ist ungültig",
+      "generic_document_issue": "Es gab ein Problem mit Ihrem Dokument",
+      "generic_selfie_issue": "Es gab ein Problem mit Ihrem Selfie",
+      "unaccepted_document": "Ausweis wird nicht akzeptiert"
+    }
   },
   "retry_feedback": {
     "button_primary": "Versuchen Sie es erneut."
@@ -1134,7 +1202,7 @@
     "info_link_expire": "Ihr Link läuft in einer Stunde ab",
     "info_link_window": "Lassen Sie dieses Fenster geöffnet, während Sie Ihr Mobiltelefon bedienen",
     "link": "Versuchen Sie eine andere Methode",
-    "subtitle": "Wir haben einen sicheren Link an %{number} gesendet",
+    "subtitle": "Wir haben einen sicheren Link an <number></number> gesendet",
     "subtitle_minutes": "Dieser Vorgang kann einige Minuten dauern",
     "title": "Überprüfen Sie Ihr Mobiltelefon"
   },
@@ -1242,10 +1310,10 @@
   },
   "workflow_erros": {
     "generic_title": "Es gab einen Serverfehler!",
-    "no_workflow_run_id": "Die Workflow-Lauf-ID ist nicht gesetzt.",
+    "no_workflow_run_id": "Die ID des Workflow-Laufs ist nicht festgelegt.",
     "reload_app": "Versuchen Sie bitte, die App neu zu laden, und versuchen Sie es erneut.",
-    "task_not_completed": "Die Workflow-Aufgabe konnte nicht abgeschlossen werden.",
-    "task_not_retrieved": "Workflow-Aufgabe konnte nicht abgerufen werden.",
+    "task_not_completed": "Es war nicht möglich, die Workflow-Aufgabe abzuschließen.",
+    "task_not_retrieved": "Es war nicht möglich, die Workflow-Aufgabe abzurufen.",
     "task_not_supported": "Aufgabe wird derzeit nicht unterstützt"
   }
 }
