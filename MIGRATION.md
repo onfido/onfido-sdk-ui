@@ -48,3 +48,5 @@ This documents the breaking changes between the Web SDK v13.7.0 and the Web SDK 
 - `useMemoryHistory` has been deprecated
 - `handle.setOptions()` has been deprecated, no longer allowing changing options after bootstrapping the SDK
 - The fallback options under the `face` step now only occur on the mobile session of a user as all fallbacks due to device capabilities will always trigger a cross-device flow first.
+- `tearDown` now returns a Promise
+- `safeTearDown` has been deprecated, please use `tearDown` instead  
