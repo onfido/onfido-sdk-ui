@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 14.19.0 - 2024-03-07
+
+## 14.18.0 - 2024-03-01
+
+## v14.17.0 - 2024-02-23
+
+* added SameSite=None for `onfido-web-sdk-analytics` cookie to allow cookie to be transferred once browsers switches to new default of SameSite=Lax
+
+
 ## 14.12.0 - 2023-12-19
 
 * perform retries on 5xx error 
