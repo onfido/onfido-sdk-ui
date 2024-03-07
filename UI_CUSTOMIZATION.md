@@ -178,11 +178,34 @@ The Web SDK supports customization options across the SDK screen including text,
 
   The following fonts are available:
 
+  - [Fira Sans](https://fonts.google.com/specimen/Fira+Sans)
+  - [Inter](https://fonts.google.com/specimen/Inter)
+  - [Kanit](https://fonts.google.com/specimen/Kanit)
+  - [Lato](https://fonts.google.com/specimen/Lato)
+  - [Lora](https://fonts.google.com/specimen/Lora)
+  - [Merriweather](https://fonts.google.com/specimen/Merriweather)
+  - [Noto Sans](https://fonts.google.com/specimen/Noto+Sans)
+  - [Noto Sans Osmanya](https://fonts.google.com/specimen/Noto+Sans+Osmanya)
+  - [Nunito](https://fonts.google.com/specimen/Nunito)
+  - [Nunito Sans](https://fonts.google.com/specimen/Nunito+Sans)
+  - [Open Sans](https://fonts.google.com/specimen/Open+Sans)
+  - [Oswald](https://fonts.google.com/specimen/Oswald)
   - [Overpass](https://fonts.google.com/specimen/Overpass)
-  - [Roboto](https://fonts.google.com/specimen/Roboto)
+  - [Playfair Display](https://fonts.google.com/specimen/Playfair+Display)
   - [Poppins](https://fonts.google.com/specimen/Poppins)
+  - [PT Sans](https://fonts.google.com/specimen/PT+Sans)
+  - [Raleway](https://fonts.google.com/specimen/Raleway)
+  - [Roboto](https://fonts.google.com/specimen/Roboto)
+  - [Roboto Condensed](https://fonts.google.com/specimen/Roboto+Condensed)
+  - [Roboto Mono](https://fonts.google.com/specimen/Roboto+Mono)
+  - [Roboto Slab](https://fonts.google.com/specimen/Roboto+Slab)
+  - [Rubik](https://fonts.google.com/specimen/Rubik)
+  - [Source Sans 3](https://fonts.google.com/specimen/Source+Sans+3)
+  - [Ubuntu](https://fonts.google.com/specimen/Ubuntu)
   - [Wix Madefor Text](https://fonts.google.com/specimen/Wix+Madefor+Text)
-  - To request support for additional fonts, please reach out to your Customer Support Manager or email [Onfido Support](mailto:support@onfido)\*
+  - [Work Sans](https://fonts.google.com/specimen/Work+Sans)
+  
+  To request support for additional fonts, please reach out to your Customer Support Manager or email [Onfido Support](mailto:support@onfido)\*
 
   ```javascript
   customUI: {
@@ -192,4 +215,3 @@ The Web SDK supports customization options across the SDK screen including text,
   ```
 
   ⚠️ **The fonts are hosted by Onfido and won't be loaded from Google's servers.**
-  
