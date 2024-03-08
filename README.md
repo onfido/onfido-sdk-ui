@@ -522,20 +522,13 @@ For the face step, an object is returned with the `variant` used for the face ca
 
 Callback that fires when an error occurs. The callback returns the following error types:
 
-- `exception`
-  This will be returned for the following errors:
-
-  - timeout and server errors
-  - authorization
-  - invalid token
-  - missing data in `onComplete` callback
-
-  This data can be used for debugging purposes.
+- `invalid_token`
+  This error will be returned when the SDK token is invalid or missing.
 
   ```javascript
   {
-    type: "exception",
-    message: "The request could not be understood by the server, please check your request is correctly formatted"
+    type: "invalid_token",
+    message: "The token is invalid."
   }
   ```
 
@@ -549,9 +542,28 @@ Callback that fires when an error occurs. The callback returns the following err
   }
   ```
 
-- `permissions_unavailable`
+- `expired_trial`
+  This error will be returned when the trial has expired.
 
-  `permissions_unavailable` will be returned if the SDK was unable to access or request the necessary permissions. This may occur when the Web SDK is loaded within a webview or other custom browsers.
+  ```javascript
+  {
+    type: "expired_trial",
+    message: "The trial period is expired."
+  }
+  ```
+
+- `geoblocked_request`
+  This error will be returned when the request is geo-blocked.
+
+  ```javascript
+  {
+    type: "geoblocked_request",
+    message: "The request is not allowed from this location."
+  }
+  ```
+
+- `permissions_unavailable`
+  This error will be returned if the SDK was unable to access or request the necessary permissions. This may occur when the Web SDK is loaded within a webview or other custom browsers.
 
   ```javascript
   {
@@ -560,14 +572,78 @@ Callback that fires when an error occurs. The callback returns the following err
   }
   ```
 
-- `user_consent_denied`
+- `unsupported`
+  This error will be returned when the a module is not supported in the current environment.
 
-  `user_consent_denied` will be returned if the user exits the flow because they declined the consent prompt.
+  ```javascript
+  {
+    type: "unsupported",
+    message: "The module is not supported in the current environment."
+  }
+  ```
+
+- `unsupported_feature`
+  This error will be returned when a feature is not supported.
+
+  ```javascript
+  {
+    type: "unsupported_feature",
+    message: "The feature is no longer supported."
+  }
+  ```
+
+- `invalid_sdk_parameter`
+  This error will be returned when the SDK is initialized with invalid parameters.
+
+  ```javascript
+  {
+    type: "invalid_sdk_parameter",
+    message: "The SDK is initialized with invalid parameters."
+  }
+  ```
+
+- `unsupported_sdk_version`
+  This error will be returned when the workflow is not supported by the SDK version.
+
+  ```javascript
+  {
+    type: "unsupported_sdk_version",
+    message: "The SDK version is not compatible with the workflow."
+  }
+  ```
+
+- `no_camera`
+  This error will be returned when the camera is not available and no other capture method is available.
+
+  ```javascript
+  {
+    type: "no_camera",
+    message: "The camera is not available."
+  }
+  ```
+
+- `user_consent_denied`
+  This error will be returned when the user exits the flow because they declined the consent.
 
   ```javascript
   {
     type: "user_consent_denied",
-    message: "Unable to proceed without user consent"
+    message: "The user has declined the consent."
+  }
+  ```
+
+- `exception`
+  This will be returned for all unknown errors, including:
+  - timeout and server errors
+  - unexpected javascript errors
+
+  This data can be used for debugging purposes.
+
+  ```javascript
+  {
+    type: "exception",
+    message: "The request could not be understood by the server, please check your request is correctly formatted"
+    exception: Error
   }
   ```
 
@@ -575,19 +651,19 @@ Callback that fires when an error occurs. The callback returns the following err
 
 ### SDK tear-down
 
-If you have embedded the SDK inside a single page app, you can call the `safeTearDown` function to remove the SDK completely from the current webpage. It will reset the state and you can safely re-initialize the SDK inside the same webpage later on.
+If you have embedded the SDK inside a single page app, you can call the `tearDown` function to remove the SDK completely from the current webpage. It will reset the state and you can safely re-initialize the SDK inside the same webpage later on.
 
 ```javascript
 onfidoOut = Onfido.init({...})
 ...
-await onfidoOut.safeTearDown()
+await onfidoOut.tearDown()
 ```
 
-⚠️ **Warning**: The `safeTearDown` method is a Promise. If you plan on mounting the SDK a second (or nth) time, please await the promise first.
+⚠️ **Warning**: The `tearDown` method is a Promise. If you plan on mounting the SDK a second (or nth) time, please await the promise first.
 
 ```javascript
 onfidoOut = Onfido.init({...})
-await onfidoOut.safeTearDown()
+await onfidoOut.tearDown()
 onfidoOut2 = Onfido.init({...})
 ```
 
