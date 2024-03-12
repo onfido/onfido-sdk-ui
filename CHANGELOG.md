@@ -1,13 +1,18 @@
 # CHANGELOG
 
-## 14.19.0 - 2024-03-07
+## 14.20.0 - 2024-03-12
+
+* support `crossDevicePolicy: "force"` for face modules 
+
+## 14.19.0 - 2024-03-05
+
+* fix an issue, where firefox is used on desktop and redirects the user as part of the `onComplete` callback. The connected mobile device was displaying an error.
 
 ## 14.18.0 - 2024-03-01
 
 ## v14.17.0 - 2024-02-23
 
 * added SameSite=None for `onfido-web-sdk-analytics` cookie to allow cookie to be transferred once browsers switches to new default of SameSite=Lax
-
 
 ## 14.12.0 - 2023-12-19
 
