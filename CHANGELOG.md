@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## v14.21.0 - 2024-03-20
+
+* Fix: typescript types missing SdkParameters
+
+## 14.20.1 - 2024-03-12
+
+
 ## v14.20.1 - 2024-03-12
 
 

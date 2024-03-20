@@ -84,10 +84,10 @@ The library can also be invoked directly within an object or component:
 
 ```javascript
 // ES6 module import
-import { init } from 'onfido-sdk-ui'
+import { Onfido } from 'onfido-sdk-ui'
 
 // commonjs style require
-var Onfido = require('onfido-sdk-ui')
+var Onfido = require('onfido-sdk-ui').Onfido
 ```
 
 The CSS style will be included inline with the JS code when the library is imported.
@@ -1575,7 +1575,9 @@ Should you encounter any technical issues during integration, please contact Onf
 
 Alternatively, you can search the support documentation available via the customer experience portal, [public.support.onfido.com](http://public.support.onfido.com).
 
-Previous versions of the SDK will be supported for a month after a new major version release. Note that when the support period has expired for an SDK version, no bug fixes will be provided, but the SDK will keep functioning (until further notice).
+We recommend you update your SDK to the latest version release as frequently as possible. Customers on newer versions of the Onfido SDK consistently see better performance across user onboarding and fraud mitigation, so we strongly advise keeping your SDK integration up-to-date.
+
+You can review our full SDK versioning policy [here](https://developers.onfido.com/guide/sdk-version-releases).
 
 ### Licence Information
 

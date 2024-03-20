@@ -6,6 +6,7 @@ This documents the breaking changes between the Web SDK v13.7.0 and the Web SDK 
 
 - The "split bundle" library will no longer be available on `npm`. Please use the default `npm` package instead.
 - The separate `style.css` import is no longer required as the Onfido stylesheet is included in the main library.
+- The import changed from `import { init } from 'onfido-sdk-ui'` to `import { Onfido } from 'onfido-sdk-ui'`
 
 ## Visual & Flow changes
 
