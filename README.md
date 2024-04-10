@@ -634,6 +634,7 @@ Callback that fires when an error occurs. The callback returns the following err
 
 - `exception`
   This will be returned for all unknown errors, including:
+
   - timeout and server errors
   - unexpected javascript errors
 
@@ -1553,13 +1554,9 @@ Customers that have a CSP use the Web SDK npm bundle may not be able to run `Web
 Onfido uses `WebAssembly` in the Motion (for TensorFlow) and Document Capture (for OpenCV) modules, which prevents them from being used in that context.
 The recommended approach is to using an Onfido-hosted Web SDK (Smart Capture Link or CDN) as the CSP only applies to the `sdk.onfido.com` domain and not the customer’s domain, whereby the CSP and therefore `unsafe-eval` is handled by Onfido.
 
-#### Iframe camera and microphone permission issues
+#### Iframe itegration
 
-If embedded inside a cross-origin iframe, the SDK may fail to access the camera and microphone. This is a known issue on recent Chrome versions where requests fail in a similar way as if a user had denied a permission prompt. You may need to add the following `allow` attribute to your iframe:
-
-```html
-<iframe src="..." allow="camera;microphone"></iframe>
-```
+For instruction and guide on how to embed the Onfido Web SDK in an iFrame, please refer to the guide [Using the Onfido web SDK in an iFrame](https://developers.onfido.com/guide/sdk-iframe-guide).
 
 #### Upload fallback
 
