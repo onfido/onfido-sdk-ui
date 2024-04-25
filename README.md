@@ -1526,33 +1526,9 @@ Refer to our [accessibility statement](https://developers.onfido.com/guide/sdk-a
 
 ### Troubleshooting
 
-#### General Content Security Policy (CSP) issues
+#### General Content Security Policy (CSP) 
 
-In order to mitigate potential cross-site scripting issues, most modern browsers use a Content Security Policy (CSP). These policies might prevent the SDK from correctly displaying the images captured during the flow or correctly load styles. If CSP is blocking some of the SDK functionalities, make sure you add the following snippet inside the `<head>` tag of your application.
-
-```html
-<meta
-  http-equiv="Content-Security-Policy"
-  content="
-  default-src 'self' https://assets.onfido.com https://sdk.onfido.com;
-  script-src 'self' 'unsafe-eval' https://assets.onfido.com https://sentry.io https://*.sardine.ai/;
-  style-src 'self' 'unsafe-inline' https://assets.onfido.com https://sdk.onfido.com;
-  font-src 'self' https://sdk.onfido.com;
-  connect-src 'self' data: blob: *.onfido.com wss://*.onfido.com https://sentry.io;
-  img-src 'self' data: blob: https://assets.onfido.com/ https://sdk.onfido.com;
-  media-src blob: https://assets.onfido.com https://sdk.onfido.com;
-  worker-src 'self' blob:;
-  object-src 'self' blob:;
-  frame-src 'self' data: blob: https://*.sardine.ai/;
-"
-/>
-```
-
-#### `unsafe-eval` and Content Security Policy (CSP)
-
-Customers that have a CSP use the Web SDK npm bundle may not be able to run `WebAssembly` code without the `unsafe-eval` policy. Unfortunately, `unsafe-eval` is dangerous and security teams generally advise against it.
-Onfido uses `WebAssembly` in the Motion (for TensorFlow) and Document Capture (for OpenCV) modules, which prevents them from being used in that context.
-The recommended approach is to using an Onfido-hosted Web SDK (Smart Capture Link or CDN) as the CSP only applies to the `sdk.onfido.com` domain and not the customer’s domain, whereby the CSP and therefore `unsafe-eval` is handled by Onfido.
+For guide on CSP common issue and recommendations, please refer to the guide [Onfido Web SDKn and Content Security Policy (CSP) guide](https://developers.onfido.com/guide/sdk-csp-guide).
 
 #### Iframe itegration
 
@@ -1560,7 +1536,10 @@ For instruction and guide on how to embed the Onfido Web SDK in an iFrame, pleas
 
 #### Upload fallback
 
-Onfido Web SDK versions <13.0.0 have a parameter named `uploadFallback` that can be set on both the document step and the face step. This parameter allowed clients to present end-users with a file input capability during the SDK flow. This client-side optional parameter has been removed in Web SDK 13 and above to enhance security which means users will not have the option to upload files during the SDK flow. However, file upload can be enabled as an option for end-users as a backend configuration if requested through the Onfido Support Team.
+Onfido Web SDK versions <13.0.0 had a parameter named `uploadFallback` that could be set on both the document step and the face step. This parameter allowed clients to present end-users with a file input capability during the SDK flow. 
+
+With Web SDK 14.15 and above, the `uploadFallback` client-side parameter has been reintroduced.
+To enhance the overall flow security, it is disabled by default and requires activation through the Onfido Support Team.
 
 #### Permissions issues when using the Web SDK in a webview
 

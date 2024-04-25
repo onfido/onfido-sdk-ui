@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v14.24.0 - 2024-04-25
+
+- Updated CSP guide for troubleshooting most common issues
+
 ## 14.23.1 - 2024-04-19
 
 
