@@ -1,17 +1,20 @@
 # CHANGELOG
 
+## v14.25.0 - 2024-05-13
+
+- `motionFallbackVariant` option removed. Motion is now supported in all devices.
+
+## 14.24.0 - 2024-04-25
+
 ## v14.24.0 - 2024-04-25
 
 - Updated CSP guide for troubleshooting most common issues
 
 ## 14.23.1 - 2024-04-19
 
-
 ## v14.23.1 - 2024-04-19
 
-
 ## 14.23.0 - 2024-04-10
-
 
 ## v14.23.0 - 2024-04-10
 
