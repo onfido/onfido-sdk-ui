@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v14.26.0 - 2024-05-23
+
+- Adjustment to the preloading of modules to reduce loading time - New error types for `workflow_abandoned` and `workflow_error` added to SDK errors
+
+## 14.25.0 - 2024-05-13
+
 ## v14.25.0 - 2024-05-13
 
 - `motionFallbackVariant` option removed. Motion is now supported in all devices.
