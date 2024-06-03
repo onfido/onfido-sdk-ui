@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 14.27.0 - 2024-05-30
+
+- Expose version in the Onfido.init handle- Adjustment to the preloading of modules to reduce loading time 
+## v14.27.0 - 2024-05-30
+
+- Expose version in the Onfido.init handle- Adjustment to the preloading of modules to reduce loading time 
+## 14.26.0 - 2024-05-23
+
+- Adjustment to the preloading of modules to reduce loading time
+
 ## v14.26.0 - 2024-05-23
 
 - Adjustment to the preloading of modules to reduce loading time - New error types for `workflow_abandoned` and `workflow_error` added to SDK errors
