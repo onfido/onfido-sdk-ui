@@ -1,6 +1,6 @@
 # UI customization
 
-The Web SDK supports customization options across the SDK screen including text, the SDK main container, buttons, links, icon background color and popups. For visualizations of the available options please see our [SDK customization guide](https://developers.onfido.com/guide/sdk-customization#web).
+The Web SDK supports customization options across the SDK screen including text, the SDK main container, buttons, links, icon background color and popups. For visualizations of the available options please see our [SDK customization guide](https://documentation.onfido.com/sdk/sdk-customization#web).
 
 - **`customUI {Object} optional`**
 
@@ -62,6 +62,7 @@ The Web SDK supports customization options across the SDK screen including text,
   | `colorBorderButtonPrimary`           | Change color of Primary Button border                  |
   | `colorBorderButtonPrimaryHover`      | Change color of Primary Button border on hover         |
   | `colorBorderButtonPrimaryActive`     | Change color of Primary Button border on click/tap     |
+  | `colorBorderButtonPrimaryFocus`      | Change color of Primary Button border on focus         |
 
   | Secondary Buttons                      | Description                                              |
   | -------------------------------------- | -------------------------------------------------------- |
@@ -72,6 +73,7 @@ The Web SDK supports customization options across the SDK screen including text,
   | `colorBorderButtonSecondary`           | Change color of Secondary Button border                  |
   | `colorBorderButtonSecondaryHover`      | Change color of Secondary Button border on hover         |
   | `colorBorderButtonSecondaryActive`     | Change color of Secondary Button border on click/tap     |
+  | `colorBorderButtonSecondaryFocus`      | Change color of Secondary Button border on focus         |
 
   | Document Type Buttons                | Description                                                  |
   | ------------------------------------ | ------------------------------------------------------------ |
@@ -83,9 +85,10 @@ The Web SDK supports customization options across the SDK screen including text,
   | `colorBorderDocTypeButtonHover`      | Change color of Document Type Button border on hover         |
   | `colorBorderDocTypeButtonActive`     | Change color of Document Type Button border on click/tap     |
 
-  | Selector                  | Description                      |
-  | ------------------------- | -------------------------------- |
-  | `colorBackgroundSelector` | Change Selector background color |
+  | Selector                           | Description                                    |
+  | ---------------------------------- | ---------------------------------------------- |
+  | `colorBackgroundSelector`          | Change Selector background color               |
+  | `colorBackgroundDropdownItemHover` | Change Country Selector background hover color |
 
   | Icon options          | Description                                                         |
   | --------------------- | ------------------------------------------------------------------- |
@@ -204,8 +207,8 @@ The Web SDK supports customization options across the SDK screen including text,
   - [Ubuntu](https://fonts.google.com/specimen/Ubuntu)
   - [Wix Madefor Text](https://fonts.google.com/specimen/Wix+Madefor+Text)
   - [Work Sans](https://fonts.google.com/specimen/Work+Sans)
-  
-  To request support for additional fonts, please reach out to your Customer Support Manager or email [Onfido Support](mailto:support@onfido)\*
+
+  To request support for additional fonts, please reach out to your Customer Support Manager or email [Customer Support](mailto:support@onfido.com)\*
 
   ```javascript
   customUI: {

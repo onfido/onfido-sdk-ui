@@ -25,7 +25,7 @@ The Onfido Smart Capture SDKs provide a set of screens and functionality allowin
 - Direct image upload to the Onfido service, to simplify integration
 - A suite of advanced fraud detection signals to protect against malicious users
 
-All Onfido Smart Capture SDKs are orchestrated using [Onfido Studio](https://developers.onfido.com/guide/onfido-studio-product) workflows with only minor customization differences between the available platforms.
+All Onfido Smart Capture SDKs are orchestrated using [Onfido Studio](https://documentation.onfido.com/getting-started/onfido-studio-product) workflows with only minor customization differences between the available platforms.
 
 The Onfido Web SDK is specifically designed for integrating web applications and easily managing cross-device experiences.
 
@@ -42,7 +42,7 @@ The environment being used is determined by the API token that is used to genera
 
 ### Going Live
 
-Once you are satisfied with your integration and are ready to go live, please contact [client-support@onfido.com](mailto:client-support@onfido.com) to obtain a live API token. You will have to replace the sandbox token in your code with the live token.
+Once you are satisfied with your integration and are ready to go live, please contact Onfido's [Customer Support](mailto:client-support@onfido.com) to obtain a live API token. You will have to replace the sandbox token in your code with the live token.
 
 Check that you have entered correct billing details inside your [Onfido Dashboard](https://onfido.com/dashboard/), before going live.
 
@@ -181,7 +181,7 @@ While webviews provide a lightweight integration and simplify cross-platform dev
 
 Where possible, Onfido recommends using its native mobile SDKs for optimal performance.
 
-Please refer to this [guide](https://developers.onfido.com/guide/sdk-webview-guide) for more details about how to integrate the Onfido Web SDK in a webview.
+Please refer to this [guide](https://documentation.onfido.com/sdk/sdk-webview-guide) for more details about how to integrate the Onfido Web SDK in a webview.
 
 ## Initializing the SDK
 
@@ -191,11 +191,11 @@ The Web SDK has multiple initialization and customization options that provide f
 
 ### Defining a workflow
 
-Onfido Studio is the platform used to create highly reusable identity verification workflows for use with the Onfido SDKs. For an introduction to working with workflows, please refer to our [Getting Started guide](https://developers.onfido.com/guide/general-introduction), or the Onfido Studio [product guide](https://developers.onfido.com/guide/onfido-studio-product).
+Onfido Studio is the platform used to create highly reusable identity verification workflows for use with the Onfido SDKs. For an introduction to working with workflows, please refer to our [Getting Started guide](https://documentation.onfido.com/getting-started/general-introduction), or the Onfido Studio [product guide](https://documentation.onfido.com/getting-started/onfido-studio-product).
 
 SDK sessions are orchestrated by a session-specific `workflow_run_id`, itself derived from a `workflow_id`, the unique identifier of a given workflow.
 
-For details on how to generate a `workflow_run_id`, please refer to the `POST /workflow_runs/` endpoint definition in the Onfido [API reference](https://documentation.onfido.com/#workflow-runs).
+For details on how to generate a `workflow_run_id`, please refer to the `POST /workflow_runs/` endpoint definition in the Onfido [API reference](https://documentation.onfido.com/api/latest#workflow-runs).
 
 <Callout type="warning">
 
@@ -211,7 +211,7 @@ The SDK is authenticated using SDK tokens. As each SDK token must be specific to
 
   A JWT is required in order to authorize with the Onfido WebSocket endpoint. If the SDK token is missing, an exception will be thrown.
 
-For details on how to generate SDK tokens, please refer to `POST /sdk_token/` definition in the Onfido [API reference](https://documentation.onfido.com/#generate-sdk-token).
+For details on how to generate SDK tokens, please refer to `POST /sdk_token/` definition in the Onfido [API reference](https://documentation.onfido.com/api/latest#generate-sdk-token).
 
 <Callout type="warning">
 
@@ -279,6 +279,7 @@ To customize the SDK, you can pass the required CSS values to the `customUI` obj
       "colorContentInfoPill": "rgb(10,11,13)",
       "colorBackgroundInfoPill": "rgb(55, 115, 245)",
       "colorBackgroundSelector": "red",
+      "colorBackgroundDropdownItemHover": "rgb(30,32,37)",
       "colorInputOutline": "rgb(87, 139, 250)",
       "colorContentButtonTertiaryText": "rgb(255,255,255)",
       "colorContentInput": "blue",
@@ -353,7 +354,7 @@ The Onfido SDK supports and maintains translations for over 40 languages in its 
 language: 'pt_BR' | 'es'
 ```
 
-For the list of languages supported by Onfido, please refer to our [SDK customization guide](https://developers.onfido.com/guide/sdk-customization#language-customization).
+For the list of languages supported by Onfido, please refer to our [SDK customization guide](https://documentation.onfido.com/sdk/sdk-customization#language-customization).
 
 ### Language customization
 
@@ -403,7 +404,7 @@ At the end of the capture process, users will be instructed to revert back to th
 
 #### Enforcing cross-device navigation
 
-In order to optimize the capture quality, it is recommended to enforce the cross-device flow. The option is available in Onfido Studio, configurable in the [workflow builder](https://developers.onfido.com/guide/onfido-studio-product#document-capture-task).
+In order to optimize the capture quality, it is recommended to enforce the cross-device flow. The option is available in Onfido Studio, configurable in the [workflow builder](https://documentation.onfido.com/getting-started/onfido-studio-product#document-capture-task).
 
 Cross-device can also be enforced at run-time using the following initialization option:
 
@@ -411,7 +412,7 @@ Cross-device can also be enforced at run-time using the following initialization
 
   By default, the cross-device flow is not enforced but shown to the user alongside a button to upload a document instead. You can force the user to capture a document or face on a mobile device by either:
 
-- setting the option globally (across all workflow runs) in the [workflow builder](https://developers.onfido.com/guide/onfido-studio-product#document-capture-task)
+- setting the option globally (across all workflow runs) in the [workflow builder](https://documentation.onfido.com/getting-started/onfido-studio-product#document-capture-task)
 
 - setting the `crossDevicePolicy` initialization option at runtime to either `force` or `disable` to completely remove the option
 
@@ -489,7 +490,7 @@ Onfido.init({
 });
 ```
 
-The `data` object contains properties of the documents and face images uploaded by the user during the SDK session. The properties contain a unique identifier that can be used to retrieve the full document or face capture using the corresponding `document`, `live_photos` (for 'standard' selfies) or `live_videos` (for 'video' or 'motion' captures) endpoints defined in the [API reference](https://documentation.onfido.com/#retrieve-document).
+The `data` object contains properties of the documents and face images uploaded by the user during the SDK session. The properties contain a unique identifier that can be used to retrieve the full document or face capture using the corresponding `document`, `live_photos` (for 'standard' selfies) or `live_videos` (for 'video' or 'motion' captures) endpoints defined in the [API reference](https://documentation.onfido.com/api/latest#retrieve-document).
 
 ```json
 {
@@ -648,6 +649,26 @@ Callback that fires when an error occurs. The callback returns the following err
   }
   ```
 
+  - `workflow_abandoned`
+    This error will be returned when the user has abandoned the workflow run and it has timed out.
+
+  ```javascript
+  {
+    type: "workflow_abandoned",
+    message: "The workflow has been abondoned."
+  }
+  ```
+
+  - `workflow_error`
+    This error will be returned when there is an error with workflow run.
+
+  ```javascript
+  {
+    type: "workflow_error",
+    message: "The workflow run is invalid."
+  }
+  ```
+
 **Note** that from version 14 onwards, the optional `onUserExit` callback, that was used to return the `USER_CONSENT_DENIED` message, has been deprecated and merged with the `onError` callback, as detailed above.
 
 ### SDK tear-down
@@ -670,12 +691,12 @@ onfidoOut2 = Onfido.init({...})
 
 ### Generating verification reports
 
-While the SDK is responsible for capturing and uploading the user's media and data, identity verification reports themselves are generated based on workflows created using [Onfido Studio](https://developers.onfido.com/guide/onfido-studio-product).
+While the SDK is responsible for capturing and uploading the user's media and data, identity verification reports themselves are generated based on workflows created using [Onfido Studio](https://documentation.onfido.com/getting-started/onfido-studio-product).
 
-For a step-by-step walkthrough of creating an identity verification using Onfido Studio and our SDKs, please refer to our [Quick Start Guide](https://developers.onfido.com/guide/quick-start-guide).
+For a step-by-step walkthrough of creating an identity verification using Onfido Studio and our SDKs, please refer to our [Quick Start Guide](https://documentation.onfido.com/getting-started/quick-start-guide).
 
-If your application initializes the Onfido Web SDK using the options defined in the [Advanced customization](#advanced-flow-customization) section of this document, you may [create checks](https://documentation.onfido.com/#create-check) and [retrieve report results](https://documentation.onfido.com/#retrieve-report) manually using the Onfido API.
-You may also configure [webhooks](https://documentation.onfido.com/#webhooks) to be notified asynchronously when the report results have been generated.
+If your application initializes the Onfido Web SDK using the options defined in the [Advanced customization](#advanced-flow-customization) section of this document, you may [create checks](https://documentation.onfido.com/api/latest#create-check) and [retrieve report results](https://documentation.onfido.com/api/latest#retrieve-report) manually using the Onfido API.
+You may also configure [webhooks](https://documentation.onfido.com/api/latest#webhooks) to be notified asynchronously when the report results have been generated.
 
 ## Advanced flow customization
 
@@ -749,7 +770,7 @@ Depending on the customization options defined in this step or the 'allowed coun
 
 You can specify allowed issuing countries and document types for the document capture step in one of three ways:
 
-- Onfido Studio: If you are using Onfido Studio, this is configured within the Document Capture task, as documented in the [Studio Product Guide](https://developers.onfido.com/guide/onfido-studio-product#document-capture-task)
+- Onfido Studio: If you are using Onfido Studio, this is configured within the Document Capture task, as documented in the [Studio Product Guide](https://documentation.onfido.com/getting-started/onfido-studio-product#document-capture-task)
 
 - Dashboard : Otherwise, the recommended approach is to apply this configuration globally in the [Dashboard](https://dashboard.onfido.com/) under Accounts \ Supported Documents. This option also ensures that the list is enforced as part of the Document Report validation. Any document that has been uploaded by an end user against your guidance will result in a Document Report sub-result of "rejected" and be flagged as `Image Integrity` > `Supported Document`.
 
@@ -878,7 +899,7 @@ This is the face capture step. Users will be asked to capture their face in the 
 
 - **`showIntro {Boolean}` - optional**
 
-  The instruction screen shown to the user at the beginning of the `face` capture step can be skipped for the [`video`](https://developers.onfido.com/guide/facial-similarity-reports#video) and [`standard`](https://developers.onfido.com/guide/facial-similarity-reports#standard) variants. By default, the screen is shown (default to `true`).
+  The instruction screen shown to the user at the beginning of the `face` capture step can be skipped for the [`video`](https://documentation.onfido.com/guide/facial-similarity-reports#video) and [`standard`](https://documentation.onfido.com/guide/facial-similarity-reports#standard) variants. By default, the screen is shown (default to `true`).
   When disabled for the `standard` variant, the entire intro screen will be removed from the flow.
   When disabled for the `video` variant, the example video will be hidden in the intro screen, only showing the text instructions.
 
@@ -896,39 +917,15 @@ The SDK will try to fulfil the request depending on camera availability, device 
 
 - if the selected variant cannot be fulfilled and the user is on a desktop, the user will first be forwarded to the cross-device screen. This default step is introduced with version 14 of the Web SDK.
 - if a video cannot be taken on the mobile device, the face step can be configured to fallback to the `standard` variant (see `photoCaptureFallback`)
-- if Motion cannot be captured on the mobile device, the face step can be configured to fallback to either `video` or `standard` variants (see `motionFallbackVariant`)
+- if Motion cannot be captured on the mobile device, an `unsupported` error will be thrown, which can be handled by `onError()`.
 
 If the SDK is initialized with the `requestedVariant` option for the face step, make sure you use the data returned in the [`onComplete` callback](#handling-callbacks) to request the correct report when creating a check.
 
 - **`photoCaptureFallback {Boolean}` - optional**
 
-  This feature only applies to the [video](https://developers.onfido.com/guide/facial-similarity-reports#video) variant.
+  This feature only applies to the [video](https://documentation.onfido.com/guide/facial-similarity-reports#video) variant.
   By default, this option is `true` and allows end-users to capture a selfie if their mobile browser does not support MediaRecorder (which is required by the other variants).
   When disabled, we will return an unsupported browser error if the end-user browser doesn’t support MediaRecorder.
-
-- **`motionFallbackVariant {String}` - optional**
-
-  This feature only applies to the [motion](https://developers.onfido.com/guide/facial-similarity-reports#motion) variant and allows to specify which face capture variant users will fallback to if Motion is not available on the end-user's mobile device due to MediaRecorder not being supported or to limited device capabilities.
-
-  By default, _no variant_ is specified which will result in users on unsupported devices receiving an unsupported browser error.
-
-  The following example shows how to configure `motionFallbackVariant` to allow users on unsupported devices to fallback to Selfie:
-
-  ```javascript
-  options: {
-    requestedVariant: 'motion',
-    motionFallbackVariant: 'standard'
-  }
-  ```
-
-  The following example shows how to configure `motionFallbackVariant` to allow users on unsupported devices to fallback to Video:
-
-  ```javascript
-  options: {
-    requestedVariant: 'motion',
-    motionFallbackVariant: 'video'
-  }
-  ```
 
 #### `complete` step
 
@@ -1017,7 +1014,7 @@ The callbacks return a `FormData` object, including the information that the SDK
 
 #### Uploading the media files to Onfido
 
-By default, this feature will prevent the request from being sent to Onfido, requiring you to [manually upload](https://documentation.onfido.com/#upload-document) the media files to Onfido from your backend for further processing.
+By default, this feature will prevent the request from being sent to Onfido, requiring you to [manually upload](https://documentation.onfido.com/api/latest#upload-document) the media files to Onfido from your backend for further processing.
 We strongly recommend that you add all of the data provided to you through the callbacks in your request to the appropriate endpoint - `/documents` or `/live_photos`. Additionally, you should use the SDK token created for each applicant in the Authorization header of the request as shown below.
 
 **Note** that the SDK token is not included in the FormData provided by the callbacks. You may want to append this, or a different unique identifier that is mapped to the applicant's SDK token, on your backend before sending it off.
@@ -1207,7 +1204,7 @@ paths:
                         type: string
                   fields:
                     type: object
-  /onfido/v3/live_photos:
+  /onfido/v3.6/live_photos:
     post:
       operationId: OnfidoController
       parameters:
@@ -1226,7 +1223,7 @@ paths:
       responses:
         '200':
           description: >-
-            The response received from Onfido v3/live_photos API call. The
+            The response received from Onfido v3.6/live_photos API call. The
             response format might slightly vary with the use case. Forward it
             without modifications as the callback response.
           content:
@@ -1344,6 +1341,18 @@ The `event` parameter being passed in the callback contains the following inform
 | MOTION_FACIAL_UPLOAD_COMPLETED       |
 | MOTION_FACIAL_CONNECTION_ERROR       |
 | UPLOAD                               |
+
+#### Version
+
+You can access the sdk version through the handle once the SDK is loaded.
+
+```javascript
+const onfidoOut = Onfido.init({...})
+
+onfidoOut.addEventListener('userAnalyticsEvent', (event) => {
+  console.log('Version', onfidoOut.version)
+});
+```
 
 ## Self-hosted cross-device URL
 
@@ -1520,30 +1529,30 @@ The Onfido SDK has been optimized to provide the following accessibility support
 - Sufficient color contrast: default colors have been tested to meet the recommended level of contrast
 - Sufficient touch target size: all interactive elements have been designed to meet the recommended touch target size
 
-Refer to our [accessibility statement](https://developers.onfido.com/guide/sdk-accessibility-statement) for more details.
+Refer to our [accessibility statement](https://documentation.onfido.com/sdk/sdk-accessibility-statement) for more details.
 
 ⚠️ Note: If you make your own UI customizations, you are responsible for ensuring that the UI changes will still adhere to accessibility standards. For example, accessible color contrast ratios and dyslexic friendly fonts.
 
 ### Troubleshooting
 
-#### General Content Security Policy (CSP) 
+#### General Content Security Policy (CSP)
 
-For guide on CSP common issue and recommendations, please refer to the guide [Onfido Web SDKn and Content Security Policy (CSP) guide](https://developers.onfido.com/guide/sdk-csp-guide).
+For guide on CSP common issue and recommendations, please refer to the guide [Onfido Web SDKn and Content Security Policy (CSP) guide](https://documentation.onfido.com/sdk/sdk-csp-guide).
 
-#### Iframe itegration
+#### Iframe integration
 
-For instruction and guide on how to embed the Onfido Web SDK in an iFrame, please refer to the guide [Using the Onfido web SDK in an iFrame](https://developers.onfido.com/guide/sdk-iframe-guide).
+For instruction and guide on how to embed the Onfido Web SDK in an iFrame, please refer to the guide [Using the Onfido web SDK in an iFrame](https://documentation.onfido.com/sdk/sdk-iframe-guide).
 
 #### Upload fallback
 
-Onfido Web SDK versions <13.0.0 had a parameter named `uploadFallback` that could be set on both the document step and the face step. This parameter allowed clients to present end-users with a file input capability during the SDK flow. 
+Onfido Web SDK versions <13.0.0 had a parameter named `uploadFallback` that could be set on both the document step and the face step. This parameter allowed clients to present end-users with a file input capability during the SDK flow.
 
 With Web SDK 14.15 and above, the `uploadFallback` client-side parameter has been reintroduced.
 To enhance the overall flow security, it is disabled by default and requires activation through the Onfido Support Team.
 
 #### Permissions issues when using the Web SDK in a webview
 
-For recommendations and code samples on how to embed the Onfido Web SDK in a webview, please refer to the guide [Using the Onfido web SDK in a webview](https://developers.onfido.com/guide/sdk-webview-guide).
+For recommendations and code samples on how to embed the Onfido Web SDK in a webview, please refer to the guide [Using the Onfido web SDK in a webview](https://documentation.onfido.com/sdk/sdk-webview-guide).
 
 ### Support
 
@@ -1553,8 +1562,8 @@ Alternatively, you can search the support documentation available via the custom
 
 We recommend you update your SDK to the latest version release as frequently as possible. Customers on newer versions of the Onfido SDK consistently see better performance across user onboarding and fraud mitigation, so we strongly advise keeping your SDK integration up-to-date.
 
-You can review our full SDK versioning policy [here](https://developers.onfido.com/guide/sdk-version-releases).
+You can review our full SDK versioning policy [here](https://documentation.onfido.com/sdk/sdk-version-releases).
 
-### Licence Information
+### License Information
 
 Please see [LICENSE](https://github.com/onfido/onfido-sdk-ui/blob/master/LICENSE) for licensing details.
