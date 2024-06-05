@@ -1,0 +1,1393 @@
+{
+    "onfido": {
+        "avc_confirmation": {
+            "button_primary_upload": "Lataa tallenne",
+            "subtitle": "Videon tallennus kasvoistasi onnistui",
+            "title": "Tallennus valmis"
+        },
+        "avc_connection_error": {
+            "button_primary_reload": "Lataa ohjeet uudelleen",
+            "button_primary_retry_upload": "Yritä ladata uud.",
+            "button_secondary_restart_recording": "Aloita tallennus uud.",
+            "subtitle": "Tarkista, että yhteys on vakaa, ja yritä sitten uudelleen",
+            "title": "Yhteysvirhe"
+        },
+        "avc_face_alignment": {
+            "feedback_move_back": "Siirry taaksepäin",
+            "feedback_move_back_accessibility": "Siirrä laitettasi taaksepäin",
+            "feedback_move_closer": "Siirry lähemmäs",
+            "feedback_move_left_accessibility": "Siirrä laitettasi vasemmalle",
+            "feedback_move_right_accessibility": "Siirrä laitettasi oikealle",
+            "feedback_no_face_detected": "Kasvoja ei havaittu",
+            "feedback_not_centered": "Kasvot eivät ole keskellä",
+            "title": "Aseta kasvosi kehykseen"
+        },
+        "avc_face_capture": {
+            "alert": {
+                "mic_conflict_title": "Jokin toinen sovellus käyttää mikrofoniasi",
+                "timeout_body": "Sinulla on 15 sekuntia aikaa viimeistellä tallennus",
+                "timeout_button_primary": "Yritä uud.",
+                "timeout_title": "Valitettavasti tallennus on aloitettava uudelleen",
+                "too_fast_body": "Yritä uudelleen ja käännä päätäsi hitaammin",
+                "too_fast_button_primary": "Yritä uud.",
+                "too_fast_title": "Käänsit pääsi liian nopeasti"
+            },
+            "title": "Käännä päätäsi hitaasti molemmille puolille",
+            "title_completed": "Tallennus valmis"
+        },
+        "avc_intro": {
+            "button_primary_ready": "Aloita tallennus",
+            "disclaimer": "Kasvosi ja taustasi tallennetaan tämän prosessin aikana",
+            "disclaimer_camera_and_audio_on": "Kasvosi, taustasi ja ääni tallennetaan tämän prosessin aikana",
+            "list_item_one": "Aseta ensin kasvosi kehykseen",
+            "list_item_two": "Käännä sitten päätäsi hitaasti molemmille puolille",
+            "subtitle": "Näin vahvistetaan, että olet todellinen henkilö",
+            "title": "Tallenna video",
+            "title_accessibility": "tallentaaksesi videon kasvoistasi",
+            "video_accessibility": "Esimerkkivideo, jossa joku kääntää päätään molemmille puolille, kunnes on valmis"
+        },
+        "avc_no_face_detected": {
+            "button_primary_restart": "Aloita tallennus uud.",
+            "list_item_eyes": "Varmista, että silmäsi näkyvät selvästi",
+            "list_item_face": "Varmista, että näytät vain kasvosi, meidän ei tarvitse nähdä ID:täsi",
+            "list_item_lighting": "Varmista, että olet paikassa, jossa on hyvä valaistus",
+            "list_item_mask": "Varmista, että poistat kasvosi peittävät maskit tai muut esineet. Silmälasit ovat ok",
+            "title": "Emme havaitse kasvojasi"
+        },
+        "avc_uploading": {
+            "title": "Ladataan"
+        },
+        "country_select": {
+            "alert": {
+                "another_doc": "Tämän maan asiakirjoja ei tueta tällä hetkellä, <fallback>kokeile toista asiakirjatyyppiä<\/fallback>"
+            },
+            "alert_dropdown": {
+                "country_not_found": "Maata ei löydy"
+            },
+            "button_primary": "Lähetä asiakirja",
+            "poa_alert": {
+                "country_not_found": "Pahoittelut siitä. Pyrimme tukemaan uusia maita.",
+                "intro": "Etkö löydä maatasi?"
+            },
+            "search": {
+                "accessibility": "Valitse maa",
+                "input_placeholder": "esim. Yhdysvallat",
+                "label": "Hae maata"
+            },
+            "title": "Valitse myöntämismaa"
+        },
+        "cross_device": {
+            "button_primary_upload": "Jatka"
+        },
+        "cross_device_abort": {
+            "title": "Tunnistautuminen peruutettu"
+        },
+        "cross_device_checklist": {
+            "button_primary": "Lähetä vahvistus",
+            "info": "Vinkit",
+            "list_item_doc_multiple": "Asiakirjat",
+            "list_item_doc_one": "Asiakirja",
+            "list_item_poa": "Asuinpaikkatodistus",
+            "list_item_selfie": "Selfie",
+            "list_item_video": "Video",
+            "subtitle": "Tässä kaikki lataamasi:",
+            "title": "Vielä viimeinen vaihe"
+        },
+        "cross_device_error_desktop": {
+            "subtitle": "Linkki toimii vain mobiililaitteilla",
+            "title": "Jokin meni vikaan"
+        },
+        "cross_device_error_mobile": {
+            "subtitle": "Voit yrittää vahvistaa henkilöllisyytesi uudelleen alkuperäisellä laitteella.",
+            "title": "Tuo numero ei täsmää"
+        },
+        "cross_device_error_restart": {
+            "subtitle": "Sinun on aloitettava vahvistus uudelleen tietokoneellasi",
+            "title": "Jokin meni vikaan"
+        },
+        "cross_device_intro": {
+            "button_primary": "Hanki suojattu linkki",
+            "list_accessibility": "Vaadittavat vaiheet vahvistuksen jatkamiseksi matkapuhelimellasi",
+            "list_item_finish": "Palaa tänne viimeistelläksesi lähetyksen",
+            "list_item_open_link": "Avaa linkki ja suorita tehtävät",
+            "list_item_send_phone": "Lähetä suojattu linkki puhelimeesi",
+            "subtitle": "Tee se näin:",
+            "subtitle_upload": "Lataa uusi valokuva alkuperäisestä asiakirjastasi",
+            "title": "Jatka puhelimellasi"
+        },
+        "cross_device_number_match_desktop": {
+            "instruction": "Napauta numeroa matkapuhelimellasi varmistaaksesi, että se olet sinä.",
+            "subtitle": "Onfido haluaa varmistaa, että se olet todella sinä, joka yrität vahvistaa henkilöllisyytesi, jotta tietosi pysyvät turvassa",
+            "title": "Yhdistetty matkapuhelimeesi"
+        },
+        "cross_device_number_match_error_desktop": {
+            "button_primary": "Yritä uud.",
+            "subtitle": "Palaa takaisin ja yritä uudelleen.",
+            "title": "Tuo numero ei täsmää"
+        },
+        "cross_device_number_match_mobile": {
+            "abort_button": "Se ei ole minä",
+            "subtitle": "Napauta numeroa, joka näkyy toisella laitteellasi. Haluamme varmistaa, että se olet todella sinä.",
+            "title": "Sovita numero"
+        },
+        "cross_device_return": {
+            "body": "Tietokoneesi päivitys voi kestää muutaman sekunnin",
+            "subtitle": "Voit nyt palata tietokoneellesi jatkaaksesi",
+            "title": "Lataukset onnistuivat"
+        },
+        "cross_device_session_linked": {
+            "button_primary": "Jatka",
+            "info": "Tarkista uudelleen",
+            "list_item_desktop_open": "Työpöytäikkunasi pysyy auki",
+            "list_item_sent_by_you": "Tämä linkki on sinun lähettämäsi. Kysy neuvoa, jos uskot, että se voisi olla huijaus",
+            "subtitle": "Jatka vahvistusta",
+            "title": "Tietokoneeseesi yhdistetty matkapuhelinistunto"
+        },
+        "doc_auto_capture": {
+            "button_accessibility": "Ota kuva",
+            "footer": {
+                "captured": "Kuva otettu",
+                "capturing": "Kuvaa otetaan",
+                "manual_fallback_generic_document_back": "Ota kuva asiakirjasi takapuolesta",
+                "manual_fallback_generic_document_front": "Ota kuva asiakirjasi etupuolesta",
+                "manual_fallback_identity_card_back": "Ota kuva korttisi takaosasta",
+                "manual_fallback_identity_card_front": "Ota kuva korttisi etuosasta",
+                "manual_fallback_license_back": "Ota kuva ajokorttisi takaosasta",
+                "manual_fallback_license_front": "Ota kuva ajokorttisi etuosasta",
+                "manual_fallback_passport": "Ota kuva passisi valokuvasivusta",
+                "manual_fallback_residence_permit_back": "Ota kuva oleskelulupasi takaosasta",
+                "manual_fallback_residence_permit_front": "Ota kuva oleskelulupasi etupuolesta",
+                "position_generic_document_back": "Aseta asiakirjasi takaosa kehykseen",
+                "position_generic_document_front": "",
+                "position_identity_card_back": "Aseta korttisi takaosa kehykseen",
+                "position_identity_card_front": "Aseta korttisi etuosa kehykseen",
+                "position_license_back": "Aseta ajokorttisi takaosa kehykseen",
+                "position_license_front": "Aseta ajokorttisi etuosa kehykseen",
+                "position_passport": "Aseta passisi valokuvasivu kehykseen",
+                "position_residence_permit_back": "Aseta oleskelulupasi takaosa kehykseen",
+                "position_residence_permit_front": "Aseta oleskelulupasi etuosa kehykseen"
+            },
+            "frame": {
+                "flip_document": "Käännä takaosa esille",
+                "hold_still": "Pidä paikallaan",
+                "no_document": "Asiakirjaa ei havaittu"
+            }
+        },
+        "doc_capture": {
+            "alert": {
+                "no_barcode_detail": "Ole hyvin valaistussa paikassa ja tuo kortti lähemmäs kameraa",
+                "no_barcode_title": "Viivakoodia ei havaittu"
+            },
+            "button_primary": "Aloita asiakirjan skannaus",
+            "detail": {
+                "folded_doc_front": "Aseta asiakirjasi tasaisesti, sisällytä kaikki sisäsivut (täytyy sisältää kuvasi)"
+            },
+            "header": {
+                "recording_complete": "Tallennus valmis",
+                "recording_video": "Video tallennus"
+            },
+            "header_folded_doc_front": "Sivukuvapuoli",
+            "prompt": {
+                "button_card": "Muovikortti",
+                "button_paper": "Paperiasiakirja",
+                "title_id": "Millainen henkilökortti sinulla on?",
+                "title_license": "Millainen ajokortti sinulla on?"
+            }
+        },
+        "doc_confirmation": {
+            "alert": {
+                "blur_detail": "Varmista, että kaikki on selkeää",
+                "blur_title": "Epäselvä kuva havaittu",
+                "crop_detail": "Varmista, että koko asiakirja on näkyy",
+                "crop_title": "Rajattu kuva havaittu",
+                "glare_detail": "Siirry pois suorasta valosta",
+                "glare_title": "Häikäisyä havaittu",
+                "no_doc_detail": "Varmista, että se on kokonaan kehyksessä",
+                "no_doc_title": "Asiakirjaa ei havaittu",
+                "odp_detail": "Käytä alkuperäistä asiakirjaasi. Näytön valokuvia tai valokopioita ei hyväksytä",
+                "odp_photo_of_screen_title": "Näytön kuva havaittu",
+                "odp_photocopy_title": "Fotokopio havaittu",
+                "odp_scan_title": "Skannaus havaittu",
+                "odp_screenshot_title": "Näyttökuva havaittu"
+            },
+            "body": "Varmista, että olet ladannut asiakirjan koko sivun ja että tiedot ovat luettavissa selkeästi ilman epäselviä tai häikäiseviä kohtia",
+            "body_address_certificate": "Varmista, että olet ladannut koko dokumenttisivun, ja tiedot ovat selkeästi luettavissa ilman suttuisuutta tai häikäisyä",
+            "body_bank_statement": "Varmista, että olet ladannut asiakirjan koko sivun ja että tiedot ovat luettavissa selkeästi ilman epäselviä tai häikäiseviä kohtia",
+            "body_benefits_letter": "Varmista, että olet ladannut asiakirjan koko sivun ja että tiedot ovat luettavissa selkeästi ilman epäselviä tai häikäiseviä kohtia",
+            "body_bill": "Varmista, että olet ladannut asiakirjan koko sivun ja että tiedot ovat luettavissa selkeästi ilman epäselviä tai häikäiseviä kohtia",
+            "body_exchange_house_statement": "Varmista, että olet ladannut koko dokumenttisivun, ja tiedot ovat selkeästi luettavissa ilman suttuisuutta tai häikäisyä",
+            "body_general_letter": "Varmista, että olet ladannut koko dokumenttisivun, ja tiedot ovat selkeästi luettavissa ilman suttuisuutta tai häikäisyä",
+            "body_generic_document": "Varmista, että tietosi ovat selkeät ja että ne näkyvät kunnolla",
+            "body_id": "Varmista, että tietosi ovat selkeät ja että ne näkyvät kunnolla",
+            "body_identity_document_with_address": "Varmista, että olet ladannut koko dokumenttisivun, ja tiedot ovat selkeästi luettavissa ilman suttuisuutta tai häikäisyä",
+            "body_image_medium": "Vahvistuksesi kestää kauemmin, jos emme voi lukea sitä",
+            "body_image_poor": "Tarvitsemme paremman kuvan vahvistaaksemme sinut sujuvasti",
+            "body_insurance_statement": "Varmista, että olet ladannut koko dokumenttisivun, ja tiedot ovat selkeästi luettavissa ilman suttuisuutta tai häikäisyä",
+            "body_license": "Varmista, että tietosi ovat selkeät ja että ne näkyvät kunnolla",
+            "body_mobile_phone_bill": "Varmista, että olet ladannut koko dokumenttisivun, ja tiedot ovat selkeästi luettavissa ilman suttuisuutta tai häikäisyä",
+            "body_mortgage_statement": "Varmista, että olet ladannut koko dokumenttisivun, ja tiedot ovat selkeästi luettavissa ilman suttuisuutta tai häikäisyä",
+            "body_passport": "Varmista, että tietosi ovat selkeät ja että ne näkyvät kunnolla",
+            "body_pension_property_statement_letter": "Varmista, että olet ladannut koko asiakirjasivun, ja tiedot ovat selkeästi luettavissa ilman suttuisuutta tai heijastusta",
+            "body_permit": "Varmista, että tietosi ovat selkeät ja että ne näkyvät kunnolla",
+            "body_tax_letter": "Varmista, että olet ladannut asiakirjan koko sivun ja että tiedot ovat luettavissa selkeästi ilman epäselviä tai häikäiseviä kohtia",
+            "button_close": "Sulje",
+            "button_primary_redo": "Uusi",
+            "button_primary_upload": "Lataa",
+            "button_primary_upload_anyway": "Lataa silti",
+            "button_secondary_change_document": "Valitse toinen asiakirja",
+            "button_secondary_redo": "Uusi",
+            "button_secondary_submit_anyway": "Lähetä kuva joka tapauksessa",
+            "button_zoom": "Suurenna kuvaa",
+            "image_accessibility": "Valokuva asiakirjastasi",
+            "title": "Tarkista kuvasi"
+        },
+        "doc_multi_frame_capture": {
+            "capture_progress_title": "Asiakirjaa skannataan",
+            "instructions_title_back": "Aseta asiakirjasi takaosa kehykseen",
+            "instructions_title_front": "Aseta asiakirjasi etuosa kehykseen"
+        },
+        "doc_select": {
+            "accommodation_tenancy_certificate_detail": "Myönnetty hallituksen viranomaisen tai yrityksen vuokranantajan toimesta vuokravahvistuksena.",
+            "button_address_card": "Osoitekortti",
+            "button_address_card_back": "Osoitekortti (takapuoli)",
+            "button_address_card_detail": "Tilapäiset ja pysyvät kortit hyväksytään",
+            "button_address_card_front": "Osoitekortti (etuosa)",
+            "button_bank_statement": "Pankin tai asuntolainarahaston tiliote",
+            "button_bank_statement_non_uk": "Tiliote",
+            "button_benefits_letter": "Etuuskirje",
+            "button_benefits_letter_detail": "Valtion myöntämät kotitalousetuudet, esim. työttömyyspäiväraha, asumistuki, verohyvitykset",
+            "button_bill": "Energialasku",
+            "button_bill_detail": "Kaasu, sähkö, vesi, kiinteä verkko tai laajakaista",
+            "button_exchange_house_statement": "Vaihtotalon lausunto",
+            "button_exchange_house_statement_detail": "Lähettäjän lausunto siirrosta tai rahansiirrosta",
+            "button_general_letter": "Yleiskirje",
+            "button_general_letter_detail": "Kirje rahoituslaitokselta tai palveluyritykseltä",
+            "button_government_letter": "Virallinen kirje",
+            "button_government_letter_detail": "Mikä tahansa virallinen kirje, esim. etuuskirje, äänestyskirje, verokirje",
+            "button_id": "Henkilökortti",
+            "button_id_detail": "Etu- ja takaosa",
+            "button_identity_document_with_address": "Osoitetiedot sisältävä henkilöllisyysasiakirja",
+            "button_identity_document_with_address_back": "Osoitetiedot sisältävä henkilöllisyysasiakirja (takapuoli)",
+            "button_identity_document_with_address_detail": "Myöntänyt hallintoviranomainen",
+            "button_identity_document_with_address_front": "Osoitetiedot sisältävä henkilöllisyysasiakirja (etuosa)",
+            "button_insurance_statement": "Vakuutustodistus",
+            "button_insurance_statement_detail": "Myönnetty yksityisestä vakuutus- tai välitysyrityksestä",
+            "button_license": "Ajokortti",
+            "button_license_detail": "Etu- ja takaosa",
+            "button_mobile_phone_bill": "Mobiilipuhelimen lasku",
+            "button_mobile_phone_bill_detail": "Myönnetty matkapuhelinverkon tarjoajalta",
+            "button_mortgage_statement": "Asuntolainan tiliote",
+            "button_mortgage_statement_detail": "Myönnetty rahoituslaitokselta",
+            "button_passport": "Passi",
+            "button_passport_detail": "Valokuvasivu",
+            "button_pension_property_statement_letter": "Eläke- tai omaisuustodistus\/-kirje",
+            "button_pension_property_statement_letter_detail": "Eläketodistus tai -kirje ja kiinteistöverotodistus tai -kirje",
+            "button_permit": "Oleskelulupa",
+            "button_permit_detail": "Etu- ja takaosa",
+            "button_tax_letter": "Paikallishallinnon verokirje",
+            "extra_estatements_ok": "hyväksytyt sähköiset tiliotteet",
+            "list_accessibility": "Asiakirjat, joilla voit vahvistaa henkilöllisyytesi",
+            "pill": "nopein",
+            "section": {
+                "header_country": "Myöntämismaa",
+                "header_doc_type": "Hyväksytyt asiakirjat",
+                "input_country_not_found": "Ei tuloksia",
+                "input_placeholder_country": "Valitse myöntämismaa"
+            },
+            "subtitle": "Sen on oltava virallinen kuvallinen henkilökortti",
+            "subtitle_country": "Valitse asiakirjan myöntämismaa nähdäksesi, mitkä asiakirjat hyväksymme",
+            "subtitle_entire_page": "Koko sivu",
+            "subtitle_front_back": "Etu- ja takaosa",
+            "subtitle_photo_page": "Valokuvasivu",
+            "subtitle_poa": "Nämä asiakirjat näyttävät todennäköisimmin nykyisen kotiosoitteesi",
+            "title": "Valitse asiakirjasi",
+            "title_poa": "Valitse asiakirja"
+        },
+        "doc_submit": {
+            "button_link_upload": "tai lataa valokuva – ei skannauksia tai valokopioita",
+            "button_primary": "Jatka puhelimella",
+            "subtitle": "Ota valokuva puhelimellasi",
+            "title_accommodation_tenancy_certificate": "Jätä majoitus- tai vuokrasopimustodistus",
+            "title_address_certificate": "Lähetä osoitekortti",
+            "title_address_certificate_back": "Lähetä osoitekortti (takapuoli)",
+            "title_address_certificate_front": "Lähetä osoitekortti (etuosa)",
+            "title_bank_statement": "Lähetä tiliote",
+            "title_benefits_letter": "Lähetä kirje",
+            "title_bill": "Lähetä lasku",
+            "title_exchange_house_statement": "Lähetä valuutanvaihtotoimiston lausunto",
+            "title_general_letter": "Lähetä yleiskirje",
+            "title_generic_document_back": "Lähetä asiakirja (takapuoli)",
+            "title_generic_document_front": "Lähetä asiakirja (etupuoli)",
+            "title_government_letter": "Virallinen kirje",
+            "title_id_back": "Lähetä henkilökortti (takaosa)",
+            "title_id_front": "Lähetä henkilökortti (etuosa)",
+            "title_identity_document_with_address": "Lähetä henkilöllisyysasiakirja osoitteen kanssa",
+            "title_identity_document_with_address_back": "Lähetä henkilöllisyysasiakirja osoitteella (takaisin)",
+            "title_identity_document_with_address_front": "Lähetä henkilöllisyysasiakirja osoitteella (etu)",
+            "title_insurance_statement": "Lähetä vakuutusilmoitus",
+            "title_license_back": "Lähetä ajokortti (takaosa)",
+            "title_license_front": "Lähetä ajokortti (etuosa)",
+            "title_mobile_phone_bill": "Lähetä matkapuhelinlasku",
+            "title_mortgage_statement": "Lähetä asuntolainan tilausote",
+            "title_passport": "Lähetä passin valokuvasivu",
+            "title_pension_property_statement_letter": "Lähetä lausunto tai kirje",
+            "title_permit_back": "Lähetä oleskelulupa (takaosa)",
+            "title_permit_front": "Lähetä oleskelulupa (etuosa)",
+            "title_tax_letter": "Jätä paikallishallinnon verokirje"
+        },
+        "doc_video_capture": {
+            "button_primary_fallback": "Seuraava vaihe",
+            "button_primary_fallback_end": "Viimeistele tallennus",
+            "detail_step2": "Pidä asiakirja aina kokonaan näkyvissä",
+            "header": "Kun pidät asiakirjaasi kädessäsi, pidä etupuoli kehyksen sisällä",
+            "header_paper_doc_step2": "Käännä asiakirjasi hitaasti ympäri näyttääksesi uloimmat sivut",
+            "header_passport": "Kun pitelet passiasi, pidä valokuvasivu kehyksen sisällä",
+            "header_passport_progress": "Pidä paikallaan",
+            "header_step1": "Nyt pysy paikoillasi",
+            "header_step2": "Käännä asiakirjasi hitaasti ympäri näyttääksesi takaosan",
+            "prompt": {
+                "detail_timeout": "Videon tallennus on rajoitettu ​<timeout>​​<\/timeout>​ sekuntiin. ​<fallback>​Aloita uudelleen​<\/fallback>​"
+            },
+            "stepper": "Vaihe ​<step>​​<\/step>​\/​<total>​​<\/total>​",
+            "success_accessibility": "Onnistui"
+        },
+        "doc_video_confirmation": {
+            "button_secondary": "Esikatsele videota",
+            "title": "Tarkista videosi"
+        },
+        "error_unsupported_browser": {
+            "subtitle_android": "Aloita prosessi uudelleen Google Chromen uusimmalla versiolla",
+            "subtitle_ios": "Aloita prosessi uudelleen Safarin uusimmalla versiolla",
+            "title_android": "Selainta ei tueta",
+            "title_ios": "Selainta ei tueta"
+        },
+        "generic": {
+            "accessibility": {
+                "close_sdk_screen": "Sulje henkilöllisyyden vahvistusnäyttö",
+                "dismiss_alert": "Hylkää hälytys"
+            },
+            "back": "edell",
+            "close": "sulje",
+            "errors": {
+                "desktop": {
+                    "subtitle": "Tämä linkki toimii vain mobiililaitteissa. Yritä uudelleen avaamalla linkki mobiililaitteessa.",
+                    "title": "Linkin avaaminen ei onnistu"
+                },
+                "expired_token": {
+                    "instruction": "Yritä uudelleen",
+                    "message": "Tunnuksesi on vanhentunut",
+                    "subtitle": "Tässä vahvistusprosessissa annettu SDK-token on vanhentunut. Ole hyvä ja mene takaisin ja yritä uudelleen.",
+                    "title": "Istuntosi on vanhentunut"
+                },
+                "expired_trial": {
+                    "instruction": "Olet saavuttanut kokeilujakson rajoitukset",
+                    "message": "Kokeilujaksosi on päättynyt",
+                    "subtitle": "Olet saavuttanut sallitun todentamisten enimmäismäärän.",
+                    "title": "Kokeilujaksosi on päättynyt"
+                },
+                "geoblocked_error": {
+                    "instruction": "Valitettavasti näyttää siltä, että emme voi jatkaa, koska nykyistä sijaintiasi ei tueta",
+                    "message": "Palvelu ei saatavilla"
+                },
+                "geoblocker_request": {
+                    "subtitle": "Valitettavasti emme voi jatkaa tunnistautumistasi, koska nykyinen sijaintisi ei ole tuettu.",
+                    "title": "Palvelu ei ole käytettävissä"
+                },
+                "interrupted_flow_error": {
+                    "instruction": "Aloita prosessi uudelleen toisella laitteella",
+                    "message": "Kameraa ei havaittu"
+                },
+                "invalid_size": {
+                    "instruction": "Täytyy olla alle 10 Mt.",
+                    "message": "Tiedostokoko ylitetty."
+                },
+                "invalid_type": {
+                    "instruction": "Kokeile toista tiedostotyyppiä.",
+                    "message": "Tiedostoa ei ole ladattu."
+                },
+                "lazy_loading": {
+                    "message": "Komponenttia ladattaessa tapahtui virhe"
+                },
+                "multiple_faces": {
+                    "instruction": "Vain sinun kasvosi voivat olla selfiessä",
+                    "message": "Useita kasvoja löytyi"
+                },
+                "no_camera": {
+                    "subtitle": "Emme pysty havaitsemaan kameraa tässä laitteessa. Varmista, että kamera on kytketty ja tarvittavat luvat on myönnetty.",
+                    "title": "Kameraa ei löydy"
+                },
+                "no_face": {
+                    "instruction": "Varmista, että kasvosi näkyvät",
+                    "message": "Kasvoja ei havaittu"
+                },
+                "request_error": {
+                    "instruction": "Yritä uudelleen",
+                    "message": "Jokin meni vikaan"
+                },
+                "restart_cross-device": {
+                    "subtitle": "Sinun on käynnistettävä tunnistautumisesi uudelleen tietokoneellasi. Palaa takaisin tunnistautumisnäyttöön ja yritä uudelleen.",
+                    "title": "Jokin meni pieleen"
+                },
+                "sms_failed": {
+                    "instruction": "Kopioi linkki puhelimeesi",
+                    "message": "Jokin meni vikaan"
+                },
+                "sms_overuse": {
+                    "instruction": "Kopioi linkki puhelimeesi",
+                    "message": "Liian monta epäonnistunutta yritystä"
+                },
+                "unsupported_browser": {
+                    "subtitle": "Ole hyvä ja käynnistä prosessi uudelleen kokeilemalla toista selainta.",
+                    "title": "Tukea ei ole saatavilla selaimelle"
+                },
+                "unsupported_file": {
+                    "instruction": "Kokeile JPG- tai PNG-tiedostoa",
+                    "message": "Tiedostotyyppiä ei tueta"
+                },
+                "unsupported_sdk_version": {
+                    "subtitle": "SDK-versio ei ole yhteensopiva määritetyn työnkulun kanssa. Tarkista aktiivisen työnkulun vähimmäis-SDK-vaatimukset.",
+                    "title": "Yhteensopimaton versio"
+                },
+                "user_consent_denied": {
+                    "subtitle": "Valitettavasti emme voi varmistaa henkilöllisyyttäsi ilman suostumustasi. \\nJos haluat jatkaa henkilöllisyytesi varmistamista, mene takaisin ja anna suostumuksesi.",
+                    "title": "Suostumus evätty"
+                }
+            },
+            "lazy_load_placeholder": "Ladataan...",
+            "loading": "Ladataan"
+        },
+        "get_link": {
+            "alert_wrong_number": "Tarkista, että numerosi on oikea",
+            "button_copied": "Kopioitu",
+            "button_copy": "Kopioi",
+            "button_submit": "Lähetä linkki",
+            "info_qr_how": "Näin skannaat QR-koodin",
+            "info_qr_how_list_item_camera": "Suuntaa puhelimesi kamera QR-koodiin",
+            "info_qr_how_list_item_download": "Jos se ei toimi, lataa QR-koodinlukija Google Play -kaupasta tai App Storesta",
+            "link_divider": "tai valitse vaihtoehtoinen menetelmä",
+            "link_qr": "Skannaa QR-koodi",
+            "link_sms": "Valitse tekstiviesti",
+            "link_url": "Kopioi linkki",
+            "loader_sending": "Lähetetään",
+            "number_field_input_placeholder": "Syötä matkapuhelinnumero",
+            "number_field_label": "Syötä matkapuhelinnumerosi:",
+            "subtitle_qr": "Skannaa QR-koodi puhelimellasi",
+            "subtitle_sms": "Lähetä tämä kertakäyttöinen linkki puhelimeesi",
+            "subtitle_url": "Lähetä tämä kertakäyttöinen linkki puhelimeesi",
+            "title": "Hanki suojattu linkkisi",
+            "url_field_label": "Kopioi linkki mobiiliselaimeesi"
+        },
+        "ial2_nist": {
+            "option": {
+                "goverment_issued_photo_id": "Toinen hallituksen myöntämä kuvallinen henkilötodistus",
+                "ssn": "Sosiaaliturvatunnus (SSN)"
+            },
+            "subtitle": "Tarvitsemme lisätietoa henkilöllisyytesi vahvistamiseksi. Valitse alla olevista vaihtoehdoista."
+        },
+        "interactive_task": {
+            "waiting": {
+                "title_5": "Ladataan mediaa..."
+            }
+        },
+        "livenessV2": {
+            "error_reload_instructions": "Lataa ohjeet uudelleen",
+            "intro_note_no1": "Aseta ensin kasvosi kehykseen",
+            "intro_note_no2": "Käännä sitten päätäsi hitaasti molemmille puolille",
+            "intro_ready_button": "Muistathan, että tallennamme kasvosi ja taustasi",
+            "intro_subtitle": "Näin vahvistetaan, että olet todellinen henkilö",
+            "intro_warning": "Muistathan, että tallennamme kasvosi ja taustasi",
+            "success_main_button": "Lähetä vahvistus",
+            "success_title": "Emme tarvitse muuta henkilöllisyytesi vahvistuksen aloittamiseen"
+        },
+        "mobilePhrases": {
+            "photo_upload": {
+                "body_id_back": "Ota kuva korttisi takaosasta",
+                "body_id_front": "Ota kuva korttisi etuosasta",
+                "body_license_back": "Ota kuva ajokorttisi takaosasta",
+                "body_license_front": "Ota kuva ajokorttisi etuosasta",
+                "body_passport": "Ota kuva passisi valokuvasivusta",
+                "body_selfie": "Ota selfie, jossa näkyvät kasvosi"
+            },
+            "selfie_capture": {
+                "alert": {
+                    "camera_inactive": {
+                        "detail": "Ota kuva sen sijaan <fallback>kameran perustilassa<\/fallback>"
+                    },
+                    "camera_not_working": {
+                        "detail": "Ota kuva sen sijaan <fallback>kameran perustilassa<\/fallback>"
+                    }
+                }
+            },
+            "upload_guide": {
+                "button_primary": "Ota kuva",
+                "title": "Passin valokuvasivu"
+            }
+        },
+        "nfc_scan": {
+            "sheet": {
+                "success": "Skannaus onnistui"
+            }
+        },
+        "nfc_scan_error_can": {
+            "primary_button": "Poistumisvarmennus",
+            "subtitle": "Olet yrittänyt syöttää CAN-numeroasi maksimimäärän kertoja"
+        },
+        "nfc_scan_error_can:title": "Maksimiyritysmäärä saavutettu",
+        "otp": {
+            "code_input": {
+                "error": {
+                    "code_expired": "Koodisi on vanhentunut, pyydä uutta.",
+                    "code_invalid": "Väärä koodi syötetty, yritä uudelleen.",
+                    "no_international_code": "Syötteen on oltava kansainvälisessä muodossa",
+                    "technical": "Tekninen virhe on tapahtunut, yritä myöhemmin uudelleen",
+                    "too_many_attempts": "Olet yrittänyt tätä koodia liian monta kertaa, pyydä uusi.",
+                    "wrong_code": "Väärä koodi syötetty, yritä uudelleen"
+                },
+                "intro": "Sinulla on 5 minuuttia aikaa vahvistaa tekstiviestitse lähetetty koodi numeroon <phonenumber><\/phonenumber>",
+                "resend": {
+                    "cta": "Pyydä uusi koodi",
+                    "cta_timeout": "Pyydä uusi koodi (<timeout><\/timeout> sekuntia)",
+                    "label": "Lähetetty koodi",
+                    "tracker": "<remaining><\/remaining> jäljellä <limit><\/limit>"
+                },
+                "title": "Kertakäyttöinen salasana"
+            },
+            "error": {
+                "cta": "Palaa takaisin",
+                "subtitle": "Odota muutama sekunti ja yritä uudelleen",
+                "title": "Jotain meni pieleen"
+            },
+            "failure": {
+                "cta": "Jatka",
+                "subtitle": "Emme voi enää varmistaa puhelinnumeroasi",
+                "title": "Sallitut yritykset ylittyneet"
+            },
+            "send_code": {
+                "cta": "Lähetä koodi",
+                "error": {
+                    "invalid_phone_number": "Anna voimassa oleva puhelinnumero.",
+                    "limit": "Olet saavuttanut lähetettyjen tekstiviestien rajan",
+                    "technical": "Tekninen virhe on tapahtunut, yritä myöhemmin uudelleen"
+                },
+                "input_label": "Puhelinnumero",
+                "intro": "Vahvistaaksesi puhelinnumerosi pyydämme sinua syöttämään kertakäyttöisen salasanan.",
+                "title": "Kertakäyttöinen salasana"
+            }
+        },
+        "outro": {
+            "body": "Emme tarvitse muuta henkilöllisyytesi vahvistuksen aloittamiseen",
+            "body_government_letter": "Toimita asiakirjan koko sivu parhaan tuloksen saamiseksi",
+            "title": "Kiitos"
+        },
+        "permission": {
+            "body_both": "Emme voi vahvistaa sinua käyttämättä sekä kameraasi että mikrofoniasi",
+            "body_cam": "Emme voi vahvistaa sinua ilman kameraasi",
+            "body_mic": "Emme voi vahvistaa sinua käyttämättä mikrofoniasi",
+            "button_primary_both": "Ota molemm. käytt.",
+            "button_primary_cam": "Ota kamera käyttöön",
+            "button_primary_mic": "Ota mikrofoni käyttöön",
+            "subtitle_both": "Kun sinua pyydetään, sinun on sallittava molempien käyttö jatkaaksesi",
+            "subtitle_cam": "Kun sinua pyydetään, sinun on sallittava kameran käyttö jatkaaksesi",
+            "subtitle_mic": "Kun sinua pyydetään, sinun on sallittava mikrofonin käyttö jatkaaksesi",
+            "title_both": "Salli kameran ja mikrofonin käyttö",
+            "title_cam": "Salli kameran käyttö",
+            "title_mic": "Salli mikrofonin käyttö"
+        },
+        "permission_recovery": {
+            "android": {
+                "browser_settings": {
+                    "title": "Ratkaisu 1: Selaimen asetukset"
+                },
+                "device_settings": {
+                    "list_item_1": "Avaa <strong>Asetukset<\/strong> -sovellus laitteellasi",
+                    "list_item_2": "Napauta <strong>Sovellukset<\/strong>",
+                    "list_item_3": "Napauta <browser_icon><\/browser_icon>. Jos et löydä sitä, napauta <strong>Näytä kaikki sovellukset<\/strong> tai <strong>Hallitse sovelluksia<\/strong> ja valitse selainsovelluksesi",
+                    "list_item_4": "Napauta <strong>Oikeudet<\/strong>",
+                    "list_item_5_cam": "Napauta <strong>Kameraa<\/strong> ja valitse <strong>Salli<\/strong>",
+                    "list_item_5_mic": "Napauta <strong>Mikrofoni<\/strong> ja valitse <strong>Salli<\/strong>",
+                    "list_item_6": "Palaa tälle sivulle ja napauta <strong>Päivitä sivu<\/strong> -painiketta",
+                    "title": "Ratkaisu 2: Laitteen asetukset"
+                },
+                "refresh_page": {
+                    "list_item_1_both": "Napauta <strong>Päivitä sivu<\/strong> -painiketta. Sinua pyydetään sallimaan kamera- ja mikrofonikäyttö uudelleen. Kun ponnahdusikkuna tulee näkyviin, valitse <strong>Salli<\/strong> (tai <strong>OK<\/strong>)",
+                    "list_item_1_cam": "Napauta <strong>Päivitä sivu<\/strong> -painiketta. Sinua pyydetään sallimaan kameran käyttö uudelleen. Kun ponnahdusikkuna tulee näkyviin, valitse <strong>Salli<\/strong> (tai <strong>OK<\/strong>)",
+                    "list_item_1_mic": "Napauta <strong>Päivitä sivu<\/strong> -painiketta. Sinua pyydetään sallimaan mikrofonin käyttö uudelleen. Kun ponnahdusikkuna tulee näkyviin, valitse <strong>Salli<\/strong> (tai <strong>OK<\/strong>)"
+                }
+            },
+            "android_chrome": {
+                "browser_settings": {
+                    "list_item_1": "Valitse asetukset-kuvake <settings_icon_chrome><\/settings_icon_chrome> selaimen osoiteriviltä",
+                    "list_item_2": "Napauta <strong>Oikeudet<\/strong>",
+                    "list_item_3_cam": "Ota käyttöön vipu <strong>Kamera<\/strong> vieressä",
+                    "list_item_3_mic": "Ota käyttöön vipu vieressä <strong>Mikrofoni<\/strong>",
+                    "list_item_4": "Palaa tälle sivulle ja napauta <strong>Päivitä sivu<\/strong> -painiketta"
+                }
+            },
+            "android_firefox": {
+                "browser_settings": {
+                    "list_item_1": "Valitse lukkokuvake <lock_icon><\/lock_icon> osoiteriviltä selaimessasi",
+                    "list_item_2_cam": "Napauta <strong>Estetty<\/strong> vieressä <strong>Kamera<\/strong> vaihtaaksesi <strong>Sallittu<\/strong>",
+                    "list_item_2_mic": "Napauta <strong>Estetty<\/strong> vieressä <strong>Mikrofoni<\/strong> vaihtaaksesi <strong>Sallittu<\/strong>",
+                    "list_item_3": "Palaa tälle sivulle ja napauta <strong>Päivitä sivu<\/strong> -painiketta",
+                    "title": "Ratkaisu 2: Selaimen asetukset"
+                },
+                "device_settings": {
+                    "title": "Ratkaisu 3: Laitteen asetukset"
+                },
+                "refresh_page": {
+                    "title": "Ratkaisu 1: Päivitä sivu"
+                }
+            },
+            "android_generic": {
+                "browser_settings": {
+                    "list_item_1": "Avaa selaimessasi verkkosivuston asetukset. Tämä on usein lukon kuvake <lock_icon><\/lock_icon> osoitepalkissa",
+                    "list_item_2": "Etsi osio oikeuksista",
+                    "list_item_3_cam": "Ota käyttöön <strong>Kamera<\/strong> -oikeudet",
+                    "list_item_3_mic": "Ota käyttöön <strong>Mikrofoni<\/strong> -oikeudet",
+                    "list_item_4": "Palaa tälle sivulle ja napauta <strong>Päivitä sivu<\/strong> -painiketta"
+                }
+            },
+            "android_samsung": {
+                "browser_settings": {
+                    "list_item_1": "Avaa selaimessasi lukitusikoni <lock_icon><\/lock_icon> osoiterivillä",
+                    "list_item_2_cam": "Ota käyttöön vipu vieressä <strong>Kamera<\/strong>",
+                    "list_item_2_mic": "Ota käyttöön vipu vieressä <strong>Mikrofoni<\/strong>",
+                    "list_item_3": "Palaa tälle sivulle ja napauta <strong>Päivitä sivu<\/strong> -painiketta"
+                }
+            },
+            "button_primary": "Päivitä",
+            "desktop": {
+                "browser_settings": {
+                    "title": "Ratkaisu 1: Selaimen asetukset"
+                },
+                "device_settings": {
+                    "title": "Ratkaisu 2: Laitteen asetukset"
+                }
+            },
+            "desktop_chrome": {
+                "browser_settings": {
+                    "list_item_1": "Valitse asetukset-kuvake <settings_icon_chrome><\/settings_icon_chrome> selaimen osoiteriviltä",
+                    "list_item_2_cam": "Ota käyttöön vipu vieressä <strong>Kamera<\/strong>",
+                    "list_item_2_mic": "Ota käyttöön vipu vieressä <strong>Mikrofoni<\/strong>",
+                    "list_item_3": "Palaa tälle sivulle ja napsauta <strong>Päivitä sivu<\/strong> -painiketta"
+                }
+            },
+            "desktop_edge": {
+                "browser_settings": {
+                    "list_item_1": "Napsauta lukkokuvaketta <lock_icon><\/lock_icon> osoiterivillä selaimessasi",
+                    "list_item_2_cam": "Napsauta pudotusvalikkoa kohdassa <strong>Kamera<\/strong> ja valitse <strong>Salli<\/strong>",
+                    "list_item_2_mic": "Napsauta pudotusvalikkoa kohdassa <strong>Mikrofoni<\/strong> ja valitse <strong>Salli<\/strong>",
+                    "list_item_3": "Palaa tälle sivulle ja napsauta <strong>Päivitä sivu<\/strong> -painiketta"
+                }
+            },
+            "desktop_firefox": {
+                "browser_settings": {
+                    "list_item_1": "Napsauta selaimessasi asetuskuvaketta <settings_icon_firefox><\/settings_icon_firefox> osoiterivillä",
+                    "list_item_2_cam": "Napsauta <strong>Estetty<\/strong> kohtaa <strong>Käytä kameraa<\/strong>",
+                    "list_item_2_mic": "Napsauta <strong>Estetty<\/strong> kohdassa <strong>Käytä mikrofonia<\/strong>",
+                    "list_item_3": "Palaa tälle sivulle ja napsauta <strong>Päivitä sivu<\/strong> -painiketta"
+                }
+            },
+            "desktop_generic": {
+                "browser_settings": {
+                    "list_item_1": "Avaa selaimessasi verkkosivuston asetukset. Tämä on usein lukon kuvake <lock_icon><\/lock_icon> osoitepalkissa",
+                    "list_item_2": "Etsi osio oikeuksista",
+                    "list_item_3_cam": "Ota käyttöön <strong>Kamera<\/strong> -oikeudet",
+                    "list_item_3_mic": "Ota käyttöön <strong>Mikrofoni<\/strong> -oikeudet",
+                    "list_item_4": "Palaa tälle sivulle ja napsauta <strong>Päivitä sivu<\/strong> -painiketta"
+                },
+                "device_settings": {
+                    "list_item_1": "Avaa <strong>Asetukset<\/strong> tietokoneellasi",
+                    "list_item_2": "Etsi osio, joka käsittelee oikeuksia (yleensä <strong>Yksityisyys<\/strong> -kohdassa)",
+                    "list_item_3_cam": "Ota käyttöön <strong>Kamera<\/strong> -oikeudet kohteelle <browser_icon><\/browser_icon>",
+                    "list_item_3_mic": "Ota käyttöön <strong>Mikrofoni<\/strong> -oikeudet kohteelle <browser_icon><\/browser_icon>",
+                    "list_item_4": "Käynnistä selain tarvittaessa uudelleen ja palaa tälle sivulle"
+                }
+            },
+            "desktop_mac": {
+                "device_settings": {
+                    "list_item_1": "Tietokoneellasi, napsauta Apple-valikkoa <apple_icon><\/apple_icon> ja valitse <strong>Järjestelmäasetukset<\/strong> (tai <strong>Järjestelmäasetukset<\/strong>)",
+                    "list_item_2": "Napsauta <strong>Yksityisyys & turvallisuus<\/strong> (tai <strong>Turvallisuus & yksityisyys<\/strong>) sivupalkissa",
+                    "list_item_3": "Napsauta <strong>Myöhemmin<\/strong> ponnahdusikkunassa",
+                    "list_item_3_cam": "Napsauta <strong>Kameraa<\/strong> ja aktivoi kytkin (tai valintaruutu) kohdassa <browser_icon><\/browser_icon>",
+                    "list_item_4": "Napsauta <strong>Lopeta ja avaa uudelleen<\/strong> -painiketta ponnahdusikkunassa ja palaa takaisin tälle sivulle",
+                    "list_item_4_mic": "Napsauta <strong>Mikrofoni<\/strong> ja aktivoi kytkin (tai valintaruutu) kohdassa <browser_icon><\/browser_icon>"
+                }
+            },
+            "desktop_safari": {
+                "browser_settings": {
+                    "list_item_1": "Osoitepalkissa selaimessasi, napsauta oikealla ja valitse <strong>Asetukset<\/strong>",
+                    "list_item_2_cam": "Napsauta pudotusvalikkoa kohdassa <strong>Kamera<\/strong> ja valitse <strong>Salli<\/strong>",
+                    "list_item_2_mic": "Napsauta pudotusvalikkoa kohdassa <strong>Mikrofoni<\/strong> ja valitse <strong>Salli<\/strong>",
+                    "list_item_3": "Palaa takaisin tälle sivulle ja napsauta <strong>Päivitä sivu<\/strong> -painiketta"
+                }
+            },
+            "desktop_windows": {
+                "device_settings": {
+                    "list_item_1": "Tietokoneellasi, napsauta Windows-valikkoa <windows_icon><\/windows_icon> ja valitse <strong>Asetukset<\/strong> <settings_icon_windows><\/settings_icon_windows>",
+                    "list_item_2": "Napsauta <strong>Yksityisyys<\/strong> (tai <strong>Yksityisyys & Turvallisuus<\/strong>)",
+                    "list_item_3_cam": "Napsauta <strong>Kameraa<\/strong> kohdassa <strong>Sovelluslupien<\/strong> alla ja aktivoi kytkin vieressä <browser_icon><\/browser_icon>",
+                    "list_item_3_mic": "Napsauta <strong>Mikrofoni<\/strong> kohdassa <strong>Sovelluksen oikeudet<\/strong> ja aktivoi kytkin vieressä <browser_icon><\/browser_icon>",
+                    "list_item_4": "Käynnistä selain tarvittaessa uudelleen ja palaa tälle sivulle"
+                }
+            },
+            "info": "Palautus",
+            "ios": {
+                "browser_settings": {
+                    "list_item_1_both": "Napauta <strong>Päivitä sivu<\/strong> -painiketta. Sinua pyydetään sallimaan kamera- ja mikrofonikäyttö uudelleen. Kun ponnahdusikkuna tulee näkyviin, valitse <strong>Salli<\/strong> (tai <strong>OK<\/strong>)",
+                    "list_item_1_cam": "Napauta <strong>Päivitä sivu<\/strong> -painiketta. Sinua pyydetään sallimaan kameran käyttö uudelleen. Kun ponnahdusikkuna tulee näkyviin, valitse <strong>Salli<\/strong> (tai <strong>OK<\/strong>)",
+                    "list_item_1_mic": "Napauta <strong>Päivitä sivu<\/strong> -painiketta. Sinua pyydetään sallimaan mikrofonin käyttö uudelleen. Kun ponnahdusikkuna tulee näkyviin, valitse <strong>Salli<\/strong> (tai <strong>OK<\/strong>)"
+                },
+                "device_settings": {
+                    "list_item_1": "Avaa <strong>Asetukset<\/strong> -sovellus laitteellasi",
+                    "list_item_2": "Vieritä luetteloa ja napauta <browser_icon><\/browser_icon>",
+                    "list_item_3_cam": "Ota käyttöön vipu <strong>Kamera<\/strong> -kohdan vieressä",
+                    "list_item_3_mic": "Ota käyttöön vipu vieressä <strong>Mikrofoni<\/strong>",
+                    "list_item_4": "Palaa tälle sivulle ja napauta <strong>Päivitä sivu<\/strong> -painiketta",
+                    "title": "Ratkaisu 2: Laitteen asetukset"
+                },
+                "refresh_page": {
+                    "title": "Ratkaisu 1: Päivitä sivu"
+                }
+            },
+            "ios_safari": {
+                "device_settings": {
+                    "list_item_1": "Avaa <strong>Asetukset<\/strong> -sovellus laitteellasi",
+                    "list_item_2": "Vieritä luetteloa ja napauta <browser_icon><\/browser_icon>",
+                    "list_item_3_cam": "Napauta <strong>Kameraa<\/strong> ja valitse <strong>Salli<\/strong>",
+                    "list_item_3_mic": "Napauta <strong>Mikrofoni<\/strong> ja valitse <strong>Salli<\/strong>",
+                    "list_item_4": "Palaa tälle sivulle ja napauta <strong>Päivitä sivu<\/strong> -painiketta"
+                }
+            },
+            "list_header_both": "Palauta molempien käyttöoikeudet näin:",
+            "list_header_cam": "Palauta kameran käyttöoikeus näin:",
+            "list_item_action_cam": "Päivitä tämä sivu aloittaaksesi henkilöllisyyden vahvistamisprosessin uudelleen",
+            "list_item_how_to_both": "Myönnä kamerasi ja mikrofonisi käyttöoikeus selainasetuksistasi",
+            "list_item_how_to_cam": "Myönnä kamerasi käyttöoikeus selainasetuksistasi",
+            "list_item_how_to_mic": "Myönnä mikrofonisi käyttöoikeus selainasetuksistasi",
+            "subtitle_both": "Tarvitsemme pääsyn kameraasi ja mikrofoniisi henkilöllisyytesi varmistamiseksi. Noudata alla olevia ohjeita pääsyn palauttamiseksi",
+            "subtitle_cam": "Tarvitsemme pääsyn kameraasi henkilöllisyytesi varmistamiseksi. Noudata alla olevia ohjeita pääsyn palauttamiseksi",
+            "subtitle_cam_old": "Palauta kameran käyttöoikeus jatkaaksesi kasvojen vahvistusta",
+            "subtitle_mic": "Tarvitsemme pääsyn mikrofoniisi henkilöllisyytesi varmistamiseksi. Noudata alla olevia ohjeita pääsyn palauttamiseksi",
+            "title_both": "Kameran ja mikrofonin käyttö estetty",
+            "title_cam": "Kameran käyttö on estetty",
+            "title_mic": "Mikrofonin käyttö estetty",
+            "web": {
+                "button_primary": "Päivitä sivu",
+                "disclaimer": "Henkilöllisyyden vahvistusprosessi saattaa käynnistyä uudelleen. Pahoittelemme mahdollista haittaa"
+            }
+        },
+        "photo_upload": {
+            "body_accommodation_tenancy_certificate": "Tarjoa koko asiakirjasivu parhaiden tulosten saamiseksi",
+            "body_address_certificate_back": "Lataa dokumentin takapuoli tietokoneeltasi",
+            "body_address_certificate_front": "Lataa dokumentin etupuoli tietokoneeltasi",
+            "body_bank_statement": "Toimita asiakirjan koko sivu parhaan tuloksen saamiseksi",
+            "body_benefits_letter": "Toimita asiakirjan koko sivu parhaan tuloksen saamiseksi",
+            "body_bill": "Toimita asiakirjan koko sivu parhaan tuloksen saamiseksi",
+            "body_exchange_house_statement": "Tarjoa koko asiakirjasivu parhaiden tulosten saamiseksi",
+            "body_general_letter": "Tarjoa koko asiakirjasivu parhaiden tulosten saamiseksi",
+            "body_generic_document_back": "Lataa asiakirjan takapuoli tietokoneeltasi",
+            "body_generic_document_front": "Lataa asiakirjan etupuoli tietokoneeltasi",
+            "body_id_back": "Lataa kortin takaosa tietokoneeltasi",
+            "body_id_front": "Lataa kortin etuosa tietokoneeltasi",
+            "body_identity_document_with_address": "Tarjoa koko asiakirjasivu parhaiden tulosten saamiseksi",
+            "body_identity_document_with_address_back": "Lataa dokumentin takapuoli tietokoneeltasi",
+            "body_identity_document_with_address_front": "Lataa dokumentin etupuoli tietokoneeltasi",
+            "body_insurance_statement": "Tarjoa koko asiakirjasivu parhaiden tulosten saamiseksi",
+            "body_license_back": "Lataa ajokortin takaosa tietokoneeltasi",
+            "body_license_front": "Lataa ajokortin etuosa tietokoneeltasi",
+            "body_mobile_phone_bill": "Tarjoa koko asiakirjasivu parhaiden tulosten saamiseksi",
+            "body_mortgage_statement": "Tarjoa koko asiakirjasivu parhaiden tulosten saamiseksi",
+            "body_passport": "Lataa passin valokuvasivu tietokoneeltasi",
+            "body_pension_property_statement_letter": "Tarjoa koko asiakirjasivu parhaiden tulosten saamiseksi",
+            "body_selfie": "Lataa selfie tietokoneeltasi",
+            "body_tax_letter": "Toimita asiakirjan koko sivu parhaan tuloksen saamiseksi",
+            "button_take_photo": "Ota valokuva",
+            "button_upload": "Lataa",
+            "title_selfie": "Selfie"
+        },
+        "poa_cancel": "Peruuta",
+        "poa_err_invalid_file": {
+            "message": "Valitse toinen tiedosto.",
+            "ok": "OK",
+            "title": "Virheell. tiedosto"
+        },
+        "poa_guidance": {
+            "button_primary": "Jatka",
+            "instructions": {
+                "address": "nykyinen osoite",
+                "full_name": "Koko nimi",
+                "issue_date": "myöntämispäivä tai käyttöjakso",
+                "label": "Ota kuva koko asiakirjasta ja varmista, että siinä näkyy selvästi:",
+                "logo": "Logo"
+            },
+            "instructions_address_card_issue_date": "Myöntämispäivä",
+            "instructions_expiry_date": "Viim. voimassaolopäivä (tarvittaessa)",
+            "instructions_full_address": "Koko osoite",
+            "subtitle_address_card": "On oltava voimassa oleva osoitekortti",
+            "subtitle_bank_statement": "On oltava ​​viimeisten 3 kuukauden​​ ajalta",
+            "subtitle_benefits_letter": "On oltava kirjoitettu ​​viimeisten 12 kuukauden​​ aikana",
+            "subtitle_bill": "On oltava tehty ​​viimeisten 3 kuukauden​​ aikana",
+            "subtitle_dynamic_empty_grace_period": "Täytyy olla voimassa oleva asiakirja",
+            "subtitle_dynamic_grace_period": "On oltava myönnetty viimeisten <graceperiod><\/graceperiod> kuukausien aikana",
+            "subtitle_tax_letter": "On oltava kirjoitettu ​​viimeisten 12 kuukauden​​ aikana"
+        },
+        "poa_intro": {
+            "button_primary": "Aloita vahvistus",
+            "list_matches_signup": "Vastaa rekisteröitymisessä käyttämääsi osoitetta",
+            "list_most_recent": "on ​​uusin​​ asiakirjasi",
+            "list_shows_address": "näyttää ​​nykyisen​​ osoitteesi",
+            "subtitle": "Tarvitset asiakirjan, joka:",
+            "title": "Vahvistetaan osoitteesi"
+        },
+        "poa_welcome_text": "Ota kuva asiakirjasta, jossa on osoitteesi",
+        "profile_data": {
+            "address_title": "Lisää osoitteesi",
+            "button_continue": "Jatka",
+            "components": {
+                "country_residence_select": {
+                    "placeholder": "Valitse maa"
+                },
+                "country_select": {
+                    "placeholder": "Valitse maa"
+                },
+                "id_type_select": {
+                    "aus_specific": {
+                        "other": "Ulkomaalainen passi"
+                    },
+                    "bra_specific": {
+                        "other": "CNPJ",
+                        "tax_id": "CPF"
+                    },
+                    "driving_license": "Ajokortti",
+                    "esp_specific": {
+                        "identity_card": "NIF\/DNI"
+                    },
+                    "gha_specific": {
+                        "social_insurance": "SSNIT"
+                    },
+                    "identity_card": "Henkilökortti",
+                    "ind_specific": {
+                        "tax_id": "Henkilökohtainen tilinumero (PAN)"
+                    },
+                    "ken_specific": {
+                        "other": "Alien kortti"
+                    },
+                    "nga_specific": {
+                        "identity_card": "Kansallinen henkilötunnus (NIN)",
+                        "other": "BVN",
+                        "tax_id": "TIN"
+                    },
+                    "other": "NIE",
+                    "passport": "Passi",
+                    "placeholder": "Valitse kansallinen tunnustyyppi",
+                    "tax_id": "Verotunnus",
+                    "voter_id": "Äänestäjän tunnus"
+                },
+                "nationality_select": {
+                    "placeholder": "Valitse maa"
+                },
+                "pan": {
+                    "placeholder": "ABCDE1234F"
+                },
+                "ssn": {
+                    "placeholder": "123-45-6789"
+                },
+                "state_select": {
+                    "placeholder": "Valitse maakunta"
+                }
+            },
+            "country_of_residence_title": "Asuinmaasi",
+            "field_labels": {
+                "arg_specific": {
+                    "national_id_value": "DNI numero"
+                },
+                "can_specific": {
+                    "national_id_value": "Sosiaalivakuutusnumero (SIN)"
+                },
+                "chl_specific": {
+                    "national_id_value": "RUT \/ RUN numerot"
+                },
+                "chn_specific": {
+                    "national_id_value": "Asukasnumero Henkilökortti"
+                },
+                "col_specific": {
+                    "national_id_value": "Kolumbialainen henkilötunnus"
+                },
+                "country": "Maa",
+                "country_residence": "Maa",
+                "dnk_specific": {
+                    "national_id_value": "CPR-numero"
+                },
+                "dob": "Syntymäaika",
+                "email": "S-posti",
+                "fin_specific": {
+                    "national_id_value": "Henkilötunnus"
+                },
+                "first_name": "Etunimi",
+                "gbr_specific": {
+                    "postcode": "Postinumero",
+                    "town": "Paikkakunta"
+                },
+                "hkg_specific": {
+                    "national_id_value": "HKID"
+                },
+                "ind_specific": {
+                    "pan": "Pysyvä tilinumero"
+                },
+                "ita_specific": {
+                    "national_id_value": "Verotunnus"
+                },
+                "jpn_specific": {
+                    "national_id_value": "\"Oma numero\" \/ Asukastietuekoodi"
+                },
+                "last_name": "Sukunimi",
+                "line1": "Osoiterivi 1",
+                "line2": "Osoiterivi 2",
+                "line3": "Osoiterivi 3",
+                "lux_specific": {
+                    "national_id_value": "Sosiaaliturvatunnus"
+                },
+                "mobile_number": "Matkapuhelinnumero",
+                "national_id_type": "Kansallisen henkilötodistuksen tyyppi",
+                "national_id_value": "Kansallinen henkilötunnus",
+                "nationality": "Kansalaisuus",
+                "phl_specific": {
+                    "national_id_value": "PhilSys-kortin numero (PCN)"
+                },
+                "phone_number": "Puhelinnumero",
+                "pol_specific": {
+                    "national_id_value": "PESEL numero"
+                },
+                "postcode": "Postinumero",
+                "prt_specific": {
+                    "national_id_value": "Veronumero"
+                },
+                "town": "Paikkakunta",
+                "tur_specific": {
+                    "national_id_value": "Turkin tunnusnumero"
+                },
+                "usa_specific": {
+                    "line1_helper_text": "Katuosoite, esim.: Kauppakatu 1 A 3",
+                    "line2_helper_text": "Huoneisto, asunto, yksiö jne.",
+                    "postcode": "Postinumero",
+                    "ssn": "Henkilötunnus",
+                    "state": "Maakunta",
+                    "town": "Kaupunki"
+                }
+            },
+            "field_optional": "(valinnainen)",
+            "field_validation": {
+                "arg_specific": {
+                    "invalid_national_id_value": "Anna kelvollinen DNI"
+                },
+                "bra_specific": {
+                    "invalid_other": "Anna kelvollinen CNPJ",
+                    "invalid_tax_id": "Anna kelvollinen CPF",
+                    "required_other": "Anna CNPJ",
+                    "required_tax_id": "Anna CPF"
+                },
+                "can_specific": {
+                    "invalid_national_id_value": "Anna kelvollinen SIN",
+                    "required_national_id_value": "Anna SIN"
+                },
+                "chl_specific": {
+                    "invalid_national_id_value": "Anna kelvolliset RUT\/RUN-numerot",
+                    "required_national_id_value": "Anna RUT\/RUN-numerosi"
+                },
+                "chn_specific": {
+                    "invalid_national_id_value": "Syötä voimassa oleva henkilökortin numero",
+                    "required_national_id_value": "Syötä asukkaan henkilökorttisi numero"
+                },
+                "col_specific": {
+                    "invalid_national_id_value": "Anna kelvollinen kolumbialainen henkilötunnus",
+                    "required_national_id_value": "Anna kolumbialainen henkilökohtainen tunnusnumerosi"
+                },
+                "dnk_specific": {
+                    "invalid_national_id_value": "Anna kelvollinen elvytysnumero",
+                    "required_national_id_value": "Anna elvytysnumerosi"
+                },
+                "esp_specific": {
+                    "invalid_identity_card": "Anna kelvollinen NIF\/DNI",
+                    "invalid_other": "Anna kelvollinen NIE",
+                    "required_identity_card": "Anna NIF\/DNI"
+                },
+                "fin_specific": {
+                    "invalid_national_id_value": "Anna voimassa oleva henkilötunnus",
+                    "required_national_id_value": "Ole hyvä ja syötä henkilötunnus"
+                },
+                "gbr_specific": {
+                    "invalid_postcode": "Syötä kelvollinen postinumero",
+                    "required_postcode": "Syötä postinumerosi",
+                    "too_long_postcode": "Postinumero on liian pitkä",
+                    "too_short_postcode": "Postinumero on liian lyhyt"
+                },
+                "gha_specific": {
+                    "invalid_social_insurance": "Anna kelvollinen SSNIT",
+                    "required_social_insurance": "Anna SSNIT"
+                },
+                "hkg_specific": {
+                    "invalid_national_id_value": "Anna kelvollinen HKID",
+                    "required_national_id_value": "Anna HKID-tunnuksesi"
+                },
+                "ind_specific": {
+                    "invalid_pan": "Syötä kelvollinen PIN",
+                    "required_pan": "Syötä PIN"
+                },
+                "invalid": "Tarkista virheelliset merkit tai symbolit",
+                "invalid_dob": "Syötä kelvollinen syntymäaika",
+                "invalid_driving_license": "Anna voimassa oleva ajokortin numero",
+                "invalid_email": "Syötä kelvollinen sähköpostiosoite",
+                "invalid_mobile_number": "Syötä kelvollinen matkapuhelinnumero",
+                "invalid_national_id_value": "Anna voimassa oleva kansallinen henkilötunnus",
+                "invalid_passport": "Anna voimassa oleva passin numero",
+                "invalid_phone_number": "Syötä kelvollinen puhelinnumero",
+                "invalid_voter_id": "Anna kelvollinen äänestäjänumero",
+                "ita_specific": {
+                    "invalid_national_id_value": "Anna kelvollinen verokoodi",
+                    "required_national_id_value": "Anna verokoodisi"
+                },
+                "jpn_specific": {
+                    "invalid_national_id_value": "Anna kelvollinen \"Oma numero\" \/ asukastietuekoodi",
+                    "required_national_id_value": "Anna \"Oma numeroni\" \/ Asukasrekisterikoodisi"
+                },
+                "ken_specific": {
+                    "invalid_other": "Anna voimassa oleva ulkomaalaisen kortin numero",
+                    "required_other": "Syötä Alien Card -numerosi"
+                },
+                "lux_specific": {
+                    "invalid_national_id_value": "Anna kelvollinen sosiaaliturvatunnus",
+                    "required_national_id_value": "Anna sosiaaliturvatunnuksesi"
+                },
+                "mex_specific": {
+                    "invalid_identity_card": "Anna kelvollinen CURP",
+                    "invalid_tax_id": "Anna kelvollinen RFC",
+                    "required_identity_card": "Anna CURP",
+                    "required_tax_id": "Anna RFC"
+                },
+                "mys_specific": {
+                    "invalid_national_id_value": "Anna kelvollinen NRIC",
+                    "required_national_id_value": "Anna NRIC"
+                },
+                "nga_specific": {
+                    "invalid_identity_card": "Anna kelvollinen kansallinen henkilötunnus (NIN)",
+                    "invalid_other": "Anna kelvollinen BVN",
+                    "invalid_tax_id": "Anna kelvollinen TIN-tunnus",
+                    "required_identity_card": "Anna kansallinen tunnusnumerosi (NIN)",
+                    "required_other": "Anna BVN-numerosi",
+                    "required_tax_id": "Anna TIN-tunnus"
+                },
+                "phl_specific": {
+                    "invalid_national_id_value": "Anna kelvollinen PhilSys-kortin numero (PCN)",
+                    "required_national_id_value": "Anna PhilSys-korttisi numero (PCN)"
+                },
+                "pol_specific": {
+                    "invalid_national_id_value": "Anna kelvollinen PESEL-numero",
+                    "required_national_id_value": "Anna PESEL-numerosi"
+                },
+                "prt_specific": {
+                    "invalid_national_id_value": "Anna kelvollinen veronumero",
+                    "required_national_id_value": "Anna veronumerosi"
+                },
+                "reference": {
+                    "translation": "Anna kelvollinen"
+                },
+                "required_consent": "Hyväksy henkilöllisyys- ja petostarkistukset",
+                "required_country": "Valitse maa",
+                "required_country_residence": "Valitse maa",
+                "required_dob": "Syötä syntymäaikasi",
+                "required_email": "Syötä sähköpostiosoitteesi",
+                "required_first_name": "Syötä etunimesi",
+                "required_last_name": "Syötä sukunimesi",
+                "required_line1": "Syötä osoitteesi",
+                "required_mobile_number": "Syötä matkapuhelinnumerosi",
+                "required_national_driving_license": "Anna ajokorttisi numero",
+                "required_national_id_type": "Valitse henkilötunnuksesi tyyppi",
+                "required_national_id_value": "Syötä henkilötunnuksesi",
+                "required_national_passport": "Anna passin numero",
+                "required_national_voter_id": "Anna äänestäjänumerosi",
+                "required_nationality": "Valitse maa",
+                "required_phone_number": "Syötä puhelinnumerosi",
+                "required_postcode": "Syötä postinumerosi",
+                "sgp_specific": {
+                    "invalid_national_id_value": "Anna kelvollinen NRIC",
+                    "required_national_id_value": "Anna NRIC"
+                },
+                "swe_specific": {
+                    "invalid_national_id_value": "Anna kelvollinen PIN",
+                    "required_national_id_value": "Anna PIN-koodisi"
+                },
+                "too_long_first_name": "Etunimi on liian pitkä",
+                "too_long_last_name": "Sukunimi on liian pitkä",
+                "too_long_line1": "Osoiterivi on liian pitkä",
+                "too_long_postcode": "Postinumero on liian pitkä",
+                "too_long_town": "Paikkakunta on liian pitkä",
+                "too_short_first_name": "Etunimi on liian lyhyt",
+                "too_short_last_name": "Sukunimi on liian lyhyt",
+                "too_short_postcode": "Postinumero on liian lyhyt",
+                "tur_specific": {
+                    "invalid_national_id_value": "Anna kelvollinen turkkilainen henkilötunnus",
+                    "required_national_id_value": "Anna turkkilainen ID-numerosi"
+                },
+                "usa_specific": {
+                    "invalid_ssn": "Syötä kelvollinen henkilötunnus",
+                    "required_ssn": "Syötä henkilötunnuksesi",
+                    "required_state": "Valitse maakunta"
+                }
+            },
+            "national_id_number_title": "Lisää kansallinen henkilötunnuksesi",
+            "personal_information_title": "Lisää henkilötietosi",
+            "prompt": {
+                "details_timeout": "Aloita uudelleen",
+                "header_timeout": "Näyttää siltä, että sinulla kesti liian kauan"
+            }
+        },
+        "qes": {
+            "consent": {
+                "common": {
+                    "steps": "Luo allekirjoituksesi"
+                },
+                "confirmation": {
+                    "bullet_1": "Luettuasi dokumenttisi, napauta \"Allekirjoita dokumentti\" -painiketta.",
+                    "bullet_2": "Kun Onfido on vahvistanut henkilöllisyytesi, allekirjoituksesi käytetään tässä asiakirjassa.",
+                    "button_next_step": "Allekirjoita asiakirja",
+                    "review_document": "Tarkista <fallback>asiakirjasi<\/fallback> allekirjoittaaksesi",
+                    "step2": "2\/2",
+                    "steps": "Allekirjoita dokumenttisi",
+                    "subtitle": "Vahvistaaksesi henkilöllisyytesi Euroopan sääntöjen mukaisesti, sinun on digitaalisesti allekirjoitettava asiakirja.",
+                    "title": "Luo ja käytä digitaalista allekirjoitustasi"
+                },
+                "introduction": {
+                    "button_confirmation_step": "Luo allekirjoitukseni",
+                    "certificate_application_form": "Todistuksen hakulomake",
+                    "privacy_notice": "Tietosuojailmoitus",
+                    "step1": "1\/2",
+                    "subtitle": "Vahvistaaksesi henkilöllisyytesi Euroopan sääntöjen mukaisesti, sinun on digitaalisesti allekirjoitettava asiakirja.",
+                    "terms_and_conditions": "Käyttöehdot ja -säännöt",
+                    "third_party_description": "<fallback>Namirial SpA<\/fallback> on luotettava maailmanlaajuinen palveluntarjoaja, joka myöntää sertifikaatin vahvistaen sähköisen allekirjoituksesi.",
+                    "title": "Luo ja käytä digitaalista allekirjoitustasi"
+                }
+            }
+        },
+        "qes_consent": {
+            "button": "Luo allekirjoitukseni",
+            "link_certificate": "Todistushakemuslomake",
+            "link_privacy_notice": "Tietosuojailmoitus",
+            "link_terms_and_conditions": "Käyttöehdot ja -edellytykset",
+            "namirial_intro": "Namirial SpA on luotettu maailmanlaajuinen palveluntarjoaja, joka myöntää sertifikaatin vahvistaen sähköisen allekirjoituksesi.",
+            "subtitle": "Vahvistaaksesi henkilöllisyytesi Euroopan sääntöjen mukaisesti, sinun on digitaalisesti allekirjoitettava asiakirja.",
+            "title": "Luo ja käytä digitaalista allekirjoitustasi"
+        },
+        "qes_sign": {
+            "button": "Allekirjoita asiakirja",
+            "link_document": "Tarkista dokumenttisi allekirjoitusta varten",
+            "list_item_1": "Luettuasi dokumenttisi, napauta \"Allekirjoita dokumentti\" -painiketta.",
+            "list_item_2": "Kun Onfido on vahvistanut henkilöllisyytesi, allekirjoituksesi käytetään tässä asiakirjassa.",
+            "step_title": "Allekirjoita dokumenttisi",
+            "subtitle": "Vahvistaaksesi henkilöllisyytesi Euroopan sääntöjen mukaisesti, sinun on digitaalisesti allekirjoitettava asiakirja.",
+            "title": "Luo ja käytä digitaalista allekirjoitustasi"
+        },
+        "retry": {
+            "button": {
+                "generic_selfie_issue": "Yritä uud."
+            },
+            "description": {
+                "default": "Yritä uudelleen",
+                "expired_document": "Yritä uudelleen voimassa olevalla kuvallisella ID:llä ja varmista, että tietosi näkyvät selvästi",
+                "generic_document_issue": "Yritä uudelleen voimassa olevalla kuvallisella ID:llä ja varmista, että tietosi näkyvät selvästi",
+                "generic_selfie_issue": "Yritä uudelleen ja varmista, että kasvosi ovat näkyvissä ja hyvin valaistut",
+                "unaccepted_document": "Yritä uudelleen voimassa olevalla kuvallisella ID:llä ja varmista, että tietosi näkyvät selvästi"
+            },
+            "headline": {
+                "default": "Oli ongelma",
+                "expired_document": "Asiakirjasi on vanhentunut",
+                "generic_document_issue": "Asiakirjassasi oli ongelma",
+                "generic_selfie_issue": "Oli ongelma selfienne kanssa",
+                "unaccepted_document": "Asiakirjaa ei hyväksytä"
+            }
+        },
+        "retry_feedback": {
+            "button_primary": "Yritä uud."
+        },
+        "retry_feedback_id_expired": {
+            "subtitle": "Yritä uudelleen voimassa olevalla kuvallisella ID:llä ja varmista, että tietosi näkyvät selvästi",
+            "title": "Asiakirjasi on vanhentunut"
+        },
+        "retry_feedback_id_generic": {
+            "subtitle": "Yritä uudelleen voimassa olevalla kuvallisella ID:llä ja varmista, että tietosi näkyvät selvästi",
+            "title": "Asiakirjassasi oli ongelma"
+        },
+        "retry_feedback_id_unaccepted": {
+            "subtitle": "Yritä uudelleen voimassa olevalla kuvallisella ID:llä ja varmista, että tietosi näkyvät selvästi",
+            "title": "Asiakirjaa ei hyväksytä"
+        },
+        "retry_feedback_selfie_generic": {
+            "subtitle": "Yritä uudelleen ja varmista, että kasvosi ovat näkyvissä ja hyvin valaistut",
+            "title": "Selfiessäsi oli ongelma"
+        },
+        "selfie_capture": {
+            "alert": {
+                "camera_inactive": {
+                    "detail": "Tarkista, että se on yhdistetty ja toimii. Voit myös <fallback>jatkaa vahvistusta puhelimellasi<\/fallback>",
+                    "detail_no_fallback": "Varmista, että laitteessasi on toimiva kamera",
+                    "title": "Eikö kamera toimi?"
+                },
+                "camera_not_working": {
+                    "detail": "Sen yhteys voi olla katkennut. <fallback>Kokeile sen sijaan käyttää puhelintasi<\/fallback>.",
+                    "detail_no_fallback": "Varmista, että laitteesi kamera toimii",
+                    "title": "Kamera ei toimi"
+                },
+                "timeout": {
+                    "detail": "Muista painaa painiketta, kun olet valmis. <fallback>Suorita videotoiminnot uudelleen<\/fallback>",
+                    "title": "Näyttää siltä, että sinulla kesti liian kauan"
+                }
+            },
+            "body": "Pidä kasvosi soikion sisällä",
+            "button_accessibility": "Ota kuva",
+            "button_primary": "Aloita kasvojen skannaus",
+            "frame_accessibility": "Näkymä kamerasta",
+            "title": "Pidä kasvosi soikion sisällä"
+        },
+        "selfie_confirmation": {
+            "image_accessibility": "Valokuva kasvoistasi",
+            "subtitle": "Varmista, että kasvosi näkyvät kokonaan",
+            "title": "Tarkista selfiesi"
+        },
+        "selfie_intro": {
+            "banner_nudity_message": "Kasvoistasi ja taustastasi otetaan kuva tämän prosessin aikana",
+            "button_primary": "Jatka",
+            "list_accessibility": "Vinkkejä hyvän selfien ottamiseen",
+            "list_item_face_forward": "Katso eteenpäin ja varmista, että silmäsi näkyvät selvästi",
+            "list_item_no_face_cover": "Poista kaikki, mikä peittää kasvosi. Silmälasit ovat ok",
+            "list_item_no_glasses": "Ota silmälasisi pois tarvittaessa",
+            "subtitle": "Vertaamme sitä asiakirjaasi",
+            "title": "Ota sitten"
+        },
+        "sms_sent": {
+            "info": "Vinkit",
+            "info_link_expire": "Linkkisi vanhenee tunnin kuluttua",
+            "info_link_window": "Pidä tämä ikkuna auki matkapuhelinta käyttäessäsi",
+            "link": "Kokeile toista menetelmää",
+            "subtitle": "Olemme lähettäneet suojatun linkin numeroon <number><\/number>",
+            "subtitle_minutes": "Saapumiseen voi mennä muutama minuutti",
+            "title": "Tarkista matkapuhelimesi"
+        },
+        "switch_phone": {
+            "info": "Vinkit",
+            "info_link_expire": "Mobiililinkkisi vanhenee tunnin kuluttua",
+            "info_link_refresh": "Älä päivitä tätä sivua",
+            "info_link_window": "Pidä tämä ikkuna auki matkapuhelinta käyttäessäsi",
+            "link": "Peruuta",
+            "subtitle": "Kun olet valmis, viemme sinut seuraavaan vaiheeseen",
+            "title": "Yhdistetty matkapuhelimeesi"
+        },
+        "upload_guide": {
+            "button_primary": "Jatka",
+            "image_detail_blur_alt": "Esimerkki epäselvästä asiakirjasta",
+            "image_detail_blur_label": "Kaikkien tietojen on oltava selkeitä, ei epäselviä",
+            "image_detail_cutoff_label": "Näytä kaikki tiedot, mukaan lukien 2 alinta riviä",
+            "image_detail_glare_label": "Siirry pois suorasta valosta – ei häikäisyä",
+            "image_detail_good_label": "Asiakirjan tulee näkyä kuvassa selkeästi",
+            "subtitle": "Skannauksia ja valokopioita ei hyväksytä",
+            "title": "Toimita passin kuvallinen sivu"
+        },
+        "user_consent": {
+            "button_primary": "Hyväksy",
+            "button_secondary": "Älä hyväksy",
+            "prompt": {
+                "button_primary": "Tarkista uudelleen",
+                "button_secondary": "Kyllä, älä vahvista minua",
+                "no_consent_detail": "Jos et hyväksy Onfidon tietosuojaselosteita ja palveluehtoja, emme voi vahvistaa henkilöllisyyttäsi ja poistut tästä vaiheesta.",
+                "no_consent_title": "Oletko varma?"
+            }
+        },
+        "user_consent_load_fail": {
+            "button_primary": "Lataa näyttö uudell.",
+            "detail": "Tarkista, että yhteys on vakaa, ja yritä sitten uudelleen",
+            "title": "Sisällön lataus epäonnistui"
+        },
+        "video_capture": {
+            "body": "Pidä kasvosi soikion sisällä",
+            "body_record": "Paina painiketta, kun olet valmis",
+            "body_stop": "Paina Pysäytä, kun olet valmis",
+            "button_primary_finish": "Viimeistele tallennus",
+            "button_primary_next": "Seuraava vaihe",
+            "button_primary_start": "Aloita tallennus",
+            "button_record_accessibility": "Aloita tallennus",
+            "frame_accessibility": "Näkymä kamerasta",
+            "header": {
+                "challenge_digit_instructions": "Sano jokainen numero ääneen",
+                "challenge_turn_forward": "selfie kasvot eteenpäin",
+                "challenge_turn_left": "Käännä päätäsi vasemmalle",
+                "challenge_turn_right": "Käännä päätäsi oikealle"
+            },
+            "prompt": {
+                "header_timeout": "Näyttää siltä, että sinulla kesti liian kauan"
+            }
+        },
+        "video_confirmation": {
+            "body": "Videosi on tallennettu",
+            "button_primary": "Lataa video",
+            "button_secondary": "Kuvaa uusi video",
+            "title": "Tarkista videosi",
+            "video_accessibility": "Toista tallentamasi video uudelleen"
+        },
+        "video_intro": {
+            "button_pause_accessibility": "Keskeytä video",
+            "button_play_accessibility": "Toista video",
+            "button_primary": "Tallenna video",
+            "list_accessibility": "Selfievideon tallennustoiminnot",
+            "list_item_actions": "Sinulla on 20 sekuntia jäljellä",
+            "list_item_speak": "Seuraa liikkumis- tai puhumisohjeita",
+            "title": "Tallenna video",
+            "video_accessibility": "Esimerkki videosta, jossa joku tallentaa selfievideon. Tallenna selfievideo katsomalla etukameraan ja pitämällä puhelintasi pienen matkan päässä kasvoistasi. Sitten sinun täytyy lausua joitakin numeroita ja kääntää päätäsi näytön ohjeiden mukaisesti."
+        },
+        "welcome": {
+            "doc_video_subtitle": "Siihen menee muutama minuutti",
+            "info_original_document": "Ota valokuva alkuperäisestä asiakirjasta. Skannaukset, valokuvat näytöistä tai valokopiot eivät ole sallittuja.",
+            "list_header": "Käytä laitettasi:",
+            "list_header_doc_video": "Käytä laitettasi tallentaaksesi:",
+            "list_header_webcam": "Käytä verkkokameraa tai puhelinta kuvataksesi:",
+            "list_item_doc": "henkilötodistuksesi",
+            "list_item_doc_generic": "Tee video henkilöllisyysasiakirjastasi",
+            "list_item_doc_photo": "ottaaksesi kuvan henkilötodistuksestasi",
+            "list_item_doc_video": "tallentaaksesi videon henkilötodistuksestasi",
+            "list_item_doc_video_timeout": "Tallennus on rajoitettu <timeout><\/timeout> sekunteihin",
+            "list_item_face_photo": "ottaaksesi kuvan kasvoistasi",
+            "list_item_face_video": "tallentaaksesi videon kasvoistasi",
+            "list_item_poa": "asuinpaikkatodistuksesi",
+            "list_item_selfie": "kasvosi",
+            "next_button": "Valitse asiakirja",
+            "start_workflow_button": "Aloita vahvistus",
+            "start_workflow_button_trial": "Aloita vahvistus (TESTI)",
+            "subtitle": "Siihen menee muutama minuutti",
+            "title": "Vahvista henkilöllisyytesi",
+            "trial_message": "Älä jaa henkilötietoja täällä, ellei sinulla ole Onfidon kokeilujaksoa."
+        },
+        "workflow_complete": {
+            "pass": {
+                "description": "Olemme vahvistaneet henkilöllisyytesi",
+                "title": "Läpäisty"
+            },
+            "reject": {
+                "description": "Emme ole pystyneet vahvistamaan henkilöllisyyttäsi",
+                "title": "Hylätty"
+            }
+        },
+        "workflow_erros": {
+            "generic_title": "Tapahtui palvelinvirhe!",
+            "no_workflow_run_id": "Työnkulun ajon ID:tä ei ole asetettu.",
+            "reload_app": "Yritä ladata sovellus uudelleen ja yritä uudelleen.",
+            "task_not_completed": "Työnkulun tehtävää ei voitu suorittaa.",
+            "task_not_retrieved": "Työnkulun tehtävää ei voitu noutaa.",
+            "task_not_supported": "Tehtävää ei tueta tällä hetkellä"
+        }
+    },
+    "profile_data": {
+        "field_labels": {
+            "rou_specific": {
+                "national_id_value": "Henkilökohtainen numeerinen koodi (CNP)"
+            }
+        }
+    }
+}

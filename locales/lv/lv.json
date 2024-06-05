@@ -1,0 +1,1393 @@
+{
+    "onfido": {
+        "avc_confirmation": {
+            "button_primary_upload": "Augšupielādēt ierakstu",
+            "subtitle": "Jūsu sejas videoklips ir veiksmīgi ierakstīts",
+            "title": "Ieraksts pabeigts"
+        },
+        "avc_connection_error": {
+            "button_primary_reload": "Atkārtoti ielādēt instrukcijas",
+            "button_primary_retry_upload": "Mēģināt augšupielādēt vēlreiz",
+            "button_secondary_restart_recording": "Sākt ierakstu no jauna",
+            "subtitle": "Pārbaudiet, vai savienojums ir stabils, un pēc tam mēģiniet vēlreiz",
+            "title": "Savienojuma kļūda"
+        },
+        "avc_face_alignment": {
+            "feedback_move_back": "Pavirzieties tālāk",
+            "feedback_move_back_accessibility": "Attāliniet ierīci",
+            "feedback_move_closer": "Pavirzieties tuvāk",
+            "feedback_move_left_accessibility": "Pavirziet ierīci pa kreisi",
+            "feedback_move_right_accessibility": "Pavirziet ierīci pa labi",
+            "feedback_no_face_detected": "Seja nav atrasta",
+            "feedback_not_centered": "Seja nav centrēta",
+            "title": "Pozicionējiet seju kadrā"
+        },
+        "avc_face_capture": {
+            "alert": {
+                "mic_conflict_title": "Jūsu mikrofonu izmanto cita lietotne",
+                "timeout_body": "Jums ir 15 sekundes laika, lai pabeigtu ierakstu",
+                "timeout_button_primary": "Mēģināt vēlreiz",
+                "timeout_title": "Diemžēl mums ir jāveic ieraksts no jauna",
+                "too_fast_body": "Mēģiniet vēlreiz un grieziet galvu lēnāk",
+                "too_fast_button_primary": "Mēģināt vēlreiz",
+                "too_fast_title": "Jūs pārāk ātri pagriezāt galvu"
+            },
+            "title": "Lēnām pagrieziet galvu uz abām pusēm",
+            "title_completed": "Ieraksts pabeigts"
+        },
+        "avc_intro": {
+            "button_primary_ready": "Sākt ierakstu",
+            "disclaimer": "Šī procesa laikā tiks ierakstīta jūsu seja un fons",
+            "disclaimer_camera_and_audio_on": "Šī procesa laikā tiks ierakstīta jūsu seja, fons un skaņa",
+            "list_item_one": "Vispirms pozicionējiet seju kadrā",
+            "list_item_two": "Pēc tam lēnām pagrieziet galvu uz abām pusēm",
+            "subtitle": "Tas nepieciešams, lai pārbaudītu, vai esat īsta persona",
+            "title": "Ierakstīt videoklipu",
+            "title_accessibility": "Ierakstītu savas sejas videoklipu.",
+            "video_accessibility": "Videoklipa piemērs, kurā cilvēks pagriež galvu uz abām pusēm līdz apstiprinājumam"
+        },
+        "avc_no_face_detected": {
+            "button_primary_restart": "Sākt ierakstu no jauna",
+            "list_item_eyes": "Pārliecinieties, ka jūsu acis ir skaidri redzamas",
+            "list_item_face": "Parādiet tikai savu seju, mums nav jāredz jūsu ID",
+            "list_item_lighting": "Atrodiet vietu ar labu apgaismojumu",
+            "list_item_mask": "Noņemiet maskas vai citus priekšmetus, kas aizsedz seju. Brilles var palikt",
+            "title": "Mēs nevaram atrast jūsu seju"
+        },
+        "avc_uploading": {
+            "title": "Notiek augšupielāde"
+        },
+        "country_select": {
+            "alert": {
+                "another_doc": "Dokumenti no šīs valsts pašlaik netiek atbalstīti – <fallback>izmēģināt citu dokumenta veidu<\/fallback>"
+            },
+            "alert_dropdown": {
+                "country_not_found": "Valsts nav atrasta"
+            },
+            "button_primary": "Iesniegt dokumentu",
+            "poa_alert": {
+                "country_not_found": "Piedodiet. Mēs strādājam pie valstu saraksta papildināšanas.",
+                "intro": "Nevarat atrast savu valsti?"
+            },
+            "search": {
+                "accessibility": "Atlasīt valsti",
+                "input_placeholder": "piem., Amerikas Savienotās Valstis",
+                "label": "Meklēt valsti"
+            },
+            "title": "Atlasīt izdevējvalsti"
+        },
+        "cross_device": {
+            "button_primary_upload": "Turpināt"
+        },
+        "cross_device_abort": {
+            "title": "Verifikācija atcelta"
+        },
+        "cross_device_checklist": {
+            "button_primary": "Iesniegt pārbaudei",
+            "info": "Padomi",
+            "list_item_doc_multiple": "Dokumenti",
+            "list_item_doc_one": "Dokuments",
+            "list_item_poa": "Adreses apliecinājums",
+            "list_item_selfie": "Selfijs",
+            "list_item_video": "Videoklips",
+            "subtitle": "Lūk, viss augšupielādētais:",
+            "title": "Pēdējais solis"
+        },
+        "cross_device_error_desktop": {
+            "subtitle": "Saite darbojas tikai mobilajās ierīcēs",
+            "title": "Radās problēma"
+        },
+        "cross_device_error_mobile": {
+            "subtitle": "Jūs varat mēģināt vēlreiz apstiprināt savu identitāti uz sākotnējās ierīces.",
+            "title": "Šis numurs nesakrīt"
+        },
+        "cross_device_error_restart": {
+            "subtitle": "Jums būs jāsāk pārbaude no jauna datorā",
+            "title": "Radās problēma"
+        },
+        "cross_device_intro": {
+            "button_primary": "Saņemt drošu saiti",
+            "list_accessibility": "Darbības, kas jāveic, lai turpinātu pārbaudi mobilajā ierīcē",
+            "list_item_finish": "Atgriezieties šeit, lai pabeigtu iesniegšanu.",
+            "list_item_open_link": "Atveriet saiti un izpildiet uzdevumus.",
+            "list_item_send_phone": "Nosūtiet drošu saiti uz tālruni.",
+            "subtitle": "Lai to paveiktu, veiciet tālāk norādītās darbības.",
+            "subtitle_upload": "Lūdzu, augšupielādējiet sava oriģinālā dokumenta jaunāko fotoattēlu",
+            "title": "Turpināt tālrunī"
+        },
+        "cross_device_number_match_desktop": {
+            "instruction": "Nospiediet numuru savā mobilajā tālrunī, lai pārbaudītu, vai tas esat jūs.",
+            "subtitle": "Lai palīdzētu aizsargāt jūsu informāciju, Onfido vēlas pārliecināties, ka tiešām esat jūs, kurš mēģina pārbaudīt savu identitāti",
+            "title": "Izveidots savienojums ar mobilo tālruni"
+        },
+        "cross_device_number_match_error_desktop": {
+            "button_primary": "Mēģināt vēlreiz",
+            "subtitle": "Lūdzu, atgriezieties un mēģiniet vēlreiz.",
+            "title": "Šis numurs nesakrīt"
+        },
+        "cross_device_number_match_mobile": {
+            "abort_button": "Tas neesmu es",
+            "subtitle": "Nospiediet uz numuru, kas parādās jūsu citā ierīcē. Mēs vēlamies pārliecināties, ka tas tiešām esat jūs.",
+            "title": "Sakritināt numuru"
+        },
+        "cross_device_return": {
+            "body": "Informācijas atjaunošana datorā var aizņemt dažas sekundes",
+            "subtitle": "Tagad varat atgriezties datorā, lai turpinātu",
+            "title": "Augšupielāde izdevās"
+        },
+        "cross_device_session_linked": {
+            "button_primary": "Turpināt",
+            "info": "Atkārtoti pārbaudīt",
+            "list_item_desktop_open": "Darbvirsmas logs paliek atvērts",
+            "list_item_sent_by_you": "Šo saiti nosūtījāt jūs – ja uzskatāt, ka šī varētu būt krāpšana, meklējiet padomu",
+            "subtitle": "Turpināt pārbaudi",
+            "title": "Mobilā sesija piesaistīta jūsu datoram"
+        },
+        "doc_auto_capture": {
+            "button_accessibility": "Uzņemt fotoattēlu",
+            "footer": {
+                "captured": "Fotoattēls uzņemts",
+                "capturing": "Notiek fotoattēla uzņemšana",
+                "manual_fallback_generic_document_back": "Nofotografējiet dokumenta aizmuguri",
+                "manual_fallback_generic_document_front": "Nofotografējiet dokumenta priekšpusi",
+                "manual_fallback_identity_card_back": "Nofotografējiet kartes aizmuguri",
+                "manual_fallback_identity_card_front": "Nofotografējiet kartes priekšpusi",
+                "manual_fallback_license_back": "Nofotografējiet autovadītāja apliecības aizmuguri",
+                "manual_fallback_license_front": "Nofotografējiet autovadītāja apliecības priekšpusi",
+                "manual_fallback_passport": "Nofotografējiet pases fotoattēla lapu",
+                "manual_fallback_residence_permit_back": "Nofotografējiet uzturēšanās atļaujas aizmuguri",
+                "manual_fallback_residence_permit_front": "Nofotografējiet uzturēšanās atļaujas priekšpusi",
+                "position_generic_document_back": "Ievietojiet dokumenta aizmuguri kadrā",
+                "position_generic_document_front": "",
+                "position_identity_card_back": "Ievietojiet kartes aizmuguri kadrā",
+                "position_identity_card_front": "Ievietojiet kartes priekšpusi kadrā",
+                "position_license_back": "Ievietojiet autovadītāja apliecības aizmuguri kadrā",
+                "position_license_front": "Ievietojiet autovadītāja apliecības priekšpusi kadrā",
+                "position_passport": "Ievietojiet pases fotoattēla lapu kadrā",
+                "position_residence_permit_back": "Ievietojiet uzturēšanās atļaujas aizmuguri kadrā",
+                "position_residence_permit_front": "Ievietojiet uzturēšanās atļaujas priekšpusi kadrā"
+            },
+            "frame": {
+                "flip_document": "Apgrieziet",
+                "hold_still": "Turiet nekustīgi",
+                "no_document": "Dokuments nav atrasts"
+            }
+        },
+        "doc_capture": {
+            "alert": {
+                "no_barcode_detail": "Palieciet labi apgaismotā vietā un pietuviniet karti kamerai",
+                "no_barcode_title": "Svītrkods nav atrasts"
+            },
+            "button_primary": "Sākt dokumenta skenēšanu",
+            "detail": {
+                "folded_doc_front": "Novietojiet dokumentu plakani uz līdzenas virsmas, ir jābūt redzamām visām iekšējām lapām (tajās jābūt jūsu fotoattēlam)"
+            },
+            "header": {
+                "recording_complete": "Ieraksts pabeigts",
+                "recording_video": "Ieraksta video"
+            },
+            "header_folded_doc_front": "Profila fotoattēla puse",
+            "prompt": {
+                "button_card": "Plastikāta karte",
+                "button_paper": "Papīra dokuments",
+                "title_id": "Kāda veida personas apliecība jums ir?",
+                "title_license": "Kāda veida autovadītāja apliecība jums ir?"
+            }
+        },
+        "doc_confirmation": {
+            "alert": {
+                "blur_detail": "Pārliecinieties, ka viss ir skaidri redzams",
+                "blur_title": "Konstatēts izplūdis fotoattēls",
+                "crop_detail": "Pārliecinieties, ka ir redzams viss dokuments",
+                "crop_title": "Atrasts apgriezts attēls",
+                "glare_detail": "Pavirzieties prom no tiešas gaismas",
+                "glare_title": "Konstatēts atspīdums",
+                "no_doc_detail": "Pārliecinieties, ka tas ir pilnībā ievietots kadrā",
+                "no_doc_title": "Dokuments nav atrasts",
+                "odp_detail": "Lūdzu, izmantojiet savu oriģinālo dokumentu. Ekrāna fotogrāfijas vai fotokopijas netiek pieņemtas.",
+                "odp_photo_of_screen_title": "Ekrāna fotoattēls konstatēts",
+                "odp_photocopy_title": "Fotokopija konstatēta",
+                "odp_scan_title": "Skenēšana konstatēta",
+                "odp_screenshot_title": "Ierakstīts ekrānuzņēmums"
+            },
+            "body": "Pārliecinieties, ka esat augšupielādējis visu dokumenta lapu un ka informācija ir skaidri salasāma bez izplūduma vai atspīduma",
+            "body_address_certificate": "Pārliecinieties, ka esat augšupielādējis visu dokumenta lapu, un detaļas ir skaidri lasāmas bez izplūduma vai spīduma",
+            "body_bank_statement": "Pārliecinieties, ka esat augšupielādējis visu dokumenta lapu un ka informācija ir skaidri salasāma bez izplūduma vai atspīduma",
+            "body_benefits_letter": "Pārliecinieties, ka esat augšupielādējis visu dokumenta lapu un ka informācija ir skaidri salasāma bez izplūduma vai atspīduma",
+            "body_bill": "Pārliecinieties, ka esat augšupielādējis visu dokumenta lapu un ka informācija ir skaidri salasāma bez izplūduma vai atspīduma",
+            "body_exchange_house_statement": "Pārliecinieties, ka esat augšupielādējis visu dokumenta lapu, un detaļas ir skaidri lasāmas bez izplūduma vai spīduma",
+            "body_general_letter": "Pārliecinieties, ka esat augšupielādējis visu dokumenta lapu, un detaļas ir skaidri lasāmas bez izplūduma vai spīduma",
+            "body_generic_document": "Jūsu informācijai ir jābūt skaidri redzamai",
+            "body_id": "Jūsu informācijai ir jābūt skaidri redzamai",
+            "body_identity_document_with_address": "Pārliecinieties, ka esat augšupielādējis visu dokumenta lapu, un detaļas ir skaidri lasāmas bez izplūduma vai spīduma",
+            "body_image_medium": "Ja mēs nevarēsim to salasīt, pārbaude aizņems ilgāku laiku",
+            "body_image_poor": "Lai jūs varētu ērti pārbaudīt, mums ir nepieciešama labāks fotoattēls",
+            "body_insurance_statement": "Pārliecinieties, ka esat augšupielādējis visu dokumenta lapu, un detaļas ir skaidri lasāmas bez izplūduma vai spīduma",
+            "body_license": "Jūsu informācijai ir jābūt skaidri redzamai",
+            "body_mobile_phone_bill": "Pārliecinieties, ka esat augšupielādējis visu dokumenta lapu, un detaļas ir skaidri lasāmas bez izplūduma vai spīduma",
+            "body_mortgage_statement": "Pārliecinieties, ka esat augšupielādējis visu dokumenta lapu, un detaļas ir skaidri lasāmas bez izplūduma vai spīduma",
+            "body_passport": "Jūsu informācijai ir jābūt skaidri redzamai",
+            "body_pension_property_statement_letter": "Pārliecinieties, ka esat augšupielādējis visu dokumenta lapu, un detaļas ir skaidri lasāmas bez izplūduma vai spīduma",
+            "body_permit": "Jūsu informācijai ir jābūt skaidri redzamai",
+            "body_tax_letter": "Pārliecinieties, ka esat augšupielādējis visu dokumenta lapu un ka informācija ir skaidri salasāma bez izplūduma vai atspīduma",
+            "button_close": "Aizvērt",
+            "button_primary_redo": "Atkārtot",
+            "button_primary_upload": "Augšupielādēt",
+            "button_primary_upload_anyway": "Augšupielādēt tik un tā",
+            "button_secondary_change_document": "Izvēlēties citu dokumentu",
+            "button_secondary_redo": "Atkārtot",
+            "button_secondary_submit_anyway": "Iesniegt fotoattēlu tāpat",
+            "button_zoom": "Palielināt attēlu",
+            "image_accessibility": "Dokumenta fotoattēls",
+            "title": "Apskatiet savu attēlu"
+        },
+        "doc_multi_frame_capture": {
+            "capture_progress_title": "Notiek dokumenta skenēšana",
+            "instructions_title_back": "Ievietojiet dokumenta aizmuguri kadrā",
+            "instructions_title_front": "Ievietojiet dokumenta priekšpusi kadrā"
+        },
+        "doc_select": {
+            "accommodation_tenancy_certificate_detail": "Izdots no valdības iestādes vai korporatīvā īpašnieka kā īres apstiprinājums.",
+            "button_address_card": "Adreses karte",
+            "button_address_card_back": "Adreses karte (Aizmugure)",
+            "button_address_card_detail": "Tiek pieņemtas pagaidu un pastāvīgās kartes",
+            "button_address_card_front": "Adreses karte (priekšpuse)",
+            "button_bank_statement": "Konta izraksts vai būvsabiedrības izziņa",
+            "button_bank_statement_non_uk": "Konta izraksts",
+            "button_benefits_letter": "Vēstule par pabalstiem",
+            "button_benefits_letter_detail": "Valdības apstiprināti mājsaimniecības pabalsti, piem., bezdarbnieka pabalsts, mājokļa pabalsts, nodokļu atlaides",
+            "button_bill": "Komunālo pakalpojumu rēķins",
+            "button_bill_detail": "Gāze, elektrība, ūdens, fiksētais tālrunis vai platjoslas internets",
+            "button_exchange_house_statement": "Apmaiņas mājas paziņojums",
+            "button_exchange_house_statement_detail": "Sūtītāja pārskats par pārskaitījumu vai nosūtījumu",
+            "button_general_letter": "Vispārējais vēstulis",
+            "button_general_letter_detail": "Vēstule no finanšu iestādes vai komunālo pakalpojumu uzņēmuma",
+            "button_government_letter": "Vēstule no valdības",
+            "button_government_letter_detail": "Jebkura vēstule no valdības, piem., par tiesībām uz pabalstu, vēlēšanām, nodokļiem utt.",
+            "button_id": "Personas apliecība",
+            "button_id_detail": "Priekšpuse un aizmugure",
+            "button_identity_document_with_address": "Identitātes dokuments ar adresi",
+            "button_identity_document_with_address_back": "Identitātes dokuments ar adresi (aizmugurē)",
+            "button_identity_document_with_address_detail": "Izdots no valdības iestādes",
+            "button_identity_document_with_address_front": "Identitātes dokuments ar adresi (priekšpuse)",
+            "button_insurance_statement": "Apdrošināšanas paziņojums",
+            "button_insurance_statement_detail": "Izsniegts no privātas apdrošināšanas vai brokeru kompānijas",
+            "button_license": "Autovadītāja apliecība",
+            "button_license_detail": "Priekšpuse un aizmugure",
+            "button_mobile_phone_bill": "Mobilā telefona rēķins",
+            "button_mobile_phone_bill_detail": "Izsniegts no mobilā tālruņa tīkla pakalpojumu sniedzēja",
+            "button_mortgage_statement": "Hipotēkas izraksts",
+            "button_mortgage_statement_detail": "Izsniedz finanšu aizdevumu iestāde",
+            "button_passport": "Pase",
+            "button_passport_detail": "Fotoattēla lapa",
+            "button_pension_property_statement_letter": "Pensijas vai īpašuma apliecinājums\/vēstule",
+            "button_pension_property_statement_letter_detail": "Pensijas izraksts vai vēstule un Īpašuma nodokļa izraksts vai vēstule",
+            "button_permit": "Uzturēšanās atļauja",
+            "button_permit_detail": "Priekšpuse un aizmugure",
+            "button_tax_letter": "Pašvaldības nodokļu vēstule",
+            "extra_estatements_ok": "tiek pieņemtas e-izziņas",
+            "list_accessibility": "Dokumenti, kurus varat izmantot identitātes pārbaudei",
+            "pill": "visātrāk",
+            "section": {
+                "header_country": "Izdevējvalsts",
+                "header_doc_type": "Pieņemamie dokumenti",
+                "input_country_not_found": "Nav rezultātu",
+                "input_placeholder_country": "Atlasīt izdevējvalsti"
+            },
+            "subtitle": "Tam jābūt oficiālam ID ar fotoattēlu",
+            "subtitle_country": "Atlasiet izdevējvalsti, lai redzētu, kurus dokumentus mēs pieņemam",
+            "subtitle_entire_page": "Visa lapa",
+            "subtitle_front_back": "Priekšpuse un aizmugure",
+            "subtitle_photo_page": "Fotoattēla lapa",
+            "subtitle_poa": "Šie ir dokumenti, kuros, visticamāk, ir redzama jūsu pašreizējā dzīvesvietas adrese",
+            "title": "Izvēlieties savu dokumentu",
+            "title_poa": "Izvēlieties dokumentu"
+        },
+        "doc_submit": {
+            "button_link_upload": "vai augšupielādējiet fotoattēlu, nevis skenētus dokumentus vai fotokopijas",
+            "button_primary": "Turpināt tālrunī",
+            "subtitle": "Uzņemt fotoattēlu ar tālruni",
+            "title_accommodation_tenancy_certificate": "Iesniegt Izmitināšanas vai Īres sertifikātu",
+            "title_address_certificate": "Iesniegt adreses karti",
+            "title_address_certificate_back": "Iesniedziet adreses kartiņu (aizmugurē)",
+            "title_address_certificate_front": "Iesniedziet adreses karti (priekšpuse)",
+            "title_bank_statement": "Iesniegt izziņu",
+            "title_benefits_letter": "Iesniegt vēstuli",
+            "title_bill": "Iesniegt rēķinu",
+            "title_exchange_house_statement": "Iesniedziet apmaiņas mājas paziņojumu",
+            "title_general_letter": "Iesniegt vispārējo vēstuli",
+            "title_generic_document_back": "Iesniegt dokumentu (aizmugure)",
+            "title_generic_document_front": "Iesniegt dokumentu (priekšpuse)",
+            "title_government_letter": "Vēstule no valdības",
+            "title_id_back": "Iesniegt personas apliecību (aizmugure)",
+            "title_id_front": "Iesniegt personas apliecību (priekšpuse)",
+            "title_identity_document_with_address": "Iesniedziet identitātes dokumentu ar adresi",
+            "title_identity_document_with_address_back": "Iesniedziet identitātes dokumentu ar adresi (aizmugurē)",
+            "title_identity_document_with_address_front": "Iesniedziet identitātes dokumentu ar adresi (priekšpuse)",
+            "title_insurance_statement": "Iesniegt apdrošināšanas paziņojumu",
+            "title_license_back": "Iesniegt autovadītāja apliecību (aizmugure)",
+            "title_license_front": "Iesniegt autovadītāja apliecību (priekšpuse)",
+            "title_mobile_phone_bill": "Iesniegt mobilā telefona rēķinu",
+            "title_mortgage_statement": "Iesniegt hipotekāro izrakstu",
+            "title_passport": "Iesniegt pases fotoattēla lapu",
+            "title_pension_property_statement_letter": "Iesniegt paziņojumu vai vēstuli",
+            "title_permit_back": "Iesniegt uzturēšanās atļauju (aizmugure)",
+            "title_permit_front": "Iesniegt uzturēšanās atļauju (priekšpuse)",
+            "title_tax_letter": "Iesniedziet vietējās pašvaldības nodokļu vēstuli"
+        },
+        "doc_video_capture": {
+            "button_primary_fallback": "Nākamā darbība",
+            "button_primary_fallback_end": "Pabeigt ierakstu",
+            "detail_step2": "Visu laiku ir jābūt redzamam visam dokumentam",
+            "header": "Turot dokumentu rokās, ievietojiet tā priekšpusi kadrā",
+            "header_paper_doc_step2": "Lēnām pagrieziet dokumentu, lai parādītu ārējās lapas",
+            "header_passport": "Turot pasi rokās, ievietojiet fotoattēla lapu kadrā",
+            "header_passport_progress": "Turiet nekustīgi",
+            "header_step1": "Tagad nekustieties",
+            "header_step2": "Lēnām pagrieziet dokumentu otrādi, lai parādītu tā aizmuguri",
+            "prompt": {
+                "detail_timeout": "Video ieraksta garuma ierobežojums sekundēs: <timeout><\/timeout> . <fallback>Sākt no jauna<\/fallback>"
+            },
+            "stepper": "​<step>​​<\/step>​. darbība no ​<total>​​<\/total>​",
+            "success_accessibility": "Izdevās"
+        },
+        "doc_video_confirmation": {
+            "button_secondary": "Priekšskatīt videoklipu",
+            "title": "Apskatiet savu videoklipu"
+        },
+        "error_unsupported_browser": {
+            "subtitle_android": "Sāciet procesu no jauna jaunākajā Google Chrome versijā",
+            "subtitle_ios": "Sāciet procesu no jauna jaunākajā Safari versijā",
+            "title_android": "Neatbalstīts pārlūks",
+            "title_ios": "Neatbalstīts pārlūks"
+        },
+        "generic": {
+            "accessibility": {
+                "close_sdk_screen": "Aizvērt identitātes pārbaudes ekrānu",
+                "dismiss_alert": "Izslēgt brīdinājumu"
+            },
+            "back": "atpakaļ",
+            "close": "aizvērt",
+            "errors": {
+                "desktop": {
+                    "subtitle": "Šī saite darbojas tikai mobilajās ierīcēs. Lūdzu, mēģiniet vēlreiz, atverot saiti mobilajā ierīcē.",
+                    "title": "Nevar atvērt saiti"
+                },
+                "expired_token": {
+                    "instruction": "Mēģiniet vēlreiz",
+                    "message": "Jūsu pilnvaras derīguma termiņš ir beidzies",
+                    "subtitle": "Šajā verifikācijas procesā nodrošinātais SDK tokens ir beidzies. Lūdzu, atgriezieties un mēģiniet vēlreiz.",
+                    "title": "Jūsu sesija ir beigusies"
+                },
+                "expired_trial": {
+                    "instruction": "Jūs esat sasniedzis izmēģinājumversijas limitu",
+                    "message": "Jūsu izmēģinājumversijas derīguma termiņš ir beidzies",
+                    "subtitle": "Jūs esat sasniedzis maksimālo atļauto verifikāciju skaitu.",
+                    "title": "Jūsu izmēģinājuma periods ir beidzies"
+                },
+                "geoblocked_error": {
+                    "instruction": "Diemžēl šķiet, ka nevaram turpināt, jo jūsu pašreizējā atrašanās vieta netiek atbalstīta",
+                    "message": "Pakalpojums nav pieejams"
+                },
+                "geoblocker_request": {
+                    "subtitle": "Atvainojiet, mēs nevaram turpināt jūsu verifikāciju, jo jūsu pašreizējā atrašanās vieta netiek atbalstīta.",
+                    "title": "Pakalpojums nav pieejams"
+                },
+                "interrupted_flow_error": {
+                    "instruction": "Sāciet procesu no jauna citā ierīcē",
+                    "message": "Kamera nav atrasta"
+                },
+                "invalid_size": {
+                    "instruction": "Tam jābūt mazākam par 10 MB.",
+                    "message": "Pārsniegts faila izmērs."
+                },
+                "invalid_type": {
+                    "instruction": "Mēģiniet izmantot citu faila veidu.",
+                    "message": "Fails nav augšupielādēts."
+                },
+                "lazy_loading": {
+                    "message": "Ielādējot komponentu, radās kļūda"
+                },
+                "multiple_faces": {
+                    "instruction": "Selfijā drīkst būt redzama tikai jūsu seja",
+                    "message": "Atrastas vairākas sejas"
+                },
+                "no_camera": {
+                    "subtitle": "Mēs nevaram noteikt kameru šajā ierīcē. Lūdzu, pārliecinieties, vai kamera ir pieslēgta un ir piešķirtas nepieciešamās atļaujas.",
+                    "title": "Kamera nav atrasta"
+                },
+                "no_face": {
+                    "instruction": "Sejai jābūt redzamai",
+                    "message": "Seja nav atrasta"
+                },
+                "request_error": {
+                    "instruction": "Mēģiniet vēlreiz",
+                    "message": "Radās problēma"
+                },
+                "restart_cross-device": {
+                    "subtitle": "Jums būs jāsāk no jauna savs verifikācijas process datorā. Lūdzu, atgriezieties verifikācijas ekrānā un mēģiniet vēlreiz.",
+                    "title": "Kaut kas ir nogājis greizi"
+                },
+                "sms_failed": {
+                    "instruction": "Iekopējiet saiti tālrunī",
+                    "message": "Radās problēma"
+                },
+                "sms_overuse": {
+                    "instruction": "Iekopējiet saiti tālrunī",
+                    "message": "Pārāk daudz neveiksmīgu mēģinājumu"
+                },
+                "unsupported_browser": {
+                    "subtitle": "Lūdzu, atkārtoti sāciet procesu, izmantojot citu pārlūku.",
+                    "title": "Neatbalstīta pārlūkprogramma"
+                },
+                "unsupported_file": {
+                    "instruction": "Mēģiniet izmantot JPG vai PNG failu",
+                    "message": "Faila veids netiek atbalstīts."
+                },
+                "unsupported_sdk_version": {
+                    "subtitle": "SDK versija nav saderīga ar konfigurēto darbplūsmu. Pārbaudiet savas aktīvās darbplūsmas minimālās SDK prasības.",
+                    "title": "Nesaderīga versija"
+                },
+                "user_consent_denied": {
+                    "subtitle": "Atvainojiet, mēs nevaram pārbaudīt jūsu identitāti bez jūsu piekrišanas. \\nJa vēlaties turpināt ar savas identitātes pārbaudi, lūdzu, atgriezieties un dodiet savu piekrišanu.",
+                    "title": "Piekrišana atteikta"
+                }
+            },
+            "lazy_load_placeholder": "Notiek ielāde...",
+            "loading": "Notiek ielāde"
+        },
+        "get_link": {
+            "alert_wrong_number": "Pārbaudiet, vai jūsu numurs ir pareizs",
+            "button_copied": "Nokopēta",
+            "button_copy": "Kopēt",
+            "button_submit": "Sūtīt saiti",
+            "info_qr_how": "Kā noskenēt QR kodu",
+            "info_qr_how_list_item_camera": "Pavērsiet tālruņa kameru pret QR kodu",
+            "info_qr_how_list_item_download": "Ja nesanāk, lejupielādējiet QR kodu skeneri no Google Play vai App Store",
+            "link_divider": "vai izvēlēties citu metodi",
+            "link_qr": "Skenēt QR kodu",
+            "link_sms": "Saņemt saiti īsziņā",
+            "link_url": "Kopēt saiti",
+            "loader_sending": "Sūta",
+            "number_field_input_placeholder": "Ievadiet mobilā tālruņa numuru",
+            "number_field_label": "Ievadiet savu mobilā tālruņa numuru:",
+            "subtitle_qr": "Noskenējiet QR kodu ar tālruni",
+            "subtitle_sms": "Nosūtiet šo vienreizējo saiti uz tālruni",
+            "subtitle_url": "Nosūtiet šo vienreizējo saiti uz tālruni",
+            "title": "Saņemt drošu saiti",
+            "url_field_label": "Iekopējiet saiti savā mobilajā pārlūkā"
+        },
+        "ial2_nist": {
+            "option": {
+                "goverment_issued_photo_id": "Otra valdības izsniegta foto ID",
+                "ssn": "Sociālās drošības numurs (SSN)"
+            },
+            "subtitle": "Mums ir nepieciešams papildu informācijas gabals, lai apstiprinātu jūsu identitāti. Izvēlieties zemāk esošo opciju."
+        },
+        "interactive_task": {
+            "waiting": {
+                "title_5": "Augšupielādē multividi..."
+            }
+        },
+        "livenessV2": {
+            "error_reload_instructions": "Atkārtoti ielādēt instrukcijas",
+            "intro_note_no1": "Vispirms pozicionējiet seju kadrā",
+            "intro_note_no2": "Pēc tam lēnām pagrieziet galvu uz abām pusēm",
+            "intro_ready_button": "Ņemiet vērā, ka mēs ierakstīsim jūsu seju un fonu",
+            "intro_subtitle": "Tas nepieciešams, lai pārbaudītu, vai esat īsta persona",
+            "intro_warning": "Ņemiet vērā, ka mēs ierakstīsim jūsu seju un fonu",
+            "success_main_button": "Iesniegt pārbaudei",
+            "success_title": "Tas ir viss, kas mums nepieciešams, lai sāktu jūsu identitātes pārbaudi"
+        },
+        "mobilePhrases": {
+            "photo_upload": {
+                "body_id_back": "Nofotografējiet kartes aizmuguri",
+                "body_id_front": "Nofotografējiet kartes priekšpusi",
+                "body_license_back": "Nofotografējiet autovadītāja apliecības aizmuguri",
+                "body_license_front": "Nofotografējiet autovadītāja apliecības priekšpusi",
+                "body_passport": "Nofotografējiet pases fotoattēla lapu",
+                "body_selfie": "Uzņemiet selfiju, kurā ir redzama jūsu seja"
+            },
+            "selfie_capture": {
+                "alert": {
+                    "camera_inactive": {
+                        "detail": "Tā vietā uzņemiet fotoattēlu, izmantojot <fallback>kameras pamatrežīmu<\/fallback>"
+                    },
+                    "camera_not_working": {
+                        "detail": "Tā vietā uzņemiet fotoattēlu, izmantojot <fallback>kameras pamatrežīmu<\/fallback>"
+                    }
+                }
+            },
+            "upload_guide": {
+                "button_primary": "Uzņemt fotoattēlu",
+                "title": "Pases fotoattēla lapa"
+            }
+        },
+        "nfc_scan": {
+            "sheet": {
+                "success": "Veiksmīga skenēšana"
+            }
+        },
+        "nfc_scan_error_can": {
+            "primary_button": "Izejas pārbaude",
+            "subtitle": "Jūs esat sasniedzis maksimālo mēģinājumu skaitu, ievadot savu CAN numuru"
+        },
+        "nfc_scan_error_can:title": "Maksimālais mēģinājumu skaits sasniegts",
+        "otp": {
+            "code_input": {
+                "error": {
+                    "code_expired": "Jūsu kods ir beidzies, lūdzu, pieprasiet jaunu.",
+                    "code_invalid": "Ievadīts nepareizs kods, lūdzu, mēģiniet vēlreiz.",
+                    "no_international_code": "Ievadei jābūt starptautiskā formātā",
+                    "technical": "Radusies tehniska kļūda, lūdzu, mēģiniet vēlreiz vēlāk",
+                    "too_many_attempts": "Jūs esat mēģinājis šo kodu pārāk daudz reižu, lūdzu, pieprasiet jaunu.",
+                    "wrong_code": "Ievadīts nepareizs kods, lūdzu, mēģiniet vēlreiz"
+                },
+                "intro": "Jums ir 5 minūtes, lai apstiprinātu kodu, kas nosūtīts caur SMS uz <phonenumber><\/phonenumber>",
+                "resend": {
+                    "cta": "Pieprasīt jaunu kodu",
+                    "cta_timeout": "Pieprasīt jaunu kodu (<timeout><\/timeout> sekundes)",
+                    "label": "Nosūtītais kods",
+                    "tracker": "<remaining><\/remaining> no <limit><\/limit>"
+                },
+                "title": "Vienreizēja parole"
+            },
+            "error": {
+                "cta": "Atpakaļ",
+                "subtitle": "Lūdzu, uzgaidiet dažas sekundes un mēģiniet vēlreiz",
+                "title": "Kaut kas nogāja greizi"
+            },
+            "failure": {
+                "cta": "Turpināt",
+                "subtitle": "Mēs vairs nevaram pārbaudīt jūsu tālruņa numuru",
+                "title": "Atļauto mēģinājumu skaits pārsniegts"
+            },
+            "send_code": {
+                "cta": "Sūtīt kodu",
+                "error": {
+                    "invalid_phone_number": "Lūdzu, ievadiet derīgu tālruņa numuru.",
+                    "limit": "Jūs sasniedzāt nosūtīto SMS limitu",
+                    "technical": "Radusies tehniska kļūda, lūdzu, mēģiniet vēlreiz vēlāk"
+                },
+                "input_label": "Tālruņa numurs",
+                "intro": "Lai pārbaudītu jūsu tālruņa numuru, mēs lūgsim jūs ievadīt vienreizēju paroli.",
+                "title": "Vienreizēja parole"
+            }
+        },
+        "outro": {
+            "body": "Tas ir viss, kas mums nepieciešams, lai sāktu jūsu identitātes pārbaudi",
+            "body_government_letter": "Iesniedziet visu dokumenta lapu, lai iegūtu pēc iespējas labāku rezultātu",
+            "title": "Paldies"
+        },
+        "permission": {
+            "body_both": "Mēs nevaram veikt pārbaudi, neizmantojot kameru un mikrofonu",
+            "body_cam": "Mēs nevaram veikt pārbaudi bez kameras",
+            "body_mic": "Mēs nevaram veikt pārbaudi, neizmantojot mikrofonu",
+            "button_primary_both": "Iespējot abus",
+            "button_primary_cam": "Iespējot kameru",
+            "button_primary_mic": "Iespējot mikrofonu",
+            "subtitle_both": "Kad tiek parādīta uzvedne, lai turpinātu, ir jāiespējo piekļuve abiem",
+            "subtitle_cam": "Kad tiek parādīta uzvedne, ir jāiespējo piekļuve kamerai, lai turpinātu",
+            "subtitle_mic": "Kad tiek parādīta uzvedne, ir jāiespējo piekļuve mikrofonam, lai turpinātu",
+            "title_both": "Atļaut piekļuvi kamerai un mikrofonam",
+            "title_cam": "Atļaut piekļuvi kamerai",
+            "title_mic": "Atļaut piekļuvi mikrofonam"
+        },
+        "permission_recovery": {
+            "android": {
+                "browser_settings": {
+                    "title": "Risinājums 1: Pārlūka iestatījumi"
+                },
+                "device_settings": {
+                    "list_item_1": "Savā ierīcē atveriet lietotni <strong>Iestatījumi<\/strong>",
+                    "list_item_2": "Spiediet <strong>Lietotnes<\/strong>",
+                    "list_item_3": "Spiediet uz <browser_icon><\/browser_icon>. Ja to nevarat atrast, spiediet uz <strong>Skatīt visas lietotnes<\/strong> vai <strong>Pārvaldīt lietotnes<\/strong> un izvēlieties savu pārlūkprogrammas lietotni",
+                    "list_item_4": "Nospiediet <strong>Atļaujas<\/strong>",
+                    "list_item_5_cam": "Pieskarieties <strong>Kamera<\/strong> un izvēlieties <strong>Atļaut<\/strong>",
+                    "list_item_5_mic": "Nospiediet <strong>Mikrofons<\/strong> un izvēlieties <strong>Atļaut<\/strong>",
+                    "list_item_6": "Atgriezieties šajā lapā un nospiediet pogu <strong>Atsvaidzināt lapu<\/strong>",
+                    "title": "Risinājums 2: Ierīces iestatījumi"
+                },
+                "refresh_page": {
+                    "list_item_1_both": "Nospiediet pogu <strong>Atsvaidzināt lapu<\/strong>. Jums atkal tiks lūgts atļaut piekļuvi kamerai un mikrofonam. Kad parādās uznirstošais logs, izvēlieties <strong>Atļaut<\/strong> (vai <strong>OK<\/strong>)",
+                    "list_item_1_cam": "Nospiediet pogu <strong>Atsvaidzināt lapu<\/strong>. Jums tiks lūgts atkārtoti iespējot piekļuvi kamerai. Kad parādās uznirstošais logs, izvēlieties <strong>Atļaut<\/strong> (vai <strong>OK<\/strong>)",
+                    "list_item_1_mic": "Nospiediet pogu <strong>Atsvaidzināt lapu<\/strong>. Jums atkal tiks lūgts atļaut piekļuvi mikrofonam. Kad parādās uznirstošais logs, izvēlieties <strong>Atļaut<\/strong> (vai <strong>OK<\/strong>)"
+                }
+            },
+            "android_chrome": {
+                "browser_settings": {
+                    "list_item_1": "Savā pārlūkprogrammā pieskarieties iestatījumu ikonai <settings_icon_chrome><\/settings_icon_chrome> adrešu joslā",
+                    "list_item_2": "Nospiediet <strong>Atļaujas<\/strong>",
+                    "list_item_3_cam": "Aktivizējiet pārslēdzēju blakus <strong>Kamera<\/strong>",
+                    "list_item_3_mic": "Aktivizējiet pārslēdzēju blakus <strong>Mikrofonam<\/strong>",
+                    "list_item_4": "Atgriezieties šajā lapā un nospiediet pogu <strong>Atsvaidzināt lapu<\/strong>"
+                }
+            },
+            "android_firefox": {
+                "browser_settings": {
+                    "list_item_1": "Savā pārlūkprogrammā pieskarieties bloķēšanas ikonai <lock_icon><\/lock_icon> adrešu joslā",
+                    "list_item_2_cam": "Nospiediet <strong>Bloķēts<\/strong> blakus <strong>Kamera<\/strong>, lai pārslēgtos uz <strong>Atļauts<\/strong>",
+                    "list_item_2_mic": "Nospiediet <strong>Bloķēts<\/strong> blakus <strong>Mikrofons<\/strong>, lai pārslēgtos uz <strong>Atļauts<\/strong>",
+                    "list_item_3": "Atgriezieties šajā lapā un nospiediet pogu <strong>Atsvaidzināt lapu<\/strong>",
+                    "title": "Risinājums 2: Pārlūka iestatījumi"
+                },
+                "device_settings": {
+                    "title": "Risinājums 3: Ierīces iestatījumi"
+                },
+                "refresh_page": {
+                    "title": "Risinājums 1: Atsvaidziniet lapu"
+                }
+            },
+            "android_generic": {
+                "browser_settings": {
+                    "list_item_1": "Savā pārlūkprogrammā atveriet vietnes iestatījumus. Bieži vien tas ir slēdzenes ikona <lock_icon><\/lock_icon> adreses joslā",
+                    "list_item_2": "Atrast sadaļu par atļaujām",
+                    "list_item_3_cam": "Iespējojiet <strong>Kameras<\/strong> atļaujas",
+                    "list_item_3_mic": "Iespējojiet <strong>Mikrofona<\/strong> atļaujas",
+                    "list_item_4": "Atgriezieties šajā lapā un nospiediet pogu <strong>Atsvaidzināt lapu<\/strong>"
+                }
+            },
+            "android_samsung": {
+                "browser_settings": {
+                    "list_item_1": "Savā pārlūkprogrammā pieskarieties bloķēšanas ikonai <lock_icon><\/lock_icon> adrešu joslā",
+                    "list_item_2_cam": "Aktivizējiet pārslēgšanas pogu blakus <strong>Kamera<\/strong>",
+                    "list_item_2_mic": "Aktivizējiet pārslēdzēju blakus <strong>Mikrofonam<\/strong>",
+                    "list_item_3": "Atgriezieties šajā lapā un nospiediet pogu <strong>Atsvaidzināt lapu<\/strong>"
+                }
+            },
+            "button_primary": "Atsvaidzināt",
+            "desktop": {
+                "browser_settings": {
+                    "title": "Risinājums 1: Pārlūka iestatījumi"
+                },
+                "device_settings": {
+                    "title": "Risinājums 2: Ierīces iestatījumi"
+                }
+            },
+            "desktop_chrome": {
+                "browser_settings": {
+                    "list_item_1": "Savā pārlūkprogrammā noklikšķiniet uz iestatījumu ikonas <settings_icon_chrome><\/settings_icon_chrome> adrešu joslā",
+                    "list_item_2_cam": "Aktivizējiet pārslēdzēju blakus <strong>Kamera<\/strong>",
+                    "list_item_2_mic": "Aktivizējiet pārslēdzēju blakus <strong>Mikrofonam<\/strong>",
+                    "list_item_3": "Atgriezieties šajā lapā un noklikšķiniet uz pogas <strong>Atsvaidzināt lapu<\/strong>"
+                }
+            },
+            "desktop_edge": {
+                "browser_settings": {
+                    "list_item_1": "Savā pārlūkprogrammā noklikšķiniet uz bloķēšanas ikonas <lock_icon><\/lock_icon> adrešu joslā",
+                    "list_item_2_cam": "Noklikšķiniet uz nolaižamās izvēlnes blakus <strong>Kamera<\/strong> un izvēlieties <strong>Atļaut<\/strong>",
+                    "list_item_2_mic": "Noklikšķiniet uz nolaižamās izvēlnes blakus <strong>Mikrofons<\/strong> un izvēlieties <strong>Atļaut<\/strong>",
+                    "list_item_3": "Atgriezieties šajā lapā un noklikšķiniet uz pogas <strong>Atsvaidzināt lapu<\/strong>"
+                }
+            },
+            "desktop_firefox": {
+                "browser_settings": {
+                    "list_item_1": "Savā pārlūkprogrammā noklikšķiniet uz iestatījumu ikonas <settings_icon_firefox><\/settings_icon_firefox> adrešu joslā",
+                    "list_item_2_cam": "Noklikšķiniet uz <strong>Bloķēts<\/strong> blakus <strong>Izmantot kameru<\/strong>",
+                    "list_item_2_mic": "Noklikšķiniet uz <strong>Bloķēts<\/strong> blakus <strong>Izmantot mikrofonu<\/strong>",
+                    "list_item_3": "Atgriezieties šajā lapā un noklikšķiniet uz pogas <strong>Atsvaidzināt lapu<\/strong>"
+                }
+            },
+            "desktop_generic": {
+                "browser_settings": {
+                    "list_item_1": "Savā pārlūkprogrammā atveriet vietnes iestatījumus. Bieži vien tas ir slēdzenes ikona <lock_icon><\/lock_icon> adreses joslā",
+                    "list_item_2": "Atrast sadaļu par atļaujām",
+                    "list_item_3_cam": "Iespējojiet <strong>Kameras<\/strong> atļaujas",
+                    "list_item_3_mic": "Iespējojiet <strong>Mikrofona<\/strong> atļaujas",
+                    "list_item_4": "Atgriezieties šajā lapā un noklikšķiniet uz pogas <strong>Atsvaidzināt lapu<\/strong>"
+                },
+                "device_settings": {
+                    "list_item_1": "Savā datorā atveriet savus <strong>Iestatījumus<\/strong>",
+                    "list_item_2": "Atrast sadaļu par atļaujām (parasti zem <strong>Privātums<\/strong>)",
+                    "list_item_3_cam": "Iespējojiet <strong>Kameras<\/strong> atļaujas priekš <browser_icon><\/browser_icon>",
+                    "list_item_3_mic": "Iespējojiet <strong>Mikrofona<\/strong> atļaujas priekš <browser_icon><\/browser_icon>",
+                    "list_item_4": "Ja nepieciešams, restartējiet savu pārlūkprogrammu un atgriezieties šajā lapā"
+                }
+            },
+            "desktop_mac": {
+                "device_settings": {
+                    "list_item_1": "Savā datorā noklikšķiniet uz Apple izvēlnes <apple_icon><\/apple_icon> un izvēlieties <strong>Sistēmas iestatījumi<\/strong> (vai <strong>Sistēmas preferences<\/strong>)",
+                    "list_item_2": "Noklikšķiniet uz <strong>Privātums un drošība<\/strong> (vai <strong>Drošība un privātums<\/strong>) sānjoslā",
+                    "list_item_3": "Noklikšķiniet uz <strong>Vēlāk<\/strong> uznirstošajā logā",
+                    "list_item_3_cam": "Noklikšķiniet uz <strong>Kamera<\/strong> un aktivizējiet slēdzi (vai izvēles rūtiņu) blakus <browser_icon><\/browser_icon>",
+                    "list_item_4": "Noklikšķiniet uz <strong>Aizvērt un atkārtoti atvērt<\/strong> uznirstošajā logā un atgriezieties šajā lapā",
+                    "list_item_4_mic": "Noklikšķiniet uz <strong>Mikrofons<\/strong> un aktivizējiet slēdzi (vai izvēles rūtiņu) blakus <browser_icon><\/browser_icon>"
+                }
+            },
+            "desktop_safari": {
+                "browser_settings": {
+                    "list_item_1": "Savā pārlūkprogrammā, labajā peles klikšķī adreses joslā un izvēlieties <strong>Iestatījumi<\/strong>",
+                    "list_item_2_cam": "Noklikšķiniet uz nolaižamās izvēlnes blakus <strong>Kamera<\/strong> un izvēlieties <strong>Atļaut<\/strong>",
+                    "list_item_2_mic": "Noklikšķiniet uz nolaižamās izvēlnes blakus <strong>Mikrofonam<\/strong> un izvēlieties <strong>Atļaut<\/strong>",
+                    "list_item_3": "Atgriezieties šajā lapā un noklikšķiniet uz pogas <strong>Atsvaidzināt lapu<\/strong>"
+                }
+            },
+            "desktop_windows": {
+                "device_settings": {
+                    "list_item_1": "Uz sava datora, noklikšķiniet uz Windows izvēlnes <windows_icon><\/windows_icon> un izvēlieties <strong>Iestatījumi<\/strong> <settings_icon_windows><\/settings_icon_windows>",
+                    "list_item_2": "Noklikšķiniet uz <strong>Privātums<\/strong> (vai <strong>Privātums & Drošība<\/strong>)",
+                    "list_item_3_cam": "Noklikšķiniet uz <strong>Kamera<\/strong> sadaļā <strong>Lietotņu atļaujas<\/strong> un aktivizējiet pārslēdzēju blakus <browser_icon><\/browser_icon>",
+                    "list_item_3_mic": "Noklikšķiniet uz <strong>Mikrofons<\/strong> zem <strong>Lietotņu atļaujas<\/strong> un aktivizējiet slēdzi blakus <browser_icon><\/browser_icon>",
+                    "list_item_4": "Ja nepieciešams, restartējiet savu pārlūkprogrammu un atgriezieties šajā lapā"
+                }
+            },
+            "info": "Atjaunošana",
+            "ios": {
+                "browser_settings": {
+                    "list_item_1_both": "Nospiediet pogu <strong>Atsvaidzināt lapu<\/strong>. Jums atkal tiks lūgts atļaut piekļuvi kamerai un mikrofonam. Kad parādās uznirstošais logs, izvēlieties <strong>Atļaut<\/strong> (vai <strong>OK<\/strong>)",
+                    "list_item_1_cam": "Nospiediet pogu <strong>Atsvaidzināt lapu<\/strong>. Jums tiks lūgts atkārtoti iespējot piekļuvi kamerai. Kad parādās uznirstošais logs, izvēlieties <strong>Atļaut<\/strong> (vai <strong>OK<\/strong>)",
+                    "list_item_1_mic": "Nospiediet pogu <strong>Atsvaidzināt lapu<\/strong>. Jums atkal tiks lūgts atļaut piekļuvi mikrofonam. Kad parādās uznirstošais logs, izvēlieties <strong>Atļaut<\/strong> (vai <strong>OK<\/strong>)"
+                },
+                "device_settings": {
+                    "list_item_1": "Atveriet lietotni <strong>Iestatījumi<\/strong> savā ierīcē",
+                    "list_item_2": "Ritiniet cauri sarakstam un pieskarieties <browser_icon><\/browser_icon>",
+                    "list_item_3_cam": "Aktivizējiet pārslēdzēju blakus <strong>Kamera<\/strong>",
+                    "list_item_3_mic": "Aktivizējiet pārslēdzēju blakus <strong>Mikrofonam<\/strong>",
+                    "list_item_4": "Atgriezieties šajā lapā un nospiediet pogu <strong>Atsvaidzināt lapu<\/strong>",
+                    "title": "Risinājums 2: Ierīces iestatījumi"
+                },
+                "refresh_page": {
+                    "title": "Risinājums 1: Atsvaidziniet lapu"
+                }
+            },
+            "ios_safari": {
+                "device_settings": {
+                    "list_item_1": "Atveriet lietotni <strong>Iestatījumi<\/strong> savā ierīcē",
+                    "list_item_2": "Ritiniet cauri sarakstam un pieskarieties <browser_icon><\/browser_icon>",
+                    "list_item_3_cam": "Pieskarieties <strong>Kamera<\/strong> un izvēlieties <strong>Atļaut<\/strong>",
+                    "list_item_3_mic": "Spiediet uz <strong>Mikrofons<\/strong> un izvēlieties <strong>Atļaut<\/strong>",
+                    "list_item_4": "Atgriezieties šajā lapā un nospiediet pogu <strong>Atsvaidzināt lapu<\/strong>"
+                }
+            },
+            "list_header_both": "Lai atjaunotu piekļuvi abiem, veiciet tālāk norādītās darbības.",
+            "list_header_cam": "Lai atjaunotu piekļuvi kamerai, veiciet tālāk norādītās darbības.",
+            "list_item_action_cam": "Atsvaidziniet šo lapu, lai sāktu identitātes pārbaudes procesu no jauna.",
+            "list_item_how_to_both": "Sniedziet piekļuvi kamerai un mikrofonam pārlūka iestatījumos.",
+            "list_item_how_to_cam": "Sniedziet piekļuvi kamerai pārlūka iestatījumos.",
+            "list_item_how_to_mic": "Pārlūka iestatījumos piešķiriet piekļuvi mikrofonam",
+            "subtitle_both": "Mums ir nepieciešama piekļuve jūsu kamerai un mikrofonam, lai pārbaudītu jūsu identitāti. Sekojiet zemāk norādītajām instrukcijām, lai atjaunotu piekļuvi",
+            "subtitle_cam": "Mums ir nepieciešama piekļuve jūsu kamerai, lai pārbaudītu jūsu identitāti. Lūdzu, sekojiet zemāk norādītajām instrukcijām, lai atjaunotu piekļuvi",
+            "subtitle_cam_old": "Atjaunojiet piekļuvi kamerai, lai turpinātu sejas pārbaudi",
+            "subtitle_mic": "Mums ir nepieciešama piekļuve jūsu mikrofonam, lai pārbaudītu jūsu identitāti. Sekojiet zemāk norādītajām instrukcijām, lai atgūtu piekļuvi",
+            "title_both": "Kamerai un mikrofonam ir liegta piekļuve",
+            "title_cam": "Piekļuve kamerai ir liegta",
+            "title_mic": "Mikrofonam ir liegta piekļuve",
+            "web": {
+                "button_primary": "Atsvaidzināt lapu",
+                "disclaimer": "Identitātes pārbaudes process var atsākties. Atvainojamies par sagādātajām neērtībām"
+            }
+        },
+        "photo_upload": {
+            "body_accommodation_tenancy_certificate": "Nodrošiniet visu dokumenta lapu labākajiem rezultātiem",
+            "body_address_certificate_back": "Ielādējiet dokumenta aizmuguri no sava datora",
+            "body_address_certificate_front": "Augšupielādējiet dokumenta priekšpusi no sava datora",
+            "body_bank_statement": "Iesniedziet visu dokumenta lapu, lai iegūtu pēc iespējas labāku rezultātu",
+            "body_benefits_letter": "Iesniedziet visu dokumenta lapu, lai iegūtu pēc iespējas labāku rezultātu",
+            "body_bill": "Iesniedziet visu dokumenta lapu, lai iegūtu pēc iespējas labāku rezultātu",
+            "body_exchange_house_statement": "Nodrošiniet visu dokumenta lapu labākajiem rezultātiem",
+            "body_general_letter": "Nodrošiniet visu dokumenta lapu labākajiem rezultātiem",
+            "body_generic_document_back": "Augšupielādējiet dokumenta aizmuguri no datora",
+            "body_generic_document_front": "Augšupielādējiet dokumenta priekšpusi no datora",
+            "body_id_back": "Augšupielādējiet personas apliecības aizmuguri no datora",
+            "body_id_front": "Augšupielādējiet personas apliecības priekšpusi no datora",
+            "body_identity_document_with_address": "Nodrošiniet visu dokumenta lapu labākajiem rezultātiem",
+            "body_identity_document_with_address_back": "Ielādējiet dokumenta aizmuguri no sava datora",
+            "body_identity_document_with_address_front": "Augšupielādējiet dokumenta priekšpusi no sava datora",
+            "body_insurance_statement": "Nodrošiniet visu dokumenta lapu labākajiem rezultātiem",
+            "body_license_back": "Augšupielādējiet autovadītāja apliecības aizmuguri no datora",
+            "body_license_front": "Augšupielādējiet autovadītāja apliecības priekšpusi no datora",
+            "body_mobile_phone_bill": "Nodrošiniet visu dokumenta lapu labākajiem rezultātiem",
+            "body_mortgage_statement": "Nodrošiniet visu dokumenta lapu labākajiem rezultātiem",
+            "body_passport": "Augšupielādējiet pases fotoattēla lapu no datora",
+            "body_pension_property_statement_letter": "Nodrošiniet visu dokumenta lapu labākajiem rezultātiem",
+            "body_selfie": "Augšupielādējiet selfiju no datora",
+            "body_tax_letter": "Iesniedziet visu dokumenta lapu, lai iegūtu pēc iespējas labāku rezultātu",
+            "button_take_photo": "Uzņemt fotoattēlu",
+            "button_upload": "Augšupielādēt",
+            "title_selfie": "Selfijs"
+        },
+        "poa_cancel": "Atcelt",
+        "poa_err_invalid_file": {
+            "message": "Izvēlieties citu failu.",
+            "ok": "Labi",
+            "title": "Nederīgs fails"
+        },
+        "poa_guidance": {
+            "button_primary": "Turpināt",
+            "instructions": {
+                "address": "Pašreizējā dzīvesvietas adrese.",
+                "full_name": "Vārds, uzvārds",
+                "issue_date": "Izdošanas datums vai derīguma termiņš.",
+                "label": "Uzņemiet visu dokumentu un pārliecinieties, ka tajā ir skaidri redzama šāda informācija:",
+                "logo": "Logotips"
+            },
+            "instructions_address_card_issue_date": "Izdošanas datums",
+            "instructions_expiry_date": "Derīguma termiņš (ja attiecināms)",
+            "instructions_full_address": "Pilna adrese",
+            "subtitle_address_card": "Jābūt derīgai adreses kartei",
+            "subtitle_bank_statement": "Tai jābūt izdotai ​​pēdējo trīs mēnešu laikā​​",
+            "subtitle_benefits_letter": "Tai jābūt izdotai pēdējo ​​12 mēnešu laikā​​",
+            "subtitle_bill": "Tam jābūt izdotam ​​pēdējo trīs mēnešu laikā​",
+            "subtitle_dynamic_empty_grace_period": "Jābūt derīgam dokumentam",
+            "subtitle_dynamic_grace_period": "Tas jāizdod pēdējo <graceperiod><\/graceperiod> mēnešu laikā",
+            "subtitle_tax_letter": "Tai jābūt izdotai pēdējo ​​12 mēnešu laikā​​"
+        },
+        "poa_intro": {
+            "button_primary": "Sākt pārbaudi",
+            "list_matches_signup": "Tajā redzamā adrese atbilst adresei, ko izmantojāt reģistrējoties.",
+            "list_most_recent": "Tas ir jūsu ​​jaunākais​​ dokuments.",
+            "list_shows_address": "Tajā ir redzama jūsu ​​pašreizējā​​ dzīvesvietas adrese.",
+            "subtitle": "Jums būs nepieciešams dokuments, kas atbilst šādām prasībām:",
+            "title": "Pārbaudīsim jūsu adresi"
+        },
+        "poa_welcome_text": "Nofotografētu dokumentu ar savu adresi",
+        "profile_data": {
+            "address_title": "Pievienojiet savu adresi",
+            "button_continue": "Turpināt",
+            "components": {
+                "country_residence_select": {
+                    "placeholder": "Atlasīt valsti"
+                },
+                "country_select": {
+                    "placeholder": "Atlasīt valsti"
+                },
+                "id_type_select": {
+                    "aus_specific": {
+                        "other": "Ārzemju pase"
+                    },
+                    "bra_specific": {
+                        "other": "CNPJ",
+                        "tax_id": "CPF"
+                    },
+                    "driving_license": "Vadītāja apliecība",
+                    "esp_specific": {
+                        "identity_card": "NIF\/DNI"
+                    },
+                    "gha_specific": {
+                        "social_insurance": "SSNIT"
+                    },
+                    "identity_card": "Personas apliecība",
+                    "ind_specific": {
+                        "tax_id": "Personīgais konta numurs (PAN)"
+                    },
+                    "ken_specific": {
+                        "other": "Citplanētiešu karte"
+                    },
+                    "nga_specific": {
+                        "identity_card": "Valsts identifikācijas numurs (NIN)",
+                        "other": "BVN",
+                        "tax_id": "TIN"
+                    },
+                    "other": "NIE",
+                    "passport": "Pase",
+                    "placeholder": "Izvēlieties valsts ID veidu",
+                    "tax_id": "Nodokļu ID",
+                    "voter_id": "Vēlētāja ID"
+                },
+                "nationality_select": {
+                    "placeholder": "Atlasīt valsti"
+                },
+                "pan": {
+                    "placeholder": "ABCDE1234F"
+                },
+                "ssn": {
+                    "placeholder": "123-45-6789"
+                },
+                "state_select": {
+                    "placeholder": "Atlasīt štatu"
+                }
+            },
+            "country_of_residence_title": "Jūsu dzīvesvietas valsts",
+            "field_labels": {
+                "arg_specific": {
+                    "national_id_value": "DNI numurs"
+                },
+                "can_specific": {
+                    "national_id_value": "Sociālās apdrošināšanas numurs (SIN)"
+                },
+                "chl_specific": {
+                    "national_id_value": "RUT \/ RUN numuri"
+                },
+                "chn_specific": {
+                    "national_id_value": "Iedzīvotāja Personas apliecība numurs"
+                },
+                "col_specific": {
+                    "national_id_value": "Kolumbijas personas identifikācijas numurs"
+                },
+                "country": "Valsts",
+                "country_residence": "Valsts",
+                "dnk_specific": {
+                    "national_id_value": "CPR numurs"
+                },
+                "dob": "Dzimšanas datums",
+                "email": "E-pasts",
+                "fin_specific": {
+                    "national_id_value": "Personas kods"
+                },
+                "first_name": "Vārds",
+                "gbr_specific": {
+                    "postcode": "Pasta indekss",
+                    "town": "Pilsēta\/novads"
+                },
+                "hkg_specific": {
+                    "national_id_value": "HKID"
+                },
+                "ind_specific": {
+                    "pan": "Nodokļu maksātāja kods (PAN)"
+                },
+                "ita_specific": {
+                    "national_id_value": "Fiskālais kods"
+                },
+                "jpn_specific": {
+                    "national_id_value": "\"Mans numurs\" \/ Iedzīvotāja ieraksta kods"
+                },
+                "last_name": "Uzvārds",
+                "line1": "Adrese (1. rinda)",
+                "line2": "Adrese (2. rinda)",
+                "line3": "Adrese (3. rinda)",
+                "lux_specific": {
+                    "national_id_value": "Sociālās apdrošināšanas numurs"
+                },
+                "mobile_number": "Mobilā tālruņa numurs",
+                "national_id_type": "Valsts ID veids",
+                "national_id_value": "Valsts ID numurs",
+                "nationality": "Pilsonība",
+                "phl_specific": {
+                    "national_id_value": "PhilSys kartes numurs (PCN)"
+                },
+                "phone_number": "Tālruņa numurs",
+                "pol_specific": {
+                    "national_id_value": "PESEL numurs"
+                },
+                "postcode": "Pasta indekss",
+                "prt_specific": {
+                    "national_id_value": "Nodokļa numurs"
+                },
+                "town": "Pilsēta\/novads",
+                "tur_specific": {
+                    "national_id_value": "Turcijas identifikācijas numurs"
+                },
+                "usa_specific": {
+                    "line1_helper_text": "Ielas adrese, piemēram, Alberta iela 200",
+                    "line2_helper_text": "Dzīvokļa u.tml. numurs.",
+                    "postcode": "Pasta indekss",
+                    "ssn": "Sociālās apdrošināšanas numurs (SSN)",
+                    "state": "Štats",
+                    "town": "Pilsēta"
+                }
+            },
+            "field_optional": "(pēc izvēles)",
+            "field_validation": {
+                "arg_specific": {
+                    "invalid_national_id_value": "Lūdzu, ievadiet derīgu DNI"
+                },
+                "bra_specific": {
+                    "invalid_other": "Lūdzu, ievadiet derīgu CNPJ",
+                    "invalid_tax_id": "Lūdzu, ievadiet derīgu CPF",
+                    "required_other": "Lūdzu, ievadiet savu CNPJ",
+                    "required_tax_id": "Lūdzu, ievadiet savu CPF"
+                },
+                "can_specific": {
+                    "invalid_national_id_value": "Lūdzu, ievadiet derīgu SIN",
+                    "required_national_id_value": "Lūdzu, ievadiet savu SIN"
+                },
+                "chl_specific": {
+                    "invalid_national_id_value": "Lūdzu, ievadiet derīgus RUT\/RUN numurus",
+                    "required_national_id_value": "Lūdzu, ievadiet savus RUT\/RUN numurus"
+                },
+                "chn_specific": {
+                    "invalid_national_id_value": "Lūdzu, ievadiet derīgu iedzīvotāja personas apliecības numuru",
+                    "required_national_id_value": "Lūdzu, ievadiet iedzīvotāja personas apliecības numuru"
+                },
+                "col_specific": {
+                    "invalid_national_id_value": "Lūdzu, ievadiet derīgu Kolumbijas personas identifikācijas numuru",
+                    "required_national_id_value": "Lūdzu, ievadiet savu Kolumbijas personas identifikācijas numuru"
+                },
+                "dnk_specific": {
+                    "invalid_national_id_value": "Lūdzu, ievadiet derīgu CPR numuru",
+                    "required_national_id_value": "Lūdzu, ievadiet savu CPR numuru"
+                },
+                "esp_specific": {
+                    "invalid_identity_card": "Lūdzu, ievadiet derīgu NIF\/DNI",
+                    "invalid_other": "Lūdzu, ievadiet derīgu NIE",
+                    "required_identity_card": "Lūdzu, ievadiet savu NIF\/DNI"
+                },
+                "fin_specific": {
+                    "invalid_national_id_value": "Lūdzu, ievadiet derīgu personas kodu",
+                    "required_national_id_value": "Lūdzu, ievadiet savu personas kodu"
+                },
+                "gbr_specific": {
+                    "invalid_postcode": "Ievadiet derīgu pasta indeksu",
+                    "required_postcode": "Ievadiet savu pasta indeksu",
+                    "too_long_postcode": "Pasta indekss ir pārāk garš",
+                    "too_short_postcode": "Pasta indekss ir pārāk īss"
+                },
+                "gha_specific": {
+                    "invalid_social_insurance": "Lūdzu, ievadiet derīgu SSNIT",
+                    "required_social_insurance": "Lūdzu, ievadiet savu SSNIT"
+                },
+                "hkg_specific": {
+                    "invalid_national_id_value": "Lūdzu, ievadiet derīgu HKID",
+                    "required_national_id_value": "Lūdzu, ievadiet savu HKID"
+                },
+                "ind_specific": {
+                    "invalid_pan": "Ievadiet derīgu PAN",
+                    "required_pan": "Ievadiet savu PAN"
+                },
+                "invalid": "Pārbaudiet, vai nav nederīgu rakstzīmju vai simbolu",
+                "invalid_dob": "Ievadiet derīgu dzimšanas datumu",
+                "invalid_driving_license": "Lūdzu, ievadiet derīgu autovadītāja apliecības numuru",
+                "invalid_email": "Ievadiet derīgu e-pasta adresi",
+                "invalid_mobile_number": "Ievadiet derīgu mobilā tālruņa numuru",
+                "invalid_national_id_value": "Lūdzu, ievadiet derīgu valsts ID numuru",
+                "invalid_passport": "Lūdzu, ievadiet derīgu pases numuru",
+                "invalid_phone_number": "Ievadiet derīgu tālruņa numuru",
+                "invalid_voter_id": "Lūdzu, ievadiet derīgu vēlētāja ID numuru",
+                "ita_specific": {
+                    "invalid_national_id_value": "Lūdzu, ievadiet derīgu fiskālo kodu",
+                    "required_national_id_value": "Lūdzu, ievadiet savu fiskālo kodu"
+                },
+                "jpn_specific": {
+                    "invalid_national_id_value": "Lūdzu, ievadiet derīgu \"Mans numurs\" \/ Iedzīvotāja ieraksta kodu",
+                    "required_national_id_value": "Lūdzu, ievadiet savu \"Mans numurs\" \/ Iedzīvotāju reģistra kodu"
+                },
+                "ken_specific": {
+                    "invalid_other": "Lūdzu, ievadiet derīgu ārvalstnieka kartes numuru",
+                    "required_other": "Lūdzu, ievadiet savas ārvalstnieka kartes numuru"
+                },
+                "lux_specific": {
+                    "invalid_national_id_value": "Lūdzu, ievadiet derīgu sociālās apdrošināšanas numuru",
+                    "required_national_id_value": "Lūdzu, ievadiet savu sociālās apdrošināšanas numuru"
+                },
+                "mex_specific": {
+                    "invalid_identity_card": "Lūdzu, ievadiet derīgu CURP",
+                    "invalid_tax_id": "Lūdzu, ievadiet derīgu RFC",
+                    "required_identity_card": "Lūdzu, ievadiet savu CURP",
+                    "required_tax_id": "Lūdzu, ievadiet savu RFC"
+                },
+                "mys_specific": {
+                    "invalid_national_id_value": "Lūdzu, ievadiet derīgu NRIC",
+                    "required_national_id_value": "Lūdzu, ievadiet savu NRIC"
+                },
+                "nga_specific": {
+                    "invalid_identity_card": "Lūdzu, ievadiet derīgu valsts identifikācijas numuru (NIN)",
+                    "invalid_other": "Lūdzu, ievadiet derīgu BVN",
+                    "invalid_tax_id": "Lūdzu, ievadiet derīgu TIN",
+                    "required_identity_card": "Lūdzu, ievadiet savu nacionālo identifikācijas numuru (NIN)",
+                    "required_other": "Lūdzu, ievadiet savu BVN",
+                    "required_tax_id": "Lūdzu, ievadiet savu TIN"
+                },
+                "phl_specific": {
+                    "invalid_national_id_value": "Lūdzu, ievadiet derīgu PhilSys kartes numuru (PCN)",
+                    "required_national_id_value": "Lūdzu, ievadiet savu PhilSys kartes numuru (PCN)"
+                },
+                "pol_specific": {
+                    "invalid_national_id_value": "Lūdzu, ievadiet derīgu PESEL numuru",
+                    "required_national_id_value": "Lūdzu, ievadiet savu PESEL numuru"
+                },
+                "prt_specific": {
+                    "invalid_national_id_value": "Lūdzu, ievadiet derīgu nodokļu maksātāja numuru",
+                    "required_national_id_value": "Lūdzu, ievadiet savu nodokļu maksātāja numuru"
+                },
+                "reference": {
+                    "translation": "Lūdzu, ievadiet derīgu"
+                },
+                "required_consent": "Piekrītiet identitātes un krāpšanas pārbaužu veikšanai",
+                "required_country": "Atlasiet valsti",
+                "required_country_residence": "Atlasiet valsti",
+                "required_dob": "Ievadiet savu dzimšanas datumu",
+                "required_email": "Ievadiet savu e-pasta adresi",
+                "required_first_name": "Ievadiet savu vārdu",
+                "required_last_name": "Ievadiet savu uzvārdu",
+                "required_line1": "Ievadiet savu adresi",
+                "required_mobile_number": "Ievadiet savu mobilā tālruņa numuru",
+                "required_national_driving_license": "Lūdzu, ievadiet vadītāja apliecības numuru",
+                "required_national_id_type": "Lūdzu, atlasiet sava valsts ID veidu",
+                "required_national_id_value": "Lūdzu, ievadiet savu valsts ID numuru",
+                "required_national_passport": "Lūdzu, ievadiet savas pases numuru",
+                "required_national_voter_id": "Lūdzu, ievadiet savu vēlētāja ID numuru",
+                "required_nationality": "Atlasiet valsti",
+                "required_phone_number": "Ievadiet savu tālruņa numuru",
+                "required_postcode": "Ievadiet savu pasta indeksu",
+                "sgp_specific": {
+                    "invalid_national_id_value": "Lūdzu, ievadiet derīgu NRIC",
+                    "required_national_id_value": "Lūdzu, ievadiet savu NRIC"
+                },
+                "swe_specific": {
+                    "invalid_national_id_value": "Lūdzu, ievadiet derīgu PIN",
+                    "required_national_id_value": "Lūdzu, ievadiet savu PIN"
+                },
+                "too_long_first_name": "Vārds ir pārāk garš",
+                "too_long_last_name": "Uzvārds ir pārāk garš",
+                "too_long_line1": "Adreses rinda ir pārāk gara",
+                "too_long_postcode": "Pasta indekss ir pārāk garš",
+                "too_long_town": "Pilsētas nosaukums ir pārāk garš",
+                "too_short_first_name": "Vārds ir pārāk īss",
+                "too_short_last_name": "Uzvārds ir pārāk īss",
+                "too_short_postcode": "Pasta indekss ir pārāk īss",
+                "tur_specific": {
+                    "invalid_national_id_value": "Lūdzu, ievadiet derīgu Turcijas ID numuru",
+                    "required_national_id_value": "Lūdzu, ievadiet savu Turcijas ID numuru"
+                },
+                "usa_specific": {
+                    "invalid_ssn": "Ievadiet derīgu PAN",
+                    "required_ssn": "Ievadiet savu SSN",
+                    "required_state": "Atlasiet štatu"
+                }
+            },
+            "national_id_number_title": "Pievienojiet savu valsts ID numuru",
+            "personal_information_title": "Pievienojiet savu personisko informāciju",
+            "prompt": {
+                "details_timeout": "Sākt vēlreiz",
+                "header_timeout": "Tas aizņēma pārāk daudz laika"
+            }
+        },
+        "qes": {
+            "consent": {
+                "common": {
+                    "steps": "Izveidojiet savu parakstu"
+                },
+                "confirmation": {
+                    "bullet_1": "Pēc jūsu dokumenta izlasīšanas, pieskarieties pogai “Parakstīt dokumentu”.",
+                    "bullet_2": "Tiklīdz Onfido apstiprinās jūsu identitāti, jūsu paraksts tiks izmantots šajā dokumentā.",
+                    "button_next_step": "Parakstīt dokumentu",
+                    "review_document": "Pārskatiet <fallback>jūsu dokumentu<\/fallback> lai parakstītu",
+                    "step2": "2 no 2",
+                    "steps": "Parakstiet savu dokumentu",
+                    "subtitle": "Lai apstiprinātu savu identitāti saskaņā ar Eiropas noteikumiem, jums ir jāparaksta dokuments digitāli.",
+                    "title": "Izveidojiet un izmantojiet savu digitālo parakstu"
+                },
+                "introduction": {
+                    "button_confirmation_step": "Izveidot manu parakstu",
+                    "certificate_application_form": "Sertifikāta pieteikuma forma",
+                    "privacy_notice": "Privātuma paziņojums",
+                    "step1": "1 no 2",
+                    "subtitle": "Lai apstiprinātu savu identitāti saskaņā ar Eiropas noteikumiem, jums ir jāparaksta dokuments digitāli.",
+                    "terms_and_conditions": "Noteikumi un nosacījumi",
+                    "third_party_description": "<fallback>Namirial SpA<\/fallback> ir uzticams globāls pakalpojumu sniedzējs, kas izsniegs sertifikātu, apstiprinot jūsu elektronisko parakstu.",
+                    "title": "Izveidojiet un izmantojiet savu digitālo parakstu"
+                }
+            }
+        },
+        "qes_consent": {
+            "button": "Izveidot manu parakstu",
+            "link_certificate": "Sertifikāta pieteikuma forma",
+            "link_privacy_notice": "Privātuma paziņojums",
+            "link_terms_and_conditions": "Noteikumi un nosacījumi",
+            "namirial_intro": "Namirial SpA ir uzticams globāls pakalpojumu sniedzējs, kas izdos sertifikātu, apstiprinot jūsu elektronisko parakstu.",
+            "subtitle": "Lai apstiprinātu savu identitāti atbilstoši Eiropas noteikumiem, jums ir jāparaksta dokuments digitāli.",
+            "title": "Izveidojiet un izmantojiet savu digitālo parakstu"
+        },
+        "qes_sign": {
+            "button": "Parakstīt dokumentu",
+            "link_document": "Pārskatiet savu dokumentu, lai to parakstītu",
+            "list_item_1": "Pēc dokumenta izlasīšanas pieskarieties pogai “Parakstīt dokumentu”.",
+            "list_item_2": "Tiklīdz Onfido apstiprina jūsu identitāti, jūsu paraksts tiks izmantots šajā dokumentā.",
+            "step_title": "Parakstiet savu dokumentu",
+            "subtitle": "Lai apstiprinātu savu identitāti atbilstoši Eiropas noteikumiem, jums ir jāparaksta dokuments digitāli.",
+            "title": "Izveidojiet un izmantojiet savu digitālo parakstu"
+        },
+        "retry": {
+            "button": {
+                "generic_selfie_issue": "Mēģināt vēlreiz"
+            },
+            "description": {
+                "default": "Mēģiniet vēlreiz",
+                "expired_document": "Mēģiniet vēlreiz, izmantojot derīgu ID ar fotoattēlu, un pārliecinieties, ka jūsu informācija ir skaidri redzama",
+                "generic_document_issue": "Mēģiniet vēlreiz, izmantojot derīgu ID ar fotoattēlu, un pārliecinieties, ka jūsu informācija ir skaidri redzama",
+                "generic_selfie_issue": "Mēģiniet vēlreiz un pārliecinieties, ka jūsu seja ir redzama un labi apgaismota",
+                "unaccepted_document": "Mēģiniet vēlreiz, izmantojot derīgu ID ar fotoattēlu, un pārliecinieties, ka jūsu informācija ir skaidri redzama"
+            },
+            "headline": {
+                "default": "Radās problēma",
+                "expired_document": "Jūsu dokumenta derīguma termiņš ir beidzies",
+                "generic_document_issue": "Ar jūsu dokumentu radās problēma",
+                "generic_selfie_issue": "Ar jūsu pašbildi radās problēma",
+                "unaccepted_document": "Nepieņemts dokuments"
+            }
+        },
+        "retry_feedback": {
+            "button_primary": "Mēģināt vēlreiz"
+        },
+        "retry_feedback_id_expired": {
+            "subtitle": "Mēģiniet vēlreiz, izmantojot derīgu ID ar fotoattēlu, un pārliecinieties, ka jūsu informācija ir skaidri redzama",
+            "title": "Jūsu dokumenta derīguma termiņš ir beidzies"
+        },
+        "retry_feedback_id_generic": {
+            "subtitle": "Mēģiniet vēlreiz, izmantojot derīgu ID ar fotoattēlu, un pārliecinieties, ka jūsu informācija ir skaidri redzama",
+            "title": "Radās problēma ar jūsu dokumentu"
+        },
+        "retry_feedback_id_unaccepted": {
+            "subtitle": "Mēģiniet vēlreiz, izmantojot derīgu ID ar fotoattēlu, un pārliecinieties, ka jūsu informācija ir skaidri redzama",
+            "title": "Nepieņemts dokuments"
+        },
+        "retry_feedback_selfie_generic": {
+            "subtitle": "Mēģiniet vēlreiz un pārliecinieties, ka jūsu seja ir redzama un labi apgaismota",
+            "title": "Radās problēma ar jūsu selfiju"
+        },
+        "selfie_capture": {
+            "alert": {
+                "camera_inactive": {
+                    "detail": "Pārbaudiet, vai tā ir pievienota un funkcionējoša. Varat arī <fallback>turpināt pārbaudi savā tālrunī<\/fallback>",
+                    "detail_no_fallback": "Pārliecinieties, vai ierīcei ir funkcionējoša kamera",
+                    "title": "Kamera nedarbojas?"
+                },
+                "camera_not_working": {
+                    "detail": "Tā var būt atvienota. <fallback>Tā vietā mēģiniet izmantot tālruni<\/fallback>.",
+                    "detail_no_fallback": "Pārliecinieties, ka ierīces kamera darbojas",
+                    "title": "Kamera nedarbojas"
+                },
+                "timeout": {
+                    "detail": "Kad esat pabeidzis, neaizmirstiet nospiest pogu. <fallback>Veikt video darbības no jauna<\/fallback>",
+                    "title": "Tas aizņēma pārāk daudz laika"
+                }
+            },
+            "body": "Pozicionējiet seju ovālajā rāmī",
+            "button_accessibility": "Uzņemt fotoattēlu",
+            "button_primary": "Sākt sejas skenēšanu",
+            "frame_accessibility": "Skats no kameras",
+            "title": "Pozicionējiet seju ovālajā rāmī"
+        },
+        "selfie_confirmation": {
+            "image_accessibility": "Jūsu sejas fotoattēls",
+            "subtitle": "Jābūt redzamai visai sejai",
+            "title": "Apskatiet savu selfiju"
+        },
+        "selfie_intro": {
+            "banner_nudity_message": "Šī procesa laikā tiks ierakstīta jūsu seja un fons",
+            "button_primary": "Turpināt",
+            "list_accessibility": "Padomi, kā uzņemt labu selfiju",
+            "list_item_face_forward": "Pagrieziet seju uz priekšu un pārliecinieties, ka jūsu acis ir skaidri redzamas",
+            "list_item_no_face_cover": "Noņemiet visu, kas aizsedz jūsu seju. Brilles var palikt",
+            "list_item_no_glasses": "Ja nepieciešams, noņemiet brilles",
+            "subtitle": "Mēs to salīdzināsim ar jūsu dokumentu",
+            "title": "Uzņemiet selfiju"
+        },
+        "sms_sent": {
+            "info": "Padomi",
+            "info_link_expire": "Jūsu saites derīguma termiņš beigsies pēc stundas",
+            "info_link_window": "Turiet šo logu atvērtu, kamēr izmantojat mobilo tālruni",
+            "link": "Izmēģiniet citu metodi",
+            "subtitle": "Mēs nosūtījām drošu saiti uz <number><\/number>",
+            "subtitle_minutes": "Sūtīšana var aizņemt dažas minūtes",
+            "title": "Pārbaudiet savu mobilo tālruni"
+        },
+        "switch_phone": {
+            "info": "Padomi",
+            "info_link_expire": "Jūsu mobilās saites derīguma termiņš beigsies pēc stundas",
+            "info_link_refresh": "Neatsvaidziniet šo lapu",
+            "info_link_window": "Turiet šo logu atvērtu, kamēr izmantojat mobilo tālruni",
+            "link": "Atcelt",
+            "subtitle": "Kad būsiet pabeidzis, pārvirzīsim jūs uz nākamo darbību",
+            "title": "Izveidots savienojums ar mobilo tālruni"
+        },
+        "upload_guide": {
+            "button_primary": "Turpināt",
+            "image_detail_blur_alt": "Izplūduša dokumenta piemērs",
+            "image_detail_blur_label": "Visai informācijai jābūt skaidri redzamai, nekas nedrīkst būt izplūdis",
+            "image_detail_cutoff_label": "Rādīt visu informāciju, tostarp divas apakšējās rindas",
+            "image_detail_glare_label": "Pavirzieties nostāk no tiešas gaismas, nedrīkst būt atspīduma",
+            "image_detail_good_label": "Fotoattēlā jābūt skaidri redzamam jūsu dokumentam",
+            "subtitle": "Mēs nepieņemam skenētus dokumentus un fotokopijas",
+            "title": "Iesniedziet pases fotoattēla lapu"
+        },
+        "user_consent": {
+            "button_primary": "Piekrist",
+            "button_secondary": "Nepiekrist",
+            "prompt": {
+                "button_primary": "Pārskatīt vēlreiz",
+                "button_secondary": "Nē, neveikt man pārbaudi",
+                "no_consent_detail": "Ja nepiekritīsiet Onfido paziņojumiem par konfidencialitāti un pakalpojumu sniegšanas noteikumiem, mēs nevarēsim pārbaudīt jūsu identitāti un jūs iziesiet no šīs darbības.",
+                "no_consent_title": "Vai esat pārliecināts?"
+            }
+        },
+        "user_consent_load_fail": {
+            "button_primary": "Ielādēt ekrānu no jauna",
+            "detail": "Pārbaudiet, vai savienojums ir stabils, un pēc tam mēģiniet vēlreiz",
+            "title": "Saturu neizdevās ielādēt"
+        },
+        "video_capture": {
+            "body": "Pozicionējiet seju ovālajā rāmī",
+            "body_record": "Kad esat gatavs, nospiediet pogu",
+            "body_stop": "Kad esat pabeidzis, nospiediet \"Beigt\"",
+            "button_primary_finish": "Pabeigt ierakstu",
+            "button_primary_next": "Nākamā darbība",
+            "button_primary_start": "Sākt ierakstu",
+            "button_record_accessibility": "Sākt ierakstu",
+            "frame_accessibility": "Skats no kameras",
+            "header": {
+                "challenge_digit_instructions": "Izrunājiet katru ciparu",
+                "challenge_turn_forward": "pēc tam pagrieziet seju uz priekšu",
+                "challenge_turn_left": "Pagrieziet galvu pa kreisi",
+                "challenge_turn_right": "Pagrieziet galvu pa labi"
+            },
+            "prompt": {
+                "header_timeout": "Tas aizņēma pārāk daudz laika"
+            }
+        },
+        "video_confirmation": {
+            "body": "Jūsu videoklips ir ierakstīts",
+            "button_primary": "Augšupielādēt videoklipu",
+            "button_secondary": "Atkārtoti uzņemt videoklipu",
+            "title": "Apskatiet savu videoklipu",
+            "video_accessibility": "Atkārtoti atskaņot ierakstīto videoklipu"
+        },
+        "video_intro": {
+            "button_pause_accessibility": "Apturēt video",
+            "button_play_accessibility": "Atskaņot video",
+            "button_primary": "Ierakstīt videoklipu",
+            "list_accessibility": "Darbības selfija videoklipa ierakstīšanai",
+            "list_item_actions": "Jums ir 20 sekundes laika, lai to pabeigtu",
+            "list_item_speak": "Izpildiet instrukcijas par kustībām vai runāšanu",
+            "title": "Ierakstīt videoklipu",
+            "video_accessibility": "Piemērs, kurā kāds ieraksta selfija videoklipu.Lai ierakstītu selfija videoklipu, pagrieziet seju pret priekšējo kameru un turiet tālruni nedaudz atstatus no sejas. Pēc tam jums būs jānosauc daži cipari un jāpagriež galva saskaņā ar ekrānā redzamajām instrukcijām."
+        },
+        "welcome": {
+            "doc_video_subtitle": "Tas var aizņemt dažas minūtes",
+            "info_original_document": "Nofotografējiet dokumenta oriģinālu. Skenētus dokumentus, ekrānu fotoattēlus vai fotokopijas nav atļauts izmantot.",
+            "list_header": "Izmantojiet ierīci, lai:",
+            "list_header_doc_video": "Izmantojiet ierīci, lai ierakstītu:",
+            "list_header_webcam": "Izmantojiet tīmekļa kameru vai tālruni, lai nofotografētu:",
+            "list_item_doc": "jūsu personu apliecinošo dokumentu",
+            "list_item_doc_generic": "Ierakstiet video, kurā redzams jūsu identitātes dokuments",
+            "list_item_doc_photo": "Nofotografētu savu personu apliecinošo dokumentu.",
+            "list_item_doc_video": "Ierakstītu sava personu apliecinošā dokumenta videoklipu.",
+            "list_item_doc_video_timeout": "Ierakstīšana ir ierobežota līdz <timeout><\/timeout> sekundēm",
+            "list_item_face_photo": "Nofotografētu savu seju.",
+            "list_item_face_video": "Ierakstītu savas sejas videoklipu.",
+            "list_item_poa": "jūsu adreses apliecinājumu",
+            "list_item_selfie": "jūsu seju",
+            "next_button": "Izvēlēties dokumentu",
+            "start_workflow_button": "Sākt pārbaudi",
+            "start_workflow_button_trial": "Sākt pārbaudi (TEST)",
+            "subtitle": "Tas var aizņemt dažas minūtes",
+            "title": "Apstipriniet savu identitāti",
+            "trial_message": "Nesniedziet šeit personas datus, ja vien neizmantojat Onfido izmēģinājumversiju."
+        },
+        "workflow_complete": {
+            "pass": {
+                "description": "Mēs pārbaudījām jūsu identitāti",
+                "title": "Pieņemts"
+            },
+            "reject": {
+                "description": "Mēs nevarējām pārbaudīt jūsu identitāti",
+                "title": "Noraidīts"
+            }
+        },
+        "workflow_erros": {
+            "generic_title": "Radās servera kļūda.",
+            "no_workflow_run_id": "Nav iestatīts darbplūsmas izpildes ID.",
+            "reload_app": "Mēģiniet atkārtoti ielādēt lietotni un mēģiniet vēlreiz.",
+            "task_not_completed": "Nevarēja pabeigt darbplūsmas uzdevumu.",
+            "task_not_retrieved": "Nevarēja atrast darbplūsmas uzdevumu.",
+            "task_not_supported": "Uzdevums pašlaik netiek atbalstīts"
+        }
+    },
+    "profile_data": {
+        "field_labels": {
+            "rou_specific": {
+                "national_id_value": "Personas numuriskais kods (CNP)"
+            }
+        }
+    }
+}
