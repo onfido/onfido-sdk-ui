@@ -1,5 +1,21 @@
 # CHANGELOG
 
+## 14.28.0 - 2024-06-14
+
+- Expose version in the Onfido.init handle- Adjustment to the preloading of modules to reduce loading time 
+## v14.28.0 - 2024-06-14
+
+- Expose version in the Onfido.init handle- Adjustment to the preloading of modules to reduce loading time 
+## 14.28.0 - 2024-06-13
+
+- Expose version in the Onfido.init handle- Adjustment to the preloading of modules to reduce loading time 
+## v14.28.0 - 2024-06-13
+
+- Expose version in the Onfido.init handle- Adjustment to the preloading of modules to reduce loading time 
+## 14.27.1 - 2024-06-05
+
+- Expose version in the Onfido.init handle- Adjustment to the preloading of modules to reduce loading time 
+ 
 ## 14.27.0 - 2024-05-30
 
 - Expose version in the Onfido.init handle- Adjustment to the preloading of modules to reduce loading time 

@@ -400,7 +400,70 @@ Regardless of the cross-device method, the secure URL is unique to this session.
 
 At the end of the capture process, users will be instructed to revert back to their desktop to complete the SDK flow.
 
-**Note** that during a capture sequence on a desktop device, if a camera cannot be detected, the user is forward by default to the cross-device flow in order to attempt the capture on another device.
+**Note** that during a capture sequence on a desktop device, if a camera cannot be detected, the user is forwarded by default to the cross-device flow in order to attempt the capture on another device.
+
+**Also note** that One-Time SMS links **cannot** be sent to the following regions and the messages will not be delivered:
+
+**North America**
+- Belize
+- Cuba
+- Grenada
+- Haiti
+- St Kitts and Nevis
+
+**Asia**
+- Afghanistan
+- Azerbaijan
+- Bangladesh
+- Bhutan
+- East Timor
+- Iran
+- Iraq
+- Jordan
+- Democratic People's Republic of Korea
+- Kyrgyzstan
+- Laos
+- Lebanon
+- Myanmar
+- Oman
+- Palestinian Territory
+- Sri Lanka
+- Syria
+- Tajikistan
+- Turkmenistan
+- Yemen
+
+**Europe**
+- Kosovo
+ 
+**Africa**
+- Burkina Faso
+- Burundi
+- Cape Verde
+- Central Africa
+- Chad
+- Comoros
+- Djibouti
+- Egypt
+- Equatorial Guinea
+- Eritrea
+- Guinea Bissau
+- Liberia
+- Libya
+- Madagascar
+- Mauritania
+- Niger
+- Sao Tome and Principe
+- Senegal
+- Seychelles
+- Somalia
+- South Sudan
+- Sudan
+- Swaziland
+- Zambia
+- Zimbabwe
+
+For more information regarding region blocking, please contact Onfido's [Customer Support](mailto:support@onfido.com).
 
 #### Enforcing cross-device navigation
 
