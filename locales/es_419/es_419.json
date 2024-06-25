@@ -780,7 +780,7 @@
         "photo_upload": {
             "body_accommodation_tenancy_certificate": "Proporcione la página completa del documento para obtener los mejores resultados",
             "body_address_certificate_back": "Sube la parte trasera del documento desde tu computadora",
-            "body_address_certificate_front": "Sube el frente del documento desde tu computadora",
+            "body_address_certificate_front": "Cargue el anverso del documento desde su computadora",
             "body_bank_statement": "Proporciona toda la página del documento para obtener mejores resultados",
             "body_benefits_letter": "Proporciona toda la página del documento para obtener mejores resultados",
             "body_bill": "Proporciona toda la página del documento para obtener mejores resultados",
@@ -792,7 +792,7 @@
             "body_id_front": "Cargar el anverso del documento de identidad desde tu computadora",
             "body_identity_document_with_address": "Proporcione toda la página del documento para obtener los mejores resultados",
             "body_identity_document_with_address_back": "Sube la parte trasera del documento desde tu computadora",
-            "body_identity_document_with_address_front": "Sube el frente del documento desde tu computadora",
+            "body_identity_document_with_address_front": "Cargue el anverso del documento desde su computadora",
             "body_insurance_statement": "Proporcione toda la página del documento para obtener los mejores resultados",
             "body_license_back": "Cargar el reverso de la licencia desde tu computadora",
             "body_license_front": "Cargar el anverso de la licencia desde tu computadora",

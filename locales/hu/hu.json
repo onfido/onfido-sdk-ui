@@ -538,7 +538,7 @@
                 "error": {
                     "code_expired": "A kódja lejárt, kérjük, kérjen újat.",
                     "code_invalid": "Hibás kód lett megadva, kérjük próbálja újra.",
-                    "no_international_code": "A bemenetnek nemzetközi formátumban kell lennie",
+                    "no_international_code": "Az adatoknak nemzetközi formátumban kell lennie",
                     "technical": "Műszaki hiba történt, kérjük próbálja meg újra később",
                     "too_many_attempts": "Túl sokszor próbálkozott ezzel a kóddal, kérjük, kérjen újat.",
                     "wrong_code": "Hibás kód lett megadva, kérjük próbálja újra"
