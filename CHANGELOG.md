@@ -1,8 +1,5 @@
 # CHANGELOG
 
-## v14.28.0 - 2024-06-20
-
-
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
