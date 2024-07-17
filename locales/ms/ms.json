@@ -355,6 +355,12 @@
             "button_secondary": "Pratonton video",
             "title": "Periksa video anda"
         },
+        "eid": {
+            "scheme_form": {
+                "subtitle": "Pilih bank dari senarai di bawah untuk mengesahkan diri anda melalui",
+                "title": "Pengesahan"
+            }
+        },
         "error_unsupported_browser": {
             "subtitle_android": "Mulakan semula proses pada versi terkini Google Chrome",
             "subtitle_ios": "Mulakan semula proses pada versi terkini Safari",

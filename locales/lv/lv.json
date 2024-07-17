@@ -355,6 +355,12 @@
             "button_secondary": "Priekšskatīt videoklipu",
             "title": "Apskatiet savu videoklipu"
         },
+        "eid": {
+            "scheme_form": {
+                "subtitle": "Izvēlieties banku no zemāk esošā saraksta, lai veiktu sevis pārbaudi",
+                "title": "Pārbaude"
+            }
+        },
         "error_unsupported_browser": {
             "subtitle_android": "Sāciet procesu no jauna jaunākajā Google Chrome versijā",
             "subtitle_ios": "Sāciet procesu no jauna jaunākajā Safari versijā",

@@ -355,6 +355,12 @@
             "button_secondary": "Videoyu ön izle",
             "title": "Videonuzu kontrol edin"
         },
+        "eid": {
+            "scheme_form": {
+                "subtitle": "Kendinizi doğrulamak için aşağıdaki listeden bir banka seçin",
+                "title": "Doğrulama"
+            }
+        },
         "error_unsupported_browser": {
             "subtitle_android": "İşlemi Google Chrome'un en son sürümünde yeniden başlatın",
             "subtitle_ios": "Safari'nin en son sürümünde işlemi yeniden başlatın",

@@ -355,6 +355,12 @@
             "button_secondary": "ดูตัวอย่างวิดีโอ",
             "title": "เช็ควิดีโอของคุณ"
         },
+        "eid": {
+            "scheme_form": {
+                "subtitle": "เลือกธนาคารจากรายการด้านล่างเพื่อยืนยันตัวตนของคุณ",
+                "title": "การยืนยันตัวตน"
+            }
+        },
         "error_unsupported_browser": {
             "subtitle_android": "เริ่มกระบวนการอีกครั้งใน Google Chrome รุ่นล่าสุด",
             "subtitle_ios": "รีสตาร์ทกระบวนการบน Safari เวอร์ชันล่าสุด",

@@ -355,6 +355,12 @@
             "button_secondary": "동영상 미리보기",
             "title": "동영상 확인하기"
         },
+        "eid": {
+            "scheme_form": {
+                "subtitle": "아래 목록에서 본인을 인증할 은행을 선택하세요",
+                "title": "인증"
+            }
+        },
         "error_unsupported_browser": {
             "subtitle_android": "Google Chrome 최신 버전에서 프로세스 다시 시작하기",
             "subtitle_ios": "Safari 최신 버전에서 프로세스 다시 시작하기",

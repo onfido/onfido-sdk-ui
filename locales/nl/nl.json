@@ -355,6 +355,12 @@
             "button_secondary": "Video weergeven",
             "title": "Controleer uw filmpje"
         },
+        "eid": {
+            "scheme_form": {
+                "subtitle": "Selecteer een bank uit de onderstaande lijst om uzelf te verifiëren",
+                "title": "Verificatie"
+            }
+        },
         "error_unsupported_browser": {
             "subtitle_android": "Start het proces opnieuw op de laatste versie Google Chrome",
             "subtitle_ios": "Start het proces opnieuw op de laatste versie van Safari",

@@ -355,6 +355,12 @@
             "button_secondary": "Vista previa del vídeo",
             "title": "Verifique video"
         },
+        "eid": {
+            "scheme_form": {
+                "subtitle": "Selecciona un banco de la lista a continuación para verificarte a través de él",
+                "title": "Verificación"
+            }
+        },
         "error_unsupported_browser": {
             "subtitle_android": "Reinicie el proceso en la versión más reciente de Google Chrome",
             "subtitle_ios": "Reinicie el proceso en la versión más reciente de Safari",

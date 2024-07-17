@@ -355,6 +355,12 @@
             "button_secondary": "Anteprima video",
             "title": "Controlla il video"
         },
+        "eid": {
+            "scheme_form": {
+                "subtitle": "Seleziona una banca dall'elenco sottostante per verificare la tua identità",
+                "title": "Verifica"
+            }
+        },
         "error_unsupported_browser": {
             "subtitle_android": "Riavvia il processo nell’ultima versione di Google Chrome",
             "subtitle_ios": "Riavvia il processo nell’ultima versione di Safari",

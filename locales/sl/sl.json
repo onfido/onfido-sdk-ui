@@ -355,6 +355,12 @@
             "button_secondary": "Predogled videoposnetka",
             "title": "Oglejte si videoposnetek"
         },
+        "eid": {
+            "scheme_form": {
+                "subtitle": "Iz spodnjega seznama izberite banko, preko katere se želite preveriti",
+                "title": "Potrditev"
+            }
+        },
         "error_unsupported_browser": {
             "subtitle_android": "Ponovno zaženite postopek v najnovejši različici brskalnika Google Chrome",
             "subtitle_ios": "Ponovno zaženite postopek na najnovejši različici Safarija",

@@ -355,6 +355,12 @@
             "button_secondary": "Ukážka videa",
             "title": "Skontrolujte video"
         },
+        "eid": {
+            "scheme_form": {
+                "subtitle": "Vyberte banku zo zoznamu nižšie, aby ste sa overili",
+                "title": "Overenie"
+            }
+        },
         "error_unsupported_browser": {
             "subtitle_android": "Spustite proces znova v najnovšej verzii prehliadača Google Chrome",
             "subtitle_ios": "Spustite proces znova v najnovšej verzii prehliadača Safari",

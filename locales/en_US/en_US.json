@@ -355,6 +355,12 @@
             "button_secondary": "Preview video",
             "title": "Check your video"
         },
+        "eid": {
+            "scheme_form": {
+                "subtitle": "Select a bank from the list below to verify yourself through",
+                "title": "Verification"
+            }
+        },
         "error_unsupported_browser": {
             "subtitle_android": "Restart the process on the latest version of Google Chrome",
             "subtitle_ios": "Restart the process on the latest version of Safari",

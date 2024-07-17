@@ -355,6 +355,12 @@
             "button_secondary": "Forhåndsvis video",
             "title": "Sjekk videoen din"
         },
+        "eid": {
+            "scheme_form": {
+                "subtitle": "Velg en bank fra listen nedenfor for å verifisere deg selv gjennom",
+                "title": "Verifisering"
+            }
+        },
         "error_unsupported_browser": {
             "subtitle_android": "Start prosessen på nytt på den nyeste versjonen av Google Chrome",
             "subtitle_ios": "Start prosessen på nytt på den nyeste versjonen av Safari",

@@ -355,6 +355,12 @@
             "button_secondary": "預覽影片",
             "title": "檢查您的影片"
         },
+        "eid": {
+            "scheme_form": {
+                "subtitle": "從下方的列表中選擇一家銀行，以進行身份驗證",
+                "title": "驗證"
+            }
+        },
         "error_unsupported_browser": {
             "subtitle_android": "在最新版本的 Google Chrome 上重新開始此程序",
             "subtitle_ios": "在最新版本的 Safari 上重新開始此程序",

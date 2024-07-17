@@ -355,6 +355,12 @@
             "button_secondary": "Xem trước video",
             "title": "Kiểm tra video của bạn"
         },
+        "eid": {
+            "scheme_form": {
+                "subtitle": "Chọn một ngân hàng từ danh sách dưới đây để xác minh thông tin của bạn",
+                "title": "Xác minh"
+            }
+        },
         "error_unsupported_browser": {
             "subtitle_android": "Lặp lại quy trình đó trên phiên bản Google Chrome mới nhất",
             "subtitle_ios": "Lặp lại lại quy trình đó trên phiên bản Safari mới nhất",

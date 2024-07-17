@@ -355,6 +355,12 @@
             "button_secondary": "Esikatsele videota",
             "title": "Tarkista videosi"
         },
+        "eid": {
+            "scheme_form": {
+                "subtitle": "Valitse pankki alla olevasta luettelosta tunnistautumista varten",
+                "title": "Vahvistus"
+            }
+        },
         "error_unsupported_browser": {
             "subtitle_android": "Aloita prosessi uudelleen Google Chromen uusimmalla versiolla",
             "subtitle_ios": "Aloita prosessi uudelleen Safarin uusimmalla versiolla",

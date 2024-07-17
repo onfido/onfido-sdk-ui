@@ -355,6 +355,12 @@
             "button_secondary": "معاينة الفيديو",
             "title": "تحقّق من مقطع الفيديو الخاص بك"
         },
+        "eid": {
+            "scheme_form": {
+                "subtitle": "حدد بنكًا من القائمة أدناه للتحقق من نفسك من خلاله",
+                "title": "التحقق"
+            }
+        },
         "error_unsupported_browser": {
             "subtitle_android": "إعادة تشغيل العملية على أحدث إصدار من Google Chrome",
             "subtitle_ios": "إعادة تشغيل العملية على أحدث إصدار من Safari",

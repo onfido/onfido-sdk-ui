@@ -355,6 +355,12 @@
             "button_secondary": "Videó előnézete",
             "title": "Ellenőrizze a videóját"
         },
+        "eid": {
+            "scheme_form": {
+                "subtitle": "Válasszon egy bankot az alábbi listából az önazonosságának ellenőrzéséhez",
+                "title": "Azonosítás"
+            }
+        },
         "error_unsupported_browser": {
             "subtitle_android": "A folyamat újraindítása a Google Chrome legújabb verziójával",
             "subtitle_ios": "Indítsa újra a folyamatot a Safari legújabb verziójával",

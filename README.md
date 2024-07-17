@@ -128,14 +128,9 @@ More details are provided in the [SDK version pinning](#version-pinning) section
 
 #### TypeScript
 
-From version `6.5.0` onwards, TypeScript is officially supported, providing types for:
+Since version `6.5.0`, TypeScript is officially supported.
 
-- `init()` method
-- `options` argument (`SdkOptions`) and return object (`SdkHandle`) of `init()` method
-- Arguments (`SdkResponse` and `SdkError`) for `onComplete()` and `onError()` callbacks
-- `steps` option (`StepTypes` and `StepConfig`)
-- `language` option (`SupportedLanguages` and `LocaleConfig`)
-- `region` option (`ServerRegions`)
+**Note**: In previous versions of the SDK (v13 and earlier), additional types, such as for the `init()` function were exposed. They will be gradually re-introduced in upcoming releases.
 
 ### Loading the Onfido flow
 

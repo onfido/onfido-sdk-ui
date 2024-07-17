@@ -355,6 +355,12 @@
             "button_secondary": "Previzualizare clip video",
             "title": "Verificați clipul dvs. video"
         },
+        "eid": {
+            "scheme_form": {
+                "subtitle": "Selectați o bancă din lista de mai jos pentru a vă verifica prin intermediul acesteia",
+                "title": "Verificare"
+            }
+        },
         "error_unsupported_browser": {
             "subtitle_android": "Începeți din nou acest proces pe ultima versiune de Google Chrome",
             "subtitle_ios": "Începeți din nou acest proces pe ultima versiune de Safari",

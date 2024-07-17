@@ -355,6 +355,12 @@
             "button_secondary": "Náhled videa",
             "title": "Zkontrolujte své video"
         },
+        "eid": {
+            "scheme_form": {
+                "subtitle": "Vyberte banku ze seznamu níže pro ověření své identity",
+                "title": "Ověření"
+            }
+        },
         "error_unsupported_browser": {
             "subtitle_android": "Restartování v nejnovější verzi prohlížeče Google Chrome",
             "subtitle_ios": "Restartování v nejnovější verzi prohlížeče Safari",

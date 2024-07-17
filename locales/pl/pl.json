@@ -355,6 +355,12 @@
             "button_secondary": "Podgląd wideo",
             "title": "Sprawdź swoje nagranie"
         },
+        "eid": {
+            "scheme_form": {
+                "subtitle": "Wybierz bank z poniższej listy, aby zweryfikować się przez niego",
+                "title": "Weryfikacja"
+            }
+        },
         "error_unsupported_browser": {
             "subtitle_android": "Uruchom ponownie proces w najnowszej wersji Google Chrome",
             "subtitle_ios": "Uruchom ponownie proces w najnowszej wersji Safari",

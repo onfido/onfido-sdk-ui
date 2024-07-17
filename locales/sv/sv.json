@@ -355,6 +355,12 @@
             "button_secondary": "Förhandsgranska video",
             "title": "Kontrollera din video"
         },
+        "eid": {
+            "scheme_form": {
+                "subtitle": "Välj en bank från listan nedan för att verifiera dig själv genom",
+                "title": "Verifiering"
+            }
+        },
         "error_unsupported_browser": {
             "subtitle_android": "Starta om processen i den senaste versionen av Google Chrome",
             "subtitle_ios": "Starta om processen i den senaste versionen av Safari",

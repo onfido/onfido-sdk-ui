@@ -355,6 +355,12 @@
             "button_secondary": "Video-Vorschau",
             "title": "Selfie-Video prüfen"
         },
+        "eid": {
+            "scheme_form": {
+                "subtitle": "Wählen Sie eine Bank aus der untenstehenden Liste aus, um sich darüber zu verifizieren",
+                "title": "Überprüfung"
+            }
+        },
         "error_unsupported_browser": {
             "subtitle_android": "Starten Sie den Prozess auf der neuesten Version von Google Chrome neu",
             "subtitle_ios": "Starten Sie den Prozess mit der neuesten Version von Safari neu",

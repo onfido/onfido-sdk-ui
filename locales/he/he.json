@@ -355,6 +355,12 @@
             "button_secondary": "תצוגה מקדימה של הסרטון",
             "title": "בדוק את הסרטון שלך"
         },
+        "eid": {
+            "scheme_form": {
+                "subtitle": "בחר בנק מהרשימה שלהלן כדי לאמת את עצמך דרכו",
+                "title": "אימות"
+            }
+        },
         "error_unsupported_browser": {
             "subtitle_android": "התחל מחדש את התהליך בגרסה האחרונה של Google Chrome",
             "subtitle_ios": "התחל מחדש את התהליך בגרסה העדכנית ביותר של Safari",

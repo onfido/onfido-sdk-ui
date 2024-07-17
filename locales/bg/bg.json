@@ -355,6 +355,12 @@
             "button_secondary": "Преглед на видеото",
             "title": "Прегледайте видеото си"
         },
+        "eid": {
+            "scheme_form": {
+                "subtitle": "Изберете банка от списъка по-долу, за да се удостоверите чрез нея",
+                "title": "Проверка"
+            }
+        },
         "error_unsupported_browser": {
             "subtitle_android": "Рестартирайте процеса в последната версия на Google Chrome",
             "subtitle_ios": "Рестартирайте процеса в последната версия на Safari",

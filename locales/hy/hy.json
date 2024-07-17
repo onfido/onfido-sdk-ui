@@ -355,6 +355,12 @@
             "button_secondary": "Նախադիտել տեսանյութը",
             "title": "Ստուգեք ձեր տեսանյութը"
         },
+        "eid": {
+            "scheme_form": {
+                "subtitle": "Ընտրեք բանկը ստորև բերված ցանկից, որպեսզի ստուգեք ձեր իսկությունը",
+                "title": "Հաստատում"
+            }
+        },
         "error_unsupported_browser": {
             "subtitle_android": "Կրկնեք գործընթացը Google Chrome-ի վերջին տարբերակով",
             "subtitle_ios": "Կրկնեք գործընթացը Safari-ի վերջին տարբերակով",

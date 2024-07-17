@@ -355,6 +355,12 @@
             "button_secondary": "プレビュー動画",
             "title": "動画を確認する"
         },
+        "eid": {
+            "scheme_form": {
+                "subtitle": "以下のリストから銀行を選択し、自身を確認するために通過します",
+                "title": "確認"
+            }
+        },
         "error_unsupported_browser": {
             "subtitle_android": "Google Chromeの最新バージョンでプロセスを再開する",
             "subtitle_ios": "Safariの最新バージョンでプロセスを再開する",

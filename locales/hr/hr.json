@@ -355,6 +355,12 @@
             "button_secondary": "Pregledajte videozapis",
             "title": "Provjerite svoj videozapis"
         },
+        "eid": {
+            "scheme_form": {
+                "subtitle": "Odaberite banku s popisa ispod kako biste se verificirali kroz nju",
+                "title": "Provjera"
+            }
+        },
         "error_unsupported_browser": {
             "subtitle_android": "Ponovno pokrenite postupak s najnovijom verzijom preglednika Google Chrome",
             "subtitle_ios": "Ponovno pokrenite postupak s najnovijom verzijom preglednika Safari",

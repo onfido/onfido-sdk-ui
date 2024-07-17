@@ -355,6 +355,12 @@
             "button_secondary": "Pratinjau video",
             "title": "Periksa video Anda"
         },
+        "eid": {
+            "scheme_form": {
+                "subtitle": "Pilih bank dari daftar di bawah ini untuk memverifikasi diri Anda melalui",
+                "title": "Verifikasi"
+            }
+        },
         "error_unsupported_browser": {
             "subtitle_android": "Mulai ulang proses di Google Chrome versi terbaru",
             "subtitle_ios": "Mulai ulang proses di Safari versi terbaru",

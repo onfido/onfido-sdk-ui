@@ -355,6 +355,12 @@
             "button_secondary": "Video eelvaade",
             "title": "Kontrollige oma videot"
         },
+        "eid": {
+            "scheme_form": {
+                "subtitle": "Valige allolevast loendist pank, mille kaudu enda isikut tõendada",
+                "title": "Kontroll"
+            }
+        },
         "error_unsupported_browser": {
             "subtitle_android": "Taasalustage protsessi Google Chrome'i uusimas versioonis",
             "subtitle_ios": "Taasalustage protsessi Safari uusimas versioonis",

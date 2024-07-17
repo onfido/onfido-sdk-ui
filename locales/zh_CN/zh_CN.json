@@ -355,6 +355,12 @@
             "button_secondary": "预览视频",
             "title": "查看您的视频"
         },
+        "eid": {
+            "scheme_form": {
+                "subtitle": "从下面的列表中选择一家银行，通过它来进行身份验证",
+                "title": "身份验证"
+            }
+        },
         "error_unsupported_browser": {
             "subtitle_android": "请在最新版本的Chrome浏览器上重新启动此流程",
             "subtitle_ios": "请在最新版本的Safari上重新启动此流程",

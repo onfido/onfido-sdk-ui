@@ -355,6 +355,12 @@
             "button_secondary": "Peržiūrėti vaizdo įrašą",
             "title": "Peržiūrėkite vaizdo įrašą"
         },
+        "eid": {
+            "scheme_form": {
+                "subtitle": "Pasirinkite banką iš žemiau esančio sąrašo, kad patvirtintumėte savo tapatybę per jį",
+                "title": "Patvirtinimas"
+            }
+        },
         "error_unsupported_browser": {
             "subtitle_android": "Iš naujo pradėkite procesą naudodami naujausią „Google Chrome“ versiją",
             "subtitle_ios": "Iš naujo pradėkite procesą naudodami naujausią „Safari“ versiją",
