@@ -1269,6 +1269,27 @@
             "subtitle": "我們會將此資料與您的文件進行比較",
             "title": "拍一張自拍照"
         },
+        "sid": {
+            "passkey": {
+                "fail": {
+                    "button": "開始驗證",
+                    "content": "我們將向您請求一些文件和個人信息，這可以幫助我們確認您的身份。",
+                    "disclaimer": "您將能在流程結束時設定此驗證為可重複使用。",
+                    "subtitle": "對不起，您不能跳過此流程，請進行身份驗證程序：",
+                    "title": "無可用的驗證方式"
+                },
+                "success": {
+                    "biophoto": "一張您的臉部照片以證明您是真實的人",
+                    "biovideo": "錄製您的臉部以證明您是真實的人",
+                    "button": "繼續",
+                    "datacapture": "一些個人資訊",
+                    "document": "有效的政府發行身份證明文件",
+                    "drivinglicense": "有效的政府發行駕駛執照",
+                    "proofofaddress": "一份有效的文件，可以作為地址證明",
+                    "title": "找到先前的驗證！"
+                }
+            }
+        },
         "sms_sent": {
             "info": "提示",
             "info_link_expire": "您的連結將在一小時後失效",
@@ -1339,8 +1360,8 @@
             "video_accessibility": "重播您錄製的影片"
         },
         "video_intro": {
-            "button_pause_accessibility": "暫停影片",
-            "button_play_accessibility": "播放影片",
+            "button_pause_accessibility": "暫停掃描程序的示範動畫",
+            "button_play_accessibility": "播放掃描程序的示範動畫",
             "button_primary": "錄製影片",
             "list_accessibility": "錄製自拍影片的操作",
             "list_item_actions": "您有 20 秒完成動作",

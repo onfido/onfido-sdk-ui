@@ -1269,6 +1269,27 @@
             "subtitle": "We’ll compare this with your document",
             "title": "Take a selfie"
         },
+        "sid": {
+            "passkey": {
+                "fail": {
+                    "button": "Start verification",
+                    "content": "We’ll request some documentation and personal information from you, that can help us know you are who you say you are.",
+                    "disclaimer": "You will be able to set up this verification to be reusable at the end of the flow.",
+                    "subtitle": "Sorry, you can not skip this flow, please go through the identity verification process:",
+                    "title": "No usable verification available"
+                },
+                "success": {
+                    "biophoto": "A picture of your face to prove you are a real person",
+                    "biovideo": "A recording of your face to prove you are a real person",
+                    "button": "Continue",
+                    "datacapture": "Some personal information",
+                    "document": "A valid government-issued identity document",
+                    "drivinglicense": "A valid government-issued driving license",
+                    "proofofaddress": "A valid document that can serve as proof of address",
+                    "title": "Previous verification found!"
+                }
+            }
+        },
         "sms_sent": {
             "info": "Tips",
             "info_link_expire": "Your link will expire in one hour",
@@ -1339,8 +1360,8 @@
             "video_accessibility": "Replay your recorded video"
         },
         "video_intro": {
-            "button_pause_accessibility": "Pause video",
-            "button_play_accessibility": "Play video",
+            "button_pause_accessibility": "Pause illustrative animation of scanning procedure",
+            "button_play_accessibility": "Play illustrative animation of scanning procedure",
             "button_primary": "Record video",
             "list_accessibility": "Actions to record a selfie video",
             "list_item_actions": "You have 20 seconds to finish",

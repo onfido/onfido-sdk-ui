@@ -1269,6 +1269,27 @@
             "subtitle": "こちらをお手元のドキュメントと比較します",
             "title": "自撮りをする"
         },
+        "sid": {
+            "passkey": {
+                "fail": {
+                    "button": "認証を開始",
+                    "content": "私たちはあなたが主張する通りの人物であることを確認するために、あなたからいくつかの書類と個人情報を要求します。",
+                    "disclaimer": "この検証をフローの最後で再利用可能に設定できます。",
+                    "subtitle": "申し訳ありませんが、このフローはスキップできません。本人確認のプロセスを進めてください：",
+                    "title": "利用可能な確認手段がありません"
+                },
+                "success": {
+                    "biophoto": "あなたが実在の人物であることを証明するための顔写真",
+                    "biovideo": "あなたが実在の人物であることを証明するための顔の録画",
+                    "button": "続行",
+                    "datacapture": "一部の個人情報",
+                    "document": "有効な政府発行の身分証明書",
+                    "drivinglicense": "有効な政府発行の運転免許証",
+                    "proofofaddress": "住所証明として有効な文書",
+                    "title": "以前の本人確認が見つかりました！"
+                }
+            }
+        },
         "sms_sent": {
             "info": "ヒント",
             "info_link_expire": "リンクは1時間後に期限切れになります",
@@ -1339,8 +1360,8 @@
             "video_accessibility": "録画した動画を再生する"
         },
         "video_intro": {
-            "button_pause_accessibility": "動画を一時停止",
-            "button_play_accessibility": "動画を再生",
+            "button_pause_accessibility": "スキャン手順の説明アニメーションを一時停止",
+            "button_play_accessibility": "スキャン手順の説明アニメーションを再生",
             "button_primary": "動画を録画する",
             "list_accessibility": "自撮り動画を録画するアクション",
             "list_item_actions": "終了まで残り20秒です",

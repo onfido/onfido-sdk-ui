@@ -1269,6 +1269,27 @@
             "subtitle": "Nous allons le comparer avec votre document",
             "title": "Prendre un selfie"
         },
+        "sid": {
+            "passkey": {
+                "fail": {
+                    "button": "Commencer la vérification",
+                    "content": "Nous demanderons certains documents et informations personnelles de votre part, qui peuvent nous aider à vérifier que vous êtes bien qui vous prétendez être.",
+                    "disclaimer": "Vous pourrez configurer cette vérification pour qu'elle soit réutilisable à la fin du processus.",
+                    "subtitle": "Désolé, vous ne pouvez pas sauter cette étape, veuillez passer par le processus de vérification d'identité :",
+                    "title": "Aucune vérification utilisable disponible"
+                },
+                "success": {
+                    "biophoto": "Une photo de votre visage pour prouver que vous êtes une vraie personne",
+                    "biovideo": "Un enregistrement de votre visage pour prouver que vous êtes une vraie personne",
+                    "button": "Continuer",
+                    "datacapture": "Des informations personnelles",
+                    "document": "Un document d'identité valide émis par le gouvernement",
+                    "drivinglicense": "Un permis de conduire valide délivré par le gouvernement",
+                    "proofofaddress": "Un document valide qui peut servir de preuve d'adresse",
+                    "title": "Précédente vérification trouvée !"
+                }
+            }
+        },
         "sms_sent": {
             "info": "Conseils",
             "info_link_expire": "Votre lien expirera dans une heure",
@@ -1339,8 +1360,8 @@
             "video_accessibility": "Rejouer la vidéo"
         },
         "video_intro": {
-            "button_pause_accessibility": "Mettre la vidéo sur pause",
-            "button_play_accessibility": "Lire la vidéo",
+            "button_pause_accessibility": "Pause de l'animation illustrative de la procédure de scan",
+            "button_play_accessibility": "Jouer une animation illustrative de la procédure de scan",
             "button_primary": "Commencer l’enregistrement",
             "list_accessibility": "Actions pour enregistrer une vidéo de votre visage",
             "list_item_actions": "Vous avez 20 secondes pour terminer",

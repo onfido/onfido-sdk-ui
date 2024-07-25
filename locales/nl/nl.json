@@ -1269,6 +1269,27 @@
             "subtitle": "We vergelijken deze met uw document",
             "title": "Neem een selfie"
         },
+        "sid": {
+            "passkey": {
+                "fail": {
+                    "button": "Start verificatie",
+                    "content": "We zullen om wat documentatie en persoonlijke informatie van u vragen, die ons kan helpen bevestigen dat u bent wie u zegt dat u bent.",
+                    "disclaimer": "U kunt deze verificatie instellen om herbruikbaar te zijn aan het einde van de stroom.",
+                    "subtitle": "Sorry, u kunt deze stroom niet overslaan, ga alstublieft door het identiteitsverificatieproces:",
+                    "title": "Geen bruikbare verificatie beschikbaar"
+                },
+                "success": {
+                    "biophoto": "Een foto van je gezicht om te bewijzen dat je een echt persoon bent",
+                    "biovideo": "Een opname van uw gezicht om te bewijzen dat u een echt persoon bent",
+                    "button": "Doorgaan",
+                    "datacapture": "Sommige persoonlijke informatie",
+                    "document": "Een geldig door de overheid uitgegeven identiteitsdocument",
+                    "drivinglicense": "Een geldig door de overheid uitgegeven rijbewijs",
+                    "proofofaddress": "Een geldig document dat kan dienen als bewijs van adres",
+                    "title": "Vorige verificatie gevonden!"
+                }
+            }
+        },
         "sms_sent": {
             "info": "Tips",
             "info_link_expire": "Uw link verloopt over een uur",
@@ -1339,8 +1360,8 @@
             "video_accessibility": "Speel uw opgenomen filmpje opnieuw af"
         },
         "video_intro": {
-            "button_pause_accessibility": "Filmpje pauzeren",
-            "button_play_accessibility": "Filmpje afspelen",
+            "button_pause_accessibility": "Pauzeer illustratieve animatie van scanprocedure",
+            "button_play_accessibility": "Speel illustratieve animatie van scanprocedure af",
             "button_primary": "Maak een filmpje",
             "list_accessibility": "Acties om een selfievideo op te nemen",
             "list_item_actions": "U hebt 20 seconden om af te ronden",

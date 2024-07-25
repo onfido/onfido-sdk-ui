@@ -1269,6 +1269,27 @@
             "subtitle": "Vom compara această imagine cu documentul dvs.",
             "title": "Faceți o poză selfie"
         },
+        "sid": {
+            "passkey": {
+                "fail": {
+                    "button": "Începeți verificarea",
+                    "content": "Vom solicita unele documente și informații personale de la dvs., care ne pot ajuta să știm că sunteți cine spuneți că sunteți.",
+                    "disclaimer": "Vei putea seta această verificare pentru a fi reutilizabilă la sfârșitul fluxului.",
+                    "subtitle": "Ne pare rău, nu puteți sări peste acest proces, vă rugăm să treceți prin procesul de verificare a identității:",
+                    "title": "Nu există o verificare utilizabilă disponibilă"
+                },
+                "success": {
+                    "biophoto": "O fotografie cu fața ta pentru a dovedi că ești o persoană reală",
+                    "biovideo": "O înregistrare a feței tale pentru a dovedi că ești o persoană reală",
+                    "button": "Continuați",
+                    "datacapture": "Unele informații personale",
+                    "document": "Un document de identitate valid emis de guvern",
+                    "drivinglicense": "Un permis de conducere valid emis de guvern",
+                    "proofofaddress": "Un document valid care poate servi drept dovadă a adresei",
+                    "title": "Verificarea anterioară a fost găsită!"
+                }
+            }
+        },
         "sms_sent": {
             "info": "Sugestii",
             "info_link_expire": "Linkul dvs. va expira într-o oră",
@@ -1339,8 +1360,8 @@
             "video_accessibility": "Redați din nou clipul dvs. înregistrat"
         },
         "video_intro": {
-            "button_pause_accessibility": "Puneți pe pauză clipul video",
-            "button_play_accessibility": "Redați clip video",
+            "button_pause_accessibility": "Pauză animație ilustrativă a procedurii de scanare",
+            "button_play_accessibility": "Redă animația ilustrativă a procedurii de scanare",
             "button_primary": "Înregistrați un clip video",
             "list_accessibility": "Acțiuni pentru a verifica un clip video selfie",
             "list_item_actions": "Aveți 20 de secunde să finalizați",

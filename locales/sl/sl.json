@@ -1269,6 +1269,27 @@
             "subtitle": "Primerjali ga bomo z vašim dokumentom",
             "title": "Posnemite selfie"
         },
+        "sid": {
+            "passkey": {
+                "fail": {
+                    "button": "Začni s preverjanjem",
+                    "content": "Zahtevali bomo nekaj dokumentacije in osebnih podatkov od vas, ki nam lahko pomagajo ugotoviti, ali ste res tisti, za katerega trdite, da ste.",
+                    "disclaimer": "To preverjanje boste lahko nastavili tako, da bo ponovno uporabno na koncu postopka.",
+                    "subtitle": "Oprostite, tega postopka ne morete preskočiti, prosimo, da opravite postopek preverjanja identitete:",
+                    "title": "Ni na voljo uporabne preveritve identitete"
+                },
+                "success": {
+                    "biophoto": "Slika vašega obraza, ki dokazuje, da ste prava oseba",
+                    "biovideo": "Posnetek vašega obraza za dokaz, da ste prava oseba",
+                    "button": "Nadaljuj",
+                    "datacapture": "Nekatere osebne informacije",
+                    "document": "Veljaven dokument o identiteti, ki ga je izdala vlada",
+                    "drivinglicense": "Veljavno vozniško dovoljenje, ki ga izda vlada",
+                    "proofofaddress": "Veljaven dokument, ki lahko služi kot dokaz o naslovu",
+                    "title": "Prejšnja preveritev najdena!"
+                }
+            }
+        },
         "sms_sent": {
             "info": "Namigi",
             "info_link_expire": "Vaša povezava bo potekla v eni uri",
@@ -1339,8 +1360,8 @@
             "video_accessibility": "Ponovno predvajajte posneti videoposnetek"
         },
         "video_intro": {
-            "button_pause_accessibility": "Zaustavi videoposnetek",
-            "button_play_accessibility": "Predvajaj videoposnetek",
+            "button_pause_accessibility": "Začasno ustavi ilustrativno animacijo postopka skeniranja",
+            "button_play_accessibility": "Predvajaj ilustrativno animacijo postopka skeniranja",
             "button_primary": "Posnemi videoposnetek",
             "list_accessibility": "Dejavnosti za snemanje videoposnetka selfijev",
             "list_item_actions": "Imate 20 sekund, da končate",

@@ -200,19 +200,9 @@ For details on how to generate a `workflow_run_id`, please refer to the `POST /w
 
 ### SDK authentication
 
-The SDK is authenticated using SDK tokens. As each SDK token must be specific to a given applicant and session, a new token must be generated each time you initialize the Onfido Web SDK.
+The SDK is authenticated using SDK tokens. Onfido Studio generates and exposes SDK tokens in the workflow run payload returned by the API when a workflow run is [created](https://documentation.onfido.com/#create-workflow-run).
 
-- **`token {String}` - required**
-
-  A JWT is required in order to authorize with the Onfido WebSocket endpoint. If the SDK token is missing, an exception will be thrown.
-
-For details on how to generate SDK tokens, please refer to `POST /sdk_token/` definition in the Onfido [API reference](https://documentation.onfido.com/api/latest#generate-sdk-token).
-
-<Callout type="warning">
-
-> SDK tokens have a fixed expiry of 90 minutes.
-
-</Callout>
+SDK tokens for Studio can only be used together with the specific workflow run they are generated for, and remain valid for a period of five weeks.
 
 **Note**: You must never use API tokens in the frontend of your application as malicious users could discover them in your source code. You should only use them on your server.
 
@@ -395,7 +385,67 @@ Regardless of the cross-device method, the secure URL is unique to this session.
 
 At the end of the capture process, users will be instructed to revert back to their desktop to complete the SDK flow.
 
-**Note** that during a capture sequence on a desktop device, if a camera cannot be detected, the user is forward by default to the cross-device flow in order to attempt the capture on another device.
+**Note** that during a capture sequence on a desktop device, if a camera cannot be detected, the user is forwarded directly to the cross-device flow in order to attempt the capture on another device.
+
+**Also note** that One-Time SMS links **cannot** be sent to the following regions and the messages will not be delivered:
+
+**North America**
+- Belize
+- Cuba
+- Grenada
+- Haiti
+- St Kitts and Nevis
+
+**Asia**
+- Afghanistan
+- Azerbaijan
+- Bangladesh
+- Bhutan
+- East Timor
+- Iran
+- Iraq
+- Jordan
+- Democratic People's Republic of Korea
+- Kyrgyzstan
+- Laos
+- Lebanon
+- Myanmar
+- Oman
+- Palestinian Territory
+- Sri Lanka
+- Syria
+- Tajikistan
+- Turkmenistan
+- Yemen
+ 
+**Africa**
+- Burkina Faso
+- Burundi
+- Cape Verde
+- Central Africa
+- Chad
+- Comoros
+- Djibouti
+- Egypt
+- Equatorial Guinea
+- Eritrea
+- Guinea Bissau
+- Liberia
+- Libya
+- Madagascar
+- Mauritania
+- Niger
+- Sao Tome and Principe
+- Senegal
+- Seychelles
+- Somalia
+- South Sudan
+- Sudan
+- Swaziland
+- Zambia
+- Zimbabwe
+
+For more information regarding region blocking, please contact Onfido's [Customer Support](mailto:support@onfido.com).
 
 #### Enforcing cross-device navigation
 
@@ -700,6 +750,24 @@ The `steps` parameter is mutually exclusive with `workflowRunId`. The other para
 
 **Note** that this initialization process is **not recommended** as the majority of new features are exclusively released for Studio workflows.
 
+### Manual SDK authentication
+
+The SDK is authenticated using SDK tokens. As each SDK token must be specific to a given applicant and session, a new token must be generated each time you initialize the Onfido Web SDK.
+
+- **`token {String}` - required**
+
+  A JWT is required in order to authorize with the Onfido WebSocket endpoint. If the SDK token is missing, an exception will be thrown.
+
+For details on how to manually generate SDK tokens, please refer to the `POST /sdk_token/` definition in the Onfido [API reference](https://documentation.onfido.com/#generate-sdk-token).
+
+<Callout type="warning">
+
+> It's important to note that manually generated SDK tokens expire after 90 minutes (SDK tokens generated in Onfido Studio when creating workflow runs are **not** affected by this limit).
+
+</Callout>
+
+**Note**: You must never use API tokens in the frontend of your application as malicious users could discover them in your source code. You should only use them on your server.
+
 - **`steps {List<String>}` - optional**
 
   The list of user verification steps, in order of appearance. Each step can either be specified as a string (when no customization is required) or an object (when customization is required). Customization options are described in the following sections.
@@ -710,7 +778,8 @@ From the possible steps listed below, only `document` is required:
 | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `welcome`  | Welcome screen shown to the user with preliminary instructions. [Customization](#welcome-step) options include modification to the text elements and instructions shown to the user.                                                     |
 | `document` | Set of screens that control the capture via photo or upload of the user's document. Numerous [customization](#document-step) options are available to define the document list presented to the user and the overall capture experience. |
-| `face`     | Set of screens that control the capture of a selfie, video or motion of the user. The [customization](#face-step) options allow the selection of the capture variant as well as fallback options.                                        |
+| `face`     | Set of screens that control the capture of a selfie, video or motion of the user. The [customization](#face-step) options allow the selection of the capture variant as well as fallback options.   
+| `poa`     | Set of screens where the user selects the issuing country and type of document to [verify their address](#poa-step).                                     |
 | `complete` | Screen shown to the user at the end of the flow. [Customization](#complete-step) options include modifications to the text elements shown to the user.                                                                                   |
 
 ```javascript
@@ -725,6 +794,7 @@ Onfido.init({
       },
     },
     "document",
+    "poa",
     "face",
   ];
 });
@@ -859,6 +929,9 @@ In case you require to capture a document that is not supported by Onfido or a s
     }
   }
   ```
+#### `poa` step
+
+This is the Proof of Address capture step. Users will be asked to select the issuing country of their document, the document type, and to provide images of their selected document. They will also have a chance to check the quality of the images before confirming. There are no custom options for this step.
 
 #### `face` step
 

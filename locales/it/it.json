@@ -1269,6 +1269,27 @@
             "subtitle": "Lo confronteremo con il tuo documento",
             "title": "Scatta un selfie"
         },
+        "sid": {
+            "passkey": {
+                "fail": {
+                    "button": "Inizia verifica",
+                    "content": "Richiederemo alcuni documenti e informazioni personali da te, che possono aiutarci a verificare che tu sia chi dici di essere.",
+                    "disclaimer": "Potrai configurare questa verifica per renderla riutilizzabile alla fine del flusso.",
+                    "subtitle": "Spiacente, non puoi saltare questo flusso, per favore procedi con il processo di verifica dell'identità:",
+                    "title": "Nessuna verifica utilizzabile disponibile"
+                },
+                "success": {
+                    "biophoto": "Una foto del tuo volto per dimostrare che sei una persona reale",
+                    "biovideo": "Una registrazione del tuo volto per dimostrare che sei una persona reale",
+                    "button": "Continua",
+                    "datacapture": "Alcune informazioni personali",
+                    "document": "Un valido documento d'identità rilasciato dal governo",
+                    "drivinglicense": "Una valida patente di guida rilasciata dal governo",
+                    "proofofaddress": "Un documento valido che può fungere da prova di residenza",
+                    "title": "Verifica precedente trovata!"
+                }
+            }
+        },
         "sms_sent": {
             "info": "Consigli",
             "info_link_expire": "Il tuo link scadrà tra un’ora",
@@ -1339,8 +1360,8 @@
             "video_accessibility": "Guarda il video registrato"
         },
         "video_intro": {
-            "button_pause_accessibility": "Pausa video",
-            "button_play_accessibility": "Play video",
+            "button_pause_accessibility": "Interrompi l'animazione illustrativa della procedura di scansione",
+            "button_play_accessibility": "Riproduci animazione illustrativa della procedura di scansione",
             "button_primary": "Registra video",
             "list_accessibility": "Azioni per registrare un video selfie",
             "list_item_actions": "Hai 20 secondi per terminare",

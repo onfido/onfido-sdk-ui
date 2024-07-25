@@ -824,7 +824,7 @@
                 "address": "Geçerli adres",
                 "full_name": "Ad soyadı",
                 "issue_date": "Düzenleme tarihi veya özet dönemi",
-                "label": "Készítsen fényképet a teljes dokumentumról, és győződjön meg arról, hogy tisztán látszik:",
+                "label": "Tüm belgeyi yakalayın ve açıkça gösterdiğinden emin olun:",
                 "logo": "Logo"
             },
             "instructions_address_card_issue_date": "Düzenleme tarihi",
@@ -1269,6 +1269,27 @@
             "subtitle": "Bunu belgenizle karşılaştıracağız",
             "title": "Bir selfie çekin"
         },
+        "sid": {
+            "passkey": {
+                "fail": {
+                    "button": "Doğrulamayı başlat",
+                    "content": "Bizden bazı belgeler ve kişisel bilgiler talep edeceğiz, bu bize kim olduğunuzu söylediğiniz kişi olduğunuzu anlamamıza yardımcı olabilir.",
+                    "disclaimer": "Akimin sonunda bu doğrulamayı yeniden kullanılabilir olarak ayarlayabileceksiniz.",
+                    "subtitle": "Üzgünüz, bu akışı atlayamazsınız, lütfen kimlik doğrulama sürecinden geçin:",
+                    "title": "Kullanılabilir doğrulama yok"
+                },
+                "success": {
+                    "biophoto": "Gerçek bir kişi olduğunuzu kanıtlamak için yüzünüzün fotoğrafı",
+                    "biovideo": "Gerçek bir kişi olduğunuzu kanıtlamak için yüzünüzün kaydı",
+                    "button": "Devam et",
+                    "datacapture": "Bazı kişisel bilgiler",
+                    "document": "Geçerli bir hükümet tarafından verilmiş kimlik belgesi",
+                    "drivinglicense": "Geçerli bir hükümet tarafından verilmiş sürücü belgesi",
+                    "proofofaddress": "Adres kanıtı olarak kullanılabilen geçerli bir belge",
+                    "title": "Önceki doğrulama bulundu!"
+                }
+            }
+        },
         "sms_sent": {
             "info": "İpuçları",
             "info_link_expire": "Bağlantınızın süresi bir saat içinde dolacak",
@@ -1339,8 +1360,8 @@
             "video_accessibility": "Kaydedilen videonuzu tekrar oynatın"
         },
         "video_intro": {
-            "button_pause_accessibility": "Videoyu durdur",
-            "button_play_accessibility": "Videoyu oynat",
+            "button_pause_accessibility": "Tarama işlemi örneğinin animasyonunu duraklat",
+            "button_play_accessibility": "Tarama işlemi ile ilgili örneklendirici animasyonu oynat",
             "button_primary": "Video kaydedin",
             "list_accessibility": "Selfie videosu kaydetme işlemleri",
             "list_item_actions": "Tamamlamak için 20 saniyeniz var",

@@ -1269,6 +1269,27 @@
             "subtitle": "Kami akan membandingkan swafoto tersebut dengan dokumen anda",
             "title": "Ambil swafoto"
         },
+        "sid": {
+            "passkey": {
+                "fail": {
+                    "button": "Mulakan pengesahan",
+                    "content": "Kami akan meminta beberapa dokumentasi dan maklumat peribadi daripada anda, yang dapat membantu kami mengenal pasti anda adalah siapa yang anda katakan.",
+                    "disclaimer": "Anda akan dapat menetapkan pengesahan ini untuk digunakan semula pada akhir aliran.",
+                    "subtitle": "Maaf, anda tidak boleh melangkau aliran ini, sila lalui proses pengesahan identiti:",
+                    "title": "Tiada pengesahan yang boleh digunakan"
+                },
+                "success": {
+                    "biophoto": "Sebuah gambar wajah anda untuk membuktikan anda adalah orang sebenar",
+                    "biovideo": "Rakaman wajah anda untuk membuktikan anda adalah orang sebenar",
+                    "button": "Sambung",
+                    "datacapture": "Beberapa maklumat peribadi",
+                    "document": "Dokumen identiti yang sah dikeluarkan oleh kerajaan",
+                    "drivinglicense": "Lesen memandu yang sah dikeluarkan oleh kerajaan",
+                    "proofofaddress": "Dokumen sah yang boleh dijadikan bukti alamat",
+                    "title": "Pengesahan sebelumnya ditemui!"
+                }
+            }
+        },
         "sms_sent": {
             "info": "Tip",
             "info_link_expire": "Pautan anda akan tamat tempoh dalam masa satu jam",
@@ -1339,8 +1360,8 @@
             "video_accessibility": "Main semula rakaman video anda"
         },
         "video_intro": {
-            "button_pause_accessibility": "Jeda video",
-            "button_play_accessibility": "Main video",
+            "button_pause_accessibility": "Jeda animasi ilustratif prosedur pengimbasan",
+            "button_play_accessibility": "Mainkan animasi ilustratif prosedur pengimbasan",
             "button_primary": "Rakam video",
             "list_accessibility": "Tindakan untuk merakam video swafoto",
             "list_item_actions": "Anda mempunyai 20 saat untuk menyelesaikannya",

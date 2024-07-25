@@ -1269,6 +1269,27 @@
             "subtitle": "Porovnáme to s vaším dokumentem",
             "title": "Pořiďte si selfie"
         },
+        "sid": {
+            "passkey": {
+                "fail": {
+                    "button": "Zahájit proces ověřování",
+                    "content": "Požádáme vás o nějakou dokumentaci a osobní informace, které nám mohou pomoci ověřit, že jste to, kým tvrdíte, že jste.",
+                    "disclaimer": "Budete moci nastavit tuto ověřování tak, aby byla opakovatelná na konci procesu.",
+                    "subtitle": "Omlouváme se, ale nemůžete tento proces přeskočit, prosím projděte procesem ověření identity:",
+                    "title": "Žádné použitelné ověření identity není k dispozici"
+                },
+                "success": {
+                    "biophoto": "Fotografie vaší tváře prokazující, že jste skutečná osoba",
+                    "biovideo": "Nahrávka vaší tváře prokazující, že jste skutečná osoba",
+                    "button": "Pokračovat",
+                    "datacapture": "Některé osobní informace",
+                    "document": "Platný doklad totožnosti vydaný vládou",
+                    "drivinglicense": "Platný řidičský průkaz vydaný vládou",
+                    "proofofaddress": "Platný dokument, který může sloužit jako důkaz adresy",
+                    "title": "Předchozí ověření nalezeno!"
+                }
+            }
+        },
         "sms_sent": {
             "info": "Tipy",
             "info_link_expire": "Platnost Vašeho odkazu vyprší za hodinu",
@@ -1339,8 +1360,8 @@
             "video_accessibility": "Přehrání nahraného videa"
         },
         "video_intro": {
-            "button_pause_accessibility": "Pozastavit video",
-            "button_play_accessibility": "Přehrát video",
+            "button_pause_accessibility": "Pozastavit ilustrativní animaci skenovacího postupu",
+            "button_play_accessibility": "Přehrát ilustrativní animaci skenovacího postupu",
             "button_primary": "Nahrávání videa",
             "list_accessibility": "Akce pro nahrávání selfie videa",
             "list_item_actions": "Na dokončení máte 20 sekund",

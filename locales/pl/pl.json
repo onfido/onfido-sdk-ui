@@ -1269,6 +1269,27 @@
             "subtitle": "Porównamy to zdjęcie z dokumentem",
             "title": "Zrób sobie selfie"
         },
+        "sid": {
+            "passkey": {
+                "fail": {
+                    "button": "Rozpocznij weryfikację",
+                    "content": "Poprosimy Cię o przedstawienie niektórych dokumentów i informacji osobistych, które mogą nam pomóc potwierdzić, że jesteś tym, za kogo się podajesz.",
+                    "disclaimer": "Na końcu procesu będziesz mógł ustawić tę weryfikację jako wielokrotnego użytku.",
+                    "subtitle": "Przykro nam, nie możesz pominąć tego procesu, prosimy przejść przez proces weryfikacji tożsamości:",
+                    "title": "Brak dostępnej możliwości weryfikacji"
+                },
+                "success": {
+                    "biophoto": "Zdjęcie twojej twarzy, aby udowodnić, że jesteś prawdziwą osobą",
+                    "biovideo": "Nagranie twojej twarzy, aby udowodnić, że jesteś prawdziwą osobą",
+                    "button": "Kontynuuj",
+                    "datacapture": "Niektóre dane osobowe",
+                    "document": "Ważny dokument tożsamości wydany przez rząd",
+                    "drivinglicense": "Ważne prawo jazdy wydane przez rząd",
+                    "proofofaddress": "Ważny dokument, który może służyć jako dowód adresu",
+                    "title": "Poprzednia weryfikacja została znaleziona!"
+                }
+            }
+        },
         "sms_sent": {
             "info": "Porady",
             "info_link_expire": "Twój link wygaśnie za godzinę",
@@ -1339,8 +1360,8 @@
             "video_accessibility": "Odtwórz swoje nagranie"
         },
         "video_intro": {
-            "button_pause_accessibility": "Wstrzymaj wideo",
-            "button_play_accessibility": "Odtwórz wideo",
+            "button_pause_accessibility": "Zatrzymaj ilustracyjną animację procedury skanowania",
+            "button_play_accessibility": "Odtwórz ilustracyjną animację procedury skanowania",
             "button_primary": "Nagraj wideo",
             "list_accessibility": "Czynności związane z nagrywaniem wideo selfie",
             "list_item_actions": "Masz 20 sekund na dokończenie",

@@ -1269,6 +1269,27 @@
             "subtitle": "당사에서 제출하신 이미지와 서류를 비교 대조하는 절차를 진행합니다",
             "title": "셀카 촬영하기"
         },
+        "sid": {
+            "passkey": {
+                "fail": {
+                    "button": "인증 절차 시작하기",
+                    "content": "우리는 당신이 주장하는 사람이 실제로 당신임을 확인하는 데 도움이 될 수 있는 일부 문서와 개인 정보를 요청할 것입니다.",
+                    "disclaimer": "이 인증을 흐름의 끝에서 재사용 가능하게 설정할 수 있습니다.",
+                    "subtitle": "죄송합니다, 이 과정을 건너뛸 수 없습니다. 신원 확인 과정을 진행해 주세요:",
+                    "title": "사용 가능한 인증이 없습니다"
+                },
+                "success": {
+                    "biophoto": "당신이 실제 사람임을 증명하는 얼굴 사진",
+                    "biovideo": "당신이 실제 사람임을 증명하기 위한 얼굴 녹화",
+                    "button": "계속",
+                    "datacapture": "일부 개인 정보",
+                    "document": "유효한 정부 발급 신분증",
+                    "drivinglicense": "유효한 정부 발급 운전 면허증",
+                    "proofofaddress": "주소 증명으로 사용할 수 있는 유효한 문서",
+                    "title": "이전 인증이 발견되었습니다!"
+                }
+            }
+        },
         "sms_sent": {
             "info": "팁",
             "info_link_expire": "링크는 1시간 후에 만료됩니다",
@@ -1339,8 +1360,8 @@
             "video_accessibility": "녹화된 동영상 다시 재생"
         },
         "video_intro": {
-            "button_pause_accessibility": "동영상 일시 중지",
-            "button_play_accessibility": "동영상 재생",
+            "button_pause_accessibility": "스캔 절차의 설명 애니메이션 일시 중지",
+            "button_play_accessibility": "스캔 절차의 설명 애니메이션 재생",
             "button_primary": "동영상 녹화하기",
             "list_accessibility": "셀카 동영상을 녹화하기 위한 작업",
             "list_item_actions": "완료까지 20초 남았습니다",

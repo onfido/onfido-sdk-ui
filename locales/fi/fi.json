@@ -1269,6 +1269,27 @@
             "subtitle": "Vertaamme sitä asiakirjaasi",
             "title": "Ota sitten"
         },
+        "sid": {
+            "passkey": {
+                "fail": {
+                    "button": "Aloita vahvistus",
+                    "content": "Pyydämme sinulta joitakin asiakirjoja ja henkilökohtaisia tietoja, jotka voivat auttaa meitä varmistamaan, että olet se, joka sanot olevasi.",
+                    "disclaimer": "Voit asettaa tämän vahvistuksen uudelleenkäytettäväksi virtauksen lopussa.",
+                    "subtitle": "Valitettavasti et voi ohittaa tätä vaihetta, käy läpi henkilöllisyyden varmistusprosessi:",
+                    "title": "Ei käytettävissä olevaa tunnistautumista"
+                },
+                "success": {
+                    "biophoto": "Kuva kasvoistasi todistaaksesi, että olet oikea henkilö",
+                    "biovideo": "Kasvosi tallennus todistamaan, että olet oikea henkilö",
+                    "button": "Jatka",
+                    "datacapture": "Jotkin henkilötiedot",
+                    "document": "Voimassa oleva hallituksen myöntämä henkilöllisyystodistus",
+                    "drivinglicense": "Voimassa oleva hallituksen myöntämä ajokortti",
+                    "proofofaddress": "Voimassa oleva asiakirja, joka voi toimia osoitetodistuksena",
+                    "title": "Aiempi vahvistus löydetty!"
+                }
+            }
+        },
         "sms_sent": {
             "info": "Vinkit",
             "info_link_expire": "Linkkisi vanhenee tunnin kuluttua",
@@ -1339,8 +1360,8 @@
             "video_accessibility": "Toista tallentamasi video uudelleen"
         },
         "video_intro": {
-            "button_pause_accessibility": "Keskeytä video",
-            "button_play_accessibility": "Toista video",
+            "button_pause_accessibility": "Keskeytä skannausprosessin havainnollistava animaatio",
+            "button_play_accessibility": "Toista skannausmenettelyn havainnollistava animaatio",
             "button_primary": "Tallenna video",
             "list_accessibility": "Selfievideon tallennustoiminnot",
             "list_item_actions": "Sinulla on 20 sekuntia jäljellä",

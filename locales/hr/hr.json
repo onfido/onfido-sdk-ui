@@ -1269,6 +1269,27 @@
             "subtitle": "Usporedit ćemo to s vašim dokumentom",
             "title": "Snimite selfie"
         },
+        "sid": {
+            "passkey": {
+                "fail": {
+                    "button": "Pokrenite postupak provjere",
+                    "content": "Zatražit ćemo neke dokumente i osobne podatke od vas, koji nam mogu pomoći da saznamo jeste li osoba za koju se izdajete.",
+                    "disclaimer": "Moći ćete postaviti ovu provjeru identiteta da bude ponovno upotrebljiva na kraju toka.",
+                    "subtitle": "Nažalost, ne možete preskočiti ovaj korak, molimo prođite kroz proces provjere identiteta:",
+                    "title": "Nema dostupne upotrebljive provjere identiteta"
+                },
+                "success": {
+                    "biophoto": "Slika vašeg lica da dokažete da ste stvarna osoba",
+                    "biovideo": "Snimka vašeg lica kako bi dokazali da ste stvarna osoba",
+                    "button": "Nastavi",
+                    "datacapture": "Neke osobne informacije",
+                    "document": "Valjani identifikacijski dokument izdan od strane vlade",
+                    "drivinglicense": "Valjana vozačka dozvola izdana od strane vlade",
+                    "proofofaddress": "Valjan dokument koji može poslužiti kao dokaz adrese",
+                    "title": "Prethodna provjera pronađena!"
+                }
+            }
+        },
         "sms_sent": {
             "info": "Savjeti",
             "info_link_expire": "Poveznica istječe za sat vremena",
@@ -1339,8 +1360,8 @@
             "video_accessibility": "Ponovno reproducirajte snimljeni videozapis"
         },
         "video_intro": {
-            "button_pause_accessibility": "Zaustavi videozapis",
-            "button_play_accessibility": "Reproduciraj videozapis",
+            "button_pause_accessibility": "Pauziraj ilustrativnu animaciju postupka skeniranja",
+            "button_play_accessibility": "Pokreni ilustrativnu animaciju postupka skeniranja",
             "button_primary": "Snimite videozapis",
             "list_accessibility": "Radnje koje trebate učiniti za snimanje selfie videozapisa",
             "list_item_actions": "Imate još 20 sekundi da dovršite postupak",

@@ -1269,6 +1269,27 @@
             "subtitle": "Compararemos esto con su documento",
             "title": "Tome una selfie"
         },
+        "sid": {
+            "passkey": {
+                "fail": {
+                    "button": "Empezar la verificación",
+                    "content": "Solicitaremos algunos documentos e información personal de ti, que pueden ayudarnos a saber que eres quien dices ser.",
+                    "disclaimer": "Podrás configurar esta verificación para que sea reutilizable al final del flujo.",
+                    "subtitle": "Lo siento, no puedes omitir este proceso, por favor pasa por el proceso de verificación de identidad:",
+                    "title": "No hay verificación utilizable disponible"
+                },
+                "success": {
+                    "biophoto": "Una foto de tu rostro para demostrar que eres una persona real",
+                    "biovideo": "Una grabación de tu rostro para demostrar que eres una persona real",
+                    "button": "Continuar",
+                    "datacapture": "Alguna información personal",
+                    "document": "Un documento de identidad válido emitido por el gobierno",
+                    "drivinglicense": "Una licencia de conducir válida emitida por el gobierno",
+                    "proofofaddress": "Un documento válido que puede servir como comprobante de domicilio",
+                    "title": "¡Verificación anterior encontrada!"
+                }
+            }
+        },
         "sms_sent": {
             "info": "Recomendaciones",
             "info_link_expire": "Su enlace móvil caducará en una hora",
@@ -1339,8 +1360,8 @@
             "video_accessibility": "Reproducir su video grabado"
         },
         "video_intro": {
-            "button_pause_accessibility": "Pausar video",
-            "button_play_accessibility": "Reproducir video",
+            "button_pause_accessibility": "Pausar la animación ilustrativa del procedimiento de escaneo",
+            "button_play_accessibility": "Reproducir animación ilustrativa del procedimiento de escaneo",
             "button_primary": "Grábese en un vídeo",
             "list_accessibility": "Acciones para grabar un video selfie",
             "list_item_actions": "Termine las instrucciones en 20 segundos",

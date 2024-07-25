@@ -1269,6 +1269,27 @@
             "subtitle": "Chúng tôi sẽ so sánh thông tin này với giấy tờ của bạn",
             "title": "Chụp ảnh selfie"
         },
+        "sid": {
+            "passkey": {
+                "fail": {
+                    "button": "Bắt đầu xác minh",
+                    "content": "Chúng tôi sẽ yêu cầu một số tài liệu và thông tin cá nhân từ bạn, điều này có thể giúp chúng tôi biết bạn là người mà bạn nói.",
+                    "disclaimer": "Bạn sẽ có thể thiết lập xác minh này để có thể tái sử dụng ở cuối quy trình.",
+                    "subtitle": "Xin lỗi, bạn không thể bỏ qua quy trình này, vui lòng thực hiện quá trình xác minh danh tính:",
+                    "title": "Không có xác minh có thể sử dụng"
+                },
+                "success": {
+                    "biophoto": "Một bức ảnh khuôn mặt của bạn để chứng minh bạn là một người thật",
+                    "biovideo": "Một đoạn ghi hình khuôn mặt của bạn để chứng minh bạn là một người thật sự",
+                    "button": "Tiếp tục",
+                    "datacapture": "Một số thông tin cá nhân",
+                    "document": "Một tài liệu xác thực danh tính hợp lệ do chính phủ cấp",
+                    "drivinglicense": "Giấy phép lái xe hợp lệ do chính phủ cấp",
+                    "proofofaddress": "Một tài liệu hợp lệ có thể được sử dụng làm bằng chứng về địa chỉ",
+                    "title": "Đã tìm thấy xác minh trước đó!"
+                }
+            }
+        },
         "sms_sent": {
             "info": "Gợi ý",
             "info_link_expire": "Liên kết của bạn sẽ hết hạn sau một giờ",
@@ -1339,8 +1360,8 @@
             "video_accessibility": "Phát lại video đã quay của bạn"
         },
         "video_intro": {
-            "button_pause_accessibility": "Tạm dừng video",
-            "button_play_accessibility": "Phát video",
+            "button_pause_accessibility": "Tạm dừng hoạt hình minh họa quy trình quét",
+            "button_play_accessibility": "Phát hoạt hình minh họa về quy trình quét",
             "button_primary": "Quay video",
             "list_accessibility": "Các bước quay video selfie",
             "list_item_actions": "Bạn có 20 giây để hoàn thành",

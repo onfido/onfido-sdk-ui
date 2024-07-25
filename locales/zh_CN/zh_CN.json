@@ -1269,6 +1269,27 @@
             "subtitle": "我们会将其与您的证明文件进行比较",
             "title": "拍摄自拍"
         },
+        "sid": {
+            "passkey": {
+                "fail": {
+                    "button": "开始验证",
+                    "content": "我们将向您请求一些文件和个人信息，这可以帮助我们确认您的身份。",
+                    "disclaimer": "您将能够在流程结束时设置此验证为可重复使用。",
+                    "subtitle": "对不起，您不能跳过此流程，请进行身份验证过程：",
+                    "title": "没有可用的身份验证"
+                },
+                "success": {
+                    "biophoto": "一张你的脸部照片以证明你是真实的人",
+                    "biovideo": "录制您的面部以证明您是真实的人",
+                    "button": "继续",
+                    "datacapture": "一些个人信息",
+                    "document": "有效的政府颁发的身份证明文件",
+                    "drivinglicense": "有效的政府颁发的驾驶执照",
+                    "proofofaddress": "一份有效的可以作为地址证明的文件",
+                    "title": "找到之前的身份验证！"
+                }
+            }
+        },
         "sms_sent": {
             "info": "小贴士",
             "info_link_expire": "您的链接将在一小时后过期",
@@ -1339,8 +1360,8 @@
             "video_accessibility": "重播录制的视频"
         },
         "video_intro": {
-            "button_pause_accessibility": "暂停视频",
-            "button_play_accessibility": "播放视频",
+            "button_pause_accessibility": "暂停扫描程序的示意动画",
+            "button_play_accessibility": "播放扫描程序的说明性动画",
             "button_primary": "录制视频",
             "list_accessibility": "录制自拍视频的操作",
             "list_item_actions": "您还有20秒钟时间完成",

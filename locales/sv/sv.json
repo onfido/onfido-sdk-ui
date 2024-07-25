@@ -1269,6 +1269,27 @@
             "subtitle": "Vi kommer att jämföra denna med ditt dokument",
             "title": "Ta en selfie"
         },
+        "sid": {
+            "passkey": {
+                "fail": {
+                    "button": "Starta verifiering",
+                    "content": "Vi kommer att begära viss dokumentation och personlig information från dig, som kan hjälpa oss att veta att du är den du säger att du är.",
+                    "disclaimer": "Du kommer att kunna ställa in denna verifiering för att vara återanvändbar i slutet av flödet.",
+                    "subtitle": "Tyvärr kan du inte hoppa över detta flöde, vänligen gå igenom processen för identitetsverifiering:",
+                    "title": "Ingen användbar verifiering tillgänglig"
+                },
+                "success": {
+                    "biophoto": "En bild av ditt ansikte för att bevisa att du är en riktig person",
+                    "biovideo": "En inspelning av ditt ansikte för att bevisa att du är en riktig person",
+                    "button": "Fortsätt",
+                    "datacapture": "Personlig information",
+                    "document": "Ett giltigt identitetsdokument utfärdat av staten",
+                    "drivinglicense": "Ett giltigt körkort utfärdat av staten",
+                    "proofofaddress": "Ett giltigt dokument som kan tjäna som bevis på adress",
+                    "title": "Tidigare verifiering hittades!"
+                }
+            }
+        },
         "sms_sent": {
             "info": "Tips",
             "info_link_expire": "Din länk går ut om en timme",
@@ -1339,8 +1360,8 @@
             "video_accessibility": "Spela upp din inspelade video igen"
         },
         "video_intro": {
-            "button_pause_accessibility": "Pausa video",
-            "button_play_accessibility": "Spela upp video",
+            "button_pause_accessibility": "Pausa illustrativ animation av skanningsproceduren",
+            "button_play_accessibility": "Spela illustrativ animation av skanningsproceduren",
             "button_primary": "Spela in video",
             "list_accessibility": "Hur du spelar in en selfievideo",
             "list_item_actions": "Du har 20 sekunder på dig att slutföra detta",

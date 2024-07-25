@@ -593,7 +593,7 @@
             "button_primary_cam": "Įjungti kamerą",
             "button_primary_mic": "Įjungti mikrofoną",
             "subtitle_both": "Kai būsite paprašyti, turėsite suteikti prieigą prie kameros ir mikrofono, kad galėtumėte tęsti",
-            "subtitle_cam": "Kai būsite paraginti, turite įjungti prieigą prie kameros, kad galėtumėte tęsti",
+            "subtitle_cam": "Kai būsite paprašyti, turite suteikti prieigą prie kameros, kad galėtumėte tęsti",
             "subtitle_mic": "Kai būsite paraginti, turėsite įgalinti prieigą prie mikrofono, kad galėtumėte tęsti",
             "title_both": "Leisti prieigą prie kameros ir mikrofono",
             "title_cam": "Leisti prieigą prie kameros",
@@ -1269,6 +1269,27 @@
             "subtitle": "Palyginsime tai su jūsų dokumentu",
             "title": "Padarykite asmenukę"
         },
+        "sid": {
+            "passkey": {
+                "fail": {
+                    "button": "Pradėti patvirtinimą",
+                    "content": "Prašysime pateikti kai kurią dokumentaciją ir asmeninę informaciją apie jus, kuri padėtų mums įsitikinti, kad esate tas, kuo teigiatės esąs.",
+                    "disclaimer": "Galėsite nustatyti, kad šis patikrinimas būtų pakartotinai naudojamas srauto pabaigoje.",
+                    "subtitle": "Atsiprašome, negalite praleisti šio proceso, prašome atlikti tapatybės patvirtinimo procesą:",
+                    "title": "Nėra tinkamos patikrinimo galimybės"
+                },
+                "success": {
+                    "biophoto": "Nuotrauka jūsų veido, patvirtinant, kad esate tikras žmogus",
+                    "biovideo": "Jūsų veido įrašas, patvirtinantis, kad esate tikras žmogus",
+                    "button": "Tęsti",
+                    "datacapture": "Kai kuria asmenine informacija",
+                    "document": "Galiojantis vyriausybės išduotas tapatybės dokumentas",
+                    "drivinglicense": "Galiojantis vyriausybės išduotas vairuotojo pažymėjimas",
+                    "proofofaddress": "Galiojantis dokumentas, kuris gali būti naudojamas kaip adreso įrodymas",
+                    "title": "Ankstesnė tapatybės patvirtinimo procedūra rasta!"
+                }
+            }
+        },
         "sms_sent": {
             "info": "Patarimai",
             "info_link_expire": "Jūsų nuoroda baigs galioti po valandos",
@@ -1339,8 +1360,8 @@
             "video_accessibility": "Iš naujo paleisti padarytą vaizdo įrašą"
         },
         "video_intro": {
-            "button_pause_accessibility": "Padaryti vaizdo įrašo pauzę",
-            "button_play_accessibility": "Paleisti vaizdo įrašą",
+            "button_pause_accessibility": "Pauzė iliustracinėje nuskaitomo procedūros animacijoje",
+            "button_play_accessibility": "Rodyti iliustracinę nuskaitomojo procedūros animaciją",
             "button_primary": "Padaryti vaizdo įrašą",
             "list_accessibility": "Veiksmai asmenukės vaizdo įrašui padaryti",
             "list_item_actions": "Turite užbaigti per 20 sekundžių",

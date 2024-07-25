@@ -1269,6 +1269,27 @@
             "subtitle": "Mēs to salīdzināsim ar jūsu dokumentu",
             "title": "Uzņemiet selfiju"
         },
+        "sid": {
+            "passkey": {
+                "fail": {
+                    "button": "Sākt pārbaudi",
+                    "content": "Mēs pieprasīsim no jums dažus dokumentus un personīgo informāciju, kas mums palīdzēs pārliecināties, ka jūs esat tas, par ko jūs sevi uzdodat.",
+                    "disclaimer": "Jūs varēsiet iestatīt šo verifikāciju, lai to varētu atkārtoti izmantot plūsmas beigās.",
+                    "subtitle": "Atvainojiet, jūs nevarat izlaist šo procesu, lūdzu, iziet cauri identitātes pārbaudes procesam:",
+                    "title": "Nav pieejama izmantojama verifikācija"
+                },
+                "success": {
+                    "biophoto": "Jūsu sejas attēls, lai pierādītu, ka esat reāla persona",
+                    "biovideo": "Jūsu sejas ieraksts, lai pierādītu, ka esat reāla persona",
+                    "button": "Turpināt",
+                    "datacapture": "Daža personīga informācija",
+                    "document": "Derīgs valdības izdots identitātes dokuments",
+                    "drivinglicense": "Derīga valdības izsniegta autovadītāja apliecība",
+                    "proofofaddress": "Derīgs dokuments, kas var kalpot kā adrese pierādījums",
+                    "title": "Iepriekšējā verifikācija atrasta!"
+                }
+            }
+        },
         "sms_sent": {
             "info": "Padomi",
             "info_link_expire": "Jūsu saites derīguma termiņš beigsies pēc stundas",
@@ -1339,8 +1360,8 @@
             "video_accessibility": "Atkārtoti atskaņot ierakstīto videoklipu"
         },
         "video_intro": {
-            "button_pause_accessibility": "Apturēt video",
-            "button_play_accessibility": "Atskaņot video",
+            "button_pause_accessibility": "Pauzēt ilustratīvu animāciju par skenēšanas procedūru",
+            "button_play_accessibility": "Atskaņot ilustratīvu animāciju par skenēšanas procedūru",
             "button_primary": "Ierakstīt videoklipu",
             "list_accessibility": "Darbības selfija videoklipa ierakstīšanai",
             "list_item_actions": "Jums ir 20 sekundes laika, lai to pabeigtu",

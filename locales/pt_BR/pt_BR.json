@@ -1269,6 +1269,27 @@
             "subtitle": "Compararemos ela com o seu documento",
             "title": "Tire uma selfie"
         },
+        "sid": {
+            "passkey": {
+                "fail": {
+                    "button": "Iniciar verificação",
+                    "content": "Solicitaremos alguns documentos e informações pessoais suas, que podem nos ajudar a confirmar que você é quem diz ser.",
+                    "disclaimer": "Você poderá configurar essa verificação para ser reutilizável ao final do fluxo.",
+                    "subtitle": "Desculpe, você não pode pular este processo, por favor, passe pelo processo de verificação de identidade:",
+                    "title": "Nenhuma verificação utilizável disponível"
+                },
+                "success": {
+                    "biophoto": "Uma foto do seu rosto para provar que você é uma pessoa real",
+                    "biovideo": "Uma gravação do seu rosto para provar que você é uma pessoa real",
+                    "button": "Continuar",
+                    "datacapture": "Algumas informações pessoais",
+                    "document": "Um documento de identidade válido emitido pelo governo",
+                    "drivinglicense": "Uma carteira de motorista válida emitida pelo governo",
+                    "proofofaddress": "Um documento válido que pode servir como comprovante de endereço",
+                    "title": "Verificação anterior encontrada!"
+                }
+            }
+        },
         "sms_sent": {
             "info": "Dicas",
             "info_link_expire": "Seu link expirará em uma hora",
@@ -1339,8 +1360,8 @@
             "video_accessibility": "Reproduzir novamente o vídeo gravado"
         },
         "video_intro": {
-            "button_pause_accessibility": "Pausar vídeo",
-            "button_play_accessibility": "Reproduzir vídeo",
+            "button_pause_accessibility": "Pausar animação ilustrativa do procedimento de digitalização",
+            "button_play_accessibility": "Reproduza a animação ilustrativa do procedimento de digitalização",
             "button_primary": "Gravar vídeo",
             "list_accessibility": "Ações para gravar um vídeo de selfie",
             "list_item_actions": "Você tem 20 segundos para terminar",

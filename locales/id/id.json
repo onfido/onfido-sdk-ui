@@ -1269,6 +1269,27 @@
             "subtitle": "Kami akan membandingkan ini dengan dokumen Anda",
             "title": "Ambil swafoto"
         },
+        "sid": {
+            "passkey": {
+                "fail": {
+                    "button": "Mulai verifikasi",
+                    "content": "Kami akan meminta beberapa dokumentasi dan informasi pribadi dari Anda, yang dapat membantu kami mengetahui bahwa Anda adalah orang yang Anda klaim.",
+                    "disclaimer": "Anda akan dapat mengatur verifikasi ini untuk dapat digunakan kembali di akhir alur.",
+                    "subtitle": "Maaf, Anda tidak dapat melewati alur ini, silakan lakukan proses verifikasi identitas:",
+                    "title": "Tidak ada verifikasi yang dapat digunakan"
+                },
+                "success": {
+                    "biophoto": "Sebuah foto wajah Anda untuk membuktikan bahwa Anda adalah orang yang sebenarnya",
+                    "biovideo": "Rekaman wajah Anda untuk membuktikan bahwa Anda adalah orang yang sebenarnya",
+                    "button": "Lanjutkan",
+                    "datacapture": "Beberapa informasi pribadi",
+                    "document": "Dokumen identitas yang dikeluarkan pemerintah dan valid",
+                    "drivinglicense": "Sebuah surat izin mengemudi yang dikeluarkan oleh pemerintah yang sah",
+                    "proofofaddress": "Dokumen yang valid yang dapat dijadikan bukti alamat",
+                    "title": "Verifikasi sebelumnya ditemukan!"
+                }
+            }
+        },
         "sms_sent": {
             "info": "Tips",
             "info_link_expire": "Tautan Anda akan kedaluwarsa dalam satu jam",
@@ -1339,8 +1360,8 @@
             "video_accessibility": "Putar ulang video rekaman Anda"
         },
         "video_intro": {
-            "button_pause_accessibility": "Jeda video",
-            "button_play_accessibility": "Putar video",
+            "button_pause_accessibility": "Jeda animasi ilustratif prosedur pemindaian",
+            "button_play_accessibility": "Mainkan animasi ilustratif prosedur pemindaian",
             "button_primary": "Rekam video",
             "list_accessibility": "Tindakan untuk merekam video selfie",
             "list_item_actions": "Anda memiliki 20 detik untuk menyelesaikan",

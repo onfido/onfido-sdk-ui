@@ -1269,6 +1269,27 @@
             "subtitle": "Vi sammenligner billedet med dit dokument",
             "title": "Tag en selfie"
         },
+        "sid": {
+            "passkey": {
+                "fail": {
+                    "button": "Start verificering",
+                    "content": "Vi vil anmode om noget dokumentation og personlige oplysninger fra dig, der kan hjælpe os med at vide, at du er den, du siger, du er.",
+                    "disclaimer": "Du vil være i stand til at indstille denne verifikation til at være genanvendelig i slutningen af flowet.",
+                    "subtitle": "Beklager, du kan ikke springe denne proces over, gå venligst igennem identitetsverifikationsprocessen:",
+                    "title": "Ingen brugbar verifikation tilgængelig"
+                },
+                "success": {
+                    "biophoto": "Et billede af dit ansigt for at bevise, at du er en rigtig person",
+                    "biovideo": "En optagelse af dit ansigt for at bevise, at du er en rigtig person",
+                    "button": "Fortsæt",
+                    "datacapture": "Noget personlig information",
+                    "document": "Et gyldigt identitetsdokument udstedt af regeringen",
+                    "drivinglicense": "Et gyldigt kørekort udstedt af regeringen",
+                    "proofofaddress": "Et gyldigt dokument, der kan fungere som bevis for adresse",
+                    "title": "Tidligere verifikation fundet!"
+                }
+            }
+        },
         "sms_sent": {
             "info": "Tips",
             "info_link_expire": "Dit link udløber om én time",
@@ -1339,8 +1360,8 @@
             "video_accessibility": "Afspil videoen, du har optaget, igen"
         },
         "video_intro": {
-            "button_pause_accessibility": "Sæt videoen på pause",
-            "button_play_accessibility": "Afspil video",
+            "button_pause_accessibility": "Pause illustrativ animation af scanning procedure",
+            "button_play_accessibility": "Afspil illustrativ animation af scanning procedure",
             "button_primary": "Optag video",
             "list_accessibility": "Sådan optager du en selfie-video",
             "list_item_actions": "Du har 20 sekunder til at afslutte",

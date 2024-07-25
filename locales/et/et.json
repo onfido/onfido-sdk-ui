@@ -1269,6 +1269,27 @@
             "subtitle": "Võrdleme seda teie dokumendiga",
             "title": "Tehke selfi"
         },
+        "sid": {
+            "passkey": {
+                "fail": {
+                    "button": "Alustage tuvastamist",
+                    "content": "Me palume teil esitada mõned dokumendid ja isiklikud andmed, mis aitavad meil veenduda, et olete see, kes te väidate olevat.",
+                    "disclaimer": "Saate selle kinnituse lõpuks seadistada taaskasutatavaks.",
+                    "subtitle": "Vabandust, te ei saa seda protsessi vahele jätta, palun läbige isikutuvastuse protsess:",
+                    "title": "Kasutatavat tuvastamist ei ole saadaval"
+                },
+                "success": {
+                    "biophoto": "Pilt teie näost, et tõestada, et olete päris inimene",
+                    "biovideo": "Teie näo salvestus, et tõestada, et olete päris inimene",
+                    "button": "Jätkake",
+                    "datacapture": "Mõned isiklikud andmed",
+                    "document": "Kehtiv valitsuse poolt välja antud isikut tõendav dokument",
+                    "drivinglicense": "Kehtiv valitsuse poolt välja antud juhiluba",
+                    "proofofaddress": "Kehtiv dokument, mis võib olla aadressi tõendamiseks",
+                    "title": "Eelmine verifitseerimine leitud!"
+                }
+            }
+        },
         "sms_sent": {
             "info": "Nõuanded",
             "info_link_expire": "Teie link aegub tunni aja pärast",
@@ -1339,8 +1360,8 @@
             "video_accessibility": "Salvestatud video taasesitamine"
         },
         "video_intro": {
-            "button_pause_accessibility": "Peata video",
-            "button_play_accessibility": "Esita video",
+            "button_pause_accessibility": "Peata skaneerimisprotseduuri illustreeriv animatsioon",
+            "button_play_accessibility": "Esita skaneerimisprotseduuri illustreeriv animatsioon",
             "button_primary": "Salvestage video",
             "list_accessibility": "Toimingud selfi-video salvestamiseks",
             "list_item_actions": "Teil on lõpetamiseks jäänud 20 sekundit",

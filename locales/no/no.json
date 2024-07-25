@@ -1269,6 +1269,27 @@
             "subtitle": "Vi sammenligner dette med dokumentet ditt",
             "title": "Ta en selfie"
         },
+        "sid": {
+            "passkey": {
+                "fail": {
+                    "button": "Start verifisering",
+                    "content": "Vi vil be om noe dokumentasjon og personlig informasjon fra deg, som kan hjelpe oss med å bekrefte at du er den du sier du er.",
+                    "disclaimer": "Du vil kunne sette opp denne verifiseringen til å være gjenbrukbar ved slutten av flyten.",
+                    "subtitle": "Beklager, du kan ikke hoppe over denne prosessen, vennligst gå gjennom prosessen for identitetsverifisering:",
+                    "title": "Ingen brukbar verifisering tilgjengelig"
+                },
+                "success": {
+                    "biophoto": "Et bilde av ansiktet ditt for å bevise at du er en ekte person",
+                    "biovideo": "En opptakelse av ansiktet ditt for å bevise at du er en ekte person",
+                    "button": "Fortsett",
+                    "datacapture": "Noen personopplysninger",
+                    "document": "Et gyldig identitetsdokument utstedt av myndighetene",
+                    "drivinglicense": "Et gyldig førerkort utstedt av myndighetene",
+                    "proofofaddress": "Et gyldig dokument som kan fungere som bevis på adresse",
+                    "title": "Tidligere verifisering funnet!"
+                }
+            }
+        },
         "sms_sent": {
             "info": "Tips",
             "info_link_expire": "Mobilkoblingen din utløper om én time",
@@ -1339,8 +1360,8 @@
             "video_accessibility": "Spill av videoen på nytt"
         },
         "video_intro": {
-            "button_pause_accessibility": "Pauser video",
-            "button_play_accessibility": "Spill av video",
+            "button_pause_accessibility": "Pause illustrativ animasjon av skanningsprosedyre",
+            "button_play_accessibility": "Spill illustrativ animasjon av skanningsprosedyre",
             "button_primary": "Ta opp video",
             "list_accessibility": "Handlinger for å ta opp en selfievideo",
             "list_item_actions": "Du har 20 sekunder til å fullføre det",
