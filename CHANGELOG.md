@@ -4,8 +4,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## 14.33.0 - 2024-07-31
+### Changed
+- Updated CSP - Added data: to media-src
+
 ## 14.32.0 - 2024-07-24
 ### Changed
+- Updated CSP - Added data: to media-src
 - Updated CSP - Added data: to media-src
 
 ## 14.31.0 - 2024-07-17
