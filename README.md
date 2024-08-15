@@ -132,6 +132,34 @@ Since version `6.5.0`, TypeScript is officially supported.
 
 **Note**: In previous versions of the SDK (v13 and earlier), additional types, such as for the `init()` function were exposed. They will be gradually re-introduced in upcoming releases.
 
+## Initializing the SDK
+
+The Web SDK has multiple initialization and customization options that provide flexibility to your integration, while remaining easy to integrate.
+
+**Note** that from version 14, it will no longer be possible to change initialization options at runtime as was previously allowed with the `setOption()` function.
+
+### Defining a workflow
+
+Onfido Studio is the platform used to create highly reusable identity verification workflows for use with the Onfido SDKs. For an introduction to working with workflows, please refer to our [Getting Started guide](https://documentation.onfido.com/getting-started/general-introduction), or the Onfido Studio [product guide](https://documentation.onfido.com/getting-started/onfido-studio-product).
+
+SDK sessions are orchestrated by a session-specific `workflow_run_id`, itself derived from a `workflow_id`, the unique identifier of a given workflow.
+
+For details on how to generate a `workflow_run_id`, please refer to the `POST /workflow_runs/` endpoint definition in the Onfido [API reference](https://documentation.onfido.com/api/latest#workflow-runs).
+
+<Callout type="warning">
+
+> **Note** that in the context of the SDK the `workflow_run_id` property is referred to as `workflowRunId`.
+
+</Callout>
+
+### SDK authentication
+
+The SDK is authenticated using SDK tokens. Onfido Studio generates and exposes SDK tokens in the workflow run payload returned by the API when a workflow run is [created](https://documentation.onfido.com/#create-workflow-run).
+
+SDK tokens for Studio can only be used together with the specific workflow run they are generated for, and remain valid for a period of five weeks.
+
+**Note**: You must never use API tokens in the frontend of your application as malicious users could discover them in your source code. You should only use them on your server.
+
 ### Loading the Onfido flow
 
 To load the Onfido flow, add an empty HTML element for the modal interface to mount itself on:
@@ -177,34 +205,6 @@ While webviews provide a lightweight integration and simplify cross-platform dev
 Where possible, Onfido recommends using its native mobile SDKs for optimal performance.
 
 Please refer to this [guide](https://documentation.onfido.com/sdk/sdk-webview-guide) for more details about how to integrate the Onfido Web SDK in a webview.
-
-## Initializing the SDK
-
-The Web SDK has multiple initialization and customization options that provide flexibility to your integration, while remaining easy to integrate.
-
-**Note** that from version 14, it will no longer be possible to change initialization options at runtime as was previously allowed with the `setOption()` function.
-
-### Defining a workflow
-
-Onfido Studio is the platform used to create highly reusable identity verification workflows for use with the Onfido SDKs. For an introduction to working with workflows, please refer to our [Getting Started guide](https://documentation.onfido.com/getting-started/general-introduction), or the Onfido Studio [product guide](https://documentation.onfido.com/getting-started/onfido-studio-product).
-
-SDK sessions are orchestrated by a session-specific `workflow_run_id`, itself derived from a `workflow_id`, the unique identifier of a given workflow.
-
-For details on how to generate a `workflow_run_id`, please refer to the `POST /workflow_runs/` endpoint definition in the Onfido [API reference](https://documentation.onfido.com/api/latest#workflow-runs).
-
-<Callout type="warning">
-
-> **Note** that in the context of the SDK the `workflow_run_id` property is referred to as `workflowRunId`.
-
-</Callout>
-
-### SDK authentication
-
-The SDK is authenticated using SDK tokens. Onfido Studio generates and exposes SDK tokens in the workflow run payload returned by the API when a workflow run is [created](https://documentation.onfido.com/#create-workflow-run).
-
-SDK tokens for Studio can only be used together with the specific workflow run they are generated for, and remain valid for a period of five weeks.
-
-**Note**: You must never use API tokens in the frontend of your application as malicious users could discover them in your source code. You should only use them on your server.
 
 ### Version pinning
 
@@ -326,48 +326,118 @@ Onfido.init({
 })
 ```
 
-### Language selection
+### Language, translations and custom text
 
-The Onfido SDK supports and maintains translations for over 40 languages in its SDKs.
+The Onfido SDKs support translations for over 40 languages, as well as the ability to integrate custom text and languages.
 
-- **`language {String || Object}` - optional**
+Defining a default language and applying custom translations or text is done with the `language` and `translations` properties at the root of the `Onfido.init()` call.
 
-  You can customize the language displayed on the SDK by passing a string or object.
-  If `language` is not present at the root of the `Onfido.init()` call, the SDK will use the browser's language setting. If the browser's language is not supported by Onfido, the SDK will default to English (`en_US`).
+#### Language selection
+
+- **`language {String}` - optional**
+
+  You can specify the language displayed during the SDK session. The `string` identifier can either be one of Onfido's supported languages (full list available in the [SDK customization guide](https://documentation.onfido.com/sdk/sdk-customization/#supported-languages)) or your own custom language identifier as described in the [Using custom language files](#using-custom-language-files) section below. 
 
 ```javascript
-language: 'pt_BR' | 'es'
+Onfido.init({
+  ...
+  language: 'pt_BR'
+})
 ```
 
-For the list of languages supported by Onfido, please refer to our [SDK customization guide](https://documentation.onfido.com/sdk/sdk-customization#language-customization).
+<Callout type="info">
 
-### Language customization
+  If the `language` property is not present, the language identifier is incorrect or not yet supported by Onfido, the SDK will use the browser's language setting. <br/>
+  If the browser's language is not supported by Onfido, the SDK will default to English (`en_US`).
 
-In addition to selecting default languages for the SDK session, the SDK can also be displayed in a custom language for locales that Onfido does not currently support or for the addition of custom text, specific to your integration needs. This can be achieved by setting the following options in the `language` object:
+</Callout>
 
-| Option          | Description                                                                                | Notes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| --------------- | ------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `locale`        | **required** <br /> A locale tag.                                                          | This is required when providing phrases for an unsupported language. You can also use this to partially customize the strings of a supported language (e.g. Spanish), by passing a supported language locale tag (e.g. `es_ES`). For missing keys, the values will be displayed in the language specified within the locale tag if supported, otherwise they will be displayed in English. The locale tag is also used to override the language of the SMS body for the cross-device feature. This feature is owned by Onfido and currently only supports English, Spanish, French and German. |
-| `phrases`       | **required** <br /> An object containing the keys you want to override and the new values. | Keys can be passed as a nested object or as a string using the dot notation for nested values. Refer to the next section for instructions on how to find the right keys.                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| `mobilePhrases` | **optional** <br /> An object containing the keys you want to override and the new values. | The values specified within this object are only visible on mobile devices. **Note**: support for standalone `mobilePhrases` key will be deprecated soon. Consider nesting it inside `phrases` if applicable.                                                                                                                                                                                                                                                                                                                                                                                  |
+**Note**: In the context of cross-device and OTP, the language of the SMS body is also controlled by this identifier. 
+
+#### Custom translations and text
+
+In addition to selecting a default language for the SDK session, the SDK can also be initialised with custom text and translations for each required language.
+
+- **`translations {Object}` - optional**
+
+  You can specify custom text and translations by overriding individual text strings for all languages required by your implementation. The structure of each language file, including all available keys, is described in the next section.
 
 ```javascript
-language: {
-  locale: 'en_US',
-  phrases: {
-    'capture.driving_licence.instructions': 'This custom string will appear by default'
-  },
-  mobilePhrases: {
-    'capture.driving_licence.instructions': 'This custom string will only appear on mobile'
+Onfido.init({
+  ...
+  translations: {
+    en_US: {
+      welcome: {
+        title: 'This custom title will appear by default for en_US'
+      } 
+    },
+    es: { 
+       welcome: {
+         title: 'Este título personalizado aparecerá por defecto para es'.
+       } 
+    }
   }
-}
+})
 ```
 
-#### Identifying text keys in the Onfido screens
+#### Identifying language keys
 
-In order to identify text that can be overridden and locate their exact keys, you should use a browser inspector and indentify `div` blocks with the attribute name `data-i18n-token`.
+The full list of keys that can be customized in the Onfido Web SDK is available on the Onfido CDN and is split by module and language.
+
+| File URL | Description |
+| -------- | ----------- |
+| https://sdk.onfido.com/capture/i18n/common/en_US.json               | Flow level keys, country names, document types and other keys shared across modules |
+| https://sdk.onfido.com/capture/i18n/welcome/en_US.json              | Welcome screen |
+| https://sdk.onfido.com/capture/i18n/complete/en_US.json             | "Thank you" screen |
+| https://sdk.onfido.com/capture/i18n/consent/en_US.json              | Consent screen |
+| https://sdk.onfido.com/capture/i18n/error/en_US.json                | General error screens |
+| https://sdk.onfido.com/capture/i18n/retry/en_US.json                | Retry screen |
+| https://sdk.onfido.com/capture/i18n/crossdevice/en_US.json          | Cross-device screens for both desktop and mobile sessions |
+| https://sdk.onfido.com/capture/i18n/document/en_US.json             | Document Capture screens |
+| https://sdk.onfido.com/capture/i18n/proofOfAddress/en_US.json       | Proof of Address screens |  
+| https://sdk.onfido.com/capture/i18n/face/en_US.json                 | Face Capture - Selfie screens |
+| https://sdk.onfido.com/capture/i18n/faceVideo/en_US.json            | Face Capture - Video screens |
+| https://sdk.onfido.com/capture/i18n/motion/en_US.json               | Face Capture - Motion screens |
+| https://sdk.onfido.com/capture/i18n/profileData/en_US.json          | Profile Data screens |
+| https://sdk.onfido.com/capture/i18n/electronicId/en_US.json         | Electronic ID verification screens |
+| https://sdk.onfido.com/capture/i18n/ial2/en_US.json                 | IAL2 screens |
+| https://sdk.onfido.com/capture/i18n/qualifiedElectronicSignature/en_US.json | Qualified Electronic Signature (QES) screens |
+| https://sdk.onfido.com/capture/i18n/oneTimePassword/en_US.json      | One-Time-Password (OTP) screens |
+
+**Note** that the same keys are available across all supported languages and are accessible by specifying the appropriate language name in the URL (`en_US.json` in the example above).
+
+It is also possible to identify text that can be customized by using a browser inspector and indentifying `div` blocks with the attribute name `data-i18n-token`.
 
 ![Example of how to use an html inspector to find a text key](demo/inspector.png)
+
+<Callout type="info">
+  To assist migrations from the Onfido Web SDK version 13 and earlier, mapping is provided for each previously supported screen in the `legacy` subsection of the aforementioned `json` files.
+</Callout>
+
+#### Using custom language files
+
+The Onfido Web SDK allows the use of custom languages alongside all officially supported languages.
+This functionality is achieved by:
+- defining a unique `language` identifier
+- using the unique `language` identifier within the `translations` object, mapping any required strings to the existing language file structure
+
+```javascript
+
+Onfido.init({
+  ...
+  language: 'MY_CUSTOM_LANG',
+  translations: {
+    MY_CUSTOM_LANG: {
+      welcome: {
+        title: 'This custom title will appear by default'
+      } 
+    }
+  }
+})
+```
+
+**Note**: Custom languages, similarly to standard text overrides, work as 'delta' to the base language file they relate to. In the case of custom languages, that base language is `en_US`.
+
 
 ### Cross-device navigation
 
@@ -516,53 +586,37 @@ In addition to forcing the cross-device flow, the cross-device experience can be
 
 When the Onfido SDK session will conclude, one of two callback functions may be triggered:
 
-- `onComplete`: the session was successful with at least 1 document captured
+- `onComplete`: the session was successful
 - `onError`: the session terminated unexpectedly
 
-For advanced callbacks used for user analytics and returning submitted media, please refer to the [Advanced Callbacks ](#advanced-callbacks) section of this document.
+For advanced callbacks used for user analytics and returning submitted media, please refer to the [Advanced Callbacks](#advanced-callbacks) section of this document.
 
 #### `onComplete {Function}` - optional
 
-Callback that fires when the flow has successfully been executed with at least 1 document capture.
+Callback that fires when all the capture tasks of a workflow have successfully been executed.
 
 ```javascript
 Onfido.init({
 	token: "<YOUR_SDK_TOKEN>",
 	...
-	onComplete: function (data) {
+	onComplete: function(data) {
 		console.log("everything is complete");
 	},
+      onError: function(error) {
+		console.log("an error occurred");
+  }
 });
 ```
 
-The `data` object contains properties of the documents and face images uploaded by the user during the SDK session. The properties contain a unique identifier that can be used to retrieve the full document or face capture using the corresponding `document`, `live_photos` (for 'standard' selfies) or `live_videos` (for 'video' or 'motion' captures) endpoints defined in the [API reference](https://documentation.onfido.com/api/latest#retrieve-document).
+After `onComplete` has fired in the context of a workflow, information about the files uploaded by the user during the session can be retrieved via the dedicated [Document](https://documentation.onfido.com/api/latest/#list-documents), [Selfie](https://documentation.onfido.com/api/latest/#list-live-photos) and [Video](https://documentation.onfido.com/api/latest/#list-live-videos) API endpoints.
 
-```json
-{
-  "document_front": {
-    "id": "<DOCUMENT_ID_FRONT>",
-    "type": "driving_licence",
-    "side": "front"
-  },
-  "document_back": {
-    "id": "<DOCUMENT_ID_BACK>",
-    "type": "driving_licence",
-    "side": "back"
-  },
-  "face": {
-    "id": "<FACE_ID>",
-    "variant": "standard"
-  },
-  "poa": {
-    "id": "<POA_DOCUMENT_ID>",
-    "type": "utility_bill"
-  }
-}
-```
+<Callout type="warn">
 
-For two-sided documents such as `driving_licence` and `national_identity_card`, the object will also contain a `document_back` property representing the reverse side.
+While the existing implementation of `onComplete` also returns *partial* information after a workflow has been executed, this behaviour will be removed in the next major version of the web SDK.
 
-For the face step, an object is returned with the `variant` used for the face capture,`'standard' | 'video' | 'motion'`.
+</Callout>
+
+**Note**: For implementation not relying on workflows, please refer to the [Manual `onComplete` callback](#manual-oncomplete-callback) section of this guide for more details about the payload content.
 
 ### `onError {Function}` - optional
 
@@ -1004,13 +1058,56 @@ This is the final completion step. The screen displays a completion message to s
 
 ## Advanced callbacks
 
+### Manual `onComplete` callback
+
+In the context of non-workflow sessions, the `onComplete` callback returns additional information about the files uploaded by the user via the Onfido capture modules.
+
+```javascript
+Onfido.init({
+	token: "<YOUR_SDK_TOKEN>",
+	...
+	onComplete: function (data) {
+		console.log("everything is complete");
+	},
+});
+```
+
+The `data` object contains properties of the documents and face images uploaded by the user during the SDK session. The properties contain a unique identifier that can be used to retrieve the full document or face capture using the corresponding `document`, `live_photos` (for 'standard' selfies) or `live_videos` (for 'video' or 'motion' captures) endpoints defined in the [API reference](https://documentation.onfido.com/api/latest#retrieve-document).
+
+```json
+{
+  "document_front": {
+    "id": "<DOCUMENT_ID_FRONT>",
+    "type": "driving_licence",
+    "side": "front"
+  },
+  "document_back": {
+    "id": "<DOCUMENT_ID_BACK>",
+    "type": "driving_licence",
+    "side": "back"
+  },
+  "face": {
+    "id": "<FACE_ID>",
+    "variant": "standard"
+  },
+  "poa": {
+    "id": "<POA_DOCUMENT_ID>",
+    "type": "utility_bill"
+  }
+}
+```
+
+For two-sided documents such as `driving_licence` and `national_identity_card`, the object will also contain a `document_back` property representing the reverse side.
+
+For the face step, an object is returned with the `variant` used for the face capture,`'standard' | 'video' | 'motion'`.
+
+### Custom media callbacks
+
 <Callout>
 
 > The following features must be enabled for your account before they can be used. For more information, please contact your Onfido Solution Engineer or Customer Success Manager.
 
 </Callout>
-
-### Custom media callbacks
 
 Custom media callbacks enable you to control the data collected by the Onfido SDK by using callbacks that are invoked when the end user submits their captured media. The callbacks provide all of the information that would normally be sent directly to the Onfido API and expect a promise in response, that controls what the SDK does next.
 
@@ -1361,6 +1458,12 @@ Media callbacks can also be triggered in the desktop session instead of the mobi
 To do so, please contact your Onfido Solution Engineer or Customer Success Manager as additional configuration is required.
 
 ### User analytics callbacks
+
+<Callout>
+
+> The following features must be enabled for your account before they can be used. For more information, please contact your Onfido Solution Engineer or Customer Success Manager.
+
+</Callout>
 
 The SDK allows you to track a user's journey through the verification process via a dispatched event. This gives insight into how your users make use of the SDK screens.
 
