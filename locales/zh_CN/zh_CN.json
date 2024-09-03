@@ -459,6 +459,10 @@
                     "title": "拒绝同意"
                 }
             },
+            "footer": {
+                "branding": "Onfido真实身份"
+            },
+            "icon_info_accessibility": "信息：",
             "lazy_load_placeholder": "正在加载……",
             "loading": "正在加载"
         },
@@ -589,7 +593,7 @@
             "body_both": "如果不同时使用相机和麦克风，我们将无法验证您的身份",
             "body_cam": "如果不使用相机，我们就无法验证您的身份",
             "body_mic": "如果不使用麦克风，我们将无法验证您的身份",
-            "button_primary_both": "启用两者",
+            "button_primary_both": "启用麦克风和摄像头",
             "button_primary_cam": "启用相机",
             "button_primary_mic": "启用麦克风",
             "subtitle_both": "出现提示时，您必须启用这两者的访问才能继续",
@@ -813,6 +817,9 @@
             "title_selfie": "自拍"
         },
         "poa_cancel": "取消",
+        "poa_capture": {
+            "country_select.icon_info_accessibility": "信息："
+        },
         "poa_err_invalid_file": {
             "message": "请选择其他文件。",
             "ok": "确定",
@@ -1173,6 +1180,9 @@
                     "third_party_description": "<fallback>Namirial SpA<\/fallback>是一个值得信赖的全球供应商，将为您的电子签名发放验证证书。",
                     "title": "创建并使用您的数字签名"
                 }
+            },
+            "error": {
+                "misconfigured": "很遗憾，发生了一个错误。请联系您的支持。"
             }
         },
         "qes_consent": {
@@ -1214,6 +1224,10 @@
         },
         "retry_feedback": {
             "button_primary": "请重试"
+        },
+        "retry_feedback_custom": {
+            "subtitle": "请使用带照片的有效身份证件重试，并确保您的信息清晰可见",
+            "title": "您的证明文件已过期"
         },
         "retry_feedback_id_expired": {
             "subtitle": "请使用带照片的有效身份证件重试，并确保您的信息清晰可见",

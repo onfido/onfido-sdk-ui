@@ -459,6 +459,10 @@
                     "title": "Sutikimas atšauktas"
                 }
             },
+            "footer": {
+                "branding": "Onfido tikra tapatybė"
+            },
+            "icon_info_accessibility": "Informacija:",
             "lazy_load_placeholder": "Įkeliama...",
             "loading": "Įkeliama"
         },
@@ -589,7 +593,7 @@
             "body_both": "Negalime jūsų patvirtinti, jei kamera ir mikrofonas nenaudojami kartu",
             "body_cam": "Negalime Jūsų patvirtinti be prieigos prie kameros",
             "body_mic": "Negalime jūsų patvirtinti nenaudojant mikrofono",
-            "button_primary_both": "Įjungti abu",
+            "button_primary_both": "Įjunkite mikrofoną ir kamerą",
             "button_primary_cam": "Įjungti kamerą",
             "button_primary_mic": "Įjungti mikrofoną",
             "subtitle_both": "Kai būsite paprašyti, turėsite suteikti prieigą prie kameros ir mikrofono, kad galėtumėte tęsti",
@@ -813,6 +817,9 @@
             "title_selfie": "Asmenukė"
         },
         "poa_cancel": "Atšaukti",
+        "poa_capture": {
+            "country_select.icon_info_accessibility": "Informacija:"
+        },
         "poa_err_invalid_file": {
             "message": "Pasirinkite kitą failą.",
             "ok": "Gerai",
@@ -1173,6 +1180,9 @@
                     "third_party_description": "<fallback>Namirial SpA<\/fallback> yra pasitikimas pasaulinis tiekėjas, kuris išduos sertifikatą, patvirtinantį jūsų elektroninį parašą.",
                     "title": "Sukurkite ir naudokite savo skaitmeninį parašą"
                 }
+            },
+            "error": {
+                "misconfigured": "Deja, įvyko klaida. Prašome susisiekti su savo palaikymu."
             }
         },
         "qes_consent": {
@@ -1214,6 +1224,10 @@
         },
         "retry_feedback": {
             "button_primary": "Bandyti dar kartą"
+        },
+        "retry_feedback_custom": {
+            "subtitle": "Bandykite dar kartą naudodami galiojantį asmens tapatybės dokumentą su nuotrauka ir įsitikinkite, kad jūsų informacija aiškiai matoma",
+            "title": "Jūsų dokumentas nebegalioja"
         },
         "retry_feedback_id_expired": {
             "subtitle": "Bandykite dar kartą naudodami galiojantį asmens tapatybės dokumentą su nuotrauka ir įsitikinkite, kad jūsų informacija aiškiai matoma",

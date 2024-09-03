@@ -459,6 +459,10 @@
                     "title": "Nõusolekust keelduti"
                 }
             },
+            "footer": {
+                "branding": "Onfido tegelik identiteet"
+            },
+            "icon_info_accessibility": "Teave:",
             "lazy_load_placeholder": "Laadimine...",
             "loading": "Laadimine"
         },
@@ -589,7 +593,7 @@
             "body_both": "Me ei saa teie isikut kinnitada ilma nii kaamerat kui ka mikrofoni kasutamata",
             "body_cam": "Isiku kinnitamine ilma kaamerata ei ole võimalik",
             "body_mic": "Me ei saa teie isikut kinnitada ilma mikrofoni kasutamata",
-            "button_primary_both": "Lubage mõlemad",
+            "button_primary_both": "Luba mikrofon ja kaamera",
             "button_primary_cam": "Lubage kaamera",
             "button_primary_mic": "Lubage mikrofon",
             "subtitle_both": "Kui küsitakse juurdepääsuluba, peate jätkamiseks lubama juurdepääsu mõlemale",
@@ -813,6 +817,9 @@
             "title_selfie": "Selfi"
         },
         "poa_cancel": "Tühistage",
+        "poa_capture": {
+            "country_select.icon_info_accessibility": "Teave:"
+        },
         "poa_err_invalid_file": {
             "message": "Valige teine fail.",
             "ok": "OK",
@@ -1173,6 +1180,9 @@
                     "third_party_description": "<fallback>Namirial SpA<\/fallback> on usaldusväärne globaalne teenusepakkuja, kes väljastab sertifikaadi, kinnitades teie elektroonilist allkirja.",
                     "title": "Loo ja kasuta oma digitaalset allkirja"
                 }
+            },
+            "error": {
+                "misconfigured": "Kahjuks on ilmnenud viga. Palun võtke ühendust oma toega."
             }
         },
         "qes_consent": {
@@ -1214,6 +1224,10 @@
         },
         "retry_feedback": {
             "button_primary": "Proovige uuesti"
+        },
+        "retry_feedback_custom": {
+            "subtitle": "Proovige uuesti, kasutades kehtiva fotoga isikutunnistust ja veenduge, et teie andmed on selgelt nähtavad",
+            "title": "Teie dokument on aegunud"
         },
         "retry_feedback_id_expired": {
             "subtitle": "Proovige uuesti, kasutades kehtiva fotoga isikutunnistust ja veenduge, et teie andmed on selgelt nähtavad",

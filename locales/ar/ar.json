@@ -459,6 +459,10 @@
                     "title": "تم رفض الإذن"
                 }
             },
+            "footer": {
+                "branding": "هوية Onfido الحقيقية"
+            },
+            "icon_info_accessibility": "معلومات:",
             "lazy_load_placeholder": "جارٍ التحميل...",
             "loading": "جارٍ التحميل"
         },
@@ -589,7 +593,7 @@
             "body_both": "لا يمكننا التحقق منك من دون استخدام كل من الكاميرا والميكروفون",
             "body_cam": "لا يمكننا التحقق منك بدون الكاميرا",
             "body_mic": "لا يمكننا التحقق منك من دون استخدام الميكروفون",
-            "button_primary_both": "تمكين كلا الإثنين",
+            "button_primary_both": "تمكين الميكروفون والكاميرا",
             "button_primary_cam": "تمكين الكاميرا",
             "button_primary_mic": "تمكين الميكروفون",
             "subtitle_both": "عند المطالبة، يجب تمكين الوصول لكليهما للمتابعة",
@@ -813,6 +817,9 @@
             "title_selfie": "صورة سيلفي"
         },
         "poa_cancel": "إلغاء",
+        "poa_capture": {
+            "country_select.icon_info_accessibility": "معلومات:"
+        },
         "poa_err_invalid_file": {
             "message": "يُرجى اختيار ملف مختلف.",
             "ok": "موافق",
@@ -1173,6 +1180,9 @@
                     "third_party_description": "<fallback>Namirial SpA<\/fallback> هو مزود عالمي موثوق سيصدر شهادة تؤكد توقيعك الإلكتروني.",
                     "title": "قم بإنشاء واستخدام توقيعك الرقمي"
                 }
+            },
+            "error": {
+                "misconfigured": "للأسف، حدث خطأ. يرجى الاتصال بالدعم الخاص بك."
             }
         },
         "qes_consent": {
@@ -1214,6 +1224,10 @@
         },
         "retry_feedback": {
             "button_primary": "إعادة المحاولة"
+        },
+        "retry_feedback_custom": {
+            "subtitle": "يُرجى المحاولة مرة أخرى باستخدام بطاقة هوية صالحة تحمل صورة والتأكد من أن معلوماتك مرئية بوضوح",
+            "title": "انتهت صلاحية مستندك"
         },
         "retry_feedback_id_expired": {
             "subtitle": "يُرجى المحاولة مرة أخرى باستخدام بطاقة هوية صالحة تحمل صورة والتأكد من أن معلوماتك مرئية بوضوح",

@@ -459,6 +459,10 @@
                     "title": "Persetujuan ditolak"
                 }
             },
+            "footer": {
+                "branding": "Identiti sebenar Onfido"
+            },
+            "icon_info_accessibility": "Maklumat:",
             "lazy_load_placeholder": "Memuatkan...",
             "loading": "Memuatkan"
         },
@@ -589,7 +593,7 @@
             "body_both": "Kami tidak dapat mengesahkan anda tanpa menggunakan kamera dan juga mikrofon anda",
             "body_cam": "Kami tidak dapat mengesahkan anda tanpa kamera anda",
             "body_mic": "Kami tidak dapat mengesahkan anda tanpa menggunakan mikrofon anda",
-            "button_primary_both": "Dayakan kedua-duanya",
+            "button_primary_both": "Dayakan mikrofon dan kamera",
             "button_primary_cam": "Dayakan kamera",
             "button_primary_mic": "Dayakan mikrofon",
             "subtitle_both": "Apabila digesa, anda mesti mendayakan akses kamera dan mikrofon untuk meneruskannya",
@@ -813,6 +817,9 @@
             "title_selfie": "Swafoto"
         },
         "poa_cancel": "Batal",
+        "poa_capture": {
+            "country_select.icon_info_accessibility": "Maklumat:"
+        },
         "poa_err_invalid_file": {
             "message": "Sila pilih fail lain.",
             "ok": "OK",
@@ -1173,6 +1180,9 @@
                     "third_party_description": "<fallback>Namirial SpA<\/fallback> adalah penyedia global yang dipercayai yang akan mengeluarkan sijil yang mengesahkan tandatangan elektronik anda.",
                     "title": "Cipta dan gunakan tandatangan digital anda"
                 }
+            },
+            "error": {
+                "misconfigured": "Malangnya, ralat telah berlaku. Sila hubungi sokongan anda."
             }
         },
         "qes_consent": {
@@ -1214,6 +1224,10 @@
         },
         "retry_feedback": {
             "button_primary": "Cuba lagi"
+        },
+        "retry_feedback_custom": {
+            "subtitle": "Sila cuba lagi dengan ID bergambar yang sah dan pastikan maklumat anda kelihatan dengan jelas",
+            "title": "Dokumen anda telah tamat tempoh"
         },
         "retry_feedback_id_expired": {
             "subtitle": "Sila cuba lagi dengan ID bergambar yang sah dan pastikan maklumat anda kelihatan dengan jelas",

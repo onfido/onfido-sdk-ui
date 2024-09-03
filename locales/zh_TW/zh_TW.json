@@ -459,6 +459,10 @@
                     "title": "拒絝同意"
                 }
             },
+            "footer": {
+                "branding": "Onfido真實身份"
+            },
+            "icon_info_accessibility": "資訊：",
             "lazy_load_placeholder": "載入中……",
             "loading": "載入中"
         },
@@ -589,7 +593,7 @@
             "body_both": "若不同時使用相機和麥克風，我們無法驗證您的身份",
             "body_cam": "不使用相機，我們無法驗證您的身份",
             "body_mic": "若不使用麥克風，我們無法驗證您的身份",
-            "button_primary_both": "同時啟用兩者",
+            "button_primary_both": "啟用麥克風和相機",
             "button_primary_cam": "啟用相機",
             "button_primary_mic": "啟用麥克風",
             "subtitle_both": "出現提示時，您必須允許使用兩者，才能繼續",
@@ -813,6 +817,9 @@
             "title_selfie": "自拍"
         },
         "poa_cancel": "取消",
+        "poa_capture": {
+            "country_select.icon_info_accessibility": "資訊："
+        },
         "poa_err_invalid_file": {
             "message": "請選擇其他檔案。",
             "ok": "確定",
@@ -1173,6 +1180,9 @@
                     "third_party_description": "<fallback>Namirial SpA<\/fallback>是一家值得信賴的全球供應商，將為您的電子簽名發出證書。",
                     "title": "創建並使用您的數位簽名"
                 }
+            },
+            "error": {
+                "misconfigured": "很不幸，發生了一個錯誤。請聯繫您的支援。"
             }
         },
         "qes_consent": {
@@ -1214,6 +1224,10 @@
         },
         "retry_feedback": {
             "button_primary": "再試一次"
+        },
+        "retry_feedback_custom": {
+            "subtitle": "請使用含有相片的有效 ID 重試，並確保您的資料清楚可見",
+            "title": "您的文件已過期"
         },
         "retry_feedback_id_expired": {
             "subtitle": "請使用含有相片的有效 ID 重試，並確保您的資料清楚可見",

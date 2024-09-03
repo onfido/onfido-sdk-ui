@@ -459,6 +459,10 @@
                     "title": "Soglasje zavrnjeno"
                 }
             },
+            "footer": {
+                "branding": "Onfido prava identiteta"
+            },
+            "icon_info_accessibility": "Informacije:",
             "lazy_load_placeholder": "Nalaganje...",
             "loading": "Nalaganje"
         },
@@ -589,7 +593,7 @@
             "body_both": "Ne moremo vas preveriti brez uporabe kamere in mikrofona",
             "body_cam": "Brez kamere vas ne moremo preveriti",
             "body_mic": "Ne moremo vas preveriti brez uporabe mikrofona",
-            "button_primary_both": "Omogoči oboje",
+            "button_primary_both": "Omogočite mikrofon in kamero",
             "button_primary_cam": "Omogoči kamero",
             "button_primary_mic": "Omogoči mikrofon",
             "subtitle_both": "Ko boste pozvani, morate za nadaljevanje omogočiti dostop za oboje",
@@ -813,6 +817,9 @@
             "title_selfie": "Selfie"
         },
         "poa_cancel": "Prekliči",
+        "poa_capture": {
+            "country_select.icon_info_accessibility": "Informacije:"
+        },
         "poa_err_invalid_file": {
             "message": "Izberite drugo datoteko.",
             "ok": "V redu",
@@ -1173,6 +1180,9 @@
                     "third_party_description": "<fallback>Namirial SpA<\/fallback> je zaupanja vreden globalni ponudnik, ki bo izdal certifikat za potrditev vašega elektronskega podpisa.",
                     "title": "Ustvarite in uporabite svoj digitalni podpis"
                 }
+            },
+            "error": {
+                "misconfigured": "Na žalost je prišlo do napake. Prosimo, obrnite se na vašo podporo."
             }
         },
         "qes_consent": {
@@ -1214,6 +1224,10 @@
         },
         "retry_feedback": {
             "button_primary": "Poskusite znova"
+        },
+        "retry_feedback_custom": {
+            "subtitle": "Poskusite znova z veljavnim osebnim dokumentom s fotografijo in preverite, ali so vaši podatki jasno vidni",
+            "title": "Vaš dokument je potekel"
         },
         "retry_feedback_id_expired": {
             "subtitle": "Poskusite znova z veljavnim osebnim dokumentom s fotografijo in preverite, ali so vaši podatki jasno vidni",

@@ -459,6 +459,10 @@
                     "title": "Consimțământ refuzat"
                 }
             },
+            "footer": {
+                "branding": "Identitate reală Onfido"
+            },
+            "icon_info_accessibility": "Informație:",
             "lazy_load_placeholder": "Se încarcă...",
             "loading": "Se încarcă"
         },
@@ -589,7 +593,7 @@
             "body_both": "Nu vă putem verifica fără a utiliza atât camera video, cât și microfonul dvs.",
             "body_cam": "Nu vă putem verifica fără camera dvs. video",
             "body_mic": "Nu vă putem verifica fără a utiliza microfonul dvs.",
-            "button_primary_both": "Activați ambele",
+            "button_primary_both": "Activați microfonul și camera",
             "button_primary_cam": "Activați camera video",
             "button_primary_mic": "Activați microfonul",
             "subtitle_both": "Când vi se solicită, trebuie să activați accesul la ambele pentru a continua",
@@ -813,6 +817,9 @@
             "title_selfie": "Poză selfie"
         },
         "poa_cancel": "Anulați",
+        "poa_capture": {
+            "country_select.icon_info_accessibility": "Informație:"
+        },
         "poa_err_invalid_file": {
             "message": "Vă rugăm să alegeți un fișier diferit.",
             "ok": "OK",
@@ -1173,6 +1180,9 @@
                     "third_party_description": "<fallback>Namirial SpA<\/fallback> este un furnizor global de încredere care va emite un certificat pentru validarea semnăturii dvs. electronice.",
                     "title": "Creează și folosește semnătura ta digitală"
                 }
+            },
+            "error": {
+                "misconfigured": "Din păcate, a apărut o eroare. Vă rugăm să contactați suportul dvs."
             }
         },
         "qes_consent": {
@@ -1214,6 +1224,10 @@
         },
         "retry_feedback": {
             "button_primary": "Încercați din nou"
+        },
+        "retry_feedback_custom": {
+            "subtitle": "Vă rugăm să încercați din nou cu un document de identitate cu poză valabil și asigurați-vă că informațiile dvs. sunt clar vizibile",
+            "title": "Documentul dvs. a expirat"
         },
         "retry_feedback_id_expired": {
             "subtitle": "Vă rugăm să încercați din nou cu un document de identitate cu poză valabil și asigurați-vă că informațiile dvs. sunt clar vizibile",

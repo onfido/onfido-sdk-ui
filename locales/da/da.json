@@ -459,6 +459,10 @@
                     "title": "Samtykke afvist"
                 }
             },
+            "footer": {
+                "branding": "Onfido ægte identitet"
+            },
+            "icon_info_accessibility": "Information:",
             "lazy_load_placeholder": "Indlæser...",
             "loading": "Indlæser"
         },
@@ -589,7 +593,7 @@
             "body_both": "Vi kan ikke verificere dig uden at bruge både dit kamera og din mikrofon",
             "body_cam": "Vi kan ikke verificere dig uden dit kamera",
             "body_mic": "Vi kan ikke verificere dig uden at bruge din mikrofon",
-            "button_primary_both": "Aktivér begge dele",
+            "button_primary_both": "Aktivér mikrofon og kamera",
             "button_primary_cam": "Aktivér kamera",
             "button_primary_mic": "Aktiver mikrofon",
             "subtitle_both": "Når du bliver bedt om det, skal du aktivere adgang til begge dele for at fortsætte",
@@ -813,6 +817,9 @@
             "title_selfie": "Selfie"
         },
         "poa_cancel": "Annuller",
+        "poa_capture": {
+            "country_select.icon_info_accessibility": "Information:"
+        },
         "poa_err_invalid_file": {
             "message": "Vælg en anden fil.",
             "ok": "OK",
@@ -1173,6 +1180,9 @@
                     "third_party_description": "<fallback>Namirial SpA<\/fallback> er en betroet global udbyder, der vil udstede et certifikat, der validerer din elektroniske underskrift.",
                     "title": "Opret og brug din digitale signatur"
                 }
+            },
+            "error": {
+                "misconfigured": "Desværre er der opstået en fejl. Kontakt venligst din support."
             }
         },
         "qes_consent": {
@@ -1214,6 +1224,10 @@
         },
         "retry_feedback": {
             "button_primary": "Prøv igen"
+        },
+        "retry_feedback_custom": {
+            "subtitle": "Prøv igen med et gyldigt billed-ID, og sørg for, at dine oplysninger kan ses tydeligt",
+            "title": "Dit dokument er udløbet"
         },
         "retry_feedback_id_expired": {
             "subtitle": "Prøv igen med et gyldigt billed-ID, og sørg for, at dine oplysninger kan ses tydeligt",

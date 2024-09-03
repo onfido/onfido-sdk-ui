@@ -459,6 +459,10 @@
                     "title": "Zgoda odrzucona"
                 }
             },
+            "footer": {
+                "branding": "Prawdziwa tożsamość Onfido"
+            },
+            "icon_info_accessibility": "Informacja:",
             "lazy_load_placeholder": "Ładowanie...",
             "loading": "Ładowanie"
         },
@@ -589,7 +593,7 @@
             "body_both": "Nie możemy dokonać weryfikacji bez dostępu do aparatu i mikrofonu",
             "body_cam": "Nie możemy Cię zweryfikować bez użycia aparatu",
             "body_mic": "Nie możemy ukończyć weryfikacji bez użycia mikrofonu",
-            "button_primary_both": "Włącz oba",
+            "button_primary_both": "Włącz mikrofon i kamerę",
             "button_primary_cam": "Włącz aparat",
             "button_primary_mic": "Włącz mikrofon",
             "subtitle_both": "Aby kontynuować, zezwól na dostęp do obu urządzeń po wyświetleniu komunikatu",
@@ -813,6 +817,9 @@
             "title_selfie": "Selfie"
         },
         "poa_cancel": "Anuluj",
+        "poa_capture": {
+            "country_select.icon_info_accessibility": "Informacja:"
+        },
         "poa_err_invalid_file": {
             "message": "Wybierz inny plik.",
             "ok": "OK",
@@ -1173,6 +1180,9 @@
                     "third_party_description": "<fallback>Namirial SpA<\/fallback> jest zaufanym globalnym dostawcą, który wyda certyfikat potwierdzający twoją elektroniczną sygnaturę.",
                     "title": "Utwórz i używaj swojego cyfrowego podpisu"
                 }
+            },
+            "error": {
+                "misconfigured": "Niestety, wystąpił błąd. Proszę skontaktować się z działem wsparcia."
             }
         },
         "qes_consent": {
@@ -1214,6 +1224,10 @@
         },
         "retry_feedback": {
             "button_primary": "Spróbuj ponownie"
+        },
+        "retry_feedback_custom": {
+            "subtitle": "Spróbuj ponownie z ważnym dokumentem tożsamości ze zdjęciem i upewnij się, że Twoje dane są wyraźnie widoczne",
+            "title": "Twój dokument stracił ważność"
         },
         "retry_feedback_id_expired": {
             "subtitle": "Spróbuj ponownie z ważnym dokumentem tożsamości ze zdjęciem i upewnij się, że Twoje dane są wyraźnie widoczne",

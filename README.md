@@ -130,9 +130,15 @@ More details are provided in the [SDK version pinning](#version-pinning) section
 
 Since version `6.5.0`, TypeScript is officially supported.
 
-**Note**: In previous versions of the SDK (v13 and earlier), additional types, such as for the `init()` function were exposed. They will be gradually re-introduced in upcoming releases.
+Available types:
+
+- `OnfidoApi` - The base type for the `Onfido` object
+- `SdkParameters` - The parameters passed into `Onfido.init()`
 
 ## Initializing the SDK
+
+> ⚠️ The following SDK initialization documentation applies to identity verification workflows orchestrated using Onfido Studio.
+> For integrations where the verification steps are manually defined and configured, please refer to the [Advanced flow customization](#advanced-flow-customization) section below.
 
 The Web SDK has multiple initialization and customization options that provide flexibility to your integration, while remaining easy to integrate.
 
@@ -336,7 +342,7 @@ Defining a default language and applying custom translations or text is done wit
 
 - **`language {String}` - optional**
 
-  You can specify the language displayed during the SDK session. The `string` identifier can either be one of Onfido's supported languages (full list available in the [SDK customization guide](https://documentation.onfido.com/sdk/sdk-customization/#supported-languages)) or your own custom language identifier as described in the [Using custom language files](#using-custom-language-files) section below. 
+  You can specify the language displayed during the SDK session. The `string` identifier can either be one of Onfido's supported languages (full list available in the [SDK customization guide](https://documentation.onfido.com/sdk/sdk-customization/#supported-languages)) or your own custom language identifier as described in the [Using custom language files](#using-custom-language-files) section below.
 
 ```javascript
 Onfido.init({
@@ -347,12 +353,12 @@ Onfido.init({
 
 <Callout type="info">
 
-  If the `language` property is not present, the language identifier is incorrect or not yet supported by Onfido, the SDK will use the browser's language setting. <br/>
-  If the browser's language is not supported by Onfido, the SDK will default to English (`en_US`).
+If the `language` property is not present, the language identifier is incorrect or not yet supported by Onfido, the SDK will use the browser's language setting. <br/>
+If the browser's language is not supported by Onfido, the SDK will default to English (`en_US`).
 
 </Callout>
 
-**Note**: In the context of cross-device and OTP, the language of the SMS body is also controlled by this identifier. 
+**Note**: In the context of cross-device and OTP, the language of the SMS body is also controlled by this identifier.
 
 #### Custom translations and text
 
@@ -369,12 +375,12 @@ Onfido.init({
     en_US: {
       welcome: {
         title: 'This custom title will appear by default for en_US'
-      } 
+      }
     },
-    es: { 
+    es: {
        welcome: {
          title: 'Este título personalizado aparecerá por defecto para es'.
-       } 
+       }
     }
   }
 })
@@ -384,25 +390,25 @@ Onfido.init({
 
 The full list of keys that can be customized in the Onfido Web SDK is available on the Onfido CDN and is split by module and language.
 
-| File URL | Description |
-| -------- | ----------- |
-| https://sdk.onfido.com/capture/i18n/common/en_US.json               | Flow level keys, country names, document types and other keys shared across modules |
-| https://sdk.onfido.com/capture/i18n/welcome/en_US.json              | Welcome screen |
-| https://sdk.onfido.com/capture/i18n/complete/en_US.json             | "Thank you" screen |
-| https://sdk.onfido.com/capture/i18n/consent/en_US.json              | Consent screen |
-| https://sdk.onfido.com/capture/i18n/error/en_US.json                | General error screens |
-| https://sdk.onfido.com/capture/i18n/retry/en_US.json                | Retry screen |
-| https://sdk.onfido.com/capture/i18n/crossdevice/en_US.json          | Cross-device screens for both desktop and mobile sessions |
-| https://sdk.onfido.com/capture/i18n/document/en_US.json             | Document Capture screens |
-| https://sdk.onfido.com/capture/i18n/proofOfAddress/en_US.json       | Proof of Address screens |  
-| https://sdk.onfido.com/capture/i18n/face/en_US.json                 | Face Capture - Selfie screens |
-| https://sdk.onfido.com/capture/i18n/faceVideo/en_US.json            | Face Capture - Video screens |
-| https://sdk.onfido.com/capture/i18n/motion/en_US.json               | Face Capture - Motion screens |
-| https://sdk.onfido.com/capture/i18n/profileData/en_US.json          | Profile Data screens |
-| https://sdk.onfido.com/capture/i18n/electronicId/en_US.json         | Electronic ID verification screens |
-| https://sdk.onfido.com/capture/i18n/ial2/en_US.json                 | IAL2 screens |
-| https://sdk.onfido.com/capture/i18n/qualifiedElectronicSignature/en_US.json | Qualified Electronic Signature (QES) screens |
-| https://sdk.onfido.com/capture/i18n/oneTimePassword/en_US.json      | One-Time-Password (OTP) screens |
+| File URL                                                                    | Description                                                                         |
+| --------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| https://sdk.onfido.com/capture/i18n/common/en_US.json                       | Flow level keys, country names, document types and other keys shared across modules |
+| https://sdk.onfido.com/capture/i18n/welcome/en_US.json                      | Welcome screen                                                                      |
+| https://sdk.onfido.com/capture/i18n/complete/en_US.json                     | "Thank you" screen                                                                  |
+| https://sdk.onfido.com/capture/i18n/consent/en_US.json                      | Consent screen                                                                      |
+| https://sdk.onfido.com/capture/i18n/error/en_US.json                        | General error screens                                                               |
+| https://sdk.onfido.com/capture/i18n/retry/en_US.json                        | Retry screen                                                                        |
+| https://sdk.onfido.com/capture/i18n/crossdevice/en_US.json                  | Cross-device screens for both desktop and mobile sessions                           |
+| https://sdk.onfido.com/capture/i18n/document/en_US.json                     | Document Capture screens                                                            |
+| https://sdk.onfido.com/capture/i18n/proofOfAddress/en_US.json               | Proof of Address screens                                                            |
+| https://sdk.onfido.com/capture/i18n/face/en_US.json                         | Face Capture - Selfie screens                                                       |
+| https://sdk.onfido.com/capture/i18n/faceVideo/en_US.json                    | Face Capture - Video screens                                                        |
+| https://sdk.onfido.com/capture/i18n/motion/en_US.json                       | Face Capture - Motion screens                                                       |
+| https://sdk.onfido.com/capture/i18n/profileData/en_US.json                  | Profile Data screens                                                                |
+| https://sdk.onfido.com/capture/i18n/electronicId/en_US.json                 | Electronic ID verification screens                                                  |
+| https://sdk.onfido.com/capture/i18n/ial2/en_US.json                         | IAL2 screens                                                                        |
+| https://sdk.onfido.com/capture/i18n/qualifiedElectronicSignature/en_US.json | Qualified Electronic Signature (QES) screens                                        |
+| https://sdk.onfido.com/capture/i18n/oneTimePassword/en_US.json              | One-Time-Password (OTP) screens                                                     |
 
 **Note** that the same keys are available across all supported languages and are accessible by specifying the appropriate language name in the URL (`en_US.json` in the example above).
 
@@ -418,6 +424,7 @@ It is also possible to identify text that can be customized by using a browser i
 
 The Onfido Web SDK allows the use of custom languages alongside all officially supported languages.
 This functionality is achieved by:
+
 - defining a unique `language` identifier
 - using the unique `language` identifier within the `translations` object, mapping any required strings to the existing language file structure
 
@@ -430,14 +437,13 @@ Onfido.init({
     MY_CUSTOM_LANG: {
       welcome: {
         title: 'This custom title will appear by default'
-      } 
+      }
     }
   }
 })
 ```
 
 **Note**: Custom languages, similarly to standard text overrides, work as 'delta' to the base language file they relate to. In the case of custom languages, that base language is `en_US`.
-
 
 ### Cross-device navigation
 
@@ -460,6 +466,7 @@ At the end of the capture process, users will be instructed to revert back to th
 **Also note** that One-Time SMS links **cannot** be sent to the following regions and the messages will not be delivered:
 
 **North America**
+
 - Belize
 - Cuba
 - Grenada
@@ -467,6 +474,7 @@ At the end of the capture process, users will be instructed to revert back to th
 - St Kitts and Nevis
 
 **Asia**
+
 - Afghanistan
 - Azerbaijan
 - Bangladesh
@@ -487,8 +495,9 @@ At the end of the capture process, users will be instructed to revert back to th
 - Tajikistan
 - Turkmenistan
 - Yemen
- 
+
 **Africa**
+
 - Burkina Faso
 - Burundi
 - Cape Verde
@@ -612,7 +621,7 @@ After `onComplete` has fired in the context of a workflow, information about the
 
 <Callout type="warn">
 
-While the existing implementation of `onComplete` also returns *partial* information after a workflow has been executed, this behaviour will be removed in the next major version of the web SDK.
+While the existing implementation of `onComplete` also returns _partial_ information after a workflow has been executed, this behaviour will be removed in the next major version of the web SDK.
 
 </Callout>
 
@@ -832,8 +841,8 @@ From the possible steps listed below, only `document` is required:
 | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `welcome`  | Welcome screen shown to the user with preliminary instructions. [Customization](#welcome-step) options include modification to the text elements and instructions shown to the user.                                                     |
 | `document` | Set of screens that control the capture via photo or upload of the user's document. Numerous [customization](#document-step) options are available to define the document list presented to the user and the overall capture experience. |
-| `face`     | Set of screens that control the capture of a selfie, video or motion of the user. The [customization](#face-step) options allow the selection of the capture variant as well as fallback options.   
-| `poa`     | Set of screens where the user selects the issuing country and type of document to [verify their address](#poa-step).                                     |
+| `face`     | Set of screens that control the capture of a selfie, video or motion of the user. The [customization](#face-step) options allow the selection of the capture variant as well as fallback options.                                        |
+| `poa`      | Set of screens where the user selects the issuing country and type of document to [verify their address](#poa-step).                                                                                                                     |
 | `complete` | Screen shown to the user at the end of the flow. [Customization](#complete-step) options include modifications to the text elements shown to the user.                                                                                   |
 
 ```javascript
@@ -983,6 +992,7 @@ In case you require to capture a document that is not supported by Onfido or a s
     }
   }
   ```
+
 #### `poa` step
 
 This is the Proof of Address capture step. Users will be asked to select the issuing country of their document, the document type, and to provide images of their selected document. They will also have a chance to check the quality of the images before confirming. There are no custom options for this step.
@@ -1459,18 +1469,8 @@ To do so, please contact your Onfido Solution Engineer or Customer Success Manag
 
 ### User analytics callbacks
 
-<Callout>
-
-> The following features must be enabled for your account before they can be used. For more information, please contact your Onfido Solution Engineer or Customer Success Manager.
-
-</Callout>
-
 The SDK allows you to track a user's journey through the verification process via a dispatched event. This gives insight into how your users make use of the SDK screens.
-
-#### Overriding the hook
-
-In order to track a user's progress through the SDK an `EventListener` must be added that listens for `UserAnalyticsEvent` events. This can be done anywhere within your application.
-
+In order to track a user's progress through the SDK an `EventListener` must be added that listens for `userAnalyticsEvent` events. This can be done anywhere within your application.
 The code inside of the `EventListener` callback will be invoked when an event is triggered.
 
 ```javascript

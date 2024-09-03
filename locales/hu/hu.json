@@ -459,6 +459,10 @@
                     "title": "Hozzájárulás megtagadva"
                 }
             },
+            "footer": {
+                "branding": "Onfido valódi identitás"
+            },
+            "icon_info_accessibility": "Információ:",
             "lazy_load_placeholder": "Betöltés folyamatban...",
             "loading": "Betöltés"
         },
@@ -589,7 +593,7 @@
             "body_both": "A fényképezőgép és a mikrofon használata nélkül nem tudjuk ellenőrizni a személyazonosságát",
             "body_cam": "A kamera nélkül nem tudjuk igazolni a személyazonosságát",
             "body_mic": "A mikrofon használata nélkül nem tudjuk ellenőrizni a személyazonosságát",
-            "button_primary_both": "Mindkettő engedélyezése",
+            "button_primary_both": "Kapcsolja be a mikrofont és a kamerát",
             "button_primary_cam": "Kamera engedélyezése",
             "button_primary_mic": "Mikrofon engedélyezése",
             "subtitle_both": "Ha a rendszer kéri, a folytatáshoz engedélyeznie kell a hozzáférést mindkettőhöz",
@@ -813,6 +817,9 @@
             "title_selfie": "Szelfi"
         },
         "poa_cancel": "Mégse",
+        "poa_capture": {
+            "country_select.icon_info_accessibility": "Információ:"
+        },
         "poa_err_invalid_file": {
             "message": "Válasszon egy másik fájlt.",
             "ok": "OK",
@@ -1173,6 +1180,9 @@
                     "third_party_description": "A <fallback>Namirial SpA<\/fallback> egy világszerte megbízható szolgáltató, aki tanúsítványt állít ki az elektronikus aláírásának érvényesítésére.",
                     "title": "Digitális aláírás létrehozása és használata"
                 }
+            },
+            "error": {
+                "misconfigured": "Sajnos hiba történt. Kérjük, lépjen kapcsolatba a támogatásával."
             }
         },
         "qes_consent": {
@@ -1214,6 +1224,10 @@
         },
         "retry_feedback": {
             "button_primary": "Próbálja újra"
+        },
+        "retry_feedback_custom": {
+            "subtitle": "Próbálkozzon újra érvényes fényképes személyazonosító okmánnyal, és győződjön meg róla, hogy az adatai jól láthatók",
+            "title": "A dokumentuma lejárt"
         },
         "retry_feedback_id_expired": {
             "subtitle": "Próbálkozzon újra érvényes fényképes személyazonosító okmánnyal, és győződjön meg róla, hogy az adatai jól láthatók",

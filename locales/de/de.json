@@ -459,6 +459,10 @@
                     "title": "Zustimmung verweigert"
                 }
             },
+            "footer": {
+                "branding": "Onfido echte Identität"
+            },
+            "icon_info_accessibility": "Information:",
             "lazy_load_placeholder": "Wird geladen…",
             "loading": "Wird geladen"
         },
@@ -589,7 +593,7 @@
             "body_both": "Wir können Sie nicht verifizieren, ohne auf Ihr Mikrofon und Ihre Kamera zuzugreifen",
             "body_cam": "Wir können Sie nicht verifizieren, ohne Ihre Kamera zu benutzen",
             "body_mic": "Wir können Sie nicht verifizieren, ohne auf Ihr Mikrofon zuzugreifen",
-            "button_primary_both": "Beides aktivieren",
+            "button_primary_both": "Mikrofon und Kamera aktivieren",
             "button_primary_cam": "Kamera aktivieren",
             "button_primary_mic": "Mikrofon aktivieren",
             "subtitle_both": "Wenn Sie dazu aufgefordert werden, müssen Sie den Zugriff auf beide Komponenten aktivieren, um fortzufahren",
@@ -813,6 +817,9 @@
             "title_selfie": "Selfie"
         },
         "poa_cancel": "Abbrechen",
+        "poa_capture": {
+            "country_select.icon_info_accessibility": "Information:"
+        },
         "poa_err_invalid_file": {
             "message": "Bitte wählen Sie eine andere Datei.",
             "ok": "OK",
@@ -1173,6 +1180,9 @@
                     "third_party_description": "<fallback>Namirial SpA<\/fallback> ist ein vertrauenswürdiger globaler Anbieter, der ein Zertifikat zur Validierung Ihrer elektronischen Signatur ausstellt.",
                     "title": "Erstellen und verwenden Sie Ihre digitale Signatur"
                 }
+            },
+            "error": {
+                "misconfigured": "Leider ist ein Fehler aufgetreten. Bitte kontaktieren Sie Ihren Support."
             }
         },
         "qes_consent": {
@@ -1214,6 +1224,10 @@
         },
         "retry_feedback": {
             "button_primary": "Versuchen Sie es erneut."
+        },
+        "retry_feedback_custom": {
+            "subtitle": "Versuchen Sie es mit einem gültigen Lichtbildausweis erneut und stellen Sie sicher, dass die Angaben zu Ihrer Person gut sichtbar sind",
+            "title": "Ihr Ausweis ist ungültig"
         },
         "retry_feedback_id_expired": {
             "subtitle": "Versuchen Sie es mit einem gültigen Lichtbildausweis erneut und stellen Sie sicher, dass die Angaben zu Ihrer Person gut sichtbar sind",

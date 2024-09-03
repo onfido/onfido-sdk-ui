@@ -459,6 +459,10 @@
                     "title": "Consentimiento rechazado"
                 }
             },
+            "footer": {
+                "branding": "Onfido identidad real"
+            },
+            "icon_info_accessibility": "Información:",
             "lazy_load_placeholder": "Cargando...",
             "loading": "Cargando"
         },
@@ -589,7 +593,7 @@
             "body_both": "No podemos verificar tu identidad sin usar tu cámara y micrófono",
             "body_cam": "No podemos verificar tu identidad sin tu cámara",
             "body_mic": "No podemos verificar tu identidad sin usar tu micrófono",
-            "button_primary_both": "Activar ambos",
+            "button_primary_both": "Habilita el micrófono y la cámara",
             "button_primary_cam": "Activar cámara",
             "button_primary_mic": "Activar micrófono",
             "subtitle_both": "Cuando se te solicite, debes activar el acceso a ambos para continuar",
@@ -813,6 +817,9 @@
             "title_selfie": "Selfi"
         },
         "poa_cancel": "Cancelar",
+        "poa_capture": {
+            "country_select.icon_info_accessibility": "Información:"
+        },
         "poa_err_invalid_file": {
             "message": "Elige un archivo diferente.",
             "ok": "ACEPTAR",
@@ -1173,6 +1180,9 @@
                     "third_party_description": "<fallback>Namirial SpA<\/fallback> es un proveedor global de confianza que emitirá un certificado validando tu firma electrónica.",
                     "title": "Crea y usa tu firma digital"
                 }
+            },
+            "error": {
+                "misconfigured": "Lamentablemente, ha ocurrido un error. Por favor, contacta a tu soporte."
             }
         },
         "qes_consent": {
@@ -1214,6 +1224,10 @@
         },
         "retry_feedback": {
             "button_primary": "Inténtalo de nuevo"
+        },
+        "retry_feedback_custom": {
+            "subtitle": "Inténtalo de nuevo con una ID con foto válida y asegúrate de que tu información sea claramente visible",
+            "title": "Tu documento venció"
         },
         "retry_feedback_id_expired": {
             "subtitle": "Inténtalo de nuevo con una ID con foto válida y asegúrate de que tu información sea claramente visible",

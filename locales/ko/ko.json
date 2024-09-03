@@ -459,6 +459,10 @@
                     "title": "동의 거부"
                 }
             },
+            "footer": {
+                "branding": "Onfido 실제 신원"
+            },
+            "icon_info_accessibility": "정보:",
             "lazy_load_placeholder": "불러오는 중...",
             "loading": "불러오는 중"
         },
@@ -589,7 +593,7 @@
             "body_both": "카메라와 마이크 기능 둘 다를 사용하지 않고서는 본인 인증 절차를 진행할 수 없습니다",
             "body_cam": "카메라 없이는 본인 인증 작업을 진행할 수 없습니다",
             "body_mic": "마이크를 사용하지 않고서는 본인 인증 절차를 진행할 수 없습니다",
-            "button_primary_both": "둘 다 사용",
+            "button_primary_both": "마이크와 카메라를 활성화하세요",
             "button_primary_cam": "카메라 활성화",
             "button_primary_mic": "마이크 사용하기",
             "subtitle_both": "계속하려면 안내 메시지가 표시될 때 두 가지 기능에 대한 접근 권한을 허용하셔야 합니다",
@@ -813,6 +817,9 @@
             "title_selfie": "셀카"
         },
         "poa_cancel": "취소",
+        "poa_capture": {
+            "country_select.icon_info_accessibility": "정보:"
+        },
         "poa_err_invalid_file": {
             "message": "다른 파일을 선택하세요.",
             "ok": "확인",
@@ -1173,6 +1180,9 @@
                     "third_party_description": "<fallback>Namirial SpA<\/fallback>는 전자 서명을 확인하는 인증서를 발급하는 신뢰할 수 있는 글로벌 공급자입니다.",
                     "title": "디지털 서명을 생성하고 사용하세요"
                 }
+            },
+            "error": {
+                "misconfigured": "불행히도 오류가 발생했습니다. 지원팀에 연락해 주세요."
             }
         },
         "qes_consent": {
@@ -1214,6 +1224,10 @@
         },
         "retry_feedback": {
             "button_primary": "다시 시도하기"
+        },
+        "retry_feedback_custom": {
+            "subtitle": "사진이 부착된 유효한 신분증으로 다시 시도하고 정보가 선명하게 보이는지 확인하세요",
+            "title": "서류가 만료되었습니다"
         },
         "retry_feedback_id_expired": {
             "subtitle": "사진이 부착된 유효한 신분증으로 다시 시도하고 정보가 선명하게 보이는지 확인하세요",

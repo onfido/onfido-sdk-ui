@@ -4,38 +4,70 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## 14.35.0 - 2024-09-03
+### Added
+- Proof of Address Module: replaced basic camera with js camera
+
+### Fixed
+- Ensure the motion instruction video is dismissed on the head-turn side complete
+- accessibility screen reader and keyboard navigations
+- Assistive technologies now reads intructions in center of capture frame.
+
 ## 14.34.0 - 2024-08-15
+### Added
+- Preselect country in documents list following the value of custom input `preferred_user_country` (currently only works with Onfido Studio)
+
 ### Changed
 - Updated CSP - Added data: to media-src
+- Fixed accessibility and usability issues with the document list
+- Optional task completion task when using Studio token
+- Removed inactivity error message and continue to display shutter button
+
+### Fixed
+- Extended SSN scope to include US territories: American Samoa, Guam, Northern Marian Islands, United States Virgin Islands and Puerto Rico
+- The redo button displayed after an error when uploading a document is now a primary button
 
 ## 14.33.0 - 2024-07-31
 ### Changed
 - Updated CSP - Added data: to media-src
-- Updated CSP - Added data: to media-src
+
+### Fixed
+- Ensure screen readers don't read headings twice
+- Resolved an issue causing infinite loading when pressing the back button on the video preview screen
 
 ## 14.32.0 - 2024-07-24
 ### Changed
 - Updated CSP - Added data: to media-src
-- Updated CSP - Added data: to media-src
+
+### Fixed
+- Fixed video preview on iOS
+- Replaced the `faceVideo` intro icons with bullet points aligned with Motion
+- Improved accessibility of the country selector label
+- Various accessibility fixes
 
 ## 14.31.0 - 2024-07-17
+### Fixed
+- Check audio permission for `faceMotion` when `recordAudio` is enabled
+- Fixed UPLOAD user analytics event
+- Removed whitespaces at end of string inputs for profile data
 
 ## 14.30.0 - 2024-07-04
+### Fixed
+- Fixed UPLOAD user analytics event
+- Removed whitespaces at end of string inputs for profile data
 
 ## 14.29.0 - 2024-06-25
-No changes.
+### Fixed
+- Various bug fixes and accessibility updates
 
 ## 14.28.0 - 2024-06-20
-All notable changes to this project will be documented in this file.
-
-The format is based on [Keep a Changelog](http://keepachangelog.com/)
-and this project adheres to [Semantic Versioning](http://semver.org/).
-
-## 14.28.0 - 2024-06-13
-No changes.
+### Fixed
+- Various bug fixes and accessibility updates
 
 ## 14.27.1 - 2024-06-05
-No changes.
+### Added
+- Added an error warning if no international code is included in the phone number field for one-time password link
+- International code is now included in the phone number field for one-time password link
 
 ## 14.27.0 - 2024-05-30
 ### Changed

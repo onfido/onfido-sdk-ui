@@ -459,6 +459,10 @@
                     "title": "Samtykke avslått"
                 }
             },
+            "footer": {
+                "branding": "Onfido ekte identitet"
+            },
+            "icon_info_accessibility": "Informasjon:",
             "lazy_load_placeholder": "Laster inn …",
             "loading": "Laster"
         },
@@ -589,7 +593,7 @@
             "body_both": "Vi kan ikke verifisere deg uten å bruke både kameraet og mikrofonen din",
             "body_cam": "Vi kan ikke verifisere deg uten kameraet ditt",
             "body_mic": "Vi kan ikke verifisere deg uten å bruke mikrofonen din",
-            "button_primary_both": "Aktiver begge",
+            "button_primary_both": "Aktiver mikrofon og kamera",
             "button_primary_cam": "Aktiver kamera",
             "button_primary_mic": "Aktiver mikrofon",
             "subtitle_both": "Når du blir bedt om det, må du aktivere tilgang for at begge skal fortsette",
@@ -813,6 +817,9 @@
             "title_selfie": "Selfie"
         },
         "poa_cancel": "Avbryt",
+        "poa_capture": {
+            "country_select.icon_info_accessibility": "Informasjon:"
+        },
         "poa_err_invalid_file": {
             "message": "Velg en annen fil.",
             "ok": "OK",
@@ -1173,6 +1180,9 @@
                     "third_party_description": "<fallback>Namirial SpA<\/fallback> er en pålitelig global leverandør som vil utstede et sertifikat som bekrefter din elektroniske signatur.",
                     "title": "Opprett og bruk din digitale signatur"
                 }
+            },
+            "error": {
+                "misconfigured": "Dessverre har det oppstått en feil. Vennligst kontakt din støtte."
             }
         },
         "qes_consent": {
@@ -1214,6 +1224,10 @@
         },
         "retry_feedback": {
             "button_primary": "Prøv på nytt"
+        },
+        "retry_feedback_custom": {
+            "subtitle": "Vennligst prøv igjen med en gyldig bilde-ID og sørg for at informasjonen din er godt synlig",
+            "title": "Dokumentet ditt er utløpt"
         },
         "retry_feedback_id_expired": {
             "subtitle": "Vennligst prøv igjen med en gyldig bilde-ID og sørg for at informasjonen din er godt synlig",

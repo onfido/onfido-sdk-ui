@@ -459,6 +459,10 @@
                     "title": "Suglasnost odbijena"
                 }
             },
+            "footer": {
+                "branding": "Onfido stvarni identitet"
+            },
+            "icon_info_accessibility": "Informacija:",
             "lazy_load_placeholder": "Učitavanje u tijeku...",
             "loading": "Učitavanje u tijeku"
         },
@@ -589,7 +593,7 @@
             "body_both": "Ne možemo potvrditi vaš identitet bez kamere i mikrofona",
             "body_cam": "Ne možemo potvrditi vaš identitet bez kamere",
             "body_mic": "Ne možemo potvrditi vaš identitet bez mikrofona",
-            "button_primary_both": "Omogućite pristup oboma",
+            "button_primary_both": "Omogućite mikrofon i kameru",
             "button_primary_cam": "Omogućite pristup kameri",
             "button_primary_mic": "Omogući pristup mikrofonu",
             "subtitle_both": "Na upit morate omogućiti pristup oboma da biste mogli nastaviti",
@@ -813,6 +817,9 @@
             "title_selfie": "Selfie"
         },
         "poa_cancel": "Poništi",
+        "poa_capture": {
+            "country_select.icon_info_accessibility": "Informacija:"
+        },
         "poa_err_invalid_file": {
             "message": "Odaberite drugu datoteku.",
             "ok": "U redu",
@@ -1173,6 +1180,9 @@
                     "third_party_description": "<fallback>Namirial SpA<\/fallback> je pouzdani globalni pružatelj koji će izdati certifikat koji potvrđuje vaš elektronički potpis.",
                     "title": "Stvorite i koristite svoj digitalni potpis"
                 }
+            },
+            "error": {
+                "misconfigured": "Nažalost, došlo je do pogreške. Molimo vas da se obratite svojoj podršci."
             }
         },
         "qes_consent": {
@@ -1214,6 +1224,10 @@
         },
         "retry_feedback": {
             "button_primary": "Pokušajte ponovno"
+        },
+        "retry_feedback_custom": {
+            "subtitle": "Pokušajte ponovno s važećim identifikacijskim dokumentom s fotografijom i provjerite jesu li vaši podaci jasno vidljivi",
+            "title": "Vaš je dokumen istekao"
         },
         "retry_feedback_id_expired": {
             "subtitle": "Pokušajte ponovno s važećim identifikacijskim dokumentom s fotografijom i provjerite jesu li vaši podaci jasno vidljivi",

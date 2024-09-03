@@ -459,6 +459,10 @@
                     "title": "הסכמה נדחתה"
                 }
             },
+            "footer": {
+                "branding": "זהות אמיתית של Onfido"
+            },
+            "icon_info_accessibility": "מידע:",
             "lazy_load_placeholder": "טוען…",
             "loading": "טוען"
         },
@@ -589,7 +593,7 @@
             "body_both": "לא ניתן לאמת את זהותך בלי להשתמש גם במצלמה וגם במיקרופון",
             "body_cam": "אנחנו לא יכולים לאמת את זהותך בלי המצלמה שלך",
             "body_mic": "לא ניתן לאמת אותך בלי להשתמש גם במצלמה וגם במיקרופון",
-            "button_primary_both": "הפעל את שניהם",
+            "button_primary_both": "אפשר מיקרופון ומצלמה",
             "button_primary_cam": "הפעל מצלמה",
             "button_primary_mic": "הפעל מיקרופון",
             "subtitle_both": "כאשר תתבקש, עליך לאפשר גישה לשניהם כדי להמשיך",
@@ -813,6 +817,9 @@
             "title_selfie": "סלפי"
         },
         "poa_cancel": "ביטול",
+        "poa_capture": {
+            "country_select.icon_info_accessibility": "מידע:"
+        },
         "poa_err_invalid_file": {
             "message": "בחר קובץ אחר.",
             "ok": "אישור",
@@ -1173,6 +1180,9 @@
                     "third_party_description": "<fallback>Namirial SpA<\/fallback> היא ספקית מהימנה ברחבי העולם שתיתן תעודה שמאמתת את החתימה האלקטרונית שלך.",
                     "title": "צור והשתמש בחתימה הדיגיטלית שלך"
                 }
+            },
+            "error": {
+                "misconfigured": "למרבה הצער, אירעה שגיאה. אנא צור קשר עם התמיכה שלך."
             }
         },
         "qes_consent": {
@@ -1214,6 +1224,10 @@
         },
         "retry_feedback": {
             "button_primary": "נסה שוב"
+        },
+        "retry_feedback_custom": {
+            "subtitle": "נסה שוב עם תעודה מזהה חוקית שכוללת תמונה וודא שהפרטים מופיעים בבירור",
+            "title": "תוקף המסמך שלך פג"
         },
         "retry_feedback_id_expired": {
             "subtitle": "נסה שוב עם תעודה מזהה חוקית שכוללת תמונה וודא שהפרטים מופיעים בבירור",

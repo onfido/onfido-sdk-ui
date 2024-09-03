@@ -459,6 +459,10 @@
                     "title": "同意が拒否されました"
                 }
             },
+            "footer": {
+                "branding": "Onfido リアルアイデンティティ"
+            },
+            "icon_info_accessibility": "情報:",
             "lazy_load_placeholder": "読み込み中…",
             "loading": "ローディング中です"
         },
@@ -589,7 +593,7 @@
             "body_both": "カメラとマイクの両方を使用しないと認証できません",
             "body_cam": "カメラなしでは認証できません",
             "body_mic": "マイクを使用しないと確認できません",
-            "button_primary_both": "両方を有効にする",
+            "button_primary_both": "マイクロフォンとカメラを有効にする",
             "button_primary_cam": "カメラを有効にする",
             "button_primary_mic": "マイクを有効にする",
             "subtitle_both": "プロンプトが表示されたら、続行するため両方へのアクセスを有効にしてください",
@@ -813,6 +817,9 @@
             "title_selfie": "自撮り"
         },
         "poa_cancel": "キャンセル",
+        "poa_capture": {
+            "country_select.icon_info_accessibility": "情報:"
+        },
         "poa_err_invalid_file": {
             "message": "別のファイルを選択してください。",
             "ok": "OK",
@@ -1173,6 +1180,9 @@
                     "third_party_description": "<fallback>Namirial SpA<\/fallback>は、あなたの電子署名の検証証明書を発行する信頼できるグローバルプロバイダーです。",
                     "title": "デジタル署名を作成して使用する"
                 }
+            },
+            "error": {
+                "misconfigured": "残念ながら、エラーが発生しました。サポートに連絡してください。"
             }
         },
         "qes_consent": {
@@ -1214,6 +1224,10 @@
         },
         "retry_feedback": {
             "button_primary": "再試行"
+        },
+        "retry_feedback_custom": {
+            "subtitle": "有効な写真付き身分証明書で再度お試しいただき、情報がはっきりと見えるようにしてください",
+            "title": "ドキュメントの有効期限が切れています"
         },
         "retry_feedback_id_expired": {
             "subtitle": "有効な写真付き身分証明書で再度お試しいただき、情報がはっきりと見えるようにしてください",

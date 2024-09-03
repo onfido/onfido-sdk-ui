@@ -459,6 +459,10 @@
                     "title": "Consentimento recusado"
                 }
             },
+            "footer": {
+                "branding": "Onfido identidade real"
+            },
+            "icon_info_accessibility": "Informação:",
             "lazy_load_placeholder": "Carregando...",
             "loading": "Carregando"
         },
@@ -589,7 +593,7 @@
             "body_both": "Não podemos verificar sua identidade sem usar sua câmera e seu microfone",
             "body_cam": "Não podemos verificar sua identidade sem sua câmera",
             "body_mic": "Não podemos verificar sua identidade sem usar seu microfone",
-            "button_primary_both": "Ativar ambos",
+            "button_primary_both": "Habilite o microfone e a câmera",
             "button_primary_cam": "Ativar câmera",
             "button_primary_mic": "Ativar microfone",
             "subtitle_both": "Quando solicitado, você deve permitir o acesso a ambos para continuar",
@@ -813,6 +817,9 @@
             "title_selfie": "Selfie"
         },
         "poa_cancel": "Cancelar",
+        "poa_capture": {
+            "country_select.icon_info_accessibility": "Informação:"
+        },
         "poa_err_invalid_file": {
             "message": "Escolha um arquivo diferente.",
             "ok": "Ok",
@@ -1173,6 +1180,9 @@
                     "third_party_description": "<fallback>Namirial SpA<\/fallback> é um provedor global confiável que emitirá um certificado validando sua assinatura eletrônica.",
                     "title": "Crie e use sua assinatura digital"
                 }
+            },
+            "error": {
+                "misconfigured": "Infelizmente, ocorreu um erro. Por favor, entre em contato com o seu suporte."
             }
         },
         "qes_consent": {
@@ -1214,6 +1224,10 @@
         },
         "retry_feedback": {
             "button_primary": "Tentar novamente"
+        },
+        "retry_feedback_custom": {
+            "subtitle": "Tente novamente com um ID com foto válido e certifique-se de que as suas informações estão claramente visíveis",
+            "title": "Seu documento expirou"
         },
         "retry_feedback_id_expired": {
             "subtitle": "Tente novamente com um ID com foto válido e certifique-se de que as suas informações estão claramente visíveis",

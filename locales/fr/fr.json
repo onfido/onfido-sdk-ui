@@ -459,6 +459,10 @@
                     "title": "Consentement refusé"
                 }
             },
+            "footer": {
+                "branding": "Onfido véritable identité"
+            },
+            "icon_info_accessibility": "Information :",
             "lazy_load_placeholder": "Chargement...",
             "loading": "Chargement"
         },
@@ -589,7 +593,7 @@
             "body_both": "Nous ne pouvons pas vous vérifier sans utiliser votre appareil photo et votre micro",
             "body_cam": "Nous ne pouvons pas vous vérifier sans utiliser votre appareil photo",
             "body_mic": "Nous ne pouvons pas commencer la vérification sans utiliser votre micro",
-            "button_primary_both": "Activer les deux",
+            "button_primary_both": "Activez le microphone et la caméra",
             "button_primary_cam": "Activer l’appareil photo",
             "button_primary_mic": "Activer le micro",
             "subtitle_both": "Autorisez l’accès aux deux pour continuer",
@@ -813,6 +817,9 @@
             "title_selfie": "Selfie"
         },
         "poa_cancel": "Annuler",
+        "poa_capture": {
+            "country_select.icon_info_accessibility": "Information :"
+        },
         "poa_err_invalid_file": {
             "message": "Veuillez choisir un autre fichier.",
             "ok": "OK",
@@ -1173,6 +1180,9 @@
                     "third_party_description": "<fallback>Namirial SpA<\/fallback> est un fournisseur mondial de confiance qui délivrera un certificat validant votre signature électronique.",
                     "title": "Créez et utilisez votre signature numérique"
                 }
+            },
+            "error": {
+                "misconfigured": "Malheureusement, une erreur s'est produite. Veuillez contacter votre support."
             }
         },
         "qes_consent": {
@@ -1214,6 +1224,10 @@
         },
         "retry_feedback": {
             "button_primary": "Réessayer"
+        },
+        "retry_feedback_custom": {
+            "subtitle": "Veuillez réessayer avec une pièce d'identité valide avec photo et en vous assurant que vos coordonnées sont bien visibles",
+            "title": "Votre document a expiré"
         },
         "retry_feedback_id_expired": {
             "subtitle": "Veuillez réessayer avec une pièce d'identité valide avec photo et en vous assurant que vos coordonnées sont bien visibles",

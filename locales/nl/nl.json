@@ -459,6 +459,10 @@
                     "title": "Toestemming geweigerd"
                 }
             },
+            "footer": {
+                "branding": "Onfido echte identiteit"
+            },
+            "icon_info_accessibility": "Informatie:",
             "lazy_load_placeholder": "Bezig met laden...",
             "loading": "Bezig met laden"
         },
@@ -589,7 +593,7 @@
             "body_both": "We kunnen u niet verifiëren zonder uw camera en microfoon te gebruiken",
             "body_cam": "We kunnen u niet verifiëren zonder camera",
             "body_mic": "We kunnen u niet verifiëren zonder uw microfoon te gebruiken",
-            "button_primary_both": "Allebei inschakelen",
+            "button_primary_both": "Schakel microfoon en camera in",
             "button_primary_cam": "Camera inschakelen",
             "button_primary_mic": "Schakel microfoon in",
             "subtitle_both": "Als u daarom gevraagd wordt, moet u toegang tot zowel de camera als de microfoon inschakelen om door te gaan",
@@ -813,6 +817,9 @@
             "title_selfie": "Selfie"
         },
         "poa_cancel": "Annuleren",
+        "poa_capture": {
+            "country_select.icon_info_accessibility": "Informatie:"
+        },
         "poa_err_invalid_file": {
             "message": "Kies een ander bestand.",
             "ok": "OKÉ",
@@ -1173,6 +1180,9 @@
                     "third_party_description": "<fallback>Namirial SpA<\/fallback> is een vertrouwde wereldwijde aanbieder die een certificaat zal uitgeven om uw elektronische handtekening te valideren.",
                     "title": "Maak en gebruik uw digitale handtekening"
                 }
+            },
+            "error": {
+                "misconfigured": "Helaas is er een fout opgetreden. Neem alstublieft contact op met uw ondersteuning."
             }
         },
         "qes_consent": {
@@ -1214,6 +1224,10 @@
         },
         "retry_feedback": {
             "button_primary": "Probeer het opnieuw"
+        },
+        "retry_feedback_custom": {
+            "subtitle": "Probeer het opnieuw met een geldig identiteitsbewijs met foto en zorg ervoor dat uw gegevens duidelijk leesbaar zijn",
+            "title": "Uw document is verlopen"
         },
         "retry_feedback_id_expired": {
             "subtitle": "Probeer het opnieuw met een geldig identiteitsbewijs met foto en zorg ervoor dat uw gegevens duidelijk leesbaar zijn",

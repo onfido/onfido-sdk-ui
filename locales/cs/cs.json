@@ -459,6 +459,10 @@
                     "title": "Souhlas zamítnut"
                 }
             },
+            "footer": {
+                "branding": "Onfido skutečná identita"
+            },
+            "icon_info_accessibility": "Informace:",
             "lazy_load_placeholder": "Nahrávání...",
             "loading": "Načítání"
         },
@@ -589,7 +593,7 @@
             "body_both": "Bez použití kamery a mikrofonu Vás nemůžeme ověřit",
             "body_cam": "Bez kamery Vás nemůžeme ověřit",
             "body_mic": "Bez použití mikrofonu Vás nemůžeme ověřit",
-            "button_primary_both": "Povolte obě možnosti",
+            "button_primary_both": "Povolte mikrofon a kameru",
             "button_primary_cam": "Povolení kamery",
             "button_primary_mic": "Povolení mikrofonu",
             "subtitle_both": "Po výzvě musíte povolit přístup pro obě možnosti, potom můžete pokračovat",
@@ -813,6 +817,9 @@
             "title_selfie": "Selfie"
         },
         "poa_cancel": "Zrušit",
+        "poa_capture": {
+            "country_select.icon_info_accessibility": "Informace:"
+        },
         "poa_err_invalid_file": {
             "message": "Vyberte jiný soubor.",
             "ok": "OK",
@@ -1173,6 +1180,9 @@
                     "third_party_description": "<fallback>Namirial SpA<\/fallback> je důvěryhodný globální poskytovatel, který vydá certifikát ověřující vaši elektronický podpis.",
                     "title": "Vytvořte a použijte svůj digitální podpis"
                 }
+            },
+            "error": {
+                "misconfigured": "Bohužel došlo k chybě. Kontaktujte prosím vaši podporu."
             }
         },
         "qes_consent": {
@@ -1214,6 +1224,10 @@
         },
         "retry_feedback": {
             "button_primary": "Zkuste to znovu"
+        },
+        "retry_feedback_custom": {
+            "subtitle": "Zkuste to znovu s platným průkazem totožnosti s fotografií a ujistěte se, že jsou Vaše údaje jasně viditelné.",
+            "title": "Platnost Vašeho dokumentu vypršela"
         },
         "retry_feedback_id_expired": {
             "subtitle": "Zkuste to znovu s platným průkazem totožnosti s fotografií a ujistěte se, že jsou Vaše údaje jasně viditelné.",

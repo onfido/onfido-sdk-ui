@@ -459,6 +459,10 @@
                     "title": "Consent declined"
                 }
             },
+            "footer": {
+                "branding": "Onfido real identity"
+            },
+            "icon_info_accessibility": "Information:",
             "lazy_load_placeholder": "Loading...",
             "loading": "Loading"
         },
@@ -589,7 +593,7 @@
             "body_both": "We can’t verify you without using both your camera and microphone",
             "body_cam": "We can’t verify you without your camera",
             "body_mic": "We can’t verify you without using your microphone",
-            "button_primary_both": "Enable both",
+            "button_primary_both": "Enable microphone and camera",
             "button_primary_cam": "Enable camera",
             "button_primary_mic": "Enable microphone",
             "subtitle_both": "When prompted, you must enable access for both to continue",
@@ -813,6 +817,9 @@
             "title_selfie": "Selfie"
         },
         "poa_cancel": "Cancel",
+        "poa_capture": {
+            "country_select.icon_info_accessibility": "Information:"
+        },
         "poa_err_invalid_file": {
             "message": "Please choose a different file.",
             "ok": "OK",
@@ -1173,6 +1180,9 @@
                     "third_party_description": "<fallback>Namirial SpA<\/fallback> is a trusted global provider who will issue a certificate validating your electronic signature.",
                     "title": "Create and use your digital signature"
                 }
+            },
+            "error": {
+                "misconfigured": "Regrettably, an error has occurred. Please contact your support."
             }
         },
         "qes_consent": {
@@ -1214,6 +1224,10 @@
         },
         "retry_feedback": {
             "button_primary": "Try again"
+        },
+        "retry_feedback_custom": {
+            "subtitle": "Please try again with a valid photo ID and make sure your information is clearly visible",
+            "title": "Your document has expired"
         },
         "retry_feedback_id_expired": {
             "subtitle": "Please try again with a valid photo ID and make sure your information is clearly visible",

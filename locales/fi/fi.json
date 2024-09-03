@@ -459,6 +459,10 @@
                     "title": "Suostumus evätty"
                 }
             },
+            "footer": {
+                "branding": "Onfido todellinen identiteetti"
+            },
+            "icon_info_accessibility": "Tietoa:",
             "lazy_load_placeholder": "Ladataan...",
             "loading": "Ladataan"
         },
@@ -589,7 +593,7 @@
             "body_both": "Emme voi vahvistaa sinua käyttämättä sekä kameraasi että mikrofoniasi",
             "body_cam": "Emme voi vahvistaa sinua ilman kameraasi",
             "body_mic": "Emme voi vahvistaa sinua käyttämättä mikrofoniasi",
-            "button_primary_both": "Ota molemm. käytt.",
+            "button_primary_both": "Ota mikrofoni ja kamera käyttöön",
             "button_primary_cam": "Ota kamera käyttöön",
             "button_primary_mic": "Ota mikrofoni käyttöön",
             "subtitle_both": "Kun sinua pyydetään, sinun on sallittava molempien käyttö jatkaaksesi",
@@ -813,6 +817,9 @@
             "title_selfie": "Selfie"
         },
         "poa_cancel": "Peruuta",
+        "poa_capture": {
+            "country_select.icon_info_accessibility": "Tietoa:"
+        },
         "poa_err_invalid_file": {
             "message": "Valitse toinen tiedosto.",
             "ok": "OK",
@@ -1173,6 +1180,9 @@
                     "third_party_description": "<fallback>Namirial SpA<\/fallback> on luotettava maailmanlaajuinen palveluntarjoaja, joka myöntää sertifikaatin vahvistaen sähköisen allekirjoituksesi.",
                     "title": "Luo ja käytä digitaalista allekirjoitustasi"
                 }
+            },
+            "error": {
+                "misconfigured": "Valitettavasti on tapahtunut virhe. Ota yhteyttä tukeesi."
             }
         },
         "qes_consent": {
@@ -1214,6 +1224,10 @@
         },
         "retry_feedback": {
             "button_primary": "Yritä uud."
+        },
+        "retry_feedback_custom": {
+            "subtitle": "Yritä uudelleen voimassa olevalla kuvallisella ID:llä ja varmista, että tietosi näkyvät selvästi",
+            "title": "Asiakirjasi on vanhentunut"
         },
         "retry_feedback_id_expired": {
             "subtitle": "Yritä uudelleen voimassa olevalla kuvallisella ID:llä ja varmista, että tietosi näkyvät selvästi",

@@ -459,6 +459,10 @@
                     "title": "Onay reddedildi"
                 }
             },
+            "footer": {
+                "branding": "Onfido gerçek kimlik"
+            },
+            "icon_info_accessibility": "Bilgi:",
             "lazy_load_placeholder": "Yükleniyor...",
             "loading": "Yükleniyor"
         },
@@ -589,7 +593,7 @@
             "body_both": "Hem kameranızı hem de mikrofonunuzu kullanmadan sizi doğrulayamayız",
             "body_cam": "Kamera erişimi olmadan sizi doğrulayamayız",
             "body_mic": "Mikrofonunuzu kullanmadan sizi doğrulayamayız",
-            "button_primary_both": "Her ikisini de etkinleştir",
+            "button_primary_both": "Mikrofonu ve kamerayı etkinleştir",
             "button_primary_cam": "Kamerayı etkinleştir",
             "button_primary_mic": "Mikrofonu etkinleştir",
             "subtitle_both": "İstendiğinde, devam etmek için her ikisine de erişimi etkinleştirmeniz gerekir",
@@ -813,6 +817,9 @@
             "title_selfie": "Selfie"
         },
         "poa_cancel": "İptal",
+        "poa_capture": {
+            "country_select.icon_info_accessibility": "Bilgi:"
+        },
         "poa_err_invalid_file": {
             "message": "Lütfen farklı bir dosya seçin.",
             "ok": "Tamam",
@@ -1173,6 +1180,9 @@
                     "third_party_description": "<fallback>Namirial SpA<\/fallback>, elektronik imzanızı doğrulayan bir sertifika veren güvenilir bir küresel sağlayıcıdır.",
                     "title": "Dijital imzanızı oluşturun ve kullanın"
                 }
+            },
+            "error": {
+                "misconfigured": "Maalesef, bir hata oluştu. Lütfen destek ekibinizle iletişime geçin."
             }
         },
         "qes_consent": {
@@ -1214,6 +1224,10 @@
         },
         "retry_feedback": {
             "button_primary": "Tekrar deneyin"
+        },
+        "retry_feedback_custom": {
+            "subtitle": "Lütfen geçerli bir fotoğraflı kimlikle tekrar deneyin ve bilgilerinizin net bir şekilde göründüğünden emin olun",
+            "title": "Belgenizin süresi doldu"
         },
         "retry_feedback_id_expired": {
             "subtitle": "Lütfen geçerli bir fotoğraflı kimlikle tekrar deneyin ve bilgilerinizin net bir şekilde göründüğünden emin olun",

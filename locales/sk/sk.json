@@ -459,6 +459,10 @@
                     "title": "Súhlas odmietnutý"
                 }
             },
+            "footer": {
+                "branding": "Skutočná identita Onfido"
+            },
+            "icon_info_accessibility": "Informácie:",
             "lazy_load_placeholder": "Načítava sa…",
             "loading": "Načítavanie"
         },
@@ -589,7 +593,7 @@
             "body_both": "Nemôžeme vás overiť bez použitia fotoaparátu a mikrofónu",
             "body_cam": "Nemôžeme vás overiť bez fotoaparátu",
             "body_mic": "Nemôžeme vás overiť bez použitia mikrofónu",
-            "button_primary_both": "Povoliť oboje",
+            "button_primary_both": "Povoliť mikrofón a kameru",
             "button_primary_cam": "Povoliť fotoaparát",
             "button_primary_mic": "Povoliť mikrofón",
             "subtitle_both": "Ak chcete pokračovať, musíte po výzve povoliť prístup k obom",
@@ -813,6 +817,9 @@
             "title_selfie": "Selfie"
         },
         "poa_cancel": "Zrušiť",
+        "poa_capture": {
+            "country_select.icon_info_accessibility": "Informácie:"
+        },
         "poa_err_invalid_file": {
             "message": "Zvoľte iný súbor.",
             "ok": "OK",
@@ -1173,6 +1180,9 @@
                     "third_party_description": "<fallback>Namirial SpA<\/fallback> je dôveryhodný globálny poskytovateľ, ktorý vydá certifikát overujúci vašu elektronickú podpis.",
                     "title": "Vytvorte a použite svoj digitálny podpis"
                 }
+            },
+            "error": {
+                "misconfigured": "Bohužiaľ, došlo k chybe. Prosím, kontaktujte svoju podporu."
             }
         },
         "qes_consent": {
@@ -1214,6 +1224,10 @@
         },
         "retry_feedback": {
             "button_primary": "Skúsiť znova"
+        },
+        "retry_feedback_custom": {
+            "subtitle": "Skúste to znova s platným dokladom totožnosti s fotkou a uistite sa, že vaše údaje sú jasne viditeľné",
+            "title": "Platnosť dokladu vypršala"
         },
         "retry_feedback_id_expired": {
             "subtitle": "Skúste to znova s platným dokladom totožnosti s fotkou a uistite sa, že vaše údaje sú jasne viditeľné",

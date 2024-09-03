@@ -459,6 +459,10 @@
                     "title": "Consentimento recusado"
                 }
             },
+            "footer": {
+                "branding": "Onfido identidade real"
+            },
+            "icon_info_accessibility": "Informação:",
             "lazy_load_placeholder": "A carregar...",
             "loading": "A carregar"
         },
@@ -589,7 +593,7 @@
             "body_both": "Não podemos verificá-lo sem utilizar a sua câmara e microfone",
             "body_cam": "Não o podemos verificar sem a sua câmara",
             "body_mic": "Não podemos verificá-lo sem usar o seu microfone",
-            "button_primary_both": "Permitir ambos",
+            "button_primary_both": "Ative o microfone e a câmera",
             "button_primary_cam": "Ativar câmara",
             "button_primary_mic": "Ativar microfone",
             "subtitle_both": "Quando solicitado, deve permitir o acesso de ambos para continuar",
@@ -813,6 +817,9 @@
             "title_selfie": "Selfie"
         },
         "poa_cancel": "Cancelar",
+        "poa_capture": {
+            "country_select.icon_info_accessibility": "Informação:"
+        },
         "poa_err_invalid_file": {
             "message": "Por favor escolha um ficheiro diferente.",
             "ok": "OK",
@@ -1173,6 +1180,9 @@
                     "third_party_description": "<fallback>Namirial SpA<\/fallback> é um fornecedor global de confiança que emitirá um certificado validando sua assinatura eletrônica.",
                     "title": "Crie e use sua assinatura digital"
                 }
+            },
+            "error": {
+                "misconfigured": "Infelizmente, ocorreu um erro. Por favor, entre em contato com o seu suporte."
             }
         },
         "qes_consent": {
@@ -1214,6 +1224,10 @@
         },
         "retry_feedback": {
             "button_primary": "Tente novamente"
+        },
+        "retry_feedback_custom": {
+            "subtitle": "Tente de novo com uma identificação com foto válida e garanta que os seus dados estão claramente visíveis",
+            "title": "O seu documento está caducado"
         },
         "retry_feedback_id_expired": {
             "subtitle": "Tente de novo com uma identificação com foto válida e garanta que os seus dados estão claramente visíveis",

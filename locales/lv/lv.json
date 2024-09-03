@@ -459,6 +459,10 @@
                     "title": "Piekrišana atteikta"
                 }
             },
+            "footer": {
+                "branding": "Onfido īstā identitāte"
+            },
+            "icon_info_accessibility": "Informācija:",
             "lazy_load_placeholder": "Notiek ielāde...",
             "loading": "Notiek ielāde"
         },
@@ -589,7 +593,7 @@
             "body_both": "Mēs nevaram veikt pārbaudi, neizmantojot kameru un mikrofonu",
             "body_cam": "Mēs nevaram veikt pārbaudi bez kameras",
             "body_mic": "Mēs nevaram veikt pārbaudi, neizmantojot mikrofonu",
-            "button_primary_both": "Iespējot abus",
+            "button_primary_both": "Iespējojiet mikrofonu un kameru",
             "button_primary_cam": "Iespējot kameru",
             "button_primary_mic": "Iespējot mikrofonu",
             "subtitle_both": "Kad tiek parādīta uzvedne, lai turpinātu, ir jāiespējo piekļuve abiem",
@@ -813,6 +817,9 @@
             "title_selfie": "Selfijs"
         },
         "poa_cancel": "Atcelt",
+        "poa_capture": {
+            "country_select.icon_info_accessibility": "Informācija:"
+        },
         "poa_err_invalid_file": {
             "message": "Izvēlieties citu failu.",
             "ok": "Labi",
@@ -1173,6 +1180,9 @@
                     "third_party_description": "<fallback>Namirial SpA<\/fallback> ir uzticams globāls pakalpojumu sniedzējs, kas izsniegs sertifikātu, apstiprinot jūsu elektronisko parakstu.",
                     "title": "Izveidojiet un izmantojiet savu digitālo parakstu"
                 }
+            },
+            "error": {
+                "misconfigured": "Diemžēl ir radusies kļūda. Lūdzu, sazinieties ar savu atbalsta dienestu."
             }
         },
         "qes_consent": {
@@ -1214,6 +1224,10 @@
         },
         "retry_feedback": {
             "button_primary": "Mēģināt vēlreiz"
+        },
+        "retry_feedback_custom": {
+            "subtitle": "Mēģiniet vēlreiz, izmantojot derīgu ID ar fotoattēlu, un pārliecinieties, ka jūsu informācija ir skaidri redzama",
+            "title": "Jūsu dokumenta derīguma termiņš ir beidzies"
         },
         "retry_feedback_id_expired": {
             "subtitle": "Mēģiniet vēlreiz, izmantojot derīgu ID ar fotoattēlu, un pārliecinieties, ka jūsu informācija ir skaidri redzama",

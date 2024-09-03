@@ -459,6 +459,10 @@
                     "title": "Persetujuan ditolak"
                 }
             },
+            "footer": {
+                "branding": "Identitas asli Onfido"
+            },
+            "icon_info_accessibility": "Informasi:",
             "lazy_load_placeholder": "Sedang memuat...",
             "loading": "Memuat"
         },
@@ -589,7 +593,7 @@
             "body_both": "Kami tidak dapat memverifikasi Anda tanpa menggunakan kamera dan mikrofon Anda",
             "body_cam": "Kami tidak dapat memverifikasi Anda tanpa kamera Anda",
             "body_mic": "Kami tidak dapat memverifikasi Anda tanpa menggunakan mikrofon Anda",
-            "button_primary_both": "Aktifkan keduanya",
+            "button_primary_both": "Aktifkan mikrofon dan kamera",
             "button_primary_cam": "Aktifkan kamera",
             "button_primary_mic": "Aktifkan mikrofon",
             "subtitle_both": "Saat diminta, Anda harus mengaktifkan akses untuk keduanya agar dapat melanjutkan",
@@ -813,6 +817,9 @@
             "title_selfie": "Swafoto"
         },
         "poa_cancel": "Batalkan",
+        "poa_capture": {
+            "country_select.icon_info_accessibility": "Informasi:"
+        },
         "poa_err_invalid_file": {
             "message": "Silakan pilih file lain.",
             "ok": "Oke",
@@ -1173,6 +1180,9 @@
                     "third_party_description": "<fallback>Namirial SpA<\/fallback> adalah penyedia global terpercaya yang akan mengeluarkan sertifikat yang memvalidasi tanda tangan elektronik Anda.",
                     "title": "Buat dan gunakan tanda tangan digital Anda"
                 }
+            },
+            "error": {
+                "misconfigured": "Sayangnya, terjadi kesalahan. Silakan hubungi dukungan Anda."
             }
         },
         "qes_consent": {
@@ -1214,6 +1224,10 @@
         },
         "retry_feedback": {
             "button_primary": "Coba lagi"
+        },
+        "retry_feedback_custom": {
+            "subtitle": "Harap coba lagi dengan foto identitas yang valid dan pastikan informasi Anda terlihat jelas",
+            "title": "Dokumen Anda telah kedaluwarsa"
         },
         "retry_feedback_id_expired": {
             "subtitle": "Harap coba lagi dengan foto identitas yang valid dan pastikan informasi Anda terlihat jelas",

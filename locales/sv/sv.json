@@ -459,6 +459,10 @@
                     "title": "Samtycke nekas"
                 }
             },
+            "footer": {
+                "branding": "Onfido verklig identitet"
+            },
+            "icon_info_accessibility": "Information:",
             "lazy_load_placeholder": "Laddar…",
             "loading": "Laddar"
         },
@@ -589,7 +593,7 @@
             "body_both": "Vi kan inte verifiera dig utan att använda både din kamera och mikrofon",
             "body_cam": "Vi kan inte verifiera dig utan din kamera",
             "body_mic": "Vi kan inte verifiera dig utan att använda din mikrofon",
-            "button_primary_both": "Aktivera båda",
+            "button_primary_both": "Aktivera mikrofon och kamera",
             "button_primary_cam": "Aktivera kamera",
             "button_primary_mic": "Aktivera mikrofon",
             "subtitle_both": "När du uppmanas måste du aktivera åtkomst för att båda ska fortsätta",
@@ -813,6 +817,9 @@
             "title_selfie": "Selfie"
         },
         "poa_cancel": "Avbryt",
+        "poa_capture": {
+            "country_select.icon_info_accessibility": "Information:"
+        },
         "poa_err_invalid_file": {
             "message": "Välj en annan fil.",
             "ok": "OK",
@@ -1173,6 +1180,9 @@
                     "third_party_description": "<fallback>Namirial SpA<\/fallback> är en betrodd global leverantör som kommer att utfärda ett certifikat som validerar din elektroniska signatur.",
                     "title": "Skapa och använd din digitala signatur"
                 }
+            },
+            "error": {
+                "misconfigured": "Tyvärr har ett fel inträffat. Vänligen kontakta din support."
             }
         },
         "qes_consent": {
@@ -1214,6 +1224,10 @@
         },
         "retry_feedback": {
             "button_primary": "Försök igen"
+        },
+        "retry_feedback_custom": {
+            "subtitle": "Försök igen med ett giltigt foto-ID och se till att din information syns tydligt",
+            "title": "Ditt dokument har gått ut"
         },
         "retry_feedback_id_expired": {
             "subtitle": "Försök igen med ett giltigt foto-ID och se till att din information syns tydligt",

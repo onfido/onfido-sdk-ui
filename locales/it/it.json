@@ -459,6 +459,10 @@
                     "title": "Consentimento negato"
                 }
             },
+            "footer": {
+                "branding": "Onfido identità reale"
+            },
+            "icon_info_accessibility": "Informazioni:",
             "lazy_load_placeholder": "Caricamento...",
             "loading": "Caricamento in corso"
         },
@@ -589,7 +593,7 @@
             "body_both": "Impossibile verificare la tua identità senza usare sia la fotocamera che il microfono",
             "body_cam": "Impossibile verificare la tua identità senza la fotocamera",
             "body_mic": "Impossibile verificare la tua identità senza usare il microfono",
-            "button_primary_both": "Abilita entrambi",
+            "button_primary_both": "Abilita microfono e telecamera",
             "button_primary_cam": "Abilita la fotocamera",
             "button_primary_mic": "Abilita il microfono",
             "subtitle_both": "Per continuare è necessario abilitare l’accesso a entrambi quando richiesto",
@@ -813,6 +817,9 @@
             "title_selfie": "Selfie"
         },
         "poa_cancel": "Annulla",
+        "poa_capture": {
+            "country_select.icon_info_accessibility": "Informazioni:"
+        },
         "poa_err_invalid_file": {
             "message": "Seleziona un altro file.",
             "ok": "OK",
@@ -1173,6 +1180,9 @@
                     "third_party_description": "<fallback>Namirial SpA<\/fallback> è un fornitore globale di fiducia che rilascerà un certificato per convalidare la tua firma elettronica.",
                     "title": "Crea e utilizza la tua firma digitale"
                 }
+            },
+            "error": {
+                "misconfigured": "Purtroppo, si è verificato un errore. Si prega di contattare il vostro supporto."
             }
         },
         "qes_consent": {
@@ -1214,6 +1224,10 @@
         },
         "retry_feedback": {
             "button_primary": "Riprova"
+        },
+        "retry_feedback_custom": {
+            "subtitle": "Riprova con un documento d’identità valido e assicurati chele informazioni siano ben leggibili",
+            "title": "Il documento è scaduto"
         },
         "retry_feedback_id_expired": {
             "subtitle": "Riprova con un documento d’identità valido e assicurati chele informazioni siano ben leggibili",

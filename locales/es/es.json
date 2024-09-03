@@ -459,6 +459,10 @@
                     "title": "Consentimiento rechazado"
                 }
             },
+            "footer": {
+                "branding": "Onfido identidad real"
+            },
+            "icon_info_accessibility": "Información:",
             "lazy_load_placeholder": "Cargando...",
             "loading": "Cargando"
         },
@@ -589,7 +593,7 @@
             "body_both": "No lo podemos verificar sin acceso a su cámara y micrófono",
             "body_cam": "No le podemos verificar sin usar su cámara",
             "body_mic": "No le podemos verificar sin acceso a su micrófono",
-            "button_primary_both": "Conceder acceso a ambos",
+            "button_primary_both": "Habilitar micrófono y cámara",
             "button_primary_cam": "Activar cámara",
             "button_primary_mic": "Habilitar micrófono",
             "subtitle_both": "Deberá conceder acceso a ambos para continuar",
@@ -813,6 +817,9 @@
             "title_selfie": "Selfie"
         },
         "poa_cancel": "Cancelar",
+        "poa_capture": {
+            "country_select.icon_info_accessibility": "Información:"
+        },
         "poa_err_invalid_file": {
             "message": "Elija un archivo distinto.",
             "ok": "De acuerdo",
@@ -1173,6 +1180,9 @@
                     "third_party_description": "<fallback>Namirial SpA<\/fallback> es un proveedor global de confianza que emitirá un certificado validando tu firma electrónica.",
                     "title": "Crea y usa tu firma digital"
                 }
+            },
+            "error": {
+                "misconfigured": "Lamentablemente, ha ocurrido un error. Por favor, contacte a su soporte."
             }
         },
         "qes_consent": {
@@ -1214,6 +1224,10 @@
         },
         "retry_feedback": {
             "button_primary": "Intentar otra vez"
+        },
+        "retry_feedback_custom": {
+            "subtitle": "Inténtelo de nuevo con un documento de identidad con fotografía válido y asegúrese de que sus datos se vean con claridad",
+            "title": "Su documento ha caducado"
         },
         "retry_feedback_id_expired": {
             "subtitle": "Inténtelo de nuevo con un documento de identidad con fotografía válido y asegúrese de que sus datos se vean con claridad",
