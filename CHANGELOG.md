@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## 14.36.0 - 2024-09-11
+### Added
+- Motion intro screen can be skipped through showIntro option
+
+### Removed
+- Removed motion confirmation screen
+
 ## 14.35.1 - 2024-09-09
 ### Fixed
 - Typescript support for the npm package
@@ -11,15 +18,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 ## 14.35.0 - 2024-09-03
 ### Added
 - Proof of Address Module: replaced basic camera with js camera
-- Proof of Address Module: replaced basic camera with js camera
 
 ### Fixed
 - Ensure the motion instruction video is dismissed on the head-turn side complete
 - accessibility screen reader and keyboard navigations
-- Assistive technologies now reads intructions in center of capture frame.
-- Ensure the motion instruction video is dismissed on the head-turn side complete
-- accessibility screen reader and keyboard navigations
-- Assistive technologies now reads intructions in center of capture frame.
+- Assistive technologies now reads intructions in center of capture frame
 
 ## 14.34.0 - 2024-08-15
 ### Added

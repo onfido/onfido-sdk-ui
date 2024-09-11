@@ -1031,8 +1031,8 @@ This is the face capture step. Users will be asked to capture their face in the 
 
 - **`showIntro {Boolean}` - optional**
 
-  The instruction screen shown to the user at the beginning of the `face` capture step can be skipped for the [`video`](https://documentation.onfido.com/guide/facial-similarity-reports#video) and [`standard`](https://documentation.onfido.com/guide/facial-similarity-reports#standard) variants. By default, the screen is shown (default to `true`).
-  When disabled for the `standard` variant, the entire intro screen will be removed from the flow.
+  The instruction screen shown to the user at the beginning of the `face` capture step can be skipped for all variants. By default, the screen is shown (default to `true`).
+  When disabled for the `standard` and `motion` variant, the entire intro screen will be removed from the flow.
   When disabled for the `video` variant, the example video will be hidden in the intro screen, only showing the text instructions.
 
 - **`useMultipleSelfieCapture {Boolean}` - optional**
