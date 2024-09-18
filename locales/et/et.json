@@ -593,7 +593,7 @@
             "body_both": "Me ei saa teie isikut kinnitada ilma nii kaamerat kui ka mikrofoni kasutamata",
             "body_cam": "Isiku kinnitamine ilma kaamerata ei ole võimalik",
             "body_mic": "Me ei saa teie isikut kinnitada ilma mikrofoni kasutamata",
-            "button_primary_both": "Luba mikrofon ja kaamera",
+            "button_primary_both": "Lubage mõlemad",
             "button_primary_cam": "Lubage kaamera",
             "button_primary_mic": "Lubage mikrofon",
             "subtitle_both": "Kui küsitakse juurdepääsuluba, peate jätkamiseks lubama juurdepääsu mõlemale",

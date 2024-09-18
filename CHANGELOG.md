@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## 14.37.0 - 2024-09-18
+### Added
+- Documentation for the new `theme` api 
+
 ## 14.36.0 - 2024-09-11
 ### Added
 - Motion intro screen can be skipped through showIntro option

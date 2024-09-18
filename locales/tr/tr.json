@@ -593,7 +593,7 @@
             "body_both": "Hem kameranızı hem de mikrofonunuzu kullanmadan sizi doğrulayamayız",
             "body_cam": "Kamera erişimi olmadan sizi doğrulayamayız",
             "body_mic": "Mikrofonunuzu kullanmadan sizi doğrulayamayız",
-            "button_primary_both": "Mikrofonu ve kamerayı etkinleştir",
+            "button_primary_both": "Her ikisini de etkinleştir",
             "button_primary_cam": "Kamerayı etkinleştir",
             "button_primary_mic": "Mikrofonu etkinleştir",
             "subtitle_both": "İstendiğinde, devam etmek için her ikisine de erişimi etkinleştirmeniz gerekir",

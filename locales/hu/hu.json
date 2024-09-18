@@ -593,7 +593,7 @@
             "body_both": "A fényképezőgép és a mikrofon használata nélkül nem tudjuk ellenőrizni a személyazonosságát",
             "body_cam": "A kamera nélkül nem tudjuk igazolni a személyazonosságát",
             "body_mic": "A mikrofon használata nélkül nem tudjuk ellenőrizni a személyazonosságát",
-            "button_primary_both": "Kapcsolja be a mikrofont és a kamerát",
+            "button_primary_both": "Mindkettő engedélyezése",
             "button_primary_cam": "Kamera engedélyezése",
             "button_primary_mic": "Mikrofon engedélyezése",
             "subtitle_both": "Ha a rendszer kéri, a folytatáshoz engedélyeznie kell a hozzáférést mindkettőhöz",

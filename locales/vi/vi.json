@@ -593,7 +593,7 @@
             "body_both": "Chúng tôi không thể xác minh bạn mà không sử dụng cả máy ảnh và micrô",
             "body_cam": "Chúng tôi không thể xác minh bạn mà không có máy ảnh",
             "body_mic": "Chúng tôi không thể xác minh bạn mà không sử dụng cả máy ảnh và micrô",
-            "button_primary_both": "Bật microphone và camera",
+            "button_primary_both": "Cho phép cả hai",
             "button_primary_cam": "Bật máy ảnh",
             "button_primary_mic": "Bật micrô",
             "subtitle_both": "Khi được hỏi, vui lòng bật quyền truy cập cho cả hai để tiếp tục",

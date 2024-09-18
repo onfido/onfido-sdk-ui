@@ -593,7 +593,7 @@
             "body_both": "Mēs nevaram veikt pārbaudi, neizmantojot kameru un mikrofonu",
             "body_cam": "Mēs nevaram veikt pārbaudi bez kameras",
             "body_mic": "Mēs nevaram veikt pārbaudi, neizmantojot mikrofonu",
-            "button_primary_both": "Iespējojiet mikrofonu un kameru",
+            "button_primary_both": "Iespējot abus",
             "button_primary_cam": "Iespējot kameru",
             "button_primary_mic": "Iespējot mikrofonu",
             "subtitle_both": "Kad tiek parādīta uzvedne, lai turpinātu, ir jāiespējo piekļuve abiem",

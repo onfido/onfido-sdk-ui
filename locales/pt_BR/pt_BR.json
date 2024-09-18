@@ -593,7 +593,7 @@
             "body_both": "Não podemos verificar sua identidade sem usar sua câmera e seu microfone",
             "body_cam": "Não podemos verificar sua identidade sem sua câmera",
             "body_mic": "Não podemos verificar sua identidade sem usar seu microfone",
-            "button_primary_both": "Habilite o microfone e a câmera",
+            "button_primary_both": "Ativar ambos",
             "button_primary_cam": "Ativar câmera",
             "button_primary_mic": "Ativar microfone",
             "subtitle_both": "Quando solicitado, você deve permitir o acesso a ambos para continuar",

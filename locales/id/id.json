@@ -593,7 +593,7 @@
             "body_both": "Kami tidak dapat memverifikasi Anda tanpa menggunakan kamera dan mikrofon Anda",
             "body_cam": "Kami tidak dapat memverifikasi Anda tanpa kamera Anda",
             "body_mic": "Kami tidak dapat memverifikasi Anda tanpa menggunakan mikrofon Anda",
-            "button_primary_both": "Aktifkan mikrofon dan kamera",
+            "button_primary_both": "Aktifkan keduanya",
             "button_primary_cam": "Aktifkan kamera",
             "button_primary_mic": "Aktifkan mikrofon",
             "subtitle_both": "Saat diminta, Anda harus mengaktifkan akses untuk keduanya agar dapat melanjutkan",

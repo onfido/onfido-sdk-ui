@@ -593,7 +593,7 @@
             "body_both": "Nu vă putem verifica fără a utiliza atât camera video, cât și microfonul dvs.",
             "body_cam": "Nu vă putem verifica fără camera dvs. video",
             "body_mic": "Nu vă putem verifica fără a utiliza microfonul dvs.",
-            "button_primary_both": "Activați microfonul și camera",
+            "button_primary_both": "Activați ambele",
             "button_primary_cam": "Activați camera video",
             "button_primary_mic": "Activați microfonul",
             "subtitle_both": "Când vi se solicită, trebuie să activați accesul la ambele pentru a continua",

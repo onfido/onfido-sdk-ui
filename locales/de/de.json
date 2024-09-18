@@ -593,7 +593,7 @@
             "body_both": "Wir können Sie nicht verifizieren, ohne auf Ihr Mikrofon und Ihre Kamera zuzugreifen",
             "body_cam": "Wir können Sie nicht verifizieren, ohne Ihre Kamera zu benutzen",
             "body_mic": "Wir können Sie nicht verifizieren, ohne auf Ihr Mikrofon zuzugreifen",
-            "button_primary_both": "Mikrofon und Kamera aktivieren",
+            "button_primary_both": "Beides aktivieren",
             "button_primary_cam": "Kamera aktivieren",
             "button_primary_mic": "Mikrofon aktivieren",
             "subtitle_both": "Wenn Sie dazu aufgefordert werden, müssen Sie den Zugriff auf beide Komponenten aktivieren, um fortzufahren",

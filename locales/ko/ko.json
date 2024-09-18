@@ -593,7 +593,7 @@
             "body_both": "카메라와 마이크 기능 둘 다를 사용하지 않고서는 본인 인증 절차를 진행할 수 없습니다",
             "body_cam": "카메라 없이는 본인 인증 작업을 진행할 수 없습니다",
             "body_mic": "마이크를 사용하지 않고서는 본인 인증 절차를 진행할 수 없습니다",
-            "button_primary_both": "마이크와 카메라를 활성화하세요",
+            "button_primary_both": "둘 다 사용",
             "button_primary_cam": "카메라 활성화",
             "button_primary_mic": "마이크 사용하기",
             "subtitle_both": "계속하려면 안내 메시지가 표시될 때 두 가지 기능에 대한 접근 권한을 허용하셔야 합니다",

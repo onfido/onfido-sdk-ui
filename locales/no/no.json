@@ -593,7 +593,7 @@
             "body_both": "Vi kan ikke verifisere deg uten å bruke både kameraet og mikrofonen din",
             "body_cam": "Vi kan ikke verifisere deg uten kameraet ditt",
             "body_mic": "Vi kan ikke verifisere deg uten å bruke mikrofonen din",
-            "button_primary_both": "Aktiver mikrofon og kamera",
+            "button_primary_both": "Aktiver begge",
             "button_primary_cam": "Aktiver kamera",
             "button_primary_mic": "Aktiver mikrofon",
             "subtitle_both": "Når du blir bedt om det, må du aktivere tilgang for at begge skal fortsette",

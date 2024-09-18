@@ -593,7 +593,7 @@
             "body_both": "Ne moremo vas preveriti brez uporabe kamere in mikrofona",
             "body_cam": "Brez kamere vas ne moremo preveriti",
             "body_mic": "Ne moremo vas preveriti brez uporabe mikrofona",
-            "button_primary_both": "Omogočite mikrofon in kamero",
+            "button_primary_both": "Omogoči oboje",
             "button_primary_cam": "Omogoči kamero",
             "button_primary_mic": "Omogoči mikrofon",
             "subtitle_both": "Ko boste pozvani, morate za nadaljevanje omogočiti dostop za oboje",

@@ -593,7 +593,7 @@
             "body_both": "Nemôžeme vás overiť bez použitia fotoaparátu a mikrofónu",
             "body_cam": "Nemôžeme vás overiť bez fotoaparátu",
             "body_mic": "Nemôžeme vás overiť bez použitia mikrofónu",
-            "button_primary_both": "Povoliť mikrofón a kameru",
+            "button_primary_both": "Povoliť oboje",
             "button_primary_cam": "Povoliť fotoaparát",
             "button_primary_mic": "Povoliť mikrofón",
             "subtitle_both": "Ak chcete pokračovať, musíte po výzve povoliť prístup k obom",

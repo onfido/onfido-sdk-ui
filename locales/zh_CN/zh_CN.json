@@ -593,7 +593,7 @@
             "body_both": "如果不同时使用相机和麦克风，我们将无法验证您的身份",
             "body_cam": "如果不使用相机，我们就无法验证您的身份",
             "body_mic": "如果不使用麦克风，我们将无法验证您的身份",
-            "button_primary_both": "启用麦克风和摄像头",
+            "button_primary_both": "启用两者",
             "button_primary_cam": "启用相机",
             "button_primary_mic": "启用麦克风",
             "subtitle_both": "出现提示时，您必须启用这两者的访问才能继续",

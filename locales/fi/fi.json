@@ -593,7 +593,7 @@
             "body_both": "Emme voi vahvistaa sinua käyttämättä sekä kameraasi että mikrofoniasi",
             "body_cam": "Emme voi vahvistaa sinua ilman kameraasi",
             "body_mic": "Emme voi vahvistaa sinua käyttämättä mikrofoniasi",
-            "button_primary_both": "Ota mikrofoni ja kamera käyttöön",
+            "button_primary_both": "Ota molemm. käytt.",
             "button_primary_cam": "Ota kamera käyttöön",
             "button_primary_mic": "Ota mikrofoni käyttöön",
             "subtitle_both": "Kun sinua pyydetään, sinun on sallittava molempien käyttö jatkaaksesi",

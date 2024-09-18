@@ -593,7 +593,7 @@
             "body_both": "カメラとマイクの両方を使用しないと認証できません",
             "body_cam": "カメラなしでは認証できません",
             "body_mic": "マイクを使用しないと確認できません",
-            "button_primary_both": "マイクロフォンとカメラを有効にする",
+            "button_primary_both": "両方を有効にする",
             "button_primary_cam": "カメラを有効にする",
             "button_primary_mic": "マイクを有効にする",
             "subtitle_both": "プロンプトが表示されたら、続行するため両方へのアクセスを有効にしてください",

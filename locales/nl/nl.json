@@ -593,7 +593,7 @@
             "body_both": "We kunnen u niet verifiëren zonder uw camera en microfoon te gebruiken",
             "body_cam": "We kunnen u niet verifiëren zonder camera",
             "body_mic": "We kunnen u niet verifiëren zonder uw microfoon te gebruiken",
-            "button_primary_both": "Schakel microfoon en camera in",
+            "button_primary_both": "Allebei inschakelen",
             "button_primary_cam": "Camera inschakelen",
             "button_primary_mic": "Schakel microfoon in",
             "subtitle_both": "Als u daarom gevraagd wordt, moet u toegang tot zowel de camera als de microfoon inschakelen om door te gaan",

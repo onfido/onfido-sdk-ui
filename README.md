@@ -227,15 +227,23 @@ Based on the same major version, the minor and patch versions of the library can
 
 The Onfido Web SDK supports customization options to adjust the fonts, the SDK main container, buttons, links, icons, background color and popups.
 
-To customize the SDK, you can pass the required CSS values to the `customUI` object, in the root of the `Onfido.init()` object.
+The Web SDK also supports dark theme customization.
 
-- **`customUI {Object}` - optional**
+To customize the SDK, you can pass the required values to the `theme` object, in the root of the `Onfido.init()` object.
 
-  Object containing optional CSS values for the supported UI customization options. The sample below lists all possible options with some example values.
+- **`name {Object}` - required**
+
+  The theme's `name` object allows for **dark mode** customization by setting the value to `light` or `dark`. 
+
+- **`config {Object}` - optional**
+
+  The theme's `config` object caters for a range of optional CSS values for supported UI customization. The sample below lists all possible options with some example values:
 
 ```javascript
 {
-  "customUI": {
+  "theme": {
+    "name": "light", // or "dark",
+    "config": {
       "borderRadiusButton": "56px",
       "borderStyleSurfaceModal": "0px",
       "fontWeightBody": 400,
@@ -276,6 +284,7 @@ To customize the SDK, you can pass the required CSS values to the `customUI` obj
       "colorContentInput": "blue",
       "colorBackgroundInput": "green",
       "colorBorderInput": "yellow"
+    }
   }
 }
 

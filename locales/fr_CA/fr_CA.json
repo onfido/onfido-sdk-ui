@@ -593,7 +593,7 @@
             "body_both": "Nous ne pouvons pas vous vérifier sans utiliser votre appareil photo et votre microphone",
             "body_cam": "Nous ne pouvons pas vous authentifier sans votre caméra",
             "body_mic": "Nous ne pouvons pas vous authentifier sans utiliser votre microphone",
-            "button_primary_both": "Activez le microphone et la caméra",
+            "button_primary_both": "Activez les deux",
             "button_primary_cam": "Activer la caméra",
             "button_primary_mic": "Activer le microphone",
             "subtitle_both": "Lorsque vous y êtes invité, vous devez autoriser l'accès aux deux pour continuer",

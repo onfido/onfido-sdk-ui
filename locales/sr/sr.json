@@ -593,7 +593,7 @@
             "body_both": "Ne možemo da vam proverimo identitet bez korišćenja i kamere i mikrofona",
             "body_cam": "Ne možemo da vam proverimo identitet bez kamere",
             "body_mic": "Ne možemo da vam proverimo identitet bez korišćenja mikrofona",
-            "button_primary_both": "Omogućite mikrofon i kameru",
+            "button_primary_both": "Omogući oba",
             "button_primary_cam": "Omogući kameru",
             "button_primary_mic": "Omogući mikrofon",
             "subtitle_both": "Kada se to od vas zatraži, morate da omogućite pristup za oba da biste nastavili",

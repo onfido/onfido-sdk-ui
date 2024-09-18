@@ -593,7 +593,7 @@
             "body_both": "Negalime jūsų patvirtinti, jei kamera ir mikrofonas nenaudojami kartu",
             "body_cam": "Negalime Jūsų patvirtinti be prieigos prie kameros",
             "body_mic": "Negalime jūsų patvirtinti nenaudojant mikrofono",
-            "button_primary_both": "Įjunkite mikrofoną ir kamerą",
+            "button_primary_both": "Įjungti abu",
             "button_primary_cam": "Įjungti kamerą",
             "button_primary_mic": "Įjungti mikrofoną",
             "subtitle_both": "Kai būsite paprašyti, turėsite suteikti prieigą prie kameros ir mikrofono, kad galėtumėte tęsti",
