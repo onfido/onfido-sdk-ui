@@ -190,7 +190,7 @@
             "prompt": {
                 "button_card": "Card de plastic",
                 "button_paper": "Document hârtie",
-                "title_id": "Ce tip de cărții de identitate aveți?",
+                "title_id": "Ce tip de carte de identitate aveți?",
                 "title_license": "Ce tip de permis de conducere aveți?"
             }
         },
@@ -264,7 +264,7 @@
             "button_general_letter_detail": "Scrisoare de la instituția financiară sau compania de utilități",
             "button_government_letter": "Scrisoare de la guvern",
             "button_government_letter_detail": "Orice scrisoare emisă de guvern, de exemplu, scrisori privind dreptul la beneficii, scrisori de votare, scrisori privind impozitele etc.",
-            "button_id": "Cărții de identitate",
+            "button_id": "Carte de identitate",
             "button_id_detail": "Față și verso",
             "button_identity_document_with_address": "Document de identitate cu adresă",
             "button_identity_document_with_address_back": "Document de identitate cu adresă (Spate)",
@@ -879,7 +879,7 @@
                     "gha_specific": {
                         "social_insurance": "SSNIT"
                     },
-                    "identity_card": "Cărții de identitate",
+                    "identity_card": "Carte de identitate",
                     "ind_specific": {
                         "tax_id": "Număr personal de cont (PAN)"
                     },
@@ -922,7 +922,7 @@
                     "national_id_value": "numere RUT \/ RUN"
                 },
                 "chn_specific": {
-                    "national_id_value": "Număr de rezident Cărții de identitate"
+                    "national_id_value": "Număr de rezident Carte de identitate"
                 },
                 "col_specific": {
                     "national_id_value": "Număr personal de identificare columbian"

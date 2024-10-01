@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## 14.38.0 - 2024-09-30
+### Fixed
+- Fixed QR code from showing during re-connection phase
+- Fixed navigation bug related to consent in classic mode
+- Removed the 10s timeout for the loading of modules
+- Implement cross_device_url for enterprise clients
+- Removed redundant video upload in document capture
+- add side, issuing_country and type to the video upload
+
 ## 14.37.1 - 2024-09-19
 ### Fixed
 - Fixed a bug for Mobile SDKs
