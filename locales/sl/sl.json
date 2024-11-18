@@ -211,6 +211,7 @@
                 "odp_screenshot_title": "Zaznan posnetek zaslona"
             },
             "body": "Prepričajte se, da ste naložili celotno stran dokumenta in da so podrobnosti jasno berljive, brez zamegljenosti ali bleščanja",
+            "body_accommodation_tenancy_certificate": "Prepričajte se, da ste naložili celotno stran dokumenta in da so podrobnosti jasno vidne brez zamegljenosti ali bleščanja",
             "body_address_certificate": "Prepričajte se, da ste naložili celotno stran dokumenta in da so podrobnosti jasno vidne brez zamegljenosti ali bleščanja",
             "body_bank_statement": "Prepričajte se, da ste naložili celotno stran dokumenta in da so podrobnosti jasno berljive, brez zamegljenosti ali bleščanja",
             "body_benefits_letter": "Prepričajte se, da ste naložili celotno stran dokumenta in da so podrobnosti jasno berljive, brez zamegljenosti ali bleščanja",
@@ -577,6 +578,7 @@
                 "error": {
                     "invalid_phone_number": "Prosimo, navedite veljavno telefonsko številko.",
                     "limit": "Dosegli ste omejitev poslanih SMS sporočil",
+                    "phone_number_blocked": "Oprostite, te kode države ne podpiramo",
                     "technical": "Prišlo je do tehnične napake, prosimo poskusite znova kasneje"
                 },
                 "input_label": "Telefonska številka",
@@ -1178,7 +1180,8 @@
                     "subtitle": "Za potrditev vaše identitete v skladu z evropskimi pravili morate digitalno podpisati dokument.",
                     "terms_and_conditions": "Pogoji in določila",
                     "third_party_description": "<fallback>Namirial SpA<\/fallback> je zaupanja vreden globalni ponudnik, ki bo izdal certifikat za potrditev vašega elektronskega podpisa.",
-                    "title": "Ustvarite in uporabite svoj digitalni podpis"
+                    "title": "Ustvarite in uporabite svoj digitalni podpis",
+                    "validation": "Potrebno soglasje"
                 }
             },
             "error": {

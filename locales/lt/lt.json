@@ -211,6 +211,7 @@
                 "odp_screenshot_title": "Užfiksuotas ekrano kopijavimas"
             },
             "body": "Įsitikinkite, kad įkėlėte visą dokumento puslapį ir kad informacija yra aiškiai matoma, kad ją būtų galima perskaityti, nesusiliejusi ir be atspindžių",
+            "body_accommodation_tenancy_certificate": "Įsitikinkite, kad įkėlėte visą dokumento puslapį ir detalės yra aiškiai skaitomos, be jokių dūmų ar blizgesio",
             "body_address_certificate": "Įsitikinkite, kad įkėlėte visą dokumento puslapį ir detalės yra aiškiai skaitomos, be jokių dūmų ar blizgesio",
             "body_bank_statement": "Įsitikinkite, kad įkėlėte visą dokumento puslapį ir kad informacija yra aiškiai matoma, kad ją būtų galima perskaityti, nesusiliejusi ir be atspindžių",
             "body_benefits_letter": "Įsitikinkite, kad įkėlėte visą dokumento puslapį ir kad informacija yra aiškiai matoma, kad ją būtų galima perskaityti, nesusiliejusi ir be atspindžių",
@@ -577,6 +578,7 @@
                 "error": {
                     "invalid_phone_number": "Prašome pateikti galiojantį telefono numerį.",
                     "limit": "Jūs pasiekėte išsiųstų SMS ribą",
+                    "phone_number_blocked": "Atsiprašome, šio šalies kodo nepalaikome",
                     "technical": "Įvyko techninė klaida, prašome bandyti vėliau"
                 },
                 "input_label": "Telefono numeris",
@@ -1178,7 +1180,8 @@
                     "subtitle": "Kad patvirtintumėte savo tapatybę pagal Europos taisykles, turite skaitmeniškai pasirašyti dokumentą.",
                     "terms_and_conditions": "Naudojimosi sąlygos ir taisyklės",
                     "third_party_description": "<fallback>Namirial SpA<\/fallback> yra pasitikimas pasaulinis tiekėjas, kuris išduos sertifikatą, patvirtinantį jūsų elektroninį parašą.",
-                    "title": "Sukurkite ir naudokite savo skaitmeninį parašą"
+                    "title": "Sukurkite ir naudokite savo skaitmeninį parašą",
+                    "validation": "Reikalingas sutikimas"
                 }
             },
             "error": {

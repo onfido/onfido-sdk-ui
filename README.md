@@ -1196,6 +1196,28 @@ The callbacks return a `FormData` object, including the information that the SDK
 }
 ```
 
+### Custom biometric token storage
+
+When using the decentralized authentication solution, by default the SDK manages biometric token storage, by storing it on local storage. The SDK also allows the clients to take control of the token lifecycle and exposes an callback to override the default implementation to read and write the token, so it can be stored on device, in cloud, in a keystore or on your premises.
+
+**Note** that by using the callback it will prevent the SDK to store the token.
+
+```typescript
+Onfido.init({
+	...
+  onBiometricTokenGenerated: (customerUserHash: string, biometricToken: string): void => {
+    // Called when new biometric token is generated during onboarding
+    // Use this callback to securely store the biometric token
+    // Please ensure that customerUserHash to biometricToken relationship is 1:1
+  },
+  onBiometricTokenRequested: (customerUserHash: string): Promise<string> => {
+    // Called when biometric token is requested during re-authentication
+    // Once you have the token, resolve the promise with it
+    return Promise.resolve('biometricToken')
+  }
+});
+```
+
 #### Uploading the media files to Onfido
 
 By default, this feature will prevent the request from being sent to Onfido, requiring you to [manually upload](https://documentation.onfido.com/api/latest#upload-document) the media files to Onfido from your backend for further processing.

@@ -211,6 +211,7 @@
                 "odp_screenshot_title": "Screenshot detected"
             },
             "body": "Make sure you have uploaded the entire document page, and details are clear to read with no blur or glare",
+            "body_accommodation_tenancy_certificate": "Make sure you have uploaded the entire document page, and details are clear to read with no blur or glare",
             "body_address_certificate": "Ensure you've uploaded the entire document page, and details are clear to read with no blur or glare",
             "body_bank_statement": "Make sure you have uploaded the entire document page, and details are clear to read with no blur or glare",
             "body_benefits_letter": "Make sure you have uploaded the entire document page, and details are clear to read with no blur or glare",
@@ -577,6 +578,7 @@
                 "error": {
                     "invalid_phone_number": "Please provide a valid phone number.",
                     "limit": "You've reached the limit of sent text messages",
+                    "phone_number_blocked": "Sorry, we do not support this country code",
                     "technical": "A technical error has occurred, please try again later"
                 },
                 "input_label": "Phone number",
@@ -1178,7 +1180,8 @@
                     "subtitle": "To confirm your identity in accordance with European rules, you must digitally sign a document.",
                     "terms_and_conditions": "Terms and conditions",
                     "third_party_description": "<fallback>Namirial SpA<\/fallback> is a trusted global provider who will issue a certificate validating your electronic signature.",
-                    "title": "Create and use your digital signature"
+                    "title": "Create and use your digital signature",
+                    "validation": "Consent required"
                 }
             },
             "error": {

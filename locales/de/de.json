@@ -211,6 +211,7 @@
                 "odp_screenshot_title": "Screenshot erkannt"
             },
             "body": "Überprüfen Sie, dass Sie die gesamte Dokumentseite hochgeladen haben, und dass man die Details ohne Unschärfen und blendfrei lesen kann",
+            "body_accommodation_tenancy_certificate": "Stellen Sie sicher, dass Sie die gesamte Dokumentseite hochgeladen haben und die Details klar zu lesen sind, ohne Unschärfe oder Blendung",
             "body_address_certificate": "Stellen Sie sicher, dass Sie die gesamte Dokumentseite hochgeladen haben und die Details klar zu lesen sind, ohne Unschärfe oder Blendung",
             "body_bank_statement": "Überprüfen Sie, dass Sie die gesamte Dokumentseite hochgeladen haben, und dass man die Details ohne Unschärfen und blendfrei lesen kann",
             "body_benefits_letter": "Überprüfen Sie, dass Sie die gesamte Dokumentseite hochgeladen haben, und dass man die Details ohne Unschärfen und blendfrei lesen kann",
@@ -577,6 +578,7 @@
                 "error": {
                     "invalid_phone_number": "Bitte geben Sie eine gültige Telefonnummer an.",
                     "limit": "Sie haben das Limit für gesendete SMS erreicht",
+                    "phone_number_blocked": "Entschuldigung, wir unterstützen diesen Ländercode nicht",
                     "technical": "Ein technischer Fehler ist aufgetreten, bitte versuchen Sie es später erneut"
                 },
                 "input_label": "Telefonnummer",
@@ -1178,7 +1180,8 @@
                     "subtitle": "Um Ihre Identität gemäß den europäischen Regeln zu bestätigen, müssen Sie ein Dokument digital signieren.",
                     "terms_and_conditions": "Allgemeine Geschäftsbedingungen",
                     "third_party_description": "<fallback>Namirial SpA<\/fallback> ist ein vertrauenswürdiger globaler Anbieter, der ein Zertifikat zur Validierung Ihrer elektronischen Signatur ausstellt.",
-                    "title": "Erstellen und verwenden Sie Ihre digitale Signatur"
+                    "title": "Erstellen und verwenden Sie Ihre digitale Signatur",
+                    "validation": "Zustimmung erforderlich"
                 }
             },
             "error": {

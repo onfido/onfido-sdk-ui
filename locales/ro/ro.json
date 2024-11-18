@@ -211,6 +211,7 @@
                 "odp_screenshot_title": "Captură de ecran detectată"
             },
             "body": "Asigurați-vă că ați încărcat întreaga pagină a documentului și că detaliile sunt clare, fără estompări sau luciri, pentru a fi citite",
+            "body_accommodation_tenancy_certificate": "Asigurați-vă că ați încărcat întreaga pagină a documentului și detaliile sunt clare pentru a fi citite, fǎrǎ zone neclare sau lucioase",
             "body_address_certificate": "Asigurați-vă că ați încărcat întreaga pagină a documentului și detaliile sunt clare pentru a fi citite, fǎrǎ zone neclare sau lucioase",
             "body_bank_statement": "Asigurați-vă că ați încărcat întreaga pagină a documentului și că detaliile sunt clare, fără estompări sau luciri, pentru a fi citite",
             "body_benefits_letter": "Asigurați-vă că ați încărcat întreaga pagină a documentului și că detaliile sunt clare, fără estompări sau luciri, pentru a fi citite",
@@ -577,6 +578,7 @@
                 "error": {
                     "invalid_phone_number": "Vă rugăm să furnizați un număr de telefon valid.",
                     "limit": "Ați atins limita de SMS-uri trimise",
+                    "phone_number_blocked": "Ne pare rău, nu acceptăm acest cod de țară",
                     "technical": "A apărut o eroare tehnică, vă rugăm încercați din nou mai târziu"
                 },
                 "input_label": "Număr de telefon",
@@ -1178,7 +1180,8 @@
                     "subtitle": "Pentru a confirma identitatea dumneavoastră în conformitate cu regulile europene, trebuie să semnați digital un document.",
                     "terms_and_conditions": "Termeni și condiții",
                     "third_party_description": "<fallback>Namirial SpA<\/fallback> este un furnizor global de încredere care va emite un certificat pentru validarea semnăturii dvs. electronice.",
-                    "title": "Creează și folosește semnătura ta digitală"
+                    "title": "Creează și folosește semnătura ta digitală",
+                    "validation": "Consimțământ necesar"
                 }
             },
             "error": {

@@ -211,6 +211,7 @@
                 "odp_screenshot_title": "Képernyőfotó észlelve"
             },
             "body": "Győződjön meg róla, hogy feltöltötte a teljes dokumentumoldalt, és az adatok tisztán, elmosódás- és tükröződésmentesen olvashatók",
+            "body_accommodation_tenancy_certificate": "Ellenőrizze, hogy a teljes dokumentum oldalt feltöltötte-e, és az információk világosan olvashatóak-e, nincs-e elmosódás vagy fényvisszaverődés",
             "body_address_certificate": "Győződjön meg róla, hogy feltöltötte az egész dokumentum oldalt, és az adatok jól olvashatóak, nincs elmosódás vagy vakítás",
             "body_bank_statement": "Győződjön meg róla, hogy feltöltötte a teljes dokumentumoldalt, és az adatok tisztán, elmosódás- és tükröződésmentesen olvashatók",
             "body_benefits_letter": "Győződjön meg róla, hogy feltöltötte a teljes dokumentumoldalt, és az adatok tisztán, elmosódás- és tükröződésmentesen olvashatók",
@@ -577,6 +578,7 @@
                 "error": {
                     "invalid_phone_number": "Kérjük, adjon meg egy érvényes telefonszámot.",
                     "limit": "Elérte az elküldött SMS-ek limitjét",
+                    "phone_number_blocked": "Sajnáljuk, nem támogatjuk ezt az országkódot",
                     "technical": "Műszaki hiba történt, kérjük próbálja újra később"
                 },
                 "input_label": "Telefonszám",
@@ -1178,7 +1180,8 @@
                     "subtitle": "Az Európai szabályoknak megfelelően, a személyazonosságának megerősítéséhez digitálisan alá kell írnia egy dokumentumot.",
                     "terms_and_conditions": "Általános szerződési feltételek",
                     "third_party_description": "A <fallback>Namirial SpA<\/fallback> egy világszerte megbízható szolgáltató, aki tanúsítványt állít ki az elektronikus aláírásának érvényesítésére.",
-                    "title": "Digitális aláírás létrehozása és használata"
+                    "title": "Digitális aláírás létrehozása és használata",
+                    "validation": "Hozzájárulás szükséges"
                 }
             },
             "error": {

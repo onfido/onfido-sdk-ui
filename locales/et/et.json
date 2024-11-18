@@ -211,6 +211,7 @@
                 "odp_screenshot_title": "Ekraanipilt tuvastatud"
             },
             "body": "Veenduge, et olete kogu dokumendi lehe üles laadinud ja andmed on loetavad ning ei ole hägused ega ülevalgustatud",
+            "body_accommodation_tenancy_certificate": "Veenduge, et olete üles laadinud kogu dokumendi lehekülje ja detailid on selgelt loetavad ilma udususe või helenduseta",
             "body_address_certificate": "Veenduge, et olete üles laadinud kogu dokumendi lehekülje ja detailid on selgelt loetavad ilma udususe või helenduseta",
             "body_bank_statement": "Veenduge, et olete kogu dokumendi lehe üles laadinud ja andmed on loetavad ning ei ole hägused ega ülevalgustatud",
             "body_benefits_letter": "Veenduge, et olete kogu dokumendi lehe üles laadinud ja andmed on loetavad ning ei ole hägused ega ülevalgustatud",
@@ -577,6 +578,7 @@
                 "error": {
                     "invalid_phone_number": "Palun esitage kehtiv telefoninumber.",
                     "limit": "Sa saavutasid saadetud SMSide limiidi",
+                    "phone_number_blocked": "Kahjuks me ei toeta seda riigikoodi",
                     "technical": "Tehniline viga on ilmnenud, palun proovige hiljem uuesti"
                 },
                 "input_label": "Telefoninumber",
@@ -1178,7 +1180,8 @@
                     "subtitle": "Et kinnitada oma isikut vastavalt Euroopa eeskirjadele, peate digitaalselt allkirjastama dokumendi.",
                     "terms_and_conditions": "Kasutustingimused",
                     "third_party_description": "<fallback>Namirial SpA<\/fallback> on usaldusväärne globaalne teenusepakkuja, kes väljastab sertifikaadi, kinnitades teie elektroonilist allkirja.",
-                    "title": "Loo ja kasuta oma digitaalset allkirja"
+                    "title": "Loo ja kasuta oma digitaalset allkirja",
+                    "validation": "Nõusolek vajalik"
                 }
             },
             "error": {

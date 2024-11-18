@@ -211,6 +211,7 @@
                 "odp_screenshot_title": "检测到截图"
             },
             "body": "请确保您已上传整个证明文件页面，且细节清晰可辨，无模糊或眩光",
+            "body_accommodation_tenancy_certificate": "确保您已上传整个文档页面，并且细节清晰可读，没有模糊或眩光",
             "body_address_certificate": "确保您已上传整个文档页面，并且细节清晰可读，没有模糊或眩光",
             "body_bank_statement": "请确保您已上传整个证明文件页面，且细节清晰可辨，无模糊或眩光",
             "body_benefits_letter": "请确保您已上传整个证明文件页面，且细节清晰可辨，无模糊或眩光",
@@ -577,6 +578,7 @@
                 "error": {
                     "invalid_phone_number": "请提供有效的电话号码。",
                     "limit": "您已达到发送短信的限制",
+                    "phone_number_blocked": "抱歉，我们不支持此国家代码",
                     "technical": "发生了技术错误，请稍后再试"
                 },
                 "input_label": "电话号码",
@@ -1178,7 +1180,8 @@
                     "subtitle": "为了按照欧洲的规定确认您的身份，您必须对一个文件进行数字签名。",
                     "terms_and_conditions": "条款和条件",
                     "third_party_description": "<fallback>Namirial SpA<\/fallback>是一个值得信赖的全球供应商，将为您的电子签名发放验证证书。",
-                    "title": "创建并使用您的数字签名"
+                    "title": "创建并使用您的数字签名",
+                    "validation": "需要同意"
                 }
             },
             "error": {

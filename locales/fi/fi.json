@@ -211,6 +211,7 @@
                 "odp_screenshot_title": "Näyttökuva havaittu"
             },
             "body": "Varmista, että olet ladannut asiakirjan koko sivun ja että tiedot ovat luettavissa selkeästi ilman epäselviä tai häikäiseviä kohtia",
+            "body_accommodation_tenancy_certificate": "Varmista, että olet ladannut koko dokumenttisivun, ja tiedot ovat selkeästi luettavissa ilman suttuisuutta tai häikäisyä",
             "body_address_certificate": "Varmista, että olet ladannut koko dokumenttisivun, ja tiedot ovat selkeästi luettavissa ilman suttuisuutta tai häikäisyä",
             "body_bank_statement": "Varmista, että olet ladannut asiakirjan koko sivun ja että tiedot ovat luettavissa selkeästi ilman epäselviä tai häikäiseviä kohtia",
             "body_benefits_letter": "Varmista, että olet ladannut asiakirjan koko sivun ja että tiedot ovat luettavissa selkeästi ilman epäselviä tai häikäiseviä kohtia",
@@ -577,6 +578,7 @@
                 "error": {
                     "invalid_phone_number": "Anna voimassa oleva puhelinnumero.",
                     "limit": "Olet saavuttanut lähetettyjen tekstiviestien rajan",
+                    "phone_number_blocked": "Valitettavasti emme tue tätä maatunnusta",
                     "technical": "Tekninen virhe on tapahtunut, yritä myöhemmin uudelleen"
                 },
                 "input_label": "Puhelinnumero",
@@ -1178,7 +1180,8 @@
                     "subtitle": "Vahvistaaksesi henkilöllisyytesi Euroopan sääntöjen mukaisesti, sinun on digitaalisesti allekirjoitettava asiakirja.",
                     "terms_and_conditions": "Käyttöehdot ja -säännöt",
                     "third_party_description": "<fallback>Namirial SpA<\/fallback> on luotettava maailmanlaajuinen palveluntarjoaja, joka myöntää sertifikaatin vahvistaen sähköisen allekirjoituksesi.",
-                    "title": "Luo ja käytä digitaalista allekirjoitustasi"
+                    "title": "Luo ja käytä digitaalista allekirjoitustasi",
+                    "validation": "Suostumus vaaditaan"
                 }
             },
             "error": {

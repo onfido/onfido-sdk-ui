@@ -211,6 +211,7 @@
                 "odp_screenshot_title": "Skjermbilde oppdaget"
             },
             "body": "Pass på at du har lastet opp hele dokumentsiden, og detaljene er tydelige og lette å lese, uten uskarphet eller gjenskinn",
+            "body_accommodation_tenancy_certificate": "Sørg for at du har lastet opp hele dokumentets side, og detaljene er klare til å lese uten uskarphet eller blendingslys",
             "body_address_certificate": "Sørg for at du har lastet opp hele dokumentetsiden, og detaljene er klare til å lese uten uskarphet eller blendingslys",
             "body_bank_statement": "Pass på at du har lastet opp hele dokumentsiden, og detaljene er tydelige og lette å lese, uten uskarphet eller gjenskinn",
             "body_benefits_letter": "Pass på at du har lastet opp hele dokumentsiden, og detaljene er tydelige og lette å lese, uten uskarphet eller gjenskinn",
@@ -577,6 +578,7 @@
                 "error": {
                     "invalid_phone_number": "Vennligst oppgi et gyldig telefonnummer.",
                     "limit": "Du nådde grensen for sendte SMS",
+                    "phone_number_blocked": "Beklager, vi støtter ikke denne landskoden",
                     "technical": "En teknisk feil har oppstått, vennligst prøv igjen senere"
                 },
                 "input_label": "Telefonnummer",
@@ -1178,7 +1180,8 @@
                     "subtitle": "For å bekrefte identiteten din i samsvar med europeiske regler, må du digitalt signere et dokument.",
                     "terms_and_conditions": "Vilkår og betingelser",
                     "third_party_description": "<fallback>Namirial SpA<\/fallback> er en pålitelig global leverandør som vil utstede et sertifikat som bekrefter din elektroniske signatur.",
-                    "title": "Opprett og bruk din digitale signatur"
+                    "title": "Opprett og bruk din digitale signatur",
+                    "validation": "Samtykke kreves"
                 }
             },
             "error": {

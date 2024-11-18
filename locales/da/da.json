@@ -211,6 +211,7 @@
                 "odp_screenshot_title": "Skærmbillede registreret"
             },
             "body": "Sørg for, at du har uploadet hele siden af dokumentet, og at oplysningerne fremstår tydelige, uden at de er slørede eller har genskin",
+            "body_accommodation_tenancy_certificate": "Sørg for, at du har uploadet hele dokumentets side, og detaljerne er klare til at læse uden sløring eller blænding",
             "body_address_certificate": "Sørg for, at du har uploadet hele dokumentets side, og detaljerne er klare til at læse uden sløring eller blænding",
             "body_bank_statement": "Sørg for, at du har uploadet hele siden af dokumentet, og at oplysningerne fremstår tydelige, uden at de er slørede eller har genskin",
             "body_benefits_letter": "Sørg for, at du har uploadet hele siden af dokumentet, og at oplysningerne fremstår tydelige, uden at de er slørede eller har genskin",
@@ -577,6 +578,7 @@
                 "error": {
                     "invalid_phone_number": "Angiv venligst et gyldigt telefonnummer.",
                     "limit": "Du nåede grænsen for sendte SMS'er",
+                    "phone_number_blocked": "Beklager, vi understøtter ikke denne landekode",
                     "technical": "En teknisk fejl er opstået, prøv venligst igen senere"
                 },
                 "input_label": "Telefonnummer",
@@ -1178,7 +1180,8 @@
                     "subtitle": "For at bekræfte din identitet i overensstemmelse med europæiske regler, skal du digitalt underskrive et dokument.",
                     "terms_and_conditions": "Vilkår og betingelser",
                     "third_party_description": "<fallback>Namirial SpA<\/fallback> er en betroet global udbyder, der vil udstede et certifikat, der validerer din elektroniske underskrift.",
-                    "title": "Opret og brug din digitale signatur"
+                    "title": "Opret og brug din digitale signatur",
+                    "validation": "Samtykke påkrævet"
                 }
             },
             "error": {

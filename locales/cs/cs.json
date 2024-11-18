@@ -211,6 +211,7 @@
                 "odp_screenshot_title": "Detekován snímek obrazovky"
             },
             "body": "Ujistěte se, že jste nahráli celou stránku dokumentu a detaily jsou dobře čitelné bez rozmazání nebo odlesků.",
+            "body_accommodation_tenancy_certificate": "Ujistěte se, že jste nahráli celou stránku dokumentu a detaily jsou jasně čitelné bez rozmazání nebo odlesku",
             "body_address_certificate": "Ujistěte se, že jste nahráli celou stránku dokumentu a detaily jsou jasně čitelné bez rozmazání nebo odlesku",
             "body_bank_statement": "Ujistěte se, že jste nahráli celou stránku dokumentu a detaily jsou dobře čitelné bez rozmazání nebo odlesků.",
             "body_benefits_letter": "Ujistěte se, že jste nahráli celou stránku dokumentu a detaily jsou dobře čitelné bez rozmazání nebo odlesků.",
@@ -577,6 +578,7 @@
                 "error": {
                     "invalid_phone_number": "Prosím, zadejte platné telefonní číslo.",
                     "limit": "Dosáhli jste limitu odeslaných SMS",
+                    "phone_number_blocked": "Omlouváme se, tento kód země nepodporujeme",
                     "technical": "Došlo k technické chybě, zkuste to prosím později"
                 },
                 "input_label": "Telefonní číslo",
@@ -1178,7 +1180,8 @@
                     "subtitle": "Pro potvrzení vaší identity v souladu s evropskými pravidly musíte digitálně podepsat dokument.",
                     "terms_and_conditions": "Podmínky a smluvní ujednání",
                     "third_party_description": "<fallback>Namirial SpA<\/fallback> je důvěryhodný globální poskytovatel, který vydá certifikát ověřující vaši elektronický podpis.",
-                    "title": "Vytvořte a použijte svůj digitální podpis"
+                    "title": "Vytvořte a použijte svůj digitální podpis",
+                    "validation": "Vyžadován souhlas"
                 }
             },
             "error": {

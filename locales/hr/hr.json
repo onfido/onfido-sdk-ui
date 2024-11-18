@@ -211,6 +211,7 @@
                 "odp_screenshot_title": "Otkriven je snimak zaslona"
             },
             "body": "Provjerite jeste li prenijeli cijelu stranicu dokumenta i jesu li detalji čitljivi te da nema zamućenja ni odsjaja",
+            "body_accommodation_tenancy_certificate": "Provjerite jeste li otpremili cijelu stranicu dokumenta i da su detalji jasno vidljivi bez zamućenja ili odbljeska",
             "body_address_certificate": "Pobrinite se da ste prenijeli cijelu stranicu dokumenta i da su detalji jasno vidljivi bez zamućenja ili odsjaja",
             "body_bank_statement": "Provjerite jeste li prenijeli cijelu stranicu dokumenta i jesu li detalji čitljivi te da nema zamućenja ni odsjaja",
             "body_benefits_letter": "Provjerite jeste li prenijeli cijelu stranicu dokumenta i jesu li detalji čitljivi te da nema zamućenja ni odsjaja",
@@ -577,6 +578,7 @@
                 "error": {
                     "invalid_phone_number": "Molimo vas da navedete valjani broj telefona.",
                     "limit": "Dosegli ste limit poslanih SMS poruka",
+                    "phone_number_blocked": "Žao nam je, ne podržavamo ovaj kôd zemlje",
                     "technical": "Došlo je do tehničke pogreške, molimo pokušajte ponovno kasnije"
                 },
                 "input_label": "Broj telefona",
@@ -1178,7 +1180,8 @@
                     "subtitle": "Da biste potvrdili svoj identitet u skladu s europskim pravilima, morate digitalno potpisati dokument.",
                     "terms_and_conditions": "Uvjeti i odredbe",
                     "third_party_description": "<fallback>Namirial SpA<\/fallback> je pouzdani globalni pružatelj koji će izdati certifikat koji potvrđuje vaš elektronički potpis.",
-                    "title": "Stvorite i koristite svoj digitalni potpis"
+                    "title": "Stvorite i koristite svoj digitalni potpis",
+                    "validation": "Potrebna suglasnost"
                 }
             },
             "error": {

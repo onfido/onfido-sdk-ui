@@ -211,6 +211,7 @@
                 "odp_screenshot_title": "Đã phát hiện ảnh chụp màn hình"
             },
             "body": "Đảm bảo bạn đã tải lên toàn bộ trang giấy tờ và chi tiết phải rõ ràng để đọc mà không bị mờ hoặc lóa",
+            "body_accommodation_tenancy_certificate": "Hãy đảm bảo bạn đã tải lên toàn bộ trang tài liệu, và chi tiết rõ ràng để đọc mà không có độ mờ hoặc chói lóa",
             "body_address_certificate": "Hãy đảm bảo bạn đã tải lên toàn bộ trang tài liệu, và chi tiết rõ ràng để đọc mà không có độ mờ hoặc chói lóa",
             "body_bank_statement": "Đảm bảo bạn đã tải lên toàn bộ trang giấy tờ và chi tiết phải rõ ràng để đọc mà không bị mờ hoặc lóa",
             "body_benefits_letter": "Đảm bảo bạn đã tải lên toàn bộ trang giấy tờ và chi tiết phải rõ ràng để đọc mà không bị mờ hoặc lóa",
@@ -577,6 +578,7 @@
                 "error": {
                     "invalid_phone_number": "Vui lòng cung cấp một số điện thoại hợp lệ.",
                     "limit": "Bạn đã đạt giới hạn số tin nhắn SMS đã gửi",
+                    "phone_number_blocked": "Xin lỗi, chúng tôi không hỗ trợ mã quốc gia này",
                     "technical": "Một lỗi kỹ thuật đã xảy ra, vui lòng thử lại sau"
                 },
                 "input_label": "Số điện thoại",
@@ -1178,7 +1180,8 @@
                     "subtitle": "Để xác nhận danh tính của bạn theo quy định của Châu Âu, bạn phải ký số vào một tài liệu.",
                     "terms_and_conditions": "Điều khoản và điều kiện",
                     "third_party_description": "<fallback>Namirial SpA<\/fallback> là một nhà cung cấp uy tín toàn cầu sẽ cấp chứng chỉ xác thực chữ ký điện tử của bạn.",
-                    "title": "Tạo và sử dụng chữ ký số của bạn"
+                    "title": "Tạo và sử dụng chữ ký số của bạn",
+                    "validation": "Yêu cầu sự đồng ý"
                 }
             },
             "error": {

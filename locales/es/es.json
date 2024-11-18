@@ -211,6 +211,7 @@
                 "odp_screenshot_title": "Captura de pantalla detectada"
             },
             "body": "Asegúrese de haber subido la página completa del documento y de que pueda leerse con claridad, sin destellos ni partes borrosas",
+            "body_accommodation_tenancy_certificate": "Asegúrate de haber subido toda la página del documento, y que los detalles se pueden leer claramente sin desenfoque o deslumbramiento",
             "body_address_certificate": "Asegúrate de haber subido toda la página del documento, y que los detalles se pueden leer claramente sin desenfoque o deslumbramiento",
             "body_bank_statement": "Asegúrese de haber subido la página completa del documento y de que pueda leerse con claridad, sin destellos ni partes borrosas",
             "body_benefits_letter": "Asegúrese de haber subido la página completa del documento y de que pueda leerse con claridad, sin destellos ni partes borrosas",
@@ -577,6 +578,7 @@
                 "error": {
                     "invalid_phone_number": "Por favor, proporciona un número de teléfono válido.",
                     "limit": "Has alcanzado el límite de SMS enviados",
+                    "phone_number_blocked": "Lo sentimos, no admitimos este código de país",
                     "technical": "Ha ocurrido un error técnico, por favor intente de nuevo más tarde"
                 },
                 "input_label": "Número de teléfono",
@@ -1178,7 +1180,8 @@
                     "subtitle": "Para confirmar su identidad de acuerdo con las normas europeas, debe firmar digitalmente un documento.",
                     "terms_and_conditions": "Términos y condiciones",
                     "third_party_description": "<fallback>Namirial SpA<\/fallback> es un proveedor global de confianza que emitirá un certificado validando tu firma electrónica.",
-                    "title": "Crea y usa tu firma digital"
+                    "title": "Crea y usa tu firma digital",
+                    "validation": "Se requiere consentimiento"
                 }
             },
             "error": {

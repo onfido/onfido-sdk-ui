@@ -211,6 +211,7 @@
                 "odp_screenshot_title": "偵測到截圖"
             },
             "body": "請確保您已上傳整個文件頁面，且詳細資料清晰可閱，沒有模糊或眩光",
+            "body_accommodation_tenancy_certificate": "請確保您已上傳整個文件頁面，並且細節清晰可讀，沒有模糊或眩光",
             "body_address_certificate": "請確保您已上傳整個文件頁面，並且細節清晰可讀，沒有模糊或眩光",
             "body_bank_statement": "請確保您已上傳整個文件頁面，且詳細資料清晰可閱，沒有模糊或眩光",
             "body_benefits_letter": "請確保您已上傳整個文件頁面，且詳細資料清晰可閱，沒有模糊或眩光",
@@ -577,6 +578,7 @@
                 "error": {
                     "invalid_phone_number": "請提供有效的電話號碼。",
                     "limit": "您已達到發送短信的限制",
+                    "phone_number_blocked": "抱歉，我們不支援此國家代碼",
                     "technical": "發生了技術錯誤，請稍後再試"
                 },
                 "input_label": "電話號碼",
@@ -1178,7 +1180,8 @@
                     "subtitle": "為了依照歐洲規定確認您的身份，您必須數位簽署一份文件。",
                     "terms_and_conditions": "條款和條件",
                     "third_party_description": "<fallback>Namirial SpA<\/fallback>是一家值得信賴的全球供應商，將為您的電子簽名發出證書。",
-                    "title": "創建並使用您的數位簽名"
+                    "title": "創建並使用您的數位簽名",
+                    "validation": "需要同意"
                 }
             },
             "error": {

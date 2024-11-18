@@ -211,6 +211,7 @@
                 "odp_screenshot_title": "스크린샷이 감지되었습니다"
             },
             "body": "전체 서류 페이지를 업로드했는지 확인하고, 세부 정보가 선명하게 읽히며 빛 반사되는 부분이 없는지 확인하세요",
+            "body_accommodation_tenancy_certificate": "전체 문서 페이지를 업로드했는지 확인하고, 세부 사항이 흐림이나 반사 없이 명확하게 읽히는지 확인하세요",
             "body_address_certificate": "전체 문서 페이지를 업로드했는지 확인하고, 세부 사항이 흐림이나 반사 없이 명확하게 읽히는지 확인하세요",
             "body_bank_statement": "전체 서류 페이지를 업로드했는지 확인하고, 세부 정보가 선명하게 읽히며 빛 반사되는 부분이 없는지 확인하세요",
             "body_benefits_letter": "전체 서류 페이지를 업로드했는지 확인하고, 세부 정보가 선명하게 읽히며 빛 반사되는 부분이 없는지 확인하세요",
@@ -577,6 +578,7 @@
                 "error": {
                     "invalid_phone_number": "유효한 전화번호를 제공해 주세요.",
                     "limit": "보낸 SMS의 한도에 도달하셨습니다",
+                    "phone_number_blocked": "죄송합니다, 이 국가 코드는 지원되지 않습니다",
                     "technical": "기술적인 오류가 발생했습니다, 나중에 다시 시도해 주세요"
                 },
                 "input_label": "전화 번호",
@@ -1178,7 +1180,8 @@
                     "subtitle": "유럽 규정에 따라 본인 확인을 위해 문서에 디지털 서명을 해야 합니다.",
                     "terms_and_conditions": "이용 약관",
                     "third_party_description": "<fallback>Namirial SpA<\/fallback>는 전자 서명을 확인하는 인증서를 발급하는 신뢰할 수 있는 글로벌 공급자입니다.",
-                    "title": "디지털 서명을 생성하고 사용하세요"
+                    "title": "디지털 서명을 생성하고 사용하세요",
+                    "validation": "동의 필요"
                 }
             },
             "error": {

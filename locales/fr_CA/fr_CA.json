@@ -211,6 +211,7 @@
                 "odp_screenshot_title": "Capture d'écran détectée"
             },
             "body": "Assurez-vous que vous avez téléversé la page entière du document et que les détails sont lisibles, sans flou ni reflet",
+            "body_accommodation_tenancy_certificate": "Assurez-vous d'avoir téléchargé la totalité de la page du document, et que les détails sont clairs à lire sans flou ou éblouissement",
             "body_address_certificate": "Assurez-vous d'avoir téléchargé la totalité de la page du document, et que les détails sont clairs à lire sans flou ou éblouissement",
             "body_bank_statement": "Assurez-vous que vous avez téléversé la page entière du document et que les détails sont lisibles, sans flou ni reflet",
             "body_benefits_letter": "Assurez-vous que vous avez téléversé la page entière du document et que les détails sont lisibles, sans flou ni reflet",
@@ -577,6 +578,7 @@
                 "error": {
                     "invalid_phone_number": "Veuillez fournir un numéro de téléphone valide.",
                     "limit": "Vous avez atteint la limite des SMS envoyés",
+                    "phone_number_blocked": "Désolé, nous ne prenons pas en charge ce code de pays",
                     "technical": "Une erreur technique est survenue, veuillez réessayer plus tard"
                 },
                 "input_label": "Numéro de téléphone",
@@ -1178,7 +1180,8 @@
                     "subtitle": "Pour confirmer votre identité conformément aux règles européennes, vous devez signer numériquement un document.",
                     "terms_and_conditions": "Termes et conditions",
                     "third_party_description": "<fallback>Namirial SpA<\/fallback> est un fournisseur mondial de confiance qui délivrera un certificat validant votre signature électronique.",
-                    "title": "Créez et utilisez votre signature numérique"
+                    "title": "Créez et utilisez votre signature numérique",
+                    "validation": "Consentement requis"
                 }
             },
             "error": {

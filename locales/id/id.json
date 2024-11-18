@@ -211,6 +211,7 @@
                 "odp_screenshot_title": "Tangkapan layar terdeteksi"
             },
             "body": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya bisa dibaca dengan jelas, tidak buram atau silau",
+            "body_accommodation_tenancy_certificate": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya jelas untuk dibaca tanpa kabur atau silau",
             "body_address_certificate": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya jelas untuk dibaca tanpa kabur atau silau",
             "body_bank_statement": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya bisa dibaca dengan jelas, tidak buram atau silau",
             "body_benefits_letter": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya bisa dibaca dengan jelas, tidak buram atau silau",
@@ -577,6 +578,7 @@
                 "error": {
                     "invalid_phone_number": "Silakan berikan nomor telepon yang valid.",
                     "limit": "Anda telah mencapai batas SMS yang dikirim",
+                    "phone_number_blocked": "Maaf, kami tidak mendukung kode negara ini",
                     "technical": "Terjadi kesalahan teknis, silakan coba lagi nanti"
                 },
                 "input_label": "Nomor telepon",
@@ -1178,7 +1180,8 @@
                     "subtitle": "Untuk mengkonfirmasi identitas Anda sesuai dengan aturan Eropa, Anda harus menandatangani dokumen secara digital.",
                     "terms_and_conditions": "Syarat dan ketentuan",
                     "third_party_description": "<fallback>Namirial SpA<\/fallback> adalah penyedia global terpercaya yang akan mengeluarkan sertifikat yang memvalidasi tanda tangan elektronik Anda.",
-                    "title": "Buat dan gunakan tanda tangan digital Anda"
+                    "title": "Buat dan gunakan tanda tangan digital Anda",
+                    "validation": "Persetujuan diperlukan"
                 }
             },
             "error": {

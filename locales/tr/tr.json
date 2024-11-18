@@ -211,6 +211,7 @@
                 "odp_screenshot_title": "Ekran görüntüsü algılandı"
             },
             "body": "Belge sayfasının tamamını yüklediğinizden ve ayrıntıların bulanıklık veya parlama olmadan okunabilecek netlikte olduğundan emin olun",
+            "body_accommodation_tenancy_certificate": "Tüm belge sayfasını yüklediğinizden ve ayrıntıların bulanıklık veya parlamasız okunabilir olduğundan emin olun",
             "body_address_certificate": "Tüm belge sayfasını yüklediğinizden ve detayların bulanıklık veya parlamasız okunabilir olduğundan emin olun",
             "body_bank_statement": "Belge sayfasının tamamını yüklediğinizden ve ayrıntıların bulanıklık veya parlama olmadan okunabilecek netlikte olduğundan emin olun",
             "body_benefits_letter": "Belge sayfasının tamamını yüklediğinizden ve ayrıntıların bulanıklık veya parlama olmadan okunabilecek netlikte olduğundan emin olun",
@@ -577,6 +578,7 @@
                 "error": {
                     "invalid_phone_number": "Lütfen geçerli bir telefon numarası girin.",
                     "limit": "Gönderilen SMS limitine ulaştınız",
+                    "phone_number_blocked": "Üzgünüz, bu ülke kodunu desteklemiyoruz",
                     "technical": "Teknik bir hata oluştu, lütfen daha sonra tekrar deneyin"
                 },
                 "input_label": "Telefon numarası",
@@ -1178,7 +1180,8 @@
                     "subtitle": "Avrupa kurallarına uygun olarak kimliğinizi doğrulamak için bir belgeyi dijital olarak imzalamalısınız.",
                     "terms_and_conditions": "Şartlar ve koşullar",
                     "third_party_description": "<fallback>Namirial SpA<\/fallback>, elektronik imzanızı doğrulayan bir sertifika veren güvenilir bir küresel sağlayıcıdır.",
-                    "title": "Dijital imzanızı oluşturun ve kullanın"
+                    "title": "Dijital imzanızı oluşturun ve kullanın",
+                    "validation": "Onay gerekli"
                 }
             },
             "error": {

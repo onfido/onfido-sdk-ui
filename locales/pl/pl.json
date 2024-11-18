@@ -211,6 +211,7 @@
                 "odp_screenshot_title": "Wykryto zrzut ekranu"
             },
             "body": "Upewnij się, że widoczna jest cała strona dokumentu, a szczegóły są czytelne, bez rozmyć i odblasków",
+            "body_accommodation_tenancy_certificate": "Upewnij się, że przesłałeś całą stronę dokumentu, a szczegóły są czytelne, bez rozmazania lub odblasków",
             "body_address_certificate": "Upewnij się, że przesłałeś całą stronę dokumentu, a szczegóły są czytelne, bez rozmazania lub odblasków",
             "body_bank_statement": "Upewnij się, że widoczna jest cała strona dokumentu, a szczegóły są czytelne, bez rozmyć i odblasków",
             "body_benefits_letter": "Upewnij się, że widoczna jest cała strona dokumentu, a szczegóły są czytelne, bez rozmyć i odblasków",
@@ -577,6 +578,7 @@
                 "error": {
                     "invalid_phone_number": "Podaj prawidłowy numer telefonu.",
                     "limit": "Osiągnąłeś limit wysłanych SMS-ów",
+                    "phone_number_blocked": "Przepraszamy, nie obsługujemy tego kodu kraju",
                     "technical": "Wystąpił błąd techniczny, proszę spróbować ponownie później"
                 },
                 "input_label": "Numer telefonu",
@@ -1178,7 +1180,8 @@
                     "subtitle": "Aby potwierdzić swoją tożsamość zgodnie z europejskimi przepisami, musisz cyfrowo podpisać dokument.",
                     "terms_and_conditions": "Warunki i postanowienia",
                     "third_party_description": "<fallback>Namirial SpA<\/fallback> jest zaufanym globalnym dostawcą, który wyda certyfikat potwierdzający twoją elektroniczną sygnaturę.",
-                    "title": "Utwórz i używaj swojego cyfrowego podpisu"
+                    "title": "Utwórz i używaj swojego cyfrowego podpisu",
+                    "validation": "Wymagana zgoda"
                 }
             },
             "error": {

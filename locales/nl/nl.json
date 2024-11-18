@@ -211,6 +211,7 @@
                 "odp_screenshot_title": "Schermafbeelding gedetecteerd"
             },
             "body": "Zorg ervoor dat u de volledige documentpagina heeft geüpload, en dat de details duidelijk en zonder wazigheid of spiegeling te lezen zijn",
+            "body_accommodation_tenancy_certificate": "Zorg ervoor dat u de volledige documentpagina heeft geüpload, en dat de details duidelijk leesbaar zijn zonder wazigheid of schittering",
             "body_address_certificate": "Zorg ervoor dat u de volledige documentpagina heeft geüpload, en dat de details duidelijk leesbaar zijn zonder wazigheid of schittering",
             "body_bank_statement": "Zorg ervoor dat u de volledige documentpagina heeft geüpload, en dat de details duidelijk en zonder wazigheid of spiegeling te lezen zijn",
             "body_benefits_letter": "Zorg ervoor dat u de volledige documentpagina heeft geüpload, en dat de details duidelijk en zonder wazigheid of spiegeling te lezen zijn",
@@ -577,6 +578,7 @@
                 "error": {
                     "invalid_phone_number": "Geef een geldig telefoonnummer op.",
                     "limit": "U heeft de limiet van verzonden SMS bereikt",
+                    "phone_number_blocked": "Sorry, we ondersteunen deze landcode niet",
                     "technical": "Er is een technische fout opgetreden, probeer het later opnieuw"
                 },
                 "input_label": "Telefoonnummer",
@@ -1178,7 +1180,8 @@
                     "subtitle": "Om uw identiteit te bevestigen in overeenstemming met Europese regels, moet u een document digitaal ondertekenen.",
                     "terms_and_conditions": "Algemene voorwaarden",
                     "third_party_description": "<fallback>Namirial SpA<\/fallback> is een vertrouwde wereldwijde aanbieder die een certificaat zal uitgeven om uw elektronische handtekening te valideren.",
-                    "title": "Maak en gebruik uw digitale handtekening"
+                    "title": "Maak en gebruik uw digitale handtekening",
+                    "validation": "Toestemming vereist"
                 }
             },
             "error": {
