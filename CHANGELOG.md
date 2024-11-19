@@ -4,27 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
-## 14.39.0 - 2024-11-18
-### Added
-- Warning to push usage of Studio token over SDK token and deprecation message
-- New accessible autocomplete component
-
-### Changed
-- adds smart caret false for OTP phone input
-
-### Removed
-- Removed debug log from production build
-
-### Fixed
-- Fix type exports
-- Provided A more descriptive error screen
-
 ## 14.38.0 - 2024-09-30
 ### Fixed
 - Fixed QR code from showing during re-connection phase
-- Fixed navigation bug related to consent in classic mode
+- Fix navigation bug related to consent in classic mode
 - Removed the 10s timeout for the loading of modules
 - Implement cross_device_url for enterprise clients
+- Removed redundant video upload in document capture
+- add side, issuing_country and type to the video upload
 - Removed redundant video upload in document capture
 - add side, issuing_country and type to the video upload
 
