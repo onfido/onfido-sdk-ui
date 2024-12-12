@@ -358,8 +358,8 @@
         },
         "eid": {
             "scheme_form": {
-                "subtitle": "Selecciona un banco de la lista a continuación para verificarte a través de él",
-                "title": "Verificación"
+                "subtitle": "Seleccione un banco de la lista a continuación para verificarse a través de <form_scheme><\/form_scheme>",
+                "title": "<form_scheme><\/form_scheme> Verification"
             }
         },
         "error_unsupported_browser": {
@@ -463,7 +463,10 @@
             "footer": {
                 "branding": "Onfido identidad real"
             },
+            "icon_error_accessibility": "Error:",
             "icon_info_accessibility": "Información:",
+            "icon_success_accessibility": "Éxito:",
+            "icon_warning_accessibility": "Advertencia:",
             "lazy_load_placeholder": "Cargando...",
             "loading": "Cargando"
         },

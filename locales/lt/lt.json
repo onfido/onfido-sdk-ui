@@ -358,8 +358,8 @@
         },
         "eid": {
             "scheme_form": {
-                "subtitle": "Pasirinkite banką iš žemiau esančio sąrašo, kad patvirtintumėte savo tapatybę per jį",
-                "title": "Patvirtinimas"
+                "subtitle": "Pasirinkite banką iš žemiau pateikto sąrašo, kad patvirtintumėte savo tapatybę per <form_scheme><\/form_scheme>",
+                "title": "<form_scheme><\/form_scheme> Verification"
             }
         },
         "error_unsupported_browser": {
@@ -463,7 +463,10 @@
             "footer": {
                 "branding": "Onfido tikra tapatybė"
             },
+            "icon_error_accessibility": "Klaida:",
             "icon_info_accessibility": "Informacija:",
+            "icon_success_accessibility": "Sėkmė:",
+            "icon_warning_accessibility": "Įspėjimas:",
             "lazy_load_placeholder": "Įkeliama...",
             "loading": "Įkeliama"
         },

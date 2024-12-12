@@ -358,8 +358,8 @@
         },
         "eid": {
             "scheme_form": {
-                "subtitle": "เลือกธนาคารจากรายการด้านล่างเพื่อยืนยันตัวตนของคุณ",
-                "title": "การยืนยันตัวตน"
+                "subtitle": "เลือกธนาคารจากรายการด้านล่างเพื่อยืนยันตัวตนของคุณผ่าน <form_scheme><\/form_scheme>",
+                "title": "<form_scheme><\/form_scheme> Verification"
             }
         },
         "error_unsupported_browser": {
@@ -463,7 +463,10 @@
             "footer": {
                 "branding": "Onfido ตัวตนจริง"
             },
+            "icon_error_accessibility": "ข้อผิดพลาด:",
             "icon_info_accessibility": "ข้อมูล:",
+            "icon_success_accessibility": "สำเร็จ:",
+            "icon_warning_accessibility": "คำเตือน:",
             "lazy_load_placeholder": "กำลังโหลด...",
             "loading": "กำลังโหลด"
         },

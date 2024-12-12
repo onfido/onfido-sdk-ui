@@ -358,8 +358,8 @@
         },
         "eid": {
             "scheme_form": {
-                "subtitle": "Επιλέξτε μια τράπεζα από την παρακάτω λίστα για να επαληθεύσετε τον εαυτό σας μέσω αυτής",
-                "title": "Επαλήθευση"
+                "subtitle": "Επιλέξτε μια τράπεζα από τη λίστα παρακάτω για να επαληθεύσετε τον εαυτό σας μέσω <form_scheme><\/form_scheme>",
+                "title": "<form_scheme><\/form_scheme> Verification"
             }
         },
         "error_unsupported_browser": {
@@ -463,7 +463,10 @@
             "footer": {
                 "branding": "Πραγματική ταυτότητα Onfido"
             },
+            "icon_error_accessibility": "Σφάλμα:",
             "icon_info_accessibility": "Πληροφορίες:",
+            "icon_success_accessibility": "Επιτυχία:",
+            "icon_warning_accessibility": "Προειδοποίηση:",
             "lazy_load_placeholder": "Φόρτωση...",
             "loading": "Φόρτωση"
         },

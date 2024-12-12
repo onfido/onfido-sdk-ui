@@ -4,7 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
-## 14.39.2 - 2024-11-25
+## 14.40.0 - 2024-12-11
+### Added
+- Add workflow task id in document module inputs
+
+### Fixed
+- Do not show the consent screen if consent was already granted
 
 ## 14.39.1 - 2024-11-20
 

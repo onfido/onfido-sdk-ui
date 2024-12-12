@@ -358,8 +358,8 @@
         },
         "eid": {
             "scheme_form": {
-                "subtitle": "Chọn một ngân hàng từ danh sách dưới đây để xác minh thông tin của bạn",
-                "title": "Xác minh"
+                "subtitle": "Chọn một ngân hàng từ danh sách dưới đây để xác minh bản thân qua <form_scheme><\/form_scheme>",
+                "title": "<form_scheme><\/form_scheme> Verification"
             }
         },
         "error_unsupported_browser": {
@@ -463,7 +463,10 @@
             "footer": {
                 "branding": "Onfido danh tính thực"
             },
+            "icon_error_accessibility": "Lỗi:",
             "icon_info_accessibility": "Thông tin:",
+            "icon_success_accessibility": "Thành công:",
+            "icon_warning_accessibility": "Cảnh báo:",
             "lazy_load_placeholder": "Đang tải...",
             "loading": "Đang tải"
         },

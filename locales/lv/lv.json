@@ -358,8 +358,8 @@
         },
         "eid": {
             "scheme_form": {
-                "subtitle": "Izvēlieties banku no zemāk esošā saraksta, lai veiktu sevis pārbaudi",
-                "title": "Pārbaude"
+                "subtitle": "Izvēlieties banku no zemāk esošā saraksta, lai verificētu sevi caur <form_scheme><\/form_scheme>",
+                "title": "<form_scheme><\/form_scheme> Verification"
             }
         },
         "error_unsupported_browser": {
@@ -463,7 +463,10 @@
             "footer": {
                 "branding": "Onfido īstā identitāte"
             },
+            "icon_error_accessibility": "Kļūda:",
             "icon_info_accessibility": "Informācija:",
+            "icon_success_accessibility": "Veiksmīgi:",
+            "icon_warning_accessibility": "Brīdinājums:",
             "lazy_load_placeholder": "Notiek ielāde...",
             "loading": "Notiek ielāde"
         },

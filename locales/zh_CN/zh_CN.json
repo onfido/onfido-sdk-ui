@@ -358,8 +358,8 @@
         },
         "eid": {
             "scheme_form": {
-                "subtitle": "从下面的列表中选择一家银行，通过它来进行身份验证",
-                "title": "身份验证"
+                "subtitle": "从下面的列表中选择一个银行，通过<form_scheme><\/form_scheme>进行身份Verification。",
+                "title": "<form_scheme><\/form_scheme> Verification"
             }
         },
         "error_unsupported_browser": {
@@ -463,7 +463,10 @@
             "footer": {
                 "branding": "Onfido真实身份"
             },
+            "icon_error_accessibility": "错误：",
             "icon_info_accessibility": "信息：",
+            "icon_success_accessibility": "成功：",
+            "icon_warning_accessibility": "警告：",
             "lazy_load_placeholder": "正在加载……",
             "loading": "正在加载"
         },

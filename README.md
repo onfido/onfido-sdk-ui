@@ -233,7 +233,7 @@ To customize the SDK, you can pass the required values to the `theme` object, in
 
 - **`name {Object}` - required**
 
-  The theme's `name` object allows for **dark mode** customization by setting the value to `light` or `dark`. 
+  The theme's `name` object allows for **dark mode** customization by setting the value to `light` or `dark`.
 
 - **`config {Object}` - optional**
 
@@ -1196,28 +1196,6 @@ The callbacks return a `FormData` object, including the information that the SDK
 }
 ```
 
-### Custom biometric token storage
-
-When using the decentralized authentication solution, by default the SDK manages biometric token storage, by storing it on local storage. The SDK also allows the clients to take control of the token lifecycle and exposes an callback to override the default implementation to read and write the token, so it can be stored on device, in cloud, in a keystore or on your premises.
-
-**Note** that by using the callback it will prevent the SDK to store the token.
-
-```typescript
-Onfido.init({
-	...
-  onBiometricTokenGenerated: (customerUserHash: string, biometricToken: string): void => {
-    // Called when new biometric token is generated during onboarding
-    // Use this callback to securely store the biometric token
-    // Please ensure that customerUserHash to biometricToken relationship is 1:1
-  },
-  onBiometricTokenRequested: (customerUserHash: string): Promise<string> => {
-    // Called when biometric token is requested during re-authentication
-    // Once you have the token, resolve the promise with it
-    return Promise.resolve('biometricToken')
-  }
-});
-```
-
 #### Uploading the media files to Onfido
 
 By default, this feature will prevent the request from being sent to Onfido, requiring you to [manually upload](https://documentation.onfido.com/api/latest#upload-document) the media files to Onfido from your backend for further processing.
@@ -1472,14 +1450,13 @@ A prerequisite is that you host the cross-device experience of the Onfido SDK yo
 
 ##### Enable custom media callbacks in mobile session
 
-Once you have a server with the Onfido Web SDK installed and set up, you must initialize the mobile session with `mobileFlow: true` in addition to the callbacks and `useCustomizedApiRequests` options shown above.
+Once you have a server with the Onfido Web SDK installed and set up, you must initialize the mobile session with the callbacks and `useCustomizedApiRequests` options shown above.
 
 ```javascript
 Onfido.init({
   ...
   enterpriseFeatures: {
     useCustomizedApiRequests: true,
-    mobileFlow: true,
     onSubmitDocument: (documentData) => {
       // Your callback code here
     },
@@ -1497,6 +1474,28 @@ Onfido.init({
 
 Media callbacks can also be triggered in the desktop session instead of the mobile session.
 To do so, please contact your Onfido Solution Engineer or Customer Success Manager as additional configuration is required.
+
+### Custom biometric token storage
+
+When using the decentralized authentication solution, by default the SDK manages biometric token storage, by storing it on local storage. The SDK also allows the clients to take control of the token lifecycle and exposes an callback to override the default implementation to read and write the token, so it can be stored on device, in cloud, in a keystore or on your premises.
+
+**Note** that by using the callback it will prevent the SDK to store the token.
+
+```typescript
+Onfido.init({
+	...
+  onBiometricTokenGenerated: (customerUserHash: string, biometricToken: string): void => {
+    // Called when new biometric token is generated during onboarding
+    // Use this callback to securely store the biometric token
+    // Please ensure that customerUserHash to biometricToken relationship is 1:1
+  },
+  onBiometricTokenRequested: (customerUserHash: string): Promise<string> => {
+    // Called when biometric token is requested during re-authentication
+    // Once you have the token, resolve the promise with it
+    return Promise.resolve('biometricToken')
+  }
+});
+```
 
 ### User analytics callbacks
 
@@ -1611,49 +1610,9 @@ COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 
 ### Set up a server to host the Onfido Web SDK yourself at the provided URL
 
-This server must use the same version of the Onfido Web SDK and must initialize the SDK with `Onfido.init({ mobileFlow: true })`. All other configuration options, except for callbacks provided for the `useCustomizedApiRequests` feature, will be provided by your original instance of the Onfido Web SDK.
+This server must use the same version of the Onfido Web SDK and must initialize the SDK with `Onfido.init({ roomId: "<INSERT ROOM ID HERE>" })`. All other configuration options, except for callbacks provided for the `useCustomizedApiRequests` feature, will be provided by your original instance of the Onfido Web SDK.
 
-This is an example of how you could host the Onfido Web SDK with minimal setup. This example involves using docker and an nginx image to serve an html file which starts the Onfido Web SDK using just the js and css files from the Onfido CDN (`https://sdk.onfido.com/<version>`).
-
-File structure for this minimal example:
-
-```text
-- dockerfile
-- nginx.conf
-- index.html
-```
-
-dockerfile
-
-```docker
-FROM nginx:1.15.8-alpine
-
-COPY ./nginx.conf /etc/nginx/conf.d/default.conf
-
-COPY ./index.html /usr/share/nginx/html/
-
-COPY ./dist /usr/share/nginx/sdk/
-
-```
-
-nginx.conf
-
-```nginx
-server {
-  # Change the next 2 lines as needed
-  listen       80;
-  server_name  localhost;
-
-  location ~ ^/[0-9a-zA-Z]+$ {
-    root   /usr/share/nginx/html;
-    try_files $uri /index.html =404;
-  }
-
-  location ~* \.(js|jpg|png|css)$ {
-    root /usr/share/nginx/sdk/;
-  }
-}
-```
+Below is an example of how you could host the Onfido Web SDK with minimal setup. This `index.html` file starts the Onfido Web SDK using only the `js` and `css` files from the Onfido CDN (`https://sdk.onfido.com/<version>`).
 
 index.html
 
@@ -1686,28 +1645,32 @@ index.html
           top: 10%;
         }
         .onfido-sdk-ui-Modal-inner {
-          font-family: 'Open Sans', sans-serif !important;
+          font-family: "Open Sans", sans-serif !important;
         }
       }
     </style>
-    <script type="text/javascript">
-      // commonjs style require
-      var Onfido = require('onfido-sdk-ui')
-
-      var version = window.location.pathname.substring(1, 3)
-
-      var script = document.createElement('script')
-      script.onload = function () {
-        window.onfidoOut = Onfido.init({ mobileFlow: true })
-      }
-      document.head.appendChild(script)
-    </script>
+    <!-- Important: You must use the same version as you are using on the desktop -->
+    <script src="https://sdk.onfido.com/v14" charset="utf-8"></script>
   </head>
 
   <body>
     <div id="onfido-mount"></div>
+    <script type="text/javascript">
+      /*
+        Get the roomId from the url (last 6 characters)
+        Example:
+        - https://example.com/XXCOXCKL -> roomId (COXCKL)
+      */
+      var roomId = window.location.pathname.substring(3, 9);
+
+      Onfido.init({
+        containerId: "onfido-mount",
+        roomId,
+      });
+    </script>
   </body>
 </html>
+
 ```
 
 ## More information

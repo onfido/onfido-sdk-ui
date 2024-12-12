@@ -358,8 +358,8 @@
         },
         "eid": {
             "scheme_form": {
-                "subtitle": "아래 목록에서 본인을 인증할 은행을 선택하세요",
-                "title": "인증"
+                "subtitle": "아래 목록에서 은행을 선택하여 <form_scheme><\/form_scheme>을 통해 본인 확인을 하세요",
+                "title": "<form_scheme><\/form_scheme> Verification"
             }
         },
         "error_unsupported_browser": {
@@ -463,7 +463,10 @@
             "footer": {
                 "branding": "Onfido 실제 신원"
             },
+            "icon_error_accessibility": "오류:",
             "icon_info_accessibility": "정보:",
+            "icon_success_accessibility": "성공:",
+            "icon_warning_accessibility": "경고:",
             "lazy_load_placeholder": "불러오는 중...",
             "loading": "불러오는 중"
         },

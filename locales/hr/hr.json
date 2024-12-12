@@ -358,8 +358,8 @@
         },
         "eid": {
             "scheme_form": {
-                "subtitle": "Odaberite banku s popisa ispod kako biste se verificirali kroz nju",
-                "title": "Provjera"
+                "subtitle": "Odaberite banku s popisa ispod kako biste se verificirali putem <form_scheme><\/form_scheme>",
+                "title": "<form_scheme><\/form_scheme> Verification"
             }
         },
         "error_unsupported_browser": {
@@ -463,7 +463,10 @@
             "footer": {
                 "branding": "Onfido stvarni identitet"
             },
+            "icon_error_accessibility": "Pogreška:",
             "icon_info_accessibility": "Informacija:",
+            "icon_success_accessibility": "Uspjeh:",
+            "icon_warning_accessibility": "Upozorenje:",
             "lazy_load_placeholder": "Učitavanje u tijeku...",
             "loading": "Učitavanje u tijeku"
         },

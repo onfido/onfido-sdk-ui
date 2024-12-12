@@ -358,8 +358,8 @@
         },
         "eid": {
             "scheme_form": {
-                "subtitle": "Wybierz bank z poniższej listy, aby zweryfikować się przez niego",
-                "title": "Weryfikacja"
+                "subtitle": "Wybierz bank z poniższej listy, aby zweryfikować się przez <form_scheme><\/form_scheme>",
+                "title": "<form_scheme><\/form_scheme> Verification"
             }
         },
         "error_unsupported_browser": {
@@ -463,7 +463,10 @@
             "footer": {
                 "branding": "Prawdziwa tożsamość Onfido"
             },
+            "icon_error_accessibility": "Błąd:",
             "icon_info_accessibility": "Informacja:",
+            "icon_success_accessibility": "Sukces:",
+            "icon_warning_accessibility": "Ostrzeżenie:",
             "lazy_load_placeholder": "Ładowanie...",
             "loading": "Ładowanie"
         },

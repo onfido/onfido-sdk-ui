@@ -358,8 +358,8 @@
         },
         "eid": {
             "scheme_form": {
-                "subtitle": "Valitse pankki alla olevasta luettelosta tunnistautumista varten",
-                "title": "Vahvistus"
+                "subtitle": "Valitse pankki alla olevasta luettelosta vahvistaaksesi itsesi <form_scheme><\/form_scheme> kautta",
+                "title": "<form_scheme><\/form_scheme> Verification"
             }
         },
         "error_unsupported_browser": {
@@ -463,7 +463,10 @@
             "footer": {
                 "branding": "Onfido todellinen identiteetti"
             },
+            "icon_error_accessibility": "Virhe:",
             "icon_info_accessibility": "Tietoa:",
+            "icon_success_accessibility": "Onnistuminen:",
+            "icon_warning_accessibility": "Varoitus:",
             "lazy_load_placeholder": "Ladataan...",
             "loading": "Ladataan"
         },
