@@ -1479,7 +1479,7 @@ To do so, please contact your Onfido Solution Engineer or Customer Success Manag
 
 When using the decentralized authentication solution, by default the SDK manages biometric token storage, by storing it on local storage. The SDK also allows the clients to take control of the token lifecycle and exposes an callback to override the default implementation to read and write the token, so it can be stored on device, in cloud, in a keystore or on your premises.
 
-**Note** that by using the callback it will prevent the SDK to store the token.
+**Note** that using the callback will prevent the SDK from storing the biometric token.
 
 ```typescript
 Onfido.init({

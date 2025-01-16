@@ -4,14 +4,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## 14.41.0 - 2025-01-16
+### Added
+- Add workflow task id in document module inputs
+
+### Fixed
+- Do not show the consent screen if consent was already granted
+- Profile Data now correctly accepts 8 to 10 digit-long Kenyan ID card numbers
+- fix complete endpoint call in cross device flow
+
 ## 14.40.0 - 2024-12-11
 ### Added
 - Add workflow task id in document module inputs
 
 ### Fixed
 - Do not show the consent screen if consent was already granted
-
-## 14.39.1 - 2024-11-20
 
 ## 14.39.0 - 2024-11-18
 ### Added
