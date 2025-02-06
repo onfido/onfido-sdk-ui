@@ -1270,7 +1270,7 @@
             },
             "body": "Gardez votre visage à l'intérieur de l'ovale",
             "button_accessibility": "Prendre une photo",
-            "button_primary": "Démarrer la numérisation du visage",
+            "button_primary": "Démarrer le scan du visage",
             "frame_accessibility": "Vue de la caméra.",
             "title": "Gardez votre visage à l'intérieur de l'ovale"
         },
