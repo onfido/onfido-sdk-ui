@@ -1095,30 +1095,54 @@ The `data` object contains properties of the documents and face images uploaded 
 
 ```json
 {
-  "document_front": {
-    "id": "<DOCUMENT_ID_FRONT>",
+  "document": {
     "type": "driving_licence",
-    "side": "front"
-  },
-  "document_back": {
-    "id": "<DOCUMENT_ID_BACK>",
-    "type": "driving_licence",
-    "side": "back"
+    "sides": {
+      "front": {
+        "id": "<DOCUMENT_ID_FRONT>",
+      },
+      "back": {
+        "id": "<DOCUMENT_ID_BACK>",
+      },
+      "front_video": {
+        "id": "<DOCUMENT_ID_FRONT_VIDEO>",
+      },
+      "back_video": {
+        "id": "<DOCUMENT_ID_BACK_VIDEO>",
+      },
+    }
   },
   "face": {
     "id": "<FACE_ID>",
     "variant": "standard"
   },
   "poa": {
-    "id": "<POA_DOCUMENT_ID>",
-    "type": "utility_bill"
+    "type": "utility_bill",
+    "sides": {
+      "front": {
+        "id": "<POA_DOCUMENT_ID_FRONT>",
+      },
+      "back": {
+        "id": "<POA_DOCUMENT_ID_BACK>",
+      },
+      "front_video": {
+        "id": "<POA_DOCUMENT_ID_FRONT_VIDEO>",
+      },
+      "back_video": {
+        "id": "<POA_DOCUMENT_ID_BACK_VIDEO>",
+      },
+    }
   }
 }
 ```
 
-For two-sided documents such as `driving_licence` and `national_identity_card`, the object will also contain a `document_back` property representing the reverse side.
+For the `document` step, two-sided documents such as `driving_licence` and `national_identity_card`, the object will also contain a `document_back` property representing the reverse side.
 
 For the face step, an object is returned with the `variant` used for the face capture,`'standard' | 'video' | 'motion'`.
+
+For the `poa` step:
+- `back` is only returned for two-sided documents
+- the `_video` variants are defined for consistency but are not currently in use. `video` and standard variants are mutually exclusive.
 
 ### Custom media callbacks
 
@@ -1477,7 +1501,7 @@ To do so, please contact your Onfido Solution Engineer or Customer Success Manag
 
 ### Custom biometric token storage
 
-When using the decentralized authentication solution, by default the SDK manages biometric token storage, by storing it on local storage. The SDK also allows the clients to take control of the token lifecycle and exposes an callback to override the default implementation to read and write the token, so it can be stored on device, in cloud, in a keystore or on your premises.
+When using the decentralized authentication solution, by default the SDK manages biometric token storage, by storing it on local storage. The SDK also allows the clients to take control of the token lifecycle and exposes a callback to override the default implementation to read and write the token, so it can be stored on device, in cloud, in a keystore or on your premises.
 
 **Note** that using the callback will prevent the SDK from storing the biometric token.
 
@@ -1645,7 +1669,7 @@ index.html
           top: 10%;
         }
         .onfido-sdk-ui-Modal-inner {
-          font-family: "Open Sans", sans-serif !important;
+          font-family: 'Open Sans', sans-serif !important;
         }
       }
     </style>
@@ -1661,16 +1685,15 @@ index.html
         Example:
         - https://example.com/XXCOXCKL -> roomId (COXCKL)
       */
-      var roomId = window.location.pathname.substring(3, 9);
+      var roomId = window.location.pathname.substring(3, 9)
 
       Onfido.init({
-        containerId: "onfido-mount",
+        containerId: 'onfido-mount',
         roomId,
-      });
+      })
     </script>
   </body>
 </html>
-
 ```
 
 ## More information

@@ -4,34 +4,43 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## 14.43.0 - 2025-02-19
+### Added
+- Warn when a Studio SDK token is used with steps
+
+### Fixed
+- Reset cross-device verification on disconnect
+- Corrected public documentation relating to the Document and Proof of Address (poa) payloads in `onComplete` manual callbacks
+
 ## 14.42.0 - 2025-02-06
 ### Added
-- Publish V2 flow completion event on completion of flow
+- Published V2 flow completion event on completion of flow
 - Take a photo with the Image Capture API in the Web SDK
 
 ### Changed
-- Change QES module icons to respect theme colors
-- Change checkboxes to reflect custom theme
+- Changed QES module icons to respect theme colors
+- Changed checkboxes to reflect custom theme
 
 ### Fixed
-- support background color for loading screen
-- QES confirmation Screen disclaimer using theme for list markers
-- use sdk tokens for QES consents indicators
+- Background background color for loading screen now supported
+- QES confirmation screen disclaimer using theme for list markers
+- Use SDK tokens for QES consents indicators
 
 ## 14.41.0 - 2025-01-16
 ### Added
-- Add workflow task id in document module inputs
+- Added workflow task id in document module inputs
+- Added warning when a Studio SDK token is used with steps
 
 ### Fixed
 - Do not show the consent screen if consent was already granted
 - Profile Data now correctly accepts 8 to 10 digit-long Kenyan ID card numbers
-- fix complete endpoint call in cross device flow
-- Profile Data now correctly accepts 8 to 10 digit-long Kenyan ID card numbers
-- fix complete endpoint call in cross device flow
+- Fixed complete endpoint call in cross-device flow
+- Reset cross-device verification on disconnect
+- Corrected public documentation relating to the Document and Proof of Address (poa) payloads in `onComplete` manual callbacks
 
 ## 14.40.0 - 2024-12-11
 ### Added
-- Add workflow task id in document module inputs
+- Added workflow task id in document module inputs
 
 ### Fixed
 - Do not show the consent screen if consent was already granted
@@ -42,10 +51,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 ### Added
 - Warning to push usage of Studio token over SDK token and deprecation message
 - New accessible autocomplete component
-- New accessible autocomplete component
 
 ### Changed
-- adds smart caret false for OTP phone input
 - adds smart caret false for OTP phone input
 
 ### Removed
