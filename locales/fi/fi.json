@@ -456,7 +456,7 @@
                     "title": "Yhteensopimaton versio"
                 },
                 "user_consent_denied": {
-                    "subtitle": "Valitettavasti emme voi varmistaa henkilöllisyyttäsi ilman suostumustasi. \\nJos haluat jatkaa henkilöllisyytesi varmistamista, mene takaisin ja anna suostumuksesi.",
+                    "subtitle": "Valitettavasti emme voi vahvistaa henkilöllisyyttäsi ilman suostumustasi. \\nJos haluat jatkaa henkilöllisyytesi vahvistamista, palaa takaisin ja anna suostumuksesi.",
                     "title": "Suostumus evätty"
                 }
             },

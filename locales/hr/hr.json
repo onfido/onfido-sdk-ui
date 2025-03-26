@@ -456,7 +456,7 @@
                     "title": "Nekompatibilna verzija"
                 },
                 "user_consent_denied": {
-                    "subtitle": "Nažalost, ne možemo potvrditi vaš identitet bez vašeg pristanka. \\nAko želite nastaviti s potvrdom identiteta, molimo vas da se vratite i date svoj pristanak.",
+                    "subtitle": "Žao nam je, ne možemo potvrditi vaš identitet bez vašeg pristanka. \\nAko želite nastaviti s potvrdom identiteta, molimo vas da se vratite i date svoj pristanak.",
                     "title": "Suglasnost odbijena"
                 }
             },

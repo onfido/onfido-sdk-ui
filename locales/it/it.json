@@ -456,7 +456,7 @@
                     "title": "Versione incompatibile"
                 },
                 "user_consent_denied": {
-                    "subtitle": "Siamo spiacenti, non possiamo verificare la tua identità senza il tuo consenso. \\nSe desideri procedere con la verifica della tua identità, per favore torna indietro e dai il tuo consenso.",
+                    "subtitle": "Spiacenti, non possiamo verificare la tua identità senza il tuo consenso. \\nSe desideri procedere con la verifica della tua identità, torna indietro e dai il tuo consenso.",
                     "title": "Consentimento negato"
                 }
             },

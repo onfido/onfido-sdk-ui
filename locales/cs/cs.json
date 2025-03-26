@@ -456,7 +456,7 @@
                     "title": "Nekompatibilní verze"
                 },
                 "user_consent_denied": {
-                    "subtitle": "Omlouváme se, ale bez vašeho souhlasu nemůžeme ověřit vaši totožnost. \\nPokud chcete pokračovat v ověřování vaší totožnosti, vraťte se prosím zpět a udělte svůj souhlas.",
+                    "subtitle": "Je nám líto, nemůžeme ověřit vaši totožnost bez vašeho souhlasu. \\nPokud chcete pokračovat v ověřování totožnosti, vraťte se prosím zpět a udělte svůj souhlas.",
                     "title": "Souhlas zamítnut"
                 }
             },

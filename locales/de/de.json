@@ -456,7 +456,7 @@
                     "title": "Inkompatible Version"
                 },
                 "user_consent_denied": {
-                    "subtitle": "Es tut uns leid, wir können Ihre Identität ohne Ihre Zustimmung nicht überprüfen. \\nWenn Sie mit der Überprüfung Ihrer Identität fortfahren möchten, gehen Sie bitte zurück und geben Sie Ihre Zustimmung.",
+                    "subtitle": "Entschuldigung, wir können Ihre Identität ohne Ihre Zustimmung nicht überprüfen. \\nWenn Sie mit der Identitätsüberprüfung fortfahren möchten, gehen Sie bitte zurück und geben Sie Ihre Zustimmung.",
                     "title": "Zustimmung verweigert"
                 }
             },

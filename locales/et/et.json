@@ -456,7 +456,7 @@
                     "title": "Ühildumatu versioon"
                 },
                 "user_consent_denied": {
-                    "subtitle": "Vabandust, me ei saa teie identiteeti kinnitada ilma teie nõusolekuta. \\nKui soovite jätkata oma identiteedi kinnitamisega, palun minge tagasi ja andke oma nõusolek.",
+                    "subtitle": "Kahjuks ei saa me teie isikut ilma teie nõusolekuta kinnitada. \\nKui soovite jätkata isikutuvastusega, palun minge tagasi ja andke oma nõusolek.",
                     "title": "Nõusolekust keelduti"
                 }
             },

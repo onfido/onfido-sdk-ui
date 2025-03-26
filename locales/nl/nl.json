@@ -456,7 +456,7 @@
                     "title": "Incompatibele versie"
                 },
                 "user_consent_denied": {
-                    "subtitle": "Sorry, we kunnen uw identiteit niet verifiëren zonder uw toestemming. \\nAls u wilt doorgaan met uw identiteitsverificatie, ga dan terug en geef uw toestemming.",
+                    "subtitle": "Sorry, we kunnen uw identiteit niet verifiëren zonder uw toestemming. \\nAls u verder wilt gaan met uw identiteitsverificatie, ga dan terug en geef uw toestemming.",
                     "title": "Toestemming geweigerd"
                 }
             },

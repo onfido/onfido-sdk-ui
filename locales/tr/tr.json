@@ -456,7 +456,7 @@
                     "title": "Uyumsuz sürüm"
                 },
                 "user_consent_denied": {
-                    "subtitle": "Üzgünüz, onayınız olmadan kimliğinizi doğrulayamayız. \\nKimlik doğrulamanızla devam etmek istiyorsanız lütfen geri dönün ve onayınızı verin.",
+                    "subtitle": "Üzgünüz, kimliğinizi onayınız olmadan doğrulayamayız. \\nKimlik doğrulama işleminize devam etmek istiyorsanız lütfen geri dönüp onayınızı verin.",
                     "title": "Onay reddedildi"
                 }
             },

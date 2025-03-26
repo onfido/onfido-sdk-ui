@@ -456,7 +456,7 @@
                     "title": "Niekompatybilna wersja"
                 },
                 "user_consent_denied": {
-                    "subtitle": "Przykro nam, ale nie możemy zweryfikować Twojej tożsamości bez Twojej zgody. \\nJeśli chcesz kontynuować proces weryfikacji tożsamości, wróć i wyraź swoją zgodę.",
+                    "subtitle": "Przepraszamy, nie możemy zweryfikować Twojej tożsamości bez Twojej zgody. \\nJeśli chcesz kontynuować weryfikację tożsamości, wróć i wyraź zgodę.",
                     "title": "Zgoda odrzucona"
                 }
             },

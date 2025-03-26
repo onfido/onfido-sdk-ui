@@ -456,7 +456,7 @@
                     "title": "Versi yang tidak serasi"
                 },
                 "user_consent_denied": {
-                    "subtitle": "Maaf, kami tidak dapat mengesahkan identiti anda tanpa persetujuan anda. \\nJika anda ingin meneruskan dengan pengesahan identiti anda, sila kembali dan berikan persetujuan anda.",
+                    "subtitle": "Maaf, kami tidak dapat mengesahkan identiti anda tanpa persetujuan anda. \\nJika anda ingin meneruskan pengesahan identiti anda, sila kembali dan berikan persetujuan anda.",
                     "title": "Persetujuan ditolak"
                 }
             },

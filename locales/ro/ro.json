@@ -456,7 +456,7 @@
                     "title": "Versiune incompatibilă"
                 },
                 "user_consent_denied": {
-                    "subtitle": "Ne pare rău, nu putem verifica identitatea dumneavoastră fără consimțământul dumneavoastră. \\nDacă doriți să continuați cu verificarea identității dumneavoastră, vă rugăm să reveniți și să dați consimțământul dumneavoastră.",
+                    "subtitle": "Ne pare rău, nu putem verifica identitatea dumneavoastră fără consimțământul dumneavoastră. \\nDacă doriți să continuați cu verificarea identității, vă rugăm să reveniți și să vă dați consimțământul.",
                     "title": "Consimțământ refuzat"
                 }
             },

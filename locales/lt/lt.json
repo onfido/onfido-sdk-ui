@@ -456,7 +456,7 @@
                     "title": "Nesuderinama versija"
                 },
                 "user_consent_denied": {
-                    "subtitle": "Atsiprašome, mes negalime patikrinti jūsų tapatybės be jūsų sutikimo. Jei norite tęsti savo tapatybės patvirtinimą, grįžkite atgal ir duokite savo sutikimą.",
+                    "subtitle": "Atsiprašome, negalime patvirtinti jūsų tapatybės be jūsų sutikimo. \\nJei norite tęsti tapatybės patvirtinimą, grįžkite ir duokite savo sutikimą.",
                     "title": "Sutikimas atšauktas"
                 }
             },

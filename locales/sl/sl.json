@@ -456,7 +456,7 @@
                     "title": "Neskladna različica"
                 },
                 "user_consent_denied": {
-                    "subtitle": "Oprostite, ne moremo preveriti vaše identitete brez vašega soglasja. \\nČe želite nadaljevati s preverjanjem vaše identitete, se prosim vrnite nazaj in dajte svoje soglasje.",
+                    "subtitle": "Oprostite, ne moremo preveriti vaše identitete brez vašega soglasja. \\nČe želite nadaljevati s preverjanjem identitete, se prosimo vrnite nazaj in podajte svoje soglasje.",
                     "title": "Soglasje zavrnjeno"
                 }
             },

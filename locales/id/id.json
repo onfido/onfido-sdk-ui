@@ -456,7 +456,7 @@
                     "title": "Versi tidak kompatibel"
                 },
                 "user_consent_denied": {
-                    "subtitle": "Maaf, kami tidak dapat memverifikasi identitas Anda tanpa persetujuan Anda. \\nJika Anda ingin melanjutkan dengan verifikasi identitas Anda, silakan kembali dan berikan persetujuan Anda.",
+                    "subtitle": "Maaf, kami tidak dapat memverifikasi identitas Anda tanpa persetujuan Anda. \\nJika Anda ingin melanjutkan verifikasi identitas Anda, silakan kembali dan berikan persetujuan Anda.",
                     "title": "Persetujuan ditolak"
                 }
             },

@@ -456,7 +456,7 @@
                     "title": "Phiên bản không tương thích"
                 },
                 "user_consent_denied": {
-                    "subtitle": "Xin lỗi, chúng tôi không thể xác minh danh tính của bạn mà không có sự đồng ý của bạn.\\nNếu bạn muốn tiếp tục với việc xác minh danh tính của mình, vui lòng quay lại và đưa ra sự đồng ý của bạn.",
+                    "subtitle": "Xin lỗi, chúng tôi không thể xác minh danh tính của bạn nếu không có sự đồng ý của bạn. \\nNếu bạn muốn tiếp tục xác minh danh tính của mình, vui lòng quay lại và đưa ra sự đồng ý của bạn.",
                     "title": "Từ chối đồng ý"
                 }
             },

@@ -456,7 +456,7 @@
                     "title": "Incompatible version"
                 },
                 "user_consent_denied": {
-                    "subtitle": "Sorry, we can't verify your identity without your consent. \\nIf you want to proceed with you identity verification please go back and give your consent.",
+                    "subtitle": "Sorry, we can't verify your identity without your consent. \\nIf you want to proceed with your identity verification please go back and give your consent.",
                     "title": "Consent declined"
                 }
             },

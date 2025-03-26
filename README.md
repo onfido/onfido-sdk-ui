@@ -1050,7 +1050,7 @@ This is the face capture step. Users will be asked to capture their face in the 
 
 - **`recordMotionAudio {Boolean}` - optional**
 
-  This option only applies to the variant `motion` and enables the recording of the user's background audio. By default this is option is set to `false`.
+  This option only applies to the variant `motion` and enables the recording of the user's background audio. By default this is option is set to `false`. If a user does not opt into granting microphone permissions, they cannot proceed with the Motion flow, and no video can be created or uploaded.
 
 ##### `face` fallback options
 
@@ -1099,17 +1099,17 @@ The `data` object contains properties of the documents and face images uploaded 
     "type": "driving_licence",
     "sides": {
       "front": {
-        "id": "<DOCUMENT_ID_FRONT>",
+        "id": "<DOCUMENT_ID_FRONT>"
       },
       "back": {
-        "id": "<DOCUMENT_ID_BACK>",
+        "id": "<DOCUMENT_ID_BACK>"
       },
       "front_video": {
-        "id": "<DOCUMENT_ID_FRONT_VIDEO>",
+        "id": "<DOCUMENT_ID_FRONT_VIDEO>"
       },
       "back_video": {
-        "id": "<DOCUMENT_ID_BACK_VIDEO>",
-      },
+        "id": "<DOCUMENT_ID_BACK_VIDEO>"
+      }
     }
   },
   "face": {
@@ -1120,17 +1120,17 @@ The `data` object contains properties of the documents and face images uploaded 
     "type": "utility_bill",
     "sides": {
       "front": {
-        "id": "<POA_DOCUMENT_ID_FRONT>",
+        "id": "<POA_DOCUMENT_ID_FRONT>"
       },
       "back": {
-        "id": "<POA_DOCUMENT_ID_BACK>",
+        "id": "<POA_DOCUMENT_ID_BACK>"
       },
       "front_video": {
-        "id": "<POA_DOCUMENT_ID_FRONT_VIDEO>",
+        "id": "<POA_DOCUMENT_ID_FRONT_VIDEO>"
       },
       "back_video": {
-        "id": "<POA_DOCUMENT_ID_BACK_VIDEO>",
-      },
+        "id": "<POA_DOCUMENT_ID_BACK_VIDEO>"
+      }
     }
   }
 }
@@ -1141,6 +1141,7 @@ For the `document` step, two-sided documents such as `driving_licence` and `nati
 For the face step, an object is returned with the `variant` used for the face capture,`'standard' | 'video' | 'motion'`.
 
 For the `poa` step:
+
 - `back` is only returned for two-sided documents
 - the `_video` variants are defined for consistency but are not currently in use. `video` and standard variants are mutually exclusive.
 

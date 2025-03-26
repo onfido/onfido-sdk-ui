@@ -456,7 +456,7 @@
                     "title": "Inkompatibel version"
                 },
                 "user_consent_denied": {
-                    "subtitle": "Tyvärr kan vi inte verifiera din identitet utan ditt samtycke. \\nOm du vill fortsätta med din identitetsverifiering, vänligen gå tillbaka och ge ditt samtycke.",
+                    "subtitle": "Tyvärr, vi kan inte verifiera din identitet utan ditt samtycke. \\nOm du vill fortsätta med din identitetsverifiering, vänligen gå tillbaka och ge ditt samtycke.",
                     "title": "Samtycke nekas"
                 }
             },

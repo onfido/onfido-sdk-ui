@@ -456,7 +456,7 @@
                     "title": "Nesaderīga versija"
                 },
                 "user_consent_denied": {
-                    "subtitle": "Atvainojiet, mēs nevaram pārbaudīt jūsu identitāti bez jūsu piekrišanas. \\nJa vēlaties turpināt ar savas identitātes pārbaudi, lūdzu, atgriezieties un dodiet savu piekrišanu.",
+                    "subtitle": "Atvainojiet, mēs nevaram pārbaudīt jūsu identitāti bez jūsu piekrišanas. \\nJa vēlaties turpināt identitātes pārbaudi, lūdzu, atgriezieties un sniedziet savu piekrišanu.",
                     "title": "Piekrišana atteikta"
                 }
             },

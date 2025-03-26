@@ -456,7 +456,7 @@
                     "title": "Nem kompatibilis verzió"
                 },
                 "user_consent_denied": {
-                    "subtitle": "Sajnáljuk, nem tudjuk azonosítani a személyazonosságát az Ön hozzájárulása nélkül.\\nHa folytatni szeretné személyazonosságának ellenőrzését, kérjük, menjen vissza és adja meg hozzájárulását.",
+                    "subtitle": "Sajnáljuk, de nem tudjuk ellenőrizni a személyazonosságát a beleegyezése nélkül. \\nHa folytatni szeretné a személyazonosságának ellenőrzését, kérjük, lépjen vissza, és adja meg a beleegyezését.",
                     "title": "Hozzájárulás megtagadva"
                 }
             },

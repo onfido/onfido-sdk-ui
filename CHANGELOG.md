@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## 14.44.0 - 2025-03-26
+### Added
+- new Motion Auth task mapped to motiom module
+- Ability to refresh the cross-device qr code every 10 second"
+
 ## 14.43.0 - 2025-02-19
 ### Added
 - Warn when a Studio SDK token is used with steps
@@ -14,7 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## 14.42.0 - 2025-02-06
 ### Added
-- Published V2 flow completion event on completion of flow
+- Publish V2 flow completion event on completion of flow
 - Take a photo with the Image Capture API in the Web SDK
 
 ### Changed

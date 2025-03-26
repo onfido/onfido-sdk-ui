@@ -456,7 +456,7 @@
                     "title": "Versión incompatible"
                 },
                 "user_consent_denied": {
-                    "subtitle": "Lo sentimos, no podemos verificar su identidad sin su consentimiento. \\nSi desea continuar con la verificación de su identidad, por favor regrese y dé su consentimiento.",
+                    "subtitle": "Lo sentimos, no podemos verificar tu identidad sin tu consentimiento. \\nSi deseas continuar con la verificación de tu identidad, por favor regresa y da tu consentimiento.",
                     "title": "Consentimiento rechazado"
                 }
             },
