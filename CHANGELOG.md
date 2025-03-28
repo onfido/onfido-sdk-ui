@@ -6,9 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## 14.44.0 - 2025-03-26
 ### Added
-- new Motion Auth task mapped to motiom module
-- Ability to refresh the cross-device qr code every 10 second"
-- Added new screen templates, meaning all module screens have been updated with new design templates. For specific details, please refer to the [Web SDK template guide](https://documentation.onfido.com/sdk/web-sdk-ui-templates), and the [migration guide](https://documentation.onfido.com/sdk/web/migration)"
+- Map new Authentication: Motion task to the Face Motion module
+- Add an option to refresh the cross-device QR code every 10 second
+- Added new screen templates, meaning all module screens have been updated with new design templates (see [Web SDK template guide](https://documentation.onfido.com/sdk/web-sdk-ui-templates) and [migration guide](https://documentation.onfido.com/sdk/web/migration))
 
 ## 14.43.0 - 2025-02-19
 ### Added
