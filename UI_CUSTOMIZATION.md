@@ -1,6 +1,6 @@
 # UI customization
 
-The Web SDK supports customization options across the SDK screen including text, the SDK main container, buttons, links, icon background color and popups. For visualizations of the available options please see our [SDK customization guide](https://documentation.onfido.com/sdk/sdk-customization#web).
+The Web SDK supports customization options across the SDK screen including text, the SDK main container, buttons, links, icon background color and popups. For visualizations of the available options please see our [SDK customization guide](https://developers.onfido.com/guide/sdk-customization#web).
 
 - **`customUI {Object} optional`**
 
@@ -62,7 +62,6 @@ The Web SDK supports customization options across the SDK screen including text,
   | `colorBorderButtonPrimary`           | Change color of Primary Button border                  |
   | `colorBorderButtonPrimaryHover`      | Change color of Primary Button border on hover         |
   | `colorBorderButtonPrimaryActive`     | Change color of Primary Button border on click/tap     |
-  | `colorBorderButtonPrimaryFocus`      | Change color of Primary Button border on focus         |
 
   | Secondary Buttons                      | Description                                              |
   | -------------------------------------- | -------------------------------------------------------- |
@@ -73,7 +72,6 @@ The Web SDK supports customization options across the SDK screen including text,
   | `colorBorderButtonSecondary`           | Change color of Secondary Button border                  |
   | `colorBorderButtonSecondaryHover`      | Change color of Secondary Button border on hover         |
   | `colorBorderButtonSecondaryActive`     | Change color of Secondary Button border on click/tap     |
-  | `colorBorderButtonSecondaryFocus`      | Change color of Secondary Button border on focus         |
 
   | Document Type Buttons                | Description                                                  |
   | ------------------------------------ | ------------------------------------------------------------ |
@@ -85,10 +83,9 @@ The Web SDK supports customization options across the SDK screen including text,
   | `colorBorderDocTypeButtonHover`      | Change color of Document Type Button border on hover         |
   | `colorBorderDocTypeButtonActive`     | Change color of Document Type Button border on click/tap     |
 
-  | Selector                           | Description                                    |
-  | ---------------------------------- | ---------------------------------------------- |
-  | `colorBackgroundSelector`          | Change Selector background color               |
-  | `colorBackgroundDropdownItemHover` | Change Country Selector background hover color |
+  | Selector                  | Description                      |
+  | ------------------------- | -------------------------------- |
+  | `colorBackgroundSelector` | Change Selector background color |
 
   | Icon options          | Description                                                         |
   | --------------------- | ------------------------------------------------------------------- |
@@ -181,34 +178,8 @@ The Web SDK supports customization options across the SDK screen including text,
 
   The following fonts are available:
 
-  - [Fira Sans](https://fonts.google.com/specimen/Fira+Sans)
-  - [Inter](https://fonts.google.com/specimen/Inter)
-  - [Kanit](https://fonts.google.com/specimen/Kanit)
-  - [Lato](https://fonts.google.com/specimen/Lato)
-  - [Lora](https://fonts.google.com/specimen/Lora)
-  - [Merriweather](https://fonts.google.com/specimen/Merriweather)
-  - [Noto Sans](https://fonts.google.com/specimen/Noto+Sans)
-  - [Noto Sans Osmanya](https://fonts.google.com/specimen/Noto+Sans+Osmanya)
-  - [Nunito](https://fonts.google.com/specimen/Nunito)
-  - [Nunito Sans](https://fonts.google.com/specimen/Nunito+Sans)
-  - [Open Sans](https://fonts.google.com/specimen/Open+Sans)
-  - [Oswald](https://fonts.google.com/specimen/Oswald)
   - [Overpass](https://fonts.google.com/specimen/Overpass)
-  - [Playfair Display](https://fonts.google.com/specimen/Playfair+Display)
-  - [Poppins](https://fonts.google.com/specimen/Poppins)
-  - [PT Sans](https://fonts.google.com/specimen/PT+Sans)
-  - [Raleway](https://fonts.google.com/specimen/Raleway)
-  - [Roboto](https://fonts.google.com/specimen/Roboto)
-  - [Roboto Condensed](https://fonts.google.com/specimen/Roboto+Condensed)
-  - [Roboto Mono](https://fonts.google.com/specimen/Roboto+Mono)
-  - [Roboto Slab](https://fonts.google.com/specimen/Roboto+Slab)
-  - [Rubik](https://fonts.google.com/specimen/Rubik)
-  - [Source Sans 3](https://fonts.google.com/specimen/Source+Sans+3)
-  - [Ubuntu](https://fonts.google.com/specimen/Ubuntu)
-  - [Wix Madefor Text](https://fonts.google.com/specimen/Wix+Madefor+Text)
-  - [Work Sans](https://fonts.google.com/specimen/Work+Sans)
-
-  To request support for additional fonts, please reach out to your Customer Support Manager or email [Customer Support](mailto:support@onfido.com)\*
+  - To request support for additional fonts, please reach out to your Customer Support Manager or email [Onfido Support](mailto:support@onfido)\*
 
   ```javascript
   customUI: {

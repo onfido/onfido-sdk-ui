@@ -1,1440 +1,1319 @@
 {
-    "onfido": {
-        "avc_confirmation": {
-            "button_primary_upload": "Încărcați înregistrarea",
-            "subtitle": "Un clip video cu fața dvs. a fost înregistrat cu succes",
-            "title": "Înregistrare finalizată"
-        },
-        "avc_connection_error": {
-            "button_primary_reload": "Reîncărcați instrucțiunile",
-            "button_primary_retry_upload": "Încercați din nou să încărcați",
-            "button_secondary_restart_recording": "Începeți din nou înregistrarea",
-            "subtitle": "Verificați stabilitatea conexiunii dvs. și apoi încercați din nou",
-            "title": "Eroare de conectare"
-        },
-        "avc_face_alignment": {
-            "feedback_move_back": "Mișcați-vă înapoi",
-            "feedback_move_back_accessibility": "Mișcați dispozitivul în spate",
-            "feedback_move_closer": "Veniți mai aproape",
-            "feedback_move_left_accessibility": "Mișcați dispozitivul spre stânga",
-            "feedback_move_right_accessibility": "Mișcați dispozitivul spre dreapta",
-            "feedback_no_face_detected": "Fața nu este detectată",
-            "feedback_not_centered": "Fața nu este centrată",
-            "title": "Poziționați-vă fața în cadru"
-        },
-        "avc_face_capture": {
-            "alert": {
-                "mic_conflict_title": "Microfonul dvs. este utilizat de altă aplicație",
-                "timeout_body": "Aveți maximum 15 de secunde la dispoziție să finalizați înregistrarea",
-                "timeout_button_primary": "Încercați din nou",
-                "timeout_title": "Ne cerem scuze, trebuie să reîncepem înregistrarea",
-                "too_fast_body": "Vă rugăm să încercați din nou și întoarceți capul mai încet",
-                "too_fast_button_primary": "Încercați din nou",
-                "too_fast_title": "Ați întors capul prea repede"
-            },
-            "title": "Întoarceți capul încet în ambele părți",
-            "title_completed": "Înregistrare finalizată"
-        },
-        "avc_intro": {
-            "button_primary_ready": "Începeți înregistrarea",
-            "disclaimer": "Fața și fundalul dvs. vor fi înregistrate în timpul acestui proces",
-            "disclaimer_camera_and_audio_on": "Fața, fundalul și sunetul dvs. vor fi înregistrate în timpul acestui proces",
-            "list_item_one": "Întâi, poziționați-vă fața în cadru",
-            "list_item_two": "Apoi, întoarceți capul încet în ambele părți",
-            "subtitle": "Acest lucru este pentru a verifica faptul că sunteți o persoană reală",
-            "title": "Înregistrați un clip video",
-            "title_accessibility": "A înregistra un clip video cu fața dvs.",
-            "video_accessibility": "Clip video exemplificativ cu o persoană care își întoarce capul în ambele sensuri până la finalizare"
-        },
-        "avc_no_face_detected": {
-            "button_primary_restart": "Începeți din nou înregistrarea",
-            "list_item_eyes": "Asigurați-vă ochii sunt clar vizibili",
-            "list_item_face": "Asigurați-vă că vă arătați doar fața, nu trebuie să vedem documentul dvs. de identitate",
-            "list_item_lighting": "Asigurați-vă că sunteți într-un loc bine luminat",
-            "list_item_mask": "Asigurați-vă că înlăturați măștile sau alte articole care vă acoperă fața. Ochelarii sunt acceptați",
-            "title": "Nu vă putem detecta fața"
-        },
-        "avc_uploading": {
-            "title": "Se încarcă"
-        },
-        "country_select": {
-            "alert": {
-                "another_doc": "Documente din aceea țară nu sunt în prezent acoperite — <fallback>încercați cu un alt tip de document<\/fallback>"
-            },
-            "alert_dropdown": {
-                "country_not_found": "Țara nu a fost găsită"
-            },
-            "button_primary": "Trimiteți documentul",
-            "poa_alert": {
-                "country_not_found": "Ne cerem scuze. Depunem eforturi pentru a acoperi mai multe țări.",
-                "intro": "Nu vă găsiți țara?"
-            },
-            "search": {
-                "accessibility": "Selectați țara",
-                "input_placeholder": "de exemplu, Statele Unite ale Americii",
-                "label": "Căutați țara"
-            },
-            "title": "Selectați țara emitentă"
-        },
-        "cross_device": {
-            "button_primary_upload": "Continuați"
-        },
-        "cross_device_abort": {
-            "title": "Verificarea a fost anulată"
-        },
-        "cross_device_checklist": {
-            "button_primary": "Trimiteți verificarea",
-            "info": "Sugestii",
-            "list_item_doc_multiple": "Documente",
-            "list_item_doc_one": "Document",
-            "list_item_poa": "Dovadă adresă",
-            "list_item_selfie": "Selfie",
-            "list_item_video": "Clip video",
-            "subtitle": "Aici găsiți tot ce ați încărcat:",
-            "title": "Un ultim pas"
-        },
-        "cross_device_error_desktop": {
-            "subtitle": "Linkul funcționează doar pe dispozitive mobile",
-            "title": "Ceva nu a mers bine"
-        },
-        "cross_device_error_mobile": {
-            "subtitle": "Puteți încerca să vă verificați identitatea din nou pe dispozitivul original.",
-            "title": "Acest număr nu se potrivește"
-        },
-        "cross_device_error_restart": {
-            "subtitle": "Trebuie să începeți din nou verificarea dvs. pe computerul dvs.",
-            "title": "Ceva nu a mers bine"
-        },
-        "cross_device_intro": {
-            "button_primary": "Obțineți linkul sigur",
-            "list_accessibility": "Pași necesari pentru a continua verificarea pe telefonul dvs. mobil",
-            "list_item_finish": "Reveniți aici pentru a finaliza trimiterea",
-            "list_item_open_link": "Deschideți linkul și finalizați sarcinile",
-            "list_item_send_phone": "Trimiteți un link sigur spre telefonul dvs.",
-            "subtitle": "Vedeți cum trebuie să procedați:",
-            "subtitle_upload": "Vă rugăm să încărcați o fotografie recentă a documentului original",
-            "title": "Continuați pe telefonul dvs."
-        },
-        "cross_device_number_match_desktop": {
-            "instruction": "Apăsați numărul de pe telefonul mobil pentru a verifica că sunteți dumneavoastră.",
-            "subtitle": "Pentru a ajuta la păstrarea în siguranță a informațiilor tale, Onfido vrea să se asigure că ești cu adevărat tu cel care încearcă să își verifice identitatea",
-            "title": "Conectat la telefonul dvs. mobil"
-        },
-        "cross_device_number_match_error_desktop": {
-            "button_primary": "Încercați din nou",
-            "subtitle": "Te rog să te întorci și să încerci din nou.",
-            "title": "Acest număr nu se potrivește"
-        },
-        "cross_device_number_match_mobile": {
-            "abort_button": "Nu sunt eu",
-            "subtitle": "Atingeți numărul afișat pe celălalt dispozitiv al dvs. Vrem să ne asigurăm că sunteți cu adevărat dumneavoastră.",
-            "title": "Asociați numărul"
-        },
-        "cross_device_return": {
-            "body": "Computerul dvs. poate avea nevoie de câteva secunde să se actualizeze",
-            "subtitle": "Acum puteți reveni la computerul dvs. pentru a continua",
-            "title": "Încărcări cu succes"
-        },
-        "cross_device_session_linked": {
-            "button_primary": "Continuați",
-            "info": "Dublă verificare",
-            "list_item_desktop_open": "Fereastra dvs. desktop rămâne deschisă",
-            "list_item_sent_by_you": "Acest link a fost trimis de dvs. — solicitați sfaturi dacă credeți că poate fi vorba de înșelăciune",
-            "subtitle": "Continuați cu verificarea",
-            "title": "Sesiune telefon mobil conectat la computerul dvs."
-        },
-        "doc_auto_capture": {
-            "button_accessibility": "Faceți o poză",
-            "footer": {
-                "captured": "Poză realizată",
-                "capturing": "Se realizează poza",
-                "manual_fallback_generic_document_back": "Faceți o poză cu pagina verso a documentului dvs.",
-                "manual_fallback_generic_document_front": "Faceți o poză cu pagina din față a documentului dvs.",
-                "manual_fallback_identity_card_back": "Faceți o poză cu partea din spate a documentului dvs.",
-                "manual_fallback_identity_card_front": "Faceți o poză cu partea din față a documentului dvs.",
-                "manual_fallback_license_back": "Faceți o poză cu partea din spate a permisului dvs. de conducere",
-                "manual_fallback_license_front": "Faceți o poză cu partea din față a permisului dvs. de conducere",
-                "manual_fallback_passport": "Faceți o poză cu pagina cu fotografie din pașaportul dvs.",
-                "manual_fallback_residence_permit_back": "Faceți o poză cu partea din spate a permisului de ședere",
-                "manual_fallback_residence_permit_front": "Faceți o poză cu partea din față a permisului de ședere",
-                "position_generic_document_back": "Poziționați pagina verso a documentului dvs. în cadru",
-                "position_generic_document_front": "Poziționați pagina față a documentului dvs. în cadru",
-                "position_identity_card_back": "Poziționați partea din spate a documentului dvs. în cadru",
-                "position_identity_card_front": "Poziționați partea din față a documentului dvs. în cadru",
-                "position_license_back": "Poziționați partea din spate a permisului dvs. de conducere în cadru",
-                "position_license_front": "Poziționați partea din față a permisului dvs. de conducere în cadru",
-                "position_passport": "Poziționați pagina cu fotografie din pașaport în cadru",
-                "position_residence_permit_back": "Poziționați partea din spate a permisului dvs. de ședere în cadru",
-                "position_residence_permit_front": "Poziționați partea din față a permisului dvs. de ședere în cadru"
-            },
-            "frame": {
-                "flip_document": "Întoarceți documentul pentru partea din spate",
-                "hold_still": "Țineți nemișcat",
-                "no_document": "Document nedetectat"
-            }
-        },
-        "doc_capture": {
-            "alert": {
-                "no_barcode_detail": "Stați într-un loc bine luminat și aduceți cardul mai aproape de camera video",
-                "no_barcode_title": "Codul de bare nu a fost detectat"
-            },
-            "button_primary": "Începeți scanarea documentului",
-            "detail": {
-                "folded_doc_front": "Poziționați documentul dvs. pe o suprafață plană, includeți toate paginile interne (trebuie să conțină poza dvs.)"
-            },
-            "header": {
-                "recording_complete": "Înregistrare finalizată",
-                "recording_video": "Înregistrare video"
-            },
-            "header_folded_doc_front": "Latură poză de profil",
-            "prompt": {
-                "button_card": "Card de plastic",
-                "button_paper": "Document hârtie",
-                "title_id": "Ce tip de carte de identitate aveți?",
-                "title_license": "Ce tip de permis de conducere aveți?"
-            }
-        },
-        "doc_confirmation": {
-            "alert": {
-                "blur_detail": "Asigurați-vă că totul este clar",
-                "blur_title": "Pozǎ neclarǎ detectatǎ",
-                "crop_detail": "Asigurați-vă că întregul document este vizibil",
-                "crop_title": "Imagine decupatǎ detectatǎ",
-                "glare_detail": "Nu stați în lumină directă",
-                "glare_title": "Luciu detectat",
-                "no_doc_detail": "Asigurați-vă că este integral în cadru",
-                "no_doc_title": "Documentul nu a fost detectat",
-                "odp_detail": "Vă rugăm să utilizați documentul dvs. original. Fotografiile de pe ecran sau fotocopiile nu sunt acceptate",
-                "odp_photo_of_screen_title": "Fotografie a ecranului detectată",
-                "odp_photocopy_title": "Fotocopie detectată",
-                "odp_scan_title": "Scanare detectată",
-                "odp_screenshot_title": "Captură de ecran detectată"
-            },
-            "body": "Asigurați-vă că ați încărcat întreaga pagină a documentului și că detaliile sunt clare, fără estompări sau luciri, pentru a fi citite",
-            "body_accommodation_tenancy_certificate": "Asigurați-vă că ați încărcat întreaga pagină a documentului și detaliile sunt clare pentru a fi citite, fǎrǎ zone neclare sau lucioase",
-            "body_address_certificate": "Asigurați-vă că ați încărcat întreaga pagină a documentului și detaliile sunt clare pentru a fi citite, fǎrǎ zone neclare sau lucioase",
-            "body_bank_statement": "Asigurați-vă că ați încărcat întreaga pagină a documentului și că detaliile sunt clare, fără estompări sau luciri, pentru a fi citite",
-            "body_benefits_letter": "Asigurați-vă că ați încărcat întreaga pagină a documentului și că detaliile sunt clare, fără estompări sau luciri, pentru a fi citite",
-            "body_bill": "Asigurați-vă că ați încărcat întreaga pagină a documentului și că detaliile sunt clare, fără estompări sau luciri, pentru a fi citite",
-            "body_exchange_house_statement": "Asigurați-vă că ați încărcat întreaga pagină a documentului și detaliile sunt clare pentru a fi citite, fǎrǎ zone neclare sau lucioase",
-            "body_general_letter": "Asigurați-vă că ați încărcat întreaga pagină a documentului și detaliile sunt clare pentru a fi citite, fǎrǎ zone neclare sau lucioase",
-            "body_generic_document": "Asigurați-vă că detaliile dvs. sunt clare și neacoperite",
-            "body_id": "Asigurați-vă că detaliile dvs. sunt clare și neacoperite",
-            "body_identity_document_with_address": "Asigurați-vă că ați încărcat întreaga pagină a documentului și detaliile sunt clare pentru a fi citite, fǎrǎ zone neclare sau lucioase",
-            "body_image_medium": "Va dura mai mult să vă verificăm dacă nu putem citi elementul",
-            "body_image_poor": "Pentru a vă verifica mai ușor, avem nevoie de o poză mai bună",
-            "body_insurance_statement": "Asigurați-vă că ați încărcat întreaga pagină a documentului și detaliile sunt clare pentru a fi citite, fǎrǎ zone neclare sau lucioase",
-            "body_license": "Asigurați-vă că detaliile dvs. sunt clare și neacoperite",
-            "body_mobile_phone_bill": "Asigurați-vă că ați încărcat întreaga pagină a documentului și detaliile sunt clare pentru a fi citite, fǎrǎ zone neclare sau lucioase",
-            "body_mortgage_statement": "Asigurați-vă că ați încărcat întreaga pagină a documentului și detaliile sunt clare pentru a fi citite, fǎrǎ zone neclare sau lucioase",
-            "body_passport": "Asigurați-vă că detaliile dvs. sunt clare și neacoperite",
-            "body_pension_property_statement_letter": "Asigurați-vă că ați încărcat întreaga pagină a documentului și detaliile sunt clare pentru citire, fără blur sau strălucire",
-            "body_permit": "Asigurați-vă că detaliile dvs. sunt clare și neacoperite",
-            "body_tax_letter": "Asigurați-vă că ați încărcat întreaga pagină a documentului și că detaliile sunt clare, fără estompări sau luciri, pentru a fi citite",
-            "button_close": "Închideți",
-            "button_primary_redo": "Refaceți",
-            "button_primary_upload": "Încărcați",
-            "button_primary_upload_anyway": "Încărcați oricum",
-            "button_secondary_change_document": "Alegeți alt document",
-            "button_secondary_redo": "Refaceți",
-            "button_secondary_submit_anyway": "Trimite oricum fotografia",
-            "button_zoom": "Măriți imaginea",
-            "image_accessibility": "Poză a documentului dvs.",
-            "title": "Verificați imaginea dvs."
-        },
-        "doc_multi_frame_capture": {
-            "capture_progress_title": "Se scanează documentul",
-            "instructions_title_back": "Poziționați pagina verso a documentului dvs. în cadru",
-            "instructions_title_front": "Poziționați pagina față a documentului dvs. în cadru"
-        },
-        "doc_select": {
-            "accommodation_tenancy_certificate_detail": "Emis de autoritatea guvernamentală sau de proprietarul corporativ ca confirmare a închirierii.",
-            "button_address_card": "Carte de adrese",
-            "button_address_card_back": "Carte de adresă (Spate)",
-            "button_address_card_detail": "Se acceptă carduri temporare și permanente",
-            "button_address_card_front": "Carte de Adresă (Față)",
-            "button_bank_statement": "Extras de la bancă sau societatea mutuală de credit",
-            "button_bank_statement_non_uk": "Extras de cont",
-            "button_benefits_letter": "Scrisoare beneficii",
-            "button_benefits_letter_detail": "Beneficii pentru gospodărie autorizate de guvern, de exemplu, indemnizație de șomer, beneficii gospodărie, credite fiscale",
-            "button_bill": "Factură de utilități",
-            "button_bill_detail": "Gaz, electricitate, apă, telefon fix sau internet de bandă largă",
-            "button_exchange_house_statement": "Declarație Casa de Schimb",
-            "button_exchange_house_statement_detail": "Declarația expeditorului de transfer sau remitere",
-            "button_general_letter": "Scrisoare generală",
-            "button_general_letter_detail": "Scrisoare de la instituția financiară sau compania de utilități",
-            "button_government_letter": "Scrisoare de la guvern",
-            "button_government_letter_detail": "Orice scrisoare emisă de guvern, de exemplu, scrisori privind dreptul la beneficii, scrisori de votare, scrisori privind impozitele etc.",
-            "button_id": "Carte de identitate",
-            "button_id_detail": "Față și verso",
-            "button_identity_document_with_address": "Document de identitate cu adresă",
-            "button_identity_document_with_address_back": "Document de identitate cu adresă (Spate)",
-            "button_identity_document_with_address_detail": "Emis de o autoritate guvernamentală",
-            "button_identity_document_with_address_front": "Document de identitate cu adresă (Față)",
-            "button_insurance_statement": "Declarație de asigurare",
-            "button_insurance_statement_detail": "Emis de o companie de asigurări privată sau de brokeraj",
-            "button_license": "Permis de conducere",
-            "button_license_detail": "Față și verso",
-            "button_mobile_phone_bill": "Factură telefon mobil",
-            "button_mobile_phone_bill_detail": "Emis de un furnizor de rețea de telefoane mobile",
-            "button_mortgage_statement": "Declarație de ipotecă",
-            "button_mortgage_statement_detail": "Emis de o instituție financiară de împrumut",
-            "button_passport": "Pașaport",
-            "button_passport_detail": "Pagină poză",
-            "button_pension_property_statement_letter": "Declarație\/Scrisoare de pensie sau proprietate",
-            "button_pension_property_statement_letter_detail": "Declarație sau scrisoare de pensie și Declarație sau scrisoare de impozit pe proprietate",
-            "button_permit": "Permis de ședere",
-            "button_permit_detail": "Față și verso",
-            "button_tax_letter": "Scrisoare de Impozit a Guvernului Local",
-            "extra_estatements_ok": "Extrase electronice acceptate",
-            "list_accessibility": "Documente pe care le puteți utiliza pentru a vă verifica identitatea",
-            "pill": "cel mai rapid",
-            "section": {
-                "header_country": "Țară emitentă",
-                "header_doc_type": "Documente acceptate",
-                "input_country_not_found": "Niciun rezultat",
-                "input_placeholder_country": "Selectați țara emitentă"
-            },
-            "subtitle": "Trebuie să fie un document de identitate cu poză oficial",
-            "subtitle_country": "Selectați țara emitentă pentru a vedea ce documente acceptăm",
-            "subtitle_entire_page": "Întreaga pagină",
-            "subtitle_front_back": "Față și verso",
-            "subtitle_photo_page": "Pagina cu poză",
-            "subtitle_poa": "Acestea sunt documente care cel mai probabil indică adresa dvs. de reședință actuală",
-            "title": "Alegeți documentul dvs.",
-            "title_poa": "Alegeți un document"
-        },
-        "doc_submit": {
-            "button_link_upload": "sau încărcați poză – fără scanări sau fotocopii",
-            "button_primary": "Continuați pe telefonul dvs.",
-            "subtitle": "Faceți o poză cu telefonul dvs.",
-            "title_accommodation_tenancy_certificate": "Trimite Certificatul de Cazare sau de Locație",
-            "title_address_certificate": "Trimiteți cardul de adresă",
-            "title_address_certificate_back": "Trimiteți cardul de adresă (spate)",
-            "title_address_certificate_front": "Trimiteți cardul de adresă (față)",
-            "title_bank_statement": "Trimiteți extras",
-            "title_benefits_letter": "Trimiteți scrisoare",
-            "title_bill": "Trimiteți factură",
-            "title_exchange_house_statement": "Trimite declarația casei de schimb",
-            "title_general_letter": "Trimiteți scrisoare generală",
-            "title_generic_document_back": "Trimiteți documentul (spatele)",
-            "title_generic_document_front": "Trimiteți documentul (fața)",
-            "title_government_letter": "Scrisoare de la guvern",
-            "title_id_back": "Trimiteți cardul de identitate (verso)",
-            "title_id_front": "Trimiteți cardul de identitate (față)",
-            "title_identity_document_with_address": "Trimiteți documentul de identitate cu adresă",
-            "title_identity_document_with_address_back": "Trimiteți documentul de identitate cu adresă (spate)",
-            "title_identity_document_with_address_front": "Trimiteți documentul de identitate cu adresă (față)",
-            "title_insurance_statement": "Trimite declarația de asigurare",
-            "title_license_back": "Trimiteți permisul de conducere (verso)",
-            "title_license_front": "Trimiteți permisul de conducere (față)",
-            "title_mobile_phone_bill": "Trimite factura telefonului mobil",
-            "title_mortgage_statement": "Trimiteți declarația ipotecară",
-            "title_passport": "Trimiteți pagina cu poză a pașaportului",
-            "title_pension_property_statement_letter": "Trimiteți declarația sau scrisoarea",
-            "title_permit_back": "Trimiteți permisul de ședere (verso)",
-            "title_permit_front": "Trimiteți permisul de ședere (față)",
-            "title_tax_letter": "Trimiteți Scrisoarea de Impozit a Guvernului Local"
-        },
-        "doc_video_capture": {
-            "button_primary_fallback": "Următorul pas",
-            "button_primary_fallback_end": "Finalizați înregistrarea",
-            "detail_step2": "Țineți documentul la vedere permanent",
-            "header": "În timp ce poziționați documentul dvs, țineți pagina față în cadru",
-            "header_paper_doc_step2": "Întoarceți ușor documentul dvs. pentru a arăta paginile externe",
-            "header_passport": "În timp ce poziționați pașaportul dvs., țineți pagina cu poză în cadru",
-            "header_passport_progress": "Țineți nemișcat",
-            "header_step1": "Acum țineți nemișcat",
-            "header_step2": "Întoarceți ușor documentul dvs. pentru a arăta partea verso",
-            "prompt": {
-                "detail_timeout": "Înregistrarea video este limitată la <timeout><\/timeout> secunde. <fallback>Începeți din nou<\/fallback>"
-            },
-            "stepper": "Pasul <step><\/step> din <total><\/total>",
-            "success_accessibility": "Succes"
-        },
-        "doc_video_confirmation": {
-            "button_secondary": "Previzualizare clip video",
-            "title": "Verificați clipul dvs. video"
-        },
-        "eid": {
-            "scheme_form": {
-                "subtitle": "Selectați o bancă din lista de mai jos pentru a vă verifica prin <form_scheme><\/form_scheme>",
-                "title": "<form_scheme><\/form_scheme> Verification"
-            }
-        },
-        "error_unsupported_browser": {
-            "subtitle_android": "Începeți din nou acest proces pe ultima versiune de Google Chrome",
-            "subtitle_ios": "Începeți din nou acest proces pe ultima versiune de Safari",
-            "title_android": "Browser incompatibil",
-            "title_ios": "Browser incompatibil"
-        },
-        "generic": {
-            "accessibility": {
-                "close_sdk_screen": "Închideți ecranul de verificare a identității",
-                "dismiss_alert": "Respingeți alerta"
-            },
-            "back": "înapoi",
-            "close": "închideți",
-            "errors": {
-                "desktop": {
-                    "subtitle": "Acest link funcționează doar pe dispozitive mobile. Vă rugăm să încercați din nou deschizând link-ul pe un dispozitiv mobil.",
-                    "title": "Imposibil de deschis linkul"
-                },
-                "expired_token": {
-                    "instruction": "Vă rugăm să încercați din nou",
-                    "message": "Tokenul a expirat",
-                    "subtitle": "Tokenul SDK furnizat în acest proces de verificare a expirat. Vă rugăm să reveniți și să încercați din nou.",
-                    "title": "Sesiunea dvs. a expirat"
-                },
-                "expired_trial": {
-                    "instruction": "Ați atins limitele de încercare",
-                    "message": "Perioada de încercare a expirat",
-                    "subtitle": "Ați atins numărul maxim de verificări permise.",
-                    "title": "Perioada ta de încercare a expirat"
-                },
-                "geoblocked_error": {
-                    "instruction": "Ne pare rău, se pare că nu putem continua pentru că locația dvs. actuală nu este acoperită",
-                    "message": "Serviciu indisponibil"
-                },
-                "geoblocker_request": {
-                    "subtitle": "Ne pare rău, nu putem continua cu verificarea dvs. deoarece locația dvs. actuală nu este acceptată.",
-                    "title": "Serviciu indisponibil"
-                },
-                "interrupted_flow_error": {
-                    "instruction": "Începeți din nou procesul pe un dispozitiv diferit",
-                    "message": "Camera video nu este detectată"
-                },
-                "invalid_size": {
-                    "instruction": "Trebuie să fie sub 10MB.",
-                    "message": "Dimensiunea fișierului depășită."
-                },
-                "invalid_type": {
-                    "instruction": "Încercați să utilizați un alt tip de fișier.",
-                    "message": "Fișierul nu a fost încărcat."
-                },
-                "lazy_loading": {
-                    "message": "O eroare a survenit în timp ce componenta era încărcată"
-                },
-                "multiple_faces": {
-                    "instruction": "Numai fața dvs. poate fi în poza selfie",
-                    "message": "Fețe multiple găsite"
-                },
-                "no_camera": {
-                    "subtitle": "Nu putem detecta o cameră pe acest dispozitiv. Vă rugăm să vă asigurați că o cameră este conectată și că permisiunile necesare sunt acordate.",
-                    "title": "Camera nu a fost găsită"
-                },
-                "no_face": {
-                    "instruction": "Asigurați-vă că fața dvs. este vizibilă",
-                    "message": "Fața nu este detectată"
-                },
-                "request_error": {
-                    "instruction": "Vă rugăm să încercați din nou",
-                    "message": "Ceva nu a mers bine"
-                },
-                "restart_cross-device": {
-                    "subtitle": "Va trebui să reporniți verificarea pe computerul dvs. Vă rugăm să reveniți la ecranul de verificare și să încercați din nou.",
-                    "title": "Ceva nu a mers bine"
-                },
-                "sms_failed": {
-                    "instruction": "Copiați linkul pe telefonul dvs.",
-                    "message": "Ceva nu a mers bine"
-                },
-                "sms_overuse": {
-                    "instruction": "Copiați linkul pe telefonul dvs.",
-                    "message": "Prea multe încercări eșuate"
-                },
-                "unsupported_browser": {
-                    "subtitle": "Vă rugăm, reporniți procesul încercând un alt browser.",
-                    "title": "Browser nesuportat"
-                },
-                "unsupported_file": {
-                    "instruction": "Încercați să utilizați un fișier JPG sau PNG",
-                    "message": "Tipul de fișier nu este compatibil"
-                },
-                "unsupported_sdk_version": {
-                    "subtitle": "Versiunea SDK este incompatibilă cu fluxul de lucru configurat. Verificați cerințele minime ale SDK pentru fluxul dvs. de lucru activ.",
-                    "title": "Versiune incompatibilă"
-                },
-                "user_consent_denied": {
-                    "subtitle": "Ne pare rău, nu putem verifica identitatea dumneavoastră fără consimțământul dumneavoastră. \\nDacă doriți să continuați cu verificarea identității, vă rugăm să reveniți și să vă dați consimțământul.",
-                    "title": "Consimțământ refuzat"
-                }
-            },
-            "footer": {
-                "branding": "Identitate reală Onfido"
-            },
-            "icon_error_accessibility": "Eroare:",
-            "icon_info_accessibility": "Informație:",
-            "icon_success_accessibility": "Succes:",
-            "icon_warning_accessibility": "Avertisment:",
-            "lazy_load_placeholder": "Se încarcă...",
-            "loading": "Se încarcă"
-        },
-        "get_link": {
-            "alert_wrong_number": "Verificați dacă numărul dvs. este corect",
-            "button_copied": "Copiat",
-            "button_copy": "Copiați",
-            "button_submit": "Trimiteți linkul",
-            "info_qr_how": "Cum să scanați un cod QR",
-            "info_qr_how_list_item_camera": "Poziționați camera video a telefonului dvs. spre codul QR",
-            "info_qr_how_list_item_download": "Dacă nu funcționează, descărcați un scaner de cod QR din Google Play sau App Store",
-            "link_divider": "sau alegeți o metodă alternativă",
-            "link_qr": "Scanați codul QR",
-            "link_sms": "Primiți linkul prin SMS",
-            "link_url": "Copiați linkul",
-            "loader_sending": "Se trimite",
-            "number_field_input_placeholder": "Introduceți numărul de telefon mobil",
-            "number_field_label": "Introduceți numărul dvs. de telefon mobil:",
-            "subtitle_qr": "Scanați codul QR cu telefonul dvs.",
-            "subtitle_sms": "Trimiteți acest link unic pe telefonul dvs.",
-            "subtitle_url": "Trimiteți acest link unic pe telefonul dvs.",
-            "title": "Primiți linkul sigur pentru dvs.",
-            "url_field_label": "Copiați linkul în browserul telefonului dvs."
-        },
-        "ial2_nist": {
-            "option": {
-                "goverment_issued_photo_id": "Un al doilea ID cu fotografie emis de guvern",
-                "ssn": "Numărul de Securitate Socială (SSN)"
-            },
-            "subtitle": "Avem nevoie de o informație suplimentară pentru a vă confirma identitatea. Alegeți o opțiune de mai jos."
-        },
-        "interactive_task": {
-            "waiting": {
-                "title_5": "Încărcare media..."
-            }
-        },
-        "livenessV2": {
-            "error_reload_instructions": "Reîncărcați instrucțiunile",
-            "intro_note_no1": "Întâi, poziționați-vă fața în cadru",
-            "intro_note_no2": "Apoi, întoarceți capul încet în ambele părți",
-            "intro_ready_button": "Vă rugăm să aveți în vedere că vă vom înregistra fața și fundalul dvs.",
-            "intro_subtitle": "Acest lucru este pentru a verifica faptul că sunteți o persoană reală",
-            "intro_warning": "Vă rugăm să aveți în vedere că vă vom înregistra fața și fundalul dvs.",
-            "success_main_button": "Trimiteți verificarea",
-            "success_title": "Este tot ce avem nevoie pentru a începe verificarea identității dvs."
-        },
-        "mobilePhrases": {
-            "photo_upload": {
-                "body_id_back": "Faceți o poză cu partea verso a cardului dvs.",
-                "body_id_front": "Faceți o poză cu partea față a cardului dvs.",
-                "body_license_back": "Faceți o poză cu pagina verso a permisului dvs. de conducere",
-                "body_license_front": "Faceți o poză cu pagina față a permisului dvs. de conducere",
-                "body_passport": "Faceți o poză cu pagina cu poză a pașaportului dvs.",
-                "body_selfie": "Faceți o poză selfie cu fața dvs."
-            },
-            "selfie_capture": {
-                "alert": {
-                    "camera_inactive": {
-                        "detail": "Faceți o poză folosind în schimb <fallback>modul de bază al camerei video<\/fallback>"
-                    },
-                    "camera_not_working": {
-                        "detail": "Faceți o poză folosind în schimb <fallback>modul de bază al camerei video<\/fallback>"
-                    }
-                }
-            },
-            "upload_guide": {
-                "button_primary": "Faceți o poză",
-                "title": "Încărcați pagina cu poză a pașaportului"
-            }
-        },
-        "nfc_scan": {
-            "sheet": {
-                "success": "Scanare reușită"
-            }
-        },
-        "nfc_scan_error_can": {
-            "primary_button": "Ieşire din verificare",
-            "subtitle": "Ați atins numărul maxim de încercări pentru introducerea numărului CAN"
-        },
-        "nfc_scan_error_can:title": "Numărul maxim de încercări a fost atins",
-        "otp": {
-            "code_input": {
-                "error": {
-                    "code_expired": "Codul tău a expirat, te rugăm să ceri unul nou.",
-                    "code_invalid": "Cod greșit introdus, vă rugăm să încercați din nou.",
-                    "no_international_code": "Intrarea trebuie să fie în format internațional",
-                    "technical": "A apărut o eroare tehnică, vă rugăm încercați din nou mai târziu",
-                    "too_many_attempts": "Ai încercat acest cod de prea multe ori, te rugăm să ceri unul nou.",
-                    "wrong_code": "Cod greșit introdus, vă rugăm să încercați din nou"
-                },
-                "intro": "Aveți 5 minute pentru a valida codul trimis prin SMS la <phonenumber><\/phonenumber>",
-                "resend": {
-                    "cta": "Solicitați un cod nou",
-                    "cta_timeout": "Solicitați un cod nou (<timeout><\/timeout> secunde)",
-                    "label": "Cod trimis",
-                    "tracker": "<remaining><\/remaining> din <limit><\/limit>"
-                },
-                "title": "Parolă unică"
-            },
-            "error": {
-                "cta": "Înapoi",
-                "subtitle": "Vă rugăm să așteptați câteva secunde și încercați din nou",
-                "title": "Ceva nu a mers bine"
-            },
-            "failure": {
-                "cta": "Continuați",
-                "subtitle": "Nu mai putem verifica numărul dvs. de telefon",
-                "title": "Numărul de încercări permise a fost depășit"
-            },
-            "send_code": {
-                "cta": "Trimite codul",
-                "error": {
-                    "invalid_phone_number": "Vă rugăm să furnizați un număr de telefon valid.",
-                    "limit": "Ați atins limita de SMS-uri trimise",
-                    "phone_number_blocked": "Ne pare rău, nu acceptăm acest cod de țară",
-                    "technical": "A apărut o eroare tehnică, vă rugăm încercați din nou mai târziu"
-                },
-                "input_label": "Număr de telefon",
-                "intro": "Pentru a verifica numărul dvs. de telefon, vă vom cere să introduceți o parolă unică.",
-                "title": "Parolă unică"
-            }
-        },
-        "outro": {
-            "body": "Este tot ce avem nevoie pentru a începe verificarea identității dvs.",
-            "body_government_letter": "Furnizați întreaga pagină a documentului pentru rezultate mai bune",
-            "title": "Vă mulțumim"
-        },
-        "permission": {
-            "body_both": "Nu vă putem verifica fără a utiliza atât camera video, cât și microfonul dvs.",
-            "body_cam": "Nu vă putem verifica fără camera dvs. video",
-            "body_mic": "Nu vă putem verifica fără a utiliza microfonul dvs.",
-            "button_primary_both": "Activați ambele",
-            "button_primary_cam": "Activați camera video",
-            "button_primary_mic": "Activați microfonul",
-            "subtitle_both": "Când vi se solicită, trebuie să activați accesul la ambele pentru a continua",
-            "subtitle_cam": "Când vi se solicită, trebuie să activați accesul la camera video pentru a continua",
-            "subtitle_mic": "Când vi se solicită, trebuie să activați accesul la microfon pentru a continua",
-            "title_both": "Permiteți accesul la camera video și microfon",
-            "title_cam": "Permiteți accesul la camera video",
-            "title_mic": "Permiteți accesul la microfon"
-        },
-        "permission_recovery": {
-            "android": {
-                "browser_settings": {
-                    "title": "Soluția 1: Setările browserului"
-                },
-                "device_settings": {
-                    "list_item_1": "Pe dispozitivul dvs., deschideți aplicația <strong>Setări<\/strong>",
-                    "list_item_2": "Apăsați <strong>Aplicații<\/strong>",
-                    "list_item_3": "Atingeți <browser_icon><\/browser_icon>. Dacă nu îl găsiți, atingeți <strong>Vedeți toate aplicațiile<\/strong> sau <strong>Gestionați aplicațiile<\/strong> și selectați aplicația dvs. de navigare pe internet",
-                    "list_item_4": "Apăsați <strong>Permisiuni<\/strong>",
-                    "list_item_5_cam": "Apăsați <strong>Camera<\/strong> și selectați <strong>Permiteți<\/strong>",
-                    "list_item_5_mic": "Atingeți <strong>Microfonul<\/strong> și selectați <strong>Permiteți<\/strong>",
-                    "list_item_6": "Reveniți la această pagină și apăsați butonul <strong>Reîmprospătați pagina<\/strong>",
-                    "title": "Soluția 2: Setările dispozitivului"
-                },
-                "refresh_page": {
-                    "list_item_1_both": "Apăsați butonul <strong>Reîmprospătați pagina<\/strong>. Vi se va cere din nou să permiteți accesul la cameră și microfon. Când apare fereastra pop-up, selectați <strong>Permiteți<\/strong> (sau <strong>OK<\/strong>)",
-                    "list_item_1_cam": "Apăsați butonul <strong>Reîmprospătați pagina<\/strong>. Vi se va cere din nou să activați accesul la cameră. Când apare fereastra pop-up, selectați <strong>Permite<\/strong> (sau <strong>OK<\/strong>)",
-                    "list_item_1_mic": "Atingeți butonul <strong>Reîmprospătați pagina<\/strong>. Vi se va cere din nou să activați accesul la microfon. Când apare fereastra pop-up, selectați <strong>Permite<\/strong> (sau <strong>OK<\/strong>)"
-                }
-            },
-            "android_chrome": {
-                "browser_settings": {
-                    "list_item_1": "În browserul tău, apasă pe pictograma de setări <settings_icon_chrome><\/settings_icon_chrome> din bara de adrese",
-                    "list_item_2": "Apăsați <strong>Permisiuni<\/strong>",
-                    "list_item_3_cam": "Activați comutatorul de lângă <strong>Camera<\/strong>",
-                    "list_item_3_mic": "Activați comutatorul de lângă <strong>Microfon<\/strong>",
-                    "list_item_4": "Reveniți la această pagină și apăsați butonul <strong>Reîmprospătați pagina<\/strong>"
-                }
-            },
-            "android_firefox": {
-                "browser_settings": {
-                    "list_item_1": "În browserul tău, apasă pe pictograma de blocare <lock_icon><\/lock_icon> din bara de adrese",
-                    "list_item_2_cam": "Apăsați <strong>Blocat<\/strong> lângă <strong>Cameră<\/strong> pentru a comuta la <strong>Permis<\/strong>",
-                    "list_item_2_mic": "Apăsați <strong>Blocat<\/strong> lângă <strong>Microfon<\/strong> pentru a comuta la <strong>Permis<\/strong>",
-                    "list_item_3": "Reveniți la această pagină și apăsați butonul <strong>Reîmprospătați pagina<\/strong>",
-                    "title": "Soluția 2: Setările browserului"
-                },
-                "device_settings": {
-                    "title": "Soluția 3: Setările dispozitivului"
-                },
-                "refresh_page": {
-                    "title": "Soluția 1: Reîmprospătați pagina"
-                }
-            },
-            "android_generic": {
-                "browser_settings": {
-                    "list_item_1": "În browserul dvs., deschideți setările site-ului web. Aceasta este adesea o pictogramă de blocare <lock_icon><\/lock_icon> în bara de adrese",
-                    "list_item_2": "Găsiți secțiunea despre permisiuni",
-                    "list_item_3_cam": "Activați permisiunile pentru <strong>Camera<\/strong>",
-                    "list_item_3_mic": "Activați permisiunile pentru <strong>Microfon<\/strong>",
-                    "list_item_4": "Reveniți la această pagină și apăsați butonul <strong>Reîmprospătați pagina<\/strong>"
-                }
-            },
-            "android_samsung": {
-                "browser_settings": {
-                    "list_item_1": "În browserul tău, apasă pe pictograma de blocare <lock_icon><\/lock_icon> din bara de adrese",
-                    "list_item_2_cam": "Activați comutatorul de lângă <strong>Camera<\/strong>",
-                    "list_item_2_mic": "Activați comutatorul de lângă <strong>Microfon<\/strong>",
-                    "list_item_3": "Reveniți la această pagină și apăsați butonul <strong>Reîmprospătați pagina<\/strong>"
-                }
-            },
-            "button_primary": "Reîmprospătați",
-            "desktop": {
-                "browser_settings": {
-                    "title": "Soluția 1: Setările browserului"
-                },
-                "device_settings": {
-                    "title": "Soluția 2: Setările dispozitivului"
-                }
-            },
-            "desktop_chrome": {
-                "browser_settings": {
-                    "list_item_1": "În browserul dvs., faceți clic pe pictograma setărilor <settings_icon_chrome><\/settings_icon_chrome> în bara de adrese",
-                    "list_item_2_cam": "Activați comutatorul de lângă <strong>Camera<\/strong>",
-                    "list_item_2_mic": "Activați comutatorul de lângă <strong>Microfon<\/strong>",
-                    "list_item_3": "Reveniți la această pagină și faceți clic pe butonul <strong>Reîmprospătați pagina<\/strong>"
-                }
-            },
-            "desktop_edge": {
-                "browser_settings": {
-                    "list_item_1": "În browserul tău, fă clic pe pictograma de blocare <lock_icon><\/lock_icon> din bara de adrese",
-                    "list_item_2_cam": "Faceți clic pe meniul derulant de lângă <strong>Microfon<\/strong> și selectați <strong>Permiteți<\/strong>",
-                    "list_item_2_mic": "Faceți clic pe meniul derulant de lângă <strong>Microfon<\/strong> și selectați <strong>Permiteți<\/strong>",
-                    "list_item_3": "Reveniți la această pagină și faceți clic pe butonul <strong>Reîmprospătați pagina<\/strong>"
-                }
-            },
-            "desktop_firefox": {
-                "browser_settings": {
-                    "list_item_1": "În browserul dvs., faceți clic pe pictograma setări <settings_icon_firefox><\/settings_icon_firefox> din bara de adrese",
-                    "list_item_2_cam": "Faceți clic pe <strong>Blocat<\/strong> lângă <strong>Utilizați camera<\/strong>",
-                    "list_item_2_mic": "Faceți clic pe <strong>Blocat<\/strong> lângă <strong>Utilizați microfonul<\/strong>",
-                    "list_item_3": "Reveniți la această pagină și faceți clic pe butonul <strong>Reîmprospătați pagina<\/strong>"
-                }
-            },
-            "desktop_generic": {
-                "browser_settings": {
-                    "list_item_1": "În browserul dvs., deschideți setările site-ului web. Aceasta este adesea o pictogramă de blocare <lock_icon><\/lock_icon> în bara de adrese",
-                    "list_item_2": "Găsiți secțiunea despre permisiuni",
-                    "list_item_3_cam": "Activați permisiunile pentru <strong>Camera<\/strong>",
-                    "list_item_3_mic": "Activați permisiunile pentru <strong>Microfon<\/strong>",
-                    "list_item_4": "Reveniți la această pagină și faceți clic pe butonul <strong>Reîmprospătați pagina<\/strong>"
-                },
-                "device_settings": {
-                    "list_item_1": "Pe computerul dvs., deschideți <strong>Setările<\/strong>",
-                    "list_item_2": "Găsiți secțiunea despre permisiuni (de obicei sub <strong>Confidențialitate<\/strong>)",
-                    "list_item_3_cam": "Activați permisiunile pentru <strong>Camera<\/strong> pentru <browser_icon><\/browser_icon>",
-                    "list_item_3_mic": "Activați permisiunile pentru <strong>Microfon<\/strong> pentru <browser_icon><\/browser_icon>",
-                    "list_item_4": "Reporniți browserul dacă este necesar și reveniți la această pagină"
-                }
-            },
-            "desktop_mac": {
-                "device_settings": {
-                    "list_item_1": "Pe computerul dvs., faceți clic pe meniul Apple <apple_icon><\/apple_icon> și selectați <strong>Setări sistem<\/strong> (sau <strong>Preferințe sistem<\/strong>)",
-                    "list_item_2": "Faceți clic pe <strong>Confidențialitate și Securitate<\/strong> (sau <strong>Securitate și Confidențialitate<\/strong>) în bara laterală",
-                    "list_item_3": "Faceți clic pe <strong>Mai târziu<\/strong> în fereastra pop-up",
-                    "list_item_3_cam": "Faceți clic pe <strong>Camera<\/strong> și activați comutatorul (sau căsuța de selectare) de lângă <browser_icon><\/browser_icon>",
-                    "list_item_4": "Faceți clic pe <strong>Închideți și redeschideți<\/strong> în fereastra pop-up și reveniți la această pagină",
-                    "list_item_4_mic": "Faceți clic pe <strong>Microfon<\/strong> și activați comutatorul (sau căsuța de selectare) de lângă <browser_icon><\/browser_icon>"
-                }
-            },
-            "desktop_safari": {
-                "browser_settings": {
-                    "list_item_1": "În browserul tău, fă clic dreapta în bara de adrese și selectează <strong>Setări<\/strong>",
-                    "list_item_2_cam": "Faceți clic pe meniul derulant de lângă <strong>Camera<\/strong> și selectați <strong>Permiteți<\/strong>",
-                    "list_item_2_mic": "Faceți clic pe meniul derulant de lângă <strong>Microfon<\/strong> și selectați <strong>Permiteți<\/strong>",
-                    "list_item_3": "Reveniți la această pagină și faceți clic pe butonul <strong>Reîmprospătați pagina<\/strong>"
-                }
-            },
-            "desktop_windows": {
-                "device_settings": {
-                    "list_item_1": "Pe computerul dvs., faceți clic pe meniul Windows <windows_icon><\/windows_icon> și selectați <strong>Setări<\/strong> <settings_icon_windows><\/settings_icon_windows>",
-                    "list_item_2": "Faceți clic pe <strong>Confidențialitate<\/strong> (sau <strong>Confidențialitate & Securitate<\/strong>)",
-                    "list_item_3_cam": "Faceți clic pe <strong>Camera<\/strong> sub <strong>Permisiuni aplicație<\/strong> și activați comutatorul de lângă <browser_icon><\/browser_icon>",
-                    "list_item_3_mic": "Faceți clic pe <strong>Microfon<\/strong> sub <strong>Permisiuni aplicație<\/strong> și activați comutatorul de lângă <browser_icon><\/browser_icon>",
-                    "list_item_4": "Reporniți browserul dacă este necesar și reveniți la această pagină"
-                }
-            },
-            "info": "Recuperare",
-            "ios": {
-                "browser_settings": {
-                    "list_item_1_both": "Apăsați butonul <strong>Reîmprospătați pagina<\/strong>. Vi se va cere din nou să permiteți accesul la cameră și microfon. Când apare fereastra pop-up, selectați <strong>Permiteți<\/strong> (sau <strong>OK<\/strong>)",
-                    "list_item_1_cam": "Apăsați butonul <strong>Reîmprospătați pagina<\/strong>. Vi se va cere din nou să activați accesul la cameră. Când apare fereastra pop-up, selectați <strong>Permite<\/strong> (sau <strong>OK<\/strong>)",
-                    "list_item_1_mic": "Atingeți butonul <strong>Reîmprospătați pagina<\/strong>. Vi se va cere din nou să activați accesul la microfon. Când apare fereastra pop-up, selectați <strong>Permite<\/strong> (sau <strong>OK<\/strong>)"
-                },
-                "device_settings": {
-                    "list_item_1": "Pe dispozitivul dvs., deschideți aplicația <strong>Setări<\/strong>",
-                    "list_item_2": "Derulați prin listă și apăsați pe <browser_icon><\/browser_icon>",
-                    "list_item_3_cam": "Activați comutatorul de lângă <strong>Camera<\/strong>",
-                    "list_item_3_mic": "Activați comutatorul de lângă <strong>Microfon<\/strong>",
-                    "list_item_4": "Reveniți la această pagină și apăsați butonul <strong>Reîmprospătați pagina<\/strong>",
-                    "title": "Soluția 2: Setările dispozitivului"
-                },
-                "refresh_page": {
-                    "title": "Soluția 1: Reîmprospătați pagina"
-                }
-            },
-            "ios_safari": {
-                "device_settings": {
-                    "list_item_1": "Pe dispozitivul dvs., deschideți aplicația <strong>Setări<\/strong>",
-                    "list_item_2": "Derulați prin listă și apăsați pe <browser_icon><\/browser_icon>",
-                    "list_item_3_cam": "Apăsați <strong>Camera<\/strong> și selectați <strong>Permiteți<\/strong>",
-                    "list_item_3_mic": "Atingeți <strong>Microfonul<\/strong> și selectați <strong>Permiteți<\/strong>",
-                    "list_item_4": "Reveniți la această pagină și apăsați butonul <strong>Reîmprospătați pagina<\/strong>"
-                }
-            },
-            "list_header_both": "Urmați acești pași pentru a recupera acces pentru ambele:",
-            "list_header_cam": "Urmați acești pași pentru a recupera accesul la camera video:",
-            "list_item_action_cam": "Reîmprospătați această pagină pentru a începe din nou procesul de verificare a identității",
-            "list_item_how_to_both": "Permiteți accesul la camera video și microfonul dvs. din setările dvs. de browser",
-            "list_item_how_to_cam": "Permiteți accesul la camera dvs. video din setările dvs. de browser",
-            "list_item_how_to_mic": "Permiteți accesul la microfonul dvs. din setările dvs. de browser",
-            "subtitle_both": "Avem nevoie de acces la camera și microfonul dvs. pentru a vă verifica identitatea. Urmați instrucțiunile de mai jos pentru a recupera accesul",
-            "subtitle_cam": "Avem nevoie de acces la camera dvs. pentru a vă verifica identitatea. Urmați instrucțiunile de mai jos pentru a recupera accesul",
-            "subtitle_cam_old": "Recuperați accesul la camera video pentru a continua verificarea feței",
-            "subtitle_mic": "Avem nevoie de acces la microfonul dvs. pentru a vă verifica identitatea. Urmați instrucțiunile de mai jos pentru a recupera accesul",
-            "title_both": "Accesul la camera video și microfon este refuzat",
-            "title_cam": "Accesul la camera video este refuzat",
-            "title_mic": "Accesul la microfon este refuzat",
-            "web": {
-                "button_primary": "Reîmprospătați pagina",
-                "disclaimer": "Procesul de verificare a identității ar putea fi repornit. Ne pare rău pentru orice neplăcere"
-            }
-        },
-        "photo_upload": {
-            "body_accommodation_tenancy_certificate": "Oferiți întreaga pagină a documentului pentru cele mai bune rezultate",
-            "body_address_certificate_back": "Încărcați partea din spate a documentului de pe computerul dvs.",
-            "body_address_certificate_front": "Încărcați fața documentului de pe computerul dvs.",
-            "body_bank_statement": "Furnizați întreaga pagină a documentului pentru mai bune rezultate",
-            "body_benefits_letter": "Furnizați întreaga pagină a documentului pentru mai bune rezultate",
-            "body_bill": "Furnizați întreaga pagină a documentului pentru mai bune rezultate",
-            "body_exchange_house_statement": "Oferiți întreaga pagină a documentului pentru cele mai bune rezultate",
-            "body_general_letter": "Oferiți întreaga pagină a documentului pentru cele mai bune rezultate",
-            "body_generic_document_back": "Încărcați pagina verso a documentului din computerul dvs.",
-            "body_generic_document_front": "Încărcați pagina din față a documentului din computerul dvs.",
-            "body_id_back": "Încărcați pagina verso a cardului din computerul dvs.",
-            "body_id_front": "Încărcați pagina față a cardului din computerul dvs.",
-            "body_identity_document_with_address": "Oferiți întreaga pagină a documentului pentru cele mai bune rezultate",
-            "body_identity_document_with_address_back": "Încărcați partea din spate a documentului de pe computerul dvs.",
-            "body_identity_document_with_address_front": "Încărcați fața documentului de pe computerul dvs.",
-            "body_insurance_statement": "Oferiți întreaga pagină a documentului pentru cele mai bune rezultate",
-            "body_license_back": "Încărcați pagina verso a permisului de conducere din computerul dvs.",
-            "body_license_front": "Încărcați pagina față a permisului de conducere din computerul dvs.",
-            "body_mobile_phone_bill": "Oferiți întreaga pagină a documentului pentru cele mai bune rezultate",
-            "body_mortgage_statement": "Oferiți întreaga pagină a documentului pentru cele mai bune rezultate",
-            "body_passport": "Încărcați pagina cu poză a pașaportului din computerul dvs.",
-            "body_pension_property_statement_letter": "Oferiți întreaga pagină a documentului pentru cele mai bune rezultate",
-            "body_selfie": "Încărcați o poză selfie din computerul dvs.",
-            "body_tax_letter": "Furnizați întreaga pagină a documentului pentru mai bune rezultate",
-            "button_take_photo": "Faceți poză",
-            "button_upload": "Încărcați",
-            "title_selfie": "Poză selfie"
-        },
-        "poa_cancel": "Anulați",
-        "poa_capture": {
-            "country_select.icon_info_accessibility": "Informație:"
-        },
-        "poa_err_invalid_file": {
-            "message": "Vă rugăm să alegeți un fișier diferit.",
-            "ok": "OK",
-            "title": "Fișier nevalid"
-        },
-        "poa_guidance": {
-            "button_primary": "Continuați",
-            "instructions": {
-                "address": "Adresa actuală",
-                "full_name": "Numele complet",
-                "issue_date": "Data emiterii sau perioadă centralizatoare",
-                "label": "Capturați întregul document și asigurați-vă că arată în mod clar:",
-                "logo": "Logo"
-            },
-            "instructions_address_card_issue_date": "Data emiterii",
-            "instructions_expiry_date": "Data expirării, dacă este cazul",
-            "instructions_full_address": "Adresa completă",
-            "subtitle_address_card": "Trebuie să fie un card de adresă valid",
-            "subtitle_bank_statement": "Trebuie să fie emis în ultimele 3 luni",
-            "subtitle_benefits_letter": "Trebuie să fie emis în ultimele 12 luni",
-            "subtitle_bill": "Trebuie să fi fost emis în ultimele 3 luni",
-            "subtitle_dynamic_empty_grace_period": "Trebuie să fie un document valid",
-            "subtitle_dynamic_grace_period": "Trebuie să fie eliberat în ultimele <graceperiod><\/graceperiod> luni",
-            "subtitle_tax_letter": "Trebuie să fie emis în ultimele 12 luni"
-        },
-        "poa_intro": {
-            "button_primary": "Începeți verificarea",
-            "list_matches_signup": "Se potrivește cu adresa pe care ați utilizat-o pentru a vă înregistra",
-            "list_most_recent": "Este documentul dvs. recent",
-            "list_shows_address": "Arată adresa dvs. actuală",
-            "subtitle": "Aveți nevoie de un document care:",
-            "title": "Haideți să vă verificăm adresa"
-        },
-        "poa_welcome_text": "Faceți o poză a unui document cu adresa dvs.",
-        "profile_data": {
-            "address_title": "Adăugați adresa dvs.",
-            "button_continue": "Continuați",
-            "components": {
-                "country_residence_select": {
-                    "placeholder": "Selectați o țară"
-                },
-                "country_select": {
-                    "placeholder": "Selectați o țară"
-                },
-                "id_type_select": {
-                    "aus_specific": {
-                        "other": "Pașaport străin"
-                    },
-                    "bra_specific": {
-                        "other": "CNPJ",
-                        "tax_id": "CPF"
-                    },
-                    "driving_license": "Permis de conducere",
-                    "esp_specific": {
-                        "identity_card": "NIF\/DNI"
-                    },
-                    "gha_specific": {
-                        "social_insurance": "SSNIT"
-                    },
-                    "identity_card": "Carte de identitate",
-                    "ind_specific": {
-                        "tax_id": "Număr personal de cont (PAN)"
-                    },
-                    "ken_specific": {
-                        "other": "Carte de extraterestru"
-                    },
-                    "nga_specific": {
-                        "identity_card": "Numărul național de identificare (NIN)",
-                        "other": "BVN",
-                        "tax_id": "TIN"
-                    },
-                    "other": "NIE",
-                    "passport": "Pașaport",
-                    "placeholder": "Selectați un tip de identitate națională",
-                    "tax_id": "Cod fiscal",
-                    "voter_id": "ID alegătorului"
-                },
-                "nationality_select": {
-                    "placeholder": "Selectați o țară"
-                },
-                "pan": {
-                    "placeholder": "ABCDE1234F"
-                },
-                "ssn": {
-                    "placeholder": "123-45-6789"
-                },
-                "state_select": {
-                    "placeholder": "Selectați un stat"
-                }
-            },
-            "country_of_residence_title": "Țara dvs. de reședință",
-            "field_labels": {
-                "arg_specific": {
-                    "national_id_value": "numarul DNI"
-                },
-                "can_specific": {
-                    "national_id_value": "Numărul de asigurări sociale (SIN)"
-                },
-                "chl_specific": {
-                    "national_id_value": "numere RUT \/ RUN"
-                },
-                "chn_specific": {
-                    "national_id_value": "Număr de rezident Carte de identitate"
-                },
-                "col_specific": {
-                    "national_id_value": "Număr personal de identificare columbian"
-                },
-                "country": "Țară",
-                "country_residence": "Țară",
-                "dnk_specific": {
-                    "national_id_value": "Numărul CPR"
-                },
-                "dob": "Data nașterii",
-                "email": "E-mail",
-                "fin_specific": {
-                    "national_id_value": "Cod personal de identitate"
-                },
-                "first_name": "Prenume",
-                "gbr_specific": {
-                    "postcode": "Cod poștal",
-                    "town": "Oraș\/Localitate"
-                },
-                "hkg_specific": {
-                    "national_id_value": "HKID"
-                },
-                "ind_specific": {
-                    "pan": "Număr de cont permanent (PAN)"
-                },
-                "ita_specific": {
-                    "national_id_value": "Cod fiscal"
-                },
-                "jpn_specific": {
-                    "national_id_value": "„Numărul meu”\/Codul de înregistrare a rezidenților"
-                },
-                "last_name": "Nume de familie",
-                "line1": "Linie adresă 1",
-                "line2": "Linie adresă 2",
-                "line3": "Linie adresă 3",
-                "lux_specific": {
-                    "national_id_value": "Cod numeric personal"
-                },
-                "mobile_number": "Telefonul mobil",
-                "national_id_type": "Tipul de identitate națională",
-                "national_id_value": "Număr național de identitate",
-                "nationality": "Naționalitatea",
-                "phl_specific": {
-                    "national_id_value": "Numărul cardului PhilSys (PCN)"
-                },
-                "phone_number": "Număr de telefon",
-                "pol_specific": {
-                    "national_id_value": "Numărul PESEL"
-                },
-                "postcode": "Cod poștal",
-                "prt_specific": {
-                    "national_id_value": "Cod fiscal"
-                },
-                "town": "Oraș\/Localitate",
-                "tur_specific": {
-                    "national_id_value": "Număr de identificare turc"
-                },
-                "usa_specific": {
-                    "line1_helper_text": "Adresă stradă, de exemplu: 200 Albert Street",
-                    "line2_helper_text": "Apartament, birou, bloc etc.",
-                    "postcode": "Cod poștal",
-                    "ssn": "Numărul de asigurare socială (SSN)",
-                    "state": "Stat",
-                    "town": "Oraș"
-                }
-            },
-            "field_optional": "(opțional)",
-            "field_validation": {
-                "arg_specific": {
-                    "invalid_national_id_value": "Vă rugăm să introduceți un DNI valid"
-                },
-                "bra_specific": {
-                    "invalid_other": "Vă rugăm să introduceți un valid CNPJ",
-                    "invalid_tax_id": "Vă rugăm să introduceți un valid CPF",
-                    "required_other": "Vă rugăm să introduceți CNPJ-ul dvs",
-                    "required_tax_id": "Vă rugăm să introduceți CPF-ul dvs"
-                },
-                "can_specific": {
-                    "invalid_national_id_value": "Vă rugăm să introduceți un valid SIN",
-                    "required_national_id_value": "Vă rugăm să introduceți NAS-ul dvs"
-                },
-                "chl_specific": {
-                    "invalid_national_id_value": "Vă rugăm să introduceți un numere RUT\/RUN valide",
-                    "required_national_id_value": "Vă rugăm să introduceți numerele dvs. RUT \/ RUN"
-                },
-                "chn_specific": {
-                    "invalid_national_id_value": "Vă rugăm să introduceți un număr valid de carte de identitate de rezident",
-                    "required_national_id_value": "Vă rugăm să introduceți numărul cărții dvs. de identitate de rezident"
-                },
-                "col_specific": {
-                    "invalid_national_id_value": "Vă rugăm să introduceți un număr de identificare personal columbian valid",
-                    "required_national_id_value": "Vă rugăm să introduceți numărul dvs. personal de identificare columbian"
-                },
-                "dnk_specific": {
-                    "invalid_national_id_value": "Vă rugăm să introduceți un număr CPR valid",
-                    "required_national_id_value": "Vă rugăm să introduceți numărul dvs. CPR"
-                },
-                "esp_specific": {
-                    "invalid_identity_card": "Vă rugăm să introduceți un valid NIF\/DNI",
-                    "invalid_other": "Vă rugăm să introduceți un valid NIE",
-                    "required_identity_card": "Vă rugăm să introduceți NIF\/DNI"
-                },
-                "fin_specific": {
-                    "invalid_national_id_value": "Vă rugăm să introduceți un cod de identitate personal valid",
-                    "required_national_id_value": "Vă rugăm să introduceți codul personal de identitate"
-                },
-                "gbr_specific": {
-                    "invalid_postcode": "Vă rugăm să introduceți un poștal valid",
-                    "required_postcode": "Vă rugăm să introduceți codul dvs. poștal",
-                    "too_long_postcode": "Codul poștal este prea lung",
-                    "too_short_postcode": "Codul poștal este prea scurt"
-                },
-                "gha_specific": {
-                    "invalid_social_insurance": "Vă rugăm să introduceți un SSNIT valid",
-                    "required_social_insurance": "Vă rugăm să introduceți SSNIT"
-                },
-                "hkg_specific": {
-                    "invalid_national_id_value": "Vă rugăm să introduceți un HKID valid",
-                    "required_national_id_value": "Vă rugăm să introduceți HKID"
-                },
-                "ind_specific": {
-                    "invalid_pan": "Vă rugăm să introduceți un PAN valid",
-                    "required_pan": "Vă rugăm să introduceți numărul PAN"
-                },
-                "invalid": "Vă rugăm să verificați să nu fie caractere sau simboluri nevalide",
-                "invalid_dob": "Vă rugăm să introduceți o dată de naștere validă",
-                "invalid_driving_license": "Vă rugăm să introduceți un număr valid de permis de conducere",
-                "invalid_email": "Vă rugăm să introduceți un e-mail valid",
-                "invalid_mobile_number": "Vă rugăm să introduceți un număr de telefon valid",
-                "invalid_national_id_value": "Vă rugăm să introduceți un număr național de identitate valid",
-                "invalid_passport": "Vă rugăm să introduceți un număr de pașaport valid",
-                "invalid_phone_number": "Vă rugăm să introduceți un număr de telefon valid",
-                "invalid_voter_id": "Vă rugăm să introduceți un număr valid de identificare a alegătorului",
-                "ita_specific": {
-                    "invalid_national_id_value": "Vă rugăm să introduceți un cod fiscal valid",
-                    "required_national_id_value": "Vă rugăm să introduceți codul fiscal"
-                },
-                "jpn_specific": {
-                    "invalid_national_id_value": "Vă rugăm să introduceți un „Numărul meu”\/un cod de înregistrare de rezident valid",
-                    "required_national_id_value": "Vă rugăm să introduceți codul dvs. \"Numărul meu\" \/ Codul de înregistrare a rezidenței"
-                },
-                "ken_specific": {
-                    "invalid_other": "Vă rugăm să introduceți un număr valid de card Alien",
-                    "required_other": "Vă rugăm să introduceți numărul dvs. de Alien Card"
-                },
-                "lux_specific": {
-                    "invalid_national_id_value": "Vă rugăm să introduceți un număr de securitate socială valid",
-                    "required_national_id_value": "Vă rugăm să introduceți numărul dvs. de securitate socială"
-                },
-                "mex_specific": {
-                    "invalid_identity_card": "Vă rugăm să introduceți un valid CURP",
-                    "invalid_tax_id": "Vă rugăm să introduceți un valid RFC",
-                    "required_identity_card": "Vă rugăm să introduceți CURP",
-                    "required_tax_id": "Vă rugăm să introduceți RFC"
-                },
-                "mys_specific": {
-                    "invalid_national_id_value": "Vă rugăm să introduceți un NRIC valid",
-                    "required_national_id_value": "Vă rugăm să introduceți NRIC-ul dvs"
-                },
-                "nga_specific": {
-                    "invalid_identity_card": "Vă rugăm să introduceți un număr național de identificare (NIN) valid",
-                    "invalid_other": "Vă rugăm să introduceți un BVN valid",
-                    "invalid_tax_id": "Vă rugăm să introduceți un TIN valid",
-                    "required_identity_card": "Vă rugăm să introduceți numărul dvs. național de identificare (NIN)",
-                    "required_other": "Vă rugăm să introduceți BVN-ul dvs",
-                    "required_tax_id": "Vă rugăm să introduceți TIN-ul dvs"
-                },
-                "phl_specific": {
-                    "invalid_national_id_value": "Vă rugăm să introduceți un număr valid de card PhilSys (PCN)",
-                    "required_national_id_value": "Vă rugăm să introduceți numărul cardului PhilSys (PCN)"
-                },
-                "pol_specific": {
-                    "invalid_national_id_value": "Vă rugăm să introduceți un număr PESEL valid",
-                    "required_national_id_value": "Vă rugăm să introduceți numărul dvs. PESEL"
-                },
-                "prt_specific": {
-                    "invalid_national_id_value": "Vă rugăm să introduceți un număr de taxe valid",
-                    "required_national_id_value": "Vă rugăm să introduceți numărul dvs. fiscal"
-                },
-                "reference": {
-                    "translation": "Vă rugăm să introduceți un valid"
-                },
-                "required_consent": "Vă rugăm să fiți de acord să autorizați verificarea identității și a fraudei",
-                "required_country": "Vă rugăm să selectați o țară",
-                "required_country_residence": "Vă rugăm să selectați o țară",
-                "required_dob": "Vă rugăm să introduceți data dvs. de naștere",
-                "required_email": "Vă rugăm să introduceți e-mailul dvs.",
-                "required_first_name": "Vă rugăm să introduceți prenumele dvs.",
-                "required_last_name": "Vă rugăm să introduceți numele dvs. de familie",
-                "required_line1": "Vă rugăm să introduceți adresa dvs.",
-                "required_mobile_number": "Vă rugăm să verificați dacă numărul dvs. este corect",
-                "required_national_driving_license": "Vă rugăm să introduceți numărul permisului de conducere",
-                "required_national_id_type": "Vă rugăm să selectați tipul dvs. de identitate națională",
-                "required_national_id_value": "Vă rugăm să introduceți numărul dvs. național de identitate",
-                "required_national_passport": "Vă rugăm să introduceți numărul de pașaport",
-                "required_national_voter_id": "Vă rugăm să introduceți numărul dvs. de identificare de alegător",
-                "required_nationality": "Vă rugăm să selectați o țară",
-                "required_phone_number": "Vă rugăm să introduceți numărul dvs. de telefon",
-                "required_postcode": "Vă rugăm să introduceți codul dvs. poștal",
-                "sgp_specific": {
-                    "invalid_national_id_value": "Vă rugăm să introduceți un valid NRIC",
-                    "required_national_id_value": "Vă rugăm să introduceți NRIC-ul dvs"
-                },
-                "swe_specific": {
-                    "invalid_national_id_value": "Vă rugăm să introduceți un valid PIN",
-                    "required_national_id_value": "Vă rugăm să introduceți codul PIN"
-                },
-                "too_long_first_name": "Prenumele este prea lung",
-                "too_long_last_name": "Numele de familie este prea lung",
-                "too_long_line1": "Linia adresă este prea lungă",
-                "too_long_postcode": "Codul poștal este prea lung",
-                "too_long_town": "Numele orașului este prea lung",
-                "too_short_first_name": "Prenumele este prea scurt",
-                "too_short_last_name": "Numele de familie este prea scurt",
-                "too_short_postcode": "Codul poștal este prea scurt",
-                "tur_specific": {
-                    "invalid_national_id_value": "Vă rugăm să introduceți un număr de identitate turc valid",
-                    "required_national_id_value": "Vă rugăm să introduceți numărul dvs. de identificare turcesc"
-                },
-                "usa_specific": {
-                    "invalid_ssn": "Vă rugăm să introduceți un SSN valid",
-                    "required_ssn": "Vă rugăm să introduceți numărul SSN",
-                    "required_state": "Vă rugăm să selectați un stat"
-                }
-            },
-            "national_id_number_title": "Adăugați numărul dvs. național de identitate",
-            "personal_information_title": "Adăugați informațiile dvs. personale",
-            "prompt": {
-                "details_timeout": "Începeți din nou",
-                "header_timeout": "Se pare că acțiunea dvs. a durat prea mult"
-            }
-        },
-        "qes": {
-            "consent": {
-                "common": {
-                    "steps": "Creează-ți semnătura"
-                },
-                "confirmation": {
-                    "bullet_1": "După ce ați citit documentul, apăsați butonul \"Semnați documentul\".",
-                    "bullet_2": "Odată ce Onfido îți verifică identitatea, semnătura ta va fi folosită pe acest document.",
-                    "button_next_step": "Semnează documentul",
-                    "review_document": "Revizuiți <fallback>documentul dvs.<\/fallback> pentru a semna",
-                    "step2": "2 din 2",
-                    "steps": "Semnează-ți documentul",
-                    "subtitle": "Pentru a confirma identitatea dumneavoastră în conformitate cu regulile europene, trebuie să semnați digital un document.",
-                    "title": "Creează și folosește semnătura ta digitală"
-                },
-                "introduction": {
-                    "button_confirmation_step": "Creează-mi semnătura",
-                    "certificate_application_form": "Formular de cerere pentru certificat",
-                    "privacy_notice": "Notificare de confidențialitate",
-                    "step1": "1 din 2",
-                    "subtitle": "Pentru a confirma identitatea dumneavoastră în conformitate cu regulile europene, trebuie să semnați digital un document.",
-                    "terms_and_conditions": "Termeni și condiții",
-                    "third_party_description": "<fallback>Namirial SpA<\/fallback> este un furnizor global de încredere care va emite un certificat pentru validarea semnăturii dvs. electronice.",
-                    "title": "Creează și folosește semnătura ta digitală",
-                    "validation": "Consimțământ necesar"
-                }
-            },
-            "error": {
-                "misconfigured": "Din păcate, a apărut o eroare. Vă rugăm să contactați suportul dvs."
-            }
-        },
-        "qes_consent": {
-            "button": "Creează-mi semnătura",
-            "link_certificate": "Formular de cerere pentru certificat",
-            "link_privacy_notice": "Notificare de confidențialitate",
-            "link_terms_and_conditions": "Termeni și condiții",
-            "namirial_intro": "Namirial SpA este un furnizor global de încredere care va emite un certificat pentru validarea semnăturii electronice.",
-            "subtitle": "Pentru a vă confirma identitatea în conformitate cu regulile europene, trebuie să semnați digital un document.",
-            "title": "Creați și utilizați semnătura dvs. digitală"
-        },
-        "qes_sign": {
-            "button": "Semnează documentul",
-            "link_document": "Revizuiți documentul pentru a semna",
-            "list_item_1": "După ce ați citit documentul, apăsați butonul \"Semnați documentul\".",
-            "list_item_2": "Odată ce Onfido îți verifică identitatea, semnătura ta va fi folosită pe acest document.",
-            "step_title": "Semnează-ți documentul",
-            "subtitle": "Pentru a vă confirma identitatea în conformitate cu regulile europene, trebuie să semnați digital un document.",
-            "title": "Creați și utilizați semnătura dvs. digitală"
-        },
-        "retry": {
-            "button": {
-                "generic_selfie_issue": "Încercați din nou"
-            },
-            "description": {
-                "default": "Vă rugăm să încercați din nou",
-                "expired_document": "Vă rugăm să încercați din nou cu un document de identitate cu poză valabil și asigurați-vă că informațiile dvs. sunt clar vizibile",
-                "generic_document_issue": "Vă rugăm să încercați din nou cu un document de identitate cu poză valabil și asigurați-vă că informațiile dvs. sunt clar vizibile",
-                "generic_selfie_issue": "Vă rugăm să încercați din nou și asigurați-vă că fața dvs. este vizibilă și bine luminată",
-                "unaccepted_document": "Vă rugăm să încercați din nou cu un document de identitate cu poză valabil și asigurați-vă că informațiile dvs. sunt clar vizibile"
-            },
-            "headline": {
-                "default": "A fost o problemă",
-                "expired_document": "Documentul dvs. a expirat",
-                "generic_document_issue": "A apărut o problemă cu documentul tău",
-                "generic_selfie_issue": "A existat o problemă cu selfie-ul tău",
-                "unaccepted_document": "Document neacceptat"
-            }
-        },
-        "retry_feedback": {
-            "button_primary": "Încercați din nou"
-        },
-        "retry_feedback_custom": {
-            "subtitle": "Vă rugăm să încercați din nou cu un document de identitate cu poză valabil și asigurați-vă că informațiile dvs. sunt clar vizibile",
-            "title": "Documentul dvs. a expirat"
-        },
-        "retry_feedback_id_expired": {
-            "subtitle": "Vă rugăm să încercați din nou cu un document de identitate cu poză valabil și asigurați-vă că informațiile dvs. sunt clar vizibile",
-            "title": "Documentul dvs. a expirat"
-        },
-        "retry_feedback_id_generic": {
-            "subtitle": "Vă rugăm să încercați din nou cu un document de identitate cu poză valabil și asigurați-vă că informațiile dvs. sunt clar vizibile",
-            "title": "A survenit o problemă cu documentul dvs."
-        },
-        "retry_feedback_id_unaccepted": {
-            "subtitle": "Vă rugăm să încercați din nou cu un document de identitate cu poză valabil și asigurați-vă că informațiile dvs. sunt clar vizibile",
-            "title": "Document neacceptat"
-        },
-        "retry_feedback_selfie_generic": {
-            "subtitle": "Vă rugăm să încercați din nou și asigurați-vă că fața dvs. este vizibilă și bine luminată",
-            "title": "A survenit o problemă cu poza dvs. selfie"
-        },
-        "selfie_capture": {
-            "alert": {
-                "camera_inactive": {
-                    "detail": "Verificați dacă este conectată și funcțională. Puteți, de asemenea, <fallback>continua verificarea pe telefonul dvs.<\/fallback>",
-                    "detail_no_fallback": "Asigurați-vă că dispozitivul dvs. are o cameră video funcțională",
-                    "title": "Camera video nu funcționează?"
-                },
-                "camera_not_working": {
-                    "detail": "Poate fi deconectată. <fallback>Încercați să vă folosiți telefonul în schimb<\/fallback>.",
-                    "detail_no_fallback": "Asigurați-vă că funcția cameră video a dispozitivului dvs. funcționează",
-                    "title": "Camera video nu funcționează"
-                },
-                "timeout": {
-                    "detail": "Nu uitați să apăsați butonul când terminați. <fallback>Refaceți acțiunile video<\/fallback>",
-                    "title": "Se pare că acțiunea dvs. a durat prea mult"
-                }
-            },
-            "body": "Mențineți fața în oval",
-            "button_accessibility": "Faceți o poză",
-            "button_primary": "Începeți scanarea feței",
-            "frame_accessibility": "Vizualizați din camera video",
-            "title": "Mențineți fața în oval"
-        },
-        "selfie_confirmation": {
-            "image_accessibility": "Poza feței dvs.",
-            "subtitle": "Asigurați-vă că întreaga față este vizibilă",
-            "title": "Verificați poza dvs. selfie"
-        },
-        "selfie_intro": {
-            "banner_nudity_message": "Fața și fundalul dvs. vor fi capturate în timpul acestui proces",
-            "button_primary": "Continuați",
-            "list_accessibility": "Sugestii pentru a face o poză selfie bună",
-            "list_item_face_forward": "Uitați-vă înainte și asigurați-vă că ochii dvs. sunt clar vizibili",
-            "list_item_no_face_cover": "Îndepărtați tot ce vă acoperă fața. Ochelarii sunt acceptați",
-            "list_item_no_glasses": "Dați-vă jos ochelarii dacă este necesar",
-            "subtitle": "Vom compara această imagine cu documentul dvs.",
-            "title": "Faceți o poză selfie"
-        },
-        "sid": {
-            "passkey": {
-                "fail": {
-                    "button": "Începeți verificarea",
-                    "content": "Vom solicita unele documente și informații personale de la dvs., care ne pot ajuta să știm că sunteți cine spuneți că sunteți.",
-                    "disclaimer": "Vei putea seta această verificare pentru a fi reutilizabilă la sfârșitul fluxului.",
-                    "subtitle": "Ne pare rău, nu puteți sări peste acest proces, vă rugăm să treceți prin procesul de verificare a identității:",
-                    "title": "Nu există o verificare utilizabilă disponibilă"
-                },
-                "success": {
-                    "biophoto": "O fotografie cu fața ta pentru a dovedi că ești o persoană reală",
-                    "biovideo": "O înregistrare a feței tale pentru a dovedi că ești o persoană reală",
-                    "button": "Continuați",
-                    "datacapture": "Unele informații personale",
-                    "document": "Un document de identitate valid emis de guvern",
-                    "drivinglicense": "Un permis de conducere valid emis de guvern",
-                    "proofofaddress": "Un document valid care poate servi drept dovadă a adresei",
-                    "title": "Verificarea anterioară a fost găsită!"
-                }
-            }
-        },
-        "sms_sent": {
-            "info": "Sugestii",
-            "info_link_expire": "Linkul dvs. va expira într-o oră",
-            "info_link_window": "Mențineți această fereastră deschisă în timp ce vă utilizați telefonul mobil",
-            "link": "Încercați o altă metodă",
-            "subtitle": "Am trimis un link sigur la <number><\/number>",
-            "subtitle_minutes": "Ar putea să dureze câteva minute să îl primiți",
-            "title": "Verificați telefonul dvs. mobil"
-        },
-        "switch_phone": {
-            "info": "Sugestii",
-            "info_link_expire": "Linkul dvs. pentru telefonul mobil va expira într-o oră",
-            "info_link_refresh": "Nu reîmprospătați această pagină",
-            "info_link_window": "Mențineți această fereastră deschisă în timp ce vă utilizați telefonul mobil",
-            "link": "Anulează",
-            "subtitle": "Odată ce ați terminat, vom trece la următorul pas",
-            "title": "Conectat la telefonul dvs. mobil"
-        },
-        "upload_guide": {
-            "button_primary": "Continuați",
-            "image_detail_blur_alt": "Exemplu de document încețoșat",
-            "image_detail_blur_label": "Toate detaliile trebuie să fie clare — nimic cețos",
-            "image_detail_cutoff_label": "Arătați toate detaliile — includeți cele 2 linii de jos",
-            "image_detail_glare_label": "Nu stați în lumină directă — fără luciri",
-            "image_detail_good_label": "Poza trebuie să arate clar documentul dvs.",
-            "subtitle": "Scanările și fotocopiile nu sunt acceptate",
-            "title": "Trimiteți pagina cu fotografia din pașaport"
-        },
-        "user_consent": {
-            "button_primary": "Accept",
-            "button_secondary": "Do not accept",
-            "prompt": {
-                "button_primary": "Review again",
-                "button_secondary": "Yes, don’t verify me",
-                "no_consent_detail": "If you do not accept Onfido’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
-                "no_consent_title": "Are you sure?"
-            }
-        },
-        "user_consent_load_fail": {
-            "button_primary": "Reload screen",
-            "detail": "Check that your connection is stable, then try again",
-            "title": "Content failed to load"
-        },
-        "video_capture": {
-            "body": "Mențineți fața în oval",
-            "body_record": "Apăsați butonul când sunteți gata",
-            "body_stop": "Apăsați stop când ați terminat",
-            "button_primary_finish": "Finalizați înregistrarea",
-            "button_primary_next": "Următorul pas",
-            "button_primary_start": "Începeți înregistrarea",
-            "button_record_accessibility": "Începeți înregistrarea",
-            "frame_accessibility": "Vizualizați din camera video",
-            "header": {
-                "challenge_digit_instructions": "Spuneți fiecare cifră cu voce tare",
-                "challenge_turn_forward": "apoi să vă uitați înainte",
-                "challenge_turn_left": "Întoarceți capul spre stânga",
-                "challenge_turn_right": "Întoarceți capul spre dreapta"
-            },
-            "prompt": {
-                "header_timeout": "Se pare că acțiunea dvs. a durat prea mult"
-            }
-        },
-        "video_confirmation": {
-            "body": "Clipul dvs. video a fost înregistrat",
-            "button_primary": "Înregistrați un clip video",
-            "button_secondary": "Faceți clipul video din nou",
-            "title": "Verificați clipul dvs. video",
-            "video_accessibility": "Redați din nou clipul dvs. înregistrat"
-        },
-        "video_intro": {
-            "button_pause_accessibility": "Pauză animație ilustrativă a procedurii de scanare",
-            "button_play_accessibility": "Redă animația ilustrativă a procedurii de scanare",
-            "button_primary": "Înregistrați un clip video",
-            "list_accessibility": "Acțiuni pentru a verifica un clip video selfie",
-            "list_item_actions": "Aveți 20 de secunde să finalizați",
-            "list_item_speak": "Urmați instrucțiunile pentru a vă mișca sau a vorbi",
-            "title": "Înregistrați un clip video",
-            "video_accessibility": "Clip video dat ca exemplu al unei persoane care înregistrează un clip video selfie. Pentru a înregistra un clip video selfie, uitați-vă la camera video din față și țineți telefonul dvs. puțin la distanță de fața dvs. Apoi trebuie să spuneți niște numere și să întoarceți capul în conformitate cu instrucțiunile de pe ecran."
-        },
-        "welcome": {
-            "doc_video_subtitle": "Ar trebui să dureze câteva minute",
-            "info_original_document": "Faceți o fotografie a documentului original. Nu sunt permise scanările, fotografiile de pe ecran sau fotocopiile.",
-            "list_header": "Utilizați dispozitivul dvs. pentru:",
-            "list_header_doc_video": "Utilizați dispozitivul dvs. pentru înregistra:",
-            "list_header_webcam": "Utilizați camera dvs. web sau telefonul dvs. pentru a face o poză:",
-            "list_item_doc": "documentul dvs. de identitate",
-            "list_item_doc_generic": "Înregistrați un videoclip cu documentul dvs. de identitate",
-            "list_item_doc_photo": "A face o poză cu documentul dvs. de identitate",
-            "list_item_doc_video": "Înregistrați un clip video cu documentul dvs. de identitate",
-            "list_item_doc_video_timeout": "Înregistrarea este limitată la <timeout><\/timeout> secunde",
-            "list_item_face_photo": "A face o poză a feței dvs.",
-            "list_item_face_video": "A înregistra un clip video cu fața dvs.",
-            "list_item_poa": "dovada dvs. de adresă",
-            "list_item_selfie": "fața dvs.",
-            "next_button": "Alegeți documentul",
-            "start_workflow_button": "Începeți verificarea",
-            "start_workflow_button_trial": "Începeți verificarea (TEST)",
-            "subtitle": "Ar trebui să dureze câteva minute",
-            "title": "Verificați identitatea dvs.",
-            "trial_message": "Nu partajați date personale aici decât dacă sunteți angajat într-un proces Onfido."
-        },
-        "workflow_complete": {
-            "pass": {
-                "description": "Am reușit să vă verificăm identitatea",
-                "title": "Reușit"
-            },
-            "reject": {
-                "description": "Nu am reușit să vă verificăm identitatea",
-                "title": "Respins"
-            }
-        },
-        "workflow_erros": {
-            "generic_title": "A survenit o eroare de server!",
-            "no_workflow_run_id": "ID-ul de executare flux de lucru nu este setat.",
-            "reload_app": "Vă rugăm să încercați să reîncărcați aplicația și încercați din nou.",
-            "task_not_completed": "Imposibilitate de a finaliza sarcina de flux de lucru.",
-            "task_not_retrieved": "Imposibilitate de a relua sarcina de flux de lucru.",
-            "task_not_supported": "Sarcina nu este în mod prezent acoperită"
-        }
+  "avc_confirmation": {
+    "button_primary_upload": "Încărcați înregistrarea",
+    "subtitle": "Un clip video cu fața dvs. a fost înregistrat cu succes",
+    "title": "Înregistrare finalizată"
+  },
+  "avc_connection_error": {
+    "button_primary_reload": "Reîncărcați instrucțiunile",
+    "button_primary_retry_upload": "Încercați din nou să încărcați",
+    "button_secondary_restart_recording": "Începeți din nou înregistrarea",
+    "subtitle": "Verificați stabilitatea conexiunii dvs. și apoi încercați din nou",
+    "title": "Eroare de conectare"
+  },
+  "avc_face_alignment": {
+    "feedback_move_back": "Mișcați-vă înapoi",
+    "feedback_move_back_accessibility": "Mișcați dispozitivul în spate",
+    "feedback_move_closer": "Veniți mai aproape",
+    "feedback_move_left_accessibility": "Mișcați dispozitivul spre stânga",
+    "feedback_move_right_accessibility": "Mișcați dispozitivul spre dreapta",
+    "feedback_no_face_detected": "Fața nu este detectată",
+    "feedback_not_centered": "Fața nu este centrată",
+    "title": "Poziționați-vă fața în cadru"
+  },
+  "avc_face_capture": {
+    "alert": {
+      "mic_conflict_title": "Microfonul dvs. este utilizat de altă aplicație",
+      "timeout_body": "Aveți maximum 15 de secunde la dispoziție să finalizați înregistrarea",
+      "timeout_button_primary": "Încercați din nou",
+      "timeout_title": "Ne cerem scuze, trebuie să reîncepem înregistrarea",
+      "too_fast_body": "Vă rugăm să încercați din nou și întoarceți capul mai încet",
+      "too_fast_button_primary": "Încercați din nou",
+      "too_fast_title": "Ați întors capul prea repede"
     },
-    "profile_data": {
-        "field_labels": {
-            "rou_specific": {
-                "national_id_value": "Cod Numeric Personal (CNP)"
-            }
-        }
+    "title": "Întoarceți capul încet în ambele părți",
+    "title_completed": "Înregistrare finalizată"
+  },
+  "avc_intro": {
+    "button_primary_ready": "Începeți înregistrarea",
+    "disclaimer": "Fața și fundalul dvs. vor fi înregistrate în timpul acestui proces",
+    "disclaimer_camera_and_audio_on": "Fața, fundalul și sunetul dvs. vor fi înregistrate în timpul acestui proces",
+    "list_item_one": "Întâi, poziționați-vă fața în cadru",
+    "list_item_two": "Apoi, întoarceți capul încet în ambele părți",
+    "subtitle": "Acest lucru este pentru a verifica faptul că sunteți o persoană reală",
+    "title": "Înregistrați un clip video",
+    "title_accessibility": "Înregistrați un clip video cu fața dvs.",
+    "video_accessibility": "Clip video exemplificativ cu o persoană care își întoarce capul în ambele sensuri până la finalizare"
+  },
+  "avc_no_face_detected": {
+    "button_primary_restart": "Începeți din nou înregistrarea",
+    "list_item_eyes": "Asigurați-vă ochii sunt clar vizibili",
+    "list_item_face": "Asigurați-vă că vă arătați doar fața, nu trebuie să vedem documentul dvs. de identitate",
+    "list_item_lighting": "Asigurați-vă că sunteți într-un loc bine luminat",
+    "list_item_mask": "Asigurați-vă că înlăturați măștile sau alte articole care vă acoperă fața. Ochelarii sunt acceptați",
+    "title": "Nu vă putem detecta fața"
+  },
+  "avc_uploading": {
+    "title": "Se încarcă"
+  },
+  "country_select": {
+    "alert": {
+      "another_doc": "Documente din aceea țară nu sunt în prezent acoperite — <fallback>încercați cu un alt tip de document</fallback>"
+    },
+    "alert_dropdown": {
+      "country_not_found": "Țara nu a fost găsită"
+    },
+    "button_primary": "Trimiteți documentul",
+    "poa_alert": {
+      "country_not_found": "Ne cerem scuze. Depunem eforturi pentru a acoperi mai multe țări.",
+      "intro": "Nu vă găsiți țara?"
+    },
+    "search": {
+      "accessibility": "Selectați țara",
+      "input_placeholder": "de exemplu, Statele Unite ale Americii",
+      "label": "Căutați țara"
+    },
+    "title": "Selectați țara emitentă"
+  },
+  "cross_device": {
+    "button_primary_upload": "Continuați"
+  },
+  "cross_device_checklist": {
+    "button_primary": "Trimiteți verificarea",
+    "info": "Sugestii",
+    "list_item_doc_multiple": "Documente",
+    "list_item_doc_one": "Document",
+    "list_item_poa": "Dovadă adresă",
+    "list_item_selfie": "Selfie",
+    "list_item_video": "Clip video",
+    "subtitle": "Aici găsiți tot ce ați încărcat:",
+    "title": "Un ultim pas"
+  },
+  "cross_device_error_desktop": {
+    "subtitle": "Linkul funcționează doar pe dispozitive mobile",
+    "title": "Ceva nu a mers bine"
+  },
+  "cross_device_error_restart": {
+    "subtitle": "Trebuie să începeți din nou verificarea dvs. pe computerul dvs.",
+    "title": "Ceva nu a mers bine"
+  },
+  "cross_device_intro": {
+    "button_primary": "Obțineți linkul sigur",
+    "list_accessibility": "Pași necesari pentru a continua verificarea pe telefonul dvs. mobil",
+    "list_item_finish": "Reveniți aici pentru a finaliza trimiterea",
+    "list_item_open_link": "Deschideți linkul și finalizați sarcinile",
+    "list_item_send_phone": "Trimiteți un link sigur spre telefonul dvs.",
+    "subtitle": "Vedeți cum trebuie să procedați:",
+    "subtitle_upload": "Vă rugăm să încărcați o fotografie recentă a documentului original",
+    "title": "Continuați pe telefonul dvs."
+  },
+  "cross_device_return": {
+    "body": "Computerul dvs. poate avea nevoie de câteva secunde să se actualizeze",
+    "subtitle": "Acum puteți reveni la computerul dvs. pentru a continua",
+    "title": "Încărcări cu succes"
+  },
+  "cross_device_session_linked": {
+    "button_primary": "Continuați",
+    "info": "Dublă verificare",
+    "list_item_desktop_open": "Fereastra dvs. desktop rămâne deschisă",
+    "list_item_sent_by_you": "Acest link a fost trimis de dvs. — solicitați sfaturi dacă credeți că poate fi vorba de înșelăciune",
+    "subtitle": "Continuați cu verificarea",
+    "title": "Sesiune telefon mobil conectat la computerul dvs."
+  },
+  "doc_auto_capture": {
+    "button_accessibility": "Faceți o poză",
+    "footer": {
+      "captured": "Poză realizată",
+      "capturing": "Se realizează poza",
+      "manual_fallback_generic_document_back": "Faceți o poză cu pagina verso a documentului dvs.",
+      "manual_fallback_generic_document_front": "Faceți o poză cu pagina din față a documentului dvs.",
+      "manual_fallback_identity_card_back": "Faceți o poză cu partea din spate a documentului dvs.",
+      "manual_fallback_identity_card_front": "Faceți o poză cu partea din față a documentului dvs.",
+      "manual_fallback_license_back": "Faceți o poză cu partea din spate a permisului dvs. de conducere",
+      "manual_fallback_license_front": "Faceți o poză cu partea din față a permisului dvs. de conducere",
+      "manual_fallback_passport": "Faceți o poză cu pagina cu fotografie din pașaportul dvs.",
+      "manual_fallback_residence_permit_back": "Faceți o poză cu partea din spate a permisului de ședere",
+      "manual_fallback_residence_permit_front": "Faceți o poză cu partea din față a permisului de ședere",
+      "position_generic_document_back": "Poziționați pagina verso a documentului dvs. în cadru",
+      "position_generic_document_front": "",
+      "position_identity_card_back": "Poziționați partea din spate a documentului dvs. în cadru",
+      "position_identity_card_front": "Poziționați partea din față a documentului dvs. în cadru",
+      "position_license_back": "Poziționați partea din spate a permisului dvs. de conducere în cadru",
+      "position_license_front": "Poziționați partea din față a permisului dvs. de conducere în cadru",
+      "position_passport": "Poziționați pagina cu fotografie din pașaport în cadru",
+      "position_residence_permit_back": "Poziționați partea din spate a permisului dvs. de ședere în cadru",
+      "position_residence_permit_front": "Poziționați partea din față a permisului dvs. de ședere în cadru"
+    },
+    "frame": {
+      "flip_document": "Întoarceți documentul pentru partea din spate",
+      "hold_still": "Țineți nemișcat",
+      "no_document": "Document nedetectat"
     }
+  },
+  "doc_capture": {
+    "alert": {
+      "no_barcode_detail": "Stați într-un loc bine luminat și aduceți cardul mai aproape de camera video",
+      "no_barcode_title": "Codul de bare nu a fost detectat"
+    },
+    "button_primary": "Începeți scanarea documentului",
+    "detail": {
+      "folded_doc_front": "Poziționați documentul dvs. pe o suprafață plană, includeți toate paginile interne (trebuie să conțină poza dvs.)"
+    },
+    "header": {
+      "recording_complete": "Înregistrare finalizată",
+      "recording_video": "Înregistrare video"
+    },
+    "header_folded_doc_front": "Latură poză de profil",
+    "prompt": {
+      "button_card": "Card de plastic",
+      "button_paper": "Document hârtie",
+      "title_id": "Ce tip de card de identitate aveți?",
+      "title_license": "Ce tip de permis de conducere aveți?"
+    }
+  },
+  "doc_confirmation": {
+    "alert": {
+      "blur_detail": "Asigurați-vă că totul este clar",
+      "blur_title": "Poză încețoșată detectată",
+      "crop_detail": "Asigurați-vă că întregul document este vizibil",
+      "crop_title": "Imagine tăiată detectată",
+      "glare_detail": "Nu stați în lumină directă",
+      "glare_title": "Luciu detectat",
+      "no_doc_detail": "Asigurați-vă că este integral în cadru",
+      "no_doc_title": "Documentul nu a fost detectat",
+      "odp_detail": "Vă rugăm să utilizați documentul dvs. original. Fotografiile de pe ecran sau fotocopiile nu sunt acceptate",
+      "odp_photo_of_screen_title": "Fotografie a ecranului detectată",
+      "odp_photocopy_title": "Fotocopie detectată",
+      "odp_scan_title": "Scanare detectată",
+      "odp_screenshot_title": "Captură de ecran detectată"
+    },
+    "body": "Asigurați-vă că ați încărcat întreaga pagină a documentului și că detaliile sunt clare, fără estompări sau luciri, pentru a fi citite",
+    "body_address_certificate": "Asigurați-vă că ați încărcat întreaga pagină a documentului și detaliile sunt clare pentru a fi citite, fără blur sau strălucire",
+    "body_bank_statement": "Asigurați-vă că ați încărcat întreaga pagină a documentului și că detaliile sunt clare, fără estompări sau luciri, pentru a fi citite",
+    "body_benefits_letter": "Asigurați-vă că ați încărcat întreaga pagină a documentului și că detaliile sunt clare, fără estompări sau luciri, pentru a fi citite",
+    "body_bill": "Asigurați-vă că ați încărcat întreaga pagină a documentului și că detaliile sunt clare, fără estompări sau luciri, pentru a fi citite",
+    "body_exchange_house_statement": "Asigurați-vă că ați încărcat întreaga pagină a documentului și detaliile sunt clare pentru a fi citite, fără blur sau strălucire",
+    "body_general_letter": "Asigurați-vă că ați încărcat întreaga pagină a documentului și detaliile sunt clare pentru a fi citite, fără blur sau strălucire",
+    "body_generic_document": "Asigurați-vă că detaliile dvs. sunt clare și neacoperite",
+    "body_id": "Asigurați-vă că detaliile dvs. sunt clare și neacoperite",
+    "body_identity_document_with_address": "Asigurați-vă că ați încărcat întreaga pagină a documentului și detaliile sunt clare pentru a fi citite, fără blur sau strălucire",
+    "body_image_medium": "Va dura mai mult să vă verificăm dacă nu putem citi elementul",
+    "body_image_poor": "Pentru a vă verifica mai ușor, avem nevoie de o poză mai bună",
+    "body_insurance_statement": "Asigurați-vă că ați încărcat întreaga pagină a documentului și detaliile sunt clare pentru a fi citite, fără blur sau strălucire",
+    "body_license": "Asigurați-vă că detaliile dvs. sunt clare și neacoperite",
+    "body_mobile_phone_bill": "Asigurați-vă că ați încărcat întreaga pagină a documentului și detaliile sunt clare pentru a fi citite, fără blur sau strălucire",
+    "body_mortgage_statement": "Asigurați-vă că ați încărcat întreaga pagină a documentului și detaliile sunt clare pentru a fi citite, fără blur sau strălucire",
+    "body_passport": "Asigurați-vă că detaliile dvs. sunt clare și neacoperite",
+    "body_pension_property_statement_letter": "Asigurați-vă că ați încărcat întreaga pagină a documentului și detaliile sunt clare pentru citire, fără blur sau strălucire",
+    "body_permit": "Asigurați-vă că detaliile dvs. sunt clare și neacoperite",
+    "body_tax_letter": "Asigurați-vă că ați încărcat întreaga pagină a documentului și că detaliile sunt clare, fără estompări sau luciri, pentru a fi citite",
+    "button_close": "Închideți",
+    "button_primary_redo": "Refaceți",
+    "button_primary_upload": "Încărcați",
+    "button_primary_upload_anyway": "Încărcați oricum",
+    "button_secondary_change_document": "Alegeți alt document",
+    "button_secondary_redo": "Refaceți",
+    "button_secondary_submit_anyway": "Trimite oricum fotografia",
+    "button_zoom": "Măriți imaginea",
+    "image_accessibility": "Poză a documentului dvs.",
+    "title": "Verificați imaginea dvs."
+  },
+  "doc_multi_frame_capture": {
+    "capture_progress_title": "Se scanează documentul",
+    "instructions_title_back": "Poziționați pagina verso a documentului dvs. în cadru",
+    "instructions_title_front": "Poziționați pagina față a documentului dvs. în cadru"
+  },
+  "doc_select": {
+    "button_address_card": "Carte de adrese",
+    "button_address_card_back": "Carte de adresă (Spate)",
+    "button_address_card_detail": "Se acceptă carduri temporare și permanente",
+    "button_address_card_front": "Carte de Adresă (Față)",
+    "button_bank_statement": "Extras de la bancă sau societatea mutuală de credit",
+    "button_bank_statement_non_uk": "Extras de cont",
+    "button_benefits_letter": "Scrisoare beneficii",
+    "button_benefits_letter_detail": "Beneficii pentru gospodărie autorizate de guvern, de exemplu, indemnizație de șomer, beneficii gospodărie, credite fiscale",
+    "button_bill": "Factură de utilități",
+    "button_bill_detail": "Gaz, electricitate, apă, telefon fix sau internet de bandă largă",
+    "button_exchange_house_statement": "Declarație Casa de Schimb",
+    "button_exchange_house_statement_detail": "Declarația expeditorului de transfer sau remitere",
+    "button_general_letter": "Scrisoare generală",
+    "button_general_letter_detail": "Scrisoare de la instituția financiară sau compania de utilități",
+    "button_government_letter": "Scrisoare de la guvern",
+    "button_government_letter_detail": "Orice scrisoare emisă de guvern, de exemplu, scrisori privind dreptul la beneficii, scrisori de votare, scrisori privind impozitele etc.",
+    "button_id": "Card de identitate",
+    "button_id_detail": "Față și verso",
+    "button_identity_document_with_address": "Document de identitate cu adresă",
+    "button_identity_document_with_address_back": "Document de identitate cu adresă (Spate)",
+    "button_identity_document_with_address_detail": "Emis de o autoritate guvernamentală",
+    "button_identity_document_with_address_front": "Document de identitate cu adresă (Față)",
+    "button_insurance_statement": "Declarație de asigurare",
+    "button_insurance_statement_detail": "Emis de o companie de asigurări privată sau de brokeraj",
+    "button_license": "Permis de conducere",
+    "button_license_detail": "Față și verso",
+    "button_mobile_phone_bill": "Factură telefon mobil",
+    "button_mobile_phone_bill_detail": "Emis de un furnizor de rețea de telefoane mobile",
+    "button_mortgage_statement": "Declarație de ipotecă",
+    "button_mortgage_statement_detail": "Emis de o instituție financiară de împrumut",
+    "button_passport": "Pașaport",
+    "button_passport_detail": "Pagină poză",
+    "button_pension_property_statement_letter": "Declarație/Scrisoare de pensie sau proprietate",
+    "button_pension_property_statement_letter_detail": "Declarație sau scrisoare de pensie și Declarație sau scrisoare de impozit pe proprietate",
+    "button_permit": "Permis de ședere",
+    "button_permit_detail": "Față și verso",
+    "button_tax_letter": "Scrisoare de Impozit a Guvernului Local",
+    "extra_estatements_ok": "Extrase electronice acceptate",
+    "extra_no_mobile": "Ne pare rău, fără facturi de telefon mobil",
+    "list_accessibility": "Documente pe care le puteți utiliza pentru a vă verifica identitatea",
+    "pill": "cel mai rapid",
+    "section": {
+      "header_country": "Țară emitentă",
+      "header_doc_type": "Documente acceptate",
+      "input_country_not_found": "Niciun rezultat",
+      "input_placeholder_country": "Selectați țara emitentă"
+    },
+    "subtitle": "Trebuie să fie un document de identitate cu poză oficial",
+    "subtitle_country": "Selectați țara emitentă pentru a vedea ce documente acceptăm",
+    "subtitle_entire_page": "Întreaga pagină",
+    "subtitle_front_back": "Față și verso",
+    "subtitle_photo_page": "Pagina cu poză",
+    "subtitle_poa": "Acestea sunt documente care cel mai probabil indică adresa dvs. de reședință actuală",
+    "title": "Alegeți documentul dvs.",
+    "title_poa": "Alegeți un document"
+  },
+  "doc_submit": {
+    "button_link_upload": "sau încărcați poză – fără scanări sau fotocopii",
+    "button_primary": "Continuați pe telefonul dvs.",
+    "subtitle": "Faceți o poză cu telefonul dvs.",
+    "title_address_certificate": "Trimiteți cardul de adresă",
+    "title_address_certificate_back": "Trimiteți cardul de adresă (spate)",
+    "title_address_certificate_front": "Trimiteți cardul de adresă (față)",
+    "title_bank_statement": "Trimiteți extras",
+    "title_benefits_letter": "Trimiteți scrisoare",
+    "title_bill": "Trimiteți factură",
+    "title_exchange_house_statement": "Trimite declarația casei de schimb",
+    "title_general_letter": "Trimiteți scrisoare generală",
+    "title_generic_document_back": "Trimiteți documentul (spatele)",
+    "title_generic_document_front": "Trimiteți documentul (fața)",
+    "title_government_letter": "Scrisoare de la guvern",
+    "title_id_back": "Trimiteți cardul de identitate (verso)",
+    "title_id_front": "Trimiteți cardul de identitate (față)",
+    "title_identity_document_with_address": "Trimiteți documentul de identitate cu adresă",
+    "title_identity_document_with_address_back": "Trimiteți documentul de identitate cu adresă (spate)",
+    "title_identity_document_with_address_front": "Trimiteți documentul de identitate cu adresă (față)",
+    "title_insurance_statement": "Trimite declarația de asigurare",
+    "title_license_back": "Trimiteți permisul de conducere (verso)",
+    "title_license_front": "Trimiteți permisul de conducere (față)",
+    "title_mobile_phone_bill": "Trimite factura telefonului mobil",
+    "title_mortgage_statement": "Trimiteți declarația ipotecară",
+    "title_passport": "Trimiteți pagina cu poză a pașaportului",
+    "title_pension_property_statement_letter": "Trimiteți declarația sau scrisoarea",
+    "title_permit_back": "Trimiteți permisul de ședere (verso)",
+    "title_permit_front": "Trimiteți permisul de ședere (față)",
+    "title_tax_letter": "Trimiteți Scrisoarea de Impozit a Guvernului Local"
+  },
+  "doc_video_capture": {
+    "button_primary_fallback": "Următorul pas",
+    "button_primary_fallback_end": "Finalizați înregistrarea",
+    "detail_step2": "Țineți documentul la vedere permanent",
+    "header": "În timp ce poziționați documentul dvs, țineți pagina față în cadru",
+    "header_paper_doc_step2": "Întoarceți ușor documentul dvs. pentru a arăta paginile externe",
+    "header_passport": "În timp ce poziționați pașaportul dvs., țineți pagina cu poză în cadru",
+    "header_passport_progress": "Țineți nemișcat",
+    "header_step1": "Acum țineți nemișcat",
+    "header_step2": "Întoarceți ușor documentul dvs. pentru a arăta partea verso",
+    "prompt": {
+      "detail_timeout": "Înregistrarea video este limitată la <timeout></timeout> secunde. <fallback>Începeți din nou</fallback>"
+    },
+    "stepper": "Pasul <step></step> din <total></total>",
+    "success_accessibility": "Succes"
+  },
+  "doc_video_confirmation": {
+    "button_secondary": "Previzualizare clip video",
+    "title": "Verificați clipul dvs. video"
+  },
+  "error_unsupported_browser": {
+    "subtitle_android": "Începeți din nou acest proces pe ultima versiune de Google Chrome",
+    "subtitle_ios": "Începeți din nou acest proces pe ultima versiune de Safari",
+    "title_android": "Browser incompatibil",
+    "title_ios": "Browser incompatibil"
+  },
+  "generic": {
+    "accessibility": {
+      "close_sdk_screen": "Închideți ecranul de verificare a identității",
+      "dismiss_alert": "Respingeți alerta"
+    },
+    "back": "înapoi",
+    "close": "închideți",
+    "errors": {
+      "expired_token": {
+        "instruction": "Vă rugăm să încercați din nou",
+        "message": "Tokenul a expirat"
+      },
+      "expired_trial": {
+        "instruction": "Ați atins limitele de încercare",
+        "message": "Perioada de încercare a expirat"
+      },
+      "geoblocked_error": {
+        "instruction": "Ne pare rău, se pare că nu putem continua pentru că locația dvs. actuală nu este acoperită",
+        "message": "Serviciu indisponibil"
+      },
+      "interrupted_flow_error": {
+        "instruction": "Începeți din nou procesul pe un dispozitiv diferit",
+        "message": "Camera video nu este detectată"
+      },
+      "invalid_size": {
+        "instruction": "Trebuie să fie sub 10MB.",
+        "message": "Dimensiunea fișierului depășită."
+      },
+      "invalid_type": {
+        "instruction": "Încercați să utilizați un alt tip de fișier.",
+        "message": "Fișierul nu a fost încărcat."
+      },
+      "lazy_loading": {
+        "message": "O eroare a survenit în timp ce componenta era încărcată"
+      },
+      "multiple_faces": {
+        "instruction": "Numai fața dvs. poate fi în poza selfie",
+        "message": "Fețe multiple găsite"
+      },
+      "no_face": {
+        "instruction": "Asigurați-vă că fața dvs. este vizibilă",
+        "message": "Fața nu este detectată"
+      },
+      "request_error": {
+        "instruction": "Vă rugăm să încercați din nou",
+        "message": "Ceva nu a mers bine"
+      },
+      "sms_failed": {
+        "instruction": "Copiați linkul pe telefonul dvs.",
+        "message": "Ceva nu a mers bine"
+      },
+      "sms_overuse": {
+        "instruction": "Copiați linkul pe telefonul dvs.",
+        "message": "Prea multe încercări eșuate"
+      },
+      "unsupported_file": {
+        "instruction": "Încercați să utilizați un fișier JPG sau PNG",
+        "message": "Tipul de fișier nu este compatibil"
+      }
+    },
+    "lazy_load_placeholder": "Se încarcă...",
+    "loading": "Se încarcă"
+  },
+  "get_link": {
+    "alert_wrong_number": "Verificați dacă numărul dvs. este corect",
+    "button_copied": "Copiat",
+    "button_copy": "Copiați",
+    "button_submit": "Trimiteți linkul",
+    "info_qr_how": "Cum să scanați un cod QR",
+    "info_qr_how_list_item_camera": "Poziționați camera video a telefonului dvs. spre codul QR",
+    "info_qr_how_list_item_download": "Dacă nu funcționează, descărcați un scaner de cod QR din Google Play sau App Store",
+    "link_divider": "sau alegeți o metodă alternativă",
+    "link_qr": "Scanați codul QR",
+    "link_sms": "Primiți linkul prin SMS",
+    "link_url": "Copiați linkul",
+    "loader_sending": "Se trimite",
+    "number_field_input_placeholder": "Introduceți numărul de telefon mobil",
+    "number_field_label": "Introduceți numărul dvs. de telefon mobil:",
+    "subtitle_qr": "Scanați codul QR cu telefonul dvs.",
+    "subtitle_sms": "Trimiteți acest link unic pe telefonul dvs.",
+    "subtitle_url": "Trimiteți acest link unic pe telefonul dvs.",
+    "title": "Primiți linkul sigur pentru dvs.",
+    "url_field_label": "Copiați linkul în browserul telefonului dvs."
+  },
+  "interactive_task": {
+    "waiting": {
+      "title_5": "Încărcare media..."
+    }
+  },
+  "livenessV2": {
+    "error_reload_instructions": "Reîncărcați instrucțiunile",
+    "intro_note_no1": "Întâi, poziționați-vă fața în cadru",
+    "intro_note_no2": "Apoi, întoarceți capul încet în ambele părți",
+    "intro_ready_button": "Vă rugăm să aveți în vedere că vă vom înregistra fața și fundalul dvs.",
+    "intro_subtitle": "Acest lucru este pentru a verifica faptul că sunteți o persoană reală",
+    "intro_warning": "Vă rugăm să aveți în vedere că vă vom înregistra fața și fundalul dvs.",
+    "success_main_button": "Trimiteți verificarea",
+    "success_title": "Este tot ce avem nevoie pentru a începe verificarea identității dvs."
+  },
+  "mobilePhrases": {
+    "photo_upload": {
+      "body_id_back": "Faceți o poză cu partea verso a cardului dvs.",
+      "body_id_front": "Faceți o poză cu partea față a cardului dvs.",
+      "body_license_back": "Faceți o poză cu pagina verso a permisului dvs. de conducere",
+      "body_license_front": "Faceți o poză cu pagina față a permisului dvs. de conducere",
+      "body_passport": "Faceți o poză cu pagina cu poză a pașaportului dvs.",
+      "body_selfie": "Faceți o poză selfie cu fața dvs."
+    },
+    "selfie_capture": {
+      "alert": {
+        "camera_inactive": {
+          "detail": "Faceți o poză folosind în schimb <fallback>modul de bază al camerei video</fallback>"
+        },
+        "camera_not_working": {
+          "detail": "Faceți o poză folosind în schimb <fallback>modul de bază al camerei video</fallback>"
+        }
+      }
+    },
+    "upload_guide": {
+      "button_primary": "Faceți o poză",
+      "title": "Încărcați pagina cu poză a pașaportului"
+    }
+  },
+  "nfc_scan": {
+    "sheet": {
+      "success": "Scanare reușită"
+    }
+  },
+  "nfc_scan_error_can": {
+    "primary_button": "Verificare la ieșire",
+    "subtitle": "Ați atins numărul maxim de încercări pentru introducerea numărului CAN"
+  },
+  "nfc_scan_error_can:title": "Numărul maxim de încercări a fost atins",
+  "otp": {
+    "code_input": {
+      "error": {
+        "code_expired": "Codul tău a expirat, te rugăm să ceri unul nou.",
+        "code_invalid": "Cod greșit introdus, vă rugăm să încercați din nou.",
+        "technical": "A apărut o eroare tehnică, vă rugăm încercați din nou mai târziu",
+        "too_many_attempts": "Ai încercat acest cod de prea multe ori, te rugăm să ceri unul nou.",
+        "wrong_code": "Cod greșit introdus, vă rugăm să încercați din nou"
+      },
+      "intro": "Aveți 5 minute pentru a valida codul trimis prin SMS la <phonenumber></phonenumber>",
+      "resend": {
+        "cta": "Solicitați un cod nou",
+        "cta_timeout": "Solicitați un cod nou (<timeout></timeout> secunde)",
+        "label": "Cod trimis",
+        "tracker": "<remaining></remaining> din <limit></limit>"
+      },
+      "title": "Parolă unică"
+    },
+    "error": {
+      "cta": "Înapoi",
+      "subtitle": "Vă rugăm să așteptați câteva secunde și încercați din nou",
+      "title": "Ceva nu a mers bine"
+    },
+    "failure": {
+      "cta": "Continuați",
+      "subtitle": "Nu mai putem verifica numărul dvs. de telefon",
+      "title": "Numărul de încercări permise a fost depășit"
+    },
+    "send_code": {
+      "cta": "Trimite codul",
+      "error": {
+        "invalid_phone_number": "Vă rugăm să furnizați un număr de telefon valid.",
+        "limit": "Ați atins limita de SMS-uri trimise",
+        "technical": "A apărut o eroare tehnică, vă rugăm încercați din nou mai târziu"
+      },
+      "input_label": "Număr de telefon",
+      "intro": "Pentru a verifica numărul dvs. de telefon, vă vom cere să introduceți o parolă unică.",
+      "title": "Parolă unică"
+    }
+  },
+  "outro": {
+    "body": "Este tot ce avem nevoie pentru a începe verificarea identității dvs.",
+    "body_government_letter": "Furnizați întreaga pagină a documentului pentru rezultate mai bune",
+    "title": "Vă mulțumim"
+  },
+  "permission": {
+    "body_both": "Nu vă putem verifica fără a utiliza atât camera video, cât și microfonul dvs.",
+    "body_cam": "Nu vă putem verifica fără camera dvs. video",
+    "body_mic": "Nu vă putem verifica fără a utiliza microfonul dvs.",
+    "button_primary_both": "Activați ambele",
+    "button_primary_cam": "Activați camera video",
+    "button_primary_mic": "Activați microfonul",
+    "subtitle_both": "Când vi se solicită, trebuie să activați accesul la ambele pentru a continua",
+    "subtitle_cam": "Când vi se solicită, trebuie să activați accesul la camera video pentru a continua",
+    "subtitle_mic": "Când vi se solicită, trebuie să activați accesul la microfon pentru a continua",
+    "title_both": "Permiteți accesul la camera video și microfon",
+    "title_cam": "Permiteți accesul la camera video",
+    "title_mic": "Permiteți accesul la microfon"
+  },
+  "permission_recovery": {
+    "android": {
+      "browser_settings": {
+        "title": "Soluția 1: Setările browserului"
+      },
+      "device_settings": {
+        "list_item_1": "Pe dispozitivul dvs., deschideți aplicația <strong>Setări</strong>",
+        "list_item_2": "Apăsați <strong>Aplicații</strong>",
+        "list_item_3": "Atingeți <browser_icon></browser_icon>. Dacă nu îl găsiți, atingeți <strong>Vedeți toate aplicațiile</strong> sau <strong>Gestionați aplicațiile</strong> și selectați aplicația dvs. de navigare pe internet",
+        "list_item_4": "Apăsați <strong>Permisiuni</strong>",
+        "list_item_5_cam": "Apăsați <strong>Camera</strong> și selectați <strong>Permiteți</strong>",
+        "list_item_5_mic": "Atingeți <strong>Microfonul</strong> și selectați <strong>Permiteți</strong>",
+        "list_item_6": "Reveniți la această pagină și apăsați butonul <strong>Reîmprospătați pagina</strong>",
+        "title": "Soluția 2: Setările dispozitivului"
+      },
+      "refresh_page": {
+        "list_item_1_both": "Apăsați butonul <strong>Reîmprospătați pagina</strong>. Vi se va cere din nou să permiteți accesul la cameră și microfon. Când apare fereastra pop-up, selectați <strong>Permiteți</strong> (sau <strong>OK</strong>)",
+        "list_item_1_cam": "Apăsați butonul <strong>Reîmprospătați pagina</strong>. Vi se va cere din nou să activați accesul la cameră. Când apare fereastra pop-up, selectați <strong>Permite</strong> (sau <strong>OK</strong>)",
+        "list_item_1_mic": "Atingeți butonul <strong>Reîmprospătați pagina</strong>. Vi se va cere din nou să activați accesul la microfon. Când apare fereastra pop-up, selectați <strong>Permite</strong> (sau <strong>OK</strong>)"
+      }
+    },
+    "android_chrome": {
+      "browser_settings": {
+        "list_item_1": "În browserul tău, apasă pe pictograma de setări <settings_icon_chrome></settings_icon_chrome> din bara de adrese",
+        "list_item_2": "Apăsați <strong>Permisiuni</strong>",
+        "list_item_3_cam": "Activați comutatorul de lângă <strong>Camera</strong>",
+        "list_item_3_mic": "Activați comutatorul de lângă <strong>Microfon</strong>",
+        "list_item_4": "Reveniți la această pagină și apăsați butonul <strong>Reîmprospătați pagina</strong>"
+      }
+    },
+    "android_firefox": {
+      "browser_settings": {
+        "list_item_1": "În browserul tău, apasă pe pictograma de blocare <lock_icon></lock_icon> din bara de adrese",
+        "list_item_2_cam": "Apăsați <strong>Blocat</strong> lângă <strong>Cameră</strong> pentru a comuta la <strong>Permis</strong>",
+        "list_item_2_mic": "Apăsați <strong>Blocat</strong> lângă <strong>Microfon</strong> pentru a comuta la <strong>Permis</strong>",
+        "list_item_3": "Reveniți la această pagină și apăsați butonul <strong>Reîmprospătați pagina</strong>",
+        "title": "Soluția 2: Setările browserului"
+      },
+      "device_settings": {
+        "title": "Soluția 3: Setările dispozitivului"
+      },
+      "refresh_page": {
+        "title": "Soluția 1: Reîmprospătați pagina"
+      }
+    },
+    "android_generic": {
+      "browser_settings": {
+        "list_item_1": "În browserul dvs., deschideți setările site-ului web. Aceasta este adesea o pictogramă de blocare <lock_icon></lock_icon> în bara de adrese",
+        "list_item_2": "Găsiți secțiunea despre permisiuni",
+        "list_item_3_cam": "Activați permisiunile pentru <strong>Camera</strong>",
+        "list_item_3_mic": "Activați permisiunile pentru <strong>Microfon</strong>",
+        "list_item_4": "Reveniți la această pagină și apăsați butonul <strong>Reîmprospătați pagina</strong>"
+      }
+    },
+    "android_samsung": {
+      "browser_settings": {
+        "list_item_1": "În browserul tău, apasă pe pictograma de blocare <lock_icon></lock_icon> din bara de adrese",
+        "list_item_2_cam": "Activați comutatorul de lângă <strong>Camera</strong>",
+        "list_item_2_mic": "Activați comutatorul de lângă <strong>Microfon</strong>",
+        "list_item_3": "Reveniți la această pagină și apăsați butonul <strong>Reîmprospătați pagina</strong>"
+      }
+    },
+    "button_primary": "Reîmprospătați",
+    "desktop": {
+      "browser_settings": {
+        "title": "Soluția 1: Setările browserului"
+      },
+      "device_settings": {
+        "title": "Soluția 2: Setările dispozitivului"
+      }
+    },
+    "desktop_chrome": {
+      "browser_settings": {
+        "list_item_1": "În browserul dvs., faceți clic pe pictograma setărilor <settings_icon_chrome></settings_icon_chrome> în bara de adrese",
+        "list_item_2_cam": "Activați comutatorul de lângă <strong>Camera</strong>",
+        "list_item_2_mic": "Activați comutatorul de lângă <strong>Microfon</strong>",
+        "list_item_3": "Reveniți la această pagină și faceți clic pe butonul <strong>Reîmprospătați pagina</strong>"
+      }
+    },
+    "desktop_edge": {
+      "browser_settings": {
+        "list_item_1": "În browserul tău, fă clic pe pictograma de blocare <lock_icon></lock_icon> din bara de adrese",
+        "list_item_2_cam": "Faceți clic pe meniul derulant de lângă <strong>Microfon</strong> și selectați <strong>Permiteți</strong>",
+        "list_item_2_mic": "Faceți clic pe meniul derulant de lângă <strong>Microfon</strong> și selectați <strong>Permiteți</strong>",
+        "list_item_3": "Reveniți la această pagină și faceți clic pe butonul <strong>Reîmprospătați pagina</strong>"
+      }
+    },
+    "desktop_firefox": {
+      "browser_settings": {
+        "list_item_1": "În browserul dvs., faceți clic pe pictograma setări <settings_icon_firefox></settings_icon_firefox> din bara de adrese",
+        "list_item_2_cam": "Faceți clic pe <strong>Blocat</strong> lângă <strong>Utilizați camera</strong>",
+        "list_item_2_mic": "Faceți clic pe <strong>Blocat</strong> lângă <strong>Utilizați microfonul</strong>",
+        "list_item_3": "Reveniți la această pagină și faceți clic pe butonul <strong>Reîmprospătați pagina</strong>"
+      }
+    },
+    "desktop_generic": {
+      "browser_settings": {
+        "list_item_1": "În browserul dvs., deschideți setările site-ului web. Aceasta este adesea o pictogramă de blocare <lock_icon></lock_icon> în bara de adrese",
+        "list_item_2": "Găsiți secțiunea despre permisiuni",
+        "list_item_3_cam": "Activați permisiunile pentru <strong>Camera</strong>",
+        "list_item_3_mic": "Activați permisiunile pentru <strong>Microfon</strong>",
+        "list_item_4": "Reveniți la această pagină și faceți clic pe butonul <strong>Reîmprospătați pagina</strong>"
+      },
+      "device_settings": {
+        "list_item_1": "Pe computerul dvs., deschideți <strong>Setările</strong>",
+        "list_item_2": "Găsiți secțiunea despre permisiuni (de obicei sub <strong>Confidențialitate</strong>)",
+        "list_item_3_cam": "Activați permisiunile pentru <strong>Camera</strong> pentru <browser_icon></browser_icon>",
+        "list_item_3_mic": "Activați permisiunile pentru <strong>Microfon</strong> pentru <browser_icon></browser_icon>",
+        "list_item_4": "Reporniți browserul dacă este necesar și reveniți la această pagină"
+      }
+    },
+    "desktop_mac": {
+      "device_settings": {
+        "list_item_1": "Pe computerul dvs., faceți clic pe meniul Apple <apple_icon></apple_icon> și selectați <strong>Setări sistem</strong> (sau <strong>Preferințe sistem</strong>)",
+        "list_item_2": "Faceți clic pe <strong>Confidențialitate și Securitate</strong> (sau <strong>Securitate și Confidențialitate</strong>) în bara laterală",
+        "list_item_3": "Faceți clic pe <strong>Mai târziu</strong> în fereastra pop-up",
+        "list_item_3_cam": "Faceți clic pe <strong>Camera</strong> și activați comutatorul (sau căsuța de selectare) de lângă <browser_icon></browser_icon>",
+        "list_item_4": "Faceți clic pe <strong>Închideți și redeschideți</strong> în fereastra pop-up și reveniți la această pagină",
+        "list_item_4_mic": "Faceți clic pe <strong>Microfon</strong> și activați comutatorul (sau căsuța de selectare) de lângă <browser_icon></browser_icon>"
+      }
+    },
+    "desktop_safari": {
+      "browser_settings": {
+        "list_item_1": "În browserul tău, fă clic dreapta în bara de adrese și selectează <strong>Setări</strong>",
+        "list_item_2_cam": "Faceți clic pe meniul derulant de lângă <strong>Camera</strong> și selectați <strong>Permiteți</strong>",
+        "list_item_2_mic": "Faceți clic pe meniul derulant de lângă <strong>Microfon</strong> și selectați <strong>Permiteți</strong>",
+        "list_item_3": "Reveniți la această pagină și faceți clic pe butonul <strong>Reîmprospătați pagina</strong>"
+      }
+    },
+    "desktop_windows": {
+      "device_settings": {
+        "list_item_1": "Pe computerul dvs., faceți clic pe meniul Windows <windows_icon></windows_icon> și selectați <strong>Setări</strong> <settings_icon_windows></settings_icon_windows>",
+        "list_item_2": "Faceți clic pe <strong>Confidențialitate</strong> (sau <strong>Confidențialitate & Securitate</strong>)",
+        "list_item_3_cam": "Faceți clic pe <strong>Camera</strong> sub <strong>Permisiuni aplicație</strong> și activați comutatorul de lângă <browser_icon></browser_icon>",
+        "list_item_3_mic": "Faceți clic pe <strong>Microfon</strong> sub <strong>Permisiuni aplicație</strong> și activați comutatorul de lângă <browser_icon></browser_icon>",
+        "list_item_4": "Reporniți browserul dacă este necesar și reveniți la această pagină"
+      }
+    },
+    "info": "Recuperare",
+    "ios": {
+      "browser_settings": {
+        "list_item_1_both": "Apăsați butonul <strong>Reîmprospătați pagina</strong>. Vi se va cere din nou să permiteți accesul la cameră și microfon. Când apare fereastra pop-up, selectați <strong>Permiteți</strong> (sau <strong>OK</strong>)",
+        "list_item_1_cam": "Apăsați butonul <strong>Reîmprospătați pagina</strong>. Vi se va cere din nou să activați accesul la cameră. Când apare fereastra pop-up, selectați <strong>Permite</strong> (sau <strong>OK</strong>)",
+        "list_item_1_mic": "Atingeți butonul <strong>Reîmprospătați pagina</strong>. Vi se va cere din nou să activați accesul la microfon. Când apare fereastra pop-up, selectați <strong>Permite</strong> (sau <strong>OK</strong>)"
+      },
+      "device_settings": {
+        "list_item_1": "Pe dispozitivul dvs., deschideți aplicația <strong>Setări</strong>",
+        "list_item_2": "Derulați prin listă și apăsați pe <browser_icon></browser_icon>",
+        "list_item_3_cam": "Activați comutatorul de lângă <strong>Camera</strong>",
+        "list_item_3_mic": "Activați comutatorul de lângă <strong>Microfon</strong>",
+        "list_item_4": "Reveniți la această pagină și apăsați butonul <strong>Reîmprospătați pagina</strong>",
+        "title": "Soluția 2: Setările dispozitivului"
+      },
+      "refresh_page": {
+        "title": "Soluția 1: Reîmprospătați pagina"
+      }
+    },
+    "ios_safari": {
+      "device_settings": {
+        "list_item_1": "Pe dispozitivul dvs., deschideți aplicația <strong>Setări</strong>",
+        "list_item_2": "Derulați prin listă și apăsați pe <browser_icon></browser_icon>",
+        "list_item_3_cam": "Apăsați <strong>Camera</strong> și selectați <strong>Permiteți</strong>",
+        "list_item_3_mic": "Atingeți <strong>Microfonul</strong> și selectați <strong>Permiteți</strong>",
+        "list_item_4": "Reveniți la această pagină și apăsați butonul <strong>Reîmprospătați pagina</strong>"
+      }
+    },
+    "list_header_both": "Urmați acești pași pentru a recupera acces pentru ambele:",
+    "list_header_cam": "Urmați acești pași pentru a recupera accesul la camera video:",
+    "list_item_action_cam": "Reîmprospătați această pagină pentru a începe din nou procesul de verificare a identității",
+    "list_item_how_to_both": "Permiteți accesul la camera video și microfonul dvs. din setările dvs. de browser",
+    "list_item_how_to_cam": "Permiteți accesul la camera dvs. video din setările dvs. de browser",
+    "list_item_how_to_mic": "Permiteți accesul la microfonul dvs. din setările dvs. de browser",
+    "subtitle_both": "Avem nevoie de acces la camera și microfonul dvs. pentru a vă verifica identitatea. Urmați instrucțiunile de mai jos pentru a recupera accesul",
+    "subtitle_cam": "Avem nevoie de acces la camera dvs. pentru a vă verifica identitatea. Urmați instrucțiunile de mai jos pentru a recupera accesul",
+    "subtitle_cam_old": "Recuperați accesul la camera video pentru a continua verificarea feței",
+    "subtitle_mic": "Avem nevoie de acces la microfonul dvs. pentru a vă verifica identitatea. Urmați instrucțiunile de mai jos pentru a recupera accesul",
+    "title_both": "Accesul la camera video și microfon este refuzat",
+    "title_cam": "Accesul la camera video este refuzat",
+    "title_mic": "Accesul la microfon este refuzat",
+    "web": {
+      "button_primary": "Reîmprospătați pagina",
+      "disclaimer": "Procesul de verificare a identității ar putea fi repornit. Ne pare rău pentru orice neplăcere"
+    }
+  },
+  "photo_upload": {
+    "body_address_certificate_back": "Încărcați partea din spate a documentului de pe computerul dvs.",
+    "body_address_certificate_front": "Încărcați fața documentului de pe computerul dvs.",
+    "body_bank_statement": "Furnizați întreaga pagină a documentului pentru mai bune rezultate",
+    "body_benefits_letter": "Furnizați întreaga pagină a documentului pentru mai bune rezultate",
+    "body_bill": "Furnizați întreaga pagină a documentului pentru mai bune rezultate",
+    "body_exchange_house_statement": "Oferiți întreaga pagină a documentului pentru cele mai bune rezultate",
+    "body_general_letter": "Oferiți întreaga pagină a documentului pentru cele mai bune rezultate",
+    "body_generic_document_back": "Încărcați pagina verso a documentului din computerul dvs.",
+    "body_generic_document_front": "Încărcați pagina din față a documentului din computerul dvs.",
+    "body_id_back": "Încărcați pagina verso a cardului din computerul dvs.",
+    "body_id_front": "Încărcați pagina față a cardului din computerul dvs.",
+    "body_identity_document_with_address": "Oferiți întreaga pagină a documentului pentru cele mai bune rezultate",
+    "body_identity_document_with_address_back": "Încărcați partea din spate a documentului de pe computerul dvs.",
+    "body_identity_document_with_address_front": "Încărcați fața documentului de pe computerul dvs.",
+    "body_insurance_statement": "Oferiți întreaga pagină a documentului pentru cele mai bune rezultate",
+    "body_license_back": "Încărcați pagina verso a permisului de conducere din computerul dvs.",
+    "body_license_front": "Încărcați pagina față a permisului de conducere din computerul dvs.",
+    "body_mobile_phone_bill": "Oferiți întreaga pagină a documentului pentru cele mai bune rezultate",
+    "body_mortgage_statement": "Oferiți întreaga pagină a documentului pentru cele mai bune rezultate",
+    "body_passport": "Încărcați pagina cu poză a pașaportului din computerul dvs.",
+    "body_pension_property_statement_letter": "Oferiți întreaga pagină a documentului pentru cele mai bune rezultate",
+    "body_selfie": "Încărcați o poză selfie din computerul dvs.",
+    "body_tax_letter": "Furnizați întreaga pagină a documentului pentru mai bune rezultate",
+    "button_take_photo": "Faceți poză",
+    "button_upload": "Încărcați",
+    "title_selfie": "Poză selfie"
+  },
+  "poa_cancel": "Anulați",
+  "poa_err_invalid_file": {
+    "message": "Vă rugăm să alegeți un fișier diferit.",
+    "ok": "OK",
+    "title": "Fișier nevalid"
+  },
+  "poa_guidance": {
+    "button_primary": "Continuați",
+    "instructions": {
+      "address": "Adresa actuală",
+      "full_name": "Numele complet",
+      "issue_date": "Data emiterii sau perioadă centralizatoare",
+      "label": "Capturați întregul document și asigurați-vă că arată în mod clar:",
+      "logo": "Logo"
+    },
+    "instructions_address_card_issue_date": "Data emiterii",
+    "instructions_expiry_date": "Data expirării, dacă este cazul",
+    "instructions_full_address": "Adresa completă",
+    "subtitle_address_card": "Trebuie să fie un card de adresă valabil",
+    "subtitle_bank_statement": "Trebuie să fie emis în ultimele 3 luni",
+    "subtitle_benefits_letter": "Trebuie să fie emis în ultimele 12 luni",
+    "subtitle_bill": "Trebuie să fi fost emis în ultimele 3 luni",
+    "subtitle_dynamic_empty_grace_period": "Trebuie să fie un document valid",
+    "subtitle_dynamic_grace_period": "Trebuie să fie eliberat în ultimele <graceperiod></graceperiod> luni",
+    "subtitle_tax_letter": "Trebuie să fie emis în ultimele 12 luni"
+  },
+  "poa_intro": {
+    "button_primary": "Începeți verificarea",
+    "list_matches_signup": "Se potrivește cu adresa pe care ați utilizat-o pentru a vă înregistra",
+    "list_most_recent": "Este documentul dvs. recent",
+    "list_shows_address": "Arată adresa dvs. actuală",
+    "subtitle": "Aveți nevoie de un document care:",
+    "title": "Haideți să vă verificăm adresa"
+  },
+  "poa_welcome_text": "Faceți o poză a unui document cu adresa dvs.",
+  "profile_data": {
+    "address_title": "Adăugați adresa dvs.",
+    "button_continue": "Continuați",
+    "components": {
+      "country_residence_select": {
+        "placeholder": "Selectați o țară"
+      },
+      "country_select": {
+        "placeholder": "Selectați o țară"
+      },
+      "id_type_select": {
+        "aus_specific": {
+          "other": "Pașaport străin"
+        },
+        "bra_specific": {
+          "other": "CNPJ",
+          "tax_id": "CPF"
+        },
+        "driving_license": "Permis de conducere",
+        "esp_specific": {
+          "identity_card": "NIF/DNI"
+        },
+        "gha_specific": {
+          "social_insurance": "SSNIT"
+        },
+        "identity_card": "Card de identitate",
+        "ind_specific": {
+          "tax_id": "Număr personal de cont (PAN)"
+        },
+        "ken_specific": {
+          "other": "Carte de extraterestru"
+        },
+        "nga_specific": {
+          "identity_card": "Numărul național de identificare (NIN)",
+          "other": "BVN",
+          "tax_id": "TIN"
+        },
+        "other": "NIE",
+        "passport": "Pașaport",
+        "placeholder": "Selectați un tip de identitate națională",
+        "tax_id": "Cod fiscal",
+        "voter_id": "ID alegătorului"
+      },
+      "nationality_select": {
+        "placeholder": "Selectați o țară"
+      },
+      "pan": {
+        "placeholder": "ABCDE1234F"
+      },
+      "ssn": {
+        "placeholder": "123-45-6789"
+      },
+      "state_select": {
+        "placeholder": "Selectați un stat"
+      }
+    },
+    "country_of_residence_title": "Țara dvs. de reședință",
+    "field_labels": {
+      "arg_specific": {
+        "national_id_value": "numarul DNI"
+      },
+      "can_specific": {
+        "national_id_value": "Numărul de asigurări sociale (SIN)"
+      },
+      "chl_specific": {
+        "national_id_value": "numere RUT / RUN"
+      },
+      "chn_specific": {
+        "national_id_value": "Număr de rezident Card de identitate"
+      },
+      "col_specific": {
+        "national_id_value": "Număr personal de identificare columbian"
+      },
+      "country": "Țară",
+      "country_residence": "Țară",
+      "dnk_specific": {
+        "national_id_value": "Numărul CPR"
+      },
+      "dob": "Data nașterii",
+      "email": "E-mail",
+      "fin_specific": {
+        "national_id_value": "Cod personal de identitate"
+      },
+      "first_name": "Prenume",
+      "gbr_specific": {
+        "postcode": "Cod poștal",
+        "town": "Oraș/Localitate"
+      },
+      "hkg_specific": {
+        "national_id_value": "HKID"
+      },
+      "ind_specific": {
+        "pan": "Număr de cont permanent (PAN)"
+      },
+      "ita_specific": {
+        "national_id_value": "Cod fiscal"
+      },
+      "jpn_specific": {
+        "national_id_value": "„Numărul meu”/Codul de înregistrare a rezidenților"
+      },
+      "last_name": "Nume de familie",
+      "line1": "Linie adresă 1",
+      "line2": "Linie adresă 2",
+      "line3": "Linie adresă 3",
+      "lux_specific": {
+        "national_id_value": "Cod numeric personal"
+      },
+      "mobile_number": "Telefonul mobil",
+      "national_id_type": "Tipul de identitate națională",
+      "national_id_value": "Număr național de identitate",
+      "nationality": "Naționalitatea",
+      "phl_specific": {
+        "national_id_value": "Numărul cardului PhilSys (PCN)"
+      },
+      "phone_number": "Număr de telefon",
+      "pol_specific": {
+        "national_id_value": "Numărul PESEL"
+      },
+      "postcode": "Cod poștal",
+      "prt_specific": {
+        "national_id_value": "Cod fiscal"
+      },
+      "town": "Oraș/Localitate",
+      "tur_specific": {
+        "national_id_value": "Număr de identificare turc"
+      },
+      "usa_specific": {
+        "line1_helper_text": "Adresă stradă, de exemplu: 200 Albert Street",
+        "line2_helper_text": "Apartament, birou, bloc etc.",
+        "postcode": "Cod poștal",
+        "ssn": "Numărul de asigurare socială (SSN)",
+        "state": "Stat"
+      }
+    },
+    "field_optional": "(opțional)",
+    "field_validation": {
+      "arg_specific": {
+        "invalid_national_id_value": "Vă rugăm să introduceți un DNI valid"
+      },
+      "bra_specific": {
+        "invalid_other": "Vă rugăm să introduceți un valid CNPJ",
+        "invalid_tax_id": "Vă rugăm să introduceți un valid CPF",
+        "required_other": "Vă rugăm să introduceți CNPJ-ul dvs",
+        "required_tax_id": "Vă rugăm să introduceți CPF-ul dvs"
+      },
+      "can_specific": {
+        "invalid_national_id_value": "Vă rugăm să introduceți un valid SIN",
+        "required_national_id_value": "Vă rugăm să introduceți NAS-ul dvs"
+      },
+      "chl_specific": {
+        "invalid_national_id_value": "Vă rugăm să introduceți un numere RUT/RUN valide",
+        "required_national_id_value": "Vă rugăm să introduceți numerele dvs. RUT / RUN"
+      },
+      "chn_specific": {
+        "invalid_national_id_value": "Vă rugăm să introduceți un număr valid de carte de identitate de rezident",
+        "required_national_id_value": "Vă rugăm să introduceți numărul cărții dvs. de identitate de rezident"
+      },
+      "col_specific": {
+        "invalid_national_id_value": "Vă rugăm să introduceți un număr de identificare personal columbian valid",
+        "required_national_id_value": "Vă rugăm să introduceți numărul dvs. personal de identificare columbian"
+      },
+      "dnk_specific": {
+        "invalid_national_id_value": "Vă rugăm să introduceți un număr CPR valid",
+        "required_national_id_value": "Vă rugăm să introduceți numărul dvs. CPR"
+      },
+      "esp_specific": {
+        "invalid_identity_card": "Vă rugăm să introduceți un valid NIF/DNI",
+        "invalid_other": "Vă rugăm să introduceți un valid NIE",
+        "required_identity_card": "Vă rugăm să introduceți NIF/DNI"
+      },
+      "fin_specific": {
+        "invalid_national_id_value": "Vă rugăm să introduceți un cod de identitate personal valid",
+        "required_national_id_value": "Vă rugăm să introduceți codul personal de identitate"
+      },
+      "gbr_specific": {
+        "invalid_postcode": "Vă rugăm să introduceți un poștal valabil",
+        "required_postcode": "Vă rugăm să introduceți codul dvs. poștal",
+        "too_long_postcode": "Codul poștal este prea lung",
+        "too_short_postcode": "Codul poștal este prea scurt"
+      },
+      "gha_specific": {
+        "invalid_social_insurance": "Vă rugăm să introduceți un SSNIT valid",
+        "required_social_insurance": "Vă rugăm să introduceți SSNIT"
+      },
+      "hkg_specific": {
+        "invalid_national_id_value": "Vă rugăm să introduceți un HKID valid",
+        "required_national_id_value": "Vă rugăm să introduceți HKID"
+      },
+      "ind_specific": {
+        "invalid_pan": "Vă rugăm să introduceți un PAN valabil",
+        "required_pan": "Vă rugăm să introduceți numărul PAN"
+      },
+      "invalid": "Vă rugăm să verificați să nu fie caractere sau simboluri nevalide",
+      "invalid_dob": "Vă rugăm să introduceți o dată de naștere validă",
+      "invalid_driving_license": "Vă rugăm să introduceți un număr valid de permis de conducere",
+      "invalid_email": "Vă rugăm să introduceți un e-mail valabil",
+      "invalid_mobile_number": "Vă rugăm să introduceți un număr de telefon valid",
+      "invalid_national_id_value": "Vă rugăm să introduceți un număr național de identitate valid",
+      "invalid_passport": "Vă rugăm să introduceți un număr de pașaport valid",
+      "invalid_phone_number": "Vă rugăm să introduceți un număr de telefon valabil",
+      "invalid_voter_id": "Vă rugăm să introduceți un număr valid de identificare a alegătorului",
+      "ita_specific": {
+        "invalid_national_id_value": "Vă rugăm să introduceți un cod fiscal valid",
+        "required_national_id_value": "Vă rugăm să introduceți codul fiscal"
+      },
+      "jpn_specific": {
+        "invalid_national_id_value": "Vă rugăm să introduceți un „Numărul meu”/un cod de înregistrare de rezident valid",
+        "required_national_id_value": "Vă rugăm să introduceți codul dvs. \"Numărul meu\" / Codul de înregistrare a rezidenței"
+      },
+      "ken_specific": {
+        "invalid_other": "Vă rugăm să introduceți un număr valid de card Alien",
+        "required_other": "Vă rugăm să introduceți numărul dvs. de Alien Card"
+      },
+      "lux_specific": {
+        "invalid_national_id_value": "Vă rugăm să introduceți un număr de securitate socială valid",
+        "required_national_id_value": "Vă rugăm să introduceți numărul dvs. de securitate socială"
+      },
+      "mex_specific": {
+        "invalid_identity_card": "Vă rugăm să introduceți un valid CURP",
+        "invalid_tax_id": "Vă rugăm să introduceți un valid RFC",
+        "required_identity_card": "Vă rugăm să introduceți CURP",
+        "required_tax_id": "Vă rugăm să introduceți RFC"
+      },
+      "mys_specific": {
+        "invalid_national_id_value": "Vă rugăm să introduceți un NRIC valid",
+        "required_national_id_value": "Vă rugăm să introduceți NRIC-ul dvs"
+      },
+      "nga_specific": {
+        "invalid_identity_card": "Vă rugăm să introduceți un număr național de identificare (NIN) valid",
+        "invalid_other": "Vă rugăm să introduceți un BVN valid",
+        "invalid_tax_id": "Vă rugăm să introduceți un TIN valid",
+        "required_identity_card": "Vă rugăm să introduceți numărul dvs. național de identificare (NIN)",
+        "required_other": "Vă rugăm să introduceți BVN-ul dvs",
+        "required_tax_id": "Vă rugăm să introduceți TIN-ul dvs"
+      },
+      "phl_specific": {
+        "invalid_national_id_value": "Vă rugăm să introduceți un număr valid de card PhilSys (PCN)",
+        "required_national_id_value": "Vă rugăm să introduceți numărul cardului PhilSys (PCN)"
+      },
+      "pol_specific": {
+        "invalid_national_id_value": "Vă rugăm să introduceți un număr PESEL valid",
+        "required_national_id_value": "Vă rugăm să introduceți numărul dvs. PESEL"
+      },
+      "prt_specific": {
+        "invalid_national_id_value": "Vă rugăm să introduceți un număr de taxe valid",
+        "required_national_id_value": "Vă rugăm să introduceți numărul dvs. fiscal"
+      },
+      "reference": {
+        "translation": "Vă rugăm să introduceți un valid"
+      },
+      "required_consent": "Vă rugăm să fiți de acord să autorizați verificarea identității și a fraudei",
+      "required_country": "Vă rugăm să selectați o țară",
+      "required_country_residence": "Vă rugăm să selectați o țară",
+      "required_dob": "Vă rugăm să introduceți data dvs. de naștere",
+      "required_email": "Vă rugăm să introduceți e-mailul dvs.",
+      "required_first_name": "Vă rugăm să introduceți prenumele dvs.",
+      "required_last_name": "Vă rugăm să introduceți numele dvs. de familie",
+      "required_line1": "Vă rugăm să introduceți adresa dvs.",
+      "required_mobile_number": "Vă rugăm să verificați dacă numărul dvs. este corect",
+      "required_national_driving_license": "Vă rugăm să introduceți numărul permisului de conducere",
+      "required_national_id_type": "Vă rugăm să selectați tipul dvs. de identitate națională",
+      "required_national_id_value": "Vă rugăm să introduceți numărul dvs. național de identitate",
+      "required_national_passport": "Vă rugăm să introduceți numărul de pașaport",
+      "required_national_voter_id": "Vă rugăm să introduceți numărul dvs. de identificare de alegător",
+      "required_nationality": "Vă rugăm să selectați o țară",
+      "required_phone_number": "Vă rugăm să introduceți numărul dvs. de telefon",
+      "required_postcode": "Vă rugăm să introduceți codul dvs. poștal",
+      "sgp_specific": {
+        "invalid_national_id_value": "Vă rugăm să introduceți un valid NRIC",
+        "required_national_id_value": "Vă rugăm să introduceți NRIC-ul dvs"
+      },
+      "swe_specific": {
+        "invalid_national_id_value": "Vă rugăm să introduceți un valid PIN",
+        "required_national_id_value": "Vă rugăm să introduceți codul PIN"
+      },
+      "too_long_first_name": "Prenumele este prea lung",
+      "too_long_last_name": "Numele de familie este prea lung",
+      "too_long_line1": "Linia adresă este prea lungă",
+      "too_long_postcode": "Codul poștal este prea lung",
+      "too_long_town": "Numele orașului este prea lung",
+      "too_short_first_name": "Prenumele este prea scurt",
+      "too_short_last_name": "Numele de familie este prea scurt",
+      "too_short_postcode": "Codul poștal este prea scurt",
+      "tur_specific": {
+        "invalid_national_id_value": "Vă rugăm să introduceți un număr de identitate turc valid",
+        "required_national_id_value": "Vă rugăm să introduceți numărul dvs. de identificare turcesc"
+      },
+      "usa_specific": {
+        "invalid_ssn": "Vă rugăm să introduceți un SSN valabil",
+        "required_ssn": "Vă rugăm să introduceți numărul SSN",
+        "required_state": "Vă rugăm să selectați un stat"
+      }
+    },
+    "national_id_number_title": "Adăugați numărul dvs. național de identitate",
+    "personal_information_title": "Adăugați informațiile dvs. personale",
+    "prompt": {
+      "details_timeout": "Începeți din nou",
+      "header_timeout": "Se pare că acțiunea dvs. a durat prea mult"
+    }
+  },
+  "qes": {
+    "consent": {
+      "common": {
+        "steps": "Creează-ți semnătura"
+      },
+      "confirmation": {
+        "bullet_1": "După ce ați citit documentul, apăsați butonul \"Semnați documentul\".",
+        "bullet_2": "Odată ce Onfido îți verifică identitatea, semnătura ta va fi folosită pe acest document.",
+        "button_next_step": "Semnează documentul",
+        "review_document": "Revizuiți <fallback>documentul dvs.</fallback> pentru a semna",
+        "step2": "2 din 2",
+        "steps": "Semnează-ți documentul",
+        "subtitle": "Pentru a confirma identitatea dumneavoastră în conformitate cu regulile europene, trebuie să semnați digital un document.",
+        "title": "Creează și folosește semnătura ta digitală"
+      },
+      "introduction": {
+        "button_confirmation_step": "Creează-mi semnătura",
+        "certificate_application_form": "Formular de cerere pentru certificat",
+        "privacy_notice": "Notificare de confidențialitate",
+        "step1": "1 din 2",
+        "subtitle": "Pentru a confirma identitatea dumneavoastră în conformitate cu regulile europene, trebuie să semnați digital un document.",
+        "terms_and_conditions": "Termeni și condiții",
+        "third_party_description": "<fallback>Namirial SpA</fallback> este un furnizor global de încredere care va emite un certificat pentru validarea semnăturii dvs. electronice.",
+        "title": "Creează și folosește semnătura ta digitală"
+      }
+    }
+  },
+  "qes_consent": {
+    "button": "Creează-mi semnătura",
+    "link_certificate": "Formular de cerere pentru certificat",
+    "link_privacy_notice": "Notificare de confidențialitate",
+    "link_terms_and_conditions": "Termeni și condiții",
+    "namirial_intro": "Namirial SpA este un furnizor global de încredere care va emite un certificat pentru validarea semnăturii electronice.",
+    "subtitle": "Pentru a vă confirma identitatea în conformitate cu regulile europene, trebuie să semnați digital un document.",
+    "title": "Creați și utilizați semnătura dvs. digitală"
+  },
+  "qes_sign": {
+    "button": "Semnează documentul",
+    "link_document": "Revizuiți documentul pentru a semna",
+    "list_item_1": "După ce ați citit documentul, apăsați butonul \"Semnați documentul\".",
+    "list_item_2": "Odată ce Onfido îți verifică identitatea, semnătura ta va fi folosită pe acest document.",
+    "step_title": "Semnează-ți documentul",
+    "subtitle": "Pentru a vă confirma identitatea în conformitate cu regulile europene, trebuie să semnați digital un document.",
+    "title": "Creați și utilizați semnătura dvs. digitală"
+  },
+  "retry": {
+    "button": {
+      "generic_selfie_issue": "Încercați din nou"
+    },
+    "description": {
+      "default": "Vă rugăm să încercați din nou",
+      "expired_document": "Vă rugăm să încercați din nou cu un document de identitate cu poză valabil și asigurați-vă că informațiile dvs. sunt clar vizibile",
+      "generic_document_issue": "Vă rugăm să încercați din nou cu un document de identitate cu poză valabil și asigurați-vă că informațiile dvs. sunt clar vizibile",
+      "generic_selfie_issue": "Vă rugăm să încercați din nou și asigurați-vă că fața dvs. este vizibilă și bine luminată",
+      "unaccepted_document": "Vă rugăm să încercați din nou cu un document de identitate cu poză valabil și asigurați-vă că informațiile dvs. sunt clar vizibile"
+    },
+    "headline": {
+      "default": "A fost o problemă",
+      "expired_document": "Documentul dvs. a expirat",
+      "generic_document_issue": "A apărut o problemă cu documentul tău",
+      "generic_selfie_issue": "A existat o problemă cu selfie-ul tău",
+      "unaccepted_document": "Document neacceptat"
+    }
+  },
+  "retry_feedback": {
+    "button_primary": "Încercați din nou"
+  },
+  "retry_feedback_id_expired": {
+    "subtitle": "Vă rugăm să încercați din nou cu un document de identitate cu poză valabil și asigurați-vă că informațiile dvs. sunt clar vizibile",
+    "title": "Documentul dvs. a expirat"
+  },
+  "retry_feedback_id_generic": {
+    "subtitle": "Vă rugăm să încercați din nou cu un document de identitate cu poză valabil și asigurați-vă că informațiile dvs. sunt clar vizibile",
+    "title": "A survenit o problemă cu documentul dvs."
+  },
+  "retry_feedback_id_unaccepted": {
+    "subtitle": "Vă rugăm să încercați din nou cu un document de identitate cu poză valabil și asigurați-vă că informațiile dvs. sunt clar vizibile",
+    "title": "Document neacceptat"
+  },
+  "retry_feedback_selfie_generic": {
+    "subtitle": "Vă rugăm să încercați din nou și asigurați-vă că fața dvs. este vizibilă și bine luminată",
+    "title": "A survenit o problemă cu poza dvs. selfie"
+  },
+  "selfie_capture": {
+    "alert": {
+      "camera_inactive": {
+        "detail": "Verificați dacă este conectată și funcțională. Puteți, de asemenea, <fallback>continua verificarea pe telefonul dvs.</fallback>",
+        "detail_no_fallback": "Asigurați-vă că dispozitivul dvs. are o cameră video funcțională",
+        "title": "Camera video nu funcționează?"
+      },
+      "camera_not_working": {
+        "detail": "Poate fi deconectată. <fallback>Încercați să vă folosiți telefonul în schimb</fallback>.",
+        "detail_no_fallback": "Asigurați-vă că funcția cameră video a dispozitivului dvs. funcționează",
+        "title": "Camera video nu funcționează"
+      },
+      "timeout": {
+        "detail": "Nu uitați să apăsați butonul când terminați. <fallback>Refaceți acțiunile video</fallback>",
+        "title": "Se pare că acțiunea dvs. a durat prea mult"
+      }
+    },
+    "body": "Mențineți fața în oval",
+    "button_accessibility": "Faceți o poză",
+    "button_primary": "Începeți scanarea feței",
+    "frame_accessibility": "Vizualizați din camera video",
+    "title": "Mențineți fața în oval"
+  },
+  "selfie_confirmation": {
+    "image_accessibility": "Poza feței dvs.",
+    "subtitle": "Asigurați-vă că întreaga față este vizibilă",
+    "title": "Verificați poza dvs. selfie"
+  },
+  "selfie_intro": {
+    "banner_nudity_message": "Fața și fundalul dvs. vor fi capturate în timpul acestui proces",
+    "button_primary": "Continuați",
+    "list_accessibility": "Sugestii pentru a face o poză selfie bună",
+    "list_item_face_forward": "Uitați-vă înainte și asigurați-vă că ochii dvs. sunt clar vizibili",
+    "list_item_no_face_cover": "Îndepărtați tot ce vă acoperă fața. Ochelarii sunt acceptați",
+    "list_item_no_glasses": "Dați-vă jos ochelarii dacă este necesar",
+    "subtitle": "Vom compara această imagine cu documentul dvs.",
+    "title": "Faceți o poză selfie"
+  },
+  "sms_sent": {
+    "info": "Sugestii",
+    "info_link_expire": "Linkul dvs. va expira într-o oră",
+    "info_link_window": "Mențineți această fereastră deschisă în timp ce vă utilizați telefonul mobil",
+    "link": "Încercați o altă metodă",
+    "subtitle": "Am trimis un link sigur la <number></number>",
+    "subtitle_minutes": "Ar putea să dureze câteva minute să îl primiți",
+    "title": "Verificați telefonul dvs. mobil"
+  },
+  "switch_phone": {
+    "info": "Sugestii",
+    "info_link_expire": "Linkul dvs. pentru telefonul mobil va expira într-o oră",
+    "info_link_refresh": "Nu reîmprospătați această pagină",
+    "info_link_window": "Mențineți această fereastră deschisă în timp ce vă utilizați telefonul mobil",
+    "link": "Anulează",
+    "subtitle": "Odată ce ați terminat, vom trece la următorul pas",
+    "title": "Conectat la telefonul dvs. mobil"
+  },
+  "upload_guide": {
+    "button_primary": "Continuați",
+    "image_detail_blur_alt": "Exemplu de document încețoșat",
+    "image_detail_blur_label": "Toate detaliile trebuie să fie clare — nimic cețos",
+    "image_detail_cutoff_label": "Arătați toate detaliile — includeți cele 2 linii de jos",
+    "image_detail_glare_label": "Nu stați în lumină directă — fără luciri",
+    "image_detail_good_label": "Poza trebuie să arate clar documentul dvs.",
+    "subtitle": "Scanările și fotocopiile nu sunt acceptate",
+    "title": "Trimiteți pagina cu fotografia din pașaport"
+  },
+  "user_consent": {
+    "button_primary": "Accept",
+    "button_secondary": "Do not accept",
+    "prompt": {
+      "button_primary": "Review again",
+      "button_secondary": "Yes, don’t verify me",
+      "no_consent_detail": "If you do not accept Onfido’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
+      "no_consent_title": "Are you sure?"
+    }
+  },
+  "user_consent_load_fail": {
+    "button_primary": "Reload screen",
+    "detail": "Check that your connection is stable, then try again",
+    "title": "Content failed to load"
+  },
+  "video_capture": {
+    "body": "Mențineți fața în oval",
+    "body_record": "Apăsați butonul când sunteți gata",
+    "body_stop": "Apăsați stop când ați terminat",
+    "button_primary_finish": "Finalizați înregistrarea",
+    "button_primary_next": "Următorul pas",
+    "button_primary_start": "Începeți înregistrarea",
+    "button_record_accessibility": "Începeți înregistrarea",
+    "frame_accessibility": "Vizualizați din camera video",
+    "header": {
+      "challenge_digit_instructions": "Spuneți fiecare cifră cu voce tare",
+      "challenge_turn_forward": "apoi să vă uitați înainte",
+      "challenge_turn_left": "Întoarceți capul spre stânga",
+      "challenge_turn_right": "Întoarceți capul spre dreapta"
+    },
+    "prompt": {
+      "header_timeout": "Se pare că acțiunea dvs. a durat prea mult"
+    }
+  },
+  "video_confirmation": {
+    "body": "Clipul dvs. video a fost înregistrat",
+    "button_primary": "Înregistrați un clip video",
+    "button_secondary": "Faceți clipul video din nou",
+    "title": "Verificați clipul dvs. video",
+    "video_accessibility": "Redați din nou clipul dvs. înregistrat"
+  },
+  "video_intro": {
+    "button_pause_accessibility": "Puneți pe pauză clipul video",
+    "button_play_accessibility": "Redați clip video",
+    "button_primary": "Înregistrați un clip video",
+    "list_accessibility": "Acțiuni pentru a verifica un clip video selfie",
+    "list_item_actions": "Aveți 20 de secunde să finalizați",
+    "list_item_speak": "Urmați instrucțiunile pentru a vă mișca sau a vorbi",
+    "title": "Înregistrați un clip video",
+    "video_accessibility": "Clip video dat ca exemplu al unei persoane care înregistrează un clip video selfie. Pentru a înregistra un clip video selfie, uitați-vă la camera video din față și țineți telefonul dvs. puțin la distanță de fața dvs. Apoi trebuie să spuneți niște numere și să întoarceți capul în conformitate cu instrucțiunile de pe ecran."
+  },
+  "welcome": {
+    "doc_video_subtitle": "Ar trebui să dureze câteva minute",
+    "info_original_document": "Faceți o fotografie a documentului original. Nu sunt permise scanările, fotografiile de pe ecran sau fotocopiile.",
+    "list_header": "Utilizați dispozitivul dvs. pentru:",
+    "list_header_doc_video": "Utilizați dispozitivul dvs. pentru înregistra:",
+    "list_header_webcam": "Utilizați camera dvs. web sau telefonul dvs. pentru a face o poză:",
+    "list_item_doc": "documentul dvs. de identitate",
+    "list_item_doc_generic": "Înregistrați un videoclip cu documentul dvs. de identitate",
+    "list_item_doc_photo": "Faceți o poză cu documentul dvs. de identitate",
+    "list_item_doc_video": "Înregistrați un clip video cu documentul dvs. de identitate",
+    "list_item_doc_video_timeout": "Înregistrarea este limitată la <timeout></timeout> secunde",
+    "list_item_face_photo": "A face o poză a feței dvs.",
+    "list_item_face_video": "Înregistrați un clip video cu fața dvs.",
+    "list_item_poa": "dovada dvs. de adresă",
+    "list_item_selfie": "fața dvs.",
+    "next_button": "Alegeți documentul",
+    "start_workflow_button": "Începeți verificarea",
+    "start_workflow_button_trial": "Începeți verificarea (TEST)",
+    "subtitle": "Ar trebui să dureze câteva minute",
+    "title": "Verificați identitatea dvs.",
+    "trial_message": "Nu partajați date personale aici decât dacă sunteți angajat într-un proces Onfido."
+  },
+  "workflow_complete": {
+    "pass": {
+      "description": "Am reușit să vă verificăm identitatea",
+      "title": "Reușit"
+    },
+    "reject": {
+      "description": "Nu am reușit să vă verificăm identitatea",
+      "title": "Respins"
+    }
+  },
+  "workflow_erros": {
+    "generic_title": "A survenit o eroare de server!",
+    "no_workflow_run_id": "ID-ul de executare flux de lucru nu este setat.",
+    "reload_app": "Vă rugăm să încercați să reîncărcați aplicația și încercați din nou.",
+    "task_not_completed": "Imposibilitate de a finaliza sarcina de flux de lucru.",
+    "task_not_retrieved": "Imposibilitate de a relua sarcina de flux de lucru.",
+    "task_not_supported": "Sarcina nu este în mod prezent acoperită"
+  }
 }

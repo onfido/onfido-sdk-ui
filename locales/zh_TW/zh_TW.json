@@ -1,1440 +1,1319 @@
 {
-    "onfido": {
-        "avc_confirmation": {
-            "button_primary_upload": "上傳錄製",
-            "subtitle": "已成功錄製您的臉部影片",
-            "title": "錄製完成"
-        },
-        "avc_connection_error": {
-            "button_primary_reload": "重新載入說明",
-            "button_primary_retry_upload": "重新嘗試上傳",
-            "button_secondary_restart_recording": "重新開始錄製",
-            "subtitle": "請檢查您的連線是否穩定，然後再試一次",
-            "title": "連線錯誤"
-        },
-        "avc_face_alignment": {
-            "feedback_move_back": "向後移動",
-            "feedback_move_back_accessibility": "向後移動裝置",
-            "feedback_move_closer": "靠近一些",
-            "feedback_move_left_accessibility": "向左移動裝置",
-            "feedback_move_right_accessibility": "向右移動裝置",
-            "feedback_no_face_detected": "未偵測到臉部",
-            "feedback_not_centered": "臉部未在中心位置",
-            "title": "請將臉部置於框架中"
-        },
-        "avc_face_capture": {
-            "alert": {
-                "mic_conflict_title": "其他應用程式正在使用您的麥克風",
-                "timeout_body": "您最多有 15 秒的時間完成錄製",
-                "timeout_button_primary": "重試",
-                "timeout_title": "很抱歉，我們必須重新開始錄製",
-                "too_fast_body": "請再試一次，慢慢轉動頭部",
-                "too_fast_button_primary": "重試",
-                "too_fast_title": "您轉頭的速度太快了"
-            },
-            "title": "慢慢將您的頭部轉向兩側",
-            "title_completed": "錄製完成"
-        },
-        "avc_intro": {
-            "button_primary_ready": "開始錄製",
-            "disclaimer": "此過程將記錄您的臉部和背景",
-            "disclaimer_camera_and_audio_on": "將在此過程中記錄您的臉部、背景及聲音",
-            "list_item_one": "首先，請將臉部置於框架中",
-            "list_item_two": "然後，將您的頭部慢慢轉向兩側",
-            "subtitle": "這是為了驗證您的真實身份",
-            "title": "錄製影片",
-            "title_accessibility": "錄製您的臉部影片",
-            "video_accessibility": "範例影片：某人把頭轉向兩側，直到完成"
-        },
-        "avc_no_face_detected": {
-            "button_primary_restart": "重新開始錄製",
-            "list_item_eyes": "請確保您的眼睛清晰可見",
-            "list_item_face": "請務必只顯示您的臉部，我們不需要看到您的身分證件",
-            "list_item_lighting": "請確保在光線充足的地方進行錄製",
-            "list_item_mask": "請務必取下遮蓋臉部的口罩或其他物品。可接受戴眼鏡",
-            "title": "我們無法偵測到您的臉部"
-        },
-        "avc_uploading": {
-            "title": "上傳中"
-        },
-        "country_select": {
-            "alert": {
-                "another_doc": "目前不支援該國家的文件，<fallback>請嘗試其他文件類型<\/fallback>"
-            },
-            "alert_dropdown": {
-                "country_not_found": "找不到國家"
-            },
-            "button_primary": "提交文件",
-            "poa_alert": {
-                "country_not_found": "很抱歉。我們正在努力支援更多國家。",
-                "intro": "找不到您的國家？"
-            },
-            "search": {
-                "accessibility": "選擇國家",
-                "input_placeholder": "例如：美國",
-                "label": "搜尋國家"
-            },
-            "title": "選擇核發國家"
-        },
-        "cross_device": {
-            "button_primary_upload": "繼續"
-        },
-        "cross_device_abort": {
-            "title": "驗證已取消"
-        },
-        "cross_device_checklist": {
-            "button_primary": "提交驗證",
-            "info": "提示",
-            "list_item_doc_multiple": "文件",
-            "list_item_doc_one": "文件",
-            "list_item_poa": "地址證明文件",
-            "list_item_selfie": "自拍",
-            "list_item_video": "影片",
-            "subtitle": "以下是您上傳的所有內容：",
-            "title": "最後一個步驟"
-        },
-        "cross_device_error_desktop": {
-            "subtitle": "連結僅適用於行動裝置",
-            "title": "發生錯誤"
-        },
-        "cross_device_error_mobile": {
-            "subtitle": "您可以嘗試在原始裝置上再次驗證您的身份。",
-            "title": "該號碼不符"
-        },
-        "cross_device_error_restart": {
-            "subtitle": "您需要在電腦上重新開始驗證",
-            "title": "發生錯誤"
-        },
-        "cross_device_intro": {
-            "button_primary": "取得安全連結",
-            "list_accessibility": "繼續在手機上驗證所需的步驟",
-            "list_item_finish": "請返回此處以完成提交",
-            "list_item_open_link": "打開連結並完成任務",
-            "list_item_send_phone": "將安全連結傳送至您的手機",
-            "subtitle": "以下是操作方法：",
-            "subtitle_upload": "請上傳原始文件的近期照片",
-            "title": "繼續使用您的手機"
-        },
-        "cross_device_number_match_desktop": {
-            "instruction": "點擊您手機上的號碼以驗證是您。",
-            "subtitle": "為了幫助保護您的資訊安全，Onfido希望確認真的是您在嘗試驗證您的身份",
-            "title": "已連接至您的手機"
-        },
-        "cross_device_number_match_error_desktop": {
-            "button_primary": "再試一次",
-            "subtitle": "請返回並再試一次。",
-            "title": "該號碼不符"
-        },
-        "cross_device_number_match_mobile": {
-            "abort_button": "這不是我",
-            "subtitle": "請在您的另一部裝置上點擊顯示的號碼。我們想確認真的是您。",
-            "title": "匹配數字"
-        },
-        "cross_device_return": {
-            "body": "您的電腦可能需要幾秒鐘才能更新",
-            "subtitle": "您現在可以返回電腦以繼續",
-            "title": "上傳成功"
-        },
-        "cross_device_session_linked": {
-            "button_primary": "繼續",
-            "info": "仔細檢查",
-            "list_item_desktop_open": "桌面視窗仍保持開啟狀態",
-            "list_item_sent_by_you": "此連結是由您發送的，如果您認為這可能是詐騙，請尋求建議",
-            "subtitle": "繼續驗證",
-            "title": "連結至您電腦的行動裝置工作階段"
-        },
-        "doc_auto_capture": {
-            "button_accessibility": "拍照",
-            "footer": {
-                "captured": "已擷取相片",
-                "capturing": "正在擷取相片",
-                "manual_fallback_generic_document_back": "拍攝文件背面照片。",
-                "manual_fallback_generic_document_front": "拍攝文件正面相片",
-                "manual_fallback_identity_card_back": "請拍攝卡片背面的相片",
-                "manual_fallback_identity_card_front": "請拍攝卡片正面的相片",
-                "manual_fallback_license_back": "請拍攝駕照背面的相片",
-                "manual_fallback_license_front": "請拍攝駕照正面的相片",
-                "manual_fallback_passport": "請拍攝護照相片頁的相片",
-                "manual_fallback_residence_permit_back": "請拍攝居留證背面的相片",
-                "manual_fallback_residence_permit_front": "請拍攝居留許可證正面相片",
-                "position_generic_document_back": "請將文件背面置於框架中",
-                "position_generic_document_front": "",
-                "position_identity_card_back": "將您的卡片背面放在框架中",
-                "position_identity_card_front": "將卡片正面放置在畫面中",
-                "position_license_back": "請將駕照背面放在框架中",
-                "position_license_front": "請將駕照正面放在框架中",
-                "position_passport": "請將護照相片頁放在框架中",
-                "position_residence_permit_back": "請將居留證背面放在框架中",
-                "position_residence_permit_front": "請將居留證正面放在框架中"
-            },
-            "frame": {
-                "flip_document": "翻到背面",
-                "hold_still": "保持不動",
-                "no_document": "未檢測到文件"
-            }
-        },
-        "doc_capture": {
-            "alert": {
-                "no_barcode_detail": "請放在光線充足的地方，並將卡片靠近相機",
-                "no_barcode_title": "未偵測到條碼"
-            },
-            "button_primary": "開始文件掃描",
-            "detail": {
-                "folded_doc_front": "將您的文件平放，包括所有內頁（須包含您的相片）"
-            },
-            "header": {
-                "recording_complete": "錄製完成",
-                "recording_video": "錄製影片"
-            },
-            "header_folded_doc_front": "個人相片的一面",
-            "prompt": {
-                "button_card": "信用卡",
-                "button_paper": "紙本文件",
-                "title_id": "您有什麼類型的身份證？",
-                "title_license": "您有什麼類型的駕照？"
-            }
-        },
-        "doc_confirmation": {
-            "alert": {
-                "blur_detail": "請確保所有內容清晰可見",
-                "blur_title": "偵測到模糊的相片",
-                "crop_detail": "請確保完整文件清晰可見",
-                "crop_title": "偵測到部完整照片",
-                "glare_detail": "遠離直射光線",
-                "glare_title": "偵測到眩光",
-                "no_doc_detail": "請確保其完全置於框架內",
-                "no_doc_title": "未偵測到文件",
-                "odp_detail": "請使用您的原始文件。不接受螢幕照片或影印本",
-                "odp_photo_of_screen_title": "偵測到螢幕的照片",
-                "odp_photocopy_title": "偵測到影印件",
-                "odp_scan_title": "掃描檢測到",
-                "odp_screenshot_title": "偵測到截圖"
-            },
-            "body": "請確保您已上傳整個文件頁面，且詳細資料清晰可閱，沒有模糊或眩光",
-            "body_accommodation_tenancy_certificate": "請確保您已上傳整個文件頁面，並且細節清晰可讀，沒有模糊或眩光",
-            "body_address_certificate": "請確保您已上傳整個文件頁面，並且細節清晰可讀，沒有模糊或眩光",
-            "body_bank_statement": "請確保您已上傳整個文件頁面，且詳細資料清晰可閱，沒有模糊或眩光",
-            "body_benefits_letter": "請確保您已上傳整個文件頁面，且詳細資料清晰可閱，沒有模糊或眩光",
-            "body_bill": "請確保您已上傳整個文件頁面，且詳細資料清晰可閱，沒有模糊或眩光",
-            "body_exchange_house_statement": "請確保您已上傳整個文件頁面，並且細節清晰可讀，沒有模糊或眩光",
-            "body_general_letter": "請確保您已上傳整個文件頁面，並且細節清晰可讀，沒有模糊或眩光",
-            "body_generic_document": "請確保您的個人詳細資料清晰且未被遮蔽",
-            "body_id": "請確保您的個人詳細資料清晰且未被遮蔽",
-            "body_identity_document_with_address": "請確保您已上傳整個文件頁面，並且細節清晰可讀，沒有模糊或眩光",
-            "body_image_medium": "若我們無法讀取，則需要較長時間驗證您的身份",
-            "body_image_poor": "為了順利驗證您的身份，我們需要一張更好的相片",
-            "body_insurance_statement": "請確保您已上傳整個文件頁面，並且細節清晰可讀，沒有模糊或眩光",
-            "body_license": "請確保您的個人詳細資料清晰且未被遮蔽",
-            "body_mobile_phone_bill": "請確保您已上傳整個文件頁面，並且細節清晰可讀，沒有模糊或眩光",
-            "body_mortgage_statement": "請確保您已上傳整個文件頁面，並且細節清晰可讀，沒有模糊或眩光",
-            "body_passport": "請確保您的個人詳細資料清晰且未被遮蔽",
-            "body_pension_property_statement_letter": "請確保您已上傳整個文件頁面，並且細節清晰可讀，沒有模糊或眩光",
-            "body_permit": "請確保您的個人詳細資料清晰且未被遮蔽",
-            "body_tax_letter": "請確保您已上傳整個文件頁面，且詳細資料清晰可閱，沒有模糊或眩光",
-            "button_close": "關閉",
-            "button_primary_redo": "重新開始",
-            "button_primary_upload": "上傳",
-            "button_primary_upload_anyway": "仍要上傳",
-            "button_secondary_change_document": "選擇其他文件",
-            "button_secondary_redo": "重新開始",
-            "button_secondary_submit_anyway": "無論如何提交照片",
-            "button_zoom": "放大圖片",
-            "image_accessibility": "文件相片",
-            "title": "檢查您的圖片"
-        },
-        "doc_multi_frame_capture": {
-            "capture_progress_title": "正在掃描文件",
-            "instructions_title_back": "請將文件背面置於框架中",
-            "instructions_title_front": "將文件正面置於框架中"
-        },
-        "doc_select": {
-            "accommodation_tenancy_certificate_detail": "由政府機關或公司房東發出作為租賃確認。",
-            "button_address_card": "地址卡",
-            "button_address_card_back": "地址卡（背面）",
-            "button_address_card_detail": "接受臨時和永久地址卡",
-            "button_address_card_front": "地址卡（正面）",
-            "button_bank_statement": "銀行或房屋建築協會報表",
-            "button_bank_statement_non_uk": "銀行對帳單",
-            "button_benefits_letter": "福利證明函",
-            "button_benefits_letter_detail": "政府批准的家庭福利，例如：求職者津貼、住房福利、稅收抵免",
-            "button_bill": "水電費帳單",
-            "button_bill_detail": "天然氣、電力、水、有線電話或寬頻",
-            "button_exchange_house_statement": "交換房屋聲明",
-            "button_exchange_house_statement_detail": "寄件人轉帳或匯款聲明",
-            "button_general_letter": "一般信件",
-            "button_general_letter_detail": "來自金融機構或公用事業公司的信件",
-            "button_government_letter": "政府公文",
-            "button_government_letter_detail": "任何政府核發的公文，例如：福利待遇、投票信件、稅務信件等",
-            "button_id": "身份證",
-            "button_id_detail": "正面和背面",
-            "button_identity_document_with_address": "帶有地址的身份證明文件",
-            "button_identity_document_with_address_back": "帶有地址的身份證明文件（背面）",
-            "button_identity_document_with_address_detail": "由政府機關發出",
-            "button_identity_document_with_address_front": "帶有地址的身份證明文件（正面）",
-            "button_insurance_statement": "保險聲明",
-            "button_insurance_statement_detail": "由私人保險或經紀公司發出",
-            "button_license": "駕照",
-            "button_license_detail": "正面和背面",
-            "button_mobile_phone_bill": "手機帳單",
-            "button_mobile_phone_bill_detail": "由手機網路供應商發出",
-            "button_mortgage_statement": "抵押貸款聲明",
-            "button_mortgage_statement_detail": "由金融貸款機構發出",
-            "button_passport": "護照",
-            "button_passport_detail": "相片頁",
-            "button_pension_property_statement_letter": "退休金或財產聲明\/信函",
-            "button_pension_property_statement_letter_detail": "退休金聲明或信件和物業稅聲明或信件",
-            "button_permit": "居留證",
-            "button_permit_detail": "正面和背面",
-            "button_tax_letter": "地方政府稅務信函",
-            "extra_estatements_ok": "接受電子對帳單",
-            "list_accessibility": "可用於驗證您身份的文件",
-            "pill": "最快速",
-            "section": {
-                "header_country": "核發國家",
-                "header_doc_type": "可接受的文件",
-                "input_country_not_found": "沒有結果",
-                "input_placeholder_country": "選擇核發國家"
-            },
-            "subtitle": "必須是含有相片的官方身分證件",
-            "subtitle_country": "選擇核發國家，查看我們接受的文件",
-            "subtitle_entire_page": "整個頁面",
-            "subtitle_front_back": "正面和背面",
-            "subtitle_photo_page": "相片頁",
-            "subtitle_poa": "這些是最可能顯示您目前住家地址的文件",
-            "title": "選擇文件",
-            "title_poa": "選擇一份文件"
-        },
-        "doc_submit": {
-            "button_link_upload": "或上傳相片（不可使用掃描或影印的相片）",
-            "button_primary": "繼續使用手機",
-            "subtitle": "用手機拍攝相片",
-            "title_accommodation_tenancy_certificate": "提交住宿或租賃證明",
-            "title_address_certificate": "提交地址卡",
-            "title_address_certificate_back": "提交地址卡（背面）",
-            "title_address_certificate_front": "提交地址卡（正面）",
-            "title_bank_statement": "提交對帳單",
-            "title_benefits_letter": "提交信件",
-            "title_bill": "提交帳單",
-            "title_exchange_house_statement": "提交匯款行報表",
-            "title_general_letter": "提交一般信件",
-            "title_generic_document_back": "提交文件（背面）",
-            "title_generic_document_front": "提交文件（正面）",
-            "title_government_letter": "政府公文",
-            "title_id_back": "提交身份證（背面）",
-            "title_id_front": "提交身份證（正面）",
-            "title_identity_document_with_address": "提交帶有地址的身份文件",
-            "title_identity_document_with_address_back": "提交帶有地址的身份證明文件（背面）",
-            "title_identity_document_with_address_front": "提交帶有地址的身份證明文件（正面）",
-            "title_insurance_statement": "提交保險聲明",
-            "title_license_back": "提交駕照（背面）",
-            "title_license_front": "提交駕照（正面）",
-            "title_mobile_phone_bill": "提交手機帳單",
-            "title_mortgage_statement": "提交抵押貸款聲明",
-            "title_passport": "提交護照相片頁",
-            "title_pension_property_statement_letter": "提交聲明或信件",
-            "title_permit_back": "提交居留證（背面）",
-            "title_permit_front": "提交居留證（正面）",
-            "title_tax_letter": "提交地方政府稅務信函"
-        },
-        "doc_video_capture": {
-            "button_primary_fallback": "下一步",
-            "button_primary_fallback_end": "完成錄製",
-            "detail_step2": "請隨時保持文件的完整檢視狀態",
-            "header": "手持文件時，請將文件正面置於框架內",
-            "header_paper_doc_step2": "慢慢翻轉文件，以顯示文件外頁",
-            "header_passport": "手持護照時，請將相片頁置於框架內",
-            "header_passport_progress": "保持不動",
-            "header_step1": "現在，請保持靜止",
-            "header_step2": "慢慢翻轉文件，以顯示文件背面",
-            "prompt": {
-                "detail_timeout": "影片錄製以 <timeout><\/timeout> 秒為限。<fallback>請重新開始<\/fallback>"
-            },
-            "stepper": "第 <step><\/step> 個步驟，共 <total><\/total> 個步驟",
-            "success_accessibility": "成功"
-        },
-        "doc_video_confirmation": {
-            "button_secondary": "預覽影片",
-            "title": "檢查您的影片"
-        },
-        "eid": {
-            "scheme_form": {
-                "subtitle": "從下方列表中選擇一個銀行，通過<form_scheme><\/form_scheme>進行Verification",
-                "title": "<form_scheme><\/form_scheme> Verification"
-            }
-        },
-        "error_unsupported_browser": {
-            "subtitle_android": "在最新版本的 Google Chrome 上重新開始此程序",
-            "subtitle_ios": "在最新版本的 Safari 上重新開始此程序",
-            "title_android": "不支援的瀏覽器",
-            "title_ios": "不支援的瀏覽器"
-        },
-        "generic": {
-            "accessibility": {
-                "close_sdk_screen": "關閉身份驗證畫面",
-                "dismiss_alert": "解除警告"
-            },
-            "back": "返回",
-            "close": "關閉",
-            "errors": {
-                "desktop": {
-                    "subtitle": "此連結只能在行動裝置上使用。請在行動裝置上開啟此連結再試一次。",
-                    "title": "無法開啟連結"
-                },
-                "expired_token": {
-                    "instruction": "請再試一次",
-                    "message": "您的權杖已過期",
-                    "subtitle": "在此驗證過程中提供的SDK令牌已過期。請返回並再試一次。",
-                    "title": "您的會話已過期"
-                },
-                "expired_trial": {
-                    "instruction": "您已達到試用限額",
-                    "message": "您的試用已過期",
-                    "subtitle": "您已達到允許的最大驗證次數。",
-                    "title": "您的試用期已過期"
-                },
-                "geoblocked_error": {
-                    "instruction": "很抱歉，由於無法支援您的所在位置，我們似乎無法繼續進行",
-                    "message": "無法提供服務"
-                },
-                "geoblocker_request": {
-                    "subtitle": "對不起，由於您當前的位置不受支援，我們無法進行您的驗證。",
-                    "title": "服務不可用"
-                },
-                "interrupted_flow_error": {
-                    "instruction": "在不同的裝置上重新開始此程序",
-                    "message": "未偵測到相機"
-                },
-                "invalid_size": {
-                    "instruction": "必須小於 10MB。",
-                    "message": "已超出檔案大小。"
-                },
-                "invalid_type": {
-                    "instruction": "請嘗試使用另一種檔案類型。",
-                    "message": "未上傳文件。"
-                },
-                "lazy_loading": {
-                    "message": "載入元件時發生錯誤"
-                },
-                "multiple_faces": {
-                    "instruction": "只有您的臉部可以顯示在自拍照中",
-                    "message": "找到多個臉部"
-                },
-                "no_camera": {
-                    "subtitle": "我們無法在此裝置上偵測到相機。請確保相機已連接，並已授予所需的權限。",
-                    "title": "找不到相機"
-                },
-                "no_face": {
-                    "instruction": "請確保您的臉部清晰可見",
-                    "message": "未偵測到臉部"
-                },
-                "request_error": {
-                    "instruction": "請再試一次",
-                    "message": "發生錯誤"
-                },
-                "restart_cross-device": {
-                    "subtitle": "您需要在電腦上重新開始您的身份驗證。請返回到驗證畫面並再試一次。",
-                    "title": "出了些問題"
-                },
-                "sms_failed": {
-                    "instruction": "將連結複製至手機",
-                    "message": "發生錯誤"
-                },
-                "sms_overuse": {
-                    "instruction": "將連結複製至手機",
-                    "message": "失敗次數過多"
-                },
-                "unsupported_browser": {
-                    "subtitle": "請重新啟動過程並嘗試使用另一種瀏覽器。",
-                    "title": "不支援的瀏覽器"
-                },
-                "unsupported_file": {
-                    "instruction": "嘗試使用 JPG 或 PNG 檔案",
-                    "message": "不支援的檔案類型"
-                },
-                "unsupported_sdk_version": {
-                    "subtitle": "SDK版本與配置的工作流程不相容。請檢查您目前使用的工作流程的最低SDK需求。",
-                    "title": "不相容的版本"
-                },
-                "user_consent_denied": {
-                    "subtitle": "抱歉，未經您的同意，我們無法驗證您的身份。\\n如果您想繼續進行身份驗證，請返回並給予您的同意。",
-                    "title": "拒絝同意"
-                }
-            },
-            "footer": {
-                "branding": "Onfido真實身份"
-            },
-            "icon_error_accessibility": "錯誤：",
-            "icon_info_accessibility": "資訊：",
-            "icon_success_accessibility": "成功：",
-            "icon_warning_accessibility": "警告：",
-            "lazy_load_placeholder": "載入中……",
-            "loading": "載入中"
-        },
-        "get_link": {
-            "alert_wrong_number": "檢查您的電話號碼是否正確",
-            "button_copied": "已複製",
-            "button_copy": "複製",
-            "button_submit": "傳送連結",
-            "info_qr_how": "如何掃描 QR 碼",
-            "info_qr_how_list_item_camera": "將手機的相機對準 QR 碼",
-            "info_qr_how_list_item_download": "若無法使用，請從 Google Play 或 App Store 下載 QR 碼掃描器",
-            "link_divider": "或選擇其他方法",
-            "link_qr": "掃描 QR 碼",
-            "link_sms": "透過簡訊取得連結",
-            "link_url": "複製連結",
-            "loader_sending": "正在傳送",
-            "number_field_input_placeholder": "輸入手機號碼",
-            "number_field_label": "輸入您的手機號碼：",
-            "subtitle_qr": "用手機掃描 QR 碼",
-            "subtitle_sms": "將此一次性連結傳送至您的手機",
-            "subtitle_url": "將此一次性連結傳送至您的手機",
-            "title": "取得您的安全連結",
-            "url_field_label": "將連結複製至手機瀏覽器"
-        },
-        "ial2_nist": {
-            "option": {
-                "goverment_issued_photo_id": "第二張政府發行的照片ID",
-                "ssn": "社會安全號碼 (SSN)"
-            },
-            "subtitle": "我們需要額外的資訊來確認您的身份。請在下方選擇一個選項。"
-        },
-        "interactive_task": {
-            "waiting": {
-                "title_5": "正在上峰媒體..."
-            }
-        },
-        "livenessV2": {
-            "error_reload_instructions": "重新載入說明",
-            "intro_note_no1": "首先，請將臉部置於框架中",
-            "intro_note_no2": "然後，將您的頭部慢慢轉向兩側",
-            "intro_ready_button": "請注意，我們會記錄您的臉部和背景",
-            "intro_subtitle": "這是為了驗證您的真實身份",
-            "intro_warning": "請注意，我們會記錄您的臉部和背景",
-            "success_main_button": "提交驗證",
-            "success_title": "這就是我們開始驗證您身份所需的全部內容"
-        },
-        "mobilePhrases": {
-            "photo_upload": {
-                "body_id_back": "請拍攝卡片背面的相片",
-                "body_id_front": "請拍攝卡片正面的相片",
-                "body_license_back": "請拍攝駕照背面的相片",
-                "body_license_front": "請拍攝駕照正面的相片",
-                "body_passport": "請拍攝護照相片頁的相片",
-                "body_selfie": "請拍攝一張臉部自拍照"
-            },
-            "selfie_capture": {
-                "alert": {
-                    "camera_inactive": {
-                        "detail": "請改為使用<fallback>基本相機模式<\/fallback>拍攝相片"
-                    },
-                    "camera_not_working": {
-                        "detail": "請改為使用<fallback>基本相機模式<\/fallback>拍攝相片"
-                    }
-                }
-            },
-            "upload_guide": {
-                "button_primary": "拍照",
-                "title": "護照相片頁"
-            }
-        },
-        "nfc_scan": {
-            "sheet": {
-                "success": "掃描成功"
-            }
-        },
-        "nfc_scan_error_can": {
-            "primary_button": "退出驗證",
-            "subtitle": "您已達到輸入CAN號碼的最大嘗試次數"
-        },
-        "nfc_scan_error_can:title": "已達到最大嘗試次數",
-        "otp": {
-            "code_input": {
-                "error": {
-                    "code_expired": "您的代碼已過期，請請求新的一個。",
-                    "code_invalid": "輸入的代碼錯誤，請再試一次。",
-                    "no_international_code": "輸入需要為國際格式",
-                    "technical": "發生了技術錯誤，請稍後再試",
-                    "too_many_attempts": "您已嘗試此代碼太多次，請請求一個新的。",
-                    "wrong_code": "輸入的代碼錯誤，請再試一次"
-                },
-                "intro": "您有5分鐘的時間來驗證通過短信發送到<phonenumber><\/phonenumber>的代碼",
-                "resend": {
-                    "cta": "請求新的代碼",
-                    "cta_timeout": "請求新的代碼（<timeout><\/timeout>秒）",
-                    "label": "已發送代碼",
-                    "tracker": "<remaining><\/remaining> 的 <limit><\/limit>"
-                },
-                "title": "一次性密碼"
-            },
-            "error": {
-                "cta": "返回",
-                "subtitle": "請等待幾秒鐘，然後再試一次",
-                "title": "出了些問題"
-            },
-            "failure": {
-                "cta": "繼續",
-                "subtitle": "我們無法再驗證您的電話號碼",
-                "title": "允許的嘗試次數已超過"
-            },
-            "send_code": {
-                "cta": "發送代碼",
-                "error": {
-                    "invalid_phone_number": "請提供有效的電話號碼。",
-                    "limit": "您已達到發送短信的限制",
-                    "phone_number_blocked": "抱歉，我們不支援此國家代碼",
-                    "technical": "發生了技術錯誤，請稍後再試"
-                },
-                "input_label": "電話號碼",
-                "intro": "為了驗證您的電話號碼，我們將要求您輸入一次性密碼。",
-                "title": "一次性密碼"
-            }
-        },
-        "outro": {
-            "body": "這就是我們開始驗證您身份所需的全部內容",
-            "body_government_letter": "提供整個文件頁面以取得最佳結果",
-            "title": "謝謝"
-        },
-        "permission": {
-            "body_both": "若不同時使用相機和麥克風，我們無法驗證您的身份",
-            "body_cam": "不使用相機，我們無法驗證您的身份",
-            "body_mic": "若不使用麥克風，我們無法驗證您的身份",
-            "button_primary_both": "同時啟用兩者",
-            "button_primary_cam": "啟用相機",
-            "button_primary_mic": "啟用麥克風",
-            "subtitle_both": "出現提示時，您必須允許使用兩者，才能繼續",
-            "subtitle_cam": "出現提示時，您必須允許使用相機才能繼續",
-            "subtitle_mic": "出現提示時，您必須啟用麥克風存取權限才能繼續",
-            "title_both": "允許使用相機和麥克風",
-            "title_cam": "允許相機存取",
-            "title_mic": "允許麥克風存取"
-        },
-        "permission_recovery": {
-            "android": {
-                "browser_settings": {
-                    "title": "解決方案1：瀏覽器設定"
-                },
-                "device_settings": {
-                    "list_item_1": "在您的裝置上，打開<strong>設定<\/strong>應用程式",
-                    "list_item_2": "點擊 <strong>應用程式<\/strong>",
-                    "list_item_3": "點擊 <browser_icon><\/browser_icon>。如果找不到，請點擊<strong>查看所有應用<\/strong>或<strong>管理應用<\/strong>，然後選擇您的瀏覽器應用",
-                    "list_item_4": "點擊 <strong>權限<\/strong>",
-                    "list_item_5_cam": "點擊 <strong>相機<\/strong> 並選擇 <strong>允許<\/strong>",
-                    "list_item_5_mic": "點擊 <strong>麥克風<\/strong> 並選擇 <strong>允許<\/strong>",
-                    "list_item_6": "返回此頁面並點擊<strong>刷新頁面<\/strong>按鈕",
-                    "title": "解決方案2：裝置設定"
-                },
-                "refresh_page": {
-                    "list_item_1_both": "點擊<strong>刷新頁面<\/strong>按鈕。您將被要求再次啟用相機和麥克風訪問權限。當彈出窗口出現時，選擇<strong>允許<\/strong>（或<strong>確定<\/strong>）",
-                    "list_item_1_cam": "點擊<strong>刷新頁面<\/strong>按鈕。系統將再次要求您啟用相機訪問權限。當彈出窗口出現時，選擇<strong>允許<\/strong>（或<strong>確定<\/strong>）",
-                    "list_item_1_mic": "點擊<strong>刷新頁面<\/strong>按鈕。您將被要求再次啟用麥克風訪問權限。當彈出窗口出現時，選擇<strong>允許<\/strong>（或<strong>確定<\/strong>）"
-                }
-            },
-            "android_chrome": {
-                "browser_settings": {
-                    "list_item_1": "在您的瀏覽器中，點擊地址欄中的設定圖標<settings_icon_chrome><\/settings_icon_chrome>",
-                    "list_item_2": "點擊 <strong>權限<\/strong>",
-                    "list_item_3_cam": "啟動位於 <strong>相機<\/strong> 旁的切換開關",
-                    "list_item_3_mic": "啟動位於 <strong>麥克風<\/strong> 旁的切換開關",
-                    "list_item_4": "返回此頁面並點擊<strong>刷新頁面<\/strong>按鈕"
-                }
-            },
-            "android_firefox": {
-                "browser_settings": {
-                    "list_item_1": "在您的瀏覽器中，點擊地址欄中的鎖定圖標<lock_icon><\/lock_icon>",
-                    "list_item_2_cam": "點擊 <strong>已封鎖<\/strong> 旁邊的 <strong>相機<\/strong> 切換到 <strong>允許<\/strong>",
-                    "list_item_2_mic": "點擊 <strong>已封鎖<\/strong> 旁的 <strong>麥克風<\/strong> 切換至 <strong>允許<\/strong>",
-                    "list_item_3": "返回此頁面並點擊<strong>刷新頁面<\/strong>按鈕",
-                    "title": "解決方案2：瀏覽器設定"
-                },
-                "device_settings": {
-                    "title": "解決方案3：裝置設定"
-                },
-                "refresh_page": {
-                    "title": "解決方案1：刷新頁面"
-                }
-            },
-            "android_generic": {
-                "browser_settings": {
-                    "list_item_1": "在您的瀏覽器中，打開網站設置。這通常是位於地址欄的鎖定圖標<lock_icon><\/lock_icon>",
-                    "list_item_2": "找到有關權限的部分",
-                    "list_item_3_cam": "啟用 <strong>相機<\/strong> 權限",
-                    "list_item_3_mic": "啟用 <strong>麥克風<\/strong> 權限",
-                    "list_item_4": "返回此頁面並點擊<strong>刷新頁面<\/strong>按鈕"
-                }
-            },
-            "android_samsung": {
-                "browser_settings": {
-                    "list_item_1": "在您的瀏覽器中，點擊地址欄中的鎖定圖標<lock_icon><\/lock_icon>",
-                    "list_item_2_cam": "啟動位於 <strong>相機<\/strong> 旁的切換開關",
-                    "list_item_2_mic": "啟動位於 <strong>麥克風<\/strong> 旁的切換開關",
-                    "list_item_3": "返回此頁面並點擊<strong>刷新頁面<\/strong>按鈕"
-                }
-            },
-            "button_primary": "重新整理",
-            "desktop": {
-                "browser_settings": {
-                    "title": "解決方案1：瀏覽器設定"
-                },
-                "device_settings": {
-                    "title": "解決方案2：裝置設定"
-                }
-            },
-            "desktop_chrome": {
-                "browser_settings": {
-                    "list_item_1": "在您的瀏覽器中，點擊地址欄的設定圖標<settings_icon_chrome><\/settings_icon_chrome>",
-                    "list_item_2_cam": "啟動位於 <strong>相機<\/strong> 旁的切換開關",
-                    "list_item_2_mic": "啟動位於 <strong>麥克風<\/strong> 旁的切換開關",
-                    "list_item_3": "返回此頁面，然後點擊<strong>刷新頁面<\/strong>按鈕"
-                }
-            },
-            "desktop_edge": {
-                "browser_settings": {
-                    "list_item_1": "在您的瀏覽器中，點擊地址欄中的鎖定圖標<lock_icon><\/lock_icon>",
-                    "list_item_2_cam": "點擊 <strong>相機<\/strong> 旁的下拉式選單，並選擇 <strong>允許<\/strong>",
-                    "list_item_2_mic": "點擊 <strong>麥克風<\/strong> 旁的下拉式選單，並選擇 <strong>允許<\/strong>",
-                    "list_item_3": "返回此頁面並點擊<strong>刷新頁面<\/strong>按鈕"
-                }
-            },
-            "desktop_firefox": {
-                "browser_settings": {
-                    "list_item_1": "在您的瀏覽器中，點擊地址欄中的設定圖標 <settings_icon_firefox><\/settings_icon_firefox>",
-                    "list_item_2_cam": "點擊 <strong>已封鎖<\/strong>，位於 <strong>使用相機<\/strong> 旁邊",
-                    "list_item_2_mic": "點擊 <strong>已封鎖<\/strong>，位於 <strong>使用麥克風<\/strong> 旁邊",
-                    "list_item_3": "返回此頁面並點擊<strong>刷新頁面<\/strong>按鈕"
-                }
-            },
-            "desktop_generic": {
-                "browser_settings": {
-                    "list_item_1": "在您的瀏覽器中，打開網站設置。這通常是位於地址欄的鎖定圖標<lock_icon><\/lock_icon>",
-                    "list_item_2": "找到有關權限的部分",
-                    "list_item_3_cam": "啟用 <strong>相機<\/strong> 權限",
-                    "list_item_3_mic": "啟用 <strong>麥克風<\/strong> 權限",
-                    "list_item_4": "返回此頁面並點擊<strong>刷新頁面<\/strong>按鈕"
-                },
-                "device_settings": {
-                    "list_item_1": "在您的電腦上，打開您的<strong>設定<\/strong>",
-                    "list_item_2": "找到有關權限的部分（通常在<strong>隱私<\/strong>下）",
-                    "list_item_3_cam": "啟用 <browser_icon><\/browser_icon> 的 <strong>相機<\/strong> 權限",
-                    "list_item_3_mic": "啟用 <browser_icon><\/browser_icon> 的 <strong>麥克風<\/strong> 權限",
-                    "list_item_4": "如有必要，請重新啟動您的瀏覽器並返回此頁面"
-                }
-            },
-            "desktop_mac": {
-                "device_settings": {
-                    "list_item_1": "在您的電腦上，點擊蘋果菜單 <apple_icon><\/apple_icon>，然後選擇<strong>系統設置<\/strong>（或<strong>系統偏好設置<\/strong>）",
-                    "list_item_2": "在側邊欄中點擊<strong>隱私與安全<\/strong>（或<strong>安全與隱私<\/strong>）",
-                    "list_item_3": "在彈出視窗中點擊 <strong>稍後<\/strong>",
-                    "list_item_3_cam": "點擊 <strong>相機<\/strong>，並啟動 <browser_icon><\/browser_icon> 旁邊的切換鈕（或複選框）",
-                    "list_item_4": "在彈出視窗中點擊<strong>退出並重新開啟<\/strong>，然後返回此頁面",
-                    "list_item_4_mic": "點擊 <strong>麥克風<\/strong>，並啟動旁邊的切換鈕（或複選框）<browser_icon><\/browser_icon>"
-                }
-            },
-            "desktop_safari": {
-                "browser_settings": {
-                    "list_item_1": "在您的瀏覽器中，右鍵點擊地址欄並選擇<strong>設定<\/strong>",
-                    "list_item_2_cam": "點擊 <strong>相機<\/strong> 旁的下拉式選單，並選擇 <strong>允許<\/strong>",
-                    "list_item_2_mic": "點擊 <strong>麥克風<\/strong> 旁的下拉式選單，並選擇 <strong>允許<\/strong>",
-                    "list_item_3": "返回此頁面並點擊<strong>刷新頁面<\/strong>按鈕"
-                }
-            },
-            "desktop_windows": {
-                "device_settings": {
-                    "list_item_1": "在您的電腦上，點擊Windows選單 <windows_icon><\/windows_icon>，然後選擇<strong>設定<\/strong> <settings_icon_windows><\/settings_icon_windows>",
-                    "list_item_2": "點擊 <strong>隱私<\/strong> (或 <strong>隱私 & 安全<\/strong>)",
-                    "list_item_3_cam": "點擊 <strong>相機<\/strong> 在 <strong>應用程式權限<\/strong> 下，並啟動 <browser_icon><\/browser_icon> 旁邊的切換開關",
-                    "list_item_3_mic": "點擊 <strong>麥克風<\/strong> 在 <strong>應用程式權限<\/strong> 下，並啟動 <browser_icon><\/browser_icon> 旁邊的切換開關",
-                    "list_item_4": "如有必要，請重新啟動您的瀏覽器並返回此頁面"
-                }
-            },
-            "info": "復原",
-            "ios": {
-                "browser_settings": {
-                    "list_item_1_both": "點擊<strong>刷新頁面<\/strong>按鈕。您將被要求再次啟用相機和麥克風訪問權限。當彈出窗口出現時，選擇<strong>允許<\/strong>（或<strong>確定<\/strong>）",
-                    "list_item_1_cam": "點擊<strong>刷新頁面<\/strong>按鈕。系統將再次要求您啟用相機訪問權限。當彈出窗口出現時，選擇<strong>允許<\/strong>（或<strong>確定<\/strong>）",
-                    "list_item_1_mic": "點擊<strong>刷新頁面<\/strong>按鈕。您將被要求再次啟用麥克風訪問權限。當彈出窗口出現時，選擇<strong>允許<\/strong>（或<strong>確定<\/strong>）"
-                },
-                "device_settings": {
-                    "list_item_1": "在您的裝置上，打開<strong>設定<\/strong>應用程式",
-                    "list_item_2": "滾動列表並點擊 <browser_icon><\/browser_icon>",
-                    "list_item_3_cam": "啟動位於 <strong>相機<\/strong> 旁的切換開關",
-                    "list_item_3_mic": "啟動位於 <strong>麥克風<\/strong> 旁的切換開關",
-                    "list_item_4": "返回此頁面並點擊<strong>刷新頁面<\/strong>按鈕",
-                    "title": "解決方案2：裝置設定"
-                },
-                "refresh_page": {
-                    "title": "解決方案1：刷新頁面"
-                }
-            },
-            "ios_safari": {
-                "device_settings": {
-                    "list_item_1": "在您的裝置上，打開<strong>設定<\/strong>應用程式",
-                    "list_item_2": "滾動列表並點擊 <browser_icon><\/browser_icon>",
-                    "list_item_3_cam": "點擊 <strong>相機<\/strong> 並選擇 <strong>允許<\/strong>",
-                    "list_item_3_mic": "點擊 <strong>麥克風<\/strong> 並選擇 <strong>允許<\/strong>",
-                    "list_item_4": "返回此頁面並點擊<strong>刷新頁面<\/strong>按鈕"
-                }
-            },
-            "list_header_both": "按照以下步驟恢復兩者的存取權限：",
-            "list_header_cam": "請按照以下步驟操作，以恢復相機存取權限：",
-            "list_item_action_cam": "重新整理此頁面，以重新開始身份驗證流程",
-            "list_item_how_to_both": "透過瀏覽器設定授予相機和麥克風存取權限",
-            "list_item_how_to_cam": "從瀏覽器設定中授予相機的存取權限",
-            "list_item_how_to_mic": "透過瀏覽器設定授予麥克風存取權限",
-            "subtitle_both": "我們需要訪問您的相機和麥克風以驗證您的身份。請按照以下指示恢復訪問權限",
-            "subtitle_cam": "我們需要訪問您的相機以驗證您的身份。請按照以下指示恢復訪問權限",
-            "subtitle_cam_old": "恢復相機存取權限，以繼續臉部驗證",
-            "subtitle_mic": "我們需要訪問您的麥克風以驗證您的身份。請按照以下指示恢復訪問權限",
-            "title_both": "相機和麥克風存取被拒絕",
-            "title_cam": "相機存取被拒絕",
-            "title_mic": "麥克風存取被拒絕",
-            "web": {
-                "button_primary": "刷新頁面",
-                "disclaimer": "身份驗證過程可能會重新開始。 對於任何不便，我們深感抱歉"
-            }
-        },
-        "photo_upload": {
-            "body_accommodation_tenancy_certificate": "為了獲得最佳結果，請提供整個文件頁面",
-            "body_address_certificate_back": "從您的電腦上傳文件的背面",
-            "body_address_certificate_front": "從您的電腦上傳文件的正面",
-            "body_bank_statement": "提供整個文件頁面以取得最佳結果",
-            "body_benefits_letter": "提供整個文件頁面以取得最佳結果",
-            "body_bill": "提供整個文件頁面以取得最佳結果",
-            "body_exchange_house_statement": "為了獲得最佳結果，請提供整個文件頁面",
-            "body_general_letter": "為了獲得最佳結果，請提供整個文件頁面",
-            "body_generic_document_back": "從您的電腦上傳文件背面",
-            "body_generic_document_front": "從您的電腦上傳文件正面",
-            "body_id_back": "從電腦上傳身分證背面",
-            "body_id_front": "從電腦上傳身分證正面",
-            "body_identity_document_with_address": "為了獲得最佳結果，請提供整個文件頁面",
-            "body_identity_document_with_address_back": "從您的電腦上傳文件的背面",
-            "body_identity_document_with_address_front": "從您的電腦上傳文件的正面",
-            "body_insurance_statement": "為了獲得最佳結果，請提供整個文件頁面",
-            "body_license_back": "從電腦上傳駕照背面",
-            "body_license_front": "從電腦上傳駕照正面",
-            "body_mobile_phone_bill": "為了獲得最佳結果，請提供整個文件頁面",
-            "body_mortgage_statement": "為了獲得最佳結果，請提供整個文件頁面",
-            "body_passport": "從電腦上傳護照相片頁",
-            "body_pension_property_statement_letter": "為了獲得最佳結果，請提供整個文件頁面",
-            "body_selfie": "從電腦上傳自拍照",
-            "body_tax_letter": "提供整個文件頁面以取得最佳結果",
-            "button_take_photo": "拍照",
-            "button_upload": "上傳",
-            "title_selfie": "自拍"
-        },
-        "poa_cancel": "取消",
-        "poa_capture": {
-            "country_select.icon_info_accessibility": "資訊："
-        },
-        "poa_err_invalid_file": {
-            "message": "請選擇其他檔案。",
-            "ok": "確定",
-            "title": "無效的檔案"
-        },
-        "poa_guidance": {
-            "button_primary": "繼續",
-            "instructions": {
-                "address": "目前地址",
-                "full_name": "全名",
-                "issue_date": "核發日期或摘要期間",
-                "label": "擷取整份文件，並確保其清楚顯示：",
-                "logo": "標誌"
-            },
-            "instructions_address_card_issue_date": "核發日期",
-            "instructions_expiry_date": "有效期限（如適用）",
-            "instructions_full_address": "完整地址",
-            "subtitle_address_card": "必須是有效的地址卡",
-            "subtitle_bank_statement": "必須在最近 3 個月內核發",
-            "subtitle_benefits_letter": "必須在最近 12 個月內核發",
-            "subtitle_bill": "必須在最近 3 個月內核發",
-            "subtitle_dynamic_empty_grace_period": "必須是有效的文件",
-            "subtitle_dynamic_grace_period": "必須在最近的<graceperiod><\/graceperiod>個月內發行",
-            "subtitle_tax_letter": "必須在最近 12 個月內核發"
-        },
-        "poa_intro": {
-            "button_primary": "開始驗證",
-            "list_matches_signup": "與您在註冊時使用的地址相符",
-            "list_most_recent": "這是您的最新文件嗎",
-            "list_shows_address": "顯示您目前的地址",
-            "subtitle": "您需要提供以下文件：",
-            "title": "讓我們驗證您的地址"
-        },
-        "poa_welcome_text": "請拍攝一張含有您地址的證件相片",
-        "profile_data": {
-            "address_title": "新增您的地址",
-            "button_continue": "繼續",
-            "components": {
-                "country_residence_select": {
-                    "placeholder": "選擇一個國家"
-                },
-                "country_select": {
-                    "placeholder": "選擇一個國家"
-                },
-                "id_type_select": {
-                    "aus_specific": {
-                        "other": "外國護照"
-                    },
-                    "bra_specific": {
-                        "other": "CNPJ",
-                        "tax_id": "CPF"
-                    },
-                    "driving_license": "駕照",
-                    "esp_specific": {
-                        "identity_card": "NIF\/DNI"
-                    },
-                    "gha_specific": {
-                        "social_insurance": "SSNIT"
-                    },
-                    "identity_card": "身份證",
-                    "ind_specific": {
-                        "tax_id": "個人帳號 (PAN)"
-                    },
-                    "ken_specific": {
-                        "other": "外國人卡"
-                    },
-                    "nga_specific": {
-                        "identity_card": "國民身份證號碼 (NIN)",
-                        "other": "BVN",
-                        "tax_id": "TIN"
-                    },
-                    "other": "NIE",
-                    "passport": "護照",
-                    "placeholder": "選擇國民身份證類型",
-                    "tax_id": "稅號",
-                    "voter_id": "選民編號"
-                },
-                "nationality_select": {
-                    "placeholder": "選擇一個國家"
-                },
-                "pan": {
-                    "placeholder": "ABCDE1234F"
-                },
-                "ssn": {
-                    "placeholder": "123-45-6789"
-                },
-                "state_select": {
-                    "placeholder": "選擇一個州 \/ 省"
-                }
-            },
-            "country_of_residence_title": "您的居住國家",
-            "field_labels": {
-                "arg_specific": {
-                    "national_id_value": "DNI 編號"
-                },
-                "can_specific": {
-                    "national_id_value": "社會保險號 (SIN)"
-                },
-                "chl_specific": {
-                    "national_id_value": "RUT \/ RUN 編號"
-                },
-                "chn_specific": {
-                    "national_id_value": "居民身份證號碼"
-                },
-                "col_specific": {
-                    "national_id_value": "哥倫比亞個人身份證號碼"
-                },
-                "country": "國家",
-                "country_residence": "國家",
-                "dnk_specific": {
-                    "national_id_value": "心肺復蘇術號碼"
-                },
-                "dob": "出生日期",
-                "email": "電子郵件",
-                "fin_specific": {
-                    "national_id_value": "個人身份代碼"
-                },
-                "first_name": "名字",
-                "gbr_specific": {
-                    "postcode": "郵遞區號",
-                    "town": "縣（市）\/ 鄉（鎮、市）"
-                },
-                "hkg_specific": {
-                    "national_id_value": "HKID"
-                },
-                "ind_specific": {
-                    "pan": "永久帳戶號碼 (PAN)"
-                },
-                "ita_specific": {
-                    "national_id_value": "稅控碼"
-                },
-                "jpn_specific": {
-                    "national_id_value": "“我的號碼”\/住民票代碼"
-                },
-                "last_name": "姓氏",
-                "line1": "地址第 1 行",
-                "line2": "地址第 2 行",
-                "line3": "地址第 3 行",
-                "lux_specific": {
-                    "national_id_value": "社會安全號碼"
-                },
-                "mobile_number": "手機號碼",
-                "national_id_type": "國民身份證類型",
-                "national_id_value": "身份證號碼",
-                "nationality": "國籍",
-                "phl_specific": {
-                    "national_id_value": "PhilSys 卡號 (PCN)"
-                },
-                "phone_number": "電話號碼",
-                "pol_specific": {
-                    "national_id_value": "PESEL號碼"
-                },
-                "postcode": "郵遞區號",
-                "prt_specific": {
-                    "national_id_value": "稅號"
-                },
-                "town": "縣（市）\/ 鄉（鎮、市）",
-                "tur_specific": {
-                    "national_id_value": "土耳其身份證號碼"
-                },
-                "usa_specific": {
-                    "line1_helper_text": "街道地址，例如：阿爾伯特街 200 號",
-                    "line2_helper_text": "公寓、套房、單位等。",
-                    "postcode": "郵遞區號 (Zip code)",
-                    "ssn": "社會安全號碼 (SSN)",
-                    "state": "州 \/ 省",
-                    "town": "城市"
-                }
-            },
-            "field_optional": "（非必填）",
-            "field_validation": {
-                "arg_specific": {
-                    "invalid_national_id_value": "請輸入有效的 DNI"
-                },
-                "bra_specific": {
-                    "invalid_other": "請輸入一個有效的 CNPJ",
-                    "invalid_tax_id": "請輸入一個有效的 CPF",
-                    "required_other": "請輸入您的CNPJ",
-                    "required_tax_id": "請輸入您的公積金"
-                },
-                "can_specific": {
-                    "invalid_national_id_value": "請輸入一個有效的 SIN",
-                    "required_national_id_value": "請輸入您的社會保險號"
-                },
-                "chl_specific": {
-                    "invalid_national_id_value": "請輸入有效的 RUT\/RUN 編號",
-                    "required_national_id_value": "請輸入您的 RUT \/ RUN 編號"
-                },
-                "chn_specific": {
-                    "invalid_national_id_value": "請輸入有效的居民身份證號碼",
-                    "required_national_id_value": "請輸入您的居民身份證號碼"
-                },
-                "col_specific": {
-                    "invalid_national_id_value": "請輸入有效的哥倫比亞個人身份證號碼",
-                    "required_national_id_value": "請輸入您的哥倫比亞個人身份證號碼"
-                },
-                "dnk_specific": {
-                    "invalid_national_id_value": "請輸入有效的 CPR 編號",
-                    "required_national_id_value": "請輸入您的 CPR 編號"
-                },
-                "esp_specific": {
-                    "invalid_identity_card": "請輸入一個有效的 NIF\/DNI",
-                    "invalid_other": "請輸入一個有效的 NIE",
-                    "required_identity_card": "請輸入您的 NIF\/DNI"
-                },
-                "fin_specific": {
-                    "invalid_national_id_value": "請輸入有效的個人身份代碼",
-                    "required_national_id_value": "請輸入您的個人身份代碼"
-                },
-                "gbr_specific": {
-                    "invalid_postcode": "請輸入有效的郵遞區號",
-                    "required_postcode": "請輸入您的郵遞區號",
-                    "too_long_postcode": "郵遞區號太長",
-                    "too_short_postcode": "郵遞區號太短"
-                },
-                "gha_specific": {
-                    "invalid_social_insurance": "請輸入有效的 SSNIT",
-                    "required_social_insurance": "請輸入您的 SSNIT"
-                },
-                "hkg_specific": {
-                    "invalid_national_id_value": "請輸入有效的香港身份證",
-                    "required_national_id_value": "請輸入您的香港身份證"
-                },
-                "ind_specific": {
-                    "invalid_pan": "請輸入有效的永久帳戶號碼 (PAN)",
-                    "required_pan": "請輸入您的永久帳戶號碼 (PAN)"
-                },
-                "invalid": "請檢查是否含有無效字元或符號",
-                "invalid_dob": "請輸入有效的出生日期",
-                "invalid_driving_license": "請輸入有效的駕照號碼",
-                "invalid_email": "請輸入有效的電子郵件",
-                "invalid_mobile_number": "請輸入有效的手機號碼",
-                "invalid_national_id_value": "請輸入有效的國民身份證號碼",
-                "invalid_passport": "請輸入有效的護照號碼",
-                "invalid_phone_number": "請輸入一組有效的電話號碼",
-                "invalid_voter_id": "請輸入有效的選民身份證號碼",
-                "ita_specific": {
-                    "invalid_national_id_value": "請輸入有效的財務代碼",
-                    "required_national_id_value": "請輸入您的財務代碼"
-                },
-                "jpn_specific": {
-                    "invalid_national_id_value": "請輸入有效的“我的號碼”\/居民票代碼",
-                    "required_national_id_value": "請輸入您的「我的號碼」\/ 居民記錄代碼"
-                },
-                "ken_specific": {
-                    "invalid_other": "請輸入有效的外國人卡號",
-                    "required_other": "請輸入您的外國人卡號"
-                },
-                "lux_specific": {
-                    "invalid_national_id_value": "請輸入有效的社會保險號",
-                    "required_national_id_value": "請輸入您的社會安全號碼"
-                },
-                "mex_specific": {
-                    "invalid_identity_card": "請輸入一個有效的 CURP",
-                    "invalid_tax_id": "請輸入一個有效的 RFC",
-                    "required_identity_card": "請輸入您的 CURP",
-                    "required_tax_id": "請輸入您的RFC"
-                },
-                "mys_specific": {
-                    "invalid_national_id_value": "請輸入有效的身份證",
-                    "required_national_id_value": "請輸入您的身份證"
-                },
-                "nga_specific": {
-                    "invalid_identity_card": "請輸入有效的國民身份證號碼 (NIN)",
-                    "invalid_other": "請輸入有效的 BVN",
-                    "invalid_tax_id": "請輸入有效的 TIN",
-                    "required_identity_card": "請輸入您的國民身份證號碼 (NIN)",
-                    "required_other": "請輸入您的 BVN",
-                    "required_tax_id": "請輸入您的納稅人識別號"
-                },
-                "phl_specific": {
-                    "invalid_national_id_value": "請輸入有效的 PhilSys 卡號 (PCN)",
-                    "required_national_id_value": "請輸入您的 PhilSys 卡號 (PCN)"
-                },
-                "pol_specific": {
-                    "invalid_national_id_value": "請輸入有效的 PESEL 編號",
-                    "required_national_id_value": "請輸入您的 PESEL 號碼"
-                },
-                "prt_specific": {
-                    "invalid_national_id_value": "請輸入有效的稅號",
-                    "required_national_id_value": "請輸入您的稅號"
-                },
-                "reference": {
-                    "translation": "請輸入一個有效的"
-                },
-                "required_consent": "請同意授權身份和欺騙檢查",
-                "required_country": "請選擇國家",
-                "required_country_residence": "請選擇國家",
-                "required_dob": "請輸入您的出生日期",
-                "required_email": "請輸入您的電子郵件",
-                "required_first_name": "請輸入您的名字",
-                "required_last_name": "請輸入您的姓氏",
-                "required_line1": "請輸入您的地址",
-                "required_mobile_number": "請輸入您的手機號碼",
-                "required_national_driving_license": "請輸入您的駕照號碼",
-                "required_national_id_type": "請選擇您的國民身份證類型",
-                "required_national_id_value": "請輸入您的國民身份證號碼",
-                "required_national_passport": "請輸入您的護照號碼",
-                "required_national_voter_id": "請輸入您的選民身份證號碼",
-                "required_nationality": "請選擇國家",
-                "required_phone_number": "請輸入您的電話號碼",
-                "required_postcode": "請輸入您的郵遞區號",
-                "sgp_specific": {
-                    "invalid_national_id_value": "請輸入一個有效的 NRIC",
-                    "required_national_id_value": "請輸入您的身份證"
-                },
-                "swe_specific": {
-                    "invalid_national_id_value": "請輸入一個有效的 PIN",
-                    "required_national_id_value": "請輸入您的密碼"
-                },
-                "too_long_first_name": "名字太長",
-                "too_long_last_name": "姓氏太長",
-                "too_long_line1": "地址行太長",
-                "too_long_postcode": "郵遞區號太長",
-                "too_long_town": "鄉（鎮、市）名稱太長",
-                "too_short_first_name": "名字太短",
-                "too_short_last_name": "姓氏太短",
-                "too_short_postcode": "郵遞區號太短",
-                "tur_specific": {
-                    "invalid_national_id_value": "請輸入有效的土耳其身份證號碼",
-                    "required_national_id_value": "請輸入您的土耳其身分證號碼"
-                },
-                "usa_specific": {
-                    "invalid_ssn": "請輸入有效的社會安全號碼 (SSN)",
-                    "required_ssn": "請輸入您的社會安全號碼 (SSN)",
-                    "required_state": "請選擇州 \/ 省"
-                }
-            },
-            "national_id_number_title": "添加您的國民身份證號碼",
-            "personal_information_title": "新增您的個人資料",
-            "prompt": {
-                "details_timeout": "重新開始",
-                "header_timeout": "看來您花了太長時間"
-            }
-        },
-        "qes": {
-            "consent": {
-                "common": {
-                    "steps": "創建您的簽名"
-                },
-                "confirmation": {
-                    "bullet_1": "閱讀您的文件後，點擊“簽署文件”按鈕。",
-                    "bullet_2": "一旦Onfido驗證了您的身份，您的簽名將被用在這份文件上。",
-                    "button_next_step": "簽署文件",
-                    "review_document": "審查<fallback>你的文件<\/fallback>以簽署",
-                    "step2": "2 的 2",
-                    "steps": "簽署您的文件",
-                    "subtitle": "為了依照歐洲規定確認您的身份，您必須數位簽署一份文件。",
-                    "title": "創建並使用您的數位簽名"
-                },
-                "introduction": {
-                    "button_confirmation_step": "創建我的簽名",
-                    "certificate_application_form": "證書申請表格",
-                    "privacy_notice": "隱私通知",
-                    "step1": "1 的 2",
-                    "subtitle": "為了依照歐洲規定確認您的身份，您必須數位簽署一份文件。",
-                    "terms_and_conditions": "條款和條件",
-                    "third_party_description": "<fallback>Namirial SpA<\/fallback>是一家值得信賴的全球供應商，將為您的電子簽名發出證書。",
-                    "title": "創建並使用您的數位簽名",
-                    "validation": "需要同意"
-                }
-            },
-            "error": {
-                "misconfigured": "很不幸，發生了一個錯誤。請聯繫您的支援。"
-            }
-        },
-        "qes_consent": {
-            "button": "創建我的簽名",
-            "link_certificate": "證書申請表格",
-            "link_privacy_notice": "隱私通知",
-            "link_terms_and_conditions": "條款與條件",
-            "namirial_intro": "Namirial SpA是一家值得信賴的全球供應商，將為您的電子簽名發出證書以證明其有效性。",
-            "subtitle": "為了依照歐洲規定確認您的身份，您必須數位簽署一份文件。",
-            "title": "創建並使用您的數位簽名"
-        },
-        "qes_sign": {
-            "button": "簽署文件",
-            "link_document": "審查您的文件以簽署",
-            "list_item_1": "閱讀您的文件後，點擊“簽署文件”按鈕。",
-            "list_item_2": "一旦Onfido驗證了您的身份，您的簽名將被用於此文件。",
-            "step_title": "簽署您的文件",
-            "subtitle": "為了依照歐洲規定確認您的身份，您必須數位簽署一份文件。",
-            "title": "創建並使用您的數位簽名"
-        },
-        "retry": {
-            "button": {
-                "generic_selfie_issue": "再試一次"
-            },
-            "description": {
-                "default": "請再試一次",
-                "expired_document": "請使用含有相片的有效 ID 重試，並確保您的資料清楚可見",
-                "generic_document_issue": "請使用含有相片的有效 ID 重試，並確保您的資料清楚可見",
-                "generic_selfie_issue": "請再試一次，並確保臉部清楚可見，光線充足",
-                "unaccepted_document": "請使用含有相片的有效 ID 重試，並確保您的資料清楚可見"
-            },
-            "headline": {
-                "default": "出現了問題",
-                "expired_document": "您的文件已過期",
-                "generic_document_issue": "您的文件出現了問題",
-                "generic_selfie_issue": "您的自拍照出了問題",
-                "unaccepted_document": "不接受的文件"
-            }
-        },
-        "retry_feedback": {
-            "button_primary": "再試一次"
-        },
-        "retry_feedback_custom": {
-            "subtitle": "請使用含有相片的有效 ID 重試，並確保您的資料清楚可見",
-            "title": "您的文件已過期"
-        },
-        "retry_feedback_id_expired": {
-            "subtitle": "請使用含有相片的有效 ID 重試，並確保您的資料清楚可見",
-            "title": "您的文件已過期"
-        },
-        "retry_feedback_id_generic": {
-            "subtitle": "請使用含有相片的有效 ID 重試，並確保您的資料清楚可見",
-            "title": "您的文件有問題"
-        },
-        "retry_feedback_id_unaccepted": {
-            "subtitle": "請使用含有相片的有效 ID 重試，並確保您的資料清楚可見",
-            "title": "不接受的文件"
-        },
-        "retry_feedback_selfie_generic": {
-            "subtitle": "請再試一次，並確保臉部清楚可見，光線充足",
-            "title": "您的自拍照有問題"
-        },
-        "selfie_capture": {
-            "alert": {
-                "camera_inactive": {
-                    "detail": "請檢查其是否已連接，且能正常運作。您也可以<fallback>繼續在手機上進行驗證<\/fallback>",
-                    "detail_no_fallback": "請確保裝置配備正常運作的相機",
-                    "title": "相機無法運作？"
-                },
-                "camera_not_working": {
-                    "detail": "它可能已斷開連接。<fallback>請嘗試使用手機<\/fallback>。",
-                    "detail_no_fallback": "請確保裝置的相機正常運作",
-                    "title": "相機無法運作"
-                },
-                "timeout": {
-                    "detail": "完成後記得按下按鈕。<fallback>重做影片操作<\/fallback>",
-                    "title": "看來您花了太長時間"
-                }
-            },
-            "body": "請將臉部保持在橢圓形框內",
-            "button_accessibility": "拍照",
-            "button_primary": "開始臉部掃描",
-            "frame_accessibility": "從相機查看",
-            "title": "請將臉部保持在橢圓形框內"
-        },
-        "selfie_confirmation": {
-            "image_accessibility": "您的臉部相片",
-            "subtitle": "請確保整個臉部清晰可見",
-            "title": "檢查您的自拍照"
-        },
-        "selfie_intro": {
-            "banner_nudity_message": "此過程將擷取您的臉部和背景",
-            "button_primary": "繼續",
-            "list_accessibility": "自拍的技巧",
-            "list_item_face_forward": "面向前方，並確保眼睛清晰可見",
-            "list_item_no_face_cover": "取下任何遮蓋臉部的東西。可接受戴眼鏡",
-            "list_item_no_glasses": "如有必要，請取下眼鏡",
-            "subtitle": "我們會將此資料與您的文件進行比較",
-            "title": "拍一張自拍照"
-        },
-        "sid": {
-            "passkey": {
-                "fail": {
-                    "button": "開始驗證",
-                    "content": "我們將向您請求一些文件和個人信息，這可以幫助我們確認您的身份。",
-                    "disclaimer": "您將能在流程結束時設定此驗證為可重複使用。",
-                    "subtitle": "對不起，您不能跳過此流程，請進行身份驗證程序：",
-                    "title": "無可用的驗證方式"
-                },
-                "success": {
-                    "biophoto": "一張您的臉部照片以證明您是真實的人",
-                    "biovideo": "錄製您的臉部以證明您是真實的人",
-                    "button": "繼續",
-                    "datacapture": "一些個人資訊",
-                    "document": "有效的政府發行身份證明文件",
-                    "drivinglicense": "有效的政府發行駕駛執照",
-                    "proofofaddress": "一份有效的文件，可以作為地址證明",
-                    "title": "找到先前的驗證！"
-                }
-            }
-        },
-        "sms_sent": {
-            "info": "提示",
-            "info_link_expire": "您的連結將在一小時後失效",
-            "info_link_window": "使用手機時，請保持此視窗開啟",
-            "link": "重新傳送連結",
-            "subtitle": "我們已將安全連結傳送至 <number><\/number>",
-            "subtitle_minutes": "可能需要幾分鐘才能送達",
-            "title": "檢查您的手機"
-        },
-        "switch_phone": {
-            "info": "提示",
-            "info_link_expire": "您的手機連結將在一小時後失效",
-            "info_link_refresh": "請勿重新整理此頁面",
-            "info_link_window": "使用手機時，請保持此視窗開啟",
-            "link": "取消",
-            "subtitle": "完成後，系統會帶您進入下一個步驟",
-            "title": "已連接至您的手機"
-        },
-        "upload_guide": {
-            "button_primary": "繼續",
-            "image_detail_blur_alt": "模糊文件範例",
-            "image_detail_blur_label": "所有詳細資料必須清晰可見，未有模糊之處",
-            "image_detail_cutoff_label": "顯示所有詳細資料，包括底部兩行",
-            "image_detail_glare_label": "遠離直射光線，無眩光",
-            "image_detail_good_label": "相片應清楚顯示您的文件",
-            "subtitle": "不接受掃描和影本",
-            "title": "提交護照照片頁面"
-        },
-        "user_consent": {
-            "button_primary": "接受",
-            "button_secondary": "不接受",
-            "prompt": {
-                "button_primary": "再次檢視",
-                "button_secondary": "是的，請不要驗證我的身份",
-                "no_consent_detail": "若不接受 Onfido 的隱私權聲明和服務條款，我們將無法驗證您的身份，您將退出此步驟。",
-                "no_consent_title": "您確定嗎？"
-            }
-        },
-        "user_consent_load_fail": {
-            "button_primary": "重新載入畫面",
-            "detail": "請檢查您的連線是否穩定，然後再試一次",
-            "title": "内容載入失敗"
-        },
-        "video_capture": {
-            "body": "請將臉部保持在橢圓形框內",
-            "body_record": "準備好後按下按鈕",
-            "body_stop": "完成後，請按下停止按鈕",
-            "button_primary_finish": "完成錄製",
-            "button_primary_next": "下一步",
-            "button_primary_start": "開始錄製",
-            "button_record_accessibility": "開始錄製",
-            "frame_accessibility": "從相機查看",
-            "header": {
-                "challenge_digit_instructions": "大聲說出每個數字",
-                "challenge_turn_forward": "然後面向前方",
-                "challenge_turn_left": "請將頭部轉向左邊",
-                "challenge_turn_right": "請將頭部轉向右邊"
-            },
-            "prompt": {
-                "header_timeout": "看來您花了太長時間"
-            }
-        },
-        "video_confirmation": {
-            "body": "您的影片已錄製完成",
-            "button_primary": "上傳影片",
-            "button_secondary": "重新拍攝影片",
-            "title": "檢查您的影片",
-            "video_accessibility": "重播您錄製的影片"
-        },
-        "video_intro": {
-            "button_pause_accessibility": "暫停掃描程序的示範動畫",
-            "button_play_accessibility": "播放掃描程序的示範動畫",
-            "button_primary": "錄製影片",
-            "list_accessibility": "錄製自拍影片的操作",
-            "list_item_actions": "您有 20 秒完成動作",
-            "list_item_speak": "按照指示移動或說話",
-            "title": "錄製影片",
-            "video_accessibility": "其他人錄製自拍影片的示範影片。若要拍攝自拍影片，請面對前鏡頭，並將手機與臉部保持適當距離。您需要朗讀一些數字，並按照畫面上的說明轉動頭部。"
-        },
-        "welcome": {
-            "doc_video_subtitle": "這可能需要幾分鐘的時間",
-            "info_original_document": "為您的原始文件拍照。不允許掃描、屏幕照片或複印件。",
-            "list_header": "使用您的裝置：",
-            "list_header_doc_video": "使用您的裝置進行錄製：",
-            "list_header_webcam": "使用您的網路攝影機或手機進行拍攝：",
-            "list_item_doc": "您的身份證件",
-            "list_item_doc_generic": "錄製您身份證件的影片",
-            "list_item_doc_photo": "拍攝身分證件相片",
-            "list_item_doc_video": "錄製您身份證件的影片",
-            "list_item_doc_video_timeout": "影片錄製以 <timeout><\/timeout> 秒為限。<fallback>請重新開始<\/fallback>",
-            "list_item_face_photo": "拍攝您的臉部相片",
-            "list_item_face_video": "錄製您的臉部影片",
-            "list_item_poa": "您的地址證明",
-            "list_item_selfie": "您的臉部",
-            "next_button": "選擇文件",
-            "start_workflow_button": "開始驗證",
-            "start_workflow_button_trial": "開始驗證（測試）",
-            "subtitle": "這可能需要幾分鐘的時間",
-            "title": "驗證您的身份",
-            "trial_message": "除非您正在進行 Onfido 試用，否則請勿在此分享個人資料。"
-        },
-        "workflow_complete": {
-            "pass": {
-                "description": "我們已驗證您的身份",
-                "title": "已通過"
-            },
-            "reject": {
-                "description": "我們無法驗證您的身份",
-                "title": "被拒絕"
-            }
-        },
-        "workflow_erros": {
-            "generic_title": "伺服器發生錯誤！",
-            "no_workflow_run_id": "未設定工作流程執行 ID。",
-            "reload_app": "請嘗試重新載入應用程式，然後再試一次。",
-            "task_not_completed": "無法完成工作流程任務。",
-            "task_not_retrieved": "無法檢索工作流程任務。",
-            "task_not_supported": "目前不支援此任務"
-        }
+  "avc_confirmation": {
+    "button_primary_upload": "上傳錄製",
+    "subtitle": "已成功錄製您的臉部影片",
+    "title": "錄製完成"
+  },
+  "avc_connection_error": {
+    "button_primary_reload": "重新載入說明",
+    "button_primary_retry_upload": "重新嘗試上傳",
+    "button_secondary_restart_recording": "重新開始錄製",
+    "subtitle": "請檢查您的連線是否穩定，然後再試一次",
+    "title": "連線錯誤"
+  },
+  "avc_face_alignment": {
+    "feedback_move_back": "向後移動",
+    "feedback_move_back_accessibility": "向後移動裝置",
+    "feedback_move_closer": "靠近一些",
+    "feedback_move_left_accessibility": "向左移動裝置",
+    "feedback_move_right_accessibility": "向右移動裝置",
+    "feedback_no_face_detected": "未偵測到臉部",
+    "feedback_not_centered": "臉部未在中心位置",
+    "title": "請將臉部置於框架中"
+  },
+  "avc_face_capture": {
+    "alert": {
+      "mic_conflict_title": "其他應用程式正在使用您的麥克風",
+      "timeout_body": "您最多有 15 秒的時間完成錄製",
+      "timeout_button_primary": "重試",
+      "timeout_title": "很抱歉，我們必須重新開始錄製",
+      "too_fast_body": "請再試一次，慢慢轉動頭部",
+      "too_fast_button_primary": "重試",
+      "too_fast_title": "您轉頭的速度太快了"
     },
-    "profile_data": {
-        "field_labels": {
-            "rou_specific": {
-                "national_id_value": "個人數字代碼 (CNP)"
-            }
-        }
+    "title": "慢慢將您的頭部轉向兩側",
+    "title_completed": "錄製完成"
+  },
+  "avc_intro": {
+    "button_primary_ready": "開始錄製",
+    "disclaimer": "此過程將記錄您的臉部和背景",
+    "disclaimer_camera_and_audio_on": "將在此過程中記錄您的臉部、背景及聲音",
+    "list_item_one": "首先，請將臉部置於框架中",
+    "list_item_two": "然後，將您的頭部慢慢轉向兩側",
+    "subtitle": "這是為了驗證您的真實身份",
+    "title": "錄製影片",
+    "title_accessibility": "錄製您的臉部影片",
+    "video_accessibility": "範例影片：某人把頭轉向兩側，直到完成"
+  },
+  "avc_no_face_detected": {
+    "button_primary_restart": "重新開始錄製",
+    "list_item_eyes": "請確保您的眼睛清晰可見",
+    "list_item_face": "請務必只顯示您的臉部，我們不需要看到您的身分證件",
+    "list_item_lighting": "請確保在光線充足的地方進行錄製",
+    "list_item_mask": "請務必取下遮蓋臉部的口罩或其他物品。可接受戴眼鏡",
+    "title": "我們無法偵測到您的臉部"
+  },
+  "avc_uploading": {
+    "title": "上傳中"
+  },
+  "country_select": {
+    "alert": {
+      "another_doc": "目前不支援該國家的文件，<fallback>請嘗試其他文件類型</fallback>"
+    },
+    "alert_dropdown": {
+      "country_not_found": "找不到國家"
+    },
+    "button_primary": "提交文件",
+    "poa_alert": {
+      "country_not_found": "很抱歉。我們正在努力支援更多國家。",
+      "intro": "找不到您的國家？"
+    },
+    "search": {
+      "accessibility": "選擇國家",
+      "input_placeholder": "例如：美國",
+      "label": "搜尋國家"
+    },
+    "title": "選擇核發國家"
+  },
+  "cross_device": {
+    "button_primary_upload": "繼續"
+  },
+  "cross_device_checklist": {
+    "button_primary": "提交驗證",
+    "info": "提示",
+    "list_item_doc_multiple": "文件",
+    "list_item_doc_one": "文件",
+    "list_item_poa": "地址證明文件",
+    "list_item_selfie": "自拍",
+    "list_item_video": "影片",
+    "subtitle": "以下是您上傳的所有內容：",
+    "title": "最後一個步驟"
+  },
+  "cross_device_error_desktop": {
+    "subtitle": "連結僅適用於行動裝置",
+    "title": "發生錯誤"
+  },
+  "cross_device_error_restart": {
+    "subtitle": "您需要在電腦上重新開始驗證",
+    "title": "發生錯誤"
+  },
+  "cross_device_intro": {
+    "button_primary": "取得安全連結",
+    "list_accessibility": "繼續在手機上驗證所需的步驟",
+    "list_item_finish": "請返回此處以完成提交",
+    "list_item_open_link": "打開連結並完成任務",
+    "list_item_send_phone": "將安全連結傳送至您的手機",
+    "subtitle": "以下是操作方法：",
+    "subtitle_upload": "請上傳原始文件的近期照片",
+    "title": "繼續使用您的手機"
+  },
+  "cross_device_return": {
+    "body": "您的電腦可能需要幾秒鐘才能更新",
+    "subtitle": "您現在可以返回電腦以繼續",
+    "title": "上傳成功"
+  },
+  "cross_device_session_linked": {
+    "button_primary": "繼續",
+    "info": "仔細檢查",
+    "list_item_desktop_open": "桌面視窗仍保持開啟狀態",
+    "list_item_sent_by_you": "此連結是由您發送的，如果您認為這可能是詐騙，請尋求建議",
+    "subtitle": "繼續驗證",
+    "title": "連結至您電腦的行動裝置工作階段"
+  },
+  "doc_auto_capture": {
+    "button_accessibility": "拍照",
+    "footer": {
+      "captured": "已擷取相片",
+      "capturing": "正在擷取相片",
+      "manual_fallback_generic_document_back": "拍攝文件背面照片。",
+      "manual_fallback_generic_document_front": "拍攝文件正面相片",
+      "manual_fallback_identity_card_back": "請拍攝卡片背面的相片",
+      "manual_fallback_identity_card_front": "請拍攝卡片正面的相片",
+      "manual_fallback_license_back": "請拍攝駕照背面的相片",
+      "manual_fallback_license_front": "請拍攝駕照正面的相片",
+      "manual_fallback_passport": "請拍攝護照相片頁的相片",
+      "manual_fallback_residence_permit_back": "請拍攝居留證背面的相片",
+      "manual_fallback_residence_permit_front": "請拍攝居留許可證正面相片",
+      "position_generic_document_back": "請將文件背面置於框架中",
+      "position_generic_document_front": "",
+      "position_identity_card_back": "將您的卡片背面放在框架中",
+      "position_identity_card_front": "將卡片正面放置在畫面中",
+      "position_license_back": "請將駕照背面放在框架中",
+      "position_license_front": "請將駕照正面放在框架中",
+      "position_passport": "請將護照相片頁放在框架中",
+      "position_residence_permit_back": "請將居留證背面放在框架中",
+      "position_residence_permit_front": "請將居留證正面放在框架中"
+    },
+    "frame": {
+      "flip_document": "翻到背面",
+      "hold_still": "保持不動",
+      "no_document": "未檢測到文件"
     }
+  },
+  "doc_capture": {
+    "alert": {
+      "no_barcode_detail": "請放在光線充足的地方，並將卡片靠近相機",
+      "no_barcode_title": "未偵測到條碼"
+    },
+    "button_primary": "開始文件掃描",
+    "detail": {
+      "folded_doc_front": "將您的文件平放，包括所有內頁（須包含您的相片）"
+    },
+    "header": {
+      "recording_complete": "錄製完成",
+      "recording_video": "錄製影片"
+    },
+    "header_folded_doc_front": "個人相片的一面",
+    "prompt": {
+      "button_card": "信用卡",
+      "button_paper": "紙本文件",
+      "title_id": "您有什麼類型的身份證？",
+      "title_license": "您有什麼類型的駕照？"
+    }
+  },
+  "doc_confirmation": {
+    "alert": {
+      "blur_detail": "請確保所有內容清晰可見",
+      "blur_title": "偵測到模糊的相片",
+      "crop_detail": "請確保完整文件清晰可見",
+      "crop_title": "偵測到部完整照片",
+      "glare_detail": "遠離直射光線",
+      "glare_title": "偵測到眩光",
+      "no_doc_detail": "請確保其完全置於框架內",
+      "no_doc_title": "未偵測到文件",
+      "odp_detail": "請使用您的原始文件。不接受螢幕照片或影印本",
+      "odp_photo_of_screen_title": "偵測到螢幕的照片",
+      "odp_photocopy_title": "偵測到影印件",
+      "odp_scan_title": "掃描檢測到",
+      "odp_screenshot_title": "偵測到截圖"
+    },
+    "body": "請確保您已上傳整個文件頁面，且詳細資料清晰可閱，沒有模糊或眩光",
+    "body_address_certificate": "請確保您已上傳整個文件頁面，並且細節清晰可讀，沒有模糊或眩光",
+    "body_bank_statement": "請確保您已上傳整個文件頁面，且詳細資料清晰可閱，沒有模糊或眩光",
+    "body_benefits_letter": "請確保您已上傳整個文件頁面，且詳細資料清晰可閱，沒有模糊或眩光",
+    "body_bill": "請確保您已上傳整個文件頁面，且詳細資料清晰可閱，沒有模糊或眩光",
+    "body_exchange_house_statement": "請確保您已上傳整個文件頁面，並且細節清晰可讀，沒有模糊或眩光",
+    "body_general_letter": "確保您已上傳整個文件頁面，並且細節清晰可讀，沒有模糊或眩光",
+    "body_generic_document": "請確保您的個人詳細資料清晰且未被遮蔽",
+    "body_id": "請確保您的個人詳細資料清晰且未被遮蔽",
+    "body_identity_document_with_address": "請確保您已上傳整個文件頁面，並且細節清晰可讀，沒有模糊或眩光",
+    "body_image_medium": "若我們無法讀取，則需要較長時間驗證您的身份",
+    "body_image_poor": "為了順利驗證您的身份，我們需要一張更好的相片",
+    "body_insurance_statement": "請確保您已上傳整個文件頁面，並且細節清晰可讀，沒有模糊或眩光",
+    "body_license": "請確保您的個人詳細資料清晰且未被遮蔽",
+    "body_mobile_phone_bill": "請確保您已上傳整個文件頁面，並且細節清晰可讀，沒有模糊或眩光",
+    "body_mortgage_statement": "請確保您已上傳整個文件頁面，並且細節清晰可讀，沒有模糊或眩光",
+    "body_passport": "請確保您的個人詳細資料清晰且未被遮蔽",
+    "body_pension_property_statement_letter": "請確保您已上傳整個文件頁面，並且細節清晰可讀，沒有模糊或眩光",
+    "body_permit": "請確保您的個人詳細資料清晰且未被遮蔽",
+    "body_tax_letter": "請確保您已上傳整個文件頁面，且詳細資料清晰可閱，沒有模糊或眩光",
+    "button_close": "關閉",
+    "button_primary_redo": "重新開始",
+    "button_primary_upload": "上傳",
+    "button_primary_upload_anyway": "仍要上傳",
+    "button_secondary_change_document": "選擇其他文件",
+    "button_secondary_redo": "重新開始",
+    "button_secondary_submit_anyway": "無論如何提交照片",
+    "button_zoom": "放大圖片",
+    "image_accessibility": "文件相片",
+    "title": "檢查您的圖片"
+  },
+  "doc_multi_frame_capture": {
+    "capture_progress_title": "正在掃描文件",
+    "instructions_title_back": "請將文件背面置於框架中",
+    "instructions_title_front": "將文件正面置於框架中"
+  },
+  "doc_select": {
+    "button_address_card": "地址卡",
+    "button_address_card_back": "地址卡（背面）",
+    "button_address_card_detail": "接受臨時和永久地址卡",
+    "button_address_card_front": "地址卡（正面）",
+    "button_bank_statement": "銀行或房屋建築協會報表",
+    "button_bank_statement_non_uk": "銀行對帳單",
+    "button_benefits_letter": "福利證明函",
+    "button_benefits_letter_detail": "政府批准的家庭福利，例如：求職者津貼、住房福利、稅收抵免",
+    "button_bill": "水電費帳單",
+    "button_bill_detail": "天然氣、電力、水、有線電話或寬頻",
+    "button_exchange_house_statement": "交換房屋聲明",
+    "button_exchange_house_statement_detail": "寄件人轉帳或匯款聲明",
+    "button_general_letter": "一般信件",
+    "button_general_letter_detail": "來自金融機構或公用事業公司的信件",
+    "button_government_letter": "政府公文",
+    "button_government_letter_detail": "任何政府核發的公文，例如：福利待遇、投票信件、稅務信件等",
+    "button_id": "身份證",
+    "button_id_detail": "正面和背面",
+    "button_identity_document_with_address": "帶有地址的身份證明文件",
+    "button_identity_document_with_address_back": "帶有地址的身份證明文件（背面）",
+    "button_identity_document_with_address_detail": "由政府機關發出",
+    "button_identity_document_with_address_front": "帶有地址的身份證明文件（正面）",
+    "button_insurance_statement": "保險聲明",
+    "button_insurance_statement_detail": "由私人保險或經紀公司發出",
+    "button_license": "駕照",
+    "button_license_detail": "正面和背面",
+    "button_mobile_phone_bill": "手機帳單",
+    "button_mobile_phone_bill_detail": "由手機網路供應商發出",
+    "button_mortgage_statement": "抵押貸款聲明",
+    "button_mortgage_statement_detail": "由金融貸款機構發出",
+    "button_passport": "護照",
+    "button_passport_detail": "相片頁",
+    "button_pension_property_statement_letter": "退休金或財產聲明/信函",
+    "button_pension_property_statement_letter_detail": "退休金聲明或信件和物業稅聲明或信件",
+    "button_permit": "居留證",
+    "button_permit_detail": "正面和背面",
+    "button_tax_letter": "地方政府稅務信函",
+    "extra_estatements_ok": "接受電子對帳單",
+    "extra_no_mobile": "對不起，不能使用手機帳單",
+    "list_accessibility": "可用於驗證您身份的文件",
+    "pill": "最快速",
+    "section": {
+      "header_country": "核發國家",
+      "header_doc_type": "可接受的文件",
+      "input_country_not_found": "沒有結果",
+      "input_placeholder_country": "選擇核發國家"
+    },
+    "subtitle": "必須是含有相片的官方身分證件",
+    "subtitle_country": "選擇核發國家，查看我們接受的文件",
+    "subtitle_entire_page": "整個頁面",
+    "subtitle_front_back": "正面和背面",
+    "subtitle_photo_page": "相片頁",
+    "subtitle_poa": "這些是最可能顯示您目前住家地址的文件",
+    "title": "選擇文件",
+    "title_poa": "選擇一份文件"
+  },
+  "doc_submit": {
+    "button_link_upload": "或上傳相片（不可使用掃描或影印的相片）",
+    "button_primary": "繼續使用手機",
+    "subtitle": "用手機拍攝相片",
+    "title_address_certificate": "提交地址卡",
+    "title_address_certificate_back": "提交地址卡（背面）",
+    "title_address_certificate_front": "提交地址卡（正面）",
+    "title_bank_statement": "提交對帳單",
+    "title_benefits_letter": "提交信件",
+    "title_bill": "提交帳單",
+    "title_exchange_house_statement": "提交匯款行報表",
+    "title_general_letter": "提交一般信件",
+    "title_generic_document_back": "提交文件（背面）",
+    "title_generic_document_front": "提交文件（正面）",
+    "title_government_letter": "政府公文",
+    "title_id_back": "提交身份證（背面）",
+    "title_id_front": "提交身份證（正面）",
+    "title_identity_document_with_address": "提交帶有地址的身份文件",
+    "title_identity_document_with_address_back": "提交帶有地址的身份證明文件（背面）",
+    "title_identity_document_with_address_front": "提交帶有地址的身份證明文件（正面）",
+    "title_insurance_statement": "提交保險聲明",
+    "title_license_back": "提交駕照（背面）",
+    "title_license_front": "提交駕照（正面）",
+    "title_mobile_phone_bill": "提交手機帳單",
+    "title_mortgage_statement": "提交抵押貸款聲明",
+    "title_passport": "提交護照相片頁",
+    "title_pension_property_statement_letter": "提交聲明或信件",
+    "title_permit_back": "提交居留證（背面）",
+    "title_permit_front": "提交居留證（正面）",
+    "title_tax_letter": "提交地方政府稅務信函"
+  },
+  "doc_video_capture": {
+    "button_primary_fallback": "下一步",
+    "button_primary_fallback_end": "完成錄製",
+    "detail_step2": "請隨時保持文件的完整檢視狀態",
+    "header": "手持文件時，請將文件正面置於框架內",
+    "header_paper_doc_step2": "慢慢翻轉文件，以顯示文件外頁",
+    "header_passport": "手持護照時，請將相片頁置於框架內",
+    "header_passport_progress": "保持不動",
+    "header_step1": "現在，請保持靜止",
+    "header_step2": "慢慢翻轉文件，以顯示文件背面",
+    "prompt": {
+      "detail_timeout": "影片錄製以 <timeout></timeout> 秒為限。<fallback>請重新開始</fallback>"
+    },
+    "stepper": "第 <step></step> 個步驟，共 <total></total> 個步驟",
+    "success_accessibility": "成功"
+  },
+  "doc_video_confirmation": {
+    "button_secondary": "預覽影片",
+    "title": "檢查您的影片"
+  },
+  "error_unsupported_browser": {
+    "subtitle_android": "在最新版本的 Google Chrome 上重新開始此程序",
+    "subtitle_ios": "在最新版本的 Safari 上重新開始此程序",
+    "title_android": "不支援的瀏覽器",
+    "title_ios": "不支援的瀏覽器"
+  },
+  "generic": {
+    "accessibility": {
+      "close_sdk_screen": "關閉身份驗證畫面",
+      "dismiss_alert": "解除警告"
+    },
+    "back": "返回",
+    "close": "關閉",
+    "errors": {
+      "expired_token": {
+        "instruction": "請再試一次",
+        "message": "您的權杖已過期"
+      },
+      "expired_trial": {
+        "instruction": "您已達到試用限額",
+        "message": "您的試用已過期"
+      },
+      "geoblocked_error": {
+        "instruction": "很抱歉，由於無法支援您的所在位置，我們似乎無法繼續進行",
+        "message": "無法提供服務"
+      },
+      "interrupted_flow_error": {
+        "instruction": "在不同的裝置上重新開始此程序",
+        "message": "未偵測到相機"
+      },
+      "invalid_size": {
+        "instruction": "必須小於 10MB。",
+        "message": "已超出檔案大小。"
+      },
+      "invalid_type": {
+        "instruction": "請嘗試使用另一種檔案類型。",
+        "message": "未上傳文件。"
+      },
+      "lazy_loading": {
+        "message": "載入元件時發生錯誤"
+      },
+      "multiple_faces": {
+        "instruction": "只有您的臉部可以顯示在自拍照中",
+        "message": "找到多個臉部"
+      },
+      "no_face": {
+        "instruction": "請確保您的臉部清晰可見",
+        "message": "未偵測到臉部"
+      },
+      "request_error": {
+        "instruction": "請再試一次",
+        "message": "發生錯誤"
+      },
+      "sms_failed": {
+        "instruction": "將連結複製至手機",
+        "message": "發生錯誤"
+      },
+      "sms_overuse": {
+        "instruction": "將連結複製至手機",
+        "message": "失敗次數過多"
+      },
+      "unsupported_file": {
+        "instruction": "嘗試使用 JPG 或 PNG 檔案",
+        "message": "不支援的檔案類型"
+      }
+    },
+    "lazy_load_placeholder": "載入中……",
+    "loading": "載入中"
+  },
+  "get_link": {
+    "alert_wrong_number": "檢查您的電話號碼是否正確",
+    "button_copied": "已複製",
+    "button_copy": "複製",
+    "button_submit": "傳送連結",
+    "info_qr_how": "如何掃描 QR 碼",
+    "info_qr_how_list_item_camera": "將手機的相機對準 QR 碼",
+    "info_qr_how_list_item_download": "若無法使用，請從 Google Play 或 App Store 下載 QR 碼掃描器",
+    "link_divider": "或選擇其他方法",
+    "link_qr": "掃描 QR 碼",
+    "link_sms": "透過簡訊取得連結",
+    "link_url": "複製連結",
+    "loader_sending": "正在傳送",
+    "number_field_input_placeholder": "輸入手機號碼",
+    "number_field_label": "輸入您的手機號碼：",
+    "subtitle_qr": "用手機掃描 QR 碼",
+    "subtitle_sms": "將此一次性連結傳送至您的手機",
+    "subtitle_url": "將此一次性連結傳送至您的手機",
+    "title": "取得您的安全連結",
+    "url_field_label": "將連結複製至手機瀏覽器"
+  },
+  "interactive_task": {
+    "waiting": {
+      "title_5": "正在上峰媒體..."
+    }
+  },
+  "livenessV2": {
+    "error_reload_instructions": "重新載入說明",
+    "intro_note_no1": "首先，請將臉部置於框架中",
+    "intro_note_no2": "然後，將您的頭部慢慢轉向兩側",
+    "intro_ready_button": "請注意，我們會記錄您的臉部和背景",
+    "intro_subtitle": "這是為了驗證您的真實身份",
+    "intro_warning": "請注意，我們會記錄您的臉部和背景",
+    "success_main_button": "提交驗證",
+    "success_title": "這就是我們開始驗證您身份所需的全部內容"
+  },
+  "mobilePhrases": {
+    "photo_upload": {
+      "body_id_back": "請拍攝卡片背面的相片",
+      "body_id_front": "請拍攝卡片正面的相片",
+      "body_license_back": "請拍攝駕照背面的相片",
+      "body_license_front": "請拍攝駕照正面的相片",
+      "body_passport": "請拍攝護照相片頁的相片",
+      "body_selfie": "請拍攝一張臉部自拍照"
+    },
+    "selfie_capture": {
+      "alert": {
+        "camera_inactive": {
+          "detail": "請改為使用<fallback>基本相機模式</fallback>拍攝相片"
+        },
+        "camera_not_working": {
+          "detail": "請改為使用<fallback>基本相機模式</fallback>拍攝相片"
+        }
+      }
+    },
+    "upload_guide": {
+      "button_primary": "拍照",
+      "title": "護照相片頁"
+    }
+  },
+  "nfc_scan": {
+    "sheet": {
+      "success": "掃描成功"
+    }
+  },
+  "nfc_scan_error_can": {
+    "primary_button": "退出驗證",
+    "subtitle": "您已達到輸入CAN號碼的最大嘗試次數"
+  },
+  "nfc_scan_error_can:title": "已達到最大嘗試次數",
+  "otp": {
+    "code_input": {
+      "error": {
+        "code_expired": "您的代碼已過期，請請求新的一個。",
+        "code_invalid": "輸入的代碼錯誤，請再試一次。",
+        "technical": "發生了技術錯誤，請稍後再試",
+        "too_many_attempts": "您已嘗試此代碼太多次，請請求一個新的。",
+        "wrong_code": "輸入的代碼錯誤，請再試一次"
+      },
+      "intro": "您有5分鐘的時間來驗證通過短信發送到<phonenumber></phonenumber>的代碼",
+      "resend": {
+        "cta": "請求新的代碼",
+        "cta_timeout": "請求新的代碼（<timeout></timeout>秒）",
+        "label": "已發送代碼",
+        "tracker": "<remaining></remaining> 的 <limit></limit>"
+      },
+      "title": "一次性密碼"
+    },
+    "error": {
+      "cta": "返回",
+      "subtitle": "請等待幾秒鐘，然後再試一次",
+      "title": "出了些問題"
+    },
+    "failure": {
+      "cta": "繼續",
+      "subtitle": "我們無法再驗證您的電話號碼",
+      "title": "允許的嘗試次數已超過"
+    },
+    "send_code": {
+      "cta": "發送代碼",
+      "error": {
+        "invalid_phone_number": "請提供有效的電話號碼。",
+        "limit": "您已達到發送短信的限制",
+        "technical": "發生了技術錯誤，請稍後再試"
+      },
+      "input_label": "電話號碼",
+      "intro": "為了驗證您的電話號碼，我們將要求您輸入一次性密碼。",
+      "title": "一次性密碼"
+    }
+  },
+  "outro": {
+    "body": "這就是我們開始驗證您身份所需的全部內容",
+    "body_government_letter": "提供整個文件頁面以取得最佳結果",
+    "title": "謝謝"
+  },
+  "permission": {
+    "body_both": "若不同時使用相機和麥克風，我們無法驗證您的身份",
+    "body_cam": "不使用相機，我們無法驗證您的身份",
+    "body_mic": "若不使用麥克風，我們無法驗證您的身份",
+    "button_primary_both": "同時啟用兩者",
+    "button_primary_cam": "啟用相機",
+    "button_primary_mic": "啟用麥克風",
+    "subtitle_both": "出現提示時，您必須允許使用兩者，才能繼續",
+    "subtitle_cam": "出現提示時，您必須允許使用相機才能繼續",
+    "subtitle_mic": "出現提示時，您必須啟用麥克風存取權限才能繼續",
+    "title_both": "允許使用相機和麥克風",
+    "title_cam": "允許相機存取",
+    "title_mic": "允許麥克風存取"
+  },
+  "permission_recovery": {
+    "android": {
+      "browser_settings": {
+        "title": "解決方案1：瀏覽器設定"
+      },
+      "device_settings": {
+        "list_item_1": "在您的裝置上，打開<strong>設定</strong>應用程式",
+        "list_item_2": "點擊 <strong>應用程式</strong>",
+        "list_item_3": "點擊 <browser_icon></browser_icon>。如果找不到，請點擊<strong>查看所有應用</strong>或<strong>管理應用</strong>，然後選擇您的瀏覽器應用",
+        "list_item_4": "點擊 <strong>權限</strong>",
+        "list_item_5_cam": "點擊 <strong>相機</strong> 並選擇 <strong>允許</strong>",
+        "list_item_5_mic": "點擊 <strong>麥克風</strong> 並選擇 <strong>允許</strong>",
+        "list_item_6": "返回此頁面並點擊<strong>刷新頁面</strong>按鈕",
+        "title": "解決方案2：裝置設定"
+      },
+      "refresh_page": {
+        "list_item_1_both": "點擊<strong>刷新頁面</strong>按鈕。您將被要求再次啟用相機和麥克風訪問權限。當彈出窗口出現時，選擇<strong>允許</strong>（或<strong>確定</strong>）",
+        "list_item_1_cam": "點擊<strong>刷新頁面</strong>按鈕。系統將再次要求您啟用相機訪問權限。當彈出窗口出現時，選擇<strong>允許</strong>（或<strong>確定</strong>）",
+        "list_item_1_mic": "點擊<strong>刷新頁面</strong>按鈕。您將被要求再次啟用麥克風訪問權限。當彈出窗口出現時，選擇<strong>允許</strong>（或<strong>確定</strong>）"
+      }
+    },
+    "android_chrome": {
+      "browser_settings": {
+        "list_item_1": "在您的瀏覽器中，點擊地址欄中的設定圖標<settings_icon_chrome></settings_icon_chrome>",
+        "list_item_2": "點擊 <strong>權限</strong>",
+        "list_item_3_cam": "啟動位於 <strong>相機</strong> 旁的切換開關",
+        "list_item_3_mic": "啟動位於 <strong>麥克風</strong> 旁的切換開關",
+        "list_item_4": "返回此頁面並點擊<strong>刷新頁面</strong>按鈕"
+      }
+    },
+    "android_firefox": {
+      "browser_settings": {
+        "list_item_1": "在您的瀏覽器中，點擊地址欄中的鎖定圖標<lock_icon></lock_icon>",
+        "list_item_2_cam": "點擊 <strong>已封鎖</strong> 旁邊的 <strong>相機</strong> 切換到 <strong>允許</strong>",
+        "list_item_2_mic": "點擊 <strong>已封鎖</strong> 旁的 <strong>麥克風</strong> 切換至 <strong>允許</strong>",
+        "list_item_3": "返回此頁面並點擊<strong>刷新頁面</strong>按鈕",
+        "title": "解決方案2：瀏覽器設定"
+      },
+      "device_settings": {
+        "title": "解決方案3：裝置設定"
+      },
+      "refresh_page": {
+        "title": "解決方案1：刷新頁面"
+      }
+    },
+    "android_generic": {
+      "browser_settings": {
+        "list_item_1": "在您的瀏覽器中，打開網站設置。這通常是位於地址欄的鎖定圖標<lock_icon></lock_icon>",
+        "list_item_2": "找到有關權限的部分",
+        "list_item_3_cam": "啟用 <strong>相機</strong> 權限",
+        "list_item_3_mic": "啟用 <strong>麥克風</strong> 權限",
+        "list_item_4": "返回此頁面並點擊<strong>刷新頁面</strong>按鈕"
+      }
+    },
+    "android_samsung": {
+      "browser_settings": {
+        "list_item_1": "在您的瀏覽器中，點擊地址欄中的鎖定圖標<lock_icon></lock_icon>",
+        "list_item_2_cam": "啟動位於 <strong>相機</strong> 旁的切換開關",
+        "list_item_2_mic": "啟動位於 <strong>麥克風</strong> 旁的切換開關",
+        "list_item_3": "返回此頁面並點擊<strong>刷新頁面</strong>按鈕"
+      }
+    },
+    "button_primary": "重新整理",
+    "desktop": {
+      "browser_settings": {
+        "title": "解決方案1：瀏覽器設定"
+      },
+      "device_settings": {
+        "title": "解決方案2：裝置設定"
+      }
+    },
+    "desktop_chrome": {
+      "browser_settings": {
+        "list_item_1": "在您的瀏覽器中，點擊地址欄的設定圖標<settings_icon_chrome></settings_icon_chrome>",
+        "list_item_2_cam": "啟動位於 <strong>相機</strong> 旁的切換開關",
+        "list_item_2_mic": "啟動位於 <strong>麥克風</strong> 旁的切換開關",
+        "list_item_3": "返回此頁面，然後點擊<strong>刷新頁面</strong>按鈕"
+      }
+    },
+    "desktop_edge": {
+      "browser_settings": {
+        "list_item_1": "在您的瀏覽器中，點擊地址欄中的鎖定圖標<lock_icon></lock_icon>",
+        "list_item_2_cam": "點擊 <strong>相機</strong> 旁的下拉式選單，並選擇 <strong>允許</strong>",
+        "list_item_2_mic": "點擊 <strong>麥克風</strong> 旁的下拉式選單，並選擇 <strong>允許</strong>",
+        "list_item_3": "返回此頁面並點擊<strong>刷新頁面</strong>按鈕"
+      }
+    },
+    "desktop_firefox": {
+      "browser_settings": {
+        "list_item_1": "在您的瀏覽器中，點擊地址欄中的設定圖標 <settings_icon_firefox></settings_icon_firefox>",
+        "list_item_2_cam": "點擊 <strong>已封鎖</strong>，位於 <strong>使用相機</strong> 旁邊",
+        "list_item_2_mic": "點擊 <strong>已封鎖</strong>，位於 <strong>使用麥克風</strong> 旁邊",
+        "list_item_3": "返回此頁面並點擊<strong>刷新頁面</strong>按鈕"
+      }
+    },
+    "desktop_generic": {
+      "browser_settings": {
+        "list_item_1": "在您的瀏覽器中，打開網站設置。這通常是位於地址欄的鎖定圖標<lock_icon></lock_icon>",
+        "list_item_2": "找到有關權限的部分",
+        "list_item_3_cam": "啟用 <strong>相機</strong> 權限",
+        "list_item_3_mic": "啟用 <strong>麥克風</strong> 權限",
+        "list_item_4": "返回此頁面並點擊<strong>刷新頁面</strong>按鈕"
+      },
+      "device_settings": {
+        "list_item_1": "在您的電腦上，打開您的<strong>設定</strong>",
+        "list_item_2": "找到有關權限的部分（通常在<strong>隱私</strong>下）",
+        "list_item_3_cam": "啟用 <browser_icon></browser_icon> 的 <strong>相機</strong> 權限",
+        "list_item_3_mic": "啟用 <browser_icon></browser_icon> 的 <strong>麥克風</strong> 權限",
+        "list_item_4": "如有必要，請重新啟動您的瀏覽器並返回此頁面"
+      }
+    },
+    "desktop_mac": {
+      "device_settings": {
+        "list_item_1": "在您的電腦上，點擊蘋果菜單 <apple_icon></apple_icon>，然後選擇<strong>系統設置</strong>（或<strong>系統偏好設置</strong>）",
+        "list_item_2": "在側邊欄中點擊<strong>隱私與安全</strong>（或<strong>安全與隱私</strong>）",
+        "list_item_3": "在彈出視窗中點擊 <strong>稍後</strong>",
+        "list_item_3_cam": "點擊 <strong>相機</strong>，並啟動 <browser_icon></browser_icon> 旁邊的切換鈕（或複選框）",
+        "list_item_4": "在彈出視窗中點擊<strong>退出並重新開啟</strong>，然後返回此頁面",
+        "list_item_4_mic": "點擊 <strong>麥克風</strong>，並啟動旁邊的切換鈕（或複選框）<browser_icon></browser_icon>"
+      }
+    },
+    "desktop_safari": {
+      "browser_settings": {
+        "list_item_1": "在您的瀏覽器中，右鍵點擊地址欄並選擇<strong>設定</strong>",
+        "list_item_2_cam": "點擊 <strong>相機</strong> 旁的下拉式選單，並選擇 <strong>允許</strong>",
+        "list_item_2_mic": "點擊 <strong>麥克風</strong> 旁的下拉式選單，並選擇 <strong>允許</strong>",
+        "list_item_3": "返回此頁面並點擊<strong>刷新頁面</strong>按鈕"
+      }
+    },
+    "desktop_windows": {
+      "device_settings": {
+        "list_item_1": "在您的電腦上，點擊Windows選單 <windows_icon></windows_icon>，然後選擇<strong>設定</strong> <settings_icon_windows></settings_icon_windows>",
+        "list_item_2": "點擊 <strong>隱私</strong> (或 <strong>隱私 & 安全</strong>)",
+        "list_item_3_cam": "點擊 <strong>相機</strong> 在 <strong>應用程式權限</strong> 下，並啟動 <browser_icon></browser_icon> 旁邊的切換開關",
+        "list_item_3_mic": "點擊 <strong>麥克風</strong> 在 <strong>應用程式權限</strong> 下，並啟動 <browser_icon></browser_icon> 旁邊的切換開關",
+        "list_item_4": "如有必要，請重新啟動您的瀏覽器並返回此頁面"
+      }
+    },
+    "info": "復原",
+    "ios": {
+      "browser_settings": {
+        "list_item_1_both": "點擊<strong>刷新頁面</strong>按鈕。您將被要求再次啟用相機和麥克風訪問權限。當彈出窗口出現時，選擇<strong>允許</strong>（或<strong>確定</strong>）",
+        "list_item_1_cam": "點擊<strong>刷新頁面</strong>按鈕。系統將再次要求您啟用相機訪問權限。當彈出窗口出現時，選擇<strong>允許</strong>（或<strong>確定</strong>）",
+        "list_item_1_mic": "點擊<strong>刷新頁面</strong>按鈕。您將被要求再次啟用麥克風訪問權限。當彈出窗口出現時，選擇<strong>允許</strong>（或<strong>確定</strong>）"
+      },
+      "device_settings": {
+        "list_item_1": "在您的裝置上，打開<strong>設定</strong>應用程式",
+        "list_item_2": "滾動列表並點擊 <browser_icon></browser_icon>",
+        "list_item_3_cam": "啟動位於 <strong>相機</strong> 旁的切換開關",
+        "list_item_3_mic": "啟動位於 <strong>麥克風</strong> 旁的切換開關",
+        "list_item_4": "返回此頁面並點擊<strong>刷新頁面</strong>按鈕",
+        "title": "解決方案2：裝置設定"
+      },
+      "refresh_page": {
+        "title": "解決方案1：刷新頁面"
+      }
+    },
+    "ios_safari": {
+      "device_settings": {
+        "list_item_1": "在您的裝置上，打開<strong>設定</strong>應用程式",
+        "list_item_2": "滾動列表並點擊 <browser_icon></browser_icon>",
+        "list_item_3_cam": "點擊 <strong>相機</strong> 並選擇 <strong>允許</strong>",
+        "list_item_3_mic": "點擊 <strong>麥克風</strong> 並選擇 <strong>允許</strong>",
+        "list_item_4": "返回此頁面並點擊<strong>刷新頁面</strong>按鈕"
+      }
+    },
+    "list_header_both": "按照以下步驟恢復兩者的存取權限：",
+    "list_header_cam": "請按照以下步驟操作，以恢復相機存取權限：",
+    "list_item_action_cam": "重新整理此頁面，以重新開始身份驗證流程",
+    "list_item_how_to_both": "透過瀏覽器設定授予相機和麥克風存取權限",
+    "list_item_how_to_cam": "從瀏覽器設定中授予相機的存取權限",
+    "list_item_how_to_mic": "透過瀏覽器設定授予麥克風存取權限",
+    "subtitle_both": "我們需要訪問您的相機和麥克風以驗證您的身份。請按照以下指示恢復訪問權限",
+    "subtitle_cam": "我們需要訪問您的相機以驗證您的身份。請按照以下指示恢復訪問權限",
+    "subtitle_cam_old": "恢復相機存取權限，以繼續臉部驗證",
+    "subtitle_mic": "我們需要訪問您的麥克風以驗證您的身份。請按照以下指示恢復訪問權限",
+    "title_both": "相機和麥克風存取被拒絕",
+    "title_cam": "相機存取被拒絕",
+    "title_mic": "麥克風存取被拒絕",
+    "web": {
+      "button_primary": "刷新頁面",
+      "disclaimer": "身份驗證過程可能會重新開始。 對於任何不便，我們深感抱歉"
+    }
+  },
+  "photo_upload": {
+    "body_address_certificate_back": "從您的電腦上傳文件的背面",
+    "body_address_certificate_front": "從您的電腦上傳文件的正面",
+    "body_bank_statement": "提供整個文件頁面以取得最佳結果",
+    "body_benefits_letter": "提供整個文件頁面以取得最佳結果",
+    "body_bill": "提供整個文件頁面以取得最佳結果",
+    "body_exchange_house_statement": "為了獲得最佳結果，請提供整個文件頁面",
+    "body_general_letter": "為了獲得最佳結果，請提供整個文件頁面",
+    "body_generic_document_back": "從您的電腦上傳文件背面",
+    "body_generic_document_front": "從您的電腦上傳文件正面",
+    "body_id_back": "從電腦上傳身分證背面",
+    "body_id_front": "從電腦上傳身分證正面",
+    "body_identity_document_with_address": "為了獲得最佳結果，請提供整個文件頁面",
+    "body_identity_document_with_address_back": "從您的電腦上傳文件的背面",
+    "body_identity_document_with_address_front": "從您的電腦上傳文件的正面",
+    "body_insurance_statement": "為了獲得最佳結果，請提供整個文件頁面",
+    "body_license_back": "從電腦上傳駕照背面",
+    "body_license_front": "從電腦上傳駕照正面",
+    "body_mobile_phone_bill": "為了獲得最佳結果，請提供整個文件頁面",
+    "body_mortgage_statement": "為了獲得最佳結果，請提供整個文件頁面",
+    "body_passport": "從電腦上傳護照相片頁",
+    "body_pension_property_statement_letter": "為了獲得最佳結果，請提供整個文件頁面",
+    "body_selfie": "從電腦上傳自拍照",
+    "body_tax_letter": "提供整個文件頁面以取得最佳結果",
+    "button_take_photo": "拍照",
+    "button_upload": "上傳",
+    "title_selfie": "自拍"
+  },
+  "poa_cancel": "取消",
+  "poa_err_invalid_file": {
+    "message": "請選擇其他檔案。",
+    "ok": "確定",
+    "title": "無效的檔案"
+  },
+  "poa_guidance": {
+    "button_primary": "繼續",
+    "instructions": {
+      "address": "目前地址",
+      "full_name": "全名",
+      "issue_date": "核發日期或摘要期間",
+      "label": "擷取整份文件，並確保其清楚顯示：",
+      "logo": "標誌"
+    },
+    "instructions_address_card_issue_date": "核發日期",
+    "instructions_expiry_date": "有效期限（如適用）",
+    "instructions_full_address": "完整地址",
+    "subtitle_address_card": "必須是有效的地址卡",
+    "subtitle_bank_statement": "必須在最近 3 個月內核發",
+    "subtitle_benefits_letter": "必須在最近 12 個月內核發",
+    "subtitle_bill": "必須在最近 3 個月內核發",
+    "subtitle_dynamic_empty_grace_period": "必須是有效的文件",
+    "subtitle_dynamic_grace_period": "必須在最近的<graceperiod></graceperiod>個月內發行",
+    "subtitle_tax_letter": "必須在最近 12 個月內核發"
+  },
+  "poa_intro": {
+    "button_primary": "開始驗證",
+    "list_matches_signup": "與您在註冊時使用的地址相符",
+    "list_most_recent": "這是您的最新文件嗎",
+    "list_shows_address": "顯示您目前的地址",
+    "subtitle": "您需要提供以下文件：",
+    "title": "讓我們驗證您的地址"
+  },
+  "poa_welcome_text": "請拍攝一張含有您地址的證件相片",
+  "profile_data": {
+    "address_title": "新增您的地址",
+    "button_continue": "繼續",
+    "components": {
+      "country_residence_select": {
+        "placeholder": "選擇一個國家"
+      },
+      "country_select": {
+        "placeholder": "選擇一個國家"
+      },
+      "id_type_select": {
+        "aus_specific": {
+          "other": "外國護照"
+        },
+        "bra_specific": {
+          "other": "CNPJ",
+          "tax_id": "CPF"
+        },
+        "driving_license": "駕照",
+        "esp_specific": {
+          "identity_card": "NIF/DNI"
+        },
+        "gha_specific": {
+          "social_insurance": "SSNIT"
+        },
+        "identity_card": "身份證",
+        "ind_specific": {
+          "tax_id": "個人帳號 (PAN)"
+        },
+        "ken_specific": {
+          "other": "外國人卡"
+        },
+        "nga_specific": {
+          "identity_card": "國民身份證號碼 (NIN)",
+          "other": "BVN",
+          "tax_id": "TIN"
+        },
+        "other": "NIE",
+        "passport": "護照",
+        "placeholder": "選擇國民身份證類型",
+        "tax_id": "稅號",
+        "voter_id": "選民編號"
+      },
+      "nationality_select": {
+        "placeholder": "選擇一個國家"
+      },
+      "pan": {
+        "placeholder": "ABCDE1234F"
+      },
+      "ssn": {
+        "placeholder": "123-45-6789"
+      },
+      "state_select": {
+        "placeholder": "選擇一個州 / 省"
+      }
+    },
+    "country_of_residence_title": "您的居住國家",
+    "field_labels": {
+      "arg_specific": {
+        "national_id_value": "DNI 編號"
+      },
+      "can_specific": {
+        "national_id_value": "社會保險號 (SIN)"
+      },
+      "chl_specific": {
+        "national_id_value": "RUT / RUN 編號"
+      },
+      "chn_specific": {
+        "national_id_value": "居民身份證號碼"
+      },
+      "col_specific": {
+        "national_id_value": "哥倫比亞個人身份證號碼"
+      },
+      "country": "國家",
+      "country_residence": "國家",
+      "dnk_specific": {
+        "national_id_value": "心肺復蘇術號碼"
+      },
+      "dob": "出生日期",
+      "email": "電子郵件",
+      "fin_specific": {
+        "national_id_value": "個人身份代碼"
+      },
+      "first_name": "名字",
+      "gbr_specific": {
+        "postcode": "郵遞區號",
+        "town": "縣（市）/ 鄉（鎮、市）"
+      },
+      "hkg_specific": {
+        "national_id_value": "HKID"
+      },
+      "ind_specific": {
+        "pan": "永久帳戶號碼 (PAN)"
+      },
+      "ita_specific": {
+        "national_id_value": "稅控碼"
+      },
+      "jpn_specific": {
+        "national_id_value": "“我的號碼”/住民票代碼"
+      },
+      "last_name": "姓氏",
+      "line1": "地址第 1 行",
+      "line2": "地址第 2 行",
+      "line3": "地址第 3 行",
+      "lux_specific": {
+        "national_id_value": "社會安全號碼"
+      },
+      "mobile_number": "手機號碼",
+      "national_id_type": "國民身份證類型",
+      "national_id_value": "身份證號碼",
+      "nationality": "國籍",
+      "phl_specific": {
+        "national_id_value": "PhilSys 卡號 (PCN)"
+      },
+      "phone_number": "電話號碼",
+      "pol_specific": {
+        "national_id_value": "PESEL號碼"
+      },
+      "postcode": "郵遞區號",
+      "prt_specific": {
+        "national_id_value": "稅號"
+      },
+      "town": "縣（市）/ 鄉（鎮、市）",
+      "tur_specific": {
+        "national_id_value": "土耳其身份證號碼"
+      },
+      "usa_specific": {
+        "line1_helper_text": "街道地址，例如：阿爾伯特街 200 號",
+        "line2_helper_text": "公寓、套房、單位等。",
+        "postcode": "郵遞區號 (Zip code)",
+        "ssn": "社會安全號碼 (SSN)",
+        "state": "州 / 省"
+      }
+    },
+    "field_optional": "（非必填）",
+    "field_validation": {
+      "arg_specific": {
+        "invalid_national_id_value": "請輸入有效的 DNI"
+      },
+      "bra_specific": {
+        "invalid_other": "請輸入一個有效的 CNPJ",
+        "invalid_tax_id": "請輸入一個有效的 CPF",
+        "required_other": "請輸入您的CNPJ",
+        "required_tax_id": "請輸入您的公積金"
+      },
+      "can_specific": {
+        "invalid_national_id_value": "請輸入一個有效的 SIN",
+        "required_national_id_value": "請輸入您的社會保險號"
+      },
+      "chl_specific": {
+        "invalid_national_id_value": "請輸入有效的 RUT/RUN 編號",
+        "required_national_id_value": "請輸入您的 RUT / RUN 編號"
+      },
+      "chn_specific": {
+        "invalid_national_id_value": "請輸入有效的居民身份證號碼",
+        "required_national_id_value": "請輸入您的居民身份證號碼"
+      },
+      "col_specific": {
+        "invalid_national_id_value": "請輸入有效的哥倫比亞個人身份證號碼",
+        "required_national_id_value": "請輸入您的哥倫比亞個人身份證號碼"
+      },
+      "dnk_specific": {
+        "invalid_national_id_value": "請輸入有效的 CPR 編號",
+        "required_national_id_value": "請輸入您的 CPR 編號"
+      },
+      "esp_specific": {
+        "invalid_identity_card": "請輸入一個有效的 NIF/DNI",
+        "invalid_other": "請輸入一個有效的 NIE",
+        "required_identity_card": "請輸入您的 NIF/DNI"
+      },
+      "fin_specific": {
+        "invalid_national_id_value": "請輸入有效的個人身份代碼",
+        "required_national_id_value": "請輸入您的個人身份代碼"
+      },
+      "gbr_specific": {
+        "invalid_postcode": "請輸入有效的郵遞區號",
+        "required_postcode": "請輸入您的郵遞區號",
+        "too_long_postcode": "郵遞區號太長",
+        "too_short_postcode": "郵遞區號太短"
+      },
+      "gha_specific": {
+        "invalid_social_insurance": "請輸入有效的 SSNIT",
+        "required_social_insurance": "請輸入您的 SSNIT"
+      },
+      "hkg_specific": {
+        "invalid_national_id_value": "請輸入有效的香港身份證",
+        "required_national_id_value": "請輸入您的香港身份證"
+      },
+      "ind_specific": {
+        "invalid_pan": "請輸入有效的永久帳戶號碼 (PAN)",
+        "required_pan": "請輸入您的永久帳戶號碼 (PAN)"
+      },
+      "invalid": "請檢查是否含有無效字元或符號",
+      "invalid_dob": "請輸入有效的出生日期",
+      "invalid_driving_license": "請輸入有效的駕照號碼",
+      "invalid_email": "請輸入有效的電子郵件",
+      "invalid_mobile_number": "請輸入有效的手機號碼",
+      "invalid_national_id_value": "請輸入有效的國民身份證號碼",
+      "invalid_passport": "請輸入有效的護照號碼",
+      "invalid_phone_number": "請輸入一組有效的電話號碼",
+      "invalid_voter_id": "請輸入有效的選民身份證號碼",
+      "ita_specific": {
+        "invalid_national_id_value": "請輸入有效的財務代碼",
+        "required_national_id_value": "請輸入您的財務代碼"
+      },
+      "jpn_specific": {
+        "invalid_national_id_value": "請輸入有效的“我的號碼”/居民票代碼",
+        "required_national_id_value": "請輸入您的「我的號碼」/ 居民記錄代碼"
+      },
+      "ken_specific": {
+        "invalid_other": "請輸入有效的外國人卡號",
+        "required_other": "請輸入您的外國人卡號"
+      },
+      "lux_specific": {
+        "invalid_national_id_value": "請輸入有效的社會保險號",
+        "required_national_id_value": "請輸入您的社會安全號碼"
+      },
+      "mex_specific": {
+        "invalid_identity_card": "請輸入一個有效的 CURP",
+        "invalid_tax_id": "請輸入一個有效的 RFC",
+        "required_identity_card": "請輸入您的 CURP",
+        "required_tax_id": "請輸入您的RFC"
+      },
+      "mys_specific": {
+        "invalid_national_id_value": "請輸入有效的身份證",
+        "required_national_id_value": "請輸入您的身份證"
+      },
+      "nga_specific": {
+        "invalid_identity_card": "請輸入有效的國民身份證號碼 (NIN)",
+        "invalid_other": "請輸入有效的 BVN",
+        "invalid_tax_id": "請輸入有效的 TIN",
+        "required_identity_card": "請輸入您的國民身份證號碼 (NIN)",
+        "required_other": "請輸入您的 BVN",
+        "required_tax_id": "請輸入您的納稅人識別號"
+      },
+      "phl_specific": {
+        "invalid_national_id_value": "請輸入有效的 PhilSys 卡號 (PCN)",
+        "required_national_id_value": "請輸入您的 PhilSys 卡號 (PCN)"
+      },
+      "pol_specific": {
+        "invalid_national_id_value": "請輸入有效的 PESEL 編號",
+        "required_national_id_value": "請輸入您的 PESEL 號碼"
+      },
+      "prt_specific": {
+        "invalid_national_id_value": "請輸入有效的稅號",
+        "required_national_id_value": "請輸入您的稅號"
+      },
+      "reference": {
+        "translation": "請輸入一個有效的"
+      },
+      "required_consent": "請同意授權身份和欺騙檢查",
+      "required_country": "請選擇國家",
+      "required_country_residence": "請選擇國家",
+      "required_dob": "請輸入您的出生日期",
+      "required_email": "請輸入您的電子郵件",
+      "required_first_name": "請輸入您的名字",
+      "required_last_name": "請輸入您的姓氏",
+      "required_line1": "請輸入您的地址",
+      "required_mobile_number": "請輸入您的手機號碼",
+      "required_national_driving_license": "請輸入您的駕照號碼",
+      "required_national_id_type": "請選擇您的國民身份證類型",
+      "required_national_id_value": "請輸入您的國民身份證號碼",
+      "required_national_passport": "請輸入您的護照號碼",
+      "required_national_voter_id": "請輸入您的選民身份證號碼",
+      "required_nationality": "請選擇國家",
+      "required_phone_number": "請輸入您的電話號碼",
+      "required_postcode": "請輸入您的郵遞區號",
+      "sgp_specific": {
+        "invalid_national_id_value": "請輸入一個有效的 NRIC",
+        "required_national_id_value": "請輸入您的身份證"
+      },
+      "swe_specific": {
+        "invalid_national_id_value": "請輸入一個有效的 PIN",
+        "required_national_id_value": "請輸入您的密碼"
+      },
+      "too_long_first_name": "名字太長",
+      "too_long_last_name": "姓氏太長",
+      "too_long_line1": "地址行太長",
+      "too_long_postcode": "郵遞區號太長",
+      "too_long_town": "鄉（鎮、市）名稱太長",
+      "too_short_first_name": "名字太短",
+      "too_short_last_name": "姓氏太短",
+      "too_short_postcode": "郵遞區號太短",
+      "tur_specific": {
+        "invalid_national_id_value": "請輸入有效的土耳其身份證號碼",
+        "required_national_id_value": "請輸入您的土耳其身分證號碼"
+      },
+      "usa_specific": {
+        "invalid_ssn": "請輸入有效的社會安全號碼 (SSN)",
+        "required_ssn": "請輸入您的社會安全號碼 (SSN)",
+        "required_state": "請選擇州 / 省"
+      }
+    },
+    "national_id_number_title": "添加您的國民身份證號碼",
+    "personal_information_title": "新增您的個人資料",
+    "prompt": {
+      "details_timeout": "重新開始",
+      "header_timeout": "看來您花了太長時間"
+    }
+  },
+  "qes": {
+    "consent": {
+      "common": {
+        "steps": "創建您的簽名"
+      },
+      "confirmation": {
+        "bullet_1": "閱讀您的文件後，點擊“簽署文件”按鈕。",
+        "bullet_2": "一旦Onfido驗證了您的身份，您的簽名將被用在這份文件上。",
+        "button_next_step": "簽署文件",
+        "review_document": "審查<fallback>你的文件</fallback>以簽署",
+        "step2": "2 的 2",
+        "steps": "簽署您的文件",
+        "subtitle": "為了依照歐洲規定確認您的身份，您必須數位簽署一份文件。",
+        "title": "創建並使用您的數位簽名"
+      },
+      "introduction": {
+        "button_confirmation_step": "創建我的簽名",
+        "certificate_application_form": "證書申請表格",
+        "privacy_notice": "隱私通知",
+        "step1": "1 的 2",
+        "subtitle": "為了依照歐洲規定確認您的身份，您必須數位簽署一份文件。",
+        "terms_and_conditions": "條款和條件",
+        "third_party_description": "<fallback>Namirial SpA</fallback>是一家值得信賴的全球供應商，將為您的電子簽名發出證書。",
+        "title": "創建並使用您的數位簽名"
+      }
+    }
+  },
+  "qes_consent": {
+    "button": "創建我的簽名",
+    "link_certificate": "證書申請表格",
+    "link_privacy_notice": "隱私通知",
+    "link_terms_and_conditions": "條款與條件",
+    "namirial_intro": "Namirial SpA是一家值得信賴的全球供應商，將為您的電子簽名發出證書以證明其有效性。",
+    "subtitle": "為了依照歐洲規定確認您的身份，您必須數位簽署一份文件。",
+    "title": "創建並使用您的數位簽名"
+  },
+  "qes_sign": {
+    "button": "簽署文件",
+    "link_document": "審查您的文件以簽署",
+    "list_item_1": "閱讀您的文件後，點擊“簽署文件”按鈕。",
+    "list_item_2": "一旦Onfido驗證了您的身份，您的簽名將被用於此文件。",
+    "step_title": "簽署您的文件",
+    "subtitle": "為了依照歐洲規定確認您的身份，您必須數位簽署一份文件。",
+    "title": "創建並使用您的數位簽名"
+  },
+  "retry": {
+    "button": {
+      "generic_selfie_issue": "再試一次"
+    },
+    "description": {
+      "default": "請再試一次",
+      "expired_document": "請使用含有相片的有效 ID 重試，並確保您的資料清楚可見",
+      "generic_document_issue": "請使用含有相片的有效 ID 重試，並確保您的資料清楚可見",
+      "generic_selfie_issue": "請再試一次，並確保臉部清楚可見，光線充足",
+      "unaccepted_document": "請使用含有相片的有效 ID 重試，並確保您的資料清楚可見"
+    },
+    "headline": {
+      "default": "出現了問題",
+      "expired_document": "您的文件已過期",
+      "generic_document_issue": "您的文件出現了問題",
+      "generic_selfie_issue": "您的自拍照出了問題",
+      "unaccepted_document": "不接受的文件"
+    }
+  },
+  "retry_feedback": {
+    "button_primary": "再試一次"
+  },
+  "retry_feedback_id_expired": {
+    "subtitle": "請使用含有相片的有效 ID 重試，並確保您的資料清楚可見",
+    "title": "您的文件已過期"
+  },
+  "retry_feedback_id_generic": {
+    "subtitle": "請使用含有相片的有效 ID 重試，並確保您的資料清楚可見",
+    "title": "您的文件有問題"
+  },
+  "retry_feedback_id_unaccepted": {
+    "subtitle": "請使用含有相片的有效 ID 重試，並確保您的資料清楚可見",
+    "title": "不接受的文件"
+  },
+  "retry_feedback_selfie_generic": {
+    "subtitle": "請再試一次，並確保臉部清楚可見，光線充足",
+    "title": "您的自拍照有問題"
+  },
+  "selfie_capture": {
+    "alert": {
+      "camera_inactive": {
+        "detail": "請檢查其是否已連接，且能正常運作。您也可以<fallback>繼續在手機上進行驗證</fallback>",
+        "detail_no_fallback": "請確保裝置配備正常運作的相機",
+        "title": "相機無法運作？"
+      },
+      "camera_not_working": {
+        "detail": "它可能已斷開連接。<fallback>請嘗試使用手機</fallback>。",
+        "detail_no_fallback": "請確保裝置的相機正常運作",
+        "title": "相機無法運作"
+      },
+      "timeout": {
+        "detail": "完成後記得按下按鈕。<fallback>重做影片操作</fallback>",
+        "title": "看來您花了太長時間"
+      }
+    },
+    "body": "請將臉部保持在橢圓形框內",
+    "button_accessibility": "拍照",
+    "button_primary": "開始臉部掃描",
+    "frame_accessibility": "從相機查看",
+    "title": "請將臉部保持在橢圓形框內"
+  },
+  "selfie_confirmation": {
+    "image_accessibility": "您的臉部相片",
+    "subtitle": "請確保整個臉部清晰可見",
+    "title": "檢查您的自拍照"
+  },
+  "selfie_intro": {
+    "banner_nudity_message": "此過程將擷取您的臉部和背景",
+    "button_primary": "繼續",
+    "list_accessibility": "自拍的技巧",
+    "list_item_face_forward": "面向前方，並確保眼睛清晰可見",
+    "list_item_no_face_cover": "取下任何遮蓋臉部的東西。可接受戴眼鏡",
+    "list_item_no_glasses": "如有必要，請取下眼鏡",
+    "subtitle": "我們會將此資料與您的文件進行比較",
+    "title": "拍一張自拍照"
+  },
+  "sms_sent": {
+    "info": "提示",
+    "info_link_expire": "您的連結將在一小時後失效",
+    "info_link_window": "使用手機時，請保持此視窗開啟",
+    "link": "重新傳送連結",
+    "subtitle": "我們已將安全連結傳送至 <number></number>",
+    "subtitle_minutes": "可能需要幾分鐘才能送達",
+    "title": "檢查您的手機"
+  },
+  "switch_phone": {
+    "info": "提示",
+    "info_link_expire": "您的手機連結將在一小時後失效",
+    "info_link_refresh": "請勿重新整理此頁面",
+    "info_link_window": "使用手機時，請保持此視窗開啟",
+    "link": "取消",
+    "subtitle": "完成後，系統會帶您進入下一個步驟",
+    "title": "已連接至您的手機"
+  },
+  "upload_guide": {
+    "button_primary": "繼續",
+    "image_detail_blur_alt": "模糊文件範例",
+    "image_detail_blur_label": "所有詳細資料必須清晰可見，未有模糊之處",
+    "image_detail_cutoff_label": "顯示所有詳細資料，包括底部兩行",
+    "image_detail_glare_label": "遠離直射光線，無眩光",
+    "image_detail_good_label": "相片應清楚顯示您的文件",
+    "subtitle": "不接受掃描和影本",
+    "title": "提交護照照片頁面"
+  },
+  "user_consent": {
+    "button_primary": "接受",
+    "button_secondary": "不接受",
+    "prompt": {
+      "button_primary": "再次檢視",
+      "button_secondary": "是的，請不要驗證我的身份",
+      "no_consent_detail": "若不接受 Onfido 的隱私權聲明和服務條款，我們將無法驗證您的身份，您將退出此步驟。",
+      "no_consent_title": "您確定嗎？"
+    }
+  },
+  "user_consent_load_fail": {
+    "button_primary": "重新載入畫面",
+    "detail": "請檢查您的連線是否穩定，然後再試一次",
+    "title": "内容載入失敗"
+  },
+  "video_capture": {
+    "body": "請將臉部保持在橢圓形框內",
+    "body_record": "準備好後按下按鈕",
+    "body_stop": "完成後，請按下停止按鈕",
+    "button_primary_finish": "完成錄製",
+    "button_primary_next": "下一步",
+    "button_primary_start": "開始錄製",
+    "button_record_accessibility": "開始錄製",
+    "frame_accessibility": "從相機查看",
+    "header": {
+      "challenge_digit_instructions": "大聲說出每個數字",
+      "challenge_turn_forward": "然後面向前方",
+      "challenge_turn_left": "請將頭部轉向左邊",
+      "challenge_turn_right": "請將頭部轉向右邊"
+    },
+    "prompt": {
+      "header_timeout": "看來您花了太長時間"
+    }
+  },
+  "video_confirmation": {
+    "body": "您的影片已錄製完成",
+    "button_primary": "上傳影片",
+    "button_secondary": "重新拍攝影片",
+    "title": "檢查您的影片",
+    "video_accessibility": "重播您錄製的影片"
+  },
+  "video_intro": {
+    "button_pause_accessibility": "暫停影片",
+    "button_play_accessibility": "播放影片",
+    "button_primary": "錄製影片",
+    "list_accessibility": "錄製自拍影片的操作",
+    "list_item_actions": "您有 20 秒完成動作",
+    "list_item_speak": "按照指示移動或說話",
+    "title": "錄製影片",
+    "video_accessibility": "其他人錄製自拍影片的示範影片。若要拍攝自拍影片，請面對前鏡頭，並將手機與臉部保持適當距離。您需要朗讀一些數字，並按照畫面上的說明轉動頭部。"
+  },
+  "welcome": {
+    "doc_video_subtitle": "這可能需要幾分鐘的時間",
+    "info_original_document": "為您的原始文件拍照。不允許掃描、屏幕照片或複印件。",
+    "list_header": "使用您的裝置：",
+    "list_header_doc_video": "使用您的裝置進行錄製：",
+    "list_header_webcam": "使用您的網路攝影機或手機進行拍攝：",
+    "list_item_doc": "您的身份證件",
+    "list_item_doc_generic": "錄製您身份證件的影片",
+    "list_item_doc_photo": "拍攝身分證件相片",
+    "list_item_doc_video": "錄製您身份證件的影片",
+    "list_item_doc_video_timeout": "影片錄製以 <timeout></timeout> 秒為限。<fallback>請重新開始</fallback>",
+    "list_item_face_photo": "拍攝您的臉部相片",
+    "list_item_face_video": "錄製您的臉部影片",
+    "list_item_poa": "您的地址證明",
+    "list_item_selfie": "您的臉部",
+    "next_button": "選擇文件",
+    "start_workflow_button": "開始驗證",
+    "start_workflow_button_trial": "開始驗證（測試）",
+    "subtitle": "這可能需要幾分鐘的時間",
+    "title": "驗證您的身份",
+    "trial_message": "除非您正在進行 Onfido 試用，否則請勿在此分享個人資料。"
+  },
+  "workflow_complete": {
+    "pass": {
+      "description": "我們已驗證您的身份",
+      "title": "已通過"
+    },
+    "reject": {
+      "description": "我們無法驗證您的身份",
+      "title": "被拒絕"
+    }
+  },
+  "workflow_erros": {
+    "generic_title": "伺服器發生錯誤！",
+    "no_workflow_run_id": "未設定工作流程執行 ID。",
+    "reload_app": "請嘗試重新載入應用程式，然後再試一次。",
+    "task_not_completed": "無法完成工作流程任務。",
+    "task_not_retrieved": "無法檢索工作流程任務。",
+    "task_not_supported": "目前不支援此任務"
+  }
 }

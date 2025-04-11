@@ -1,1440 +1,1319 @@
 {
-    "onfido": {
-        "avc_confirmation": {
-            "button_primary_upload": "Aufnahme hochladen",
-            "subtitle": "Ein Video von Ihrem Gesicht wurde erfolgreich aufgenommen",
-            "title": "Aufnahme abgeschlossen"
-        },
-        "avc_connection_error": {
-            "button_primary_reload": "Anweisungen neu laden",
-            "button_primary_retry_upload": "Upload wiederholen",
-            "button_secondary_restart_recording": "Aufnahme neu starten",
-            "subtitle": "Prüfen Sie, ob Ihre Internetverbindung stabil ist, und versuchen Sie es dann erneut",
-            "title": "Verbindungsfehler"
-        },
-        "avc_face_alignment": {
-            "feedback_move_back": "Gehen Sie zurück",
-            "feedback_move_back_accessibility": "Bewegen Sie Ihr Gerät nach hinten",
-            "feedback_move_closer": "Rücken Sie näher heran",
-            "feedback_move_left_accessibility": "Bewegen Sie Ihr Gerät nach links",
-            "feedback_move_right_accessibility": "Bewegen Sie Ihr Gerät nach rechts",
-            "feedback_no_face_detected": "Gesicht nicht erkannt",
-            "feedback_not_centered": "Gesicht nicht mittig",
-            "title": "Positionieren Sie Ihr Gesicht im Rahmen"
-        },
-        "avc_face_capture": {
-            "alert": {
-                "mic_conflict_title": "Ihr Mikrofon wird von einer anderen App genutzt",
-                "timeout_body": "Sie haben maximal 15 Sekunden Zeit, um die Aufnahme zu beenden",
-                "timeout_button_primary": "Wiederholen",
-                "timeout_title": "Leider muss die Aufnahme neu gestartet werden",
-                "too_fast_body": "Bitte versuchen Sie es erneut und drehen Sie Ihren Kopf langsamer",
-                "too_fast_button_primary": "Wiederholen",
-                "too_fast_title": "Sie haben Ihren Kopf zu schnell gedreht"
-            },
-            "title": "Drehen Sie Ihren Kopf langsam nach beiden Seiten",
-            "title_completed": "Aufnahme abgeschlossen"
-        },
-        "avc_intro": {
-            "button_primary_ready": "Aufnahme starten",
-            "disclaimer": "Bitte beachten Sie, dass Ihr Gesicht und der Hintergrund aufgenommen wird",
-            "disclaimer_camera_and_audio_on": "Ihr Gesicht, Ihr Hintergrund und Ihr Ton werden während dieses Vorgangs aufgezeichnet.",
-            "list_item_one": "Positionieren Sie Ihr Gesicht zunächst im Rahmen",
-            "list_item_two": "Drehen Sie Ihren Kopf dann langsam nach beiden Seiten",
-            "subtitle": "Damit verifizieren wir, dass es sich bei Ihnen um eine reale Person handelt",
-            "title": "Video aufnehmen",
-            "title_accessibility": "Nehmen Sie ein Video von Ihrem Gesicht auf",
-            "video_accessibility": "Beispielvideo von jemandem, der den Kopf bis zum Abschluss zu beiden Seiten dreht"
-        },
-        "avc_no_face_detected": {
-            "button_primary_restart": "Aufnahme neu starten",
-            "list_item_eyes": "Stellen Sie sicher, dass Ihre Augen deutlich sichtbar sind",
-            "list_item_face": "Zeigen Sie nur Ihr Gesicht, Ihr Ausweis wird nicht benötigt",
-            "list_item_lighting": "Stellen Sie sicher, dass Sie sich an einem Ort mit guter Beleuchtung befinden",
-            "list_item_mask": "Achten Sie darauf, dass Sie Gesichtsmasken oder andere Gegenstände, die Ihr Gesicht verdecken, abnehmen. Brillen sind zulässig",
-            "title": "Wir können Ihr Gesicht nicht erkennen"
-        },
-        "avc_uploading": {
-            "title": "Hochladen"
-        },
-        "country_select": {
-            "alert": {
-                "another_doc": "Dokumente aus diesem Land werden derzeit nicht unterstützt. <fallback>Versuchen Sie es mit einem anderen Dokumententyp<\/fallback>."
-            },
-            "alert_dropdown": {
-                "country_not_found": "Land nicht gefunden"
-            },
-            "button_primary": "Dokument einreichen",
-            "poa_alert": {
-                "country_not_found": "Entschuldigen Sie bitte. Wir arbeiten an der Unterstützung von mehr Ländern.",
-                "intro": "Ihr Land ist nicht aufgeführt?"
-            },
-            "search": {
-                "accessibility": "Land auswählen",
-                "input_placeholder": "z.B. Deutschland",
-                "label": "Suche nach Land"
-            },
-            "title": "Wählen Sie das Ausstellungsland"
-        },
-        "cross_device": {
-            "button_primary_upload": "Fortfahren"
-        },
-        "cross_device_abort": {
-            "title": "Überprüfung abgebrochen"
-        },
-        "cross_device_checklist": {
-            "button_primary": "Bestätigung senden",
-            "info": "Tipps",
-            "list_item_doc_multiple": "Dokumente hochgeladen",
-            "list_item_doc_one": "Dokument hochgeladen",
-            "list_item_poa": "Adressnachweis",
-            "list_item_selfie": "Selfie hochgeladen",
-            "list_item_video": "Video hochgeladen",
-            "subtitle": "Hier ist alles, was Sie hochgeladen haben:",
-            "title": "Ein letzter Schritt"
-        },
-        "cross_device_error_desktop": {
-            "subtitle": "Der Link funktioniert nur auf mobilen Geräten",
-            "title": "Etwas ist schiefgelaufen"
-        },
-        "cross_device_error_mobile": {
-            "subtitle": "Sie können versuchen, Ihre Identität erneut auf dem ursprünglichen Gerät zu verifizieren.",
-            "title": "Diese Nummer stimmt nicht überein"
-        },
-        "cross_device_error_restart": {
-            "subtitle": "Sie müssen Ihre Verifizierung auf Ihrem Computer neu starten",
-            "title": "Etwas ist schiefgelaufen"
-        },
-        "cross_device_intro": {
-            "button_primary": "Sicherheitslink erhalten",
-            "list_accessibility": "Erforderliche Schritte zur weiteren Verifizierung auf Ihrem Mobiltelefon",
-            "list_item_finish": "Überprüfen Sie alle Eingaben und Daten, um die Einreichung abzuschließen",
-            "list_item_open_link": "Öffnen Sie den Link und führen Sie die Aktionen aus",
-            "list_item_send_phone": "Senden Sie einen Sicherheitslink an Ihr Mobiltelefon",
-            "subtitle": "So geht’s:",
-            "subtitle_upload": "Bitte laden Sie ein aktuelles Foto Ihres Originaldokuments hoch",
-            "title": "Fahren Sie mit Ihrem Mobiltelefon fort"
-        },
-        "cross_device_number_match_desktop": {
-            "instruction": "Tippen Sie auf die Nummer auf Ihrem Handy, um zu bestätigen, dass Sie es sind.",
-            "subtitle": "Um Ihre Informationen sicher zu halten, möchte Onfido sicherstellen, dass Sie es wirklich sind, der versucht, Ihre Identität zu überprüfen",
-            "title": "Mit Ihrem Mobiltelefon verbunden"
-        },
-        "cross_device_number_match_error_desktop": {
-            "button_primary": "Versuchen Sie es erneut.",
-            "subtitle": "Bitte gehen Sie zurück und versuchen Sie es erneut.",
-            "title": "Diese Nummer stimmt nicht überein"
-        },
-        "cross_device_number_match_mobile": {
-            "abort_button": "Ich bin es nicht",
-            "subtitle": "Tippen Sie auf die Nummer, die auf Ihrem anderen Gerät angezeigt wird. Wir möchten sicherstellen, dass Sie es wirklich sind.",
-            "title": "Ordnen Sie die Nummer zu"
-        },
-        "cross_device_return": {
-            "body": "Die Aktualisierung Ihres Computers kann einige Sekunden dauern",
-            "subtitle": "Sie können nun zu Ihrem Computer zurückkehren, um fortzufahren",
-            "title": "Uploads erfolgreich!"
-        },
-        "cross_device_session_linked": {
-            "button_primary": "Fortfahren",
-            "info": "Überprüfen Sie bitte",
-            "list_item_desktop_open": "Ihr Desktop-Fenster bleibt geöffnet",
-            "list_item_sent_by_you": "Dieser Link wurde von Ihnen gesendet - lassen Sie sich beraten, wenn Sie glauben, dass es sich um einen Betrug handeln könnte",
-            "subtitle": "Fahren Sie mit der Überprüfung fort",
-            "title": "Mit Ihrem Computer verbunden"
-        },
-        "doc_auto_capture": {
-            "button_accessibility": "Ein Foto aufnehmen",
-            "footer": {
-                "captured": "Foto aufgenommen",
-                "capturing": "Foto aufnehmen",
-                "manual_fallback_generic_document_back": "Machen Sie ein Foto von der Rückseite des Dokuments",
-                "manual_fallback_generic_document_front": "Machen Sie ein Foto von der Vorderseite des Dokuments",
-                "manual_fallback_identity_card_back": "Machen Sie ein Foto von der Rückseite ihres Personalausweises",
-                "manual_fallback_identity_card_front": "Machen Sie ein Foto von der Vorderseite ihres Personalausweises",
-                "manual_fallback_license_back": "Machen Sie ein Foto von der Rückseite ihres Führerscheins",
-                "manual_fallback_license_front": "Machen Sie ein Foto von der Vorderseite ihres Führerscheins",
-                "manual_fallback_passport": "Machen Sie ein Foto von der Lichtbild-Seite ihres Passes",
-                "manual_fallback_residence_permit_back": "Machen Sie ein Foto von der Rückseite ihrer Aufenthaltsgenehmigung",
-                "manual_fallback_residence_permit_front": "Machen Sie ein Foto von der Vorderseite ihrer Aufenthaltserlaubnis",
-                "position_generic_document_back": "Positionieren Sie die Rückseite Ihres Dokuments im Rahmen",
-                "position_generic_document_front": "",
-                "position_identity_card_back": "Positionieren Sie die Rückseite ihres Personalausweises innerhalb des Rahmens",
-                "position_identity_card_front": "Positionieren Sie die Vorderseite ihres Personalausweises innerhalb des Rahmens",
-                "position_license_back": "Positionieren Sie die Rückseite ihres Führerscheins innerhalb des Rahmens",
-                "position_license_front": "Positionieren Sie die Vorderseite ihres Führerscheins innerhalb des Rahmens",
-                "position_passport": "Positionieren Sie die Lichtbild-Seite ihres Passes innerhalb des Rahmens",
-                "position_residence_permit_back": "Positionieren Sie die Rückseite ihrer Aufenthaltsgenehmigung innerhalb des Rahmens",
-                "position_residence_permit_front": "Positionieren Sie die Vorderseite ihrer Aufenthaltsgenehmigung innerhalb des Rahmens"
-            },
-            "frame": {
-                "flip_document": "Auf die Rückseite drehen",
-                "hold_still": "Stillhalten",
-                "no_document": "Dokument nicht erkannt"
-            }
-        },
-        "doc_capture": {
-            "alert": {
-                "no_barcode_detail": "Bleiben Sie an einem gut beleuchteten Ort und bringen Sie die Karte näher an die Kamera",
-                "no_barcode_title": "Barcode nicht erkannt"
-            },
-            "button_primary": "Starten Sie mit dem Scannen des Dokuments",
-            "detail": {
-                "folded_doc_front": "Legen Sie Ihr Dokument flach hin, einschließlich aller Innenseiten (Ihr Foto muss enthalten sein)"
-            },
-            "header": {
-                "recording_complete": "Aufnahme abgeschlossen",
-                "recording_video": "Videoaufnahme"
-            },
-            "header_folded_doc_front": "Profilfotoseite",
-            "prompt": {
-                "button_card": "Plastikkarte",
-                "button_paper": "Papierdokument",
-                "title_id": "Welche Art von Personalausweis haben Sie?",
-                "title_license": "Welche Art von Führerschein haben Sie?"
-            }
-        },
-        "doc_confirmation": {
-            "alert": {
-                "blur_detail": "Stellen Sie sicher, dass alles klar ist",
-                "blur_title": "Unscharfes Foto erkannt",
-                "crop_detail": "Stellen Sie sicher, dass das vollständige Dokument zu sehen ist",
-                "crop_title": "Abgeschnittenes Bild erkannt",
-                "glare_detail": "Versuchen Sie, sich von direktem Licht zu entfernen",
-                "glare_title": "Spiegelung erkannt",
-                "no_doc_detail": "Stellen Sie sicher, dass das gesamte Dokument auf dem Foto zu sehen ist",
-                "no_doc_title": "Kein Dokument erkannt.",
-                "odp_detail": "Bitte verwenden Sie Ihr Originaldokument. Fotos vom Bildschirm oder Fotokopien werden nicht akzeptiert",
-                "odp_photo_of_screen_title": "Foto des Bildschirms erkannt",
-                "odp_photocopy_title": "Fotokopie erkannt",
-                "odp_scan_title": "Scan erkannt",
-                "odp_screenshot_title": "Screenshot erkannt"
-            },
-            "body": "Überprüfen Sie, dass Sie die gesamte Dokumentseite hochgeladen haben, und dass man die Details ohne Unschärfen und blendfrei lesen kann",
-            "body_accommodation_tenancy_certificate": "Stellen Sie sicher, dass Sie die gesamte Dokumentseite hochgeladen haben und die Details klar zu lesen sind, ohne Unschärfe oder Blendung",
-            "body_address_certificate": "Stellen Sie sicher, dass Sie die gesamte Dokumentseite hochgeladen haben und die Details klar zu lesen sind, ohne Unschärfe oder Blendung",
-            "body_bank_statement": "Überprüfen Sie, dass Sie die gesamte Dokumentseite hochgeladen haben, und dass man die Details ohne Unschärfen und blendfrei lesen kann",
-            "body_benefits_letter": "Überprüfen Sie, dass Sie die gesamte Dokumentseite hochgeladen haben, und dass man die Details ohne Unschärfen und blendfrei lesen kann",
-            "body_bill": "Überprüfen Sie, dass Sie die gesamte Dokumentseite hochgeladen haben, und dass man die Details ohne Unschärfen und blendfrei lesen kann",
-            "body_exchange_house_statement": "Stellen Sie sicher, dass Sie die gesamte Dokumentseite hochgeladen haben und die Details klar zu lesen sind, ohne Unschärfe oder Blendung",
-            "body_general_letter": "Stellen Sie sicher, dass Sie die gesamte Dokumentseite hochgeladen haben und die Details klar zu lesen sind, ohne Unschärfe oder Blendung",
-            "body_generic_document": "Die Informationen müssen deutlich lesbar sein, ohne Unschärfe oder Spiegelung",
-            "body_id": "Einzelheiten müssen klar lesbar sein, ohne Unschärfe oder Spiegelung",
-            "body_identity_document_with_address": "Stellen Sie sicher, dass Sie die gesamte Dokumentseite hochgeladen haben und die Details klar zu lesen sind, ohne Unschärfe oder Blendung",
-            "body_image_medium": "Es wird länger dauern, Sie zu verifizieren, wenn wir es nicht lesen können",
-            "body_image_poor": "Um Sie reibungslos zu verifizieren, benötigen wir ein besseres Foto",
-            "body_insurance_statement": "Stellen Sie sicher, dass Sie die gesamte Dokumentseite hochgeladen haben und die Details klar zu lesen sind, ohne Unschärfe oder Blendung",
-            "body_license": "Die Informationen müssen deutlich lesbar sein, ohne Unschärfe oder Spiegelung",
-            "body_mobile_phone_bill": "Stellen Sie sicher, dass Sie die gesamte Dokumentseite hochgeladen haben und die Details klar zu lesen sind, ohne Unschärfe oder Blendung",
-            "body_mortgage_statement": "Stellen Sie sicher, dass Sie die gesamte Dokumentseite hochgeladen haben und die Details klar zu lesen sind, ohne Unschärfe oder Blendung",
-            "body_passport": "Einzelheiten müssen klar lesbar sein, ohne Unschärfe oder Spiegelung",
-            "body_pension_property_statement_letter": "Stellen Sie sicher, dass Sie die gesamte Dokumentseite hochgeladen haben und die Details klar zu lesen sind, ohne Unschärfe oder Blendung",
-            "body_permit": "Die Informationen müssen deutlich lesbar sein, ohne Unschärfe oder Spiegelung",
-            "body_tax_letter": "Überprüfen Sie, dass Sie die gesamte Dokumentseite hochgeladen haben, und dass man die Details ohne Unschärfen und blendfrei lesen kann",
-            "button_close": "Schließen",
-            "button_primary_redo": "Wiederholen",
-            "button_primary_upload": "Hochladen",
-            "button_primary_upload_anyway": "Trotzdem hochladen",
-            "button_secondary_change_document": "Wählen Sie ein anderes Dokument aus",
-            "button_secondary_redo": "Wiederholen",
-            "button_secondary_submit_anyway": "Foto trotzdem einreichen",
-            "button_zoom": "Bild vergrößern",
-            "image_accessibility": "Foto Ihres Dokuments",
-            "title": "Überprüfen Sie Ihr Bild"
-        },
-        "doc_multi_frame_capture": {
-            "capture_progress_title": "Dokument wird gescannt",
-            "instructions_title_back": "Positionieren Sie die Rückseite Ihres Dokuments im Rahmen",
-            "instructions_title_front": "Positionieren Sie die Vorderseite Ihres Dokuments im Rahmen"
-        },
-        "doc_select": {
-            "accommodation_tenancy_certificate_detail": "Ausgestellt von der Regierungsbehörde oder dem Firmenvermieter als Mietbestätigung.",
-            "button_address_card": "Adresskartei",
-            "button_address_card_back": "Adresskarte (Rückseite)",
-            "button_address_card_detail": "Vorläufige und permanente Karten werden akzeptiert",
-            "button_address_card_front": "Adresskarte (Vorderseite)",
-            "button_bank_statement": "Bankauszug",
-            "button_bank_statement_non_uk": "Bankauszug",
-            "button_benefits_letter": "Sozialleistungsschreiben",
-            "button_benefits_letter_detail": "Von der Regierung autorisierte Sozialleistungen, wie z. B. Arbeitslosenhilfe, Wohngeld, Steuerermäßigung",
-            "button_bill": "Betriebskostenabrechnung",
-            "button_bill_detail": "Gas, Strom, Wasser, Festnetz oder Breitband-Internet",
-            "button_exchange_house_statement": "Austauschhaus Aussage",
-            "button_exchange_house_statement_detail": "Absendererklärung für Überweisung oder Übermittlung",
-            "button_general_letter": "Allgemeiner Brief",
-            "button_general_letter_detail": "Brief von Finanzinstitut oder Versorgungsunternehmen",
-            "button_government_letter": "Staatliches Schreiben",
-            "button_government_letter_detail": "Jede Art vom Staat ausgestelltes Schreiben, z. B. Sozialleistungsschreiben, Wahlbenachrichtigung, Schreiben vom Finanzamt usw.",
-            "button_id": "Nationaler Personalausweis",
-            "button_id_detail": "Vorder- und Rückseite",
-            "button_identity_document_with_address": "Ausweisdokument mit Adresse",
-            "button_identity_document_with_address_back": "Ausweisdokument mit Adresse (Rückseite)",
-            "button_identity_document_with_address_detail": "Ausgestellt von einer Regierungsbehörde",
-            "button_identity_document_with_address_front": "Ausweisdokument mit Adresse (Vorderseite)",
-            "button_insurance_statement": "Versicherungsaussage",
-            "button_insurance_statement_detail": "Ausgestellt von einer privaten Versicherungs- oder Maklergesellschaft",
-            "button_license": "Führerschein",
-            "button_license_detail": "Vorder- und Rückseite",
-            "button_mobile_phone_bill": "Mobiltelefonrechnung",
-            "button_mobile_phone_bill_detail": "Ausgestellt von einem Mobilfunknetzanbieter",
-            "button_mortgage_statement": "Hypothekenabrechnung",
-            "button_mortgage_statement_detail": "Ausgestellt von einer Finanzkreditinstitution",
-            "button_passport": "Reisepass",
-            "button_passport_detail": "Seite mit Foto",
-            "button_pension_property_statement_letter": "Renten- oder Immobilienbescheinigung\/-brief",
-            "button_pension_property_statement_letter_detail": "Rentenbescheid oder Brief und Grundsteuerbescheid oder Brief",
-            "button_permit": "Karte der Aufenthaltsgenehmigung",
-            "button_permit_detail": "Vorder- und Rückseite",
-            "button_tax_letter": "Schreiben zur Kommunalsteuer",
-            "extra_estatements_ok": "E-Auszüge werden akzeptiert",
-            "list_accessibility": "Dokumente, die Sie zur Überprüfung Ihrer Identität verwenden können",
-            "pill": "Schnellste",
-            "section": {
-                "header_country": "Ausstellendes Land",
-                "header_doc_type": "Akzeptierte Dokumente",
-                "input_country_not_found": "Keine Ergebnisse",
-                "input_placeholder_country": "Ausstellungsland auswählen"
-            },
-            "subtitle": "Es muss ein offizieller Lichtbildausweis sein",
-            "subtitle_country": "Wählen Sie das ausstellende Land aus, um zu sehen, welche Dokumente wir akzeptieren",
-            "subtitle_entire_page": "Ganze Seite",
-            "subtitle_front_back": "Vorne und Hinten",
-            "subtitle_photo_page": "Fotoseite",
-            "subtitle_poa": "Diese Dokumente zeigen wahrscheinlich Ihre aktuelle Wohnadresse:",
-            "title": "Dokument auswählen",
-            "title_poa": "Wählen Sie ein Dokument"
-        },
-        "doc_submit": {
-            "button_link_upload": "oder Foto hochladen – keine Scans oder Kopien",
-            "button_primary": "Weiter am Mobiltelefon",
-            "subtitle": "Machen Sie ein Foto mit Ihrem Mobiltelefon",
-            "title_accommodation_tenancy_certificate": "Unterkunfts- oder Mietbescheinigung einreichen",
-            "title_address_certificate": "Adresskarte einreichen",
-            "title_address_certificate_back": "Adresskarte einreichen (Rückseite)",
-            "title_address_certificate_front": "Adresskarte einreichen (Vorderseite)",
-            "title_bank_statement": "Auszug senden",
-            "title_benefits_letter": "Schreiben einreichen",
-            "title_bill": "Rechnung senden",
-            "title_exchange_house_statement": "Austauschhaus-Aussage einreichen",
-            "title_general_letter": "Allgemeinen Brief einreichen",
-            "title_generic_document_back": "Dokument einreichen (Rückseite)",
-            "title_generic_document_front": "Dokument einreichen (Vorderseite)",
-            "title_government_letter": "Staatliches Schreiben",
-            "title_id_back": "Personalausweis einreichen (Rückseite)",
-            "title_id_front": "Personalausweis einreichen (Vorderseite)",
-            "title_identity_document_with_address": "Reichen Sie das Identitätsdokument mit Adresse ein",
-            "title_identity_document_with_address_back": "Reichen Sie das Identitätsdokument mit Adresse ein (Rückseite)",
-            "title_identity_document_with_address_front": "Reichen Sie das Identitätsdokument mit Adresse ein (Vorderseite)",
-            "title_insurance_statement": "Versicherungsantrag einreichen",
-            "title_license_back": "Führerschein einreichen (Rückseite)",
-            "title_license_front": "Führerschein einreichen (Vorderseite)",
-            "title_mobile_phone_bill": "Handyrechnung einreichen",
-            "title_mortgage_statement": "Hypothekenabrechnung einreichen",
-            "title_passport": "Passfoto-Seite einreichen",
-            "title_pension_property_statement_letter": "Aussage oder Brief einreichen",
-            "title_permit_back": "Aufenthaltsgenehmigung einreichen (Rückseite)",
-            "title_permit_front": "Aufenthaltsgenehmigung einreichen (Vorderseite)",
-            "title_tax_letter": "Lokale Steuerbescheinigung der Regierung einreichen"
-        },
-        "doc_video_capture": {
-            "button_primary_fallback": "Nächster Schritt",
-            "button_primary_fallback_end": "Aufnahme beenden",
-            "detail_step2": "Sorgen Sie dafür, dass stets das gesamte Dokument zu sehen ist",
-            "header": "Halten Sie die Lichtbild-Seite innerhalb des Rahmens, während Sie Ihr Dokument halten",
-            "header_paper_doc_step2": "Drehen Sie Ihr Dokument langsam um, sodass die äußeren Seiten zu sehen sind",
-            "header_passport": "Halten Sie die Lichtbild-Seite innerhalb des Rahmens, während Sie Ihren Reisepass halten",
-            "header_passport_progress": "Halten Sie still",
-            "header_step1": "Halten Sie nun still",
-            "header_step2": "Drehen Sie Ihr Dokument langsam um, sodass die Rückseite zu sehen ist",
-            "prompt": {
-                "detail_timeout": "Die Videoaufnahme ist auf <timeout><\/timeout> Sekunden beschränkt. <fallback>Nochmal beginnen<\/fallback>"
-            },
-            "stepper": "Schritt <step><\/step> von <total><\/total>",
-            "success_accessibility": "Erfolg"
-        },
-        "doc_video_confirmation": {
-            "button_secondary": "Video-Vorschau",
-            "title": "Selfie-Video prüfen"
-        },
-        "eid": {
-            "scheme_form": {
-                "subtitle": "Wählen Sie eine Bank aus der Liste unten aus, um sich über <form_scheme><\/form_scheme> zu verifizieren.",
-                "title": "<form_scheme><\/form_scheme> Verification"
-            }
-        },
-        "error_unsupported_browser": {
-            "subtitle_android": "Starten Sie den Prozess auf der neuesten Version von Google Chrome neu",
-            "subtitle_ios": "Starten Sie den Prozess mit der neuesten Version von Safari neu",
-            "title_android": "Nicht unterstützter Browser",
-            "title_ios": "Nicht unterstützter Browser"
-        },
-        "generic": {
-            "accessibility": {
-                "close_sdk_screen": "Bildschirm zur Identitätsprüfung schließen",
-                "dismiss_alert": "Alarm verwerfen"
-            },
-            "back": "zurück",
-            "close": "Schließen",
-            "errors": {
-                "desktop": {
-                    "subtitle": "Dieser Link funktioniert nur auf mobilen Geräten. Bitte versuchen Sie es erneut, indem Sie den Link auf einem mobilen Gerät öffnen.",
-                    "title": "Link kann nicht geöffnet werden"
-                },
-                "expired_token": {
-                    "instruction": "Bitte versuchen Sie es erneut",
-                    "message": "Ihr Token ist abgelaufen",
-                    "subtitle": "Das im Rahmen dieses Verifizierungsprozesses bereitgestellte SDK-Token ist abgelaufen. Bitte gehen Sie zurück und versuchen Sie es erneut.",
-                    "title": "Ihre Sitzung ist abgelaufen"
-                },
-                "expired_trial": {
-                    "instruction": "Sie haben Ihr Testlimit erreicht",
-                    "message": "Ihr Token ist abgelaufen",
-                    "subtitle": "Sie haben die maximale Anzahl an Identitätsverifizierungen erreicht.",
-                    "title": "Ihre Testversion ist abgelaufen"
-                },
-                "geoblocked_error": {
-                    "instruction": "Es tut uns leid, wir können leider nicht fortfahren, da Ihr aktueller Standort nicht unterstützt wird.",
-                    "message": "Service nicht verfügbar"
-                },
-                "geoblocker_request": {
-                    "subtitle": "Entschuldigung, wir können Ihre Überprüfung nicht durchführen, da Ihr aktueller Standort nicht unterstützt wird.",
-                    "title": "Dienst nicht verfügbar"
-                },
-                "interrupted_flow_error": {
-                    "instruction": "Starten Sie den Prozess auf einem anderen Gerät neu",
-                    "message": "Kamera nicht erkannt"
-                },
-                "invalid_size": {
-                    "instruction": "Die Dateigröße muss unter 10 MB sein.",
-                    "message": "Dateigröße überschritten."
-                },
-                "invalid_type": {
-                    "instruction": "Versuchen Sie einen anderen Dateityp zu verwenden",
-                    "message": "Datei nicht hochgeladen"
-                },
-                "lazy_loading": {
-                    "message": "Beim Laden der Komponente ist ein Fehler aufgetreten"
-                },
-                "multiple_faces": {
-                    "instruction": "Nur Ihr Gesicht kann im Selfie zu sehen sein",
-                    "message": "Mehrere Gesichter gefunden"
-                },
-                "no_camera": {
-                    "subtitle": "Wir können keine Kamera auf diesem Gerät erkennen. Bitte stellen Sie sicher, dass eine Kamera angeschlossen ist und die erforderlichen Berechtigungen erteilt wurden.",
-                    "title": "Kamera nicht gefunden"
-                },
-                "no_face": {
-                    "instruction": "Stellen Sie sicher, dass Ihr Gesicht sichtbar ist",
-                    "message": "Kein Gesicht gefunden"
-                },
-                "request_error": {
-                    "instruction": "Bitte versuchen Sie es erneut",
-                    "message": "Etwas ist schiefgelaufen"
-                },
-                "restart_cross-device": {
-                    "subtitle": "Sie müssen Ihre Überprüfung auf Ihrem Computer neu starten. Bitte gehen Sie zurück zum Überprüfungsbildschirm und versuchen Sie es erneut.",
-                    "title": "Etwas ist schief gelaufen"
-                },
-                "sms_failed": {
-                    "instruction": "Kopieren Sie den Link auf Ihr Mobiltelefon",
-                    "message": "Etwas ist schiefgelaufen"
-                },
-                "sms_overuse": {
-                    "instruction": "Kopieren Sie den Link auf Ihr Mobiltelefon",
-                    "message": "Zu viele fehlgeschlagene Versuche"
-                },
-                "unsupported_browser": {
-                    "subtitle": "Bitte starten Sie den Prozess erneut und versuchen Sie es mit einem anderen Browser.",
-                    "title": "Nicht unterstützter Browser"
-                },
-                "unsupported_file": {
-                    "instruction": "Versuchen Sie es mit einer JPG- oder PNG-Datei",
-                    "message": "Dateityp nicht unterstützt"
-                },
-                "unsupported_sdk_version": {
-                    "subtitle": "Die SDK-Version ist nicht kompatibel mit dem konfigurierten Workflow. Überprüfen Sie die Mindestanforderungen des SDK Ihrer aktiven Arbeitsabläufe.",
-                    "title": "Inkompatible Version"
-                },
-                "user_consent_denied": {
-                    "subtitle": "Entschuldigung, wir können Ihre Identität ohne Ihre Zustimmung nicht überprüfen. \\nWenn Sie mit der Identitätsüberprüfung fortfahren möchten, gehen Sie bitte zurück und geben Sie Ihre Zustimmung.",
-                    "title": "Zustimmung verweigert"
-                }
-            },
-            "footer": {
-                "branding": "Onfido echte Identität"
-            },
-            "icon_error_accessibility": "Fehler:",
-            "icon_info_accessibility": "Information:",
-            "icon_success_accessibility": "Erfolg:",
-            "icon_warning_accessibility": "Warnung:",
-            "lazy_load_placeholder": "Wird geladen…",
-            "loading": "Wird geladen"
-        },
-        "get_link": {
-            "alert_wrong_number": "Überprüfen Sie, ob Ihre Nummer korrekt ist",
-            "button_copied": "Kopiert",
-            "button_copy": "Kopieren",
-            "button_submit": "Link senden",
-            "info_qr_how": "So scannen Sie einen QR-Code",
-            "info_qr_how_list_item_camera": "Richten Sie die Kamera Ihres Telefons auf den QR-Code",
-            "info_qr_how_list_item_download": "Wenn es nicht funktioniert, laden Sie einen QR-Code-Scanner von Google Play oder aus dem App Store herunter",
-            "link_divider": "oder wählen Sie eine alternative Methode",
-            "link_qr": "QR-Code scannen",
-            "link_sms": "Link per SMS erhalten",
-            "link_url": "Link kopieren",
-            "loader_sending": "Senden",
-            "number_field_input_placeholder": "Mobiltelefonnummer eingeben",
-            "number_field_label": "Geben Sie Ihre Mobiltelefonnummer ein:",
-            "subtitle_qr": "Scannen Sie den QR-Code mit Ihrem Mobiltelefon",
-            "subtitle_sms": "Öffnen Sie den Link auf Ihrem Mobiltelefon",
-            "subtitle_url": "Öffnen Sie den Link auf Ihrem Mobiltelefon",
-            "title": "Holen Sie sich Ihren Sicherheitslink",
-            "url_field_label": "Kopieren Sie den Link in Ihren mobilen Browser"
-        },
-        "ial2_nist": {
-            "option": {
-                "goverment_issued_photo_id": "Ein zweiter, von der Regierung ausgestellter Lichtbildausweis",
-                "ssn": "Sozialversicherungsnummer (SSN)"
-            },
-            "subtitle": "Wir benötigen ein zusätzliches Informationsstück, um Ihre Identität zu bestätigen. Wählen Sie eine Option unten."
-        },
-        "interactive_task": {
-            "waiting": {
-                "title_5": "Medien hochladen..."
-            }
-        },
-        "livenessV2": {
-            "error_reload_instructions": "Anweisungen neu laden",
-            "intro_note_no1": "Positionieren Sie Ihr Gesicht zunächst im Rahmen",
-            "intro_note_no2": "Drehen Sie Ihren Kopf dann langsam nach beiden Seiten",
-            "intro_ready_button": "Bitte beachten Sie, dass wir Ihr Gesicht und Ihren Hintergrund aufnehmen",
-            "intro_subtitle": "Damit verifizieren wir, dass es sich bei Ihnen um eine reale Person handelt",
-            "intro_warning": "Bitte beachten Sie, dass wir Ihr Gesicht und Ihren Hintergrund aufnehmen",
-            "success_main_button": "Bestätigung senden",
-            "success_title": "Das ist alles, was wir benötigen, um mit Ihrer Identitätsprüfung zu beginnen"
-        },
-        "mobilePhrases": {
-            "photo_upload": {
-                "body_id_back": "Machen Sie ein Foto von der Rückseite Ihrer Karte",
-                "body_id_front": "Machen Sie ein Foto von der Vorderseite Ihrer Karte",
-                "body_license_back": "Machen Sie ein Foto von der Rückseite Ihres Führerscheins",
-                "body_license_front": "Machen Sie ein Foto von der Vorderseite Ihres Führerscheins",
-                "body_passport": "Machen Sie ein Foto von Ihrer Passfotoseite",
-                "body_selfie": "Machen Sie ein Selfie, das Ihr Gesicht zeigt"
-            },
-            "selfie_capture": {
-                "alert": {
-                    "camera_inactive": {
-                        "detail": "Fotografieren Sie stattdessen mit dem <fallback>einfachen Kameramodus<\/fallback>"
-                    },
-                    "camera_not_working": {
-                        "detail": "Fotografieren Sie stattdessen mit dem <fallback>einfachen Kameramodus<\/fallback>"
-                    }
-                }
-            },
-            "upload_guide": {
-                "button_primary": "Ein Foto machen",
-                "title": "Reisepass Foto-Seite"
-            }
-        },
-        "nfc_scan": {
-            "sheet": {
-                "success": "Scannen erfolgreich"
-            }
-        },
-        "nfc_scan_error_can": {
-            "primary_button": "Verifizierung beenden",
-            "subtitle": "Sie haben die maximale Anzahl an Versuchen erreicht, um Ihre CAN-Nummer einzugeben"
-        },
-        "nfc_scan_error_can:title": "Maximale Versuche erreicht",
-        "otp": {
-            "code_input": {
-                "error": {
-                    "code_expired": "Ihr Code ist abgelaufen, bitte fordern Sie einen neuen an.",
-                    "code_invalid": "Falscher Code eingegeben, bitte versuchen Sie es erneut.",
-                    "no_international_code": "Die Eingabe muss im internationalen Format erfolgen",
-                    "technical": "Ein technischer Fehler ist aufgetreten, bitte versuchen Sie es später erneut",
-                    "too_many_attempts": "Sie haben diesen Code zu oft versucht, bitte fordern Sie einen neuen an.",
-                    "wrong_code": "Falscher Code eingegeben, bitte versuchen Sie es erneut"
-                },
-                "intro": "Sie haben 5 Minuten Zeit, um den per SMS gesendeten Code zu validieren <phonenumber><\/phonenumber>",
-                "resend": {
-                    "cta": "Einen neuen Code anfordern",
-                    "cta_timeout": "Neuen Code anfordern (<timeout><\/timeout> Sekunden)",
-                    "label": "Code wurde gesendet",
-                    "tracker": "<remaining><\/remaining> von <limit><\/limit>"
-                },
-                "title": "Einmaliges Passwort"
-            },
-            "error": {
-                "cta": "Geh zurück",
-                "subtitle": "Bitte warten Sie ein paar Sekunden und versuchen Sie es erneut",
-                "title": "Etwas ist schief gelaufen"
-            },
-            "failure": {
-                "cta": "Fortfahren",
-                "subtitle": "Wir können Ihre Telefonnummer nicht mehr überprüfen",
-                "title": "Zulässige Versuche überschritten"
-            },
-            "send_code": {
-                "cta": "Code senden",
-                "error": {
-                    "invalid_phone_number": "Bitte geben Sie eine gültige Telefonnummer an.",
-                    "limit": "Sie haben das Limit für gesendete SMS erreicht",
-                    "phone_number_blocked": "Entschuldigung, wir unterstützen diesen Ländercode nicht",
-                    "technical": "Ein technischer Fehler ist aufgetreten, bitte versuchen Sie es später erneut"
-                },
-                "input_label": "Telefonnummer",
-                "intro": "Um Ihre Telefonnummer zu überprüfen, werden wir Sie bitten, ein Einmalpasswort einzugeben.",
-                "title": "Einmaliges Passwort"
-            }
-        },
-        "outro": {
-            "body": "Das ist alles, was wir benötigen, um mit Ihrer Identitätsprüfung zu beginnen",
-            "body_government_letter": "Für das beste Ergebnis die gesamte Dokumentseite abbilden",
-            "title": "Danke"
-        },
-        "permission": {
-            "body_both": "Wir können Sie nicht verifizieren, ohne auf Ihr Mikrofon und Ihre Kamera zuzugreifen",
-            "body_cam": "Wir können Sie nicht verifizieren, ohne Ihre Kamera zu benutzen",
-            "body_mic": "Wir können Sie nicht verifizieren, ohne auf Ihr Mikrofon zuzugreifen",
-            "button_primary_both": "Beides aktivieren",
-            "button_primary_cam": "Kamera aktivieren",
-            "button_primary_mic": "Mikrofon aktivieren",
-            "subtitle_both": "Wenn Sie dazu aufgefordert werden, müssen Sie den Zugriff auf beide Komponenten aktivieren, um fortzufahren",
-            "subtitle_cam": "Wenn Sie dazu aufgefordert werden, müssen Sie den Kamerazugriff aktivieren, um fortzufahren",
-            "subtitle_mic": "Wenn Sie dazu aufgefordert werden, müssen Sie den Zugriff auf Ihr Mikrofon aktivieren, um fortzufahren",
-            "title_both": "Zugriff auf Kamera und Mikrofon erlauben",
-            "title_cam": "Zugriff auf Kamera erlauben",
-            "title_mic": "Zugriff auf Mikrofon erlauben"
-        },
-        "permission_recovery": {
-            "android": {
-                "browser_settings": {
-                    "title": "Lösung 1: Browsereinstellungen"
-                },
-                "device_settings": {
-                    "list_item_1": "Auf Ihrem Gerät öffnen Sie die <strong>Einstellungen<\/strong> App",
-                    "list_item_2": "Tippen Sie auf <strong>Apps<\/strong>",
-                    "list_item_3": "Tippen Sie auf <browser_icon><\/browser_icon>. Wenn Sie es nicht finden können, tippen Sie auf <strong>Alle Apps anzeigen<\/strong> oder <strong>Apps verwalten<\/strong> und wählen Sie Ihre Browser-App aus",
-                    "list_item_4": "Tippen Sie auf <strong>Berechtigungen<\/strong>",
-                    "list_item_5_cam": "Tippen Sie auf <strong>Kamera<\/strong> und wählen Sie <strong>Zulassen<\/strong> aus",
-                    "list_item_5_mic": "Tippen Sie auf <strong>Mikrofon<\/strong> und wählen Sie <strong>Zulassen<\/strong>",
-                    "list_item_6": "Kommen Sie zu dieser Seite zurück und tippen Sie auf die <strong>Seite aktualisieren<\/strong> Schaltfläche",
-                    "title": "Lösung 2: Geräteeinstellungen"
-                },
-                "refresh_page": {
-                    "list_item_1_both": "Tippen Sie auf die Schaltfläche <strong>Seite aktualisieren<\/strong>. Sie werden erneut aufgefordert, den Zugriff auf Kamera und Mikrofon zu ermöglichen. Wenn das Pop-up erscheint, wählen Sie <strong>Erlauben<\/strong> (oder <strong>OK<\/strong>)",
-                    "list_item_1_cam": "Tippen Sie auf die <strong>Seite aktualisieren<\/strong> Schaltfläche. Sie werden erneut aufgefordert, den Kamerazugriff zu aktivieren. Wenn das Pop-up erscheint, wählen Sie <strong>Erlauben<\/strong> (oder <strong>OK<\/strong>)",
-                    "list_item_1_mic": "Tippen Sie auf die <strong>Seite aktualisieren<\/strong> Schaltfläche. Sie werden erneut aufgefordert, den Zugriff auf das Mikrofon zu ermöglichen. Wenn das Pop-up erscheint, wählen Sie <strong>Erlauben<\/strong> (oder <strong>OK<\/strong>)"
-                }
-            },
-            "android_chrome": {
-                "browser_settings": {
-                    "list_item_1": "In Ihrem Browser tippen Sie auf das Einstellungssymbol <settings_icon_chrome><\/settings_icon_chrome> in der Adressleiste",
-                    "list_item_2": "Tippen Sie auf <strong>Berechtigungen<\/strong>",
-                    "list_item_3_cam": "Aktivieren Sie den Umschalter neben <strong>Kamera<\/strong>",
-                    "list_item_3_mic": "Aktivieren Sie den Schalter neben <strong>Mikrofon<\/strong>",
-                    "list_item_4": "Kommen Sie zu dieser Seite zurück und tippen Sie auf die <strong>Seite aktualisieren<\/strong> Schaltfläche"
-                }
-            },
-            "android_firefox": {
-                "browser_settings": {
-                    "list_item_1": "In Ihrem Browser tippen Sie auf das Schloss-Symbol <lock_icon><\/lock_icon> in der Adressleiste",
-                    "list_item_2_cam": "Tippen Sie neben <strong>Kamera<\/strong> auf <strong>Blockiert<\/strong>, um auf <strong>Zugelassen<\/strong> zu wechseln",
-                    "list_item_2_mic": "Tippen Sie neben <strong>Mikrofon<\/strong> auf <strong>Blockiert<\/strong>, um auf <strong>Erlaubt<\/strong> zu wechseln",
-                    "list_item_3": "Kehren Sie zu dieser Seite zurück und tippen Sie auf die <strong>Seite aktualisieren<\/strong> Schaltfläche",
-                    "title": "Lösung 2: Browsereinstellungen"
-                },
-                "device_settings": {
-                    "title": "Lösung 3: Geräteeinstellungen"
-                },
-                "refresh_page": {
-                    "title": "Lösung 1: Aktualisieren Sie die Seite"
-                }
-            },
-            "android_generic": {
-                "browser_settings": {
-                    "list_item_1": "Öffnen Sie in Ihrem Browser die Website-Einstellungen. Dies ist oft ein Schloss-Symbol <lock_icon><\/lock_icon> in der Adressleiste",
-                    "list_item_2": "Finden Sie den Abschnitt über Berechtigungen",
-                    "list_item_3_cam": "Aktivieren Sie die <strong>Kamera<\/strong> Berechtigungen",
-                    "list_item_3_mic": "Aktivieren Sie die <strong>Mikrofon<\/strong> Berechtigungen",
-                    "list_item_4": "Kommen Sie zu dieser Seite zurück und tippen Sie auf die <strong>Seite aktualisieren<\/strong> Schaltfläche"
-                }
-            },
-            "android_samsung": {
-                "browser_settings": {
-                    "list_item_1": "In Ihrem Browser tippen Sie auf das Schloss-Symbol <lock_icon><\/lock_icon> in der Adressleiste",
-                    "list_item_2_cam": "Aktivieren Sie den Umschalter neben <strong>Kamera<\/strong>",
-                    "list_item_2_mic": "Aktivieren Sie den Umschalter neben <strong>Mikrofon<\/strong>",
-                    "list_item_3": "Kommen Sie zu dieser Seite zurück und tippen Sie auf die <strong>Seite aktualisieren<\/strong> Schaltfläche"
-                }
-            },
-            "button_primary": "Aktualisieren",
-            "desktop": {
-                "browser_settings": {
-                    "title": "Lösung 1: Browsereinstellungen"
-                },
-                "device_settings": {
-                    "title": "Lösung 2: Geräteeinstellungen"
-                }
-            },
-            "desktop_chrome": {
-                "browser_settings": {
-                    "list_item_1": "In Ihrem Browser klicken Sie auf das Einstellungssymbol <settings_icon_chrome><\/settings_icon_chrome> in der Adressleiste",
-                    "list_item_2_cam": "Aktivieren Sie den Umschalter neben <strong>Kamera<\/strong>",
-                    "list_item_2_mic": "Aktivieren Sie den Umschalter neben <strong>Mikrofon<\/strong>",
-                    "list_item_3": "Kommen Sie auf diese Seite zurück und klicken Sie auf die <strong>Seite aktualisieren<\/strong> Schaltfläche"
-                }
-            },
-            "desktop_edge": {
-                "browser_settings": {
-                    "list_item_1": "Klicken Sie in Ihrem Browser auf das Schloss-Symbol <lock_icon><\/lock_icon> in der Adressleiste",
-                    "list_item_2_cam": "Klicken Sie auf das Dropdown-Menü neben <strong>Kamera<\/strong> und wählen Sie <strong>Zulassen<\/strong> aus",
-                    "list_item_2_mic": "Klicken Sie auf das Dropdown-Menü neben <strong>Mikrofon<\/strong> und wählen Sie <strong>Zulassen<\/strong> aus",
-                    "list_item_3": "Kommen Sie zu dieser Seite zurück und klicken Sie auf die <strong>Seite aktualisieren<\/strong> Schaltfläche"
-                }
-            },
-            "desktop_firefox": {
-                "browser_settings": {
-                    "list_item_1": "Klicken Sie in Ihrem Browser auf das Einstellungssymbol <settings_icon_firefox><\/settings_icon_firefox> in der Adressleiste",
-                    "list_item_2_cam": "Klicken Sie neben <strong>Kamera verwenden<\/strong> auf <strong>Blockiert<\/strong>",
-                    "list_item_2_mic": "Klicken Sie neben <strong>Mikrofon verwenden<\/strong> auf <strong>Blockiert<\/strong>",
-                    "list_item_3": "Kommen Sie zurück zu dieser Seite und klicken Sie auf den <strong>Seite aktualisieren<\/strong> Knopf"
-                }
-            },
-            "desktop_generic": {
-                "browser_settings": {
-                    "list_item_1": "Öffnen Sie in Ihrem Browser die Website-Einstellungen. Dies ist oft ein Schloss-Symbol <lock_icon><\/lock_icon> in der Adressleiste",
-                    "list_item_2": "Finden Sie den Abschnitt über Berechtigungen",
-                    "list_item_3_cam": "Aktivieren Sie die <strong>Kamera<\/strong> Berechtigungen",
-                    "list_item_3_mic": "Aktivieren Sie die <strong>Mikrofon<\/strong> Berechtigungen",
-                    "list_item_4": "Kommen Sie zu dieser Seite zurück und klicken Sie auf die <strong>Seite aktualisieren<\/strong> Schaltfläche"
-                },
-                "device_settings": {
-                    "list_item_1": "Auf Ihrem Computer öffnen Sie Ihre <strong>Einstellungen<\/strong>",
-                    "list_item_2": "Finden Sie den Abschnitt über Berechtigungen (normalerweise unter <strong>Datenschutz<\/strong>)",
-                    "list_item_3_cam": "Aktivieren Sie die <strong>Kamera<\/strong> Berechtigungen für <browser_icon><\/browser_icon>",
-                    "list_item_3_mic": "Aktivieren Sie die <strong>Mikrofon<\/strong> Berechtigungen für <browser_icon><\/browser_icon>",
-                    "list_item_4": "Starten Sie Ihren Browser bei Bedarf neu und kehren Sie zu dieser Seite zurück"
-                }
-            },
-            "desktop_mac": {
-                "device_settings": {
-                    "list_item_1": "Auf Ihrem Computer klicken Sie auf das Apple-Menü <apple_icon><\/apple_icon> und wählen Sie <strong>Systemeinstellungen<\/strong> (oder <strong>Systempräferenzen<\/strong>)",
-                    "list_item_2": "Klicken Sie auf <strong>Datenschutz & Sicherheit<\/strong> (oder <strong>Sicherheit & Datenschutz<\/strong>) in der Seitenleiste",
-                    "list_item_3": "Klicken Sie in dem Pop-up auf <strong>Später<\/strong>",
-                    "list_item_3_cam": "Klicken Sie auf <strong>Kamera<\/strong> und aktivieren Sie den Schalter (oder das Kontrollkästchen) neben <browser_icon><\/browser_icon>",
-                    "list_item_4": "Klicken Sie in dem Pop-up auf <strong>Beenden & Neu öffnen<\/strong> und kehren Sie zu dieser Seite zurück",
-                    "list_item_4_mic": "Klicken Sie auf <strong>Mikrofon<\/strong> und aktivieren Sie den Schalter (oder das Kontrollkästchen) neben <browser_icon><\/browser_icon>"
-                }
-            },
-            "desktop_safari": {
-                "browser_settings": {
-                    "list_item_1": "Klicken Sie in Ihrem Browser mit der rechten Maustaste in die Adressleiste und wählen Sie <strong>Einstellungen<\/strong>",
-                    "list_item_2_cam": "Klicken Sie auf das Dropdown-Menü neben <strong>Kamera<\/strong> und wählen Sie <strong>Zulassen<\/strong> aus",
-                    "list_item_2_mic": "Klicken Sie auf das Dropdown-Menü neben <strong>Mikrofon<\/strong> und wählen Sie <strong>Zulassen<\/strong> aus",
-                    "list_item_3": "Kehren Sie zu dieser Seite zurück und klicken Sie auf die <strong>Seite aktualisieren<\/strong> Schaltfläche"
-                }
-            },
-            "desktop_windows": {
-                "device_settings": {
-                    "list_item_1": "Auf Ihrem Computer klicken Sie auf das Windows-Menü <windows_icon><\/windows_icon> und wählen <strong>Einstellungen<\/strong> <settings_icon_windows><\/settings_icon_windows> aus",
-                    "list_item_2": "Klicken Sie auf <strong>Datenschutz<\/strong> (oder <strong>Datenschutz & Sicherheit<\/strong>)",
-                    "list_item_3_cam": "Klicken Sie unter <strong>App-Berechtigungen<\/strong> auf <strong>Kamera<\/strong> und aktivieren Sie den Schalter neben <browser_icon><\/browser_icon>",
-                    "list_item_3_mic": "Klicken Sie unter <strong>App-Berechtigungen<\/strong> auf <strong>Mikrofon<\/strong> und aktivieren Sie den Schalter neben <browser_icon><\/browser_icon>",
-                    "list_item_4": "Starten Sie Ihren Browser bei Bedarf neu und kehren Sie zu dieser Seite zurück"
-                }
-            },
-            "info": "Wiederherstellen",
-            "ios": {
-                "browser_settings": {
-                    "list_item_1_both": "Tippen Sie auf die Schaltfläche <strong>Seite aktualisieren<\/strong>. Sie werden erneut aufgefordert, den Zugriff auf Kamera und Mikrofon zu ermöglichen. Wenn das Pop-up erscheint, wählen Sie <strong>Erlauben<\/strong> (oder <strong>OK<\/strong>)",
-                    "list_item_1_cam": "Tippen Sie auf die <strong>Seite aktualisieren<\/strong> Schaltfläche. Sie werden erneut aufgefordert, den Kamerazugriff zu aktivieren. Wenn das Pop-up erscheint, wählen Sie <strong>Erlauben<\/strong> (oder <strong>OK<\/strong>)",
-                    "list_item_1_mic": "Tippen Sie auf die <strong>Seite aktualisieren<\/strong> Schaltfläche. Sie werden erneut aufgefordert, den Zugriff auf das Mikrofon zu ermöglichen. Wenn das Pop-up erscheint, wählen Sie <strong>Erlauben<\/strong> (oder <strong>OK<\/strong>)"
-                },
-                "device_settings": {
-                    "list_item_1": "Auf Ihrem Gerät öffnen Sie die <strong>Einstellungen<\/strong> App",
-                    "list_item_2": "Scrollen Sie durch die Liste und tippen Sie auf <browser_icon><\/browser_icon>",
-                    "list_item_3_cam": "Aktivieren Sie den Umschalter neben <strong>Kamera<\/strong>",
-                    "list_item_3_mic": "Aktivieren Sie den Umschalter neben <strong>Mikrofon<\/strong>",
-                    "list_item_4": "Kehren Sie zu dieser Seite zurück und tippen Sie auf die <strong>Seite aktualisieren<\/strong> Schaltfläche",
-                    "title": "Lösung 2: Geräteeinstellungen"
-                },
-                "refresh_page": {
-                    "title": "Lösung 1: Aktualisieren Sie die Seite"
-                }
-            },
-            "ios_safari": {
-                "device_settings": {
-                    "list_item_1": "Auf Ihrem Gerät öffnen Sie die <strong>Einstellungen<\/strong> App",
-                    "list_item_2": "Scrollen Sie durch die Liste und tippen Sie auf <browser_icon><\/browser_icon>",
-                    "list_item_3_cam": "Tippen Sie auf <strong>Kamera<\/strong> und wählen Sie <strong>Zulassen<\/strong> aus",
-                    "list_item_3_mic": "Tippen Sie auf <strong>Mikrofon<\/strong> und wählen Sie <strong>Zulassen<\/strong>",
-                    "list_item_4": "Kommen Sie zu dieser Seite zurück und tippen Sie auf die <strong>Seite aktualisieren<\/strong> Schaltfläche"
-                }
-            },
-            "list_header_both": "Befolgen Sie diese Schritte, um den Zugriff auf beides wiederherzustellen:",
-            "list_header_cam": "Befolgen Sie diese Schritte, um den Kamerazugriff wiederherzustellen:",
-            "list_item_action_cam": "Aktualisieren Sie diese Seite, um den Identitätsüberprüfungsprozess neu zu starten",
-            "list_item_how_to_both": "Gewähren Sie den Zugriff auf Ihre Kamera und Ihr Mikrofon über Ihre Browsereinstellungen",
-            "list_item_how_to_cam": "Gewähren Sie den Zugriff auf Ihre Kamera über Ihre Browsereinstellungen",
-            "list_item_how_to_mic": "Geben Sie den Zugriff auf Ihr Mikrofon in Ihren Browsereinstellungen frei",
-            "subtitle_both": "Wir benötigen Zugriff auf Ihre Kamera und Ihr Mikrofon, um Ihre Identität zu überprüfen. Befolgen Sie die untenstehenden Anweisungen, um den Zugriff wiederherzustellen",
-            "subtitle_cam": "Wir benötigen Zugang zu Ihrer Kamera, um Ihre Identität zu überprüfen. Befolgen Sie die unten stehenden Anweisungen, um den Zugang wiederherzustellen",
-            "subtitle_cam_old": "Kamerazugriff wiederherstellen, um Gesichtsverifizierung fortzusetzen",
-            "subtitle_mic": "Wir benötigen Zugriff auf Ihr Mikrofon, um Ihre Identität zu überprüfen. Befolgen Sie die unten stehenden Anweisungen, um den Zugriff wiederherzustellen",
-            "title_both": "Kamera- und Mikrofonzugriff verweigert",
-            "title_cam": "Kamerazugriff wird verweigert",
-            "title_mic": "Mikrofonzugriff verweigert",
-            "web": {
-                "button_primary": "Aktualisieren Sie die Seite",
-                "disclaimer": "Der Identitätsüberprüfungsprozess könnte neu starten. Entschuldigung für etwaige Unannehmlichkeiten"
-            }
-        },
-        "photo_upload": {
-            "body_accommodation_tenancy_certificate": "Stellen Sie die gesamte Dokumentseite für die besten Ergebnisse zur Verfügung",
-            "body_address_certificate_back": "Laden Sie die Rückseite des Dokuments von Ihrem Computer hoch",
-            "body_address_certificate_front": "Laden Sie die Vorderseite des Dokuments von Ihrem Computer hoch",
-            "body_bank_statement": "Für das beste Ergebnis die gesamte Dokumentseite abbilden",
-            "body_benefits_letter": "Für das beste Ergebnis die gesamte Dokumentseite abbilden",
-            "body_bill": "Für das beste Ergebnis die gesamte Dokumentseite abbilden",
-            "body_exchange_house_statement": "Stellen Sie die gesamte Dokumentseite für die besten Ergebnisse zur Verfügung",
-            "body_general_letter": "Stellen Sie die gesamte Dokumentseite für die besten Ergebnisse zur Verfügung",
-            "body_generic_document_back": "Rückseite des Dokuments von Ihrem Computer hochladen",
-            "body_generic_document_front": "Vorderseite des Dokuments von Ihrem Computer hochladen",
-            "body_id_back": "Kartenrückseite von Ihrem Computer hochladen",
-            "body_id_front": "Kartenvorderseite von Ihrem Computer hochladen",
-            "body_identity_document_with_address": "Stellen Sie die gesamte Dokumentseite für die besten Ergebnisse zur Verfügung",
-            "body_identity_document_with_address_back": "Laden Sie die Rückseite des Dokuments von Ihrem Computer hoch",
-            "body_identity_document_with_address_front": "Laden Sie die Vorderseite des Dokuments von Ihrem Computer hoch",
-            "body_insurance_statement": "Stellen Sie die gesamte Dokumentseite für die besten Ergebnisse zur Verfügung",
-            "body_license_back": "Laden Sie die Rückseite Ihres Führerscheins von Ihrem Rechner hoch",
-            "body_license_front": "Vorderseite des Führerscheins von Ihrem Computer hochladen",
-            "body_mobile_phone_bill": "Stellen Sie die gesamte Dokumentseite für die besten Ergebnisse zur Verfügung",
-            "body_mortgage_statement": "Stellen Sie die gesamte Dokumentseite für die besten Ergebnisse zur Verfügung",
-            "body_passport": "Passfotoseite von Ihrem Computer hochladen",
-            "body_pension_property_statement_letter": "Stellen Sie die gesamte Dokumentseite für die besten Ergebnisse zur Verfügung",
-            "body_selfie": "Selfie von Ihrem Computer hochladen",
-            "body_tax_letter": "Für das beste Ergebnis die gesamte Dokumentseite abbilden",
-            "button_take_photo": "Foto machen",
-            "button_upload": "Hochladen",
-            "title_selfie": "Selfie"
-        },
-        "poa_cancel": "Abbrechen",
-        "poa_capture": {
-            "country_select.icon_info_accessibility": "Information:"
-        },
-        "poa_err_invalid_file": {
-            "message": "Bitte wählen Sie eine andere Datei.",
-            "ok": "OK",
-            "title": "Ungültige Datei"
-        },
-        "poa_guidance": {
-            "button_primary": "Fortfahren",
-            "instructions": {
-                "address": "Aktuelle Adresse",
-                "full_name": "Vollständiger Name",
-                "issue_date": "Ausgabedatum oder Abrechnungszeitraum",
-                "label": "Erfassen Sie das komplette Dokument und sorgen Sie dafür, dass es Folgendes klar zeigt:",
-                "logo": "Logo"
-            },
-            "instructions_address_card_issue_date": "Datum der Ausgabe",
-            "instructions_expiry_date": "Verfallsdatum, falls zutreffend",
-            "instructions_full_address": "Vollständige Adresse",
-            "subtitle_address_card": "Muss eine gültige Adresskarte sein",
-            "subtitle_bank_statement": "Muss in den letzten 3 Monaten ausgestellt worden sein",
-            "subtitle_benefits_letter": "Muss in den letzten 12 Monaten ausgestellt worden sein",
-            "subtitle_bill": "Muss in den letzten 3 Monaten ausgestellt worden sein",
-            "subtitle_dynamic_empty_grace_period": "Muss ein gültiges Dokument sein",
-            "subtitle_dynamic_grace_period": "Es muss in den letzten <graceperiod><\/graceperiod> Monaten ausgestellt worden sein",
-            "subtitle_tax_letter": "Muss in den letzten 12 Monaten ausgestellt worden sein"
-        },
-        "poa_intro": {
-            "button_primary": "Bestätigung beginnen",
-            "list_matches_signup": "Der von Ihnen bei der Registrierung verwendeten Adresse entspricht",
-            "list_most_recent": "Ihr aktuellstes Dokument ist",
-            "list_shows_address": "Ihre aktuelle Adresse zeigt",
-            "subtitle": "Sie brauchen ein Dokument, das:",
-            "title": "Bestätigen wir nun Ihre Adresse"
-        },
-        "poa_welcome_text": "Machen Sie ein Foto von einem Dokument mit Ihrer Adresse",
-        "profile_data": {
-            "address_title": "Fügen Sie Ihre Adresse hinzu",
-            "button_continue": "Weiter",
-            "components": {
-                "country_residence_select": {
-                    "placeholder": "Wählen Sie ein Land aus"
-                },
-                "country_select": {
-                    "placeholder": "Wählen Sie ein Land aus"
-                },
-                "id_type_select": {
-                    "aus_specific": {
-                        "other": "Ausländischer Pass"
-                    },
-                    "bra_specific": {
-                        "other": "CNPJ",
-                        "tax_id": "CPF"
-                    },
-                    "driving_license": "Führerschein",
-                    "esp_specific": {
-                        "identity_card": "NIF\/DNI"
-                    },
-                    "gha_specific": {
-                        "social_insurance": "SSNIT"
-                    },
-                    "identity_card": "Nationaler Personalausweis",
-                    "ind_specific": {
-                        "tax_id": "Persönliche Kontonummer (PAN)"
-                    },
-                    "ken_specific": {
-                        "other": "Alien-Karte"
-                    },
-                    "nga_specific": {
-                        "identity_card": "Nationale Identifikationsnummer (NIN)",
-                        "other": "BVN",
-                        "tax_id": "TIN"
-                    },
-                    "other": "NIE",
-                    "passport": "Reisepass",
-                    "placeholder": "Wählen Sie einen nationalen ID-Typ aus",
-                    "tax_id": "Steuer ID",
-                    "voter_id": "Wähler-ID"
-                },
-                "nationality_select": {
-                    "placeholder": "Wählen Sie ein Land aus"
-                },
-                "pan": {
-                    "placeholder": "ABCDE1234F"
-                },
-                "ssn": {
-                    "placeholder": "123-45-6789"
-                },
-                "state_select": {
-                    "placeholder": "Wählen Sie ein Bundesland aus"
-                }
-            },
-            "country_of_residence_title": "Ihr Wohnsitzland",
-            "field_labels": {
-                "arg_specific": {
-                    "national_id_value": "DNI-Nummer"
-                },
-                "can_specific": {
-                    "national_id_value": "Sozialversicherungsnummer (SIN)"
-                },
-                "chl_specific": {
-                    "national_id_value": "RUT \/ RUN-Nummern"
-                },
-                "chn_specific": {
-                    "national_id_value": "Einwohnernummer Nationaler Personalausweis"
-                },
-                "col_specific": {
-                    "national_id_value": "Kolumbianische persönliche Identifikationsnummer"
-                },
-                "country": "Land",
-                "country_residence": "Land",
-                "dnk_specific": {
-                    "national_id_value": "CPR-Nummer"
-                },
-                "dob": "Geburtsdatum",
-                "email": "E-Mail-Adresse",
-                "fin_specific": {
-                    "national_id_value": "Persönlicher Identitätscode"
-                },
-                "first_name": "Vorname",
-                "gbr_specific": {
-                    "postcode": "Postleitzahl",
-                    "town": "Stadt"
-                },
-                "hkg_specific": {
-                    "national_id_value": "HKID"
-                },
-                "ind_specific": {
-                    "pan": "Permanente Account-Nummer (PAN)"
-                },
-                "ita_specific": {
-                    "national_id_value": "Abgabenordnung"
-                },
-                "jpn_specific": {
-                    "national_id_value": "\"Meine Nummer\" \/ Resident Record Code"
-                },
-                "last_name": "Nachname",
-                "line1": "Adresszeile 1",
-                "line2": "Adresszeile 2",
-                "line3": "Adresszeile 3",
-                "lux_specific": {
-                    "national_id_value": "Sozialversicherungsnummer"
-                },
-                "mobile_number": "Mobiltelefonnummer",
-                "national_id_type": "Nationaler ID-Typ",
-                "national_id_value": "Nationale ID-Nummer",
-                "nationality": "Nationalität",
-                "phl_specific": {
-                    "national_id_value": "PhilSys-Kartennummer (PCN)"
-                },
-                "phone_number": "Telefonnummer",
-                "pol_specific": {
-                    "national_id_value": "PESEL-Nummer"
-                },
-                "postcode": "Postleitzahl",
-                "prt_specific": {
-                    "national_id_value": "Steuernummer"
-                },
-                "town": "Stadt",
-                "tur_specific": {
-                    "national_id_value": "Türkische Identifikationsnummer"
-                },
-                "usa_specific": {
-                    "line1_helper_text": "Straßenname, zum Beispiel: Abertstraße 200",
-                    "line2_helper_text": "Wohnung, Suite, Einheit, etc.",
-                    "postcode": "Zip code",
-                    "ssn": "Sozialversicherungsnummer (SVN)",
-                    "state": "Staat",
-                    "town": "Stadt"
-                }
-            },
-            "field_optional": "(optional)",
-            "field_validation": {
-                "arg_specific": {
-                    "invalid_national_id_value": "Bitte geben Sie eine gültige DNI ein"
-                },
-                "bra_specific": {
-                    "invalid_other": "Bitte geben Sie eine gültige ein CNPJ",
-                    "invalid_tax_id": "Bitte geben Sie eine gültige ein CPF",
-                    "required_other": "Bitte geben Sie Ihre CNPJ ein",
-                    "required_tax_id": "Bitte geben Sie Ihren CPF ein"
-                },
-                "can_specific": {
-                    "invalid_national_id_value": "Bitte geben Sie eine gültige ein SIN",
-                    "required_national_id_value": "Bitte geben Sie Ihre SIN ein"
-                },
-                "chl_specific": {
-                    "invalid_national_id_value": "Bitte geben Sie eine gültige RUT\/RUN-Nummer ein",
-                    "required_national_id_value": "Bitte geben Sie Ihre RUT \/ RUN-Nummern ein"
-                },
-                "chn_specific": {
-                    "invalid_national_id_value": "Bitte geben Sie eine gültige Einwohnerausweisnummer ein",
-                    "required_national_id_value": "Bitte geben Sie Ihre Personalausweisnummer ein"
-                },
-                "col_specific": {
-                    "invalid_national_id_value": "Bitte geben Sie eine gültige kolumbianische Personenidentifikationsnummer ein",
-                    "required_national_id_value": "Bitte geben Sie Ihre kolumbianische Personenidentifikationsnummer ein"
-                },
-                "dnk_specific": {
-                    "invalid_national_id_value": "Bitte geben Sie eine gültige CPR-Nummer ein",
-                    "required_national_id_value": "Bitte geben Sie Ihre CPR-Nummer ein"
-                },
-                "esp_specific": {
-                    "invalid_identity_card": "Bitte geben Sie eine gültige ein NIF\/DNI",
-                    "invalid_other": "Bitte geben Sie eine gültige ein NIE",
-                    "required_identity_card": "Bitte geben Sie Ihre NIF\/DNI ein"
-                },
-                "fin_specific": {
-                    "invalid_national_id_value": "Bitte geben Sie einen gültigen persönlichen Identitätscode ein",
-                    "required_national_id_value": "Bitte geben Sie Ihren persönlichen Identitätscode ein"
-                },
-                "gbr_specific": {
-                    "invalid_postcode": "Bitte geben Sie eine gültige Postleitzahl ein",
-                    "required_postcode": "Bitte geben Sie Ihre Postleitzahl ein",
-                    "too_long_postcode": "Die Postleitzahl ist zu lang",
-                    "too_short_postcode": "Die Postleitzahl ist zu kurz"
-                },
-                "gha_specific": {
-                    "invalid_social_insurance": "Bitte geben Sie eine gültige SSNIT ein",
-                    "required_social_insurance": "Bitte geben Sie Ihre SSNIT ein"
-                },
-                "hkg_specific": {
-                    "invalid_national_id_value": "Bitte geben Sie eine gültige HKID ein",
-                    "required_national_id_value": "Bitte geben Sie Ihre HKID ein"
-                },
-                "ind_specific": {
-                    "invalid_pan": "Bitte geben Sie eine gültige PAN ein",
-                    "required_pan": "Bitte geben Sie Ihre PAN ein"
-                },
-                "invalid": "Bitte auf ungültige Zeichen oder Symbole überprüfen",
-                "invalid_dob": "Bitte geben Sie ein gültiges Geburtsdatum ein",
-                "invalid_driving_license": "Bitte geben Sie eine gültige Führerscheinnummer ein",
-                "invalid_email": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
-                "invalid_mobile_number": "Bitte geben Sie eine gültige Mobiltelefonnummer ein",
-                "invalid_national_id_value": "Bitte geben Sie eine gültige nationale Ausweisnummer ein",
-                "invalid_passport": "Bitte geben Sie eine gültige Passnummer ein",
-                "invalid_phone_number": "Bitte geben Sie eine gültige Telefonnummer ein",
-                "invalid_voter_id": "Bitte geben Sie eine gültige Wähler-ID-Nummer ein",
-                "ita_specific": {
-                    "invalid_national_id_value": "Bitte geben Sie eine gültige Steuernummer ein",
-                    "required_national_id_value": "Bitte geben Sie Ihre Steuernummer ein"
-                },
-                "jpn_specific": {
-                    "invalid_national_id_value": "Bitte geben Sie einen gültigen \"Meine Nummer\" \/ Bewohnerdatensatz-Code ein",
-                    "required_national_id_value": "Bitte geben Sie Ihren \"Meine Nummer\" \/ Einwohnermeldeamtscode ein"
-                },
-                "ken_specific": {
-                    "invalid_other": "Bitte geben Sie eine gültige Alien Card Nummer ein",
-                    "required_other": "Bitte geben Sie Ihre Alien Card Nummer ein"
-                },
-                "lux_specific": {
-                    "invalid_national_id_value": "Bitte geben Sie eine gültige Sozialversicherungsnummer ein",
-                    "required_national_id_value": "Bitte geben Sie Ihre Sozialversicherungsnummer ein"
-                },
-                "mex_specific": {
-                    "invalid_identity_card": "Bitte geben Sie eine gültige ein CURP",
-                    "invalid_tax_id": "Bitte geben Sie eine gültige ein RFC",
-                    "required_identity_card": "Bitte geben Sie Ihre CURP ein",
-                    "required_tax_id": "Bitte geben Sie Ihren RFC ein"
-                },
-                "mys_specific": {
-                    "invalid_national_id_value": "Bitte geben Sie eine gültige NRIC ein",
-                    "required_national_id_value": "Bitte geben Sie Ihre NRIC ein"
-                },
-                "nga_specific": {
-                    "invalid_identity_card": "Bitte geben Sie eine gültige nationale Identifikationsnummer (NIN) ein",
-                    "invalid_other": "Bitte geben Sie eine gültige BVN ein",
-                    "invalid_tax_id": "Bitte geben Sie eine gültige TIN ein",
-                    "required_identity_card": "Bitte geben Sie Ihre nationale Identifikationsnummer (NIN) ein",
-                    "required_other": "Bitte geben Sie Ihre BVN ein",
-                    "required_tax_id": "Bitte geben Sie Ihre TIN ein"
-                },
-                "phl_specific": {
-                    "invalid_national_id_value": "Bitte geben Sie eine gültige PhilSys Card Number (PCN) ein",
-                    "required_national_id_value": "Bitte geben Sie Ihre PhilSys Card Number (PCN) ein"
-                },
-                "pol_specific": {
-                    "invalid_national_id_value": "Bitte geben Sie eine gültige PESEL-Nummer ein",
-                    "required_national_id_value": "Bitte geben Sie Ihre PESEL-Nummer ein"
-                },
-                "prt_specific": {
-                    "invalid_national_id_value": "Bitte geben Sie eine gültige Steuernummer ein",
-                    "required_national_id_value": "Bitte geben Sie Ihre Steuernummer ein"
-                },
-                "reference": {
-                    "translation": "Bitte geben Sie eine gültige ein"
-                },
-                "required_consent": "Bitte stimmen Sie der Identitäts- und Betrugsprüfung zu",
-                "required_country": "Bitte wählen Sie ein Land aus",
-                "required_country_residence": "Bitte wählen Sie ein Land aus",
-                "required_dob": "Bitte geben Sie Ihr Geburtsdatum ein",
-                "required_email": "Bitte geben Sie Ihre E-Mail-Adresse ein",
-                "required_first_name": "Bitte geben Sie Ihren Vornamen ein",
-                "required_last_name": "Bitte geben Sie Ihren Nachnamen ein",
-                "required_line1": "Bitte geben Sie Ihre Adresse ein",
-                "required_mobile_number": "Bitte geben Sie Ihre Mobiltelefonnummer ein",
-                "required_national_driving_license": "Bitte geben Sie Ihre Führerscheinnummer ein",
-                "required_national_id_type": "Bitte wählen Sie Ihren National ID-Typ aus",
-                "required_national_id_value": "Bitte geben Sie Ihre nationale ID-Nummer ein",
-                "required_national_passport": "Bitte geben Sie Ihre Passnummer ein",
-                "required_national_voter_id": "Bitte geben Sie Ihre Wähler-ID-Nummer ein",
-                "required_nationality": "Bitte wählen Sie ein Land aus",
-                "required_phone_number": "Bitte geben Sie Ihre Telefonnummer ein",
-                "required_postcode": "Bitte geben Sie Ihre Postleitzahl ein",
-                "sgp_specific": {
-                    "invalid_national_id_value": "Bitte geben Sie eine gültige ein NRIC",
-                    "required_national_id_value": "Bitte geben Sie Ihre NRIC ein"
-                },
-                "swe_specific": {
-                    "invalid_national_id_value": "Bitte geben Sie eine gültige ein PIN",
-                    "required_national_id_value": "Bitte geben Sie Ihre PIN ein"
-                },
-                "too_long_first_name": "Der Vorname ist zu lang",
-                "too_long_last_name": "Der Nachname ist zu lang",
-                "too_long_line1": "Die Adresszeile ist zu lang",
-                "too_long_postcode": "Die Postleitzahl ist zu lang",
-                "too_long_town": "Die Stadt ist zu lang",
-                "too_short_first_name": "Der Vorname ist zu kurz",
-                "too_short_last_name": "Der Nachname ist zu kurz",
-                "too_short_postcode": "Die Postleitzahl ist zu kurz",
-                "tur_specific": {
-                    "invalid_national_id_value": "Bitte geben Sie eine gültige türkische Ausweisnummer ein",
-                    "required_national_id_value": "Bitte geben Sie Ihre türkische ID-Nummer ein"
-                },
-                "usa_specific": {
-                    "invalid_ssn": "Bitte geben Sie eine gültige SVN ein",
-                    "required_ssn": "Bitte geben Sie Ihre SVN ein",
-                    "required_state": "Bitte wählen Sie einen Staat aus"
-                }
-            },
-            "national_id_number_title": "Fügen Sie Ihre nationale ID-Nummer hinzu",
-            "personal_information_title": "Fügen Sie Ihre persönlichen Informationen hinzu",
-            "prompt": {
-                "details_timeout": "Erneut starten",
-                "header_timeout": "Sieht aus, als hätten Sie zu lange gebraucht"
-            }
-        },
-        "qes": {
-            "consent": {
-                "common": {
-                    "steps": "Erstellen Sie Ihre Unterschrift"
-                },
-                "confirmation": {
-                    "bullet_1": "Nach dem Lesen Ihres Dokuments, tippen Sie auf die Schaltfläche \"Dokument unterschreiben\".",
-                    "bullet_2": "Sobald Onfido Ihre Identität verifiziert hat, wird Ihre Unterschrift auf diesem Dokument verwendet.",
-                    "button_next_step": "Dokument unterschreiben",
-                    "review_document": "Überprüfen Sie <fallback>Ihr Dokument<\/fallback> zum Unterschreiben",
-                    "step2": "2 von 2",
-                    "steps": "Unterschreiben Sie Ihr Dokument",
-                    "subtitle": "Um Ihre Identität gemäß den europäischen Regeln zu bestätigen, müssen Sie ein Dokument digital signieren.",
-                    "title": "Erstellen und verwenden Sie Ihre digitale Signatur"
-                },
-                "introduction": {
-                    "button_confirmation_step": "Erstelle meine Unterschrift",
-                    "certificate_application_form": "Antragsformular für Zertifikate",
-                    "privacy_notice": "Datenschutzhinweis",
-                    "step1": "1 von 2",
-                    "subtitle": "Um Ihre Identität gemäß den europäischen Regeln zu bestätigen, müssen Sie ein Dokument digital signieren.",
-                    "terms_and_conditions": "Allgemeine Geschäftsbedingungen",
-                    "third_party_description": "<fallback>Namirial SpA<\/fallback> ist ein vertrauenswürdiger globaler Anbieter, der ein Zertifikat zur Validierung Ihrer elektronischen Signatur ausstellt.",
-                    "title": "Erstellen und verwenden Sie Ihre digitale Signatur",
-                    "validation": "Zustimmung erforderlich"
-                }
-            },
-            "error": {
-                "misconfigured": "Leider ist ein Fehler aufgetreten. Bitte kontaktieren Sie Ihren Support."
-            }
-        },
-        "qes_consent": {
-            "button": "Erstellen Sie meine Unterschrift",
-            "link_certificate": "Antragsformular für Zertifikate",
-            "link_privacy_notice": "Datenschutzhinweis",
-            "link_terms_and_conditions": "Allgemeine Geschäftsbedingungen",
-            "namirial_intro": "Namirial SpA ist ein vertrauenswürdiger globaler Anbieter, der ein Zertifikat zur Validierung Ihrer elektronischen Unterschrift ausstellt.",
-            "subtitle": "Um Ihre Identität gemäß den europäischen Regeln zu bestätigen, müssen Sie ein Dokument digital signieren.",
-            "title": "Erstellen und verwenden Sie Ihre digitale Signatur"
-        },
-        "qes_sign": {
-            "button": "Dokument unterschreiben",
-            "link_document": "Überprüfen Sie Ihr Dokument zum Unterschreiben",
-            "list_item_1": "Nachdem Sie Ihr Dokument gelesen haben, tippen Sie auf die Schaltfläche \"Dokument unterschreiben\".",
-            "list_item_2": "Sobald Onfido Ihre Identität verifiziert hat, wird Ihre Unterschrift auf diesem Dokument verwendet.",
-            "step_title": "Unterschreiben Sie Ihr Dokument",
-            "subtitle": "Um Ihre Identität gemäß den europäischen Regeln zu bestätigen, müssen Sie ein Dokument digital signieren.",
-            "title": "Erstellen und verwenden Sie Ihre digitale Signatur"
-        },
-        "retry": {
-            "button": {
-                "generic_selfie_issue": "Versuchen Sie es erneut."
-            },
-            "description": {
-                "default": "Bitte versuchen Sie es erneut",
-                "expired_document": "Versuchen Sie es mit einem gültigen Lichtbildausweis erneut und stellen Sie sicher, dass die Angaben zu Ihrer Person gut sichtbar sind",
-                "generic_document_issue": "Versuchen Sie es mit einem gültigen Lichtbildausweis erneut und stellen Sie sicher, dass die Angaben zu Ihrer Person gut sichtbar sind",
-                "generic_selfie_issue": "Versuchen Sie es erneut und stellen Sie sicher, dass Ihr Gesicht sichtbar und gut beleuchtet ist",
-                "unaccepted_document": "Versuchen Sie es mit einem gültigen Lichtbildausweis erneut und stellen Sie sicher, dass die Angaben zu Ihrer Person gut sichtbar sind"
-            },
-            "headline": {
-                "default": "Es gab ein Problem",
-                "expired_document": "Ihr Ausweis ist ungültig",
-                "generic_document_issue": "Es gab ein Problem mit Ihrem Dokument",
-                "generic_selfie_issue": "Es gab ein Problem mit Ihrem Selfie",
-                "unaccepted_document": "Ausweis wird nicht akzeptiert"
-            }
-        },
-        "retry_feedback": {
-            "button_primary": "Versuchen Sie es erneut."
-        },
-        "retry_feedback_custom": {
-            "subtitle": "Versuchen Sie es mit einem gültigen Lichtbildausweis erneut und stellen Sie sicher, dass die Angaben zu Ihrer Person gut sichtbar sind",
-            "title": "Ihr Ausweis ist ungültig"
-        },
-        "retry_feedback_id_expired": {
-            "subtitle": "Versuchen Sie es mit einem gültigen Lichtbildausweis erneut und stellen Sie sicher, dass die Angaben zu Ihrer Person gut sichtbar sind",
-            "title": "Ihr Ausweis ist ungültig"
-        },
-        "retry_feedback_id_generic": {
-            "subtitle": "Versuchen Sie es mit einem gültigen Lichtbildausweis erneut und stellen Sie sicher, dass die Angaben zu Ihrer Person gut sichtbar sind",
-            "title": "Es gab ein Problem mit Ihrem Ausweis"
-        },
-        "retry_feedback_id_unaccepted": {
-            "subtitle": "Versuchen Sie es mit einem gültigen Lichtbildausweis erneut und stellen Sie sicher, dass die Angaben zu Ihrer Person gut sichtbar sind",
-            "title": "Ausweis wird nicht akzeptiert"
-        },
-        "retry_feedback_selfie_generic": {
-            "subtitle": "Versuchen Sie es erneut und stellen Sie sicher, dass Ihr Gesicht sichtbar und gut beleuchtet ist",
-            "title": "Es gab ein Problem mit Ihrem Selfie"
-        },
-        "selfie_capture": {
-            "alert": {
-                "camera_inactive": {
-                    "detail": "Überprüfen Sie, ob die Kamera verbunden und funktionsfähig ist. Sie können <fallback>die Überprüfung auch auf Ihrem Telefon fortsetzen.<\/fallback>",
-                    "detail_no_fallback": "Stellen Sie sicher, dass Ihr Gerät über eine funktionierende Kamera verfügt",
-                    "title": "Kamera funktioniert nicht?"
-                },
-                "camera_not_working": {
-                    "detail": "Die Verbindung kann unterbrochen werden. <fallback>Versuchen Sie stattdessen, Ihr Telefon zu benutzen<\/fallback>.",
-                    "detail_no_fallback": "Stellen Sie sicher, dass die Kamera Ihres Geräts funktioniert",
-                    "title": "Kamera funktioniert nicht"
-                },
-                "timeout": {
-                    "detail": "Denken Sie daran, die Taste zu drücken, wenn Sie fertig sind. <fallback>Video-Aktionen wiederholen<\/fallback>.",
-                    "title": "Sieht aus, als hätten Sie zu lange gebraucht"
-                }
-            },
-            "body": "Positionieren Sie Ihr Gesicht im angezeigten Oval",
-            "button_accessibility": "Ein Foto machen",
-            "button_primary": "Starten Sie mit dem Scannen des Gesichts",
-            "frame_accessibility": "Ansicht von der Kamera",
-            "title": "Positionieren Sie Ihr Gesicht im angezeigten Oval"
-        },
-        "selfie_confirmation": {
-            "image_accessibility": "Foto von Ihrem Gesicht",
-            "subtitle": "Stellen Sie sicher, dass Ihr Selfie Ihr Gesicht deutlich zeigt",
-            "title": "Selfie prüfen"
-        },
-        "selfie_intro": {
-            "banner_nudity_message": "Ihr Gesicht und Ihr Hintergrund werden bei diesem Vorgang aufgenommen",
-            "button_primary": "Fortfahren",
-            "list_accessibility": "Tipps für ein gutes Selfie",
-            "list_item_face_forward": "Schauen Sie nach vorne und stellen Sie sicher, dass Ihre Augen deutlich sichtbar sind",
-            "list_item_no_face_cover": "Entfernen Sie alles, was Ihr Gesicht verdeckt. Brillen sind zulässig",
-            "list_item_no_glasses": "Nehmen Sie Ihre Brille ab, falls erforderlich",
-            "subtitle": "Wir werden dies mit Ihrem Dokument vergleichen",
-            "title": "Ein Selfie aufnehmen"
-        },
-        "sid": {
-            "passkey": {
-                "fail": {
-                    "button": "Verifizierung beginnen",
-                    "content": "Wir werden einige Dokumente und persönliche Informationen von Ihnen anfordern, die uns helfen können zu bestätigen, dass Sie die Person sind, die Sie vorgeben zu sein.",
-                    "disclaimer": "Sie können diese Überprüfung am Ende des Ablaufs so einrichten, dass sie wiederverwendbar ist.",
-                    "subtitle": "Entschuldigung, Sie können diesen Ablauf nicht überspringen, bitte durchlaufen Sie den Identitätsverifizierungsprozess:",
-                    "title": "Keine nutzbare Verifizierung verfügbar"
-                },
-                "success": {
-                    "biophoto": "Ein Bild Ihres Gesichts, um zu beweisen, dass Sie eine echte Person sind",
-                    "biovideo": "Eine Aufnahme Ihres Gesichts, um zu beweisen, dass Sie eine echte Person sind",
-                    "button": "Fortfahren",
-                    "datacapture": "Einige persönliche Informationen",
-                    "document": "Ein gültiges, von der Regierung ausgestelltes Identitätsdokument",
-                    "drivinglicense": "Ein gültiger, von der Regierung ausgestellter Führerschein",
-                    "proofofaddress": "Ein gültiges Dokument, das als Nachweis der Adresse dienen kann",
-                    "title": "Vorherige Überprüfung gefunden!"
-                }
-            }
-        },
-        "sms_sent": {
-            "info": "Tipps",
-            "info_link_expire": "Ihr Link läuft in einer Stunde ab",
-            "info_link_window": "Lassen Sie dieses Fenster geöffnet, während Sie Ihr Mobiltelefon bedienen",
-            "link": "Versuchen Sie eine andere Methode",
-            "subtitle": "Wir haben einen sicheren Link an <number><\/number> gesendet",
-            "subtitle_minutes": "Dieser Vorgang kann einige Minuten dauern",
-            "title": "Überprüfen Sie Ihr Mobiltelefon"
-        },
-        "switch_phone": {
-            "info": "Tipps",
-            "info_link_expire": "Ihr mobiler Link läuft in einer Stunde ab",
-            "info_link_refresh": "Diese Seite nicht aktualisieren",
-            "info_link_window": "Lassen Sie dieses Fenster geöffnet, während Sie Ihr Mobiltelefon bedienen",
-            "link": "Abbrechen",
-            "subtitle": "Wenn Sie fertig sind, gelangen Sie zum nächsten Schritt",
-            "title": "Mit Ihrem Mobiltelefon verbunden"
-        },
-        "upload_guide": {
-            "button_primary": "Fortfahren",
-            "image_detail_blur_alt": "Beispiel eines verschwommenen Dokuments",
-            "image_detail_blur_label": "Alle Details müssen klar sein - nichts verschwommen",
-            "image_detail_cutoff_label": "Alle Details anzeigen - einschließlich der unteren 2 Zeilen",
-            "image_detail_glare_label": "Entfernen Sie sich von direktem Licht - keine Blendung",
-            "image_detail_good_label": "Das Foto sollte Ihr Dokument deutlich zeigen",
-            "subtitle": "Scans und Fotokopien werden nicht akzeptiert",
-            "title": "Seite mit Passfoto einreichen"
-        },
-        "user_consent": {
-            "button_primary": "Akzeptieren",
-            "button_secondary": "Nicht akzeptieren",
-            "prompt": {
-                "button_primary": "Erneut überprüfen",
-                "button_secondary": "Ja, verifizieren Sie mich nicht",
-                "no_consent_detail": "Wenn Sie die Datenschutzerklärungen und Nutzungsbedingungen von Onfido nicht akzeptieren, können wir Ihre Identität nicht überprüfen und Sie werden diesen Schritt beenden.",
-                "no_consent_title": "Bist du sicher?"
-            }
-        },
-        "user_consent_load_fail": {
-            "button_primary": "Bildschirm neu laden",
-            "detail": "Prüfen Sie, ob Ihre Internetverbindung stabil ist, und versuchen Sie es dann erneut",
-            "title": "Inhalt konnte nicht geladen werden"
-        },
-        "video_capture": {
-            "body": "Positionieren Sie Ihr Gesicht im angezeigten Oval",
-            "body_record": "Drücken Sie die Taste, wenn Sie bereit sind",
-            "body_stop": "Drücken Sie \"Stopp\", wenn Sie fertig sind",
-            "button_primary_finish": "Aufnahme beenden",
-            "button_primary_next": "Nächster Schritt",
-            "button_primary_start": "Aufnahme starten",
-            "button_record_accessibility": "Aufnahme starten",
-            "frame_accessibility": "Ansicht von der Kamera",
-            "header": {
-                "challenge_digit_instructions": "Sprechen Sie jede Ziffer laut aus",
-                "challenge_turn_forward": "dann nach vorne schauen",
-                "challenge_turn_left": "Kopf nach links drehen",
-                "challenge_turn_right": "Kopf nach rechts drehen"
-            },
-            "prompt": {
-                "header_timeout": "Sieht aus, als hätten Sie zu lange gebraucht"
-            }
-        },
-        "video_confirmation": {
-            "body": "Ihr Video wurde aufgezeichnet",
-            "button_primary": "Video senden",
-            "button_secondary": "Video erneut aufnehmen",
-            "title": "Selfie-Video prüfen",
-            "video_accessibility": "Wiedergeben Ihres aufgezeichneten Videos"
-        },
-        "video_intro": {
-            "button_pause_accessibility": "Pause der illustrativen Animation des Scanvorgangs",
-            "button_play_accessibility": "Abspielen der illustrativen Animation des Scanvorgangs",
-            "button_primary": "Fortfahren",
-            "list_accessibility": "Aktionen zum Aufzeichnen eines Selfie-Videos",
-            "list_item_actions": "Beenden Sie Aktionen in weniger als 20 Sekunden",
-            "list_item_speak": "Befolgen Sie die Anweisungen zur Bewegung oder zum Sprechen",
-            "title": "Selfie-Video aufnehmen",
-            "video_accessibility": "Beispielvideo von jemandem, der ein Selfie-Video aufnimmt. Um ein Selfie-Video aufzunehmen, richten Sie Ihr Gesicht zur Vorderkamera und halten Sie Ihr Smartphone etwas vom Gesicht entfernt. Anschließend müssen Sie einige Zahlen aufsagen und Ihren Kopf entsprechend den Anweisungen auf dem Bildschirm drehen."
-        },
-        "welcome": {
-            "doc_video_subtitle": "Es dauert nur wenige Minuten",
-            "info_original_document": "Machen Sie ein Foto von Ihrem Originaldokument. Scans, Fotos von Bildschirmen oder Fotokopien sind nicht zulässig.",
-            "list_header": "Benutzen Sie Ihr Gerät:",
-            "list_header_doc_video": "Nutzen Sie Ihr Gerät um Folgendes aufzunehmen:",
-            "list_header_webcam": "Verwenden Sie Ihre Webcam oder Ihr Telefon zum Fotografieren:",
-            "list_item_doc": "Ihr Ausweisdokument",
-            "list_item_doc_generic": "Nehmen Sie ein Video von Ihrem Identitätsdokument auf",
-            "list_item_doc_photo": "Machen Sie ein Foto von Ihrem Ausweisdokument",
-            "list_item_doc_video": "Nehmen Sie ein Video von Ihrem Ausweisdokument auf",
-            "list_item_doc_video_timeout": "Die Aufnahme ist auf <timeout><\/timeout> Sekunden beschränkt",
-            "list_item_face_photo": "Machen Sie ein Foto von Ihrem Gesicht",
-            "list_item_face_video": "Nehmen Sie ein Video von Ihrem Gesicht auf",
-            "list_item_poa": "Ihr Adressnachweis",
-            "list_item_selfie": "Ihr Gesicht",
-            "next_button": "Dokument auswählen",
-            "start_workflow_button": "Verifizierung beginnen",
-            "start_workflow_button_trial": "Verifizierung beginnen (TEST)",
-            "subtitle": "Es dauert nur wenige Minuten",
-            "title": "Identität überprüfen",
-            "trial_message": "Geben Sie hier keine personenbezogenen Daten weiter, es sei denn, Sie nehmen an einer Onfido-Studie teil."
-        },
-        "workflow_complete": {
-            "pass": {
-                "description": "Wir haben Ihre Identität überprüft",
-                "title": "Bestanden"
-            },
-            "reject": {
-                "description": "Wir waren nicht in der Lage, Ihre Identität zu überprüfen.",
-                "title": "Abgelehnt"
-            }
-        },
-        "workflow_erros": {
-            "generic_title": "Es gab einen Serverfehler!",
-            "no_workflow_run_id": "Die ID des Workflow-Laufs ist nicht festgelegt.",
-            "reload_app": "Versuchen Sie bitte, die App neu zu laden, und versuchen Sie es erneut.",
-            "task_not_completed": "Es war nicht möglich, die Workflow-Aufgabe abzuschließen.",
-            "task_not_retrieved": "Es war nicht möglich, die Workflow-Aufgabe abzurufen.",
-            "task_not_supported": "Aufgabe wird derzeit nicht unterstützt"
-        }
+  "avc_confirmation": {
+    "button_primary_upload": "Aufnahme hochladen",
+    "subtitle": "Ein Video von Ihrem Gesicht wurde erfolgreich aufgenommen",
+    "title": "Aufnahme abgeschlossen"
+  },
+  "avc_connection_error": {
+    "button_primary_reload": "Anweisungen neu laden",
+    "button_primary_retry_upload": "Upload wiederholen",
+    "button_secondary_restart_recording": "Aufnahme neu starten",
+    "subtitle": "Prüfen Sie, ob Ihre Internetverbindung stabil ist, und versuchen Sie es dann erneut",
+    "title": "Verbindungsfehler"
+  },
+  "avc_face_alignment": {
+    "feedback_move_back": "Gehen Sie zurück",
+    "feedback_move_back_accessibility": "Bewegen Sie Ihr Gerät nach hinten",
+    "feedback_move_closer": "Rücken Sie näher heran",
+    "feedback_move_left_accessibility": "Bewegen Sie Ihr Gerät nach links",
+    "feedback_move_right_accessibility": "Bewegen Sie Ihr Gerät nach rechts",
+    "feedback_no_face_detected": "Gesicht nicht erkannt",
+    "feedback_not_centered": "Gesicht nicht mittig",
+    "title": "Positionieren Sie Ihr Gesicht im Rahmen"
+  },
+  "avc_face_capture": {
+    "alert": {
+      "mic_conflict_title": "Ihr Mikrofon wird von einer anderen App genutzt",
+      "timeout_body": "Sie haben maximal 15 Sekunden Zeit, um die Aufnahme zu beenden",
+      "timeout_button_primary": "Wiederholen",
+      "timeout_title": "Leider muss die Aufnahme neu gestartet werden",
+      "too_fast_body": "Bitte versuchen Sie es erneut und drehen Sie Ihren Kopf langsamer",
+      "too_fast_button_primary": "Wiederholen",
+      "too_fast_title": "Sie haben Ihren Kopf zu schnell gedreht"
     },
-    "profile_data": {
-        "field_labels": {
-            "rou_specific": {
-                "national_id_value": "Persönlicher Numerischer Code (CNP)"
-            }
-        }
+    "title": "Drehen Sie Ihren Kopf langsam nach beiden Seiten",
+    "title_completed": "Aufnahme abgeschlossen"
+  },
+  "avc_intro": {
+    "button_primary_ready": "Aufnahme starten",
+    "disclaimer": "Bitte beachten Sie, dass Ihr Gesicht und der Hintergrund aufgenommen wird",
+    "disclaimer_camera_and_audio_on": "Ihr Gesicht, Ihr Hintergrund und Ihr Ton werden während dieses Vorgangs aufgezeichnet.",
+    "list_item_one": "Positionieren Sie Ihr Gesicht zunächst im Rahmen",
+    "list_item_two": "Drehen Sie Ihren Kopf dann langsam nach beiden Seiten",
+    "subtitle": "Damit verifizieren wir, dass es sich bei Ihnen um eine reale Person handelt",
+    "title": "Video aufnehmen",
+    "title_accessibility": "Nehmen Sie ein Video von Ihrem Gesicht auf",
+    "video_accessibility": "Beispielvideo von jemandem, der den Kopf bis zum Abschluss zu beiden Seiten dreht"
+  },
+  "avc_no_face_detected": {
+    "button_primary_restart": "Aufnahme neu starten",
+    "list_item_eyes": "Stellen Sie sicher, dass Ihre Augen deutlich sichtbar sind",
+    "list_item_face": "Zeigen Sie nur Ihr Gesicht, Ihr Ausweis wird nicht benötigt",
+    "list_item_lighting": "Stellen Sie sicher, dass Sie sich an einem Ort mit guter Beleuchtung befinden",
+    "list_item_mask": "Achten Sie darauf, dass Sie Gesichtsmasken oder andere Gegenstände, die Ihr Gesicht verdecken, abnehmen. Brillen sind zulässig",
+    "title": "Wir können Ihr Gesicht nicht erkennen"
+  },
+  "avc_uploading": {
+    "title": "Hochladen"
+  },
+  "country_select": {
+    "alert": {
+      "another_doc": "Dokumente aus diesem Land werden derzeit nicht unterstützt. <fallback>Versuchen Sie es mit einem anderen Dokumententyp</fallback>."
+    },
+    "alert_dropdown": {
+      "country_not_found": "Land nicht gefunden"
+    },
+    "button_primary": "Dokument einreichen",
+    "poa_alert": {
+      "country_not_found": "Entschuldigen Sie bitte. Wir arbeiten an der Unterstützung von mehr Ländern.",
+      "intro": "Ihr Land ist nicht aufgeführt?"
+    },
+    "search": {
+      "accessibility": "Land auswählen",
+      "input_placeholder": "z.B. Deutschland",
+      "label": "Suche nach Land"
+    },
+    "title": "Wählen Sie das Ausstellungsland"
+  },
+  "cross_device": {
+    "button_primary_upload": "Fortfahren"
+  },
+  "cross_device_checklist": {
+    "button_primary": "Bestätigung senden",
+    "info": "Tipps",
+    "list_item_doc_multiple": "Dokumente hochgeladen",
+    "list_item_doc_one": "Dokument hochgeladen",
+    "list_item_poa": "Adressnachweis",
+    "list_item_selfie": "Selfie hochgeladen",
+    "list_item_video": "Video hochgeladen",
+    "subtitle": "Hier ist alles, was Sie hochgeladen haben:",
+    "title": "Ein letzter Schritt"
+  },
+  "cross_device_error_desktop": {
+    "subtitle": "Der Link funktioniert nur auf mobilen Geräten",
+    "title": "Etwas ist schiefgelaufen"
+  },
+  "cross_device_error_restart": {
+    "subtitle": "Sie müssen Ihre Verifizierung auf Ihrem Computer neu starten",
+    "title": "Etwas ist schiefgelaufen"
+  },
+  "cross_device_intro": {
+    "button_primary": "Sicherheitslink erhalten",
+    "list_accessibility": "Erforderliche Schritte zur weiteren Verifizierung auf Ihrem Mobiltelefon",
+    "list_item_finish": "Überprüfen Sie alle Eingaben und Daten, um die Einreichung abzuschließen",
+    "list_item_open_link": "Öffnen Sie den Link und führen Sie die Aktionen aus",
+    "list_item_send_phone": "Senden Sie einen Sicherheitslink an Ihr Mobiltelefon",
+    "subtitle": "So geht’s:",
+    "subtitle_upload": "Bitte laden Sie ein aktuelles Foto Ihres Originaldokuments hoch",
+    "title": "Fahren Sie mit Ihrem Mobiltelefon fort"
+  },
+  "cross_device_return": {
+    "body": "Die Aktualisierung Ihres Computers kann einige Sekunden dauern",
+    "subtitle": "Sie können nun zu Ihrem Computer zurückkehren, um fortzufahren",
+    "title": "Uploads erfolgreich!"
+  },
+  "cross_device_session_linked": {
+    "button_primary": "Fortfahren",
+    "info": "Überprüfen Sie bitte",
+    "list_item_desktop_open": "Ihr Desktop-Fenster bleibt geöffnet",
+    "list_item_sent_by_you": "Dieser Link wurde von Ihnen gesendet - lassen Sie sich beraten, wenn Sie glauben, dass es sich um einen Betrug handeln könnte",
+    "subtitle": "Fahren Sie mit der Überprüfung fort",
+    "title": "Mit Ihrem Computer verbunden"
+  },
+  "doc_auto_capture": {
+    "button_accessibility": "Ein Foto aufnehmen",
+    "footer": {
+      "captured": "Foto aufgenommen",
+      "capturing": "Foto aufnehmen",
+      "manual_fallback_generic_document_back": "Machen Sie ein Foto von der Rückseite des Dokuments",
+      "manual_fallback_generic_document_front": "Machen Sie ein Foto von der Vorderseite des Dokuments",
+      "manual_fallback_identity_card_back": "Machen Sie ein Foto von der Rückseite ihres Personalausweises",
+      "manual_fallback_identity_card_front": "Machen Sie ein Foto von der Vorderseite ihres Personalausweises",
+      "manual_fallback_license_back": "Machen Sie ein Foto von der Rückseite ihres Führerscheins",
+      "manual_fallback_license_front": "Machen Sie ein Foto von der Vorderseite ihres Führerscheins",
+      "manual_fallback_passport": "Machen Sie ein Foto von der Lichtbild-Seite ihres Passes",
+      "manual_fallback_residence_permit_back": "Machen Sie ein Foto von der Rückseite ihrer Aufenthaltsgenehmigung",
+      "manual_fallback_residence_permit_front": "Machen Sie ein Foto von der Vorderseite ihrer Aufenthaltserlaubnis",
+      "position_generic_document_back": "Positionieren Sie die Rückseite Ihres Dokuments im Rahmen",
+      "position_generic_document_front": "",
+      "position_identity_card_back": "Positionieren Sie die Rückseite ihres Personalausweises innerhalb des Rahmens",
+      "position_identity_card_front": "Positionieren Sie die Vorderseite ihres Personalausweises innerhalb des Rahmens",
+      "position_license_back": "Positionieren Sie die Rückseite ihres Führerscheins innerhalb des Rahmens",
+      "position_license_front": "Positionieren Sie die Vorderseite ihres Führerscheins innerhalb des Rahmens",
+      "position_passport": "Positionieren Sie die Lichtbild-Seite ihres Passes innerhalb des Rahmens",
+      "position_residence_permit_back": "Positionieren Sie die Rückseite ihrer Aufenthaltsgenehmigung innerhalb des Rahmens",
+      "position_residence_permit_front": "Positionieren Sie die Vorderseite ihrer Aufenthaltsgenehmigung innerhalb des Rahmens"
+    },
+    "frame": {
+      "flip_document": "Auf die Rückseite drehen",
+      "hold_still": "Stillhalten",
+      "no_document": "Dokument nicht erkannt"
     }
+  },
+  "doc_capture": {
+    "alert": {
+      "no_barcode_detail": "Bleiben Sie an einem gut beleuchteten Ort und bringen Sie die Karte näher an die Kamera",
+      "no_barcode_title": "Barcode nicht erkannt"
+    },
+    "button_primary": "Starten Sie mit dem Scannen des Dokuments",
+    "detail": {
+      "folded_doc_front": "Legen Sie Ihr Dokument flach hin, einschließlich aller Innenseiten (Ihr Foto muss enthalten sein)"
+    },
+    "header": {
+      "recording_complete": "Aufnahme abgeschlossen",
+      "recording_video": "Videoaufnahme"
+    },
+    "header_folded_doc_front": "Profilfotoseite",
+    "prompt": {
+      "button_card": "Plastikkarte",
+      "button_paper": "Papierdokument",
+      "title_id": "Welche Art von Personalausweis haben Sie?",
+      "title_license": "Welche Art von Führerschein haben Sie?"
+    }
+  },
+  "doc_confirmation": {
+    "alert": {
+      "blur_detail": "Stellen Sie sicher, dass alles klar ist",
+      "blur_title": "Unscharfes Foto erkannt",
+      "crop_detail": "Stellen Sie sicher, dass das vollständige Dokument zu sehen ist",
+      "crop_title": "Abgeschnittenes Bild erkannt",
+      "glare_detail": "Versuchen Sie, sich von direktem Licht zu entfernen",
+      "glare_title": "Spiegelung erkannt",
+      "no_doc_detail": "Stellen Sie sicher, dass das gesamte Dokument auf dem Foto zu sehen ist",
+      "no_doc_title": "Kein Dokument erkannt.",
+      "odp_detail": "Bitte verwenden Sie Ihr Originaldokument. Fotos vom Bildschirm oder Fotokopien werden nicht akzeptiert",
+      "odp_photo_of_screen_title": "Foto des Bildschirms erkannt",
+      "odp_photocopy_title": "Fotokopie erkannt",
+      "odp_scan_title": "Scan erkannt",
+      "odp_screenshot_title": "Screenshot erkannt"
+    },
+    "body": "Überprüfen Sie, dass Sie die gesamte Dokumentseite hochgeladen haben, und dass man die Details ohne Unschärfen und blendfrei lesen kann",
+    "body_address_certificate": "Stellen Sie sicher, dass Sie die gesamte Dokumentseite hochgeladen haben und die Details klar zu lesen sind, ohne Unschärfe oder Blendung",
+    "body_bank_statement": "Überprüfen Sie, dass Sie die gesamte Dokumentseite hochgeladen haben, und dass man die Details ohne Unschärfen und blendfrei lesen kann",
+    "body_benefits_letter": "Überprüfen Sie, dass Sie die gesamte Dokumentseite hochgeladen haben, und dass man die Details ohne Unschärfen und blendfrei lesen kann",
+    "body_bill": "Überprüfen Sie, dass Sie die gesamte Dokumentseite hochgeladen haben, und dass man die Details ohne Unschärfen und blendfrei lesen kann",
+    "body_exchange_house_statement": "Stellen Sie sicher, dass Sie die gesamte Dokumentseite hochgeladen haben und die Details klar zu lesen sind, ohne Unschärfe oder Blendung",
+    "body_general_letter": "Stellen Sie sicher, dass Sie die gesamte Dokumentenseite hochgeladen haben und die Details klar zu lesen sind, ohne Unschärfe oder Blendung",
+    "body_generic_document": "Die Informationen müssen deutlich lesbar sein, ohne Unschärfe oder Spiegelung",
+    "body_id": "Einzelheiten müssen klar lesbar sein, ohne Unschärfe oder Spiegelung",
+    "body_identity_document_with_address": "Stellen Sie sicher, dass Sie die gesamte Dokumentseite hochgeladen haben und die Details klar zu lesen sind, ohne Unschärfe oder Blendung",
+    "body_image_medium": "Es wird länger dauern, Sie zu verifizieren, wenn wir es nicht lesen können",
+    "body_image_poor": "Um Sie reibungslos zu verifizieren, benötigen wir ein besseres Foto",
+    "body_insurance_statement": "Stellen Sie sicher, dass Sie die gesamte Dokumentenseite hochgeladen haben und die Details klar zu lesen sind, ohne Unschärfe oder Blendung",
+    "body_license": "Die Informationen müssen deutlich lesbar sein, ohne Unschärfe oder Spiegelung",
+    "body_mobile_phone_bill": "Stellen Sie sicher, dass Sie die gesamte Dokumentenseite hochgeladen haben und die Details klar zu lesen sind, ohne Unschärfe oder Blendung",
+    "body_mortgage_statement": "Stellen Sie sicher, dass Sie die gesamte Dokumentenseite hochgeladen haben und die Details klar zu lesen sind, ohne Unschärfe oder Blendung",
+    "body_passport": "Einzelheiten müssen klar lesbar sein, ohne Unschärfe oder Spiegelung",
+    "body_pension_property_statement_letter": "Stellen Sie sicher, dass Sie die gesamte Dokumentseite hochgeladen haben und die Details klar zu lesen sind, ohne Unschärfe oder Blendung",
+    "body_permit": "Die Informationen müssen deutlich lesbar sein, ohne Unschärfe oder Spiegelung",
+    "body_tax_letter": "Überprüfen Sie, dass Sie die gesamte Dokumentseite hochgeladen haben, und dass man die Details ohne Unschärfen und blendfrei lesen kann",
+    "button_close": "Schließen",
+    "button_primary_redo": "Wiederholen",
+    "button_primary_upload": "Hochladen",
+    "button_primary_upload_anyway": "Trotzdem hochladen",
+    "button_secondary_change_document": "Wählen Sie ein anderes Dokument aus",
+    "button_secondary_redo": "Wiederholen",
+    "button_secondary_submit_anyway": "Foto trotzdem einreichen",
+    "button_zoom": "Bild vergrößern",
+    "image_accessibility": "Foto Ihres Dokuments",
+    "title": "Überprüfen Sie Ihr Bild"
+  },
+  "doc_multi_frame_capture": {
+    "capture_progress_title": "Dokument wird gescannt",
+    "instructions_title_back": "Positionieren Sie die Rückseite Ihres Dokuments im Rahmen",
+    "instructions_title_front": "Positionieren Sie die Vorderseite Ihres Dokuments im Rahmen"
+  },
+  "doc_select": {
+    "button_address_card": "Adresskartei",
+    "button_address_card_back": "Adresskarte (Rückseite)",
+    "button_address_card_detail": "Vorläufige und permanente Karten werden akzeptiert",
+    "button_address_card_front": "Adresskarte (Vorderseite)",
+    "button_bank_statement": "Bankauszug",
+    "button_bank_statement_non_uk": "Bankauszug",
+    "button_benefits_letter": "Sozialleistungsschreiben",
+    "button_benefits_letter_detail": "Von der Regierung autorisierte Sozialleistungen, wie z. B. Arbeitslosenhilfe, Wohngeld, Steuerermäßigung",
+    "button_bill": "Betriebskostenabrechnung",
+    "button_bill_detail": "Gas, Strom, Wasser, Festnetz oder Breitband-Internet",
+    "button_exchange_house_statement": "Austauschhaus Aussage",
+    "button_exchange_house_statement_detail": "Absendererklärung für Überweisung oder Übermittlung",
+    "button_general_letter": "Allgemeiner Brief",
+    "button_general_letter_detail": "Brief von Finanzinstitut oder Versorgungsunternehmen",
+    "button_government_letter": "Staatliches Schreiben",
+    "button_government_letter_detail": "Jede Art vom Staat ausgestelltes Schreiben, z. B. Sozialleistungsschreiben, Wahlbenachrichtigung, Schreiben vom Finanzamt usw.",
+    "button_id": "Nationaler Personalausweis",
+    "button_id_detail": "Vorder- und Rückseite",
+    "button_identity_document_with_address": "Ausweisdokument mit Adresse",
+    "button_identity_document_with_address_back": "Ausweisdokument mit Adresse (Rückseite)",
+    "button_identity_document_with_address_detail": "Ausgestellt von einer Regierungsbehörde",
+    "button_identity_document_with_address_front": "Ausweisdokument mit Adresse (Vorderseite)",
+    "button_insurance_statement": "Versicherungsaussage",
+    "button_insurance_statement_detail": "Ausgestellt von einer privaten Versicherungs- oder Maklergesellschaft",
+    "button_license": "Führerschein",
+    "button_license_detail": "Vorder- und Rückseite",
+    "button_mobile_phone_bill": "Mobiltelefonrechnung",
+    "button_mobile_phone_bill_detail": "Ausgestellt von einem Mobilfunknetzanbieter",
+    "button_mortgage_statement": "Hypothekenabrechnung",
+    "button_mortgage_statement_detail": "Ausgestellt von einer Finanzkreditinstitution",
+    "button_passport": "Reisepass",
+    "button_passport_detail": "Seite mit Foto",
+    "button_pension_property_statement_letter": "Renten- oder Immobilienbescheinigung/-brief",
+    "button_pension_property_statement_letter_detail": "Rentenbescheid oder Brief und Grundsteuerbescheid oder Brief",
+    "button_permit": "Karte der Aufenthaltsgenehmigung",
+    "button_permit_detail": "Vorder- und Rückseite",
+    "button_tax_letter": "Schreiben zur Kommunalsteuer",
+    "extra_estatements_ok": "E-Auszüge werden akzeptiert",
+    "extra_no_mobile": "Entschuldigen Sie bitte, keine Mobiltelefonrechnungen",
+    "list_accessibility": "Dokumente, die Sie zur Überprüfung Ihrer Identität verwenden können",
+    "pill": "Schnellste",
+    "section": {
+      "header_country": "Ausstellendes Land",
+      "header_doc_type": "Akzeptierte Dokumente",
+      "input_country_not_found": "Keine Ergebnisse",
+      "input_placeholder_country": "Ausstellungsland auswählen"
+    },
+    "subtitle": "Es muss ein offizieller Lichtbildausweis sein",
+    "subtitle_country": "Wählen Sie das ausstellende Land aus, um zu sehen, welche Dokumente wir akzeptieren",
+    "subtitle_entire_page": "Ganze Seite",
+    "subtitle_front_back": "Vorne und Hinten",
+    "subtitle_photo_page": "Fotoseite",
+    "subtitle_poa": "Diese Dokumente zeigen wahrscheinlich Ihre aktuelle Wohnadresse:",
+    "title": "Dokument auswählen",
+    "title_poa": "Wählen Sie ein Dokument"
+  },
+  "doc_submit": {
+    "button_link_upload": "oder Foto hochladen – keine Scans oder Kopien",
+    "button_primary": "Weiter am Mobiltelefon",
+    "subtitle": "Machen Sie ein Foto mit Ihrem Mobiltelefon",
+    "title_address_certificate": "Adresskarte einreichen",
+    "title_address_certificate_back": "Adresskarte einreichen (Rückseite)",
+    "title_address_certificate_front": "Adresskarte einreichen (Vorderseite)",
+    "title_bank_statement": "Auszug senden",
+    "title_benefits_letter": "Schreiben einreichen",
+    "title_bill": "Rechnung senden",
+    "title_exchange_house_statement": "Austauschhaus-Aussage einreichen",
+    "title_general_letter": "Allgemeinen Brief einreichen",
+    "title_generic_document_back": "Dokument einreichen (Rückseite)",
+    "title_generic_document_front": "Dokument einreichen (Vorderseite)",
+    "title_government_letter": "Staatliches Schreiben",
+    "title_id_back": "Personalausweis einreichen (Rückseite)",
+    "title_id_front": "Personalausweis einreichen (Vorderseite)",
+    "title_identity_document_with_address": "Reichen Sie das Identitätsdokument mit Adresse ein",
+    "title_identity_document_with_address_back": "Reichen Sie das Identitätsdokument mit Adresse ein (Rückseite)",
+    "title_identity_document_with_address_front": "Reichen Sie das Identitätsdokument mit Adresse ein (Vorderseite)",
+    "title_insurance_statement": "Versicherungsantrag einreichen",
+    "title_license_back": "Führerschein einreichen (Rückseite)",
+    "title_license_front": "Führerschein einreichen (Vorderseite)",
+    "title_mobile_phone_bill": "Handyrechnung einreichen",
+    "title_mortgage_statement": "Hypothekenabrechnung einreichen",
+    "title_passport": "Passfoto-Seite einreichen",
+    "title_pension_property_statement_letter": "Aussage oder Brief einreichen",
+    "title_permit_back": "Aufenthaltsgenehmigung einreichen (Rückseite)",
+    "title_permit_front": "Aufenthaltsgenehmigung einreichen (Vorderseite)",
+    "title_tax_letter": "Lokale Steuerbescheinigung der Regierung einreichen"
+  },
+  "doc_video_capture": {
+    "button_primary_fallback": "Nächster Schritt",
+    "button_primary_fallback_end": "Aufnahme beenden",
+    "detail_step2": "Sorgen Sie dafür, dass stets das gesamte Dokument zu sehen ist",
+    "header": "Halten Sie die Lichtbild-Seite innerhalb des Rahmens, während Sie Ihr Dokument halten",
+    "header_paper_doc_step2": "Drehen Sie Ihr Dokument langsam um, sodass die äußeren Seiten zu sehen sind",
+    "header_passport": "Halten Sie die Lichtbild-Seite innerhalb des Rahmens, während Sie Ihren Reisepass halten",
+    "header_passport_progress": "Halten Sie still",
+    "header_step1": "Halten Sie nun still",
+    "header_step2": "Drehen Sie Ihr Dokument langsam um, sodass die Rückseite zu sehen ist",
+    "prompt": {
+      "detail_timeout": "Die Videoaufnahme ist auf <timeout></timeout> Sekunden beschränkt. <fallback>Nochmal beginnen</fallback>"
+    },
+    "stepper": "Schritt <step></step> von <total></total>",
+    "success_accessibility": "Erfolg"
+  },
+  "doc_video_confirmation": {
+    "button_secondary": "Video-Vorschau",
+    "title": "Selfie-Video prüfen"
+  },
+  "error_unsupported_browser": {
+    "subtitle_android": "Starten Sie den Prozess auf der neuesten Version von Google Chrome neu",
+    "subtitle_ios": "Starten Sie den Prozess mit der neuesten Version von Safari neu",
+    "title_android": "Nicht unterstützter Browser",
+    "title_ios": "Nicht unterstützter Browser"
+  },
+  "generic": {
+    "accessibility": {
+      "close_sdk_screen": "Bildschirm zur Identitätsprüfung schließen",
+      "dismiss_alert": "Alarm verwerfen"
+    },
+    "back": "zurück",
+    "close": "Schließen",
+    "errors": {
+      "expired_token": {
+        "instruction": "Bitte versuchen Sie es erneut",
+        "message": "Ihr Token ist abgelaufen"
+      },
+      "expired_trial": {
+        "instruction": "Sie haben Ihr Testlimit erreicht",
+        "message": "Ihr Token ist abgelaufen"
+      },
+      "geoblocked_error": {
+        "instruction": "Es tut uns leid, wir können leider nicht fortfahren, da Ihr aktueller Standort nicht unterstützt wird.",
+        "message": "Service nicht verfügbar"
+      },
+      "interrupted_flow_error": {
+        "instruction": "Starten Sie den Prozess auf einem anderen Gerät neu",
+        "message": "Kamera nicht erkannt"
+      },
+      "invalid_size": {
+        "instruction": "Die Dateigröße muss unter 10 MB sein.",
+        "message": "Dateigröße überschritten."
+      },
+      "invalid_type": {
+        "instruction": "Versuchen Sie einen anderen Dateityp zu verwenden",
+        "message": "Datei nicht hochgeladen"
+      },
+      "lazy_loading": {
+        "message": "Beim Laden der Komponente ist ein Fehler aufgetreten"
+      },
+      "multiple_faces": {
+        "instruction": "Nur Ihr Gesicht kann im Selfie zu sehen sein",
+        "message": "Mehrere Gesichter gefunden"
+      },
+      "no_face": {
+        "instruction": "Stellen Sie sicher, dass Ihr Gesicht sichtbar ist",
+        "message": "Kein Gesicht gefunden"
+      },
+      "request_error": {
+        "instruction": "Bitte versuchen Sie es erneut",
+        "message": "Etwas ist schiefgelaufen"
+      },
+      "sms_failed": {
+        "instruction": "Kopieren Sie den Link auf Ihr Mobiltelefon",
+        "message": "Etwas ist schiefgelaufen"
+      },
+      "sms_overuse": {
+        "instruction": "Kopieren Sie den Link auf Ihr Mobiltelefon",
+        "message": "Zu viele fehlgeschlagene Versuche"
+      },
+      "unsupported_file": {
+        "instruction": "Versuchen Sie es mit einer JPG- oder PNG-Datei",
+        "message": "Dateityp nicht unterstützt"
+      }
+    },
+    "lazy_load_placeholder": "Wird geladen…",
+    "loading": "Wird geladen"
+  },
+  "get_link": {
+    "alert_wrong_number": "Überprüfen Sie, ob Ihre Nummer korrekt ist",
+    "button_copied": "Kopiert",
+    "button_copy": "Kopieren",
+    "button_submit": "Link senden",
+    "info_qr_how": "So scannen Sie einen QR-Code",
+    "info_qr_how_list_item_camera": "Richten Sie die Kamera Ihres Telefons auf den QR-Code",
+    "info_qr_how_list_item_download": "Wenn es nicht funktioniert, laden Sie einen QR-Code-Scanner von Google Play oder aus dem App Store herunter",
+    "link_divider": "oder wählen Sie eine alternative Methode",
+    "link_qr": "QR-Code scannen",
+    "link_sms": "Link per SMS erhalten",
+    "link_url": "Link kopieren",
+    "loader_sending": "Senden",
+    "number_field_input_placeholder": "Mobiltelefonnummer eingeben",
+    "number_field_label": "Geben Sie Ihre Mobiltelefonnummer ein:",
+    "subtitle_qr": "Scannen Sie den QR-Code mit Ihrem Mobiltelefon",
+    "subtitle_sms": "Öffnen Sie den Link auf Ihrem Mobiltelefon",
+    "subtitle_url": "Öffnen Sie den Link auf Ihrem Mobiltelefon",
+    "title": "Holen Sie sich Ihren Sicherheitslink",
+    "url_field_label": "Kopieren Sie den Link in Ihren mobilen Browser"
+  },
+  "interactive_task": {
+    "waiting": {
+      "title_5": "Medien hochladen..."
+    }
+  },
+  "livenessV2": {
+    "error_reload_instructions": "Anweisungen neu laden",
+    "intro_note_no1": "Positionieren Sie Ihr Gesicht zunächst im Rahmen",
+    "intro_note_no2": "Drehen Sie Ihren Kopf dann langsam nach beiden Seiten",
+    "intro_ready_button": "Bitte beachten Sie, dass wir Ihr Gesicht und Ihren Hintergrund aufnehmen",
+    "intro_subtitle": "Damit verifizieren wir, dass es sich bei Ihnen um eine reale Person handelt",
+    "intro_warning": "Bitte beachten Sie, dass wir Ihr Gesicht und Ihren Hintergrund aufnehmen",
+    "success_main_button": "Bestätigung senden",
+    "success_title": "Das ist alles, was wir benötigen, um mit Ihrer Identitätsprüfung zu beginnen"
+  },
+  "mobilePhrases": {
+    "photo_upload": {
+      "body_id_back": "Machen Sie ein Foto von der Rückseite Ihrer Karte",
+      "body_id_front": "Machen Sie ein Foto von der Vorderseite Ihrer Karte",
+      "body_license_back": "Machen Sie ein Foto von der Rückseite Ihres Führerscheins",
+      "body_license_front": "Machen Sie ein Foto von der Vorderseite Ihres Führerscheins",
+      "body_passport": "Machen Sie ein Foto von Ihrer Passfotoseite",
+      "body_selfie": "Machen Sie ein Selfie, das Ihr Gesicht zeigt"
+    },
+    "selfie_capture": {
+      "alert": {
+        "camera_inactive": {
+          "detail": "Fotografieren Sie stattdessen mit dem <fallback>einfachen Kameramodus</fallback>"
+        },
+        "camera_not_working": {
+          "detail": "Fotografieren Sie stattdessen mit dem <fallback>einfachen Kameramodus</fallback>"
+        }
+      }
+    },
+    "upload_guide": {
+      "button_primary": "Ein Foto machen",
+      "title": "Reisepass Foto-Seite"
+    }
+  },
+  "nfc_scan": {
+    "sheet": {
+      "success": "Scannen erfolgreich"
+    }
+  },
+  "nfc_scan_error_can": {
+    "primary_button": "Ausgangsüberprüfung",
+    "subtitle": "Sie haben die maximale Anzahl an Versuchen erreicht, um Ihre CAN-Nummer einzugeben"
+  },
+  "nfc_scan_error_can:title": "Maximale Versuche erreicht",
+  "otp": {
+    "code_input": {
+      "error": {
+        "code_expired": "Ihr Code ist abgelaufen, bitte fordern Sie einen neuen an.",
+        "code_invalid": "Falscher Code eingegeben, bitte versuchen Sie es erneut.",
+        "technical": "Ein technischer Fehler ist aufgetreten, bitte versuchen Sie es später erneut",
+        "too_many_attempts": "Sie haben diesen Code zu oft versucht, bitte fordern Sie einen neuen an.",
+        "wrong_code": "Falscher Code eingegeben, bitte versuchen Sie es erneut"
+      },
+      "intro": "Sie haben 5 Minuten Zeit, um den per SMS gesendeten Code zu validieren <phonenumber></phonenumber>",
+      "resend": {
+        "cta": "Einen neuen Code anfordern",
+        "cta_timeout": "Neuen Code anfordern (<timeout></timeout> Sekunden)",
+        "label": "Code wurde gesendet",
+        "tracker": "<remaining></remaining> von <limit></limit>"
+      },
+      "title": "Einmaliges Passwort"
+    },
+    "error": {
+      "cta": "Geh zurück",
+      "subtitle": "Bitte warten Sie ein paar Sekunden und versuchen Sie es erneut",
+      "title": "Etwas ist schief gelaufen"
+    },
+    "failure": {
+      "cta": "Fortfahren",
+      "subtitle": "Wir können Ihre Telefonnummer nicht mehr überprüfen",
+      "title": "Zulässige Versuche überschritten"
+    },
+    "send_code": {
+      "cta": "Code senden",
+      "error": {
+        "invalid_phone_number": "Bitte geben Sie eine gültige Telefonnummer an.",
+        "limit": "Sie haben das Limit für gesendete SMS erreicht",
+        "technical": "Ein technischer Fehler ist aufgetreten, bitte versuchen Sie es später erneut"
+      },
+      "input_label": "Telefonnummer",
+      "intro": "Um Ihre Telefonnummer zu überprüfen, werden wir Sie bitten, ein Einmalpasswort einzugeben.",
+      "title": "Einmaliges Passwort"
+    }
+  },
+  "outro": {
+    "body": "Das ist alles, was wir benötigen, um mit Ihrer Identitätsprüfung zu beginnen",
+    "body_government_letter": "Für das beste Ergebnis die gesamte Dokumentseite abbilden",
+    "title": "Danke"
+  },
+  "permission": {
+    "body_both": "Wir können Sie nicht verifizieren, ohne auf Ihr Mikrofon und Ihre Kamera zuzugreifen",
+    "body_cam": "Wir können Sie nicht verifizieren, ohne Ihre Kamera zu benutzen",
+    "body_mic": "Wir können Sie nicht verifizieren, ohne auf Ihr Mikrofon zuzugreifen",
+    "button_primary_both": "Beides aktivieren",
+    "button_primary_cam": "Kamera aktivieren",
+    "button_primary_mic": "Mikrofon aktivieren",
+    "subtitle_both": "Wenn Sie dazu aufgefordert werden, müssen Sie den Zugriff auf beide Komponenten aktivieren, um fortzufahren",
+    "subtitle_cam": "Wenn Sie dazu aufgefordert werden, müssen Sie den Kamerazugriff aktivieren, um fortzufahren",
+    "subtitle_mic": "Wenn Sie dazu aufgefordert werden, müssen Sie den Zugriff auf Ihr Mikrofon aktivieren, um fortzufahren",
+    "title_both": "Zugriff auf Kamera und Mikrofon erlauben",
+    "title_cam": "Zugriff auf Kamera erlauben",
+    "title_mic": "Zugriff auf Mikrofon erlauben"
+  },
+  "permission_recovery": {
+    "android": {
+      "browser_settings": {
+        "title": "Lösung 1: Browsereinstellungen"
+      },
+      "device_settings": {
+        "list_item_1": "Auf Ihrem Gerät öffnen Sie die <strong>Einstellungen</strong> App",
+        "list_item_2": "Tippen Sie auf <strong>Apps</strong>",
+        "list_item_3": "Tippen Sie auf <browser_icon></browser_icon>. Wenn Sie es nicht finden können, tippen Sie auf <strong>Alle Apps anzeigen</strong> oder <strong>Apps verwalten</strong> und wählen Sie Ihre Browser-App aus",
+        "list_item_4": "Tippen Sie auf <strong>Berechtigungen</strong>",
+        "list_item_5_cam": "Tippen Sie auf <strong>Kamera</strong> und wählen Sie <strong>Zulassen</strong> aus",
+        "list_item_5_mic": "Tippen Sie auf <strong>Mikrofon</strong> und wählen Sie <strong>Zulassen</strong>",
+        "list_item_6": "Kommen Sie zu dieser Seite zurück und tippen Sie auf die <strong>Seite aktualisieren</strong> Schaltfläche",
+        "title": "Lösung 2: Geräteeinstellungen"
+      },
+      "refresh_page": {
+        "list_item_1_both": "Tippen Sie auf die Schaltfläche <strong>Seite aktualisieren</strong>. Sie werden erneut aufgefordert, den Zugriff auf Kamera und Mikrofon zu ermöglichen. Wenn das Pop-up erscheint, wählen Sie <strong>Erlauben</strong> (oder <strong>OK</strong>)",
+        "list_item_1_cam": "Tippen Sie auf die <strong>Seite aktualisieren</strong> Schaltfläche. Sie werden erneut aufgefordert, den Kamerazugriff zu aktivieren. Wenn das Pop-up erscheint, wählen Sie <strong>Erlauben</strong> (oder <strong>OK</strong>)",
+        "list_item_1_mic": "Tippen Sie auf die <strong>Seite aktualisieren</strong> Schaltfläche. Sie werden erneut aufgefordert, den Zugriff auf das Mikrofon zu ermöglichen. Wenn das Pop-up erscheint, wählen Sie <strong>Erlauben</strong> (oder <strong>OK</strong>)"
+      }
+    },
+    "android_chrome": {
+      "browser_settings": {
+        "list_item_1": "In Ihrem Browser tippen Sie auf das Einstellungssymbol <settings_icon_chrome></settings_icon_chrome> in der Adressleiste",
+        "list_item_2": "Tippen Sie auf <strong>Berechtigungen</strong>",
+        "list_item_3_cam": "Aktivieren Sie den Umschalter neben <strong>Kamera</strong>",
+        "list_item_3_mic": "Aktivieren Sie den Schalter neben <strong>Mikrofon</strong>",
+        "list_item_4": "Kommen Sie zu dieser Seite zurück und tippen Sie auf die <strong>Seite aktualisieren</strong> Schaltfläche"
+      }
+    },
+    "android_firefox": {
+      "browser_settings": {
+        "list_item_1": "In Ihrem Browser tippen Sie auf das Schloss-Symbol <lock_icon></lock_icon> in der Adressleiste",
+        "list_item_2_cam": "Tippen Sie neben <strong>Kamera</strong> auf <strong>Blockiert</strong>, um auf <strong>Zugelassen</strong> zu wechseln",
+        "list_item_2_mic": "Tippen Sie neben <strong>Mikrofon</strong> auf <strong>Blockiert</strong>, um auf <strong>Erlaubt</strong> zu wechseln",
+        "list_item_3": "Kehren Sie zu dieser Seite zurück und tippen Sie auf die <strong>Seite aktualisieren</strong> Schaltfläche",
+        "title": "Lösung 2: Browsereinstellungen"
+      },
+      "device_settings": {
+        "title": "Lösung 3: Geräteeinstellungen"
+      },
+      "refresh_page": {
+        "title": "Lösung 1: Aktualisieren Sie die Seite"
+      }
+    },
+    "android_generic": {
+      "browser_settings": {
+        "list_item_1": "Öffnen Sie in Ihrem Browser die Website-Einstellungen. Dies ist oft ein Schloss-Symbol <lock_icon></lock_icon> in der Adressleiste",
+        "list_item_2": "Finden Sie den Abschnitt über Berechtigungen",
+        "list_item_3_cam": "Aktivieren Sie die <strong>Kamera</strong> Berechtigungen",
+        "list_item_3_mic": "Aktivieren Sie die <strong>Mikrofon</strong> Berechtigungen",
+        "list_item_4": "Kommen Sie zu dieser Seite zurück und tippen Sie auf die <strong>Seite aktualisieren</strong> Schaltfläche"
+      }
+    },
+    "android_samsung": {
+      "browser_settings": {
+        "list_item_1": "In Ihrem Browser tippen Sie auf das Schloss-Symbol <lock_icon></lock_icon> in der Adressleiste",
+        "list_item_2_cam": "Aktivieren Sie den Umschalter neben <strong>Kamera</strong>",
+        "list_item_2_mic": "Aktivieren Sie den Umschalter neben <strong>Mikrofon</strong>",
+        "list_item_3": "Kommen Sie zu dieser Seite zurück und tippen Sie auf die <strong>Seite aktualisieren</strong> Schaltfläche"
+      }
+    },
+    "button_primary": "Aktualisieren",
+    "desktop": {
+      "browser_settings": {
+        "title": "Lösung 1: Browsereinstellungen"
+      },
+      "device_settings": {
+        "title": "Lösung 2: Geräteeinstellungen"
+      }
+    },
+    "desktop_chrome": {
+      "browser_settings": {
+        "list_item_1": "In Ihrem Browser klicken Sie auf das Einstellungssymbol <settings_icon_chrome></settings_icon_chrome> in der Adressleiste",
+        "list_item_2_cam": "Aktivieren Sie den Umschalter neben <strong>Kamera</strong>",
+        "list_item_2_mic": "Aktivieren Sie den Umschalter neben <strong>Mikrofon</strong>",
+        "list_item_3": "Kommen Sie auf diese Seite zurück und klicken Sie auf die <strong>Seite aktualisieren</strong> Schaltfläche"
+      }
+    },
+    "desktop_edge": {
+      "browser_settings": {
+        "list_item_1": "Klicken Sie in Ihrem Browser auf das Schloss-Symbol <lock_icon></lock_icon> in der Adressleiste",
+        "list_item_2_cam": "Klicken Sie auf das Dropdown-Menü neben <strong>Kamera</strong> und wählen Sie <strong>Zulassen</strong> aus",
+        "list_item_2_mic": "Klicken Sie auf das Dropdown-Menü neben <strong>Mikrofon</strong> und wählen Sie <strong>Zulassen</strong> aus",
+        "list_item_3": "Kommen Sie zu dieser Seite zurück und klicken Sie auf die <strong>Seite aktualisieren</strong> Schaltfläche"
+      }
+    },
+    "desktop_firefox": {
+      "browser_settings": {
+        "list_item_1": "Klicken Sie in Ihrem Browser auf das Einstellungssymbol <settings_icon_firefox></settings_icon_firefox> in der Adressleiste",
+        "list_item_2_cam": "Klicken Sie neben <strong>Kamera verwenden</strong> auf <strong>Blockiert</strong>",
+        "list_item_2_mic": "Klicken Sie neben <strong>Mikrofon verwenden</strong> auf <strong>Blockiert</strong>",
+        "list_item_3": "Kommen Sie zurück zu dieser Seite und klicken Sie auf den <strong>Seite aktualisieren</strong> Knopf"
+      }
+    },
+    "desktop_generic": {
+      "browser_settings": {
+        "list_item_1": "Öffnen Sie in Ihrem Browser die Website-Einstellungen. Dies ist oft ein Schloss-Symbol <lock_icon></lock_icon> in der Adressleiste",
+        "list_item_2": "Finden Sie den Abschnitt über Berechtigungen",
+        "list_item_3_cam": "Aktivieren Sie die <strong>Kamera</strong> Berechtigungen",
+        "list_item_3_mic": "Aktivieren Sie die <strong>Mikrofon</strong> Berechtigungen",
+        "list_item_4": "Kommen Sie zu dieser Seite zurück und klicken Sie auf die <strong>Seite aktualisieren</strong> Schaltfläche"
+      },
+      "device_settings": {
+        "list_item_1": "Auf Ihrem Computer öffnen Sie Ihre <strong>Einstellungen</strong>",
+        "list_item_2": "Finden Sie den Abschnitt über Berechtigungen (normalerweise unter <strong>Datenschutz</strong>)",
+        "list_item_3_cam": "Aktivieren Sie die <strong>Kamera</strong> Berechtigungen für <browser_icon></browser_icon>",
+        "list_item_3_mic": "Aktivieren Sie die <strong>Mikrofon</strong> Berechtigungen für <browser_icon></browser_icon>",
+        "list_item_4": "Starten Sie Ihren Browser bei Bedarf neu und kehren Sie zu dieser Seite zurück"
+      }
+    },
+    "desktop_mac": {
+      "device_settings": {
+        "list_item_1": "Auf Ihrem Computer klicken Sie auf das Apple-Menü <apple_icon></apple_icon> und wählen Sie <strong>Systemeinstellungen</strong> (oder <strong>Systempräferenzen</strong>)",
+        "list_item_2": "Klicken Sie auf <strong>Datenschutz & Sicherheit</strong> (oder <strong>Sicherheit & Datenschutz</strong>) in der Seitenleiste",
+        "list_item_3": "Klicken Sie in dem Pop-up auf <strong>Später</strong>",
+        "list_item_3_cam": "Klicken Sie auf <strong>Kamera</strong> und aktivieren Sie den Schalter (oder das Kontrollkästchen) neben <browser_icon></browser_icon>",
+        "list_item_4": "Klicken Sie in dem Pop-up auf <strong>Beenden & Neu öffnen</strong> und kehren Sie zu dieser Seite zurück",
+        "list_item_4_mic": "Klicken Sie auf <strong>Mikrofon</strong> und aktivieren Sie den Schalter (oder das Kontrollkästchen) neben <browser_icon></browser_icon>"
+      }
+    },
+    "desktop_safari": {
+      "browser_settings": {
+        "list_item_1": "Klicken Sie in Ihrem Browser mit der rechten Maustaste in die Adressleiste und wählen Sie <strong>Einstellungen</strong>",
+        "list_item_2_cam": "Klicken Sie auf das Dropdown-Menü neben <strong>Kamera</strong> und wählen Sie <strong>Zulassen</strong> aus",
+        "list_item_2_mic": "Klicken Sie auf das Dropdown-Menü neben <strong>Mikrofon</strong> und wählen Sie <strong>Zulassen</strong> aus",
+        "list_item_3": "Kehren Sie zu dieser Seite zurück und klicken Sie auf die <strong>Seite aktualisieren</strong> Schaltfläche"
+      }
+    },
+    "desktop_windows": {
+      "device_settings": {
+        "list_item_1": "Auf Ihrem Computer klicken Sie auf das Windows-Menü <windows_icon></windows_icon> und wählen <strong>Einstellungen</strong> <settings_icon_windows></settings_icon_windows> aus",
+        "list_item_2": "Klicken Sie auf <strong>Datenschutz</strong> (oder <strong>Datenschutz & Sicherheit</strong>)",
+        "list_item_3_cam": "Klicken Sie unter <strong>App-Berechtigungen</strong> auf <strong>Kamera</strong> und aktivieren Sie den Schalter neben <browser_icon></browser_icon>",
+        "list_item_3_mic": "Klicken Sie unter <strong>App-Berechtigungen</strong> auf <strong>Mikrofon</strong> und aktivieren Sie den Schalter neben <browser_icon></browser_icon>",
+        "list_item_4": "Starten Sie Ihren Browser bei Bedarf neu und kehren Sie zu dieser Seite zurück"
+      }
+    },
+    "info": "Wiederherstellen",
+    "ios": {
+      "browser_settings": {
+        "list_item_1_both": "Tippen Sie auf die Schaltfläche <strong>Seite aktualisieren</strong>. Sie werden erneut aufgefordert, den Zugriff auf Kamera und Mikrofon zu ermöglichen. Wenn das Pop-up erscheint, wählen Sie <strong>Erlauben</strong> (oder <strong>OK</strong>)",
+        "list_item_1_cam": "Tippen Sie auf die <strong>Seite aktualisieren</strong> Schaltfläche. Sie werden erneut aufgefordert, den Kamerazugriff zu aktivieren. Wenn das Pop-up erscheint, wählen Sie <strong>Erlauben</strong> (oder <strong>OK</strong>)",
+        "list_item_1_mic": "Tippen Sie auf die <strong>Seite aktualisieren</strong> Schaltfläche. Sie werden erneut aufgefordert, den Zugriff auf das Mikrofon zu ermöglichen. Wenn das Pop-up erscheint, wählen Sie <strong>Erlauben</strong> (oder <strong>OK</strong>)"
+      },
+      "device_settings": {
+        "list_item_1": "Auf Ihrem Gerät öffnen Sie die <strong>Einstellungen</strong> App",
+        "list_item_2": "Scrollen Sie durch die Liste und tippen Sie auf <browser_icon></browser_icon>",
+        "list_item_3_cam": "Aktivieren Sie den Umschalter neben <strong>Kamera</strong>",
+        "list_item_3_mic": "Aktivieren Sie den Umschalter neben <strong>Mikrofon</strong>",
+        "list_item_4": "Kehren Sie zu dieser Seite zurück und tippen Sie auf die <strong>Seite aktualisieren</strong> Schaltfläche",
+        "title": "Lösung 2: Geräteeinstellungen"
+      },
+      "refresh_page": {
+        "title": "Lösung 1: Aktualisieren Sie die Seite"
+      }
+    },
+    "ios_safari": {
+      "device_settings": {
+        "list_item_1": "Auf Ihrem Gerät öffnen Sie die <strong>Einstellungen</strong> App",
+        "list_item_2": "Scrollen Sie durch die Liste und tippen Sie auf <browser_icon></browser_icon>",
+        "list_item_3_cam": "Tippen Sie auf <strong>Kamera</strong> und wählen Sie <strong>Zulassen</strong> aus",
+        "list_item_3_mic": "Tippen Sie auf <strong>Mikrofon</strong> und wählen Sie <strong>Zulassen</strong>",
+        "list_item_4": "Kommen Sie zu dieser Seite zurück und tippen Sie auf die <strong>Seite aktualisieren</strong> Schaltfläche"
+      }
+    },
+    "list_header_both": "Befolgen Sie diese Schritte, um den Zugriff auf beides wiederherzustellen:",
+    "list_header_cam": "Befolgen Sie diese Schritte, um den Kamerazugriff wiederherzustellen:",
+    "list_item_action_cam": "Aktualisieren Sie diese Seite, um den Identitätsüberprüfungsprozess neu zu starten",
+    "list_item_how_to_both": "Gewähren Sie den Zugriff auf Ihre Kamera und Ihr Mikrofon über Ihre Browsereinstellungen",
+    "list_item_how_to_cam": "Gewähren Sie den Zugriff auf Ihre Kamera über Ihre Browsereinstellungen",
+    "list_item_how_to_mic": "Geben Sie den Zugriff auf Ihr Mikrofon in Ihren Browsereinstellungen frei",
+    "subtitle_both": "Wir benötigen Zugriff auf Ihre Kamera und Ihr Mikrofon, um Ihre Identität zu überprüfen. Befolgen Sie die untenstehenden Anweisungen, um den Zugriff wiederherzustellen",
+    "subtitle_cam": "Wir benötigen Zugang zu Ihrer Kamera, um Ihre Identität zu überprüfen. Befolgen Sie die unten stehenden Anweisungen, um den Zugang wiederherzustellen",
+    "subtitle_cam_old": "Kamerazugriff wiederherstellen, um Gesichtsverifizierung fortzusetzen",
+    "subtitle_mic": "Wir benötigen Zugriff auf Ihr Mikrofon, um Ihre Identität zu überprüfen. Befolgen Sie die unten stehenden Anweisungen, um den Zugriff wiederherzustellen",
+    "title_both": "Kamera- und Mikrofonzugriff verweigert",
+    "title_cam": "Kamerazugriff wird verweigert",
+    "title_mic": "Mikrofonzugriff verweigert",
+    "web": {
+      "button_primary": "Aktualisieren Sie die Seite",
+      "disclaimer": "Der Identitätsüberprüfungsprozess könnte neu starten. Entschuldigung für etwaige Unannehmlichkeiten"
+    }
+  },
+  "photo_upload": {
+    "body_address_certificate_back": "Laden Sie die Rückseite des Dokuments von Ihrem Computer hoch",
+    "body_address_certificate_front": "Laden Sie die Vorderseite des Dokuments von Ihrem Computer hoch",
+    "body_bank_statement": "Für das beste Ergebnis die gesamte Dokumentseite abbilden",
+    "body_benefits_letter": "Für das beste Ergebnis die gesamte Dokumentseite abbilden",
+    "body_bill": "Für das beste Ergebnis die gesamte Dokumentseite abbilden",
+    "body_exchange_house_statement": "Stellen Sie die gesamte Dokumentseite für die besten Ergebnisse zur Verfügung",
+    "body_general_letter": "Stellen Sie die gesamte Dokumentseite für die besten Ergebnisse zur Verfügung",
+    "body_generic_document_back": "Rückseite des Dokuments von Ihrem Computer hochladen",
+    "body_generic_document_front": "Vorderseite des Dokuments von Ihrem Computer hochladen",
+    "body_id_back": "Kartenrückseite von Ihrem Computer hochladen",
+    "body_id_front": "Kartenvorderseite von Ihrem Computer hochladen",
+    "body_identity_document_with_address": "Stellen Sie die gesamte Dokumentseite für die besten Ergebnisse zur Verfügung",
+    "body_identity_document_with_address_back": "Laden Sie die Rückseite des Dokuments von Ihrem Computer hoch",
+    "body_identity_document_with_address_front": "Laden Sie die Vorderseite des Dokuments von Ihrem Computer hoch",
+    "body_insurance_statement": "Stellen Sie die gesamte Dokumentseite für die besten Ergebnisse zur Verfügung",
+    "body_license_back": "Rückseite des Führerscheins von Ihrem Computer hochladen",
+    "body_license_front": "Vorderseite des Führerscheins von Ihrem Computer hochladen",
+    "body_mobile_phone_bill": "Stellen Sie die gesamte Dokumentseite für die besten Ergebnisse zur Verfügung",
+    "body_mortgage_statement": "Stellen Sie die gesamte Dokumentseite für die besten Ergebnisse zur Verfügung",
+    "body_passport": "Passfotoseite von Ihrem Computer hochladen",
+    "body_pension_property_statement_letter": "Stellen Sie die gesamte Dokumentseite für die besten Ergebnisse zur Verfügung",
+    "body_selfie": "Selfie von Ihrem Computer hochladen",
+    "body_tax_letter": "Für das beste Ergebnis die gesamte Dokumentseite abbilden",
+    "button_take_photo": "Foto machen",
+    "button_upload": "Hochladen",
+    "title_selfie": "Selfie"
+  },
+  "poa_cancel": "Abbrechen",
+  "poa_err_invalid_file": {
+    "message": "Bitte wählen Sie eine andere Datei.",
+    "ok": "OK",
+    "title": "Ungültige Datei"
+  },
+  "poa_guidance": {
+    "button_primary": "Fortfahren",
+    "instructions": {
+      "address": "Aktuelle Adresse",
+      "full_name": "Vollständiger Name",
+      "issue_date": "Ausgabedatum oder Abrechnungszeitraum",
+      "label": "Erfassen Sie das komplette Dokument und sorgen Sie dafür, dass es Folgendes klar zeigt:",
+      "logo": "Logo"
+    },
+    "instructions_address_card_issue_date": "Datum der Ausgabe",
+    "instructions_expiry_date": "Verfallsdatum, falls zutreffend",
+    "instructions_full_address": "Vollständige Adresse",
+    "subtitle_address_card": "Muss eine gültige Adresskarte sein",
+    "subtitle_bank_statement": "Muss in den letzten 3 Monaten ausgestellt worden sein",
+    "subtitle_benefits_letter": "Muss in den letzten 12 Monaten ausgestellt worden sein",
+    "subtitle_bill": "Muss in den letzten 3 Monaten ausgestellt worden sein",
+    "subtitle_dynamic_empty_grace_period": "Muss ein gültiges Dokument sein",
+    "subtitle_dynamic_grace_period": "Es muss in den letzten <graceperiod></graceperiod> Monaten ausgestellt worden sein",
+    "subtitle_tax_letter": "Muss in den letzten 12 Monaten ausgestellt worden sein"
+  },
+  "poa_intro": {
+    "button_primary": "Bestätigung beginnen",
+    "list_matches_signup": "Der von Ihnen bei der Registrierung verwendeten Adresse entspricht",
+    "list_most_recent": "Ihr aktuellstes Dokument ist",
+    "list_shows_address": "Ihre aktuelle Adresse zeigt",
+    "subtitle": "Sie brauchen ein Dokument, das:",
+    "title": "Bestätigen wir nun Ihre Adresse"
+  },
+  "poa_welcome_text": "Machen Sie ein Foto von einem Dokument mit Ihrer Adresse",
+  "profile_data": {
+    "address_title": "Fügen Sie Ihre Adresse hinzu",
+    "button_continue": "Weiter",
+    "components": {
+      "country_residence_select": {
+        "placeholder": "Wählen Sie ein Land aus"
+      },
+      "country_select": {
+        "placeholder": "Wählen Sie ein Land aus"
+      },
+      "id_type_select": {
+        "aus_specific": {
+          "other": "Ausländischer Pass"
+        },
+        "bra_specific": {
+          "other": "CNPJ",
+          "tax_id": "CPF"
+        },
+        "driving_license": "Führerschein",
+        "esp_specific": {
+          "identity_card": "NIF/DNI"
+        },
+        "gha_specific": {
+          "social_insurance": "SSNIT"
+        },
+        "identity_card": "Nationaler Personalausweis",
+        "ind_specific": {
+          "tax_id": "Persönliche Kontonummer (PAN)"
+        },
+        "ken_specific": {
+          "other": "Alien-Karte"
+        },
+        "nga_specific": {
+          "identity_card": "Nationale Identifikationsnummer (NIN)",
+          "other": "BVN",
+          "tax_id": "TIN"
+        },
+        "other": "NIE",
+        "passport": "Reisepass",
+        "placeholder": "Wählen Sie einen nationalen ID-Typ aus",
+        "tax_id": "Steuer ID",
+        "voter_id": "Wähler-ID"
+      },
+      "nationality_select": {
+        "placeholder": "Wählen Sie ein Land aus"
+      },
+      "pan": {
+        "placeholder": "ABCDE1234F"
+      },
+      "ssn": {
+        "placeholder": "123-45-6789"
+      },
+      "state_select": {
+        "placeholder": "Wählen Sie ein Bundesland aus"
+      }
+    },
+    "country_of_residence_title": "Ihr Wohnsitzland",
+    "field_labels": {
+      "arg_specific": {
+        "national_id_value": "DNI-Nummer"
+      },
+      "can_specific": {
+        "national_id_value": "Sozialversicherungsnummer (SIN)"
+      },
+      "chl_specific": {
+        "national_id_value": "RUT / RUN-Nummern"
+      },
+      "chn_specific": {
+        "national_id_value": "Einwohnernummer Nationaler Personalausweis"
+      },
+      "col_specific": {
+        "national_id_value": "Kolumbianische persönliche Identifikationsnummer"
+      },
+      "country": "Land",
+      "country_residence": "Land",
+      "dnk_specific": {
+        "national_id_value": "CPR-Nummer"
+      },
+      "dob": "Geburtsdatum",
+      "email": "E-Mail-Adresse",
+      "fin_specific": {
+        "national_id_value": "Persönlicher Identitätscode"
+      },
+      "first_name": "Vorname",
+      "gbr_specific": {
+        "postcode": "Postleitzahl",
+        "town": "Stadt"
+      },
+      "hkg_specific": {
+        "national_id_value": "HKID"
+      },
+      "ind_specific": {
+        "pan": "Permanente Account-Nummer (PAN)"
+      },
+      "ita_specific": {
+        "national_id_value": "Abgabenordnung"
+      },
+      "jpn_specific": {
+        "national_id_value": "\"Meine Nummer\" / Resident Record Code"
+      },
+      "last_name": "Nachname",
+      "line1": "Adresszeile 1",
+      "line2": "Adresszeile 2",
+      "line3": "Adresszeile 3",
+      "lux_specific": {
+        "national_id_value": "Sozialversicherungsnummer"
+      },
+      "mobile_number": "Mobiltelefonnummer",
+      "national_id_type": "Nationaler ID-Typ",
+      "national_id_value": "Nationale ID-Nummer",
+      "nationality": "Nationalität",
+      "phl_specific": {
+        "national_id_value": "PhilSys-Kartennummer (PCN)"
+      },
+      "phone_number": "Telefonnummer",
+      "pol_specific": {
+        "national_id_value": "PESEL-Nummer"
+      },
+      "postcode": "Postleitzahl",
+      "prt_specific": {
+        "national_id_value": "Steuernummer"
+      },
+      "town": "Stadt",
+      "tur_specific": {
+        "national_id_value": "Türkische Identifikationsnummer"
+      },
+      "usa_specific": {
+        "line1_helper_text": "Straßenname, zum Beispiel: Abertstraße 200",
+        "line2_helper_text": "Wohnung, Suite, Einheit, etc.",
+        "postcode": "Zip code",
+        "ssn": "Sozialversicherungsnummer (SVN)",
+        "state": "Staat"
+      }
+    },
+    "field_optional": "(optional)",
+    "field_validation": {
+      "arg_specific": {
+        "invalid_national_id_value": "Bitte geben Sie eine gültige DNI ein"
+      },
+      "bra_specific": {
+        "invalid_other": "Bitte geben Sie eine gültige ein CNPJ",
+        "invalid_tax_id": "Bitte geben Sie eine gültige ein CPF",
+        "required_other": "Bitte geben Sie Ihre CNPJ ein",
+        "required_tax_id": "Bitte geben Sie Ihren CPF ein"
+      },
+      "can_specific": {
+        "invalid_national_id_value": "Bitte geben Sie eine gültige ein SIN",
+        "required_national_id_value": "Bitte geben Sie Ihre SIN ein"
+      },
+      "chl_specific": {
+        "invalid_national_id_value": "Bitte geben Sie eine gültige RUT/RUN-Nummer ein",
+        "required_national_id_value": "Bitte geben Sie Ihre RUT / RUN-Nummern ein"
+      },
+      "chn_specific": {
+        "invalid_national_id_value": "Bitte geben Sie eine gültige Einwohnerausweisnummer ein",
+        "required_national_id_value": "Bitte geben Sie Ihre Personalausweisnummer ein"
+      },
+      "col_specific": {
+        "invalid_national_id_value": "Bitte geben Sie eine gültige kolumbianische Personenidentifikationsnummer ein",
+        "required_national_id_value": "Bitte geben Sie Ihre kolumbianische Personenidentifikationsnummer ein"
+      },
+      "dnk_specific": {
+        "invalid_national_id_value": "Bitte geben Sie eine gültige CPR-Nummer ein",
+        "required_national_id_value": "Bitte geben Sie Ihre CPR-Nummer ein"
+      },
+      "esp_specific": {
+        "invalid_identity_card": "Bitte geben Sie eine gültige ein NIF/DNI",
+        "invalid_other": "Bitte geben Sie eine gültige ein NIE",
+        "required_identity_card": "Bitte geben Sie Ihre NIF/DNI ein"
+      },
+      "fin_specific": {
+        "invalid_national_id_value": "Bitte geben Sie einen gültigen persönlichen Identitätscode ein",
+        "required_national_id_value": "Bitte geben Sie Ihren persönlichen Identitätscode ein"
+      },
+      "gbr_specific": {
+        "invalid_postcode": "Bitte geben Sie eine gültige Postleitzahl ein",
+        "required_postcode": "Bitte geben Sie Ihre Postleitzahl ein",
+        "too_long_postcode": "Die Postleitzahl ist zu lang",
+        "too_short_postcode": "Die Postleitzahl ist zu kurz"
+      },
+      "gha_specific": {
+        "invalid_social_insurance": "Bitte geben Sie eine gültige SSNIT ein",
+        "required_social_insurance": "Bitte geben Sie Ihre SSNIT ein"
+      },
+      "hkg_specific": {
+        "invalid_national_id_value": "Bitte geben Sie eine gültige HKID ein",
+        "required_national_id_value": "Bitte geben Sie Ihre HKID ein"
+      },
+      "ind_specific": {
+        "invalid_pan": "Bitte geben Sie eine gültige PAN ein",
+        "required_pan": "Bitte geben Sie Ihre PAN ein"
+      },
+      "invalid": "Bitte auf ungültige Zeichen oder Symbole überprüfen",
+      "invalid_dob": "Bitte geben Sie ein gültiges Geburtsdatum ein",
+      "invalid_driving_license": "Bitte geben Sie eine gültige Führerscheinnummer ein",
+      "invalid_email": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+      "invalid_mobile_number": "Bitte geben Sie eine gültige Mobiltelefonnummer ein",
+      "invalid_national_id_value": "Bitte geben Sie eine gültige nationale Ausweisnummer ein",
+      "invalid_passport": "Bitte geben Sie eine gültige Passnummer ein",
+      "invalid_phone_number": "Bitte geben Sie eine gültige Telefonnummer ein",
+      "invalid_voter_id": "Bitte geben Sie eine gültige Wähler-ID-Nummer ein",
+      "ita_specific": {
+        "invalid_national_id_value": "Bitte geben Sie eine gültige Steuernummer ein",
+        "required_national_id_value": "Bitte geben Sie Ihre Steuernummer ein"
+      },
+      "jpn_specific": {
+        "invalid_national_id_value": "Bitte geben Sie einen gültigen \"Meine Nummer\" / Bewohnerdatensatz-Code ein",
+        "required_national_id_value": "Bitte geben Sie Ihren \"Meine Nummer\" / Einwohnermeldeamtscode ein"
+      },
+      "ken_specific": {
+        "invalid_other": "Bitte geben Sie eine gültige Alien Card Nummer ein",
+        "required_other": "Bitte geben Sie Ihre Alien Card Nummer ein"
+      },
+      "lux_specific": {
+        "invalid_national_id_value": "Bitte geben Sie eine gültige Sozialversicherungsnummer ein",
+        "required_national_id_value": "Bitte geben Sie Ihre Sozialversicherungsnummer ein"
+      },
+      "mex_specific": {
+        "invalid_identity_card": "Bitte geben Sie eine gültige ein CURP",
+        "invalid_tax_id": "Bitte geben Sie eine gültige ein RFC",
+        "required_identity_card": "Bitte geben Sie Ihre CURP ein",
+        "required_tax_id": "Bitte geben Sie Ihren RFC ein"
+      },
+      "mys_specific": {
+        "invalid_national_id_value": "Bitte geben Sie eine gültige NRIC ein",
+        "required_national_id_value": "Bitte geben Sie Ihre NRIC ein"
+      },
+      "nga_specific": {
+        "invalid_identity_card": "Bitte geben Sie eine gültige nationale Identifikationsnummer (NIN) ein",
+        "invalid_other": "Bitte geben Sie eine gültige BVN ein",
+        "invalid_tax_id": "Bitte geben Sie eine gültige TIN ein",
+        "required_identity_card": "Bitte geben Sie Ihre nationale Identifikationsnummer (NIN) ein",
+        "required_other": "Bitte geben Sie Ihre BVN ein",
+        "required_tax_id": "Bitte geben Sie Ihre TIN ein"
+      },
+      "phl_specific": {
+        "invalid_national_id_value": "Bitte geben Sie eine gültige PhilSys Card Number (PCN) ein",
+        "required_national_id_value": "Bitte geben Sie Ihre PhilSys Card Number (PCN) ein"
+      },
+      "pol_specific": {
+        "invalid_national_id_value": "Bitte geben Sie eine gültige PESEL-Nummer ein",
+        "required_national_id_value": "Bitte geben Sie Ihre PESEL-Nummer ein"
+      },
+      "prt_specific": {
+        "invalid_national_id_value": "Bitte geben Sie eine gültige Steuernummer ein",
+        "required_national_id_value": "Bitte geben Sie Ihre Steuernummer ein"
+      },
+      "reference": {
+        "translation": "Bitte geben Sie eine gültige ein"
+      },
+      "required_consent": "Bitte stimmen Sie der Identitäts- und Betrugsprüfung zu",
+      "required_country": "Bitte wählen Sie ein Land aus",
+      "required_country_residence": "Bitte wählen Sie ein Land aus",
+      "required_dob": "Bitte geben Sie Ihr Geburtsdatum ein",
+      "required_email": "Bitte geben Sie Ihre E-Mail-Adresse ein",
+      "required_first_name": "Bitte geben Sie Ihren Vornamen ein",
+      "required_last_name": "Bitte geben Sie Ihren Nachnamen ein",
+      "required_line1": "Bitte geben Sie Ihre Adresse ein",
+      "required_mobile_number": "Bitte geben Sie Ihre Mobiltelefonnummer ein",
+      "required_national_driving_license": "Bitte geben Sie Ihre Führerscheinnummer ein",
+      "required_national_id_type": "Bitte wählen Sie Ihren National ID-Typ aus",
+      "required_national_id_value": "Bitte geben Sie Ihre nationale ID-Nummer ein",
+      "required_national_passport": "Bitte geben Sie Ihre Passnummer ein",
+      "required_national_voter_id": "Bitte geben Sie Ihre Wähler-ID-Nummer ein",
+      "required_nationality": "Bitte wählen Sie ein Land aus",
+      "required_phone_number": "Bitte geben Sie Ihre Telefonnummer ein",
+      "required_postcode": "Bitte geben Sie Ihre Postleitzahl ein",
+      "sgp_specific": {
+        "invalid_national_id_value": "Bitte geben Sie eine gültige ein NRIC",
+        "required_national_id_value": "Bitte geben Sie Ihre NRIC ein"
+      },
+      "swe_specific": {
+        "invalid_national_id_value": "Bitte geben Sie eine gültige ein PIN",
+        "required_national_id_value": "Bitte geben Sie Ihre PIN ein"
+      },
+      "too_long_first_name": "Der Vorname ist zu lang",
+      "too_long_last_name": "Der Nachname ist zu lang",
+      "too_long_line1": "Die Adresszeile ist zu lang",
+      "too_long_postcode": "Die Postleitzahl ist zu lang",
+      "too_long_town": "Die Stadt ist zu lang",
+      "too_short_first_name": "Der Vorname ist zu kurz",
+      "too_short_last_name": "Der Nachname ist zu kurz",
+      "too_short_postcode": "Die Postleitzahl ist zu kurz",
+      "tur_specific": {
+        "invalid_national_id_value": "Bitte geben Sie eine gültige türkische Ausweisnummer ein",
+        "required_national_id_value": "Bitte geben Sie Ihre türkische ID-Nummer ein"
+      },
+      "usa_specific": {
+        "invalid_ssn": "Bitte geben Sie eine gültige SVN ein",
+        "required_ssn": "Bitte geben Sie Ihre SVN ein",
+        "required_state": "Bitte wählen Sie einen Staat aus"
+      }
+    },
+    "national_id_number_title": "Fügen Sie Ihre nationale ID-Nummer hinzu",
+    "personal_information_title": "Fügen Sie Ihre persönlichen Informationen hinzu",
+    "prompt": {
+      "details_timeout": "Erneut starten",
+      "header_timeout": "Sieht aus, als hätten Sie zu lange gebraucht"
+    }
+  },
+  "qes": {
+    "consent": {
+      "common": {
+        "steps": "Erstellen Sie Ihre Unterschrift"
+      },
+      "confirmation": {
+        "bullet_1": "Nach dem Lesen Ihres Dokuments, tippen Sie auf die Schaltfläche \"Dokument unterschreiben\".",
+        "bullet_2": "Sobald Onfido Ihre Identität verifiziert hat, wird Ihre Unterschrift auf diesem Dokument verwendet.",
+        "button_next_step": "Dokument unterschreiben",
+        "review_document": "Überprüfen Sie <fallback>Ihr Dokument</fallback> zum Unterschreiben",
+        "step2": "2 von 2",
+        "steps": "Unterschreiben Sie Ihr Dokument",
+        "subtitle": "Um Ihre Identität gemäß den europäischen Regeln zu bestätigen, müssen Sie ein Dokument digital signieren.",
+        "title": "Erstellen und verwenden Sie Ihre digitale Signatur"
+      },
+      "introduction": {
+        "button_confirmation_step": "Erstelle meine Unterschrift",
+        "certificate_application_form": "Antragsformular für Zertifikate",
+        "privacy_notice": "Datenschutzhinweis",
+        "step1": "1 von 2",
+        "subtitle": "Um Ihre Identität gemäß den europäischen Regeln zu bestätigen, müssen Sie ein Dokument digital signieren.",
+        "terms_and_conditions": "Allgemeine Geschäftsbedingungen",
+        "third_party_description": "<fallback>Namirial SpA</fallback> ist ein vertrauenswürdiger globaler Anbieter, der ein Zertifikat zur Validierung Ihrer elektronischen Signatur ausstellt.",
+        "title": "Erstellen und verwenden Sie Ihre digitale Signatur"
+      }
+    }
+  },
+  "qes_consent": {
+    "button": "Erstellen Sie meine Unterschrift",
+    "link_certificate": "Antragsformular für Zertifikate",
+    "link_privacy_notice": "Datenschutzhinweis",
+    "link_terms_and_conditions": "Allgemeine Geschäftsbedingungen",
+    "namirial_intro": "Namirial SpA ist ein vertrauenswürdiger globaler Anbieter, der ein Zertifikat zur Validierung Ihrer elektronischen Unterschrift ausstellt.",
+    "subtitle": "Um Ihre Identität gemäß den europäischen Regeln zu bestätigen, müssen Sie ein Dokument digital signieren.",
+    "title": "Erstellen und verwenden Sie Ihre digitale Signatur"
+  },
+  "qes_sign": {
+    "button": "Dokument unterschreiben",
+    "link_document": "Überprüfen Sie Ihr Dokument zum Unterschreiben",
+    "list_item_1": "Nachdem Sie Ihr Dokument gelesen haben, tippen Sie auf die Schaltfläche \"Dokument unterschreiben\".",
+    "list_item_2": "Sobald Onfido Ihre Identität verifiziert hat, wird Ihre Unterschrift auf diesem Dokument verwendet.",
+    "step_title": "Unterschreiben Sie Ihr Dokument",
+    "subtitle": "Um Ihre Identität gemäß den europäischen Regeln zu bestätigen, müssen Sie ein Dokument digital signieren.",
+    "title": "Erstellen und verwenden Sie Ihre digitale Signatur"
+  },
+  "retry": {
+    "button": {
+      "generic_selfie_issue": "Versuchen Sie es erneut."
+    },
+    "description": {
+      "default": "Bitte versuchen Sie es erneut",
+      "expired_document": "Versuchen Sie es mit einem gültigen Lichtbildausweis erneut und stellen Sie sicher, dass die Angaben zu Ihrer Person gut sichtbar sind",
+      "generic_document_issue": "Versuchen Sie es mit einem gültigen Lichtbildausweis erneut und stellen Sie sicher, dass die Angaben zu Ihrer Person gut sichtbar sind",
+      "generic_selfie_issue": "Versuchen Sie es erneut und stellen Sie sicher, dass Ihr Gesicht sichtbar und gut beleuchtet ist",
+      "unaccepted_document": "Versuchen Sie es mit einem gültigen Lichtbildausweis erneut und stellen Sie sicher, dass die Angaben zu Ihrer Person gut sichtbar sind"
+    },
+    "headline": {
+      "default": "Es gab ein Problem",
+      "expired_document": "Ihr Ausweis ist ungültig",
+      "generic_document_issue": "Es gab ein Problem mit Ihrem Dokument",
+      "generic_selfie_issue": "Es gab ein Problem mit Ihrem Selfie",
+      "unaccepted_document": "Ausweis wird nicht akzeptiert"
+    }
+  },
+  "retry_feedback": {
+    "button_primary": "Versuchen Sie es erneut."
+  },
+  "retry_feedback_id_expired": {
+    "subtitle": "Versuchen Sie es mit einem gültigen Lichtbildausweis erneut und stellen Sie sicher, dass die Angaben zu Ihrer Person gut sichtbar sind",
+    "title": "Ihr Ausweis ist ungültig"
+  },
+  "retry_feedback_id_generic": {
+    "subtitle": "Versuchen Sie es mit einem gültigen Lichtbildausweis erneut und stellen Sie sicher, dass die Angaben zu Ihrer Person gut sichtbar sind",
+    "title": "Es gab ein Problem mit Ihrem Ausweis"
+  },
+  "retry_feedback_id_unaccepted": {
+    "subtitle": "Versuchen Sie es mit einem gültigen Lichtbildausweis erneut und stellen Sie sicher, dass die Angaben zu Ihrer Person gut sichtbar sind",
+    "title": "Ausweis wird nicht akzeptiert"
+  },
+  "retry_feedback_selfie_generic": {
+    "subtitle": "Versuchen Sie es erneut und stellen Sie sicher, dass Ihr Gesicht sichtbar und gut beleuchtet ist",
+    "title": "Es gab ein Problem mit Ihrem Selfie"
+  },
+  "selfie_capture": {
+    "alert": {
+      "camera_inactive": {
+        "detail": "Überprüfen Sie, ob die Kamera verbunden und funktionsfähig ist. Sie können <fallback>die Überprüfung auch auf Ihrem Telefon fortsetzen.</fallback>",
+        "detail_no_fallback": "Stellen Sie sicher, dass Ihr Gerät über eine funktionierende Kamera verfügt",
+        "title": "Kamera funktioniert nicht?"
+      },
+      "camera_not_working": {
+        "detail": "Die Verbindung kann unterbrochen werden. <fallback>Versuchen Sie stattdessen, Ihr Telefon zu benutzen</fallback>.",
+        "detail_no_fallback": "Stellen Sie sicher, dass die Kamera Ihres Geräts funktioniert",
+        "title": "Kamera funktioniert nicht"
+      },
+      "timeout": {
+        "detail": "Denken Sie daran, die Taste zu drücken, wenn Sie fertig sind. <fallback>Video-Aktionen wiederholen</fallback>.",
+        "title": "Sieht aus, als hätten Sie zu lange gebraucht"
+      }
+    },
+    "body": "Positionieren Sie Ihr Gesicht im angezeigten Oval",
+    "button_accessibility": "Ein Foto machen",
+    "button_primary": "Starten Sie mit dem Scannen des Gesichts",
+    "frame_accessibility": "Ansicht von der Kamera",
+    "title": "Positionieren Sie Ihr Gesicht im angezeigten Oval"
+  },
+  "selfie_confirmation": {
+    "image_accessibility": "Foto von Ihrem Gesicht",
+    "subtitle": "Stellen Sie sicher, dass Ihr Selfie Ihr Gesicht deutlich zeigt",
+    "title": "Selfie prüfen"
+  },
+  "selfie_intro": {
+    "banner_nudity_message": "Ihr Gesicht und Ihr Hintergrund werden bei diesem Vorgang aufgenommen",
+    "button_primary": "Fortfahren",
+    "list_accessibility": "Tipps für ein gutes Selfie",
+    "list_item_face_forward": "Schauen Sie nach vorne und stellen Sie sicher, dass Ihre Augen deutlich sichtbar sind",
+    "list_item_no_face_cover": "Entfernen Sie alles, was Ihr Gesicht verdeckt. Brillen sind zulässig",
+    "list_item_no_glasses": "Nehmen Sie Ihre Brille ab, falls erforderlich",
+    "subtitle": "Wir werden dies mit Ihrem Dokument vergleichen",
+    "title": "Ein Selfie aufnehmen"
+  },
+  "sms_sent": {
+    "info": "Tipps",
+    "info_link_expire": "Ihr Link läuft in einer Stunde ab",
+    "info_link_window": "Lassen Sie dieses Fenster geöffnet, während Sie Ihr Mobiltelefon bedienen",
+    "link": "Versuchen Sie eine andere Methode",
+    "subtitle": "Wir haben einen sicheren Link an <number></number> gesendet",
+    "subtitle_minutes": "Dieser Vorgang kann einige Minuten dauern",
+    "title": "Überprüfen Sie Ihr Mobiltelefon"
+  },
+  "switch_phone": {
+    "info": "Tipps",
+    "info_link_expire": "Ihr mobiler Link läuft in einer Stunde ab",
+    "info_link_refresh": "Diese Seite nicht aktualisieren",
+    "info_link_window": "Lassen Sie dieses Fenster geöffnet, während Sie Ihr Mobiltelefon bedienen",
+    "link": "Abbrechen",
+    "subtitle": "Wenn Sie fertig sind, gelangen Sie zum nächsten Schritt",
+    "title": "Mit Ihrem Mobiltelefon verbunden"
+  },
+  "upload_guide": {
+    "button_primary": "Fortfahren",
+    "image_detail_blur_alt": "Beispiel eines verschwommenen Dokuments",
+    "image_detail_blur_label": "Alle Details müssen klar sein - nichts verschwommen",
+    "image_detail_cutoff_label": "Alle Details anzeigen - einschließlich der unteren 2 Zeilen",
+    "image_detail_glare_label": "Entfernen Sie sich von direktem Licht - keine Blendung",
+    "image_detail_good_label": "Das Foto sollte Ihr Dokument deutlich zeigen",
+    "subtitle": "Scans und Fotokopien werden nicht akzeptiert",
+    "title": "Seite mit Passfoto einreichen"
+  },
+  "user_consent": {
+    "button_primary": "Akzeptieren",
+    "button_secondary": "Nicht akzeptieren",
+    "prompt": {
+      "button_primary": "Erneut überprüfen",
+      "button_secondary": "Ja, verifizieren Sie mich nicht",
+      "no_consent_detail": "Wenn Sie die Datenschutzerklärungen und Nutzungsbedingungen von Onfido nicht akzeptieren, können wir Ihre Identität nicht überprüfen und Sie werden diesen Schritt beenden.",
+      "no_consent_title": "Bist du sicher?"
+    }
+  },
+  "user_consent_load_fail": {
+    "button_primary": "Bildschirm neu laden",
+    "detail": "Prüfen Sie, ob Ihre Internetverbindung stabil ist, und versuchen Sie es dann erneut",
+    "title": "Inhalt konnte nicht geladen werden"
+  },
+  "video_capture": {
+    "body": "Positionieren Sie Ihr Gesicht im angezeigten Oval",
+    "body_record": "Drücken Sie die Taste, wenn Sie bereit sind",
+    "body_stop": "Drücken Sie \"Stopp\", wenn Sie fertig sind",
+    "button_primary_finish": "Aufnahme beenden",
+    "button_primary_next": "Nächster Schritt",
+    "button_primary_start": "Aufnahme starten",
+    "button_record_accessibility": "Aufnahme starten",
+    "frame_accessibility": "Ansicht von der Kamera",
+    "header": {
+      "challenge_digit_instructions": "Sprechen Sie jede Ziffer laut aus",
+      "challenge_turn_forward": "dann nach vorne schauen",
+      "challenge_turn_left": "Kopf nach links drehen",
+      "challenge_turn_right": "Kopf nach rechts drehen"
+    },
+    "prompt": {
+      "header_timeout": "Sieht aus, als hätten Sie zu lange gebraucht"
+    }
+  },
+  "video_confirmation": {
+    "body": "Ihr Video wurde aufgezeichnet",
+    "button_primary": "Video senden",
+    "button_secondary": "Video erneut aufnehmen",
+    "title": "Selfie-Video prüfen",
+    "video_accessibility": "Wiedergeben Ihres aufgezeichneten Videos"
+  },
+  "video_intro": {
+    "button_pause_accessibility": "Video anhalten",
+    "button_play_accessibility": "Video abspielen",
+    "button_primary": "Fortfahren",
+    "list_accessibility": "Aktionen zum Aufzeichnen eines Selfie-Videos",
+    "list_item_actions": "Beenden Sie Aktionen in weniger als 20 Sekunden",
+    "list_item_speak": "Befolgen Sie die Anweisungen zur Bewegung oder zum Sprechen",
+    "title": "Selfie-Video aufnehmen",
+    "video_accessibility": "Beispielvideo von jemandem, der ein Selfie-Video aufnimmt. Um ein Selfie-Video aufzunehmen, richten Sie Ihr Gesicht zur Vorderkamera und halten Sie Ihr Smartphone etwas vom Gesicht entfernt. Anschließend müssen Sie einige Zahlen aufsagen und Ihren Kopf entsprechend den Anweisungen auf dem Bildschirm drehen."
+  },
+  "welcome": {
+    "doc_video_subtitle": "Es dauert nur wenige Minuten",
+    "info_original_document": "Machen Sie ein Foto von Ihrem Originaldokument. Scans, Fotos von Bildschirmen oder Fotokopien sind nicht zulässig.",
+    "list_header": "Benutzen Sie Ihr Gerät:",
+    "list_header_doc_video": "Nutzen Sie Ihr Gerät um Folgendes aufzunehmen:",
+    "list_header_webcam": "Verwenden Sie Ihre Webcam oder Ihr Telefon zum Fotografieren:",
+    "list_item_doc": "Ihr Ausweisdokument",
+    "list_item_doc_generic": "Nehmen Sie ein Video von Ihrem Identitätsdokument auf",
+    "list_item_doc_photo": "Machen Sie ein Foto von Ihrem Ausweisdokument",
+    "list_item_doc_video": "Nehmen Sie ein Video von Ihrem Ausweisdokument auf",
+    "list_item_doc_video_timeout": "Die Aufnahme ist auf <timeout></timeout> Sekunden beschränkt",
+    "list_item_face_photo": "Machen Sie ein Foto von Ihrem Gesicht",
+    "list_item_face_video": "Nehmen Sie ein Video von Ihrem Gesicht auf",
+    "list_item_poa": "Ihr Adressnachweis",
+    "list_item_selfie": "Ihr Gesicht",
+    "next_button": "Dokument auswählen",
+    "start_workflow_button": "Verifizierung beginnen",
+    "start_workflow_button_trial": "Verifizierung beginnen (TEST)",
+    "subtitle": "Es dauert nur wenige Minuten",
+    "title": "Identität überprüfen",
+    "trial_message": "Geben Sie hier keine personenbezogenen Daten weiter, es sei denn, Sie nehmen an einer Onfido-Studie teil."
+  },
+  "workflow_complete": {
+    "pass": {
+      "description": "Wir haben Ihre Identität überprüft",
+      "title": "Bestanden"
+    },
+    "reject": {
+      "description": "Wir waren nicht in der Lage, Ihre Identität zu überprüfen.",
+      "title": "Abgelehnt"
+    }
+  },
+  "workflow_erros": {
+    "generic_title": "Es gab einen Serverfehler!",
+    "no_workflow_run_id": "Die ID des Workflow-Laufs ist nicht festgelegt.",
+    "reload_app": "Versuchen Sie bitte, die App neu zu laden, und versuchen Sie es erneut.",
+    "task_not_completed": "Es war nicht möglich, die Workflow-Aufgabe abzuschließen.",
+    "task_not_retrieved": "Es war nicht möglich, die Workflow-Aufgabe abzurufen.",
+    "task_not_supported": "Aufgabe wird derzeit nicht unterstützt"
+  }
 }

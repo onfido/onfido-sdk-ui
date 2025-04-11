@@ -1,23 +1,19 @@
-const getToken = async () => {
-  const response = await fetch('https://token-factory.onfido.com/sdk_token');
-  if (!response.ok) {
-    throw new Error('Failed to get sdk token');
+var url = 'https://token-factory.onfido.com/sdk_token'
+var request = new XMLHttpRequest()
+request.open('GET', url, true)
+request.onload = function () {
+  if (request.status >= 200 && request.status < 400) {
+    var data = JSON.parse(request.responseText)
+
+    Onfido.init({
+      useModal: false,
+      token: data.message,
+      onComplete: function (data) {
+        // callback for when everything is complete
+        console.log('everything is complete')
+      },
+      steps: ['welcome', 'document', 'face', 'complete'],
+    })
   }
-
-  return (await response.json()).message;
 }
-
-async function bootstrapSdk() {
-
-  Onfido.init({
-    useModal: false,
-    token: await getToken(),
-    onComplete: (data) => {
-      console.log('completed', data);
-    },
-    onError: console.error,
-    steps: ['welcome', 'document', 'face', 'complete'],
-  });
-}
-
-bootstrapSdk().catch(console.error);
+request.send()
