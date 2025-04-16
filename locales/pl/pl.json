@@ -305,7 +305,8 @@
             "title_poa": "Wybierz dokument"
         },
         "doc_submit": {
-            "button_link_upload": "lub prześlij zdjęcie — bez skanów i kserokopii",
+            "banner": "Nie akceptujemy skanów ani kserokopii.",
+            "button_link_upload": "Prześlij zdjęcie",
             "button_primary": "Kontynuuj na telefonie",
             "subtitle": "Zrób zdjęcie telefonem",
             "title_accommodation_tenancy_certificate": "Złóż Certyfikat Zakwaterowania lub Najmu",
@@ -415,6 +416,10 @@
                 "lazy_loading": {
                     "message": "Wystąpił błąd podczas ładowania komponentu"
                 },
+                "low_resolution": {
+                    "instruction": "Proszę użyć obrazu o wyższej rozdzielczości.",
+                    "message": "Twój obraz jest zbyt mały"
+                },
                 "multiple_faces": {
                     "instruction": "Na zdjęciu powinna być tylko Twoja twarz",
                     "message": "Znaleziono wiele twarzy"
@@ -422,6 +427,10 @@
                 "no_camera": {
                     "subtitle": "Nie możemy wykryć kamery na tym urządzeniu. Upewnij się, że kamera jest podłączona i udzielono wymaganych uprawnień.",
                     "title": "Aparat nie został znaleziony"
+                },
+                "no_doc": {
+                    "instruction": "Proszę przesłać obraz zawierający Twój dokument tożsamości.",
+                    "message": "Brak dokumentu na Twoim zdjęciu"
                 },
                 "no_face": {
                     "instruction": "Upewnij się, że twoja twarz jest widoczna",
@@ -434,6 +443,10 @@
                 "restart_cross-device": {
                     "subtitle": "Będziesz musiał zrestartować swoją weryfikację na komputerze. Proszę wróć do ekranu weryfikacji i spróbuj ponownie.",
                     "title": "Coś poszło nie tak"
+                },
+                "small_doc": {
+                    "instruction": "Upewnij się, że twój dokument wypełnia obraz. Cały tekst powinien być wyraźnie czytelny.",
+                    "message": "Twój dokument tożsamości jest zbyt mały"
                 },
                 "sms_failed": {
                     "instruction": "Skopiuj link do telefonu",

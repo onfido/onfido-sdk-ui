@@ -1,3 +1,26 @@
+# UI Customisation styling attributes v14.44.0
+
+- All subtitles have been changed to regular text. The following related styling attributes have been removed:
+
+  - `fontSizeSubtitle`
+  - `fontFamilySubtitle`
+  - `fontWeightSubtitle`
+  - `colorContentSubtitle`
+
+- ‘Link’ buttons have all been converted to proper buttons. The following related styling attributes have all been removed:
+
+  - `colorBackgroundLinkHover`
+  - `colorBackgroundLinkActive`
+  - `colorContentLinkTextHover`
+  - `colorBorderLinkUnderline`
+
+- InfoPill has been removed from the cross-device screens. The following related styling attributes have been removed:
+
+  - `colorBackgroundInfoPill`
+  - `colorContentInfoPill`
+
+- `colorBackgroundIcon` styling attributes also has been removed
+
 # Breaking Changes
 
 This documents the breaking changes between the Web SDK v13.7.0 and the Web SDK v14+.

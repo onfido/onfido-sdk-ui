@@ -305,7 +305,8 @@
             "title_poa": "Válasszon az alábbi dokumentumtípusok közül"
         },
         "doc_submit": {
-            "button_link_upload": "vagy töltsön fel egy nem szkennelt és nem fénymásolt fényképet",
+            "banner": "Szkennelés vagy fénymásolat nem fogadható el",
+            "button_link_upload": "Fénykép feltöltése",
             "button_primary": "Folytassa telefonján",
             "subtitle": "Készítsen egy fotót a telefonjával",
             "title_accommodation_tenancy_certificate": "Szállás vagy Bérleti Szerződés Beküldése",
@@ -415,6 +416,10 @@
                 "lazy_loading": {
                     "message": "Hiba történt a komponens betöltése közben"
                 },
+                "low_resolution": {
+                    "instruction": "Kérjük, használjon nagyobb felbontású képet.",
+                    "message": "A kép túl kicsi."
+                },
                 "multiple_faces": {
                     "instruction": "Csak az Ön arca lehet a szelfin",
                     "message": "Több arcot is észleltünk"
@@ -422,6 +427,10 @@
                 "no_camera": {
                     "subtitle": "Nem érzékelünk kamerát ezen az eszközön. Kérjük, győződjön meg róla, hogy a kamera csatlakoztatva van, és a szükséges engedélyek meg vannak adva.",
                     "title": "A kamera nem található"
+                },
+                "no_doc": {
+                    "instruction": "Kérjük, töltsön fel egy képet, amely tartalmazza az Ön személyazonosító okmányát.",
+                    "message": "Nincs dokumentum a képeden"
                 },
                 "no_face": {
                     "instruction": "Ügyeljen arra, hogy az arca látható legyen",
@@ -434,6 +443,10 @@
                 "restart_cross-device": {
                     "subtitle": "Újra el kell indítania a hitelesítést a számítógépén. Kérjük, térjen vissza a hitelesítési képernyőre, és próbálja meg újra.",
                     "title": "Valami hiba történt"
+                },
+                "small_doc": {
+                    "instruction": "Kérjük, győződjön meg róla, hogy a dokumentum kitölti a képet. Minden szövegnek jól olvashatónak kell lennie.",
+                    "message": "Az Ön személyazonosító okmánya túl kicsi"
                 },
                 "sms_failed": {
                     "instruction": "Másolja a hivatkozást a telefonjára",

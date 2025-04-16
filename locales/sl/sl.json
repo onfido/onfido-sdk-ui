@@ -305,7 +305,8 @@
             "title_poa": "Izberite dokument"
         },
         "doc_submit": {
-            "button_link_upload": "ali naložite fotografijo – brez skenov ali fotokopij",
+            "banner": "Skeni ali fotokopije niso sprejeti",
+            "button_link_upload": "Naloži fotografijo",
             "button_primary": "Nadaljuj po telefonu",
             "subtitle": "Fotografirajte s telefonom",
             "title_accommodation_tenancy_certificate": "Predložite Potrdilo o nastanitvi ali najemni pogodbi",
@@ -415,6 +416,10 @@
                 "lazy_loading": {
                     "message": "Pri nalaganju komponente je prišlo do napake"
                 },
+                "low_resolution": {
+                    "instruction": "Prosimo, uporabite sliko z višjo ločljivostjo.",
+                    "message": "Vaša slika je premajhna"
+                },
                 "multiple_faces": {
                     "instruction": "Na selfiju je lahko samo vaš obraz",
                     "message": "Najdenih je bilo več obrazov"
@@ -422,6 +427,10 @@
                 "no_camera": {
                     "subtitle": "Na tej napravi ne moremo zaznati kamere. Prosimo, preverite, ali je kamera povezana in ali so podeljena potrebna dovoljenja.",
                     "title": "Kamera ni najdena"
+                },
+                "no_doc": {
+                    "instruction": "Prosimo, naložite sliko, ki vsebuje vaš identifikacijski dokument.",
+                    "message": "V vaši sliki ni dokumenta"
                 },
                 "no_face": {
                     "instruction": "Poskrbite, da je vaš obraz viden",
@@ -434,6 +443,10 @@
                 "restart_cross-device": {
                     "subtitle": "Ponovno boste morali zagnati preverjanje na vašem računalniku. Prosimo, vrnite se na zaslon za preverjanje in poskusite znova.",
                     "title": "Nekaj je šlo narobe"
+                },
+                "small_doc": {
+                    "instruction": "Prosimo, zagotovite, da vaš dokument zapolni sliko. Vse besedilo mora biti jasno berljivo.",
+                    "message": "Vaš identifikacijski dokument je premajhen"
                 },
                 "sms_failed": {
                     "instruction": "Kopirajte povezavo v telefon",

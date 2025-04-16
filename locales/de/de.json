@@ -305,7 +305,8 @@
             "title_poa": "Wählen Sie ein Dokument"
         },
         "doc_submit": {
-            "button_link_upload": "oder Foto hochladen – keine Scans oder Kopien",
+            "banner": "Scans oder Fotokopien werden nicht akzeptiert",
+            "button_link_upload": "Foto hochladen",
             "button_primary": "Weiter am Mobiltelefon",
             "subtitle": "Machen Sie ein Foto mit Ihrem Mobiltelefon",
             "title_accommodation_tenancy_certificate": "Unterkunfts- oder Mietbescheinigung einreichen",
@@ -415,6 +416,10 @@
                 "lazy_loading": {
                     "message": "Beim Laden der Komponente ist ein Fehler aufgetreten"
                 },
+                "low_resolution": {
+                    "instruction": "Bitte verwenden Sie ein Bild mit höherer Auflösung.",
+                    "message": "Ihr Bild ist zu klein"
+                },
                 "multiple_faces": {
                     "instruction": "Nur Ihr Gesicht kann im Selfie zu sehen sein",
                     "message": "Mehrere Gesichter gefunden"
@@ -422,6 +427,10 @@
                 "no_camera": {
                     "subtitle": "Wir können keine Kamera auf diesem Gerät erkennen. Bitte stellen Sie sicher, dass eine Kamera angeschlossen ist und die erforderlichen Berechtigungen erteilt wurden.",
                     "title": "Kamera nicht gefunden"
+                },
+                "no_doc": {
+                    "instruction": "Bitte laden Sie ein Bild hoch, das Ihr Ausweisdokument enthält.",
+                    "message": "Kein Dokument in Ihrem Bild"
                 },
                 "no_face": {
                     "instruction": "Stellen Sie sicher, dass Ihr Gesicht sichtbar ist",
@@ -434,6 +443,10 @@
                 "restart_cross-device": {
                     "subtitle": "Sie müssen Ihre Überprüfung auf Ihrem Computer neu starten. Bitte gehen Sie zurück zum Überprüfungsbildschirm und versuchen Sie es erneut.",
                     "title": "Etwas ist schief gelaufen"
+                },
+                "small_doc": {
+                    "instruction": "Bitte stellen Sie sicher, dass Ihr Dokument das Bild ausfüllt. Alle Texte sollten klar lesbar sein.",
+                    "message": "Ihr Ausweisdokument ist zu klein"
                 },
                 "sms_failed": {
                     "instruction": "Kopieren Sie den Link auf Ihr Mobiltelefon",

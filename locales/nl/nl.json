@@ -305,7 +305,8 @@
             "title_poa": "Selecteer een document"
         },
         "doc_submit": {
-            "button_link_upload": "of upload een foto - geen scans of kopieën",
+            "banner": "Scans of fotokopieën worden niet geaccepteerd",
+            "button_link_upload": "Foto uploaden",
             "button_primary": "Ga door op telefoon",
             "subtitle": "Neem een foto met uw telefoon",
             "title_accommodation_tenancy_certificate": "Indienen Accommodatie of Huurcertificaat",
@@ -415,6 +416,10 @@
                 "lazy_loading": {
                     "message": "Er is een fout opgetreden bij het laden van dit deel"
                 },
+                "low_resolution": {
+                    "instruction": "Gebruik een afbeelding met een hogere resolutie.",
+                    "message": "Uw afbeelding is te klein"
+                },
                 "multiple_faces": {
                     "instruction": "Alleen uw gezicht mag zichtbaar zijn in de selfie",
                     "message": "Meerdere gezichten gevonden"
@@ -422,6 +427,10 @@
                 "no_camera": {
                     "subtitle": "We kunnen geen camera detecteren op dit apparaat. Zorg ervoor dat een camera is aangesloten en de vereiste toestemmingen zijn verleend.",
                     "title": "Camera niet gevonden"
+                },
+                "no_doc": {
+                    "instruction": "Upload een afbeelding met uw identiteitsdocument.",
+                    "message": "Geen document in uw afbeelding"
                 },
                 "no_face": {
                     "instruction": "Zorg dat uw gezicht zichtbaar is",
@@ -434,6 +443,10 @@
                 "restart_cross-device": {
                     "subtitle": "U moet uw verificatie op uw computer opnieuw opstarten. Ga alstublieft terug naar het verificatiescherm en probeer het opnieuw.",
                     "title": "Iets is misgegaan"
+                },
+                "small_doc": {
+                    "instruction": "Zorg ervoor dat uw document het beeld vult. Alle tekst moet duidelijk leesbaar zijn.",
+                    "message": "Uw identiteitsdocument is te klein"
                 },
                 "sms_failed": {
                     "instruction": "Kopieer de link naar uw telefoon",

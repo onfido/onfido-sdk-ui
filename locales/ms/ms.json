@@ -305,7 +305,8 @@
             "title_poa": "Pilih satu dokumen"
         },
         "doc_submit": {
-            "button_link_upload": "atau muat naik gambar – imbasan atau fotokopi tidak dibenarkan",
+            "banner": "Imbasan atau salinan foto tidak diterima",
+            "button_link_upload": "Muat naik foto",
             "button_primary": "Teruskan di telefon",
             "subtitle": "Ambil gambar dengan menggunakan telefon anda",
             "title_accommodation_tenancy_certificate": "Hantar Sijil Penginapan atau Penyewaan",
@@ -415,6 +416,10 @@
                 "lazy_loading": {
                     "message": "Ralat berlaku semasa memuatkan komponen"
                 },
+                "low_resolution": {
+                    "instruction": "Sila gunakan imej dengan resolusi yang lebih tinggi.",
+                    "message": "Imej anda terlalu kecil"
+                },
                 "multiple_faces": {
                     "instruction": "Hanya wajah anda sahaja yang boleh berada dalam swafoto",
                     "message": "Beberapa wajah ditemui"
@@ -422,6 +427,10 @@
                 "no_camera": {
                     "subtitle": "Kami tidak dapat mengesan kamera pada peranti ini. Sila pastikan kamera telah disambungkan dan kebenaran yang diperlukan telah diberikan.",
                     "title": "Kamera tidak ditemui"
+                },
+                "no_doc": {
+                    "instruction": "Sila muat naik imej yang mengandungi dokumen identiti anda.",
+                    "message": "Tiada dokumen dalam imej anda"
                 },
                 "no_face": {
                     "instruction": "Pastikan wajah anda kelihatan",
@@ -434,6 +443,10 @@
                 "restart_cross-device": {
                     "subtitle": "Anda perlu memulakan semula pengesahan anda pada komputer anda. Sila kembali ke skrin pengesahan dan cuba lagi.",
                     "title": "Sesuatu telah berlaku salah"
+                },
+                "small_doc": {
+                    "instruction": "Sila pastikan dokumen anda memenuhi imej. Semua teks harus jelas boleh dibaca.",
+                    "message": "Dokumen identiti anda terlalu kecil"
                 },
                 "sms_failed": {
                     "instruction": "Salin pautan ke telefon anda",

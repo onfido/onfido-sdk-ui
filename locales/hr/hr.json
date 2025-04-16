@@ -305,7 +305,8 @@
             "title_poa": "Odaberite dokument"
         },
         "doc_submit": {
-            "button_link_upload": "ili prenesite fotografiju – skenovi i fotokopije nisu dopušteni",
+            "banner": "Skenirane ili fotokopije se ne prihvaćaju",
+            "button_link_upload": "Učitaj fotografiju",
             "button_primary": "Nastavite na mobitelu",
             "subtitle": "Snimite fotografiju mobitelom",
             "title_accommodation_tenancy_certificate": "Predajte Potvrdu o smještaju ili najmu",
@@ -415,6 +416,10 @@
                 "lazy_loading": {
                     "message": "Došlo je do pogreške prilikom učitavanja komponente"
                 },
+                "low_resolution": {
+                    "instruction": "Molimo koristite sliku veće razlučivosti.",
+                    "message": "Vaša slika je premala"
+                },
                 "multiple_faces": {
                     "instruction": "Selfie smije sadržavati samo vaše lice",
                     "message": "Pronađeno je više lica"
@@ -422,6 +427,10 @@
                 "no_camera": {
                     "subtitle": "Nismo u mogućnosti detektirati kameru na ovom uređaju. Molimo vas da se pobrinite da je kamera povezana i da su dodijeljene potrebne dozvole.",
                     "title": "Kamera nije pronađena"
+                },
+                "no_doc": {
+                    "instruction": "Molimo vas da učitate sliku koja sadrži vaš identifikacijski dokument.",
+                    "message": "Nema dokumenta na vašoj slici"
                 },
                 "no_face": {
                     "instruction": "Pobrinite se da vam se vidi lice",
@@ -434,6 +443,10 @@
                 "restart_cross-device": {
                     "subtitle": "Trebate ponovno pokrenuti provjeru na svom računalu. Molimo vas, vratite se na zaslon za provjeru i pokušajte ponovno.",
                     "title": "Nešto je pošlo po zlu"
+                },
+                "small_doc": {
+                    "instruction": "Molimo vas da osigurate da vaš dokument ispunjava sliku. Sav tekst treba biti jasno čitljiv.",
+                    "message": "Vaš identifikacijski dokument je premalen"
                 },
                 "sms_failed": {
                     "instruction": "Kopirajte poveznicu na svoj mobitel",

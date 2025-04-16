@@ -305,7 +305,8 @@
             "title_poa": "Bir belge seçiniz"
         },
         "doc_submit": {
-            "button_link_upload": "veya fotoğraf yükleyin (tarama veya fotokopi kabul edilmez)",
+            "banner": "Taramalar veya fotokopiler kabul edilmez",
+            "button_link_upload": "Fotoğraf yükle",
             "button_primary": "Telefonda devam et",
             "subtitle": "Telefonunuzla fotoğraf çekin",
             "title_accommodation_tenancy_certificate": "Konaklama veya Kiracılık Sertifikası Gönderin",
@@ -415,6 +416,10 @@
                 "lazy_loading": {
                     "message": "Bileşen yüklenirken bir hata oluştu"
                 },
+                "low_resolution": {
+                    "instruction": "Lütfen daha yüksek çözünürlüklü bir görüntü kullanın.",
+                    "message": "Görüntünüz çok küçük"
+                },
                 "multiple_faces": {
                     "instruction": "Csak az Ön arca lehet a szelfin",
                     "message": "Birden fazla yüz bulundu"
@@ -422,6 +427,10 @@
                 "no_camera": {
                     "subtitle": "Bu cihazda bir kamera algılayamıyoruz. Lütfen bir kameranın bağlı olduğundan ve gerekli izinlerin verildiğinden emin olun.",
                     "title": "Kamera bulunamadı"
+                },
+                "no_doc": {
+                    "instruction": "Lütfen kimlik belgenizi içeren bir görüntü yükleyin.",
+                    "message": "Görüntünüzde belge yok"
                 },
                 "no_face": {
                     "instruction": "Yüzünüzün görünür olduğundan emin olun",
@@ -434,6 +443,10 @@
                 "restart_cross-device": {
                     "subtitle": "Bilgisayarınızda doğrulamanızı yeniden başlatmanız gerekecek. Lütfen doğrulama ekranına geri dönün ve tekrar deneyin.",
                     "title": "Bir şeyler yanlış gitti"
+                },
+                "small_doc": {
+                    "instruction": "Lütfen belgenizin görüntüyü doldurduğundan emin olun. Tüm metinler net bir şekilde okunabilir olmalıdır.",
+                    "message": "Kimlik belgeniz çok küçük"
                 },
                 "sms_failed": {
                     "instruction": "Bağlantıyı telefonunuza kopyalayın",

@@ -305,7 +305,8 @@
             "title_poa": "Choose a document"
         },
         "doc_submit": {
-            "button_link_upload": "or upload photo – no scans or photocopies",
+            "banner": "Scans or photocopies are not accepted",
+            "button_link_upload": "Upload photo",
             "button_primary": "Continue on phone",
             "subtitle": "Take a photo with your phone",
             "title_accommodation_tenancy_certificate": "Submit Accommodation or Tenancy Certificate",
@@ -415,6 +416,10 @@
                 "lazy_loading": {
                     "message": "An error occurred while loading the component"
                 },
+                "low_resolution": {
+                    "instruction": "Please use an image with a higher resolution.",
+                    "message": "Your image is too small"
+                },
                 "multiple_faces": {
                     "instruction": "Only your face can be in the selfie",
                     "message": "Multiple faces found"
@@ -422,6 +427,10 @@
                 "no_camera": {
                     "subtitle": "We are not able to detect a camera on this device. Please make sure a camera is connected and the required permissions are granted.",
                     "title": "Camera not found"
+                },
+                "no_doc": {
+                    "instruction": "Please upload an image containing your identity document.",
+                    "message": "No document in your image"
                 },
                 "no_face": {
                     "instruction": "Make sure your face is visible",
@@ -434,6 +443,10 @@
                 "restart_cross-device": {
                     "subtitle": "You'll need to restart your verification on your computer. Please go back to the verification screen and try again.",
                     "title": "Something’s gone wrong"
+                },
+                "small_doc": {
+                    "instruction": "Please ensure your document fills the image. All text should be clearly readable.",
+                    "message": "Your identity document is too small"
                 },
                 "sms_failed": {
                     "instruction": "Copy the link to your phone",

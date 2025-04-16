@@ -305,7 +305,8 @@
             "title_poa": "Välj ett dokument"
         },
         "doc_submit": {
-            "button_link_upload": "eller ladda upp foto – inga skanningar eller fotokopior",
+            "banner": "Skannade eller fotokopior accepteras inte",
+            "button_link_upload": "Ladda upp foto",
             "button_primary": "Fortsätt på telefon",
             "subtitle": "Ta ett foto med din telefon",
             "title_accommodation_tenancy_certificate": "Lämna in boende- eller hyresbevis",
@@ -415,6 +416,10 @@
                 "lazy_loading": {
                     "message": "Ett fel uppstod när komponenten laddades"
                 },
+                "low_resolution": {
+                    "instruction": "Vänligen använd en bild med högre upplösning.",
+                    "message": "Din bild är för liten"
+                },
                 "multiple_faces": {
                     "instruction": "Endast ditt ansikte får synas i selfien",
                     "message": "Flera ansikten hittades"
@@ -422,6 +427,10 @@
                 "no_camera": {
                     "subtitle": "Vi kan inte upptäcka en kamera på denna enhet. Vänligen se till att en kamera är ansluten och att de nödvändiga behörigheterna är beviljade.",
                     "title": "Kamera hittades inte"
+                },
+                "no_doc": {
+                    "instruction": "Vänligen ladda upp en bild som innehåller ditt identitetshandling.",
+                    "message": "Inget dokument i din bild"
                 },
                 "no_face": {
                     "instruction": "Se till att ditt ansikte är synligt",
@@ -434,6 +443,10 @@
                 "restart_cross-device": {
                     "subtitle": "Du måste starta om din verifiering på din dator. Vänligen gå tillbaka till verifieringsskärmen och försök igen.",
                     "title": "Något har gått fel"
+                },
+                "small_doc": {
+                    "instruction": "Se till att ditt dokument fyller hela bilden. All text ska vara tydligt läsbar.",
+                    "message": "Ditt identitetsdokument är för litet"
                 },
                 "sms_failed": {
                     "instruction": "Kopiera länken till din telefon",

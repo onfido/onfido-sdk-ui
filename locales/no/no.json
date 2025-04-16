@@ -305,7 +305,8 @@
             "title_poa": "Velg et dokument"
         },
         "doc_submit": {
-            "button_link_upload": "eller last opp bilde – ingen skanninger eller fotokopier",
+            "banner": "Skann eller fotokopier godtas ikke",
+            "button_link_upload": "Last opp bilde",
             "button_primary": "Fortsett på telefonen",
             "subtitle": "Ta et bilde med telefonen din",
             "title_accommodation_tenancy_certificate": "Send inn bevis for overnatting eller leieavtale",
@@ -415,6 +416,10 @@
                 "lazy_loading": {
                     "message": "Det oppstod en feil under lasting av komponenten"
                 },
+                "low_resolution": {
+                    "instruction": "Vennligst bruk et bilde med høyere oppløsning.",
+                    "message": "Bildet ditt er for lite"
+                },
                 "multiple_faces": {
                     "instruction": "Bare ansiktet ditt kan være i selfien",
                     "message": "Flere ansikter funnet"
@@ -422,6 +427,10 @@
                 "no_camera": {
                     "subtitle": "Vi kan ikke oppdage et kamera på denne enheten. Vennligst sørg for at et kamera er tilkoblet og de nødvendige tillatelsene er gitt.",
                     "title": "Kamera ikke funnet"
+                },
+                "no_doc": {
+                    "instruction": "Vennligst last opp et bilde som inneholder identitetsdokumentet ditt.",
+                    "message": "Ingen dokument i bildet ditt"
                 },
                 "no_face": {
                     "instruction": "Sørg for at ansiktet ditt er synlig",
@@ -434,6 +443,10 @@
                 "restart_cross-device": {
                     "subtitle": "Du må starte verifiseringen på nytt på datamaskinen din. Vennligst gå tilbake til verifiseringsskjermen og prøv igjen.",
                     "title": "Noe har gått galt"
+                },
+                "small_doc": {
+                    "instruction": "Vennligst sørg for at dokumentet ditt fyller bildet. All tekst skal være tydelig lesbar.",
+                    "message": "Identitetsdokumentet ditt er for lite"
                 },
                 "sms_failed": {
                     "instruction": "Kopier lenken til telefonen din",

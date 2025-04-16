@@ -305,7 +305,8 @@
             "title_poa": "选择一个文档"
         },
         "doc_submit": {
-            "button_link_upload": "或者上传照片 – 不能是扫描件或复印件",
+            "banner": "不接受扫描件或复印件",
+            "button_link_upload": "上传照片",
             "button_primary": "在手机上继续",
             "subtitle": "用手机拍照",
             "title_accommodation_tenancy_certificate": "提交住宿或租赁证明",
@@ -415,6 +416,10 @@
                 "lazy_loading": {
                     "message": "加载组件时出错"
                 },
+                "low_resolution": {
+                    "instruction": "请使用分辨率更高的图片。",
+                    "message": "您的图片太小"
+                },
                 "multiple_faces": {
                     "instruction": "在自拍照中只能出现您自己的面部",
                     "message": "找到多个面部"
@@ -422,6 +427,10 @@
                 "no_camera": {
                     "subtitle": "我们无法在此设备上检测到摄像头。请确保已连接摄像头并已授予所需的权限。",
                     "title": "找不到相机"
+                },
+                "no_doc": {
+                    "instruction": "请上传包含您身份证件的图片。",
+                    "message": "图片中未检测到证件"
                 },
                 "no_face": {
                     "instruction": "请确保您的面部可见",
@@ -434,6 +443,10 @@
                 "restart_cross-device": {
                     "subtitle": "您需要在计算机上重新开始您的身份验证。请返回到验证屏幕并重试。",
                     "title": "出了些问题"
+                },
+                "small_doc": {
+                    "instruction": "请确保您的证件填满图像。所有文字都应清晰可读。",
+                    "message": "您的身份证件太小"
                 },
                 "sms_failed": {
                     "instruction": "将链接复制到您的手机",

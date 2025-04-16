@@ -305,7 +305,8 @@
             "title_poa": "서류를 선택하십시오"
         },
         "doc_submit": {
-            "button_link_upload": "또는 사진 업로드 – 스캔본 또는 복사본 불가",
+            "banner": "스캔본이나 사본은 허용되지 않습니다.",
+            "button_link_upload": "사진 업로드",
             "button_primary": "휴대폰으로 계속하기",
             "subtitle": "휴대폰으로 사진 촬영하기",
             "title_accommodation_tenancy_certificate": "숙박 또는 임대증명서 제출",
@@ -415,6 +416,10 @@
                 "lazy_loading": {
                     "message": "구성 요소를 불러오는 동안 오류가 발생했습니다"
                 },
+                "low_resolution": {
+                    "instruction": "더 높은 해상도의 이미지를 사용해 주세요.",
+                    "message": "귀하의 이미지가 너무 작습니다"
+                },
                 "multiple_faces": {
                     "instruction": "셀카 이미지에는 본인 얼굴만 나와야 합니다",
                     "message": "여러 얼굴이 감지되었습니다"
@@ -422,6 +427,10 @@
                 "no_camera": {
                     "subtitle": "이 장치에서 카메라를 감지할 수 없습니다. 카메라가 연결되어 있고 필요한 권한이 부여되었는지 확인하십시오.",
                     "title": "카메라를 찾을 수 없습니다"
+                },
+                "no_doc": {
+                    "instruction": "신분증이 포함된 이미지를 업로드해 주세요.",
+                    "message": "이미지에 문서가 없습니다"
                 },
                 "no_face": {
                     "instruction": "얼굴 전체가 잘 보이는지 확인하세요",
@@ -434,6 +443,10 @@
                 "restart_cross-device": {
                     "subtitle": "당신은 컴퓨터에서 인증을 다시 시작해야 합니다. 인증 화면으로 돌아가서 다시 시도해 주세요.",
                     "title": "무언가 잘못되었습니다"
+                },
+                "small_doc": {
+                    "instruction": "문서가 이미지에 꽉 차도록 해주세요. 모든 텍스트가 명확하게 읽혀야 합니다.",
+                    "message": "귀하의 신분증이 너무 작습니다"
                 },
                 "sms_failed": {
                     "instruction": "링크를 휴대폰으로 복사합니다",

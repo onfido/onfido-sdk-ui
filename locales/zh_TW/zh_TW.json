@@ -305,7 +305,8 @@
             "title_poa": "選擇一份文件"
         },
         "doc_submit": {
-            "button_link_upload": "或上傳相片（不可使用掃描或影印的相片）",
+            "banner": "不接受掃描件或影印件",
+            "button_link_upload": "上傳照片",
             "button_primary": "繼續使用手機",
             "subtitle": "用手機拍攝相片",
             "title_accommodation_tenancy_certificate": "提交住宿或租賃證明",
@@ -415,6 +416,10 @@
                 "lazy_loading": {
                     "message": "載入元件時發生錯誤"
                 },
+                "low_resolution": {
+                    "instruction": "請使用解析度較高的圖片。",
+                    "message": "您的圖片太小了"
+                },
                 "multiple_faces": {
                     "instruction": "只有您的臉部可以顯示在自拍照中",
                     "message": "找到多個臉部"
@@ -422,6 +427,10 @@
                 "no_camera": {
                     "subtitle": "我們無法在此裝置上偵測到相機。請確保相機已連接，並已授予所需的權限。",
                     "title": "找不到相機"
+                },
+                "no_doc": {
+                    "instruction": "請上傳含有您身分證件的圖片。",
+                    "message": "您的圖片中沒有證件"
                 },
                 "no_face": {
                     "instruction": "請確保您的臉部清晰可見",
@@ -434,6 +443,10 @@
                 "restart_cross-device": {
                     "subtitle": "您需要在電腦上重新開始您的身份驗證。請返回到驗證畫面並再試一次。",
                     "title": "出了些問題"
+                },
+                "small_doc": {
+                    "instruction": "請確保您的證件填滿整個畫面。所有文字都應清晰可讀。",
+                    "message": "您的身分證件太小了"
                 },
                 "sms_failed": {
                     "instruction": "將連結複製至手機",

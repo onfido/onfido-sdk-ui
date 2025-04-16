@@ -305,7 +305,8 @@
             "title_poa": "Vælg et dokument"
         },
         "doc_submit": {
-            "button_link_upload": "eller upload et billede – ingen scanninger eller fotokopier",
+            "banner": "Scanninger eller fotokopier accepteres ikke",
+            "button_link_upload": "Upload billede",
             "button_primary": "Fortsæt på telefon",
             "subtitle": "Tag et billede med din telefon",
             "title_accommodation_tenancy_certificate": "Indsend beboelses- eller lejekontrakt",
@@ -415,6 +416,10 @@
                 "lazy_loading": {
                     "message": "Der opstod en fejl under indlæsning af komponenten"
                 },
+                "low_resolution": {
+                    "instruction": "Brug venligst et billede med en højere opløsning.",
+                    "message": "Dit billede er for lille"
+                },
                 "multiple_faces": {
                     "instruction": "Selfien må kun indeholde dit ansigt",
                     "message": "Der fremgår mere end ét ansigt"
@@ -422,6 +427,10 @@
                 "no_camera": {
                     "subtitle": "Vi kan ikke detektere et kamera på denne enhed. Sørg venligst for, at et kamera er tilsluttet, og de nødvendige tilladelser er givet.",
                     "title": "Kamera ikke fundet"
+                },
+                "no_doc": {
+                    "instruction": "Upload venligst et billede, der indeholder dit identitetsdokument.",
+                    "message": "Ingen dokument i dit billede"
                 },
                 "no_face": {
                     "instruction": "Sørg for, at dit ansigt er synligt",
@@ -434,6 +443,10 @@
                 "restart_cross-device": {
                     "subtitle": "Du skal genstarte din verifikation på din computer. Gå venligst tilbage til verifikationsskærmen og prøv igen.",
                     "title": "Noget er gået galt"
+                },
+                "small_doc": {
+                    "instruction": "Sørg for, at dit dokument fylder billedet. Al tekst skal være tydeligt læsbar.",
+                    "message": "Dit identitetsdokument er for lille"
                 },
                 "sms_failed": {
                     "instruction": "Kopiér linket og indsæt det i din telefon",

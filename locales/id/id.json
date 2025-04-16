@@ -305,7 +305,8 @@
             "title_poa": "Pilih sebuah dokumen"
         },
         "doc_submit": {
-            "button_link_upload": "atau unggah foto – bukan hasil pindaian atau fotokopi",
+            "banner": "Scan atau fotokopi tidak diterima",
+            "button_link_upload": "Unggah foto",
             "button_primary": "Lanjutkan di telepon",
             "subtitle": "Ambil foto dengan ponsel Anda",
             "title_accommodation_tenancy_certificate": "Kirimkan Sertifikat Akomodasi atau Sewa Menyewa",
@@ -415,6 +416,10 @@
                 "lazy_loading": {
                     "message": "Terjadi kesalahan saat memuat komponen"
                 },
+                "low_resolution": {
+                    "instruction": "Silakan gunakan gambar dengan resolusi lebih tinggi.",
+                    "message": "Gambar Anda terlalu kecil"
+                },
                 "multiple_faces": {
                     "instruction": "Swafoto harus menampilkan wajah Anda saja",
                     "message": "Ada lebih dari satu wajah"
@@ -422,6 +427,10 @@
                 "no_camera": {
                     "subtitle": "Kami tidak dapat mendeteksi kamera pada perangkat ini. Harap pastikan kamera telah terhubung dan izin yang diperlukan telah diberikan.",
                     "title": "Kamera tidak ditemukan"
+                },
+                "no_doc": {
+                    "instruction": "Silakan unggah gambar yang berisi dokumen identitas Anda.",
+                    "message": "Tidak ada dokumen dalam gambar Anda"
                 },
                 "no_face": {
                     "instruction": "Pastikan wajah Anda terlihat",
@@ -434,6 +443,10 @@
                 "restart_cross-device": {
                     "subtitle": "Anda perlu memulai ulang verifikasi Anda di komputer. Silakan kembali ke layar verifikasi dan coba lagi.",
                     "title": "Ada yang salah"
+                },
+                "small_doc": {
+                    "instruction": "Pastikan dokumen Anda memenuhi gambar. Semua teks harus dapat dibaca dengan jelas.",
+                    "message": "Dokumen identitas Anda terlalu kecil"
                 },
                 "sms_failed": {
                     "instruction": "Salin tautan ke ponsel Anda",

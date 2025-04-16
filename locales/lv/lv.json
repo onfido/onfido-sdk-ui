@@ -305,7 +305,8 @@
             "title_poa": "Izvēlieties dokumentu"
         },
         "doc_submit": {
-            "button_link_upload": "vai augšupielādējiet fotoattēlu, nevis skenētus dokumentus vai fotokopijas",
+            "banner": "Skenēšana vai fotokopijas netiek pieņemtas",
+            "button_link_upload": "Augšupielādēt fotoattēlu",
             "button_primary": "Turpināt tālrunī",
             "subtitle": "Uzņemt fotoattēlu ar tālruni",
             "title_accommodation_tenancy_certificate": "Iesniegt Izmitināšanas vai Īres sertifikātu",
@@ -415,6 +416,10 @@
                 "lazy_loading": {
                     "message": "Ielādējot komponentu, radās kļūda"
                 },
+                "low_resolution": {
+                    "instruction": "Lūdzu, izmantojiet attēlu ar augstāku izšķirtspēju.",
+                    "message": "Jūsu attēls ir pārāk mazs"
+                },
                 "multiple_faces": {
                     "instruction": "Selfijā drīkst būt redzama tikai jūsu seja",
                     "message": "Atrastas vairākas sejas"
@@ -422,6 +427,10 @@
                 "no_camera": {
                     "subtitle": "Mēs nevaram noteikt kameru šajā ierīcē. Lūdzu, pārliecinieties, vai kamera ir pieslēgta un ir piešķirtas nepieciešamās atļaujas.",
                     "title": "Kamera nav atrasta"
+                },
+                "no_doc": {
+                    "instruction": "Lūdzu, augšupielādējiet attēlu, kurā redzams jūsu identitātes dokuments.",
+                    "message": "Nav dokumenta jūsu attēlā"
                 },
                 "no_face": {
                     "instruction": "Sejai jābūt redzamai",
@@ -434,6 +443,10 @@
                 "restart_cross-device": {
                     "subtitle": "Jums būs jāsāk no jauna savs verifikācijas process datorā. Lūdzu, atgriezieties verifikācijas ekrānā un mēģiniet vēlreiz.",
                     "title": "Kaut kas ir nogājis greizi"
+                },
+                "small_doc": {
+                    "instruction": "Lūdzu, pārliecinieties, ka jūsu dokuments aizpilda attēlu. Visiem tekstiem jābūt skaidri salasāmiem.",
+                    "message": "Jūsu identitātes dokuments ir pārāk mazs"
                 },
                 "sms_failed": {
                     "instruction": "Iekopējiet saiti tālrunī",

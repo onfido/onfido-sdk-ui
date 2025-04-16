@@ -305,7 +305,8 @@
             "title_poa": "Chọn một tài liệu"
         },
         "doc_submit": {
-            "button_link_upload": "hoặc tải ảnh lên – không dùng bản scan hoặc bản sao",
+            "banner": "Không chấp nhận bản quét hoặc bản sao",
+            "button_link_upload": "Tải ảnh lên",
             "button_primary": "Tiếp tục trên điện thoại",
             "subtitle": "Chụp ảnh bằng điện thoại của bạn",
             "title_accommodation_tenancy_certificate": "Nộp Chứng nhận Nơi ở hoặc Hợp đồng Thuê nhà",
@@ -415,6 +416,10 @@
                 "lazy_loading": {
                     "message": "Đã xảy ra lỗi trong khi tải thành phần"
                 },
+                "low_resolution": {
+                    "instruction": "Vui lòng sử dụng hình ảnh có độ phân giải cao hơn.",
+                    "message": "Hình ảnh của bạn quá nhỏ"
+                },
                 "multiple_faces": {
                     "instruction": "Ảnh selfie chỉ được có khuôn mặt của bạn",
                     "message": "Đã phát hiện nhiều khuôn mặt"
@@ -422,6 +427,10 @@
                 "no_camera": {
                     "subtitle": "Chúng tôi không thể phát hiện ra camera trên thiết bị này. Vui lòng đảm bảo rằng camera đã được kết nối và đã cấp quyền cần thiết.",
                     "title": "Không tìm thấy camera"
+                },
+                "no_doc": {
+                    "instruction": "Vui lòng tải lên một hình ảnh chứa tài liệu nhận dạng của bạn.",
+                    "message": "Không có tài liệu nào trong hình ảnh của bạn"
                 },
                 "no_face": {
                     "instruction": "Đảm bảo ảnh chụp rõ mặt",
@@ -434,6 +443,10 @@
                 "restart_cross-device": {
                     "subtitle": "Bạn sẽ cần khởi động lại quá trình xác minh trên máy tính của mình. Vui lòng quay lại màn hình xác minh và thử lại.",
                     "title": "Có gì đó đã sai"
+                },
+                "small_doc": {
+                    "instruction": "Vui lòng đảm bảo tài liệu của bạn lấp đầy hình ảnh. Tất cả văn bản phải được đọc rõ ràng.",
+                    "message": "Tài liệu nhận dạng của bạn quá nhỏ"
                 },
                 "sms_failed": {
                     "instruction": "Sao chép liên kết vào điện thoại của bạn",

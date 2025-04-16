@@ -305,7 +305,8 @@
             "title_poa": "Valitse asiakirja"
         },
         "doc_submit": {
-            "button_link_upload": "tai lataa valokuva – ei skannauksia tai valokopioita",
+            "banner": "Skannauksia tai valokopioita ei hyväksytä",
+            "button_link_upload": "Lataa valokuva",
             "button_primary": "Jatka puhelimella",
             "subtitle": "Ota valokuva puhelimellasi",
             "title_accommodation_tenancy_certificate": "Jätä majoitus- tai vuokrasopimustodistus",
@@ -415,6 +416,10 @@
                 "lazy_loading": {
                     "message": "Komponenttia ladattaessa tapahtui virhe"
                 },
+                "low_resolution": {
+                    "instruction": "Käytäthän kuvaa, jossa on korkeampi resoluutio.",
+                    "message": "Kuvasi on liian pieni"
+                },
                 "multiple_faces": {
                     "instruction": "Vain sinun kasvosi voivat olla selfiessä",
                     "message": "Useita kasvoja löytyi"
@@ -422,6 +427,10 @@
                 "no_camera": {
                     "subtitle": "Emme pysty havaitsemaan kameraa tässä laitteessa. Varmista, että kamera on kytketty ja tarvittavat luvat on myönnetty.",
                     "title": "Kameraa ei löydy"
+                },
+                "no_doc": {
+                    "instruction": "Lataa kuva, joka sisältää henkilöllisyystodistuksesi.",
+                    "message": "Kuvassasi ei ole asiakirjaa"
                 },
                 "no_face": {
                     "instruction": "Varmista, että kasvosi näkyvät",
@@ -434,6 +443,10 @@
                 "restart_cross-device": {
                     "subtitle": "Sinun on käynnistettävä tunnistautumisesi uudelleen tietokoneellasi. Palaa takaisin tunnistautumisnäyttöön ja yritä uudelleen.",
                     "title": "Jokin meni pieleen"
+                },
+                "small_doc": {
+                    "instruction": "Varmista, että asiakirjasi täyttää kuvan. Kaiken tekstin tulee olla selvästi luettavissa.",
+                    "message": "Henkilöllisyystodistuksesi on liian pieni"
                 },
                 "sms_failed": {
                     "instruction": "Kopioi linkki puhelimeesi",

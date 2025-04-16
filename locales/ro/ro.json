@@ -305,7 +305,8 @@
             "title_poa": "Alegeți un document"
         },
         "doc_submit": {
-            "button_link_upload": "sau încărcați poză – fără scanări sau fotocopii",
+            "banner": "Nu se acceptă scanări sau fotocopii",
+            "button_link_upload": "Încărcați o fotografie",
             "button_primary": "Continuați pe telefonul dvs.",
             "subtitle": "Faceți o poză cu telefonul dvs.",
             "title_accommodation_tenancy_certificate": "Trimite Certificatul de Cazare sau de Locație",
@@ -415,6 +416,10 @@
                 "lazy_loading": {
                     "message": "O eroare a survenit în timp ce componenta era încărcată"
                 },
+                "low_resolution": {
+                    "instruction": "Vă rugăm să folosiți o imagine cu o rezoluție mai mare.",
+                    "message": "Imaginea ta este prea mică"
+                },
                 "multiple_faces": {
                     "instruction": "Numai fața dvs. poate fi în poza selfie",
                     "message": "Fețe multiple găsite"
@@ -422,6 +427,10 @@
                 "no_camera": {
                     "subtitle": "Nu putem detecta o cameră pe acest dispozitiv. Vă rugăm să vă asigurați că o cameră este conectată și că permisiunile necesare sunt acordate.",
                     "title": "Camera nu a fost găsită"
+                },
+                "no_doc": {
+                    "instruction": "Vă rugăm să încărcați o imagine care conține documentul dumneavoastră de identitate.",
+                    "message": "Niciun document în imaginea dvs."
                 },
                 "no_face": {
                     "instruction": "Asigurați-vă că fața dvs. este vizibilă",
@@ -434,6 +443,10 @@
                 "restart_cross-device": {
                     "subtitle": "Va trebui să reporniți verificarea pe computerul dvs. Vă rugăm să reveniți la ecranul de verificare și să încercați din nou.",
                     "title": "Ceva nu a mers bine"
+                },
+                "small_doc": {
+                    "instruction": "Vă rugăm să vă asigurați că documentul ocupă toată imaginea. Tot textul trebuie să fie clar lizibil.",
+                    "message": "Documentul dumneavoastră de identitate este prea mic"
                 },
                 "sms_failed": {
                     "instruction": "Copiați linkul pe telefonul dvs.",

@@ -305,7 +305,8 @@
             "title_poa": "Valige dokument"
         },
         "doc_submit": {
-            "button_link_upload": "või laadige foto üles – skaneeringud ja koopiad ei sobi",
+            "banner": "Skaneeringuid ega koopiaid ei aktsepteerita",
+            "button_link_upload": "Laadi foto üles",
             "button_primary": "Jätkake telefonis",
             "subtitle": "Tehke telefoniga foto",
             "title_accommodation_tenancy_certificate": "Esitage majutus- või üürilepingu tõend",
@@ -415,6 +416,10 @@
                 "lazy_loading": {
                     "message": "Komponendi laadimisel ilmnes tõrge"
                 },
+                "low_resolution": {
+                    "instruction": "Palun kasutage kõrgema eraldusvõimega pilti.",
+                    "message": "Teie pilt on liiga väike"
+                },
                 "multiple_faces": {
                     "instruction": "Selfi peab kujutama ainult teie nägu",
                     "message": "Leiti mitu nägu"
@@ -422,6 +427,10 @@
                 "no_camera": {
                     "subtitle": "Me ei suuda tuvastada kaamerat sellel seadmel. Palun veenduge, et kaamera on ühendatud ja vajalikud load on antud.",
                     "title": "Kaamerat ei leitud"
+                },
+                "no_doc": {
+                    "instruction": "Palun laadige üles pilt, mis sisaldab teie isikut tõendavat dokumenti.",
+                    "message": "Teie pildil pole dokumenti"
                 },
                 "no_face": {
                     "instruction": "Veenduge, et teie nägu on nähtav",
@@ -434,6 +443,10 @@
                 "restart_cross-device": {
                     "subtitle": "Teil tuleb oma arvutis verifitseerimine uuesti käivitada. Palun minge tagasi verifitseerimise ekraanile ja proovige uuesti.",
                     "title": "Midagi läks valesti"
+                },
+                "small_doc": {
+                    "instruction": "Palun veenduge, et teie dokument täidab pildi. Kogu tekst peaks olema selgelt loetav.",
+                    "message": "Teie isikut tõendav dokument on liiga väike"
                 },
                 "sms_failed": {
                     "instruction": "Kopeerige link oma telefoni",

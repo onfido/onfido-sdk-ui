@@ -305,7 +305,8 @@
             "title_poa": "Choisissez un document"
         },
         "doc_submit": {
-            "button_link_upload": "ou envoyer une photo - pas de scans ou de photocopies",
+            "banner": "Les scans ou photocopies ne sont pas acceptés",
+            "button_link_upload": "Télécharger une photo",
             "button_primary": "Continuez sur votre mobile",
             "subtitle": "Prendre une photo avec votre téléphone",
             "title_accommodation_tenancy_certificate": "Soumettre un Certificat d'Hébergement ou de Location",
@@ -415,6 +416,10 @@
                 "lazy_loading": {
                     "message": "Une erreur s’est produite lors du chargement du composant"
                 },
+                "low_resolution": {
+                    "instruction": "Veuillez utiliser une image avec une meilleure résolution.",
+                    "message": "Votre image est trop petite"
+                },
                 "multiple_faces": {
                     "instruction": "Votre visage doit être visible sur le selfie",
                     "message": "Plusieurs visages détectés"
@@ -422,6 +427,10 @@
                 "no_camera": {
                     "subtitle": "Nous ne sommes pas en mesure de détecter une caméra sur cet appareil. Veuillez vous assurer qu'une caméra est connectée et que les autorisations requises sont accordées.",
                     "title": "Appareil photo non trouvé"
+                },
+                "no_doc": {
+                    "instruction": "Veuillez télécharger une image contenant votre document d'identité.",
+                    "message": "Aucun document dans votre image"
                 },
                 "no_face": {
                     "instruction": "Assurez-vous que votre visage est visible",
@@ -434,6 +443,10 @@
                 "restart_cross-device": {
                     "subtitle": "Vous devrez redémarrer votre vérification sur votre ordinateur. Veuillez revenir à l'écran de vérification et réessayer.",
                     "title": "Quelque chose a mal tourné"
+                },
+                "small_doc": {
+                    "instruction": "Veuillez vous assurer que votre document remplit l'image. Tout le texte doit être clairement lisible.",
+                    "message": "Votre document d'identité est trop petit"
                 },
                 "sms_failed": {
                     "instruction": "Copier le lien sur votre mobile",

@@ -305,7 +305,8 @@
             "title_poa": "Pasirinkite dokumentą"
         },
         "doc_submit": {
-            "button_link_upload": "arba įkelkite nuotrauką – jokių skenuotų ar atšviestų",
+            "banner": "Nuskaitymai ar fotokopijos nepriimami",
+            "button_link_upload": "Įkelti nuotrauką",
             "button_primary": "Tęsti telefonu",
             "subtitle": "Fotografuokite telefonu",
             "title_accommodation_tenancy_certificate": "Pateikti apgyvendinimo ar nuomos sertifikatą",
@@ -415,6 +416,10 @@
                 "lazy_loading": {
                     "message": "Įkeliant komponentą įvyko klaida"
                 },
+                "low_resolution": {
+                    "instruction": "Prašome naudoti aukštesnės raiškos vaizdą.",
+                    "message": "Jūsų vaizdas yra per mažas"
+                },
                 "multiple_faces": {
                     "instruction": "Asmenukėje gali būti tik jūsų veidas",
                     "message": "Aptikti keli veidai"
@@ -422,6 +427,10 @@
                 "no_camera": {
                     "subtitle": "Mes negalime aptikti kameros šiame įrenginyje. Prašome įsitikinti, kad kamera yra prijungta ir suteiktos reikiamos teisės.",
                     "title": "Kamera nerasta"
+                },
+                "no_doc": {
+                    "instruction": "Prašome įkelti vaizdą, kuriame yra jūsų tapatybės dokumentas.",
+                    "message": "Jūsų vaizde nėra dokumento"
                 },
                 "no_face": {
                     "instruction": "Įsitikinkite, kad jūsų veidas matomas",
@@ -434,6 +443,10 @@
                 "restart_cross-device": {
                     "subtitle": "Jums reikės iš naujo pradėti savo tapatybės patvirtinimą kompiuteryje. Prašome grįžti į patvirtinimo ekraną ir bandyti dar kartą.",
                     "title": "Kažkas nepavyko"
+                },
+                "small_doc": {
+                    "instruction": "Įsitikinkite, kad jūsų dokumentas užpildo vaizdą. Visi tekstai turi būti aiškiai įskaitomi.",
+                    "message": "Jūsų tapatybės dokumentas yra per mažas"
                 },
                 "sms_failed": {
                     "instruction": "Nukopijuokite nuorodą į savo telefoną",

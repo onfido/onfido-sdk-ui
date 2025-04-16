@@ -305,7 +305,8 @@
             "title_poa": "Zvolte dokument"
         },
         "doc_submit": {
-            "button_link_upload": "nebo nahrát fotografii - žádné skeny nebo fotokopie",
+            "banner": "Skenování nebo fotokopie nejsou akceptovány",
+            "button_link_upload": "Nahrajte fotografii",
             "button_primary": "Pokračujte v telefonu",
             "subtitle": "Vyfotografujte se telefonem",
             "title_accommodation_tenancy_certificate": "Odevzdejte ubytovací nebo nájemní certifikát",
@@ -415,6 +416,10 @@
                 "lazy_loading": {
                     "message": "Při načítání komponentu došlo k chybě"
                 },
+                "low_resolution": {
+                    "instruction": "Použijte prosím obrázek s vyšším rozlišením.",
+                    "message": "Váš obrázek je příliš malý"
+                },
                 "multiple_faces": {
                     "instruction": "Na selfie může být pouze Váš obličej",
                     "message": "Nalezeno více obličejů"
@@ -422,6 +427,10 @@
                 "no_camera": {
                     "subtitle": "Na tomto zařízení nejsme schopni detekovat kameru. Ujistěte se, prosím, že je kamera připojena a že jsou udělena potřebná oprávnění.",
                     "title": "Kamera nenalezena"
+                },
+                "no_doc": {
+                    "instruction": "Nahrajte prosím obrázek obsahující váš identifikační dokument.",
+                    "message": "Žádný dokument na vašem obrázku"
                 },
                 "no_face": {
                     "instruction": "Ujistěte se, že je Váš obličej viditelný",
@@ -434,6 +443,10 @@
                 "restart_cross-device": {
                     "subtitle": "Budete muset restartovat ověření na svém počítači. Prosím, vraťte se zpět na obrazovku ověření a zkuste to znovu.",
                     "title": "Něco se pokazilo"
+                },
+                "small_doc": {
+                    "instruction": "Ujistěte se, že váš dokument vyplňuje obrázek. Veškerý text by měl být jasně čitelný.",
+                    "message": "Váš identifikační dokument je příliš malý"
                 },
                 "sms_failed": {
                     "instruction": "Zkopírujte odkaz do telefonu",

@@ -305,7 +305,8 @@
             "title_poa": "Elija un documento"
         },
         "doc_submit": {
-            "button_link_upload": "o subir foto - no escaneos o fotocopias",
+            "banner": "No se aceptan escaneos ni fotocopias.",
+            "button_link_upload": "Subir foto",
             "button_primary": "Continuar en el teléfono",
             "subtitle": "Tome una foto con su teléfono",
             "title_accommodation_tenancy_certificate": "Enviar Certificado de Alojamiento o Arrendamiento",
@@ -415,6 +416,10 @@
                 "lazy_loading": {
                     "message": "Se produjo un error al cargar el componente"
                 },
+                "low_resolution": {
+                    "instruction": "Por favor, use una imagen con una resolución más alta.",
+                    "message": "Tu imagen es demasiado pequeña"
+                },
                 "multiple_faces": {
                     "instruction": "Solo su cara puede estar en la selfie",
                     "message": "Múltiples caras encontradas"
@@ -422,6 +427,10 @@
                 "no_camera": {
                     "subtitle": "No podemos detectar una cámara en este dispositivo. Por favor, asegúrese de que una cámara esté conectada y se hayan otorgado los permisos requeridos.",
                     "title": "Cámara no encontrada"
+                },
+                "no_doc": {
+                    "instruction": "Por favor, sube una imagen que contenga tu documento de identidad.",
+                    "message": "No hay documento en tu imagen"
                 },
                 "no_face": {
                     "instruction": "Asegúrate de que tu cara esté visible",
@@ -434,6 +443,10 @@
                 "restart_cross-device": {
                     "subtitle": "Necesitará reiniciar su verificación en su computadora. Por favor, vuelva a la pantalla de verificación e intente de nuevo.",
                     "title": "Algo ha salido mal"
+                },
+                "small_doc": {
+                    "instruction": "Por favor, asegúrese de que su documento llene la imagen. Todo el texto debe ser claramente legible.",
+                    "message": "Su documento de identidad es demasiado pequeño"
                 },
                 "sms_failed": {
                     "instruction": "Copie el enlace a continuación en su dispositivo móvil",

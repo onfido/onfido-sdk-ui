@@ -1,53 +1,57 @@
 # CHANGELOG
-All notable changes to this project will be documented in this file.
+This changelog documents all notable modifications made to the Web SDK over time. The purpose of this record is to provide transparency and traceability surrounding the evolution of the SDK.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/)
-and this project adheres to [Semantic Versioning](https://semver.org/).
+The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
+and the SDK adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+
+When any of the string translations change, it will result in a MINOR version change. As a result, you are responsible for ensuring the correct layout if you are using custom translations (see [language localization](https://documentation.onfido.com/sdk/web/#custom-translations-and-text)).
+
+## 14.45.0 - 2025-04-09
+### Changed
+- Document Upload page is updated. see [migration guide](https://documentation.onfido.com/sdk/web/migration)
 
 ## 14.44.0 - 2025-03-26
 ### Added
-- Map new Authentication: Motion task to the Face Motion module
-- Add an option to refresh the cross-device QR code every 10 second
-- Added new screen templates, meaning all module screens have been updated with new design templates (see [Web SDK template guide](https://documentation.onfido.com/sdk/web-sdk-ui-templates) and [migration guide](https://documentation.onfido.com/sdk/web/migration))
+- Ability to refresh the cross-device QR code every 10 seconds
+- Added new screen templates, meaning all module screens have been updated with new design templates. For specific details, please refer to the [Web SDK template guide](https://documentation.onfido.com/sdk/web-sdk-ui-templates), and the [migration guide](https://documentation.onfido.com/sdk/web/migration)
+- Ability to show a custom logo on the cross-device verification screen on mobile
+- Added 'Authentication: motion' task support
 
-## 14.43.0 - 2025-02-19
-### Added
-- Warn when a Studio SDK token is used with steps
+### Changed
+- A number of the Web SDK styling attributes have also been updated or removed with this release. Please refer to the [migration guide](https://documentation.onfido.com/sdk/web/migration/) for specific details.
+
+### Deprecated
+- Deprecated public API parameter disableAnalyticsCookies (replaced by a feature flag)
 
 ### Fixed
-- Reset cross-device verification on disconnect
-- Corrected public documentation relating to the Document and Proof of Address (poa) payloads in `onComplete` manual callbacks
+- Fixed Motion connection error screen visibility issue
+- Fixed incorrect Motion instruction message during face capture
+
+## 14.43.0 - 2025-02-19
+### Fixed
+- Corrected public documentation relating to the Document and Proof of Address payloads in `onComplete` manual callbacks
 
 ## 14.42.0 - 2025-02-06
 ### Added
-- Publish V2 flow completion event on completion of flow
-- Take a photo with the Image Capture API in the Web SDK
+- Added a warning when a Studio SDK token is used with a manual definition of the verification steps
 
 ### Changed
-- Changed QES module icons to respect theme colors
+- Changed QES module icons, list markers, consent indicators to respect theme colors
 - Changed checkboxes to reflect custom theme
 
 ### Fixed
-- Background background color for loading screen now supported
-- QES confirmation screen disclaimer using theme for list markers
-- Use SDK tokens for QES consents indicators
+- Reset cross-device verification on disconnect
+- Background color for loading screen now supported
 
 ## 14.41.0 - 2025-01-16
 ### Added
-- Added workflow task id in document module inputs
-- Added warning when a Studio SDK token is used with steps
+- Added a warning when a Studio SDK token is used with a manual definition of the verification steps
 
 ### Fixed
-- Do not show the consent screen if consent was already granted
 - Profile Data now correctly accepts 8 to 10 digit-long Kenyan ID card numbers
-- Fixed complete endpoint call in cross-device flow
-- Reset cross-device verification on disconnect
 - Corrected public documentation relating to the Document and Proof of Address (poa) payloads in `onComplete` manual callbacks
 
 ## 14.40.0 - 2024-12-11
-### Added
-- Added workflow task id in document module inputs
-
 ### Fixed
 - Do not show the consent screen if consent was already granted
 
@@ -55,27 +59,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## 14.39.0 - 2024-11-18
 ### Added
-- Warning to push usage of Studio token over SDK token and deprecation message
-- New accessible autocomplete component
+- Added support for local storage for the 'Face capture: motion' task
+- Added support for the 'Show introduction screen' option in the 'Face capture: motion' task configuration
+- Added warning to push usage of Studio token over SDK token and deprecation message
+- Added new accessible autocomplete component
 
 ### Changed
-- adds smart caret false for OTP phone input
+- Disabled smart caret for OTP phone input
 
 ### Removed
 - Removed debug log from production build
 
 ### Fixed
-- Fix type exports
+- Fixed type exports
 - Provided a more descriptive cross-device error screen
+- Fixed shifting cursor issue during One-Time-Password phone number input
 
 ## 14.38.0 - 2024-09-30
-### Fixed
-- Fixed QR code from showing during re-connection phase
-- Fixed navigation bug related to consent in classic mode
+### Removed
 - Removed the 10s timeout for the loading of modules
-- Implement cross_device_url for enterprise clients
-- Removed redundant video upload in document capture
-- add side, issuing_country and type to the video upload
+
+### Fixed
+- Prevented QR code from showing during re-connection phase
+- Fixed navigation bug related to consent in Classic mode
+- Implemented `cross_device_url` for enterprise clients
 
 ## 14.37.1 - 2024-09-19
 ### Fixed
@@ -83,70 +90,69 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## 14.37.0 - 2024-09-18
 ### Added
-- Documentation for the new `theme` api
+- Added documentation for the new `theme` API
 
 ## 14.36.0 - 2024-09-11
 ### Added
-- Motion intro screen can be skipped through showIntro option
+- Motion intro screen can be skipped through `showIntro` option
 
 ### Removed
-- Removed motion confirmation screen
+- Removed Motion confirmation screen
 
 ## 14.35.1 - 2024-09-09
 ### Fixed
-- Typescript support for the npm package
+- TypeScript support for the npm package
 
 ## 14.35.0 - 2024-09-03
 ### Added
-- Proof of Address Module: replaced basic camera with js camera
+- Replaced basic camera with Javascript camera for the Proof of Address (poa) module
 
 ### Fixed
-- Ensure the motion instruction video is dismissed on the head-turn side complete
-- accessibility screen reader and keyboard navigations
-- Assistive technologies now reads intructions in center of capture frame
+- Ensured the Motion instruction video is dismissed on the head-turn side complete
+- Accessibility screen reader and keyboard navigations
+- Assistive technologies now read instructions in center of capture frame
 
 ## 14.34.0 - 2024-08-15
 ### Added
-- Preselect country in documents list following the value of custom input `preferred_user_country` (currently only works with Onfido Studio)
+- Added preselect country in documents list following the value of custom input `preferred_user_country` (previously only worked with Studio)
 
 ### Changed
-- Updated CSP - Added data: to media-src
+- Updated CSP - Added data: to `media-src`
 - Fixed accessibility and usability issues with the document list
 - Optional task completion task when using Studio token
+
+### Removed
 - Removed inactivity error message and continue to display shutter button
 
 ### Fixed
 - Extended SSN scope to include US territories: American Samoa, Guam, Northern Marian Islands, United States Virgin Islands and Puerto Rico
-- The redo button displayed after an error when uploading a document is now a primary button
+- Changed the Redo button displayed after an error when uploading a document to a primary button
 
 ## 14.33.0 - 2024-07-31
-### Changed
-- Updated CSP - Added data: to media-src
-
 ### Fixed
-- Ensure screen readers don't read headings twice
+- Ensured screen readers don't read headings twice
 - Resolved an issue causing infinite loading when pressing the back button on the video preview screen
 
 ## 14.32.0 - 2024-07-24
 ### Changed
-- Updated CSP - Added data: to media-src
+- Added 'data:' to media-src in the Content Security Policy
 
 ### Fixed
 - Fixed video preview on iOS
 - Replaced the `faceVideo` intro icons with bullet points aligned with Motion
 - Improved accessibility of the country selector label
-- Various accessibility fixes
+- Fixed modal accessibility
 
 ## 14.31.0 - 2024-07-17
 ### Fixed
 - Check audio permission for `faceMotion` when `recordAudio` is enabled
-- Fixed UPLOAD user analytics event
-- Removed whitespaces at end of string inputs for profile data
+- Fixed `UPLOAD` user analytics event
+- Removed whitespaces at end of string inputs for Profile Data
 
 ## 14.30.0 - 2024-07-04
 ### Fixed
-- Fixed UPLOAD user analytics event
-- Removed whitespaces at end of string inputs for profile data
+- Fixed `UPLOAD` user analytics event
+- Removed whitespaces at end of string inputs for Profile Data
 
 ## 14.29.0 - 2024-06-25
 ### Fixed
@@ -163,103 +169,95 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## 14.27.0 - 2024-05-30
 ### Changed
-- Expose version in the `Onfido.init` handle
-- Adjustment to the preloading of modules to reduce loading time
-
-## 14.27.0 - 2024-05-30
-### Changed
-- Expose version in the `Onfido.init` handle
-- Adjustment to the preloading of modules to reduce loading time
+- Exposed version in the `Onfido.init` handle
 
 ## 14.26.0 - 2024-05-23
 ### Changed
 - Adjustment to the preloading of modules to reduce loading time
-
-## 14.26.0 - 2024-05-23
-### Changed
-- Adjustment to the preloading of modules to reduce loading time
-- New error types for `workflow_abandoned` and `workflow_error` added to SDK errors
+- Added new SDK error types for `workflow_abandoned` and `workflow_error`
 
 ## 14.25.0 - 2024-05-13
 ### Changed
-- Motion is now supported in all devices.
+- Motion is now supported on all devices
 
 ### Removed
-- `motionFallbackVariant` option.
+- Removed `motionFallbackVariant` option
 
 ## 14.24.0 - 2024-04-25
 ### Changed
-- Updated CSP guide for troubleshooting most common issues.
+- Updated CSP guide for troubleshooting most common issues
 
 ## 14.23.1 - 2024-04-19
-No changes.
+No changes
 
 ## 14.23.0 - 2024-04-10
 ### Added
-- New Document or SSN selection module / Task.
+- New Document or SSN selection module / Task
 
 ## 14.22.0 - 2024-03-28
-### Changed
-- Improving cross-device verification adjustments.
-- Fixed document type configurations.
-- Fixed typing for npm loader.
+### Fixed
+- Improved cross-device verification adjustments
+- Fixed document type configurations
+- Fixed typing for npm loader
 
 ## 14.21.0 - 2024-03-20
 ### Fixed
-- Fixed typescript types missing SdkParameters.
+- Fixed TypeScript types missing `SdkParameters`
 
 ## 14.20.1 - 2024-03-12
-### Changed
-- Support `crossDevicePolicy: "force"` for face modules.
+No changes
 
 ## 14.20.0 - 2024-03-12
 ### Changed
-- Support `crossDevicePolicy: "force"` for face modules.
+- Support `crossDevicePolicy: "force"` for Face modules
 
 ## 14.19.0 - 2024-03-05
 ### Fixed
-- Fixed an issue, where firefox is used on desktop and redirects the user as part of the `onComplete` callback.
-- Fixed accessibility issues.
+- Fixed an issue where Firefox is used on desktop and redirects the user as part of the `onComplete` callback
+- Fixed accessibility issues
 
 ## 14.18.0 - 2024-03-01
 ### Added
-- New google fonts supports.
+- New Google Fonts supported
 
 ### Changed
-- CSP updates.
+- CSP updates
 
 ## 13.8.4 - 2024-02-27
+No changes
 
 ## 14.17.0 - 2024-02-23
 ### Changed
-- Added SameSite=None for `onfido-web-sdk-analytics` cookie to allow cookie to be transferred once browsers switches to new default of SameSite=Lax.
-- Added promise to tearDown().
-- Improved analytics properties.
+- Added `SameSite=None` for `onfido-web-sdk-analytics` cookie to allow cookie to be transferred once browsers switches to new default of `SameSite=Lax`
+- Added promise to `tearDown()`
+- Improved analytics properties
 
 ## 13.8.3 - 2024-02-21
+No changes
 
 ## 14.15.0 - 2024-02-01
 ### Changed
-- See migrations guide.
+- Please refere to our [migration guide](https://documentation.onfido.com/sdk/web/migration/) for a complete list of changes
 
 ## 13.8.2 - 2024-01-23
+No changes
 
 ## 13.8.1 - 2024-01-17
-### Fixed
-- Removed check for audio permission in webview.
+### Removed
+- Removed check for audio permission in webview
 
 ## 13.8.0 - 2024-01-02
-### Changed
-- Removed migrate_locales scripts.
+### Removed
+- Removed `migrate_locales` scripts
 - Removed performance benchmark
 
 ### Fixed
-- Fix validation for Indonesia ID number
-- Fix National ID Number semantic type and display
+- Fixed validation for Indonesia ID number
+- Fixed National ID Number semantic type and display
 
 ## 14.16.0 - 2023-12-19
 ### Fixed
-- Perform retries on 5xx error.
+- Perform retries on 5xx error
 
 ## 13.7.0 - 2023-11-08
 ### Added
@@ -273,13 +271,13 @@ No changes.
 
 ## 13.6.1 - 2023-10-24
 ### Fixed
-- Fix disabled submit button in country selection in PoA step
+- Fixed disabled submit button in country selection in Proof of Address (poa) step
 
 ## 13.6.0 - 2023-10-24
 ### Changed
-- Document capture: Add integrator events 'DOCUMENT_CAPTURE_FRONT' and 'DOCUMENT_CAPTURE_BACK' for the Javascript camera.
+- Document capture: Add integrator events `DOCUMENT_CAPTURE_FRONT` and `DOCUMENT_CAPTURE_BACK` for the Javascript camera
 - Document country selection: Automatically close the keyboard after country is selected
-- Add support a selection of Google fonts
+- Added support a selection of Google Fonts
 
 ## 13.5.1 - 2023-10-12
 ### Fixed
@@ -288,84 +286,92 @@ No changes.
 ## 13.5.0 - 2023-10-06
 ### Changed
 - Add new `showIntro` configuration for the Standard and Video capture steps
-- New permission screen instructions were added to guide users on various devices/browsers to recover from denied access to the camera.
+- New permission screen instructions were added to guide users on various devices/browsers to recover from denied access to the camera
 
 ### Fixed
 - A click on the search icon in the Country Selector will focus the input field
 - JS Document capture is now fixed for Firefox on Android
-- Show spinner while we're waiting for the next studio task to be ready
+- Show spinner while we're waiting for the next Studio task to be ready
 
 ## 13.4.0 - 2023-09-27
-### Changed
-- Add new `colorBackgroundDropdownItemHover` and `colorBackgroundDropdownItemActive` UI customization option for the country selector.
-- Add ODP error handling (https://documentation.onfido.com/#original-document-present-reasons)
+### Added
+- Added new `colorBackgroundDropdownItemHover` and `colorBackgroundDropdownItemActive` UI customization option for the country selector.
+- Added ODP error handling (https://documentation.onfido.com/#original-document-present-reasons)
 - New document capture experience change: Stop rendering the fallback message after two blurry document upload tries.
-- Three changes in the Javascript "New document capture experience": One, increase timeout to see the fallback error message from 40s to 80s. Two, don't show the fallback error message when uploadFallback is disabled. Three, keep the button available even when the uploadFallback error message is shown.
-- Support customUI on self-hosted crossdevice instances
+
+### Changed
+- Three changes in the Javascript "New document capture experience": One, increase timeout to see the fallback error message from 40s to 80s. Two, don't show the fallback error message when `uploadFallback` is disabled. Three, keep the button available even when the `uploadFallback` error message is shown.
+- Support `customUI` on self-hosted cross-device instances
 
 ### Fixed
-- Prevent the windows touch machines from using the JS camera. In some cases, the Windows Touch machines were allowed to behave as mobile devices. It's not the case anymore.
-- Fix the resolution of the new document capture experience (JS Camera) for iOS devices. It was 1443 px instead of 1440 px.
+- Prevented Windows Touch machines from using the Javascript camera. In some cases, the Windows Touch machines were allowed to behave as mobile devices. This is no longer the case
+- Fixed the resolution of the new Document Capture experience (Javascript Camera) for iOS devices. It was 1443px instead of 1440px.
 
 ## 13.3.2 - 2023-09-18
 ### Fixed
-- Fix workflow double document steps and blank screen after face capture
+- Fixed workflow double document steps and blank screen after face capture
 
 ## 13.3.1 - 2023-08-22
 ### Changed
-- Prevent Windows Touch machines from using the JS camera. In some cases, Windows Touch machines were allowed to behave as mobile devices. This is no longer the case.
+- Prevented Windows Touch machines from using the Javascript camera. In some cases, the Windows Touch machines were allowed to behave as mobile devices. This is no longer the case
 
 ## 13.3.0 - 2023-08-16
+### Added
+- Added a general tips section in the README.md
+
 ### Changed
-- Fix loading modules when the first module is skippable (studio).
-- Add a general tips section in the README.md
-- Change the welcome screen wording to comply with video recording regulations.
+- Changed the welcome screen wording to comply with video recording regulations
+- Fixed loading modules when the first module is skippable (in Studio)
 
 ## 13.2.0 - 2023-08-08
 ### Fixed
-- Custom cross device URLs can now contain a path between the host and the hash. Ex: `https://host:port/some/path/HASH`
+- Custom cross-device URLs can now contain a path between the host and the hash. Ex: `https://host:port/some/path/HASH`
 - Color contrast in button and remove icons preload
 
 ## 13.1.0 - 2023-07-20
+### Added
+- Added Accessibility translations for Motion
+- Added support for Romanian national identity number in Profile Capture
+
 ### Changed
-- Update `resend SMS` copy for better user experience.
-- Add Accessibility translations for Motion.
-- Add support for Romanian national identity number in profile capture
+- Updated `resend SMS` copy for better user experience
 
 ### Fixed
-- Fix `issuing_country` on `cross-device` for `passport` not added to payload.
+- Fixed `issuing_country` on `cross-device` for `passport` not added to payload
 
 ## 12.4.1 - 2023-07-14
 ### Fixed
-- Fix close button on document preview
+- Fixed close button on document preview
 
 ## 13.0.1 - 2023-07-11
-### Changed
-- Add play pause button to motion intro animation video.
+### Added
+- Added play / pause button to motion intro animation video
 
 ### Fixed
-- Fix duplicate Motion capture uploads on SDK initialisations without a `complete` step.
-- Fix Motion capture recording starting too early.
+- Fixed duplicate Motion capture uploads on SDK initialisations without a `complete` step
+- Fixed Motion capture recording starting too early
 
 ## 13.0.0 - 2023-07-11
-### Changed
-- Remove `uploadFallback` option in the `document` step.
-- Remove `uploadFallback` option in the `face` step.
-- Add a new error when barcode detection issues arise.
+### Added
+- Added a new error when barcode detection issues arise
+
+### Removed
+- Removed `uploadFallback` option in the `document` step
+- Removed `uploadFallback` option in the `face` step
 
 ### Fixed
-- Fix workflow multi document tasks step configuration.
+- Fixed workflow multi document tasks step configuration
 
 ## 12.4.0 - 2023-06-19
 ### Changed
-- Add an instructional video in the Face Video intro screen.
-- Expose Motion events as [user analytics](https://github.com/onfido/onfido-sdk-ui#tracked-events).
+- Added an instructional video in the Face Video intro screen
+- Expose Motion events as [user analytics](https://github.com/onfido/onfido-sdk-ui#tracked-events)
 
 ### Fixed
-- Fix custom colours on icons
-- Fix phone input to prevent country from resetting
-- Fix `InvalidStateException` in edge cases where webcams takes too long to initialise.
-- Fix icon sizes on intro screens with long texts
+- Fixed custom colours on icons
+- Fixed phone input to prevent country from resetting
+- Fixed `InvalidStateException` in edge cases where webcams takes too long to initialise
+- Fixed icon sizes on intro screens with long texts
 
 ## 12.3.6 - 2023-06-16
 ### Changed

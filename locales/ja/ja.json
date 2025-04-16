@@ -305,7 +305,8 @@
             "title_poa": "ドキュメントを選択してください"
         },
         "doc_submit": {
-            "button_link_upload": "または写真をアップロードする（スキャンやコピーはできません）",
+            "banner": "スキャンやコピーは受け付けられません",
+            "button_link_upload": "写真をアップロード",
             "button_primary": "スマートフォンで続行",
             "subtitle": "携帯電話で写真を撮る",
             "title_accommodation_tenancy_certificate": "宿泊施設または賃貸証明書を提出する",
@@ -415,6 +416,10 @@
                 "lazy_loading": {
                     "message": "コンポーネントの読み込み中にエラー発生しました"
                 },
+                "low_resolution": {
+                    "instruction": "より高解像度の画像を使用してください。",
+                    "message": "画像が小さすぎます"
+                },
                 "multiple_faces": {
                     "instruction": "自撮り写真に写るのはあなたの顔だけにしてください",
                     "message": "複数の顔が見つかりました"
@@ -422,6 +427,10 @@
                 "no_camera": {
                     "subtitle": "このデバイスではカメラを検出できません。カメラが接続され、必要な権限が付与されていることを確認してください。",
                     "title": "カメラが見つかりません"
+                },
+                "no_doc": {
+                    "instruction": "身分証明書を含む画像をアップロードしてください。",
+                    "message": "画像にドキュメントがありません"
                 },
                 "no_face": {
                     "instruction": "顔が見えるようにしてください",
@@ -434,6 +443,10 @@
                 "restart_cross-device": {
                     "subtitle": "あなたのコンピュータで認証を再開する必要があります。認証画面に戻って、もう一度お試しください。",
                     "title": "何かが間違っています"
+                },
+                "small_doc": {
+                    "instruction": "ドキュメントが画像を満たしていることを確認してください。すべてのテキストがはっきりと読めるようにしてください。",
+                    "message": "あなたの身分証明書は小さすぎます"
                 },
                 "sms_failed": {
                     "instruction": "携帯向けのリンクをコピー",
