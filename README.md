@@ -112,8 +112,6 @@ yarn add onfido-sdk-ui
 
 From version 14 onwards, the `onfido-sdk-ui` package will, by default, be connected to the Onfido CDN. In addition to the benefits of using a CDN and the library being directly in your build process, core functions will also be typed when used with [Typesript](#typescript).
 
-Full bundles that consist of the full library will also be made available via NPM.
-
 <Callout type="warning">
 
 > From version 14 onwards, "split bundles" are no longer supported. Onfido recommends the use of either the direct or NPM CDN integration.
@@ -124,7 +122,7 @@ Full bundles that consist of the full library will also be made available via NP
 
 In order to facilitate integration and A/B tests, the CDN-powered NPM package will also **optionally** support the ability to specify a version (major, minor or patch) of the Onfido Web SDK library.
 
-More details are provided in the [SDK version pinning](#version-pinning) section below.
+NPM bundle is by default evergreen and subscribes to the latest major version of the SDK. More details are provided in the [SDK version pinning](#version-pinning) section below.
 
 #### TypeScript
 
@@ -170,6 +168,10 @@ SDK tokens for Studio can only be used together with the specific workflow run t
 
 To load the Onfido flow, add an empty HTML element for the modal interface to mount itself on:
 
+**Note**: Starting from Web SDK `v14.0.0`, the SDK container will automatically inherit 100% of the height and width of its parent wrapper. On desktop, it will be constrained by a maximum width of `600px` and a maximum height of `800px`.
+
+If you are embedding the SDK within a `div`, `iframe`, or any other element, ensure that you adjust the dimensions of the parent container to meet your specific requirements.
+
 ```html
 <div id="onfido-mount"></div>
 ```
@@ -214,6 +216,7 @@ Please refer to this [guide](https://documentation.onfido.com/sdk/sdk-webview-gu
 
 ### Version pinning
 
+NPM bundle is by default evergreen and subscribes to the latest major version of the SDK.
 Based on the same major version, the minor and patch versions of the library can be specified in the `Onfido.init()` object.
 
 - **`version {String}` - optional**
