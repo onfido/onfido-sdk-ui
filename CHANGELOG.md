@@ -6,6 +6,10 @@ and the SDK adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html)
 
 When any of the string translations change, it will result in a MINOR version change. As a result, you are responsible for ensuring the correct layout if you are using custom translations (see [language localization](https://documentation.onfido.com/sdk/web/#custom-translations-and-text)).
 
+## 14.45.2 - 2025-05-08
+- Fixed type on NPM bulde for `version` pinning
+- Correction for npm bundle and versiong pinning
+
 ## 14.45.0 - 2025-04-09
 ### Changed
 - Document Upload page is updated. see [migration guide](https://documentation.onfido.com/sdk/web/migration)
