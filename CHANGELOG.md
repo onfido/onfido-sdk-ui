@@ -6,9 +6,12 @@ and the SDK adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html)
 
 When any of the string translations change, it will result in a MINOR version change. As a result, you are responsible for ensuring the correct layout if you are using custom translations (see [language localization](https://documentation.onfido.com/sdk/web/#custom-translations-and-text)).
 
+## 14.46.0 - 2025-05-19
+### Added
+- Added new fullscreen option for external links to support AES on mobile
+
 ## 14.45.2 - 2025-05-08
-- Fixed type on NPM bulde for `version` pinning
-- Correction for npm bundle and versiong pinning
+- Correction for npm bundle and version pinning
 
 ## 14.45.0 - 2025-04-09
 ### Changed
@@ -59,7 +62,14 @@ When any of the string translations change, it will result in a MINOR version ch
 ### Fixed
 - Do not show the consent screen if consent was already granted
 
+## 14.39.2 - 2024-11-25
+No changes
+
 ## 14.39.1 - 2024-11-20
+No changes
+
+## 14.38.1 - 2024-11-19
+No changes
 
 ## 14.39.0 - 2024-11-18
 ### Added
@@ -79,7 +89,7 @@ When any of the string translations change, it will result in a MINOR version ch
 - Provided a more descriptive cross-device error screen
 - Fixed shifting cursor issue during One-Time-Password phone number input
 
-## 14.38.0 - 2024-09-30
+## 14.38.0 - 2024-10-01
 ### Removed
 - Removed the 10s timeout for the loading of modules
 

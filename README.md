@@ -224,7 +224,7 @@ Based on the same major version, the minor and patch versions of the library can
   The specific version of the Onfido Web SDK that should be loaded as part of this initialization. A full version (e.g. `v14.12.1`) or just a minor version (e.g. `v14.13`) can be specified. When a minor version is specified, the latest patch version for that minor release will be loaded.
   Example: `version: "14.12.1"`
 
-**Note**: This parameter is ineffective when the library is imported as a full bundle from NPM (as opposed to the default CDN-powered NPM package).
+**Note**: This parameter is only effective when the library is imported as npm bundle (as opposed to the default CDN-powered NPM package).
 
 ### Styling customization
 
@@ -467,7 +467,7 @@ Three options are offered to the user to resume the flow on a mobile device brow
 
 - QR code that can be scanned with a camera app (default)
 - 'Copy Link' feature that can be copy/pasted into a web browser
-- One-time SMS link that can be sent diretly to the user's mobile phone
+- One-time SMS link that can be sent directly to the user's mobile phone
 
 Regardless of the cross-device method, the secure URL is unique to this session.
 
@@ -479,33 +479,23 @@ At the end of the capture process, users will be instructed to revert back to th
 
 **North America**
 
-- Belize
 - Cuba
-- Grenada
 - Haiti
-- St Kitts and Nevis
 
 **Asia**
 
 - Afghanistan
-- Azerbaijan
-- Bangladesh
 - Bhutan
 - East Timor
 - Iran
 - Iraq
-- Jordan
 - Democratic People's Republic of Korea
-- Kyrgyzstan
 - Laos
 - Lebanon
 - Myanmar
-- Oman
 - Palestinian Territory
-- Sri Lanka
 - Syria
 - Tajikistan
-- Turkmenistan
 - Yemen
 
 **Africa**
@@ -517,7 +507,6 @@ At the end of the capture process, users will be instructed to revert back to th
 - Chad
 - Comoros
 - Djibouti
-- Egypt
 - Equatorial Guinea
 - Eritrea
 - Guinea Bissau
@@ -526,14 +515,9 @@ At the end of the capture process, users will be instructed to revert back to th
 - Madagascar
 - Mauritania
 - Niger
-- Sao Tome and Principe
-- Senegal
-- Seychelles
 - Somalia
 - South Sudan
 - Sudan
-- Swaziland
-- Zambia
 - Zimbabwe
 
 For more information regarding region blocking, please contact Onfido's [Customer Support](mailto:support@onfido.com).
@@ -600,6 +584,20 @@ In addition to forcing the cross-device flow, the cross-device experience can be
   ```
 
 **Note** that from version 14, the `crossDeviceClientIntroProductName` option used in previous versions to modify just the customer name in the cross-device intro screen has been deprecated. Instead, you should use the standard [language customization](#language-customization) process to override the subtitle of the screen.
+
+#### Cross-device experience: beta features
+
+In an effort to provide more flexibility and security to the cross-device experience, new features are gradually
+being introduced in the main user flow.
+The capabilities listed below are available to all integrations using the Web SDK version 14.44 and above.
+For more information and activation, please contact [Customer Support](mailto:support@onfido.com) or your Customer
+Success Manager.
+
+| Beta feature                                                                                                                                                                                                                                                                                                                                                          |                                                                                                                                                                              |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Dynamic cross-device QR code** <br/> When enabled, the QR code displayed in the source (desktop) session will automatically refresh every 10 seconds. <br/>This feature cannot currently be used with other link methods.                                                                                                                                           |                                                                                                                                                                              |
+| **User connection confirmation screen** <br/> When enabled, this new screen would appear as the first screen on the end-user's mobile device. It displays metadata relating to the source (desktop) session as well as guidance and an opportunity to drop out of the cross-device flow.                                                                              | ![Cross-device confirmation screen](demo/cross-device-confirmation.png)                                                                                                      |
+| **User verification screen** <br/> This screen is provided independently of (and would appear after) the aforementioned cross-device confirmation screen. When enabled, the mobile screen would request the end-user to select the confirmation code that appears on the initiating source (desktop) screen. Incorrect entry results in the cancellation of the flow. | ![Cross-device verification desktop screen](demo/cross-device-verification-source.png) ![Cross-device verification mobile screen](demo/cross-device-verification-mobile.png) |
 
 ## Completing a session
 
