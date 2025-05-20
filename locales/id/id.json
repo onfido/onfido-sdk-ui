@@ -1,1453 +1,1319 @@
 {
-    "onfido": {
-        "avc_confirmation": {
-            "button_primary_upload": "Unggah rekaman",
-            "subtitle": "Video wajah Anda berhasil direkam",
-            "title": "Perekaman selesai"
-        },
-        "avc_connection_error": {
-            "button_primary_reload": "Muat ulang instruksi",
-            "button_primary_retry_upload": "Coba unggah lagi",
-            "button_secondary_restart_recording": "Mulai ulang perekaman",
-            "subtitle": "Periksa apakah koneksi Anda stabil, lalu coba lagi",
-            "title": "Koneksi terganggu"
-        },
-        "avc_face_alignment": {
-            "feedback_move_back": "Mundur",
-            "feedback_move_back_accessibility": "Gerakkan perangkat Anda ke belakang",
-            "feedback_move_closer": "Mendekatlah",
-            "feedback_move_left_accessibility": "Gerakkan perangkat Anda ke kiri",
-            "feedback_move_right_accessibility": "Gerakkan perangkat Anda ke kanan",
-            "feedback_no_face_detected": "Wajah tidak terdeteksi",
-            "feedback_not_centered": "Wajah tidak berada di tengah",
-            "title": "Posisikan wajah Anda dalam bingkai"
-        },
-        "avc_face_capture": {
-            "alert": {
-                "mic_conflict_title": "Mikrofon Anda sedang digunakan oleh aplikasi lain",
-                "timeout_body": "Anda memiliki waktu hingga 15 detik untuk menyelesaikan rekaman",
-                "timeout_button_primary": "Coba lagi",
-                "timeout_title": "Maaf, kami harus memulai ulang perekaman",
-                "too_fast_body": "Silakan coba lagi dan putar kepala Anda lebih perlahan",
-                "too_fast_button_primary": "Coba lagi",
-                "too_fast_title": "Anda memutar kepala terlalu cepat"
-            },
-            "title": "Putar kepala Anda perlahan ke kedua sisi",
-            "title_completed": "Perekaman selesai"
-        },
-        "avc_intro": {
-            "button_primary_ready": "Mulai merekam",
-            "disclaimer": "Selama proses ini, wajah dan latar belakang Anda akan direkam",
-            "disclaimer_camera_and_audio_on": "Wajah, latar belakang, dan audio Anda akan direkam selama proses ini",
-            "list_item_one": "Pertama, posisikan wajah Anda dalam bingkai",
-            "list_item_two": "Kemudian, putar kepala Anda ke kedua sisi",
-            "subtitle": "Ini untuk memverifikasi bahwa Anda adalah orang sungguhan",
-            "title": "Rekam video",
-            "title_accessibility": "Merekam video wajah Anda",
-            "video_accessibility": "Contoh video seseorang memutar kepala ke kedua sisi hingga selesai"
-        },
-        "avc_no_face_detected": {
-            "button_primary_restart": "Mulai ulang perekaman",
-            "list_item_eyes": "Pastikan mata Anda terlihat jelas",
-            "list_item_face": "Pastikan hanya menampilkan wajah Anda, kami tidak perlu melihat identitas Anda",
-            "list_item_lighting": "Pastikan berada di tempat dengan pencahayaan yang baik",
-            "list_item_mask": "Pastikan untuk melepas masker atau benda lain yang menutupi wajah Anda. Kacamata diperbolehkan",
-            "title": "Kami tidak dapat mendeteksi wajah Anda"
-        },
-        "avc_uploading": {
-            "title": "Mengunggah"
-        },
-        "country_select": {
-            "alert": {
-                "another_doc": "Dokumen dari negara tersebut saat ini tidak didukung — <fallback>coba jenis dokumen lain<\/fallback>"
-            },
-            "alert_dropdown": {
-                "country_not_found": "Negara tidak ditemukan"
-            },
-            "button_primary": "Kirim dokumen",
-            "poa_alert": {
-                "country_not_found": "Kami mohon maaf atas hal ini. Kami sedang berupaya mendukung lebih banyak negara.",
-                "intro": "Tidak dapat menemukan negara Anda?"
-            },
-            "search": {
-                "accessibility": "Pilih negara",
-                "input_placeholder": "misalnya: Amerika Serikat",
-                "label": "Cari negara"
-            },
-            "title": "Pilih negara penerbit"
-        },
-        "cross_device": {
-            "button_primary_upload": "Lanjutkan"
-        },
-        "cross_device_abort": {
-            "title": "Verifikasi dibatalkan"
-        },
-        "cross_device_checklist": {
-            "button_primary": "Kirim verifikasi",
-            "info": "Tips",
-            "list_item_doc_multiple": "Dokumen",
-            "list_item_doc_one": "Dokumen",
-            "list_item_poa": "Bukti alamat",
-            "list_item_selfie": "Swafoto",
-            "list_item_video": "Video",
-            "subtitle": "Ini semua yang telah Anda unggah:",
-            "title": "Satu langkah terakhir"
-        },
-        "cross_device_error_desktop": {
-            "subtitle": "Tautan hanya berfungsi pada perangkat seluler",
-            "title": "Ada yang tidak beres"
-        },
-        "cross_device_error_mobile": {
-            "subtitle": "Anda dapat mencoba untuk memverifikasi identitas Anda lagi pada perangkat asli.",
-            "title": "Nomor tersebut tidak cocok"
-        },
-        "cross_device_error_restart": {
-            "subtitle": "Anda harus memulai ulang verifikasi di komputer Anda",
-            "title": "Ada yang tidak beres"
-        },
-        "cross_device_intro": {
-            "button_primary": "Dapatkan tautan aman",
-            "list_accessibility": "Langkah-langkah yang diperlukan untuk melanjutkan verifikasi di ponsel Anda",
-            "list_item_finish": "Periksa kembali di sini untuk menyelesaikan pengiriman",
-            "list_item_open_link": "Buka tautan dan selesaikan tugas ini",
-            "list_item_send_phone": "Kirim tautan aman ke ponsel Anda",
-            "subtitle": "Begini caranya:",
-            "subtitle_upload": "Unggah foto terbaru dari dokumen asli Anda",
-            "title": "Lanjutkan di ponsel Anda"
-        },
-        "cross_device_number_match_desktop": {
-            "instruction": "Ketuk nomor di ponsel Anda untuk memverifikasi bahwa itu Anda.",
-            "subtitle": "Untuk membantu menjaga informasi Anda tetap aman, Onfido ingin memastikan bahwa benar-benar Anda yang mencoba untuk memverifikasi identitas Anda",
-            "title": "Terhubung ke ponsel Anda"
-        },
-        "cross_device_number_match_error_desktop": {
-            "button_primary": "Coba lagi",
-            "subtitle": "Silakan kembali dan coba lagi.",
-            "title": "Nomor tersebut tidak cocok"
-        },
-        "cross_device_number_match_mobile": {
-            "abort_button": "Itu bukan saya",
-            "subtitle": "Ketuk nomor yang ditampilkan di perangkat lain Anda. Kami ingin memastikan bahwa itu benar-benar Anda.",
-            "title": "Cocokkan nomornya"
-        },
-        "cross_device_return": {
-            "body": "Komputer Anda mungkin memerlukan waktu beberapa detik untuk memperbarui",
-            "subtitle": "Sekarang Anda dapat kembali ke komputer untuk melanjutkan",
-            "title": "Unggahan berhasil"
-        },
-        "cross_device_session_linked": {
-            "button_primary": "Lanjutkan",
-            "info": "Periksa kembali",
-            "list_item_desktop_open": "Jendela desktop Anda tetap terbuka",
-            "list_item_sent_by_you": "Tautan ini dikirim oleh Anda — mintalah saran jika menurut Anda ini mungkin penipuan",
-            "subtitle": "Lanjutkan dengan verifikasi",
-            "title": "Sesi seluler yang ditautkan ke komputer Anda"
-        },
-        "doc_auto_capture": {
-            "button_accessibility": "Ambil foto",
-            "footer": {
-                "captured": "Foto direkam",
-                "capturing": "Merekam foto",
-                "manual_fallback_generic_document_back": "Ambil foto bagian belakang dokumen Anda",
-                "manual_fallback_generic_document_front": "Ambil foto bagian depan dokumen Anda",
-                "manual_fallback_identity_card_back": "Ambil foto bagian belakang kartu Anda",
-                "manual_fallback_identity_card_front": "Ambil foto bagian depan kartu Anda",
-                "manual_fallback_license_back": "Ambil foto bagian belakang SIM Anda",
-                "manual_fallback_license_front": "Ambil foto bagian depan SIM Anda",
-                "manual_fallback_passport": "Ambil foto halaman foto paspor Anda",
-                "manual_fallback_residence_permit_back": "Ambil foto bagian belakang izin tinggal Anda",
-                "manual_fallback_residence_permit_front": "Ambil foto bagian depan izin tinggal Anda",
-                "position_generic_document_back": "Posisikan bagian belakang dokumen Anda dalam bingkai",
-                "position_generic_document_front": "",
-                "position_identity_card_back": "Posisikan bagian belakang kartu Anda dalam bingkai",
-                "position_identity_card_front": "Posisikan bagian depan kartu Anda dalam bingkai",
-                "position_license_back": "Posisikan bagian belakang SIM Anda dalam bingkai",
-                "position_license_front": "Posisikan bagian depan SIM Anda dalam bingkai",
-                "position_passport": "Posisikan halaman foto paspor Anda dalam bingkai",
-                "position_residence_permit_back": "Posisikan bagian belakang izin tinggal Anda dalam bingkai",
-                "position_residence_permit_front": "Posisikan bagian depan izin tinggal Anda dalam bingkai"
-            },
-            "frame": {
-                "flip_document": "Balik ke sisi belakang",
-                "hold_still": "Jangan sampai goyang",
-                "no_document": "Dokumen tidak terdeteksi"
-            }
-        },
-        "doc_capture": {
-            "alert": {
-                "no_barcode_detail": "Tetap di tempat yang terang dan dekatkan kartu ke kamera",
-                "no_barcode_title": "Barcode tidak terdeteksi"
-            },
-            "button_primary": "Mulai pemindaian dokumen",
-            "detail": {
-                "folded_doc_front": "Letakkan dokumen secara mendatar, sertakan semua halaman dalam (harus memuat foto Anda)"
-            },
-            "header": {
-                "recording_complete": "Perekaman selesai",
-                "recording_video": "Merekam video"
-            },
-            "header_folded_doc_front": "Sisi foto profil",
-            "prompt": {
-                "button_card": "Kartu plastik",
-                "button_paper": "Dokumen cetak",
-                "title_id": "Jenis kartu identitas apa yang Anda miliki?",
-                "title_license": "Jenis lisensi apa yang Anda miliki?"
-            }
-        },
-        "doc_confirmation": {
-            "alert": {
-                "blur_detail": "Pastikan semuanya jelas",
-                "blur_title": "Foto buram terdeteksi",
-                "crop_detail": "Pastikan seluruh dokumen terlihat",
-                "crop_title": "Gambar terpotong terdeteksi",
-                "glare_detail": "Harap menjauh dari cahaya langsung",
-                "glare_title": "Cahaya menyilaukan terdeteksi",
-                "no_doc_detail": "Pastikan sepenuhnya berada dalam bingkai",
-                "no_doc_title": "Dokumen tidak ditemukan",
-                "odp_detail": "Silakan gunakan dokumen asli Anda. Foto layar atau fotokopi tidak diterima",
-                "odp_photo_of_screen_title": "Foto layar terdeteksi",
-                "odp_photocopy_title": "Fotokopi terdeteksi",
-                "odp_scan_title": "Pemindaian terdeteksi",
-                "odp_screenshot_title": "Tangkapan layar terdeteksi"
-            },
-            "body": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya bisa dibaca dengan jelas, tidak buram atau silau",
-            "body_accommodation_tenancy_certificate": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya jelas untuk dibaca tanpa kabur atau silau",
-            "body_address_certificate": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya jelas untuk dibaca tanpa kabur atau silau",
-            "body_bank_statement": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya bisa dibaca dengan jelas, tidak buram atau silau",
-            "body_benefits_letter": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya bisa dibaca dengan jelas, tidak buram atau silau",
-            "body_bill": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya bisa dibaca dengan jelas, tidak buram atau silau",
-            "body_exchange_house_statement": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya jelas untuk dibaca tanpa kabur atau silau",
-            "body_general_letter": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya jelas untuk dibaca tanpa kabur atau silau",
-            "body_generic_document": "Pastikan detail Anda jelas dan tidak terhalang",
-            "body_id": "Pastikan detail Anda jelas dan tidak terhalang",
-            "body_identity_document_with_address": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya jelas untuk dibaca tanpa kabur atau silau",
-            "body_image_medium": "Perlu waktu lebih lama untuk memverifikasi Anda jika kami tidak dapat membacanya",
-            "body_image_poor": "Untuk memverifikasi Anda dengan lancar, kami membutuhkan foto yang lebih baik",
-            "body_insurance_statement": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya jelas untuk dibaca tanpa kabur atau silau",
-            "body_license": "Pastikan detail Anda jelas dan tidak terhalang",
-            "body_mobile_phone_bill": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya jelas untuk dibaca tanpa kabur atau silau",
-            "body_mortgage_statement": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya jelas untuk dibaca tanpa kabur atau silau",
-            "body_passport": "Pastikan detail Anda jelas dan tidak terhalang",
-            "body_pension_property_statement_letter": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya jelas untuk dibaca tanpa kabur atau silau",
-            "body_permit": "Pastikan detail Anda jelas dan tidak terhalang",
-            "body_tax_letter": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya bisa dibaca dengan jelas, tidak buram atau silau",
-            "button_close": "Tutup",
-            "button_primary_redo": "Ulangi",
-            "button_primary_upload": "Unggah",
-            "button_primary_upload_anyway": "Tetap mengunggah",
-            "button_secondary_change_document": "Pilih dokumen lain",
-            "button_secondary_redo": "Ulangi",
-            "button_secondary_submit_anyway": "Kirim foto saja",
-            "button_zoom": "Perbesar gambar",
-            "image_accessibility": "Foto dokumen Anda",
-            "title": "Periksa foto Anda"
-        },
-        "doc_multi_frame_capture": {
-            "capture_progress_title": "Memindai dokumen",
-            "instructions_title_back": "Posisikan bagian belakang dokumen Anda dalam bingkai",
-            "instructions_title_front": "Posisikan bagian depan dokumen Anda dalam bingkai"
-        },
-        "doc_select": {
-            "accommodation_tenancy_certificate_detail": "Dikeluarkan oleh otoritas pemerintah atau pemilik korporasi sebagai konfirmasi sewa.",
-            "button_address_card": "Kartu alamat",
-            "button_address_card_back": "Kartu Alamat (Belakang)",
-            "button_address_card_detail": "Kartu sementara dan permanen diterima",
-            "button_address_card_front": "Kartu Alamat (Depan)",
-            "button_bank_statement": "Rekening koran atau laporan building society",
-            "button_bank_statement_non_uk": "Rekening koran",
-            "button_benefits_letter": "Surat Tunjangan",
-            "button_benefits_letter_detail": "Tunjangan rumah tangga resmi dari pemerintah misalnya: Tunjangan pencari kerja, Tunjangan perumahan, Kredit pajak",
-            "button_bill": "Tagihan Utilitas",
-            "button_bill_detail": "Gas, listrik, air, telepon rumah, atau broadband",
-            "button_exchange_house_statement": "Pernyataan Rumah Penukaran",
-            "button_exchange_house_statement_detail": "Pernyataan pengirim tentang transfer atau pengiriman uang",
-            "button_general_letter": "Surat Umum",
-            "button_general_letter_detail": "Surat dari lembaga keuangan atau perusahaan utilitas",
-            "button_government_letter": "Surat Pemerintah",
-            "button_government_letter_detail": "Surat yang dikeluarkan pemerintah misalnya: Hak tunjangan, Surat suara, Surat pajak, dll.",
-            "button_id": "Kartu identitas",
-            "button_id_detail": "Depan dan belakang",
-            "button_identity_document_with_address": "Dokumen Identitas Dengan Alamat",
-            "button_identity_document_with_address_back": "Dokumen Identitas Dengan Alamat (Belakang)",
-            "button_identity_document_with_address_detail": "Dikeluarkan oleh otoritas pemerintah",
-            "button_identity_document_with_address_front": "Dokumen Identitas Dengan Alamat (Depan)",
-            "button_insurance_statement": "Pernyataan Asuransi",
-            "button_insurance_statement_detail": "Dikeluarkan oleh perusahaan asuransi pribadi atau perusahaan pialang",
-            "button_license": "Surat izin mengemudi (SIM)",
-            "button_license_detail": "Depan dan belakang",
-            "button_mobile_phone_bill": "Tagihan Telepon Seluler",
-            "button_mobile_phone_bill_detail": "Dikeluarkan oleh penyedia jaringan telepon seluler",
-            "button_mortgage_statement": "Pernyataan Hipotek",
-            "button_mortgage_statement_detail": "Dikeluarkan oleh lembaga peminjaman keuangan",
-            "button_passport": "Paspor",
-            "button_passport_detail": "Halaman foto",
-            "button_pension_property_statement_letter": "Surat Pernyataan\/Pernyataan tentang Pensiun atau Properti",
-            "button_pension_property_statement_letter_detail": "Surat pernyataan pensiun atau surat dan Surat pernyataan pajak properti atau surat",
-            "button_permit": "Izin tinggal",
-            "button_permit_detail": "Depan dan belakang",
-            "button_tax_letter": "Surat Pajak Pemerintah Daerah",
-            "extra_estatements_ok": "rekening elektronik diterima",
-            "list_accessibility": "Dokumen yang dapat Anda gunakan untuk memverifikasi identitas Anda",
-            "pill": "tercepat",
-            "section": {
-                "header_country": "Negara penerbit",
-                "header_doc_type": "Dokumen yang diterima",
-                "input_country_not_found": "Tidak Ada Hasil",
-                "input_placeholder_country": "Pilih negara penerbit"
-            },
-            "subtitle": "Ini harus berupa foto identitas resmi",
-            "subtitle_country": "Pilih negara penerbit untuk melihat dokumen apa saja yang kami terima",
-            "subtitle_entire_page": "Seluruh halaman",
-            "subtitle_front_back": "Depan dan belakang",
-            "subtitle_photo_page": "Halaman foto",
-            "subtitle_poa": "Ini adalah dokumen yang hampir bisa dipastikan menunjukkan alamat rumah Anda saat ini",
-            "title": "Pilih dokumen Anda",
-            "title_poa": "Pilih sebuah dokumen"
-        },
-        "doc_submit": {
-            "banner": "Scan atau fotokopi tidak diterima",
-            "button_link_upload": "Unggah foto",
-            "button_primary": "Lanjutkan di telepon",
-            "subtitle": "Ambil foto dengan ponsel Anda",
-            "title_accommodation_tenancy_certificate": "Kirimkan Sertifikat Akomodasi atau Sewa Menyewa",
-            "title_address_certificate": "Kirim kartu alamat",
-            "title_address_certificate_back": "Kirim kartu alamat (belakang)",
-            "title_address_certificate_front": "Kirimkan kartu alamat (bagian depan)",
-            "title_bank_statement": "Kirim rekening bulanan",
-            "title_benefits_letter": "Kirim surat",
-            "title_bill": "Kirim tagihan",
-            "title_exchange_house_statement": "Kirimkan pernyataan rumah pertukaran",
-            "title_general_letter": "Kirim surat umum",
-            "title_generic_document_back": "Kirim dokumen (bagian belakang)",
-            "title_generic_document_front": "Kirim dokumen (bagian depan)",
-            "title_government_letter": "Surat Pemerintah",
-            "title_id_back": "Kirim kartu identitas (belakang)",
-            "title_id_front": "Kirim kartu identitas (depan)",
-            "title_identity_document_with_address": "Kirimkan dokumen identitas dengan alamat",
-            "title_identity_document_with_address_back": "Kirimkan dokumen identitas dengan alamat (belakang)",
-            "title_identity_document_with_address_front": "Kirimkan dokumen identitas dengan alamat (bagian depan)",
-            "title_insurance_statement": "Kirim pernyataan asuransi",
-            "title_license_back": "Kirim lisensi (kembali)",
-            "title_license_front": "Kirim lisensi (depan)",
-            "title_mobile_phone_bill": "Kirimkan tagihan telepon seluler",
-            "title_mortgage_statement": "Kirimkan pernyataan hipotek",
-            "title_passport": "Kirim halaman foto paspor",
-            "title_pension_property_statement_letter": "Kirim pernyataan atau surat",
-            "title_permit_back": "Kirim izin tinggal (belakang)",
-            "title_permit_front": "Kirim izin tinggal (depan)",
-            "title_tax_letter": "Kirimkan Surat Pajak Pemerintah Daerah"
-        },
-        "doc_video_capture": {
-            "button_primary_fallback": "Langkah berikutnya",
-            "button_primary_fallback_end": "Selesai merekam",
-            "detail_step2": "Jaga agar dokumen tetap dalam tampilan penuh",
-            "header": "Sambil memegang dokumen Anda, tempatkan sisi depan dalam bingkai",
-            "header_paper_doc_step2": "Balik dokumen perlahan untuk menampilkan halaman luar",
-            "header_passport": "Saat memegang paspor, tempatkan halaman foto dalam bingkai",
-            "header_passport_progress": "Jangan sampai goyang",
-            "header_step1": "Sekarang, usahakan tidak goyang",
-            "header_step2": "Balik dokumen perlahan untuk menampilkan sisi belakang",
-            "prompt": {
-                "detail_timeout": "Rekaman video dibatasi hingga <timeout><\/timeout> detik. <fallback>Mulai lagi<\/fallback>"
-            },
-            "stepper": "Langkah ​<step>​​<\/step>​ dari ​<total>​​<\/total>​",
-            "success_accessibility": "Berhasil"
-        },
-        "doc_video_confirmation": {
-            "button_secondary": "Pratinjau video",
-            "title": "Periksa video Anda"
-        },
-        "eid": {
-            "scheme_form": {
-                "subtitle": "Pilih bank dari daftar di bawah ini untuk memverifikasi diri Anda melalui <form_scheme><\/form_scheme>",
-                "title": "<form_scheme><\/form_scheme> Verification"
-            }
-        },
-        "error_unsupported_browser": {
-            "subtitle_android": "Mulai ulang proses di Google Chrome versi terbaru",
-            "subtitle_ios": "Mulai ulang proses di Safari versi terbaru",
-            "title_android": "Browser tidak didukung",
-            "title_ios": "Browser tidak didukung"
-        },
-        "generic": {
-            "accessibility": {
-                "close_sdk_screen": "Tutup layar verifikasi identitas",
-                "dismiss_alert": "Abaikan peringatan"
-            },
-            "back": "kembali",
-            "close": "tutup",
-            "errors": {
-                "desktop": {
-                    "subtitle": "Link ini hanya berfungsi pada perangkat mobile. Silakan coba lagi dengan membuka tautan pada perangkat mobile.",
-                    "title": "Tidak dapat membuka tautan"
-                },
-                "expired_token": {
-                    "instruction": "Silakan mencoba lagi",
-                    "message": "Token Anda telah kedaluwarsa",
-                    "subtitle": "Token SDK yang disediakan dalam proses verifikasi ini telah kedaluwarsa. Silakan kembali dan coba lagi.",
-                    "title": "Sesi Anda telah berakhir"
-                },
-                "expired_trial": {
-                    "instruction": "Anda telah mencapai batas uji coba Anda",
-                    "message": "Uji coba Anda telah berakhir",
-                    "subtitle": "Anda telah mencapai jumlah maksimum verifikasi yang diizinkan.",
-                    "title": "Masa percobaan Anda telah berakhir"
-                },
-                "geoblocked_error": {
-                    "instruction": "Maaf, sepertinya kami tidak dapat melanjutkan lebih jauh karena lokasi Anda saat ini tidak didukung",
-                    "message": "Layanan tidak tersedia"
-                },
-                "geoblocker_request": {
-                    "subtitle": "Maaf, kami tidak dapat melanjutkan verifikasi Anda karena lokasi saat ini tidak didukung.",
-                    "title": "Layanan tidak tersedia"
-                },
-                "interrupted_flow_error": {
-                    "instruction": "Mulai ulang proses pada perangkat lain",
-                    "message": "Kamera tidak terdeteksi"
-                },
-                "invalid_size": {
-                    "instruction": "Harus di bawah 10 MB.",
-                    "message": "Ukuran file terlalu besar."
-                },
-                "invalid_type": {
-                    "instruction": "Coba gunakan jenis file lain.",
-                    "message": "File tidak bisa diunggah."
-                },
-                "lazy_loading": {
-                    "message": "Terjadi kesalahan saat memuat komponen"
-                },
-                "low_resolution": {
-                    "instruction": "Silakan gunakan gambar dengan resolusi lebih tinggi.",
-                    "message": "Gambar Anda terlalu kecil"
-                },
-                "multiple_faces": {
-                    "instruction": "Swafoto harus menampilkan wajah Anda saja",
-                    "message": "Ada lebih dari satu wajah"
-                },
-                "no_camera": {
-                    "subtitle": "Kami tidak dapat mendeteksi kamera pada perangkat ini. Harap pastikan kamera telah terhubung dan izin yang diperlukan telah diberikan.",
-                    "title": "Kamera tidak ditemukan"
-                },
-                "no_doc": {
-                    "instruction": "Silakan unggah gambar yang berisi dokumen identitas Anda.",
-                    "message": "Tidak ada dokumen dalam gambar Anda"
-                },
-                "no_face": {
-                    "instruction": "Pastikan wajah Anda terlihat",
-                    "message": "Wajah tidak terdeteksi"
-                },
-                "request_error": {
-                    "instruction": "Silakan mencoba lagi",
-                    "message": "Ada yang tidak beres"
-                },
-                "restart_cross-device": {
-                    "subtitle": "Anda perlu memulai ulang verifikasi Anda di komputer. Silakan kembali ke layar verifikasi dan coba lagi.",
-                    "title": "Ada yang salah"
-                },
-                "small_doc": {
-                    "instruction": "Pastikan dokumen Anda memenuhi gambar. Semua teks harus dapat dibaca dengan jelas.",
-                    "message": "Dokumen identitas Anda terlalu kecil"
-                },
-                "sms_failed": {
-                    "instruction": "Salin tautan ke ponsel Anda",
-                    "message": "Ada yang tidak beres"
-                },
-                "sms_overuse": {
-                    "instruction": "Salin tautan ke ponsel Anda",
-                    "message": "Terlalu banyak percobaan yang gagal"
-                },
-                "unsupported_browser": {
-                    "subtitle": "Silakan, mulai ulang proses dengan mencoba browser lain.",
-                    "title": "Browser tidak didukung"
-                },
-                "unsupported_file": {
-                    "instruction": "Coba gunakan file JPG atau PNG",
-                    "message": "Jenis file tidak didukung"
-                },
-                "unsupported_sdk_version": {
-                    "subtitle": "Versi SDK tidak kompatibel dengan alur kerja yang dikonfigurasi. Periksa persyaratan SDK minimum dari alur kerja aktif Anda.",
-                    "title": "Versi tidak kompatibel"
-                },
-                "user_consent_denied": {
-                    "subtitle": "Maaf, kami tidak dapat memverifikasi identitas Anda tanpa persetujuan Anda. \\nJika Anda ingin melanjutkan verifikasi identitas Anda, silakan kembali dan berikan persetujuan Anda.",
-                    "title": "Persetujuan ditolak"
-                }
-            },
-            "footer": {
-                "branding": "Identitas asli Onfido"
-            },
-            "icon_error_accessibility": "Kesalahan:",
-            "icon_info_accessibility": "Informasi:",
-            "icon_success_accessibility": "Berhasil:",
-            "icon_warning_accessibility": "Peringatan:",
-            "lazy_load_placeholder": "Sedang memuat...",
-            "loading": "Memuat"
-        },
-        "get_link": {
-            "alert_wrong_number": "Periksa apakah nomor Anda sudah benar",
-            "button_copied": "Disalin",
-            "button_copy": "Salin",
-            "button_submit": "Kirim tautan",
-            "info_qr_how": "Cara memindai kode QR",
-            "info_qr_how_list_item_camera": "Arahkan kamera ponsel Anda ke kode QR",
-            "info_qr_how_list_item_download": "Jika tidak berfungsi, unduh pemindai kode QR dari Google Play atau App Store",
-            "link_divider": "atau pilih cara lain",
-            "link_qr": "Pindai kode QR",
-            "link_sms": "Dapatkan tautan melalui SMS",
-            "link_url": "Salin tautan",
-            "loader_sending": "Mengirim",
-            "number_field_input_placeholder": "Masukkan nomor ponsel",
-            "number_field_label": "Masukkan nomor ponsel Anda:",
-            "subtitle_qr": "Pindai kode QR dengan ponsel Anda",
-            "subtitle_sms": "Kirim tautan satu kali ini ke ponsel Anda",
-            "subtitle_url": "Kirim tautan satu kali ini ke ponsel Anda",
-            "title": "Dapatkan tautan aman Anda",
-            "url_field_label": "Salin tautan ke browser seluler Anda"
-        },
-        "ial2_nist": {
-            "option": {
-                "goverment_issued_photo_id": "Sebuah foto ID kedua yang dikeluarkan oleh pemerintah",
-                "ssn": "Nomor Jaminan Sosial (SSN)"
-            },
-            "subtitle": "Kami membutuhkan informasi tambahan untuk mengonfirmasi identitas Anda. Pilih opsi di bawah ini."
-        },
-        "interactive_task": {
-            "waiting": {
-                "title_5": "Mengunggah media..."
-            }
-        },
-        "livenessV2": {
-            "error_reload_instructions": "Muat ulang instruksi",
-            "intro_note_no1": "Pertama, posisikan wajah Anda dalam bingkai",
-            "intro_note_no2": "Kemudian, putar kepala Anda ke kedua sisi",
-            "intro_ready_button": "Harap perhatikan bahwa kami akan merekam wajah dan latar belakang Anda",
-            "intro_subtitle": "Ini untuk memverifikasi bahwa Anda adalah orang sungguhan",
-            "intro_warning": "Harap perhatikan bahwa kami akan merekam wajah dan latar belakang Anda",
-            "success_main_button": "Kirim verifikasi",
-            "success_title": "Hanya itu yang kami butuhkan untuk mulai memverifikasi identitas Anda"
-        },
-        "mobilePhrases": {
-            "photo_upload": {
-                "body_id_back": "Ambil foto bagian belakang kartu Anda",
-                "body_id_front": "Ambil foto bagian depan kartu Anda",
-                "body_license_back": "Ambil foto bagian belakang lisensi Anda",
-                "body_license_front": "Ambil foto bagian depan lisensi Anda",
-                "body_passport": "Ambil foto halaman foto paspor Anda",
-                "body_selfie": "Ambil swafoto yang menunjukkan wajah Anda"
-            },
-            "selfie_capture": {
-                "alert": {
-                    "camera_inactive": {
-                        "detail": "Ambil foto menggunakan <fallback>mode standar kamera<\/fallback>"
-                    },
-                    "camera_not_working": {
-                        "detail": "Ambil foto menggunakan <fallback>mode standar kamera<\/fallback>"
-                    }
-                }
-            },
-            "upload_guide": {
-                "button_primary": "Ambil foto",
-                "title": "Halaman foto paspor"
-            }
-        },
-        "nfc_scan": {
-            "sheet": {
-                "success": "Pemindaian berhasil"
-            }
-        },
-        "nfc_scan_error_can": {
-            "primary_button": "Verifikasi keluar",
-            "subtitle": "Anda telah mencapai batas maksimum percobaan untuk memasukkan nomor CAN Anda"
-        },
-        "nfc_scan_error_can:title": "Maksimal upaya telah dicapai",
-        "otp": {
-            "code_input": {
-                "error": {
-                    "code_expired": "Kode Anda telah kedaluwarsa, silakan minta yang baru.",
-                    "code_invalid": "Kode yang dimasukkan salah, silakan coba lagi.",
-                    "no_international_code": "Masukan harus dalam format internasional",
-                    "technical": "Terjadi kesalahan teknis, silakan coba lagi nanti",
-                    "too_many_attempts": "Anda telah mencoba kode ini terlalu banyak kali, silakan minta yang baru.",
-                    "wrong_code": "Kode yang dimasukkan salah, silakan coba lagi"
-                },
-                "intro": "Anda memiliki 5 menit untuk memvalidasi kode yang dikirim melalui SMS ke <phonenumber><\/phonenumber>",
-                "resend": {
-                    "cta": "Minta kode baru",
-                    "cta_timeout": "Minta kode baru (<timeout><\/timeout> detik)",
-                    "label": "Kode sudah dikirim",
-                    "tracker": "<remaining><\/remaining> dari <limit><\/limit>"
-                },
-                "title": "Kata Sandi Sekali Pakai"
-            },
-            "error": {
-                "cta": "Kembali",
-                "subtitle": "Harap tunggu beberapa detik dan coba lagi",
-                "title": "Ada yang salah"
-            },
-            "failure": {
-                "cta": "Lanjutkan",
-                "subtitle": "Kami tidak lagi dapat memverifikasi nomor telepon Anda",
-                "title": "Jumlah percobaan yang diizinkan telah melebihi batas"
-            },
-            "send_code": {
-                "cta": "Kirim kode",
-                "error": {
-                    "invalid_phone_number": "Silakan berikan nomor telepon yang valid.",
-                    "limit": "Anda telah mencapai batas SMS yang dikirim",
-                    "phone_number_blocked": "Maaf, kami tidak mendukung kode negara ini",
-                    "technical": "Terjadi kesalahan teknis, silakan coba lagi nanti"
-                },
-                "input_label": "Nomor telepon",
-                "intro": "Untuk memverifikasi nomor telepon Anda, kami akan meminta Anda untuk memasukkan kata sandi sekali pakai.",
-                "title": "Satu Kali Sandi"
-            }
-        },
-        "outro": {
-            "body": "Hanya itu yang kami butuhkan untuk mulai memverifikasi identitas Anda",
-            "body_government_letter": "Berikan seluruh halaman dokumen untuk hasil terbaik",
-            "title": "Terima kasih"
-        },
-        "permission": {
-            "body_both": "Kami tidak dapat memverifikasi Anda tanpa menggunakan kamera dan mikrofon Anda",
-            "body_cam": "Kami tidak dapat memverifikasi Anda tanpa kamera Anda",
-            "body_mic": "Kami tidak dapat memverifikasi Anda tanpa menggunakan mikrofon Anda",
-            "button_primary_both": "Aktifkan keduanya",
-            "button_primary_cam": "Aktifkan kamera",
-            "button_primary_mic": "Aktifkan mikrofon",
-            "subtitle_both": "Saat diminta, Anda harus mengaktifkan akses untuk keduanya agar dapat melanjutkan",
-            "subtitle_cam": "Saat diminta, Anda harus mengaktifkan akses kamera untuk melanjutkan",
-            "subtitle_mic": "Saat diminta, Anda harus mengaktifkan akses mikrofon untuk melanjutkan",
-            "title_both": "Izinkan akses kamera dan mikrofon",
-            "title_cam": "Izinkan akses kamera",
-            "title_mic": "Izinkan akses mikrofon"
-        },
-        "permission_recovery": {
-            "android": {
-                "browser_settings": {
-                    "title": "Solusi 1: Pengaturan browser"
-                },
-                "device_settings": {
-                    "list_item_1": "Di perangkat Anda, buka aplikasi <strong>Pengaturan<\/strong>",
-                    "list_item_2": "Ketuk <strong>Aplikasi<\/strong>",
-                    "list_item_3": "Ketuk <browser_icon><\/browser_icon>. Jika Anda tidak dapat menemukannya, ketuk <strong>Lihat semua aplikasi<\/strong> atau <strong>Kelola aplikasi<\/strong> dan pilih aplikasi browser Anda",
-                    "list_item_4": "Ketuk <strong>Izin<\/strong>",
-                    "list_item_5_cam": "Ketuk <strong>Kamera<\/strong> dan pilih <strong>Izinkan<\/strong>",
-                    "list_item_5_mic": "Ketuk <strong>Mikrofon<\/strong> dan pilih <strong>Izinkan<\/strong>",
-                    "list_item_6": "Kembali ke halaman ini dan tekan tombol <strong>Segarkan halaman<\/strong>",
-                    "title": "Solusi 2: Pengaturan perangkat"
-                },
-                "refresh_page": {
-                    "list_item_1_both": "Ketuk tombol <strong>Segarkan halaman<\/strong>. Anda akan diminta untuk mengaktifkan kembali akses kamera dan mikrofon. Ketika muncul pop-up, pilih <strong>Izinkan<\/strong> (atau <strong>OK<\/strong>)",
-                    "list_item_1_cam": "Ketuk tombol <strong>Segarkan halaman<\/strong>. Anda akan diminta untuk mengaktifkan akses kamera lagi. Ketika muncul pop-up, pilih <strong>Izinkan<\/strong> (atau <strong>OK<\/strong>)",
-                    "list_item_1_mic": "Ketuk tombol <strong>Segarkan halaman<\/strong>. Anda akan diminta untuk mengaktifkan akses mikrofon lagi. Ketika muncul pop-up, pilih <strong>Izinkan<\/strong> (atau <strong>OK<\/strong>)"
-                }
-            },
-            "android_chrome": {
-                "browser_settings": {
-                    "list_item_1": "Di browser Anda, ketuk ikon pengaturan <settings_icon_chrome><\/settings_icon_chrome> di bilah alamat",
-                    "list_item_2": "Ketuk <strong>Izin<\/strong>",
-                    "list_item_3_cam": "Aktifkan tombol di sebelah <strong>Kamera<\/strong>",
-                    "list_item_3_mic": "Aktifkan tombol di sebelah <strong>Mikrofon<\/strong>",
-                    "list_item_4": "Kembali ke halaman ini dan tekan tombol <strong>Segarkan halaman<\/strong>"
-                }
-            },
-            "android_firefox": {
-                "browser_settings": {
-                    "list_item_1": "Di peramban Anda, ketuk ikon kunci <lock_icon><\/lock_icon> di bilah alamat",
-                    "list_item_2_cam": "Ketuk <strong>Diblokir<\/strong> di sebelah <strong>Kamera<\/strong> untuk beralih ke <strong>Diizinkan<\/strong>",
-                    "list_item_2_mic": "Ketuk <strong>Diblokir<\/strong> di sebelah <strong>Mikrofon<\/strong> untuk beralih ke <strong>Diizinkan<\/strong>",
-                    "list_item_3": "Kembali ke halaman ini dan tekan tombol <strong>Segarkan halaman<\/strong>",
-                    "title": "Solusi 2: Pengaturan browser"
-                },
-                "device_settings": {
-                    "title": "Solusi 3: Pengaturan perangkat"
-                },
-                "refresh_page": {
-                    "title": "Solusi 1: Segarkan halaman"
-                }
-            },
-            "android_generic": {
-                "browser_settings": {
-                    "list_item_1": "Di browser Anda, buka pengaturan situs web. Ini seringkali merupakan ikon gembok <lock_icon><\/lock_icon> di bilah alamat",
-                    "list_item_2": "Temukan bagian tentang izin",
-                    "list_item_3_cam": "Aktifkan izin <strong>Kamera<\/strong>",
-                    "list_item_3_mic": "Aktifkan izin <strong>Mikrofon<\/strong>",
-                    "list_item_4": "Kembali ke halaman ini dan tekan tombol <strong>Segarkan halaman<\/strong>"
-                }
-            },
-            "android_samsung": {
-                "browser_settings": {
-                    "list_item_1": "Di browser Anda, ketuk ikon kunci <lock_icon><\/lock_icon> di bilah alamat",
-                    "list_item_2_cam": "Aktifkan tombol di sebelah <strong>Kamera<\/strong>",
-                    "list_item_2_mic": "Aktifkan tombol di sebelah <strong>Mikrofon<\/strong>",
-                    "list_item_3": "Kembali ke halaman ini dan tekan tombol <strong>Segarkan halaman<\/strong>"
-                }
-            },
-            "button_primary": "Muat ulang",
-            "desktop": {
-                "browser_settings": {
-                    "title": "Solusi 1: Pengaturan browser"
-                },
-                "device_settings": {
-                    "title": "Solusi 2: Pengaturan perangkat"
-                }
-            },
-            "desktop_chrome": {
-                "browser_settings": {
-                    "list_item_1": "Di browser Anda, klik ikon pengaturan <settings_icon_chrome><\/settings_icon_chrome> di bilah alamat",
-                    "list_item_2_cam": "Aktifkan tombol di sebelah <strong>Kamera<\/strong>",
-                    "list_item_2_mic": "Aktifkan tombol di sebelah <strong>Mikrofon<\/strong>",
-                    "list_item_3": "Kembali ke halaman ini dan klik tombol <strong>Segarkan halaman<\/strong>"
-                }
-            },
-            "desktop_edge": {
-                "browser_settings": {
-                    "list_item_1": "Di browser Anda, klik ikon gembok <lock_icon><\/lock_icon> di bilah alamat",
-                    "list_item_2_cam": "Klik dropdown di sebelah <strong>Mikrofon<\/strong> dan pilih <strong>Izinkan<\/strong>",
-                    "list_item_2_mic": "Klik dropdown di sebelah <strong>Mikrofon<\/strong> dan pilih <strong>Izinkan<\/strong>",
-                    "list_item_3": "Kembali ke halaman ini dan klik tombol <strong>Segarkan halaman<\/strong>"
-                }
-            },
-            "desktop_firefox": {
-                "browser_settings": {
-                    "list_item_1": "Di browser Anda, klik ikon pengaturan <settings_icon_firefox><\/settings_icon_firefox> di bilah alamat",
-                    "list_item_2_cam": "Klik <strong>Diblokir<\/strong> di sebelah <strong>Gunakan kamera<\/strong>",
-                    "list_item_2_mic": "Klik <strong>Diblokir<\/strong> di sebelah <strong>Gunakan mikrofon<\/strong>",
-                    "list_item_3": "Kembali ke halaman ini dan klik tombol <strong>Segarkan halaman<\/strong>"
-                }
-            },
-            "desktop_generic": {
-                "browser_settings": {
-                    "list_item_1": "Di browser Anda, buka pengaturan situs web. Ini seringkali merupakan ikon gembok <lock_icon><\/lock_icon> di bilah alamat",
-                    "list_item_2": "Temukan bagian tentang izin",
-                    "list_item_3_cam": "Aktifkan izin <strong>Kamera<\/strong>",
-                    "list_item_3_mic": "Aktifkan izin <strong>Mikrofon<\/strong>",
-                    "list_item_4": "Kembali ke halaman ini dan klik tombol <strong>Segarkan halaman<\/strong>"
-                },
-                "device_settings": {
-                    "list_item_1": "Di komputer Anda, buka <strong>Pengaturan<\/strong> Anda",
-                    "list_item_2": "Temukan bagian tentang izin (biasanya di bawah <strong>Privasi<\/strong>)",
-                    "list_item_3_cam": "Aktifkan izin <strong>Kamera<\/strong> untuk <browser_icon><\/browser_icon>",
-                    "list_item_3_mic": "Aktifkan izin <strong>Mikrofon<\/strong> untuk <browser_icon><\/browser_icon>",
-                    "list_item_4": "Restart browser Anda jika perlu dan kembali ke halaman ini"
-                }
-            },
-            "desktop_mac": {
-                "device_settings": {
-                    "list_item_1": "Di komputer Anda, klik menu Apple <apple_icon><\/apple_icon> dan pilih <strong>Pengaturan Sistem<\/strong> (atau <strong>Preferensi Sistem<\/strong>)",
-                    "list_item_2": "Klik <strong>Privasi & Keamanan<\/strong> (atau <strong>Keamanan & Privasi<\/strong>) di sidebar",
-                    "list_item_3": "Klik <strong>Nanti<\/strong> di pop-up",
-                    "list_item_3_cam": "Klik <strong>Kamera<\/strong> dan aktifkan tombol (atau kotak centang) di sebelah <browser_icon><\/browser_icon>",
-                    "list_item_4": "Klik <strong>Keluar & Buka Ulang<\/strong> di pop-up dan kembali ke halaman ini",
-                    "list_item_4_mic": "Klik <strong>Mikrofon<\/strong> dan aktifkan tombol (atau kotak centang) di sebelah <browser_icon><\/browser_icon>"
-                }
-            },
-            "desktop_safari": {
-                "browser_settings": {
-                    "list_item_1": "Di browser Anda, klik kanan pada bilah alamat dan pilih <strong>Pengaturan<\/strong>",
-                    "list_item_2_cam": "Klik dropdown di sebelah <strong>Kamera<\/strong> dan pilih <strong>Izinkan<\/strong>",
-                    "list_item_2_mic": "Klik dropdown di sebelah <strong>Mikrofon<\/strong> dan pilih <strong>Izinkan<\/strong>",
-                    "list_item_3": "Kembali ke halaman ini dan klik tombol <strong>Segarkan halaman<\/strong>"
-                }
-            },
-            "desktop_windows": {
-                "device_settings": {
-                    "list_item_1": "Di komputer Anda, klik menu Windows <windows_icon><\/windows_icon> dan pilih <strong>Pengaturan<\/strong> <settings_icon_windows><\/settings_icon_windows>",
-                    "list_item_2": "Klik <strong>Privasi<\/strong> (atau <strong>Privasi & Keamanan<\/strong>)",
-                    "list_item_3_cam": "Klik <strong>Kamera<\/strong> di bawah <strong>Izin Aplikasi<\/strong> dan aktifkan tombol di sebelah <browser_icon><\/browser_icon>",
-                    "list_item_3_mic": "Klik <strong>Mikrofon<\/strong> di bawah <strong>Izin Aplikasi<\/strong> dan aktifkan tombol di sebelah <browser_icon><\/browser_icon>",
-                    "list_item_4": "Restart browser Anda jika perlu dan kembali ke halaman ini"
-                }
-            },
-            "info": "Pemulihan",
-            "ios": {
-                "browser_settings": {
-                    "list_item_1_both": "Ketuk tombol <strong>Segarkan halaman<\/strong>. Anda akan diminta untuk mengaktifkan kembali akses kamera dan mikrofon. Ketika muncul pop-up, pilih <strong>Izinkan<\/strong> (atau <strong>OK<\/strong>)",
-                    "list_item_1_cam": "Ketuk tombol <strong>Segarkan halaman<\/strong>. Anda akan diminta untuk mengaktifkan akses kamera lagi. Ketika muncul pop-up, pilih <strong>Izinkan<\/strong> (atau <strong>OK<\/strong>)",
-                    "list_item_1_mic": "Ketuk tombol <strong>Segarkan halaman<\/strong>. Anda akan diminta untuk mengaktifkan akses mikrofon lagi. Ketika muncul pop-up, pilih <strong>Izinkan<\/strong> (atau <strong>OK<\/strong>)"
-                },
-                "device_settings": {
-                    "list_item_1": "Di perangkat Anda, buka aplikasi <strong>Pengaturan<\/strong>",
-                    "list_item_2": "Gulir melalui daftar dan ketuk <browser_icon><\/browser_icon>",
-                    "list_item_3_cam": "Aktifkan tombol di sebelah <strong>Kamera<\/strong>",
-                    "list_item_3_mic": "Aktifkan tombol di sebelah <strong>Mikrofon<\/strong>",
-                    "list_item_4": "Kembali ke halaman ini dan tekan tombol <strong>Segarkan halaman<\/strong>",
-                    "title": "Solusi 2: Pengaturan perangkat"
-                },
-                "refresh_page": {
-                    "title": "Solusi 1: Segarkan halaman"
-                }
-            },
-            "ios_safari": {
-                "device_settings": {
-                    "list_item_1": "Di perangkat Anda, buka aplikasi <strong>Pengaturan<\/strong>",
-                    "list_item_2": "Gulir melalui daftar dan ketuk <browser_icon><\/browser_icon>",
-                    "list_item_3_cam": "Ketuk <strong>Kamera<\/strong> dan pilih <strong>Izinkan<\/strong>",
-                    "list_item_3_mic": "Ketuk <strong>Mikrofon<\/strong> dan pilih <strong>Izinkan<\/strong>",
-                    "list_item_4": "Kembali ke halaman ini dan tekan tombol <strong>Segarkan halaman<\/strong>"
-                }
-            },
-            "list_header_both": "Ikuti langkah-langkah berikut untuk memulihkan akses:",
-            "list_header_cam": "Ikuti langkah-langkah berikut untuk memulihkan akses kamera:",
-            "list_item_action_cam": "Muat ulang halaman ini untuk memulai kembali proses verifikasi identitas",
-            "list_item_how_to_both": "Berikan akses ke kamera dan mikrofon Anda dari pengaturan browser",
-            "list_item_how_to_cam": "Berikan akses ke kamera Anda dari pengaturan browser",
-            "list_item_how_to_mic": "Berikan akses ke mikrofon Anda dari pengaturan browser",
-            "subtitle_both": "Kami membutuhkan akses ke kamera dan mikrofon Anda untuk memverifikasi identitas Anda. Ikuti instruksi di bawah ini untuk memulihkan akses",
-            "subtitle_cam": "Kami membutuhkan akses ke kamera Anda untuk memverifikasi identitas Anda. Ikuti instruksi di bawah ini untuk memulihkan akses",
-            "subtitle_cam_old": "Pulihkan akses kamera untuk melanjutkan verifikasi wajah",
-            "subtitle_mic": "Kami membutuhkan akses ke mikrofon Anda untuk memverifikasi identitas Anda. Ikuti instruksi di bawah ini untuk memulihkan akses",
-            "title_both": "Akses kamera dan mikrofon ditolak",
-            "title_cam": "Akses kamera ditolak",
-            "title_mic": "Akses mikrofon ditolak",
-            "web": {
-                "button_primary": "Segarkan halaman",
-                "disclaimer": "Proses verifikasi identitas mungkin akan dimulai lagi. Maaf atas ketidaknyamanan ini"
-            }
-        },
-        "photo_upload": {
-            "body_accommodation_tenancy_certificate": "Sediakan seluruh halaman dokumen untuk hasil terbaik",
-            "body_address_certificate_back": "Unggah bagian belakang dokumen dari komputer Anda",
-            "body_address_certificate_front": "Unggah bagian depan dokumen dari komputer Anda",
-            "body_bank_statement": "Berikan seluruh halaman dokumen untuk hasil terbaik",
-            "body_benefits_letter": "Berikan seluruh halaman dokumen untuk hasil terbaik",
-            "body_bill": "Berikan seluruh halaman dokumen untuk hasil terbaik",
-            "body_exchange_house_statement": "Sediakan seluruh halaman dokumen untuk hasil terbaik",
-            "body_general_letter": "Sediakan seluruh halaman dokumen untuk hasil terbaik",
-            "body_generic_document_back": "Unggah bagian belakang dokumen melalui komputer Anda",
-            "body_generic_document_front": "Unggah bagian depan dokumen melalui komputer Anda",
-            "body_id_back": "Unggah bagian belakang kartu dari komputer Anda",
-            "body_id_front": "Unggah bagian depan kartu dari komputer Anda",
-            "body_identity_document_with_address": "Sediakan seluruh halaman dokumen untuk hasil terbaik",
-            "body_identity_document_with_address_back": "Unggah bagian belakang dokumen dari komputer Anda",
-            "body_identity_document_with_address_front": "Unggah bagian depan dokumen dari komputer Anda",
-            "body_insurance_statement": "Sediakan seluruh halaman dokumen untuk hasil terbaik",
-            "body_license_back": "Unggah kembali lisensi dari komputer Anda",
-            "body_license_front": "Unggah bagian depan lisensi dari komputer Anda",
-            "body_mobile_phone_bill": "Sediakan seluruh halaman dokumen untuk hasil terbaik",
-            "body_mortgage_statement": "Sediakan seluruh halaman dokumen untuk hasil terbaik",
-            "body_passport": "Unggah halaman foto paspor dari komputer Anda",
-            "body_pension_property_statement_letter": "Sediakan seluruh halaman dokumen untuk hasil terbaik",
-            "body_selfie": "Unggah swafoto dari komputer Anda",
-            "body_tax_letter": "Berikan seluruh halaman dokumen untuk hasil terbaik",
-            "button_take_photo": "Ambil foto",
-            "button_upload": "Unggah",
-            "title_selfie": "Swafoto"
-        },
-        "poa_cancel": "Batalkan",
-        "poa_capture": {
-            "country_select.icon_info_accessibility": "Informasi:"
-        },
-        "poa_err_invalid_file": {
-            "message": "Silakan pilih file lain.",
-            "ok": "Oke",
-            "title": "File Tidak Valid"
-        },
-        "poa_guidance": {
-            "button_primary": "Lanjutkan",
-            "instructions": {
-                "address": "Alamat saat ini",
-                "full_name": "Nama lengkap",
-                "issue_date": "Tanggal terbit atau periode ringkasan",
-                "label": "Rekam seluruh dokumen dan pastikan dokumen memperlihatkan dengan jelas:",
-                "logo": "Logo"
-            },
-            "instructions_address_card_issue_date": "Tanggal terbit",
-            "instructions_expiry_date": "Tanggal kedaluwarsa jika berlaku",
-            "instructions_full_address": "Alamat lengkap",
-            "subtitle_address_card": "Harus berupa kartu alamat yang valid",
-            "subtitle_bank_statement": "Harus diterbitkan dalam ​​3 bulan terakhir​​",
-            "subtitle_benefits_letter": "Harus diterbitkan dalam ​​12 bulan terakhir​​",
-            "subtitle_bill": "Harus diterbitkan dalam ​​3 bulan terakhir​​",
-            "subtitle_dynamic_empty_grace_period": "Harus merupakan dokumen yang valid",
-            "subtitle_dynamic_grace_period": "Harus diterbitkan dalam <graceperiod><\/graceperiod> bulan terakhir",
-            "subtitle_tax_letter": "Harus diterbitkan dalam ​​12 bulan terakhir​"
-        },
-        "poa_intro": {
-            "button_primary": "Mulai verifikasi",
-            "list_matches_signup": "Sesuai dengan alamat yang Anda gunakan saat mendaftar",
-            "list_most_recent": "Merupakan dokumen ​​terbaru​​ Anda",
-            "list_shows_address": "Menunjukkan alamat Anda ​​saat ini​​",
-            "subtitle": "Anda memerlukan dokumen yang:",
-            "title": "Mari verifikasi alamat Anda"
-        },
-        "poa_welcome_text": "Ambil foto dokumen dengan alamat Anda",
-        "profile_data": {
-            "address_title": "Tambahkan alamat Anda",
-            "button_continue": "Lanjutkan",
-            "components": {
-                "country_residence_select": {
-                    "placeholder": "Pilih negara"
-                },
-                "country_select": {
-                    "placeholder": "Pilih negara"
-                },
-                "id_type_select": {
-                    "aus_specific": {
-                        "other": "Paspor asing"
-                    },
-                    "bra_specific": {
-                        "other": "CNPJ",
-                        "tax_id": "CPF"
-                    },
-                    "driving_license": "Surat izin Mengemudi",
-                    "esp_specific": {
-                        "identity_card": "NIF\/DNI"
-                    },
-                    "gha_specific": {
-                        "social_insurance": "SSNIT"
-                    },
-                    "identity_card": "Kartu identitas",
-                    "ind_specific": {
-                        "tax_id": "Nomor Rekening Pribadi (PAN)"
-                    },
-                    "ken_specific": {
-                        "other": "Kartu Asing"
-                    },
-                    "nga_specific": {
-                        "identity_card": "Nomor Induk Kependudukan (NIN)",
-                        "other": "BVN",
-                        "tax_id": "TIN"
-                    },
-                    "other": "NIE",
-                    "passport": "Paspor",
-                    "placeholder": "Pilih jenis ID nasional",
-                    "tax_id": "Id pajak",
-                    "voter_id": "ID pemilih"
-                },
-                "nationality_select": {
-                    "placeholder": "Pilih negara"
-                },
-                "pan": {
-                    "placeholder": "ABCDE1234F"
-                },
-                "ssn": {
-                    "placeholder": "123-45-6789"
-                },
-                "state_select": {
-                    "placeholder": "Pilih provinsi"
-                }
-            },
-            "country_of_residence_title": "Negara tempat tinggal Anda",
-            "field_labels": {
-                "arg_specific": {
-                    "national_id_value": "Nomor Identitas DNI"
-                },
-                "can_specific": {
-                    "national_id_value": "Nomor Asuransi Sosial (SIN)"
-                },
-                "chl_specific": {
-                    "national_id_value": "Nomor RUT \/ RUN"
-                },
-                "chn_specific": {
-                    "national_id_value": "Nomor Kartu identitas penduduk"
-                },
-                "col_specific": {
-                    "national_id_value": "Nomor Identifikasi Pribadi Kolombia"
-                },
-                "country": "Negara",
-                "country_residence": "Negara",
-                "dnk_specific": {
-                    "national_id_value": "nomor CPR"
-                },
-                "dob": "Tanggal lahir",
-                "email": "Email",
-                "fin_specific": {
-                    "national_id_value": "Kode identitas pribadi"
-                },
-                "first_name": "Nama depan",
-                "gbr_specific": {
-                    "postcode": "Kode pos",
-                    "town": "Kota"
-                },
-                "hkg_specific": {
-                    "national_id_value": "HKID"
-                },
-                "ind_specific": {
-                    "pan": "Nomor akun permanen (PAN)"
-                },
-                "ita_specific": {
-                    "national_id_value": "Kode fiskal"
-                },
-                "jpn_specific": {
-                    "national_id_value": "\"Nomor saya\" \/ kode Rekam Penduduk"
-                },
-                "last_name": "Nama belakang",
-                "line1": "Alamat baris 1",
-                "line2": "Alamat baris 2",
-                "line3": "Alamat baris 3",
-                "lux_specific": {
-                    "national_id_value": "Nomor KTP"
-                },
-                "mobile_number": "Nomor ponsel",
-                "national_id_type": "Jenis KTP",
-                "national_id_value": "nomor identitas nasional",
-                "nationality": "Kewarganegaraan",
-                "phl_specific": {
-                    "national_id_value": "Nomor Kartu PhilSys (PCN)"
-                },
-                "phone_number": "Nomor telepon",
-                "pol_specific": {
-                    "national_id_value": "nomor PESEL"
-                },
-                "postcode": "Kode pos",
-                "prt_specific": {
-                    "national_id_value": "Nomor pajak"
-                },
-                "town": "Kota",
-                "tur_specific": {
-                    "national_id_value": "Nomor Identifikasi Turki"
-                },
-                "usa_specific": {
-                    "line1_helper_text": "Alamat jalan, misalnya: 200 Albert Street",
-                    "line2_helper_text": "Apartemen, suite, unit, dll.",
-                    "postcode": "Kode pos",
-                    "ssn": "Nomor jaminan sosial (SSN)",
-                    "state": "Provinsi\/Negara Bagian",
-                    "town": "Kota"
-                }
-            },
-            "field_optional": "(opsional)",
-            "field_validation": {
-                "arg_specific": {
-                    "invalid_national_id_value": "Masukkan DNI yang valid"
-                },
-                "bra_specific": {
-                    "invalid_other": "Harap masukkan yang valid CNPJ",
-                    "invalid_tax_id": "Harap masukkan yang valid CPF",
-                    "required_other": "Silakan masukkan CNPJ Anda",
-                    "required_tax_id": "Masukkan CPF Anda"
-                },
-                "can_specific": {
-                    "invalid_national_id_value": "Harap masukkan yang valid SIN",
-                    "required_national_id_value": "Silakan masukkan SIN Anda"
-                },
-                "chl_specific": {
-                    "invalid_national_id_value": "Masukkan nomor RUT \/ RUN yang valid",
-                    "required_national_id_value": "Silakan masukkan nomor RUT \/ RUN Anda"
-                },
-                "chn_specific": {
-                    "invalid_national_id_value": "Masukkan nomor kartu identitas penduduk yang valid",
-                    "required_national_id_value": "Masukkan nomor kartu identitas penduduk Anda"
-                },
-                "col_specific": {
-                    "invalid_national_id_value": "Masukkan Nomor Identifikasi Pribadi Kolombia yang valid",
-                    "required_national_id_value": "Masukkan Nomor Pengenal Pribadi Kolombia Anda"
-                },
-                "dnk_specific": {
-                    "invalid_national_id_value": "Masukkan nomor CPR yang valid",
-                    "required_national_id_value": "Masukkan nomor CPR Anda"
-                },
-                "esp_specific": {
-                    "invalid_identity_card": "Harap masukkan yang valid NIF\/DNI",
-                    "invalid_other": "Harap masukkan yang valid NIE",
-                    "required_identity_card": "Masukkan NIF\/DNI Anda"
-                },
-                "fin_specific": {
-                    "invalid_national_id_value": "Masukkan kode Identitas pribadi yang valid",
-                    "required_national_id_value": "Silakan masukkan kode Identitas pribadi Anda"
-                },
-                "gbr_specific": {
-                    "invalid_postcode": "Masukkan kode pos yang valid",
-                    "required_postcode": "Masukkan kode pos Anda",
-                    "too_long_postcode": "Kode pos terlalu panjang",
-                    "too_short_postcode": "Kode pos terlalu pendek"
-                },
-                "gha_specific": {
-                    "invalid_social_insurance": "Masukkan SSNIT yang valid",
-                    "required_social_insurance": "Masukkan SSNIT Anda"
-                },
-                "hkg_specific": {
-                    "invalid_national_id_value": "Masukkan HKID yang valid",
-                    "required_national_id_value": "Masukkan HKID Anda"
-                },
-                "ind_specific": {
-                    "invalid_pan": "Masukkan PAN yang valid",
-                    "required_pan": "Masukkan PAN Anda"
-                },
-                "invalid": "Periksa karakter atau simbol yang tidak valid",
-                "invalid_dob": "Masukkan tanggal lahir yang valid",
-                "invalid_driving_license": "Masukkan nomor SIM yang valid",
-                "invalid_email": "Masukkan email yang valid",
-                "invalid_mobile_number": "Masukkan nomor ponsel yang valid",
-                "invalid_national_id_value": "Masukkan nomor ID nasional yang valid",
-                "invalid_passport": "Masukkan nomor paspor yang valid",
-                "invalid_phone_number": "Masukkan nomor telepon yang valid",
-                "invalid_voter_id": "Harap masukkan nomor ID pemilih yang valid",
-                "ita_specific": {
-                    "invalid_national_id_value": "Masukkan kode fiskal yang valid",
-                    "required_national_id_value": "Silakan masukkan kode fiskal Anda"
-                },
-                "jpn_specific": {
-                    "invalid_national_id_value": "Masukkan kode \"Nomor Saya\" \/ Rekam Penduduk yang valid",
-                    "required_national_id_value": "Silakan masukkan \"Nomor Saya\" \/ kode Catatan Penduduk Anda"
-                },
-                "ken_specific": {
-                    "invalid_other": "Masukkan nomor Kartu Asing yang valid",
-                    "required_other": "Masukkan nomor Kartu Asing Anda"
-                },
-                "lux_specific": {
-                    "invalid_national_id_value": "Masukkan nomor Jaminan Sosial yang valid",
-                    "required_national_id_value": "Masukkan nomor Jaminan Sosial Anda"
-                },
-                "mex_specific": {
-                    "invalid_identity_card": "Harap masukkan yang valid CURP",
-                    "invalid_tax_id": "Harap masukkan yang valid RFC",
-                    "required_identity_card": "Masukkan CURP Anda",
-                    "required_tax_id": "Masukkan RFC Anda"
-                },
-                "mys_specific": {
-                    "invalid_national_id_value": "Masukkan NRIC yang valid",
-                    "required_national_id_value": "Masukkan NRIC Anda"
-                },
-                "nga_specific": {
-                    "invalid_identity_card": "Masukkan Nomor Pengenal Nasional (NIN) yang valid",
-                    "invalid_other": "Masukkan BVN yang valid",
-                    "invalid_tax_id": "Masukkan TIN yang valid",
-                    "required_identity_card": "Silakan masukkan Nomor Induk Kependudukan (NIN) Anda",
-                    "required_other": "Masukkan BVN Anda",
-                    "required_tax_id": "Silakan masukkan TIN Anda"
-                },
-                "phl_specific": {
-                    "invalid_national_id_value": "Masukkan Nomor Kartu PhilSys (PCN) yang valid",
-                    "required_national_id_value": "Silakan masukkan Nomor Kartu PhilSys (PCN) Anda"
-                },
-                "pol_specific": {
-                    "invalid_national_id_value": "Masukkan nomor PESEL yang valid",
-                    "required_national_id_value": "Silakan masukkan nomor PESEL Anda"
-                },
-                "prt_specific": {
-                    "invalid_national_id_value": "Harap masukkan nomor Pajak yang valid",
-                    "required_national_id_value": "Silakan masukkan nomor Pajak Anda"
-                },
-                "reference": {
-                    "translation": "Harap masukkan yang valid"
-                },
-                "required_consent": "Harap setujui untuk mengotorisasi pemeriksaan identitas dan penipuan",
-                "required_country": "Pilih negara",
-                "required_country_residence": "Pilih negara",
-                "required_dob": "Masukkan tanggal lahir Anda",
-                "required_email": "Masukkan email Anda",
-                "required_first_name": "Masukkan nama depan Anda",
-                "required_last_name": "Masukkan nama belakang Anda",
-                "required_line1": "Tuliskan alamat Anda",
-                "required_mobile_number": "Masukkan nomor ponsel Anda",
-                "required_national_driving_license": "Silakan masukkan nomor SIM Anda",
-                "required_national_id_type": "Silakan pilih jenis ID Nasional Anda",
-                "required_national_id_value": "Silakan masukkan nomor ID Nasional Anda",
-                "required_national_passport": "Silakan masukkan nomor paspor Anda",
-                "required_national_voter_id": "Silakan masukkan nomor ID pemilih Anda",
-                "required_nationality": "Pilih negara",
-                "required_phone_number": "Masukkan nomor telepon Anda",
-                "required_postcode": "Masukkan kode pos Anda",
-                "sgp_specific": {
-                    "invalid_national_id_value": "Harap masukkan yang valid NRIC",
-                    "required_national_id_value": "Masukkan NRIC Anda"
-                },
-                "swe_specific": {
-                    "invalid_national_id_value": "Harap masukkan yang valid PIN",
-                    "required_national_id_value": "Masukkan PIN Anda"
-                },
-                "too_long_first_name": "Nama depan terlalu panjang",
-                "too_long_last_name": "Nama belakang terlalu panjang",
-                "too_long_line1": "Alamat terlalu panjang",
-                "too_long_postcode": "Kode pos terlalu panjang",
-                "too_long_town": "Kota terlalu panjang",
-                "too_short_first_name": "Nama depan terlalu pendek",
-                "too_short_last_name": "Nama belakang terlalu pendek",
-                "too_short_postcode": "Kode pos terlalu pendek",
-                "tur_specific": {
-                    "invalid_national_id_value": "Masukkan nomor ID Turki yang valid",
-                    "required_national_id_value": "Silakan masukkan nomor ID Turki Anda"
-                },
-                "usa_specific": {
-                    "invalid_ssn": "Masukkan SSN yang valid",
-                    "required_ssn": "Masukkan SSN Anda",
-                    "required_state": "Pilih provinsi\/negara bagian"
-                }
-            },
-            "national_id_number_title": "Tambahkan nomor ID nasional Anda",
-            "personal_information_title": "Tambahkan informasi pribadi Anda",
-            "prompt": {
-                "details_timeout": "Mulai lagi",
-                "header_timeout": "Sepertinya Anda memerlukan waktu terlalu lama"
-            }
-        },
-        "qes": {
-            "consent": {
-                "common": {
-                    "steps": "Buat tanda tangan Anda"
-                },
-                "confirmation": {
-                    "bullet_1": "Setelah membaca dokumen Anda, ketuk tombol \"Tanda tangan dokumen\".",
-                    "bullet_2": "Setelah Onfido memverifikasi identitas Anda, tanda tangan Anda akan digunakan pada dokumen ini.",
-                    "button_next_step": "Tanda tangan dokumen",
-                    "review_document": "Tinjau <fallback>dokumen Anda<\/fallback> untuk ditandatangani",
-                    "step2": "2 dari 2",
-                    "steps": "Tanda tangani dokumen Anda",
-                    "subtitle": "Untuk mengkonfirmasi identitas Anda sesuai dengan aturan Eropa, Anda harus menandatangani sebuah dokumen secara digital.",
-                    "title": "Buat dan gunakan tanda tangan digital Anda"
-                },
-                "introduction": {
-                    "button_confirmation_step": "Buat tanda tangan saya",
-                    "certificate_application_form": "Formulir aplikasi sertifikat",
-                    "privacy_notice": "Pemberitahuan privasi",
-                    "step1": "1 dari 2",
-                    "subtitle": "Untuk mengkonfirmasi identitas Anda sesuai dengan aturan Eropa, Anda harus menandatangani dokumen secara digital.",
-                    "terms_and_conditions": "Syarat dan ketentuan",
-                    "third_party_description": "<fallback>Namirial SpA<\/fallback> adalah penyedia global terpercaya yang akan mengeluarkan sertifikat yang memvalidasi tanda tangan elektronik Anda.",
-                    "title": "Buat dan gunakan tanda tangan digital Anda",
-                    "validation": "Persetujuan diperlukan"
-                }
-            },
-            "error": {
-                "misconfigured": "Sayangnya, terjadi kesalahan. Silakan hubungi dukungan Anda."
-            }
-        },
-        "qes_consent": {
-            "button": "Buat tanda tangan saya",
-            "link_certificate": "Formulir aplikasi sertifikat",
-            "link_privacy_notice": "Pemberitahuan privasi",
-            "link_terms_and_conditions": "Syarat dan ketentuan",
-            "namirial_intro": "Namirial SpA adalah penyedia global terpercaya yang akan mengeluarkan sertifikat untuk memvalidasi tanda tangan elektronik Anda.",
-            "subtitle": "Untuk mengkonfirmasi identitas Anda sesuai dengan aturan Eropa, Anda harus menandatangani dokumen secara digital.",
-            "title": "Buat dan gunakan tanda tangan digital Anda"
-        },
-        "qes_sign": {
-            "button": "Tanda tangan dokumen",
-            "link_document": "Tinjau dokumen Anda untuk ditandatangani",
-            "list_item_1": "Setelah membaca dokumen Anda, ketuk tombol \"Tanda tangan dokumen\".",
-            "list_item_2": "Setelah Onfido memverifikasi identitas Anda, tanda tangan Anda akan digunakan pada dokumen ini.",
-            "step_title": "Tanda tangani dokumen Anda",
-            "subtitle": "Untuk mengkonfirmasi identitas Anda sesuai dengan aturan Eropa, Anda harus menandatangani dokumen secara digital.",
-            "title": "Buat dan gunakan tanda tangan digital Anda"
-        },
-        "retry": {
-            "button": {
-                "generic_selfie_issue": "Coba lagi"
-            },
-            "description": {
-                "default": "Silakan mencoba lagi",
-                "expired_document": "Harap coba lagi dengan foto identitas yang valid dan pastikan informasi Anda terlihat jelas",
-                "generic_document_issue": "Harap coba lagi dengan foto identitas yang valid dan pastikan informasi Anda terlihat jelas",
-                "generic_selfie_issue": "Harap coba lagi, dan pastikan wajah Anda terlihat dan cukup terang",
-                "unaccepted_document": "Harap coba lagi dengan foto identitas yang valid dan pastikan informasi Anda terlihat jelas"
-            },
-            "headline": {
-                "default": "Ada masalah",
-                "expired_document": "Dokumen Anda telah kedaluwarsa",
-                "generic_document_issue": "Ada masalah dengan dokumen Anda",
-                "generic_selfie_issue": "Ada masalah dengan selfie Anda",
-                "unaccepted_document": "Dokumen tidak diterima"
-            }
-        },
-        "retry_feedback": {
-            "button_primary": "Coba lagi"
-        },
-        "retry_feedback_custom": {
-            "subtitle": "Harap coba lagi dengan foto identitas yang valid dan pastikan informasi Anda terlihat jelas",
-            "title": "Dokumen Anda telah kedaluwarsa"
-        },
-        "retry_feedback_id_expired": {
-            "subtitle": "Harap coba lagi dengan foto identitas yang valid dan pastikan informasi Anda terlihat jelas",
-            "title": "Dokumen Anda telah kedaluwarsa"
-        },
-        "retry_feedback_id_generic": {
-            "subtitle": "Harap coba lagi dengan foto identitas yang valid dan pastikan informasi Anda terlihat jelas",
-            "title": "Ada masalah dengan dokumen Anda"
-        },
-        "retry_feedback_id_unaccepted": {
-            "subtitle": "Harap coba lagi dengan foto identitas yang valid dan pastikan informasi Anda terlihat jelas",
-            "title": "Dokumen tidak diterima"
-        },
-        "retry_feedback_selfie_generic": {
-            "subtitle": "Harap coba lagi, dan pastikan wajah Anda terlihat dan cukup terang",
-            "title": "Ada masalah dengan swafoto Anda"
-        },
-        "selfie_capture": {
-            "alert": {
-                "camera_inactive": {
-                    "detail": "Periksa apakah kamera sudah terhubung dan berfungsi. Anda juga dapat <fallback>melanjutkan verifikasi di ponsel Anda<\/fallback>",
-                    "detail_no_fallback": "Pastikan perangkat Anda memiliki kamera yang berfungsi",
-                    "title": "Kamera tidak berfungsi?"
-                },
-                "camera_not_working": {
-                    "detail": "Mungkin terputus. <fallback>Coba gunakan ponsel Anda<\/fallback>.",
-                    "detail_no_fallback": "Pastikan kamera perangkat Anda berfungsi",
-                    "title": "Kamera tidak berfungsi"
-                },
-                "timeout": {
-                    "detail": "Jangan lupa untuk menekan tombol saat Anda selesai. <fallback>Ulangi tindakan video<\/fallback>",
-                    "title": "Sepertinya Anda memerlukan waktu terlalu lama"
-                }
-            },
-            "body": "Posisikan wajah Anda di dalam bentuk oval",
-            "button_accessibility": "Ambil foto",
-            "button_primary": "Mulai pemindaian wajah",
-            "frame_accessibility": "Lihat dari kamera",
-            "title": "Posisikan wajah Anda di dalam bentuk oval"
-        },
-        "selfie_confirmation": {
-            "image_accessibility": "Foto wajah Anda",
-            "subtitle": "Pastikan seluruh wajah Anda terlihat",
-            "title": "Periksa swafoto Anda"
-        },
-        "selfie_intro": {
-            "banner_nudity_message": "Wajah dan latar belakang Anda akan direkam selama proses ini",
-            "button_primary": "Lanjutkan",
-            "list_accessibility": "Tips membuat swafoto yang bagus",
-            "list_item_face_forward": "Menghadap ke depan dan pastikan mata Anda terlihat jelas",
-            "list_item_no_face_cover": "Lepaskan apa pun yang menutupi wajah Anda. Kacamata diperbolehkan",
-            "list_item_no_glasses": "Lepaskan kacamata Anda, jika perlu",
-            "subtitle": "Kami akan membandingkan ini dengan dokumen Anda",
-            "title": "Ambil swafoto"
-        },
-        "sid": {
-            "passkey": {
-                "fail": {
-                    "button": "Mulai verifikasi",
-                    "content": "Kami akan meminta beberapa dokumentasi dan informasi pribadi dari Anda, yang dapat membantu kami mengetahui bahwa Anda adalah orang yang Anda klaim.",
-                    "disclaimer": "Anda akan dapat mengatur verifikasi ini untuk dapat digunakan kembali di akhir alur.",
-                    "subtitle": "Maaf, Anda tidak dapat melewati alur ini, silakan lakukan proses verifikasi identitas:",
-                    "title": "Tidak ada verifikasi yang dapat digunakan"
-                },
-                "success": {
-                    "biophoto": "Sebuah foto wajah Anda untuk membuktikan bahwa Anda adalah orang yang sebenarnya",
-                    "biovideo": "Rekaman wajah Anda untuk membuktikan bahwa Anda adalah orang yang sebenarnya",
-                    "button": "Lanjutkan",
-                    "datacapture": "Beberapa informasi pribadi",
-                    "document": "Dokumen identitas yang dikeluarkan pemerintah dan valid",
-                    "drivinglicense": "Sebuah surat izin mengemudi yang dikeluarkan oleh pemerintah yang sah",
-                    "proofofaddress": "Dokumen yang valid yang dapat dijadikan bukti alamat",
-                    "title": "Verifikasi sebelumnya ditemukan!"
-                }
-            }
-        },
-        "sms_sent": {
-            "info": "Tips",
-            "info_link_expire": "Tautan Anda akan kedaluwarsa dalam satu jam",
-            "info_link_window": "Tetap buka jendela ini saat menggunakan ponsel Anda",
-            "link": "Coba metode lain",
-            "subtitle": "Kami telah mengirimkan tautan aman ke <number><\/number>",
-            "subtitle_minutes": "Mungkin dibutuhkan waktu beberapa menit untuk sampai",
-            "title": "Periksa ponsel Anda"
-        },
-        "switch_phone": {
-            "info": "Tips",
-            "info_link_expire": "Tautan seluler Anda akan kedaluwarsa dalam satu jam",
-            "info_link_refresh": "Jangan muat ulang halaman ini",
-            "info_link_window": "Tetap buka jendela ini saat menggunakan ponsel Anda",
-            "link": "Batalkan",
-            "subtitle": "Setelah Anda selesai, kami akan membawa Anda ke langkah berikutnya",
-            "title": "Terhubung ke ponsel Anda"
-        },
-        "upload_guide": {
-            "button_primary": "Lanjutkan",
-            "image_detail_blur_alt": "Contoh dokumen buram",
-            "image_detail_blur_label": "Semua detail harus jelas — tidak ada yang buram",
-            "image_detail_cutoff_label": "Tampilkan semua detail — termasuk 2 baris terbawah",
-            "image_detail_glare_label": "Menjauh dari cahaya langsung — tidak boleh terlihat silau",
-            "image_detail_good_label": "Foto harus menampilkan dokumen Anda dengan jelas",
-            "subtitle": "Pindaian dan fotokopi tidak diterima",
-            "title": "Kirimkan halaman foto paspor"
-        },
-        "user_consent": {
-            "button_primary": "Setuju",
-            "button_secondary": "Tidak setuju",
-            "prompt": {
-                "button_primary": "Tinjau lagi",
-                "button_secondary": "Ya, jangan verifikasi saya",
-                "no_consent_detail": "Jika Anda tidak menyetujui pernyataan privasi dan ketentuan layanan Onfido, kami tidak akan dapat memverifikasi identitas Anda dan Anda akan keluar dari langkah ini.",
-                "no_consent_title": "Anda yakin?"
-            }
-        },
-        "user_consent_load_fail": {
-            "button_primary": "Muat ulang layar",
-            "detail": "Periksa apakah koneksi Anda stabil, lalu coba lagi",
-            "title": "Konten gagal dimuat"
-        },
-        "video_capture": {
-            "body": "Posisikan wajah Anda di dalam bentuk oval",
-            "body_record": "Tekan tombol saat Anda siap",
-            "body_stop": "Tekan stop setelah selesai",
-            "button_primary_finish": "Selesai merekam",
-            "button_primary_next": "Langkah berikutnya",
-            "button_primary_start": "Mulai merekam",
-            "button_record_accessibility": "Mulai merekam",
-            "frame_accessibility": "Lihat dari kamera",
-            "header": {
-                "challenge_digit_instructions": "Ucapkan setiap angka dengan lantang",
-                "challenge_turn_forward": "lalu menghadap ke depan",
-                "challenge_turn_left": "Putar kepala Anda ke kiri",
-                "challenge_turn_right": "Putar kepala Anda ke kanan"
-            },
-            "prompt": {
-                "header_timeout": "Sepertinya Anda memerlukan waktu terlalu lama"
-            }
-        },
-        "video_confirmation": {
-            "body": "Video Anda telah direkam",
-            "button_primary": "Unggah video",
-            "button_secondary": "Ambil video lagi",
-            "title": "Periksa video Anda",
-            "video_accessibility": "Putar ulang video rekaman Anda"
-        },
-        "video_intro": {
-            "button_pause_accessibility": "Jeda animasi ilustratif prosedur pemindaian",
-            "button_play_accessibility": "Mainkan animasi ilustratif prosedur pemindaian",
-            "button_primary": "Rekam video",
-            "list_accessibility": "Tindakan untuk merekam video selfie",
-            "list_item_actions": "Anda memiliki 20 detik untuk menyelesaikan",
-            "list_item_speak": "Ikuti petunjuk untuk bergerak atau berbicara",
-            "title": "Rekam video",
-            "video_accessibility": "Contoh video orang sedang merekam video selfie. Untuk merekam video selfie, hadapkan kamera depan dan sedikit jauhkan ponsel dari wajah Anda. Kemudian Anda harus membacakan beberapa angka dan menggerakkan kepala sesuai dengan petunjuk di layar."
-        },
-        "welcome": {
-            "doc_video_subtitle": "Ini akan memakan waktu beberapa menit",
-            "info_original_document": "Ambil foto dokumen asli Anda. Pemindaian, foto layar, atau fotokopi tidak diperbolehkan.",
-            "list_header": "Gunakan perangkat Anda untuk:",
-            "list_header_doc_video": "Gunakan perangkat Anda untuk merekam:",
-            "list_header_webcam": "Gunakan kamera web atau ponsel Anda untuk memotret:",
-            "list_item_doc": "dokumen identitas Anda",
-            "list_item_doc_generic": "Rekam video dari dokumen identitas Anda",
-            "list_item_doc_photo": "Mengambil foto dokumen identitas Anda",
-            "list_item_doc_video": "Merekam video dokumen identitas Anda",
-            "list_item_doc_video_timeout": "Rekaman dibatasi hingga <timeout><\/timeout> detik",
-            "list_item_face_photo": "Mengambil foto wajah Anda",
-            "list_item_face_video": "Merekam video wajah Anda",
-            "list_item_poa": "bukti alamat Anda",
-            "list_item_selfie": "wajah Anda",
-            "next_button": "Pilih dokumen",
-            "start_workflow_button": "Mulai verifikasi",
-            "start_workflow_button_trial": "Mulai verifikasi (UJI COBA)",
-            "subtitle": "Ini akan memakan waktu beberapa menit",
-            "title": "Verifikasi identitas Anda",
-            "trial_message": "Jangan bagikan data pribadi di sini kecuali Anda terlibat dalam uji coba Onfido."
-        },
-        "workflow_complete": {
-            "pass": {
-                "description": "Kami telah memverifikasi identitas Anda",
-                "title": "Berhasil"
-            },
-            "reject": {
-                "description": "Kami belum dapat memverifikasi identitas Anda",
-                "title": "Ditolak"
-            }
-        },
-        "workflow_erros": {
-            "generic_title": "Terjadi kesalahan server!",
-            "no_workflow_run_id": "ID untuk menjalankan alur kerja belum diatur.",
-            "reload_app": "Coba muat ulang aplikasi, lalu coba lagi.",
-            "task_not_completed": "Tidak dapat menyelesaikan tugas alur kerja.",
-            "task_not_retrieved": "Tidak dapat mengambil tugas alur kerja.",
-            "task_not_supported": "Tugas saat ini tidak didukung"
-        }
+  "avc_confirmation": {
+    "button_primary_upload": "Unggah rekaman",
+    "subtitle": "Video wajah Anda berhasil direkam",
+    "title": "Perekaman selesai"
+  },
+  "avc_connection_error": {
+    "button_primary_reload": "Muat ulang instruksi",
+    "button_primary_retry_upload": "Coba unggah lagi",
+    "button_secondary_restart_recording": "Mulai ulang perekaman",
+    "subtitle": "Periksa apakah koneksi Anda stabil, lalu coba lagi",
+    "title": "Koneksi terganggu"
+  },
+  "avc_face_alignment": {
+    "feedback_move_back": "Mundur",
+    "feedback_move_back_accessibility": "Gerakkan perangkat Anda ke belakang",
+    "feedback_move_closer": "Mendekatlah",
+    "feedback_move_left_accessibility": "Gerakkan perangkat Anda ke kiri",
+    "feedback_move_right_accessibility": "Gerakkan perangkat Anda ke kanan",
+    "feedback_no_face_detected": "Wajah tidak terdeteksi",
+    "feedback_not_centered": "Wajah tidak berada di tengah",
+    "title": "Posisikan wajah Anda dalam bingkai"
+  },
+  "avc_face_capture": {
+    "alert": {
+      "mic_conflict_title": "Mikrofon Anda sedang digunakan oleh aplikasi lain",
+      "timeout_body": "Anda memiliki waktu hingga 15 detik untuk menyelesaikan rekaman",
+      "timeout_button_primary": "Coba lagi",
+      "timeout_title": "Maaf, kami harus memulai ulang perekaman",
+      "too_fast_body": "Silakan coba lagi dan putar kepala Anda lebih perlahan",
+      "too_fast_button_primary": "Coba lagi",
+      "too_fast_title": "Anda memutar kepala terlalu cepat"
     },
-    "profile_data": {
-        "field_labels": {
-            "rou_specific": {
-                "national_id_value": "Kode Numerik Pribadi (CNP)"
-            }
-        }
+    "title": "Putar kepala Anda perlahan ke kedua sisi",
+    "title_completed": "Perekaman selesai"
+  },
+  "avc_intro": {
+    "button_primary_ready": "Mulai merekam",
+    "disclaimer": "Selama proses ini, wajah dan latar belakang Anda akan direkam",
+    "disclaimer_camera_and_audio_on": "Wajah, latar belakang, dan audio Anda akan direkam selama proses ini",
+    "list_item_one": "Pertama, posisikan wajah Anda dalam bingkai",
+    "list_item_two": "Kemudian, putar kepala Anda ke kedua sisi",
+    "subtitle": "Ini untuk memverifikasi bahwa Anda adalah orang sungguhan",
+    "title": "Rekam video",
+    "title_accessibility": "Merekam video wajah Anda",
+    "video_accessibility": "Contoh video seseorang memutar kepala ke kedua sisi hingga selesai"
+  },
+  "avc_no_face_detected": {
+    "button_primary_restart": "Mulai ulang perekaman",
+    "list_item_eyes": "Pastikan mata Anda terlihat jelas",
+    "list_item_face": "Pastikan hanya menampilkan wajah Anda, kami tidak perlu melihat identitas Anda",
+    "list_item_lighting": "Pastikan berada di tempat dengan pencahayaan yang baik",
+    "list_item_mask": "Pastikan untuk melepas masker atau benda lain yang menutupi wajah Anda. Kacamata diperbolehkan",
+    "title": "Kami tidak dapat mendeteksi wajah Anda"
+  },
+  "avc_uploading": {
+    "title": "Mengunggah"
+  },
+  "country_select": {
+    "alert": {
+      "another_doc": "Dokumen dari negara tersebut saat ini tidak didukung — <fallback>coba jenis dokumen lain</fallback>"
+    },
+    "alert_dropdown": {
+      "country_not_found": "Negara tidak ditemukan"
+    },
+    "button_primary": "Kirim dokumen",
+    "poa_alert": {
+      "country_not_found": "Kami mohon maaf atas hal ini. Kami sedang berupaya mendukung lebih banyak negara.",
+      "intro": "Tidak dapat menemukan negara Anda?"
+    },
+    "search": {
+      "accessibility": "Pilih negara",
+      "input_placeholder": "misalnya: Amerika Serikat",
+      "label": "Cari negara"
+    },
+    "title": "Pilih negara penerbit"
+  },
+  "cross_device": {
+    "button_primary_upload": "Lanjutkan"
+  },
+  "cross_device_checklist": {
+    "button_primary": "Kirim verifikasi",
+    "info": "Tips",
+    "list_item_doc_multiple": "Dokumen",
+    "list_item_doc_one": "Dokumen",
+    "list_item_poa": "Bukti alamat",
+    "list_item_selfie": "Swafoto",
+    "list_item_video": "Video",
+    "subtitle": "Ini semua yang telah Anda unggah:",
+    "title": "Satu langkah terakhir"
+  },
+  "cross_device_error_desktop": {
+    "subtitle": "Tautan hanya berfungsi pada perangkat seluler",
+    "title": "Ada yang tidak beres"
+  },
+  "cross_device_error_restart": {
+    "subtitle": "Anda harus memulai ulang verifikasi di komputer Anda",
+    "title": "Ada yang tidak beres"
+  },
+  "cross_device_intro": {
+    "button_primary": "Dapatkan tautan aman",
+    "list_accessibility": "Langkah-langkah yang diperlukan untuk melanjutkan verifikasi di ponsel Anda",
+    "list_item_finish": "Periksa kembali di sini untuk menyelesaikan pengiriman",
+    "list_item_open_link": "Buka tautan dan selesaikan tugas ini",
+    "list_item_send_phone": "Kirim tautan aman ke ponsel Anda",
+    "subtitle": "Begini caranya:",
+    "subtitle_upload": "Unggah foto terbaru dari dokumen asli Anda",
+    "title": "Lanjutkan di ponsel Anda"
+  },
+  "cross_device_return": {
+    "body": "Komputer Anda mungkin memerlukan waktu beberapa detik untuk memperbarui",
+    "subtitle": "Sekarang Anda dapat kembali ke komputer untuk melanjutkan",
+    "title": "Unggahan berhasil"
+  },
+  "cross_device_session_linked": {
+    "button_primary": "Lanjutkan",
+    "info": "Periksa kembali",
+    "list_item_desktop_open": "Jendela desktop Anda tetap terbuka",
+    "list_item_sent_by_you": "Tautan ini dikirim oleh Anda — mintalah saran jika menurut Anda ini mungkin penipuan",
+    "subtitle": "Lanjutkan dengan verifikasi",
+    "title": "Sesi seluler yang ditautkan ke komputer Anda"
+  },
+  "doc_auto_capture": {
+    "button_accessibility": "Ambil foto",
+    "footer": {
+      "captured": "Foto direkam",
+      "capturing": "Merekam foto",
+      "manual_fallback_generic_document_back": "Ambil foto bagian belakang dokumen Anda",
+      "manual_fallback_generic_document_front": "Ambil foto bagian depan dokumen Anda",
+      "manual_fallback_identity_card_back": "Ambil foto bagian belakang kartu Anda",
+      "manual_fallback_identity_card_front": "Ambil foto bagian depan kartu Anda",
+      "manual_fallback_license_back": "Ambil foto bagian belakang SIM Anda",
+      "manual_fallback_license_front": "Ambil foto bagian depan SIM Anda",
+      "manual_fallback_passport": "Ambil foto halaman foto paspor Anda",
+      "manual_fallback_residence_permit_back": "Ambil foto bagian belakang izin tinggal Anda",
+      "manual_fallback_residence_permit_front": "Ambil foto bagian depan izin tinggal Anda",
+      "position_generic_document_back": "Posisikan bagian belakang dokumen Anda dalam bingkai",
+      "position_generic_document_front": "",
+      "position_identity_card_back": "Posisikan bagian belakang kartu Anda dalam bingkai",
+      "position_identity_card_front": "Posisikan bagian depan kartu Anda dalam bingkai",
+      "position_license_back": "Posisikan bagian belakang SIM Anda dalam bingkai",
+      "position_license_front": "Posisikan bagian depan SIM Anda dalam bingkai",
+      "position_passport": "Posisikan halaman foto paspor Anda dalam bingkai",
+      "position_residence_permit_back": "Posisikan bagian belakang izin tinggal Anda dalam bingkai",
+      "position_residence_permit_front": "Posisikan bagian depan izin tinggal Anda dalam bingkai"
+    },
+    "frame": {
+      "flip_document": "Balik ke sisi belakang",
+      "hold_still": "Jangan sampai goyang",
+      "no_document": "Dokumen tidak terdeteksi"
     }
+  },
+  "doc_capture": {
+    "alert": {
+      "no_barcode_detail": "Tetap di tempat yang terang dan dekatkan kartu ke kamera",
+      "no_barcode_title": "Barcode tidak terdeteksi"
+    },
+    "button_primary": "Mulai pemindaian dokumen",
+    "detail": {
+      "folded_doc_front": "Letakkan dokumen secara mendatar, sertakan semua halaman dalam (harus memuat foto Anda)"
+    },
+    "header": {
+      "recording_complete": "Perekaman selesai",
+      "recording_video": "Merekam video"
+    },
+    "header_folded_doc_front": "Sisi foto profil",
+    "prompt": {
+      "button_card": "Kartu plastik",
+      "button_paper": "Dokumen cetak",
+      "title_id": "Jenis kartu identitas apa yang Anda miliki?",
+      "title_license": "Jenis lisensi apa yang Anda miliki?"
+    }
+  },
+  "doc_confirmation": {
+    "alert": {
+      "blur_detail": "Pastikan semuanya jelas",
+      "blur_title": "Foto buram terdeteksi",
+      "crop_detail": "Pastikan seluruh dokumen terlihat",
+      "crop_title": "Gambar terpotong terdeteksi",
+      "glare_detail": "Harap menjauh dari cahaya langsung",
+      "glare_title": "Cahaya menyilaukan terdeteksi",
+      "no_doc_detail": "Pastikan sepenuhnya berada dalam bingkai",
+      "no_doc_title": "Dokumen tidak ditemukan",
+      "odp_detail": "Silakan gunakan dokumen asli Anda. Foto layar atau fotokopi tidak diterima",
+      "odp_photo_of_screen_title": "Foto layar terdeteksi",
+      "odp_photocopy_title": "Fotokopi terdeteksi",
+      "odp_scan_title": "Pemindaian terdeteksi",
+      "odp_screenshot_title": "Tangkapan layar terdeteksi"
+    },
+    "body": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya bisa dibaca dengan jelas, tidak buram atau silau",
+    "body_address_certificate": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya jelas untuk dibaca tanpa kabur atau silau",
+    "body_bank_statement": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya bisa dibaca dengan jelas, tidak buram atau silau",
+    "body_benefits_letter": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya bisa dibaca dengan jelas, tidak buram atau silau",
+    "body_bill": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya bisa dibaca dengan jelas, tidak buram atau silau",
+    "body_exchange_house_statement": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya jelas untuk dibaca tanpa kabur atau silau",
+    "body_general_letter": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya jelas untuk dibaca tanpa kabur atau silau",
+    "body_generic_document": "Pastikan detail Anda jelas dan tidak terhalang",
+    "body_id": "Pastikan detail Anda jelas dan tidak terhalang",
+    "body_identity_document_with_address": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya jelas untuk dibaca tanpa kabur atau silau",
+    "body_image_medium": "Perlu waktu lebih lama untuk memverifikasi Anda jika kami tidak dapat membacanya",
+    "body_image_poor": "Untuk memverifikasi Anda dengan lancar, kami membutuhkan foto yang lebih baik",
+    "body_insurance_statement": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya jelas untuk dibaca tanpa kabur atau silau",
+    "body_license": "Pastikan detail Anda jelas dan tidak terhalang",
+    "body_mobile_phone_bill": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya jelas untuk dibaca tanpa kabur atau silau",
+    "body_mortgage_statement": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya jelas untuk dibaca tanpa kabur atau silau",
+    "body_passport": "Pastikan detail Anda jelas dan tidak terhalang",
+    "body_pension_property_statement_letter": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya jelas untuk dibaca tanpa kabur atau silau",
+    "body_permit": "Pastikan detail Anda jelas dan tidak terhalang",
+    "body_tax_letter": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya bisa dibaca dengan jelas, tidak buram atau silau",
+    "button_close": "Tutup",
+    "button_primary_redo": "Ulangi",
+    "button_primary_upload": "Unggah",
+    "button_primary_upload_anyway": "Tetap mengunggah",
+    "button_secondary_change_document": "Pilih dokumen lain",
+    "button_secondary_redo": "Ulangi",
+    "button_secondary_submit_anyway": "Kirim foto saja",
+    "button_zoom": "Perbesar gambar",
+    "image_accessibility": "Foto dokumen Anda",
+    "title": "Periksa foto Anda"
+  },
+  "doc_multi_frame_capture": {
+    "capture_progress_title": "Memindai dokumen",
+    "instructions_title_back": "Posisikan bagian belakang dokumen Anda dalam bingkai",
+    "instructions_title_front": "Posisikan bagian depan dokumen Anda dalam bingkai"
+  },
+  "doc_select": {
+    "button_address_card": "Kartu alamat",
+    "button_address_card_back": "Kartu Alamat (Belakang)",
+    "button_address_card_detail": "Kartu sementara dan permanen diterima",
+    "button_address_card_front": "Kartu Alamat (Depan)",
+    "button_bank_statement": "Rekening koran atau laporan building society",
+    "button_bank_statement_non_uk": "Rekening koran",
+    "button_benefits_letter": "Surat Tunjangan",
+    "button_benefits_letter_detail": "Tunjangan rumah tangga resmi dari pemerintah misalnya: Tunjangan pencari kerja, Tunjangan perumahan, Kredit pajak",
+    "button_bill": "Tagihan Utilitas",
+    "button_bill_detail": "Gas, listrik, air, telepon rumah, atau broadband",
+    "button_exchange_house_statement": "Pernyataan Rumah Penukaran",
+    "button_exchange_house_statement_detail": "Pernyataan pengirim tentang transfer atau pengiriman uang",
+    "button_general_letter": "Surat Umum",
+    "button_general_letter_detail": "Surat dari lembaga keuangan atau perusahaan utilitas",
+    "button_government_letter": "Surat Pemerintah",
+    "button_government_letter_detail": "Surat yang dikeluarkan pemerintah misalnya: Hak tunjangan, Surat suara, Surat pajak, dll.",
+    "button_id": "Kartu identitas",
+    "button_id_detail": "Depan dan belakang",
+    "button_identity_document_with_address": "Dokumen Identitas Dengan Alamat",
+    "button_identity_document_with_address_back": "Dokumen Identitas Dengan Alamat (Belakang)",
+    "button_identity_document_with_address_detail": "Dikeluarkan oleh otoritas pemerintah",
+    "button_identity_document_with_address_front": "Dokumen Identitas Dengan Alamat (Depan)",
+    "button_insurance_statement": "Pernyataan Asuransi",
+    "button_insurance_statement_detail": "Dikeluarkan oleh perusahaan asuransi pribadi atau perusahaan pialang",
+    "button_license": "Surat izin mengemudi (SIM)",
+    "button_license_detail": "Depan dan belakang",
+    "button_mobile_phone_bill": "Tagihan Telepon Seluler",
+    "button_mobile_phone_bill_detail": "Dikeluarkan oleh penyedia jaringan telepon seluler",
+    "button_mortgage_statement": "Pernyataan Hipotek",
+    "button_mortgage_statement_detail": "Dikeluarkan oleh lembaga peminjaman keuangan",
+    "button_passport": "Paspor",
+    "button_passport_detail": "Halaman foto",
+    "button_pension_property_statement_letter": "Surat Pernyataan/Pernyataan tentang Pensiun atau Properti",
+    "button_pension_property_statement_letter_detail": "Surat pernyataan pensiun atau surat dan Surat pernyataan pajak properti atau surat",
+    "button_permit": "Izin tinggal",
+    "button_permit_detail": "Depan dan belakang",
+    "button_tax_letter": "Surat Pajak Pemerintah Daerah",
+    "extra_estatements_ok": "rekening elektronik diterima",
+    "extra_no_mobile": "Maaf, tidak menerima tagihan telepon seluler",
+    "list_accessibility": "Dokumen yang dapat Anda gunakan untuk memverifikasi identitas Anda",
+    "pill": "tercepat",
+    "section": {
+      "header_country": "Negara penerbit",
+      "header_doc_type": "Dokumen yang diterima",
+      "input_country_not_found": "Tidak Ada Hasil",
+      "input_placeholder_country": "Pilih negara penerbit"
+    },
+    "subtitle": "Ini harus berupa foto identitas resmi",
+    "subtitle_country": "Pilih negara penerbit untuk melihat dokumen apa saja yang kami terima",
+    "subtitle_entire_page": "Seluruh halaman",
+    "subtitle_front_back": "Depan dan belakang",
+    "subtitle_photo_page": "Halaman foto",
+    "subtitle_poa": "Ini adalah dokumen yang hampir bisa dipastikan menunjukkan alamat rumah Anda saat ini",
+    "title": "Pilih dokumen Anda",
+    "title_poa": "Pilih sebuah dokumen"
+  },
+  "doc_submit": {
+    "button_link_upload": "atau unggah foto – bukan hasil pindaian atau fotokopi",
+    "button_primary": "Lanjutkan di telepon",
+    "subtitle": "Ambil foto dengan ponsel Anda",
+    "title_address_certificate": "Kirim kartu alamat",
+    "title_address_certificate_back": "Kirim kartu alamat (belakang)",
+    "title_address_certificate_front": "Kirimkan kartu alamat (bagian depan)",
+    "title_bank_statement": "Kirim rekening bulanan",
+    "title_benefits_letter": "Kirim surat",
+    "title_bill": "Kirim tagihan",
+    "title_exchange_house_statement": "Kirimkan pernyataan rumah pertukaran",
+    "title_general_letter": "Kirim surat umum",
+    "title_generic_document_back": "Kirim dokumen (bagian belakang)",
+    "title_generic_document_front": "Kirim dokumen (bagian depan)",
+    "title_government_letter": "Surat Pemerintah",
+    "title_id_back": "Kirim kartu identitas (belakang)",
+    "title_id_front": "Kirim kartu identitas (depan)",
+    "title_identity_document_with_address": "Kirimkan dokumen identitas dengan alamat",
+    "title_identity_document_with_address_back": "Kirimkan dokumen identitas dengan alamat (belakang)",
+    "title_identity_document_with_address_front": "Kirimkan dokumen identitas dengan alamat (bagian depan)",
+    "title_insurance_statement": "Kirim pernyataan asuransi",
+    "title_license_back": "Kirim lisensi (kembali)",
+    "title_license_front": "Kirim lisensi (depan)",
+    "title_mobile_phone_bill": "Kirimkan tagihan telepon seluler",
+    "title_mortgage_statement": "Kirimkan pernyataan hipotek",
+    "title_passport": "Kirim halaman foto paspor",
+    "title_pension_property_statement_letter": "Kirim pernyataan atau surat",
+    "title_permit_back": "Kirim izin tinggal (belakang)",
+    "title_permit_front": "Kirim izin tinggal (depan)",
+    "title_tax_letter": "Kirimkan Surat Pajak Pemerintah Daerah"
+  },
+  "doc_video_capture": {
+    "button_primary_fallback": "Langkah berikutnya",
+    "button_primary_fallback_end": "Selesai merekam",
+    "detail_step2": "Jaga agar dokumen tetap dalam tampilan penuh",
+    "header": "Sambil memegang dokumen Anda, tempatkan sisi depan dalam bingkai",
+    "header_paper_doc_step2": "Balik dokumen perlahan untuk menampilkan halaman luar",
+    "header_passport": "Saat memegang paspor, tempatkan halaman foto dalam bingkai",
+    "header_passport_progress": "Jangan sampai goyang",
+    "header_step1": "Sekarang, usahakan tidak goyang",
+    "header_step2": "Balik dokumen perlahan untuk menampilkan sisi belakang",
+    "prompt": {
+      "detail_timeout": "Rekaman video dibatasi hingga <timeout></timeout> detik. <fallback>Mulai lagi</fallback>"
+    },
+    "stepper": "Langkah ​<step>​​</step>​ dari ​<total>​​</total>​",
+    "success_accessibility": "Berhasil"
+  },
+  "doc_video_confirmation": {
+    "button_secondary": "Pratinjau video",
+    "title": "Periksa video Anda"
+  },
+  "error_unsupported_browser": {
+    "subtitle_android": "Mulai ulang proses di Google Chrome versi terbaru",
+    "subtitle_ios": "Mulai ulang proses di Safari versi terbaru",
+    "title_android": "Browser tidak didukung",
+    "title_ios": "Browser tidak didukung"
+  },
+  "generic": {
+    "accessibility": {
+      "close_sdk_screen": "Tutup layar verifikasi identitas",
+      "dismiss_alert": "Abaikan peringatan"
+    },
+    "back": "kembali",
+    "close": "tutup",
+    "errors": {
+      "expired_token": {
+        "instruction": "Silakan mencoba lagi",
+        "message": "Token Anda telah kedaluwarsa"
+      },
+      "expired_trial": {
+        "instruction": "Anda telah mencapai batas uji coba Anda",
+        "message": "Uji coba Anda telah berakhir"
+      },
+      "geoblocked_error": {
+        "instruction": "Maaf, sepertinya kami tidak dapat melanjutkan lebih jauh karena lokasi Anda saat ini tidak didukung",
+        "message": "Layanan tidak tersedia"
+      },
+      "interrupted_flow_error": {
+        "instruction": "Mulai ulang proses pada perangkat lain",
+        "message": "Kamera tidak terdeteksi"
+      },
+      "invalid_size": {
+        "instruction": "Harus di bawah 10 MB.",
+        "message": "Ukuran file terlalu besar."
+      },
+      "invalid_type": {
+        "instruction": "Coba gunakan jenis file lain.",
+        "message": "File tidak bisa diunggah."
+      },
+      "lazy_loading": {
+        "message": "Terjadi kesalahan saat memuat komponen"
+      },
+      "multiple_faces": {
+        "instruction": "Swafoto harus menampilkan wajah Anda saja",
+        "message": "Ada lebih dari satu wajah"
+      },
+      "no_face": {
+        "instruction": "Pastikan wajah Anda terlihat",
+        "message": "Wajah tidak terdeteksi"
+      },
+      "request_error": {
+        "instruction": "Silakan mencoba lagi",
+        "message": "Ada yang tidak beres"
+      },
+      "sms_failed": {
+        "instruction": "Salin tautan ke ponsel Anda",
+        "message": "Ada yang tidak beres"
+      },
+      "sms_overuse": {
+        "instruction": "Salin tautan ke ponsel Anda",
+        "message": "Terlalu banyak percobaan yang gagal"
+      },
+      "unsupported_file": {
+        "instruction": "Coba gunakan file JPG atau PNG",
+        "message": "Jenis file tidak didukung"
+      }
+    },
+    "lazy_load_placeholder": "Sedang memuat...",
+    "loading": "Memuat"
+  },
+  "get_link": {
+    "alert_wrong_number": "Periksa apakah nomor Anda sudah benar",
+    "button_copied": "Disalin",
+    "button_copy": "Salin",
+    "button_submit": "Kirim tautan",
+    "info_qr_how": "Cara memindai kode QR",
+    "info_qr_how_list_item_camera": "Arahkan kamera ponsel Anda ke kode QR",
+    "info_qr_how_list_item_download": "Jika tidak berfungsi, unduh pemindai kode QR dari Google Play atau App Store",
+    "link_divider": "atau pilih cara lain",
+    "link_qr": "Pindai kode QR",
+    "link_sms": "Dapatkan tautan melalui SMS",
+    "link_url": "Salin tautan",
+    "loader_sending": "Mengirim",
+    "number_field_input_placeholder": "Masukkan nomor ponsel",
+    "number_field_label": "Masukkan nomor ponsel Anda:",
+    "subtitle_qr": "Pindai kode QR dengan ponsel Anda",
+    "subtitle_sms": "Kirim tautan satu kali ini ke ponsel Anda",
+    "subtitle_url": "Kirim tautan satu kali ini ke ponsel Anda",
+    "title": "Dapatkan tautan aman Anda",
+    "url_field_label": "Salin tautan ke browser seluler Anda"
+  },
+  "interactive_task": {
+    "waiting": {
+      "title_5": "Mengunggah media..."
+    }
+  },
+  "livenessV2": {
+    "error_reload_instructions": "Muat ulang instruksi",
+    "intro_note_no1": "Pertama, posisikan wajah Anda dalam bingkai",
+    "intro_note_no2": "Kemudian, putar kepala Anda ke kedua sisi",
+    "intro_ready_button": "Harap perhatikan bahwa kami akan merekam wajah dan latar belakang Anda",
+    "intro_subtitle": "Ini untuk memverifikasi bahwa Anda adalah orang sungguhan",
+    "intro_warning": "Harap perhatikan bahwa kami akan merekam wajah dan latar belakang Anda",
+    "success_main_button": "Kirim verifikasi",
+    "success_title": "Hanya itu yang kami butuhkan untuk mulai memverifikasi identitas Anda"
+  },
+  "mobilePhrases": {
+    "photo_upload": {
+      "body_id_back": "Ambil foto bagian belakang kartu Anda",
+      "body_id_front": "Ambil foto bagian depan kartu Anda",
+      "body_license_back": "Ambil foto bagian belakang lisensi Anda",
+      "body_license_front": "Ambil foto bagian depan lisensi Anda",
+      "body_passport": "Ambil foto halaman foto paspor Anda",
+      "body_selfie": "Ambil swafoto yang menunjukkan wajah Anda"
+    },
+    "selfie_capture": {
+      "alert": {
+        "camera_inactive": {
+          "detail": "Ambil foto menggunakan <fallback>mode standar kamera</fallback>"
+        },
+        "camera_not_working": {
+          "detail": "Ambil foto menggunakan <fallback>mode standar kamera</fallback>"
+        }
+      }
+    },
+    "upload_guide": {
+      "button_primary": "Ambil foto",
+      "title": "Halaman foto paspor"
+    }
+  },
+  "nfc_scan": {
+    "sheet": {
+      "success": "Pemindaian berhasil"
+    }
+  },
+  "nfc_scan_error_can": {
+    "primary_button": "Verifikasi keluar",
+    "subtitle": "Anda telah mencapai batas maksimum percobaan untuk memasukkan nomor CAN Anda"
+  },
+  "nfc_scan_error_can:title": "Maksimal upaya telah dicapai",
+  "otp": {
+    "code_input": {
+      "error": {
+        "code_expired": "Kode Anda telah kedaluwarsa, silakan minta yang baru.",
+        "code_invalid": "Kode yang dimasukkan salah, silakan coba lagi.",
+        "technical": "Terjadi kesalahan teknis, silakan coba lagi nanti",
+        "too_many_attempts": "Anda telah mencoba kode ini terlalu banyak kali, silakan minta yang baru.",
+        "wrong_code": "Kode yang dimasukkan salah, silakan coba lagi"
+      },
+      "intro": "Anda memiliki 5 menit untuk memvalidasi kode yang dikirim melalui SMS ke <phonenumber></phonenumber>",
+      "resend": {
+        "cta": "Minta kode baru",
+        "cta_timeout": "Minta kode baru (<timeout></timeout> detik)",
+        "label": "Kode sudah dikirim",
+        "tracker": "<remaining></remaining> dari <limit></limit>"
+      },
+      "title": "Kata Sandi Sekali Pakai"
+    },
+    "error": {
+      "cta": "Kembali",
+      "subtitle": "Harap tunggu beberapa detik dan coba lagi",
+      "title": "Ada yang salah"
+    },
+    "failure": {
+      "cta": "Lanjutkan",
+      "subtitle": "Kami tidak lagi dapat memverifikasi nomor telepon Anda",
+      "title": "Jumlah percobaan yang diizinkan telah melebihi batas"
+    },
+    "send_code": {
+      "cta": "Kirim kode",
+      "error": {
+        "invalid_phone_number": "Silakan berikan nomor telepon yang valid.",
+        "limit": "Anda telah mencapai batas SMS yang dikirim",
+        "technical": "Terjadi kesalahan teknis, silakan coba lagi nanti"
+      },
+      "input_label": "Nomor telepon",
+      "intro": "Untuk memverifikasi nomor telepon Anda, kami akan meminta Anda untuk memasukkan kata sandi sekali pakai.",
+      "title": "Satu Kali Sandi"
+    }
+  },
+  "outro": {
+    "body": "Hanya itu yang kami butuhkan untuk mulai memverifikasi identitas Anda",
+    "body_government_letter": "Berikan seluruh halaman dokumen untuk hasil terbaik",
+    "title": "Terima kasih"
+  },
+  "permission": {
+    "body_both": "Kami tidak dapat memverifikasi Anda tanpa menggunakan kamera dan mikrofon Anda",
+    "body_cam": "Kami tidak dapat memverifikasi Anda tanpa kamera Anda",
+    "body_mic": "Kami tidak dapat memverifikasi Anda tanpa menggunakan mikrofon Anda",
+    "button_primary_both": "Aktifkan keduanya",
+    "button_primary_cam": "Aktifkan kamera",
+    "button_primary_mic": "Aktifkan mikrofon",
+    "subtitle_both": "Saat diminta, Anda harus mengaktifkan akses untuk keduanya agar dapat melanjutkan",
+    "subtitle_cam": "Saat diminta, Anda harus mengaktifkan akses kamera untuk melanjutkan",
+    "subtitle_mic": "Saat diminta, Anda harus mengaktifkan akses mikrofon untuk melanjutkan",
+    "title_both": "Izinkan akses kamera dan mikrofon",
+    "title_cam": "Izinkan akses kamera",
+    "title_mic": "Izinkan akses mikrofon"
+  },
+  "permission_recovery": {
+    "android": {
+      "browser_settings": {
+        "title": "Solusi 1: Pengaturan browser"
+      },
+      "device_settings": {
+        "list_item_1": "Di perangkat Anda, buka aplikasi <strong>Pengaturan</strong>",
+        "list_item_2": "Ketuk <strong>Aplikasi</strong>",
+        "list_item_3": "Ketuk <browser_icon></browser_icon>. Jika Anda tidak dapat menemukannya, ketuk <strong>Lihat semua aplikasi</strong> atau <strong>Kelola aplikasi</strong> dan pilih aplikasi browser Anda",
+        "list_item_4": "Ketuk <strong>Izin</strong>",
+        "list_item_5_cam": "Ketuk <strong>Kamera</strong> dan pilih <strong>Izinkan</strong>",
+        "list_item_5_mic": "Ketuk <strong>Mikrofon</strong> dan pilih <strong>Izinkan</strong>",
+        "list_item_6": "Kembali ke halaman ini dan tekan tombol <strong>Segarkan halaman</strong>",
+        "title": "Solusi 2: Pengaturan perangkat"
+      },
+      "refresh_page": {
+        "list_item_1_both": "Ketuk tombol <strong>Segarkan halaman</strong>. Anda akan diminta untuk mengaktifkan kembali akses kamera dan mikrofon. Ketika muncul pop-up, pilih <strong>Izinkan</strong> (atau <strong>OK</strong>)",
+        "list_item_1_cam": "Ketuk tombol <strong>Segarkan halaman</strong>. Anda akan diminta untuk mengaktifkan akses kamera lagi. Ketika muncul pop-up, pilih <strong>Izinkan</strong> (atau <strong>OK</strong>)",
+        "list_item_1_mic": "Ketuk tombol <strong>Segarkan halaman</strong>. Anda akan diminta untuk mengaktifkan akses mikrofon lagi. Ketika muncul pop-up, pilih <strong>Izinkan</strong> (atau <strong>OK</strong>)"
+      }
+    },
+    "android_chrome": {
+      "browser_settings": {
+        "list_item_1": "Di browser Anda, ketuk ikon pengaturan <settings_icon_chrome></settings_icon_chrome> di bilah alamat",
+        "list_item_2": "Ketuk <strong>Izin</strong>",
+        "list_item_3_cam": "Aktifkan tombol di sebelah <strong>Kamera</strong>",
+        "list_item_3_mic": "Aktifkan tombol di sebelah <strong>Mikrofon</strong>",
+        "list_item_4": "Kembali ke halaman ini dan tekan tombol <strong>Segarkan halaman</strong>"
+      }
+    },
+    "android_firefox": {
+      "browser_settings": {
+        "list_item_1": "Di peramban Anda, ketuk ikon kunci <lock_icon></lock_icon> di bilah alamat",
+        "list_item_2_cam": "Ketuk <strong>Diblokir</strong> di sebelah <strong>Kamera</strong> untuk beralih ke <strong>Diizinkan</strong>",
+        "list_item_2_mic": "Ketuk <strong>Diblokir</strong> di sebelah <strong>Mikrofon</strong> untuk beralih ke <strong>Diizinkan</strong>",
+        "list_item_3": "Kembali ke halaman ini dan tekan tombol <strong>Segarkan halaman</strong>",
+        "title": "Solusi 2: Pengaturan browser"
+      },
+      "device_settings": {
+        "title": "Solusi 3: Pengaturan perangkat"
+      },
+      "refresh_page": {
+        "title": "Solusi 1: Segarkan halaman"
+      }
+    },
+    "android_generic": {
+      "browser_settings": {
+        "list_item_1": "Di browser Anda, buka pengaturan situs web. Ini seringkali merupakan ikon gembok <lock_icon></lock_icon> di bilah alamat",
+        "list_item_2": "Temukan bagian tentang izin",
+        "list_item_3_cam": "Aktifkan izin <strong>Kamera</strong>",
+        "list_item_3_mic": "Aktifkan izin <strong>Mikrofon</strong>",
+        "list_item_4": "Kembali ke halaman ini dan tekan tombol <strong>Segarkan halaman</strong>"
+      }
+    },
+    "android_samsung": {
+      "browser_settings": {
+        "list_item_1": "Di browser Anda, ketuk ikon kunci <lock_icon></lock_icon> di bilah alamat",
+        "list_item_2_cam": "Aktifkan tombol di sebelah <strong>Kamera</strong>",
+        "list_item_2_mic": "Aktifkan tombol di sebelah <strong>Mikrofon</strong>",
+        "list_item_3": "Kembali ke halaman ini dan tekan tombol <strong>Segarkan halaman</strong>"
+      }
+    },
+    "button_primary": "Muat ulang",
+    "desktop": {
+      "browser_settings": {
+        "title": "Solusi 1: Pengaturan browser"
+      },
+      "device_settings": {
+        "title": "Solusi 2: Pengaturan perangkat"
+      }
+    },
+    "desktop_chrome": {
+      "browser_settings": {
+        "list_item_1": "Di browser Anda, klik ikon pengaturan <settings_icon_chrome></settings_icon_chrome> di bilah alamat",
+        "list_item_2_cam": "Aktifkan tombol di sebelah <strong>Kamera</strong>",
+        "list_item_2_mic": "Aktifkan tombol di sebelah <strong>Mikrofon</strong>",
+        "list_item_3": "Kembali ke halaman ini dan klik tombol <strong>Segarkan halaman</strong>"
+      }
+    },
+    "desktop_edge": {
+      "browser_settings": {
+        "list_item_1": "Di browser Anda, klik ikon gembok <lock_icon></lock_icon> di bilah alamat",
+        "list_item_2_cam": "Klik dropdown di sebelah <strong>Mikrofon</strong> dan pilih <strong>Izinkan</strong>",
+        "list_item_2_mic": "Klik dropdown di sebelah <strong>Mikrofon</strong> dan pilih <strong>Izinkan</strong>",
+        "list_item_3": "Kembali ke halaman ini dan klik tombol <strong>Segarkan halaman</strong>"
+      }
+    },
+    "desktop_firefox": {
+      "browser_settings": {
+        "list_item_1": "Di browser Anda, klik ikon pengaturan <settings_icon_firefox></settings_icon_firefox> di bilah alamat",
+        "list_item_2_cam": "Klik <strong>Diblokir</strong> di sebelah <strong>Gunakan kamera</strong>",
+        "list_item_2_mic": "Klik <strong>Diblokir</strong> di sebelah <strong>Gunakan mikrofon</strong>",
+        "list_item_3": "Kembali ke halaman ini dan klik tombol <strong>Segarkan halaman</strong>"
+      }
+    },
+    "desktop_generic": {
+      "browser_settings": {
+        "list_item_1": "Di browser Anda, buka pengaturan situs web. Ini seringkali merupakan ikon gembok <lock_icon></lock_icon> di bilah alamat",
+        "list_item_2": "Temukan bagian tentang izin",
+        "list_item_3_cam": "Aktifkan izin <strong>Kamera</strong>",
+        "list_item_3_mic": "Aktifkan izin <strong>Mikrofon</strong>",
+        "list_item_4": "Kembali ke halaman ini dan klik tombol <strong>Segarkan halaman</strong>"
+      },
+      "device_settings": {
+        "list_item_1": "Di komputer Anda, buka <strong>Pengaturan</strong> Anda",
+        "list_item_2": "Temukan bagian tentang izin (biasanya di bawah <strong>Privasi</strong>)",
+        "list_item_3_cam": "Aktifkan izin <strong>Kamera</strong> untuk <browser_icon></browser_icon>",
+        "list_item_3_mic": "Aktifkan izin <strong>Mikrofon</strong> untuk <browser_icon></browser_icon>",
+        "list_item_4": "Restart browser Anda jika perlu dan kembali ke halaman ini"
+      }
+    },
+    "desktop_mac": {
+      "device_settings": {
+        "list_item_1": "Di komputer Anda, klik menu Apple <apple_icon></apple_icon> dan pilih <strong>Pengaturan Sistem</strong> (atau <strong>Preferensi Sistem</strong>)",
+        "list_item_2": "Klik <strong>Privasi & Keamanan</strong> (atau <strong>Keamanan & Privasi</strong>) di sidebar",
+        "list_item_3": "Klik <strong>Nanti</strong> di pop-up",
+        "list_item_3_cam": "Klik <strong>Kamera</strong> dan aktifkan tombol (atau kotak centang) di sebelah <browser_icon></browser_icon>",
+        "list_item_4": "Klik <strong>Keluar & Buka Ulang</strong> di pop-up dan kembali ke halaman ini",
+        "list_item_4_mic": "Klik <strong>Mikrofon</strong> dan aktifkan tombol (atau kotak centang) di sebelah <browser_icon></browser_icon>"
+      }
+    },
+    "desktop_safari": {
+      "browser_settings": {
+        "list_item_1": "Di browser Anda, klik kanan pada bilah alamat dan pilih <strong>Pengaturan</strong>",
+        "list_item_2_cam": "Klik dropdown di sebelah <strong>Kamera</strong> dan pilih <strong>Izinkan</strong>",
+        "list_item_2_mic": "Klik dropdown di sebelah <strong>Mikrofon</strong> dan pilih <strong>Izinkan</strong>",
+        "list_item_3": "Kembali ke halaman ini dan klik tombol <strong>Segarkan halaman</strong>"
+      }
+    },
+    "desktop_windows": {
+      "device_settings": {
+        "list_item_1": "Di komputer Anda, klik menu Windows <windows_icon></windows_icon> dan pilih <strong>Pengaturan</strong> <settings_icon_windows></settings_icon_windows>",
+        "list_item_2": "Klik <strong>Privasi</strong> (atau <strong>Privasi & Keamanan</strong>)",
+        "list_item_3_cam": "Klik <strong>Kamera</strong> di bawah <strong>Izin Aplikasi</strong> dan aktifkan tombol di sebelah <browser_icon></browser_icon>",
+        "list_item_3_mic": "Klik <strong>Mikrofon</strong> di bawah <strong>Izin Aplikasi</strong> dan aktifkan tombol di sebelah <browser_icon></browser_icon>",
+        "list_item_4": "Restart browser Anda jika perlu dan kembali ke halaman ini"
+      }
+    },
+    "info": "Pemulihan",
+    "ios": {
+      "browser_settings": {
+        "list_item_1_both": "Ketuk tombol <strong>Segarkan halaman</strong>. Anda akan diminta untuk mengaktifkan kembali akses kamera dan mikrofon. Ketika muncul pop-up, pilih <strong>Izinkan</strong> (atau <strong>OK</strong>)",
+        "list_item_1_cam": "Ketuk tombol <strong>Segarkan halaman</strong>. Anda akan diminta untuk mengaktifkan akses kamera lagi. Ketika muncul pop-up, pilih <strong>Izinkan</strong> (atau <strong>OK</strong>)",
+        "list_item_1_mic": "Ketuk tombol <strong>Segarkan halaman</strong>. Anda akan diminta untuk mengaktifkan akses mikrofon lagi. Ketika muncul pop-up, pilih <strong>Izinkan</strong> (atau <strong>OK</strong>)"
+      },
+      "device_settings": {
+        "list_item_1": "Di perangkat Anda, buka aplikasi <strong>Pengaturan</strong>",
+        "list_item_2": "Gulir melalui daftar dan ketuk <browser_icon></browser_icon>",
+        "list_item_3_cam": "Aktifkan tombol di sebelah <strong>Kamera</strong>",
+        "list_item_3_mic": "Aktifkan tombol di sebelah <strong>Mikrofon</strong>",
+        "list_item_4": "Kembali ke halaman ini dan tekan tombol <strong>Segarkan halaman</strong>",
+        "title": "Solusi 2: Pengaturan perangkat"
+      },
+      "refresh_page": {
+        "title": "Solusi 1: Segarkan halaman"
+      }
+    },
+    "ios_safari": {
+      "device_settings": {
+        "list_item_1": "Di perangkat Anda, buka aplikasi <strong>Pengaturan</strong>",
+        "list_item_2": "Gulir melalui daftar dan ketuk <browser_icon></browser_icon>",
+        "list_item_3_cam": "Ketuk <strong>Kamera</strong> dan pilih <strong>Izinkan</strong>",
+        "list_item_3_mic": "Ketuk <strong>Mikrofon</strong> dan pilih <strong>Izinkan</strong>",
+        "list_item_4": "Kembali ke halaman ini dan tekan tombol <strong>Segarkan halaman</strong>"
+      }
+    },
+    "list_header_both": "Ikuti langkah-langkah berikut untuk memulihkan akses:",
+    "list_header_cam": "Ikuti langkah-langkah berikut untuk memulihkan akses kamera:",
+    "list_item_action_cam": "Muat ulang halaman ini untuk memulai kembali proses verifikasi identitas",
+    "list_item_how_to_both": "Berikan akses ke kamera dan mikrofon Anda dari pengaturan browser",
+    "list_item_how_to_cam": "Berikan akses ke kamera Anda dari pengaturan browser",
+    "list_item_how_to_mic": "Berikan akses ke mikrofon Anda dari pengaturan browser",
+    "subtitle_both": "Kami membutuhkan akses ke kamera dan mikrofon Anda untuk memverifikasi identitas Anda. Ikuti instruksi di bawah ini untuk memulihkan akses",
+    "subtitle_cam": "Kami membutuhkan akses ke kamera Anda untuk memverifikasi identitas Anda. Ikuti instruksi di bawah ini untuk memulihkan akses",
+    "subtitle_cam_old": "Pulihkan akses kamera untuk melanjutkan verifikasi wajah",
+    "subtitle_mic": "Kami membutuhkan akses ke mikrofon Anda untuk memverifikasi identitas Anda. Ikuti instruksi di bawah ini untuk memulihkan akses",
+    "title_both": "Akses kamera dan mikrofon ditolak",
+    "title_cam": "Akses kamera ditolak",
+    "title_mic": "Akses mikrofon ditolak",
+    "web": {
+      "button_primary": "Segarkan halaman",
+      "disclaimer": "Proses verifikasi identitas mungkin akan dimulai lagi. Maaf atas ketidaknyamanan ini"
+    }
+  },
+  "photo_upload": {
+    "body_address_certificate_back": "Unggah bagian belakang dokumen dari komputer Anda",
+    "body_address_certificate_front": "Unggah bagian depan dokumen dari komputer Anda",
+    "body_bank_statement": "Berikan seluruh halaman dokumen untuk hasil terbaik",
+    "body_benefits_letter": "Berikan seluruh halaman dokumen untuk hasil terbaik",
+    "body_bill": "Berikan seluruh halaman dokumen untuk hasil terbaik",
+    "body_exchange_house_statement": "Sediakan seluruh halaman dokumen untuk hasil terbaik",
+    "body_general_letter": "Sediakan seluruh halaman dokumen untuk hasil terbaik",
+    "body_generic_document_back": "Unggah bagian belakang dokumen melalui komputer Anda",
+    "body_generic_document_front": "Unggah bagian depan dokumen melalui komputer Anda",
+    "body_id_back": "Unggah bagian belakang kartu dari komputer Anda",
+    "body_id_front": "Unggah bagian depan kartu dari komputer Anda",
+    "body_identity_document_with_address": "Sediakan seluruh halaman dokumen untuk hasil terbaik",
+    "body_identity_document_with_address_back": "Unggah bagian belakang dokumen dari komputer Anda",
+    "body_identity_document_with_address_front": "Unggah bagian depan dokumen dari komputer Anda",
+    "body_insurance_statement": "Sediakan seluruh halaman dokumen untuk hasil terbaik",
+    "body_license_back": "Unggah kembali lisensi dari komputer Anda",
+    "body_license_front": "Unggah bagian depan lisensi dari komputer Anda",
+    "body_mobile_phone_bill": "Sediakan seluruh halaman dokumen untuk hasil terbaik",
+    "body_mortgage_statement": "Sediakan seluruh halaman dokumen untuk hasil terbaik",
+    "body_passport": "Unggah halaman foto paspor dari komputer Anda",
+    "body_pension_property_statement_letter": "Sediakan seluruh halaman dokumen untuk hasil terbaik",
+    "body_selfie": "Unggah swafoto dari komputer Anda",
+    "body_tax_letter": "Berikan seluruh halaman dokumen untuk hasil terbaik",
+    "button_take_photo": "Ambil foto",
+    "button_upload": "Unggah",
+    "title_selfie": "Swafoto"
+  },
+  "poa_cancel": "Batalkan",
+  "poa_err_invalid_file": {
+    "message": "Silakan pilih file lain.",
+    "ok": "Oke",
+    "title": "File Tidak Valid"
+  },
+  "poa_guidance": {
+    "button_primary": "Lanjutkan",
+    "instructions": {
+      "address": "Alamat saat ini",
+      "full_name": "Nama lengkap",
+      "issue_date": "Tanggal terbit atau periode ringkasan",
+      "label": "Rekam seluruh dokumen dan pastikan dokumen memperlihatkan dengan jelas:",
+      "logo": "Logo"
+    },
+    "instructions_address_card_issue_date": "Tanggal terbit",
+    "instructions_expiry_date": "Tanggal kedaluwarsa jika berlaku",
+    "instructions_full_address": "Alamat lengkap",
+    "subtitle_address_card": "Harus berupa kartu alamat yang valid",
+    "subtitle_bank_statement": "Harus diterbitkan dalam ​​3 bulan terakhir​​",
+    "subtitle_benefits_letter": "Harus diterbitkan dalam ​​12 bulan terakhir​​",
+    "subtitle_bill": "Harus diterbitkan dalam ​​3 bulan terakhir​​",
+    "subtitle_dynamic_empty_grace_period": "Harus merupakan dokumen yang valid",
+    "subtitle_dynamic_grace_period": "Harus diterbitkan dalam <graceperiod></graceperiod> bulan terakhir",
+    "subtitle_tax_letter": "Harus diterbitkan dalam ​​12 bulan terakhir​"
+  },
+  "poa_intro": {
+    "button_primary": "Mulai verifikasi",
+    "list_matches_signup": "Sesuai dengan alamat yang Anda gunakan saat mendaftar",
+    "list_most_recent": "Merupakan dokumen ​​terbaru​​ Anda",
+    "list_shows_address": "Menunjukkan alamat Anda ​​saat ini​​",
+    "subtitle": "Anda memerlukan dokumen yang:",
+    "title": "Mari verifikasi alamat Anda"
+  },
+  "poa_welcome_text": "Ambil foto dokumen dengan alamat Anda",
+  "profile_data": {
+    "address_title": "Tambahkan alamat Anda",
+    "button_continue": "Lanjutkan",
+    "components": {
+      "country_residence_select": {
+        "placeholder": "Pilih negara"
+      },
+      "country_select": {
+        "placeholder": "Pilih negara"
+      },
+      "id_type_select": {
+        "aus_specific": {
+          "other": "Paspor asing"
+        },
+        "bra_specific": {
+          "other": "CNPJ",
+          "tax_id": "CPF"
+        },
+        "driving_license": "Surat izin Mengemudi",
+        "esp_specific": {
+          "identity_card": "NIF/DNI"
+        },
+        "gha_specific": {
+          "social_insurance": "SSNIT"
+        },
+        "identity_card": "Kartu identitas",
+        "ind_specific": {
+          "tax_id": "Nomor Rekening Pribadi (PAN)"
+        },
+        "ken_specific": {
+          "other": "Kartu Asing"
+        },
+        "nga_specific": {
+          "identity_card": "Nomor Induk Kependudukan (NIN)",
+          "other": "BVN",
+          "tax_id": "TIN"
+        },
+        "other": "NIE",
+        "passport": "Paspor",
+        "placeholder": "Pilih jenis ID nasional",
+        "tax_id": "Id pajak",
+        "voter_id": "ID pemilih"
+      },
+      "nationality_select": {
+        "placeholder": "Pilih negara"
+      },
+      "pan": {
+        "placeholder": "ABCDE1234F"
+      },
+      "ssn": {
+        "placeholder": "123-45-6789"
+      },
+      "state_select": {
+        "placeholder": "Pilih provinsi"
+      }
+    },
+    "country_of_residence_title": "Negara tempat tinggal Anda",
+    "field_labels": {
+      "arg_specific": {
+        "national_id_value": "Nomor Identitas DNI"
+      },
+      "can_specific": {
+        "national_id_value": "Nomor Asuransi Sosial (SIN)"
+      },
+      "chl_specific": {
+        "national_id_value": "Nomor RUT / RUN"
+      },
+      "chn_specific": {
+        "national_id_value": "Nomor Kartu identitas penduduk"
+      },
+      "col_specific": {
+        "national_id_value": "Nomor Identifikasi Pribadi Kolombia"
+      },
+      "country": "Negara",
+      "country_residence": "Negara",
+      "dnk_specific": {
+        "national_id_value": "nomor CPR"
+      },
+      "dob": "Tanggal lahir",
+      "email": "Email",
+      "fin_specific": {
+        "national_id_value": "Kode identitas pribadi"
+      },
+      "first_name": "Nama depan",
+      "gbr_specific": {
+        "postcode": "Kode pos",
+        "town": "Kota"
+      },
+      "hkg_specific": {
+        "national_id_value": "HKID"
+      },
+      "ind_specific": {
+        "pan": "Nomor akun permanen (PAN)"
+      },
+      "ita_specific": {
+        "national_id_value": "Kode fiskal"
+      },
+      "jpn_specific": {
+        "national_id_value": "\"Nomor saya\" / kode Rekam Penduduk"
+      },
+      "last_name": "Nama belakang",
+      "line1": "Alamat baris 1",
+      "line2": "Alamat baris 2",
+      "line3": "Alamat baris 3",
+      "lux_specific": {
+        "national_id_value": "Nomor KTP"
+      },
+      "mobile_number": "Nomor ponsel",
+      "national_id_type": "Jenis KTP",
+      "national_id_value": "nomor identitas nasional",
+      "nationality": "Kewarganegaraan",
+      "phl_specific": {
+        "national_id_value": "Nomor Kartu PhilSys (PCN)"
+      },
+      "phone_number": "Nomor telepon",
+      "pol_specific": {
+        "national_id_value": "nomor PESEL"
+      },
+      "postcode": "Kode pos",
+      "prt_specific": {
+        "national_id_value": "Nomor pajak"
+      },
+      "town": "Kota",
+      "tur_specific": {
+        "national_id_value": "Nomor Identifikasi Turki"
+      },
+      "usa_specific": {
+        "line1_helper_text": "Alamat jalan, misalnya: 200 Albert Street",
+        "line2_helper_text": "Apartemen, suite, unit, dll.",
+        "postcode": "Kode pos",
+        "ssn": "Nomor jaminan sosial (SSN)",
+        "state": "Provinsi/Negara Bagian"
+      }
+    },
+    "field_optional": "(opsional)",
+    "field_validation": {
+      "arg_specific": {
+        "invalid_national_id_value": "Masukkan DNI yang valid"
+      },
+      "bra_specific": {
+        "invalid_other": "Harap masukkan yang valid CNPJ",
+        "invalid_tax_id": "Harap masukkan yang valid CPF",
+        "required_other": "Silakan masukkan CNPJ Anda",
+        "required_tax_id": "Masukkan CPF Anda"
+      },
+      "can_specific": {
+        "invalid_national_id_value": "Harap masukkan yang valid SIN",
+        "required_national_id_value": "Silakan masukkan SIN Anda"
+      },
+      "chl_specific": {
+        "invalid_national_id_value": "Masukkan nomor RUT / RUN yang valid",
+        "required_national_id_value": "Silakan masukkan nomor RUT / RUN Anda"
+      },
+      "chn_specific": {
+        "invalid_national_id_value": "Masukkan nomor kartu identitas penduduk yang valid",
+        "required_national_id_value": "Masukkan nomor kartu identitas penduduk Anda"
+      },
+      "col_specific": {
+        "invalid_national_id_value": "Masukkan Nomor Identifikasi Pribadi Kolombia yang valid",
+        "required_national_id_value": "Masukkan Nomor Pengenal Pribadi Kolombia Anda"
+      },
+      "dnk_specific": {
+        "invalid_national_id_value": "Masukkan nomor CPR yang valid",
+        "required_national_id_value": "Masukkan nomor CPR Anda"
+      },
+      "esp_specific": {
+        "invalid_identity_card": "Harap masukkan yang valid NIF/DNI",
+        "invalid_other": "Harap masukkan yang valid NIE",
+        "required_identity_card": "Masukkan NIF/DNI Anda"
+      },
+      "fin_specific": {
+        "invalid_national_id_value": "Masukkan kode Identitas pribadi yang valid",
+        "required_national_id_value": "Silakan masukkan kode Identitas pribadi Anda"
+      },
+      "gbr_specific": {
+        "invalid_postcode": "Masukkan kode pos yang valid",
+        "required_postcode": "Masukkan kode pos Anda",
+        "too_long_postcode": "Kode pos terlalu panjang",
+        "too_short_postcode": "Kode pos terlalu pendek"
+      },
+      "gha_specific": {
+        "invalid_social_insurance": "Masukkan SSNIT yang valid",
+        "required_social_insurance": "Masukkan SSNIT Anda"
+      },
+      "hkg_specific": {
+        "invalid_national_id_value": "Masukkan HKID yang valid",
+        "required_national_id_value": "Masukkan HKID Anda"
+      },
+      "ind_specific": {
+        "invalid_pan": "Masukkan PAN yang valid",
+        "required_pan": "Masukkan PAN Anda"
+      },
+      "invalid": "Periksa karakter atau simbol yang tidak valid",
+      "invalid_dob": "Masukkan tanggal lahir yang valid",
+      "invalid_driving_license": "Masukkan nomor SIM yang valid",
+      "invalid_email": "Masukkan email yang valid",
+      "invalid_mobile_number": "Masukkan nomor ponsel yang valid",
+      "invalid_national_id_value": "Masukkan nomor ID nasional yang valid",
+      "invalid_passport": "Masukkan nomor paspor yang valid",
+      "invalid_phone_number": "Masukkan nomor telepon yang valid",
+      "invalid_voter_id": "Harap masukkan nomor ID pemilih yang valid",
+      "ita_specific": {
+        "invalid_national_id_value": "Masukkan kode fiskal yang valid",
+        "required_national_id_value": "Silakan masukkan kode fiskal Anda"
+      },
+      "jpn_specific": {
+        "invalid_national_id_value": "Masukkan kode \"Nomor Saya\" / Rekam Penduduk yang valid",
+        "required_national_id_value": "Silakan masukkan \"Nomor Saya\" / kode Catatan Penduduk Anda"
+      },
+      "ken_specific": {
+        "invalid_other": "Masukkan nomor Kartu Asing yang valid",
+        "required_other": "Masukkan nomor Kartu Asing Anda"
+      },
+      "lux_specific": {
+        "invalid_national_id_value": "Masukkan nomor Jaminan Sosial yang valid",
+        "required_national_id_value": "Masukkan nomor Jaminan Sosial Anda"
+      },
+      "mex_specific": {
+        "invalid_identity_card": "Harap masukkan yang valid CURP",
+        "invalid_tax_id": "Harap masukkan yang valid RFC",
+        "required_identity_card": "Masukkan CURP Anda",
+        "required_tax_id": "Masukkan RFC Anda"
+      },
+      "mys_specific": {
+        "invalid_national_id_value": "Masukkan NRIC yang valid",
+        "required_national_id_value": "Masukkan NRIC Anda"
+      },
+      "nga_specific": {
+        "invalid_identity_card": "Masukkan Nomor Pengenal Nasional (NIN) yang valid",
+        "invalid_other": "Masukkan BVN yang valid",
+        "invalid_tax_id": "Masukkan TIN yang valid",
+        "required_identity_card": "Silakan masukkan Nomor Induk Kependudukan (NIN) Anda",
+        "required_other": "Masukkan BVN Anda",
+        "required_tax_id": "Silakan masukkan TIN Anda"
+      },
+      "phl_specific": {
+        "invalid_national_id_value": "Masukkan Nomor Kartu PhilSys (PCN) yang valid",
+        "required_national_id_value": "Silakan masukkan Nomor Kartu PhilSys (PCN) Anda"
+      },
+      "pol_specific": {
+        "invalid_national_id_value": "Masukkan nomor PESEL yang valid",
+        "required_national_id_value": "Silakan masukkan nomor PESEL Anda"
+      },
+      "prt_specific": {
+        "invalid_national_id_value": "Harap masukkan nomor Pajak yang valid",
+        "required_national_id_value": "Silakan masukkan nomor Pajak Anda"
+      },
+      "reference": {
+        "translation": "Harap masukkan yang valid"
+      },
+      "required_consent": "Harap setujui untuk mengotorisasi pemeriksaan identitas dan penipuan",
+      "required_country": "Pilih negara",
+      "required_country_residence": "Pilih negara",
+      "required_dob": "Masukkan tanggal lahir Anda",
+      "required_email": "Masukkan email Anda",
+      "required_first_name": "Masukkan nama depan Anda",
+      "required_last_name": "Masukkan nama belakang Anda",
+      "required_line1": "Tuliskan alamat Anda",
+      "required_mobile_number": "Masukkan nomor ponsel Anda",
+      "required_national_driving_license": "Silakan masukkan nomor SIM Anda",
+      "required_national_id_type": "Silakan pilih jenis ID Nasional Anda",
+      "required_national_id_value": "Silakan masukkan nomor ID Nasional Anda",
+      "required_national_passport": "Silakan masukkan nomor paspor Anda",
+      "required_national_voter_id": "Silakan masukkan nomor ID pemilih Anda",
+      "required_nationality": "Pilih negara",
+      "required_phone_number": "Masukkan nomor telepon Anda",
+      "required_postcode": "Masukkan kode pos Anda",
+      "sgp_specific": {
+        "invalid_national_id_value": "Harap masukkan yang valid NRIC",
+        "required_national_id_value": "Masukkan NRIC Anda"
+      },
+      "swe_specific": {
+        "invalid_national_id_value": "Harap masukkan yang valid PIN",
+        "required_national_id_value": "Masukkan PIN Anda"
+      },
+      "too_long_first_name": "Nama depan terlalu panjang",
+      "too_long_last_name": "Nama belakang terlalu panjang",
+      "too_long_line1": "Alamat terlalu panjang",
+      "too_long_postcode": "Kode pos terlalu panjang",
+      "too_long_town": "Kota terlalu panjang",
+      "too_short_first_name": "Nama depan terlalu pendek",
+      "too_short_last_name": "Nama belakang terlalu pendek",
+      "too_short_postcode": "Kode pos terlalu pendek",
+      "tur_specific": {
+        "invalid_national_id_value": "Masukkan nomor ID Turki yang valid",
+        "required_national_id_value": "Silakan masukkan nomor ID Turki Anda"
+      },
+      "usa_specific": {
+        "invalid_ssn": "Masukkan SSN yang valid",
+        "required_ssn": "Masukkan SSN Anda",
+        "required_state": "Pilih provinsi/negara bagian"
+      }
+    },
+    "national_id_number_title": "Tambahkan nomor ID nasional Anda",
+    "personal_information_title": "Tambahkan informasi pribadi Anda",
+    "prompt": {
+      "details_timeout": "Mulai lagi",
+      "header_timeout": "Sepertinya Anda memerlukan waktu terlalu lama"
+    }
+  },
+  "qes": {
+    "consent": {
+      "common": {
+        "steps": "Buat tanda tangan Anda"
+      },
+      "confirmation": {
+        "bullet_1": "Setelah membaca dokumen Anda, ketuk tombol \"Tanda tangan dokumen\".",
+        "bullet_2": "Setelah Onfido memverifikasi identitas Anda, tanda tangan Anda akan digunakan pada dokumen ini.",
+        "button_next_step": "Tanda tangan dokumen",
+        "review_document": "Tinjau <fallback>dokumen Anda</fallback> untuk ditandatangani",
+        "step2": "2 dari 2",
+        "steps": "Tanda tangani dokumen Anda",
+        "subtitle": "Untuk mengkonfirmasi identitas Anda sesuai dengan aturan Eropa, Anda harus menandatangani sebuah dokumen secara digital.",
+        "title": "Buat dan gunakan tanda tangan digital Anda"
+      },
+      "introduction": {
+        "button_confirmation_step": "Buat tanda tangan saya",
+        "certificate_application_form": "Formulir aplikasi sertifikat",
+        "privacy_notice": "Pemberitahuan privasi",
+        "step1": "1 dari 2",
+        "subtitle": "Untuk mengkonfirmasi identitas Anda sesuai dengan aturan Eropa, Anda harus menandatangani dokumen secara digital.",
+        "terms_and_conditions": "Syarat dan ketentuan",
+        "third_party_description": "<fallback>Namirial SpA</fallback> adalah penyedia global terpercaya yang akan mengeluarkan sertifikat yang memvalidasi tanda tangan elektronik Anda.",
+        "title": "Buat dan gunakan tanda tangan digital Anda"
+      }
+    }
+  },
+  "qes_consent": {
+    "button": "Buat tanda tangan saya",
+    "link_certificate": "Formulir aplikasi sertifikat",
+    "link_privacy_notice": "Pemberitahuan privasi",
+    "link_terms_and_conditions": "Syarat dan ketentuan",
+    "namirial_intro": "Namirial SpA adalah penyedia global terpercaya yang akan mengeluarkan sertifikat untuk memvalidasi tanda tangan elektronik Anda.",
+    "subtitle": "Untuk mengkonfirmasi identitas Anda sesuai dengan aturan Eropa, Anda harus menandatangani dokumen secara digital.",
+    "title": "Buat dan gunakan tanda tangan digital Anda"
+  },
+  "qes_sign": {
+    "button": "Tanda tangan dokumen",
+    "link_document": "Tinjau dokumen Anda untuk ditandatangani",
+    "list_item_1": "Setelah membaca dokumen Anda, ketuk tombol \"Tanda tangan dokumen\".",
+    "list_item_2": "Setelah Onfido memverifikasi identitas Anda, tanda tangan Anda akan digunakan pada dokumen ini.",
+    "step_title": "Tanda tangani dokumen Anda",
+    "subtitle": "Untuk mengkonfirmasi identitas Anda sesuai dengan aturan Eropa, Anda harus menandatangani dokumen secara digital.",
+    "title": "Buat dan gunakan tanda tangan digital Anda"
+  },
+  "retry": {
+    "button": {
+      "generic_selfie_issue": "Coba lagi"
+    },
+    "description": {
+      "default": "Silakan mencoba lagi",
+      "expired_document": "Harap coba lagi dengan foto identitas yang valid dan pastikan informasi Anda terlihat jelas",
+      "generic_document_issue": "Harap coba lagi dengan foto identitas yang valid dan pastikan informasi Anda terlihat jelas",
+      "generic_selfie_issue": "Harap coba lagi, dan pastikan wajah Anda terlihat dan cukup terang",
+      "unaccepted_document": "Harap coba lagi dengan foto identitas yang valid dan pastikan informasi Anda terlihat jelas"
+    },
+    "headline": {
+      "default": "Ada masalah",
+      "expired_document": "Dokumen Anda telah kedaluwarsa",
+      "generic_document_issue": "Ada masalah dengan dokumen Anda",
+      "generic_selfie_issue": "Ada masalah dengan selfie Anda",
+      "unaccepted_document": "Dokumen tidak diterima"
+    }
+  },
+  "retry_feedback": {
+    "button_primary": "Coba lagi"
+  },
+  "retry_feedback_id_expired": {
+    "subtitle": "Harap coba lagi dengan foto identitas yang valid dan pastikan informasi Anda terlihat jelas",
+    "title": "Dokumen Anda telah kedaluwarsa"
+  },
+  "retry_feedback_id_generic": {
+    "subtitle": "Harap coba lagi dengan foto identitas yang valid dan pastikan informasi Anda terlihat jelas",
+    "title": "Ada masalah dengan dokumen Anda"
+  },
+  "retry_feedback_id_unaccepted": {
+    "subtitle": "Harap coba lagi dengan foto identitas yang valid dan pastikan informasi Anda terlihat jelas",
+    "title": "Dokumen tidak diterima"
+  },
+  "retry_feedback_selfie_generic": {
+    "subtitle": "Harap coba lagi, dan pastikan wajah Anda terlihat dan cukup terang",
+    "title": "Ada masalah dengan swafoto Anda"
+  },
+  "selfie_capture": {
+    "alert": {
+      "camera_inactive": {
+        "detail": "Periksa apakah kamera sudah terhubung dan berfungsi. Anda juga dapat <fallback>melanjutkan verifikasi di ponsel Anda</fallback>",
+        "detail_no_fallback": "Pastikan perangkat Anda memiliki kamera yang berfungsi",
+        "title": "Kamera tidak berfungsi?"
+      },
+      "camera_not_working": {
+        "detail": "Mungkin terputus. <fallback>Coba gunakan ponsel Anda</fallback>.",
+        "detail_no_fallback": "Pastikan kamera perangkat Anda berfungsi",
+        "title": "Kamera tidak berfungsi"
+      },
+      "timeout": {
+        "detail": "Jangan lupa untuk menekan tombol saat Anda selesai. <fallback>Ulangi tindakan video</fallback>",
+        "title": "Sepertinya Anda memerlukan waktu terlalu lama"
+      }
+    },
+    "body": "Posisikan wajah Anda di dalam bentuk oval",
+    "button_accessibility": "Ambil foto",
+    "button_primary": "Mulai pemindaian wajah",
+    "frame_accessibility": "Lihat dari kamera",
+    "title": "Posisikan wajah Anda di dalam bentuk oval"
+  },
+  "selfie_confirmation": {
+    "image_accessibility": "Foto wajah Anda",
+    "subtitle": "Pastikan seluruh wajah Anda terlihat",
+    "title": "Periksa swafoto Anda"
+  },
+  "selfie_intro": {
+    "banner_nudity_message": "Wajah dan latar belakang Anda akan direkam selama proses ini",
+    "button_primary": "Lanjutkan",
+    "list_accessibility": "Tips membuat swafoto yang bagus",
+    "list_item_face_forward": "Menghadap ke depan dan pastikan mata Anda terlihat jelas",
+    "list_item_no_face_cover": "Lepaskan apa pun yang menutupi wajah Anda. Kacamata diperbolehkan",
+    "list_item_no_glasses": "Lepaskan kacamata Anda, jika perlu",
+    "subtitle": "Kami akan membandingkan ini dengan dokumen Anda",
+    "title": "Ambil swafoto"
+  },
+  "sms_sent": {
+    "info": "Tips",
+    "info_link_expire": "Tautan Anda akan kedaluwarsa dalam satu jam",
+    "info_link_window": "Tetap buka jendela ini saat menggunakan ponsel Anda",
+    "link": "Coba metode lain",
+    "subtitle": "Kami telah mengirimkan tautan aman ke <number></number>",
+    "subtitle_minutes": "Mungkin dibutuhkan waktu beberapa menit untuk sampai",
+    "title": "Periksa ponsel Anda"
+  },
+  "switch_phone": {
+    "info": "Tips",
+    "info_link_expire": "Tautan seluler Anda akan kedaluwarsa dalam satu jam",
+    "info_link_refresh": "Jangan muat ulang halaman ini",
+    "info_link_window": "Tetap buka jendela ini saat menggunakan ponsel Anda",
+    "link": "Batalkan",
+    "subtitle": "Setelah Anda selesai, kami akan membawa Anda ke langkah berikutnya",
+    "title": "Terhubung ke ponsel Anda"
+  },
+  "upload_guide": {
+    "button_primary": "Lanjutkan",
+    "image_detail_blur_alt": "Contoh dokumen buram",
+    "image_detail_blur_label": "Semua detail harus jelas — tidak ada yang buram",
+    "image_detail_cutoff_label": "Tampilkan semua detail — termasuk 2 baris terbawah",
+    "image_detail_glare_label": "Menjauh dari cahaya langsung — tidak boleh terlihat silau",
+    "image_detail_good_label": "Foto harus menampilkan dokumen Anda dengan jelas",
+    "subtitle": "Pindaian dan fotokopi tidak diterima",
+    "title": "Kirimkan halaman foto paspor"
+  },
+  "user_consent": {
+    "button_primary": "Setuju",
+    "button_secondary": "Tidak setuju",
+    "prompt": {
+      "button_primary": "Tinjau lagi",
+      "button_secondary": "Ya, jangan verifikasi saya",
+      "no_consent_detail": "Jika Anda tidak menyetujui pernyataan privasi dan ketentuan layanan Onfido, kami tidak akan dapat memverifikasi identitas Anda dan Anda akan keluar dari langkah ini.",
+      "no_consent_title": "Anda yakin?"
+    }
+  },
+  "user_consent_load_fail": {
+    "button_primary": "Muat ulang layar",
+    "detail": "Periksa apakah koneksi Anda stabil, lalu coba lagi",
+    "title": "Konten gagal dimuat"
+  },
+  "video_capture": {
+    "body": "Posisikan wajah Anda di dalam bentuk oval",
+    "body_record": "Tekan tombol saat Anda siap",
+    "body_stop": "Tekan stop setelah selesai",
+    "button_primary_finish": "Selesai merekam",
+    "button_primary_next": "Langkah berikutnya",
+    "button_primary_start": "Mulai merekam",
+    "button_record_accessibility": "Mulai merekam",
+    "frame_accessibility": "Lihat dari kamera",
+    "header": {
+      "challenge_digit_instructions": "Ucapkan setiap angka dengan lantang",
+      "challenge_turn_forward": "lalu menghadap ke depan",
+      "challenge_turn_left": "Putar kepala Anda ke kiri",
+      "challenge_turn_right": "Putar kepala Anda ke kanan"
+    },
+    "prompt": {
+      "header_timeout": "Sepertinya Anda memerlukan waktu terlalu lama"
+    }
+  },
+  "video_confirmation": {
+    "body": "Video Anda telah direkam",
+    "button_primary": "Unggah video",
+    "button_secondary": "Ambil video lagi",
+    "title": "Periksa video Anda",
+    "video_accessibility": "Putar ulang video rekaman Anda"
+  },
+  "video_intro": {
+    "button_pause_accessibility": "Jeda video",
+    "button_play_accessibility": "Putar video",
+    "button_primary": "Rekam video",
+    "list_accessibility": "Tindakan untuk merekam video selfie",
+    "list_item_actions": "Anda memiliki 20 detik untuk menyelesaikan",
+    "list_item_speak": "Ikuti petunjuk untuk bergerak atau berbicara",
+    "title": "Rekam video",
+    "video_accessibility": "Contoh video orang sedang merekam video selfie. Untuk merekam video selfie, hadapkan kamera depan dan sedikit jauhkan ponsel dari wajah Anda. Kemudian Anda harus membacakan beberapa angka dan menggerakkan kepala sesuai dengan petunjuk di layar."
+  },
+  "welcome": {
+    "doc_video_subtitle": "Ini akan memakan waktu beberapa menit",
+    "info_original_document": "Ambil foto dokumen asli Anda. Pemindaian, foto layar, atau fotokopi tidak diperbolehkan.",
+    "list_header": "Gunakan perangkat Anda untuk:",
+    "list_header_doc_video": "Gunakan perangkat Anda untuk merekam:",
+    "list_header_webcam": "Gunakan kamera web atau ponsel Anda untuk memotret:",
+    "list_item_doc": "dokumen identitas Anda",
+    "list_item_doc_generic": "Rekam video dari dokumen identitas Anda",
+    "list_item_doc_photo": "Mengambil foto dokumen identitas Anda",
+    "list_item_doc_video": "Merekam video dokumen identitas Anda",
+    "list_item_doc_video_timeout": "Rekaman dibatasi hingga <timeout></timeout> detik",
+    "list_item_face_photo": "Mengambil foto wajah Anda",
+    "list_item_face_video": "Merekam video wajah Anda",
+    "list_item_poa": "bukti alamat Anda",
+    "list_item_selfie": "wajah Anda",
+    "next_button": "Pilih dokumen",
+    "start_workflow_button": "Mulai verifikasi",
+    "start_workflow_button_trial": "Mulai verifikasi (UJI COBA)",
+    "subtitle": "Ini akan memakan waktu beberapa menit",
+    "title": "Verifikasi identitas Anda",
+    "trial_message": "Jangan bagikan data pribadi di sini kecuali Anda terlibat dalam uji coba Onfido."
+  },
+  "workflow_complete": {
+    "pass": {
+      "description": "Kami telah memverifikasi identitas Anda",
+      "title": "Berhasil"
+    },
+    "reject": {
+      "description": "Kami belum dapat memverifikasi identitas Anda",
+      "title": "Ditolak"
+    }
+  },
+  "workflow_erros": {
+    "generic_title": "Terjadi kesalahan server!",
+    "no_workflow_run_id": "ID untuk menjalankan alur kerja belum diatur.",
+    "reload_app": "Coba muat ulang aplikasi, lalu coba lagi.",
+    "task_not_completed": "Tidak dapat menyelesaikan tugas alur kerja.",
+    "task_not_retrieved": "Tidak dapat mengambil tugas alur kerja.",
+    "task_not_supported": "Tugas saat ini tidak didukung"
+  }
 }
