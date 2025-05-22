@@ -1,1453 +1,1319 @@
 {
-    "onfido": {
-        "avc_confirmation": {
-            "button_primary_upload": "Kaydı yükle",
-            "subtitle": "Yüzünüzün bir videosu başarıyla kaydedildi",
-            "title": "Kayıt tamamlandı"
-        },
-        "avc_connection_error": {
-            "button_primary_reload": "Talimatları yeniden yükle",
-            "button_primary_retry_upload": "Yüklemeyi yeniden dene",
-            "button_secondary_restart_recording": "Kaydı yeniden başlat",
-            "subtitle": "Bağlantınızın kararlı olup olmadığını kontrol edin, ardından tekrar deneyin",
-            "title": "Bağlantı hatası"
-        },
-        "avc_face_alignment": {
-            "feedback_move_back": "Biraz daha geri gidin",
-            "feedback_move_back_accessibility": "Cihazınızı daha uzağa götürün",
-            "feedback_move_closer": "Biraz daha yaklaşın",
-            "feedback_move_left_accessibility": "Cihazınızı sola hareket ettirin",
-            "feedback_move_right_accessibility": "Cihazınızı sağa hareket ettirin",
-            "feedback_no_face_detected": "Yüz tespit edilmedi",
-            "feedback_not_centered": "Yüz ortalanmamış",
-            "title": "Yüzünüzü çerçeveye yerleştirin"
-        },
-        "avc_face_capture": {
-            "alert": {
-                "mic_conflict_title": "Mikrofonunuz başka bir uygulama tarafından kullanılıyor",
-                "timeout_body": "Kaydı tamamlamak için 15 saniyeniz var",
-                "timeout_button_primary": "Yeniden dene",
-                "timeout_title": "Üzgünüz, kaydı yeniden başlatmamız gerekiyor",
-                "too_fast_body": "Lütfen tekrar deneyin ve başınızı daha yavaş çevirin",
-                "too_fast_button_primary": "Yeniden dene",
-                "too_fast_title": "Kafanızı çok hızlı çevirdiniz"
-            },
-            "title": "Başınızı yavaşça her iki tarafa çevirin",
-            "title_completed": "Kayıt tamamlandı"
-        },
-        "avc_intro": {
-            "button_primary_ready": "Kaydı başlatın",
-            "disclaimer": "Bu işlem sırasında yüzünüz ve arka planınız kaydedilecektir",
-            "disclaimer_camera_and_audio_on": "Bu işlem sırasında yüzünüz, arka planınız ve sesiniz kaydedilecek",
-            "list_item_one": "İlk olarak, yüzünüzü çerçeveye yerleştirin",
-            "list_item_two": "Ardından, başınızı yavaşça her iki tarafa çevirin",
-            "subtitle": "Bu işlem, gerçek bir kişi olduğunuzu doğrulamak amacıyla yapılır",
-            "title": "Video kaydetme",
-            "title_accessibility": "Yüzünüzün bir videosunu kaydedin",
-            "video_accessibility": "Tamamlanana kadar başını iki yana çeviren birinin örnek videosu"
-        },
-        "avc_no_face_detected": {
-            "button_primary_restart": "Kaydı yeniden başlat",
-            "list_item_eyes": "Gözlerinizin net bir şekilde göründüğünden emin olun",
-            "list_item_face": "Sadece yüzünüzü gösterdiğinizden emin olun, kimliğinizi görmemize gerek yok",
-            "list_item_lighting": "İyi aydınlatılmış bir yerde olduğunuzdan emin olun",
-            "list_item_mask": "Yüzünüzü kapatan maskeleri veya diğer eşyaları çıkardığınızdan emin olun. Gözlükleriniz kalabilir",
-            "title": "Yüzünü tespit edemiyoruz"
-        },
-        "avc_uploading": {
-            "title": "Yükleniyor"
-        },
-        "country_select": {
-            "alert": {
-                "another_doc": "Bu ülkenin belgeleri şu anda desteklenmiyor, <fallback>başka tür bir belge deneyin<\/fallback>"
-            },
-            "alert_dropdown": {
-                "country_not_found": "Ülke bulunamadı"
-            },
-            "button_primary": "Belgeyi gönderin",
-            "poa_alert": {
-                "country_not_found": "Üzgünüz. Daha fazla ülkeyi desteklemek için çalışıyoruz.",
-                "intro": "Ülkenizi bulamadınız mı?"
-            },
-            "search": {
-                "accessibility": "Ülke seçin",
-                "input_placeholder": "ör. Amerika Birleşik Devletleri",
-                "label": "Ülke arayın"
-            },
-            "title": "Düzenleyen ülkeyi seçin"
-        },
-        "cross_device": {
-            "button_primary_upload": "Devam et"
-        },
-        "cross_device_abort": {
-            "title": "Doğrulama iptal edildi"
-        },
-        "cross_device_checklist": {
-            "button_primary": "Doğrulamayı gönder",
-            "info": "İpuçları",
-            "list_item_doc_multiple": "Belgeler",
-            "list_item_doc_one": "Belge",
-            "list_item_poa": "İkamet belgesi",
-            "list_item_selfie": "Selfie",
-            "list_item_video": "Video",
-            "subtitle": "Yüklediğiniz her şey burada:",
-            "title": "Son bir adım"
-        },
-        "cross_device_error_desktop": {
-            "subtitle": "Bağlantı yalnızca mobil cihazlarda çalışır",
-            "title": "Bir sorun oluştu"
-        },
-        "cross_device_error_mobile": {
-            "subtitle": "Orijinal cihazda kimliğinizi tekrar doğrulamayı deneyebilirsiniz.",
-            "title": "Bu numara eşleşmiyor"
-        },
-        "cross_device_error_restart": {
-            "subtitle": "Doğrulamanızı bilgisayarınızda yeniden başlatmanız gerekir",
-            "title": "Bir sorun oluştu"
-        },
-        "cross_device_intro": {
-            "button_primary": "Güvenli bağlantı alın",
-            "list_accessibility": "Cep telefonunuzda doğrulamaya devam etmek için gereken adımlar",
-            "list_item_finish": "Gönderimi tamamlamak için burayı tekrar kontrol edin",
-            "list_item_open_link": "Bağlantıyı açın ve görevleri tamamlayın",
-            "list_item_send_phone": "Telefonunuza güvenli bir bağlantı gönderin",
-            "subtitle": "Bunu şu şekilde yapabilirsiniz:",
-            "subtitle_upload": "Lütfen orijinal belgenizin yakın tarihli bir fotoğrafını yükleyin",
-            "title": "Telefonunuzda devam edin"
-        },
-        "cross_device_number_match_desktop": {
-            "instruction": "Doğrulamanın siz olduğunu onaylamak için mobilinizdeki numaraya dokunun.",
-            "subtitle": "Bilgilerinizi güvende tutmak için Onfido, kimliğinizi doğrulamaya çalışanın gerçekten siz olduğunuzdan emin olmak istiyor",
-            "title": "Cep telefonunuz bağlandı"
-        },
-        "cross_device_number_match_error_desktop": {
-            "button_primary": "Tekrar deneyin",
-            "subtitle": "Lütfen geri dönün ve tekrar deneyin.",
-            "title": "Bu numara eşleşmiyor"
-        },
-        "cross_device_number_match_mobile": {
-            "abort_button": "Ben değilim",
-            "subtitle": "Diğer cihazınızda gösterilen numaraya dokunun. Gerçekten siz olduğunuzdan emin olmak istiyoruz.",
-            "title": "Numarayı eşleştirin"
-        },
-        "cross_device_return": {
-            "body": "Bilgisayarınızın güncellenmesi birkaç saniye sürebilir",
-            "subtitle": "Devam etmek için artık bilgisayarınıza dönebilirsiniz",
-            "title": "Yükleme başarılı"
-        },
-        "cross_device_session_linked": {
-            "button_primary": "Devam et",
-            "info": "Çifte Denetim",
-            "list_item_desktop_open": "Masaüstü pencereniz açık kalır",
-            "list_item_sent_by_you": "Bu bağlantı sizin tarafınızdan gönderildi (bunun bir dolandırıcılık olabileceğini düşünüyorsanız bir uzmana danışın)",
-            "subtitle": "Doğrulamaya devam edin",
-            "title": "Mobil oturum bilgisayarınıza bağlandı"
-        },
-        "doc_auto_capture": {
-            "button_accessibility": "Fotoğraf çekin",
-            "footer": {
-                "captured": "Fotoğraf alındı",
-                "capturing": "Fotoğraf alınıyor",
-                "manual_fallback_generic_document_back": "Belgenizin arka yüzünün fotoğrafını çekin",
-                "manual_fallback_generic_document_front": "Belgenizin ön yüzünün fotoğrafını çekin",
-                "manual_fallback_identity_card_back": "Kimliğinizin arka yüzünün fotoğrafını çekin",
-                "manual_fallback_identity_card_front": "Kimliğinizin ön yüzünün fotoğrafını çekin",
-                "manual_fallback_license_back": "Sürücü belgenizin arka yüzünün fotoğrafını çekin",
-                "manual_fallback_license_front": "Sürücü belgenizin ön yüzünün bir fotoğrafını çekin",
-                "manual_fallback_passport": "Pasaport fotoğraf sayfanızın fotoğrafını çekin",
-                "manual_fallback_residence_permit_back": "Oturma izninizin arka yüzünün fotoğrafını çekin",
-                "manual_fallback_residence_permit_front": "Oturma izninizin ön yüzünün fotoğrafını çekin",
-                "position_generic_document_back": "Belgenizin arka yüzünü çerçeveye yerleştirin",
-                "position_generic_document_front": "Belgenizin ön yüzünü çerçeveye yerleştirin",
-                "position_identity_card_back": "Kartınızın arka yüzünü çerçevenin içine yerleştirin",
-                "position_identity_card_front": "Kartınızın ön yüzünü çerçevenin içine yerleştirin",
-                "position_license_back": "Sürücü belgenizin arka yüzünü çerçevenin içine yerleştirin",
-                "position_license_front": "Sürücü belgenizin ön yüzünü çerçevenin içine yerleştirin",
-                "position_passport": "Pasaportunuzda fotoğrafınız olan sayfayı çerçeveye yerleştirin",
-                "position_residence_permit_back": "Oturma izninizin arka yüzünü çerçeveye yerleştirin",
-                "position_residence_permit_front": "Oturma izninizin ön yüzünü çerçeveye yerleştirin"
-            },
-            "frame": {
-                "flip_document": "Arka tarafını çevirin",
-                "hold_still": "Sabit kalın",
-                "no_document": "Belge algılanmadı"
-            }
-        },
-        "doc_capture": {
-            "alert": {
-                "no_barcode_detail": "İyi aydınlatılmış bir yerde durun ve kartı kameraya yaklaştırın",
-                "no_barcode_title": "Barkod tespit edilemedi"
-            },
-            "button_primary": "Belge taramasını başlat",
-            "detail": {
-                "folded_doc_front": "Belgenizi düz bir şekilde yerleştirin, tüm iç sayfaları ekleyin (fotoğrafınızı içermelidir)"
-            },
-            "header": {
-                "recording_complete": "Kayıt tamamlandı",
-                "recording_video": "Video kaydediliyor"
-            },
-            "header_folded_doc_front": "Profil resmi tarafı",
-            "prompt": {
-                "button_card": "Plastik kart",
-                "button_paper": "Kağıt belge",
-                "title_id": "Ne tür bir kimlik kartınız var?",
-                "title_license": "Ne tür bir sürücü belgeniz var?"
-            }
-        },
-        "doc_confirmation": {
-            "alert": {
-                "blur_detail": "Her şeyin net olduğundan emin olun",
-                "blur_title": "Bulanık fotoğraf tespit edildi",
-                "crop_detail": "Belgenin tamamının görünür olduğundan emin olun",
-                "crop_title": "Kesik görüntü tespit edildi",
-                "glare_detail": "Doğrudan ışıktan uzak durun",
-                "glare_title": "Parlama algılandı",
-                "no_doc_detail": "Çerçevenin içinde olduğundan emin olun",
-                "no_doc_title": "Belge tespit edilmedi",
-                "odp_detail": "Lütfen orijinal belgenizi kullanın. Ekran fotoğrafları veya fotokopiler kabul edilmez",
-                "odp_photo_of_screen_title": "Ekran fotoğrafı algılandı",
-                "odp_photocopy_title": "Fotokopi tespit edildi",
-                "odp_scan_title": "Tarama algılandı",
-                "odp_screenshot_title": "Ekran görüntüsü algılandı"
-            },
-            "body": "Belge sayfasının tamamını yüklediğinizden ve ayrıntıların bulanıklık veya parlama olmadan okunabilecek netlikte olduğundan emin olun",
-            "body_accommodation_tenancy_certificate": "Tüm belge sayfasını yüklediğinizden ve ayrıntıların bulanıklık veya parlamasız okunabilir olduğundan emin olun",
-            "body_address_certificate": "Tüm belge sayfasını yüklediğinizden ve detayların bulanıklık veya parlamasız okunabilir olduğundan emin olun",
-            "body_bank_statement": "Belge sayfasının tamamını yüklediğinizden ve ayrıntıların bulanıklık veya parlama olmadan okunabilecek netlikte olduğundan emin olun",
-            "body_benefits_letter": "Belge sayfasının tamamını yüklediğinizden ve ayrıntıların bulanıklık veya parlama olmadan okunabilecek netlikte olduğundan emin olun",
-            "body_bill": "Belge sayfasının tamamını yüklediğinizden ve ayrıntıların bulanıklık veya parlama olmadan okunabilecek netlikte olduğundan emin olun",
-            "body_exchange_house_statement": "Tüm belge sayfasını yüklediğinizden ve detayların bulanıklık veya parlamasız okunabilir olduğundan emin olun",
-            "body_general_letter": "Tüm belge sayfasını yüklediğinizden ve detayların bulanıklık veya parlamasız okunabilir olduğundan emin olun",
-            "body_generic_document": "Bilgilerinizin net olduğundan ve tamamen göründüğünden emin olun",
-            "body_id": "Bilgilerinizin net olduğundan ve tamamen göründüğünden emin olun",
-            "body_identity_document_with_address": "Tüm belge sayfasını yüklediğinizden ve detayların bulanıklık veya parlamasız okunabilir olduğundan emin olun",
-            "body_image_medium": "Okunamaz olması durumunda doğrulanma süreciniz daha uzun sürer",
-            "body_image_poor": "Sizi sorunsuz bir şekilde doğrulayabilmemiz için daha iyi bir fotoğrafa ihtiyacımız var",
-            "body_insurance_statement": "Tüm belge sayfasını yüklediğinizden ve detayların bulanıklık veya parlamasız okunabilir olduğundan emin olun",
-            "body_license": "Bilgilerinizin net olduğundan ve tamamen göründüğünden emin olun",
-            "body_mobile_phone_bill": "Tüm belge sayfasını yüklediğinizden ve detayların bulanıklık veya parlamasız okunabilir olduğundan emin olun",
-            "body_mortgage_statement": "Tüm belge sayfasını yüklediğinizden ve detayların bulanıklık veya parlamasız okunabilir olduğundan emin olun",
-            "body_passport": "Bilgilerinizin net olduğundan ve tamamen göründüğünden emin olun",
-            "body_pension_property_statement_letter": "Tüm belge sayfasını yüklediğinizden ve ayrıntıların bulanıklık veya parlamasız okunabilir olduğundan emin olun",
-            "body_permit": "Bilgilerinizin net olduğundan ve tamamen göründüğünden emin olun",
-            "body_tax_letter": "Belge sayfasının tamamını yüklediğinizden ve ayrıntıların bulanıklık veya parlama olmadan okunabilecek netlikte olduğundan emin olun",
-            "button_close": "Kapat",
-            "button_primary_redo": "Tekrar et",
-            "button_primary_upload": "Yükle",
-            "button_primary_upload_anyway": "Yine de yükle",
-            "button_secondary_change_document": "Başka bir belge seçin",
-            "button_secondary_redo": "Tekrar et",
-            "button_secondary_submit_anyway": "Yine de fotoğrafı gönder",
-            "button_zoom": "Resmi büyüt",
-            "image_accessibility": "Belgenizin fotoğrafı",
-            "title": "Resminizi kontrol edin"
-        },
-        "doc_multi_frame_capture": {
-            "capture_progress_title": "Belge taranıyor",
-            "instructions_title_back": "Belgenizin arka yüzünü çerçeveye yerleştirin",
-            "instructions_title_front": "Belgenizin ön yüzünü çerçeveye yerleştirin"
-        },
-        "doc_select": {
-            "accommodation_tenancy_certificate_detail": "Hükümet otoritesi veya kurumsal ev sahibi tarafından kiralama onayı olarak verilmiştir.",
-            "button_address_card": "Adres kartı",
-            "button_address_card_back": "Adres Kartı (Arka)",
-            "button_address_card_detail": "Geçici ve kalıcı kartlar kabul edilir",
-            "button_address_card_front": "Adres Kartı (Ön)",
-            "button_bank_statement": "Banka veya kooperatif beyanı",
-            "button_bank_statement_non_uk": "Banka hesap özeti",
-            "button_benefits_letter": "Sosyal Yardım Mektubu",
-            "button_benefits_letter_detail": "Devlet tarafından yetkilendirilmiş hane halkı yardımları, ör. İş arayan ödeneği, Konut yardımı, Vergi kredileri",
-            "button_bill": "Fatura",
-            "button_bill_detail": "Gaz, elektrik, su, sabit hat veya internet",
-            "button_exchange_house_statement": "Döviz Evi Beyanı",
-            "button_exchange_house_statement_detail": "Gönderenin transfer veya havale beyanı",
-            "button_general_letter": "Genel Mektup",
-            "button_general_letter_detail": "Finans kuruluşu veya hizmet şirketinden mektup",
-            "button_government_letter": "Resmî Mektup",
-            "button_government_letter_detail": "Herhangi bir resmî mektup, ör. Yardım hakkı, Oy mektupları, Vergi mektupları vb.",
-            "button_id": "Kimlik kartı",
-            "button_id_detail": "Ön ve arka",
-            "button_identity_document_with_address": "Adresli Kimlik Belgesi",
-            "button_identity_document_with_address_back": "Adresli Kimlik Belgesi (Arka)",
-            "button_identity_document_with_address_detail": "Bir hükümet otoritesi tarafından verilmiştir",
-            "button_identity_document_with_address_front": "Adresli Kimlik Belgesi (Ön)",
-            "button_insurance_statement": "Sigorta Beyanı",
-            "button_insurance_statement_detail": "Özel bir sigorta veya aracılık şirketinden çıkarılmış",
-            "button_license": "Sürücü belgesi",
-            "button_license_detail": "Ön ve arka",
-            "button_mobile_phone_bill": "Mobil Telefon Faturası",
-            "button_mobile_phone_bill_detail": "Bir mobil telefon ağı sağlayıcısından verildi",
-            "button_mortgage_statement": "İpotek Beyanı",
-            "button_mortgage_statement_detail": "Finansal kredi kuruluşundan verilmiştir",
-            "button_passport": "Pasaport",
-            "button_passport_detail": "Fotoğraf sayfası",
-            "button_pension_property_statement_letter": "Emeklilik veya Mülkiyet Beyanı\/Mektubu",
-            "button_pension_property_statement_letter_detail": "Emeklilik beyanı veya mektubu ve Emlak vergisi beyanı veya mektubu",
-            "button_permit": "Oturma izni",
-            "button_permit_detail": "Ön ve arka",
-            "button_tax_letter": "Yerel Yönetim Vergi Mektubu",
-            "extra_estatements_ok": "e-beyannameler kabul edilir",
-            "list_accessibility": "Kimliğinizi doğrulamak için kullanabileceğiniz belgeler",
-            "pill": "en hızlı",
-            "section": {
-                "header_country": "Düzenleyen ülke",
-                "header_doc_type": "Kabul edilen belgeler",
-                "input_country_not_found": "Sonuç Yok",
-                "input_placeholder_country": "Düzenleyen ülkeyi seçin"
-            },
-            "subtitle": "Resmî bir fotoğraflı kimlik olmalıdır",
-            "subtitle_country": "Hangi belgeleri kabul ettiğimizi görmek için düzenleyen ülkeyi seçin",
-            "subtitle_entire_page": "Tüm sayfa",
-            "subtitle_front_back": "Ön ve arka",
-            "subtitle_photo_page": "Fotoğraf sayfası",
-            "subtitle_poa": "Bunlar mevcut ev adresinizi göstermesi en muhtemel belgelerdir",
-            "title": "Belgenizi seçin",
-            "title_poa": "Bir belge seçiniz"
-        },
-        "doc_submit": {
-            "banner": "Taramalar veya fotokopiler kabul edilmez",
-            "button_link_upload": "Fotoğraf yükle",
-            "button_primary": "Telefonda devam et",
-            "subtitle": "Telefonunuzla fotoğraf çekin",
-            "title_accommodation_tenancy_certificate": "Konaklama veya Kiracılık Sertifikası Gönderin",
-            "title_address_certificate": "Adres kartını gönder",
-            "title_address_certificate_back": "Adres kartını (arka) gönder",
-            "title_address_certificate_front": "Adres kartını (ön yüz) gönder",
-            "title_bank_statement": "Beyan gönder",
-            "title_benefits_letter": "Mektup gönder",
-            "title_bill": "Faturayı gönder",
-            "title_exchange_house_statement": "Döviz bürosu beyanını gönder",
-            "title_general_letter": "Genel mektubu gönder",
-            "title_generic_document_back": "Belgeyi gönder (arka yüz)",
-            "title_generic_document_front": "Belgeyi gönder (ön yüz)",
-            "title_government_letter": "Resmî Mektup",
-            "title_id_back": "Kimliği gönder (arka yüz)",
-            "title_id_front": "Kimliği gönder (ön yüz)",
-            "title_identity_document_with_address": "Adresli kimlik belgesini gönderin",
-            "title_identity_document_with_address_back": "Adresli kimlik belgesini (arka) gönderin",
-            "title_identity_document_with_address_front": "Adresli kimlik belgesini (ön yüz) gönderin",
-            "title_insurance_statement": "Sigorta beyanını gönder",
-            "title_license_back": "Sürücü belgesini gönder (arka yüz)",
-            "title_license_front": "Sürücü belgesini gönder (ön yüz)",
-            "title_mobile_phone_bill": "Mobil telefon faturasını gönder",
-            "title_mortgage_statement": "İpotek beyanını gönder",
-            "title_passport": "Pasaport fotoğraf sayfasını gönder",
-            "title_pension_property_statement_letter": "Beyanname veya mektup gönderin",
-            "title_permit_back": "Oturma iznini gönder (arka yüz)",
-            "title_permit_front": "Oturma iznini gönder (ön yüz)",
-            "title_tax_letter": "Yerel Hükümet Vergi Mektubunu Gönderin"
-        },
-        "doc_video_capture": {
-            "button_primary_fallback": "Sonraki adım",
-            "button_primary_fallback_end": "Kaydı bitir",
-            "detail_step2": "Belgeyi her zaman tamamen görünecek şekilde tutun",
-            "header": "Belgenizi tutarken, ön tarafı çerçevenin içinde tutun",
-            "header_paper_doc_step2": "Dış sayfaları göstermek için belgenizi yavaşça çevirin",
-            "header_passport": "Pasaportunuzu tutarken fotoğraf sayfasını çerçeve içinde tutun",
-            "header_passport_progress": "Sabit kalın",
-            "header_step1": "Şimdi, kıpırdamayın",
-            "header_step2": "Belgenizin arkasını göstermek için yavaşça çevirin",
-            "prompt": {
-                "detail_timeout": "Video kaydı<timeout><\/timeout> saniye ile sınırlıdır. <fallback>Tekrar başlayın<\/fallback>"
-            },
-            "stepper": "Adım <step><\/step>\/<total><\/total>",
-            "success_accessibility": "Başarılı"
-        },
-        "doc_video_confirmation": {
-            "button_secondary": "Videoyu ön izle",
-            "title": "Videonuzu kontrol edin"
-        },
-        "eid": {
-            "scheme_form": {
-                "subtitle": "Aşağıdaki listeden bir banka seçerek <form_scheme><\/form_scheme> üzerinden kendinizi doğrulayın",
-                "title": "<form_scheme><\/form_scheme> Verification"
-            }
-        },
-        "error_unsupported_browser": {
-            "subtitle_android": "İşlemi Google Chrome'un en son sürümünde yeniden başlatın",
-            "subtitle_ios": "Safari'nin en son sürümünde işlemi yeniden başlatın",
-            "title_android": "Desteklenmeyen tarayıcı",
-            "title_ios": "Desteklenmeyen tarayıcı"
-        },
-        "generic": {
-            "accessibility": {
-                "close_sdk_screen": "Kimlik doğrulama ekranını kapat",
-                "dismiss_alert": "Uyarıyı kapat"
-            },
-            "back": "geri",
-            "close": "kapat",
-            "errors": {
-                "desktop": {
-                    "subtitle": "Bu bağlantı yalnızca mobil cihazlarda çalışır. Lütfen bağlantıyı bir mobil cihazda açarak tekrar deneyin.",
-                    "title": "Bağlantı açılamıyor"
-                },
-                "expired_token": {
-                    "instruction": "Lütfen tekrar deneyin",
-                    "message": "Jetonun süresi doldu",
-                    "subtitle": "Bu doğrulama sürecinde sağlanan SDK belirteci süresi doldu. Lütfen geri dönün ve tekrar deneyin.",
-                    "title": "Oturumunuz sona erdi"
-                },
-                "expired_trial": {
-                    "instruction": "Deneme sınırına ulaştınız",
-                    "message": "Denemenizin süresi doldu",
-                    "subtitle": "İzin verilen maksimum doğrulama sayısına ulaştınız.",
-                    "title": "Deneme süreniz sona erdi"
-                },
-                "geoblocked_error": {
-                    "instruction": "Üzgünüz, mevcut konumunuz desteklenmediği için daha fazla ilerleyemiyoruz",
-                    "message": "Hizmet kullanılamıyor"
-                },
-                "geoblocker_request": {
-                    "subtitle": "Üzgünüz, mevcut konumunuz desteklenmediği için doğrulamanızla ilerleyemiyoruz.",
-                    "title": "Hizmet kullanılamıyor"
-                },
-                "interrupted_flow_error": {
-                    "instruction": "İşlemi farklı bir cihazda yeniden başlatın",
-                    "message": "Kamera tespit edilmedi"
-                },
-                "invalid_size": {
-                    "instruction": "10 MB'ın altında olmalıdır.",
-                    "message": "Dosya boyutu aşıldı."
-                },
-                "invalid_type": {
-                    "instruction": "Başka bir dosya türü kullanmayı deneyin.",
-                    "message": "Dosya yüklenemedi."
-                },
-                "lazy_loading": {
-                    "message": "Bileşen yüklenirken bir hata oluştu"
-                },
-                "low_resolution": {
-                    "instruction": "Lütfen daha yüksek çözünürlüklü bir görüntü kullanın.",
-                    "message": "Görüntünüz çok küçük"
-                },
-                "multiple_faces": {
-                    "instruction": "Csak az Ön arca lehet a szelfin",
-                    "message": "Birden fazla yüz bulundu"
-                },
-                "no_camera": {
-                    "subtitle": "Bu cihazda bir kamera algılayamıyoruz. Lütfen bir kameranın bağlı olduğundan ve gerekli izinlerin verildiğinden emin olun.",
-                    "title": "Kamera bulunamadı"
-                },
-                "no_doc": {
-                    "instruction": "Lütfen kimlik belgenizi içeren bir görüntü yükleyin.",
-                    "message": "Görüntünüzde belge yok"
-                },
-                "no_face": {
-                    "instruction": "Yüzünüzün görünür olduğundan emin olun",
-                    "message": "Yüz tespit edilmedi"
-                },
-                "request_error": {
-                    "instruction": "Lütfen tekrar deneyin",
-                    "message": "Bir sorun oluştu"
-                },
-                "restart_cross-device": {
-                    "subtitle": "Bilgisayarınızda doğrulamanızı yeniden başlatmanız gerekecek. Lütfen doğrulama ekranına geri dönün ve tekrar deneyin.",
-                    "title": "Bir şeyler yanlış gitti"
-                },
-                "small_doc": {
-                    "instruction": "Lütfen belgenizin görüntüyü doldurduğundan emin olun. Tüm metinler net bir şekilde okunabilir olmalıdır.",
-                    "message": "Kimlik belgeniz çok küçük"
-                },
-                "sms_failed": {
-                    "instruction": "Bağlantıyı telefonunuza kopyalayın",
-                    "message": "Bir sorun oluştu"
-                },
-                "sms_overuse": {
-                    "instruction": "Bağlantıyı telefonunuza kopyalayın",
-                    "message": "Çok fazla başarısız deneme"
-                },
-                "unsupported_browser": {
-                    "subtitle": "Lütfen, işlemi başka bir tarayıcı ile yeniden başlatın.",
-                    "title": "Desteklenmeyen tarayıcı"
-                },
-                "unsupported_file": {
-                    "instruction": "Bir JPG veya PNG dosyası kullanmayı deneyin",
-                    "message": "Dosya türü desteklenmiyor"
-                },
-                "unsupported_sdk_version": {
-                    "subtitle": "SDK sürümü, yapılandırılmış iş akışı ile uyumlu değil. Aktif iş akışınızın minimum SDK gereksinimlerini kontrol edin.",
-                    "title": "Uyumsuz sürüm"
-                },
-                "user_consent_denied": {
-                    "subtitle": "Üzgünüz, kimliğinizi onayınız olmadan doğrulayamayız. \\nKimlik doğrulama işleminize devam etmek istiyorsanız lütfen geri dönüp onayınızı verin.",
-                    "title": "Onay reddedildi"
-                }
-            },
-            "footer": {
-                "branding": "Onfido gerçek kimlik"
-            },
-            "icon_error_accessibility": "Hata:",
-            "icon_info_accessibility": "Bilgi:",
-            "icon_success_accessibility": "Başarı:",
-            "icon_warning_accessibility": "Uyarı:",
-            "lazy_load_placeholder": "Yükleniyor...",
-            "loading": "Yükleniyor"
-        },
-        "get_link": {
-            "alert_wrong_number": "Numaranızın doğru olup olmadığını kontrol edin",
-            "button_copied": "Kopyalandı",
-            "button_copy": "Kopyala",
-            "button_submit": "Bağlantıyı gönderin",
-            "info_qr_how": "QR kodu nasıl taranır?",
-            "info_qr_how_list_item_camera": "Telefonunuzun kamerasını QR koduna tutun",
-            "info_qr_how_list_item_download": "Bu işe yaramazsa Google Play veya App Store'dan bir QR kod tarayıcısı indirin",
-            "link_divider": "veya alternatif bir yöntem seçin",
-            "link_qr": "QR kodunu taratın",
-            "link_sms": "Bağlantıyı SMS ile alın",
-            "link_url": "Bağlantıyı kopyalayın",
-            "loader_sending": "Gönderiliyor",
-            "number_field_input_placeholder": "Cep telefonu numaranızı girin",
-            "number_field_label": "Cep telefonu numaranızı girin:",
-            "subtitle_qr": "QR kodunu telefonunuzla tarayın",
-            "subtitle_sms": "Bu tek seferlik bağlantıyı telefonunuza gönderin",
-            "subtitle_url": "Bu tek seferlik bağlantıyı telefonunuza gönderin",
-            "title": "Güvenli bağlantınızı alın",
-            "url_field_label": "Bağlantıyı mobil tarayıcınıza kopyalayın"
-        },
-        "ial2_nist": {
-            "option": {
-                "goverment_issued_photo_id": "İkinci bir hükümet tarafından verilmiş fotoğraflı kimlik",
-                "ssn": "Sosyal Güvenlik Numarası (SSN)"
-            },
-            "subtitle": "Kimliğinizi doğrulamak için ek bir bilgi parçasına ihtiyacımız var. Aşağıdan bir seçenek belirleyin."
-        },
-        "interactive_task": {
-            "waiting": {
-                "title_5": "Medya yükleniyor..."
-            }
-        },
-        "livenessV2": {
-            "error_reload_instructions": "Talimatları yeniden yükle",
-            "intro_note_no1": "İlk olarak, yüzünüzü çerçeveye yerleştirin",
-            "intro_note_no2": "Ardından, başınızı yavaşça her iki tarafa çevirin",
-            "intro_ready_button": "Lütfen yüzünüzü ve arka planı kaydedeceğimizi unutmayın",
-            "intro_subtitle": "Bu işlem, gerçek bir kişi olduğunuzu doğrulamak amacıyla yapılır",
-            "intro_warning": "Lütfen yüzünüzü ve arka planı kaydedeceğimizi unutmayın",
-            "success_main_button": "Doğrulamayı gönder",
-            "success_title": "Kimliğinizi doğrulamaya başlamak için ihtiyacımız olan tek şey bu"
-        },
-        "mobilePhrases": {
-            "photo_upload": {
-                "body_id_back": "Kimliğinizin arka yüzünün fotoğrafını çekin",
-                "body_id_front": "Kimliğinizin ön yüzünün fotoğrafını çekin",
-                "body_license_back": "Sürücü belgenizin arka yüzünün fotoğrafını çekin",
-                "body_license_front": "Sürücü belgenizin ön yüzünün fotoğrafını çekin",
-                "body_passport": "Pasaport fotoğraf sayfanızın fotoğrafını çekin",
-                "body_selfie": "Yüzünüzü gösteren bir selfie çekin"
-            },
-            "selfie_capture": {
-                "alert": {
-                    "camera_inactive": {
-                        "detail": "Bunun yerine <fallback>temel kamera modunu<\/fallback> kullanarak fotoğraf çekin"
-                    },
-                    "camera_not_working": {
-                        "detail": "Bunun yerine <fallback>temel kamera modunu<\/fallback> kullanarak fotoğraf çekin"
-                    }
-                }
-            },
-            "upload_guide": {
-                "button_primary": "Fotoğraf çekin",
-                "title": "Pasaport fotoğraf sayfası"
-            }
-        },
-        "nfc_scan": {
-            "sheet": {
-                "success": "Tarama başarılı"
-            }
-        },
-        "nfc_scan_error_can": {
-            "primary_button": "Çıkış doğrulaması",
-            "subtitle": "CAN numaranızı girmek için maksimum deneme sayısına ulaştınız"
-        },
-        "nfc_scan_error_can:title": "Maksimum deneme sayısına ulaşıldı",
-        "otp": {
-            "code_input": {
-                "error": {
-                    "code_expired": "Kodunuzun süresi doldu, lütfen yeni bir tane isteyin.",
-                    "code_invalid": "Yanlış kod girildi, lütfen tekrar deneyin.",
-                    "no_international_code": "Girişin uluslararası formatta olması gerekiyor",
-                    "technical": "Teknik bir hata oluştu, lütfen daha sonra tekrar deneyin",
-                    "too_many_attempts": "Bu kodu çok fazla kez denediniz, lütfen yeni bir tane isteyin.",
-                    "wrong_code": "Yanlış kod girildi, lütfen tekrar deneyin"
-                },
-                "intro": "SMS ile gönderilen kodu doğrulamak için 5 dakikanız var <phonenumber><\/phonenumber>",
-                "resend": {
-                    "cta": "Yeni bir kod isteyin",
-                    "cta_timeout": "Yeni bir kod isteyin (<timeout><\/timeout> saniye)",
-                    "label": "Gönderilmiş kod",
-                    "tracker": "<remaining><\/remaining> - <limit><\/limit>"
-                },
-                "title": "Bir Kerelik Şifre"
-            },
-            "error": {
-                "cta": "Geri dön",
-                "subtitle": "Lütfen birkaç saniye bekleyin ve tekrar deneyin",
-                "title": "Bir şeyler yanlış gitti"
-            },
-            "failure": {
-                "cta": "Devam Et",
-                "subtitle": "Artık telefon numaranızı doğrulayamıyoruz",
-                "title": "İzin verilen deneme sayısı aşıldı"
-            },
-            "send_code": {
-                "cta": "Kodu gönder",
-                "error": {
-                    "invalid_phone_number": "Lütfen geçerli bir telefon numarası girin.",
-                    "limit": "Gönderilen SMS limitine ulaştınız",
-                    "phone_number_blocked": "Üzgünüz, bu ülke kodunu desteklemiyoruz",
-                    "technical": "Teknik bir hata oluştu, lütfen daha sonra tekrar deneyin"
-                },
-                "input_label": "Telefon numarası",
-                "intro": "Telefon numaranızı doğrulamak için sizden bir seferlik şifre girmenizi isteyeceğiz.",
-                "title": "Tek Seferlik Şifre"
-            }
-        },
-        "outro": {
-            "body": "Kimliğinizi doğrulamaya başlamak için ihtiyacımız olan tek şey bu",
-            "body_government_letter": "En iyi sonuçlar için belge sayfasının tamamını gönderin",
-            "title": "Teşekkürler"
-        },
-        "permission": {
-            "body_both": "Hem kameranızı hem de mikrofonunuzu kullanmadan sizi doğrulayamayız",
-            "body_cam": "Kamera erişimi olmadan sizi doğrulayamayız",
-            "body_mic": "Mikrofonunuzu kullanmadan sizi doğrulayamayız",
-            "button_primary_both": "Her ikisini de etkinleştir",
-            "button_primary_cam": "Kamerayı etkinleştir",
-            "button_primary_mic": "Mikrofonu etkinleştir",
-            "subtitle_both": "İstendiğinde, devam etmek için her ikisine de erişimi etkinleştirmeniz gerekir",
-            "subtitle_cam": "İstendiğinde, devam etmek için kamera erişimini etkinleştirmeniz gerekir",
-            "subtitle_mic": "İstendiğinde, devam etmek için mikrofon erişimini etkinleştirmeniz gerekir",
-            "title_both": "Kamera ve mikrofon erişimine izin ver",
-            "title_cam": "Kamera erişimine izin ver",
-            "title_mic": "Mikrofon erişimine izin ver"
-        },
-        "permission_recovery": {
-            "android": {
-                "browser_settings": {
-                    "title": "Çözüm 1: Tarayıcı ayarları"
-                },
-                "device_settings": {
-                    "list_item_1": "Cihazınızda, <strong>Ayarlar<\/strong> uygulamasını açın",
-                    "list_item_2": "<strong>Uygulamalar<\/strong>'a dokunun",
-                    "list_item_3": "<browser_icon><\/browser_icon> dokunun. Bulamazsanız, <strong>Tüm uygulamaları gör<\/strong> veya <strong>Uygulamaları yönet<\/strong> seçeneğine dokunun ve tarayıcı uygulamanızı seçin",
-                    "list_item_4": "<strong>İzinler<\/strong>'e dokunun",
-                    "list_item_5_cam": "<strong>Kamera<\/strong> öğesine dokunun ve <strong>İzin Ver<\/strong> seçeneğini seçin",
-                    "list_item_5_mic": "<strong>Mikrofon<\/strong>u tıklayın ve <strong>İzin Ver<\/strong> seçeneğini seçin",
-                    "list_item_6": "Bu sayfaya geri dönün ve <strong>Sayfayı yenile<\/strong> düğmesine tıklayın",
-                    "title": "Çözüm 2: Cihaz ayarları"
-                },
-                "refresh_page": {
-                    "list_item_1_both": "<strong>Sayfayı yenile<\/strong> düğmesine dokunun. Kamera ve mikrofon erişimini tekrar etkinleştirmeniz istenecektir. Açılır pencere belirdiğinde, <strong>İzin Ver<\/strong> (veya <strong>Tamam<\/strong>) seçeneğini seçin.",
-                    "list_item_1_cam": "<strong>Sayfayı yenile<\/strong> düğmesine dokunun. Kameraya erişimi tekrar etkinleştirmeniz istenecektir. Pop-up belirdiğinde, <strong>İzin Ver<\/strong> (veya <strong>Tamam<\/strong>) seçeneğini seçin.",
-                    "list_item_1_mic": "<strong>Sayfayı yenile<\/strong> düğmesine dokunun. Mikrofon erişimini tekrar etkinleştirmeniz istenecektir. Pop-up belirdiğinde, <strong>İzin Ver<\/strong> (veya <strong>Tamam<\/strong>) seçeneğini seçin."
-                }
-            },
-            "android_chrome": {
-                "browser_settings": {
-                    "list_item_1": "Tarayıcınızda, adres çubuğunda ayarlar simgesine <settings_icon_chrome><\/settings_icon_chrome> tıklayın",
-                    "list_item_2": "<strong>İzinler<\/strong>'e dokunun",
-                    "list_item_3_cam": "<strong>Kamera<\/strong> yanındaki geçişi etkinleştirin",
-                    "list_item_3_mic": "<strong>Mikrofon<\/strong> yanındaki anahtarı etkinleştirin",
-                    "list_item_4": "Bu sayfaya geri dönün ve <strong>Sayfayı Yenile<\/strong> düğmesine tıklayın"
-                }
-            },
-            "android_firefox": {
-                "browser_settings": {
-                    "list_item_1": "Tarayıcınızda, adres çubuğunda kilit simgesine <lock_icon><\/lock_icon> dokunun",
-                    "list_item_2_cam": "<strong>Engellenmiş<\/strong> yanındaki <strong>Kamera<\/strong> seçeneğine dokunun ve <strong>İzin Verildi<\/strong> seçeneğine geçin",
-                    "list_item_2_mic": "<strong>Engellenmiş<\/strong> yanındaki <strong>Mikrofon<\/strong> seçeneğine dokunun ve <strong>İzin Verildi<\/strong> seçeneğine geçin",
-                    "list_item_3": "Bu sayfaya geri dönün ve <strong>Sayfayı yenile<\/strong> düğmesine tıklayın",
-                    "title": "Çözüm 2: Tarayıcı ayarları"
-                },
-                "device_settings": {
-                    "title": "Çözüm 3: Cihaz ayarları"
-                },
-                "refresh_page": {
-                    "title": "Çözüm 1: Sayfayı yenileyin"
-                }
-            },
-            "android_generic": {
-                "browser_settings": {
-                    "list_item_1": "Tarayıcınızda, web sitesi ayarlarını açın. Bu genellikle adres çubuğunda bir kilit simgesi <lock_icon><\/lock_icon> olur",
-                    "list_item_2": "İzinler hakkındaki bölümü bulun",
-                    "list_item_3_cam": "<strong>Kamera<\/strong> izinlerini etkinleştirin",
-                    "list_item_3_mic": "<strong>Mikrofon<\/strong> izinlerini etkinleştirin",
-                    "list_item_4": "Bu sayfaya geri dönün ve <strong>Sayfayı yenile<\/strong> düğmesine tıklayın"
-                }
-            },
-            "android_samsung": {
-                "browser_settings": {
-                    "list_item_1": "Tarayıcınızda, adres çubuğunda kilit simgesine <lock_icon><\/lock_icon> dokunun",
-                    "list_item_2_cam": "<strong>Kamera<\/strong> yanındaki anahtarı etkinleştirin",
-                    "list_item_2_mic": "<strong>Mikrofon<\/strong> yanındaki anahtarı etkinleştirin",
-                    "list_item_3": "Bu sayfaya geri dönün ve <strong>Sayfayı yenile<\/strong> düğmesine tıklayın"
-                }
-            },
-            "button_primary": "Yenile",
-            "desktop": {
-                "browser_settings": {
-                    "title": "Çözüm 1: Tarayıcı ayarları"
-                },
-                "device_settings": {
-                    "title": "Çözüm 2: Cihaz ayarları"
-                }
-            },
-            "desktop_chrome": {
-                "browser_settings": {
-                    "list_item_1": "Tarayıcınızda, adres çubuğunda ayarlar simgesini <settings_icon_chrome><\/settings_icon_chrome> tıklayın",
-                    "list_item_2_cam": "<strong>Kamera<\/strong> yanındaki anahtarı etkinleştirin",
-                    "list_item_2_mic": "<strong>Mikrofon<\/strong> yanındaki anahtarı etkinleştirin",
-                    "list_item_3": "Bu sayfaya geri dönün ve <strong>Sayfayı yenile<\/strong> düğmesine tıklayın"
-                }
-            },
-            "desktop_edge": {
-                "browser_settings": {
-                    "list_item_1": "Tarayıcınızda, adres çubuğunda kilit simgesine <lock_icon><\/lock_icon> tıklayın",
-                    "list_item_2_cam": "<strong>Kamera<\/strong> yanındaki açılır menüye tıklayın ve <strong>İzin Ver<\/strong> seçeneğini seçin",
-                    "list_item_2_mic": "<strong>Mikrofon<\/strong> yanındaki açılır menüye tıklayın ve <strong>İzin Ver<\/strong> seçeneğini seçin",
-                    "list_item_3": "Bu sayfaya geri dönün ve <strong>Sayfayı yenile<\/strong> düğmesine tıklayın"
-                }
-            },
-            "desktop_firefox": {
-                "browser_settings": {
-                    "list_item_1": "Tarayıcınızda, adres çubuğunda ayarlar simgesini <settings_icon_firefox><\/settings_icon_firefox> tıklayın",
-                    "list_item_2_cam": "<strong>Engellenmiş<\/strong> seçeneğine tıklayın, <strong>Kamerayı kullan<\/strong> yanında",
-                    "list_item_2_mic": "<strong>Engellenmiş<\/strong> seçeneğine tıklayın ve <strong>Mikrofonu kullan<\/strong> seçeneğinin yanında bulunur",
-                    "list_item_3": "Bu sayfaya geri dönün ve <strong>Sayfayı yenile<\/strong> düğmesine tıklayın"
-                }
-            },
-            "desktop_generic": {
-                "browser_settings": {
-                    "list_item_1": "Tarayıcınızda, web sitesi ayarlarını açın. Bu genellikle adres çubuğunda bir kilit simgesi <lock_icon><\/lock_icon> olur",
-                    "list_item_2": "İzinler hakkındaki bölümü bulun",
-                    "list_item_3_cam": "<strong>Kamera<\/strong> izinlerini etkinleştirin",
-                    "list_item_3_mic": "<strong>Mikrofon<\/strong> izinlerini etkinleştirin",
-                    "list_item_4": "Bu sayfaya geri dönün ve <strong>Sayfayı yenile<\/strong> düğmesine tıklayın"
-                },
-                "device_settings": {
-                    "list_item_1": "Bilgisayarınızda, <strong>Ayarlarınızı<\/strong> açın",
-                    "list_item_2": "(<strong>Gizlilik<\/strong> altında genellikle bulunan) izinler hakkındaki bölümü bulun",
-                    "list_item_3_cam": "<browser_icon><\/browser_icon> için <strong>Kamera<\/strong> izinlerini etkinleştirin",
-                    "list_item_3_mic": "<browser_icon><\/browser_icon> için <strong>Mikrofon<\/strong> izinlerini etkinleştirin",
-                    "list_item_4": "Gerekirse tarayıcınızı yeniden başlatın ve bu sayfaya geri dönün"
-                }
-            },
-            "desktop_mac": {
-                "device_settings": {
-                    "list_item_1": "Bilgisayarınızda, Apple menüsünü <apple_icon><\/apple_icon> tıklayın ve <strong>Sistem Ayarları<\/strong> (veya <strong>Sistem Tercihleri<\/strong>) seçin",
-                    "list_item_2": "Kenar çubuğunda <strong>Gizlilik & Güvenlik<\/strong> (veya <strong>Güvenlik & Gizlilik<\/strong>) seçeneğine tıklayın",
-                    "list_item_3": "Pop-up'ta <strong>Sonra<\/strong> tıklayın",
-                    "list_item_3_cam": "<strong>Kamera<\/strong> üzerine tıklayın ve <browser_icon><\/browser_icon> yanındaki anahtarı (veya onay kutusunu) aktifleştirin",
-                    "list_item_4": "Açılan pencerede <strong>Çıkış Yap & Yeniden Aç<\/strong> seçeneğine tıklayın ve bu sayfaya geri dönün",
-                    "list_item_4_mic": "<strong>Mikrofon<\/strong>u tıklayın ve <browser_icon><\/browser_icon> yanındaki anahtarı (veya onay kutusunu) etkinleştirin"
-                }
-            },
-            "desktop_safari": {
-                "browser_settings": {
-                    "list_item_1": "Tarayıcınızda, adres çubuğunda sağ tıklayın ve <strong>Ayarlar<\/strong> seçeneğini seçin",
-                    "list_item_2_cam": "<strong>Kamera<\/strong> yanındaki açılır menüye tıklayın ve <strong>İzin Ver<\/strong> seçeneğini seçin",
-                    "list_item_2_mic": "<strong>Mikrofon<\/strong> yanındaki açılır menüye tıklayın ve <strong>İzin Ver<\/strong> seçeneğini seçin",
-                    "list_item_3": "Bu sayfaya geri dönün ve <strong>Sayfayı Yenile<\/strong> düğmesine tıklayın"
-                }
-            },
-            "desktop_windows": {
-                "device_settings": {
-                    "list_item_1": "Bilgisayarınızda, Windows menüsünü <windows_icon><\/windows_icon> tıklayın ve <strong>Ayarlar<\/strong>ı seçin <settings_icon_windows><\/settings_icon_windows>",
-                    "list_item_2": "<strong>Gizlilik<\/strong> (veya <strong>Gizlilik & Güvenlik<\/strong>) tıklayın",
-                    "list_item_3_cam": "<strong>Uygulama izinleri<\/strong> altındaki <strong>Kamera<\/strong> öğesini tıklayın ve <browser_icon><\/browser_icon> yanındaki anahtarı etkinleştirin",
-                    "list_item_3_mic": "<strong>Uygulama izinleri<\/strong> altındaki <strong>Mikrofon<\/strong> öğesini tıklayın ve <browser_icon><\/browser_icon> yanındaki anahtarı etkinleştirin",
-                    "list_item_4": "Gerekirse tarayıcınızı yeniden başlatın ve bu sayfaya geri dönün"
-                }
-            },
-            "info": "Kurtarma",
-            "ios": {
-                "browser_settings": {
-                    "list_item_1_both": "<strong>Sayfayı yenile<\/strong> düğmesine dokunun. Kamera ve mikrofon erişimini tekrar etkinleştirmeniz istenecektir. Açılır pencere belirdiğinde, <strong>İzin Ver<\/strong> (veya <strong>Tamam<\/strong>) seçeneğini seçin.",
-                    "list_item_1_cam": "<strong>Sayfayı yenile<\/strong> düğmesine dokunun. Kameraya erişimi tekrar etkinleştirmeniz istenecektir. Pop-up belirdiğinde, <strong>İzin Ver<\/strong> (veya <strong>Tamam<\/strong>) seçeneğini seçin.",
-                    "list_item_1_mic": "<strong>Sayfayı yenile<\/strong> düğmesine dokunun. Mikrofon erişimini tekrar etkinleştirmeniz istenecektir. Pop-up belirdiğinde, <strong>İzin Ver<\/strong> (veya <strong>Tamam<\/strong>) seçeneğini seçin."
-                },
-                "device_settings": {
-                    "list_item_1": "Cihazınızda, <strong>Ayarlar<\/strong> uygulamasını açın",
-                    "list_item_2": "Listeyi kaydırın ve <browser_icon><\/browser_icon> öğesine dokunun",
-                    "list_item_3_cam": "<strong>Kamera<\/strong> yanındaki anahtarı etkinleştirin",
-                    "list_item_3_mic": "<strong>Mikrofon<\/strong> yanındaki anahtarı etkinleştirin",
-                    "list_item_4": "Bu sayfaya geri dönün ve <strong>Sayfayı yenile<\/strong> düğmesine tıklayın",
-                    "title": "Çözüm 2: Cihaz ayarları"
-                },
-                "refresh_page": {
-                    "title": "Çözüm 1: Sayfayı yenileyin"
-                }
-            },
-            "ios_safari": {
-                "device_settings": {
-                    "list_item_1": "Cihazınızda, <strong>Ayarlar<\/strong> uygulamasını açın",
-                    "list_item_2": "Listeyi kaydırın ve <browser_icon><\/browser_icon> öğesine dokunun",
-                    "list_item_3_cam": "<strong>Kamera<\/strong> seçeneğine dokunun ve <strong>İzin Ver<\/strong> seçeneğini seçin",
-                    "list_item_3_mic": "<strong>Mikrofon<\/strong>u tıklayın ve <strong>İzin Ver<\/strong> seçeneğini seçin",
-                    "list_item_4": "Bu sayfaya geri dönün ve <strong>Sayfayı yenile<\/strong> düğmesine tıklayın"
-                }
-            },
-            "list_header_both": "Her ikisine de erişimi sağlamak için aşağıdaki adımları izleyin:",
-            "list_header_cam": "Kamera erişimini kurtarmak için aşağıdaki adımları izleyin:",
-            "list_item_action_cam": "Kimlik doğrulama işlemini yeniden başlatmak için bu sayfayı yenileyin",
-            "list_item_how_to_both": "Tarayıcı ayarlarınızdan kameranıza ve mikrofonunuza erişim izni verin",
-            "list_item_how_to_cam": "Tarayıcı ayarlarınızdan kameranıza erişim izni verin",
-            "list_item_how_to_mic": "Tarayıcı ayarlarınızdan mikrofonunuza erişim izni verin",
-            "subtitle_both": "Kimliğinizi doğrulamak için kameranıza ve mikrofonunuza erişim gerekiyoruz. Erişimi geri almak için aşağıdaki talimatları izleyin",
-            "subtitle_cam": "Kimliğinizi doğrulamak için kameranıza erişim hakkına ihtiyacımız var. Erişimi geri almak için aşağıdaki talimatları izleyin",
-            "subtitle_cam_old": "Yüz doğrulamasına devam etmek için kamera erişimini kurtarın",
-            "subtitle_mic": "Kimliğinizi doğrulamak için mikrofonunuza erişim hakkına ihtiyacımız var. Erişimi geri almak için aşağıdaki talimatları izleyin",
-            "title_both": "Kamera ve mikrofon erişimi reddedildi",
-            "title_cam": "Kamera erişimi reddedildi",
-            "title_mic": "Mikrofon erişimi reddedildi",
-            "web": {
-                "button_primary": "Sayfayı yenileyin",
-                "disclaimer": "Kimlik doğrulama süreci yeniden başlayabilir. Herhangi bir rahatsızlık için özür dileriz."
-            }
-        },
-        "photo_upload": {
-            "body_accommodation_tenancy_certificate": "En iyi sonuçlar için tüm belge sayfasını sağlayın",
-            "body_address_certificate_back": "Bilgisayarınızdan belgenin arka yüzünü yükleyin",
-            "body_address_certificate_front": "Bilgisayarınızdan belgenin önünü yükleyin",
-            "body_bank_statement": "En iyi sonuçlar için belge sayfasının tamamını gönderin",
-            "body_benefits_letter": "En iyi sonuçlar için belge sayfasının tamamını gönderin",
-            "body_bill": "En iyi sonuçlar için belge sayfasının tamamını gönderin",
-            "body_exchange_house_statement": "En iyi sonuçlar için tüm belge sayfasını sağlayın",
-            "body_general_letter": "En iyi sonuçlar için tüm belge sayfasını sağlayın",
-            "body_generic_document_back": "Bilgisayarınızdan belgenin arka yüzünü yükleyin",
-            "body_generic_document_front": "Bilgisayarınızdan belgenin ön yüzünü yükleyin",
-            "body_id_back": "Bilgisayarınızdan kimliğin arka yüzünü yükleyin",
-            "body_id_front": "Bilgisayarınızdan kimliğin ön yüzünü yükleyin",
-            "body_identity_document_with_address": "En iyi sonuçlar için tüm belge sayfasını sağlayın",
-            "body_identity_document_with_address_back": "Bilgisayarınızdan belgenin arka yüzünü yükleyin",
-            "body_identity_document_with_address_front": "Bilgisayarınızdan belgenin önünü yükleyin",
-            "body_insurance_statement": "En iyi sonuçlar için tüm belge sayfasını sağlayın",
-            "body_license_back": "Bilgisayarınızdan sürücü belgenizin arka yüzünü yükleyin",
-            "body_license_front": "Bilgisayarınızdan sürücü belgenizin ön yüzünü yükleyin",
-            "body_mobile_phone_bill": "En iyi sonuçlar için tüm belge sayfasını sağlayın",
-            "body_mortgage_statement": "En iyi sonuçlar için tüm belge sayfasını sağlayın",
-            "body_passport": "Bilgisayarınızdan pasaport fotoğraf sayfasını yükleyin",
-            "body_pension_property_statement_letter": "En iyi sonuçlar için tüm belge sayfasını sağlayın",
-            "body_selfie": "Bilgisayarınızdan bir selfie yükleyin",
-            "body_tax_letter": "En iyi sonuçlar için belge sayfasının tamamını gönderin",
-            "button_take_photo": "Fotoğraf çekin",
-            "button_upload": "Yükle",
-            "title_selfie": "Selfie"
-        },
-        "poa_cancel": "İptal",
-        "poa_capture": {
-            "country_select.icon_info_accessibility": "Bilgi:"
-        },
-        "poa_err_invalid_file": {
-            "message": "Lütfen farklı bir dosya seçin.",
-            "ok": "Tamam",
-            "title": "Geçersiz Dosya"
-        },
-        "poa_guidance": {
-            "button_primary": "Devam et",
-            "instructions": {
-                "address": "Geçerli adres",
-                "full_name": "Ad soyadı",
-                "issue_date": "Düzenleme tarihi veya özet dönemi",
-                "label": "Tüm belgeyi yakalayın ve açıkça gösterdiğinden emin olun:",
-                "logo": "Logo"
-            },
-            "instructions_address_card_issue_date": "Düzenleme tarihi",
-            "instructions_expiry_date": "Son kullanma tarihi (varsa)",
-            "instructions_full_address": "Açık adres",
-            "subtitle_address_card": "Geçerli bir adres kartı olmalıdır",
-            "subtitle_bank_statement": "Son 3 ay içinde düzenlenmiş olmalıdır",
-            "subtitle_benefits_letter": "Son 12 ay içinde düzenlenmiş olmalıdır",
-            "subtitle_bill": "​​Son 3 ay​​ içinde düzenlenmiş olmalıdır",
-            "subtitle_dynamic_empty_grace_period": "Geçerli bir belge olmalı",
-            "subtitle_dynamic_grace_period": "Son <graceperiod><\/graceperiod> ayda düzenlenmiş olmalı",
-            "subtitle_tax_letter": "Son 12 ayiçinde düzenlenmiş olmalıdır"
-        },
-        "poa_intro": {
-            "button_primary": "Doğrulamayı başlat",
-            "list_matches_signup": "Kayıt sırasında kullandığınız adresle eşleşmelidir",
-            "list_most_recent": "En güncel belge olmalıdır",
-            "list_shows_address": "Geçerli adresinizi içeren",
-            "subtitle": "Aşağıdaki niteliklerde bir belgeye ihtiyacınız olacak:",
-            "title": "Şimdi adresinizi doğrulayalım"
-        },
-        "poa_welcome_text": "Adresinizi içeren bir belgenin fotoğrafını çekin",
-        "profile_data": {
-            "address_title": "Adresinizi ekleyin",
-            "button_continue": "Devam et",
-            "components": {
-                "country_residence_select": {
-                    "placeholder": "Bir ülke seçin"
-                },
-                "country_select": {
-                    "placeholder": "Bir ülke seçin"
-                },
-                "id_type_select": {
-                    "aus_specific": {
-                        "other": "Yabancı pasaportu"
-                    },
-                    "bra_specific": {
-                        "other": "CNPJ",
-                        "tax_id": "CPF"
-                    },
-                    "driving_license": "Ehliyet",
-                    "esp_specific": {
-                        "identity_card": "NIF\/DNI"
-                    },
-                    "gha_specific": {
-                        "social_insurance": "SSNIT"
-                    },
-                    "identity_card": "Kimlik kartı",
-                    "ind_specific": {
-                        "tax_id": "Kişisel Hesap Numarası (PAN)"
-                    },
-                    "ken_specific": {
-                        "other": "Uzaylı Kartı"
-                    },
-                    "nga_specific": {
-                        "identity_card": "Ulusal Kimlik Numarası (NIN)",
-                        "other": "BVN",
-                        "tax_id": "TIN"
-                    },
-                    "other": "NIE",
-                    "passport": "Pasaport",
-                    "placeholder": "Bir ulusal kimlik türü seçin",
-                    "tax_id": "Vergi numarası",
-                    "voter_id": "seçmen kimliği"
-                },
-                "nationality_select": {
-                    "placeholder": "Bir ülke seçin"
-                },
-                "pan": {
-                    "placeholder": "ABCDE1234F"
-                },
-                "ssn": {
-                    "placeholder": "123-45-6789"
-                },
-                "state_select": {
-                    "placeholder": "Bir eyalet seçin"
-                }
-            },
-            "country_of_residence_title": "İkamet ettiğiniz ülke",
-            "field_labels": {
-                "arg_specific": {
-                    "national_id_value": "DNI numarası"
-                },
-                "can_specific": {
-                    "national_id_value": "Sosyal Sigorta Numarası (SIN)"
-                },
-                "chl_specific": {
-                    "national_id_value": "RUT \/ RUN numaraları"
-                },
-                "chn_specific": {
-                    "national_id_value": "Yerleşik Kimlik kartı numarası"
-                },
-                "col_specific": {
-                    "national_id_value": "Kolombiya Kişisel Kimlik Numarası"
-                },
-                "country": "Ülke",
-                "country_residence": "Ülke",
-                "dnk_specific": {
-                    "national_id_value": "kalp masajı numarası"
-                },
-                "dob": "Doğum tarihi",
-                "email": "E-posta",
-                "fin_specific": {
-                    "national_id_value": "Kişisel kimlik kodu"
-                },
-                "first_name": "Ad",
-                "gbr_specific": {
-                    "postcode": "Posta kodu",
-                    "town": "Şehir\/Kasaba"
-                },
-                "hkg_specific": {
-                    "national_id_value": "HKID"
-                },
-                "ind_specific": {
-                    "pan": "Kalıcı hesap numarası (PAN)"
-                },
-                "ita_specific": {
-                    "national_id_value": "Vergi kodu"
-                },
-                "jpn_specific": {
-                    "national_id_value": "\"Numaram\" \/ Yerleşik Kayıt kodu"
-                },
-                "last_name": "Soyadı",
-                "line1": "Adres satırı 1",
-                "line2": "Adres satırı 2",
-                "line3": "Adres satırı 3",
-                "lux_specific": {
-                    "national_id_value": "Sosyal Güvenlik numarası"
-                },
-                "mobile_number": "Cep telefonu numarası",
-                "national_id_type": "Ulusal kimlik türü",
-                "national_id_value": "Kimlik Numarası",
-                "nationality": "Uyruk",
-                "phl_specific": {
-                    "national_id_value": "PhilSys Kart Numarası (PCN)"
-                },
-                "phone_number": "Telefon numarası",
-                "pol_specific": {
-                    "national_id_value": "PESEL numarası"
-                },
-                "postcode": "Posta kodu",
-                "prt_specific": {
-                    "national_id_value": "Vergi numarası"
-                },
-                "town": "Şehir\/Kasaba",
-                "tur_specific": {
-                    "national_id_value": "TC Kimlik Numarası"
-                },
-                "usa_specific": {
-                    "line1_helper_text": "Açık adres, ör. 200 Albert Street",
-                    "line2_helper_text": "Daire, süit, birim vb.",
-                    "postcode": "Posta kodu",
-                    "ssn": "Sosyal Güvenlik Numarası (SGN)",
-                    "state": "Eyalet",
-                    "town": "Şehir"
-                }
-            },
-            "field_optional": "(isteğe bağlı)",
-            "field_validation": {
-                "arg_specific": {
-                    "invalid_national_id_value": "Lütfen geçerli bir DNI girin"
-                },
-                "bra_specific": {
-                    "invalid_other": "Lütfen geçerli bir girin CNPJ",
-                    "invalid_tax_id": "Lütfen geçerli bir girin CPF",
-                    "required_other": "Lütfen CNPJ'nizi girin",
-                    "required_tax_id": "Lütfen CPF'nizi girin"
-                },
-                "can_specific": {
-                    "invalid_national_id_value": "Lütfen geçerli bir girin SIN",
-                    "required_national_id_value": "Lütfen SIN'inizi girin"
-                },
-                "chl_specific": {
-                    "invalid_national_id_value": "Lütfen geçerli bir RUT \/ RUN numarası girin",
-                    "required_national_id_value": "Lütfen RUT \/ RUN numaralarınızı giriniz."
-                },
-                "chn_specific": {
-                    "invalid_national_id_value": "Lütfen geçerli bir yerleşik kimlik kartı numarası girin",
-                    "required_national_id_value": "Lütfen ikametgah kimlik kartı numaranızı giriniz"
-                },
-                "col_specific": {
-                    "invalid_national_id_value": "Lütfen geçerli bir Kolombiya Kişisel Kimlik Numarası girin",
-                    "required_national_id_value": "Lütfen Kolombiya Kişisel Kimlik Numaranızı girin"
-                },
-                "dnk_specific": {
-                    "invalid_national_id_value": "Lütfen geçerli bir CPR numarası girin",
-                    "required_national_id_value": "Lütfen CPR numaranızı giriniz"
-                },
-                "esp_specific": {
-                    "invalid_identity_card": "Lütfen geçerli bir girin NIF\/DNI",
-                    "invalid_other": "Lütfen geçerli bir girin NIE",
-                    "required_identity_card": "Lütfen NIF\/DNI'nizi girin"
-                },
-                "fin_specific": {
-                    "invalid_national_id_value": "Lütfen geçerli bir Kişisel kimlik kodu girin",
-                    "required_national_id_value": "Lütfen Kişisel kimlik kodunuzu giriniz"
-                },
-                "gbr_specific": {
-                    "invalid_postcode": "Lütfen geçerli bir posta kodu girin",
-                    "required_postcode": "Lütfen posta kodunuzu girin",
-                    "too_long_postcode": "Posta kodu çok uzun",
-                    "too_short_postcode": "Posta kodu çok kısa"
-                },
-                "gha_specific": {
-                    "invalid_social_insurance": "Lütfen geçerli bir SSNIT girin",
-                    "required_social_insurance": "Lütfen SSNIT'inizi girin"
-                },
-                "hkg_specific": {
-                    "invalid_national_id_value": "Lütfen geçerli bir HKID girin",
-                    "required_national_id_value": "Lütfen HKID'nizi girin"
-                },
-                "ind_specific": {
-                    "invalid_pan": "Lütfen geçerli bir PAN GİRİN",
-                    "required_pan": "Lütfen PAN'ınızı girin"
-                },
-                "invalid": "Lütfen geçersiz karakterler veya semboller olup olmadığını kontrol edin",
-                "invalid_dob": "Lütfen geçerli bir doğum tarihi girin",
-                "invalid_driving_license": "Lütfen geçerli bir ehliyet numarası girin",
-                "invalid_email": "Lütfen geçerli bir e-posta girin",
-                "invalid_mobile_number": "Lütfen geçerli bir cep telefonu numarası girin",
-                "invalid_national_id_value": "Lütfen geçerli bir ulusal kimlik numarası girin",
-                "invalid_passport": "Lütfen geçerli bir pasaport numarası girin",
-                "invalid_phone_number": "Lütfen geçerli bir telefon numarası girin",
-                "invalid_voter_id": "Lütfen geçerli bir seçmen kimlik numarası girin",
-                "ita_specific": {
-                    "invalid_national_id_value": "Lütfen geçerli bir mali kod girin",
-                    "required_national_id_value": "Lütfen mali kodunuzu girin"
-                },
-                "jpn_specific": {
-                    "invalid_national_id_value": "Lütfen geçerli bir \"Numaram\" \/ Yerleşik Kayıt kodu girin",
-                    "required_national_id_value": "Lütfen \"Benim numaram\" \/ İkamet Kayıt kodunuzu girin"
-                },
-                "ken_specific": {
-                    "invalid_other": "Lütfen geçerli bir Alien Card numarası girin",
-                    "required_other": "Lütfen Alien Card numaranızı giriniz."
-                },
-                "lux_specific": {
-                    "invalid_national_id_value": "Lütfen geçerli bir Sosyal Güvenlik numarası girin",
-                    "required_national_id_value": "Lütfen sosyal güvenlik numaranızı giriniz"
-                },
-                "mex_specific": {
-                    "invalid_identity_card": "Lütfen geçerli bir girin CURP",
-                    "invalid_tax_id": "Lütfen geçerli bir girin RFC",
-                    "required_identity_card": "Lütfen CURP'nizi girin",
-                    "required_tax_id": "Lütfen RFC'nizi girin"
-                },
-                "mys_specific": {
-                    "invalid_national_id_value": "Lütfen geçerli bir NRIC girin",
-                    "required_national_id_value": "Lütfen NRIC'nizi girin"
-                },
-                "nga_specific": {
-                    "invalid_identity_card": "Lütfen geçerli bir Ulusal Kimlik Numarası (NIN) girin",
-                    "invalid_other": "Lütfen geçerli bir BVN girin",
-                    "invalid_tax_id": "Lütfen geçerli bir TIN girin",
-                    "required_identity_card": "Lütfen Ulusal Kimlik Numaranızı (NIN) giriniz",
-                    "required_other": "Lütfen BVN'nizi girin",
-                    "required_tax_id": "Lütfen VKN'nizi girin"
-                },
-                "phl_specific": {
-                    "invalid_national_id_value": "Lütfen geçerli bir PhilSys Kart Numarası (PCN) girin",
-                    "required_national_id_value": "Lütfen PhilSys Kart Numaranızı (PCN) girin"
-                },
-                "pol_specific": {
-                    "invalid_national_id_value": "Lütfen geçerli bir PESEL numarası girin",
-                    "required_national_id_value": "Lütfen PESEL numaranızı giriniz."
-                },
-                "prt_specific": {
-                    "invalid_national_id_value": "Lütfen geçerli bir Vergi numarası girin",
-                    "required_national_id_value": "Lütfen Vergi numaranızı giriniz"
-                },
-                "reference": {
-                    "translation": "Lütfen geçerli bir girin"
-                },
-                "required_consent": "Lütfen kimlik ve dolandırıcılık kontrollerine izin vermeyi kabul edin",
-                "required_country": "Lütfen bir ülke seçin",
-                "required_country_residence": "Lütfen bir ülke seçin",
-                "required_dob": "Lütfen doğum tarihinizi girin",
-                "required_email": "Lütfen e-postanızı girin",
-                "required_first_name": "Lütfen adınızı girin",
-                "required_last_name": "Lütfen soyadınızı girin",
-                "required_line1": "Lütfen adresinizi girin",
-                "required_mobile_number": "Lütfen cep telefonu numaranızı girin",
-                "required_national_driving_license": "Lütfen ehliyet numaranızı giriniz",
-                "required_national_id_type": "Lütfen Ulusal Kimlik türünüzü seçin",
-                "required_national_id_value": "Lütfen Ulusal Kimlik numaranızı giriniz",
-                "required_national_passport": "Lütfen pasaport numaranızı giriniz",
-                "required_national_voter_id": "Lütfen seçmen kimlik numaranızı giriniz",
-                "required_nationality": "Lütfen bir ülke seçin",
-                "required_phone_number": "Lütfen telefon numaranızı girin",
-                "required_postcode": "Lütfen posta kodunuzu girin",
-                "sgp_specific": {
-                    "invalid_national_id_value": "Lütfen geçerli bir girin NRIC",
-                    "required_national_id_value": "Lütfen NRIC'nizi girin"
-                },
-                "swe_specific": {
-                    "invalid_national_id_value": "Lütfen geçerli bir girin PIN",
-                    "required_national_id_value": "Lütfen PIN'inizi girin"
-                },
-                "too_long_first_name": "Ad çok uzun",
-                "too_long_last_name": "Soyadı çok uzun",
-                "too_long_line1": "Adres satırı çok uzun",
-                "too_long_postcode": "Posta kodu çok uzun",
-                "too_long_town": "İlçe çok uzun",
-                "too_short_first_name": "Ad çok kısa",
-                "too_short_last_name": "Soyadı çok kısa",
-                "too_short_postcode": "Posta kodu çok kısa",
-                "tur_specific": {
-                    "invalid_national_id_value": "Lütfen geçerli bir TC kimlik numarası giriniz.",
-                    "required_national_id_value": "Lütfen Türk Kimlik Numaranızı girin"
-                },
-                "usa_specific": {
-                    "invalid_ssn": "Lütfen geçerli bir SSN girin",
-                    "required_ssn": "Lütfen SSN'nizi girin",
-                    "required_state": "Lütfen bir eyalet seçin"
-                }
-            },
-            "national_id_number_title": "Ulusal kimlik numaranızı ekleyin",
-            "personal_information_title": "Kişisel bilgilerinizi ekleyin",
-            "prompt": {
-                "details_timeout": "Yeniden başlat",
-                "header_timeout": "Çok uzun sürmüş gibi görünüyor"
-            }
-        },
-        "qes": {
-            "consent": {
-                "common": {
-                    "steps": "İmzanızı oluşturun"
-                },
-                "confirmation": {
-                    "bullet_1": "Belgenizi okuduktan sonra, \"Belgeyi imzala\" düğmesine dokunun.",
-                    "bullet_2": "Onfido kimliğinizi doğruladığında, imzanız bu belge üzerinde kullanılacak.",
-                    "button_next_step": "Belgeyi imzala",
-                    "review_document": "İmzalamak için <fallback>belgenizi<\/fallback> gözden geçirin",
-                    "step2": "2'den 2",
-                    "steps": "Belgenizi imzalayın",
-                    "subtitle": "Avrupa kurallarına uygun olarak kimliğinizi doğrulamak için bir belgeyi dijital olarak imzalamalısınız.",
-                    "title": "Dijital imzanızı oluşturun ve kullanın"
-                },
-                "introduction": {
-                    "button_confirmation_step": "İmzamı oluştur",
-                    "certificate_application_form": "Sertifika başvuru formu",
-                    "privacy_notice": "Gizlilik bildirimi",
-                    "step1": "2'nin 1'i",
-                    "subtitle": "Avrupa kurallarına uygun olarak kimliğinizi doğrulamak için bir belgeyi dijital olarak imzalamalısınız.",
-                    "terms_and_conditions": "Şartlar ve koşullar",
-                    "third_party_description": "<fallback>Namirial SpA<\/fallback>, elektronik imzanızı doğrulayan bir sertifika veren güvenilir bir küresel sağlayıcıdır.",
-                    "title": "Dijital imzanızı oluşturun ve kullanın",
-                    "validation": "Onay gerekli"
-                }
-            },
-            "error": {
-                "misconfigured": "Maalesef, bir hata oluştu. Lütfen destek ekibinizle iletişime geçin."
-            }
-        },
-        "qes_consent": {
-            "button": "İmzamı oluştur",
-            "link_certificate": "Sertifika başvuru formu",
-            "link_privacy_notice": "Gizlilik bildirimi",
-            "link_terms_and_conditions": "Şartlar ve koşullar",
-            "namirial_intro": "Namirial SpA, elektronik imzanızı doğrulayan bir sertifika verecek güvenilir bir küresel sağlayıcıdır.",
-            "subtitle": "Avrupa kurallarına uygun olarak kimliğinizi doğrulamak için bir belgeyi dijital olarak imzalamalısınız.",
-            "title": "Dijital imzanızı oluşturun ve kullanın"
-        },
-        "qes_sign": {
-            "button": "Belgeyi imzala",
-            "link_document": "İmzalamak için belgenizi gözden geçirin",
-            "list_item_1": "Belgenizi okuduktan sonra, \"Belgeyi imzala\" düğmesine dokunun.",
-            "list_item_2": "Onfido kimliğinizi doğruladıktan sonra, imzanız bu belge üzerinde kullanılacak.",
-            "step_title": "Belgenizi imzalayın",
-            "subtitle": "Avrupa kurallarına uygun olarak kimliğinizi doğrulamak için bir belgeyi dijital olarak imzalamalısınız.",
-            "title": "Dijital imzanızı oluşturun ve kullanın"
-        },
-        "retry": {
-            "button": {
-                "generic_selfie_issue": "Tekrar deneyin"
-            },
-            "description": {
-                "default": "Lütfen tekrar deneyin",
-                "expired_document": "Lütfen geçerli bir fotoğraflı kimlikle tekrar deneyin ve bilgilerinizin net bir şekilde göründüğünden emin olun",
-                "generic_document_issue": "Lütfen geçerli bir fotoğraflı kimlikle tekrar deneyin ve bilgilerinizin net bir şekilde göründüğünden emin olun",
-                "generic_selfie_issue": "Lütfen tekrar deneyin ve yüzünüzün görünür ve iyi aydınlatılmış olduğundan emin olun",
-                "unaccepted_document": "Lütfen geçerli bir fotoğraflı kimlikle tekrar deneyin ve bilgilerinizin net bir şekilde göründüğünden emin olun"
-            },
-            "headline": {
-                "default": "Bir problem oldu",
-                "expired_document": "Belgenizin süresi doldu",
-                "generic_document_issue": "Belgenizle ilgili bir sorun oldu",
-                "generic_selfie_issue": "Selfie'nizle ilgili bir sorun oldu",
-                "unaccepted_document": "Belge kabul edilmiyor"
-            }
-        },
-        "retry_feedback": {
-            "button_primary": "Tekrar deneyin"
-        },
-        "retry_feedback_custom": {
-            "subtitle": "Lütfen geçerli bir fotoğraflı kimlikle tekrar deneyin ve bilgilerinizin net bir şekilde göründüğünden emin olun",
-            "title": "Belgenizin süresi doldu"
-        },
-        "retry_feedback_id_expired": {
-            "subtitle": "Lütfen geçerli bir fotoğraflı kimlikle tekrar deneyin ve bilgilerinizin net bir şekilde göründüğünden emin olun",
-            "title": "Belgenizin süresi doldu"
-        },
-        "retry_feedback_id_generic": {
-            "subtitle": "Lütfen geçerli bir fotoğraflı kimlikle tekrar deneyin ve bilgilerinizin net bir şekilde göründüğünden emin olun",
-            "title": "Belgenizle ilgili bir sorun oluştu"
-        },
-        "retry_feedback_id_unaccepted": {
-            "subtitle": "Lütfen geçerli bir fotoğraflı kimlikle tekrar deneyin ve bilgilerinizin net bir şekilde göründüğünden emin olun",
-            "title": "Belge kabul edilmiyor"
-        },
-        "retry_feedback_selfie_generic": {
-            "subtitle": "Lütfen tekrar deneyin ve yüzünüzün görünür ve iyi aydınlatılmış olduğundan emin olun",
-            "title": "Selfie'nizle ilgili bir sorun oluştu"
-        },
-        "selfie_capture": {
-            "alert": {
-                "camera_inactive": {
-                    "detail": "Bağlı ve çalışır durumda olup olmadığını kontrol edin. <fallback>Telefonunuzda da doğrulamaya devam edebilirsiniz<\/fallback>",
-                    "detail_no_fallback": "Cihazınızda çalışan bir kamera olduğundan emin olun",
-                    "title": "Kamera çalışmıyor mu?"
-                },
-                "camera_not_working": {
-                    "detail": "Bağlantı kesilmiş olabilir. <fallback>Bunun yerine telefonunuzu kullanmayı deneyin<\/fallback>.",
-                    "detail_no_fallback": "Cihazınızın kamerasının çalıştığından emin olun",
-                    "title": "Kamera çalışmıyor"
-                },
-                "timeout": {
-                    "detail": "İşiniz bittiğinde düğmeye basmayı unutmayın. <fallback>Video eylemlerini yinele<\/fallback>",
-                    "title": "Çok uzun sürmüş gibi görünüyor"
-                }
-            },
-            "body": "Yüzünüzü oval içinde tutun",
-            "button_accessibility": "Fotoğraf çekin",
-            "button_primary": "Yüz taramasını başlat",
-            "frame_accessibility": "Kameradan görüntü",
-            "title": "Yüzünüzü oval içinde tutun"
-        },
-        "selfie_confirmation": {
-            "image_accessibility": "Yüzünüzün fotoğrafı",
-            "subtitle": "Tüm yüzünüzün görünür olduğundan emin olun",
-            "title": "Selfienizi kontrol edin"
-        },
-        "selfie_intro": {
-            "banner_nudity_message": "Bu işlem sırasında yüzünüz ve arka planınız kaydedilecektir",
-            "button_primary": "Devam et",
-            "list_accessibility": "İyi bir selfie çekme ipuçları",
-            "list_item_face_forward": "Yüzünüzü öne çevirin ve gözlerinizin açıkça görülebildiğinden emin olun",
-            "list_item_no_face_cover": "Yüzünüzü kapatan unsurları kadrajdan çıkarın. Gözlükleriniz kalabilir",
-            "list_item_no_glasses": "Gerekirse gözlüklerinizi çıkarın",
-            "subtitle": "Bunu belgenizle karşılaştıracağız",
-            "title": "Bir selfie çekin"
-        },
-        "sid": {
-            "passkey": {
-                "fail": {
-                    "button": "Doğrulamayı başlat",
-                    "content": "Bizden bazı belgeler ve kişisel bilgiler talep edeceğiz, bu bize kim olduğunuzu söylediğiniz kişi olduğunuzu anlamamıza yardımcı olabilir.",
-                    "disclaimer": "Akimin sonunda bu doğrulamayı yeniden kullanılabilir olarak ayarlayabileceksiniz.",
-                    "subtitle": "Üzgünüz, bu akışı atlayamazsınız, lütfen kimlik doğrulama sürecinden geçin:",
-                    "title": "Kullanılabilir doğrulama yok"
-                },
-                "success": {
-                    "biophoto": "Gerçek bir kişi olduğunuzu kanıtlamak için yüzünüzün fotoğrafı",
-                    "biovideo": "Gerçek bir kişi olduğunuzu kanıtlamak için yüzünüzün kaydı",
-                    "button": "Devam et",
-                    "datacapture": "Bazı kişisel bilgiler",
-                    "document": "Geçerli bir hükümet tarafından verilmiş kimlik belgesi",
-                    "drivinglicense": "Geçerli bir hükümet tarafından verilmiş sürücü belgesi",
-                    "proofofaddress": "Adres kanıtı olarak kullanılabilen geçerli bir belge",
-                    "title": "Önceki doğrulama bulundu!"
-                }
-            }
-        },
-        "sms_sent": {
-            "info": "İpuçları",
-            "info_link_expire": "Bağlantınızın süresi bir saat içinde dolacak",
-            "info_link_window": "Cep telefonunuzu kullanırken bu pencereyi açık tutun",
-            "link": "Başka bir yöntem deneyin",
-            "subtitle": "<number><\/number> numaralı telefona güvenli bir bağlantı gönderdik",
-            "subtitle_minutes": "Ulaşması birkaç dakika sürebilir",
-            "title": "Cep telefonunuzu kontrol edin"
-        },
-        "switch_phone": {
-            "info": "İpuçları",
-            "info_link_expire": "Mobil bağlantınızın süresi bir saat içinde dolacak",
-            "info_link_refresh": "Bu sayfayı yenilemeyin",
-            "info_link_window": "Cep telefonunuzu kullanırken bu pencereyi açık tutun",
-            "link": "İptal",
-            "subtitle": "İşiniz bittiğinde bir sonraki adıma geçeceğiz",
-            "title": "Cep telefonunuz bağlandı"
-        },
-        "upload_guide": {
-            "button_primary": "Devam et",
-            "image_detail_blur_alt": "Bulanık belge örneği",
-            "image_detail_blur_label": "Tüm ayrıntılar net olmalıdır (bulanık bir şey olmamalıdır)",
-            "image_detail_cutoff_label": "Tüm ayrıntıları gösterin (en alttaki 2 satır dâhil)",
-            "image_detail_glare_label": "Doğrudan ışıktan uzakta durun (parlama olmamalıdır)",
-            "image_detail_good_label": "Fotoğrafta belgeniz açıkça görülmelidir",
-            "subtitle": "Tarama ve fotokopi kabul edilmez",
-            "title": "Pasaport fotoğraf sayfanızı gönderin"
-        },
-        "user_consent": {
-            "button_primary": "Kabul et",
-            "button_secondary": "Kabul etme",
-            "prompt": {
-                "button_primary": "Tekrar gözden geçirin",
-                "button_secondary": "Evet, beni doğrulamayın",
-                "no_consent_detail": "Onfido'nun gizlilik beyanlarını ve hizmet şartlarını kabul etmiyorsanız kimliğinizi doğrulayamayız ve bu adımdan çıkarsınız.",
-                "no_consent_title": "Emin misiniz?"
-            }
-        },
-        "user_consent_load_fail": {
-            "button_primary": "Ekranı yeniden yükleyin",
-            "detail": "Bağlantınızın kararlı olup olmadığını kontrol edin, ardından tekrar deneyin",
-            "title": "İçerik yüklenemedi"
-        },
-        "video_capture": {
-            "body": "Yüzünüzü oval içinde tutun",
-            "body_record": "Hazır olduğunuzda düğmeye basın",
-            "body_stop": "İşiniz bittiğinde durdur'a basın",
-            "button_primary_finish": "Kaydı bitir",
-            "button_primary_next": "Sonraki adım",
-            "button_primary_start": "Kaydı başlatın",
-            "button_record_accessibility": "Kaydı başlatın",
-            "frame_accessibility": "Kameradan görüntü",
-            "header": {
-                "challenge_digit_instructions": "Her rakamı yüksek sesle söyleyin",
-                "challenge_turn_forward": "ileri doğru bakın",
-                "challenge_turn_left": "Başınızı sola çevirin",
-                "challenge_turn_right": "Başınızı sağa çevirin"
-            },
-            "prompt": {
-                "header_timeout": "Çok uzun sürmüş gibi görünüyor"
-            }
-        },
-        "video_confirmation": {
-            "body": "Videonuz kaydedildi",
-            "button_primary": "Video yükle",
-            "button_secondary": "Videoyu tekrar çek",
-            "title": "Videonuzu kontrol edin",
-            "video_accessibility": "Kaydedilen videonuzu tekrar oynatın"
-        },
-        "video_intro": {
-            "button_pause_accessibility": "Tarama işlemi örneğinin animasyonunu duraklat",
-            "button_play_accessibility": "Tarama işlemi ile ilgili örneklendirici animasyonu oynat",
-            "button_primary": "Video kaydedin",
-            "list_accessibility": "Selfie videosu kaydetme işlemleri",
-            "list_item_actions": "Tamamlamak için 20 saniyeniz var",
-            "list_item_speak": "Hareket etmek veya konuşmak için talimatları izleyin",
-            "title": "Video kaydetme",
-            "video_accessibility": "Selfie videosu kaydeden birinin örnek videosu. Bir selfie videosu kaydetmek için ön kameraya dönün ve telefonu yüzünüzden biraz uzakta tutun. Sonrasında bazı sayıları ezberden okumanız ve başınızı ekrandaki talimatlara göre çevirmeniz gerekecek."
-        },
-        "welcome": {
-            "doc_video_subtitle": "Sadece birkaç dakika sürer",
-            "info_original_document": "Orijinal belgenizin bir fotoğrafını çekin. Taramalara, ekran fotoğraflarına veya fotokopilere izin verilmez.",
-            "list_header": "Cihazınızı şu amaçlarla kullanın:",
-            "list_header_doc_video": "Kayıt yapmak için cihazınızı kullanın:",
-            "list_header_webcam": "Aşağıdakileri fotoğraflamak için web kameranızı veya telefonunuzu kullanın:",
-            "list_item_doc": "kimlik belgeniz",
-            "list_item_doc_generic": "Kimlik belgenizin bir video kaydını yapın",
-            "list_item_doc_photo": "Kimlik belgenizin fotoğrafını çekin",
-            "list_item_doc_video": "Kimlik belgenizin bir videosunu kaydedin",
-            "list_item_doc_video_timeout": "Kayıt ​<timeout>​​<\/timeout>​ saniye ile sınırlıdır",
-            "list_item_face_photo": "Yüzünüzün fotoğrafını çekin",
-            "list_item_face_video": "Yüzünüzün bir videosunu kaydedin",
-            "list_item_poa": "ikamet belgeniz",
-            "list_item_selfie": "yüzünüz",
-            "next_button": "Belge seçin",
-            "start_workflow_button": "Doğrulamayı başlat",
-            "start_workflow_button_trial": "Doğrulamayı başlat (TEST)",
-            "subtitle": "Sadece birkaç dakika sürer",
-            "title": "Kimliğinizi doğrulayın",
-            "trial_message": "Bir Onfido denemesine katılmadığınız sürece kişisel verilerinizi burada paylaşmayın."
-        },
-        "workflow_complete": {
-            "pass": {
-                "description": "Kimliğinizi doğruladık",
-                "title": "Başarılı"
-            },
-            "reject": {
-                "description": "Kimliğinizi doğrulayamadık",
-                "title": "Reddedildi"
-            }
-        },
-        "workflow_erros": {
-            "generic_title": "Sunucu hatası oluştu!",
-            "no_workflow_run_id": "İş akışı çalışma kimliği ayarlanmadı.",
-            "reload_app": "Lütfen uygulamayı yeniden yüklemeyi deneyin ve tekrar deneyin.",
-            "task_not_completed": "İş akışı görevi tamamlanamadı.",
-            "task_not_retrieved": "İş akışı görevi alınamadı.",
-            "task_not_supported": "Görev şu anda desteklenmiyor"
-        }
+  "avc_confirmation": {
+    "button_primary_upload": "Kaydı yükle",
+    "subtitle": "Yüzünüzün bir videosu başarıyla kaydedildi",
+    "title": "Kayıt tamamlandı"
+  },
+  "avc_connection_error": {
+    "button_primary_reload": "Talimatları yeniden yükle",
+    "button_primary_retry_upload": "Yüklemeyi yeniden dene",
+    "button_secondary_restart_recording": "Kaydı yeniden başlat",
+    "subtitle": "Bağlantınızın kararlı olup olmadığını kontrol edin, ardından tekrar deneyin",
+    "title": "Bağlantı hatası"
+  },
+  "avc_face_alignment": {
+    "feedback_move_back": "Biraz daha geri gidin",
+    "feedback_move_back_accessibility": "Cihazınızı daha uzağa götürün",
+    "feedback_move_closer": "Biraz daha yaklaşın",
+    "feedback_move_left_accessibility": "Cihazınızı sola hareket ettirin",
+    "feedback_move_right_accessibility": "Cihazınızı sağa hareket ettirin",
+    "feedback_no_face_detected": "Yüz tespit edilmedi",
+    "feedback_not_centered": "Yüz ortalanmamış",
+    "title": "Yüzünüzü çerçeveye yerleştirin"
+  },
+  "avc_face_capture": {
+    "alert": {
+      "mic_conflict_title": "Mikrofonunuz başka bir uygulama tarafından kullanılıyor",
+      "timeout_body": "Kaydı tamamlamak için 15 saniyeniz var",
+      "timeout_button_primary": "Yeniden dene",
+      "timeout_title": "Üzgünüz, kaydı yeniden başlatmamız gerekiyor",
+      "too_fast_body": "Lütfen tekrar deneyin ve başınızı daha yavaş çevirin",
+      "too_fast_button_primary": "Yeniden dene",
+      "too_fast_title": "Kafanızı çok hızlı çevirdiniz"
     },
-    "profile_data": {
-        "field_labels": {
-            "rou_specific": {
-                "national_id_value": "Kişisel Sayısal Kod (CNP)"
-            }
-        }
+    "title": "Başınızı yavaşça her iki tarafa çevirin",
+    "title_completed": "Kayıt tamamlandı"
+  },
+  "avc_intro": {
+    "button_primary_ready": "Kaydı başlatın",
+    "disclaimer": "Bu işlem sırasında yüzünüz ve arka planınız kaydedilecektir",
+    "disclaimer_camera_and_audio_on": "Bu işlem sırasında yüzünüz, arka planınız ve sesiniz kaydedilecek",
+    "list_item_one": "İlk olarak, yüzünüzü çerçeveye yerleştirin",
+    "list_item_two": "Ardından, başınızı yavaşça her iki tarafa çevirin",
+    "subtitle": "Bu işlem, gerçek bir kişi olduğunuzu doğrulamak amacıyla yapılır",
+    "title": "Video kaydetme",
+    "title_accessibility": "Yüzünüzün bir videosunu kaydedin",
+    "video_accessibility": "Tamamlanana kadar başını iki yana çeviren birinin örnek videosu"
+  },
+  "avc_no_face_detected": {
+    "button_primary_restart": "Kaydı yeniden başlat",
+    "list_item_eyes": "Gözlerinizin net bir şekilde göründüğünden emin olun",
+    "list_item_face": "Sadece yüzünüzü gösterdiğinizden emin olun, kimliğinizi görmemize gerek yok",
+    "list_item_lighting": "İyi aydınlatılmış bir yerde olduğunuzdan emin olun",
+    "list_item_mask": "Yüzünüzü kapatan maskeleri veya diğer eşyaları çıkardığınızdan emin olun. Gözlükleriniz kalabilir",
+    "title": "Yüzünü tespit edemiyoruz"
+  },
+  "avc_uploading": {
+    "title": "Yükleniyor"
+  },
+  "country_select": {
+    "alert": {
+      "another_doc": "Bu ülkenin belgeleri şu anda desteklenmiyor, <fallback>başka tür bir belge deneyin</fallback>"
+    },
+    "alert_dropdown": {
+      "country_not_found": "Ülke bulunamadı"
+    },
+    "button_primary": "Belgeyi gönderin",
+    "poa_alert": {
+      "country_not_found": "Üzgünüz. Daha fazla ülkeyi desteklemek için çalışıyoruz.",
+      "intro": "Ülkenizi bulamadınız mı?"
+    },
+    "search": {
+      "accessibility": "Ülke seçin",
+      "input_placeholder": "ör. Amerika Birleşik Devletleri",
+      "label": "Ülke arayın"
+    },
+    "title": "Düzenleyen ülkeyi seçin"
+  },
+  "cross_device": {
+    "button_primary_upload": "Devam et"
+  },
+  "cross_device_checklist": {
+    "button_primary": "Doğrulamayı gönder",
+    "info": "İpuçları",
+    "list_item_doc_multiple": "Belgeler",
+    "list_item_doc_one": "Belge",
+    "list_item_poa": "İkamet belgesi",
+    "list_item_selfie": "Selfie",
+    "list_item_video": "Video",
+    "subtitle": "Yüklediğiniz her şey burada:",
+    "title": "Son bir adım"
+  },
+  "cross_device_error_desktop": {
+    "subtitle": "Bağlantı yalnızca mobil cihazlarda çalışır",
+    "title": "Bir sorun oluştu"
+  },
+  "cross_device_error_restart": {
+    "subtitle": "Doğrulamanızı bilgisayarınızda yeniden başlatmanız gerekir",
+    "title": "Bir sorun oluştu"
+  },
+  "cross_device_intro": {
+    "button_primary": "Güvenli bağlantı alın",
+    "list_accessibility": "Cep telefonunuzda doğrulamaya devam etmek için gereken adımlar",
+    "list_item_finish": "Gönderimi tamamlamak için burayı tekrar kontrol edin",
+    "list_item_open_link": "Bağlantıyı açın ve görevleri tamamlayın",
+    "list_item_send_phone": "Telefonunuza güvenli bir bağlantı gönderin",
+    "subtitle": "Bunu şu şekilde yapabilirsiniz:",
+    "subtitle_upload": "Lütfen orijinal belgenizin yakın tarihli bir fotoğrafını yükleyin",
+    "title": "Telefonunuzda devam edin"
+  },
+  "cross_device_return": {
+    "body": "Bilgisayarınızın güncellenmesi birkaç saniye sürebilir",
+    "subtitle": "Devam etmek için artık bilgisayarınıza dönebilirsiniz",
+    "title": "Yükleme başarılı"
+  },
+  "cross_device_session_linked": {
+    "button_primary": "Devam et",
+    "info": "Çifte Denetim",
+    "list_item_desktop_open": "Masaüstü pencereniz açık kalır",
+    "list_item_sent_by_you": "Bu bağlantı sizin tarafınızdan gönderildi (bunun bir dolandırıcılık olabileceğini düşünüyorsanız bir uzmana danışın)",
+    "subtitle": "Doğrulamaya devam edin",
+    "title": "Mobil oturum bilgisayarınıza bağlandı"
+  },
+  "doc_auto_capture": {
+    "button_accessibility": "Fotoğraf çekin",
+    "footer": {
+      "captured": "Fotoğraf alındı",
+      "capturing": "Fotoğraf alınıyor",
+      "manual_fallback_generic_document_back": "Belgenizin arka yüzünün fotoğrafını çekin",
+      "manual_fallback_generic_document_front": "Belgenizin ön yüzünün fotoğrafını çekin",
+      "manual_fallback_identity_card_back": "Kimliğinizin arka yüzünün fotoğrafını çekin",
+      "manual_fallback_identity_card_front": "Kimliğinizin ön yüzünün fotoğrafını çekin",
+      "manual_fallback_license_back": "Sürücü belgenizin arka yüzünün fotoğrafını çekin",
+      "manual_fallback_license_front": "Sürücü belgenizin ön yüzünün bir fotoğrafını çekin",
+      "manual_fallback_passport": "Pasaport fotoğraf sayfanızın fotoğrafını çekin",
+      "manual_fallback_residence_permit_back": "Oturma izninizin arka yüzünün fotoğrafını çekin",
+      "manual_fallback_residence_permit_front": "Oturma izninizin ön yüzünün fotoğrafını çekin",
+      "position_generic_document_back": "Belgenizin arka yüzünü çerçeveye yerleştirin",
+      "position_generic_document_front": "",
+      "position_identity_card_back": "Kartınızın arka yüzünü çerçevenin içine yerleştirin",
+      "position_identity_card_front": "Kartınızın ön yüzünü çerçevenin içine yerleştirin",
+      "position_license_back": "Sürücü belgenizin arka yüzünü çerçevenin içine yerleştirin",
+      "position_license_front": "Sürücü belgenizin ön yüzünü çerçevenin içine yerleştirin",
+      "position_passport": "Pasaportunuzda fotoğrafınız olan sayfayı çerçeveye yerleştirin",
+      "position_residence_permit_back": "Oturma izninizin arka yüzünü çerçeveye yerleştirin",
+      "position_residence_permit_front": "Oturma izninizin ön yüzünü çerçeveye yerleştirin"
+    },
+    "frame": {
+      "flip_document": "Arka tarafını çevirin",
+      "hold_still": "Sabit kalın",
+      "no_document": "Belge algılanmadı"
     }
+  },
+  "doc_capture": {
+    "alert": {
+      "no_barcode_detail": "İyi aydınlatılmış bir yerde durun ve kartı kameraya yaklaştırın",
+      "no_barcode_title": "Barkod tespit edilemedi"
+    },
+    "button_primary": "Belge taramasını başlat",
+    "detail": {
+      "folded_doc_front": "Belgenizi düz bir şekilde yerleştirin, tüm iç sayfaları ekleyin (fotoğrafınızı içermelidir)"
+    },
+    "header": {
+      "recording_complete": "Kayıt tamamlandı",
+      "recording_video": "Video kaydediliyor"
+    },
+    "header_folded_doc_front": "Profil resmi tarafı",
+    "prompt": {
+      "button_card": "Plastik kart",
+      "button_paper": "Kağıt belge",
+      "title_id": "Ne tür bir kimlik kartınız var?",
+      "title_license": "Ne tür bir sürücü belgeniz var?"
+    }
+  },
+  "doc_confirmation": {
+    "alert": {
+      "blur_detail": "Her şeyin net olduğundan emin olun",
+      "blur_title": "Bulanık fotoğraf tespit edildi",
+      "crop_detail": "Belgenin tamamının görünür olduğundan emin olun",
+      "crop_title": "Kesik görüntü tespit edildi",
+      "glare_detail": "Doğrudan ışıktan uzak durun",
+      "glare_title": "Parlama algılandı",
+      "no_doc_detail": "Çerçevenin içinde olduğundan emin olun",
+      "no_doc_title": "Belge tespit edilmedi",
+      "odp_detail": "Lütfen orijinal belgenizi kullanın. Ekran fotoğrafları veya fotokopiler kabul edilmez",
+      "odp_photo_of_screen_title": "Ekran fotoğrafı algılandı",
+      "odp_photocopy_title": "Fotokopi tespit edildi",
+      "odp_scan_title": "Tarama algılandı",
+      "odp_screenshot_title": "Ekran görüntüsü algılandı"
+    },
+    "body": "Belge sayfasının tamamını yüklediğinizden ve ayrıntıların bulanıklık veya parlama olmadan okunabilecek netlikte olduğundan emin olun",
+    "body_address_certificate": "Tüm belge sayfasını yüklediğinizden ve detayların bulanıklık veya parlamasız okunabilir olduğundan emin olun",
+    "body_bank_statement": "Belge sayfasının tamamını yüklediğinizden ve ayrıntıların bulanıklık veya parlama olmadan okunabilecek netlikte olduğundan emin olun",
+    "body_benefits_letter": "Belge sayfasının tamamını yüklediğinizden ve ayrıntıların bulanıklık veya parlama olmadan okunabilecek netlikte olduğundan emin olun",
+    "body_bill": "Belge sayfasının tamamını yüklediğinizden ve ayrıntıların bulanıklık veya parlama olmadan okunabilecek netlikte olduğundan emin olun",
+    "body_exchange_house_statement": "Tüm belge sayfasını yüklediğinizden ve ayrıntıların bulanıklık veya parlamasız okunabilir olduğundan emin olun",
+    "body_general_letter": "Tüm belge sayfasını yüklediğinizden ve detayların bulanıklık veya parlamasız okunabilir olduğundan emin olun",
+    "body_generic_document": "Bilgilerinizin net olduğundan ve tamamen göründüğünden emin olun",
+    "body_id": "Bilgilerinizin net olduğundan ve tamamen göründüğünden emin olun",
+    "body_identity_document_with_address": "Tüm belge sayfasını yüklediğinizden ve ayrıntıların bulanıklık veya parlamasız okunabilir olduğundan emin olun",
+    "body_image_medium": "Okunamaz olması durumunda doğrulanma süreciniz daha uzun sürer",
+    "body_image_poor": "Sizi sorunsuz bir şekilde doğrulayabilmemiz için daha iyi bir fotoğrafa ihtiyacımız var",
+    "body_insurance_statement": "Tüm belge sayfasını yüklediğinizden ve ayrıntıların bulanıklık veya parlamasız okunabilir olduğundan emin olun",
+    "body_license": "Bilgilerinizin net olduğundan ve tamamen göründüğünden emin olun",
+    "body_mobile_phone_bill": "Tüm belge sayfasını yüklediğinizden ve detayların bulanıklık veya parlamadan net bir şekilde okunabildiğinden emin olun",
+    "body_mortgage_statement": "Tüm belge sayfasını yüklediğinizden ve detayların bulanıklık veya parlamadan net bir şekilde okunabildiğinden emin olun",
+    "body_passport": "Bilgilerinizin net olduğundan ve tamamen göründüğünden emin olun",
+    "body_pension_property_statement_letter": "Tüm belge sayfasını yüklediğinizden ve ayrıntıların bulanıklık veya parlamasız okunabilir olduğundan emin olun",
+    "body_permit": "Bilgilerinizin net olduğundan ve tamamen göründüğünden emin olun",
+    "body_tax_letter": "Belge sayfasının tamamını yüklediğinizden ve ayrıntıların bulanıklık veya parlama olmadan okunabilecek netlikte olduğundan emin olun",
+    "button_close": "Kapat",
+    "button_primary_redo": "Tekrar et",
+    "button_primary_upload": "Yükle",
+    "button_primary_upload_anyway": "Yine de yükle",
+    "button_secondary_change_document": "Başka bir belge seçin",
+    "button_secondary_redo": "Tekrar et",
+    "button_secondary_submit_anyway": "Yine de fotoğrafı gönder",
+    "button_zoom": "Resmi büyüt",
+    "image_accessibility": "Belgenizin fotoğrafı",
+    "title": "Resminizi kontrol edin"
+  },
+  "doc_multi_frame_capture": {
+    "capture_progress_title": "Belge taranıyor",
+    "instructions_title_back": "Belgenizin arka yüzünü çerçeveye yerleştirin",
+    "instructions_title_front": "Belgenizin ön yüzünü çerçeveye yerleştirin"
+  },
+  "doc_select": {
+    "button_address_card": "Adres kartı",
+    "button_address_card_back": "Adres Kartı (Arka)",
+    "button_address_card_detail": "Geçici ve kalıcı kartlar kabul edilir",
+    "button_address_card_front": "Adres Kartı (Ön)",
+    "button_bank_statement": "Banka veya kooperatif beyanı",
+    "button_bank_statement_non_uk": "Banka hesap özeti",
+    "button_benefits_letter": "Sosyal Yardım Mektubu",
+    "button_benefits_letter_detail": "Devlet tarafından yetkilendirilmiş hane halkı yardımları, ör. İş arayan ödeneği, Konut yardımı, Vergi kredileri",
+    "button_bill": "Fatura",
+    "button_bill_detail": "Gaz, elektrik, su, sabit hat veya internet",
+    "button_exchange_house_statement": "Döviz Evi Beyanı",
+    "button_exchange_house_statement_detail": "Gönderenin transfer veya havale beyanı",
+    "button_general_letter": "Genel Mektup",
+    "button_general_letter_detail": "Finans kuruluşu veya hizmet şirketinden mektup",
+    "button_government_letter": "Resmî Mektup",
+    "button_government_letter_detail": "Herhangi bir resmî mektup, ör. Yardım hakkı, Oy mektupları, Vergi mektupları vb.",
+    "button_id": "Kimlik kartı",
+    "button_id_detail": "Ön ve arka",
+    "button_identity_document_with_address": "Adresli Kimlik Belgesi",
+    "button_identity_document_with_address_back": "Adresli Kimlik Belgesi (Arka)",
+    "button_identity_document_with_address_detail": "Bir hükümet otoritesi tarafından verilmiştir",
+    "button_identity_document_with_address_front": "Adresli Kimlik Belgesi (Ön)",
+    "button_insurance_statement": "Sigorta Beyanı",
+    "button_insurance_statement_detail": "Özel bir sigorta veya aracılık şirketinden çıkarılmış",
+    "button_license": "Sürücü belgesi",
+    "button_license_detail": "Ön ve arka",
+    "button_mobile_phone_bill": "Mobil Telefon Faturası",
+    "button_mobile_phone_bill_detail": "Bir mobil telefon ağı sağlayıcısından verildi",
+    "button_mortgage_statement": "İpotek Beyanı",
+    "button_mortgage_statement_detail": "Finansal kredi kuruluşundan verilmiştir",
+    "button_passport": "Pasaport",
+    "button_passport_detail": "Fotoğraf sayfası",
+    "button_pension_property_statement_letter": "Emeklilik veya Mülkiyet Beyanı/Mektubu",
+    "button_pension_property_statement_letter_detail": "Emeklilik beyanı veya mektubu ve Emlak vergisi beyanı veya mektubu",
+    "button_permit": "Oturma izni",
+    "button_permit_detail": "Ön ve arka",
+    "button_tax_letter": "Yerel Yönetim Vergi Mektubu",
+    "extra_estatements_ok": "e-beyannameler kabul edilir",
+    "extra_no_mobile": "Üzgünüz, cep telefonu faturası kabul edilmez",
+    "list_accessibility": "Kimliğinizi doğrulamak için kullanabileceğiniz belgeler",
+    "pill": "en hızlı",
+    "section": {
+      "header_country": "Düzenleyen ülke",
+      "header_doc_type": "Kabul edilen belgeler",
+      "input_country_not_found": "Sonuç Yok",
+      "input_placeholder_country": "Düzenleyen ülkeyi seçin"
+    },
+    "subtitle": "Resmî bir fotoğraflı kimlik olmalıdır",
+    "subtitle_country": "Hangi belgeleri kabul ettiğimizi görmek için düzenleyen ülkeyi seçin",
+    "subtitle_entire_page": "Tüm sayfa",
+    "subtitle_front_back": "Ön ve arka",
+    "subtitle_photo_page": "Fotoğraf sayfası",
+    "subtitle_poa": "Bunlar mevcut ev adresinizi göstermesi en muhtemel belgelerdir",
+    "title": "Belgenizi seçin",
+    "title_poa": "Bir belge seçiniz"
+  },
+  "doc_submit": {
+    "button_link_upload": "veya fotoğraf yükleyin (tarama veya fotokopi kabul edilmez)",
+    "button_primary": "Telefonda devam et",
+    "subtitle": "Telefonunuzla fotoğraf çekin",
+    "title_address_certificate": "Adres kartını gönder",
+    "title_address_certificate_back": "Adres kartını (arka) gönder",
+    "title_address_certificate_front": "Adres kartını (ön yüz) gönder",
+    "title_bank_statement": "Beyan gönder",
+    "title_benefits_letter": "Mektup gönder",
+    "title_bill": "Faturayı gönder",
+    "title_exchange_house_statement": "Döviz bürosu beyanını gönder",
+    "title_general_letter": "Genel mektubu gönder",
+    "title_generic_document_back": "Belgeyi gönder (arka yüz)",
+    "title_generic_document_front": "Belgeyi gönder (ön yüz)",
+    "title_government_letter": "Resmî Mektup",
+    "title_id_back": "Kimliği gönder (arka yüz)",
+    "title_id_front": "Kimliği gönder (ön yüz)",
+    "title_identity_document_with_address": "Adresli kimlik belgesini gönderin",
+    "title_identity_document_with_address_back": "Adresli kimlik belgesini (arka) gönderin",
+    "title_identity_document_with_address_front": "Adresli kimlik belgesini (ön yüz) gönderin",
+    "title_insurance_statement": "Sigorta beyanını gönder",
+    "title_license_back": "Sürücü belgesini gönder (arka yüz)",
+    "title_license_front": "Sürücü belgesini gönder (ön yüz)",
+    "title_mobile_phone_bill": "Mobil telefon faturasını gönder",
+    "title_mortgage_statement": "İpotek beyanını gönder",
+    "title_passport": "Pasaport fotoğraf sayfasını gönder",
+    "title_pension_property_statement_letter": "Beyanname veya mektup gönderin",
+    "title_permit_back": "Oturma iznini gönder (arka yüz)",
+    "title_permit_front": "Oturma iznini gönder (ön yüz)",
+    "title_tax_letter": "Yerel Hükümet Vergi Mektubunu Gönderin"
+  },
+  "doc_video_capture": {
+    "button_primary_fallback": "Sonraki adım",
+    "button_primary_fallback_end": "Kaydı bitir",
+    "detail_step2": "Belgeyi her zaman tamamen görünecek şekilde tutun",
+    "header": "Belgenizi tutarken, ön tarafı çerçevenin içinde tutun",
+    "header_paper_doc_step2": "Dış sayfaları göstermek için belgenizi yavaşça çevirin",
+    "header_passport": "Pasaportunuzu tutarken fotoğraf sayfasını çerçeve içinde tutun",
+    "header_passport_progress": "Sabit kalın",
+    "header_step1": "Şimdi, kıpırdamayın",
+    "header_step2": "Belgenizin arkasını göstermek için yavaşça çevirin",
+    "prompt": {
+      "detail_timeout": "Video kaydı<timeout></timeout> saniye ile sınırlıdır. <fallback>Tekrar başlayın</fallback>"
+    },
+    "stepper": "Adım <step></step>/<total></total>",
+    "success_accessibility": "Başarılı"
+  },
+  "doc_video_confirmation": {
+    "button_secondary": "Videoyu ön izle",
+    "title": "Videonuzu kontrol edin"
+  },
+  "error_unsupported_browser": {
+    "subtitle_android": "İşlemi Google Chrome'un en son sürümünde yeniden başlatın",
+    "subtitle_ios": "Safari'nin en son sürümünde işlemi yeniden başlatın",
+    "title_android": "Desteklenmeyen tarayıcı",
+    "title_ios": "Desteklenmeyen tarayıcı"
+  },
+  "generic": {
+    "accessibility": {
+      "close_sdk_screen": "Kimlik doğrulama ekranını kapat",
+      "dismiss_alert": "Uyarıyı kapat"
+    },
+    "back": "geri",
+    "close": "kapat",
+    "errors": {
+      "expired_token": {
+        "instruction": "Lütfen tekrar deneyin",
+        "message": "Jetonun süresi doldu"
+      },
+      "expired_trial": {
+        "instruction": "Deneme sınırına ulaştınız",
+        "message": "Denemenizin süresi doldu"
+      },
+      "geoblocked_error": {
+        "instruction": "Üzgünüz, mevcut konumunuz desteklenmediği için daha fazla ilerleyemiyoruz",
+        "message": "Hizmet kullanılamıyor"
+      },
+      "interrupted_flow_error": {
+        "instruction": "İşlemi farklı bir cihazda yeniden başlatın",
+        "message": "Kamera tespit edilmedi"
+      },
+      "invalid_size": {
+        "instruction": "10 MB'ın altında olmalıdır.",
+        "message": "Dosya boyutu aşıldı."
+      },
+      "invalid_type": {
+        "instruction": "Başka bir dosya türü kullanmayı deneyin.",
+        "message": "Dosya yüklenemedi."
+      },
+      "lazy_loading": {
+        "message": "Bileşen yüklenirken bir hata oluştu"
+      },
+      "multiple_faces": {
+        "instruction": "Csak az Ön arca lehet a szelfin",
+        "message": "Birden fazla yüz bulundu"
+      },
+      "no_face": {
+        "instruction": "Yüzünüzün görünür olduğundan emin olun",
+        "message": "Yüz tespit edilmedi"
+      },
+      "request_error": {
+        "instruction": "Lütfen tekrar deneyin",
+        "message": "Bir sorun oluştu"
+      },
+      "sms_failed": {
+        "instruction": "Bağlantıyı telefonunuza kopyalayın",
+        "message": "Bir sorun oluştu"
+      },
+      "sms_overuse": {
+        "instruction": "Bağlantıyı telefonunuza kopyalayın",
+        "message": "Çok fazla başarısız deneme"
+      },
+      "unsupported_file": {
+        "instruction": "Bir JPG veya PNG dosyası kullanmayı deneyin",
+        "message": "Dosya türü desteklenmiyor"
+      }
+    },
+    "lazy_load_placeholder": "Yükleniyor...",
+    "loading": "Yükleniyor"
+  },
+  "get_link": {
+    "alert_wrong_number": "Numaranızın doğru olup olmadığını kontrol edin",
+    "button_copied": "Kopyalandı",
+    "button_copy": "Kopyala",
+    "button_submit": "Bağlantıyı gönderin",
+    "info_qr_how": "QR kodu nasıl taranır?",
+    "info_qr_how_list_item_camera": "Telefonunuzun kamerasını QR koduna tutun",
+    "info_qr_how_list_item_download": "Bu işe yaramazsa Google Play veya App Store'dan bir QR kod tarayıcısı indirin",
+    "link_divider": "veya alternatif bir yöntem seçin",
+    "link_qr": "QR kodunu taratın",
+    "link_sms": "Bağlantıyı SMS ile alın",
+    "link_url": "Bağlantıyı kopyalayın",
+    "loader_sending": "Gönderiliyor",
+    "number_field_input_placeholder": "Cep telefonu numaranızı girin",
+    "number_field_label": "Cep telefonu numaranızı girin:",
+    "subtitle_qr": "QR kodunu telefonunuzla tarayın",
+    "subtitle_sms": "Bu tek seferlik bağlantıyı telefonunuza gönderin",
+    "subtitle_url": "Bu tek seferlik bağlantıyı telefonunuza gönderin",
+    "title": "Güvenli bağlantınızı alın",
+    "url_field_label": "Bağlantıyı mobil tarayıcınıza kopyalayın"
+  },
+  "interactive_task": {
+    "waiting": {
+      "title_5": "Medya yükleniyor..."
+    }
+  },
+  "livenessV2": {
+    "error_reload_instructions": "Talimatları yeniden yükle",
+    "intro_note_no1": "İlk olarak, yüzünüzü çerçeveye yerleştirin",
+    "intro_note_no2": "Ardından, başınızı yavaşça her iki tarafa çevirin",
+    "intro_ready_button": "Lütfen yüzünüzü ve arka planı kaydedeceğimizi unutmayın",
+    "intro_subtitle": "Bu işlem, gerçek bir kişi olduğunuzu doğrulamak amacıyla yapılır",
+    "intro_warning": "Lütfen yüzünüzü ve arka planı kaydedeceğimizi unutmayın",
+    "success_main_button": "Doğrulamayı gönder",
+    "success_title": "Kimliğinizi doğrulamaya başlamak için ihtiyacımız olan tek şey bu"
+  },
+  "mobilePhrases": {
+    "photo_upload": {
+      "body_id_back": "Kimliğinizin arka yüzünün fotoğrafını çekin",
+      "body_id_front": "Kimliğinizin ön yüzünün fotoğrafını çekin",
+      "body_license_back": "Sürücü belgenizin arka yüzünün fotoğrafını çekin",
+      "body_license_front": "Sürücü belgenizin ön yüzünün fotoğrafını çekin",
+      "body_passport": "Pasaport fotoğraf sayfanızın fotoğrafını çekin",
+      "body_selfie": "Yüzünüzü gösteren bir selfie çekin"
+    },
+    "selfie_capture": {
+      "alert": {
+        "camera_inactive": {
+          "detail": "Bunun yerine <fallback>temel kamera modunu</fallback> kullanarak fotoğraf çekin"
+        },
+        "camera_not_working": {
+          "detail": "Bunun yerine <fallback>temel kamera modunu</fallback> kullanarak fotoğraf çekin"
+        }
+      }
+    },
+    "upload_guide": {
+      "button_primary": "Fotoğraf çekin",
+      "title": "Pasaport fotoğraf sayfası"
+    }
+  },
+  "nfc_scan": {
+    "sheet": {
+      "success": "Tarama başarılı"
+    }
+  },
+  "nfc_scan_error_can": {
+    "primary_button": "Çıkış doğrulaması",
+    "subtitle": "CAN numaranızı girmek için maksimum deneme sayısına ulaştınız"
+  },
+  "nfc_scan_error_can:title": "Maksimum deneme sayısına ulaşıldı",
+  "otp": {
+    "code_input": {
+      "error": {
+        "code_expired": "Kodunuzun süresi doldu, lütfen yeni bir tane isteyin.",
+        "code_invalid": "Yanlış kod girildi, lütfen tekrar deneyin.",
+        "technical": "Teknik bir hata oluştu, lütfen daha sonra tekrar deneyin",
+        "too_many_attempts": "Bu kodu çok fazla kez denediniz, lütfen yeni bir tane isteyin.",
+        "wrong_code": "Yanlış kod girildi, lütfen tekrar deneyin"
+      },
+      "intro": "SMS ile gönderilen kodu doğrulamak için 5 dakikanız var <phonenumber></phonenumber>",
+      "resend": {
+        "cta": "Yeni bir kod isteyin",
+        "cta_timeout": "Yeni bir kod isteyin (<timeout></timeout> saniye)",
+        "label": "Gönderilmiş kod",
+        "tracker": "<remaining></remaining> - <limit></limit>"
+      },
+      "title": "Bir Kerelik Şifre"
+    },
+    "error": {
+      "cta": "Geri dön",
+      "subtitle": "Lütfen birkaç saniye bekleyin ve tekrar deneyin",
+      "title": "Bir şeyler yanlış gitti"
+    },
+    "failure": {
+      "cta": "Devam Et",
+      "subtitle": "Artık telefon numaranızı doğrulayamıyoruz",
+      "title": "İzin verilen deneme sayısı aşıldı"
+    },
+    "send_code": {
+      "cta": "Kodu gönder",
+      "error": {
+        "invalid_phone_number": "Lütfen geçerli bir telefon numarası girin.",
+        "limit": "Gönderilen SMS limitine ulaştınız",
+        "technical": "Teknik bir hata oluştu, lütfen daha sonra tekrar deneyin"
+      },
+      "input_label": "Telefon numarası",
+      "intro": "Telefon numaranızı doğrulamak için sizden bir seferlik şifre girmenizi isteyeceğiz.",
+      "title": "Tek Seferlik Şifre"
+    }
+  },
+  "outro": {
+    "body": "Kimliğinizi doğrulamaya başlamak için ihtiyacımız olan tek şey bu",
+    "body_government_letter": "En iyi sonuçlar için belge sayfasının tamamını gönderin",
+    "title": "Teşekkürler"
+  },
+  "permission": {
+    "body_both": "Hem kameranızı hem de mikrofonunuzu kullanmadan sizi doğrulayamayız",
+    "body_cam": "Kamera erişimi olmadan sizi doğrulayamayız",
+    "body_mic": "Mikrofonunuzu kullanmadan sizi doğrulayamayız",
+    "button_primary_both": "Her ikisini de etkinleştir",
+    "button_primary_cam": "Kamerayı etkinleştir",
+    "button_primary_mic": "Mikrofonu etkinleştir",
+    "subtitle_both": "İstendiğinde, devam etmek için her ikisine de erişimi etkinleştirmeniz gerekir",
+    "subtitle_cam": "İstendiğinde, devam etmek için kamera erişimini etkinleştirmeniz gerekir",
+    "subtitle_mic": "İstendiğinde, devam etmek için mikrofon erişimini etkinleştirmeniz gerekir",
+    "title_both": "Kamera ve mikrofon erişimine izin ver",
+    "title_cam": "Kamera erişimine izin ver",
+    "title_mic": "Mikrofon erişimine izin ver"
+  },
+  "permission_recovery": {
+    "android": {
+      "browser_settings": {
+        "title": "Çözüm 1: Tarayıcı ayarları"
+      },
+      "device_settings": {
+        "list_item_1": "Cihazınızda, <strong>Ayarlar</strong> uygulamasını açın",
+        "list_item_2": "<strong>Uygulamalar</strong>'a dokunun",
+        "list_item_3": "<browser_icon></browser_icon> dokunun. Bulamazsanız, <strong>Tüm uygulamaları gör</strong> veya <strong>Uygulamaları yönet</strong> seçeneğine dokunun ve tarayıcı uygulamanızı seçin",
+        "list_item_4": "<strong>İzinler</strong>'e dokunun",
+        "list_item_5_cam": "<strong>Kamera</strong> öğesine dokunun ve <strong>İzin Ver</strong> seçeneğini seçin",
+        "list_item_5_mic": "<strong>Mikrofon</strong>u tıklayın ve <strong>İzin Ver</strong> seçeneğini seçin",
+        "list_item_6": "Bu sayfaya geri dönün ve <strong>Sayfayı yenile</strong> düğmesine tıklayın",
+        "title": "Çözüm 2: Cihaz ayarları"
+      },
+      "refresh_page": {
+        "list_item_1_both": "<strong>Sayfayı yenile</strong> düğmesine dokunun. Kamera ve mikrofon erişimini tekrar etkinleştirmeniz istenecektir. Açılır pencere belirdiğinde, <strong>İzin Ver</strong> (veya <strong>Tamam</strong>) seçeneğini seçin.",
+        "list_item_1_cam": "<strong>Sayfayı yenile</strong> düğmesine dokunun. Kameraya erişimi tekrar etkinleştirmeniz istenecektir. Pop-up belirdiğinde, <strong>İzin Ver</strong> (veya <strong>Tamam</strong>) seçeneğini seçin.",
+        "list_item_1_mic": "<strong>Sayfayı yenile</strong> düğmesine dokunun. Mikrofon erişimini tekrar etkinleştirmeniz istenecektir. Pop-up belirdiğinde, <strong>İzin Ver</strong> (veya <strong>Tamam</strong>) seçeneğini seçin."
+      }
+    },
+    "android_chrome": {
+      "browser_settings": {
+        "list_item_1": "Tarayıcınızda, adres çubuğunda ayarlar simgesine <settings_icon_chrome></settings_icon_chrome> tıklayın",
+        "list_item_2": "<strong>İzinler</strong>'e dokunun",
+        "list_item_3_cam": "<strong>Kamera</strong> yanındaki geçişi etkinleştirin",
+        "list_item_3_mic": "<strong>Mikrofon</strong> yanındaki anahtarı etkinleştirin",
+        "list_item_4": "Bu sayfaya geri dönün ve <strong>Sayfayı Yenile</strong> düğmesine tıklayın"
+      }
+    },
+    "android_firefox": {
+      "browser_settings": {
+        "list_item_1": "Tarayıcınızda, adres çubuğunda kilit simgesine <lock_icon></lock_icon> dokunun",
+        "list_item_2_cam": "<strong>Engellenmiş</strong> yanındaki <strong>Kamera</strong> seçeneğine dokunun ve <strong>İzin Verildi</strong> seçeneğine geçin",
+        "list_item_2_mic": "<strong>Engellenmiş</strong> yanındaki <strong>Mikrofon</strong> seçeneğine dokunun ve <strong>İzin Verildi</strong> seçeneğine geçin",
+        "list_item_3": "Bu sayfaya geri dönün ve <strong>Sayfayı yenile</strong> düğmesine tıklayın",
+        "title": "Çözüm 2: Tarayıcı ayarları"
+      },
+      "device_settings": {
+        "title": "Çözüm 3: Cihaz ayarları"
+      },
+      "refresh_page": {
+        "title": "Çözüm 1: Sayfayı yenileyin"
+      }
+    },
+    "android_generic": {
+      "browser_settings": {
+        "list_item_1": "Tarayıcınızda, web sitesi ayarlarını açın. Bu genellikle adres çubuğunda bir kilit simgesi <lock_icon></lock_icon> olur",
+        "list_item_2": "İzinler hakkındaki bölümü bulun",
+        "list_item_3_cam": "<strong>Kamera</strong> izinlerini etkinleştirin",
+        "list_item_3_mic": "<strong>Mikrofon</strong> izinlerini etkinleştirin",
+        "list_item_4": "Bu sayfaya geri dönün ve <strong>Sayfayı yenile</strong> düğmesine tıklayın"
+      }
+    },
+    "android_samsung": {
+      "browser_settings": {
+        "list_item_1": "Tarayıcınızda, adres çubuğunda kilit simgesine <lock_icon></lock_icon> dokunun",
+        "list_item_2_cam": "<strong>Kamera</strong> yanındaki anahtarı etkinleştirin",
+        "list_item_2_mic": "<strong>Mikrofon</strong> yanındaki anahtarı etkinleştirin",
+        "list_item_3": "Bu sayfaya geri dönün ve <strong>Sayfayı yenile</strong> düğmesine tıklayın"
+      }
+    },
+    "button_primary": "Yenile",
+    "desktop": {
+      "browser_settings": {
+        "title": "Çözüm 1: Tarayıcı ayarları"
+      },
+      "device_settings": {
+        "title": "Çözüm 2: Cihaz ayarları"
+      }
+    },
+    "desktop_chrome": {
+      "browser_settings": {
+        "list_item_1": "Tarayıcınızda, adres çubuğunda ayarlar simgesini <settings_icon_chrome></settings_icon_chrome> tıklayın",
+        "list_item_2_cam": "<strong>Kamera</strong> yanındaki anahtarı etkinleştirin",
+        "list_item_2_mic": "<strong>Mikrofon</strong> yanındaki anahtarı etkinleştirin",
+        "list_item_3": "Bu sayfaya geri dönün ve <strong>Sayfayı yenile</strong> düğmesine tıklayın"
+      }
+    },
+    "desktop_edge": {
+      "browser_settings": {
+        "list_item_1": "Tarayıcınızda, adres çubuğunda kilit simgesine <lock_icon></lock_icon> tıklayın",
+        "list_item_2_cam": "<strong>Kamera</strong> yanındaki açılır menüye tıklayın ve <strong>İzin Ver</strong> seçeneğini seçin",
+        "list_item_2_mic": "<strong>Mikrofon</strong> yanındaki açılır menüye tıklayın ve <strong>İzin Ver</strong> seçeneğini seçin",
+        "list_item_3": "Bu sayfaya geri dönün ve <strong>Sayfayı yenile</strong> düğmesine tıklayın"
+      }
+    },
+    "desktop_firefox": {
+      "browser_settings": {
+        "list_item_1": "Tarayıcınızda, adres çubuğunda ayarlar simgesini <settings_icon_firefox></settings_icon_firefox> tıklayın",
+        "list_item_2_cam": "<strong>Engellenmiş</strong> seçeneğine tıklayın, <strong>Kamerayı kullan</strong> yanında",
+        "list_item_2_mic": "<strong>Engellenmiş</strong> seçeneğine tıklayın ve <strong>Mikrofonu kullan</strong> seçeneğinin yanında bulunur",
+        "list_item_3": "Bu sayfaya geri dönün ve <strong>Sayfayı yenile</strong> düğmesine tıklayın"
+      }
+    },
+    "desktop_generic": {
+      "browser_settings": {
+        "list_item_1": "Tarayıcınızda, web sitesi ayarlarını açın. Bu genellikle adres çubuğunda bir kilit simgesi <lock_icon></lock_icon> olur",
+        "list_item_2": "İzinler hakkındaki bölümü bulun",
+        "list_item_3_cam": "<strong>Kamera</strong> izinlerini etkinleştirin",
+        "list_item_3_mic": "<strong>Mikrofon</strong> izinlerini etkinleştirin",
+        "list_item_4": "Bu sayfaya geri dönün ve <strong>Sayfayı yenile</strong> düğmesine tıklayın"
+      },
+      "device_settings": {
+        "list_item_1": "Bilgisayarınızda, <strong>Ayarlarınızı</strong> açın",
+        "list_item_2": "(<strong>Gizlilik</strong> altında genellikle bulunan) izinler hakkındaki bölümü bulun",
+        "list_item_3_cam": "<browser_icon></browser_icon> için <strong>Kamera</strong> izinlerini etkinleştirin",
+        "list_item_3_mic": "<browser_icon></browser_icon> için <strong>Mikrofon</strong> izinlerini etkinleştirin",
+        "list_item_4": "Gerekirse tarayıcınızı yeniden başlatın ve bu sayfaya geri dönün"
+      }
+    },
+    "desktop_mac": {
+      "device_settings": {
+        "list_item_1": "Bilgisayarınızda, Apple menüsünü <apple_icon></apple_icon> tıklayın ve <strong>Sistem Ayarları</strong> (veya <strong>Sistem Tercihleri</strong>) seçin",
+        "list_item_2": "Kenar çubuğunda <strong>Gizlilik & Güvenlik</strong> (veya <strong>Güvenlik & Gizlilik</strong>) seçeneğine tıklayın",
+        "list_item_3": "Pop-up'ta <strong>Sonra</strong> tıklayın",
+        "list_item_3_cam": "<strong>Kamera</strong> üzerine tıklayın ve <browser_icon></browser_icon> yanındaki anahtarı (veya onay kutusunu) aktifleştirin",
+        "list_item_4": "Açılan pencerede <strong>Çıkış Yap & Yeniden Aç</strong> seçeneğine tıklayın ve bu sayfaya geri dönün",
+        "list_item_4_mic": "<strong>Mikrofon</strong>u tıklayın ve <browser_icon></browser_icon> yanındaki anahtarı (veya onay kutusunu) etkinleştirin"
+      }
+    },
+    "desktop_safari": {
+      "browser_settings": {
+        "list_item_1": "Tarayıcınızda, adres çubuğunda sağ tıklayın ve <strong>Ayarlar</strong> seçeneğini seçin",
+        "list_item_2_cam": "<strong>Kamera</strong> yanındaki açılır menüye tıklayın ve <strong>İzin Ver</strong> seçeneğini seçin",
+        "list_item_2_mic": "<strong>Mikrofon</strong> yanındaki açılır menüye tıklayın ve <strong>İzin Ver</strong> seçeneğini seçin",
+        "list_item_3": "Bu sayfaya geri dönün ve <strong>Sayfayı Yenile</strong> düğmesine tıklayın"
+      }
+    },
+    "desktop_windows": {
+      "device_settings": {
+        "list_item_1": "Bilgisayarınızda, Windows menüsünü <windows_icon></windows_icon> tıklayın ve <strong>Ayarlar</strong>ı seçin <settings_icon_windows></settings_icon_windows>",
+        "list_item_2": "<strong>Gizlilik</strong> (veya <strong>Gizlilik & Güvenlik</strong>) tıklayın",
+        "list_item_3_cam": "<strong>Uygulama izinleri</strong> altındaki <strong>Kamera</strong> öğesini tıklayın ve <browser_icon></browser_icon> yanındaki anahtarı etkinleştirin",
+        "list_item_3_mic": "<strong>Uygulama izinleri</strong> altındaki <strong>Mikrofon</strong> öğesini tıklayın ve <browser_icon></browser_icon> yanındaki anahtarı etkinleştirin",
+        "list_item_4": "Gerekirse tarayıcınızı yeniden başlatın ve bu sayfaya geri dönün"
+      }
+    },
+    "info": "Kurtarma",
+    "ios": {
+      "browser_settings": {
+        "list_item_1_both": "<strong>Sayfayı yenile</strong> düğmesine dokunun. Kamera ve mikrofon erişimini tekrar etkinleştirmeniz istenecektir. Açılır pencere belirdiğinde, <strong>İzin Ver</strong> (veya <strong>Tamam</strong>) seçeneğini seçin.",
+        "list_item_1_cam": "<strong>Sayfayı yenile</strong> düğmesine dokunun. Kameraya erişimi tekrar etkinleştirmeniz istenecektir. Pop-up belirdiğinde, <strong>İzin Ver</strong> (veya <strong>Tamam</strong>) seçeneğini seçin.",
+        "list_item_1_mic": "<strong>Sayfayı yenile</strong> düğmesine dokunun. Mikrofon erişimini tekrar etkinleştirmeniz istenecektir. Pop-up belirdiğinde, <strong>İzin Ver</strong> (veya <strong>Tamam</strong>) seçeneğini seçin."
+      },
+      "device_settings": {
+        "list_item_1": "Cihazınızda, <strong>Ayarlar</strong> uygulamasını açın",
+        "list_item_2": "Listeyi kaydırın ve <browser_icon></browser_icon> öğesine dokunun",
+        "list_item_3_cam": "<strong>Kamera</strong> yanındaki anahtarı etkinleştirin",
+        "list_item_3_mic": "<strong>Mikrofon</strong> yanındaki anahtarı etkinleştirin",
+        "list_item_4": "Bu sayfaya geri dönün ve <strong>Sayfayı yenile</strong> düğmesine tıklayın",
+        "title": "Çözüm 2: Cihaz ayarları"
+      },
+      "refresh_page": {
+        "title": "Çözüm 1: Sayfayı yenileyin"
+      }
+    },
+    "ios_safari": {
+      "device_settings": {
+        "list_item_1": "Cihazınızda, <strong>Ayarlar</strong> uygulamasını açın",
+        "list_item_2": "Listeyi kaydırın ve <browser_icon></browser_icon> öğesine dokunun",
+        "list_item_3_cam": "<strong>Kamera</strong> seçeneğine dokunun ve <strong>İzin Ver</strong> seçeneğini seçin",
+        "list_item_3_mic": "<strong>Mikrofon</strong>u tıklayın ve <strong>İzin Ver</strong> seçeneğini seçin",
+        "list_item_4": "Bu sayfaya geri dönün ve <strong>Sayfayı yenile</strong> düğmesine tıklayın"
+      }
+    },
+    "list_header_both": "Her ikisine de erişimi sağlamak için aşağıdaki adımları izleyin:",
+    "list_header_cam": "Kamera erişimini kurtarmak için aşağıdaki adımları izleyin:",
+    "list_item_action_cam": "Kimlik doğrulama işlemini yeniden başlatmak için bu sayfayı yenileyin",
+    "list_item_how_to_both": "Tarayıcı ayarlarınızdan kameranıza ve mikrofonunuza erişim izni verin",
+    "list_item_how_to_cam": "Tarayıcı ayarlarınızdan kameranıza erişim izni verin",
+    "list_item_how_to_mic": "Tarayıcı ayarlarınızdan mikrofonunuza erişim izni verin",
+    "subtitle_both": "Kimliğinizi doğrulamak için kameranıza ve mikrofonunuza erişim gerekiyoruz. Erişimi geri almak için aşağıdaki talimatları izleyin",
+    "subtitle_cam": "Kimliğinizi doğrulamak için kameranıza erişim hakkına ihtiyacımız var. Erişimi geri almak için aşağıdaki talimatları izleyin",
+    "subtitle_cam_old": "Yüz doğrulamasına devam etmek için kamera erişimini kurtarın",
+    "subtitle_mic": "Kimliğinizi doğrulamak için mikrofonunuza erişim hakkına ihtiyacımız var. Erişimi geri almak için aşağıdaki talimatları izleyin",
+    "title_both": "Kamera ve mikrofon erişimi reddedildi",
+    "title_cam": "Kamera erişimi reddedildi",
+    "title_mic": "Mikrofon erişimi reddedildi",
+    "web": {
+      "button_primary": "Sayfayı yenileyin",
+      "disclaimer": "Kimlik doğrulama süreci yeniden başlayabilir. Herhangi bir rahatsızlık için özür dileriz."
+    }
+  },
+  "photo_upload": {
+    "body_address_certificate_back": "Bilgisayarınızdan belgenin arka yüzünü yükleyin",
+    "body_address_certificate_front": "Bilgisayarınızdan belgenin önünü yükleyin",
+    "body_bank_statement": "En iyi sonuçlar için belge sayfasının tamamını gönderin",
+    "body_benefits_letter": "En iyi sonuçlar için belge sayfasının tamamını gönderin",
+    "body_bill": "En iyi sonuçlar için belge sayfasının tamamını gönderin",
+    "body_exchange_house_statement": "En iyi sonuçlar için tüm belge sayfasını sağlayın",
+    "body_general_letter": "En iyi sonuçlar için tüm belge sayfasını sağlayın",
+    "body_generic_document_back": "Bilgisayarınızdan belgenin arka yüzünü yükleyin",
+    "body_generic_document_front": "Bilgisayarınızdan belgenin ön yüzünü yükleyin",
+    "body_id_back": "Bilgisayarınızdan kimliğin arka yüzünü yükleyin",
+    "body_id_front": "Bilgisayarınızdan kimliğin ön yüzünü yükleyin",
+    "body_identity_document_with_address": "En iyi sonuçlar için tüm belge sayfasını sağlayın",
+    "body_identity_document_with_address_back": "Bilgisayarınızdan belgenin arka yüzünü yükleyin",
+    "body_identity_document_with_address_front": "Bilgisayarınızdan belgenin önünü yükleyin",
+    "body_insurance_statement": "En iyi sonuçlar için tüm belge sayfasını sağlayın",
+    "body_license_back": "Bilgisayarınızdan sürücü belgenizin arka yüzünü yükleyin",
+    "body_license_front": "Bilgisayarınızdan sürücü belgenizin ön yüzünü yükleyin",
+    "body_mobile_phone_bill": "En iyi sonuçlar için tüm belge sayfasını sağlayın",
+    "body_mortgage_statement": "En iyi sonuçlar için tüm belge sayfasını sağlayın",
+    "body_passport": "Bilgisayarınızdan pasaport fotoğraf sayfasını yükleyin",
+    "body_pension_property_statement_letter": "En iyi sonuçlar için tüm belge sayfasını sağlayın",
+    "body_selfie": "Bilgisayarınızdan bir selfie yükleyin",
+    "body_tax_letter": "En iyi sonuçlar için belge sayfasının tamamını gönderin",
+    "button_take_photo": "Fotoğraf çekin",
+    "button_upload": "Yükle",
+    "title_selfie": "Selfie"
+  },
+  "poa_cancel": "İptal",
+  "poa_err_invalid_file": {
+    "message": "Lütfen farklı bir dosya seçin.",
+    "ok": "Tamam",
+    "title": "Geçersiz Dosya"
+  },
+  "poa_guidance": {
+    "button_primary": "Devam et",
+    "instructions": {
+      "address": "Geçerli adres",
+      "full_name": "Ad soyadı",
+      "issue_date": "Düzenleme tarihi veya özet dönemi",
+      "label": "Készítsen fényképet a teljes dokumentumról, és győződjön meg arról, hogy tisztán látszik:",
+      "logo": "Logo"
+    },
+    "instructions_address_card_issue_date": "Düzenleme tarihi",
+    "instructions_expiry_date": "Son kullanma tarihi (varsa)",
+    "instructions_full_address": "Açık adres",
+    "subtitle_address_card": "Geçerli bir adres kartı olmalıdır",
+    "subtitle_bank_statement": "Son 3 ay içinde düzenlenmiş olmalıdır",
+    "subtitle_benefits_letter": "Son 12 ay içinde düzenlenmiş olmalıdır",
+    "subtitle_bill": "​​Son 3 ay​​ içinde düzenlenmiş olmalıdır",
+    "subtitle_dynamic_empty_grace_period": "Geçerli bir belge olmalı",
+    "subtitle_dynamic_grace_period": "Son <graceperiod></graceperiod> ayda düzenlenmiş olmalı",
+    "subtitle_tax_letter": "Son 12 ayiçinde düzenlenmiş olmalıdır"
+  },
+  "poa_intro": {
+    "button_primary": "Doğrulamayı başlat",
+    "list_matches_signup": "Kayıt sırasında kullandığınız adresle eşleşmelidir",
+    "list_most_recent": "En güncel belge olmalıdır",
+    "list_shows_address": "Geçerli adresinizi içeren",
+    "subtitle": "Aşağıdaki niteliklerde bir belgeye ihtiyacınız olacak:",
+    "title": "Şimdi adresinizi doğrulayalım"
+  },
+  "poa_welcome_text": "Adresinizi içeren bir belgenin fotoğrafını çekin",
+  "profile_data": {
+    "address_title": "Adresinizi ekleyin",
+    "button_continue": "Devam et",
+    "components": {
+      "country_residence_select": {
+        "placeholder": "Bir ülke seçin"
+      },
+      "country_select": {
+        "placeholder": "Bir ülke seçin"
+      },
+      "id_type_select": {
+        "aus_specific": {
+          "other": "Yabancı pasaportu"
+        },
+        "bra_specific": {
+          "other": "CNPJ",
+          "tax_id": "CPF"
+        },
+        "driving_license": "Ehliyet",
+        "esp_specific": {
+          "identity_card": "NIF/DNI"
+        },
+        "gha_specific": {
+          "social_insurance": "SSNIT"
+        },
+        "identity_card": "Kimlik kartı",
+        "ind_specific": {
+          "tax_id": "Kişisel Hesap Numarası (PAN)"
+        },
+        "ken_specific": {
+          "other": "Uzaylı Kartı"
+        },
+        "nga_specific": {
+          "identity_card": "Ulusal Kimlik Numarası (NIN)",
+          "other": "BVN",
+          "tax_id": "TIN"
+        },
+        "other": "NIE",
+        "passport": "Pasaport",
+        "placeholder": "Bir ulusal kimlik türü seçin",
+        "tax_id": "Vergi numarası",
+        "voter_id": "seçmen kimliği"
+      },
+      "nationality_select": {
+        "placeholder": "Bir ülke seçin"
+      },
+      "pan": {
+        "placeholder": "ABCDE1234F"
+      },
+      "ssn": {
+        "placeholder": "123-45-6789"
+      },
+      "state_select": {
+        "placeholder": "Bir eyalet seçin"
+      }
+    },
+    "country_of_residence_title": "İkamet ettiğiniz ülke",
+    "field_labels": {
+      "arg_specific": {
+        "national_id_value": "DNI numarası"
+      },
+      "can_specific": {
+        "national_id_value": "Sosyal Sigorta Numarası (SIN)"
+      },
+      "chl_specific": {
+        "national_id_value": "RUT / RUN numaraları"
+      },
+      "chn_specific": {
+        "national_id_value": "Yerleşik Kimlik kartı numarası"
+      },
+      "col_specific": {
+        "national_id_value": "Kolombiya Kişisel Kimlik Numarası"
+      },
+      "country": "Ülke",
+      "country_residence": "Ülke",
+      "dnk_specific": {
+        "national_id_value": "kalp masajı numarası"
+      },
+      "dob": "Doğum tarihi",
+      "email": "E-posta",
+      "fin_specific": {
+        "national_id_value": "Kişisel kimlik kodu"
+      },
+      "first_name": "Ad",
+      "gbr_specific": {
+        "postcode": "Posta kodu",
+        "town": "Şehir/Kasaba"
+      },
+      "hkg_specific": {
+        "national_id_value": "HKID"
+      },
+      "ind_specific": {
+        "pan": "Kalıcı hesap numarası (PAN)"
+      },
+      "ita_specific": {
+        "national_id_value": "Vergi kodu"
+      },
+      "jpn_specific": {
+        "national_id_value": "\"Numaram\" / Yerleşik Kayıt kodu"
+      },
+      "last_name": "Soyadı",
+      "line1": "Adres satırı 1",
+      "line2": "Adres satırı 2",
+      "line3": "Adres satırı 3",
+      "lux_specific": {
+        "national_id_value": "Sosyal Güvenlik numarası"
+      },
+      "mobile_number": "Cep telefonu numarası",
+      "national_id_type": "Ulusal kimlik türü",
+      "national_id_value": "Kimlik Numarası",
+      "nationality": "Uyruk",
+      "phl_specific": {
+        "national_id_value": "PhilSys Kart Numarası (PCN)"
+      },
+      "phone_number": "Telefon numarası",
+      "pol_specific": {
+        "national_id_value": "PESEL numarası"
+      },
+      "postcode": "Posta kodu",
+      "prt_specific": {
+        "national_id_value": "Vergi numarası"
+      },
+      "town": "Şehir/Kasaba",
+      "tur_specific": {
+        "national_id_value": "TC Kimlik Numarası"
+      },
+      "usa_specific": {
+        "line1_helper_text": "Açık adres, ör. 200 Albert Street",
+        "line2_helper_text": "Daire, süit, birim vb.",
+        "postcode": "Posta kodu",
+        "ssn": "Sosyal Güvenlik Numarası (SGN)",
+        "state": "Eyalet"
+      }
+    },
+    "field_optional": "(isteğe bağlı)",
+    "field_validation": {
+      "arg_specific": {
+        "invalid_national_id_value": "Lütfen geçerli bir DNI girin"
+      },
+      "bra_specific": {
+        "invalid_other": "Lütfen geçerli bir girin CNPJ",
+        "invalid_tax_id": "Lütfen geçerli bir girin CPF",
+        "required_other": "Lütfen CNPJ'nizi girin",
+        "required_tax_id": "Lütfen CPF'nizi girin"
+      },
+      "can_specific": {
+        "invalid_national_id_value": "Lütfen geçerli bir girin SIN",
+        "required_national_id_value": "Lütfen SIN'inizi girin"
+      },
+      "chl_specific": {
+        "invalid_national_id_value": "Lütfen geçerli bir RUT / RUN numarası girin",
+        "required_national_id_value": "Lütfen RUT / RUN numaralarınızı giriniz."
+      },
+      "chn_specific": {
+        "invalid_national_id_value": "Lütfen geçerli bir yerleşik kimlik kartı numarası girin",
+        "required_national_id_value": "Lütfen ikametgah kimlik kartı numaranızı giriniz"
+      },
+      "col_specific": {
+        "invalid_national_id_value": "Lütfen geçerli bir Kolombiya Kişisel Kimlik Numarası girin",
+        "required_national_id_value": "Lütfen Kolombiya Kişisel Kimlik Numaranızı girin"
+      },
+      "dnk_specific": {
+        "invalid_national_id_value": "Lütfen geçerli bir CPR numarası girin",
+        "required_national_id_value": "Lütfen CPR numaranızı giriniz"
+      },
+      "esp_specific": {
+        "invalid_identity_card": "Lütfen geçerli bir girin NIF/DNI",
+        "invalid_other": "Lütfen geçerli bir girin NIE",
+        "required_identity_card": "Lütfen NIF/DNI'nizi girin"
+      },
+      "fin_specific": {
+        "invalid_national_id_value": "Lütfen geçerli bir Kişisel kimlik kodu girin",
+        "required_national_id_value": "Lütfen Kişisel kimlik kodunuzu giriniz"
+      },
+      "gbr_specific": {
+        "invalid_postcode": "Lütfen geçerli bir posta kodu girin",
+        "required_postcode": "Lütfen posta kodunuzu girin",
+        "too_long_postcode": "Posta kodu çok uzun",
+        "too_short_postcode": "Posta kodu çok kısa"
+      },
+      "gha_specific": {
+        "invalid_social_insurance": "Lütfen geçerli bir SSNIT girin",
+        "required_social_insurance": "Lütfen SSNIT'inizi girin"
+      },
+      "hkg_specific": {
+        "invalid_national_id_value": "Lütfen geçerli bir HKID girin",
+        "required_national_id_value": "Lütfen HKID'nizi girin"
+      },
+      "ind_specific": {
+        "invalid_pan": "Lütfen geçerli bir PAN GİRİN",
+        "required_pan": "Lütfen PAN'ınızı girin"
+      },
+      "invalid": "Lütfen geçersiz karakterler veya semboller olup olmadığını kontrol edin",
+      "invalid_dob": "Lütfen geçerli bir doğum tarihi girin",
+      "invalid_driving_license": "Lütfen geçerli bir ehliyet numarası girin",
+      "invalid_email": "Lütfen geçerli bir e-posta girin",
+      "invalid_mobile_number": "Lütfen geçerli bir cep telefonu numarası girin",
+      "invalid_national_id_value": "Lütfen geçerli bir ulusal kimlik numarası girin",
+      "invalid_passport": "Lütfen geçerli bir pasaport numarası girin",
+      "invalid_phone_number": "Lütfen geçerli bir telefon numarası girin",
+      "invalid_voter_id": "Lütfen geçerli bir seçmen kimlik numarası girin",
+      "ita_specific": {
+        "invalid_national_id_value": "Lütfen geçerli bir mali kod girin",
+        "required_national_id_value": "Lütfen mali kodunuzu girin"
+      },
+      "jpn_specific": {
+        "invalid_national_id_value": "Lütfen geçerli bir \"Numaram\" / Yerleşik Kayıt kodu girin",
+        "required_national_id_value": "Lütfen \"Benim numaram\" / İkamet Kayıt kodunuzu girin"
+      },
+      "ken_specific": {
+        "invalid_other": "Lütfen geçerli bir Alien Card numarası girin",
+        "required_other": "Lütfen Alien Card numaranızı giriniz."
+      },
+      "lux_specific": {
+        "invalid_national_id_value": "Lütfen geçerli bir Sosyal Güvenlik numarası girin",
+        "required_national_id_value": "Lütfen sosyal güvenlik numaranızı giriniz"
+      },
+      "mex_specific": {
+        "invalid_identity_card": "Lütfen geçerli bir girin CURP",
+        "invalid_tax_id": "Lütfen geçerli bir girin RFC",
+        "required_identity_card": "Lütfen CURP'nizi girin",
+        "required_tax_id": "Lütfen RFC'nizi girin"
+      },
+      "mys_specific": {
+        "invalid_national_id_value": "Lütfen geçerli bir NRIC girin",
+        "required_national_id_value": "Lütfen NRIC'nizi girin"
+      },
+      "nga_specific": {
+        "invalid_identity_card": "Lütfen geçerli bir Ulusal Kimlik Numarası (NIN) girin",
+        "invalid_other": "Lütfen geçerli bir BVN girin",
+        "invalid_tax_id": "Lütfen geçerli bir TIN girin",
+        "required_identity_card": "Lütfen Ulusal Kimlik Numaranızı (NIN) giriniz",
+        "required_other": "Lütfen BVN'nizi girin",
+        "required_tax_id": "Lütfen VKN'nizi girin"
+      },
+      "phl_specific": {
+        "invalid_national_id_value": "Lütfen geçerli bir PhilSys Kart Numarası (PCN) girin",
+        "required_national_id_value": "Lütfen PhilSys Kart Numaranızı (PCN) girin"
+      },
+      "pol_specific": {
+        "invalid_national_id_value": "Lütfen geçerli bir PESEL numarası girin",
+        "required_national_id_value": "Lütfen PESEL numaranızı giriniz."
+      },
+      "prt_specific": {
+        "invalid_national_id_value": "Lütfen geçerli bir Vergi numarası girin",
+        "required_national_id_value": "Lütfen Vergi numaranızı giriniz"
+      },
+      "reference": {
+        "translation": "Lütfen geçerli bir girin"
+      },
+      "required_consent": "Lütfen kimlik ve dolandırıcılık kontrollerine izin vermeyi kabul edin",
+      "required_country": "Lütfen bir ülke seçin",
+      "required_country_residence": "Lütfen bir ülke seçin",
+      "required_dob": "Lütfen doğum tarihinizi girin",
+      "required_email": "Lütfen e-postanızı girin",
+      "required_first_name": "Lütfen adınızı girin",
+      "required_last_name": "Lütfen soyadınızı girin",
+      "required_line1": "Lütfen adresinizi girin",
+      "required_mobile_number": "Lütfen cep telefonu numaranızı girin",
+      "required_national_driving_license": "Lütfen ehliyet numaranızı giriniz",
+      "required_national_id_type": "Lütfen Ulusal Kimlik türünüzü seçin",
+      "required_national_id_value": "Lütfen Ulusal Kimlik numaranızı giriniz",
+      "required_national_passport": "Lütfen pasaport numaranızı giriniz",
+      "required_national_voter_id": "Lütfen seçmen kimlik numaranızı giriniz",
+      "required_nationality": "Lütfen bir ülke seçin",
+      "required_phone_number": "Lütfen telefon numaranızı girin",
+      "required_postcode": "Lütfen posta kodunuzu girin",
+      "sgp_specific": {
+        "invalid_national_id_value": "Lütfen geçerli bir girin NRIC",
+        "required_national_id_value": "Lütfen NRIC'nizi girin"
+      },
+      "swe_specific": {
+        "invalid_national_id_value": "Lütfen geçerli bir girin PIN",
+        "required_national_id_value": "Lütfen PIN'inizi girin"
+      },
+      "too_long_first_name": "Ad çok uzun",
+      "too_long_last_name": "Soyadı çok uzun",
+      "too_long_line1": "Adres satırı çok uzun",
+      "too_long_postcode": "Posta kodu çok uzun",
+      "too_long_town": "İlçe çok uzun",
+      "too_short_first_name": "Ad çok kısa",
+      "too_short_last_name": "Soyadı çok kısa",
+      "too_short_postcode": "Posta kodu çok kısa",
+      "tur_specific": {
+        "invalid_national_id_value": "Lütfen geçerli bir TC kimlik numarası giriniz.",
+        "required_national_id_value": "Lütfen Türk Kimlik Numaranızı girin"
+      },
+      "usa_specific": {
+        "invalid_ssn": "Lütfen geçerli bir SSN girin",
+        "required_ssn": "Lütfen SSN'nizi girin",
+        "required_state": "Lütfen bir eyalet seçin"
+      }
+    },
+    "national_id_number_title": "Ulusal kimlik numaranızı ekleyin",
+    "personal_information_title": "Kişisel bilgilerinizi ekleyin",
+    "prompt": {
+      "details_timeout": "Yeniden başlat",
+      "header_timeout": "Çok uzun sürmüş gibi görünüyor"
+    }
+  },
+  "qes": {
+    "consent": {
+      "common": {
+        "steps": "İmzanızı oluşturun"
+      },
+      "confirmation": {
+        "bullet_1": "Belgenizi okuduktan sonra, \"Belgeyi imzala\" düğmesine dokunun.",
+        "bullet_2": "Onfido kimliğinizi doğruladığında, imzanız bu belge üzerinde kullanılacak.",
+        "button_next_step": "Belgeyi imzala",
+        "review_document": "İmzalamak için <fallback>belgenizi</fallback> gözden geçirin",
+        "step2": "2'den 2",
+        "steps": "Belgenizi imzalayın",
+        "subtitle": "Avrupa kurallarına uygun olarak kimliğinizi doğrulamak için bir belgeyi dijital olarak imzalamalısınız.",
+        "title": "Dijital imzanızı oluşturun ve kullanın"
+      },
+      "introduction": {
+        "button_confirmation_step": "İmzamı oluştur",
+        "certificate_application_form": "Sertifika başvuru formu",
+        "privacy_notice": "Gizlilik bildirimi",
+        "step1": "2'nin 1'i",
+        "subtitle": "Avrupa kurallarına uygun olarak kimliğinizi doğrulamak için bir belgeyi dijital olarak imzalamalısınız.",
+        "terms_and_conditions": "Şartlar ve koşullar",
+        "third_party_description": "<fallback>Namirial SpA</fallback>, elektronik imzanızı doğrulayan bir sertifika veren güvenilir bir küresel sağlayıcıdır.",
+        "title": "Dijital imzanızı oluşturun ve kullanın"
+      }
+    }
+  },
+  "qes_consent": {
+    "button": "İmzamı oluştur",
+    "link_certificate": "Sertifika başvuru formu",
+    "link_privacy_notice": "Gizlilik bildirimi",
+    "link_terms_and_conditions": "Şartlar ve koşullar",
+    "namirial_intro": "Namirial SpA, elektronik imzanızı doğrulayan bir sertifika verecek güvenilir bir küresel sağlayıcıdır.",
+    "subtitle": "Avrupa kurallarına uygun olarak kimliğinizi doğrulamak için bir belgeyi dijital olarak imzalamalısınız.",
+    "title": "Dijital imzanızı oluşturun ve kullanın"
+  },
+  "qes_sign": {
+    "button": "Belgeyi imzala",
+    "link_document": "İmzalamak için belgenizi gözden geçirin",
+    "list_item_1": "Belgenizi okuduktan sonra, \"Belgeyi imzala\" düğmesine dokunun.",
+    "list_item_2": "Onfido kimliğinizi doğruladıktan sonra, imzanız bu belge üzerinde kullanılacak.",
+    "step_title": "Belgenizi imzalayın",
+    "subtitle": "Avrupa kurallarına uygun olarak kimliğinizi doğrulamak için bir belgeyi dijital olarak imzalamalısınız.",
+    "title": "Dijital imzanızı oluşturun ve kullanın"
+  },
+  "retry": {
+    "button": {
+      "generic_selfie_issue": "Tekrar deneyin"
+    },
+    "description": {
+      "default": "Lütfen tekrar deneyin",
+      "expired_document": "Lütfen geçerli bir fotoğraflı kimlikle tekrar deneyin ve bilgilerinizin net bir şekilde göründüğünden emin olun",
+      "generic_document_issue": "Lütfen geçerli bir fotoğraflı kimlikle tekrar deneyin ve bilgilerinizin net bir şekilde göründüğünden emin olun",
+      "generic_selfie_issue": "Lütfen tekrar deneyin ve yüzünüzün görünür ve iyi aydınlatılmış olduğundan emin olun",
+      "unaccepted_document": "Lütfen geçerli bir fotoğraflı kimlikle tekrar deneyin ve bilgilerinizin net bir şekilde göründüğünden emin olun"
+    },
+    "headline": {
+      "default": "Bir problem oldu",
+      "expired_document": "Belgenizin süresi doldu",
+      "generic_document_issue": "Belgenizle ilgili bir sorun oldu",
+      "generic_selfie_issue": "Selfie'nizle ilgili bir sorun oldu",
+      "unaccepted_document": "Belge kabul edilmiyor"
+    }
+  },
+  "retry_feedback": {
+    "button_primary": "Tekrar deneyin"
+  },
+  "retry_feedback_id_expired": {
+    "subtitle": "Lütfen geçerli bir fotoğraflı kimlikle tekrar deneyin ve bilgilerinizin net bir şekilde göründüğünden emin olun",
+    "title": "Belgenizin süresi doldu"
+  },
+  "retry_feedback_id_generic": {
+    "subtitle": "Lütfen geçerli bir fotoğraflı kimlikle tekrar deneyin ve bilgilerinizin net bir şekilde göründüğünden emin olun",
+    "title": "Belgenizle ilgili bir sorun oluştu"
+  },
+  "retry_feedback_id_unaccepted": {
+    "subtitle": "Lütfen geçerli bir fotoğraflı kimlikle tekrar deneyin ve bilgilerinizin net bir şekilde göründüğünden emin olun",
+    "title": "Belge kabul edilmiyor"
+  },
+  "retry_feedback_selfie_generic": {
+    "subtitle": "Lütfen tekrar deneyin ve yüzünüzün görünür ve iyi aydınlatılmış olduğundan emin olun",
+    "title": "Selfie'nizle ilgili bir sorun oluştu"
+  },
+  "selfie_capture": {
+    "alert": {
+      "camera_inactive": {
+        "detail": "Bağlı ve çalışır durumda olup olmadığını kontrol edin. <fallback>Telefonunuzda da doğrulamaya devam edebilirsiniz</fallback>",
+        "detail_no_fallback": "Cihazınızda çalışan bir kamera olduğundan emin olun",
+        "title": "Kamera çalışmıyor mu?"
+      },
+      "camera_not_working": {
+        "detail": "Bağlantı kesilmiş olabilir. <fallback>Bunun yerine telefonunuzu kullanmayı deneyin</fallback>.",
+        "detail_no_fallback": "Cihazınızın kamerasının çalıştığından emin olun",
+        "title": "Kamera çalışmıyor"
+      },
+      "timeout": {
+        "detail": "İşiniz bittiğinde düğmeye basmayı unutmayın. <fallback>Video eylemlerini yinele</fallback>",
+        "title": "Çok uzun sürmüş gibi görünüyor"
+      }
+    },
+    "body": "Yüzünüzü oval içinde tutun",
+    "button_accessibility": "Fotoğraf çekin",
+    "button_primary": "Yüz taramasını başlat",
+    "frame_accessibility": "Kameradan görüntü",
+    "title": "Yüzünüzü oval içinde tutun"
+  },
+  "selfie_confirmation": {
+    "image_accessibility": "Yüzünüzün fotoğrafı",
+    "subtitle": "Tüm yüzünüzün görünür olduğundan emin olun",
+    "title": "Selfienizi kontrol edin"
+  },
+  "selfie_intro": {
+    "banner_nudity_message": "Bu işlem sırasında yüzünüz ve arka planınız kaydedilecektir",
+    "button_primary": "Devam et",
+    "list_accessibility": "İyi bir selfie çekme ipuçları",
+    "list_item_face_forward": "Yüzünüzü öne çevirin ve gözlerinizin açıkça görülebildiğinden emin olun",
+    "list_item_no_face_cover": "Yüzünüzü kapatan unsurları kadrajdan çıkarın. Gözlükleriniz kalabilir",
+    "list_item_no_glasses": "Gerekirse gözlüklerinizi çıkarın",
+    "subtitle": "Bunu belgenizle karşılaştıracağız",
+    "title": "Bir selfie çekin"
+  },
+  "sms_sent": {
+    "info": "İpuçları",
+    "info_link_expire": "Bağlantınızın süresi bir saat içinde dolacak",
+    "info_link_window": "Cep telefonunuzu kullanırken bu pencereyi açık tutun",
+    "link": "Başka bir yöntem deneyin",
+    "subtitle": "<number></number> numaralı telefona güvenli bir bağlantı gönderdik",
+    "subtitle_minutes": "Ulaşması birkaç dakika sürebilir",
+    "title": "Cep telefonunuzu kontrol edin"
+  },
+  "switch_phone": {
+    "info": "İpuçları",
+    "info_link_expire": "Mobil bağlantınızın süresi bir saat içinde dolacak",
+    "info_link_refresh": "Bu sayfayı yenilemeyin",
+    "info_link_window": "Cep telefonunuzu kullanırken bu pencereyi açık tutun",
+    "link": "İptal",
+    "subtitle": "İşiniz bittiğinde bir sonraki adıma geçeceğiz",
+    "title": "Cep telefonunuz bağlandı"
+  },
+  "upload_guide": {
+    "button_primary": "Devam et",
+    "image_detail_blur_alt": "Bulanık belge örneği",
+    "image_detail_blur_label": "Tüm ayrıntılar net olmalıdır (bulanık bir şey olmamalıdır)",
+    "image_detail_cutoff_label": "Tüm ayrıntıları gösterin (en alttaki 2 satır dâhil)",
+    "image_detail_glare_label": "Doğrudan ışıktan uzakta durun (parlama olmamalıdır)",
+    "image_detail_good_label": "Fotoğrafta belgeniz açıkça görülmelidir",
+    "subtitle": "Tarama ve fotokopi kabul edilmez",
+    "title": "Pasaport fotoğraf sayfanızı gönderin"
+  },
+  "user_consent": {
+    "button_primary": "Kabul et",
+    "button_secondary": "Kabul etme",
+    "prompt": {
+      "button_primary": "Tekrar gözden geçirin",
+      "button_secondary": "Evet, beni doğrulamayın",
+      "no_consent_detail": "Onfido'nun gizlilik beyanlarını ve hizmet şartlarını kabul etmiyorsanız kimliğinizi doğrulayamayız ve bu adımdan çıkarsınız.",
+      "no_consent_title": "Emin misiniz?"
+    }
+  },
+  "user_consent_load_fail": {
+    "button_primary": "Ekranı yeniden yükleyin",
+    "detail": "Bağlantınızın kararlı olup olmadığını kontrol edin, ardından tekrar deneyin",
+    "title": "İçerik yüklenemedi"
+  },
+  "video_capture": {
+    "body": "Yüzünüzü oval içinde tutun",
+    "body_record": "Hazır olduğunuzda düğmeye basın",
+    "body_stop": "İşiniz bittiğinde durdur'a basın",
+    "button_primary_finish": "Kaydı bitir",
+    "button_primary_next": "Sonraki adım",
+    "button_primary_start": "Kaydı başlatın",
+    "button_record_accessibility": "Kaydı başlatın",
+    "frame_accessibility": "Kameradan görüntü",
+    "header": {
+      "challenge_digit_instructions": "Her rakamı yüksek sesle söyleyin",
+      "challenge_turn_forward": "ileri doğru bakın",
+      "challenge_turn_left": "Başınızı sola çevirin",
+      "challenge_turn_right": "Başınızı sağa çevirin"
+    },
+    "prompt": {
+      "header_timeout": "Çok uzun sürmüş gibi görünüyor"
+    }
+  },
+  "video_confirmation": {
+    "body": "Videonuz kaydedildi",
+    "button_primary": "Video yükle",
+    "button_secondary": "Videoyu tekrar çek",
+    "title": "Videonuzu kontrol edin",
+    "video_accessibility": "Kaydedilen videonuzu tekrar oynatın"
+  },
+  "video_intro": {
+    "button_pause_accessibility": "Videoyu durdur",
+    "button_play_accessibility": "Videoyu oynat",
+    "button_primary": "Video kaydedin",
+    "list_accessibility": "Selfie videosu kaydetme işlemleri",
+    "list_item_actions": "Tamamlamak için 20 saniyeniz var",
+    "list_item_speak": "Hareket etmek veya konuşmak için talimatları izleyin",
+    "title": "Video kaydetme",
+    "video_accessibility": "Selfie videosu kaydeden birinin örnek videosu. Bir selfie videosu kaydetmek için ön kameraya dönün ve telefonu yüzünüzden biraz uzakta tutun. Sonrasında bazı sayıları ezberden okumanız ve başınızı ekrandaki talimatlara göre çevirmeniz gerekecek."
+  },
+  "welcome": {
+    "doc_video_subtitle": "Sadece birkaç dakika sürer",
+    "info_original_document": "Orijinal belgenizin bir fotoğrafını çekin. Taramalara, ekran fotoğraflarına veya fotokopilere izin verilmez.",
+    "list_header": "Cihazınızı şu amaçlarla kullanın:",
+    "list_header_doc_video": "Kayıt yapmak için cihazınızı kullanın:",
+    "list_header_webcam": "Aşağıdakileri fotoğraflamak için web kameranızı veya telefonunuzu kullanın:",
+    "list_item_doc": "kimlik belgeniz",
+    "list_item_doc_generic": "Kimlik belgenizin bir video kaydını yapın",
+    "list_item_doc_photo": "Kimlik belgenizin fotoğrafını çekin",
+    "list_item_doc_video": "Kimlik belgenizin bir videosunu kaydedin",
+    "list_item_doc_video_timeout": "Kayıt ​<timeout>​​</timeout>​ saniye ile sınırlıdır",
+    "list_item_face_photo": "Yüzünüzün fotoğrafını çekin",
+    "list_item_face_video": "Yüzünüzün bir videosunu kaydedin",
+    "list_item_poa": "ikamet belgeniz",
+    "list_item_selfie": "yüzünüz",
+    "next_button": "Belge seçin",
+    "start_workflow_button": "Doğrulamayı başlat",
+    "start_workflow_button_trial": "Doğrulamayı başlat (TEST)",
+    "subtitle": "Sadece birkaç dakika sürer",
+    "title": "Kimliğinizi doğrulayın",
+    "trial_message": "Bir Onfido denemesine katılmadığınız sürece kişisel verilerinizi burada paylaşmayın."
+  },
+  "workflow_complete": {
+    "pass": {
+      "description": "Kimliğinizi doğruladık",
+      "title": "Başarılı"
+    },
+    "reject": {
+      "description": "Kimliğinizi doğrulayamadık",
+      "title": "Reddedildi"
+    }
+  },
+  "workflow_erros": {
+    "generic_title": "Sunucu hatası oluştu!",
+    "no_workflow_run_id": "İş akışı çalışma kimliği ayarlanmadı.",
+    "reload_app": "Lütfen uygulamayı yeniden yüklemeyi deneyin ve tekrar deneyin.",
+    "task_not_completed": "İş akışı görevi tamamlanamadı.",
+    "task_not_retrieved": "İş akışı görevi alınamadı.",
+    "task_not_supported": "Görev şu anda desteklenmiyor"
+  }
 }
