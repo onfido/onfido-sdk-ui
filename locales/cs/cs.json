@@ -71,7 +71,7 @@
             },
             "search": {
                 "accessibility": "Zvolte zemi",
-                "input_placeholder": "např. Spojené státy",
+                "input_placeholder": "Vyberte zemi vydání",
                 "label": "Hledání země"
             },
             "title": "Vyberte zemi, kde došlo k vydání"

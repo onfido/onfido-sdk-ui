@@ -71,7 +71,7 @@
             },
             "search": {
                 "accessibility": "Valitse maa",
-                "input_placeholder": "esim. Yhdysvallat",
+                "input_placeholder": "Valitse myöntäjämaa",
                 "label": "Hae maata"
             },
             "title": "Valitse myöntämismaa"

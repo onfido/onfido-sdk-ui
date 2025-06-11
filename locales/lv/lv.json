@@ -71,7 +71,7 @@
             },
             "search": {
                 "accessibility": "Atlasīt valsti",
-                "input_placeholder": "piem., Amerikas Savienotās Valstis",
+                "input_placeholder": "Izvēlieties izdošanas valsti",
                 "label": "Meklēt valsti"
             },
             "title": "Atlasīt izdevējvalsti"

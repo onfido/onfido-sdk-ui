@@ -71,7 +71,7 @@
             },
             "search": {
                 "accessibility": "Válasszon országot",
-                "input_placeholder": "pl. Amerikai Egyesült Államok",
+                "input_placeholder": "Válassza ki a kibocsátó országot",
                 "label": "Ország keresése"
             },
             "title": "Kibocsátó ország kiválasztása"

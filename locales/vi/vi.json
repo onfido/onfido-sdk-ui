@@ -71,7 +71,7 @@
             },
             "search": {
                 "accessibility": "Chọn quốc gia",
-                "input_placeholder": "ví dụ: Hoa Kỳ",
+                "input_placeholder": "Chọn quốc gia cấp",
                 "label": "Tìm kiếm quốc gia"
             },
             "title": "Chọn quốc gia cấp giấy tờ"

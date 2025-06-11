@@ -71,7 +71,7 @@
             },
             "search": {
                 "accessibility": "选择国家\/地区",
-                "input_placeholder": "例如：美国",
+                "input_placeholder": "选择签发国家",
                 "label": "搜索国家\/地区"
             },
             "title": "选择签发国家\/地区"

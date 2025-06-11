@@ -71,7 +71,7 @@
             },
             "search": {
                 "accessibility": "Pilih negara",
-                "input_placeholder": "misalnya: Amerika Serikat",
+                "input_placeholder": "Pilih negara penerbit",
                 "label": "Cari negara"
             },
             "title": "Pilih negara penerbit"

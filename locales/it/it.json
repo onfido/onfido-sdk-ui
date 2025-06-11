@@ -71,7 +71,7 @@
             },
             "search": {
                 "accessibility": "Seleziona paese",
-                "input_placeholder": "es. Italia",
+                "input_placeholder": "Seleziona il paese di emissione",
                 "label": "Cerca paese"
             },
             "title": "Seleziona il paese di emissione"

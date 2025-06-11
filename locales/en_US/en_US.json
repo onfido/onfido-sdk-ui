@@ -71,7 +71,7 @@
             },
             "search": {
                 "accessibility": "Select country",
-                "input_placeholder": "e.g. United States",
+                "input_placeholder": "Select issuing country",
                 "label": "Search for country"
             },
             "title": "Select issuing country"

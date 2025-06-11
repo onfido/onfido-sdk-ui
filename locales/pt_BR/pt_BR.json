@@ -71,7 +71,7 @@
             },
             "search": {
                 "accessibility": "Selecionar país",
-                "input_placeholder": "Por exemplo: Estados Unidos",
+                "input_placeholder": "Selecione o país emissor",
                 "label": "Pesquisar por país"
             },
             "title": "Selecionar país emissor"

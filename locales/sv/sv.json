@@ -71,7 +71,7 @@
             },
             "search": {
                 "accessibility": "Välj land",
-                "input_placeholder": "t.ex. USA",
+                "input_placeholder": "Välj utfärdandeland",
                 "label": "Sök efter land"
             },
             "title": "Välj utfärdande land"

@@ -71,7 +71,7 @@
             },
             "search": {
                 "accessibility": "Wybierz kraj",
-                "input_placeholder": "np. Stany Zjednoczone",
+                "input_placeholder": "Wybierz kraj wydania",
                 "label": "Wyszukaj kraj"
             },
             "title": "Wybierz kraj wydania"

@@ -1,0 +1,50 @@
+{
+    "authenticate_passkey": {
+        "attempts_error": {
+            "button_continue": "Continue",
+            "subtitle": "You can no longer authenticate through a passkey.",
+            "title": "Allowed attempts exceeded"
+        },
+        "error": {
+            "button_retry": "Retry",
+            "subtitle": "An unknown technical problem occurred, please try again.",
+            "title": "Something’s gone wrong"
+        },
+        "introduction": {
+            "bullet_1": "You must have created a passkey with us in the past.",
+            "bullet_2": "Your device will guide you through the next steps.",
+            "button_start_authenticating": "Authenticate",
+            "subtitle": "Passkeys let you sign in securely using your fingerprint, face or device screen lock.",
+            "title": "Authenticate with your Passkey"
+        },
+        "not_supported_error": {
+            "button_continue": "Continue",
+            "subtitle": "Sorry you are not able to complete this task.",
+            "title": "Device does not support passkeys"
+        }
+    },
+    "enroll_passkey": {
+        "attempts_error": {
+            "button_continue": "Continue",
+            "subtitle": "You can no longer authenticate through a passkey.",
+            "title": "Allowed attempts exceeded"
+        },
+        "error": {
+            "button_retry": "Retry",
+            "subtitle": "An unknown technical problem occurred, please try again.",
+            "title": "Something’s gone wrong"
+        },
+        "introduction": {
+            "bullet_1": "This passkey will be used for the domain: (string interpolation needed here)",
+            "bullet_2": "Your device will guide you through the next steps.",
+            "button_start_enrolling": "Create passkey",
+            "subtitle": "Passkeys let you sign in securely using your fingerprint, face, or device screen lock.",
+            "title": "Set up your Passkey"
+        },
+        "not_supported_error": {
+            "button_continue": "Continue",
+            "subtitle": "Sorry you are not able to complete this task.",
+            "title": "Device does not support passkeys"
+        }
+    }
+}

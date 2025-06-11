@@ -71,7 +71,7 @@
             },
             "search": {
                 "accessibility": "Land auswählen",
-                "input_placeholder": "z.B. Deutschland",
+                "input_placeholder": "Ausstellungsland auswählen",
                 "label": "Suche nach Land"
             },
             "title": "Wählen Sie das Ausstellungsland"

@@ -71,7 +71,7 @@
             },
             "search": {
                 "accessibility": "Selecione o país",
-                "input_placeholder": "por exemplo, Portugal",
+                "input_placeholder": "Selecione o país emissor",
                 "label": "Procurar país"
             },
             "title": "Selecione o país emissor"

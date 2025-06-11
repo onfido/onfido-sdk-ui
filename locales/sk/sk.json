@@ -71,7 +71,7 @@
             },
             "search": {
                 "accessibility": "Vyberte krajinu",
-                "input_placeholder": "napr. Slovensko",
+                "input_placeholder": "Vyberte krajinu vydania",
                 "label": "Vyhľadajte krajinu"
             },
             "title": "Vyberte vydávajúcu krajinu"

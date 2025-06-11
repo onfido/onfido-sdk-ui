@@ -71,7 +71,7 @@
             },
             "search": {
                 "accessibility": "Επιλογή χώρας",
-                "input_placeholder": "π.χ. Ηνωμένες Πολιτείες",
+                "input_placeholder": "Επιλέξτε χώρα έκδοσης",
                 "label": "Αναζήτηση για χώρα"
             },
             "title": "Επιλέξτε χώρα έκδοσης"

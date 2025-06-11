@@ -71,7 +71,7 @@
             },
             "search": {
                 "accessibility": "Ընտրեք երկիրը",
-                "input_placeholder": "օրինակ՝ Միացյալ Նահանգներ",
+                "input_placeholder": "Ընտրեք թողարկող երկիրը",
                 "label": "Որոնել երկիր"
             },
             "title": "Ընտրեք թողարկող երկիրը"

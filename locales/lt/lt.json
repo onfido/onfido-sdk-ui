@@ -71,7 +71,7 @@
             },
             "search": {
                 "accessibility": "Pasirinkite šalį",
-                "input_placeholder": "pvz., Jungtinės Valstijos",
+                "input_placeholder": "Pasirinkite išdavimo šalį",
                 "label": "Ieškoti šalies"
             },
             "title": "Pasirinkite išdavusią šalį"

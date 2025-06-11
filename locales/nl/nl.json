@@ -71,7 +71,7 @@
             },
             "search": {
                 "accessibility": "Selecteer land",
-                "input_placeholder": "bijv. Nederland",
+                "input_placeholder": "Selecteer land van uitgifte",
                 "label": "Zoek een land"
             },
             "title": "Selecteer land van uitgifte"

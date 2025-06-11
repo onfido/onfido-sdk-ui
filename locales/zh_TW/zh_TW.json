@@ -71,7 +71,7 @@
             },
             "search": {
                 "accessibility": "選擇國家",
-                "input_placeholder": "例如：美國",
+                "input_placeholder": "選擇核發國家",
                 "label": "搜尋國家"
             },
             "title": "選擇核發國家"

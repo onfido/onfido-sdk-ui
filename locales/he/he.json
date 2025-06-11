@@ -71,7 +71,7 @@
             },
             "search": {
                 "accessibility": "בחר ארץ",
-                "input_placeholder": "לדוגמה, ארצות הברית",
+                "input_placeholder": "בחר מדינת הנפקה",
                 "label": "חפש ארץ"
             },
             "title": "בחר את ארץ ההנפקה"

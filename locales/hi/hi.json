@@ -71,7 +71,7 @@
             },
             "search": {
                 "accessibility": "देश चुनें",
-                "input_placeholder": "जैसे कि यूनाइटेड स्टेट्स",
+                "input_placeholder": "जारी करने वाला देश चुनें",
                 "label": "देश खोजें"
             },
             "title": "जारी करने वाला देश चुनें"

@@ -71,7 +71,7 @@
             },
             "search": {
                 "accessibility": "Ülke seçin",
-                "input_placeholder": "ör. Amerika Birleşik Devletleri",
+                "input_placeholder": "Belgeyi veren ülkeyi seçin",
                 "label": "Ülke arayın"
             },
             "title": "Düzenleyen ülkeyi seçin"

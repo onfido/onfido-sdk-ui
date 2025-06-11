@@ -71,7 +71,7 @@
             },
             "search": {
                 "accessibility": "Vælg land",
-                "input_placeholder": "f.eks. USA",
+                "input_placeholder": "Vælg udstedelsesland",
                 "label": "Søg efter land"
             },
             "title": "Vælg udstedende land"

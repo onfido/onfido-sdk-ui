@@ -71,7 +71,7 @@
             },
             "search": {
                 "accessibility": "Valige riik",
-                "input_placeholder": "nt Ameerika Ühendriigid",
+                "input_placeholder": "Vali väljaandja riik",
                 "label": "Otsi riiki"
             },
             "title": "Valige väljastanud riik"

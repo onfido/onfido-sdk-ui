@@ -71,7 +71,7 @@
             },
             "search": {
                 "accessibility": "Pilih negara",
-                "input_placeholder": "cth. Amerika Syarikat",
+                "input_placeholder": "Pilih negara pengeluar",
                 "label": "Cari negara"
             },
             "title": "Pilih negara yang mengeluarkan"

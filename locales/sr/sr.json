@@ -71,7 +71,7 @@
             },
             "search": {
                 "accessibility": "Izaberite zemlju",
-                "input_placeholder": "npr. Sjedinjene Američke Države",
+                "input_placeholder": "Izaberite zemlju izdavanja",
                 "label": "Traži zemlju"
             },
             "title": "Izaberite zemlju izdavanja"

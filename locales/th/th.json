@@ -71,7 +71,7 @@
             },
             "search": {
                 "accessibility": "เลือกประเทศ",
-                "input_placeholder": "เช่น สหรัฐอเมริกา",
+                "input_placeholder": "เลือกประเทศที่ออกเอกสาร",
                 "label": "ค้นหาประเทศ"
             },
             "title": "เลือกประเทศที่ออกเอกสาร"

@@ -71,7 +71,7 @@
             },
             "search": {
                 "accessibility": "국가 선택",
-                "input_placeholder": "예: 미국",
+                "input_placeholder": "발급 국가 선택",
                 "label": "국가 검색"
             },
             "title": "발급 국가 선택"

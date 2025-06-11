@@ -71,7 +71,7 @@
             },
             "search": {
                 "accessibility": "حدد البلد",
-                "input_placeholder": "على سبيل المثال الولايات المتحدة",
+                "input_placeholder": "اختر بلد الإصدار",
                 "label": "البحث عن بلد"
             },
             "title": "اختر الدولة المصدِرة"

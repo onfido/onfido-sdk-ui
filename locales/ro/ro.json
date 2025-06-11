@@ -71,7 +71,7 @@
             },
             "search": {
                 "accessibility": "Selectați țara",
-                "input_placeholder": "de exemplu, Statele Unite ale Americii",
+                "input_placeholder": "Selectați țara emitentă",
                 "label": "Căutați țara"
             },
             "title": "Selectați țara emitentă"

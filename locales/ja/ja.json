@@ -71,7 +71,7 @@
             },
             "search": {
                 "accessibility": "国を選択",
-                "input_placeholder": "例：アメリカ合衆国",
+                "input_placeholder": "発行国を選択してください",
                 "label": "国を検索"
             },
             "title": "発行国を選択"
