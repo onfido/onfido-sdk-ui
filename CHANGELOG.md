@@ -6,6 +6,10 @@ and the SDK adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html)
 
 When any of the string translations change, it will result in a MINOR version change. As a result, you are responsible for ensuring the correct layout if you are using custom translations (see [language localization](https://documentation.onfido.com/sdk/web/#custom-translations-and-text)).
 
+## 14.47.1 - 2025-06-12
+### Changed
+- Removed background of video on the motion intro screen 
+
 ## 14.47.0 - 2025-06-11
 ### Changed
 - The preInit camera permission check for webview is now behind feature flag.
