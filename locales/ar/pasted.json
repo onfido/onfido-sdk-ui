@@ -35,7 +35,7 @@
             "title": ""
         },
         "introduction": {
-            "bullet_1": "سيتم استخدام مفتاح المرور هذا لـ <domain><\/domain>:",
+            "bullet_1": "سيتم استخدام مفتاح المرور هذا للنطاق: <domain><\/domain>",
             "bullet_2": "",
             "button_start_enrolling": "",
             "subtitle": "",

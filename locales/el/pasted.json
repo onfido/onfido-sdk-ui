@@ -35,7 +35,7 @@
             "title": ""
         },
         "introduction": {
-            "bullet_1": "Αυτό το passkey θα χρησιμοποιηθεί για το <domain><\/domain>:",
+            "bullet_1": "Αυτό το passkey θα χρησιμοποιηθεί για τον τομέα: <domain><\/domain>",
             "bullet_2": "",
             "button_start_enrolling": "",
             "subtitle": "",

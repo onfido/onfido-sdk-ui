@@ -35,7 +35,7 @@
             "title": ""
         },
         "introduction": {
-            "bullet_1": "यह पासकी <domain><\/domain> के लिए उपयोग की जाएगी:",
+            "bullet_1": "यह पासकी इस डोमेन के लिए उपयोग की जाएगी: <domain><\/domain>",
             "bullet_2": "",
             "button_start_enrolling": "",
             "subtitle": "",

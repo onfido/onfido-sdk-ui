@@ -35,7 +35,7 @@
             "title": ""
         },
         "introduction": {
-            "bullet_1": "此通行金鑰將用於 <domain><\/domain>：",
+            "bullet_1": "此通行金鑰將用於網域：<domain><\/domain>",
             "bullet_2": "",
             "button_start_enrolling": "",
             "subtitle": "",

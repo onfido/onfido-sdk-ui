@@ -35,7 +35,7 @@
             "title": ""
         },
         "introduction": {
-            "bullet_1": "Ten klucz dostępu będzie używany dla <domain><\/domain>:",
+            "bullet_1": "Ten klucz dostępu będzie używany dla domeny: <domain><\/domain>",
             "bullet_2": "",
             "button_start_enrolling": "",
             "subtitle": "",

@@ -35,7 +35,7 @@
             "title": ""
         },
         "introduction": {
-            "bullet_1": "Bu geçiş anahtarı <domain><\/domain> için kullanılacaktır:",
+            "bullet_1": "Bu geçiş anahtarı şu alan adı için kullanılacaktır: <domain><\/domain>",
             "bullet_2": "",
             "button_start_enrolling": "",
             "subtitle": "",

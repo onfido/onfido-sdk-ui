@@ -35,7 +35,7 @@
             "title": ""
         },
         "introduction": {
-            "bullet_1": "Denne passnøkkelen vil bli brukt for <domain><\/domain>:",
+            "bullet_1": "Denne passnøkkelen vil bli brukt for domenet: <domain><\/domain>",
             "bullet_2": "",
             "button_start_enrolling": "",
             "subtitle": "",

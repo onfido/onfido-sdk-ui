@@ -6,13 +6,22 @@ and the SDK adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html)
 
 When any of the string translations change, it will result in a MINOR version change. As a result, you are responsible for ensuring the correct layout if you are using custom translations (see [language localization](https://documentation.onfido.com/sdk/web/#custom-translations-and-text)).
 
+## 14.49.0 - 2025-06-20
+### Added
+- Added ability to show an exit button, `showExitButton` API, with its complementary callback, `onUserExit`"
+- Added onExternalLink callback
+
+### Fixed
+- Correct the navigation bar styling on capture screens
+
 ## 14.48.0 - 2025-06-12
 ### Added
-- add onExternalLink callback
+
 - Introduce disableCompleteScreen for studio flows
 
 ## 14.47.1 - 2025-06-12
 ### Changed
+- Changed Store on-device biometrics task input to take an encrypted biometric token
 - Removed background of video on the motion intro screen
 
 ## 14.47.0 - 2025-06-11

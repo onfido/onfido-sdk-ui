@@ -607,6 +607,7 @@ When the Onfido SDK session will conclude, one of two callback functions may be 
 
 - `onComplete`: the session was successful
 - `onError`: the session terminated unexpectedly
+- `onUserExit`(Beta): the session terminated by end user
 
 For advanced callbacks used for user analytics and returning submitted media, please refer to the [Advanced Callbacks](#advanced-callbacks) section of this document.
 
@@ -637,7 +638,7 @@ While the existing implementation of `onComplete` also returns _partial_ informa
 
 **Note**: For implementation not relying on workflows, please refer to the [Manual `onComplete` callback](#manual-oncomplete-callback) section of this guide for more details about the payload content.
 
-### `onError {Function}` - optional
+#### `onError {Function}` - optional
 
 Callback that fires when an error occurs. The callback returns the following error types:
 
@@ -746,8 +747,8 @@ Callback that fires when an error occurs. The callback returns the following err
 
   ```javascript
   {
-    type: "user_consent_denied",
-    message: "The user has declined the consent."
+  type: "user_consent_denied",
+  message: "The user has declined the consent."
   }
   ```
 
@@ -787,7 +788,26 @@ Callback that fires when an error occurs. The callback returns the following err
   }
   ```
 
-**Note** that from version 14 onwards, the optional `onUserExit` callback, that was used to return the `USER_CONSENT_DENIED` message, has been deprecated and merged with the `onError` callback, as detailed above.
+#### `onUserExit {userAction}`(Beta) - optional  
+
+Callback that fires when the exit button is pressed or consent is denied by the end user.
+
+The `userAction` parameter returns one possible value:
+
+- `user_exit` - the user pressed the exit button
+
+The `showExitButton`(Beta) property (which defaults to `false`) is used for displaying the exit button in the Web SDK.
+
+```javascript
+Onfido.init({
+  // ...other properties
+  showExitButton: true / false
+  onUserExit: (userAction) => {
+    console.log('Exit the SDK', userAction);
+  },
+  // ...other properties
+})
+```
 
 ### SDK tear-down
 
@@ -1503,22 +1523,24 @@ To do so, please contact your Onfido Solution Engineer or Customer Success Manag
 
 ### Custom biometric token storage
 
-When using the decentralized authentication solution, by default the SDK manages biometric token storage, by storing it on local storage. The SDK also allows the clients to take control of the token lifecycle and exposes a callback to override the default implementation to read and write the token, so it can be stored on device, in cloud, in a keystore or on your premises.
+When using Studio [authentication tasks](https://documentation.onfido.com/getting-started/onfido-studio-product/#authentication-tasks) with on-device storage, the SDK stores encrypted biometric tokens in the browser local storage. The SDK also allows clients to take control of the token lifecycle and exposes a callback to override the default implementation to read and write the token, so it can be stored on device, in cloud, in a keystore or on your infrastructure.
 
-**Note** that using the callback will prevent the SDK from storing the biometric token.
+**Note:** Defining the callback will prevent the SDK from storing the encrypted biometric token.
+
+**Note:** To store the encrypted biometric token in your infrastructure, it is recommended to [rely on webhooks](https://documentation.onfido.com/getting-started/onfido-studio-product/#authentication-on-customer-infrastructure) instead.
 
 ```typescript
 Onfido.init({
 	...
   onBiometricTokenGenerated: (customerUserHash: string, biometricToken: string): void => {
-    // Called when new biometric token is generated during onboarding
-    // Use this callback to securely store the biometric token
+    // Called when a new biometric token is generated during enrollment.
     // Please ensure that customerUserHash to biometricToken relationship is 1:1
+    await fetch("https://example.org/store", { method: "POST", body: { customerUserHash, biometricToken } })
   },
-  onBiometricTokenRequested: (customerUserHash: string): Promise<string> => {
-    // Called when biometric token is requested during re-authentication
-    // Once you have the token, resolve the promise with it
-    return Promise.resolve('biometricToken')
+  onBiometricTokenRequested: async (customerUserHash: string): Promise<string> => {
+    // Called when biometric token is requested during authentication
+    const response = await fetch("https://example.org/retrieve?key=" + customerUserHash)
+    return await token.text()
   }
 });
 ```
@@ -1578,6 +1600,33 @@ const onfidoOut = Onfido.init({...})
 
 onfidoOut.addEventListener('userAnalyticsEvent', (event) => {
   console.log('Version', onfidoOut.version)
+});
+```
+
+### `onExternalLink` callback
+
+When end users open a link to an external website or resource (such as a PDF file) during a verification flow in the Web SDK, the default behaviour is to open the link in a new browser tab.
+
+To enable customers to tailor this behaviour to their specific needs when implementing the Web SDK in a webview or other custom integrations, the `onExternalLink` callback is provided to handle the opening of external links or the download of documents.
+
+This feature is particularly useful for flows that integrate the Qualified Electronic Signature (QES) module, where buttons may redirect end users to external websites or allow PDF files to be viewed or downloaded.
+
+The behaviour of the `onExternalLink` callback varies depending on the type of Web SDK integration:
+
+- In a desktop integration, the `onExternalLink` callback is triggered when available (i.e., when a link is clicked)
+- In a cross-device integration hosted by Onfido, the `onExternalLink` callback is not triggered on desktop as cross-device workflows always run in a browser environment where this functionality is inherently handled
+- In a cross-device integration hosted by the customer (self-hosted), the `onExternalLink` callback is triggered when available (i.e., when a link is clicked)
+
+Below you will find an example implementation of the `onExternalLink` callback.
+
+```
+Onfido.init({
+ token: "<YOUR_SDK_TOKEN>",
+ ...
+ // The url is a string representing the external link
+ onExternalLink: function (url) {
+  console.log("Open the URL: ", url);
+ },
 });
 ```
 

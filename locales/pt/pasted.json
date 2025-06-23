@@ -35,7 +35,7 @@
             "title": ""
         },
         "introduction": {
-            "bullet_1": "Esta chave de acesso será usada para o <domain><\/domain>:",
+            "bullet_1": "Esta chave de acesso será usada para o domínio: <domain><\/domain>",
             "bullet_2": "",
             "button_start_enrolling": "",
             "subtitle": "",

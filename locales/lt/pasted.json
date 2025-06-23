@@ -35,7 +35,7 @@
             "title": ""
         },
         "introduction": {
-            "bullet_1": "Šis raktas bus naudojamas <domain><\/domain>:",
+            "bullet_1": "Šis raktas bus naudojamas domenui: <domain><\/domain>",
             "bullet_2": "",
             "button_start_enrolling": "",
             "subtitle": "",

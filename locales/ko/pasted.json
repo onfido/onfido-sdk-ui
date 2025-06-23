@@ -35,7 +35,7 @@
             "title": ""
         },
         "introduction": {
-            "bullet_1": "이 패스키는 <domain><\/domain>에 사용됩니다:",
+            "bullet_1": "이 패스키는 다음 도메인에 사용됩니다: <domain><\/domain>",
             "bullet_2": "",
             "button_start_enrolling": "",
             "subtitle": "",
