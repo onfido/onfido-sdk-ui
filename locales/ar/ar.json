@@ -248,7 +248,7 @@
             "instructions_title_front": "ضع الجزء الأمامي من مستندك في الإطار"
         },
         "doc_select": {
-            "accommodation_tenancy_certificate_detail": "صادر عن السلطة الحكومية أو المالك الشركات كتأكيد للإيجار.",
+            "accommodation_tenancy_certificate_detail": "صادرة عن سلطة حكومية أو المالك العقاري كتأكيد للإيجار.",
             "button_address_card": "بطاقة عنوان",
             "button_address_card_back": "بطاقة العنوان (الخلف)",
             "button_address_card_detail": "تُقبل البطاقات المؤقتة والدائمة",
@@ -286,7 +286,7 @@
             "button_permit": "رخصة الإقامة",
             "button_permit_detail": "من الأمام والخلف",
             "button_tax_letter": "رسالة ضريبة الحكومة المحلية",
-            "extra_estatements_ok": "البيانات الإلكترونية مقبولة",
+            "extra_estatements_ok": "البيانات الإلكترونية مقبولة ",
             "list_accessibility": "المستندات التي يمكنك استخدامها للتحقق من هويتك",
             "pill": "الأسرع",
             "section": {
@@ -309,7 +309,7 @@
             "button_link_upload": "تحميل الصورة",
             "button_primary": "المتابعة على الهاتف",
             "subtitle": "التقط صورة بهاتفك",
-            "title_accommodation_tenancy_certificate": "قدم شهادة الإقامة أو الإيجار",
+            "title_accommodation_tenancy_certificate": "قدم شهادة الإقامة أو السكن",
             "title_address_certificate": "أرسل بطاقة العنوان",
             "title_address_certificate_back": "أرسل بطاقة العنوان (الخلف)",
             "title_address_certificate_front": "أرسل بطاقة العنوان (الجهة الأمامية)",
@@ -850,7 +850,7 @@
                 "full_name": "الاسم الكامل",
                 "issue_date": "تاريخ الإصدار أو فترة الملخص",
                 "label": "التقط المستند بأكمله وتأكد من أنه يُظهر بوضوح:",
-                "logo": "شعار"
+                "logo": "الشعار"
             },
             "instructions_address_card_issue_date": "تاريخ الإصدار",
             "instructions_expiry_date": "تاريخ انتهاء الصلاحية إن وجد",
@@ -871,7 +871,7 @@
             "subtitle": "ستحتاج إلى مستند:",
             "title": "لنتحقق من عنوانك"
         },
-        "poa_welcome_text": "التقط صورة لمستند بعنوانك",
+        "poa_welcome_text": "التقاط صورة لمستند يحمل عنوانك",
         "profile_data": {
             "address_title": "أضِف عنوانك",
             "button_continue": "متابعة",
@@ -1403,7 +1403,7 @@
             "video_accessibility": "مثال فيديو لشخص يسجل فيديو سيلفي. لتسجيل فيديو سيلفي، انظر مباشرةً إلى الكاميرا الأمامية وأبقِ هاتفك بعيدًا قليلاً عن وجهك. سيتعيّن عليك بعد ذلك سرد بعض الأرقام وتحريك رأسك وفقًا للتعليمات على الشاشة."
         },
         "welcome": {
-            "doc_video_subtitle": "ستأخذ بعض الوقت",
+            "doc_video_subtitle": "ستأخذ العملية بعض الوقت",
             "info_original_document": "التقط صورة من المستند الأصلي. لا يُسمح بإجراء عمليات المسح أو صور الشاشات أو النسخ.",
             "list_header": "استخدم جهازك من أجل:",
             "list_header_doc_video": "استخدم جهازك للتسجيل:",
@@ -1420,7 +1420,7 @@
             "next_button": "اختر مستند",
             "start_workflow_button": "ابدأ التحقق",
             "start_workflow_button_trial": "ابدأ التحقق (TEST)",
-            "subtitle": "ستأخذ بعض الوقت",
+            "subtitle": "ستأخذ العملية بعض الوقت",
             "title": "التحقق من هويتك",
             "trial_message": "لا تشارك البيانات الشخصية هنا ما لم تكن مشتركًا في تجربة Onfido."
         },
