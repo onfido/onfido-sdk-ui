@@ -6,14 +6,19 @@ and the SDK adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html)
 
 When any of the string translations change, it will result in a MINOR version change. As a result, you are responsible for ensuring the correct layout if you are using custom translations (see [language localization](https://documentation.onfido.com/sdk/web/#custom-translations-and-text)).
 
+## 14.51.0 - 2025-07-21
+### Added
+- Allow dynamic QR code timeout to be configured remotely
+- Separate theme/config/customFont option for client-specific fonts
+
+### Fixed
+- Fixed UI tokens for Alerts and Banners.
+
 ## 14.50.0 - 2025-07-01
 ### Added
-- Added POA event for error screen
-- Added Enroll Passkey & Authenticate Passkey modules
 - Enable filtering POA types for all countries
 
 ### Changed
-- Upgrade CI node version from 18 to 22
 - QR code refresh interval has been changed to 20s
 
 ### Removed
@@ -21,7 +26,6 @@ When any of the string translations change, it will result in a MINOR version ch
 
 ### Fixed
 - Fixed Motion intro animation loading flash on dark themes
-
 
 ## 14.49.0 - 2025-06-20
 ### Added
