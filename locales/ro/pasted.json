@@ -1,50 +1,50 @@
 {
     "authenticate_passkey": {
         "attempts_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "Continuați",
+            "subtitle": "Nu mai puteți să vă autentificați prin intermediul unei chei de acces.",
+            "title": "Numărul de încercări permise a fost depășit"
         },
         "error": {
-            "button_retry": "",
-            "subtitle": "",
-            "title": ""
+            "button_retry": "Încercați din nou",
+            "subtitle": "O problemă tehnică necunoscută a apărut, vă rugăm să încercați din nou.",
+            "title": "Ceva nu a mers bine"
         },
         "introduction": {
-            "bullet_1": "",
-            "bullet_2": "",
-            "button_start_authenticating": "",
-            "subtitle": "",
-            "title": ""
+            "bullet_1": "Trebuie să fi creat o cheie de acces (passkey) cu noi în trecut.",
+            "bullet_2": "Dispozitivul dvs. vă va ghida prin următorii pași.",
+            "button_start_authenticating": "Autentificare",
+            "subtitle": "Cheile de acces (passkeys) vă permit să vă autentificați în siguranță folosind amprenta, fața sau blocarea ecranului dispozitivului.",
+            "title": "Autentificați-vă cu Passkey-ul dvs."
         },
         "not_supported_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "Continuați",
+            "subtitle": "Ne pare rău că nu puteți finaliza această sarcină.",
+            "title": "Dispozitivul nu acceptă chei de acces"
         }
     },
     "enroll_passkey": {
         "attempts_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "Continuați",
+            "subtitle": "Nu mai puteți să vă autentificați prin intermediul unei chei de acces.",
+            "title": "Numărul de încercări permise a fost depășit"
         },
         "error": {
-            "button_retry": "",
-            "subtitle": "",
-            "title": ""
+            "button_retry": "Încercați din nou",
+            "subtitle": "O problemă tehnică necunoscută a apărut, vă rugăm să încercați din nou.",
+            "title": "Ceva nu a mers bine"
         },
         "introduction": {
             "bullet_1": "Această cheie de acces va fi utilizată pentru domeniul: <domain><\/domain>",
-            "bullet_2": "",
-            "button_start_enrolling": "",
-            "subtitle": "",
-            "title": ""
+            "bullet_2": "Dispozitivul dvs. vă va ghida prin următorii pași.",
+            "button_start_enrolling": "Creează cheie de acces",
+            "subtitle": "Cheile de acces (passkeys) vă permit să vă autentificați în siguranță folosind amprenta, fața sau blocarea ecranului dispozitivului.",
+            "title": "Configurați-vă Passkey-ul"
         },
         "not_supported_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "Continuați",
+            "subtitle": "Ne pare rău că nu puteți finaliza această sarcină.",
+            "title": "Dispozitivul nu acceptă chei de acces"
         }
     }
 }

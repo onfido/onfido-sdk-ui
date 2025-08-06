@@ -1,50 +1,50 @@
 {
     "authenticate_passkey": {
         "attempts_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "続行",
+            "subtitle": "パスキーによる認証はこれ以上できません。",
+            "title": "許可された試行回数を超えました"
         },
         "error": {
-            "button_retry": "",
-            "subtitle": "",
-            "title": ""
+            "button_retry": "再試行",
+            "subtitle": "不明な技術的問題が発生しました。もう一度お試しください。",
+            "title": "何かが間違っています"
         },
         "introduction": {
-            "bullet_1": "",
-            "bullet_2": "",
-            "button_start_authenticating": "",
-            "subtitle": "",
-            "title": ""
+            "bullet_1": "以前に当社でパスキーを作成している必要があります。",
+            "bullet_2": "デバイスが次の手順を案内します。",
+            "button_start_authenticating": "認証する",
+            "subtitle": "パスキーを使うと、指紋、顔、またはデバイスの画面ロックで安全にサインインできます。",
+            "title": "パスキーで認証する"
         },
         "not_supported_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "続行",
+            "subtitle": "申し訳ありませんが、このタスクを完了できません。",
+            "title": "このデバイスはパスキーに対応していません"
         }
     },
     "enroll_passkey": {
         "attempts_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "続行",
+            "subtitle": "パスキーによる認証はこれ以上できません。",
+            "title": "許可された試行回数を超えました"
         },
         "error": {
-            "button_retry": "",
-            "subtitle": "",
-            "title": ""
+            "button_retry": "再試行",
+            "subtitle": "不明な技術的問題が発生しました。もう一度お試しください。",
+            "title": "何かが間違っています"
         },
         "introduction": {
-            "bullet_1": "このパスキーは、ドメイン：<domain><\/domain> に使用されます。",
-            "bullet_2": "",
-            "button_start_enrolling": "",
-            "subtitle": "",
-            "title": ""
+            "bullet_1": "このパスキーはドメイン：<domain><\/domain>で使用されます",
+            "bullet_2": "デバイスが次の手順を案内します。",
+            "button_start_enrolling": "パスキーを作成する",
+            "subtitle": "パスキーを使うと、指紋、顔、またはデバイスの画面ロックで安全にサインインできます。",
+            "title": "パスキーを設定する"
         },
         "not_supported_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "続行",
+            "subtitle": "申し訳ありませんが、このタスクを完了できません。",
+            "title": "このデバイスはパスキーに対応していません"
         }
     }
 }

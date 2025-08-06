@@ -1,50 +1,50 @@
 {
     "authenticate_passkey": {
         "attempts_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "Continuar",
+            "subtitle": "Ya no puede autenticarse mediante una clave de acceso.",
+            "title": "Se ha superado el número de intentos permitidos"
         },
         "error": {
-            "button_retry": "",
-            "subtitle": "",
-            "title": ""
+            "button_retry": "Reintentar",
+            "subtitle": "Ocurrió un problema técnico desconocido, por favor intenta de nuevo.",
+            "title": "Algo ha salido mal"
         },
         "introduction": {
-            "bullet_1": "",
-            "bullet_2": "",
-            "button_start_authenticating": "",
-            "subtitle": "",
-            "title": ""
+            "bullet_1": "Debe haber creado una clave de acceso con nosotros anteriormente.",
+            "bullet_2": "Su dispositivo le guiará en los siguientes pasos.",
+            "button_start_authenticating": "Autenticar",
+            "subtitle": "Las claves de acceso te permiten iniciar sesión de forma segura usando tu huella digital, tu rostro o el bloqueo de pantalla de tu dispositivo.",
+            "title": "Autentíquese con su Passkey"
         },
         "not_supported_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "Continuar",
+            "subtitle": "Lo sentimos, no puede completar esta tarea.",
+            "title": "El dispositivo no es compatible con las claves de acceso"
         }
     },
     "enroll_passkey": {
         "attempts_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "Continuar",
+            "subtitle": "Ya no puede autenticarse mediante una clave de acceso.",
+            "title": "Se ha superado el número de intentos permitidos"
         },
         "error": {
-            "button_retry": "",
-            "subtitle": "",
-            "title": ""
+            "button_retry": "Reintentar",
+            "subtitle": "Ocurrió un problema técnico desconocido, por favor intenta de nuevo.",
+            "title": "Algo ha salido mal"
         },
         "introduction": {
             "bullet_1": "Esta clave de acceso se utilizará para el dominio: <domain><\/domain>",
-            "bullet_2": "",
-            "button_start_enrolling": "",
-            "subtitle": "",
-            "title": ""
+            "bullet_2": "Su dispositivo le guiará a través de los siguientes pasos.",
+            "button_start_enrolling": "Crear clave de acceso",
+            "subtitle": "Las claves de acceso te permiten iniciar sesión de forma segura usando tu huella digital, tu rostro o el bloqueo de pantalla de tu dispositivo.",
+            "title": "Configura tu clave de acceso"
         },
         "not_supported_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "Continuar",
+            "subtitle": "Lo sentimos, no puede completar esta tarea.",
+            "title": "El dispositivo no es compatible con las claves de acceso"
         }
     }
 }

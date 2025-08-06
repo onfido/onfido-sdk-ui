@@ -1,50 +1,50 @@
 {
     "authenticate_passkey": {
         "attempts_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "Продолжить",
+            "subtitle": "Вы больше не можете проходить аутентификацию с помощью ключа доступа.",
+            "title": "Превышено допустимое количество попыток"
         },
         "error": {
-            "button_retry": "",
-            "subtitle": "",
-            "title": ""
+            "button_retry": "Повторить",
+            "subtitle": "Произошла неизвестная техническая ошибка, пожалуйста, попробуйте еще раз.",
+            "title": "Что-то пошло не так"
         },
         "introduction": {
-            "bullet_1": "",
-            "bullet_2": "",
-            "button_start_authenticating": "",
-            "subtitle": "",
-            "title": ""
+            "bullet_1": "Вы должны были ранее создать у нас ключ доступа.",
+            "bullet_2": "Ваше устройство подскажет вам следующие шаги.",
+            "button_start_authenticating": "Аутентификация",
+            "subtitle": "Ключи доступа позволяют безопасно входить в систему с помощью отпечатка пальца, лица или блокировки экрана устройства.",
+            "title": "Аутентифицируйтесь с помощью Passkey"
         },
         "not_supported_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "Продолжить",
+            "subtitle": "К сожалению, вы не можете выполнить эту задачу.",
+            "title": "Устройство не поддерживает ключи доступа"
         }
     },
     "enroll_passkey": {
         "attempts_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "Продолжить",
+            "subtitle": "Вы больше не можете проходить аутентификацию с помощью ключа доступа.",
+            "title": "Превышено допустимое количество попыток"
         },
         "error": {
-            "button_retry": "",
-            "subtitle": "",
-            "title": ""
+            "button_retry": "Повторить",
+            "subtitle": "Произошла неизвестная техническая ошибка, пожалуйста, повторите попытку.",
+            "title": "Что-то пошло не так"
         },
         "introduction": {
             "bullet_1": "Этот ключ доступа будет использоваться для домена: <domain><\/domain>",
-            "bullet_2": "",
-            "button_start_enrolling": "",
-            "subtitle": "",
-            "title": ""
+            "bullet_2": "Ваше устройство подскажет вам следующие шаги.",
+            "button_start_enrolling": "Создать ключ доступа",
+            "subtitle": "Ключи доступа позволяют безопасно входить в систему с помощью отпечатка пальца, лица или блокировки экрана устройства.",
+            "title": "Настройте свой Passkey"
         },
         "not_supported_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "Продолжить",
+            "subtitle": "К сожалению, вы не можете выполнить эту задачу.",
+            "title": "Устройство не поддерживает ключи доступа"
         }
     }
 }

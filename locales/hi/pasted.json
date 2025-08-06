@@ -1,50 +1,50 @@
 {
     "authenticate_passkey": {
         "attempts_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "जारी रखें",
+            "subtitle": "अब आप पासकी के माध्यम से प्रमाणीकरण नहीं कर सकते।",
+            "title": "अनुमत प्रयासों की सीमा पार हो गई है"
         },
         "error": {
-            "button_retry": "",
-            "subtitle": "",
-            "title": ""
+            "button_retry": "फिर से कोशिश करें",
+            "subtitle": "एक अज्ञात तकनीकी समस्या हुई है, कृपया फिर से प्रयास करें।",
+            "title": "कुछ गलत हो गया है"
         },
         "introduction": {
-            "bullet_1": "",
-            "bullet_2": "",
-            "button_start_authenticating": "",
-            "subtitle": "",
-            "title": ""
+            "bullet_1": "आपको हमारे साथ पहले पासकी बनानी चाहिए थी।",
+            "bullet_2": "आपका डिवाइस आपको अगले चरणों के लिए मार्गदर्शन करेगा।",
+            "button_start_authenticating": "प्रमाणित करें",
+            "subtitle": "पासकीज़ आपको अपनी उंगली के निशान, चेहरे या डिवाइस स्क्रीन लॉक का उपयोग करके सुरक्षित रूप से साइन इन करने देती हैं।",
+            "title": "अपनी पासकी से प्रमाणित करें"
         },
         "not_supported_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "जारी रखें",
+            "subtitle": "माफ़ करें, आप यह कार्य पूरा नहीं कर सकते।",
+            "title": "डिवाइस पासकीज़ का समर्थन नहीं करता"
         }
     },
     "enroll_passkey": {
         "attempts_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "जारी रखें",
+            "subtitle": "अब आप पासकी के माध्यम से प्रमाणीकरण नहीं कर सकते।",
+            "title": "अनुमत प्रयासों की सीमा पार हो गई है"
         },
         "error": {
-            "button_retry": "",
-            "subtitle": "",
-            "title": ""
+            "button_retry": "फिर से कोशिश करें",
+            "subtitle": "कोई अज्ञात तकनीकी समस्या हुई है, कृपया फिर से प्रयास करें।",
+            "title": "कुछ गलत हो गया है"
         },
         "introduction": {
             "bullet_1": "यह पासकी इस डोमेन के लिए उपयोग की जाएगी: <domain><\/domain>",
-            "bullet_2": "",
-            "button_start_enrolling": "",
-            "subtitle": "",
-            "title": ""
+            "bullet_2": "आपका डिवाइस आपको अगले चरणों के लिए मार्गदर्शन करेगा।",
+            "button_start_enrolling": "पासकी बनाएं",
+            "subtitle": "पासकीज़ आपको अपनी उंगली के निशान, चेहरे या डिवाइस स्क्रीन लॉक का उपयोग करके सुरक्षित रूप से साइन इन करने देती हैं।",
+            "title": "अपनी पासकी सेट करें"
         },
         "not_supported_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "जारी रखें",
+            "subtitle": "माफ़ करें, आप यह कार्य पूरा नहीं कर सकते।",
+            "title": "डिवाइस पासकीज़ का समर्थन नहीं करता"
         }
     }
 }

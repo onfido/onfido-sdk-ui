@@ -1,50 +1,50 @@
 {
     "authenticate_passkey": {
         "attempts_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "Jätkake",
+            "subtitle": "Te ei saa enam autentida võtmekoodi abil.",
+            "title": "Lubatud katsete arv on ületatud"
         },
         "error": {
-            "button_retry": "",
-            "subtitle": "",
-            "title": ""
+            "button_retry": "Proovige uuesti",
+            "subtitle": "Tekkis tundmatu tehniline probleem, palun proovige uuesti.",
+            "title": "Midagi läks valesti"
         },
         "introduction": {
-            "bullet_1": "",
-            "bullet_2": "",
-            "button_start_authenticating": "",
-            "subtitle": "",
-            "title": ""
+            "bullet_1": "Te peate olema varem meie juures passkey loonud.",
+            "bullet_2": "Teie seade juhendab teid järgmistes sammudes.",
+            "button_start_authenticating": "Autendi",
+            "subtitle": "Pääsuvõtmed võimaldavad teil turvaliselt sisse logida sõrmejälje, näotuvastuse või seadme ekraaniluku abil.",
+            "title": "Tuvastage end oma passkey abil"
         },
         "not_supported_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "Jätkake",
+            "subtitle": "Kahjuks ei saa te seda ülesannet lõpule viia.",
+            "title": "Seade ei toeta pääsuvõtmeid"
         }
     },
     "enroll_passkey": {
         "attempts_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "Jätkake",
+            "subtitle": "Te ei saa enam autentida võtmekoodi abil.",
+            "title": "Lubatud katsete arv on ületatud"
         },
         "error": {
-            "button_retry": "",
-            "subtitle": "",
-            "title": ""
+            "button_retry": "Proovige uuesti",
+            "subtitle": "Tekkis tundmatu tehniline probleem, palun proovige uuesti.",
+            "title": "Midagi läks valesti"
         },
         "introduction": {
-            "bullet_1": "Seda pääsuvõtit kasutatakse domeeni jaoks: <domain><\/domain>",
-            "bullet_2": "",
-            "button_start_enrolling": "",
-            "subtitle": "",
-            "title": ""
+            "bullet_1": "Seda võtmekoodi kasutatakse domeeni jaoks: <domain><\/domain>",
+            "bullet_2": "Teie seade juhendab teid järgmistes sammudes.",
+            "button_start_enrolling": "Loo passkey",
+            "subtitle": "Pääsuvõtmed võimaldavad teil turvaliselt sisse logida sõrmejälje, näotuvastuse või seadme ekraaniluku abil.",
+            "title": "Seadistage oma passkey"
         },
         "not_supported_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "Jätkake",
+            "subtitle": "Vabandust, te ei saa seda ülesannet lõpule viia.",
+            "title": "Seade ei toeta pääsuvõtmeid"
         }
     }
 }

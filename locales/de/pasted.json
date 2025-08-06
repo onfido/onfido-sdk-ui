@@ -1,50 +1,50 @@
 {
     "authenticate_passkey": {
         "attempts_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "Fortfahren",
+            "subtitle": "Sie können sich nicht mehr mit einem Passschlüssel authentifizieren.",
+            "title": "Erlaubte Anzahl an Versuchen überschritten"
         },
         "error": {
-            "button_retry": "",
-            "subtitle": "",
-            "title": ""
+            "button_retry": "Erneut versuchen",
+            "subtitle": "Ein unbekanntes technisches Problem ist aufgetreten. Bitte versuchen Sie es erneut.",
+            "title": "Etwas ist schief gelaufen"
         },
         "introduction": {
-            "bullet_1": "",
-            "bullet_2": "",
-            "button_start_authenticating": "",
-            "subtitle": "",
-            "title": ""
+            "bullet_1": "Sie müssen zuvor einen Passkey bei uns erstellt haben.",
+            "bullet_2": "Ihr Gerät führt Sie durch die nächsten Schritte.",
+            "button_start_authenticating": "Authentifizieren",
+            "subtitle": "Passkeys ermöglichen Ihnen eine sichere Anmeldung mit Ihrem Fingerabdruck, Gesicht oder der Bildschirmsperre Ihres Geräts.",
+            "title": "Authentifizieren Sie sich mit Ihrem Passschlüssel"
         },
         "not_supported_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "Fortfahren",
+            "subtitle": "Es tut uns leid, Sie können diese Aufgabe nicht abschließen.",
+            "title": "Gerät unterstützt keine Passkeys"
         }
     },
     "enroll_passkey": {
         "attempts_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "Fortfahren",
+            "subtitle": "Sie können sich nicht mehr mit einem Passschlüssel authentifizieren.",
+            "title": "Erlaubte Anzahl an Versuchen überschritten"
         },
         "error": {
-            "button_retry": "",
-            "subtitle": "",
-            "title": ""
+            "button_retry": "Erneut versuchen",
+            "subtitle": "Ein unbekanntes technisches Problem ist aufgetreten. Bitte versuchen Sie es erneut.",
+            "title": "Etwas ist schief gelaufen"
         },
         "introduction": {
-            "bullet_1": "Dieser Passkey wird für die Domain <domain><\/domain> verwendet.",
-            "bullet_2": "",
-            "button_start_enrolling": "",
-            "subtitle": "",
-            "title": ""
+            "bullet_1": "Dieser Passschlüssel wird für die Domain verwendet: <domain><\/domain>",
+            "bullet_2": "Ihr Gerät führt Sie durch die nächsten Schritte.",
+            "button_start_enrolling": "Passschlüssel erstellen",
+            "subtitle": "Passkeys ermöglichen Ihnen eine sichere Anmeldung mit Ihrem Fingerabdruck, Gesicht oder der Bildschirmsperre Ihres Geräts.",
+            "title": "Richten Sie Ihren Passschlüssel ein"
         },
         "not_supported_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "Fortfahren",
+            "subtitle": "Es tut uns leid, Sie können diese Aufgabe nicht abschließen.",
+            "title": "Gerät unterstützt keine Passkeys"
         }
     }
 }

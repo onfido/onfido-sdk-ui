@@ -1,50 +1,50 @@
 {
     "authenticate_passkey": {
         "attempts_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "繼續",
+            "subtitle": "您無法再透過通行密鑰進行身份驗證。",
+            "title": "已超過允許的嘗試次數"
         },
         "error": {
-            "button_retry": "",
-            "subtitle": "",
-            "title": ""
+            "button_retry": "重試",
+            "subtitle": "發生未知的技術問題，請再試一次。",
+            "title": "出了些問題"
         },
         "introduction": {
-            "bullet_1": "",
-            "bullet_2": "",
-            "button_start_authenticating": "",
-            "subtitle": "",
-            "title": ""
+            "bullet_1": "您必須在過去已經與我們建立過通行密鑰。",
+            "bullet_2": "您的裝置將引導您完成接下來的步驟。",
+            "button_start_authenticating": "驗證",
+            "subtitle": "通行金鑰讓您可以使用指紋、臉部或裝置螢幕鎖定安全地登入。",
+            "title": "使用您的通行密鑰進行身份驗證"
         },
         "not_supported_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "繼續",
+            "subtitle": "很抱歉，您無法完成此任務。",
+            "title": "裝置不支援通行金鑰"
         }
     },
     "enroll_passkey": {
         "attempts_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "繼續",
+            "subtitle": "您無法再透過通行密鑰進行身份驗證。",
+            "title": "已超過允許的嘗試次數"
         },
         "error": {
-            "button_retry": "",
-            "subtitle": "",
-            "title": ""
+            "button_retry": "重試",
+            "subtitle": "發生未知的技術問題，請再試一次。",
+            "title": "出了些問題"
         },
         "introduction": {
             "bullet_1": "此通行金鑰將用於網域：<domain><\/domain>",
-            "bullet_2": "",
-            "button_start_enrolling": "",
-            "subtitle": "",
-            "title": ""
+            "bullet_2": "您的裝置將引導您完成接下來的步驟。",
+            "button_start_enrolling": "創建通行密鑰",
+            "subtitle": "通行金鑰讓您可以使用指紋、臉部或裝置螢幕鎖定安全地登入。",
+            "title": "設置您的通行密鑰"
         },
         "not_supported_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "繼續",
+            "subtitle": "很抱歉，您無法完成此任務。",
+            "title": "裝置不支援通行金鑰"
         }
     }
 }

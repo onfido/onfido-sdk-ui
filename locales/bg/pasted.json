@@ -1,50 +1,50 @@
 {
     "authenticate_passkey": {
         "attempts_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "Продължете",
+            "subtitle": "Вече не можете да се удостоверите чрез ключ за достъп.",
+            "title": "Надхвърлени са разрешените опити"
         },
         "error": {
-            "button_retry": "",
-            "subtitle": "",
-            "title": ""
+            "button_retry": "Повторен опит",
+            "subtitle": "Възникна неизвестен технически проблем, моля опитайте отново.",
+            "title": "Нещо се обърка"
         },
         "introduction": {
-            "bullet_1": "",
-            "bullet_2": "",
-            "button_start_authenticating": "",
-            "subtitle": "",
-            "title": ""
+            "bullet_1": "Трябва да сте създали ключ за достъп при нас в миналото.",
+            "bullet_2": "Вашето устройство ще ви насочи през следващите стъпки.",
+            "button_start_authenticating": "Удостоверяване",
+            "subtitle": "Ключовете за достъп ви позволяват да влизате сигурно, използвайки пръстов отпечатък, лице или заключване на екрана на устройството.",
+            "title": "Удостоверете се с вашия ключ за достъп"
         },
         "not_supported_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "Продължете",
+            "subtitle": "Съжаляваме, не можете да завършите тази задача.",
+            "title": "Устройството не поддържа passkey ключове"
         }
     },
     "enroll_passkey": {
         "attempts_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "Продължете",
+            "subtitle": "Вече не можете да се удостоверите чрез ключ за достъп.",
+            "title": "Надхвърлени са разрешените опити"
         },
         "error": {
-            "button_retry": "",
-            "subtitle": "",
-            "title": ""
+            "button_retry": "Повторен опит",
+            "subtitle": "Възникна неизвестен технически проблем, моля опитайте отново.",
+            "title": "Нещо се обърка"
         },
         "introduction": {
             "bullet_1": "Този ключ за достъп ще бъде използван за домейна: <domain><\/domain>",
-            "bullet_2": "",
-            "button_start_enrolling": "",
-            "subtitle": "",
-            "title": ""
+            "bullet_2": "Вашето устройство ще ви насочи през следващите стъпки.",
+            "button_start_enrolling": "Създайте ключ за достъп",
+            "subtitle": "Ключовете за достъп ви позволяват да влизате сигурно, използвайки пръстов отпечатък, лице или заключване на екрана на устройството.",
+            "title": "Настройте своя ключ за достъп"
         },
         "not_supported_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "Продължете",
+            "subtitle": "Съжаляваме, но не можете да завършите тази задача.",
+            "title": "Устройството не поддържа passkey ключове"
         }
     }
 }

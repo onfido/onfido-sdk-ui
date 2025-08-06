@@ -1,50 +1,50 @@
 {
     "authenticate_passkey": {
         "attempts_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "Շարունակել",
+            "subtitle": "Դուք այլևս չեք կարող նույնականանալ անցաբառի միջոցով։",
+            "title": "Թույլատրված փորձերը գերազանցվել են"
         },
         "error": {
-            "button_retry": "",
-            "subtitle": "",
-            "title": ""
+            "button_retry": "Կրկին փորձել",
+            "subtitle": "Անհայտ տեխնիկական խնդիր առաջացավ, խնդրում ենք կրկին փորձել։",
+            "title": "Ինչ-որ բանը սխալ է եղել"
         },
         "introduction": {
-            "bullet_1": "",
-            "bullet_2": "",
-            "button_start_authenticating": "",
-            "subtitle": "",
-            "title": ""
+            "bullet_1": "Դուք պետք է նախկինում մեզ մոտ անցաբառ ստեղծած լինեք։",
+            "bullet_2": "Ձեր սարքը կուղղորդի ձեզ հաջորդ քայլերի ընթացքում։",
+            "button_start_authenticating": "Վավերացնել",
+            "subtitle": "Անցման բանալիները թույլ են տալիս ապահով մուտք գործել՝ օգտագործելով ձեր մատնահետքը, դեմքը կամ սարքի էկրանի կողպումը։",
+            "title": "Նույնականացվեք ձեր անցաբառով"
         },
         "not_supported_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "Շարունակել",
+            "subtitle": "Ներեցեք, դուք չեք կարող ավարտել այս առաջադրանքը։",
+            "title": "Սարքը չի աջակցում անցանց բանալիներին"
         }
     },
     "enroll_passkey": {
         "attempts_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "Շարունակել",
+            "subtitle": "Դուք այլևս չեք կարող նույնականանալ անցաբառի միջոցով։",
+            "title": "Թույլատրված փորձերը գերազանցվել են"
         },
         "error": {
-            "button_retry": "",
-            "subtitle": "",
-            "title": ""
+            "button_retry": "Կրկին փորձել",
+            "subtitle": "Անհայտ տեխնիկական խնդիր առաջացավ, խնդրում ենք կրկին փորձել։",
+            "title": "Ինչ-որ բանը սխալ է եղել"
         },
         "introduction": {
-            "bullet_1": "Այս անցանց բանալին կօգտագործվի հետևյալ տիրույթի համար՝ <domain><\/domain>",
-            "bullet_2": "",
-            "button_start_enrolling": "",
-            "subtitle": "",
-            "title": ""
+            "bullet_1": "Այս անցանց բանալին կօգտագործվի հետևյալ դոմենի համար՝ <domain><\/domain>",
+            "bullet_2": "Ձեր սարքը կուղղորդի ձեզ հաջորդ քայլերի ընթացքում։",
+            "button_start_enrolling": "Ստեղծել անցաբառ",
+            "subtitle": "Անցման բանալիները թույլ են տալիս ապահով մուտք գործել՝ օգտագործելով ձեր մատնահետքը, դեմքը կամ սարքի էկրանի կողպումը։",
+            "title": "Կարգավորեք ձեր անցաբառը"
         },
         "not_supported_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "Շարունակել",
+            "subtitle": "Ներեցեք, դուք չեք կարող ավարտել այս առաջադրանքը։",
+            "title": "Սարքը չի աջակցում անցանց բանալիներին"
         }
     }
 }

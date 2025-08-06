@@ -1,50 +1,50 @@
 {
     "authenticate_passkey": {
         "attempts_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "继续",
+            "subtitle": "您无法再通过通行密钥进行身份验证。",
+            "title": "允许的尝试次数已超出"
         },
         "error": {
-            "button_retry": "",
-            "subtitle": "",
-            "title": ""
+            "button_retry": "重试",
+            "subtitle": "发生了未知技术问题，请重试。",
+            "title": "出了些问题"
         },
         "introduction": {
-            "bullet_1": "",
-            "bullet_2": "",
-            "button_start_authenticating": "",
-            "subtitle": "",
-            "title": ""
+            "bullet_1": "您必须在过去创建过通行密钥。",
+            "bullet_2": "您的设备将引导您完成接下来的步骤。",
+            "button_start_authenticating": "验证",
+            "subtitle": "通行密钥让您可以使用指纹、面部或设备屏幕锁安全地登录。",
+            "title": "使用您的通行密钥进行身份验证"
         },
         "not_supported_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "继续",
+            "subtitle": "抱歉，您无法完成此任务。",
+            "title": "设备不支持通行密钥"
         }
     },
     "enroll_passkey": {
         "attempts_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "继续",
+            "subtitle": "您无法再通过通行密钥进行身份验证。",
+            "title": "允许的尝试次数已超出"
         },
         "error": {
-            "button_retry": "",
-            "subtitle": "",
-            "title": ""
+            "button_retry": "重试",
+            "subtitle": "发生了未知技术问题，请重试。",
+            "title": "出了些问题"
         },
         "introduction": {
-            "bullet_1": "此密钥将用于域名：<domain><\/domain>",
-            "bullet_2": "",
-            "button_start_enrolling": "",
-            "subtitle": "",
-            "title": ""
+            "bullet_1": "此通行密钥将用于域名：<domain><\/domain>",
+            "bullet_2": "您的设备将引导您完成接下来的步骤。",
+            "button_start_enrolling": "创建通行密钥",
+            "subtitle": "通行密钥让您可以使用指纹、面部或设备屏幕锁安全地登录。",
+            "title": "设置您的通行密钥"
         },
         "not_supported_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "继续",
+            "subtitle": "对不起，您无法完成此任务。",
+            "title": "设备不支持通行密钥"
         }
     }
 }

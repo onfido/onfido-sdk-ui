@@ -1,50 +1,50 @@
 {
     "authenticate_passkey": {
         "attempts_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "Tęsti",
+            "subtitle": "Jūs nebegalite autentifikuotis naudodami slaptuką.",
+            "title": "Leistinas bandymų skaičius viršytas"
         },
         "error": {
-            "button_retry": "",
-            "subtitle": "",
-            "title": ""
+            "button_retry": "Bandyti dar kartą",
+            "subtitle": "Įvyko nežinoma techninė problema, bandykite dar kartą.",
+            "title": "Kažkas nepavyko"
         },
         "introduction": {
-            "bullet_1": "",
-            "bullet_2": "",
-            "button_start_authenticating": "",
-            "subtitle": "",
-            "title": ""
+            "bullet_1": "Jūs turėjote būti anksčiau sukūrę slaptuką pas mus.",
+            "bullet_2": "Jūsų įrenginys padės jums atlikti kitus veiksmus.",
+            "button_start_authenticating": "Autentifikuoti",
+            "subtitle": "Raktai leidžia saugiai prisijungti naudojant piršto atspaudą, veidą arba įrenginio ekrano užraktą.",
+            "title": "Autentifikuokitės naudodami savo slaptuką"
         },
         "not_supported_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "Tęsti",
+            "subtitle": "Atsiprašome, negalite užbaigti šios užduoties.",
+            "title": "Įrenginys nepalaiko raktų be slaptažodžio"
         }
     },
     "enroll_passkey": {
         "attempts_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "Tęsti",
+            "subtitle": "Jūs nebegalite autentifikuotis naudodami slaptuką.",
+            "title": "Viršytas leistinas bandymų skaičius"
         },
         "error": {
-            "button_retry": "",
-            "subtitle": "",
-            "title": ""
+            "button_retry": "Bandyti dar kartą",
+            "subtitle": "Įvyko nežinoma techninė problema, bandykite dar kartą.",
+            "title": "Kažkas nepavyko"
         },
         "introduction": {
-            "bullet_1": "Šis raktas bus naudojamas domenui: <domain><\/domain>",
-            "bullet_2": "",
-            "button_start_enrolling": "",
-            "subtitle": "",
-            "title": ""
+            "bullet_1": "Šis slaptukas bus naudojamas domenui: <domain><\/domain>",
+            "bullet_2": "Jūsų įrenginys padės jums atlikti kitus veiksmus.",
+            "button_start_enrolling": "Sukurti slaptuką",
+            "subtitle": "Raktai leidžia saugiai prisijungti naudojant piršto atspaudą, veidą arba įrenginio ekrano užraktą.",
+            "title": "Nustatykite savo slaptuką"
         },
         "not_supported_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "Tęsti",
+            "subtitle": "Atsiprašome, negalite užbaigti šios užduoties.",
+            "title": "Įrenginys nepalaiko raktų be slaptažodžio"
         }
     }
 }

@@ -1,50 +1,50 @@
 {
     "authenticate_passkey": {
         "attempts_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "Devam et",
+            "subtitle": "Artık bir geçiş anahtarıyla kimlik doğrulaması yapamazsınız.",
+            "title": "İzin verilen deneme sayısı aşıldı"
         },
         "error": {
-            "button_retry": "",
-            "subtitle": "",
-            "title": ""
+            "button_retry": "Yeniden dene",
+            "subtitle": "Bilinmeyen bir teknik sorun oluştu, lütfen tekrar deneyin.",
+            "title": "Bir şeyler yanlış gitti"
         },
         "introduction": {
-            "bullet_1": "",
-            "bullet_2": "",
-            "button_start_authenticating": "",
-            "subtitle": "",
-            "title": ""
+            "bullet_1": "Daha önce bizimle bir anahtar oluşturmuş olmalısınız.",
+            "bullet_2": "Cihazınız sizi sonraki adımlar konusunda yönlendirecektir.",
+            "button_start_authenticating": "Kimlik Doğrulama",
+            "subtitle": "Geçiş anahtarları, parmak izinizi, yüzünüzü veya cihaz ekran kilidinizi kullanarak güvenli bir şekilde oturum açmanızı sağlar.",
+            "title": "Geçiş Anahtarınız ile kimliğinizi doğrulayın"
         },
         "not_supported_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "Devam et",
+            "subtitle": "Üzgünüz, bu görevi tamamlayamıyorsunuz.",
+            "title": "Cihaz geçiş anahtarlarını desteklemiyor"
         }
     },
     "enroll_passkey": {
         "attempts_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "Devam et",
+            "subtitle": "Artık bir geçiş anahtarıyla kimlik doğrulaması yapamazsınız.",
+            "title": "İzin verilen deneme sayısı aşıldı"
         },
         "error": {
-            "button_retry": "",
-            "subtitle": "",
-            "title": ""
+            "button_retry": "Yeniden dene",
+            "subtitle": "Bilinmeyen bir teknik sorun oluştu, lütfen tekrar deneyin.",
+            "title": "Bir şeyler yanlış gitti"
         },
         "introduction": {
             "bullet_1": "Bu geçiş anahtarı şu alan adı için kullanılacaktır: <domain><\/domain>",
-            "bullet_2": "",
-            "button_start_enrolling": "",
-            "subtitle": "",
-            "title": ""
+            "bullet_2": "Cihazınız sizi sonraki adımlar konusunda yönlendirecektir.",
+            "button_start_enrolling": "Anahtar oluştur",
+            "subtitle": "Geçiş anahtarları, parmak izinizi, yüzünüzü veya cihaz ekran kilidinizi kullanarak güvenli bir şekilde oturum açmanızı sağlar.",
+            "title": "Geçiş Anahtarınızı Ayarlayın"
         },
         "not_supported_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "Devam et",
+            "subtitle": "Üzgünüz, bu görevi tamamlayamıyorsunuz.",
+            "title": "Cihaz geçiş anahtarlarını desteklemiyor"
         }
     }
 }

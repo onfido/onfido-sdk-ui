@@ -1,50 +1,50 @@
 {
     "authenticate_passkey": {
         "attempts_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "Nastavi",
+            "subtitle": "Više ne možete da se autentifikujete pomoću pristupnog ključa.",
+            "title": "Prekoračen dozvoljen broj pokušaja"
         },
         "error": {
-            "button_retry": "",
-            "subtitle": "",
-            "title": ""
+            "button_retry": "Probajte ponovo",
+            "subtitle": "Došlo je do nepoznatog tehničkog problema, molimo pokušajte ponovo.",
+            "title": "Nešto je pošlo po zlu"
         },
         "introduction": {
-            "bullet_1": "",
-            "bullet_2": "",
-            "button_start_authenticating": "",
-            "subtitle": "",
-            "title": ""
+            "bullet_1": "Morali ste prethodno da kreirate pristupni ključ kod nas.",
+            "bullet_2": "Vaš uređaj će vas voditi kroz naredne korake.",
+            "button_start_authenticating": "Autentifikujte",
+            "subtitle": "Ključevi za pristup omogućavaju bezbedno prijavljivanje pomoću otiska prsta, lica ili zaključavanja ekrana uređaja.",
+            "title": "Autentifikujte se pomoću svog Passkey-a"
         },
         "not_supported_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "Nastavi",
+            "subtitle": "Nažalost, ne možete da dovršite ovaj zadatak.",
+            "title": "Uređaj ne podržava pristupne ključeve"
         }
     },
     "enroll_passkey": {
         "attempts_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "Nastavi",
+            "subtitle": "Više ne možete da se autentifikujete putem pristupnog ključa.",
+            "title": "Prekoračen dozvoljen broj pokušaja"
         },
         "error": {
-            "button_retry": "",
-            "subtitle": "",
-            "title": ""
+            "button_retry": "Probajte ponovo",
+            "subtitle": "Došlo je do nepoznatog tehničkog problema, molimo pokušajte ponovo.",
+            "title": "Nešto je pošlo po zlu"
         },
         "introduction": {
             "bullet_1": "Ovaj pristupni ključ će biti korišćen za domen: <domain><\/domain>",
-            "bullet_2": "",
-            "button_start_enrolling": "",
-            "subtitle": "",
-            "title": ""
+            "bullet_2": "Vaš uređaj će vas voditi kroz naredne korake.",
+            "button_start_enrolling": "Kreiraj pristupni ključ",
+            "subtitle": "Ključevi za pristup omogućavaju vam bezbedno prijavljivanje pomoću otiska prsta, lica ili zaključavanja ekrana na uređaju.",
+            "title": "Подесите свој Passkey"
         },
         "not_supported_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "Nastavi",
+            "subtitle": "Nažalost, ne možete da dovršite ovaj zadatak.",
+            "title": "Uređaj ne podržava pristupne ključeve"
         }
     }
 }

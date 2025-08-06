@@ -1,50 +1,50 @@
 {
     "authenticate_passkey": {
         "attempts_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "Jatka",
+            "subtitle": "Et voi enää tunnistautua avainkoodilla.",
+            "title": "Sallittujen yritysten määrä ylitetty"
         },
         "error": {
-            "button_retry": "",
-            "subtitle": "",
-            "title": ""
+            "button_retry": "Yritä uudelleen",
+            "subtitle": "Tuntematon tekninen ongelma tapahtui, yritä uudelleen.",
+            "title": "Jokin meni pieleen"
         },
         "introduction": {
-            "bullet_1": "",
-            "bullet_2": "",
-            "button_start_authenticating": "",
-            "subtitle": "",
-            "title": ""
+            "bullet_1": "Sinun on täytynyt luoda salasana kanssamme aiemmin.",
+            "bullet_2": "Laitteesi ohjaa sinua seuraavissa vaiheissa.",
+            "button_start_authenticating": "Tunnistaudu",
+            "subtitle": "Pääsyavaimilla voit kirjautua turvallisesti sormenjäljelläsi, kasvoillasi tai laitteen näytön lukituksella.",
+            "title": "Tunnistaudu avainkoodillasi"
         },
         "not_supported_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "Jatka",
+            "subtitle": "Valitettavasti et voi suorittaa tätä tehtävää.",
+            "title": "Laite ei tue avainkoodeja"
         }
     },
     "enroll_passkey": {
         "attempts_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "Jatka",
+            "subtitle": "Et voi enää tunnistautua avainkoodilla.",
+            "title": "Sallittujen yritysten määrä ylitetty"
         },
         "error": {
-            "button_retry": "",
-            "subtitle": "",
-            "title": ""
+            "button_retry": "Yritä uudelleen",
+            "subtitle": "Tuntematon tekninen ongelma tapahtui, yritä uudelleen.",
+            "title": "Jokin meni pieleen"
         },
         "introduction": {
-            "bullet_1": "Tätä avainta käytetään seuraavalle verkkotunnukselle: <domain><\/domain>",
-            "bullet_2": "",
-            "button_start_enrolling": "",
-            "subtitle": "",
-            "title": ""
+            "bullet_1": "Tätä avainkoodia käytetään verkkotunnukselle: <domain><\/domain>",
+            "bullet_2": "Laitteesi ohjaa sinua seuraavissa vaiheissa.",
+            "button_start_enrolling": "Luo avainkoodi",
+            "subtitle": "Pääsyavaimilla voit kirjautua turvallisesti sormenjäljelläsi, kasvoillasi tai laitteen näytön lukituksella.",
+            "title": "Ota avainkoodi käyttöön"
         },
         "not_supported_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "Jatka",
+            "subtitle": "Valitettavasti et voi suorittaa tätä tehtävää.",
+            "title": "Laite ei tue avainkoodeja"
         }
     }
 }

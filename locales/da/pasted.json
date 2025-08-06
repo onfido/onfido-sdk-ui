@@ -1,50 +1,50 @@
 {
     "authenticate_passkey": {
         "attempts_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "Fortsæt",
+            "subtitle": "Du kan ikke længere godkende med en adgangsnøgle.",
+            "title": "Antallet af tilladte forsøg er overskredet"
         },
         "error": {
-            "button_retry": "",
-            "subtitle": "",
-            "title": ""
+            "button_retry": "Prøv igen",
+            "subtitle": "Der opstod et ukendt teknisk problem. Prøv igen.",
+            "title": "Noget er gået galt"
         },
         "introduction": {
-            "bullet_1": "",
-            "bullet_2": "",
-            "button_start_authenticating": "",
-            "subtitle": "",
-            "title": ""
+            "bullet_1": "Du skal have oprettet en adgangsnøgle hos os tidligere.",
+            "bullet_2": "Din enhed vil guide dig gennem de næste trin.",
+            "button_start_authenticating": "Godkend identitet",
+            "subtitle": "Adgangsnøgler giver dig mulighed for at logge sikkert ind ved hjælp af dit fingeraftryk, ansigt eller enhedens skærmlås.",
+            "title": "Godkend med din adgangsnøgle"
         },
         "not_supported_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "Fortsæt",
+            "subtitle": "Beklager, du kan ikke fuldføre denne opgave.",
+            "title": "Enheden understøtter ikke adgangsnøgler"
         }
     },
     "enroll_passkey": {
         "attempts_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "Fortsæt",
+            "subtitle": "Du kan ikke længere godkende med en adgangsnøgle.",
+            "title": "Antallet af tilladte forsøg er overskredet"
         },
         "error": {
-            "button_retry": "",
-            "subtitle": "",
-            "title": ""
+            "button_retry": "Prøv igen",
+            "subtitle": "Der opstod et ukendt teknisk problem. Prøv igen.",
+            "title": "Noget er gået galt"
         },
         "introduction": {
             "bullet_1": "Denne adgangsnøgle vil blive brugt til domænet: <domain><\/domain>",
-            "bullet_2": "",
-            "button_start_enrolling": "",
-            "subtitle": "",
-            "title": ""
+            "bullet_2": "Din enhed vil guide dig gennem de næste trin.",
+            "button_start_enrolling": "Opret adgangsnøgle",
+            "subtitle": "Adgangsnøgler giver dig mulighed for at logge sikkert ind ved hjælp af dit fingeraftryk, ansigt eller enhedens skærmlås.",
+            "title": "Opsæt din adgangsnøgle"
         },
         "not_supported_error": {
-            "button_continue": "",
-            "subtitle": "",
-            "title": ""
+            "button_continue": "Fortsæt",
+            "subtitle": "Beklager, du kan ikke fuldføre denne opgave.",
+            "title": "Enheden understøtter ikke adgangsnøgler"
         }
     }
 }
