@@ -6,6 +6,16 @@ and the SDK adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html)
 
 When any of the string translations change, it will result in a MINOR version change. As a result, you are responsible for ensuring the correct layout if you are using custom translations (see [language localization](https://documentation.onfido.com/sdk/web/#custom-translations-and-text)).
 
+## 14.53.0 - 2025-08-18
+### Added
+- Added Waiting screen events
+  
+### Changed
+- Upload fallback and hasCamera check to be triggered from WithCameraPermission
+
+### Fixed
+- Fixed origin during passkey authentication
+
 ## 14.52.0 - 2025-08-06
 ### Fixed
 - Update type for passkey.get
