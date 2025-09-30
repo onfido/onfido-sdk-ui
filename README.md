@@ -1025,7 +1025,63 @@ In case you require to capture a document that is not supported by Onfido or a s
 
 #### `poa` step
 
-This is the Proof of Address capture step. Users will be asked to select the issuing country of their document, the document type, and to provide images of their selected document. They will also have a chance to check the quality of the images before confirming. There are no custom options for this step.
+This is the Proof of Address capture step. Users will be asked to select the issuing country of their document, the document type, and to provide images of their selected document. They will also have a chance to check the quality of the images before confirming.
+
+##### `poa` flow options
+
+The `poa` step can be customised to allow users to select specific documents from either one or multiple countries using the following attributes:
+
+- **`documentTypes {Object}` - required**
+  
+  The `documentTypes` object defines which documents users can upload as proof of address, and optionally which country each document type is associated with. If only one document type is specified, the document selection screen is skipped, and users go straight to the document upload screen.
+
+- **`country {String}` - required**
+  
+  The `country` object is used to specify the issuing country per document type, using a 3-letter ISO 3166-1 alpha-3 country code.
+
+In the example below, only Spanish bank and building society statements will be shown:
+
+  ```json
+  {
+  "steps": [
+    "welcome",
+    {
+      "type": "poa",
+      "options": {
+        "documentTypes": {
+          "bank_building_society_statement": {
+            "country": "ESP"
+          }
+        }
+      }
+    },
+    "complete"
+  ]
+}
+```
+
+In the example below, only Spanish bank and building society statements, plus address certificate and utility bill for all countries will be shown:
+
+```json
+{
+  "steps": [
+    "welcome",
+    {
+      "type": "poa",
+      "options": {
+        "documentTypes": {
+          "bank_building_society_statement": {
+            "country": "ESP"
+          },
+          "address_certificate": true,
+          "utility_bill": true
+        }
+      }
+    },
+    "complete"
+  ]
+}
+```
 
 #### `face` step
 

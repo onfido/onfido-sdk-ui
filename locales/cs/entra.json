@@ -1,0 +1,39 @@
+{
+    "microsoft_entra_issue_verified_credential": {
+        "button_screen": {
+            "add_verified_id_button": "Přidat ověřené ID",
+            "get_authenticator_button": "Získejte aplikaci Microsoft Authenticator",
+            "heading": "Ověření bylo dokončeno, pokračujte k vydání svého Ověřeného ID.",
+            "pin_code_label": "PIN kód:",
+            "sub_heading": "Použijte Microsoft Authenticator k uložení svého Ověřeného ID, klikněte na Přidat Ověřené ID pro otevření aplikace. Zadejte PIN kód, když budete vyzváni."
+        },
+        "qr_screen": {
+            "get_authenticator_button": "Získejte aplikaci Microsoft Authenticator",
+            "heading": "Ověření bylo dokončeno, pokračujte k vydání svého Ověřeného ID.",
+            "list_item_1": "Otevřete aplikaci a klepněte na ikonu tlačítka pro skenování QR kódu, abyste naskenovali QR kód.",
+            "list_item_2": "Zadejte PIN kód do aplikace, když budete vyzváni.",
+            "pin_code_label": "PIN kód:",
+            "sub_heading": "Naskenujte QR kód pomocí aplikace Microsoft Authenticator a uložte si svůj Ověřený ID."
+        }
+    },
+    "microsoft_entra_present_verified_credential": {
+        "button_screen": {
+            "heading": "Přistupte k portálu se svým stávajícím ověřeným ID.",
+            "share_verified_id_button": "Sdílet ověřené ID",
+            "sub_heading": "K ověření své identity použijte aplikaci Microsoft Authenticator. Po dokončení tohoto kroku získáte přístup."
+        },
+        "intro_screen": {
+            "create_verified_id_button": "Vytvořit novou ověřenou identitu",
+            "have_verified_id_button": "Mám ověřenou identitu",
+            "heading": "Ověřte se nebo si vytvořte nový Ověřený ID.",
+            "list_item_1": "Pořiďte fotografii svého dokladu totožnosti.",
+            "list_item_2": "Pořiďte si fotografii svého obličeje.",
+            "sub_heading": "Budete požádáni o ověření své identity. Mělo by to trvat jen několik minut. Budete vyzváni k následujícím krokům:"
+        },
+        "qr_screen": {
+            "heading": "Přistupte k portálu se svým stávajícím ověřeným ID.",
+            "list_item_1": "Otevřete aplikaci Microsoft Authenticator na svém mobilním zařízení.",
+            "list_item_2": "Otevřete kartu Ověřené ID a klepněte na tlačítko QR kódu v pravém horním rohu pro skenování."
+        }
+    }
+}

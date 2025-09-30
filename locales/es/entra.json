@@ -1,0 +1,39 @@
+{
+    "microsoft_entra_issue_verified_credential": {
+        "button_screen": {
+            "add_verified_id_button": "Agregar ID verificada",
+            "get_authenticator_button": "Obtén la aplicación Microsoft Authenticator",
+            "heading": "Verificación completada, continúa para emitir tu ID verificada.",
+            "pin_code_label": "Código PIN:",
+            "sub_heading": "Utiliza Microsoft Authenticator para guardar tu ID verificada. Haz clic en Agregar ID verificada para abrir la aplicación. Ingresa el código PIN cuando se te solicite."
+        },
+        "qr_screen": {
+            "get_authenticator_button": "Obtén la aplicación Microsoft Authenticator",
+            "heading": "Verificación completada, continúa para emitir tu ID verificado.",
+            "list_item_1": "Abre la aplicación y toca el ícono del botón para escanear el código QR.",
+            "list_item_2": "Introduce el código PIN en la aplicación cuando se te solicite.",
+            "pin_code_label": "Código PIN:",
+            "sub_heading": "Escanea el código QR con Microsoft Authenticator para guardar tu ID verificada."
+        }
+    },
+    "microsoft_entra_present_verified_credential": {
+        "button_screen": {
+            "heading": "Accede al portal con tu ID verificado existente.",
+            "share_verified_id_button": "Compartir ID verificada",
+            "sub_heading": "Utiliza la aplicación Microsoft Authenticator para verificar tu identidad. Una vez que completes este paso, se te concederá el acceso."
+        },
+        "intro_screen": {
+            "create_verified_id_button": "Crear nueva ID verificada",
+            "have_verified_id_button": "Tengo una identificación verificada",
+            "heading": "Autentica o crea tu nueva Identidad Verificada.",
+            "list_item_1": "Toma una foto de tu documento de identidad.",
+            "list_item_2": "Toma una foto de tu rostro.",
+            "sub_heading": "Se le pedirá que verifique su identidad. Esto debería tomar unos minutos. Se le solicitará que:"
+        },
+        "qr_screen": {
+            "heading": "Accede al portal con tu ID verificado existente.",
+            "list_item_1": "Abre la aplicación Microsoft Authenticator en tu dispositivo móvil.",
+            "list_item_2": "Abre la pestaña de IDs verificados y toca el botón de código QR en la esquina superior derecha para escanear."
+        }
+    }
+}

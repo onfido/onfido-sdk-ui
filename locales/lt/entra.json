@@ -1,0 +1,39 @@
+{
+    "microsoft_entra_issue_verified_credential": {
+        "button_screen": {
+            "add_verified_id_button": "Pridėti patvirtintą ID",
+            "get_authenticator_button": "Atsisiųskite „Microsoft Authenticator“ programėlę",
+            "heading": "Patikra baigta, tęskite, kad gautumėte savo patvirtintą ID.",
+            "pin_code_label": "PIN kodas:",
+            "sub_heading": "Naudokite „Microsoft Authenticator“, kad išsaugotumėte savo patvirtintą ID, spustelėkite „Pridėti patvirtintą ID“, kad atidarytumėte programėlę. Kai būsite paprašyti, įveskite PIN kodą."
+        },
+        "qr_screen": {
+            "get_authenticator_button": "Atsisiųskite „Microsoft Authenticator“ programėlę",
+            "heading": "Patikra baigta, tęskite, kad gautumėte savo patvirtintą ID.",
+            "list_item_1": "Atidarykite programėlę ir bakstelėkite mygtuko piktogramą „Skenuoti QR kodą“, kad nuskaitytumėte QR kodą.",
+            "list_item_2": "Įveskite PIN kodą programėlėje, kai to bus paprašyta.",
+            "pin_code_label": "PIN kodas:",
+            "sub_heading": "Nuskaitykite QR kodą su Microsoft Authenticator, kad išsaugotumėte savo patvirtintą ID."
+        }
+    },
+    "microsoft_entra_present_verified_credential": {
+        "button_screen": {
+            "heading": "Prisijunkite prie portalo naudodami savo esamą patvirtintą ID.",
+            "share_verified_id_button": "Bendrinti patvirtintą ID",
+            "sub_heading": "Naudokite „Microsoft Authenticator“ programėlę savo tapatybei patvirtinti. Užbaigus šį veiksmą, jums bus suteikta prieiga."
+        },
+        "intro_screen": {
+            "create_verified_id_button": "Sukurti naują patvirtintą ID",
+            "have_verified_id_button": "Turiu patvirtintą ID",
+            "heading": "Autentifikuokite arba susikurkite naują patvirtintą ID.",
+            "list_item_1": "Nufotografuokite savo tapatybės dokumentą.",
+            "list_item_2": "Nusifotografuokite savo veidą.",
+            "sub_heading": "Jūsų bus paprašyta patvirtinti savo tapatybę. Tai turėtų užtrukti kelias minutes. Jūsų bus prašoma:"
+        },
+        "qr_screen": {
+            "heading": "Prisijunkite prie portalo naudodami savo esamą patvirtintą ID.",
+            "list_item_1": "Atidarykite „Microsoft Authenticator“ programėlę savo mobiliajame įrenginyje.",
+            "list_item_2": "Atidarykite patvirtintų ID skirtuką ir viršutiniame dešiniajame kampe bakstelėkite QR kodo mygtuką, kad nuskaitytumėte."
+        }
+    }
+}

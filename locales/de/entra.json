@@ -1,0 +1,39 @@
+{
+    "microsoft_entra_issue_verified_credential": {
+        "button_screen": {
+            "add_verified_id_button": "Verifizierte ID hinzufügen",
+            "get_authenticator_button": "Microsoft Authenticator-App herunterladen",
+            "heading": "Verifizierung abgeschlossen, fahren Sie fort, um Ihre verifizierte ID auszustellen.",
+            "pin_code_label": "PIN-Code:",
+            "sub_heading": "Verwenden Sie Microsoft Authenticator, um Ihre Verified ID zu speichern. Klicken Sie auf \"Verified ID hinzufügen\", um die App zu öffnen. Geben Sie den PIN-Code ein, wenn Sie dazu aufgefordert werden."
+        },
+        "qr_screen": {
+            "get_authenticator_button": "Microsoft Authenticator-App herunterladen",
+            "heading": "Verifizierung abgeschlossen, fahren Sie fort, um Ihre verifizierte ID auszustellen.",
+            "list_item_1": "Öffnen Sie die App und tippen Sie auf das Symbol für den QR-Code-Scan, um den QR-Code zu scannen.",
+            "list_item_2": "Geben Sie den PIN-Code in der App ein, wenn Sie dazu aufgefordert werden.",
+            "pin_code_label": "PIN-Code:",
+            "sub_heading": "Scannen Sie den QR-Code mit Microsoft Authenticator, um Ihre verifizierte ID zu speichern."
+        }
+    },
+    "microsoft_entra_present_verified_credential": {
+        "button_screen": {
+            "heading": "Greifen Sie mit Ihrer bestehenden Verified ID auf das Portal zu.",
+            "share_verified_id_button": "Verifizierte ID teilen",
+            "sub_heading": "Verwenden Sie die Microsoft Authenticator-App, um Ihre Identität zu bestätigen. Sobald dieser Schritt abgeschlossen ist, erhalten Sie Zugriff."
+        },
+        "intro_screen": {
+            "create_verified_id_button": "Neue verifizierte ID erstellen",
+            "have_verified_id_button": "Ich habe eine verifizierte ID",
+            "heading": "Authentifizieren Sie sich oder erstellen Sie Ihre neue Verified ID.",
+            "list_item_1": "Machen Sie ein Foto von Ihrem Ausweisdokument.",
+            "list_item_2": "Machen Sie ein Foto von Ihrem Gesicht.",
+            "sub_heading": "Sie werden gebeten, Ihre Identität zu verifizieren. Dies sollte nur wenige Minuten dauern. Sie werden aufgefordert:"
+        },
+        "qr_screen": {
+            "heading": "Greifen Sie mit Ihrer bestehenden Verified ID auf das Portal zu.",
+            "list_item_1": "Öffnen Sie die Microsoft Authenticator-App auf Ihrem mobilen Gerät.",
+            "list_item_2": "Öffnen Sie den Tab \"Verifizierte IDs\" und tippen Sie auf die QR-Code-Schaltfläche in der oberen rechten Ecke, um zu scannen."
+        }
+    }
+}

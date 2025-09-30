@@ -1,0 +1,39 @@
+{
+    "microsoft_entra_issue_verified_credential": {
+        "button_screen": {
+            "add_verified_id_button": "인증된 ID 추가",
+            "get_authenticator_button": "Microsoft Authenticator 앱 받기",
+            "heading": "인증이 완료되었습니다. Verified ID 발급을 계속 진행하세요.",
+            "pin_code_label": "핀 코드:",
+            "sub_heading": "Microsoft Authenticator를 사용하여 본인 확인 ID를 저장하세요. 앱을 열려면 '본인 확인 ID 추가'를 클릭하세요. 요청 시 핀 코드를 입력하세요."
+        },
+        "qr_screen": {
+            "get_authenticator_button": "Microsoft Authenticator 앱 받기",
+            "heading": "인증이 완료되었습니다. Verified ID 발급을 계속 진행하세요.",
+            "list_item_1": "앱을 열고 QR 코드 스캔 버튼 아이콘을 눌러 QR 코드를 스캔하세요.",
+            "list_item_2": "요청 시 앱에 핀 코드를 입력하세요.",
+            "pin_code_label": "핀 코드:",
+            "sub_heading": "Microsoft Authenticator로 QR 코드를 스캔하여 본인 확인 ID를 저장하세요."
+        }
+    },
+    "microsoft_entra_present_verified_credential": {
+        "button_screen": {
+            "heading": "기존에 인증된 ID로 포털에 접속하세요.",
+            "share_verified_id_button": "인증된 신원 정보 공유",
+            "sub_heading": "Microsoft Authenticator 앱을 사용하여 본인 인증을 진행하세요. 이 단계가 완료되면 접근 권한이 부여됩니다."
+        },
+        "intro_screen": {
+            "create_verified_id_button": "새로운 인증 ID 만들기",
+            "have_verified_id_button": "저는 인증된 ID가 있습니다",
+            "heading": "인증하거나 새로 Verified ID를 생성하세요.",
+            "list_item_1": "신분증의 사진을 찍어주세요.",
+            "list_item_2": "얼굴 사진을 찍어주세요.",
+            "sub_heading": "본인 확인을 요청받게 됩니다. 몇 분 정도 소요될 예정입니다. 다음과 같은 요청이 있을 수 있습니다:"
+        },
+        "qr_screen": {
+            "heading": "기존에 인증된 ID로 포털에 접속하세요.",
+            "list_item_1": "모바일 기기에서 Microsoft Authenticator 앱을 여세요.",
+            "list_item_2": "Verified IDs 탭을 열고 오른쪽 상단에 있는 QR 코드 버튼을 눌러 스캔하세요."
+        }
+    }
+}

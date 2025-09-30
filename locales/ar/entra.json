@@ -1,0 +1,39 @@
+{
+    "microsoft_entra_issue_verified_credential": {
+        "button_screen": {
+            "add_verified_id_button": "إضافة هوية موثقة",
+            "get_authenticator_button": "احصل على تطبيق Microsoft Authenticator",
+            "heading": "تم إكمال التحقق، تابع لإصدار هويتك الموثقة.",
+            "pin_code_label": "رمز التعريف الشخصي:",
+            "sub_heading": "استخدم تطبيق Microsoft Authenticator لحفظ هويتك الموثقة، وانقر على \"إضافة هوية موثقة\" لفتح التطبيق. أدخل رمز التعريف الشخصي عند الطلب."
+        },
+        "qr_screen": {
+            "get_authenticator_button": "احصل على تطبيق Microsoft Authenticator",
+            "heading": "تم إكمال التحقق، تابع لإصدار هويتك الموثقة.",
+            "list_item_1": "افتح التطبيق واضغط على أيقونة زر مسح رمز الاستجابة السريعة لمسح الرمز.",
+            "list_item_2": "أدخل رمز التعريف الشخصي في التطبيق عند الطلب.",
+            "pin_code_label": "رمز التعريف الشخصي:",
+            "sub_heading": "امسح رمز الاستجابة السريعة باستخدام Microsoft Authenticator لحفظ هويتك الموثقة."
+        }
+    },
+    "microsoft_entra_present_verified_credential": {
+        "button_screen": {
+            "heading": "ادخل إلى البوابة باستخدام هوية التحقق الخاصة بك الحالية.",
+            "share_verified_id_button": "مشاركة الهوية الموثقة",
+            "sub_heading": "استخدم تطبيق Microsoft Authenticator للتحقق من هويتك. بمجرد إكمال هذه الخطوة، سيتم منحك حق الوصول."
+        },
+        "intro_screen": {
+            "create_verified_id_button": "إنشاء هوية موثقة جديدة",
+            "have_verified_id_button": "لدي هوية موثقة",
+            "heading": "قم بالمصادقة أو أنشئ هوية موثقة جديدة.",
+            "list_item_1": "التقط صورة لوثيقة هويتك.",
+            "list_item_2": "التقط صورة لوجهك.",
+            "sub_heading": "سيُطلب منك التحقق من هويتك. من المفترض أن يستغرق ذلك بضع دقائق. سيُطلب منك القيام بما يلي:"
+        },
+        "qr_screen": {
+            "heading": "ادخل إلى البوابة باستخدام هوية التحقق الخاصة بك الحالية.",
+            "list_item_1": "افتح تطبيق Microsoft Authenticator على جهازك المحمول.",
+            "list_item_2": "افتح علامة تبويب الهويات الموثقة واضغط على زر رمز الاستجابة السريعة في الزاوية العلوية اليمنى للمسح."
+        }
+    }
+}

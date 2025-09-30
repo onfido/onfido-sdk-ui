@@ -1,0 +1,39 @@
+{
+    "microsoft_entra_issue_verified_credential": {
+        "button_screen": {
+            "add_verified_id_button": "Pridať overené ID",
+            "get_authenticator_button": "Získajte aplikáciu Microsoft Authenticator",
+            "heading": "Overenie bolo dokončené, pokračujte na vydanie svojho overeného ID.",
+            "pin_code_label": "PIN kód:",
+            "sub_heading": "Použite Microsoft Authenticator na uloženie svojho overeného ID, kliknite na Pridať overené ID, aby ste otvorili aplikáciu. Keď budete vyzvaní, zadajte PIN kód."
+        },
+        "qr_screen": {
+            "get_authenticator_button": "Získajte aplikáciu Microsoft Authenticator",
+            "heading": "Overenie bolo dokončené, pokračujte na vydanie svojho overeného ID.",
+            "list_item_1": "Otvorte aplikáciu a klepnite na ikonu tlačidla na skenovanie QR kódu, aby ste naskenovali QR kód.",
+            "list_item_2": "Zadajte PIN kód do aplikácie, keď budete vyzvaní.",
+            "pin_code_label": "PIN kód:",
+            "sub_heading": "Naskenujte QR kód pomocou aplikácie Microsoft Authenticator, aby ste si uložili svoj overený identifikátor."
+        }
+    },
+    "microsoft_entra_present_verified_credential": {
+        "button_screen": {
+            "heading": "Prístup do portálu získate so svojím existujúcim overeným ID.",
+            "share_verified_id_button": "Zdieľať overené ID",
+            "sub_heading": "Na overenie svojej identity použite aplikáciu Microsoft Authenticator. Po dokončení tohto kroku získate prístup."
+        },
+        "intro_screen": {
+            "create_verified_id_button": "Vytvoriť nový overený identifikátor",
+            "have_verified_id_button": "Mám overený identifikátor",
+            "heading": "Overte alebo vytvorte svoj nový overený identifikátor.",
+            "list_item_1": "Odfotografujte svoj doklad totožnosti.",
+            "list_item_2": "Odfotografujte svoju tvár.",
+            "sub_heading": "Budete požiadaní o overenie svojej identity. Malo by to trvať len niekoľko minút. Budete požiadaní o:"
+        },
+        "qr_screen": {
+            "heading": "Prístup do portálu získate pomocou svojho existujúceho overeného ID.",
+            "list_item_1": "Otvorte aplikáciu Microsoft Authenticator na svojom mobilnom zariadení.",
+            "list_item_2": "Otvorte kartu Overené ID a klepnite na tlačidlo QR kódu v pravom hornom rohu, aby ste mohli skenovať."
+        }
+    }
+}

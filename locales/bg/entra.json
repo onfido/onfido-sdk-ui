@@ -1,0 +1,39 @@
+{
+    "microsoft_entra_issue_verified_credential": {
+        "button_screen": {
+            "add_verified_id_button": "Добавяне на потвърдена идентичност",
+            "get_authenticator_button": "Изтеглете приложението Microsoft Authenticator",
+            "heading": "Потвърждението е завършено, продължете, за да издадете своя Verified ID.",
+            "pin_code_label": "ПИН код:",
+            "sub_heading": "Използвайте Microsoft Authenticator, за да запазите своя Verified ID. Кликнете върху „Добавяне на Verified ID“, за да отворите приложението. Въведете пин кода, когато бъдете помолени."
+        },
+        "qr_screen": {
+            "get_authenticator_button": "Изтеглете приложението Microsoft Authenticator",
+            "heading": "Потвърждението е завършено, продължете, за да издадете своя Verified ID.",
+            "list_item_1": "Отворете приложението и докоснете иконата за сканиране на QR код, за да сканирате QR кода.",
+            "list_item_2": "Въведете пин кода в приложението, когато бъдете помолени.",
+            "pin_code_label": "ПИН код:",
+            "sub_heading": "Сканирайте QR кода с Microsoft Authenticator, за да запазите своя Verified ID."
+        }
+    },
+    "microsoft_entra_present_verified_credential": {
+        "button_screen": {
+            "heading": "Достъпете портала с вашия съществуващ Verified ID.",
+            "share_verified_id_button": "Сподели потвърдена самоличност",
+            "sub_heading": "Използвайте приложението Microsoft Authenticator, за да потвърдите своята самоличност. След като тази стъпка бъде завършена, ще получите достъп."
+        },
+        "intro_screen": {
+            "create_verified_id_button": "Създайте нова потвърдена идентичност",
+            "have_verified_id_button": "Имам потвърдена самоличност",
+            "heading": "Удостоверете самоличността си или създайте нов Verified ID.",
+            "list_item_1": "Направете снимка на вашия документ за самоличност.",
+            "list_item_2": "Направете снимка на лицето си.",
+            "sub_heading": "Ще бъдете помолени да потвърдите своята самоличност. Това ще отнеме няколко минути. Ще трябва да:"
+        },
+        "qr_screen": {
+            "heading": "Достъпете портала с вашия съществуващ Verified ID.",
+            "list_item_1": "Отворете приложението Microsoft Authenticator на мобилното си устройство.",
+            "list_item_2": "Отворете раздела „Потвърдени идентификатори“ и докоснете бутона с QR код в горния десен ъгъл, за да сканирате."
+        }
+    }
+}

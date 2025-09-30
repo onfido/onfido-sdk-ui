@@ -1,0 +1,39 @@
+{
+    "microsoft_entra_issue_verified_credential": {
+        "button_screen": {
+            "add_verified_id_button": "افزودن شناسه تأییدشده",
+            "get_authenticator_button": "برنامه Microsoft Authenticator را دریافت کنید",
+            "heading": "تأیید انجام شد، برای صدور شناسه تأییدشده خود ادامه دهید.",
+            "pin_code_label": "کد پین:",
+            "sub_heading": "برای ذخیره شناسه تأییدشده خود از Microsoft Authenticator استفاده کنید، روی افزودن شناسه تأییدشده کلیک کنید تا برنامه باز شود. هنگام درخواست، کد پین را وارد کنید."
+        },
+        "qr_screen": {
+            "get_authenticator_button": "برنامه Microsoft Authenticator را دریافت کنید",
+            "heading": "تأیید انجام شد، برای صدور شناسه تأییدشده خود ادامه دهید.",
+            "list_item_1": "برنامه را باز کنید و روی آیکون دکمه اسکن کد QR ضربه بزنید تا کد QR را اسکن کنید.",
+            "list_item_2": "هنگام درخواست، کد پین را در برنامه وارد کنید.",
+            "pin_code_label": "کد پین:",
+            "sub_heading": "کد QR را با برنامه Microsoft Authenticator اسکن کنید تا شناسه تأییدشده خود را ذخیره کنید."
+        }
+    },
+    "microsoft_entra_present_verified_credential": {
+        "button_screen": {
+            "heading": "با شناسه تأییدشده موجود خود به پورتال دسترسی پیدا کنید.",
+            "share_verified_id_button": "اشتراک‌گذاری شناسه تأییدشده",
+            "sub_heading": "از برنامه Microsoft Authenticator برای تأیید هویت خود استفاده کنید. پس از تکمیل این مرحله، به شما دسترسی داده خواهد شد."
+        },
+        "intro_screen": {
+            "create_verified_id_button": "ایجاد شناسه تأییدشده جدید",
+            "have_verified_id_button": "من یک شناسه تأییدشده دارم",
+            "heading": "احراز هویت کنید یا شناسه تأییدشده جدید خود را ایجاد کنید.",
+            "list_item_1": "از مدرک شناسایی خود عکس بگیرید.",
+            "list_item_2": "از چهره خود عکس بگیرید.",
+            "sub_heading": "از شما خواسته می‌شود هویت خود را تأیید کنید. این کار چند دقیقه زمان می‌برد. از شما خواسته خواهد شد که:"
+        },
+        "qr_screen": {
+            "heading": "با شناسه تأییدشده موجود خود به پورتال دسترسی پیدا کنید.",
+            "list_item_1": "برنامه Microsoft Authenticator را در دستگاه همراه خود باز کنید.",
+            "list_item_2": "برگه شناسه‌های تأییدشده را باز کنید و برای اسکن، دکمه کد QR را در گوشه بالا سمت راست لمس کنید."
+        }
+    }
+}

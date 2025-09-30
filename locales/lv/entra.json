@@ -1,0 +1,39 @@
+{
+    "microsoft_entra_issue_verified_credential": {
+        "button_screen": {
+            "add_verified_id_button": "Pievienot verificētu ID",
+            "get_authenticator_button": "Lejupielādējiet Microsoft Authenticator lietotni",
+            "heading": "Verifikācija pabeigta, turpiniet, lai izsniegtu savu Verificēto ID.",
+            "pin_code_label": "PIN kods:",
+            "sub_heading": "Izmantojiet Microsoft Authenticator, lai saglabātu savu Verificēto ID, noklikšķiniet uz \"Pievienot Verificēto ID\", lai atvērtu lietotni. Kad tiek prasīts, ievadiet PIN kodu."
+        },
+        "qr_screen": {
+            "get_authenticator_button": "Lejupielādējiet Microsoft Authenticator lietotni",
+            "heading": "Verifikācija pabeigta, turpiniet, lai izsniegtu savu Pārbaudīto ID.",
+            "list_item_1": "Atveriet lietotni un pieskarieties pogas ikonai \"Skenēt QR kodu\", lai noskenētu QR kodu.",
+            "list_item_2": "Ievadiet PIN kodu lietotnē, kad tas tiek pieprasīts.",
+            "pin_code_label": "PIN kods:",
+            "sub_heading": "Skenējiet QR kodu ar Microsoft Authenticator, lai saglabātu savu verificēto ID."
+        }
+    },
+    "microsoft_entra_present_verified_credential": {
+        "button_screen": {
+            "heading": "Piekļūstiet portālam ar savu esošo Verified ID.",
+            "share_verified_id_button": "Kopīgot pārbaudīto identitāti",
+            "sub_heading": "Izmantojiet Microsoft Authenticator lietotni, lai apstiprinātu savu identitāti. Kad šis solis būs pabeigts, jums tiks piešķirta piekļuve."
+        },
+        "intro_screen": {
+            "create_verified_id_button": "Izveidot jaunu verificētu ID",
+            "have_verified_id_button": "Man ir verificēta identitāte",
+            "heading": "Autentificējieties vai izveidojiet savu jauno Verificēto ID.",
+            "list_item_1": "Uzņemiet sava identitātes dokumenta fotogrāfiju.",
+            "list_item_2": "Uzņemiet savas sejas fotogrāfiju.",
+            "sub_heading": "Jums tiks lūgts apstiprināt savu identitāti. Tas aizņems tikai dažas minūtes. Jums būs jāveic šādas darbības:"
+        },
+        "qr_screen": {
+            "heading": "Piekļūstiet portālam ar savu esošo Verified ID.",
+            "list_item_1": "Atveriet Microsoft Authenticator lietotni savā mobilajā ierīcē.",
+            "list_item_2": "Atveriet cilni \"Verificētie ID\" un pieskarieties QR koda pogai augšējā labajā stūrī, lai skenētu."
+        }
+    }
+}

@@ -1,0 +1,39 @@
+{
+    "microsoft_entra_issue_verified_credential": {
+        "button_screen": {
+            "add_verified_id_button": "Lisää vahvistettu henkilöllisyys",
+            "get_authenticator_button": "Hanki Microsoft Authenticator -sovellus",
+            "heading": "Vahvistus suoritettu, jatka saadaksesi vahvistetun henkilöllisyystodistuksesi.",
+            "pin_code_label": "PIN-koodi:",
+            "sub_heading": "Käytä Microsoft Authenticatoria tallentaaksesi vahvistetun henkilöllisyytesi. Avaa sovellus napsauttamalla Lisää vahvistettu henkilöllisyys. Syötä PIN-koodi pyydettäessä."
+        },
+        "qr_screen": {
+            "get_authenticator_button": "Hanki Microsoft Authenticator -sovellus",
+            "heading": "Vahvistus suoritettu, jatka saadaksesi vahvistetun henkilöllisyytesi.",
+            "list_item_1": "Avaa sovellus ja napauta skannaa QR-koodi -painiketta skannataksesi QR-koodin.",
+            "list_item_2": "Syötä PIN-koodi sovellukseen, kun sitä pyydetään.",
+            "pin_code_label": "PIN-koodi:",
+            "sub_heading": "Skannaa QR-koodi Microsoft Authenticatorilla tallentaaksesi vahvistetun henkilöllisyytesi."
+        }
+    },
+    "microsoft_entra_present_verified_credential": {
+        "button_screen": {
+            "heading": "Kirjaudu portaaliin olemassa olevalla Verified ID:lläsi.",
+            "share_verified_id_button": "Jaa vahvistettu henkilöllisyys",
+            "sub_heading": "Käytä Microsoft Authenticator -sovellusta henkilöllisyytesi vahvistamiseen. Kun tämä vaihe on suoritettu, saat käyttöoikeuden."
+        },
+        "intro_screen": {
+            "create_verified_id_button": "Luo uusi vahvistettu henkilöllisyys",
+            "have_verified_id_button": "Minulla on vahvistettu henkilöllisyys",
+            "heading": "Vahvista henkilöllisyytesi tai luo uusi vahvistettu tunnus.",
+            "list_item_1": "Ota kuva henkilöllisyystodistuksestasi.",
+            "list_item_2": "Ota kuva kasvoistasi.",
+            "sub_heading": "Sinua pyydetään vahvistamaan henkilöllisyytesi. Tämä kestää vain muutaman minuutin. Sinulta pyydetään seuraavaa:"
+        },
+        "qr_screen": {
+            "heading": "Kirjaudu portaaliin olemassa olevalla Verified ID -tunnuksellasi.",
+            "list_item_1": "Avaa Microsoft Authenticator -sovellus mobiililaitteellasi.",
+            "list_item_2": "Avaa Varmennetut tunnukset -välilehti ja napauta oikeassa yläkulmassa olevaa QR-koodipainiketta skannataksesi."
+        }
+    }
+}

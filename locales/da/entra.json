@@ -1,0 +1,39 @@
+{
+    "microsoft_entra_issue_verified_credential": {
+        "button_screen": {
+            "add_verified_id_button": "Tilføj verificeret ID",
+            "get_authenticator_button": "Hent Microsoft Authenticator-appen",
+            "heading": "Verificering fuldført, fortsæt for at udstede dit Verificerede ID.",
+            "pin_code_label": "Pinkode:",
+            "sub_heading": "Brug Microsoft Authenticator til at gemme dit verificerede ID, klik på Tilføj verificeret ID for at åbne appen. Indtast pinkoden, når du bliver bedt om det."
+        },
+        "qr_screen": {
+            "get_authenticator_button": "Hent Microsoft Authenticator-appen",
+            "heading": "Verificering fuldført, fortsæt for at udstede dit Verificerede ID.",
+            "list_item_1": "Åbn appen, og tryk på knappen med QR-kodeikonet for at scanne QR-koden.",
+            "list_item_2": "Indtast pinkoden i appen, når du bliver bedt om det.",
+            "pin_code_label": "Pinkode:",
+            "sub_heading": "Scan QR-koden med Microsoft Authenticator for at gemme dit verificerede ID."
+        }
+    },
+    "microsoft_entra_present_verified_credential": {
+        "button_screen": {
+            "heading": "Få adgang til portalen med dit eksisterende Verified ID.",
+            "share_verified_id_button": "Del verificeret ID",
+            "sub_heading": "Brug Microsoft Authenticator-appen til at bekræfte din identitet. Når dette trin er fuldført, får du adgang."
+        },
+        "intro_screen": {
+            "create_verified_id_button": "Opret ny verificeret ID",
+            "have_verified_id_button": "Jeg har et verificeret ID",
+            "heading": "Godkend eller opret din nye Verificerede ID.",
+            "list_item_1": "Tag et billede af dit identitetsdokument.",
+            "list_item_2": "Tag et billede af dit ansigt.",
+            "sub_heading": "Du vil blive bedt om at bekræfte din identitet. Det bør kun tage et par minutter. Du vil blive bedt om at:"
+        },
+        "qr_screen": {
+            "heading": "Få adgang til portalen med dit eksisterende Verified ID.",
+            "list_item_1": "Åbn Microsoft Authenticator-appen på din mobile enhed.",
+            "list_item_2": "Åbn fanen Verificerede ID'er, og tryk på QR-kode-knappen i øverste højre hjørne for at scanne."
+        }
+    }
+}

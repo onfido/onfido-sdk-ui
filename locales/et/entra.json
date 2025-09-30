@@ -1,0 +1,39 @@
+{
+    "microsoft_entra_issue_verified_credential": {
+        "button_screen": {
+            "add_verified_id_button": "Lisa kinnitatud ID",
+            "get_authenticator_button": "Laadi alla Microsoft Authenticatori rakendus",
+            "heading": "Kinnitamine on lõpetatud, jätkake oma kontrollitud ID väljastamisega.",
+            "pin_code_label": "PIN-kood:",
+            "sub_heading": "Kasuta Microsoft Authenticatorit oma kontrollitud ID salvestamiseks, ava rakendus, klõpsates nupul Lisa kontrollitud ID. Sisesta PIN-kood, kui seda küsitakse."
+        },
+        "qr_screen": {
+            "get_authenticator_button": "Laadi alla Microsoft Authenticatori rakendus",
+            "heading": "Kinnitamine on lõpetatud, jätkake oma kontrollitud ID väljastamisega.",
+            "list_item_1": "Ava rakendus ja puuduta QR-koodi skannimise nupu ikooni, et skannida QR-kood.",
+            "list_item_2": "Sisestage rakendusse PIN-kood, kui seda küsitakse.",
+            "pin_code_label": "PIN-kood:",
+            "sub_heading": "Skaneeri QR-kood Microsoft Authenticatori abil, et salvestada oma kinnitatud ID."
+        }
+    },
+    "microsoft_entra_present_verified_credential": {
+        "button_screen": {
+            "heading": "Juurdepääs portaalile oma olemasoleva Verified ID-ga.",
+            "share_verified_id_button": "Jaga kinnitatud isikut",
+            "sub_heading": "Kasutage oma isiku tuvastamiseks Microsoft Authenticatori rakendust. Kui see samm on lõpetatud, antakse teile juurdepääs."
+        },
+        "intro_screen": {
+            "create_verified_id_button": "Loo uus kontrollitud ID",
+            "have_verified_id_button": "Mul on kinnitatud ID",
+            "heading": "Tuvasta end või loo uus Verified ID.",
+            "list_item_1": "Tee foto oma isikut tõendavast dokumendist.",
+            "list_item_2": "Tee oma näost foto.",
+            "sub_heading": "Teilt palutakse oma isikut tõendada. See peaks võtma vaid mõned minutid. Teilt küsitakse järgmist:"
+        },
+        "qr_screen": {
+            "heading": "Juurdepääs portaalile oma olemasoleva Verified ID-ga.",
+            "list_item_1": "Ava Microsoft Authenticatori rakendus oma mobiilseadmes.",
+            "list_item_2": "Ava vahekaart „Kinnitatud ID-d” ja puuduta paremas ülanurgas olevat QR-koodi nuppu, et skannida."
+        }
+    }
+}

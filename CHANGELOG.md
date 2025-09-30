@@ -6,6 +6,14 @@ and the SDK adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html)
 
 When any of the string translations change, it will result in a MINOR version change. As a result, you are responsible for ensuring the correct layout if you are using custom translations (see [language localization](https://documentation.onfido.com/sdk/web/#custom-translations-and-text)).
 
+## 14.54.0 - 2025-09-29
+### Changed
+- Removed the preInit permission check that triggers a permission popup at the start of the permission flow in webviews
+
+### Fixed
+- Refetch feature flags on crossdevice
+- Fixed loading containers size to take full containers size
+
 ## 14.53.1 - 2025-08-26
 ### Fixed
 - Check webassembly support for opencv use

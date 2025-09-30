@@ -1,0 +1,39 @@
+{
+    "microsoft_entra_issue_verified_credential": {
+        "button_screen": {
+            "add_verified_id_button": "Dodaj zweryfikowany identyfikator",
+            "get_authenticator_button": "Pobierz aplikację Microsoft Authenticator",
+            "heading": "Weryfikacja zakończona, kontynuuj, aby wydać swój Zweryfikowany ID.",
+            "pin_code_label": "Kod PIN:",
+            "sub_heading": "Użyj aplikacji Microsoft Authenticator, aby zapisać swój Zweryfikowany ID. Kliknij Dodaj Zweryfikowany ID, aby otworzyć aplikację. Wprowadź kod PIN, gdy zostaniesz o to poproszony."
+        },
+        "qr_screen": {
+            "get_authenticator_button": "Pobierz aplikację Microsoft Authenticator",
+            "heading": "Weryfikacja zakończona, kontynuuj, aby wydać swój Zweryfikowany ID.",
+            "list_item_1": "Otwórz aplikację i stuknij ikonę przycisku skanowania kodu QR, aby zeskanować kod QR.",
+            "list_item_2": "Wprowadź kod PIN w aplikacji, gdy zostaniesz o to poproszony.",
+            "pin_code_label": "Kod PIN:",
+            "sub_heading": "Zeskanuj kod QR za pomocą aplikacji Microsoft Authenticator, aby zapisać swój Zweryfikowany ID."
+        }
+    },
+    "microsoft_entra_present_verified_credential": {
+        "button_screen": {
+            "heading": "Uzyskaj dostęp do portalu za pomocą swojego istniejącego Zweryfikowanego ID.",
+            "share_verified_id_button": "Udostępnij zweryfikowany identyfikator",
+            "sub_heading": "Użyj aplikacji Microsoft Authenticator, aby zweryfikować swoją tożsamość. Po zakończeniu tego kroku otrzymasz dostęp."
+        },
+        "intro_screen": {
+            "create_verified_id_button": "Utwórz nowy Zweryfikowany ID",
+            "have_verified_id_button": "Mam Zweryfikowany ID",
+            "heading": "Uwierzytelnij się lub utwórz nowy Zweryfikowany ID.",
+            "list_item_1": "Zrób zdjęcie swojego dokumentu tożsamości.",
+            "list_item_2": "Zrób zdjęcie swojej twarzy.",
+            "sub_heading": "Zostaniesz poproszony o potwierdzenie swojej tożsamości. Powinno to zająć kilka minut. Zostaniesz poproszony o:"
+        },
+        "qr_screen": {
+            "heading": "Uzyskaj dostęp do portalu za pomocą swojego istniejącego Zweryfikowanego ID.",
+            "list_item_1": "Otwórz aplikację Microsoft Authenticator na swoim urządzeniu mobilnym.",
+            "list_item_2": "Otwórz kartę Zweryfikowane ID i stuknij przycisk kodu QR w prawym górnym rogu, aby zeskanować."
+        }
+    }
+}
