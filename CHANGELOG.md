@@ -6,6 +6,10 @@ and the SDK adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html)
 
 When any of the string translations change, it will result in a MINOR version change. As a result, you are responsible for ensuring the correct layout if you are using custom translations (see [language localization](https://documentation.onfido.com/sdk/web/#custom-translations-and-text)).
 
+## 14.55.0 - 2025-10-16
+### Changed
+- General improvements
+
 ## 14.54.0 - 2025-09-29
 ### Changed
 - Removed the preInit permission check that triggers a permission popup at the start of the permission flow in webviews
