@@ -1262,6 +1262,11 @@
     },
     "face_capture": {
       "alert": {
+        "audio_conflict_body": "โปรดอย่าเล่นเสียงบนอุปกรณ์ขณะกำลังบันทึกเสียง",
+        "audio_conflict_button_primary": "ลองอีกครั้ง",
+        "audio_conflict_title": "แอปอื่นกำลังเล่นเสียงอยู่",
+        "mic_conflict_body": "โปรดวางสายหรือหยุดกิจกรรมที่ใช้ไมโครโฟนขณะกำลังบันทึกเสียง",
+        "mic_conflict_button_primary": "ลองอีกครั้ง",
         "mic_conflict_title": "แอปอื่นกำลังใช้ไมโครโฟนอยู่",
         "randomness": {
           "timeout_body": "คุณมีเวลาไม่เกิน 20 วินาทีในการทำการบันทึกให้เสร็จสิ้น"
@@ -1279,8 +1284,12 @@
         "right": "ค่อยๆ หันศีรษะไปทางขวา",
         "up": "ค่อยๆ เงยศีรษะขึ้น"
       },
+      "left_side_complete_accessibility": "ด้านซ้ายเสร็จแล้ว",
+      "right_side_complete_accessibility": "ด้านขวาเสร็จแล้ว",
       "title": "ค่อยๆ หันศีรษะไปทั้ง 2 ข้าง",
-      "title_completed": "บันทึกเสร็จสมบูรณ์"
+      "title_accessibility": "จัดตำแหน่งใบหน้าแล้ว",
+      "title_completed": "บันทึกเสร็จสมบูรณ์",
+      "turn_head_other_side_accessibility": "หันศีรษะไปอีกด้าน"
     },
     "intro": {
       "button_primary_ready": "เริ่มบันทึก",
@@ -1472,6 +1481,7 @@
         "title": "faceMotion.connection_error.title"
       },
       "avc_face_alignment": {
+        "feedback_face_aligned_accessibility": "faceMotion.face_capture.title_accessibility",
         "feedback_move_back": "faceMotion.face_alignment.feedback_move_back",
         "feedback_move_closer": "faceMotion.face_alignment.feedback_move_closer",
         "feedback_no_face_detected": "faceMotion.face_alignment.feedback_no_face_detected",
@@ -1480,6 +1490,11 @@
       },
       "avc_face_capture": {
         "alert": {
+          "audio_conflict_body": "faceMotion.face_capture.alert.audio_conflict_body",
+          "audio_conflict_button_primary": "faceMotion.face_capture.alert.audio_conflict_button_primary",
+          "audio_conflict_title": "faceMotion.face_capture.alert.audio_conflict_title",
+          "mic_conflict_body": "faceMotion.face_capture.alert.mic_conflict_body",
+          "mic_conflict_button_primary": "faceMotion.face_capture.alert.mic_conflict_button_primary",
           "mic_conflict_title": "faceMotion.face_capture.alert.mic_conflict_title",
           "timeout_body": "faceMotion.face_capture.alert.timeout_body",
           "timeout_button_primary": "faceMotion.face_capture.alert.timeout_button_primary",
@@ -1488,6 +1503,9 @@
           "too_fast_button_primary": "faceMotion.face_capture.alert.too_fast_button_primary",
           "too_fast_title": "faceMotion.face_capture.alert.too_fast_title"
         },
+        "confirmation_left_side_complete_accessibility": "faceMotion.face_capture.left_side_complete_accessibility",
+        "confirmation_right_side_complete_accessibility": "faceMotion.face_capture.right_side_complete_accessibility",
+        "feedback_turn_head_other_side_accessibility": "faceMotion.face_capture.turn_head_other_side_accessibility",
         "title": "faceMotion.face_capture.title",
         "title_completed": "faceMotion.face_capture.title_completed"
       },
@@ -3425,6 +3443,11 @@
     },
     "face_capture": {
       "alert": {
+        "audio_conflict_body": "โปรดอย่าเล่นเสียงบนอุปกรณ์ขณะกำลังบันทึกเสียง",
+        "audio_conflict_button_primary": "ลองอีกครั้ง",
+        "audio_conflict_title": "แอปอื่นกำลังเล่นเสียงอยู่",
+        "mic_conflict_body": "โปรดวางสายหรือหยุดกิจกรรมที่ใช้ไมโครโฟนขณะกำลังบันทึกเสียง",
+        "mic_conflict_button_primary": "ลองอีกครั้ง",
         "mic_conflict_title": "แอปอื่นกำลังใช้ไมโครโฟนอยู่",
         "randomness": {
           "timeout_body": "คุณมีเวลาไม่เกิน 20 วินาทีในการทำการบันทึกให้เสร็จสิ้น"
@@ -3442,8 +3465,12 @@
         "right": "ค่อยๆ หันศีรษะไปทางขวา",
         "up": "ค่อยๆ เงยศีรษะขึ้น"
       },
+      "left_side_complete_accessibility": "ด้านซ้ายเสร็จแล้ว",
+      "right_side_complete_accessibility": "ด้านขวาเสร็จแล้ว",
       "title": "ค่อยๆ หันศีรษะไปทั้ง 2 ข้าง",
-      "title_completed": "บันทึกเสร็จสมบูรณ์"
+      "title_accessibility": "จัดตำแหน่งใบหน้าแล้ว",
+      "title_completed": "บันทึกเสร็จสมบูรณ์",
+      "turn_head_other_side_accessibility": "หันศีรษะไปอีกด้าน"
     },
     "intro": {
       "button_primary_ready": "เริ่มบันทึก",
@@ -3483,7 +3510,7 @@
       "title": "เกิดข้อผิดพลาดในการเชื่อมต่อ"
     },
     "error": {
-      "button_primary": "เริ่มสแกน",
+      "button_primary": "สแกนอีกครั้ง",
       "button_secondary": {
         "exit": "การตรวจสอบการออก",
         "skip": "ตรวจสอบโดยไม่ต้องสแกน"

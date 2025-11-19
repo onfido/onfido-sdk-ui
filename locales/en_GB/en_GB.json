@@ -1262,6 +1262,11 @@
     },
     "face_capture": {
       "alert": {
+        "audio_conflict_body": "Please do not play any audio on your device during the recording",
+        "audio_conflict_button_primary": "Retry",
+        "audio_conflict_title": "Audio is being played by another app",
+        "mic_conflict_body": "Please end any ongoing calls or activities that are using your microphone during the recording",
+        "mic_conflict_button_primary": "Retry",
         "mic_conflict_title": "Your microphone is being used by another app",
         "randomness": {
           "timeout_body": "You have up to 20 seconds to complete the recording"
@@ -1279,8 +1284,12 @@
         "right": "Slowly turn your head right",
         "up": "Slowly tilt your head up"
       },
+      "left_side_complete_accessibility": "Left side complete",
+      "right_side_complete_accessibility": "Right side complete",
       "title": "Turn your head slowly to both sides",
-      "title_completed": "Recording complete"
+      "title_accessibility": "Face aligned",
+      "title_completed": "Recording complete",
+      "turn_head_other_side_accessibility": "Turn your head to the other side"
     },
     "intro": {
       "button_primary_ready": "Start recording",
@@ -1472,6 +1481,7 @@
         "title": "faceMotion.connection_error.title"
       },
       "avc_face_alignment": {
+        "feedback_face_aligned_accessibility": "faceMotion.face_capture.title_accessibility",
         "feedback_move_back": "faceMotion.face_alignment.feedback_move_back",
         "feedback_move_closer": "faceMotion.face_alignment.feedback_move_closer",
         "feedback_no_face_detected": "faceMotion.face_alignment.feedback_no_face_detected",
@@ -1480,6 +1490,11 @@
       },
       "avc_face_capture": {
         "alert": {
+          "audio_conflict_body": "faceMotion.face_capture.alert.audio_conflict_body",
+          "audio_conflict_button_primary": "faceMotion.face_capture.alert.audio_conflict_button_primary",
+          "audio_conflict_title": "faceMotion.face_capture.alert.audio_conflict_title",
+          "mic_conflict_body": "faceMotion.face_capture.alert.mic_conflict_body",
+          "mic_conflict_button_primary": "faceMotion.face_capture.alert.mic_conflict_button_primary",
           "mic_conflict_title": "faceMotion.face_capture.alert.mic_conflict_title",
           "timeout_body": "faceMotion.face_capture.alert.timeout_body",
           "timeout_button_primary": "faceMotion.face_capture.alert.timeout_button_primary",
@@ -1488,6 +1503,9 @@
           "too_fast_button_primary": "faceMotion.face_capture.alert.too_fast_button_primary",
           "too_fast_title": "faceMotion.face_capture.alert.too_fast_title"
         },
+        "confirmation_left_side_complete_accessibility": "faceMotion.face_capture.left_side_complete_accessibility",
+        "confirmation_right_side_complete_accessibility": "faceMotion.face_capture.right_side_complete_accessibility",
+        "feedback_turn_head_other_side_accessibility": "faceMotion.face_capture.turn_head_other_side_accessibility",
         "title": "faceMotion.face_capture.title",
         "title_completed": "faceMotion.face_capture.title_completed"
       },
@@ -3425,6 +3443,11 @@
     },
     "face_capture": {
       "alert": {
+        "audio_conflict_body": "Please do not play any audio on your device during the recording",
+        "audio_conflict_button_primary": "Retry",
+        "audio_conflict_title": "Audio is being played by another app",
+        "mic_conflict_body": "Please end any ongoing calls or activities that are using your microphone during the recording",
+        "mic_conflict_button_primary": "Retry",
         "mic_conflict_title": "Your microphone is being used by another app",
         "randomness": {
           "timeout_body": "You have up to 20 seconds to complete the recording"
@@ -3442,8 +3465,12 @@
         "right": "Slowly turn your head right",
         "up": "Slowly tilt your head up"
       },
+      "left_side_complete_accessibility": "Left side complete",
+      "right_side_complete_accessibility": "Right side complete",
       "title": "Turn your head slowly to both sides",
-      "title_completed": "Recording complete"
+      "title_accessibility": "Face aligned",
+      "title_completed": "Recording complete",
+      "turn_head_other_side_accessibility": "Turn your head to the other side"
     },
     "intro": {
       "button_primary_ready": "Start recording",
@@ -3483,7 +3510,7 @@
       "title": "Connection error"
     },
     "error": {
-      "button_primary": "Start scan",
+      "button_primary": "Retry scan",
       "button_secondary": {
         "exit": "Exit verification",
         "skip": "Verify without scanning"

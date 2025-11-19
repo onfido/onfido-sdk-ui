@@ -1262,6 +1262,11 @@
     },
     "face_capture": {
       "alert": {
+        "audio_conflict_body": "录制期间请勿在您的设备上播放任何音频",
+        "audio_conflict_button_primary": "重试",
+        "audio_conflict_title": "音频正在被另一个应用播放",
+        "mic_conflict_body": "录制期间请结束正在使用您的麦克风的任何进行中通话或活动",
+        "mic_conflict_button_primary": "重试",
         "mic_conflict_title": "您的麦克风正在被另一个应用使用",
         "randomness": {
           "timeout_body": "您有最多20秒的时间完成录制"
@@ -1279,8 +1284,12 @@
         "right": "慢慢向右转头",
         "up": "慢慢抬起头部"
       },
+      "left_side_complete_accessibility": "左侧完成",
+      "right_side_complete_accessibility": "右侧完成",
       "title": "慢慢地将头转向两侧",
-      "title_completed": "录制完成"
+      "title_accessibility": "面部已对齐",
+      "title_completed": "录制完成",
+      "turn_head_other_side_accessibility": "把头转向另一侧"
     },
     "intro": {
       "button_primary_ready": "开始录制",
@@ -1472,6 +1481,7 @@
         "title": "faceMotion.connection_error.title"
       },
       "avc_face_alignment": {
+        "feedback_face_aligned_accessibility": "faceMotion.face_capture.title_accessibility",
         "feedback_move_back": "faceMotion.face_alignment.feedback_move_back",
         "feedback_move_closer": "faceMotion.face_alignment.feedback_move_closer",
         "feedback_no_face_detected": "faceMotion.face_alignment.feedback_no_face_detected",
@@ -1480,6 +1490,11 @@
       },
       "avc_face_capture": {
         "alert": {
+          "audio_conflict_body": "faceMotion.face_capture.alert.audio_conflict_body",
+          "audio_conflict_button_primary": "faceMotion.face_capture.alert.audio_conflict_button_primary",
+          "audio_conflict_title": "faceMotion.face_capture.alert.audio_conflict_title",
+          "mic_conflict_body": "faceMotion.face_capture.alert.mic_conflict_body",
+          "mic_conflict_button_primary": "faceMotion.face_capture.alert.mic_conflict_button_primary",
           "mic_conflict_title": "faceMotion.face_capture.alert.mic_conflict_title",
           "timeout_body": "faceMotion.face_capture.alert.timeout_body",
           "timeout_button_primary": "faceMotion.face_capture.alert.timeout_button_primary",
@@ -1488,6 +1503,9 @@
           "too_fast_button_primary": "faceMotion.face_capture.alert.too_fast_button_primary",
           "too_fast_title": "faceMotion.face_capture.alert.too_fast_title"
         },
+        "confirmation_left_side_complete_accessibility": "faceMotion.face_capture.left_side_complete_accessibility",
+        "confirmation_right_side_complete_accessibility": "faceMotion.face_capture.right_side_complete_accessibility",
+        "feedback_turn_head_other_side_accessibility": "faceMotion.face_capture.turn_head_other_side_accessibility",
         "title": "faceMotion.face_capture.title",
         "title_completed": "faceMotion.face_capture.title_completed"
       },
@@ -3425,6 +3443,11 @@
     },
     "face_capture": {
       "alert": {
+        "audio_conflict_body": "录制期间请勿在您的设备上播放任何音频",
+        "audio_conflict_button_primary": "重试",
+        "audio_conflict_title": "音频正在被另一个应用播放",
+        "mic_conflict_body": "录制期间请结束正在使用您的麦克风的任何进行中通话或活动",
+        "mic_conflict_button_primary": "重试",
         "mic_conflict_title": "您的麦克风正在被另一个应用使用",
         "randomness": {
           "timeout_body": "您有最多20秒的时间完成录制"
@@ -3442,8 +3465,12 @@
         "right": "慢慢向右转头",
         "up": "慢慢抬起头部"
       },
+      "left_side_complete_accessibility": "左侧完成",
+      "right_side_complete_accessibility": "右侧完成",
       "title": "慢慢地将头转向两侧",
-      "title_completed": "录制完成"
+      "title_accessibility": "面部已对齐",
+      "title_completed": "录制完成",
+      "turn_head_other_side_accessibility": "把头转向另一侧"
     },
     "intro": {
       "button_primary_ready": "开始录制",
@@ -3483,7 +3510,7 @@
       "title": "连接错误"
     },
     "error": {
-      "button_primary": "开始扫描",
+      "button_primary": "重新扫描",
       "button_secondary": {
         "exit": "退出验证",
         "skip": "无需扫描即可验证"

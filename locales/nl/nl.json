@@ -1262,6 +1262,11 @@
     },
     "face_capture": {
       "alert": {
+        "audio_conflict_body": "Speel tijdens de opname geen audio af op uw apparaat.",
+        "audio_conflict_button_primary": "Opnieuw proberen",
+        "audio_conflict_title": "Audio wordt door een andere app afgespeeld",
+        "mic_conflict_body": "Beëindig tijdens de opname alle lopende gesprekken of activiteiten die van uw microfoon gebruik maken.",
+        "mic_conflict_button_primary": "Opnieuw proberen",
         "mic_conflict_title": "Uw microfoon wordt door een andere app gebruikt",
         "randomness": {
           "timeout_body": "Je hebt maximaal 20 seconden om de opname te voltooien"
@@ -1279,8 +1284,12 @@
         "right": "Draai je hoofd langzaam naar rechts",
         "up": "Kantel je hoofd langzaam omhoog"
       },
+      "left_side_complete_accessibility": "Linkerkant voltooid",
+      "right_side_complete_accessibility": "Rechterkant voltooid",
       "title": "Draai uw hoofd langzaam naar beide kanten",
-      "title_completed": "Opname voltooid"
+      "title_accessibility": "Gezicht uitgelijnd",
+      "title_completed": "Opname voltooid",
+      "turn_head_other_side_accessibility": "Draai uw hoofd naar de andere kant"
     },
     "intro": {
       "button_primary_ready": "Start met opnemen",
@@ -1472,6 +1481,7 @@
         "title": "faceMotion.connection_error.title"
       },
       "avc_face_alignment": {
+        "feedback_face_aligned_accessibility": "faceMotion.face_capture.title_accessibility",
         "feedback_move_back": "faceMotion.face_alignment.feedback_move_back",
         "feedback_move_closer": "faceMotion.face_alignment.feedback_move_closer",
         "feedback_no_face_detected": "faceMotion.face_alignment.feedback_no_face_detected",
@@ -1480,6 +1490,11 @@
       },
       "avc_face_capture": {
         "alert": {
+          "audio_conflict_body": "faceMotion.face_capture.alert.audio_conflict_body",
+          "audio_conflict_button_primary": "faceMotion.face_capture.alert.audio_conflict_button_primary",
+          "audio_conflict_title": "faceMotion.face_capture.alert.audio_conflict_title",
+          "mic_conflict_body": "faceMotion.face_capture.alert.mic_conflict_body",
+          "mic_conflict_button_primary": "faceMotion.face_capture.alert.mic_conflict_button_primary",
           "mic_conflict_title": "faceMotion.face_capture.alert.mic_conflict_title",
           "timeout_body": "faceMotion.face_capture.alert.timeout_body",
           "timeout_button_primary": "faceMotion.face_capture.alert.timeout_button_primary",
@@ -1488,6 +1503,9 @@
           "too_fast_button_primary": "faceMotion.face_capture.alert.too_fast_button_primary",
           "too_fast_title": "faceMotion.face_capture.alert.too_fast_title"
         },
+        "confirmation_left_side_complete_accessibility": "faceMotion.face_capture.left_side_complete_accessibility",
+        "confirmation_right_side_complete_accessibility": "faceMotion.face_capture.right_side_complete_accessibility",
+        "feedback_turn_head_other_side_accessibility": "faceMotion.face_capture.turn_head_other_side_accessibility",
         "title": "faceMotion.face_capture.title",
         "title_completed": "faceMotion.face_capture.title_completed"
       },
@@ -3425,6 +3443,11 @@
     },
     "face_capture": {
       "alert": {
+        "audio_conflict_body": "Speel tijdens de opname geen audio af op uw apparaat.",
+        "audio_conflict_button_primary": "Opnieuw proberen",
+        "audio_conflict_title": "Audio wordt door een andere app afgespeeld",
+        "mic_conflict_body": "Beëindig tijdens de opname alle lopende gesprekken of activiteiten die van uw microfoon gebruik maken.",
+        "mic_conflict_button_primary": "Opnieuw proberen",
         "mic_conflict_title": "Uw microfoon wordt door een andere app gebruikt",
         "randomness": {
           "timeout_body": "Je hebt maximaal 20 seconden om de opname te voltooien"
@@ -3442,8 +3465,12 @@
         "right": "Draai je hoofd langzaam naar rechts",
         "up": "Kantel je hoofd langzaam omhoog"
       },
+      "left_side_complete_accessibility": "Linkerkant voltooid",
+      "right_side_complete_accessibility": "Rechterkant voltooid",
       "title": "Draai uw hoofd langzaam naar beide kanten",
-      "title_completed": "Opname voltooid"
+      "title_accessibility": "Gezicht uitgelijnd",
+      "title_completed": "Opname voltooid",
+      "turn_head_other_side_accessibility": "Draai uw hoofd naar de andere kant"
     },
     "intro": {
       "button_primary_ready": "Start met opnemen",
@@ -3483,7 +3510,7 @@
       "title": "Verbindingsfout"
     },
     "error": {
-      "button_primary": "Start scan",
+      "button_primary": "Scan opnieuw",
       "button_secondary": {
         "exit": "Verificatie afsluiten",
         "skip": "Verifiëren zonder te scannen"

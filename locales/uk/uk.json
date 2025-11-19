@@ -1262,6 +1262,11 @@
     },
     "face_capture": {
       "alert": {
+        "audio_conflict_body": "Не відтворюйте звук на вашому пристрої під час запису",
+        "audio_conflict_button_primary": "Повторити",
+        "audio_conflict_title": "Аудіо відтворюється іншим застосунком",
+        "mic_conflict_body": "Завершіть будь-які поточні дзвінки або дії, які використовують мікрофон під час запису.",
+        "mic_conflict_button_primary": "Повторити спробу",
         "mic_conflict_title": "Ваш мікрофон використовується іншим застосунком.",
         "randomness": {
           "timeout_body": "У вас є до 20 секунд для завершення запису"
@@ -1279,8 +1284,12 @@
         "right": "Повільно поверніть голову праворуч",
         "up": "Повільно підніміть голову вгору"
       },
+      "left_side_complete_accessibility": "Поворот вліво успішно виконано",
+      "right_side_complete_accessibility": "Поворот вправо успішно виконано",
       "title": "Повільно поверніть голову в обидва боки",
-      "title_completed": "Запис завершено"
+      "title_accessibility": "Обличчя у правильному положенні",
+      "title_completed": "Запис завершено",
+      "turn_head_other_side_accessibility": "Поверніть голову в інший бік"
     },
     "intro": {
       "button_primary_ready": "Почати запис",
@@ -1472,6 +1481,7 @@
         "title": "faceMotion.connection_error.title"
       },
       "avc_face_alignment": {
+        "feedback_face_aligned_accessibility": "faceMotion.face_capture.title_accessibility",
         "feedback_move_back": "faceMotion.face_alignment.feedback_move_back",
         "feedback_move_closer": "faceMotion.face_alignment.feedback_move_closer",
         "feedback_no_face_detected": "faceMotion.face_alignment.feedback_no_face_detected",
@@ -1480,6 +1490,11 @@
       },
       "avc_face_capture": {
         "alert": {
+          "audio_conflict_body": "faceMotion.face_capture.alert.audio_conflict_body",
+          "audio_conflict_button_primary": "faceMotion.face_capture.alert.audio_conflict_button_primary",
+          "audio_conflict_title": "faceMotion.face_capture.alert.audio_conflict_title",
+          "mic_conflict_body": "faceMotion.face_capture.alert.mic_conflict_body",
+          "mic_conflict_button_primary": "faceMotion.face_capture.alert.mic_conflict_button_primary",
           "mic_conflict_title": "faceMotion.face_capture.alert.mic_conflict_title",
           "timeout_body": "faceMotion.face_capture.alert.timeout_body",
           "timeout_button_primary": "faceMotion.face_capture.alert.timeout_button_primary",
@@ -1488,6 +1503,9 @@
           "too_fast_button_primary": "faceMotion.face_capture.alert.too_fast_button_primary",
           "too_fast_title": "faceMotion.face_capture.alert.too_fast_title"
         },
+        "confirmation_left_side_complete_accessibility": "faceMotion.face_capture.left_side_complete_accessibility",
+        "confirmation_right_side_complete_accessibility": "faceMotion.face_capture.right_side_complete_accessibility",
+        "feedback_turn_head_other_side_accessibility": "faceMotion.face_capture.turn_head_other_side_accessibility",
         "title": "faceMotion.face_capture.title",
         "title_completed": "faceMotion.face_capture.title_completed"
       },
@@ -3425,6 +3443,11 @@
     },
     "face_capture": {
       "alert": {
+        "audio_conflict_body": "Не відтворюйте звук на вашому пристрої під час запису",
+        "audio_conflict_button_primary": "Повторити",
+        "audio_conflict_title": "Аудіо відтворюється іншим застосунком",
+        "mic_conflict_body": "Завершіть будь-які поточні дзвінки або дії, які використовують мікрофон під час запису.",
+        "mic_conflict_button_primary": "Повторити спробу",
         "mic_conflict_title": "Ваш мікрофон використовується іншим застосунком.",
         "randomness": {
           "timeout_body": "У вас є до 20 секунд для завершення запису"
@@ -3442,8 +3465,12 @@
         "right": "Повільно поверніть голову праворуч",
         "up": "Повільно підніміть голову вгору"
       },
+      "left_side_complete_accessibility": "Поворот вліво успішно виконано",
+      "right_side_complete_accessibility": "Поворот вправо успішно виконано",
       "title": "Повільно поверніть голову в обидва боки",
-      "title_completed": "Запис завершено"
+      "title_accessibility": "Обличчя у правильному положенні",
+      "title_completed": "Запис завершено",
+      "turn_head_other_side_accessibility": "Поверніть голову в інший бік"
     },
     "intro": {
       "button_primary_ready": "Почати запис",
@@ -3483,7 +3510,7 @@
       "title": "Помилка з’єднання"
     },
     "error": {
-      "button_primary": "Почати сканування",
+      "button_primary": "Повторити сканування",
       "button_secondary": {
         "exit": "Верифікація при виході",
         "skip": "Перевірити без сканування"

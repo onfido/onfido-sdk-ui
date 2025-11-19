@@ -1262,6 +1262,11 @@
     },
     "face_capture": {
       "alert": {
+        "audio_conflict_body": "Během nahrávání nepřehrávejte na svém zařízení žádný audiozáznam",
+        "audio_conflict_button_primary": "Opakování",
+        "audio_conflict_title": "Audiozáznam se přehrává na jiné aplikaci",
+        "mic_conflict_body": "Ukončete veškeré probíhající hovory nebo činnosti, u nichž během nahrávání používáte svůj mikrofon",
+        "mic_conflict_button_primary": "Opakování",
         "mic_conflict_title": "Mikrofon je používán v jiné aplikaci",
         "randomness": {
           "timeout_body": "Na dokončení nahrávání máte až 20 sekund"
@@ -1279,8 +1284,12 @@
         "right": "Pomalu otočte hlavu doprava",
         "up": "Pomalu zvedněte hlavu"
       },
+      "left_side_complete_accessibility": "Levá strana je kompletní",
+      "right_side_complete_accessibility": "Pravá strana je kompletní",
       "title": "Pomalu otáčejte hlavou na obě strany",
-      "title_completed": "Nahrávání bylo dokončeno"
+      "title_accessibility": "Zarovnání obličeje",
+      "title_completed": "Nahrávání bylo dokončeno",
+      "turn_head_other_side_accessibility": "Otočte hlavu na druhou stranu"
     },
     "intro": {
       "button_primary_ready": "Spuštění nahrávání",
@@ -1472,6 +1481,7 @@
         "title": "faceMotion.connection_error.title"
       },
       "avc_face_alignment": {
+        "feedback_face_aligned_accessibility": "faceMotion.face_capture.title_accessibility",
         "feedback_move_back": "faceMotion.face_alignment.feedback_move_back",
         "feedback_move_closer": "faceMotion.face_alignment.feedback_move_closer",
         "feedback_no_face_detected": "faceMotion.face_alignment.feedback_no_face_detected",
@@ -1480,6 +1490,11 @@
       },
       "avc_face_capture": {
         "alert": {
+          "audio_conflict_body": "faceMotion.face_capture.alert.audio_conflict_body",
+          "audio_conflict_button_primary": "faceMotion.face_capture.alert.audio_conflict_button_primary",
+          "audio_conflict_title": "faceMotion.face_capture.alert.audio_conflict_title",
+          "mic_conflict_body": "faceMotion.face_capture.alert.mic_conflict_body",
+          "mic_conflict_button_primary": "faceMotion.face_capture.alert.mic_conflict_button_primary",
           "mic_conflict_title": "faceMotion.face_capture.alert.mic_conflict_title",
           "timeout_body": "faceMotion.face_capture.alert.timeout_body",
           "timeout_button_primary": "faceMotion.face_capture.alert.timeout_button_primary",
@@ -1488,6 +1503,9 @@
           "too_fast_button_primary": "faceMotion.face_capture.alert.too_fast_button_primary",
           "too_fast_title": "faceMotion.face_capture.alert.too_fast_title"
         },
+        "confirmation_left_side_complete_accessibility": "faceMotion.face_capture.left_side_complete_accessibility",
+        "confirmation_right_side_complete_accessibility": "faceMotion.face_capture.right_side_complete_accessibility",
+        "feedback_turn_head_other_side_accessibility": "faceMotion.face_capture.turn_head_other_side_accessibility",
         "title": "faceMotion.face_capture.title",
         "title_completed": "faceMotion.face_capture.title_completed"
       },
@@ -3425,6 +3443,11 @@
     },
     "face_capture": {
       "alert": {
+        "audio_conflict_body": "Během nahrávání nepřehrávejte na svém zařízení žádný audiozáznam",
+        "audio_conflict_button_primary": "Opakování",
+        "audio_conflict_title": "Audiozáznam se přehrává na jiné aplikaci",
+        "mic_conflict_body": "Ukončete veškeré probíhající hovory nebo činnosti, u nichž během nahrávání používáte svůj mikrofon",
+        "mic_conflict_button_primary": "Opakování",
         "mic_conflict_title": "Mikrofon je používán v jiné aplikaci",
         "randomness": {
           "timeout_body": "Na dokončení nahrávání máte až 20 sekund"
@@ -3442,8 +3465,12 @@
         "right": "Pomalu otočte hlavu doprava",
         "up": "Pomalu zvedněte hlavu"
       },
+      "left_side_complete_accessibility": "Levá strana je kompletní",
+      "right_side_complete_accessibility": "Pravá strana je kompletní",
       "title": "Pomalu otáčejte hlavou na obě strany",
-      "title_completed": "Nahrávání bylo dokončeno"
+      "title_accessibility": "Zarovnání obličeje",
+      "title_completed": "Nahrávání bylo dokončeno",
+      "turn_head_other_side_accessibility": "Otočte hlavu na druhou stranu"
     },
     "intro": {
       "button_primary_ready": "Spuštění nahrávání",
@@ -3483,7 +3510,7 @@
       "title": "Chyba připojení"
     },
     "error": {
-      "button_primary": "Spuštění skenování",
+      "button_primary": "Opakovat sken",
       "button_secondary": {
         "exit": "Ověření při odchodu",
         "skip": "Ověřit bez skenování"

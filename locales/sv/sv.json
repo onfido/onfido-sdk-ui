@@ -1262,6 +1262,11 @@
     },
     "face_capture": {
       "alert": {
+        "audio_conflict_body": "Spela inte upp något ljud på din enhet under inspelningen",
+        "audio_conflict_button_primary": "Försök igen",
+        "audio_conflict_title": "Ljud spelas upp av en annan app",
+        "mic_conflict_body": "Avsluta alla pågående samtal eller aktiviteter som använder din mikrofon under inspelningen",
+        "mic_conflict_button_primary": "Försök igen",
         "mic_conflict_title": "Din mikrofon används av en annan app",
         "randomness": {
           "timeout_body": "Du har upp till 20 sekunder på dig att slutföra inspelningen"
@@ -1279,8 +1284,12 @@
         "right": "Vänd huvudet långsamt åt höger",
         "up": "Luta huvudet långsamt uppåt"
       },
+      "left_side_complete_accessibility": "Vänster sida klar",
+      "right_side_complete_accessibility": "Höger sida klar",
       "title": "Vrid långsamt huvudet åt båda sidorna",
-      "title_completed": "Inspelning slutförd"
+      "title_accessibility": "Ansikte riktat",
+      "title_completed": "Inspelning slutförd",
+      "turn_head_other_side_accessibility": "Vrid på huvudet åt andra hållet"
     },
     "intro": {
       "button_primary_ready": "Starta inspelning",
@@ -1472,6 +1481,7 @@
         "title": "faceMotion.connection_error.title"
       },
       "avc_face_alignment": {
+        "feedback_face_aligned_accessibility": "faceMotion.face_capture.title_accessibility",
         "feedback_move_back": "faceMotion.face_alignment.feedback_move_back",
         "feedback_move_closer": "faceMotion.face_alignment.feedback_move_closer",
         "feedback_no_face_detected": "faceMotion.face_alignment.feedback_no_face_detected",
@@ -1480,6 +1490,11 @@
       },
       "avc_face_capture": {
         "alert": {
+          "audio_conflict_body": "faceMotion.face_capture.alert.audio_conflict_body",
+          "audio_conflict_button_primary": "faceMotion.face_capture.alert.audio_conflict_button_primary",
+          "audio_conflict_title": "faceMotion.face_capture.alert.audio_conflict_title",
+          "mic_conflict_body": "faceMotion.face_capture.alert.mic_conflict_body",
+          "mic_conflict_button_primary": "faceMotion.face_capture.alert.mic_conflict_button_primary",
           "mic_conflict_title": "faceMotion.face_capture.alert.mic_conflict_title",
           "timeout_body": "faceMotion.face_capture.alert.timeout_body",
           "timeout_button_primary": "faceMotion.face_capture.alert.timeout_button_primary",
@@ -1488,6 +1503,9 @@
           "too_fast_button_primary": "faceMotion.face_capture.alert.too_fast_button_primary",
           "too_fast_title": "faceMotion.face_capture.alert.too_fast_title"
         },
+        "confirmation_left_side_complete_accessibility": "faceMotion.face_capture.left_side_complete_accessibility",
+        "confirmation_right_side_complete_accessibility": "faceMotion.face_capture.right_side_complete_accessibility",
+        "feedback_turn_head_other_side_accessibility": "faceMotion.face_capture.turn_head_other_side_accessibility",
         "title": "faceMotion.face_capture.title",
         "title_completed": "faceMotion.face_capture.title_completed"
       },
@@ -3425,6 +3443,11 @@
     },
     "face_capture": {
       "alert": {
+        "audio_conflict_body": "Spela inte upp något ljud på din enhet under inspelningen",
+        "audio_conflict_button_primary": "Försök igen",
+        "audio_conflict_title": "Ljud spelas upp av en annan app",
+        "mic_conflict_body": "Avsluta alla pågående samtal eller aktiviteter som använder din mikrofon under inspelningen",
+        "mic_conflict_button_primary": "Försök igen",
         "mic_conflict_title": "Din mikrofon används av en annan app",
         "randomness": {
           "timeout_body": "Du har upp till 20 sekunder på dig att slutföra inspelningen"
@@ -3442,8 +3465,12 @@
         "right": "Vänd huvudet långsamt åt höger",
         "up": "Luta huvudet långsamt uppåt"
       },
+      "left_side_complete_accessibility": "Vänster sida klar",
+      "right_side_complete_accessibility": "Höger sida klar",
       "title": "Vrid långsamt huvudet åt båda sidorna",
-      "title_completed": "Inspelning slutförd"
+      "title_accessibility": "Ansikte riktat",
+      "title_completed": "Inspelning slutförd",
+      "turn_head_other_side_accessibility": "Vrid på huvudet åt andra hållet"
     },
     "intro": {
       "button_primary_ready": "Starta inspelning",
@@ -3483,7 +3510,7 @@
       "title": "Anslutningsfel"
     },
     "error": {
-      "button_primary": "Starta skanning",
+      "button_primary": "Försök igen",
       "button_secondary": {
         "exit": "Avsluta verifiering",
         "skip": "Verifiera utan att skanna"

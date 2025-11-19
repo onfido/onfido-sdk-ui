@@ -1262,6 +1262,11 @@
     },
     "face_capture": {
       "alert": {
+        "audio_conflict_body": "Älä toista laitteellasi mitään ääntä tallennuksen aikana",
+        "audio_conflict_button_primary": "Yritä uudelleen",
+        "audio_conflict_title": "Jokin toinen sovellus toistaa ääntä",
+        "mic_conflict_body": "Päätä kesken olevat puhelut tai toiminnot, jotka käyttävät mikrofoniasi tallennuksen aikana",
+        "mic_conflict_button_primary": "Yritä uudelleen",
         "mic_conflict_title": "Jokin toinen sovellus käyttää mikrofoniasi",
         "randomness": {
           "timeout_body": "Sinulla on enintään 20 sekuntia aikaa suorittaa tallennus"
@@ -1279,8 +1284,12 @@
         "right": "Käännä päätäsi hitaasti oikealle",
         "up": "Kallista päätäsi hitaasti ylöspäin"
       },
+      "left_side_complete_accessibility": "Vasen puoli valmis",
+      "right_side_complete_accessibility": "Oikea puoli valmis",
       "title": "Käännä päätäsi hitaasti molemmille puolille",
-      "title_completed": "Tallennus valmis"
+      "title_accessibility": "Kasvot kohdistettu",
+      "title_completed": "Tallennus valmis",
+      "turn_head_other_side_accessibility": "Käännä päätäsi toiselle puolelle"
     },
     "intro": {
       "button_primary_ready": "Aloita tallennus",
@@ -1472,6 +1481,7 @@
         "title": "faceMotion.connection_error.title"
       },
       "avc_face_alignment": {
+        "feedback_face_aligned_accessibility": "faceMotion.face_capture.title_accessibility",
         "feedback_move_back": "faceMotion.face_alignment.feedback_move_back",
         "feedback_move_closer": "faceMotion.face_alignment.feedback_move_closer",
         "feedback_no_face_detected": "faceMotion.face_alignment.feedback_no_face_detected",
@@ -1480,6 +1490,11 @@
       },
       "avc_face_capture": {
         "alert": {
+          "audio_conflict_body": "faceMotion.face_capture.alert.audio_conflict_body",
+          "audio_conflict_button_primary": "faceMotion.face_capture.alert.audio_conflict_button_primary",
+          "audio_conflict_title": "faceMotion.face_capture.alert.audio_conflict_title",
+          "mic_conflict_body": "faceMotion.face_capture.alert.mic_conflict_body",
+          "mic_conflict_button_primary": "faceMotion.face_capture.alert.mic_conflict_button_primary",
           "mic_conflict_title": "faceMotion.face_capture.alert.mic_conflict_title",
           "timeout_body": "faceMotion.face_capture.alert.timeout_body",
           "timeout_button_primary": "faceMotion.face_capture.alert.timeout_button_primary",
@@ -1488,6 +1503,9 @@
           "too_fast_button_primary": "faceMotion.face_capture.alert.too_fast_button_primary",
           "too_fast_title": "faceMotion.face_capture.alert.too_fast_title"
         },
+        "confirmation_left_side_complete_accessibility": "faceMotion.face_capture.left_side_complete_accessibility",
+        "confirmation_right_side_complete_accessibility": "faceMotion.face_capture.right_side_complete_accessibility",
+        "feedback_turn_head_other_side_accessibility": "faceMotion.face_capture.turn_head_other_side_accessibility",
         "title": "faceMotion.face_capture.title",
         "title_completed": "faceMotion.face_capture.title_completed"
       },
@@ -3425,6 +3443,11 @@
     },
     "face_capture": {
       "alert": {
+        "audio_conflict_body": "Älä toista laitteellasi mitään ääntä tallennuksen aikana",
+        "audio_conflict_button_primary": "Yritä uudelleen",
+        "audio_conflict_title": "Jokin toinen sovellus toistaa ääntä",
+        "mic_conflict_body": "Päätä kesken olevat puhelut tai toiminnot, jotka käyttävät mikrofoniasi tallennuksen aikana",
+        "mic_conflict_button_primary": "Yritä uudelleen",
         "mic_conflict_title": "Jokin toinen sovellus käyttää mikrofoniasi",
         "randomness": {
           "timeout_body": "Sinulla on enintään 20 sekuntia aikaa suorittaa tallennus"
@@ -3442,8 +3465,12 @@
         "right": "Käännä päätäsi hitaasti oikealle",
         "up": "Kallista päätäsi hitaasti ylöspäin"
       },
+      "left_side_complete_accessibility": "Vasen puoli valmis",
+      "right_side_complete_accessibility": "Oikea puoli valmis",
       "title": "Käännä päätäsi hitaasti molemmille puolille",
-      "title_completed": "Tallennus valmis"
+      "title_accessibility": "Kasvot kohdistettu",
+      "title_completed": "Tallennus valmis",
+      "turn_head_other_side_accessibility": "Käännä päätäsi toiselle puolelle"
     },
     "intro": {
       "button_primary_ready": "Aloita tallennus",
@@ -3483,7 +3510,7 @@
       "title": "Yhteysvirhe"
     },
     "error": {
-      "button_primary": "Aloita skannaus",
+      "button_primary": "Yritä skannausta uudelleen",
       "button_secondary": {
         "exit": "Poistumisvarmennus",
         "skip": "Vahvista skannaamatta"

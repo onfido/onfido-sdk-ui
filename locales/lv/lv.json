@@ -1262,6 +1262,11 @@
     },
     "face_capture": {
       "alert": {
+        "audio_conflict_body": "Lūdzu, ieraksta laikā savā ierīcē neatskaņojiet citus audio ierakstus",
+        "audio_conflict_button_primary": "Mēģināt vēlreiz",
+        "audio_conflict_title": "Audio ierakstu atskaņo cita lietotne",
+        "mic_conflict_body": "Ieraksta laikā neveiciet zvanus un jebkādas citas aktivitātes, kurās nepieciešams mikrofons",
+        "mic_conflict_button_primary": "Mēģināt vēlreiz",
         "mic_conflict_title": "Jūsu mikrofonu izmanto cita lietotne",
         "randomness": {
           "timeout_body": "Jums ir līdz 20 sekundēm, lai pabeigtu ierakstu"
@@ -1279,8 +1284,12 @@
         "right": "Lēnām pagrieziet galvu pa labi",
         "up": "Lēnām paceliet galvu augšup"
       },
+      "left_side_complete_accessibility": "Kreisā puse pabeigta",
+      "right_side_complete_accessibility": "Labā puse pabeigta",
       "title": "Lēnām pagrieziet galvu uz abām pusēm",
-      "title_completed": "Ieraksts pabeigts"
+      "title_accessibility": "Seja centrēta",
+      "title_completed": "Ieraksts pabeigts",
+      "turn_head_other_side_accessibility": "Pagrieziet galvu uz otru pusi"
     },
     "intro": {
       "button_primary_ready": "Sākt ierakstu",
@@ -1472,6 +1481,7 @@
         "title": "faceMotion.connection_error.title"
       },
       "avc_face_alignment": {
+        "feedback_face_aligned_accessibility": "faceMotion.face_capture.title_accessibility",
         "feedback_move_back": "faceMotion.face_alignment.feedback_move_back",
         "feedback_move_closer": "faceMotion.face_alignment.feedback_move_closer",
         "feedback_no_face_detected": "faceMotion.face_alignment.feedback_no_face_detected",
@@ -1480,6 +1490,11 @@
       },
       "avc_face_capture": {
         "alert": {
+          "audio_conflict_body": "faceMotion.face_capture.alert.audio_conflict_body",
+          "audio_conflict_button_primary": "faceMotion.face_capture.alert.audio_conflict_button_primary",
+          "audio_conflict_title": "faceMotion.face_capture.alert.audio_conflict_title",
+          "mic_conflict_body": "faceMotion.face_capture.alert.mic_conflict_body",
+          "mic_conflict_button_primary": "faceMotion.face_capture.alert.mic_conflict_button_primary",
           "mic_conflict_title": "faceMotion.face_capture.alert.mic_conflict_title",
           "timeout_body": "faceMotion.face_capture.alert.timeout_body",
           "timeout_button_primary": "faceMotion.face_capture.alert.timeout_button_primary",
@@ -1488,6 +1503,9 @@
           "too_fast_button_primary": "faceMotion.face_capture.alert.too_fast_button_primary",
           "too_fast_title": "faceMotion.face_capture.alert.too_fast_title"
         },
+        "confirmation_left_side_complete_accessibility": "faceMotion.face_capture.left_side_complete_accessibility",
+        "confirmation_right_side_complete_accessibility": "faceMotion.face_capture.right_side_complete_accessibility",
+        "feedback_turn_head_other_side_accessibility": "faceMotion.face_capture.turn_head_other_side_accessibility",
         "title": "faceMotion.face_capture.title",
         "title_completed": "faceMotion.face_capture.title_completed"
       },
@@ -3425,6 +3443,11 @@
     },
     "face_capture": {
       "alert": {
+        "audio_conflict_body": "Lūdzu, ieraksta laikā savā ierīcē neatskaņojiet citus audio ierakstus",
+        "audio_conflict_button_primary": "Mēģināt vēlreiz",
+        "audio_conflict_title": "Audio ierakstu atskaņo cita lietotne",
+        "mic_conflict_body": "Ieraksta laikā neveiciet zvanus un jebkādas citas aktivitātes, kurās nepieciešams mikrofons",
+        "mic_conflict_button_primary": "Mēģināt vēlreiz",
         "mic_conflict_title": "Jūsu mikrofonu izmanto cita lietotne",
         "randomness": {
           "timeout_body": "Jums ir līdz 20 sekundēm, lai pabeigtu ierakstu"
@@ -3442,8 +3465,12 @@
         "right": "Lēnām pagrieziet galvu pa labi",
         "up": "Lēnām paceliet galvu augšup"
       },
+      "left_side_complete_accessibility": "Kreisā puse pabeigta",
+      "right_side_complete_accessibility": "Labā puse pabeigta",
       "title": "Lēnām pagrieziet galvu uz abām pusēm",
-      "title_completed": "Ieraksts pabeigts"
+      "title_accessibility": "Seja centrēta",
+      "title_completed": "Ieraksts pabeigts",
+      "turn_head_other_side_accessibility": "Pagrieziet galvu uz otru pusi"
     },
     "intro": {
       "button_primary_ready": "Sākt ierakstu",
@@ -3483,7 +3510,7 @@
       "title": "Savienojuma kļūda"
     },
     "error": {
-      "button_primary": "Sākt skenēšanu",
+      "button_primary": "Mēģināt skenēt vēlreiz",
       "button_secondary": {
         "exit": "Izejas pārbaude",
         "skip": "Apliecināt bez skenēšanas"

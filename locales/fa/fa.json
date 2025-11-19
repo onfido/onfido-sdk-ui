@@ -1262,6 +1262,11 @@
     },
     "face_capture": {
       "alert": {
+        "audio_conflict_body": "لطفاً در هنگام ضبط از پخش فایل صوتی در دستگاه خودداری کنید",
+        "audio_conflict_button_primary": "سعی مجدد‌",
+        "audio_conflict_title": "برنامه دیگری در حال پخش صدا است",
+        "mic_conflict_body": "لطفاً در هنگام ضبط هر تماس جاری یا فعالیتی را که در حال استفاده از میکروفون شماست را ببندید",
+        "mic_conflict_button_primary": "سعی مجدد‌",
         "mic_conflict_title": "برنامه دیگری در حال استفاده از میکروفون شماست",
         "randomness": {
           "timeout_body": "شما حداکثر ۲۰ ثانیه برای تکمیل ضبط زمان دارید"
@@ -1279,8 +1284,12 @@
         "right": "سرتان را آهسته به سمت راست بچرخانید",
         "up": "سرتان را آهسته به سمت بالا کج کنید"
       },
+      "left_side_complete_accessibility": "سمت چپ کامل شد",
+      "right_side_complete_accessibility": "سمت راست کامل شد",
       "title": "سر خود را به آرامی به دو طرف بچرخانید",
-      "title_completed": "ضبط کامل شد"
+      "title_accessibility": "چهره همراستا شد",
+      "title_completed": "ضبط کامل شد",
+      "turn_head_other_side_accessibility": "سر خود را به طرف دیگر بچرخانید"
     },
     "intro": {
       "button_primary_ready": "شروع ضبط",
@@ -1472,6 +1481,7 @@
         "title": "faceMotion.connection_error.title"
       },
       "avc_face_alignment": {
+        "feedback_face_aligned_accessibility": "faceMotion.face_capture.title_accessibility",
         "feedback_move_back": "faceMotion.face_alignment.feedback_move_back",
         "feedback_move_closer": "faceMotion.face_alignment.feedback_move_closer",
         "feedback_no_face_detected": "faceMotion.face_alignment.feedback_no_face_detected",
@@ -1480,6 +1490,11 @@
       },
       "avc_face_capture": {
         "alert": {
+          "audio_conflict_body": "faceMotion.face_capture.alert.audio_conflict_body",
+          "audio_conflict_button_primary": "faceMotion.face_capture.alert.audio_conflict_button_primary",
+          "audio_conflict_title": "faceMotion.face_capture.alert.audio_conflict_title",
+          "mic_conflict_body": "faceMotion.face_capture.alert.mic_conflict_body",
+          "mic_conflict_button_primary": "faceMotion.face_capture.alert.mic_conflict_button_primary",
           "mic_conflict_title": "faceMotion.face_capture.alert.mic_conflict_title",
           "timeout_body": "faceMotion.face_capture.alert.timeout_body",
           "timeout_button_primary": "faceMotion.face_capture.alert.timeout_button_primary",
@@ -1488,6 +1503,9 @@
           "too_fast_button_primary": "faceMotion.face_capture.alert.too_fast_button_primary",
           "too_fast_title": "faceMotion.face_capture.alert.too_fast_title"
         },
+        "confirmation_left_side_complete_accessibility": "faceMotion.face_capture.left_side_complete_accessibility",
+        "confirmation_right_side_complete_accessibility": "faceMotion.face_capture.right_side_complete_accessibility",
+        "feedback_turn_head_other_side_accessibility": "faceMotion.face_capture.turn_head_other_side_accessibility",
         "title": "faceMotion.face_capture.title",
         "title_completed": "faceMotion.face_capture.title_completed"
       },
@@ -3425,6 +3443,11 @@
     },
     "face_capture": {
       "alert": {
+        "audio_conflict_body": "لطفاً در هنگام ضبط از پخش فایل صوتی در دستگاه خودداری کنید",
+        "audio_conflict_button_primary": "سعی مجدد‌",
+        "audio_conflict_title": "برنامه دیگری در حال پخش صدا است",
+        "mic_conflict_body": "لطفاً در هنگام ضبط هر تماس جاری یا فعالیتی را که در حال استفاده از میکروفون شماست را ببندید",
+        "mic_conflict_button_primary": "سعی مجدد‌",
         "mic_conflict_title": "برنامه دیگری در حال استفاده از میکروفون شماست",
         "randomness": {
           "timeout_body": "شما حداکثر ۲۰ ثانیه برای تکمیل ضبط زمان دارید"
@@ -3442,8 +3465,12 @@
         "right": "سرتان را آهسته به سمت راست بچرخانید",
         "up": "سرتان را آهسته به سمت بالا کج کنید"
       },
+      "left_side_complete_accessibility": "سمت چپ کامل شد",
+      "right_side_complete_accessibility": "سمت راست کامل شد",
       "title": "سر خود را به آرامی به دو طرف بچرخانید",
-      "title_completed": "ضبط کامل شد"
+      "title_accessibility": "چهره همراستا شد",
+      "title_completed": "ضبط کامل شد",
+      "turn_head_other_side_accessibility": "سر خود را به طرف دیگر بچرخانید"
     },
     "intro": {
       "button_primary_ready": "شروع ضبط",
@@ -3483,7 +3510,7 @@
       "title": "خطای ارتباط"
     },
     "error": {
-      "button_primary": "شروع اسکن",
+      "button_primary": "اسکن را دوباره تلاش کنید",
       "button_secondary": {
         "exit": "تأیید خروج",
         "skip": "بدون اسکن کردن تأیید کنید"

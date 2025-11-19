@@ -1262,6 +1262,11 @@
     },
     "face_capture": {
       "alert": {
+        "audio_conflict_body": "कृपया रिकॉर्डिंग के दौरान अपने डिवाइस पर कोई भी ऑडियो न चलाएँ",
+        "audio_conflict_button_primary": "फिर से कोशिश करें",
+        "audio_conflict_title": "ऑडियो किसी दूसरे ऐप से चलाया जा रहा है",
+        "mic_conflict_body": "कृपया रिकॉर्डिंग के दौरान आपके माइक्रोफ़ोन का उपयोग करने वाली चल रही किसी भी कॉल या गतिविधियों को समाप्त करें",
+        "mic_conflict_button_primary": "फिर से कोशिश करें",
         "mic_conflict_title": "आपके माइक्रोफ़ोन का इस्तेमाल कोई दूसरा ऐप कर रहा है",
         "randomness": {
           "timeout_body": "रिकॉर्डिंग पूरा करने के लिए आपके पास अधिकतम 20 सेकंड हैं"
@@ -1279,8 +1284,12 @@
         "right": "धीरे-धीरे अपना सिर दाईं ओर घुमाएँ",
         "up": "धीरे-धीरे अपना सिर ऊपर उठाएँ"
       },
+      "left_side_complete_accessibility": "बाईं ओर पूरा",
+      "right_side_complete_accessibility": "दाईं ओर पूरा",
       "title": "अपने सिर को धीरे-धीरे दोनों तरफ़ घुमाएँ",
-      "title_completed": "रिकॉर्डिंग पूरी हुई"
+      "title_accessibility": "चेहरा अलाइन हो गया",
+      "title_completed": "रिकॉर्डिंग पूरी हुई",
+      "turn_head_other_side_accessibility": "अपना सिर दूसरी तरफ़ घुमाएँ"
     },
     "intro": {
       "button_primary_ready": "रिकॉर्डिंग शुरू करें",
@@ -1472,6 +1481,7 @@
         "title": "faceMotion.connection_error.title"
       },
       "avc_face_alignment": {
+        "feedback_face_aligned_accessibility": "faceMotion.face_capture.title_accessibility",
         "feedback_move_back": "faceMotion.face_alignment.feedback_move_back",
         "feedback_move_closer": "faceMotion.face_alignment.feedback_move_closer",
         "feedback_no_face_detected": "faceMotion.face_alignment.feedback_no_face_detected",
@@ -1480,6 +1490,11 @@
       },
       "avc_face_capture": {
         "alert": {
+          "audio_conflict_body": "faceMotion.face_capture.alert.audio_conflict_body",
+          "audio_conflict_button_primary": "faceMotion.face_capture.alert.audio_conflict_button_primary",
+          "audio_conflict_title": "faceMotion.face_capture.alert.audio_conflict_title",
+          "mic_conflict_body": "faceMotion.face_capture.alert.mic_conflict_body",
+          "mic_conflict_button_primary": "faceMotion.face_capture.alert.mic_conflict_button_primary",
           "mic_conflict_title": "faceMotion.face_capture.alert.mic_conflict_title",
           "timeout_body": "faceMotion.face_capture.alert.timeout_body",
           "timeout_button_primary": "faceMotion.face_capture.alert.timeout_button_primary",
@@ -1488,6 +1503,9 @@
           "too_fast_button_primary": "faceMotion.face_capture.alert.too_fast_button_primary",
           "too_fast_title": "faceMotion.face_capture.alert.too_fast_title"
         },
+        "confirmation_left_side_complete_accessibility": "faceMotion.face_capture.left_side_complete_accessibility",
+        "confirmation_right_side_complete_accessibility": "faceMotion.face_capture.right_side_complete_accessibility",
+        "feedback_turn_head_other_side_accessibility": "faceMotion.face_capture.turn_head_other_side_accessibility",
         "title": "faceMotion.face_capture.title",
         "title_completed": "faceMotion.face_capture.title_completed"
       },
@@ -3425,6 +3443,11 @@
     },
     "face_capture": {
       "alert": {
+        "audio_conflict_body": "कृपया रिकॉर्डिंग के दौरान अपने डिवाइस पर कोई भी ऑडियो न चलाएँ",
+        "audio_conflict_button_primary": "फिर से कोशिश करें",
+        "audio_conflict_title": "ऑडियो किसी दूसरे ऐप से चलाया जा रहा है",
+        "mic_conflict_body": "कृपया रिकॉर्डिंग के दौरान आपके माइक्रोफ़ोन का उपयोग करने वाली चल रही किसी भी कॉल या गतिविधियों को समाप्त करें",
+        "mic_conflict_button_primary": "फिर से कोशिश करें",
         "mic_conflict_title": "आपके माइक्रोफ़ोन का इस्तेमाल कोई दूसरा ऐप कर रहा है",
         "randomness": {
           "timeout_body": "रिकॉर्डिंग पूरा करने के लिए आपके पास अधिकतम 20 सेकंड हैं"
@@ -3442,8 +3465,12 @@
         "right": "धीरे-धीरे अपना सिर दाईं ओर घुमाएँ",
         "up": "धीरे-धीरे अपना सिर ऊपर उठाएँ"
       },
+      "left_side_complete_accessibility": "बाईं ओर पूरा",
+      "right_side_complete_accessibility": "दाईं ओर पूरा",
       "title": "अपने सिर को धीरे-धीरे दोनों तरफ़ घुमाएँ",
-      "title_completed": "रिकॉर्डिंग पूरी हुई"
+      "title_accessibility": "चेहरा अलाइन हो गया",
+      "title_completed": "रिकॉर्डिंग पूरी हुई",
+      "turn_head_other_side_accessibility": "अपना सिर दूसरी तरफ़ घुमाएँ"
     },
     "intro": {
       "button_primary_ready": "रिकॉर्डिंग शुरू करें",
@@ -3483,7 +3510,7 @@
       "title": "कनेक्शन में त्रुटि"
     },
     "error": {
-      "button_primary": "स्कैन शुरू करें",
+      "button_primary": "स्कैन फिर से करें",
       "button_secondary": {
         "exit": "पहचान सत्यापन से बाहर निकलें",
         "skip": "स्कैन किए बिना सत्यापित करें"

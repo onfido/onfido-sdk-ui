@@ -1262,6 +1262,11 @@
     },
     "face_capture": {
       "alert": {
+        "audio_conflict_body": "Įrašymo metu savo įrenginyje negrokite jokių garso įrašų",
+        "audio_conflict_button_primary": "Bandyti dar kartą",
+        "audio_conflict_title": "Garso įrašą groja kita programėlė",
+        "mic_conflict_body": "Baikite visus pokalbius telefonu ar kitus procesus, kurie įrašymo metu naudoja jūsų mikrofoną",
+        "mic_conflict_button_primary": "Bandyti dar kartą",
         "mic_conflict_title": "Mikrofoną naudoja kita programėlė",
         "randomness": {
           "timeout_body": "Turite iki 20 sekundžių įrašui užbaigti"
@@ -1279,8 +1284,12 @@
         "right": "Lėtai pasukite galvą į dešinę",
         "up": "Lėtai pakelkite galvą aukštyn"
       },
+      "left_side_complete_accessibility": "Kairė pusė baigta",
+      "right_side_complete_accessibility": "Dešinė pusė baigta",
       "title": "Lėtai pasukite galvą į abi puses",
-      "title_completed": "Įrašymas baigtas"
+      "title_accessibility": "Veidas sulygiuotas",
+      "title_completed": "Įrašymas baigtas",
+      "turn_head_other_side_accessibility": "Pasukite galvą į kitą pusę"
     },
     "intro": {
       "button_primary_ready": "Pradėti įrašymą",
@@ -1472,6 +1481,7 @@
         "title": "faceMotion.connection_error.title"
       },
       "avc_face_alignment": {
+        "feedback_face_aligned_accessibility": "faceMotion.face_capture.title_accessibility",
         "feedback_move_back": "faceMotion.face_alignment.feedback_move_back",
         "feedback_move_closer": "faceMotion.face_alignment.feedback_move_closer",
         "feedback_no_face_detected": "faceMotion.face_alignment.feedback_no_face_detected",
@@ -1480,6 +1490,11 @@
       },
       "avc_face_capture": {
         "alert": {
+          "audio_conflict_body": "faceMotion.face_capture.alert.audio_conflict_body",
+          "audio_conflict_button_primary": "faceMotion.face_capture.alert.audio_conflict_button_primary",
+          "audio_conflict_title": "faceMotion.face_capture.alert.audio_conflict_title",
+          "mic_conflict_body": "faceMotion.face_capture.alert.mic_conflict_body",
+          "mic_conflict_button_primary": "faceMotion.face_capture.alert.mic_conflict_button_primary",
           "mic_conflict_title": "faceMotion.face_capture.alert.mic_conflict_title",
           "timeout_body": "faceMotion.face_capture.alert.timeout_body",
           "timeout_button_primary": "faceMotion.face_capture.alert.timeout_button_primary",
@@ -1488,6 +1503,9 @@
           "too_fast_button_primary": "faceMotion.face_capture.alert.too_fast_button_primary",
           "too_fast_title": "faceMotion.face_capture.alert.too_fast_title"
         },
+        "confirmation_left_side_complete_accessibility": "faceMotion.face_capture.left_side_complete_accessibility",
+        "confirmation_right_side_complete_accessibility": "faceMotion.face_capture.right_side_complete_accessibility",
+        "feedback_turn_head_other_side_accessibility": "faceMotion.face_capture.turn_head_other_side_accessibility",
         "title": "faceMotion.face_capture.title",
         "title_completed": "faceMotion.face_capture.title_completed"
       },
@@ -3425,6 +3443,11 @@
     },
     "face_capture": {
       "alert": {
+        "audio_conflict_body": "Įrašymo metu savo įrenginyje negrokite jokių garso įrašų",
+        "audio_conflict_button_primary": "Bandyti dar kartą",
+        "audio_conflict_title": "Garso įrašą groja kita programėlė",
+        "mic_conflict_body": "Baikite visus pokalbius telefonu ar kitus procesus, kurie įrašymo metu naudoja jūsų mikrofoną",
+        "mic_conflict_button_primary": "Bandyti dar kartą",
         "mic_conflict_title": "Mikrofoną naudoja kita programėlė",
         "randomness": {
           "timeout_body": "Turite iki 20 sekundžių įrašui užbaigti"
@@ -3442,8 +3465,12 @@
         "right": "Lėtai pasukite galvą į dešinę",
         "up": "Lėtai pakelkite galvą aukštyn"
       },
+      "left_side_complete_accessibility": "Kairė pusė baigta",
+      "right_side_complete_accessibility": "Dešinė pusė baigta",
       "title": "Lėtai pasukite galvą į abi puses",
-      "title_completed": "Įrašymas baigtas"
+      "title_accessibility": "Veidas sulygiuotas",
+      "title_completed": "Įrašymas baigtas",
+      "turn_head_other_side_accessibility": "Pasukite galvą į kitą pusę"
     },
     "intro": {
       "button_primary_ready": "Pradėti įrašymą",
@@ -3483,7 +3510,7 @@
       "title": "Ryšio klaida"
     },
     "error": {
-      "button_primary": "Pradėti nuskaitymą",
+      "button_primary": "Pakartoti nuskaitymą",
       "button_secondary": {
         "exit": "Išeiti iš patvirtinimo",
         "skip": "Patikrinti be skenavimo"

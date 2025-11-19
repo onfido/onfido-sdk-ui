@@ -1262,6 +1262,11 @@
     },
     "face_capture": {
       "alert": {
+        "audio_conflict_body": "녹음 중에 장치에서 오디오를 재생하지 마십시오",
+        "audio_conflict_button_primary": "재시도",
+        "audio_conflict_title": "다른 앱에서 오디오가 재생 중입니다",
+        "mic_conflict_body": "녹음 중에 마이크를 사용하는 통화나 활동을 종료하십시오",
+        "mic_conflict_button_primary": "재시도",
         "mic_conflict_title": "다른 앱에서 마이크를 사용하고 있습니다",
         "randomness": {
           "timeout_body": "녹음을 완료할 수 있는 시간은 최대 20초입니다"
@@ -1279,8 +1284,12 @@
         "right": "천천히 머리를 오른쪽으로 돌리세요",
         "up": "천천히 고개를 위로 젖히세요"
       },
+      "left_side_complete_accessibility": "왼쪽 완료",
+      "right_side_complete_accessibility": "오른쪽 완료",
       "title": "고개를 좌우로 천천히 돌리세요",
-      "title_completed": "녹화 완료"
+      "title_accessibility": "얼굴 위치 정렬 완료",
+      "title_completed": "녹화 완료",
+      "turn_head_other_side_accessibility": "고개를 반대편으로 돌리세요"
     },
     "intro": {
       "button_primary_ready": "녹화 시작",
@@ -1472,6 +1481,7 @@
         "title": "faceMotion.connection_error.title"
       },
       "avc_face_alignment": {
+        "feedback_face_aligned_accessibility": "faceMotion.face_capture.title_accessibility",
         "feedback_move_back": "faceMotion.face_alignment.feedback_move_back",
         "feedback_move_closer": "faceMotion.face_alignment.feedback_move_closer",
         "feedback_no_face_detected": "faceMotion.face_alignment.feedback_no_face_detected",
@@ -1480,6 +1490,11 @@
       },
       "avc_face_capture": {
         "alert": {
+          "audio_conflict_body": "faceMotion.face_capture.alert.audio_conflict_body",
+          "audio_conflict_button_primary": "faceMotion.face_capture.alert.audio_conflict_button_primary",
+          "audio_conflict_title": "faceMotion.face_capture.alert.audio_conflict_title",
+          "mic_conflict_body": "faceMotion.face_capture.alert.mic_conflict_body",
+          "mic_conflict_button_primary": "faceMotion.face_capture.alert.mic_conflict_button_primary",
           "mic_conflict_title": "faceMotion.face_capture.alert.mic_conflict_title",
           "timeout_body": "faceMotion.face_capture.alert.timeout_body",
           "timeout_button_primary": "faceMotion.face_capture.alert.timeout_button_primary",
@@ -1488,6 +1503,9 @@
           "too_fast_button_primary": "faceMotion.face_capture.alert.too_fast_button_primary",
           "too_fast_title": "faceMotion.face_capture.alert.too_fast_title"
         },
+        "confirmation_left_side_complete_accessibility": "faceMotion.face_capture.left_side_complete_accessibility",
+        "confirmation_right_side_complete_accessibility": "faceMotion.face_capture.right_side_complete_accessibility",
+        "feedback_turn_head_other_side_accessibility": "faceMotion.face_capture.turn_head_other_side_accessibility",
         "title": "faceMotion.face_capture.title",
         "title_completed": "faceMotion.face_capture.title_completed"
       },
@@ -3425,6 +3443,11 @@
     },
     "face_capture": {
       "alert": {
+        "audio_conflict_body": "녹음 중에 장치에서 오디오를 재생하지 마십시오",
+        "audio_conflict_button_primary": "재시도",
+        "audio_conflict_title": "다른 앱에서 오디오가 재생 중입니다",
+        "mic_conflict_body": "녹음 중에 마이크를 사용하는 통화나 활동을 종료하십시오",
+        "mic_conflict_button_primary": "재시도",
         "mic_conflict_title": "다른 앱에서 마이크를 사용하고 있습니다",
         "randomness": {
           "timeout_body": "녹음을 완료할 수 있는 시간은 최대 20초입니다"
@@ -3442,8 +3465,12 @@
         "right": "천천히 머리를 오른쪽으로 돌리세요",
         "up": "천천히 고개를 위로 젖히세요"
       },
+      "left_side_complete_accessibility": "왼쪽 완료",
+      "right_side_complete_accessibility": "오른쪽 완료",
       "title": "고개를 좌우로 천천히 돌리세요",
-      "title_completed": "녹화 완료"
+      "title_accessibility": "얼굴 위치 정렬 완료",
+      "title_completed": "녹화 완료",
+      "turn_head_other_side_accessibility": "고개를 반대편으로 돌리세요"
     },
     "intro": {
       "button_primary_ready": "녹화 시작",
@@ -3483,7 +3510,7 @@
       "title": "연결 오류 발생"
     },
     "error": {
-      "button_primary": "스캔 시작",
+      "button_primary": "스캔 다시 시도",
       "button_secondary": {
         "exit": "출구 확인",
         "skip": "스캔하지 않고 검증하십시오"

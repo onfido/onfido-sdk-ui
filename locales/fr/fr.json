@@ -1262,6 +1262,11 @@
     },
     "face_capture": {
       "alert": {
+        "audio_conflict_body": "Veuillez ne pas lire de contenu audio sur votre appareil pendant l'enregistrement",
+        "audio_conflict_button_primary": "Réessayer",
+        "audio_conflict_title": "Du contenu audio est lu par une autre application",
+        "mic_conflict_body": "Veuillez mettre fin à tous les appels ou activités en cours qui utilisent votre microphone pendant l'enregistrement",
+        "mic_conflict_button_primary": "Réessayer",
         "mic_conflict_title": "Votre microphone est actuellement utilisé par une autre application",
         "randomness": {
           "timeout_body": "Vous avez jusqu'à 20 secondes pour terminer l'enregistrement"
@@ -1279,8 +1284,12 @@
         "right": "Tournez lentement la tête vers la droite",
         "up": "Inclinez lentement votre tête vers le haut"
       },
+      "left_side_complete_accessibility": "Côté gauche terminé",
+      "right_side_complete_accessibility": "Côté droit terminé",
       "title": "Tournez votre tête lentement des deux côtés",
-      "title_completed": "Enregistrement terminé"
+      "title_accessibility": "Visage aligné",
+      "title_completed": "Enregistrement terminé",
+      "turn_head_other_side_accessibility": "Tournez votre tête de l'autre côté"
     },
     "intro": {
       "button_primary_ready": "Démarrer l’enregistrement",
@@ -1472,6 +1481,7 @@
         "title": "faceMotion.connection_error.title"
       },
       "avc_face_alignment": {
+        "feedback_face_aligned_accessibility": "faceMotion.face_capture.title_accessibility",
         "feedback_move_back": "faceMotion.face_alignment.feedback_move_back",
         "feedback_move_closer": "faceMotion.face_alignment.feedback_move_closer",
         "feedback_no_face_detected": "faceMotion.face_alignment.feedback_no_face_detected",
@@ -1480,6 +1490,11 @@
       },
       "avc_face_capture": {
         "alert": {
+          "audio_conflict_body": "faceMotion.face_capture.alert.audio_conflict_body",
+          "audio_conflict_button_primary": "faceMotion.face_capture.alert.audio_conflict_button_primary",
+          "audio_conflict_title": "faceMotion.face_capture.alert.audio_conflict_title",
+          "mic_conflict_body": "faceMotion.face_capture.alert.mic_conflict_body",
+          "mic_conflict_button_primary": "faceMotion.face_capture.alert.mic_conflict_button_primary",
           "mic_conflict_title": "faceMotion.face_capture.alert.mic_conflict_title",
           "timeout_body": "faceMotion.face_capture.alert.timeout_body",
           "timeout_button_primary": "faceMotion.face_capture.alert.timeout_button_primary",
@@ -1488,6 +1503,9 @@
           "too_fast_button_primary": "faceMotion.face_capture.alert.too_fast_button_primary",
           "too_fast_title": "faceMotion.face_capture.alert.too_fast_title"
         },
+        "confirmation_left_side_complete_accessibility": "faceMotion.face_capture.left_side_complete_accessibility",
+        "confirmation_right_side_complete_accessibility": "faceMotion.face_capture.right_side_complete_accessibility",
+        "feedback_turn_head_other_side_accessibility": "faceMotion.face_capture.turn_head_other_side_accessibility",
         "title": "faceMotion.face_capture.title",
         "title_completed": "faceMotion.face_capture.title_completed"
       },
@@ -3425,6 +3443,11 @@
     },
     "face_capture": {
       "alert": {
+        "audio_conflict_body": "Veuillez ne pas lire de contenu audio sur votre appareil pendant l'enregistrement",
+        "audio_conflict_button_primary": "Réessayer",
+        "audio_conflict_title": "Du contenu audio est lu par une autre application",
+        "mic_conflict_body": "Veuillez mettre fin à tous les appels ou activités en cours qui utilisent votre microphone pendant l'enregistrement",
+        "mic_conflict_button_primary": "Réessayer",
         "mic_conflict_title": "Votre microphone est actuellement utilisé par une autre application",
         "randomness": {
           "timeout_body": "Vous avez jusqu'à 20 secondes pour terminer l'enregistrement"
@@ -3442,8 +3465,12 @@
         "right": "Tournez lentement la tête vers la droite",
         "up": "Inclinez lentement votre tête vers le haut"
       },
+      "left_side_complete_accessibility": "Côté gauche terminé",
+      "right_side_complete_accessibility": "Côté droit terminé",
       "title": "Tournez votre tête lentement des deux côtés",
-      "title_completed": "Enregistrement terminé"
+      "title_accessibility": "Visage aligné",
+      "title_completed": "Enregistrement terminé",
+      "turn_head_other_side_accessibility": "Tournez votre tête de l'autre côté"
     },
     "intro": {
       "button_primary_ready": "Démarrer l’enregistrement",
@@ -3483,7 +3510,7 @@
       "title": "Erreur de connexion"
     },
     "error": {
-      "button_primary": "Démarrer le scan",
+      "button_primary": "Réessayer le scan",
       "button_secondary": {
         "exit": "Quitter la vérification",
         "skip": "Vérifier sans scanner"

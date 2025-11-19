@@ -1262,6 +1262,11 @@
     },
     "face_capture": {
       "alert": {
+        "audio_conflict_body": "Ikke spill av lyd på enheten din under opptak",
+        "audio_conflict_button_primary": "Prøv igjen",
+        "audio_conflict_title": "En annen app spiller av lyd",
+        "mic_conflict_body": "Avslutt alle pågående anrop og aktiviteter som bruker mikrofonen, under opptak",
+        "mic_conflict_button_primary": "Prøv igjen",
         "mic_conflict_title": "En annen app bruker mikrofonen",
         "randomness": {
           "timeout_body": "Du har opptil 20 sekunder på å fullføre opptaket"
@@ -1279,8 +1284,12 @@
         "right": "Vri hodet sakte til høyre",
         "up": "Vipp hodet sakte opp"
       },
+      "left_side_complete_accessibility": "Venstre side fullført",
+      "right_side_complete_accessibility": "Høyre side fullført",
       "title": "Snu deretter hodet sakte til begge sider",
-      "title_completed": "Opptaket er fullført"
+      "title_accessibility": "Ansikt justert",
+      "title_completed": "Opptaket er fullført",
+      "turn_head_other_side_accessibility": "Snu hodet til den andre siden"
     },
     "intro": {
       "button_primary_ready": "Start opptak",
@@ -1472,6 +1481,7 @@
         "title": "faceMotion.connection_error.title"
       },
       "avc_face_alignment": {
+        "feedback_face_aligned_accessibility": "faceMotion.face_capture.title_accessibility",
         "feedback_move_back": "faceMotion.face_alignment.feedback_move_back",
         "feedback_move_closer": "faceMotion.face_alignment.feedback_move_closer",
         "feedback_no_face_detected": "faceMotion.face_alignment.feedback_no_face_detected",
@@ -1480,6 +1490,11 @@
       },
       "avc_face_capture": {
         "alert": {
+          "audio_conflict_body": "faceMotion.face_capture.alert.audio_conflict_body",
+          "audio_conflict_button_primary": "faceMotion.face_capture.alert.audio_conflict_button_primary",
+          "audio_conflict_title": "faceMotion.face_capture.alert.audio_conflict_title",
+          "mic_conflict_body": "faceMotion.face_capture.alert.mic_conflict_body",
+          "mic_conflict_button_primary": "faceMotion.face_capture.alert.mic_conflict_button_primary",
           "mic_conflict_title": "faceMotion.face_capture.alert.mic_conflict_title",
           "timeout_body": "faceMotion.face_capture.alert.timeout_body",
           "timeout_button_primary": "faceMotion.face_capture.alert.timeout_button_primary",
@@ -1488,6 +1503,9 @@
           "too_fast_button_primary": "faceMotion.face_capture.alert.too_fast_button_primary",
           "too_fast_title": "faceMotion.face_capture.alert.too_fast_title"
         },
+        "confirmation_left_side_complete_accessibility": "faceMotion.face_capture.left_side_complete_accessibility",
+        "confirmation_right_side_complete_accessibility": "faceMotion.face_capture.right_side_complete_accessibility",
+        "feedback_turn_head_other_side_accessibility": "faceMotion.face_capture.turn_head_other_side_accessibility",
         "title": "faceMotion.face_capture.title",
         "title_completed": "faceMotion.face_capture.title_completed"
       },
@@ -3425,6 +3443,11 @@
     },
     "face_capture": {
       "alert": {
+        "audio_conflict_body": "Ikke spill av lyd på enheten din under opptak",
+        "audio_conflict_button_primary": "Prøv igjen",
+        "audio_conflict_title": "En annen app spiller av lyd",
+        "mic_conflict_body": "Avslutt alle pågående anrop og aktiviteter som bruker mikrofonen, under opptak",
+        "mic_conflict_button_primary": "Prøv igjen",
         "mic_conflict_title": "En annen app bruker mikrofonen",
         "randomness": {
           "timeout_body": "Du har opptil 20 sekunder på å fullføre opptaket"
@@ -3442,8 +3465,12 @@
         "right": "Vri hodet sakte til høyre",
         "up": "Vipp hodet sakte opp"
       },
+      "left_side_complete_accessibility": "Venstre side fullført",
+      "right_side_complete_accessibility": "Høyre side fullført",
       "title": "Snu deretter hodet sakte til begge sider",
-      "title_completed": "Opptaket er fullført"
+      "title_accessibility": "Ansikt justert",
+      "title_completed": "Opptaket er fullført",
+      "turn_head_other_side_accessibility": "Snu hodet til den andre siden"
     },
     "intro": {
       "button_primary_ready": "Start opptak",
@@ -3483,7 +3510,7 @@
       "title": "Tilkoblingsfeil"
     },
     "error": {
-      "button_primary": "Start skanning",
+      "button_primary": "Prøv skanningen på nytt",
       "button_secondary": {
         "exit": "Avslutt verifisering",
         "skip": "Bekreft uten skanning"

@@ -1262,6 +1262,11 @@
     },
     "face_capture": {
       "alert": {
+        "audio_conflict_body": "Non riprodurre audio sul dispositivo durante la registrazione",
+        "audio_conflict_button_primary": "Riprova",
+        "audio_conflict_title": "Un’altra app sta riproducendo audio",
+        "mic_conflict_body": "Chiudi eventuali chiamate o attività che utilizzano il microfono durante la registrazione",
+        "mic_conflict_button_primary": "Riprova",
         "mic_conflict_title": "Il microfono è in uso da parte di un’altra app",
         "randomness": {
           "timeout_body": "Hai fino a 20 secondi per completare la registrazione"
@@ -1279,8 +1284,12 @@
         "right": "Gira lentamente la testa a destra",
         "up": "Inclina lentamente la testa verso l’alto"
       },
+      "left_side_complete_accessibility": "Lato sinistro completato",
+      "right_side_complete_accessibility": "Lato destro completato",
       "title": "Gira lentamente la testa da entrambe le parti",
-      "title_completed": "Registrazione completata"
+      "title_accessibility": "Viso allineato",
+      "title_completed": "Registrazione completata",
+      "turn_head_other_side_accessibility": "Ruota la testa verso l'altro lato"
     },
     "intro": {
       "button_primary_ready": "Inizia a registrare",
@@ -1472,6 +1481,7 @@
         "title": "faceMotion.connection_error.title"
       },
       "avc_face_alignment": {
+        "feedback_face_aligned_accessibility": "faceMotion.face_capture.title_accessibility",
         "feedback_move_back": "faceMotion.face_alignment.feedback_move_back",
         "feedback_move_closer": "faceMotion.face_alignment.feedback_move_closer",
         "feedback_no_face_detected": "faceMotion.face_alignment.feedback_no_face_detected",
@@ -1480,6 +1490,11 @@
       },
       "avc_face_capture": {
         "alert": {
+          "audio_conflict_body": "faceMotion.face_capture.alert.audio_conflict_body",
+          "audio_conflict_button_primary": "faceMotion.face_capture.alert.audio_conflict_button_primary",
+          "audio_conflict_title": "faceMotion.face_capture.alert.audio_conflict_title",
+          "mic_conflict_body": "faceMotion.face_capture.alert.mic_conflict_body",
+          "mic_conflict_button_primary": "faceMotion.face_capture.alert.mic_conflict_button_primary",
           "mic_conflict_title": "faceMotion.face_capture.alert.mic_conflict_title",
           "timeout_body": "faceMotion.face_capture.alert.timeout_body",
           "timeout_button_primary": "faceMotion.face_capture.alert.timeout_button_primary",
@@ -1488,6 +1503,9 @@
           "too_fast_button_primary": "faceMotion.face_capture.alert.too_fast_button_primary",
           "too_fast_title": "faceMotion.face_capture.alert.too_fast_title"
         },
+        "confirmation_left_side_complete_accessibility": "faceMotion.face_capture.left_side_complete_accessibility",
+        "confirmation_right_side_complete_accessibility": "faceMotion.face_capture.right_side_complete_accessibility",
+        "feedback_turn_head_other_side_accessibility": "faceMotion.face_capture.turn_head_other_side_accessibility",
         "title": "faceMotion.face_capture.title",
         "title_completed": "faceMotion.face_capture.title_completed"
       },
@@ -3425,6 +3443,11 @@
     },
     "face_capture": {
       "alert": {
+        "audio_conflict_body": "Non riprodurre audio sul dispositivo durante la registrazione",
+        "audio_conflict_button_primary": "Riprova",
+        "audio_conflict_title": "Un’altra app sta riproducendo audio",
+        "mic_conflict_body": "Chiudi eventuali chiamate o attività che utilizzano il microfono durante la registrazione",
+        "mic_conflict_button_primary": "Riprova",
         "mic_conflict_title": "Il microfono è in uso da parte di un’altra app",
         "randomness": {
           "timeout_body": "Hai fino a 20 secondi per completare la registrazione"
@@ -3442,8 +3465,12 @@
         "right": "Gira lentamente la testa a destra",
         "up": "Inclina lentamente la testa verso l’alto"
       },
+      "left_side_complete_accessibility": "Lato sinistro completato",
+      "right_side_complete_accessibility": "Lato destro completato",
       "title": "Gira lentamente la testa da entrambe le parti",
-      "title_completed": "Registrazione completata"
+      "title_accessibility": "Viso allineato",
+      "title_completed": "Registrazione completata",
+      "turn_head_other_side_accessibility": "Ruota la testa verso l'altro lato"
     },
     "intro": {
       "button_primary_ready": "Inizia a registrare",
@@ -3483,7 +3510,7 @@
       "title": "Errore di connessione"
     },
     "error": {
-      "button_primary": "Inizia la scansione",
+      "button_primary": "Riprova la scansione",
       "button_secondary": {
         "exit": "Uscita dalla verifica",
         "skip": "Verifica senza scansione"

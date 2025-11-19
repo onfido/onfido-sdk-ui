@@ -1262,6 +1262,11 @@
     },
     "face_capture": {
       "alert": {
+        "audio_conflict_body": "Lütfen kayıt sırasında cihazınızda herhangi bir ses oynatmayın",
+        "audio_conflict_button_primary": "Yeniden dene",
+        "audio_conflict_title": "Ses başka bir uygulama tarafından oynatılıyor",
+        "mic_conflict_body": "Lütfen kayıt sırasında mikrofonunuzu kullanan tüm aktif arama veya etkinlikleri sonlandırın",
+        "mic_conflict_button_primary": "Tekrar dene",
         "mic_conflict_title": "Mikrofonunuz başka bir uygulama tarafından kullanılıyor",
         "randomness": {
           "timeout_body": "Kaydı tamamlamak için en fazla 20 saniyeniz var"
@@ -1279,8 +1284,12 @@
         "right": "Başınızı yavaşça sağa çevirin",
         "up": "Başınızı yavaşça yukarı kaldırın"
       },
+      "left_side_complete_accessibility": "Sol taraf tamamlandı",
+      "right_side_complete_accessibility": "Sağ taraf tamamlandı",
       "title": "Başınızı yavaşça her iki tarafa çevirin",
-      "title_completed": "Kayıt tamamlandı"
+      "title_accessibility": "Yüz hizalandı",
+      "title_completed": "Kayıt tamamlandı",
+      "turn_head_other_side_accessibility": "Başınızı diğer tarafa çevirin"
     },
     "intro": {
       "button_primary_ready": "Kaydı başlatın",
@@ -1472,6 +1481,7 @@
         "title": "faceMotion.connection_error.title"
       },
       "avc_face_alignment": {
+        "feedback_face_aligned_accessibility": "faceMotion.face_capture.title_accessibility",
         "feedback_move_back": "faceMotion.face_alignment.feedback_move_back",
         "feedback_move_closer": "faceMotion.face_alignment.feedback_move_closer",
         "feedback_no_face_detected": "faceMotion.face_alignment.feedback_no_face_detected",
@@ -1480,6 +1490,11 @@
       },
       "avc_face_capture": {
         "alert": {
+          "audio_conflict_body": "faceMotion.face_capture.alert.audio_conflict_body",
+          "audio_conflict_button_primary": "faceMotion.face_capture.alert.audio_conflict_button_primary",
+          "audio_conflict_title": "faceMotion.face_capture.alert.audio_conflict_title",
+          "mic_conflict_body": "faceMotion.face_capture.alert.mic_conflict_body",
+          "mic_conflict_button_primary": "faceMotion.face_capture.alert.mic_conflict_button_primary",
           "mic_conflict_title": "faceMotion.face_capture.alert.mic_conflict_title",
           "timeout_body": "faceMotion.face_capture.alert.timeout_body",
           "timeout_button_primary": "faceMotion.face_capture.alert.timeout_button_primary",
@@ -1488,6 +1503,9 @@
           "too_fast_button_primary": "faceMotion.face_capture.alert.too_fast_button_primary",
           "too_fast_title": "faceMotion.face_capture.alert.too_fast_title"
         },
+        "confirmation_left_side_complete_accessibility": "faceMotion.face_capture.left_side_complete_accessibility",
+        "confirmation_right_side_complete_accessibility": "faceMotion.face_capture.right_side_complete_accessibility",
+        "feedback_turn_head_other_side_accessibility": "faceMotion.face_capture.turn_head_other_side_accessibility",
         "title": "faceMotion.face_capture.title",
         "title_completed": "faceMotion.face_capture.title_completed"
       },
@@ -3425,6 +3443,11 @@
     },
     "face_capture": {
       "alert": {
+        "audio_conflict_body": "Lütfen kayıt sırasında cihazınızda herhangi bir ses oynatmayın",
+        "audio_conflict_button_primary": "Yeniden dene",
+        "audio_conflict_title": "Ses başka bir uygulama tarafından oynatılıyor",
+        "mic_conflict_body": "Lütfen kayıt sırasında mikrofonunuzu kullanan tüm aktif arama veya etkinlikleri sonlandırın",
+        "mic_conflict_button_primary": "Tekrar dene",
         "mic_conflict_title": "Mikrofonunuz başka bir uygulama tarafından kullanılıyor",
         "randomness": {
           "timeout_body": "Kaydı tamamlamak için en fazla 20 saniyeniz var"
@@ -3442,8 +3465,12 @@
         "right": "Başınızı yavaşça sağa çevirin",
         "up": "Başınızı yavaşça yukarı kaldırın"
       },
+      "left_side_complete_accessibility": "Sol taraf tamamlandı",
+      "right_side_complete_accessibility": "Sağ taraf tamamlandı",
       "title": "Başınızı yavaşça her iki tarafa çevirin",
-      "title_completed": "Kayıt tamamlandı"
+      "title_accessibility": "Yüz hizalandı",
+      "title_completed": "Kayıt tamamlandı",
+      "turn_head_other_side_accessibility": "Başınızı diğer tarafa çevirin"
     },
     "intro": {
       "button_primary_ready": "Kaydı başlatın",
@@ -3483,7 +3510,7 @@
       "title": "Bağlantı hatası"
     },
     "error": {
-      "button_primary": "Taramayı başlat",
+      "button_primary": "Taramayı yeniden dene",
       "button_secondary": {
         "exit": "Çıkış doğrulaması",
         "skip": "Taramadan doğrula"

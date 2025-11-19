@@ -1262,6 +1262,11 @@
     },
     "face_capture": {
       "alert": {
+        "audio_conflict_body": "Bitte spielen Sie während der Aufnahme kein Audio auf Ihrem Gerät",
+        "audio_conflict_button_primary": "Erneut versuchen",
+        "audio_conflict_title": "Audio wird von einer anderen App abgespielt",
+        "mic_conflict_body": "Bitte beenden Sie bei der Aufnahme alle laufenden Gespräche oder Aktivitäten, die Ihr Mikrofon nutzen",
+        "mic_conflict_button_primary": "Erneut versuchen",
         "mic_conflict_title": "Ihr Mikrofon wird von einer anderen App genutzt",
         "randomness": {
           "timeout_body": "Sie haben bis zu 20 Sekunden Zeit, um die Aufnahme abzuschließen"
@@ -1279,8 +1284,12 @@
         "right": "Drehen Sie Ihren Kopf langsam nach rechts",
         "up": "Heben Sie langsam den Kopf"
       },
+      "left_side_complete_accessibility": "Linke Seite abgeschlossen",
+      "right_side_complete_accessibility": "Rechte Seite abgeschlossen",
       "title": "Drehen Sie Ihren Kopf langsam nach beiden Seiten",
-      "title_completed": "Aufnahme abgeschlossen"
+      "title_accessibility": "Gesicht ausgerichtet",
+      "title_completed": "Aufnahme abgeschlossen",
+      "turn_head_other_side_accessibility": "Drehen Sie Ihren Kopf zur anderen Seite"
     },
     "intro": {
       "button_primary_ready": "Aufnahme starten",
@@ -1472,6 +1481,7 @@
         "title": "faceMotion.connection_error.title"
       },
       "avc_face_alignment": {
+        "feedback_face_aligned_accessibility": "faceMotion.face_capture.title_accessibility",
         "feedback_move_back": "faceMotion.face_alignment.feedback_move_back",
         "feedback_move_closer": "faceMotion.face_alignment.feedback_move_closer",
         "feedback_no_face_detected": "faceMotion.face_alignment.feedback_no_face_detected",
@@ -1480,6 +1490,11 @@
       },
       "avc_face_capture": {
         "alert": {
+          "audio_conflict_body": "faceMotion.face_capture.alert.audio_conflict_body",
+          "audio_conflict_button_primary": "faceMotion.face_capture.alert.audio_conflict_button_primary",
+          "audio_conflict_title": "faceMotion.face_capture.alert.audio_conflict_title",
+          "mic_conflict_body": "faceMotion.face_capture.alert.mic_conflict_body",
+          "mic_conflict_button_primary": "faceMotion.face_capture.alert.mic_conflict_button_primary",
           "mic_conflict_title": "faceMotion.face_capture.alert.mic_conflict_title",
           "timeout_body": "faceMotion.face_capture.alert.timeout_body",
           "timeout_button_primary": "faceMotion.face_capture.alert.timeout_button_primary",
@@ -1488,6 +1503,9 @@
           "too_fast_button_primary": "faceMotion.face_capture.alert.too_fast_button_primary",
           "too_fast_title": "faceMotion.face_capture.alert.too_fast_title"
         },
+        "confirmation_left_side_complete_accessibility": "faceMotion.face_capture.left_side_complete_accessibility",
+        "confirmation_right_side_complete_accessibility": "faceMotion.face_capture.right_side_complete_accessibility",
+        "feedback_turn_head_other_side_accessibility": "faceMotion.face_capture.turn_head_other_side_accessibility",
         "title": "faceMotion.face_capture.title",
         "title_completed": "faceMotion.face_capture.title_completed"
       },
@@ -3425,6 +3443,11 @@
     },
     "face_capture": {
       "alert": {
+        "audio_conflict_body": "Bitte spielen Sie während der Aufnahme kein Audio auf Ihrem Gerät",
+        "audio_conflict_button_primary": "Erneut versuchen",
+        "audio_conflict_title": "Audio wird von einer anderen App abgespielt",
+        "mic_conflict_body": "Bitte beenden Sie bei der Aufnahme alle laufenden Gespräche oder Aktivitäten, die Ihr Mikrofon nutzen",
+        "mic_conflict_button_primary": "Erneut versuchen",
         "mic_conflict_title": "Ihr Mikrofon wird von einer anderen App genutzt",
         "randomness": {
           "timeout_body": "Sie haben bis zu 20 Sekunden Zeit, um die Aufnahme abzuschließen"
@@ -3442,8 +3465,12 @@
         "right": "Drehen Sie Ihren Kopf langsam nach rechts",
         "up": "Heben Sie langsam den Kopf"
       },
+      "left_side_complete_accessibility": "Linke Seite abgeschlossen",
+      "right_side_complete_accessibility": "Rechte Seite abgeschlossen",
       "title": "Drehen Sie Ihren Kopf langsam nach beiden Seiten",
-      "title_completed": "Aufnahme abgeschlossen"
+      "title_accessibility": "Gesicht ausgerichtet",
+      "title_completed": "Aufnahme abgeschlossen",
+      "turn_head_other_side_accessibility": "Drehen Sie Ihren Kopf zur anderen Seite"
     },
     "intro": {
       "button_primary_ready": "Aufnahme starten",
@@ -3483,7 +3510,7 @@
       "title": "Verbindungsfehler"
     },
     "error": {
-      "button_primary": "Starten Sie mit dem Scannen",
+      "button_primary": "Scan erneut versuchen",
       "button_secondary": {
         "exit": "Verifizierung beenden",
         "skip": "Überprüfen ohne zu scannen"

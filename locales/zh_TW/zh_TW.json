@@ -1262,6 +1262,11 @@
     },
     "face_capture": {
       "alert": {
+        "audio_conflict_body": "錄製期間請勿在裝置上播放任何音訊",
+        "audio_conflict_button_primary": "重試",
+        "audio_conflict_title": "其他應用程式正在播放音訊",
+        "mic_conflict_body": "錄音期間請結束正在使用麥克風的通話或活動",
+        "mic_conflict_button_primary": "重試",
         "mic_conflict_title": "其他應用程式正在使用您的麥克風",
         "randomness": {
           "timeout_body": "您有最多 20 秒的時間完成錄製"
@@ -1279,8 +1284,12 @@
         "right": "慢慢將頭部向右轉",
         "up": "慢慢抬起您的頭"
       },
+      "left_side_complete_accessibility": "左側完成",
+      "right_side_complete_accessibility": "右側完成",
       "title": "慢慢將您的頭部轉向兩側",
-      "title_completed": "錄製完成"
+      "title_accessibility": "臉部對齊",
+      "title_completed": "錄製完成",
+      "turn_head_other_side_accessibility": "將頭部轉向另一側"
     },
     "intro": {
       "button_primary_ready": "開始錄製",
@@ -1472,6 +1481,7 @@
         "title": "faceMotion.connection_error.title"
       },
       "avc_face_alignment": {
+        "feedback_face_aligned_accessibility": "faceMotion.face_capture.title_accessibility",
         "feedback_move_back": "faceMotion.face_alignment.feedback_move_back",
         "feedback_move_closer": "faceMotion.face_alignment.feedback_move_closer",
         "feedback_no_face_detected": "faceMotion.face_alignment.feedback_no_face_detected",
@@ -1480,6 +1490,11 @@
       },
       "avc_face_capture": {
         "alert": {
+          "audio_conflict_body": "faceMotion.face_capture.alert.audio_conflict_body",
+          "audio_conflict_button_primary": "faceMotion.face_capture.alert.audio_conflict_button_primary",
+          "audio_conflict_title": "faceMotion.face_capture.alert.audio_conflict_title",
+          "mic_conflict_body": "faceMotion.face_capture.alert.mic_conflict_body",
+          "mic_conflict_button_primary": "faceMotion.face_capture.alert.mic_conflict_button_primary",
           "mic_conflict_title": "faceMotion.face_capture.alert.mic_conflict_title",
           "timeout_body": "faceMotion.face_capture.alert.timeout_body",
           "timeout_button_primary": "faceMotion.face_capture.alert.timeout_button_primary",
@@ -1488,6 +1503,9 @@
           "too_fast_button_primary": "faceMotion.face_capture.alert.too_fast_button_primary",
           "too_fast_title": "faceMotion.face_capture.alert.too_fast_title"
         },
+        "confirmation_left_side_complete_accessibility": "faceMotion.face_capture.left_side_complete_accessibility",
+        "confirmation_right_side_complete_accessibility": "faceMotion.face_capture.right_side_complete_accessibility",
+        "feedback_turn_head_other_side_accessibility": "faceMotion.face_capture.turn_head_other_side_accessibility",
         "title": "faceMotion.face_capture.title",
         "title_completed": "faceMotion.face_capture.title_completed"
       },
@@ -3425,6 +3443,11 @@
     },
     "face_capture": {
       "alert": {
+        "audio_conflict_body": "錄製期間請勿在裝置上播放任何音訊",
+        "audio_conflict_button_primary": "重試",
+        "audio_conflict_title": "其他應用程式正在播放音訊",
+        "mic_conflict_body": "錄音期間請結束正在使用麥克風的通話或活動",
+        "mic_conflict_button_primary": "重試",
         "mic_conflict_title": "其他應用程式正在使用您的麥克風",
         "randomness": {
           "timeout_body": "您有最多 20 秒的時間完成錄製"
@@ -3442,8 +3465,12 @@
         "right": "慢慢將頭部向右轉",
         "up": "慢慢抬起您的頭"
       },
+      "left_side_complete_accessibility": "左側完成",
+      "right_side_complete_accessibility": "右側完成",
       "title": "慢慢將您的頭部轉向兩側",
-      "title_completed": "錄製完成"
+      "title_accessibility": "臉部對齊",
+      "title_completed": "錄製完成",
+      "turn_head_other_side_accessibility": "將頭部轉向另一側"
     },
     "intro": {
       "button_primary_ready": "開始錄製",
@@ -3483,7 +3510,7 @@
       "title": "連線錯誤"
     },
     "error": {
-      "button_primary": "開始掃描",
+      "button_primary": "重新掃描",
       "button_secondary": {
         "exit": "退出驗證",
         "skip": "無需掃描即可驗證"

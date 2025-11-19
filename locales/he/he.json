@@ -1262,6 +1262,11 @@
     },
     "face_capture": {
       "alert": {
+        "audio_conflict_body": "אל תפעיל אודיו במכשיר שלך במהלך ההקלטה",
+        "audio_conflict_button_primary": "נסה שוב",
+        "audio_conflict_title": "האודיו מושמע על ידי אפליקציה אחרת",
+        "mic_conflict_body": "סיים את כל השיחות או הפעילויות המתמשכות במיקרופון במהלך ההקלטה",
+        "mic_conflict_button_primary": "נסה שוב",
         "mic_conflict_title": "המיקרופון שלך נמצא בשימוש על ידי אפליקציה אחרת",
         "randomness": {
           "timeout_body": "יש לך עד 20 שניות כדי להשלים את ההקלטה"
@@ -1279,8 +1284,12 @@
         "right": "סובבו את הראש לאט ימינה",
         "up": "הטה את הראש לאט כלפי מעלה"
       },
+      "left_side_complete_accessibility": "צד שמאל הושלם",
+      "right_side_complete_accessibility": "צד ימין הושלם",
       "title": "לאחר מכן, סובב את ראשך לאט לשני הצדדים",
-      "title_completed": "הצילום הושלם"
+      "title_accessibility": "פנים מיושרות",
+      "title_completed": "הצילום הושלם",
+      "turn_head_other_side_accessibility": "סובב את הראש לצד השני"
     },
     "intro": {
       "button_primary_ready": "התחל לצלם",
@@ -1472,6 +1481,7 @@
         "title": "faceMotion.connection_error.title"
       },
       "avc_face_alignment": {
+        "feedback_face_aligned_accessibility": "faceMotion.face_capture.title_accessibility",
         "feedback_move_back": "faceMotion.face_alignment.feedback_move_back",
         "feedback_move_closer": "faceMotion.face_alignment.feedback_move_closer",
         "feedback_no_face_detected": "faceMotion.face_alignment.feedback_no_face_detected",
@@ -1480,6 +1490,11 @@
       },
       "avc_face_capture": {
         "alert": {
+          "audio_conflict_body": "faceMotion.face_capture.alert.audio_conflict_body",
+          "audio_conflict_button_primary": "faceMotion.face_capture.alert.audio_conflict_button_primary",
+          "audio_conflict_title": "faceMotion.face_capture.alert.audio_conflict_title",
+          "mic_conflict_body": "faceMotion.face_capture.alert.mic_conflict_body",
+          "mic_conflict_button_primary": "faceMotion.face_capture.alert.mic_conflict_button_primary",
           "mic_conflict_title": "faceMotion.face_capture.alert.mic_conflict_title",
           "timeout_body": "faceMotion.face_capture.alert.timeout_body",
           "timeout_button_primary": "faceMotion.face_capture.alert.timeout_button_primary",
@@ -1488,6 +1503,9 @@
           "too_fast_button_primary": "faceMotion.face_capture.alert.too_fast_button_primary",
           "too_fast_title": "faceMotion.face_capture.alert.too_fast_title"
         },
+        "confirmation_left_side_complete_accessibility": "faceMotion.face_capture.left_side_complete_accessibility",
+        "confirmation_right_side_complete_accessibility": "faceMotion.face_capture.right_side_complete_accessibility",
+        "feedback_turn_head_other_side_accessibility": "faceMotion.face_capture.turn_head_other_side_accessibility",
         "title": "faceMotion.face_capture.title",
         "title_completed": "faceMotion.face_capture.title_completed"
       },
@@ -3425,6 +3443,11 @@
     },
     "face_capture": {
       "alert": {
+        "audio_conflict_body": "אל תפעיל אודיו במכשיר שלך במהלך ההקלטה",
+        "audio_conflict_button_primary": "נסה שוב",
+        "audio_conflict_title": "האודיו מושמע על ידי אפליקציה אחרת",
+        "mic_conflict_body": "סיים את כל השיחות או הפעילויות המתמשכות במיקרופון במהלך ההקלטה",
+        "mic_conflict_button_primary": "נסה שוב",
         "mic_conflict_title": "המיקרופון שלך נמצא בשימוש על ידי אפליקציה אחרת",
         "randomness": {
           "timeout_body": "יש לך עד 20 שניות כדי להשלים את ההקלטה"
@@ -3442,8 +3465,12 @@
         "right": "סובבו את הראש לאט ימינה",
         "up": "הטה את הראש לאט כלפי מעלה"
       },
+      "left_side_complete_accessibility": "צד שמאל הושלם",
+      "right_side_complete_accessibility": "צד ימין הושלם",
       "title": "לאחר מכן, סובב את ראשך לאט לשני הצדדים",
-      "title_completed": "הצילום הושלם"
+      "title_accessibility": "פנים מיושרות",
+      "title_completed": "הצילום הושלם",
+      "turn_head_other_side_accessibility": "סובב את הראש לצד השני"
     },
     "intro": {
       "button_primary_ready": "התחל לצלם",
@@ -3483,7 +3510,7 @@
       "title": "שגיאה בחיבור"
     },
     "error": {
-      "button_primary": "התחל סריקה",
+      "button_primary": "נסה לסרוק מחדש",
       "button_secondary": {
         "exit": "אימות יציאה",
         "skip": "אמת ללא סריקה"

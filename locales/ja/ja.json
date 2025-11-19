@@ -1262,6 +1262,11 @@
     },
     "face_capture": {
       "alert": {
+        "audio_conflict_body": "録画中はデバイスの音声を再生しないでください",
+        "audio_conflict_button_primary": "再試行",
+        "audio_conflict_title": "音声が別のアプリで再生されています",
+        "mic_conflict_body": "録画中はマイクを使用している進行中の通話やアクティビティを終了してください",
+        "mic_conflict_button_primary": "再試行",
         "mic_conflict_title": "マイクが別のアプリで使用されています",
         "randomness": {
           "timeout_body": "録画の完了まで最大20秒あります"
@@ -1279,8 +1284,12 @@
         "right": "ゆっくり右に顔を向けてください",
         "up": "ゆっくりと頭を上に傾けてください"
       },
+      "left_side_complete_accessibility": "左側が完了しました",
+      "right_side_complete_accessibility": "右側が完了しました",
       "title": "頭をゆっくりと両側に向けます",
-      "title_completed": "記録が完了しました"
+      "title_accessibility": "顔が位置合わせされました",
+      "title_completed": "記録が完了しました",
+      "turn_head_other_side_accessibility": "頭を反対側に向けてください"
     },
     "intro": {
       "button_primary_ready": "録画を開始する",
@@ -1472,6 +1481,7 @@
         "title": "faceMotion.connection_error.title"
       },
       "avc_face_alignment": {
+        "feedback_face_aligned_accessibility": "faceMotion.face_capture.title_accessibility",
         "feedback_move_back": "faceMotion.face_alignment.feedback_move_back",
         "feedback_move_closer": "faceMotion.face_alignment.feedback_move_closer",
         "feedback_no_face_detected": "faceMotion.face_alignment.feedback_no_face_detected",
@@ -1480,6 +1490,11 @@
       },
       "avc_face_capture": {
         "alert": {
+          "audio_conflict_body": "faceMotion.face_capture.alert.audio_conflict_body",
+          "audio_conflict_button_primary": "faceMotion.face_capture.alert.audio_conflict_button_primary",
+          "audio_conflict_title": "faceMotion.face_capture.alert.audio_conflict_title",
+          "mic_conflict_body": "faceMotion.face_capture.alert.mic_conflict_body",
+          "mic_conflict_button_primary": "faceMotion.face_capture.alert.mic_conflict_button_primary",
           "mic_conflict_title": "faceMotion.face_capture.alert.mic_conflict_title",
           "timeout_body": "faceMotion.face_capture.alert.timeout_body",
           "timeout_button_primary": "faceMotion.face_capture.alert.timeout_button_primary",
@@ -1488,6 +1503,9 @@
           "too_fast_button_primary": "faceMotion.face_capture.alert.too_fast_button_primary",
           "too_fast_title": "faceMotion.face_capture.alert.too_fast_title"
         },
+        "confirmation_left_side_complete_accessibility": "faceMotion.face_capture.left_side_complete_accessibility",
+        "confirmation_right_side_complete_accessibility": "faceMotion.face_capture.right_side_complete_accessibility",
+        "feedback_turn_head_other_side_accessibility": "faceMotion.face_capture.turn_head_other_side_accessibility",
         "title": "faceMotion.face_capture.title",
         "title_completed": "faceMotion.face_capture.title_completed"
       },
@@ -3425,6 +3443,11 @@
     },
     "face_capture": {
       "alert": {
+        "audio_conflict_body": "録画中はデバイスの音声を再生しないでください",
+        "audio_conflict_button_primary": "再試行",
+        "audio_conflict_title": "音声が別のアプリで再生されています",
+        "mic_conflict_body": "録画中はマイクを使用している進行中の通話やアクティビティを終了してください",
+        "mic_conflict_button_primary": "再試行",
         "mic_conflict_title": "マイクが別のアプリで使用されています",
         "randomness": {
           "timeout_body": "録画の完了まで最大20秒あります"
@@ -3442,8 +3465,12 @@
         "right": "ゆっくり右に顔を向けてください",
         "up": "ゆっくりと頭を上に傾けてください"
       },
+      "left_side_complete_accessibility": "左側が完了しました",
+      "right_side_complete_accessibility": "右側が完了しました",
       "title": "頭をゆっくりと両側に向けます",
-      "title_completed": "記録が完了しました"
+      "title_accessibility": "顔が位置合わせされました",
+      "title_completed": "記録が完了しました",
+      "turn_head_other_side_accessibility": "頭を反対側に向けてください"
     },
     "intro": {
       "button_primary_ready": "録画を開始する",
@@ -3483,7 +3510,7 @@
       "title": "接続エラー"
     },
     "error": {
-      "button_primary": "スキャンを開始",
+      "button_primary": "スキャンを再試行",
       "button_secondary": {
         "exit": "退出確認",
         "skip": "スキャンせずに確認する"

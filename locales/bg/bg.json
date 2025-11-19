@@ -1262,6 +1262,11 @@
     },
     "face_capture": {
       "alert": {
+        "audio_conflict_body": "Моля, не възпроизвеждайте аудио на устройството си по време на записа",
+        "audio_conflict_button_primary": "Повторен опит",
+        "audio_conflict_title": "Възпроизвежда се аудио от друго приложение",
+        "mic_conflict_body": "Моля, прекратете всички текущи разговори или дейности, които използват вашия микрофон, по време на записа",
+        "mic_conflict_button_primary": "Повторен опит",
         "mic_conflict_title": "Вашият микрофон се използва от друго приложение",
         "randomness": {
           "timeout_body": "Имате до 20 секунди, за да завършите записа"
@@ -1279,8 +1284,12 @@
         "right": "Бавно завъртете главата си надясно",
         "up": "Бавно наклонете главата си нагоре"
       },
+      "left_side_complete_accessibility": "Левият профил е завършен",
+      "right_side_complete_accessibility": "Десният профил е завършен",
       "title": "Бавно обърнете главата си наляво и надясно",
-      "title_completed": "Записът е завършен"
+      "title_accessibility": "Лицето е позиционирано правилно",
+      "title_completed": "Записът е завършен",
+      "turn_head_other_side_accessibility": "Обърнете главата си на другата страна"
     },
     "intro": {
       "button_primary_ready": "Начало на запис",
@@ -1472,6 +1481,7 @@
         "title": "faceMotion.connection_error.title"
       },
       "avc_face_alignment": {
+        "feedback_face_aligned_accessibility": "faceMotion.face_capture.title_accessibility",
         "feedback_move_back": "faceMotion.face_alignment.feedback_move_back",
         "feedback_move_closer": "faceMotion.face_alignment.feedback_move_closer",
         "feedback_no_face_detected": "faceMotion.face_alignment.feedback_no_face_detected",
@@ -1480,6 +1490,11 @@
       },
       "avc_face_capture": {
         "alert": {
+          "audio_conflict_body": "faceMotion.face_capture.alert.audio_conflict_body",
+          "audio_conflict_button_primary": "faceMotion.face_capture.alert.audio_conflict_button_primary",
+          "audio_conflict_title": "faceMotion.face_capture.alert.audio_conflict_title",
+          "mic_conflict_body": "faceMotion.face_capture.alert.mic_conflict_body",
+          "mic_conflict_button_primary": "faceMotion.face_capture.alert.mic_conflict_button_primary",
           "mic_conflict_title": "faceMotion.face_capture.alert.mic_conflict_title",
           "timeout_body": "faceMotion.face_capture.alert.timeout_body",
           "timeout_button_primary": "faceMotion.face_capture.alert.timeout_button_primary",
@@ -1488,6 +1503,9 @@
           "too_fast_button_primary": "faceMotion.face_capture.alert.too_fast_button_primary",
           "too_fast_title": "faceMotion.face_capture.alert.too_fast_title"
         },
+        "confirmation_left_side_complete_accessibility": "faceMotion.face_capture.left_side_complete_accessibility",
+        "confirmation_right_side_complete_accessibility": "faceMotion.face_capture.right_side_complete_accessibility",
+        "feedback_turn_head_other_side_accessibility": "faceMotion.face_capture.turn_head_other_side_accessibility",
         "title": "faceMotion.face_capture.title",
         "title_completed": "faceMotion.face_capture.title_completed"
       },
@@ -3425,6 +3443,11 @@
     },
     "face_capture": {
       "alert": {
+        "audio_conflict_body": "Моля, не възпроизвеждайте аудио на устройството си по време на записа",
+        "audio_conflict_button_primary": "Повторен опит",
+        "audio_conflict_title": "Възпроизвежда се аудио от друго приложение",
+        "mic_conflict_body": "Моля, прекратете всички текущи разговори или дейности, които използват вашия микрофон, по време на записа",
+        "mic_conflict_button_primary": "Повторен опит",
         "mic_conflict_title": "Вашият микрофон се използва от друго приложение",
         "randomness": {
           "timeout_body": "Имате до 20 секунди, за да завършите записа"
@@ -3442,8 +3465,12 @@
         "right": "Бавно завъртете главата си надясно",
         "up": "Бавно наклонете главата си нагоре"
       },
+      "left_side_complete_accessibility": "Левият профил е завършен",
+      "right_side_complete_accessibility": "Десният профил е завършен",
       "title": "Бавно обърнете главата си наляво и надясно",
-      "title_completed": "Записът е завършен"
+      "title_accessibility": "Лицето е позиционирано правилно",
+      "title_completed": "Записът е завършен",
+      "turn_head_other_side_accessibility": "Обърнете главата си на другата страна"
     },
     "intro": {
       "button_primary_ready": "Начало на запис",
@@ -3483,7 +3510,7 @@
       "title": "Грешка във връзката"
     },
     "error": {
-      "button_primary": "Стартиране на сканиране",
+      "button_primary": "Повторете сканирането",
       "button_secondary": {
         "exit": "Изход от верификация",
         "skip": "Потвърждаване без сканиране"

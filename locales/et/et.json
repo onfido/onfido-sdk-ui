@@ -1262,6 +1262,11 @@
     },
     "face_capture": {
       "alert": {
+        "audio_conflict_body": "Palun ärge mängige salvestamise ajal oma seadmes mingit heli",
+        "audio_conflict_button_primary": "Proovige uuesti",
+        "audio_conflict_title": "Heli mängitakse teisest rakendusest",
+        "mic_conflict_body": "Palun lõpetage salvestamise ajaks kõik kõned või tegevused, mis kasutavad teie mikrofoni",
+        "mic_conflict_button_primary": "Proovige uuesti",
         "mic_conflict_title": "Teie mikrofoni kasutab teine rakendus",
         "randomness": {
           "timeout_body": "Sul on kuni 20 sekundit salvestuse lõpetamiseks"
@@ -1279,8 +1284,12 @@
         "right": "Pöörake aeglaselt pead paremale",
         "up": "Kalluta aeglaselt pea üles"
       },
+      "left_side_complete_accessibility": "Vasak pool valmis",
+      "right_side_complete_accessibility": "Parem pool valmis",
       "title": "Keerake oma pead aeglaselt mõlemale poole",
-      "title_completed": "Salvestamine lõpetatud"
+      "title_accessibility": "Nägu joondatud",
+      "title_completed": "Salvestamine lõpetatud",
+      "turn_head_other_side_accessibility": "Pöörake pea teisele poole"
     },
     "intro": {
       "button_primary_ready": "Alustage salvestamist",
@@ -1472,6 +1481,7 @@
         "title": "faceMotion.connection_error.title"
       },
       "avc_face_alignment": {
+        "feedback_face_aligned_accessibility": "faceMotion.face_capture.title_accessibility",
         "feedback_move_back": "faceMotion.face_alignment.feedback_move_back",
         "feedback_move_closer": "faceMotion.face_alignment.feedback_move_closer",
         "feedback_no_face_detected": "faceMotion.face_alignment.feedback_no_face_detected",
@@ -1480,6 +1490,11 @@
       },
       "avc_face_capture": {
         "alert": {
+          "audio_conflict_body": "faceMotion.face_capture.alert.audio_conflict_body",
+          "audio_conflict_button_primary": "faceMotion.face_capture.alert.audio_conflict_button_primary",
+          "audio_conflict_title": "faceMotion.face_capture.alert.audio_conflict_title",
+          "mic_conflict_body": "faceMotion.face_capture.alert.mic_conflict_body",
+          "mic_conflict_button_primary": "faceMotion.face_capture.alert.mic_conflict_button_primary",
           "mic_conflict_title": "faceMotion.face_capture.alert.mic_conflict_title",
           "timeout_body": "faceMotion.face_capture.alert.timeout_body",
           "timeout_button_primary": "faceMotion.face_capture.alert.timeout_button_primary",
@@ -1488,6 +1503,9 @@
           "too_fast_button_primary": "faceMotion.face_capture.alert.too_fast_button_primary",
           "too_fast_title": "faceMotion.face_capture.alert.too_fast_title"
         },
+        "confirmation_left_side_complete_accessibility": "faceMotion.face_capture.left_side_complete_accessibility",
+        "confirmation_right_side_complete_accessibility": "faceMotion.face_capture.right_side_complete_accessibility",
+        "feedback_turn_head_other_side_accessibility": "faceMotion.face_capture.turn_head_other_side_accessibility",
         "title": "faceMotion.face_capture.title",
         "title_completed": "faceMotion.face_capture.title_completed"
       },
@@ -3425,6 +3443,11 @@
     },
     "face_capture": {
       "alert": {
+        "audio_conflict_body": "Palun ärge mängige salvestamise ajal oma seadmes mingit heli",
+        "audio_conflict_button_primary": "Proovige uuesti",
+        "audio_conflict_title": "Heli mängitakse teisest rakendusest",
+        "mic_conflict_body": "Palun lõpetage salvestamise ajaks kõik kõned või tegevused, mis kasutavad teie mikrofoni",
+        "mic_conflict_button_primary": "Proovige uuesti",
         "mic_conflict_title": "Teie mikrofoni kasutab teine rakendus",
         "randomness": {
           "timeout_body": "Sul on kuni 20 sekundit salvestuse lõpetamiseks"
@@ -3442,8 +3465,12 @@
         "right": "Pöörake aeglaselt pead paremale",
         "up": "Kalluta aeglaselt pea üles"
       },
+      "left_side_complete_accessibility": "Vasak pool valmis",
+      "right_side_complete_accessibility": "Parem pool valmis",
       "title": "Keerake oma pead aeglaselt mõlemale poole",
-      "title_completed": "Salvestamine lõpetatud"
+      "title_accessibility": "Nägu joondatud",
+      "title_completed": "Salvestamine lõpetatud",
+      "turn_head_other_side_accessibility": "Pöörake pea teisele poole"
     },
     "intro": {
       "button_primary_ready": "Alustage salvestamist",
@@ -3483,7 +3510,7 @@
       "title": "Ühenduse viga"
     },
     "error": {
-      "button_primary": "Alustage skannimist",
+      "button_primary": "Proovi skannimist uuesti",
       "button_secondary": {
         "exit": "Väljumise kontroll",
         "skip": "Kinnita ilma skannimata"
