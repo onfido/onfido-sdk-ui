@@ -701,9 +701,12 @@
       "info_qr_how_camera": "ใช้กล้องโทรศัพท์ของคุณส่องไปที่รหัส QR",
       "info_qr_how_download": "หากใช้งานไม่ได้ ให้ดาวน์โหลดตัวสแกนรหัส QR จาก Google Play หรือ App Store",
       "linkDivider": "หรือเลือกวิธีอื่น",
+      "link_copy_accessibility": "คัดลอกลิงก์ไปยังคลิปบอร์ด",
+      "link_copy_success_accessibility": "คัดลอกลิงก์ไปยังคลิปบอร์ดแล้ว",
       "link_qr": "สแกนรหัส QR",
       "link_sms": "รับลิงก์ทาง SMS",
       "link_url": "คัดลอกลิงก์",
+      "qr_code_accessibility": "ภาพรหัส QR",
       "sms_failed_instruction": "คัดลอกลิงก์ไปยังโทรศัพท์ของคุณ",
       "sms_failed_message": "มีบางอย่างผิดปกติ",
       "sms_fieldLabel": "ใส่หมายเลขโทรศัพท์มือถือของคุณ:",
@@ -779,6 +782,7 @@
     },
     "capture": {
       "button_accessibility": "ถ่ายภาพ",
+      "camera_loading": "กำลังโหลดกล้อง",
       "camera_not_working_instruction": "ถ่ายรูปโดยใช้<fallback>โหมดกล้องพื้นฐาน</fallback>แทน",
       "camera_not_working_message": "กล้องไม่ทำงาน",
       "captured": "ถ่ายภาพแล้ว",
@@ -915,6 +919,11 @@
         "alignment_rotate_document_accessibility": "หมุนเอกสารของคุณไปในทิศทางตรงข้าม",
         "alignment_show_photo_page": "แสดงเฉพาะหน้าที่มีรูปถ่าย",
         "alignment_show_photo_page_accessibility": "แสดงเฉพาะหน้าที่มีรูปถ่าย",
+        "error_camera_loading": {
+          "action": "ลองอีกครั้ง",
+          "subtitle": "ยังช้าอยู่ใช่ไหม ลองชาร์จอุปกรณ์ของคุณ เพิ่มพื้นที่จัดเก็บข้อมูล หรือปล่อยให้เย็นลงหากรู้สึกว่าร้อน",
+          "title": "เพื่อเพิ่มความเร็ว ลองปิดแอปอื่นๆ"
+        },
         "hold_still": "อยู่นิ่ง ๆ",
         "iq_barcode": "แสดงบาร์โค้ดให้เห็นชัดเจน",
         "iq_blur": "ถือให้นิ่งเพื่อหลีกเลี่ยงภาพเบลอ",
@@ -1247,6 +1256,7 @@
     },
     "connection_error": {
       "button_primary_reload": "โหลดคำแนะนำอีกครั้ง",
+      "button_primary_retry_fetch": "ลองอีกครั้ง",
       "button_primary_retry_upload": "ลองอัปโหลดอีกครั้ง",
       "button_secondary_restart_recording": "รีสตาร์ทการบันทึก",
       "subtitle": "เช็คว่าการเชื่อมต่อของคุณเสถียร แล้วลองอีกครั้ง",
@@ -1673,6 +1683,14 @@
         },
         "detail": {
           "folded_doc_front": "document.capture.folded_doc_front"
+        },
+        "error_camera_loading": {
+          "primary_action": "document.scan.feedback.error_camera_loading.action",
+          "sub_title": "document.scan.feedback.error_camera_loading.subtitle",
+          "title": "document.scan.feedback.error_camera_loading.title"
+        },
+        "feedback": {
+          "camera_loading": "document.capture.camera_loading"
         },
         "header": {
           "recording_complete": "document.capture.recording_complete",
@@ -2352,6 +2370,8 @@
         "info_qr_how": "crossdevice.link.info_qr_how",
         "info_qr_how_list_item_camera": "crossdevice.link.info_qr_how_camera",
         "info_qr_how_list_item_download": "crossdevice.link.info_qr_how_download",
+        "link_copy_accessibility": "crossdevice.link.link_copy_accessibility",
+        "link_copy_success_accessibility": "crossdevice.link.link_copy_success_accessibility",
         "link_divider": "crossdevice.link.linkDivider",
         "link_qr": "crossdevice.link.link_qr",
         "link_sms": "crossdevice.link.link_sms",
@@ -2359,6 +2379,7 @@
         "loader_sending": "crossdevice.link.sms_sending",
         "number_field_input_placeholder": "crossdevice.link.sms_placeholder",
         "number_field_label": "crossdevice.link.sms_fieldLabel",
+        "qr_code_accessibility": "crossdevice.link.qr_code_accessibility",
         "subtitle_qr": "crossdevice.link.subtitle_qr",
         "subtitle_sms": "crossdevice.link.subtitle_sms",
         "subtitle_url": "crossdevice.link.subtitle_url",
@@ -2437,6 +2458,7 @@
       },
       "motion_randomness_capture": {
         "alert": {
+          "button_primary_retry_fetching_challenge": "faceMotion.connection_error.button_primary_retry_fetch",
           "timeout20_body": "faceMotion.face_capture.alert.randomness.timeout_body"
         },
         "feedback": {
@@ -3120,6 +3142,7 @@
           "required_nationality": "profileData.field_validation.required_nationality",
           "required_phone_number": "profileData.field_validation.required_phone_number",
           "required_postcode": "profileData.field_validation.required_postcode",
+          "required_town": "profileData.field_validation.required_town",
           "sgp_specific": {
             "invalid_national_id_value": "profileData.field_validation.sgp_specific.invalid_national_id_value",
             "required_national_id_value": "profileData.field_validation.sgp_specific.required_national_id_value"
@@ -3428,6 +3451,7 @@
     },
     "connection_error": {
       "button_primary_reload": "โหลดคำแนะนำอีกครั้ง",
+      "button_primary_retry_fetch": "ลองอีกครั้ง",
       "button_primary_retry_upload": "ลองอัปโหลดอีกครั้ง",
       "button_secondary_restart_recording": "รีสตาร์ทการบันทึก",
       "subtitle": "เช็คว่าการเชื่อมต่อของคุณเสถียร แล้วลองอีกครั้ง",
@@ -3909,6 +3933,7 @@
       "required_nationality": "โปรดเลือกประเทศ",
       "required_phone_number": "โปรดใส่หมายเลขโทรศัพท์ของคุณ",
       "required_postcode": "โปรดใส่รหัสไปรษณีย์ของคุณ",
+      "required_town": "กรุณากรอกเมืองของคุณ",
       "sgp_specific": {
         "invalid_national_id_value": "กรุณาใส่ที่ถูกต้อง NRIC",
         "required_national_id_value": "กรุณากรอก NRIC ของคุณ"

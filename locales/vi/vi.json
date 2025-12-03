@@ -701,9 +701,12 @@
       "info_qr_how_camera": "Hướng máy ảnh điện thoại vào mã QR",
       "info_qr_how_download": "Nếu ứng dụng không hoạt động, hãy tải xuống một ứng dụng quét mã QR từ Google Play hoặc App Store",
       "linkDivider": "hoặc chọn một cách khác",
+      "link_copy_accessibility": "Sao chép liên kết vào clipboard",
+      "link_copy_success_accessibility": "Đã sao chép liên kết vào khay nhớ tạm",
       "link_qr": "Quét mã QR",
       "link_sms": "Nhận liên kết qua SMS",
       "link_url": "Sao chép liên kết",
+      "qr_code_accessibility": "Hình ảnh mã QR",
       "sms_failed_instruction": "Sao chép liên kết vào điện thoại của bạn",
       "sms_failed_message": "Đã xảy ra sự cố",
       "sms_fieldLabel": "Nhập số điện thoại di động của bạn:",
@@ -779,6 +782,7 @@
     },
     "capture": {
       "button_accessibility": "Chụp ảnh",
+      "camera_loading": "Đang tải camera",
       "camera_not_working_instruction": "Thay vào đó, hãy chụp ảnh bằng <fallback>chế độ máy ảnh cơ bản</fallback>",
       "camera_not_working_message": "Máy ảnh không hoạt động",
       "captured": "Ảnh đã chụp",
@@ -915,6 +919,11 @@
         "alignment_rotate_document_accessibility": "Xoay giấy tờ của bạn sang hướng khác.",
         "alignment_show_photo_page": "Chỉ hiển thị trang ảnh",
         "alignment_show_photo_page_accessibility": "Chỉ hiển thị trang có ảnh.",
+        "error_camera_loading": {
+          "action": "Thử lại",
+          "subtitle": "Vẫn chậm? Hãy thử sạc thiết bị, giải phóng dung lượng lưu trữ hoặc để thiết bị nguội nếu cảm thấy nóng",
+          "title": "Để tăng tốc độ, hãy thử đóng các ứng dụng khác"
+        },
         "hold_still": "Giữ yên",
         "iq_barcode": "Làm mã vạch hiển thị rõ",
         "iq_blur": "Giữ yên để tránh bị mờ",
@@ -1247,6 +1256,7 @@
     },
     "connection_error": {
       "button_primary_reload": "Tải lại hướng dẫn",
+      "button_primary_retry_fetch": "Thử lại",
       "button_primary_retry_upload": "Thử tải lên lại",
       "button_secondary_restart_recording": "Quay lại video",
       "subtitle": "Kiểm tra xem kết nối của bạn và thử lại",
@@ -1673,6 +1683,14 @@
         },
         "detail": {
           "folded_doc_front": "document.capture.folded_doc_front"
+        },
+        "error_camera_loading": {
+          "primary_action": "document.scan.feedback.error_camera_loading.action",
+          "sub_title": "document.scan.feedback.error_camera_loading.subtitle",
+          "title": "document.scan.feedback.error_camera_loading.title"
+        },
+        "feedback": {
+          "camera_loading": "document.capture.camera_loading"
         },
         "header": {
           "recording_complete": "document.capture.recording_complete",
@@ -2352,6 +2370,8 @@
         "info_qr_how": "crossdevice.link.info_qr_how",
         "info_qr_how_list_item_camera": "crossdevice.link.info_qr_how_camera",
         "info_qr_how_list_item_download": "crossdevice.link.info_qr_how_download",
+        "link_copy_accessibility": "crossdevice.link.link_copy_accessibility",
+        "link_copy_success_accessibility": "crossdevice.link.link_copy_success_accessibility",
         "link_divider": "crossdevice.link.linkDivider",
         "link_qr": "crossdevice.link.link_qr",
         "link_sms": "crossdevice.link.link_sms",
@@ -2359,6 +2379,7 @@
         "loader_sending": "crossdevice.link.sms_sending",
         "number_field_input_placeholder": "crossdevice.link.sms_placeholder",
         "number_field_label": "crossdevice.link.sms_fieldLabel",
+        "qr_code_accessibility": "crossdevice.link.qr_code_accessibility",
         "subtitle_qr": "crossdevice.link.subtitle_qr",
         "subtitle_sms": "crossdevice.link.subtitle_sms",
         "subtitle_url": "crossdevice.link.subtitle_url",
@@ -2437,6 +2458,7 @@
       },
       "motion_randomness_capture": {
         "alert": {
+          "button_primary_retry_fetching_challenge": "faceMotion.connection_error.button_primary_retry_fetch",
           "timeout20_body": "faceMotion.face_capture.alert.randomness.timeout_body"
         },
         "feedback": {
@@ -3120,6 +3142,7 @@
           "required_nationality": "profileData.field_validation.required_nationality",
           "required_phone_number": "profileData.field_validation.required_phone_number",
           "required_postcode": "profileData.field_validation.required_postcode",
+          "required_town": "profileData.field_validation.required_town",
           "sgp_specific": {
             "invalid_national_id_value": "profileData.field_validation.sgp_specific.invalid_national_id_value",
             "required_national_id_value": "profileData.field_validation.sgp_specific.required_national_id_value"
@@ -3428,6 +3451,7 @@
     },
     "connection_error": {
       "button_primary_reload": "Tải lại hướng dẫn",
+      "button_primary_retry_fetch": "Thử lại",
       "button_primary_retry_upload": "Thử tải lên lại",
       "button_secondary_restart_recording": "Quay lại video",
       "subtitle": "Kiểm tra xem kết nối của bạn và thử lại",
@@ -3909,6 +3933,7 @@
       "required_nationality": "Vui lòng chọn quốc gia",
       "required_phone_number": "Vui lòng nhập số điện thoại của bạn",
       "required_postcode": "Vui lòng nhập mã bưu điện của bạn",
+      "required_town": "Vui lòng nhập thành phố của bạn",
       "sgp_specific": {
         "invalid_national_id_value": "xin vui lòng nhập vào một giá trị NRIC",
         "required_national_id_value": "Vui lòng nhập NRIC của bạn"

@@ -701,9 +701,12 @@
       "info_qr_how_camera": "將手機的相機對準 QR 碼",
       "info_qr_how_download": "若無法使用，請從 Google Play 或 App Store 下載 QR 碼掃描器",
       "linkDivider": "或選擇其他方法",
+      "link_copy_accessibility": "複製連結到剪貼簿",
+      "link_copy_success_accessibility": "連結已複製到剪貼簿",
       "link_qr": "掃描 QR 碼",
       "link_sms": "透過簡訊取得連結",
       "link_url": "複製連結",
+      "qr_code_accessibility": "QR 碼圖片",
       "sms_failed_instruction": "將連結複製至手機",
       "sms_failed_message": "發生錯誤",
       "sms_fieldLabel": "輸入您的手機號碼：",
@@ -779,6 +782,7 @@
     },
     "capture": {
       "button_accessibility": "拍照",
+      "camera_loading": "相機載入中",
       "camera_not_working_instruction": "請改為使用<fallback>基本相機模式</fallback>拍攝相片",
       "camera_not_working_message": "相機無法運作",
       "captured": "已擷取相片",
@@ -915,6 +919,11 @@
         "alignment_rotate_document_accessibility": "請將您的證件轉為另一個方向。",
         "alignment_show_photo_page": "僅顯示照片頁面",
         "alignment_show_photo_page_accessibility": "僅顯示照片頁。",
+        "error_camera_loading": {
+          "action": "再試一次",
+          "subtitle": "還是很慢嗎?請嘗試為您的裝置充電、釋放儲存空間,或在裝置發熱時讓它冷卻",
+          "title": "為了加快速度,請嘗試關閉其他應用程式"
+        },
         "hold_still": "保持靜止",
         "iq_barcode": "讓條碼清楚可見",
         "iq_blur": "保持靜止以避免模糊",
@@ -1247,6 +1256,7 @@
     },
     "connection_error": {
       "button_primary_reload": "重新載入說明",
+      "button_primary_retry_fetch": "重試",
       "button_primary_retry_upload": "重新嘗試上傳",
       "button_secondary_restart_recording": "重新開始錄製",
       "subtitle": "請檢查您的連線是否穩定，然後再試一次",
@@ -1673,6 +1683,14 @@
         },
         "detail": {
           "folded_doc_front": "document.capture.folded_doc_front"
+        },
+        "error_camera_loading": {
+          "primary_action": "document.scan.feedback.error_camera_loading.action",
+          "sub_title": "document.scan.feedback.error_camera_loading.subtitle",
+          "title": "document.scan.feedback.error_camera_loading.title"
+        },
+        "feedback": {
+          "camera_loading": "document.capture.camera_loading"
         },
         "header": {
           "recording_complete": "document.capture.recording_complete",
@@ -2352,6 +2370,8 @@
         "info_qr_how": "crossdevice.link.info_qr_how",
         "info_qr_how_list_item_camera": "crossdevice.link.info_qr_how_camera",
         "info_qr_how_list_item_download": "crossdevice.link.info_qr_how_download",
+        "link_copy_accessibility": "crossdevice.link.link_copy_accessibility",
+        "link_copy_success_accessibility": "crossdevice.link.link_copy_success_accessibility",
         "link_divider": "crossdevice.link.linkDivider",
         "link_qr": "crossdevice.link.link_qr",
         "link_sms": "crossdevice.link.link_sms",
@@ -2359,6 +2379,7 @@
         "loader_sending": "crossdevice.link.sms_sending",
         "number_field_input_placeholder": "crossdevice.link.sms_placeholder",
         "number_field_label": "crossdevice.link.sms_fieldLabel",
+        "qr_code_accessibility": "crossdevice.link.qr_code_accessibility",
         "subtitle_qr": "crossdevice.link.subtitle_qr",
         "subtitle_sms": "crossdevice.link.subtitle_sms",
         "subtitle_url": "crossdevice.link.subtitle_url",
@@ -2437,6 +2458,7 @@
       },
       "motion_randomness_capture": {
         "alert": {
+          "button_primary_retry_fetching_challenge": "faceMotion.connection_error.button_primary_retry_fetch",
           "timeout20_body": "faceMotion.face_capture.alert.randomness.timeout_body"
         },
         "feedback": {
@@ -3120,6 +3142,7 @@
           "required_nationality": "profileData.field_validation.required_nationality",
           "required_phone_number": "profileData.field_validation.required_phone_number",
           "required_postcode": "profileData.field_validation.required_postcode",
+          "required_town": "profileData.field_validation.required_town",
           "sgp_specific": {
             "invalid_national_id_value": "profileData.field_validation.sgp_specific.invalid_national_id_value",
             "required_national_id_value": "profileData.field_validation.sgp_specific.required_national_id_value"
@@ -3428,6 +3451,7 @@
     },
     "connection_error": {
       "button_primary_reload": "重新載入說明",
+      "button_primary_retry_fetch": "重試",
       "button_primary_retry_upload": "重新嘗試上傳",
       "button_secondary_restart_recording": "重新開始錄製",
       "subtitle": "請檢查您的連線是否穩定，然後再試一次",
@@ -3909,6 +3933,7 @@
       "required_nationality": "請選擇國家",
       "required_phone_number": "請輸入您的電話號碼",
       "required_postcode": "請輸入您的郵遞區號",
+      "required_town": "請輸入您的城市",
       "sgp_specific": {
         "invalid_national_id_value": "請輸入一個有效的 NRIC",
         "required_national_id_value": "請輸入您的身份證"

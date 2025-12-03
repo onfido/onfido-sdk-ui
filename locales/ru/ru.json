@@ -701,9 +701,12 @@
       "info_qr_how_camera": "Наведите камеру Вашего телефона на QR-код",
       "info_qr_how_download": "Если не получается, загрузите приложение для сканирования QR-кода из Google Play или App Store",
       "linkDivider": "или выберите альтернативный метод",
+      "link_copy_accessibility": "Скопировать ссылку в буфер обмена",
+      "link_copy_success_accessibility": "Ссылка скопирована в буфер обмена",
       "link_qr": "Сканировать QR-код",
       "link_sms": "Получить ссылку по СМС",
       "link_url": "Копировать ссылку",
+      "qr_code_accessibility": "Изображение QR-кода",
       "sms_failed_instruction": "Скопируйте ссылку на телефон",
       "sms_failed_message": "Что-то пошло не так",
       "sms_fieldLabel": "Введите свой номер мобильного телефона:",
@@ -779,6 +782,7 @@
     },
     "capture": {
       "button_accessibility": "Сделать фото",
+      "camera_loading": "Загрузка камеры",
       "camera_not_working_instruction": "Сделайте снимок с помощью <fallback>базового режима камеры</fallback>",
       "camera_not_working_message": "Камера не работает",
       "captured": "Снимок сделан",
@@ -915,6 +919,11 @@
         "alignment_rotate_document_accessibility": "Поверните документ в другую ориентацию.",
         "alignment_show_photo_page": "Покажите только страницу с фото",
         "alignment_show_photo_page_accessibility": "Покажите только страницу с фотографией.",
+        "error_camera_loading": {
+          "action": "Попробовать еще раз",
+          "subtitle": "Все еще медленно? Попробуйте зарядить устройство, освободить место в памяти или дать ему остыть, если оно теплое",
+          "title": "Чтобы ускорить процесс, попробуйте закрыть другие приложения"
+        },
         "hold_still": "Не двигайтесь",
         "iq_barcode": "Сделайте штрихкод видимым",
         "iq_blur": "Держите неподвижно, чтобы избежать размытия",
@@ -1247,6 +1256,7 @@
     },
     "connection_error": {
       "button_primary_reload": "Инструкции по повторной загрузке",
+      "button_primary_retry_fetch": "Повторить",
       "button_primary_retry_upload": "Повторите загрузку",
       "button_secondary_restart_recording": "Перезапустить запись",
       "subtitle": "Убедитесь, что соединение стабильно, затем повторите попытку",
@@ -1673,6 +1683,14 @@
         },
         "detail": {
           "folded_doc_front": "document.capture.folded_doc_front"
+        },
+        "error_camera_loading": {
+          "primary_action": "document.scan.feedback.error_camera_loading.action",
+          "sub_title": "document.scan.feedback.error_camera_loading.subtitle",
+          "title": "document.scan.feedback.error_camera_loading.title"
+        },
+        "feedback": {
+          "camera_loading": "document.capture.camera_loading"
         },
         "header": {
           "recording_complete": "document.capture.recording_complete",
@@ -2352,6 +2370,8 @@
         "info_qr_how": "crossdevice.link.info_qr_how",
         "info_qr_how_list_item_camera": "crossdevice.link.info_qr_how_camera",
         "info_qr_how_list_item_download": "crossdevice.link.info_qr_how_download",
+        "link_copy_accessibility": "crossdevice.link.link_copy_accessibility",
+        "link_copy_success_accessibility": "crossdevice.link.link_copy_success_accessibility",
         "link_divider": "crossdevice.link.linkDivider",
         "link_qr": "crossdevice.link.link_qr",
         "link_sms": "crossdevice.link.link_sms",
@@ -2359,6 +2379,7 @@
         "loader_sending": "crossdevice.link.sms_sending",
         "number_field_input_placeholder": "crossdevice.link.sms_placeholder",
         "number_field_label": "crossdevice.link.sms_fieldLabel",
+        "qr_code_accessibility": "crossdevice.link.qr_code_accessibility",
         "subtitle_qr": "crossdevice.link.subtitle_qr",
         "subtitle_sms": "crossdevice.link.subtitle_sms",
         "subtitle_url": "crossdevice.link.subtitle_url",
@@ -2437,6 +2458,7 @@
       },
       "motion_randomness_capture": {
         "alert": {
+          "button_primary_retry_fetching_challenge": "faceMotion.connection_error.button_primary_retry_fetch",
           "timeout20_body": "faceMotion.face_capture.alert.randomness.timeout_body"
         },
         "feedback": {
@@ -3120,6 +3142,7 @@
           "required_nationality": "profileData.field_validation.required_nationality",
           "required_phone_number": "profileData.field_validation.required_phone_number",
           "required_postcode": "profileData.field_validation.required_postcode",
+          "required_town": "profileData.field_validation.required_town",
           "sgp_specific": {
             "invalid_national_id_value": "profileData.field_validation.sgp_specific.invalid_national_id_value",
             "required_national_id_value": "profileData.field_validation.sgp_specific.required_national_id_value"
@@ -3428,6 +3451,7 @@
     },
     "connection_error": {
       "button_primary_reload": "Инструкции по повторной загрузке",
+      "button_primary_retry_fetch": "Повторить",
       "button_primary_retry_upload": "Повторите загрузку",
       "button_secondary_restart_recording": "Перезапустить запись",
       "subtitle": "Убедитесь, что соединение стабильно, затем повторите попытку",
@@ -3909,6 +3933,7 @@
       "required_nationality": "Выберите страну",
       "required_phone_number": "Введите номер телефона",
       "required_postcode": "Введите свой почтовый индекс",
+      "required_town": "Пожалуйста, введите ваш город",
       "sgp_specific": {
         "invalid_national_id_value": "Пожалуйста, введите правильный NRIC",
         "required_national_id_value": "Пожалуйста, введите свой NRIC"

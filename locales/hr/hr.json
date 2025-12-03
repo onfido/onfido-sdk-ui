@@ -701,9 +701,12 @@
       "info_qr_how_camera": "Usmjerite kameru mobitela prema QR kodu",
       "info_qr_how_download": "Ako ne radi, preuzmite aplikaciju za skeniranje QR kodova iz trgovine Google Play ili App Store",
       "linkDivider": "ili odaberite neki drugi način",
+      "link_copy_accessibility": "Kopiraj vezu u međuspremnik",
+      "link_copy_success_accessibility": "Veza je kopirana u međuspremnik",
       "link_qr": "Skenirajte QR kod",
       "link_sms": "Zatražite slanje poveznice SMS-om",
       "link_url": "Kopirajte poveznicu",
+      "qr_code_accessibility": "Slika QR koda",
       "sms_failed_instruction": "Kopirajte poveznicu na svoj mobitel",
       "sms_failed_message": "Došlo je do pogreške",
       "sms_fieldLabel": "Unesi svoj broj mobitela:",
@@ -779,6 +782,7 @@
     },
     "capture": {
       "button_accessibility": "Snimite fotografiju",
+      "camera_loading": "Učitavanje kamere",
       "camera_not_working_instruction": "Umjesto toga snimite fotografiju rabeći <fallback>uobičajeni način na kameri</fallback>",
       "camera_not_working_message": "Kamera ne radi",
       "captured": "Fotografija je snimljena",
@@ -915,6 +919,11 @@
         "alignment_rotate_document_accessibility": "Okrenite svoju ispravu u drugi položaj.",
         "alignment_show_photo_page": "Prikaži samo stranicu s fotografijom",
         "alignment_show_photo_page_accessibility": "Prikažite samo stranicu s fotografijom.",
+        "error_camera_loading": {
+          "action": "Pokušajte ponovno",
+          "subtitle": "Još uvijek sporo? Pokušajte napuniti uređaj, osloboditi prostor za pohranu ili ga ostaviti da se ohladi ako je topao",
+          "title": "Za ubrzanje, pokušajte zatvoriti druge aplikacije"
+        },
         "hold_still": "Držite mirno",
         "iq_barcode": "Učinite barkod vidljivim",
         "iq_blur": "Držite mirno kako biste izbjegli zamućenje",
@@ -1247,6 +1256,7 @@
     },
     "connection_error": {
       "button_primary_reload": "Upute za ponovno učitavanje",
+      "button_primary_retry_fetch": "Pokušajte ponovno",
       "button_primary_retry_upload": "Pokušajte ponovno prenijeti snimku",
       "button_secondary_restart_recording": "Ponovno započnite snimanje",
       "subtitle": "Provjerite je li veza stabilna pa pokušajte ponovno",
@@ -1673,6 +1683,14 @@
         },
         "detail": {
           "folded_doc_front": "document.capture.folded_doc_front"
+        },
+        "error_camera_loading": {
+          "primary_action": "document.scan.feedback.error_camera_loading.action",
+          "sub_title": "document.scan.feedback.error_camera_loading.subtitle",
+          "title": "document.scan.feedback.error_camera_loading.title"
+        },
+        "feedback": {
+          "camera_loading": "document.capture.camera_loading"
         },
         "header": {
           "recording_complete": "document.capture.recording_complete",
@@ -2352,6 +2370,8 @@
         "info_qr_how": "crossdevice.link.info_qr_how",
         "info_qr_how_list_item_camera": "crossdevice.link.info_qr_how_camera",
         "info_qr_how_list_item_download": "crossdevice.link.info_qr_how_download",
+        "link_copy_accessibility": "crossdevice.link.link_copy_accessibility",
+        "link_copy_success_accessibility": "crossdevice.link.link_copy_success_accessibility",
         "link_divider": "crossdevice.link.linkDivider",
         "link_qr": "crossdevice.link.link_qr",
         "link_sms": "crossdevice.link.link_sms",
@@ -2359,6 +2379,7 @@
         "loader_sending": "crossdevice.link.sms_sending",
         "number_field_input_placeholder": "crossdevice.link.sms_placeholder",
         "number_field_label": "crossdevice.link.sms_fieldLabel",
+        "qr_code_accessibility": "crossdevice.link.qr_code_accessibility",
         "subtitle_qr": "crossdevice.link.subtitle_qr",
         "subtitle_sms": "crossdevice.link.subtitle_sms",
         "subtitle_url": "crossdevice.link.subtitle_url",
@@ -2437,6 +2458,7 @@
       },
       "motion_randomness_capture": {
         "alert": {
+          "button_primary_retry_fetching_challenge": "faceMotion.connection_error.button_primary_retry_fetch",
           "timeout20_body": "faceMotion.face_capture.alert.randomness.timeout_body"
         },
         "feedback": {
@@ -3120,6 +3142,7 @@
           "required_nationality": "profileData.field_validation.required_nationality",
           "required_phone_number": "profileData.field_validation.required_phone_number",
           "required_postcode": "profileData.field_validation.required_postcode",
+          "required_town": "profileData.field_validation.required_town",
           "sgp_specific": {
             "invalid_national_id_value": "profileData.field_validation.sgp_specific.invalid_national_id_value",
             "required_national_id_value": "profileData.field_validation.sgp_specific.required_national_id_value"
@@ -3428,6 +3451,7 @@
     },
     "connection_error": {
       "button_primary_reload": "Upute za ponovno učitavanje",
+      "button_primary_retry_fetch": "Pokušajte ponovno",
       "button_primary_retry_upload": "Pokušajte ponovno prenijeti snimku",
       "button_secondary_restart_recording": "Ponovno započnite snimanje",
       "subtitle": "Provjerite je li veza stabilna pa pokušajte ponovno",
@@ -3909,6 +3933,7 @@
       "required_nationality": "Odaberite zemlju",
       "required_phone_number": "Unesite svoj broj telefona",
       "required_postcode": "Unesite poštanski broj",
+      "required_town": "Unesite svoj grad",
       "sgp_specific": {
         "invalid_national_id_value": "Unesite važeći NRIC",
         "required_national_id_value": "Unesite svoj NKŽI"

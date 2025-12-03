@@ -701,9 +701,12 @@
       "info_qr_how_camera": "휴대폰 카메라가 QR 코드를 향하도록 하세요",
       "info_qr_how_download": "제대로 진행되지 않는다면 Google Play 또는 App Store에서 QR 코드 스캐너를 다운로드하세요",
       "linkDivider": "또는 다른 방법 선택하기",
+      "link_copy_accessibility": "링크를 클립보드에 복사",
+      "link_copy_success_accessibility": "링크가 클립보드에 복사되었습니다",
       "link_qr": "QR 코드 스캔",
       "link_sms": "SMS로 링크 받기",
       "link_url": "링크 복사",
+      "qr_code_accessibility": "QR 코드 이미지",
       "sms_failed_instruction": "링크를 휴대폰으로 복사합니다",
       "sms_failed_message": "문제가 발생했습니다",
       "sms_fieldLabel": "휴대폰 번호 입력:",
@@ -779,6 +782,7 @@
     },
     "capture": {
       "button_accessibility": "사진 촬영",
+      "camera_loading": "카메라 불러오는 중",
       "camera_not_working_instruction": "대신 <fallback>기본 카메라 모드</fallback>를 사용하여 사진을 촬영하세요",
       "camera_not_working_message": "카메라가 작동하지 않습니다",
       "captured": "사진이 캡처되었습니다",
@@ -915,6 +919,11 @@
         "alignment_rotate_document_accessibility": "문서의 방향을 반대로 돌려주세요.",
         "alignment_show_photo_page": "사진 페이지만 표시",
         "alignment_show_photo_page_accessibility": "사진 페이지만 보여주세요.",
+        "error_camera_loading": {
+          "action": "다시 시도하기",
+          "subtitle": "아직도 느린가요? 기기를 충전하거나 저장 공간을 확보하고, 따뜻하게 느껴지면 식을 시간을 주세요",
+          "title": "속도를 높이려면 다른 앱을 종료해 보세요"
+        },
         "hold_still": "가만히 계세요",
         "iq_barcode": "바코드를 보이게 하세요",
         "iq_blur": "흐림을 방지하려면 가만히 계세요",
@@ -1247,6 +1256,7 @@
     },
     "connection_error": {
       "button_primary_reload": "지침 다시 불러오기",
+      "button_primary_retry_fetch": "재시도",
       "button_primary_retry_upload": "다시 업로드 시도하기",
       "button_secondary_restart_recording": "녹화 재시작",
       "subtitle": "연결이 안정적인지 확인한 다음 다시 시도하세요",
@@ -1673,6 +1683,14 @@
         },
         "detail": {
           "folded_doc_front": "document.capture.folded_doc_front"
+        },
+        "error_camera_loading": {
+          "primary_action": "document.scan.feedback.error_camera_loading.action",
+          "sub_title": "document.scan.feedback.error_camera_loading.subtitle",
+          "title": "document.scan.feedback.error_camera_loading.title"
+        },
+        "feedback": {
+          "camera_loading": "document.capture.camera_loading"
         },
         "header": {
           "recording_complete": "document.capture.recording_complete",
@@ -2352,6 +2370,8 @@
         "info_qr_how": "crossdevice.link.info_qr_how",
         "info_qr_how_list_item_camera": "crossdevice.link.info_qr_how_camera",
         "info_qr_how_list_item_download": "crossdevice.link.info_qr_how_download",
+        "link_copy_accessibility": "crossdevice.link.link_copy_accessibility",
+        "link_copy_success_accessibility": "crossdevice.link.link_copy_success_accessibility",
         "link_divider": "crossdevice.link.linkDivider",
         "link_qr": "crossdevice.link.link_qr",
         "link_sms": "crossdevice.link.link_sms",
@@ -2359,6 +2379,7 @@
         "loader_sending": "crossdevice.link.sms_sending",
         "number_field_input_placeholder": "crossdevice.link.sms_placeholder",
         "number_field_label": "crossdevice.link.sms_fieldLabel",
+        "qr_code_accessibility": "crossdevice.link.qr_code_accessibility",
         "subtitle_qr": "crossdevice.link.subtitle_qr",
         "subtitle_sms": "crossdevice.link.subtitle_sms",
         "subtitle_url": "crossdevice.link.subtitle_url",
@@ -2437,6 +2458,7 @@
       },
       "motion_randomness_capture": {
         "alert": {
+          "button_primary_retry_fetching_challenge": "faceMotion.connection_error.button_primary_retry_fetch",
           "timeout20_body": "faceMotion.face_capture.alert.randomness.timeout_body"
         },
         "feedback": {
@@ -3120,6 +3142,7 @@
           "required_nationality": "profileData.field_validation.required_nationality",
           "required_phone_number": "profileData.field_validation.required_phone_number",
           "required_postcode": "profileData.field_validation.required_postcode",
+          "required_town": "profileData.field_validation.required_town",
           "sgp_specific": {
             "invalid_national_id_value": "profileData.field_validation.sgp_specific.invalid_national_id_value",
             "required_national_id_value": "profileData.field_validation.sgp_specific.required_national_id_value"
@@ -3428,6 +3451,7 @@
     },
     "connection_error": {
       "button_primary_reload": "지침 다시 불러오기",
+      "button_primary_retry_fetch": "재시도",
       "button_primary_retry_upload": "다시 업로드 시도하기",
       "button_secondary_restart_recording": "녹화 재시작",
       "subtitle": "연결이 안정적인지 확인한 다음 다시 시도하세요",
@@ -3909,6 +3933,7 @@
       "required_nationality": "국가를 선택하세요",
       "required_phone_number": "휴대폰 번호를 입력하세요",
       "required_postcode": "우편 번호를 입력하세요",
+      "required_town": "거주 도시를 입력해 주세요",
       "sgp_specific": {
         "invalid_national_id_value": "유효한 것을 입력하십시오 NRIC",
         "required_national_id_value": "NRIC를 입력하십시오"

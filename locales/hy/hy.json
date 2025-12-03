@@ -701,9 +701,12 @@
       "info_qr_how_camera": "Ձեր հեռախոսի տեսախցիկը պահեք QR կոդի վրա",
       "info_qr_how_download": "Եթե այդպես չի ստացվում, ներբեռնեք QR կոդի սկաները Google Play-ից կամ App Store-ից",
       "linkDivider": "կամ ընտրեք մեկ այլ տարբերակ",
+      "link_copy_accessibility": "Պատճենել հղումը սղClipboard",
+      "link_copy_success_accessibility": "Հղումը պատճենվեց սեղմատախտակ",
       "link_qr": "Սկանավորել QR կոդը",
       "link_sms": "Ստանալ հղում SMS-ի միջոցով",
       "link_url": "Պատճենել հղումը",
+      "qr_code_accessibility": "QR կոդի պատկեր",
       "sms_failed_instruction": "Պատճենեք հղումը ձեր հեռախոսի մեջ",
       "sms_failed_message": "Սխալ առաջացավ",
       "sms_fieldLabel": "Մուտքագրեք ձեր շարժական հեռախոսահամարը՝",
@@ -779,6 +782,7 @@
     },
     "capture": {
       "button_accessibility": "Լուսանկարել",
+      "camera_loading": "Տեսախցիկը բեռնվում է",
       "camera_not_working_instruction": "Լուսանկարեք՝ փոխարենը օգտագործելով <fallback>հիմնական նկարահանման ռեժիմը</fallback>",
       "camera_not_working_message": "Տեսախցիկը չի աշխատում",
       "captured": "Լուսանկարն արված է",
@@ -915,6 +919,11 @@
         "alignment_rotate_document_accessibility": "Պտտեք ձեր փաստաթուղթը մյուս ուղղությամբ։",
         "alignment_show_photo_page": "Ցույց տուր միայն լուսանկարի էջը",
         "alignment_show_photo_page_accessibility": "Ցուցադրեք միայն լուսանկարի էջը։",
+        "error_camera_loading": {
+          "action": "Կրկին փորձել",
+          "subtitle": "Դեռ դանդա՞ղ է աշխատում։ Փորձեք լիցքավորել ձեր սարքը, ազատել հիշողության տեղը կամ թողեք, որ սառչի, եթե տաք է թվում",
+          "title": "Արագացնելու համար փորձեք փակել այլ հավելվածները"
+        },
         "hold_still": "Մի շարժվեք",
         "iq_barcode": "Դարձրեք շտրիխ կոդը տեսանելի",
         "iq_blur": "Պահեք անշարժ՝ խավարումից խուսափելու համար",
@@ -1247,6 +1256,7 @@
     },
     "connection_error": {
       "button_primary_reload": "Վերբեռնման հրահանգներ",
+      "button_primary_retry_fetch": "Կրկին փորձել",
       "button_primary_retry_upload": "Կրկին վերբեռնել",
       "button_secondary_restart_recording": "Վերսկսել տեսագրությունը",
       "subtitle": "Համոզվեք, որ ձեր կապը կայուն է, ապա կրկին փորձեք",
@@ -1673,6 +1683,14 @@
         },
         "detail": {
           "folded_doc_front": "document.capture.folded_doc_front"
+        },
+        "error_camera_loading": {
+          "primary_action": "document.scan.feedback.error_camera_loading.action",
+          "sub_title": "document.scan.feedback.error_camera_loading.subtitle",
+          "title": "document.scan.feedback.error_camera_loading.title"
+        },
+        "feedback": {
+          "camera_loading": "document.capture.camera_loading"
         },
         "header": {
           "recording_complete": "document.capture.recording_complete",
@@ -2352,6 +2370,8 @@
         "info_qr_how": "crossdevice.link.info_qr_how",
         "info_qr_how_list_item_camera": "crossdevice.link.info_qr_how_camera",
         "info_qr_how_list_item_download": "crossdevice.link.info_qr_how_download",
+        "link_copy_accessibility": "crossdevice.link.link_copy_accessibility",
+        "link_copy_success_accessibility": "crossdevice.link.link_copy_success_accessibility",
         "link_divider": "crossdevice.link.linkDivider",
         "link_qr": "crossdevice.link.link_qr",
         "link_sms": "crossdevice.link.link_sms",
@@ -2359,6 +2379,7 @@
         "loader_sending": "crossdevice.link.sms_sending",
         "number_field_input_placeholder": "crossdevice.link.sms_placeholder",
         "number_field_label": "crossdevice.link.sms_fieldLabel",
+        "qr_code_accessibility": "crossdevice.link.qr_code_accessibility",
         "subtitle_qr": "crossdevice.link.subtitle_qr",
         "subtitle_sms": "crossdevice.link.subtitle_sms",
         "subtitle_url": "crossdevice.link.subtitle_url",
@@ -2437,6 +2458,7 @@
       },
       "motion_randomness_capture": {
         "alert": {
+          "button_primary_retry_fetching_challenge": "faceMotion.connection_error.button_primary_retry_fetch",
           "timeout20_body": "faceMotion.face_capture.alert.randomness.timeout_body"
         },
         "feedback": {
@@ -3120,6 +3142,7 @@
           "required_nationality": "profileData.field_validation.required_nationality",
           "required_phone_number": "profileData.field_validation.required_phone_number",
           "required_postcode": "profileData.field_validation.required_postcode",
+          "required_town": "profileData.field_validation.required_town",
           "sgp_specific": {
             "invalid_national_id_value": "profileData.field_validation.sgp_specific.invalid_national_id_value",
             "required_national_id_value": "profileData.field_validation.sgp_specific.required_national_id_value"
@@ -3428,6 +3451,7 @@
     },
     "connection_error": {
       "button_primary_reload": "Վերբեռնման հրահանգներ",
+      "button_primary_retry_fetch": "Կրկին փորձել",
       "button_primary_retry_upload": "Կրկին վերբեռնել",
       "button_secondary_restart_recording": "Վերսկսել տեսագրությունը",
       "subtitle": "Համոզվեք, որ ձեր կապը կայուն է, ապա կրկին փորձեք",
@@ -3909,6 +3933,7 @@
       "required_nationality": "Խնդրում ենք ընտրել երկիրը",
       "required_phone_number": "Խնդրում ենք մուտքագրել ձեր հեռախոսահամարը",
       "required_postcode": "Խնդրում ենք մուտքագրել ձեր փոստային դասիչը",
+      "required_town": "Խնդրում ենք մուտքագրել ձեր քաղաքը",
       "sgp_specific": {
         "invalid_national_id_value": "Խնդրում ենք մուտքագրել վավեր NRIC",
         "required_national_id_value": "Խնդրում ենք մուտքագրել ձեր NRIC-ը"

@@ -701,9 +701,12 @@
       "info_qr_how_camera": "Pointez l’appareil photo de votre mobile sur le QR code",
       "info_qr_how_download": "Si cela ne fonctionne pas, téléchargez un scanner de QR code sur Google Play ou l’App Store",
       "linkDivider": "ou choisissez l’une de ces alternatives",
+      "link_copy_accessibility": "Copier le lien dans le presse-papiers",
+      "link_copy_success_accessibility": "Lien copié dans le presse-papiers",
       "link_qr": "Scanner le QR code",
       "link_sms": "Obtenir le lien par SMS",
       "link_url": "Copier le lien",
+      "qr_code_accessibility": "Image d'un code QR",
       "sms_failed_instruction": "Copier le lien sur votre mobile",
       "sms_failed_message": "Quelque chose ne va pas",
       "sms_fieldLabel": "Entrez votre numéro de mobile",
@@ -779,6 +782,7 @@
     },
     "capture": {
       "button_accessibility": "Prendre une photo",
+      "camera_loading": "Chargement de la caméra",
       "camera_not_working_instruction": "Prenez une photo en utilisant le <fallback> mode appareil photo basique </fallback>",
       "camera_not_working_message": "L’appareil photo ne fonctionne pas",
       "captured": "Photo capturée",
@@ -915,6 +919,11 @@
         "alignment_rotate_document_accessibility": "Tournez votre document dans l'autre orientation.",
         "alignment_show_photo_page": "Montrez uniquement la page photo",
         "alignment_show_photo_page_accessibility": "Montrez uniquement la page photo.",
+        "error_camera_loading": {
+          "action": "Réessayer",
+          "subtitle": "Toujours lent ? Essayez de charger votre appareil, de libérer de l'espace de stockage ou de le laisser refroidir s'il est chaud",
+          "title": "Pour accélérer les choses, essayez de fermer les autres applications"
+        },
         "hold_still": "Ne bougez pas",
         "iq_barcode": "Rendez le code-barres visible",
         "iq_blur": "Restez immobile pour éviter le flou",
@@ -1247,6 +1256,7 @@
     },
     "connection_error": {
       "button_primary_reload": "Recharger les instructions",
+      "button_primary_retry_fetch": "Réessayer",
       "button_primary_retry_upload": "Réessayer de téléverser",
       "button_secondary_restart_recording": "Redémarrer l’enregistrement",
       "subtitle": "Vérifiez que votre connexion est stable, puis réessayez",
@@ -1673,6 +1683,14 @@
         },
         "detail": {
           "folded_doc_front": "document.capture.folded_doc_front"
+        },
+        "error_camera_loading": {
+          "primary_action": "document.scan.feedback.error_camera_loading.action",
+          "sub_title": "document.scan.feedback.error_camera_loading.subtitle",
+          "title": "document.scan.feedback.error_camera_loading.title"
+        },
+        "feedback": {
+          "camera_loading": "document.capture.camera_loading"
         },
         "header": {
           "recording_complete": "document.capture.recording_complete",
@@ -2352,6 +2370,8 @@
         "info_qr_how": "crossdevice.link.info_qr_how",
         "info_qr_how_list_item_camera": "crossdevice.link.info_qr_how_camera",
         "info_qr_how_list_item_download": "crossdevice.link.info_qr_how_download",
+        "link_copy_accessibility": "crossdevice.link.link_copy_accessibility",
+        "link_copy_success_accessibility": "crossdevice.link.link_copy_success_accessibility",
         "link_divider": "crossdevice.link.linkDivider",
         "link_qr": "crossdevice.link.link_qr",
         "link_sms": "crossdevice.link.link_sms",
@@ -2359,6 +2379,7 @@
         "loader_sending": "crossdevice.link.sms_sending",
         "number_field_input_placeholder": "crossdevice.link.sms_placeholder",
         "number_field_label": "crossdevice.link.sms_fieldLabel",
+        "qr_code_accessibility": "crossdevice.link.qr_code_accessibility",
         "subtitle_qr": "crossdevice.link.subtitle_qr",
         "subtitle_sms": "crossdevice.link.subtitle_sms",
         "subtitle_url": "crossdevice.link.subtitle_url",
@@ -2437,6 +2458,7 @@
       },
       "motion_randomness_capture": {
         "alert": {
+          "button_primary_retry_fetching_challenge": "faceMotion.connection_error.button_primary_retry_fetch",
           "timeout20_body": "faceMotion.face_capture.alert.randomness.timeout_body"
         },
         "feedback": {
@@ -3120,6 +3142,7 @@
           "required_nationality": "profileData.field_validation.required_nationality",
           "required_phone_number": "profileData.field_validation.required_phone_number",
           "required_postcode": "profileData.field_validation.required_postcode",
+          "required_town": "profileData.field_validation.required_town",
           "sgp_specific": {
             "invalid_national_id_value": "profileData.field_validation.sgp_specific.invalid_national_id_value",
             "required_national_id_value": "profileData.field_validation.sgp_specific.required_national_id_value"
@@ -3428,6 +3451,7 @@
     },
     "connection_error": {
       "button_primary_reload": "Recharger les instructions",
+      "button_primary_retry_fetch": "Réessayer",
       "button_primary_retry_upload": "Réessayer de téléverser",
       "button_secondary_restart_recording": "Redémarrer l’enregistrement",
       "subtitle": "Vérifiez que votre connexion est stable, puis réessayez",
@@ -3909,6 +3933,7 @@
       "required_nationality": "Veuillez sélectionner un pays",
       "required_phone_number": "Veuillez renseigner votre numéro de téléphone",
       "required_postcode": "Veuillez renseigner votre code postal",
+      "required_town": "Veuillez saisir votre ville",
       "sgp_specific": {
         "invalid_national_id_value": "Veuillez entrer un valide NRIC",
         "required_national_id_value": "Veuillez entrer votre NRIC"

@@ -1,4 +1,15 @@
-# UI Customisation styling attributes v14.44.0
+# Onfido SDK Migration Guides
+
+These guides below are provided to ease the transition of existing applications using the Onfido SDK from one version to another that introduces breaking API changes.
+
+* [Onfido web SDK 14.44.0 Migration Guide](#onfido-web-sdk-14440-migration-guide)
+* [Onfido web SDK 14.0.0 Migration Guide](#onfido-web-sdk-1400-migration-guide)
+
+## Onfido web SDK 14.44.0 Migration Guide
+
+### Platform Changes
+
+#### UI Customisation styling attributes v14.44.0
 
 - All subtitles have been changed to regular text. The following related styling attributes have been removed:
 
@@ -21,17 +32,16 @@
 
 - `colorBackgroundIcon` styling attributes also has been removed
 
-# Breaking Changes
 
-This documents the breaking changes between the Web SDK v13.7.0 and the Web SDK v14+.
+## Onfido web SDK 14.0.0 Migration Guide
 
-## General changes
+### Breaking Changes
 
 - The "split bundle" library will no longer be available on `npm`. Please use the default `npm` package instead.
 - The separate `style.css` import is no longer required as the Onfido stylesheet is included in the main library.
 - The import changed from `import { init } from 'onfido-sdk-ui'` to `import { Onfido } from 'onfido-sdk-ui'`
 
-## Visual & Flow changes
+### Visual & Flow changes
 
 - The default screen size of the Web SDK has changed on desktop:
   **Until version 13 `510px x 598px`**
@@ -59,7 +69,7 @@ This documents the breaking changes between the Web SDK v13.7.0 and the Web SDK 
 - The `crossDeviceClientIntroProductName` subtitle customization option has been removed. Please use the standard language customization process to override the entire subtitle
 - Merger of options `_crossDeviceLinkMethods: ['qr_code' | 'copy_link' | 'sms']` and `_initialCrossDeviceLinkView` into `_initialCrossDeviceLinkView: ['qr_code', 'copy_link', 'sms']` where the default cross-device option is the first element in the list. Note the change in separators from `|` to `,`
 
-## `Onfido.init()` parameters
+### `Onfido.init()` parameters
 
 - `onUserExit` has been removed and the `user_consent_denied` type is now returned in the `onError` callback
 - Ability for the Web SDK to self-load in a modal has been removed:

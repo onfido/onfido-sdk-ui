@@ -701,9 +701,12 @@
       "info_qr_how_camera": "Telefonunuzun kamerasını QR koduna tutun",
       "info_qr_how_download": "Bu işe yaramazsa Google Play veya App Store'dan bir QR kod tarayıcısı indirin",
       "linkDivider": "veya alternatif bir yöntem seçin",
+      "link_copy_accessibility": "Bağlantıyı panoya kopyala",
+      "link_copy_success_accessibility": "Bağlantı panoya kopyalandı",
       "link_qr": "QR kodunu taratın",
       "link_sms": "Bağlantıyı SMS ile alın",
       "link_url": "Bağlantıyı kopyalayın",
+      "qr_code_accessibility": "Bir QR kodunun görüntüsü",
       "sms_failed_instruction": "Bağlantıyı telefonunuza kopyalayın",
       "sms_failed_message": "Bir sorun oluştu",
       "sms_fieldLabel": "Cep telefonu numaranızı girin:",
@@ -779,6 +782,7 @@
     },
     "capture": {
       "button_accessibility": "Fotoğraf çekin",
+      "camera_loading": "Kamera yükleniyor",
       "camera_not_working_instruction": "Bunun yerine <fallback>temel kamera modunu</fallback> kullanarak fotoğraf çekin",
       "camera_not_working_message": "Kamera çalışmıyor",
       "captured": "Fotoğraf alındı",
@@ -915,6 +919,11 @@
         "alignment_rotate_document_accessibility": "Belgenizi diğer yöne çevirin.",
         "alignment_show_photo_page": "Yalnızca fotoğraf sayfasını göster",
         "alignment_show_photo_page_accessibility": "Yalnızca fotoğraf sayfasını gösterin.",
+        "error_camera_loading": {
+          "action": "Tekrar deneyin",
+          "subtitle": "Hâlâ yavaş mı? Cihazınızı şarj etmeyi, depolama alanı boşaltmayı veya sıcaksa soğumasını beklemeyi deneyin",
+          "title": "İşleri hızlandırmak için diğer uygulamaları kapatmayı deneyin"
+        },
         "hold_still": "Sabit durun",
         "iq_barcode": "Barkodu görünür yapın",
         "iq_blur": "Bulanıklığı önlemek için sabit durun",
@@ -1247,6 +1256,7 @@
     },
     "connection_error": {
       "button_primary_reload": "Talimatları yeniden yükle",
+      "button_primary_retry_fetch": "Yeniden dene",
       "button_primary_retry_upload": "Yüklemeyi yeniden dene",
       "button_secondary_restart_recording": "Kaydı yeniden başlat",
       "subtitle": "Bağlantınızın kararlı olup olmadığını kontrol edin, ardından tekrar deneyin",
@@ -1673,6 +1683,14 @@
         },
         "detail": {
           "folded_doc_front": "document.capture.folded_doc_front"
+        },
+        "error_camera_loading": {
+          "primary_action": "document.scan.feedback.error_camera_loading.action",
+          "sub_title": "document.scan.feedback.error_camera_loading.subtitle",
+          "title": "document.scan.feedback.error_camera_loading.title"
+        },
+        "feedback": {
+          "camera_loading": "document.capture.camera_loading"
         },
         "header": {
           "recording_complete": "document.capture.recording_complete",
@@ -2352,6 +2370,8 @@
         "info_qr_how": "crossdevice.link.info_qr_how",
         "info_qr_how_list_item_camera": "crossdevice.link.info_qr_how_camera",
         "info_qr_how_list_item_download": "crossdevice.link.info_qr_how_download",
+        "link_copy_accessibility": "crossdevice.link.link_copy_accessibility",
+        "link_copy_success_accessibility": "crossdevice.link.link_copy_success_accessibility",
         "link_divider": "crossdevice.link.linkDivider",
         "link_qr": "crossdevice.link.link_qr",
         "link_sms": "crossdevice.link.link_sms",
@@ -2359,6 +2379,7 @@
         "loader_sending": "crossdevice.link.sms_sending",
         "number_field_input_placeholder": "crossdevice.link.sms_placeholder",
         "number_field_label": "crossdevice.link.sms_fieldLabel",
+        "qr_code_accessibility": "crossdevice.link.qr_code_accessibility",
         "subtitle_qr": "crossdevice.link.subtitle_qr",
         "subtitle_sms": "crossdevice.link.subtitle_sms",
         "subtitle_url": "crossdevice.link.subtitle_url",
@@ -2437,6 +2458,7 @@
       },
       "motion_randomness_capture": {
         "alert": {
+          "button_primary_retry_fetching_challenge": "faceMotion.connection_error.button_primary_retry_fetch",
           "timeout20_body": "faceMotion.face_capture.alert.randomness.timeout_body"
         },
         "feedback": {
@@ -3120,6 +3142,7 @@
           "required_nationality": "profileData.field_validation.required_nationality",
           "required_phone_number": "profileData.field_validation.required_phone_number",
           "required_postcode": "profileData.field_validation.required_postcode",
+          "required_town": "profileData.field_validation.required_town",
           "sgp_specific": {
             "invalid_national_id_value": "profileData.field_validation.sgp_specific.invalid_national_id_value",
             "required_national_id_value": "profileData.field_validation.sgp_specific.required_national_id_value"
@@ -3428,6 +3451,7 @@
     },
     "connection_error": {
       "button_primary_reload": "Talimatları yeniden yükle",
+      "button_primary_retry_fetch": "Yeniden dene",
       "button_primary_retry_upload": "Yüklemeyi yeniden dene",
       "button_secondary_restart_recording": "Kaydı yeniden başlat",
       "subtitle": "Bağlantınızın kararlı olup olmadığını kontrol edin, ardından tekrar deneyin",
@@ -3909,6 +3933,7 @@
       "required_nationality": "Lütfen bir ülke seçin",
       "required_phone_number": "Lütfen telefon numaranızı girin",
       "required_postcode": "Lütfen posta kodunuzu girin",
+      "required_town": "Lütfen şehrinizi girin",
       "sgp_specific": {
         "invalid_national_id_value": "Lütfen geçerli bir girin NRIC",
         "required_national_id_value": "Lütfen NRIC'nizi girin"

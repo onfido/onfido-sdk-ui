@@ -701,9 +701,12 @@
       "info_qr_how_camera": "Suunake oma telefoni kaamera QR-koodile",
       "info_qr_how_download": "Kui see ei tööta, laadige Google Playst või App Store'ist alla QR-koodi skanner",
       "linkDivider": "või valige mõni teine meetod",
+      "link_copy_accessibility": "Kopeeri link lõikelauale",
+      "link_copy_success_accessibility": "Link kopeeriti lõikepuhvrisse",
       "link_qr": "Skannige QR-kood",
       "link_sms": "Tellige link SMS-i teel",
       "link_url": "Kopeerige link",
+      "qr_code_accessibility": "QR-koodi pilt",
       "sms_failed_instruction": "Kopeerige link oma telefoni",
       "sms_failed_message": "Midagi on valesti",
       "sms_fieldLabel": "Sisestage oma mobiilinumber",
@@ -779,6 +782,7 @@
     },
     "capture": {
       "button_accessibility": "Pildistage",
+      "camera_loading": "Kaamera laadimine",
       "camera_not_working_instruction": "Pildistamine <fallback>kaamera põhirežiimiga</fallback>",
       "camera_not_working_message": "Kaamera ei tööta",
       "captured": "Foto on jäädvustatud",
@@ -915,6 +919,11 @@
         "alignment_rotate_document_accessibility": "Pöörake oma dokument teise suunda.",
         "alignment_show_photo_page": "Näita ainult fotolehte",
         "alignment_show_photo_page_accessibility": "Kuva ainult fotoleht.",
+        "error_camera_loading": {
+          "action": "Proovige uuesti",
+          "subtitle": "Ikka aeglane? Proovige oma seadet laadida, vabastada salvestusruumi või laske sellel jahtuda, kui see tundub soe",
+          "title": "Asjade kiirendamiseks proovige sulgeda teisi rakendusi"
+        },
         "hold_still": "Hoia paigal",
         "iq_barcode": "Tee vöötkood nähtavaks",
         "iq_blur": "Hoia paigal, et vältida hägusust",
@@ -1247,6 +1256,7 @@
     },
     "connection_error": {
       "button_primary_reload": "Laadige juhised uuesti",
+      "button_primary_retry_fetch": "Proovige uuesti",
       "button_primary_retry_upload": "Proovige üleslaadimist uuesti",
       "button_secondary_restart_recording": "Alustage salvestamist uuesti",
       "subtitle": "Kontrollige, kas ühendus on stabiilne ning proovige uuesti",
@@ -1673,6 +1683,14 @@
         },
         "detail": {
           "folded_doc_front": "document.capture.folded_doc_front"
+        },
+        "error_camera_loading": {
+          "primary_action": "document.scan.feedback.error_camera_loading.action",
+          "sub_title": "document.scan.feedback.error_camera_loading.subtitle",
+          "title": "document.scan.feedback.error_camera_loading.title"
+        },
+        "feedback": {
+          "camera_loading": "document.capture.camera_loading"
         },
         "header": {
           "recording_complete": "document.capture.recording_complete",
@@ -2352,6 +2370,8 @@
         "info_qr_how": "crossdevice.link.info_qr_how",
         "info_qr_how_list_item_camera": "crossdevice.link.info_qr_how_camera",
         "info_qr_how_list_item_download": "crossdevice.link.info_qr_how_download",
+        "link_copy_accessibility": "crossdevice.link.link_copy_accessibility",
+        "link_copy_success_accessibility": "crossdevice.link.link_copy_success_accessibility",
         "link_divider": "crossdevice.link.linkDivider",
         "link_qr": "crossdevice.link.link_qr",
         "link_sms": "crossdevice.link.link_sms",
@@ -2359,6 +2379,7 @@
         "loader_sending": "crossdevice.link.sms_sending",
         "number_field_input_placeholder": "crossdevice.link.sms_placeholder",
         "number_field_label": "crossdevice.link.sms_fieldLabel",
+        "qr_code_accessibility": "crossdevice.link.qr_code_accessibility",
         "subtitle_qr": "crossdevice.link.subtitle_qr",
         "subtitle_sms": "crossdevice.link.subtitle_sms",
         "subtitle_url": "crossdevice.link.subtitle_url",
@@ -2437,6 +2458,7 @@
       },
       "motion_randomness_capture": {
         "alert": {
+          "button_primary_retry_fetching_challenge": "faceMotion.connection_error.button_primary_retry_fetch",
           "timeout20_body": "faceMotion.face_capture.alert.randomness.timeout_body"
         },
         "feedback": {
@@ -3120,6 +3142,7 @@
           "required_nationality": "profileData.field_validation.required_nationality",
           "required_phone_number": "profileData.field_validation.required_phone_number",
           "required_postcode": "profileData.field_validation.required_postcode",
+          "required_town": "profileData.field_validation.required_town",
           "sgp_specific": {
             "invalid_national_id_value": "profileData.field_validation.sgp_specific.invalid_national_id_value",
             "required_national_id_value": "profileData.field_validation.sgp_specific.required_national_id_value"
@@ -3428,6 +3451,7 @@
     },
     "connection_error": {
       "button_primary_reload": "Laadige juhised uuesti",
+      "button_primary_retry_fetch": "Proovige uuesti",
       "button_primary_retry_upload": "Proovige üleslaadimist uuesti",
       "button_secondary_restart_recording": "Alustage salvestamist uuesti",
       "subtitle": "Kontrollige, kas ühendus on stabiilne ning proovige uuesti",
@@ -3909,6 +3933,7 @@
       "required_nationality": "Valige riik",
       "required_phone_number": "Sisestage oma telefoninumber",
       "required_postcode": "Sisestage enda sihtnumber",
+      "required_town": "Palun sisestage oma linn",
       "sgp_specific": {
         "invalid_national_id_value": "Sisestage kehtiv NRIC",
         "required_national_id_value": "Sisestage oma NRIC"

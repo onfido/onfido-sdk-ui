@@ -701,9 +701,12 @@
       "info_qr_how_camera": "Rikta telefonens kamera mot QR-koden",
       "info_qr_how_download": "Om det inte fungerar kan du ladda ner en QR-kodläsare från Google Play eller App Store",
       "linkDivider": "eller välj en alternativ metod",
+      "link_copy_accessibility": "Kopiera länk till urklipp",
+      "link_copy_success_accessibility": "Länk kopierad till urklipp",
       "link_qr": "Skanna QR-kod",
       "link_sms": "Få länk via SMS",
       "link_url": "Kopiera länk",
+      "qr_code_accessibility": "Bild av en QR-kod",
       "sms_failed_instruction": "Kopiera länken till din telefon",
       "sms_failed_message": "Något har gått fel",
       "sms_fieldLabel": "Ange ditt mobilnummer:",
@@ -779,6 +782,7 @@
     },
     "capture": {
       "button_accessibility": "Ta ett foto",
+      "camera_loading": "Kameran laddar",
       "camera_not_working_instruction": "Ta ett foto i <fallback>kamerans standardläge</fallback> istället",
       "camera_not_working_message": "Kameran fungerar inte",
       "captured": "Foto taget",
@@ -915,6 +919,11 @@
         "alignment_rotate_document_accessibility": "Rotera ditt dokument åt andra hållet.",
         "alignment_show_photo_page": "Visa endast fotosidan",
         "alignment_show_photo_page_accessibility": "Visa endast fotosidan.",
+        "error_camera_loading": {
+          "action": "Försök igen",
+          "subtitle": "Fortfarande långsamt? Prova att ladda din enhet, frigör lagringsutrymme eller låt den svalna om den känns varm",
+          "title": "För att påskynda processen, prova att stänga andra appar"
+        },
         "hold_still": "Håll still",
         "iq_barcode": "Gör streckkoden synlig",
         "iq_blur": "Håll still för att undvika oskärpa",
@@ -1247,6 +1256,7 @@
     },
     "connection_error": {
       "button_primary_reload": "Ladda om instruktioner",
+      "button_primary_retry_fetch": "Försök igen",
       "button_primary_retry_upload": "Försök ladda upp igen",
       "button_secondary_restart_recording": "Starta om inspelningen",
       "subtitle": "Kontrollera att din anslutning är stabil och försök sedan igen",
@@ -1673,6 +1683,14 @@
         },
         "detail": {
           "folded_doc_front": "document.capture.folded_doc_front"
+        },
+        "error_camera_loading": {
+          "primary_action": "document.scan.feedback.error_camera_loading.action",
+          "sub_title": "document.scan.feedback.error_camera_loading.subtitle",
+          "title": "document.scan.feedback.error_camera_loading.title"
+        },
+        "feedback": {
+          "camera_loading": "document.capture.camera_loading"
         },
         "header": {
           "recording_complete": "document.capture.recording_complete",
@@ -2352,6 +2370,8 @@
         "info_qr_how": "crossdevice.link.info_qr_how",
         "info_qr_how_list_item_camera": "crossdevice.link.info_qr_how_camera",
         "info_qr_how_list_item_download": "crossdevice.link.info_qr_how_download",
+        "link_copy_accessibility": "crossdevice.link.link_copy_accessibility",
+        "link_copy_success_accessibility": "crossdevice.link.link_copy_success_accessibility",
         "link_divider": "crossdevice.link.linkDivider",
         "link_qr": "crossdevice.link.link_qr",
         "link_sms": "crossdevice.link.link_sms",
@@ -2359,6 +2379,7 @@
         "loader_sending": "crossdevice.link.sms_sending",
         "number_field_input_placeholder": "crossdevice.link.sms_placeholder",
         "number_field_label": "crossdevice.link.sms_fieldLabel",
+        "qr_code_accessibility": "crossdevice.link.qr_code_accessibility",
         "subtitle_qr": "crossdevice.link.subtitle_qr",
         "subtitle_sms": "crossdevice.link.subtitle_sms",
         "subtitle_url": "crossdevice.link.subtitle_url",
@@ -2437,6 +2458,7 @@
       },
       "motion_randomness_capture": {
         "alert": {
+          "button_primary_retry_fetching_challenge": "faceMotion.connection_error.button_primary_retry_fetch",
           "timeout20_body": "faceMotion.face_capture.alert.randomness.timeout_body"
         },
         "feedback": {
@@ -3120,6 +3142,7 @@
           "required_nationality": "profileData.field_validation.required_nationality",
           "required_phone_number": "profileData.field_validation.required_phone_number",
           "required_postcode": "profileData.field_validation.required_postcode",
+          "required_town": "profileData.field_validation.required_town",
           "sgp_specific": {
             "invalid_national_id_value": "profileData.field_validation.sgp_specific.invalid_national_id_value",
             "required_national_id_value": "profileData.field_validation.sgp_specific.required_national_id_value"
@@ -3428,6 +3451,7 @@
     },
     "connection_error": {
       "button_primary_reload": "Ladda om instruktioner",
+      "button_primary_retry_fetch": "Försök igen",
       "button_primary_retry_upload": "Försök ladda upp igen",
       "button_secondary_restart_recording": "Starta om inspelningen",
       "subtitle": "Kontrollera att din anslutning är stabil och försök sedan igen",
@@ -3909,6 +3933,7 @@
       "required_nationality": "Välj ett land",
       "required_phone_number": "Ange ditt telefonnummer",
       "required_postcode": "Ange ditt postnummer",
+      "required_town": "Ange din stad",
       "sgp_specific": {
         "invalid_national_id_value": "Vänligen ange en giltig NRIC",
         "required_national_id_value": "Ange ditt NRIC"

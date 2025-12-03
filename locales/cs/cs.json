@@ -701,9 +701,12 @@
       "info_qr_how_camera": "Namiřte fotoaparát telefonu na kód QR",
       "info_qr_how_download": "Pokud to nefunguje, stáhněte si z Google Play nebo App Store skener QR kódů",
       "linkDivider": "nebo zvolit alternativní metodu",
+      "link_copy_accessibility": "Zkopírovat odkaz do schránky",
+      "link_copy_success_accessibility": "Odkaz zkopírován do schránky",
       "link_qr": "Naskenování kódu QR",
       "link_sms": "Získat odkaz prostřednictvím SMS",
       "link_url": "Kopírovat odkaz",
+      "qr_code_accessibility": "Obrázek QR kódu",
       "sms_failed_instruction": "Zkopírujte odkaz do telefonu",
       "sms_failed_message": "Něco se pokazilo",
       "sms_fieldLabel": "Zadejte své mobilní číslo:",
@@ -779,6 +782,7 @@
     },
     "capture": {
       "button_accessibility": "Pořiď fotografii",
+      "camera_loading": "Načítání kamery",
       "camera_not_working_instruction": "Místo toho pořiďte fotografii v <fallback>základním režimu kamery</fallback>",
       "camera_not_working_message": "Nefunguje kamera",
       "captured": "Snímek pořízen",
@@ -915,6 +919,11 @@
         "alignment_rotate_document_accessibility": "Otočte svůj doklad do opačné orientace.",
         "alignment_show_photo_page": "Zobrazte pouze stránku s fotografií",
         "alignment_show_photo_page_accessibility": "Zobrazte pouze stránku s fotografií.",
+        "error_camera_loading": {
+          "action": "Zkuste to znovu",
+          "subtitle": "Stále pomalé? Zkuste nabít zařízení, uvolnit úložný prostor nebo ho nechte vychladnout, pokud je teplé",
+          "title": "Pro zrychlení zkuste zavřít ostatní aplikace"
+        },
         "hold_still": "Držte se v klidu",
         "iq_barcode": "Zviditelněte čárový kód",
         "iq_blur": "Držte se v klidu, aby nedošlo k rozmazání",
@@ -1247,6 +1256,7 @@
     },
     "connection_error": {
       "button_primary_reload": "Pokyny pro opětovné nahrávání",
+      "button_primary_retry_fetch": "Opakování",
       "button_primary_retry_upload": "Opakování nahrávání",
       "button_secondary_restart_recording": "Restart nahrávání",
       "subtitle": "Zkontrolujte, zda je připojení stabilní, a opakujte akci",
@@ -1673,6 +1683,14 @@
         },
         "detail": {
           "folded_doc_front": "document.capture.folded_doc_front"
+        },
+        "error_camera_loading": {
+          "primary_action": "document.scan.feedback.error_camera_loading.action",
+          "sub_title": "document.scan.feedback.error_camera_loading.subtitle",
+          "title": "document.scan.feedback.error_camera_loading.title"
+        },
+        "feedback": {
+          "camera_loading": "document.capture.camera_loading"
         },
         "header": {
           "recording_complete": "document.capture.recording_complete",
@@ -2352,6 +2370,8 @@
         "info_qr_how": "crossdevice.link.info_qr_how",
         "info_qr_how_list_item_camera": "crossdevice.link.info_qr_how_camera",
         "info_qr_how_list_item_download": "crossdevice.link.info_qr_how_download",
+        "link_copy_accessibility": "crossdevice.link.link_copy_accessibility",
+        "link_copy_success_accessibility": "crossdevice.link.link_copy_success_accessibility",
         "link_divider": "crossdevice.link.linkDivider",
         "link_qr": "crossdevice.link.link_qr",
         "link_sms": "crossdevice.link.link_sms",
@@ -2359,6 +2379,7 @@
         "loader_sending": "crossdevice.link.sms_sending",
         "number_field_input_placeholder": "crossdevice.link.sms_placeholder",
         "number_field_label": "crossdevice.link.sms_fieldLabel",
+        "qr_code_accessibility": "crossdevice.link.qr_code_accessibility",
         "subtitle_qr": "crossdevice.link.subtitle_qr",
         "subtitle_sms": "crossdevice.link.subtitle_sms",
         "subtitle_url": "crossdevice.link.subtitle_url",
@@ -2437,6 +2458,7 @@
       },
       "motion_randomness_capture": {
         "alert": {
+          "button_primary_retry_fetching_challenge": "faceMotion.connection_error.button_primary_retry_fetch",
           "timeout20_body": "faceMotion.face_capture.alert.randomness.timeout_body"
         },
         "feedback": {
@@ -3120,6 +3142,7 @@
           "required_nationality": "profileData.field_validation.required_nationality",
           "required_phone_number": "profileData.field_validation.required_phone_number",
           "required_postcode": "profileData.field_validation.required_postcode",
+          "required_town": "profileData.field_validation.required_town",
           "sgp_specific": {
             "invalid_national_id_value": "profileData.field_validation.sgp_specific.invalid_national_id_value",
             "required_national_id_value": "profileData.field_validation.sgp_specific.required_national_id_value"
@@ -3428,6 +3451,7 @@
     },
     "connection_error": {
       "button_primary_reload": "Pokyny pro opětovné nahrávání",
+      "button_primary_retry_fetch": "Opakování",
       "button_primary_retry_upload": "Opakování nahrávání",
       "button_secondary_restart_recording": "Restart nahrávání",
       "subtitle": "Zkontrolujte, zda je připojení stabilní, a opakujte akci",
@@ -3909,6 +3933,7 @@
       "required_nationality": "Vyberte zemi",
       "required_phone_number": "Zadejte své telefonní číslo",
       "required_postcode": "Zadejte své poštovní směrovací číslo",
+      "required_town": "Zadejte prosím své město",
       "sgp_specific": {
         "invalid_national_id_value": "Zadejte prosím platný NRIC",
         "required_national_id_value": "Zadejte prosím své NRIC"

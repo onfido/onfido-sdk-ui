@@ -701,9 +701,12 @@
       "info_qr_how_camera": "Halakan kamera telefon anda ke kod QR",
       "info_qr_how_download": "Jika ia tidak berjaya, muat turun pengimbas kod QR dari Google Play atau App Store",
       "linkDivider": "atau pilih kaedah alternatif",
+      "link_copy_accessibility": "Salin pautan ke papan klip",
+      "link_copy_success_accessibility": "Pautan disalin ke papan klip",
       "link_qr": "Imbas kod QR",
       "link_sms": "Dapatkan pautan melalui SMS",
       "link_url": "Salin pautan",
+      "qr_code_accessibility": "Imej kod QR",
       "sms_failed_instruction": "Salin pautan ke telefon anda",
       "sms_failed_message": "Ada yang tidak kena",
       "sms_fieldLabel": "Masukkan nombor telefon bimbit anda:",
@@ -779,6 +782,7 @@
     },
     "capture": {
       "button_accessibility": "Ambil gambar",
+      "camera_loading": "Memuatkan kamera",
       "camera_not_working_instruction": "Ambil gambar menggunakan <fallback>mod kamera asas</fallback> pula",
       "camera_not_working_message": "Kamera tidak berfungsi",
       "captured": "Gambar dirakam",
@@ -915,6 +919,11 @@
         "alignment_rotate_document_accessibility": "Putar dokumen anda ke orientasi yang lain.",
         "alignment_show_photo_page": "Tunjukkan halaman foto sahaja",
         "alignment_show_photo_page_accessibility": "Tunjukkan hanya halaman foto.",
+        "error_camera_loading": {
+          "action": "Cuba lagi",
+          "subtitle": "Masih perlahan? Cuba cas peranti anda, kosongkan ruang storan, atau biarkan ia sejuk jika terasa panas",
+          "title": "Untuk mempercepatkan proses, cuba tutup aplikasi lain"
+        },
         "hold_still": "Jangan bergerak",
         "iq_barcode": "Pastikan kod bar kelihatan",
         "iq_blur": "Pegang dengan stabil untuk elakkan kabur",
@@ -1247,6 +1256,7 @@
     },
     "connection_error": {
       "button_primary_reload": "Muat semula arahan",
+      "button_primary_retry_fetch": "Cuba Semula",
       "button_primary_retry_upload": "Cuba muat naik semula",
       "button_secondary_restart_recording": "Mulakan semula rakaman",
       "subtitle": "Sila periksa sama ada sambungan anda stabil dan cuba lagi kemudian",
@@ -1673,6 +1683,14 @@
         },
         "detail": {
           "folded_doc_front": "document.capture.folded_doc_front"
+        },
+        "error_camera_loading": {
+          "primary_action": "document.scan.feedback.error_camera_loading.action",
+          "sub_title": "document.scan.feedback.error_camera_loading.subtitle",
+          "title": "document.scan.feedback.error_camera_loading.title"
+        },
+        "feedback": {
+          "camera_loading": "document.capture.camera_loading"
         },
         "header": {
           "recording_complete": "document.capture.recording_complete",
@@ -2352,6 +2370,8 @@
         "info_qr_how": "crossdevice.link.info_qr_how",
         "info_qr_how_list_item_camera": "crossdevice.link.info_qr_how_camera",
         "info_qr_how_list_item_download": "crossdevice.link.info_qr_how_download",
+        "link_copy_accessibility": "crossdevice.link.link_copy_accessibility",
+        "link_copy_success_accessibility": "crossdevice.link.link_copy_success_accessibility",
         "link_divider": "crossdevice.link.linkDivider",
         "link_qr": "crossdevice.link.link_qr",
         "link_sms": "crossdevice.link.link_sms",
@@ -2359,6 +2379,7 @@
         "loader_sending": "crossdevice.link.sms_sending",
         "number_field_input_placeholder": "crossdevice.link.sms_placeholder",
         "number_field_label": "crossdevice.link.sms_fieldLabel",
+        "qr_code_accessibility": "crossdevice.link.qr_code_accessibility",
         "subtitle_qr": "crossdevice.link.subtitle_qr",
         "subtitle_sms": "crossdevice.link.subtitle_sms",
         "subtitle_url": "crossdevice.link.subtitle_url",
@@ -2437,6 +2458,7 @@
       },
       "motion_randomness_capture": {
         "alert": {
+          "button_primary_retry_fetching_challenge": "faceMotion.connection_error.button_primary_retry_fetch",
           "timeout20_body": "faceMotion.face_capture.alert.randomness.timeout_body"
         },
         "feedback": {
@@ -3120,6 +3142,7 @@
           "required_nationality": "profileData.field_validation.required_nationality",
           "required_phone_number": "profileData.field_validation.required_phone_number",
           "required_postcode": "profileData.field_validation.required_postcode",
+          "required_town": "profileData.field_validation.required_town",
           "sgp_specific": {
             "invalid_national_id_value": "profileData.field_validation.sgp_specific.invalid_national_id_value",
             "required_national_id_value": "profileData.field_validation.sgp_specific.required_national_id_value"
@@ -3428,6 +3451,7 @@
     },
     "connection_error": {
       "button_primary_reload": "Muat semula arahan",
+      "button_primary_retry_fetch": "Cuba Semula",
       "button_primary_retry_upload": "Cuba muat naik semula",
       "button_secondary_restart_recording": "Mulakan semula rakaman",
       "subtitle": "Sila periksa sama ada sambungan anda stabil dan cuba lagi kemudian",
@@ -3909,6 +3933,7 @@
       "required_nationality": "Sila pilih negara",
       "required_phone_number": "Sila masukkan nombor telefon anda",
       "required_postcode": "Sila masukkan poskod anda",
+      "required_town": "Sila masukkan bandar anda",
       "sgp_specific": {
         "invalid_national_id_value": "Sila masukkan yang sah NRIC",
         "required_national_id_value": "Sila masukkan NRIC anda"

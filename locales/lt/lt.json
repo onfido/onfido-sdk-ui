@@ -701,9 +701,12 @@
       "info_qr_how_camera": "Nukreipkite telefono kamerą į QR kodą",
       "info_qr_how_download": "Jei tai nepadeda, atsisiųskite QR kodų skaitytuvą iš „Google Play“ arba „App Store“",
       "linkDivider": "arba pasirinkti kitą būdą",
+      "link_copy_accessibility": "Kopijuoti nuorodą į iškarpinę",
+      "link_copy_success_accessibility": "Nuoroda nukopijuota į iškarpinę",
       "link_qr": "Nuskaityti QR kodą",
       "link_sms": "Gauti nuorodą SMS žinute",
       "link_url": "Kopijuoti nuorodą",
+      "qr_code_accessibility": "QR kodo vaizdas",
       "sms_failed_instruction": "Nukopijuokite nuorodą į savo telefoną",
       "sms_failed_message": "Kažkas negerai",
       "sms_fieldLabel": "Įveskite savo mobiliojo telefono numerį:",
@@ -779,6 +782,7 @@
     },
     "capture": {
       "button_accessibility": "Fotografuoti",
+      "camera_loading": "Kraunama kamera",
       "camera_not_working_instruction": "Fotografuokite naudodami <fallback>pagrindinį kameros režimą</fallback>",
       "camera_not_working_message": "Kamera neveikia",
       "captured": "Nufotografuota nuotrauka",
@@ -915,6 +919,11 @@
         "alignment_rotate_document_accessibility": "Pasukite savo dokumentą į kitą padėtį.",
         "alignment_show_photo_page": "Rodyk tik nuotraukos puslapį",
         "alignment_show_photo_page_accessibility": "Rodykite tik puslapį su nuotrauka.",
+        "error_camera_loading": {
+          "action": "Bandyti dar kartą",
+          "subtitle": "Vis dar lėta? Pabandykite įkrauti įrenginį, atlaisvinti saugyklos vietos arba leiskite jam atvėsti, jei jis šiltas",
+          "title": "Kad paspartintumėte procesą, pabandykite uždaryti kitas programėles"
+        },
         "hold_still": "Laikykite nejudamai",
         "iq_barcode": "Padarykite brūkšninį kodą matomą",
         "iq_blur": "Laikykite nejudamai, kad išvengtumėte suliejimo",
@@ -1247,6 +1256,7 @@
     },
     "connection_error": {
       "button_primary_reload": "Įkelti nurodymus iš naujo",
+      "button_primary_retry_fetch": "Bandyti dar kartą",
       "button_primary_retry_upload": "Bandyti įkelti dar kartą",
       "button_secondary_restart_recording": "Iš naujo pradėti įrašymą",
       "subtitle": "Patikrinkite, ar ryšys stabilus, tada bandykite dar kartą",
@@ -1673,6 +1683,14 @@
         },
         "detail": {
           "folded_doc_front": "document.capture.folded_doc_front"
+        },
+        "error_camera_loading": {
+          "primary_action": "document.scan.feedback.error_camera_loading.action",
+          "sub_title": "document.scan.feedback.error_camera_loading.subtitle",
+          "title": "document.scan.feedback.error_camera_loading.title"
+        },
+        "feedback": {
+          "camera_loading": "document.capture.camera_loading"
         },
         "header": {
           "recording_complete": "document.capture.recording_complete",
@@ -2352,6 +2370,8 @@
         "info_qr_how": "crossdevice.link.info_qr_how",
         "info_qr_how_list_item_camera": "crossdevice.link.info_qr_how_camera",
         "info_qr_how_list_item_download": "crossdevice.link.info_qr_how_download",
+        "link_copy_accessibility": "crossdevice.link.link_copy_accessibility",
+        "link_copy_success_accessibility": "crossdevice.link.link_copy_success_accessibility",
         "link_divider": "crossdevice.link.linkDivider",
         "link_qr": "crossdevice.link.link_qr",
         "link_sms": "crossdevice.link.link_sms",
@@ -2359,6 +2379,7 @@
         "loader_sending": "crossdevice.link.sms_sending",
         "number_field_input_placeholder": "crossdevice.link.sms_placeholder",
         "number_field_label": "crossdevice.link.sms_fieldLabel",
+        "qr_code_accessibility": "crossdevice.link.qr_code_accessibility",
         "subtitle_qr": "crossdevice.link.subtitle_qr",
         "subtitle_sms": "crossdevice.link.subtitle_sms",
         "subtitle_url": "crossdevice.link.subtitle_url",
@@ -2437,6 +2458,7 @@
       },
       "motion_randomness_capture": {
         "alert": {
+          "button_primary_retry_fetching_challenge": "faceMotion.connection_error.button_primary_retry_fetch",
           "timeout20_body": "faceMotion.face_capture.alert.randomness.timeout_body"
         },
         "feedback": {
@@ -3120,6 +3142,7 @@
           "required_nationality": "profileData.field_validation.required_nationality",
           "required_phone_number": "profileData.field_validation.required_phone_number",
           "required_postcode": "profileData.field_validation.required_postcode",
+          "required_town": "profileData.field_validation.required_town",
           "sgp_specific": {
             "invalid_national_id_value": "profileData.field_validation.sgp_specific.invalid_national_id_value",
             "required_national_id_value": "profileData.field_validation.sgp_specific.required_national_id_value"
@@ -3428,6 +3451,7 @@
     },
     "connection_error": {
       "button_primary_reload": "Įkelti nurodymus iš naujo",
+      "button_primary_retry_fetch": "Bandyti dar kartą",
       "button_primary_retry_upload": "Bandyti įkelti dar kartą",
       "button_secondary_restart_recording": "Iš naujo pradėti įrašymą",
       "subtitle": "Patikrinkite, ar ryšys stabilus, tada bandykite dar kartą",
@@ -3909,6 +3933,7 @@
       "required_nationality": "Pasirinkite šalį",
       "required_phone_number": "Įveskite savo telefono numerį",
       "required_postcode": "Įrašykite savo pašto kodą",
+      "required_town": "Įveskite savo miestą",
       "sgp_specific": {
         "invalid_national_id_value": "Įveskite tinkamą NRIC",
         "required_national_id_value": "Įveskite savo NRIC"

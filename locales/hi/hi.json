@@ -701,9 +701,12 @@
       "info_qr_how_camera": "अपने फ़ोन का कैमरा QR कोड की तरफ़ घुमाएँ",
       "info_qr_how_download": "अगर यह तरीका काम नहीं करता है, तो Google Play या App Store से QR कोड स्कैनर डाउनलोड करें",
       "linkDivider": "या कोई वैकल्पिक तरीका चुनें",
+      "link_copy_accessibility": "लिंक को क्लिपबोर्ड पर कॉपी करें",
+      "link_copy_success_accessibility": "लिंक क्लिपबोर्ड पर कॉपी हो गया",
       "link_qr": "QR कोड स्कैन करें",
       "link_sms": "SMS के ज़रिए लिंक प्राप्त करें",
       "link_url": "लिंक कॉपी करें",
+      "qr_code_accessibility": "QR कोड की छवि",
       "sms_failed_instruction": "अपने फ़ोन पर लिंक कॉपी करें",
       "sms_failed_message": "कुछ गड़बड़ हो गई",
       "sms_fieldLabel": "अपना मोबाइल नंबर डालें:",
@@ -779,6 +782,7 @@
     },
     "capture": {
       "button_accessibility": "फ़ोटो खींचें",
+      "camera_loading": "कैमरा लोड हो रहा है",
       "camera_not_working_instruction": "इसके बजाय, <fallback>बेसिक कैमरा मोड</fallback> इस्तेमाल करके फ़ोटो खींचें",
       "camera_not_working_message": "कैमरा काम नहीं कर रहा",
       "captured": "फ़ोटो कैप्चर हो गई",
@@ -915,6 +919,11 @@
         "alignment_rotate_document_accessibility": "अपने दस्तावेज़ को दूसरी दिशा में घुमाएँ।",
         "alignment_show_photo_page": "केवल फ़ोटो वाला पेज दिखाएँ",
         "alignment_show_photo_page_accessibility": "केवल फोटो पेज दिखाएं।",
+        "error_camera_loading": {
+          "action": "फिर से कोशिश करें",
+          "subtitle": "अभी भी धीमा है? अपने डिवाइस को चार्ज करने, स्टोरेज स्पेस खाली करने, या यदि यह गर्म महसूस हो रहा है तो इसे ठंडा होने दें",
+          "title": "चीज़ों को तेज़ करने के लिए, अन्य ऐप्स बंद करने का प्रयास करें"
+        },
         "hold_still": "स्थिर रहें",
         "iq_barcode": "बारकोड को दिखाएं",
         "iq_blur": "धुंधलापन से बचने के लिए स्थिर रहें",
@@ -1247,6 +1256,7 @@
     },
     "connection_error": {
       "button_primary_reload": "निर्देश फिर से लोड हो रहा है",
+      "button_primary_retry_fetch": "फिर से कोशिश करें",
       "button_primary_retry_upload": "फिर से अपलोड करें",
       "button_secondary_restart_recording": "रिकॉर्डिंग फिर से शुरू करें",
       "subtitle": "जाँच करें कि आपका कनेक्शन स्थिर है और फिर कोशिश करें",
@@ -1673,6 +1683,14 @@
         },
         "detail": {
           "folded_doc_front": "document.capture.folded_doc_front"
+        },
+        "error_camera_loading": {
+          "primary_action": "document.scan.feedback.error_camera_loading.action",
+          "sub_title": "document.scan.feedback.error_camera_loading.subtitle",
+          "title": "document.scan.feedback.error_camera_loading.title"
+        },
+        "feedback": {
+          "camera_loading": "document.capture.camera_loading"
         },
         "header": {
           "recording_complete": "document.capture.recording_complete",
@@ -2352,6 +2370,8 @@
         "info_qr_how": "crossdevice.link.info_qr_how",
         "info_qr_how_list_item_camera": "crossdevice.link.info_qr_how_camera",
         "info_qr_how_list_item_download": "crossdevice.link.info_qr_how_download",
+        "link_copy_accessibility": "crossdevice.link.link_copy_accessibility",
+        "link_copy_success_accessibility": "crossdevice.link.link_copy_success_accessibility",
         "link_divider": "crossdevice.link.linkDivider",
         "link_qr": "crossdevice.link.link_qr",
         "link_sms": "crossdevice.link.link_sms",
@@ -2359,6 +2379,7 @@
         "loader_sending": "crossdevice.link.sms_sending",
         "number_field_input_placeholder": "crossdevice.link.sms_placeholder",
         "number_field_label": "crossdevice.link.sms_fieldLabel",
+        "qr_code_accessibility": "crossdevice.link.qr_code_accessibility",
         "subtitle_qr": "crossdevice.link.subtitle_qr",
         "subtitle_sms": "crossdevice.link.subtitle_sms",
         "subtitle_url": "crossdevice.link.subtitle_url",
@@ -2437,6 +2458,7 @@
       },
       "motion_randomness_capture": {
         "alert": {
+          "button_primary_retry_fetching_challenge": "faceMotion.connection_error.button_primary_retry_fetch",
           "timeout20_body": "faceMotion.face_capture.alert.randomness.timeout_body"
         },
         "feedback": {
@@ -3120,6 +3142,7 @@
           "required_nationality": "profileData.field_validation.required_nationality",
           "required_phone_number": "profileData.field_validation.required_phone_number",
           "required_postcode": "profileData.field_validation.required_postcode",
+          "required_town": "profileData.field_validation.required_town",
           "sgp_specific": {
             "invalid_national_id_value": "profileData.field_validation.sgp_specific.invalid_national_id_value",
             "required_national_id_value": "profileData.field_validation.sgp_specific.required_national_id_value"
@@ -3428,6 +3451,7 @@
     },
     "connection_error": {
       "button_primary_reload": "निर्देश फिर से लोड हो रहा है",
+      "button_primary_retry_fetch": "फिर से कोशिश करें",
       "button_primary_retry_upload": "फिर से अपलोड करें",
       "button_secondary_restart_recording": "रिकॉर्डिंग फिर से शुरू करें",
       "subtitle": "जाँच करें कि आपका कनेक्शन स्थिर है और फिर कोशिश करें",
@@ -3909,6 +3933,7 @@
       "required_nationality": "कृपया कोई देश चुनें",
       "required_phone_number": "कृपया अपना फ़ोन नंबर डालें",
       "required_postcode": "कृपया अपना पिन कोड डालें",
+      "required_town": "कृपया अपना शहर दर्ज करें",
       "sgp_specific": {
         "invalid_national_id_value": "कृपया कोई मान्य दर्ज करें NRIC",
         "required_national_id_value": "कृपया अपना एनआरआईसी दर्ज करें"

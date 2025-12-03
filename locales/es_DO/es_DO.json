@@ -701,9 +701,12 @@
       "info_qr_how_camera": "Apunta la cámara de tu teléfono al código QR",
       "info_qr_how_download": "Si no funciona, descarga un escáner de código QR desde Google Play o App Store",
       "linkDivider": "o elige un método alternativo",
+      "link_copy_accessibility": "Copiar enlace al portapapeles",
+      "link_copy_success_accessibility": "Enlace copiado al portapapeles",
       "link_qr": "Escanear código QR",
       "link_sms": "Obtener enlace por SMS",
       "link_url": "Copiar enlace",
+      "qr_code_accessibility": "Imagen de un código QR",
       "sms_failed_instruction": "Copia el enlace a tu teléfono",
       "sms_failed_message": "Algo salió mal",
       "sms_fieldLabel": "Ingresa tu número de teléfono celular:",
@@ -779,6 +782,7 @@
     },
     "capture": {
       "button_accessibility": "Tomar una foto",
+      "camera_loading": "Cargando la cámara",
       "camera_not_working_instruction": "Toma una foto con el <fallback>modo de cámara básico</fallback>",
       "camera_not_working_message": "La cámara no funciona",
       "captured": "Foto capturada",
@@ -915,6 +919,11 @@
         "alignment_rotate_document_accessibility": "Gira tu documento en la otra orientación.",
         "alignment_show_photo_page": "Muestra solo la página de la foto",
         "alignment_show_photo_page_accessibility": "Muestra solo la página de la foto.",
+        "error_camera_loading": {
+          "action": "Intenta de nuevo",
+          "subtitle": "¿Sigue lento? Intenta cargar tu dispositivo, liberar espacio de almacenamiento o dejarlo enfriar si se siente caliente",
+          "title": "Para agilizar el proceso, intenta cerrar otras aplicaciones"
+        },
         "hold_still": "Mantente quieto",
         "iq_barcode": "Haz visible el código de barras",
         "iq_blur": "Mantén el documento quieto para evitar que salga borroso",
@@ -1247,6 +1256,7 @@
     },
     "connection_error": {
       "button_primary_reload": "Volver a cargar las instrucciones",
+      "button_primary_retry_fetch": "Reintentar",
       "button_primary_retry_upload": "Reintentar carga",
       "button_secondary_restart_recording": "Reiniciar grabación",
       "subtitle": "Comprueba que la conexión sea estable y vuelve a intentarlo",
@@ -1673,6 +1683,14 @@
         },
         "detail": {
           "folded_doc_front": "document.capture.folded_doc_front"
+        },
+        "error_camera_loading": {
+          "primary_action": "document.scan.feedback.error_camera_loading.action",
+          "sub_title": "document.scan.feedback.error_camera_loading.subtitle",
+          "title": "document.scan.feedback.error_camera_loading.title"
+        },
+        "feedback": {
+          "camera_loading": "document.capture.camera_loading"
         },
         "header": {
           "recording_complete": "document.capture.recording_complete",
@@ -2352,6 +2370,8 @@
         "info_qr_how": "crossdevice.link.info_qr_how",
         "info_qr_how_list_item_camera": "crossdevice.link.info_qr_how_camera",
         "info_qr_how_list_item_download": "crossdevice.link.info_qr_how_download",
+        "link_copy_accessibility": "crossdevice.link.link_copy_accessibility",
+        "link_copy_success_accessibility": "crossdevice.link.link_copy_success_accessibility",
         "link_divider": "crossdevice.link.linkDivider",
         "link_qr": "crossdevice.link.link_qr",
         "link_sms": "crossdevice.link.link_sms",
@@ -2359,6 +2379,7 @@
         "loader_sending": "crossdevice.link.sms_sending",
         "number_field_input_placeholder": "crossdevice.link.sms_placeholder",
         "number_field_label": "crossdevice.link.sms_fieldLabel",
+        "qr_code_accessibility": "crossdevice.link.qr_code_accessibility",
         "subtitle_qr": "crossdevice.link.subtitle_qr",
         "subtitle_sms": "crossdevice.link.subtitle_sms",
         "subtitle_url": "crossdevice.link.subtitle_url",
@@ -2437,6 +2458,7 @@
       },
       "motion_randomness_capture": {
         "alert": {
+          "button_primary_retry_fetching_challenge": "faceMotion.connection_error.button_primary_retry_fetch",
           "timeout20_body": "faceMotion.face_capture.alert.randomness.timeout_body"
         },
         "feedback": {
@@ -3120,6 +3142,7 @@
           "required_nationality": "profileData.field_validation.required_nationality",
           "required_phone_number": "profileData.field_validation.required_phone_number",
           "required_postcode": "profileData.field_validation.required_postcode",
+          "required_town": "profileData.field_validation.required_town",
           "sgp_specific": {
             "invalid_national_id_value": "profileData.field_validation.sgp_specific.invalid_national_id_value",
             "required_national_id_value": "profileData.field_validation.sgp_specific.required_national_id_value"
@@ -3428,6 +3451,7 @@
     },
     "connection_error": {
       "button_primary_reload": "Volver a cargar las instrucciones",
+      "button_primary_retry_fetch": "Reintentar",
       "button_primary_retry_upload": "Reintentar carga",
       "button_secondary_restart_recording": "Reiniciar grabación",
       "subtitle": "Comprueba que la conexión sea estable y vuelve a intentarlo",
@@ -3909,6 +3933,7 @@
       "required_nationality": "Selecciona un país",
       "required_phone_number": "Ingresa tu número de teléfono",
       "required_postcode": "Ingresa tu código postal",
+      "required_town": "Por favor, introduzca su ciudad",
       "sgp_specific": {
         "invalid_national_id_value": "Por favor, introduzca un valor válido NRIC",
         "required_national_id_value": "Por favor ingrese su NRIC"

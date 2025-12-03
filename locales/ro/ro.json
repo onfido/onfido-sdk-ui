@@ -701,9 +701,12 @@
       "info_qr_how_camera": "Poziționați camera video a telefonului dvs. spre codul QR",
       "info_qr_how_download": "Dacă nu funcționează, descărcați un scaner de cod QR din Google Play sau App Store",
       "linkDivider": "sau alegeți o metodă alternativă",
+      "link_copy_accessibility": "Copiază linkul în clipboard",
+      "link_copy_success_accessibility": "Link copiat în clipboard",
       "link_qr": "Scanați codul QR",
       "link_sms": "Primiți linkul prin SMS",
       "link_url": "Copiați linkul",
+      "qr_code_accessibility": "Imagine a unui cod QR",
       "sms_failed_instruction": "Copiați linkul pe telefonul dvs.",
       "sms_failed_message": "Ceva nu a mers bine",
       "sms_fieldLabel": "Introduceți numărul dvs. de telefon mobil:",
@@ -779,6 +782,7 @@
     },
     "capture": {
       "button_accessibility": "Faceți o poză",
+      "camera_loading": "Se încarcă camera",
       "camera_not_working_instruction": "Faceți o poză folosind în schimb <fallback>modul de bază al camerei video</fallback>",
       "camera_not_working_message": "Camera video nu funcționează",
       "captured": "Poză realizată",
@@ -915,6 +919,11 @@
         "alignment_rotate_document_accessibility": "Rotiți documentul în cealaltă orientare.",
         "alignment_show_photo_page": "Afișează doar pagina cu fotografia",
         "alignment_show_photo_page_accessibility": "Afișează doar pagina cu fotografia.",
+        "error_camera_loading": {
+          "action": "Încercați din nou",
+          "subtitle": "Încă lent? Încearcă să-ți încarci dispozitivul, eliberează spațiu de stocare sau lasă-l să se răcească dacă se simte cald",
+          "title": "Pentru a accelera procesul, încercați să închideți alte aplicații"
+        },
         "hold_still": "Stai nemișcat",
         "iq_barcode": "Faceți codul de bare vizibil",
         "iq_blur": "Stai nemișcat pentru a evita neclaritatea",
@@ -1247,6 +1256,7 @@
     },
     "connection_error": {
       "button_primary_reload": "Reîncărcați instrucțiunile",
+      "button_primary_retry_fetch": "Încercați din nou",
       "button_primary_retry_upload": "Încercați din nou să încărcați",
       "button_secondary_restart_recording": "Începeți din nou înregistrarea",
       "subtitle": "Verificați stabilitatea conexiunii dvs. și apoi încercați din nou",
@@ -1280,8 +1290,8 @@
       },
       "instructions": {
         "down": "Înclină încet capul în jos",
-        "left": "Întoarce-ți încet capul spre stânga",
-        "right": "Întoarce-ți capul încet spre dreapta",
+        "left": "Întoarceți capul încet spre stânga",
+        "right": "Întoarceți capul încet spre dreapta",
         "up": "Înclină încet capul în sus"
       },
       "left_side_complete_accessibility": "Partea stângă a fost finalizată",
@@ -1299,7 +1309,7 @@
       "list_item_one": "Întâi, poziționați-vă fața în cadru",
       "list_item_one_accessibility": "Mai întâi, trebuie să vă poziționați fața în fața dispozitivului dumneavoastră",
       "list_item_two": "Apoi, întoarceți capul încet în ambele părți",
-      "list_item_two_accessibility": "Apoi, întoarce-ți capul încet spre stânga, și apoi spre dreapta",
+      "list_item_two_accessibility": "Apoi, întoarceți capul încet spre stânga, și apoi spre dreapta",
       "play_pause_accessibility": "Redați sau puneți pe pauză",
       "randomness": {
         "list_item_one": "Vă vom cere să vă întoarceți capul în patru direcții",
@@ -1673,6 +1683,14 @@
         },
         "detail": {
           "folded_doc_front": "document.capture.folded_doc_front"
+        },
+        "error_camera_loading": {
+          "primary_action": "document.scan.feedback.error_camera_loading.action",
+          "sub_title": "document.scan.feedback.error_camera_loading.subtitle",
+          "title": "document.scan.feedback.error_camera_loading.title"
+        },
+        "feedback": {
+          "camera_loading": "document.capture.camera_loading"
         },
         "header": {
           "recording_complete": "document.capture.recording_complete",
@@ -2352,6 +2370,8 @@
         "info_qr_how": "crossdevice.link.info_qr_how",
         "info_qr_how_list_item_camera": "crossdevice.link.info_qr_how_camera",
         "info_qr_how_list_item_download": "crossdevice.link.info_qr_how_download",
+        "link_copy_accessibility": "crossdevice.link.link_copy_accessibility",
+        "link_copy_success_accessibility": "crossdevice.link.link_copy_success_accessibility",
         "link_divider": "crossdevice.link.linkDivider",
         "link_qr": "crossdevice.link.link_qr",
         "link_sms": "crossdevice.link.link_sms",
@@ -2359,6 +2379,7 @@
         "loader_sending": "crossdevice.link.sms_sending",
         "number_field_input_placeholder": "crossdevice.link.sms_placeholder",
         "number_field_label": "crossdevice.link.sms_fieldLabel",
+        "qr_code_accessibility": "crossdevice.link.qr_code_accessibility",
         "subtitle_qr": "crossdevice.link.subtitle_qr",
         "subtitle_sms": "crossdevice.link.subtitle_sms",
         "subtitle_url": "crossdevice.link.subtitle_url",
@@ -2437,6 +2458,7 @@
       },
       "motion_randomness_capture": {
         "alert": {
+          "button_primary_retry_fetching_challenge": "faceMotion.connection_error.button_primary_retry_fetch",
           "timeout20_body": "faceMotion.face_capture.alert.randomness.timeout_body"
         },
         "feedback": {
@@ -3120,6 +3142,7 @@
           "required_nationality": "profileData.field_validation.required_nationality",
           "required_phone_number": "profileData.field_validation.required_phone_number",
           "required_postcode": "profileData.field_validation.required_postcode",
+          "required_town": "profileData.field_validation.required_town",
           "sgp_specific": {
             "invalid_national_id_value": "profileData.field_validation.sgp_specific.invalid_national_id_value",
             "required_national_id_value": "profileData.field_validation.sgp_specific.required_national_id_value"
@@ -3428,6 +3451,7 @@
     },
     "connection_error": {
       "button_primary_reload": "Reîncărcați instrucțiunile",
+      "button_primary_retry_fetch": "Încercați din nou",
       "button_primary_retry_upload": "Încercați din nou să încărcați",
       "button_secondary_restart_recording": "Începeți din nou înregistrarea",
       "subtitle": "Verificați stabilitatea conexiunii dvs. și apoi încercați din nou",
@@ -3461,8 +3485,8 @@
       },
       "instructions": {
         "down": "Înclină încet capul în jos",
-        "left": "Întoarce-ți încet capul spre stânga",
-        "right": "Întoarce-ți capul încet spre dreapta",
+        "left": "Întoarceți capul încet spre stânga",
+        "right": "Întoarceți capul încet spre dreapta",
         "up": "Înclină încet capul în sus"
       },
       "left_side_complete_accessibility": "Partea stângă a fost finalizată",
@@ -3480,7 +3504,7 @@
       "list_item_one": "Întâi, poziționați-vă fața în cadru",
       "list_item_one_accessibility": "Mai întâi, trebuie să vă poziționați fața în fața dispozitivului dumneavoastră",
       "list_item_two": "Apoi, întoarceți capul încet în ambele părți",
-      "list_item_two_accessibility": "Apoi, întoarce-ți capul încet spre stânga, și apoi spre dreapta",
+      "list_item_two_accessibility": "Apoi, întoarceți capul încet spre stânga, și apoi spre dreapta",
       "play_pause_accessibility": "Redați sau puneți pe pauză",
       "randomness": {
         "list_item_one": "Vă vom cere să vă întoarceți capul în patru direcții",
@@ -3909,6 +3933,7 @@
       "required_nationality": "Vă rugăm să selectați o țară",
       "required_phone_number": "Vă rugăm să introduceți numărul dvs. de telefon",
       "required_postcode": "Vă rugăm să introduceți codul dvs. poștal",
+      "required_town": "Te rugăm să introduci orașul tău",
       "sgp_specific": {
         "invalid_national_id_value": "Vă rugăm să introduceți un valid NRIC",
         "required_national_id_value": "Vă rugăm să introduceți NRIC-ul dvs"

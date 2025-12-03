@@ -701,9 +701,12 @@
       "info_qr_how_camera": "Pavērsiet tālruņa kameru pret QR kodu",
       "info_qr_how_download": "Ja nesanāk, lejupielādējiet QR kodu skeneri no Google Play vai App Store",
       "linkDivider": "vai izvēlēties citu metodi",
+      "link_copy_accessibility": "Kopēt saiti uz starpliktuvi",
+      "link_copy_success_accessibility": "Saite nokopēta starpliktuvē",
       "link_qr": "Skenēt QR kodu",
       "link_sms": "Saņemt saiti īsziņā",
       "link_url": "Kopēt saiti",
+      "qr_code_accessibility": "QR koda attēls",
       "sms_failed_instruction": "Iekopējiet saiti tālrunī",
       "sms_failed_message": "Radās problēma",
       "sms_fieldLabel": "Ievadiet savu mobilā tālruņa numuru:",
@@ -779,6 +782,7 @@
     },
     "capture": {
       "button_accessibility": "Uzņemt fotoattēlu",
+      "camera_loading": "Kamera tiek ielādēta",
       "camera_not_working_instruction": "Tā vietā uzņemiet fotoattēlu, izmantojot <fallback>kameras pamatrežīmu</fallback>",
       "camera_not_working_message": "Kamera nedarbojas",
       "captured": "Fotoattēls uzņemts",
@@ -915,6 +919,11 @@
         "alignment_rotate_document_accessibility": "Pagrieziet savu dokumentu otrā virzienā.",
         "alignment_show_photo_page": "Rādiet tikai fotoattēla lapu",
         "alignment_show_photo_page_accessibility": "Rādiet tikai foto lapu.",
+        "error_camera_loading": {
+          "action": "Mēģināt vēlreiz",
+          "subtitle": "Joprojām lēni? Mēģiniet uzlādēt ierīci, atbrīvot vietu krātuvē vai ļaut tai atdzist, ja tā ir silta",
+          "title": "Lai paātrinātu procesu, mēģiniet aizvērt citas lietotnes"
+        },
         "hold_still": "Turiet nekustīgi",
         "iq_barcode": "Padariet svītrkodu redzamu",
         "iq_blur": "Turiet nekustīgi, lai izvairītos no izplūduma",
@@ -1247,6 +1256,7 @@
     },
     "connection_error": {
       "button_primary_reload": "Atkārtoti ielādēt instrukcijas",
+      "button_primary_retry_fetch": "Mēģināt vēlreiz",
       "button_primary_retry_upload": "Mēģināt augšupielādēt vēlreiz",
       "button_secondary_restart_recording": "Sākt ierakstu no jauna",
       "subtitle": "Pārbaudiet, vai savienojums ir stabils, un pēc tam mēģiniet vēlreiz",
@@ -1673,6 +1683,14 @@
         },
         "detail": {
           "folded_doc_front": "document.capture.folded_doc_front"
+        },
+        "error_camera_loading": {
+          "primary_action": "document.scan.feedback.error_camera_loading.action",
+          "sub_title": "document.scan.feedback.error_camera_loading.subtitle",
+          "title": "document.scan.feedback.error_camera_loading.title"
+        },
+        "feedback": {
+          "camera_loading": "document.capture.camera_loading"
         },
         "header": {
           "recording_complete": "document.capture.recording_complete",
@@ -2352,6 +2370,8 @@
         "info_qr_how": "crossdevice.link.info_qr_how",
         "info_qr_how_list_item_camera": "crossdevice.link.info_qr_how_camera",
         "info_qr_how_list_item_download": "crossdevice.link.info_qr_how_download",
+        "link_copy_accessibility": "crossdevice.link.link_copy_accessibility",
+        "link_copy_success_accessibility": "crossdevice.link.link_copy_success_accessibility",
         "link_divider": "crossdevice.link.linkDivider",
         "link_qr": "crossdevice.link.link_qr",
         "link_sms": "crossdevice.link.link_sms",
@@ -2359,6 +2379,7 @@
         "loader_sending": "crossdevice.link.sms_sending",
         "number_field_input_placeholder": "crossdevice.link.sms_placeholder",
         "number_field_label": "crossdevice.link.sms_fieldLabel",
+        "qr_code_accessibility": "crossdevice.link.qr_code_accessibility",
         "subtitle_qr": "crossdevice.link.subtitle_qr",
         "subtitle_sms": "crossdevice.link.subtitle_sms",
         "subtitle_url": "crossdevice.link.subtitle_url",
@@ -2437,6 +2458,7 @@
       },
       "motion_randomness_capture": {
         "alert": {
+          "button_primary_retry_fetching_challenge": "faceMotion.connection_error.button_primary_retry_fetch",
           "timeout20_body": "faceMotion.face_capture.alert.randomness.timeout_body"
         },
         "feedback": {
@@ -3120,6 +3142,7 @@
           "required_nationality": "profileData.field_validation.required_nationality",
           "required_phone_number": "profileData.field_validation.required_phone_number",
           "required_postcode": "profileData.field_validation.required_postcode",
+          "required_town": "profileData.field_validation.required_town",
           "sgp_specific": {
             "invalid_national_id_value": "profileData.field_validation.sgp_specific.invalid_national_id_value",
             "required_national_id_value": "profileData.field_validation.sgp_specific.required_national_id_value"
@@ -3428,6 +3451,7 @@
     },
     "connection_error": {
       "button_primary_reload": "Atkārtoti ielādēt instrukcijas",
+      "button_primary_retry_fetch": "Mēģināt vēlreiz",
       "button_primary_retry_upload": "Mēģināt augšupielādēt vēlreiz",
       "button_secondary_restart_recording": "Sākt ierakstu no jauna",
       "subtitle": "Pārbaudiet, vai savienojums ir stabils, un pēc tam mēģiniet vēlreiz",
@@ -3909,6 +3933,7 @@
       "required_nationality": "Atlasiet valsti",
       "required_phone_number": "Ievadiet savu tālruņa numuru",
       "required_postcode": "Ievadiet savu pasta indeksu",
+      "required_town": "Lūdzu, ievadiet savu pilsētu",
       "sgp_specific": {
         "invalid_national_id_value": "Lūdzu, ievadiet derīgu NRIC",
         "required_national_id_value": "Lūdzu, ievadiet savu NRIC"

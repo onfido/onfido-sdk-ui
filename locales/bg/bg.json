@@ -701,9 +701,12 @@
       "info_qr_how_camera": "Насочете камерата на телефона към QR кода",
       "info_qr_how_download": "Ако не работи, изтеглете приложение за QR скенер от Google Play или App Store",
       "linkDivider": "или изберете различен метод",
+      "link_copy_accessibility": "Копиране на връзката в клипборда",
+      "link_copy_success_accessibility": "Връзката е копирана в клипборда",
       "link_qr": "Сканиране на QR код",
       "link_sms": "Получаване на връзка чрез SMS",
       "link_url": "Копиране на връзката",
+      "qr_code_accessibility": "Изображение на QR код",
       "sms_failed_instruction": "Копирайте връзката на телефона си",
       "sms_failed_message": "Възникна грешка",
       "sms_fieldLabel": "Въведете мобилния си номер:",
@@ -779,6 +782,7 @@
     },
     "capture": {
       "button_accessibility": "Направете снимка",
+      "camera_loading": "Зареждане на камерата",
       "camera_not_working_instruction": "Направете снимка, като използвате <fallback>основния режим на камерата</fallback>",
       "camera_not_working_message": "Камерата не работи",
       "captured": "Снимката е заснета",
@@ -915,6 +919,11 @@
         "alignment_rotate_document_accessibility": "Завъртете документа си в другата посока.",
         "alignment_show_photo_page": "Покажи само страницата със снимката",
         "alignment_show_photo_page_accessibility": "Показвайте само страницата със снимката.",
+        "error_camera_loading": {
+          "action": "Опитайте отново",
+          "subtitle": "Все още бавно? Опитайте да заредите устройството си, освободете място за съхранение или го оставете да се охлади, ако е топло",
+          "title": "За да ускорите процеса, опитайте да затворите други приложения"
+        },
         "hold_still": "Стойте неподвижно",
         "iq_barcode": "Направете баркода видим",
         "iq_blur": "Стойте неподвижно, за да избегнете размазване",
@@ -1247,6 +1256,7 @@
     },
     "connection_error": {
       "button_primary_reload": "Презареждане на инструкциите",
+      "button_primary_retry_fetch": "Повторен опит",
       "button_primary_retry_upload": "Повторен опит за качване",
       "button_secondary_restart_recording": "Рестартирайте записа",
       "subtitle": "Проверете дали връзката ви е стабилна и опитайте отново",
@@ -1673,6 +1683,14 @@
         },
         "detail": {
           "folded_doc_front": "document.capture.folded_doc_front"
+        },
+        "error_camera_loading": {
+          "primary_action": "document.scan.feedback.error_camera_loading.action",
+          "sub_title": "document.scan.feedback.error_camera_loading.subtitle",
+          "title": "document.scan.feedback.error_camera_loading.title"
+        },
+        "feedback": {
+          "camera_loading": "document.capture.camera_loading"
         },
         "header": {
           "recording_complete": "document.capture.recording_complete",
@@ -2352,6 +2370,8 @@
         "info_qr_how": "crossdevice.link.info_qr_how",
         "info_qr_how_list_item_camera": "crossdevice.link.info_qr_how_camera",
         "info_qr_how_list_item_download": "crossdevice.link.info_qr_how_download",
+        "link_copy_accessibility": "crossdevice.link.link_copy_accessibility",
+        "link_copy_success_accessibility": "crossdevice.link.link_copy_success_accessibility",
         "link_divider": "crossdevice.link.linkDivider",
         "link_qr": "crossdevice.link.link_qr",
         "link_sms": "crossdevice.link.link_sms",
@@ -2359,6 +2379,7 @@
         "loader_sending": "crossdevice.link.sms_sending",
         "number_field_input_placeholder": "crossdevice.link.sms_placeholder",
         "number_field_label": "crossdevice.link.sms_fieldLabel",
+        "qr_code_accessibility": "crossdevice.link.qr_code_accessibility",
         "subtitle_qr": "crossdevice.link.subtitle_qr",
         "subtitle_sms": "crossdevice.link.subtitle_sms",
         "subtitle_url": "crossdevice.link.subtitle_url",
@@ -2437,6 +2458,7 @@
       },
       "motion_randomness_capture": {
         "alert": {
+          "button_primary_retry_fetching_challenge": "faceMotion.connection_error.button_primary_retry_fetch",
           "timeout20_body": "faceMotion.face_capture.alert.randomness.timeout_body"
         },
         "feedback": {
@@ -3120,6 +3142,7 @@
           "required_nationality": "profileData.field_validation.required_nationality",
           "required_phone_number": "profileData.field_validation.required_phone_number",
           "required_postcode": "profileData.field_validation.required_postcode",
+          "required_town": "profileData.field_validation.required_town",
           "sgp_specific": {
             "invalid_national_id_value": "profileData.field_validation.sgp_specific.invalid_national_id_value",
             "required_national_id_value": "profileData.field_validation.sgp_specific.required_national_id_value"
@@ -3428,6 +3451,7 @@
     },
     "connection_error": {
       "button_primary_reload": "Презареждане на инструкциите",
+      "button_primary_retry_fetch": "Повторен опит",
       "button_primary_retry_upload": "Повторен опит за качване",
       "button_secondary_restart_recording": "Рестартирайте записа",
       "subtitle": "Проверете дали връзката ви е стабилна и опитайте отново",
@@ -3909,6 +3933,7 @@
       "required_nationality": "Изберете държава",
       "required_phone_number": "Въведете телефонния си номер",
       "required_postcode": "Въведете пощенски код",
+      "required_town": "Моля, въведете вашия град",
       "sgp_specific": {
         "invalid_national_id_value": "Моля, въведете валиден NRIC",
         "required_national_id_value": "Моля, въведете вашата НКЖИ"

@@ -701,9 +701,12 @@
       "info_qr_how_camera": "وجه كاميرا هاتفك إلى رمز الاستجابة السريعة",
       "info_qr_how_download": "إذا لم ينجح الأمر، فقم بتنزيل ماسح ضوئي لرمز الاستجابة السريعة من Google Play أو App Store",
       "linkDivider": "أو اختر طريقة بديلة",
+      "link_copy_accessibility": "نسخ الرابط إلى الحافظة",
+      "link_copy_success_accessibility": "تم نسخ الرابط إلى الحافظة",
       "link_qr": "امسح رمز الاستجابة السريعة ضوئيًا",
       "link_sms": "الحصول على رابط عبر الرسائل القصيرة",
       "link_url": "انسخ الرابط",
+      "qr_code_accessibility": "صورة رمز QR",
       "sms_failed_instruction": "انسخ الرابط إلى هاتفك",
       "sms_failed_message": "حدث خطأ ما",
       "sms_fieldLabel": "أدخل رقم هاتفك الجوال:",
@@ -779,6 +782,7 @@
     },
     "capture": {
       "button_accessibility": "التقاط صورة",
+      "camera_loading": "جاري تحميل الكاميرا",
       "camera_not_working_instruction": "التقط صورة باستخدام <fallback>وضع الكاميرا الأساسي</fallback> بدلاً من ذلك",
       "camera_not_working_message": "الكاميرا لا تعمل",
       "captured": "تم التقاط الصورة",
@@ -915,6 +919,11 @@
         "alignment_rotate_document_accessibility": "قم بتدوير مستندك إلى الاتجاه الآخر.",
         "alignment_show_photo_page": "اعرض صفحة الصورة فقط",
         "alignment_show_photo_page_accessibility": "اعرض صفحة الصورة فقط.",
+        "error_camera_loading": {
+          "action": "إعادة المحاولة",
+          "subtitle": "لا يزال بطيئًا؟ حاول شحن جهازك، وتفريغ مساحة التخزين، أو اتركه يبرد إذا كان دافئًا",
+          "title": "لتسريع العملية، جرّب إغلاق التطبيقات الأخرى"
+        },
         "hold_still": "ابقَ ثابتًا",
         "iq_barcode": "اجعل الرمز الشريطي مرئيًا",
         "iq_blur": "ابقَ ثابتًا لتجنب التشويش",
@@ -1247,6 +1256,7 @@
     },
     "connection_error": {
       "button_primary_reload": "إعادة تحميل التعليمات",
+      "button_primary_retry_fetch": "إعادة المحاولة",
       "button_primary_retry_upload": "إعادة محاولة التحميل",
       "button_secondary_restart_recording": "إعادة بدء التسجيل",
       "subtitle": "تحقّق من أن اتصالك مستقر، ثم حاول مرة أخرى",
@@ -1673,6 +1683,14 @@
         },
         "detail": {
           "folded_doc_front": "document.capture.folded_doc_front"
+        },
+        "error_camera_loading": {
+          "primary_action": "document.scan.feedback.error_camera_loading.action",
+          "sub_title": "document.scan.feedback.error_camera_loading.subtitle",
+          "title": "document.scan.feedback.error_camera_loading.title"
+        },
+        "feedback": {
+          "camera_loading": "document.capture.camera_loading"
         },
         "header": {
           "recording_complete": "document.capture.recording_complete",
@@ -2352,6 +2370,8 @@
         "info_qr_how": "crossdevice.link.info_qr_how",
         "info_qr_how_list_item_camera": "crossdevice.link.info_qr_how_camera",
         "info_qr_how_list_item_download": "crossdevice.link.info_qr_how_download",
+        "link_copy_accessibility": "crossdevice.link.link_copy_accessibility",
+        "link_copy_success_accessibility": "crossdevice.link.link_copy_success_accessibility",
         "link_divider": "crossdevice.link.linkDivider",
         "link_qr": "crossdevice.link.link_qr",
         "link_sms": "crossdevice.link.link_sms",
@@ -2359,6 +2379,7 @@
         "loader_sending": "crossdevice.link.sms_sending",
         "number_field_input_placeholder": "crossdevice.link.sms_placeholder",
         "number_field_label": "crossdevice.link.sms_fieldLabel",
+        "qr_code_accessibility": "crossdevice.link.qr_code_accessibility",
         "subtitle_qr": "crossdevice.link.subtitle_qr",
         "subtitle_sms": "crossdevice.link.subtitle_sms",
         "subtitle_url": "crossdevice.link.subtitle_url",
@@ -2437,6 +2458,7 @@
       },
       "motion_randomness_capture": {
         "alert": {
+          "button_primary_retry_fetching_challenge": "faceMotion.connection_error.button_primary_retry_fetch",
           "timeout20_body": "faceMotion.face_capture.alert.randomness.timeout_body"
         },
         "feedback": {
@@ -3120,6 +3142,7 @@
           "required_nationality": "profileData.field_validation.required_nationality",
           "required_phone_number": "profileData.field_validation.required_phone_number",
           "required_postcode": "profileData.field_validation.required_postcode",
+          "required_town": "profileData.field_validation.required_town",
           "sgp_specific": {
             "invalid_national_id_value": "profileData.field_validation.sgp_specific.invalid_national_id_value",
             "required_national_id_value": "profileData.field_validation.sgp_specific.required_national_id_value"
@@ -3428,6 +3451,7 @@
     },
     "connection_error": {
       "button_primary_reload": "إعادة تحميل التعليمات",
+      "button_primary_retry_fetch": "إعادة المحاولة",
       "button_primary_retry_upload": "إعادة محاولة التحميل",
       "button_secondary_restart_recording": "إعادة بدء التسجيل",
       "subtitle": "تحقّق من أن اتصالك مستقر، ثم حاول مرة أخرى",
@@ -3909,6 +3933,7 @@
       "required_nationality": "يُرجى تحديد الدولة",
       "required_phone_number": "يُرجى إدخال رقم هاتفك",
       "required_postcode": "يُرجى إدخال الرمز البريدي الخاص بك",
+      "required_town": "يرجى إدخال مدينتك",
       "sgp_specific": {
         "invalid_national_id_value": "الرجاء إدخال NRIC",
         "required_national_id_value": "الرجاء إدخال NRIC الخاص بك"
