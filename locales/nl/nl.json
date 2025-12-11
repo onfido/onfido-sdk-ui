@@ -1264,11 +1264,21 @@
     },
     "face_alignment": {
       "feedback_alignment_forward": "Kijk alstublieft naar voren",
+      "feedback_face_aligned_accessibility": "Gezicht uitgelijnd",
+      "feedback_face_misaligned_accessibility": "Gezicht niet goed uitgelijnd",
       "feedback_move_back": "Ga naar achteren",
+      "feedback_move_back_accessibility": "Beweeg uw apparaat terug",
       "feedback_move_closer": "Kom dichterbij",
+      "feedback_move_closer_accessibility": "Beweeg uw apparaat dichterbij",
+      "feedback_move_down_accessibility": "Beweeg uw apparaat omlaag",
+      "feedback_move_left_accessibility": "Beweeg uw apparaat naar links",
+      "feedback_move_right_accessibility": "Beweeg uw apparaat naar rechts",
+      "feedback_move_up_accessibility": "Beweeg uw apparaat omhoog",
       "feedback_no_face_detected": "Gezicht niet gedetecteerd",
+      "feedback_no_face_detected_accessibility": "Gezicht niet gedetecteerd. Plaats uw gezicht voor het apparaat",
       "feedback_not_centered": "Gezicht niet gecentreerd",
-      "title": "Plaats uw gezicht in het kader"
+      "title": "Plaats uw gezicht in het kader",
+      "title_accessibility": "Plaats uw gezicht voor het apparaat"
     },
     "face_capture": {
       "alert": {
@@ -1288,20 +1298,28 @@
         "too_fast_button_primary": "Opnieuw proberen",
         "too_fast_title": "U heeft uw hoofd te snel gedraaid"
       },
+      "frame_accessibility": "Weergave vanaf selfiecamera",
+      "head_movement_complete_randomness_accessibility": "Draai voltooid",
       "instructions": {
         "down": "Kantel je hoofd langzaam naar beneden",
+        "down_accessibility": "Kantel uw hoofd langzaam naar beneden totdat u een bevestiging hoort",
         "left": "Draai je hoofd langzaam naar links",
+        "left_accessibility": "Draai uw hoofd langzaam naar links totdat u een bevestiging hoort",
         "right": "Draai je hoofd langzaam naar rechts",
-        "up": "Kantel je hoofd langzaam omhoog"
+        "right_accessibility": "Draai uw hoofd langzaam naar rechts totdat u een bevestiging hoort",
+        "up": "Kantel je hoofd langzaam omhoog",
+        "up_accessibility": "Kantel uw hoofd langzaam omhoog totdat u een bevestiging hoort"
       },
       "left_side_complete_accessibility": "Linkerkant voltooid",
+      "recording_started_accessibility": "Opnemen is begonnen.",
       "right_side_complete_accessibility": "Rechterkant voltooid",
       "title": "Draai uw hoofd langzaam naar beide kanten",
-      "title_accessibility": "Gezicht uitgelijnd",
+      "title_accessibility": "Draai uw hoofd langzaam naar beide kanten. Als een kant klaar is, hoort u een bevestiging en voelt u een trilling",
       "title_completed": "Opname voltooid",
       "turn_head_other_side_accessibility": "Draai uw hoofd naar de andere kant"
     },
     "intro": {
+      "animation_randomness_accessibility": "Voorbeeldanimatie van iemand die zijn hoofd naar rechts, omhoog, omlaag en naar links draait, totdat er een groen vinkje verschijnt.",
       "button_primary_ready": "Start met opnemen",
       "disclaimer": "Uw gezicht en uw achtergrond worden tijdens dit proces opgenomen",
       "disclaimer_camera_and_audio_on": "Uw gezicht, achtergrond en geluid worden tijdens dit proces opgenomen",
@@ -1491,12 +1509,21 @@
         "title": "faceMotion.connection_error.title"
       },
       "avc_face_alignment": {
-        "feedback_face_aligned_accessibility": "faceMotion.face_capture.title_accessibility",
+        "feedback_face_aligned_accessibility": "faceMotion.face_alignment.feedback_face_aligned_accessibility",
+        "feedback_face_misaligned_accessibility": "faceMotion.face_alignment.feedback_face_misaligned_accessibility",
         "feedback_move_back": "faceMotion.face_alignment.feedback_move_back",
+        "feedback_move_back_accessibility": "faceMotion.face_alignment.feedback_move_back_accessibility",
         "feedback_move_closer": "faceMotion.face_alignment.feedback_move_closer",
+        "feedback_move_closer_accessibility": "faceMotion.face_alignment.feedback_move_closer_accessibility",
+        "feedback_move_down_accessibility": "faceMotion.face_alignment.feedback_move_down_accessibility",
+        "feedback_move_left_accessibility": "faceMotion.face_alignment.feedback_move_left_accessibility",
+        "feedback_move_right_accessibility": "faceMotion.face_alignment.feedback_move_right_accessibility",
+        "feedback_move_up_accessibility": "faceMotion.face_alignment.feedback_move_up_accessibility",
         "feedback_no_face_detected": "faceMotion.face_alignment.feedback_no_face_detected",
+        "feedback_no_face_detected_accessibility": "faceMotion.face_alignment.feedback_no_face_detected_accessibility",
         "feedback_not_centered": "faceMotion.face_alignment.feedback_not_centered",
-        "title": "faceMotion.face_alignment.title"
+        "title": "faceMotion.face_alignment.title",
+        "title_accessibility": "faceMotion.face_alignment.title_accessibility"
       },
       "avc_face_capture": {
         "alert": {
@@ -1516,7 +1543,10 @@
         "confirmation_left_side_complete_accessibility": "faceMotion.face_capture.left_side_complete_accessibility",
         "confirmation_right_side_complete_accessibility": "faceMotion.face_capture.right_side_complete_accessibility",
         "feedback_turn_head_other_side_accessibility": "faceMotion.face_capture.turn_head_other_side_accessibility",
+        "frame_accessibility": "faceMotion.face_capture.frame_accessibility",
+        "recording_started_accessibility": "faceMotion.face_capture.recording_started_accessibility",
         "title": "faceMotion.face_capture.title",
+        "title_accessibility": "faceMotion.face_capture.title_accessibility",
         "title_completed": "faceMotion.face_capture.title_completed"
       },
       "avc_intro": {
@@ -2462,16 +2492,22 @@
           "timeout20_body": "faceMotion.face_capture.alert.randomness.timeout_body"
         },
         "feedback": {
-          "alignment_forward": "faceMotion.face_alignment.feedback_alignment_forward"
+          "alignment_forward": "faceMotion.face_alignment.feedback_alignment_forward",
+          "turn_complete_accessibility": "faceMotion.face_capture.head_movement_complete_randomness_accessibility"
         },
         "instructions": {
           "down": "faceMotion.face_capture.instructions.down",
+          "down_accessibility": "faceMotion.face_capture.instructions.down_accessibility",
           "left": "faceMotion.face_capture.instructions.left",
+          "left_accessibility": "faceMotion.face_capture.instructions.left_accessibility",
           "right": "faceMotion.face_capture.instructions.right",
-          "up": "faceMotion.face_capture.instructions.up"
+          "right_accessibility": "faceMotion.face_capture.instructions.right_accessibility",
+          "up": "faceMotion.face_capture.instructions.up",
+          "up_accessibility": "faceMotion.face_capture.instructions.up_accessibility"
         }
       },
       "motion_randomness_intro": {
+        "animation_description_accessibility": "faceMotion.intro.animation_randomness_accessibility",
         "list_item_tip_1": "faceMotion.intro.randomness.list_item_one",
         "list_item_tip_2": "faceMotion.intro.randomness.list_item_two",
         "list_item_tip_3": "faceMotion.intro.randomness.list_item_three"
@@ -3216,6 +3252,39 @@
           "misconfigured": "qualifiedElectronicSignature.error.misconfigured"
         }
       },
+      "request_uk_evisa": {
+        "biometric": {
+          "subtitle": "requestEvisa.request_uk_evisa.consent.biometric.description",
+          "title": "requestEvisa.request_uk_evisa.consent.biometric.title"
+        },
+        "button_primary": "requestEvisa.request_uk_evisa.submit",
+        "disclosure": {
+          "subtitle": "requestEvisa.request_uk_evisa.consent.disclosure.description",
+          "title": "requestEvisa.request_uk_evisa.consent.disclosure.title"
+        },
+        "field_helper": {
+          "dob": "requestEvisa.request_uk_evisa.dob.placeholder"
+        },
+        "field_label": {
+          "dob": "requestEvisa.request_uk_evisa.dob.label",
+          "share_code": "requestEvisa.request_uk_evisa.share_code_input.label"
+        },
+        "field_validation": {
+          "dob_invalid": "requestEvisa.request_uk_evisa.dob.error.dob_invalid",
+          "dob_required": "requestEvisa.request_uk_evisa.dob.error.dob_required",
+          "share_code_invalid": "requestEvisa.request_uk_evisa.share_code_input.error.share_code_invalid",
+          "share_code_wrong": "requestEvisa.request_uk_evisa.share_code_input.error.share_code_wrong",
+          "share_code_wrong_accessibility": "requestEvisa.request_uk_evisa.share_code_input.error.share_code_wrong_accessibility"
+        },
+        "list_item_1": "requestEvisa.request_uk_evisa.list_item_1.label",
+        "list_item_1_accessibility": "requestEvisa.request_uk_evisa.list_item_1.accessibility",
+        "list_item_2": "requestEvisa.request_uk_evisa.list_item_2.label",
+        "list_item_2_accessibility": "requestEvisa.request_uk_evisa.list_item_2.accessibility",
+        "list_item_3": "requestEvisa.request_uk_evisa.list_item_3.label",
+        "list_item_3_accessibility": "requestEvisa.request_uk_evisa.list_item_3.accessibility",
+        "subtitle": "requestEvisa.request_uk_evisa.subtitle",
+        "title": "requestEvisa.request_uk_evisa.title"
+      },
       "retry_feedback_id_generic": {
         "subtitle": "common.alert.instruction",
         "title": "common.alert.message"
@@ -3459,11 +3528,21 @@
     },
     "face_alignment": {
       "feedback_alignment_forward": "Kijk alstublieft naar voren",
+      "feedback_face_aligned_accessibility": "Gezicht uitgelijnd",
+      "feedback_face_misaligned_accessibility": "Gezicht niet goed uitgelijnd",
       "feedback_move_back": "Ga naar achteren",
+      "feedback_move_back_accessibility": "Beweeg uw apparaat terug",
       "feedback_move_closer": "Kom dichterbij",
+      "feedback_move_closer_accessibility": "Beweeg uw apparaat dichterbij",
+      "feedback_move_down_accessibility": "Beweeg uw apparaat omlaag",
+      "feedback_move_left_accessibility": "Beweeg uw apparaat naar links",
+      "feedback_move_right_accessibility": "Beweeg uw apparaat naar rechts",
+      "feedback_move_up_accessibility": "Beweeg uw apparaat omhoog",
       "feedback_no_face_detected": "Gezicht niet gedetecteerd",
+      "feedback_no_face_detected_accessibility": "Gezicht niet gedetecteerd. Plaats uw gezicht voor het apparaat",
       "feedback_not_centered": "Gezicht niet gecentreerd",
-      "title": "Plaats uw gezicht in het kader"
+      "title": "Plaats uw gezicht in het kader",
+      "title_accessibility": "Plaats uw gezicht voor het apparaat"
     },
     "face_capture": {
       "alert": {
@@ -3483,20 +3562,28 @@
         "too_fast_button_primary": "Opnieuw proberen",
         "too_fast_title": "U heeft uw hoofd te snel gedraaid"
       },
+      "frame_accessibility": "Weergave vanaf selfiecamera",
+      "head_movement_complete_randomness_accessibility": "Draai voltooid",
       "instructions": {
         "down": "Kantel je hoofd langzaam naar beneden",
+        "down_accessibility": "Kantel uw hoofd langzaam naar beneden totdat u een bevestiging hoort",
         "left": "Draai je hoofd langzaam naar links",
+        "left_accessibility": "Draai uw hoofd langzaam naar links totdat u een bevestiging hoort",
         "right": "Draai je hoofd langzaam naar rechts",
-        "up": "Kantel je hoofd langzaam omhoog"
+        "right_accessibility": "Draai uw hoofd langzaam naar rechts totdat u een bevestiging hoort",
+        "up": "Kantel je hoofd langzaam omhoog",
+        "up_accessibility": "Kantel uw hoofd langzaam omhoog totdat u een bevestiging hoort"
       },
       "left_side_complete_accessibility": "Linkerkant voltooid",
+      "recording_started_accessibility": "Opnemen is begonnen.",
       "right_side_complete_accessibility": "Rechterkant voltooid",
       "title": "Draai uw hoofd langzaam naar beide kanten",
-      "title_accessibility": "Gezicht uitgelijnd",
+      "title_accessibility": "Draai uw hoofd langzaam naar beide kanten. Als een kant klaar is, hoort u een bevestiging en voelt u een trilling",
       "title_completed": "Opname voltooid",
       "turn_head_other_side_accessibility": "Draai uw hoofd naar de andere kant"
     },
     "intro": {
+      "animation_randomness_accessibility": "Voorbeeldanimatie van iemand die zijn hoofd naar rechts, omhoog, omlaag en naar links draait, totdat er een groen vinkje verschijnt.",
       "button_primary_ready": "Start met opnemen",
       "disclaimer": "Uw gezicht en uw achtergrond worden tijdens dit proces opgenomen",
       "disclaimer_camera_and_audio_on": "Uw gezicht, achtergrond en geluid worden tijdens dit proces opgenomen",
@@ -4167,11 +4254,57 @@
       "validation": "Toestemming vereist"
     }
   },
+  "requestEvisa": {
+    "request_uk_evisa": {
+      "consent": {
+        "biometric": {
+          "description": "By checking this box, you consent to the use of your biometric data contained in visa records held by GOV.UK, together with the biometric data collected in the remaining stages of this visa check, to confirm your identity against visa records. <fallback>Read more</fallback>",
+          "title": "Consent to biometric check"
+        },
+        "disclosure": {
+          "description": "By checking this box, you authorise Entrust to request and receive personal information about you from GOV.UK as required to verify your identity and prevent fraud. This may include your name, date of birth, and other personal details. <fallback>Read more</fallback>",
+          "title": "Consent for disclosure of information"
+        }
+      },
+      "dob": {
+        "error": {
+          "dob_invalid": "Please enter a valid date of birth",
+          "dob_required": "Please enter your date of birth"
+        },
+        "label": "Date of birth",
+        "placeholder": "dd/mm/yyyy"
+      },
+      "list_item_1": {
+        "accessibility": "View your eVisa and get a share code on the gov.uk website (opens in browser)",
+        "label": "View your eVisa and get a share code on the gov.uk website"
+      },
+      "list_item_2": {
+        "accessibility": "When asked why you need a share code, select the option to prove your immigration status",
+        "label": "Select the option to prove your immigration status"
+      },
+      "list_item_3": {
+        "accessibility": "Come back to this page and enter the 9-digit code below",
+        "label": "Enter the 9-digit code below"
+      },
+      "share_code_input": {
+        "error": {
+          "share_code_invalid": "The code must start with 'S'",
+          "share_code_wrong": "The code must starts with 'S', not 'W' (right to work) or 'R' (right to rent)",
+          "share_code_wrong_accessibility": "The code to prove your immigration status must starts with 'S', not 'W' (right to work) or 'R' (right to rent)"
+        },
+        "label": "Share code"
+      },
+      "submit": "Continue",
+      "subtitle": "Generate your 9-digit share code to verify your identity using your eVisa",
+      "title": "Enter your UK eVisa share code"
+    }
+  },
   "retry": {
     "button": {
       "default": "Probeer het opnieuw",
       "expired_document": "Probeer het opnieuw",
       "generic_document_issue": "Probeer het opnieuw",
+      "generic_proof_of_address_issue": "Probeer het opnieuw",
       "generic_selfie_issue": "Probeer het opnieuw",
       "unaccepted_document": "Probeer het opnieuw"
     },
@@ -4179,6 +4312,7 @@
       "default": "Probeer het opnieuw",
       "expired_document": "Probeer het opnieuw met een geldig identiteitsbewijs met foto en zorg ervoor dat uw gegevens duidelijk leesbaar zijn",
       "generic_document_issue": "Probeer het opnieuw met een geldig identiteitsbewijs met foto en zorg ervoor dat uw gegevens duidelijk leesbaar zijn",
+      "generic_proof_of_address_issue": "Probeer het opnieuw met een geldig document en zorg ervoor dat uw gegevens duidelijk zichtbaar zijn",
       "generic_selfie_issue": "Probeer het opnieuw en zorg ervoor dat uw gezicht goed zichtbaar en verlicht is",
       "unaccepted_document": "Probeer het opnieuw met een geldig identiteitsbewijs met foto en zorg ervoor dat uw gegevens duidelijk leesbaar zijn"
     },
@@ -4186,6 +4320,7 @@
       "default": "Er was een probleem",
       "expired_document": "Uw document is verlopen",
       "generic_document_issue": "Er was een probleem met uw document",
+      "generic_proof_of_address_issue": "Er was een probleem met uw document",
       "generic_selfie_issue": "Er was een probleem met je selfie",
       "unaccepted_document": "Niet-geaccepteerd document"
     }

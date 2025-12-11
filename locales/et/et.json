@@ -1264,11 +1264,21 @@
     },
     "face_alignment": {
       "feedback_alignment_forward": "Palun oodake",
+      "feedback_face_aligned_accessibility": "Nägu joondatud",
+      "feedback_face_misaligned_accessibility": "Nägu on valesti joondatud",
       "feedback_move_back": "Liikuge kaugemale",
+      "feedback_move_back_accessibility": "Liigutage seadet kaugemale",
       "feedback_move_closer": "Liikuge lähemale",
+      "feedback_move_closer_accessibility": "Liigutage seadet lähemale",
+      "feedback_move_down_accessibility": "Liigutage seadet alla",
+      "feedback_move_left_accessibility": "Liigutage seadet vasakule",
+      "feedback_move_right_accessibility": "Liigutage seadet paremale",
+      "feedback_move_up_accessibility": "Liigutage seadet üles",
       "feedback_no_face_detected": "Nägu ei tuvastatud",
+      "feedback_no_face_detected_accessibility": "Nägu ei tuvastatud. Asetage nägu seadme ette",
       "feedback_not_centered": "Nägu pole kaadri keskel",
-      "title": "Asetage oma nägu kaadrisse"
+      "title": "Asetage oma nägu kaadrisse",
+      "title_accessibility": "Asetage nägu seadme ette"
     },
     "face_capture": {
       "alert": {
@@ -1288,20 +1298,28 @@
         "too_fast_button_primary": "Proovige uuesti",
         "too_fast_title": "Pöörasite pead liiga kiiresti"
       },
+      "frame_accessibility": "Vaade selfikaamerast",
+      "head_movement_complete_randomness_accessibility": "Pööramine lõpetatud",
       "instructions": {
         "down": "Kalluta aeglaselt pead alla",
+        "down_accessibility": "Kalluta pead aeglaselt alla, kuni kuuled kinnitust",
         "left": "Pööra aeglaselt pead vasakule",
+        "left_accessibility": "Pöörake pead aeglaselt vasakule, kuni kuulete kinnitust",
         "right": "Pöörake aeglaselt pead paremale",
-        "up": "Kalluta aeglaselt pea üles"
+        "right_accessibility": "Pöörake pead aeglaselt paremale, kuni kuulete kinnitust",
+        "up": "Kalluta aeglaselt pea üles",
+        "up_accessibility": "Kalluta pead aeglaselt üles, kuni kuuled kinnitust"
       },
       "left_side_complete_accessibility": "Vasak pool valmis",
+      "recording_started_accessibility": "Salvestamine on alanud",
       "right_side_complete_accessibility": "Parem pool valmis",
       "title": "Keerake oma pead aeglaselt mõlemale poole",
-      "title_accessibility": "Nägu joondatud",
+      "title_accessibility": "Keerake oma pead aeglaselt mõlemale poole. Kui üks külg on valmis, kuulete kinnitust ja tunnete vibratsiooni",
       "title_completed": "Salvestamine lõpetatud",
       "turn_head_other_side_accessibility": "Pöörake pea teisele poole"
     },
     "intro": {
+      "animation_randomness_accessibility": "Näidisanimatsioon, kus keegi pöörab oma pead paremale, üles, alla ja vasakule, kuni ilmub roheline linnuke.",
       "button_primary_ready": "Alustage salvestamist",
       "disclaimer": "Pidage meeles, et salvestame teie nägu ja tausta",
       "disclaimer_camera_and_audio_on": "Selle protsessi käigus salvestatakse teie nägu, taust ja heli",
@@ -1491,12 +1509,21 @@
         "title": "faceMotion.connection_error.title"
       },
       "avc_face_alignment": {
-        "feedback_face_aligned_accessibility": "faceMotion.face_capture.title_accessibility",
+        "feedback_face_aligned_accessibility": "faceMotion.face_alignment.feedback_face_aligned_accessibility",
+        "feedback_face_misaligned_accessibility": "faceMotion.face_alignment.feedback_face_misaligned_accessibility",
         "feedback_move_back": "faceMotion.face_alignment.feedback_move_back",
+        "feedback_move_back_accessibility": "faceMotion.face_alignment.feedback_move_back_accessibility",
         "feedback_move_closer": "faceMotion.face_alignment.feedback_move_closer",
+        "feedback_move_closer_accessibility": "faceMotion.face_alignment.feedback_move_closer_accessibility",
+        "feedback_move_down_accessibility": "faceMotion.face_alignment.feedback_move_down_accessibility",
+        "feedback_move_left_accessibility": "faceMotion.face_alignment.feedback_move_left_accessibility",
+        "feedback_move_right_accessibility": "faceMotion.face_alignment.feedback_move_right_accessibility",
+        "feedback_move_up_accessibility": "faceMotion.face_alignment.feedback_move_up_accessibility",
         "feedback_no_face_detected": "faceMotion.face_alignment.feedback_no_face_detected",
+        "feedback_no_face_detected_accessibility": "faceMotion.face_alignment.feedback_no_face_detected_accessibility",
         "feedback_not_centered": "faceMotion.face_alignment.feedback_not_centered",
-        "title": "faceMotion.face_alignment.title"
+        "title": "faceMotion.face_alignment.title",
+        "title_accessibility": "faceMotion.face_alignment.title_accessibility"
       },
       "avc_face_capture": {
         "alert": {
@@ -1516,7 +1543,10 @@
         "confirmation_left_side_complete_accessibility": "faceMotion.face_capture.left_side_complete_accessibility",
         "confirmation_right_side_complete_accessibility": "faceMotion.face_capture.right_side_complete_accessibility",
         "feedback_turn_head_other_side_accessibility": "faceMotion.face_capture.turn_head_other_side_accessibility",
+        "frame_accessibility": "faceMotion.face_capture.frame_accessibility",
+        "recording_started_accessibility": "faceMotion.face_capture.recording_started_accessibility",
         "title": "faceMotion.face_capture.title",
+        "title_accessibility": "faceMotion.face_capture.title_accessibility",
         "title_completed": "faceMotion.face_capture.title_completed"
       },
       "avc_intro": {
@@ -2462,16 +2492,22 @@
           "timeout20_body": "faceMotion.face_capture.alert.randomness.timeout_body"
         },
         "feedback": {
-          "alignment_forward": "faceMotion.face_alignment.feedback_alignment_forward"
+          "alignment_forward": "faceMotion.face_alignment.feedback_alignment_forward",
+          "turn_complete_accessibility": "faceMotion.face_capture.head_movement_complete_randomness_accessibility"
         },
         "instructions": {
           "down": "faceMotion.face_capture.instructions.down",
+          "down_accessibility": "faceMotion.face_capture.instructions.down_accessibility",
           "left": "faceMotion.face_capture.instructions.left",
+          "left_accessibility": "faceMotion.face_capture.instructions.left_accessibility",
           "right": "faceMotion.face_capture.instructions.right",
-          "up": "faceMotion.face_capture.instructions.up"
+          "right_accessibility": "faceMotion.face_capture.instructions.right_accessibility",
+          "up": "faceMotion.face_capture.instructions.up",
+          "up_accessibility": "faceMotion.face_capture.instructions.up_accessibility"
         }
       },
       "motion_randomness_intro": {
+        "animation_description_accessibility": "faceMotion.intro.animation_randomness_accessibility",
         "list_item_tip_1": "faceMotion.intro.randomness.list_item_one",
         "list_item_tip_2": "faceMotion.intro.randomness.list_item_two",
         "list_item_tip_3": "faceMotion.intro.randomness.list_item_three"
@@ -3216,6 +3252,39 @@
           "misconfigured": "qualifiedElectronicSignature.error.misconfigured"
         }
       },
+      "request_uk_evisa": {
+        "biometric": {
+          "subtitle": "requestEvisa.request_uk_evisa.consent.biometric.description",
+          "title": "requestEvisa.request_uk_evisa.consent.biometric.title"
+        },
+        "button_primary": "requestEvisa.request_uk_evisa.submit",
+        "disclosure": {
+          "subtitle": "requestEvisa.request_uk_evisa.consent.disclosure.description",
+          "title": "requestEvisa.request_uk_evisa.consent.disclosure.title"
+        },
+        "field_helper": {
+          "dob": "requestEvisa.request_uk_evisa.dob.placeholder"
+        },
+        "field_label": {
+          "dob": "requestEvisa.request_uk_evisa.dob.label",
+          "share_code": "requestEvisa.request_uk_evisa.share_code_input.label"
+        },
+        "field_validation": {
+          "dob_invalid": "requestEvisa.request_uk_evisa.dob.error.dob_invalid",
+          "dob_required": "requestEvisa.request_uk_evisa.dob.error.dob_required",
+          "share_code_invalid": "requestEvisa.request_uk_evisa.share_code_input.error.share_code_invalid",
+          "share_code_wrong": "requestEvisa.request_uk_evisa.share_code_input.error.share_code_wrong",
+          "share_code_wrong_accessibility": "requestEvisa.request_uk_evisa.share_code_input.error.share_code_wrong_accessibility"
+        },
+        "list_item_1": "requestEvisa.request_uk_evisa.list_item_1.label",
+        "list_item_1_accessibility": "requestEvisa.request_uk_evisa.list_item_1.accessibility",
+        "list_item_2": "requestEvisa.request_uk_evisa.list_item_2.label",
+        "list_item_2_accessibility": "requestEvisa.request_uk_evisa.list_item_2.accessibility",
+        "list_item_3": "requestEvisa.request_uk_evisa.list_item_3.label",
+        "list_item_3_accessibility": "requestEvisa.request_uk_evisa.list_item_3.accessibility",
+        "subtitle": "requestEvisa.request_uk_evisa.subtitle",
+        "title": "requestEvisa.request_uk_evisa.title"
+      },
       "retry_feedback_id_generic": {
         "subtitle": "common.alert.instruction",
         "title": "common.alert.message"
@@ -3459,11 +3528,21 @@
     },
     "face_alignment": {
       "feedback_alignment_forward": "Palun oodake",
+      "feedback_face_aligned_accessibility": "Nägu joondatud",
+      "feedback_face_misaligned_accessibility": "Nägu on valesti joondatud",
       "feedback_move_back": "Liikuge kaugemale",
+      "feedback_move_back_accessibility": "Liigutage seadet kaugemale",
       "feedback_move_closer": "Liikuge lähemale",
+      "feedback_move_closer_accessibility": "Liigutage seadet lähemale",
+      "feedback_move_down_accessibility": "Liigutage seadet alla",
+      "feedback_move_left_accessibility": "Liigutage seadet vasakule",
+      "feedback_move_right_accessibility": "Liigutage seadet paremale",
+      "feedback_move_up_accessibility": "Liigutage seadet üles",
       "feedback_no_face_detected": "Nägu ei tuvastatud",
+      "feedback_no_face_detected_accessibility": "Nägu ei tuvastatud. Asetage nägu seadme ette",
       "feedback_not_centered": "Nägu pole kaadri keskel",
-      "title": "Asetage oma nägu kaadrisse"
+      "title": "Asetage oma nägu kaadrisse",
+      "title_accessibility": "Asetage nägu seadme ette"
     },
     "face_capture": {
       "alert": {
@@ -3483,20 +3562,28 @@
         "too_fast_button_primary": "Proovige uuesti",
         "too_fast_title": "Pöörasite pead liiga kiiresti"
       },
+      "frame_accessibility": "Vaade selfikaamerast",
+      "head_movement_complete_randomness_accessibility": "Pööramine lõpetatud",
       "instructions": {
         "down": "Kalluta aeglaselt pead alla",
+        "down_accessibility": "Kalluta pead aeglaselt alla, kuni kuuled kinnitust",
         "left": "Pööra aeglaselt pead vasakule",
+        "left_accessibility": "Pöörake pead aeglaselt vasakule, kuni kuulete kinnitust",
         "right": "Pöörake aeglaselt pead paremale",
-        "up": "Kalluta aeglaselt pea üles"
+        "right_accessibility": "Pöörake pead aeglaselt paremale, kuni kuulete kinnitust",
+        "up": "Kalluta aeglaselt pea üles",
+        "up_accessibility": "Kalluta pead aeglaselt üles, kuni kuuled kinnitust"
       },
       "left_side_complete_accessibility": "Vasak pool valmis",
+      "recording_started_accessibility": "Salvestamine on alanud",
       "right_side_complete_accessibility": "Parem pool valmis",
       "title": "Keerake oma pead aeglaselt mõlemale poole",
-      "title_accessibility": "Nägu joondatud",
+      "title_accessibility": "Keerake oma pead aeglaselt mõlemale poole. Kui üks külg on valmis, kuulete kinnitust ja tunnete vibratsiooni",
       "title_completed": "Salvestamine lõpetatud",
       "turn_head_other_side_accessibility": "Pöörake pea teisele poole"
     },
     "intro": {
+      "animation_randomness_accessibility": "Näidisanimatsioon, kus keegi pöörab oma pead paremale, üles, alla ja vasakule, kuni ilmub roheline linnuke.",
       "button_primary_ready": "Alustage salvestamist",
       "disclaimer": "Pidage meeles, et salvestame teie nägu ja tausta",
       "disclaimer_camera_and_audio_on": "Selle protsessi käigus salvestatakse teie nägu, taust ja heli",
@@ -4167,11 +4254,57 @@
       "validation": "Nõusolek vajalik"
     }
   },
+  "requestEvisa": {
+    "request_uk_evisa": {
+      "consent": {
+        "biometric": {
+          "description": "By checking this box, you consent to the use of your biometric data contained in visa records held by GOV.UK, together with the biometric data collected in the remaining stages of this visa check, to confirm your identity against visa records. <fallback>Read more</fallback>",
+          "title": "Consent to biometric check"
+        },
+        "disclosure": {
+          "description": "By checking this box, you authorise Entrust to request and receive personal information about you from GOV.UK as required to verify your identity and prevent fraud. This may include your name, date of birth, and other personal details. <fallback>Read more</fallback>",
+          "title": "Consent for disclosure of information"
+        }
+      },
+      "dob": {
+        "error": {
+          "dob_invalid": "Please enter a valid date of birth",
+          "dob_required": "Please enter your date of birth"
+        },
+        "label": "Date of birth",
+        "placeholder": "dd/mm/yyyy"
+      },
+      "list_item_1": {
+        "accessibility": "View your eVisa and get a share code on the gov.uk website (opens in browser)",
+        "label": "View your eVisa and get a share code on the gov.uk website"
+      },
+      "list_item_2": {
+        "accessibility": "When asked why you need a share code, select the option to prove your immigration status",
+        "label": "Select the option to prove your immigration status"
+      },
+      "list_item_3": {
+        "accessibility": "Come back to this page and enter the 9-digit code below",
+        "label": "Enter the 9-digit code below"
+      },
+      "share_code_input": {
+        "error": {
+          "share_code_invalid": "The code must start with 'S'",
+          "share_code_wrong": "The code must starts with 'S', not 'W' (right to work) or 'R' (right to rent)",
+          "share_code_wrong_accessibility": "The code to prove your immigration status must starts with 'S', not 'W' (right to work) or 'R' (right to rent)"
+        },
+        "label": "Share code"
+      },
+      "submit": "Continue",
+      "subtitle": "Generate your 9-digit share code to verify your identity using your eVisa",
+      "title": "Enter your UK eVisa share code"
+    }
+  },
   "retry": {
     "button": {
       "default": "Proovige uuesti",
       "expired_document": "Proovige uuesti",
       "generic_document_issue": "Proovige uuesti",
+      "generic_proof_of_address_issue": "Proovige uuesti",
       "generic_selfie_issue": "Proovige uuesti",
       "unaccepted_document": "Proovige uuesti"
     },
@@ -4179,6 +4312,7 @@
       "default": "Proovige uuesti",
       "expired_document": "Proovige uuesti, kasutades kehtiva fotoga isikutunnistust ja veenduge, et teie andmed on selgelt nähtavad",
       "generic_document_issue": "Proovige uuesti, kasutades kehtiva fotoga isikutunnistust ja veenduge, et teie andmed on selgelt nähtavad",
+      "generic_proof_of_address_issue": "Palun proovige uuesti kehtiva dokumendiga ja veenduge, et teie andmed oleksid selgelt nähtavad",
       "generic_selfie_issue": "Proovige uuesti ja veenduge, et teie nägu on nähtav ja hästi valgustatud",
       "unaccepted_document": "Proovige uuesti, kasutades kehtiva fotoga isikutunnistust ja veenduge, et teie andmed on selgelt nähtavad"
     },
@@ -4186,6 +4320,7 @@
       "default": "Esines probleem",
       "expired_document": "Teie dokument on aegunud",
       "generic_document_issue": "Teie dokumendiga oli probleem",
+      "generic_proof_of_address_issue": "Teie dokumendiga oli probleem",
       "generic_selfie_issue": "Teie selfie'ga oli probleem",
       "unaccepted_document": "Mittesobiv dokument"
     }

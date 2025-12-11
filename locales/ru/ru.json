@@ -1264,11 +1264,21 @@
     },
     "face_alignment": {
       "feedback_alignment_forward": "Пожалуйста, ожидайте",
+      "feedback_face_aligned_accessibility": "Выравнивание лица",
+      "feedback_face_misaligned_accessibility": "Лицо смещено",
       "feedback_move_back": "Отодвиньтесь",
+      "feedback_move_back_accessibility": "Переместите устройство назад",
       "feedback_move_closer": "Подвиньтесь ближе",
+      "feedback_move_closer_accessibility": "Переместите устройство ближе",
+      "feedback_move_down_accessibility": "Переместите устройство вниз",
+      "feedback_move_left_accessibility": "Переместите устройство влево",
+      "feedback_move_right_accessibility": "Переместите устройство вправо",
+      "feedback_move_up_accessibility": "Переместите устройство вверх",
       "feedback_no_face_detected": "Лицо не обнаружено",
+      "feedback_no_face_detected_accessibility": "Лицо не обнаружено. Расположите лицо перед устройством",
       "feedback_not_centered": "Лицо не по центру",
-      "title": "Расположите свое лицо внутри рамки"
+      "title": "Расположите свое лицо внутри рамки",
+      "title_accessibility": "Расположите лицо перед устройством"
     },
     "face_capture": {
       "alert": {
@@ -1288,20 +1298,28 @@
         "too_fast_button_primary": "Повторить",
         "too_fast_title": "Вы повернули голову слишком быстро"
       },
+      "frame_accessibility": "Вид с селфи-камеры",
+      "head_movement_complete_randomness_accessibility": "Поворот завершен",
       "instructions": {
         "down": "Медленно опустите голову вниз",
+        "down_accessibility": "Медленно наклоните голову вниз, пока не услышите подтверждение",
         "left": "Медленно поверните голову влево",
+        "left_accessibility": "Медленно поверните голову влево, пока не услышите подтверждение",
         "right": "Медленно поверните голову вправо",
-        "up": "Медленно поднимите голову вверх"
+        "right_accessibility": "Медленно поверните голову вправо до звукового подтверждения",
+        "up": "Медленно поднимите голову вверх",
+        "up_accessibility": "Медленно наклоните голову вверх, пока не услышите подтверждение"
       },
       "left_side_complete_accessibility": "Левая сторона завершена",
+      "recording_started_accessibility": "Запись началась",
       "right_side_complete_accessibility": "Правая сторона завершена",
       "title": "Медленно поверните голову в обе стороны",
-      "title_accessibility": "Выравнивание лица",
+      "title_accessibility": "Медленно поверните голову в обе стороны. Когда сторона будет завершена, Вы услышите подтверждение и почувствуете вибрацию",
       "title_completed": "Запись завершена",
       "turn_head_other_side_accessibility": "Поверните голову в другую сторону"
     },
     "intro": {
+      "animation_randomness_accessibility": "Пример анимации, где человек поворачивает голову вправо, вверх, вниз и влево, пока не появится зеленая галочка.",
       "button_primary_ready": "Начать запись",
       "disclaimer": "Во время этого процесса ваше лицо и ваш фон будут записаны.",
       "disclaimer_camera_and_audio_on": "Во время этого процесса будут записаны ваше лицо, фон и звук.",
@@ -1491,12 +1509,21 @@
         "title": "faceMotion.connection_error.title"
       },
       "avc_face_alignment": {
-        "feedback_face_aligned_accessibility": "faceMotion.face_capture.title_accessibility",
+        "feedback_face_aligned_accessibility": "faceMotion.face_alignment.feedback_face_aligned_accessibility",
+        "feedback_face_misaligned_accessibility": "faceMotion.face_alignment.feedback_face_misaligned_accessibility",
         "feedback_move_back": "faceMotion.face_alignment.feedback_move_back",
+        "feedback_move_back_accessibility": "faceMotion.face_alignment.feedback_move_back_accessibility",
         "feedback_move_closer": "faceMotion.face_alignment.feedback_move_closer",
+        "feedback_move_closer_accessibility": "faceMotion.face_alignment.feedback_move_closer_accessibility",
+        "feedback_move_down_accessibility": "faceMotion.face_alignment.feedback_move_down_accessibility",
+        "feedback_move_left_accessibility": "faceMotion.face_alignment.feedback_move_left_accessibility",
+        "feedback_move_right_accessibility": "faceMotion.face_alignment.feedback_move_right_accessibility",
+        "feedback_move_up_accessibility": "faceMotion.face_alignment.feedback_move_up_accessibility",
         "feedback_no_face_detected": "faceMotion.face_alignment.feedback_no_face_detected",
+        "feedback_no_face_detected_accessibility": "faceMotion.face_alignment.feedback_no_face_detected_accessibility",
         "feedback_not_centered": "faceMotion.face_alignment.feedback_not_centered",
-        "title": "faceMotion.face_alignment.title"
+        "title": "faceMotion.face_alignment.title",
+        "title_accessibility": "faceMotion.face_alignment.title_accessibility"
       },
       "avc_face_capture": {
         "alert": {
@@ -1516,7 +1543,10 @@
         "confirmation_left_side_complete_accessibility": "faceMotion.face_capture.left_side_complete_accessibility",
         "confirmation_right_side_complete_accessibility": "faceMotion.face_capture.right_side_complete_accessibility",
         "feedback_turn_head_other_side_accessibility": "faceMotion.face_capture.turn_head_other_side_accessibility",
+        "frame_accessibility": "faceMotion.face_capture.frame_accessibility",
+        "recording_started_accessibility": "faceMotion.face_capture.recording_started_accessibility",
         "title": "faceMotion.face_capture.title",
+        "title_accessibility": "faceMotion.face_capture.title_accessibility",
         "title_completed": "faceMotion.face_capture.title_completed"
       },
       "avc_intro": {
@@ -2462,16 +2492,22 @@
           "timeout20_body": "faceMotion.face_capture.alert.randomness.timeout_body"
         },
         "feedback": {
-          "alignment_forward": "faceMotion.face_alignment.feedback_alignment_forward"
+          "alignment_forward": "faceMotion.face_alignment.feedback_alignment_forward",
+          "turn_complete_accessibility": "faceMotion.face_capture.head_movement_complete_randomness_accessibility"
         },
         "instructions": {
           "down": "faceMotion.face_capture.instructions.down",
+          "down_accessibility": "faceMotion.face_capture.instructions.down_accessibility",
           "left": "faceMotion.face_capture.instructions.left",
+          "left_accessibility": "faceMotion.face_capture.instructions.left_accessibility",
           "right": "faceMotion.face_capture.instructions.right",
-          "up": "faceMotion.face_capture.instructions.up"
+          "right_accessibility": "faceMotion.face_capture.instructions.right_accessibility",
+          "up": "faceMotion.face_capture.instructions.up",
+          "up_accessibility": "faceMotion.face_capture.instructions.up_accessibility"
         }
       },
       "motion_randomness_intro": {
+        "animation_description_accessibility": "faceMotion.intro.animation_randomness_accessibility",
         "list_item_tip_1": "faceMotion.intro.randomness.list_item_one",
         "list_item_tip_2": "faceMotion.intro.randomness.list_item_two",
         "list_item_tip_3": "faceMotion.intro.randomness.list_item_three"
@@ -3216,6 +3252,39 @@
           "misconfigured": "qualifiedElectronicSignature.error.misconfigured"
         }
       },
+      "request_uk_evisa": {
+        "biometric": {
+          "subtitle": "requestEvisa.request_uk_evisa.consent.biometric.description",
+          "title": "requestEvisa.request_uk_evisa.consent.biometric.title"
+        },
+        "button_primary": "requestEvisa.request_uk_evisa.submit",
+        "disclosure": {
+          "subtitle": "requestEvisa.request_uk_evisa.consent.disclosure.description",
+          "title": "requestEvisa.request_uk_evisa.consent.disclosure.title"
+        },
+        "field_helper": {
+          "dob": "requestEvisa.request_uk_evisa.dob.placeholder"
+        },
+        "field_label": {
+          "dob": "requestEvisa.request_uk_evisa.dob.label",
+          "share_code": "requestEvisa.request_uk_evisa.share_code_input.label"
+        },
+        "field_validation": {
+          "dob_invalid": "requestEvisa.request_uk_evisa.dob.error.dob_invalid",
+          "dob_required": "requestEvisa.request_uk_evisa.dob.error.dob_required",
+          "share_code_invalid": "requestEvisa.request_uk_evisa.share_code_input.error.share_code_invalid",
+          "share_code_wrong": "requestEvisa.request_uk_evisa.share_code_input.error.share_code_wrong",
+          "share_code_wrong_accessibility": "requestEvisa.request_uk_evisa.share_code_input.error.share_code_wrong_accessibility"
+        },
+        "list_item_1": "requestEvisa.request_uk_evisa.list_item_1.label",
+        "list_item_1_accessibility": "requestEvisa.request_uk_evisa.list_item_1.accessibility",
+        "list_item_2": "requestEvisa.request_uk_evisa.list_item_2.label",
+        "list_item_2_accessibility": "requestEvisa.request_uk_evisa.list_item_2.accessibility",
+        "list_item_3": "requestEvisa.request_uk_evisa.list_item_3.label",
+        "list_item_3_accessibility": "requestEvisa.request_uk_evisa.list_item_3.accessibility",
+        "subtitle": "requestEvisa.request_uk_evisa.subtitle",
+        "title": "requestEvisa.request_uk_evisa.title"
+      },
       "retry_feedback_id_generic": {
         "subtitle": "common.alert.instruction",
         "title": "common.alert.message"
@@ -3459,11 +3528,21 @@
     },
     "face_alignment": {
       "feedback_alignment_forward": "Пожалуйста, ожидайте",
+      "feedback_face_aligned_accessibility": "Выравнивание лица",
+      "feedback_face_misaligned_accessibility": "Лицо смещено",
       "feedback_move_back": "Отодвиньтесь",
+      "feedback_move_back_accessibility": "Переместите устройство назад",
       "feedback_move_closer": "Подвиньтесь ближе",
+      "feedback_move_closer_accessibility": "Переместите устройство ближе",
+      "feedback_move_down_accessibility": "Переместите устройство вниз",
+      "feedback_move_left_accessibility": "Переместите устройство влево",
+      "feedback_move_right_accessibility": "Переместите устройство вправо",
+      "feedback_move_up_accessibility": "Переместите устройство вверх",
       "feedback_no_face_detected": "Лицо не обнаружено",
+      "feedback_no_face_detected_accessibility": "Лицо не обнаружено. Расположите лицо перед устройством",
       "feedback_not_centered": "Лицо не по центру",
-      "title": "Расположите свое лицо внутри рамки"
+      "title": "Расположите свое лицо внутри рамки",
+      "title_accessibility": "Расположите лицо перед устройством"
     },
     "face_capture": {
       "alert": {
@@ -3483,20 +3562,28 @@
         "too_fast_button_primary": "Повторить",
         "too_fast_title": "Вы повернули голову слишком быстро"
       },
+      "frame_accessibility": "Вид с селфи-камеры",
+      "head_movement_complete_randomness_accessibility": "Поворот завершен",
       "instructions": {
         "down": "Медленно опустите голову вниз",
+        "down_accessibility": "Медленно наклоните голову вниз, пока не услышите подтверждение",
         "left": "Медленно поверните голову влево",
+        "left_accessibility": "Медленно поверните голову влево, пока не услышите подтверждение",
         "right": "Медленно поверните голову вправо",
-        "up": "Медленно поднимите голову вверх"
+        "right_accessibility": "Медленно поверните голову вправо до звукового подтверждения",
+        "up": "Медленно поднимите голову вверх",
+        "up_accessibility": "Медленно наклоните голову вверх, пока не услышите подтверждение"
       },
       "left_side_complete_accessibility": "Левая сторона завершена",
+      "recording_started_accessibility": "Запись началась",
       "right_side_complete_accessibility": "Правая сторона завершена",
       "title": "Медленно поверните голову в обе стороны",
-      "title_accessibility": "Выравнивание лица",
+      "title_accessibility": "Медленно поверните голову в обе стороны. Когда сторона будет завершена, Вы услышите подтверждение и почувствуете вибрацию",
       "title_completed": "Запись завершена",
       "turn_head_other_side_accessibility": "Поверните голову в другую сторону"
     },
     "intro": {
+      "animation_randomness_accessibility": "Пример анимации, где человек поворачивает голову вправо, вверх, вниз и влево, пока не появится зеленая галочка.",
       "button_primary_ready": "Начать запись",
       "disclaimer": "Во время этого процесса ваше лицо и ваш фон будут записаны.",
       "disclaimer_camera_and_audio_on": "Во время этого процесса будут записаны ваше лицо, фон и звук.",
@@ -4167,11 +4254,57 @@
       "validation": "Требуется согласие"
     }
   },
+  "requestEvisa": {
+    "request_uk_evisa": {
+      "consent": {
+        "biometric": {
+          "description": "By checking this box, you consent to the use of your biometric data contained in visa records held by GOV.UK, together with the biometric data collected in the remaining stages of this visa check, to confirm your identity against visa records. <fallback>Read more</fallback>",
+          "title": "Consent to biometric check"
+        },
+        "disclosure": {
+          "description": "By checking this box, you authorise Entrust to request and receive personal information about you from GOV.UK as required to verify your identity and prevent fraud. This may include your name, date of birth, and other personal details. <fallback>Read more</fallback>",
+          "title": "Consent for disclosure of information"
+        }
+      },
+      "dob": {
+        "error": {
+          "dob_invalid": "Please enter a valid date of birth",
+          "dob_required": "Please enter your date of birth"
+        },
+        "label": "Date of birth",
+        "placeholder": "dd/mm/yyyy"
+      },
+      "list_item_1": {
+        "accessibility": "View your eVisa and get a share code on the gov.uk website (opens in browser)",
+        "label": "View your eVisa and get a share code on the gov.uk website"
+      },
+      "list_item_2": {
+        "accessibility": "When asked why you need a share code, select the option to prove your immigration status",
+        "label": "Select the option to prove your immigration status"
+      },
+      "list_item_3": {
+        "accessibility": "Come back to this page and enter the 9-digit code below",
+        "label": "Enter the 9-digit code below"
+      },
+      "share_code_input": {
+        "error": {
+          "share_code_invalid": "The code must start with 'S'",
+          "share_code_wrong": "The code must starts with 'S', not 'W' (right to work) or 'R' (right to rent)",
+          "share_code_wrong_accessibility": "The code to prove your immigration status must starts with 'S', not 'W' (right to work) or 'R' (right to rent)"
+        },
+        "label": "Share code"
+      },
+      "submit": "Continue",
+      "subtitle": "Generate your 9-digit share code to verify your identity using your eVisa",
+      "title": "Enter your UK eVisa share code"
+    }
+  },
   "retry": {
     "button": {
       "default": "Попробовать еще раз",
       "expired_document": "Попробовать еще раз",
       "generic_document_issue": "Попробовать еще раз",
+      "generic_proof_of_address_issue": "Попробовать еще раз",
       "generic_selfie_issue": "Попробовать еще раз",
       "unaccepted_document": "Попробовать еще раз"
     },
@@ -4179,6 +4312,7 @@
       "default": "Повторите попытку",
       "expired_document": "Попробуйте еще раз с действительным удостоверением личности с фотографией и убедитесь, что Ваши данные хорошо видны",
       "generic_document_issue": "Попробуйте еще раз с действительным удостоверением личности с фотографией и убедитесь, что Ваши данные хорошо видны",
+      "generic_proof_of_address_issue": "Повторите попытку с действительным документом и убедитесь, что ваши данные хорошо видны",
       "generic_selfie_issue": "Попробуйте еще раз и убедитесь, что Ваше лицо видно и хорошо освещено",
       "unaccepted_document": "Попробуйте еще раз с действительным удостоверением личности с фотографией и убедитесь, что Ваши данные хорошо видны"
     },
@@ -4186,6 +4320,7 @@
       "default": "Возникла проблема",
       "expired_document": "Срок действия вашего документа истек",
       "generic_document_issue": "Возникла проблема с вашим документом",
+      "generic_proof_of_address_issue": "Возникла проблема с вашим документом",
       "generic_selfie_issue": "Возникла проблема с вашим селфи",
       "unaccepted_document": "Непринятый документ"
     }

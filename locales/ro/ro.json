@@ -1264,11 +1264,21 @@
     },
     "face_alignment": {
       "feedback_alignment_forward": "Vă rugăm să priviți înainte",
+      "feedback_face_aligned_accessibility": "Fața este aliniată",
+      "feedback_face_misaligned_accessibility": "Fața nu este aliniată",
       "feedback_move_back": "Mișcați-vă înapoi",
+      "feedback_move_back_accessibility": "Mișcați dispozitivul în spate",
       "feedback_move_closer": "Veniți mai aproape",
+      "feedback_move_closer_accessibility": "Apropiați dispozitivul",
+      "feedback_move_down_accessibility": "Mișcați dispozitivul în jos",
+      "feedback_move_left_accessibility": "Mișcați dispozitivul spre stânga",
+      "feedback_move_right_accessibility": "Mișcați dispozitivul spre dreapta",
+      "feedback_move_up_accessibility": "Mișcați dispozitivul în sus",
       "feedback_no_face_detected": "Fața nu este detectată",
+      "feedback_no_face_detected_accessibility": "Fața nu a fost detectată. Poziționați-vă fața în fața dispozitivului",
       "feedback_not_centered": "Fața nu este centrată",
-      "title": "Poziționați-vă fața în cadru"
+      "title": "Poziționați-vă fața în cadru",
+      "title_accessibility": "Poziționați-vă fața în fața dispozitivului"
     },
     "face_capture": {
       "alert": {
@@ -1288,20 +1298,28 @@
         "too_fast_button_primary": "Încercați din nou",
         "too_fast_title": "Ați întors capul prea repede"
       },
+      "frame_accessibility": "Vizualizare din camera de selfie",
+      "head_movement_complete_randomness_accessibility": "Rândul complet",
       "instructions": {
         "down": "Înclină încet capul în jos",
+        "down_accessibility": "Înclinați încet capul în jos până auziți confirmarea",
         "left": "Întoarceți capul încet spre stânga",
+        "left_accessibility": "Întoarce încet capul spre stânga până auzi confirmarea",
         "right": "Întoarceți capul încet spre dreapta",
-        "up": "Înclină încet capul în sus"
+        "right_accessibility": "Întoarce încet capul spre dreapta până când auzi confirmarea",
+        "up": "Înclină încet capul în sus",
+        "up_accessibility": "Înclinați ușor capul în sus până când auziți confirmarea"
       },
       "left_side_complete_accessibility": "Partea stângă a fost finalizată",
+      "recording_started_accessibility": "Înregistrarea a început",
       "right_side_complete_accessibility": "Partea dreaptă a fost finalizată",
       "title": "Întoarceți capul încet în ambele părți",
-      "title_accessibility": "Fața este aliniată",
+      "title_accessibility": "Întoarceți capul încet în ambele sensuri. Când o parte a fost vizualizată complet, veți auzi o confirmare și veți simți o vibrație",
       "title_completed": "Înregistrare finalizată",
       "turn_head_other_side_accessibility": "Întoarceți capul spre partea cealaltă"
     },
     "intro": {
+      "animation_randomness_accessibility": "Animație exemplificativă cu o persoană care își întoarce capul la dreapta, în sus, în jos și la stânga, până apare un semn de bifare verde.",
       "button_primary_ready": "Începeți înregistrarea",
       "disclaimer": "Fața și fundalul dvs. vor fi înregistrate în timpul acestui proces",
       "disclaimer_camera_and_audio_on": "Fața, fundalul și sunetul dvs. vor fi înregistrate în timpul acestui proces",
@@ -1491,12 +1509,21 @@
         "title": "faceMotion.connection_error.title"
       },
       "avc_face_alignment": {
-        "feedback_face_aligned_accessibility": "faceMotion.face_capture.title_accessibility",
+        "feedback_face_aligned_accessibility": "faceMotion.face_alignment.feedback_face_aligned_accessibility",
+        "feedback_face_misaligned_accessibility": "faceMotion.face_alignment.feedback_face_misaligned_accessibility",
         "feedback_move_back": "faceMotion.face_alignment.feedback_move_back",
+        "feedback_move_back_accessibility": "faceMotion.face_alignment.feedback_move_back_accessibility",
         "feedback_move_closer": "faceMotion.face_alignment.feedback_move_closer",
+        "feedback_move_closer_accessibility": "faceMotion.face_alignment.feedback_move_closer_accessibility",
+        "feedback_move_down_accessibility": "faceMotion.face_alignment.feedback_move_down_accessibility",
+        "feedback_move_left_accessibility": "faceMotion.face_alignment.feedback_move_left_accessibility",
+        "feedback_move_right_accessibility": "faceMotion.face_alignment.feedback_move_right_accessibility",
+        "feedback_move_up_accessibility": "faceMotion.face_alignment.feedback_move_up_accessibility",
         "feedback_no_face_detected": "faceMotion.face_alignment.feedback_no_face_detected",
+        "feedback_no_face_detected_accessibility": "faceMotion.face_alignment.feedback_no_face_detected_accessibility",
         "feedback_not_centered": "faceMotion.face_alignment.feedback_not_centered",
-        "title": "faceMotion.face_alignment.title"
+        "title": "faceMotion.face_alignment.title",
+        "title_accessibility": "faceMotion.face_alignment.title_accessibility"
       },
       "avc_face_capture": {
         "alert": {
@@ -1516,7 +1543,10 @@
         "confirmation_left_side_complete_accessibility": "faceMotion.face_capture.left_side_complete_accessibility",
         "confirmation_right_side_complete_accessibility": "faceMotion.face_capture.right_side_complete_accessibility",
         "feedback_turn_head_other_side_accessibility": "faceMotion.face_capture.turn_head_other_side_accessibility",
+        "frame_accessibility": "faceMotion.face_capture.frame_accessibility",
+        "recording_started_accessibility": "faceMotion.face_capture.recording_started_accessibility",
         "title": "faceMotion.face_capture.title",
+        "title_accessibility": "faceMotion.face_capture.title_accessibility",
         "title_completed": "faceMotion.face_capture.title_completed"
       },
       "avc_intro": {
@@ -2462,16 +2492,22 @@
           "timeout20_body": "faceMotion.face_capture.alert.randomness.timeout_body"
         },
         "feedback": {
-          "alignment_forward": "faceMotion.face_alignment.feedback_alignment_forward"
+          "alignment_forward": "faceMotion.face_alignment.feedback_alignment_forward",
+          "turn_complete_accessibility": "faceMotion.face_capture.head_movement_complete_randomness_accessibility"
         },
         "instructions": {
           "down": "faceMotion.face_capture.instructions.down",
+          "down_accessibility": "faceMotion.face_capture.instructions.down_accessibility",
           "left": "faceMotion.face_capture.instructions.left",
+          "left_accessibility": "faceMotion.face_capture.instructions.left_accessibility",
           "right": "faceMotion.face_capture.instructions.right",
-          "up": "faceMotion.face_capture.instructions.up"
+          "right_accessibility": "faceMotion.face_capture.instructions.right_accessibility",
+          "up": "faceMotion.face_capture.instructions.up",
+          "up_accessibility": "faceMotion.face_capture.instructions.up_accessibility"
         }
       },
       "motion_randomness_intro": {
+        "animation_description_accessibility": "faceMotion.intro.animation_randomness_accessibility",
         "list_item_tip_1": "faceMotion.intro.randomness.list_item_one",
         "list_item_tip_2": "faceMotion.intro.randomness.list_item_two",
         "list_item_tip_3": "faceMotion.intro.randomness.list_item_three"
@@ -3216,6 +3252,39 @@
           "misconfigured": "qualifiedElectronicSignature.error.misconfigured"
         }
       },
+      "request_uk_evisa": {
+        "biometric": {
+          "subtitle": "requestEvisa.request_uk_evisa.consent.biometric.description",
+          "title": "requestEvisa.request_uk_evisa.consent.biometric.title"
+        },
+        "button_primary": "requestEvisa.request_uk_evisa.submit",
+        "disclosure": {
+          "subtitle": "requestEvisa.request_uk_evisa.consent.disclosure.description",
+          "title": "requestEvisa.request_uk_evisa.consent.disclosure.title"
+        },
+        "field_helper": {
+          "dob": "requestEvisa.request_uk_evisa.dob.placeholder"
+        },
+        "field_label": {
+          "dob": "requestEvisa.request_uk_evisa.dob.label",
+          "share_code": "requestEvisa.request_uk_evisa.share_code_input.label"
+        },
+        "field_validation": {
+          "dob_invalid": "requestEvisa.request_uk_evisa.dob.error.dob_invalid",
+          "dob_required": "requestEvisa.request_uk_evisa.dob.error.dob_required",
+          "share_code_invalid": "requestEvisa.request_uk_evisa.share_code_input.error.share_code_invalid",
+          "share_code_wrong": "requestEvisa.request_uk_evisa.share_code_input.error.share_code_wrong",
+          "share_code_wrong_accessibility": "requestEvisa.request_uk_evisa.share_code_input.error.share_code_wrong_accessibility"
+        },
+        "list_item_1": "requestEvisa.request_uk_evisa.list_item_1.label",
+        "list_item_1_accessibility": "requestEvisa.request_uk_evisa.list_item_1.accessibility",
+        "list_item_2": "requestEvisa.request_uk_evisa.list_item_2.label",
+        "list_item_2_accessibility": "requestEvisa.request_uk_evisa.list_item_2.accessibility",
+        "list_item_3": "requestEvisa.request_uk_evisa.list_item_3.label",
+        "list_item_3_accessibility": "requestEvisa.request_uk_evisa.list_item_3.accessibility",
+        "subtitle": "requestEvisa.request_uk_evisa.subtitle",
+        "title": "requestEvisa.request_uk_evisa.title"
+      },
       "retry_feedback_id_generic": {
         "subtitle": "common.alert.instruction",
         "title": "common.alert.message"
@@ -3459,11 +3528,21 @@
     },
     "face_alignment": {
       "feedback_alignment_forward": "Vă rugăm să priviți înainte",
+      "feedback_face_aligned_accessibility": "Fața este aliniată",
+      "feedback_face_misaligned_accessibility": "Fața nu este aliniată",
       "feedback_move_back": "Mișcați-vă înapoi",
+      "feedback_move_back_accessibility": "Mișcați dispozitivul în spate",
       "feedback_move_closer": "Veniți mai aproape",
+      "feedback_move_closer_accessibility": "Apropiați dispozitivul",
+      "feedback_move_down_accessibility": "Mișcați dispozitivul în jos",
+      "feedback_move_left_accessibility": "Mișcați dispozitivul spre stânga",
+      "feedback_move_right_accessibility": "Mișcați dispozitivul spre dreapta",
+      "feedback_move_up_accessibility": "Mișcați dispozitivul în sus",
       "feedback_no_face_detected": "Fața nu este detectată",
+      "feedback_no_face_detected_accessibility": "Fața nu a fost detectată. Poziționați-vă fața în fața dispozitivului",
       "feedback_not_centered": "Fața nu este centrată",
-      "title": "Poziționați-vă fața în cadru"
+      "title": "Poziționați-vă fața în cadru",
+      "title_accessibility": "Poziționați-vă fața în fața dispozitivului"
     },
     "face_capture": {
       "alert": {
@@ -3483,20 +3562,28 @@
         "too_fast_button_primary": "Încercați din nou",
         "too_fast_title": "Ați întors capul prea repede"
       },
+      "frame_accessibility": "Vizualizare din camera de selfie",
+      "head_movement_complete_randomness_accessibility": "Rândul complet",
       "instructions": {
         "down": "Înclină încet capul în jos",
+        "down_accessibility": "Înclinați încet capul în jos până auziți confirmarea",
         "left": "Întoarceți capul încet spre stânga",
+        "left_accessibility": "Întoarce încet capul spre stânga până auzi confirmarea",
         "right": "Întoarceți capul încet spre dreapta",
-        "up": "Înclină încet capul în sus"
+        "right_accessibility": "Întoarce încet capul spre dreapta până când auzi confirmarea",
+        "up": "Înclină încet capul în sus",
+        "up_accessibility": "Înclinați ușor capul în sus până când auziți confirmarea"
       },
       "left_side_complete_accessibility": "Partea stângă a fost finalizată",
+      "recording_started_accessibility": "Înregistrarea a început",
       "right_side_complete_accessibility": "Partea dreaptă a fost finalizată",
       "title": "Întoarceți capul încet în ambele părți",
-      "title_accessibility": "Fața este aliniată",
+      "title_accessibility": "Întoarceți capul încet în ambele sensuri. Când o parte a fost vizualizată complet, veți auzi o confirmare și veți simți o vibrație",
       "title_completed": "Înregistrare finalizată",
       "turn_head_other_side_accessibility": "Întoarceți capul spre partea cealaltă"
     },
     "intro": {
+      "animation_randomness_accessibility": "Animație exemplificativă cu o persoană care își întoarce capul la dreapta, în sus, în jos și la stânga, până apare un semn de bifare verde.",
       "button_primary_ready": "Începeți înregistrarea",
       "disclaimer": "Fața și fundalul dvs. vor fi înregistrate în timpul acestui proces",
       "disclaimer_camera_and_audio_on": "Fața, fundalul și sunetul dvs. vor fi înregistrate în timpul acestui proces",
@@ -4167,11 +4254,57 @@
       "validation": "Consimțământ necesar"
     }
   },
+  "requestEvisa": {
+    "request_uk_evisa": {
+      "consent": {
+        "biometric": {
+          "description": "By checking this box, you consent to the use of your biometric data contained in visa records held by GOV.UK, together with the biometric data collected in the remaining stages of this visa check, to confirm your identity against visa records. <fallback>Read more</fallback>",
+          "title": "Consent to biometric check"
+        },
+        "disclosure": {
+          "description": "By checking this box, you authorise Entrust to request and receive personal information about you from GOV.UK as required to verify your identity and prevent fraud. This may include your name, date of birth, and other personal details. <fallback>Read more</fallback>",
+          "title": "Consent for disclosure of information"
+        }
+      },
+      "dob": {
+        "error": {
+          "dob_invalid": "Please enter a valid date of birth",
+          "dob_required": "Please enter your date of birth"
+        },
+        "label": "Date of birth",
+        "placeholder": "dd/mm/yyyy"
+      },
+      "list_item_1": {
+        "accessibility": "View your eVisa and get a share code on the gov.uk website (opens in browser)",
+        "label": "View your eVisa and get a share code on the gov.uk website"
+      },
+      "list_item_2": {
+        "accessibility": "When asked why you need a share code, select the option to prove your immigration status",
+        "label": "Select the option to prove your immigration status"
+      },
+      "list_item_3": {
+        "accessibility": "Come back to this page and enter the 9-digit code below",
+        "label": "Enter the 9-digit code below"
+      },
+      "share_code_input": {
+        "error": {
+          "share_code_invalid": "The code must start with 'S'",
+          "share_code_wrong": "The code must starts with 'S', not 'W' (right to work) or 'R' (right to rent)",
+          "share_code_wrong_accessibility": "The code to prove your immigration status must starts with 'S', not 'W' (right to work) or 'R' (right to rent)"
+        },
+        "label": "Share code"
+      },
+      "submit": "Continue",
+      "subtitle": "Generate your 9-digit share code to verify your identity using your eVisa",
+      "title": "Enter your UK eVisa share code"
+    }
+  },
   "retry": {
     "button": {
       "default": "Încercați din nou",
       "expired_document": "Încercați din nou",
       "generic_document_issue": "Încercați din nou",
+      "generic_proof_of_address_issue": "Încercați din nou",
       "generic_selfie_issue": "Încercați din nou",
       "unaccepted_document": "Încercați din nou"
     },
@@ -4179,6 +4312,7 @@
       "default": "Vă rugăm să încercați din nou",
       "expired_document": "Vă rugăm să încercați din nou cu un document de identitate cu poză valabil și asigurați-vă că informațiile dvs. sunt clar vizibile",
       "generic_document_issue": "Vă rugăm să încercați din nou cu un document de identitate cu poză valabil și asigurați-vă că informațiile dvs. sunt clar vizibile",
+      "generic_proof_of_address_issue": "Reîncearcă folosind un document valid și asigură-te că informațiile tale sunt clar vizibile",
       "generic_selfie_issue": "Vă rugăm să încercați din nou și asigurați-vă că fața dvs. este vizibilă și bine luminată",
       "unaccepted_document": "Vă rugăm să încercați din nou cu un document de identitate cu poză valabil și asigurați-vă că informațiile dvs. sunt clar vizibile"
     },
@@ -4186,6 +4320,7 @@
       "default": "A fost o problemă",
       "expired_document": "Documentul dvs. a expirat",
       "generic_document_issue": "A apărut o problemă cu documentul tău",
+      "generic_proof_of_address_issue": "A apărut o problemă cu documentul tău",
       "generic_selfie_issue": "A existat o problemă cu selfie-ul tău",
       "unaccepted_document": "Document neacceptat"
     }

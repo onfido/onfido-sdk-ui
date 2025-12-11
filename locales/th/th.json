@@ -1264,11 +1264,21 @@
     },
     "face_alignment": {
       "feedback_alignment_forward": "โปรดรอติดตาม",
+      "feedback_face_aligned_accessibility": "จัดตำแหน่งใบหน้าแล้ว",
+      "feedback_face_misaligned_accessibility": "จัดตำแหน่งใบหน้าไม่ถูกต้อง",
       "feedback_move_back": "ถอยออกไปเล็กน้อย",
+      "feedback_move_back_accessibility": "เลื่อนอุปกรณ์ของคุณออก",
       "feedback_move_closer": "ขยับเข้ามาใกล้ๆ",
+      "feedback_move_closer_accessibility": "เลื่อนอุปกรณ์ของคุณมาใกล้ๆ",
+      "feedback_move_down_accessibility": "เลื่อนอุปกรณ์ของคุณลง",
+      "feedback_move_left_accessibility": "เลื่อนอุปกรณ์ของคุณไปทางซ้าย",
+      "feedback_move_right_accessibility": "เลื่อนอุปกรณ์ของคุณไปทางขวา",
+      "feedback_move_up_accessibility": "เลื่อนอุปกรณ์ของคุณขึ้น",
       "feedback_no_face_detected": "ไม่พบใบหน้า",
+      "feedback_no_face_detected_accessibility": "ไม่พบใบหน้า มองตรงไปที่ด้านหน้าอุปกรณ์",
       "feedback_not_centered": "ใบหน้าไม่อยู่ตรงกลาง",
-      "title": "วางตำแหน่งใบหน้าของคุณไว้ในกรอบ"
+      "title": "วางตำแหน่งใบหน้าของคุณไว้ในกรอบ",
+      "title_accessibility": "มองตรงไปที่ด้านหน้าอุปกรณ์"
     },
     "face_capture": {
       "alert": {
@@ -1288,20 +1298,28 @@
         "too_fast_button_primary": "ลองอีกครั้ง",
         "too_fast_title": "คุณหันศีรษะเร็วเกินไป"
       },
+      "frame_accessibility": "ดูจากกล้องหน้า",
+      "head_movement_complete_randomness_accessibility": "เสร็จสิ้นการหมุน",
       "instructions": {
         "down": "ค่อยๆ ก้มศีรษะลง",
+        "down_accessibility": "ค่อยๆ เอียงศีรษะลงจนกว่าคุณจะได้ยินการยืนยัน",
         "left": "ค่อยๆ หันศีรษะไปทางซ้าย",
+        "left_accessibility": "ค่อยๆ หันหัวของคุณไปทางซ้ายจนกว่าคุณจะได้ยินการยืนยัน",
         "right": "ค่อยๆ หันศีรษะไปทางขวา",
-        "up": "ค่อยๆ เงยศีรษะขึ้น"
+        "right_accessibility": "ค่อยๆ หันหัวของคุณไปทางขวาจนกว่าจะได้ยินการยืนยัน",
+        "up": "ค่อยๆ เงยศีรษะขึ้น",
+        "up_accessibility": "ค่อยๆ เงยหน้าขึ้นจนกว่าคุณจะได้ยินการยืนยัน"
       },
       "left_side_complete_accessibility": "ด้านซ้ายเสร็จแล้ว",
+      "recording_started_accessibility": "เริ่มบันทึกแล้ว",
       "right_side_complete_accessibility": "ด้านขวาเสร็จแล้ว",
       "title": "ค่อยๆ หันศีรษะไปทั้ง 2 ข้าง",
-      "title_accessibility": "จัดตำแหน่งใบหน้าแล้ว",
+      "title_accessibility": "ค่อยๆ หันศีรษะไปทั้ง 2 ข้าง เมื่อถ่ายด้านหนึ่งเสร็จ คุณจะได้ยินเสียงยืนยันและโทรศัพท์จะสั่น",
       "title_completed": "บันทึกเสร็จสมบูรณ์",
       "turn_head_other_side_accessibility": "หันศีรษะไปอีกด้าน"
     },
     "intro": {
+      "animation_randomness_accessibility": "ตัวอย่างภาพเคลื่อนไหวของบุคคลที่หันหน้าไปทางขวา ขึ้น ลง และซ้าย จนกว่าจะปรากฏเครื่องหมายถูกสีเขียว",
       "button_primary_ready": "เริ่มบันทึก",
       "disclaimer": "โปรดทราบว่าเราจะบันทึกใบหน้าและพื้นหลังของคุณ",
       "disclaimer_camera_and_audio_on": "ใบหน้า พื้นหลัง และเสียงของคุณจะถูกบันทึกในระหว่างขั้นตอนนี้",
@@ -1491,12 +1509,21 @@
         "title": "faceMotion.connection_error.title"
       },
       "avc_face_alignment": {
-        "feedback_face_aligned_accessibility": "faceMotion.face_capture.title_accessibility",
+        "feedback_face_aligned_accessibility": "faceMotion.face_alignment.feedback_face_aligned_accessibility",
+        "feedback_face_misaligned_accessibility": "faceMotion.face_alignment.feedback_face_misaligned_accessibility",
         "feedback_move_back": "faceMotion.face_alignment.feedback_move_back",
+        "feedback_move_back_accessibility": "faceMotion.face_alignment.feedback_move_back_accessibility",
         "feedback_move_closer": "faceMotion.face_alignment.feedback_move_closer",
+        "feedback_move_closer_accessibility": "faceMotion.face_alignment.feedback_move_closer_accessibility",
+        "feedback_move_down_accessibility": "faceMotion.face_alignment.feedback_move_down_accessibility",
+        "feedback_move_left_accessibility": "faceMotion.face_alignment.feedback_move_left_accessibility",
+        "feedback_move_right_accessibility": "faceMotion.face_alignment.feedback_move_right_accessibility",
+        "feedback_move_up_accessibility": "faceMotion.face_alignment.feedback_move_up_accessibility",
         "feedback_no_face_detected": "faceMotion.face_alignment.feedback_no_face_detected",
+        "feedback_no_face_detected_accessibility": "faceMotion.face_alignment.feedback_no_face_detected_accessibility",
         "feedback_not_centered": "faceMotion.face_alignment.feedback_not_centered",
-        "title": "faceMotion.face_alignment.title"
+        "title": "faceMotion.face_alignment.title",
+        "title_accessibility": "faceMotion.face_alignment.title_accessibility"
       },
       "avc_face_capture": {
         "alert": {
@@ -1516,7 +1543,10 @@
         "confirmation_left_side_complete_accessibility": "faceMotion.face_capture.left_side_complete_accessibility",
         "confirmation_right_side_complete_accessibility": "faceMotion.face_capture.right_side_complete_accessibility",
         "feedback_turn_head_other_side_accessibility": "faceMotion.face_capture.turn_head_other_side_accessibility",
+        "frame_accessibility": "faceMotion.face_capture.frame_accessibility",
+        "recording_started_accessibility": "faceMotion.face_capture.recording_started_accessibility",
         "title": "faceMotion.face_capture.title",
+        "title_accessibility": "faceMotion.face_capture.title_accessibility",
         "title_completed": "faceMotion.face_capture.title_completed"
       },
       "avc_intro": {
@@ -2462,16 +2492,22 @@
           "timeout20_body": "faceMotion.face_capture.alert.randomness.timeout_body"
         },
         "feedback": {
-          "alignment_forward": "faceMotion.face_alignment.feedback_alignment_forward"
+          "alignment_forward": "faceMotion.face_alignment.feedback_alignment_forward",
+          "turn_complete_accessibility": "faceMotion.face_capture.head_movement_complete_randomness_accessibility"
         },
         "instructions": {
           "down": "faceMotion.face_capture.instructions.down",
+          "down_accessibility": "faceMotion.face_capture.instructions.down_accessibility",
           "left": "faceMotion.face_capture.instructions.left",
+          "left_accessibility": "faceMotion.face_capture.instructions.left_accessibility",
           "right": "faceMotion.face_capture.instructions.right",
-          "up": "faceMotion.face_capture.instructions.up"
+          "right_accessibility": "faceMotion.face_capture.instructions.right_accessibility",
+          "up": "faceMotion.face_capture.instructions.up",
+          "up_accessibility": "faceMotion.face_capture.instructions.up_accessibility"
         }
       },
       "motion_randomness_intro": {
+        "animation_description_accessibility": "faceMotion.intro.animation_randomness_accessibility",
         "list_item_tip_1": "faceMotion.intro.randomness.list_item_one",
         "list_item_tip_2": "faceMotion.intro.randomness.list_item_two",
         "list_item_tip_3": "faceMotion.intro.randomness.list_item_three"
@@ -3216,6 +3252,39 @@
           "misconfigured": "qualifiedElectronicSignature.error.misconfigured"
         }
       },
+      "request_uk_evisa": {
+        "biometric": {
+          "subtitle": "requestEvisa.request_uk_evisa.consent.biometric.description",
+          "title": "requestEvisa.request_uk_evisa.consent.biometric.title"
+        },
+        "button_primary": "requestEvisa.request_uk_evisa.submit",
+        "disclosure": {
+          "subtitle": "requestEvisa.request_uk_evisa.consent.disclosure.description",
+          "title": "requestEvisa.request_uk_evisa.consent.disclosure.title"
+        },
+        "field_helper": {
+          "dob": "requestEvisa.request_uk_evisa.dob.placeholder"
+        },
+        "field_label": {
+          "dob": "requestEvisa.request_uk_evisa.dob.label",
+          "share_code": "requestEvisa.request_uk_evisa.share_code_input.label"
+        },
+        "field_validation": {
+          "dob_invalid": "requestEvisa.request_uk_evisa.dob.error.dob_invalid",
+          "dob_required": "requestEvisa.request_uk_evisa.dob.error.dob_required",
+          "share_code_invalid": "requestEvisa.request_uk_evisa.share_code_input.error.share_code_invalid",
+          "share_code_wrong": "requestEvisa.request_uk_evisa.share_code_input.error.share_code_wrong",
+          "share_code_wrong_accessibility": "requestEvisa.request_uk_evisa.share_code_input.error.share_code_wrong_accessibility"
+        },
+        "list_item_1": "requestEvisa.request_uk_evisa.list_item_1.label",
+        "list_item_1_accessibility": "requestEvisa.request_uk_evisa.list_item_1.accessibility",
+        "list_item_2": "requestEvisa.request_uk_evisa.list_item_2.label",
+        "list_item_2_accessibility": "requestEvisa.request_uk_evisa.list_item_2.accessibility",
+        "list_item_3": "requestEvisa.request_uk_evisa.list_item_3.label",
+        "list_item_3_accessibility": "requestEvisa.request_uk_evisa.list_item_3.accessibility",
+        "subtitle": "requestEvisa.request_uk_evisa.subtitle",
+        "title": "requestEvisa.request_uk_evisa.title"
+      },
       "retry_feedback_id_generic": {
         "subtitle": "common.alert.instruction",
         "title": "common.alert.message"
@@ -3459,11 +3528,21 @@
     },
     "face_alignment": {
       "feedback_alignment_forward": "โปรดรอติดตาม",
+      "feedback_face_aligned_accessibility": "จัดตำแหน่งใบหน้าแล้ว",
+      "feedback_face_misaligned_accessibility": "จัดตำแหน่งใบหน้าไม่ถูกต้อง",
       "feedback_move_back": "ถอยออกไปเล็กน้อย",
+      "feedback_move_back_accessibility": "เลื่อนอุปกรณ์ของคุณออก",
       "feedback_move_closer": "ขยับเข้ามาใกล้ๆ",
+      "feedback_move_closer_accessibility": "เลื่อนอุปกรณ์ของคุณมาใกล้ๆ",
+      "feedback_move_down_accessibility": "เลื่อนอุปกรณ์ของคุณลง",
+      "feedback_move_left_accessibility": "เลื่อนอุปกรณ์ของคุณไปทางซ้าย",
+      "feedback_move_right_accessibility": "เลื่อนอุปกรณ์ของคุณไปทางขวา",
+      "feedback_move_up_accessibility": "เลื่อนอุปกรณ์ของคุณขึ้น",
       "feedback_no_face_detected": "ไม่พบใบหน้า",
+      "feedback_no_face_detected_accessibility": "ไม่พบใบหน้า มองตรงไปที่ด้านหน้าอุปกรณ์",
       "feedback_not_centered": "ใบหน้าไม่อยู่ตรงกลาง",
-      "title": "วางตำแหน่งใบหน้าของคุณไว้ในกรอบ"
+      "title": "วางตำแหน่งใบหน้าของคุณไว้ในกรอบ",
+      "title_accessibility": "มองตรงไปที่ด้านหน้าอุปกรณ์"
     },
     "face_capture": {
       "alert": {
@@ -3483,20 +3562,28 @@
         "too_fast_button_primary": "ลองอีกครั้ง",
         "too_fast_title": "คุณหันศีรษะเร็วเกินไป"
       },
+      "frame_accessibility": "ดูจากกล้องหน้า",
+      "head_movement_complete_randomness_accessibility": "เสร็จสิ้นการหมุน",
       "instructions": {
         "down": "ค่อยๆ ก้มศีรษะลง",
+        "down_accessibility": "ค่อยๆ เอียงศีรษะลงจนกว่าคุณจะได้ยินการยืนยัน",
         "left": "ค่อยๆ หันศีรษะไปทางซ้าย",
+        "left_accessibility": "ค่อยๆ หันหัวของคุณไปทางซ้ายจนกว่าคุณจะได้ยินการยืนยัน",
         "right": "ค่อยๆ หันศีรษะไปทางขวา",
-        "up": "ค่อยๆ เงยศีรษะขึ้น"
+        "right_accessibility": "ค่อยๆ หันหัวของคุณไปทางขวาจนกว่าจะได้ยินการยืนยัน",
+        "up": "ค่อยๆ เงยศีรษะขึ้น",
+        "up_accessibility": "ค่อยๆ เงยหน้าขึ้นจนกว่าคุณจะได้ยินการยืนยัน"
       },
       "left_side_complete_accessibility": "ด้านซ้ายเสร็จแล้ว",
+      "recording_started_accessibility": "เริ่มบันทึกแล้ว",
       "right_side_complete_accessibility": "ด้านขวาเสร็จแล้ว",
       "title": "ค่อยๆ หันศีรษะไปทั้ง 2 ข้าง",
-      "title_accessibility": "จัดตำแหน่งใบหน้าแล้ว",
+      "title_accessibility": "ค่อยๆ หันศีรษะไปทั้ง 2 ข้าง เมื่อถ่ายด้านหนึ่งเสร็จ คุณจะได้ยินเสียงยืนยันและโทรศัพท์จะสั่น",
       "title_completed": "บันทึกเสร็จสมบูรณ์",
       "turn_head_other_side_accessibility": "หันศีรษะไปอีกด้าน"
     },
     "intro": {
+      "animation_randomness_accessibility": "ตัวอย่างภาพเคลื่อนไหวของบุคคลที่หันหน้าไปทางขวา ขึ้น ลง และซ้าย จนกว่าจะปรากฏเครื่องหมายถูกสีเขียว",
       "button_primary_ready": "เริ่มบันทึก",
       "disclaimer": "โปรดทราบว่าเราจะบันทึกใบหน้าและพื้นหลังของคุณ",
       "disclaimer_camera_and_audio_on": "ใบหน้า พื้นหลัง และเสียงของคุณจะถูกบันทึกในระหว่างขั้นตอนนี้",
@@ -4167,11 +4254,57 @@
       "validation": "ต้องได้รับความยินยอม"
     }
   },
+  "requestEvisa": {
+    "request_uk_evisa": {
+      "consent": {
+        "biometric": {
+          "description": "By checking this box, you consent to the use of your biometric data contained in visa records held by GOV.UK, together with the biometric data collected in the remaining stages of this visa check, to confirm your identity against visa records. <fallback>Read more</fallback>",
+          "title": "Consent to biometric check"
+        },
+        "disclosure": {
+          "description": "By checking this box, you authorise Entrust to request and receive personal information about you from GOV.UK as required to verify your identity and prevent fraud. This may include your name, date of birth, and other personal details. <fallback>Read more</fallback>",
+          "title": "Consent for disclosure of information"
+        }
+      },
+      "dob": {
+        "error": {
+          "dob_invalid": "Please enter a valid date of birth",
+          "dob_required": "Please enter your date of birth"
+        },
+        "label": "Date of birth",
+        "placeholder": "dd/mm/yyyy"
+      },
+      "list_item_1": {
+        "accessibility": "View your eVisa and get a share code on the gov.uk website (opens in browser)",
+        "label": "View your eVisa and get a share code on the gov.uk website"
+      },
+      "list_item_2": {
+        "accessibility": "When asked why you need a share code, select the option to prove your immigration status",
+        "label": "Select the option to prove your immigration status"
+      },
+      "list_item_3": {
+        "accessibility": "Come back to this page and enter the 9-digit code below",
+        "label": "Enter the 9-digit code below"
+      },
+      "share_code_input": {
+        "error": {
+          "share_code_invalid": "The code must start with 'S'",
+          "share_code_wrong": "The code must starts with 'S', not 'W' (right to work) or 'R' (right to rent)",
+          "share_code_wrong_accessibility": "The code to prove your immigration status must starts with 'S', not 'W' (right to work) or 'R' (right to rent)"
+        },
+        "label": "Share code"
+      },
+      "submit": "Continue",
+      "subtitle": "Generate your 9-digit share code to verify your identity using your eVisa",
+      "title": "Enter your UK eVisa share code"
+    }
+  },
   "retry": {
     "button": {
       "default": "ลองอีกครั้ง",
       "expired_document": "ลองอีกครั้ง",
       "generic_document_issue": "ลองอีกครั้ง",
+      "generic_proof_of_address_issue": "ลองอีกครั้ง",
       "generic_selfie_issue": "ลองอีกครั้ง",
       "unaccepted_document": "ลองอีกครั้ง"
     },
@@ -4179,6 +4312,7 @@
       "default": "โปรดลองอีกครั้ง",
       "expired_document": "โปรดลองอีกครั้งโดยใช้บัตรประจำตัวที่มีรูปถ่ายที่ถูกต้อง และตรวจให้แน่ใจว่าเห็นข้อมูลของคุณได้อย่างชัดเจน",
       "generic_document_issue": "โปรดลองอีกครั้งโดยใช้บัตรประจำตัวที่มีรูปถ่ายที่ถูกต้อง และตรวจให้แน่ใจว่าเห็นข้อมูลของคุณได้อย่างชัดเจน",
+      "generic_proof_of_address_issue": "โปรดลองอีกครั้งด้วยเอกสารที่ถูกต้องและตรวจสอบให้แน่ใจว่าข้อมูลของคุณมองเห็นได้ชัดเจน",
       "generic_selfie_issue": "โปรดลองอีกครั้ง และเช็คให้แน่ใจว่ามองเห็นใบหน้าของคุณได้ชัดเจนและมีแสงสว่างเพียงพอ",
       "unaccepted_document": "โปรดลองอีกครั้งโดยใช้บัตรประจำตัวที่มีรูปถ่ายที่ถูกต้อง และตรวจให้แน่ใจว่าเห็นข้อมูลของคุณได้อย่างชัดเจน"
     },
@@ -4186,6 +4320,7 @@
       "default": "มีปัญหาเกิดขึ้น",
       "expired_document": "เอกสารของคุณหมดอายุแล้ว",
       "generic_document_issue": "เกิดปัญหากับเอกสารของคุณ",
+      "generic_proof_of_address_issue": "เกิดปัญหากับเอกสารของคุณ",
       "generic_selfie_issue": "มีปัญหาเกี่ยวกับภาพเซลฟี่ของคุณ",
       "unaccepted_document": "เอกสารที่ไม่ยอมรับ"
     }

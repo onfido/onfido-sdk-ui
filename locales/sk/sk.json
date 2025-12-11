@@ -1264,11 +1264,21 @@
     },
     "face_alignment": {
       "feedback_alignment_forward": "Prosíme, tešte sa",
+      "feedback_face_aligned_accessibility": "Tvár je zarovnaná",
+      "feedback_face_misaligned_accessibility": "Nesprávne zarovnanie tváre",
       "feedback_move_back": "Posuňte sa ďalej",
+      "feedback_move_back_accessibility": "Posuňte zariadenie ďalej",
       "feedback_move_closer": "Posuňte sa bližšie",
+      "feedback_move_closer_accessibility": "Posuňte zariadenie bližšie",
+      "feedback_move_down_accessibility": "Posuňte zariadenie nadol",
+      "feedback_move_left_accessibility": "Posuňte zariadenie doľava",
+      "feedback_move_right_accessibility": "Posuňte zariadenie doprava",
+      "feedback_move_up_accessibility": "Posuňte zariadenie nahor",
       "feedback_no_face_detected": "Nebola zistená tvár",
+      "feedback_no_face_detected_accessibility": "Nebola zistená tvár. Umiestnite tvár pred zariadenie",
       "feedback_not_centered": "Tvár nie je v strede",
-      "title": "Umiestnite tvár do rámu"
+      "title": "Umiestnite tvár do rámu",
+      "title_accessibility": "Umiestnite tvár pred zariadenie"
     },
     "face_capture": {
       "alert": {
@@ -1288,20 +1298,28 @@
         "too_fast_button_primary": "Skúsiť znova",
         "too_fast_title": "Hlavou ste otáčali príliš rýchlo"
       },
+      "frame_accessibility": "Pohľad zo selfie fotoaparátu",
+      "head_movement_complete_randomness_accessibility": "Otáčanie dokončené",
       "instructions": {
         "down": "Pomaly skloňte hlavu nadol",
+        "down_accessibility": "Pomaly nakloňte hlavu nadol, kým nebudete počuť potvrdenie",
         "left": "Pomaly otočte hlavu doľava",
+        "left_accessibility": "Pomaly otočte hlavu doľava, kým nepočujete potvrdenie",
         "right": "Pomaly otočte hlavu doprava",
-        "up": "Pomaly zdvihnite hlavu"
+        "right_accessibility": "Pomaly otočte hlavu doprava, kým nebudete počuť potvrdenie",
+        "up": "Pomaly zdvihnite hlavu",
+        "up_accessibility": "Pomaly zdvihnite hlavu, kým nebudete počuť potvrdenie"
       },
       "left_side_complete_accessibility": "Ľavá strana je dokončená",
+      "recording_started_accessibility": "Zaznamenávanie sa začalo",
       "right_side_complete_accessibility": "Pravá strana je dokončená",
       "title": "Pomaly otočte hlavou na obe strany",
-      "title_accessibility": "Tvár je zarovnaná",
+      "title_accessibility": "Pomaly otočte hlavou na obe strany. Po dokončení strany sa prehrá zvuk potvrdenia a spustí vibrácia",
       "title_completed": "Zaznamenávanie je ukončené",
       "turn_head_other_side_accessibility": "Otočte hlavou na druhú stranu"
     },
     "intro": {
+      "animation_randomness_accessibility": "Ukážková animácia osoby, ktorá otáča hlavu doprava, hore, dole a doľava, až kým sa nezobrazí zelená začiarknutá značka.",
       "button_primary_ready": "Spustiť zaznamenávanie",
       "disclaimer": "Počas tohto procesu sa zaznamená vaša tvár a pozadie",
       "disclaimer_camera_and_audio_on": "Počas tohto procesu bude zaznamenaná vaša tvár, pozadie a zvuk",
@@ -1491,12 +1509,21 @@
         "title": "faceMotion.connection_error.title"
       },
       "avc_face_alignment": {
-        "feedback_face_aligned_accessibility": "faceMotion.face_capture.title_accessibility",
+        "feedback_face_aligned_accessibility": "faceMotion.face_alignment.feedback_face_aligned_accessibility",
+        "feedback_face_misaligned_accessibility": "faceMotion.face_alignment.feedback_face_misaligned_accessibility",
         "feedback_move_back": "faceMotion.face_alignment.feedback_move_back",
+        "feedback_move_back_accessibility": "faceMotion.face_alignment.feedback_move_back_accessibility",
         "feedback_move_closer": "faceMotion.face_alignment.feedback_move_closer",
+        "feedback_move_closer_accessibility": "faceMotion.face_alignment.feedback_move_closer_accessibility",
+        "feedback_move_down_accessibility": "faceMotion.face_alignment.feedback_move_down_accessibility",
+        "feedback_move_left_accessibility": "faceMotion.face_alignment.feedback_move_left_accessibility",
+        "feedback_move_right_accessibility": "faceMotion.face_alignment.feedback_move_right_accessibility",
+        "feedback_move_up_accessibility": "faceMotion.face_alignment.feedback_move_up_accessibility",
         "feedback_no_face_detected": "faceMotion.face_alignment.feedback_no_face_detected",
+        "feedback_no_face_detected_accessibility": "faceMotion.face_alignment.feedback_no_face_detected_accessibility",
         "feedback_not_centered": "faceMotion.face_alignment.feedback_not_centered",
-        "title": "faceMotion.face_alignment.title"
+        "title": "faceMotion.face_alignment.title",
+        "title_accessibility": "faceMotion.face_alignment.title_accessibility"
       },
       "avc_face_capture": {
         "alert": {
@@ -1516,7 +1543,10 @@
         "confirmation_left_side_complete_accessibility": "faceMotion.face_capture.left_side_complete_accessibility",
         "confirmation_right_side_complete_accessibility": "faceMotion.face_capture.right_side_complete_accessibility",
         "feedback_turn_head_other_side_accessibility": "faceMotion.face_capture.turn_head_other_side_accessibility",
+        "frame_accessibility": "faceMotion.face_capture.frame_accessibility",
+        "recording_started_accessibility": "faceMotion.face_capture.recording_started_accessibility",
         "title": "faceMotion.face_capture.title",
+        "title_accessibility": "faceMotion.face_capture.title_accessibility",
         "title_completed": "faceMotion.face_capture.title_completed"
       },
       "avc_intro": {
@@ -2462,16 +2492,22 @@
           "timeout20_body": "faceMotion.face_capture.alert.randomness.timeout_body"
         },
         "feedback": {
-          "alignment_forward": "faceMotion.face_alignment.feedback_alignment_forward"
+          "alignment_forward": "faceMotion.face_alignment.feedback_alignment_forward",
+          "turn_complete_accessibility": "faceMotion.face_capture.head_movement_complete_randomness_accessibility"
         },
         "instructions": {
           "down": "faceMotion.face_capture.instructions.down",
+          "down_accessibility": "faceMotion.face_capture.instructions.down_accessibility",
           "left": "faceMotion.face_capture.instructions.left",
+          "left_accessibility": "faceMotion.face_capture.instructions.left_accessibility",
           "right": "faceMotion.face_capture.instructions.right",
-          "up": "faceMotion.face_capture.instructions.up"
+          "right_accessibility": "faceMotion.face_capture.instructions.right_accessibility",
+          "up": "faceMotion.face_capture.instructions.up",
+          "up_accessibility": "faceMotion.face_capture.instructions.up_accessibility"
         }
       },
       "motion_randomness_intro": {
+        "animation_description_accessibility": "faceMotion.intro.animation_randomness_accessibility",
         "list_item_tip_1": "faceMotion.intro.randomness.list_item_one",
         "list_item_tip_2": "faceMotion.intro.randomness.list_item_two",
         "list_item_tip_3": "faceMotion.intro.randomness.list_item_three"
@@ -3216,6 +3252,39 @@
           "misconfigured": "qualifiedElectronicSignature.error.misconfigured"
         }
       },
+      "request_uk_evisa": {
+        "biometric": {
+          "subtitle": "requestEvisa.request_uk_evisa.consent.biometric.description",
+          "title": "requestEvisa.request_uk_evisa.consent.biometric.title"
+        },
+        "button_primary": "requestEvisa.request_uk_evisa.submit",
+        "disclosure": {
+          "subtitle": "requestEvisa.request_uk_evisa.consent.disclosure.description",
+          "title": "requestEvisa.request_uk_evisa.consent.disclosure.title"
+        },
+        "field_helper": {
+          "dob": "requestEvisa.request_uk_evisa.dob.placeholder"
+        },
+        "field_label": {
+          "dob": "requestEvisa.request_uk_evisa.dob.label",
+          "share_code": "requestEvisa.request_uk_evisa.share_code_input.label"
+        },
+        "field_validation": {
+          "dob_invalid": "requestEvisa.request_uk_evisa.dob.error.dob_invalid",
+          "dob_required": "requestEvisa.request_uk_evisa.dob.error.dob_required",
+          "share_code_invalid": "requestEvisa.request_uk_evisa.share_code_input.error.share_code_invalid",
+          "share_code_wrong": "requestEvisa.request_uk_evisa.share_code_input.error.share_code_wrong",
+          "share_code_wrong_accessibility": "requestEvisa.request_uk_evisa.share_code_input.error.share_code_wrong_accessibility"
+        },
+        "list_item_1": "requestEvisa.request_uk_evisa.list_item_1.label",
+        "list_item_1_accessibility": "requestEvisa.request_uk_evisa.list_item_1.accessibility",
+        "list_item_2": "requestEvisa.request_uk_evisa.list_item_2.label",
+        "list_item_2_accessibility": "requestEvisa.request_uk_evisa.list_item_2.accessibility",
+        "list_item_3": "requestEvisa.request_uk_evisa.list_item_3.label",
+        "list_item_3_accessibility": "requestEvisa.request_uk_evisa.list_item_3.accessibility",
+        "subtitle": "requestEvisa.request_uk_evisa.subtitle",
+        "title": "requestEvisa.request_uk_evisa.title"
+      },
       "retry_feedback_id_generic": {
         "subtitle": "common.alert.instruction",
         "title": "common.alert.message"
@@ -3459,11 +3528,21 @@
     },
     "face_alignment": {
       "feedback_alignment_forward": "Prosíme, tešte sa",
+      "feedback_face_aligned_accessibility": "Tvár je zarovnaná",
+      "feedback_face_misaligned_accessibility": "Nesprávne zarovnanie tváre",
       "feedback_move_back": "Posuňte sa ďalej",
+      "feedback_move_back_accessibility": "Posuňte zariadenie ďalej",
       "feedback_move_closer": "Posuňte sa bližšie",
+      "feedback_move_closer_accessibility": "Posuňte zariadenie bližšie",
+      "feedback_move_down_accessibility": "Posuňte zariadenie nadol",
+      "feedback_move_left_accessibility": "Posuňte zariadenie doľava",
+      "feedback_move_right_accessibility": "Posuňte zariadenie doprava",
+      "feedback_move_up_accessibility": "Posuňte zariadenie nahor",
       "feedback_no_face_detected": "Nebola zistená tvár",
+      "feedback_no_face_detected_accessibility": "Nebola zistená tvár. Umiestnite tvár pred zariadenie",
       "feedback_not_centered": "Tvár nie je v strede",
-      "title": "Umiestnite tvár do rámu"
+      "title": "Umiestnite tvár do rámu",
+      "title_accessibility": "Umiestnite tvár pred zariadenie"
     },
     "face_capture": {
       "alert": {
@@ -3483,20 +3562,28 @@
         "too_fast_button_primary": "Skúsiť znova",
         "too_fast_title": "Hlavou ste otáčali príliš rýchlo"
       },
+      "frame_accessibility": "Pohľad zo selfie fotoaparátu",
+      "head_movement_complete_randomness_accessibility": "Otáčanie dokončené",
       "instructions": {
         "down": "Pomaly skloňte hlavu nadol",
+        "down_accessibility": "Pomaly nakloňte hlavu nadol, kým nebudete počuť potvrdenie",
         "left": "Pomaly otočte hlavu doľava",
+        "left_accessibility": "Pomaly otočte hlavu doľava, kým nepočujete potvrdenie",
         "right": "Pomaly otočte hlavu doprava",
-        "up": "Pomaly zdvihnite hlavu"
+        "right_accessibility": "Pomaly otočte hlavu doprava, kým nebudete počuť potvrdenie",
+        "up": "Pomaly zdvihnite hlavu",
+        "up_accessibility": "Pomaly zdvihnite hlavu, kým nebudete počuť potvrdenie"
       },
       "left_side_complete_accessibility": "Ľavá strana je dokončená",
+      "recording_started_accessibility": "Zaznamenávanie sa začalo",
       "right_side_complete_accessibility": "Pravá strana je dokončená",
       "title": "Pomaly otočte hlavou na obe strany",
-      "title_accessibility": "Tvár je zarovnaná",
+      "title_accessibility": "Pomaly otočte hlavou na obe strany. Po dokončení strany sa prehrá zvuk potvrdenia a spustí vibrácia",
       "title_completed": "Zaznamenávanie je ukončené",
       "turn_head_other_side_accessibility": "Otočte hlavou na druhú stranu"
     },
     "intro": {
+      "animation_randomness_accessibility": "Ukážková animácia osoby, ktorá otáča hlavu doprava, hore, dole a doľava, až kým sa nezobrazí zelená začiarknutá značka.",
       "button_primary_ready": "Spustiť zaznamenávanie",
       "disclaimer": "Počas tohto procesu sa zaznamená vaša tvár a pozadie",
       "disclaimer_camera_and_audio_on": "Počas tohto procesu bude zaznamenaná vaša tvár, pozadie a zvuk",
@@ -4167,11 +4254,57 @@
       "validation": "Vyžadovaný súhlas"
     }
   },
+  "requestEvisa": {
+    "request_uk_evisa": {
+      "consent": {
+        "biometric": {
+          "description": "By checking this box, you consent to the use of your biometric data contained in visa records held by GOV.UK, together with the biometric data collected in the remaining stages of this visa check, to confirm your identity against visa records. <fallback>Read more</fallback>",
+          "title": "Consent to biometric check"
+        },
+        "disclosure": {
+          "description": "By checking this box, you authorise Entrust to request and receive personal information about you from GOV.UK as required to verify your identity and prevent fraud. This may include your name, date of birth, and other personal details. <fallback>Read more</fallback>",
+          "title": "Consent for disclosure of information"
+        }
+      },
+      "dob": {
+        "error": {
+          "dob_invalid": "Please enter a valid date of birth",
+          "dob_required": "Please enter your date of birth"
+        },
+        "label": "Date of birth",
+        "placeholder": "dd/mm/yyyy"
+      },
+      "list_item_1": {
+        "accessibility": "View your eVisa and get a share code on the gov.uk website (opens in browser)",
+        "label": "View your eVisa and get a share code on the gov.uk website"
+      },
+      "list_item_2": {
+        "accessibility": "When asked why you need a share code, select the option to prove your immigration status",
+        "label": "Select the option to prove your immigration status"
+      },
+      "list_item_3": {
+        "accessibility": "Come back to this page and enter the 9-digit code below",
+        "label": "Enter the 9-digit code below"
+      },
+      "share_code_input": {
+        "error": {
+          "share_code_invalid": "The code must start with 'S'",
+          "share_code_wrong": "The code must starts with 'S', not 'W' (right to work) or 'R' (right to rent)",
+          "share_code_wrong_accessibility": "The code to prove your immigration status must starts with 'S', not 'W' (right to work) or 'R' (right to rent)"
+        },
+        "label": "Share code"
+      },
+      "submit": "Continue",
+      "subtitle": "Generate your 9-digit share code to verify your identity using your eVisa",
+      "title": "Enter your UK eVisa share code"
+    }
+  },
   "retry": {
     "button": {
       "default": "Skúsiť znova",
       "expired_document": "Skúsiť znova",
       "generic_document_issue": "Skúsiť znova",
+      "generic_proof_of_address_issue": "Skúsiť znova",
       "generic_selfie_issue": "Skúsiť znova",
       "unaccepted_document": "Skúsiť znova"
     },
@@ -4179,6 +4312,7 @@
       "default": "Skúste to znova",
       "expired_document": "Skúste to znova s platným dokladom totožnosti s fotkou a uistite sa, že vaše údaje sú jasne viditeľné",
       "generic_document_issue": "Skúste to znova s platným dokladom totožnosti s fotkou a uistite sa, že vaše údaje sú jasne viditeľné",
+      "generic_proof_of_address_issue": "Skúste to znova s platným dokladom a uistite sa, že vaše údaje sú jasne viditeľné",
       "generic_selfie_issue": "Skúste to znova a uistite sa, že vaša tvár je viditeľná a dobre osvetlená",
       "unaccepted_document": "Skúste to znova s platným dokladom totožnosti s fotkou a uistite sa, že vaše údaje sú jasne viditeľné"
     },
@@ -4186,6 +4320,7 @@
       "default": "Vyskytol sa problém",
       "expired_document": "Platnosť dokladu vypršala",
       "generic_document_issue": "Vyskytol sa problém s vaším dokumentom",
+      "generic_proof_of_address_issue": "Vyskytol sa problém s vaším dokumentom",
       "generic_selfie_issue": "Vyskytol sa problém s vašou selfie",
       "unaccepted_document": "Neakceptovaný doklad"
     }
