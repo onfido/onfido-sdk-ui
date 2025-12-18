@@ -288,7 +288,8 @@
         "ZMB": "Замбия",
         "ZWE": "Зимбабве"
       },
-      "country_no_match": "Няма резултати"
+      "country_no_match": "Няма резултати",
+      "country_not_found": "Държавата не е намерена"
     },
     "disclaimer": {
       "icon_info_accessibility": "Информация:"
@@ -877,7 +878,7 @@
       "failed_upload_title": "Качването не бе успешно",
       "glare_detail": "Отдалечете се от пряката светлина",
       "glare_title": "Открит е отблясък",
-      "image_accessibility": "Снимка на документа ви. Докоснете два пъти, за да увеличите.",
+      "image_accessibility": "Снимка на документа ви",
       "no_barcode_detail": "Застанете на добре осветено място и приближете картата до камерата",
       "no_barcode_title": "Баркодът не е открит",
       "no_doc_detail": "Уверете се, че целият документ е на снимката",
@@ -899,6 +900,7 @@
     },
     "scan": {
       "button_help": "Нуждаете се от помощ?",
+      "button_manual": "Започнете сканиране",
       "feedback": {
         "alignment_center_document": "Подравни документа в центъра",
         "alignment_center_document_down_accessibility": "Преместете документа си надолу.",
@@ -1011,6 +1013,7 @@
       "button_secondary": "Изход от верификация",
       "button_secondary_alt": "Повторен опит",
       "subtitle": "Моля, използвайте друг документ с NFC. Потърсете тази икона",
+      "subtitle_icon": "Please use another document that is NFC-enabled. Look for this icon <icon></icon>",
       "title": "Неподдържан документ"
     },
     "upload": {
@@ -1799,6 +1802,7 @@
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
+        "button_manual": "document.scan.button_manual",
         "feedback": {
           "alignment_center_document": "document.scan.feedback.alignment_center_document",
           "alignment_center_document_down_accessibility": "document.scan.feedback.alignment_center_document_down_accessibility",
@@ -2589,7 +2593,8 @@
         "primary_button": "document.unsupported_document.button_secondary_alt"
       },
       "nfc_scan_error_document_unsupported": {
-        "subtitle": "document.unsupported_document.subtitle"
+        "subtitle": "document.unsupported_document.subtitle",
+        "subtitle_icon": "document.unsupported_document.subtitle_icon"
       },
       "nfc_scan_error_final_possible": {
         "card_secondary_button": "nfc.error.button_secondary.skip"
@@ -3509,7 +3514,7 @@
     "qr_screen": {
       "heading": "Достъпете портала с вашия съществуващ Verified ID.",
       "list_item_1": "Отворете приложението Microsoft Authenticator на мобилното си устройство.",
-      "list_item_2": "Отворете раздела „Потвърдени идентификатори“ и докоснете бутона с QR код в горния десен ъгъл, за да сканирате."
+      "list_item_2": "Отворете раздела Verified IDs и докоснете бутона за QR код, за да сканирате."
     }
   },
   "motion": {
@@ -4156,7 +4161,7 @@
       "failed_upload_title": "Качването не бе успешно",
       "glare_detail": "Отдалечете се от пряката светлина",
       "glare_title": "Открит е отблясък",
-      "image_accessibility": "Снимка на документа ви. Докоснете два пъти, за да увеличите.",
+      "image_accessibility": "Снимка на документа ви",
       "no_barcode_detail": "Застанете на добре осветено място и приближете картата до камерата",
       "no_barcode_title": "Баркодът не е открит",
       "no_doc_detail": "Уверете се, че целият документ е на снимката",

@@ -7,15 +7,28 @@ and the SDK adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html)
 
 When any of the string translations change, it will result in a MINOR version change. As a result, you are responsible for ensuring the correct layout if you are using custom translations (see [language localization](https://documentation.onfido.com/sdk/web/#custom-translations-and-text)).
 
+## [14.59.0] - 2025-12-16
+
+### Added
+
+- Added mobile support for Verified Credential tasks
+
+### Fixed
+
+- Prevent users from uploading a document when an error is detected
+- Fixed the retry button after a failed upload
+- Fixed redirect to Microsoft Authenticator app on iOS for Verified Credential
+- Fixed intermittent Verified Credential module crashes
+
 ## [14.58.1] - 2025-12-11
 
 ### Fixed
 
-- Fix redirect to Microsoft Authenticator app on iOS for Verified Credential
+- Fixed redirect to Microsoft Authenticator app on iOS for Verified Credential
 
 ### Changed
 
-- Add mobile support for verified credential tasks
+- Added mobile support for Verified Credential tasks
 
 ## [14.58.0] - 2025-12-03
 

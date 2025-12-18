@@ -288,7 +288,8 @@
         "ZMB": "Zambia",
         "ZWE": "Zimbabwe"
       },
-      "country_no_match": "Geen resultaten"
+      "country_no_match": "Geen resultaten",
+      "country_not_found": "Land niet gevonden"
     },
     "disclaimer": {
       "icon_info_accessibility": "Informatie:"
@@ -877,7 +878,7 @@
       "failed_upload_title": "Upload mislukt",
       "glare_detail": "Sta niet in direct zonlicht",
       "glare_title": "Schittering gedetecteerd",
-      "image_accessibility": "Foto van uw document. Tik twee keer op te vergroten.",
+      "image_accessibility": "Foto van uw document",
       "no_barcode_detail": "Ga op een goed verlichte plek staan en houd de kaart dichter bij de camera",
       "no_barcode_title": "Streepjescode niet gedetecteerd",
       "no_doc_detail": "Zorg dat het hele document zichtbaar is op de foto",
@@ -899,6 +900,7 @@
     },
     "scan": {
       "button_help": "Hulp nodig?",
+      "button_manual": "Start scan",
       "feedback": {
         "alignment_center_document": "Centreer document",
         "alignment_center_document_down_accessibility": "Beweeg je document naar beneden.",
@@ -1011,6 +1013,7 @@
       "button_secondary": "Verificatie afsluiten",
       "button_secondary_alt": "Opnieuw proberen",
       "subtitle": "Gebruik een ander document dat NFC-compatibel is. Zoek naar dit pictogram",
+      "subtitle_icon": "Please use another document that is NFC-enabled. Look for this icon <icon></icon>",
       "title": "Niet-ondersteund document"
     },
     "upload": {
@@ -1799,6 +1802,7 @@
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
+        "button_manual": "document.scan.button_manual",
         "feedback": {
           "alignment_center_document": "document.scan.feedback.alignment_center_document",
           "alignment_center_document_down_accessibility": "document.scan.feedback.alignment_center_document_down_accessibility",
@@ -2589,7 +2593,8 @@
         "primary_button": "document.unsupported_document.button_secondary_alt"
       },
       "nfc_scan_error_document_unsupported": {
-        "subtitle": "document.unsupported_document.subtitle"
+        "subtitle": "document.unsupported_document.subtitle",
+        "subtitle_icon": "document.unsupported_document.subtitle_icon"
       },
       "nfc_scan_error_final_possible": {
         "card_secondary_button": "nfc.error.button_secondary.skip"
@@ -3509,7 +3514,7 @@
     "qr_screen": {
       "heading": "Krijg toegang tot het portaal met uw bestaande geverifieerde ID.",
       "list_item_1": "Open de Microsoft Authenticator-app op je mobiele apparaat.",
-      "list_item_2": "Open het tabblad Geverifieerde ID's en tik op de QR-codeknop in de rechterbovenhoek om te scannen."
+      "list_item_2": "Open het tabblad Geverifieerde ID's en tik op de QR-codeknop om te scannen."
     }
   },
   "motion": {
@@ -4156,7 +4161,7 @@
       "failed_upload_title": "Upload mislukt",
       "glare_detail": "Sta niet in direct zonlicht",
       "glare_title": "Schittering gedetecteerd",
-      "image_accessibility": "Foto van uw document. Tik twee keer op te vergroten.",
+      "image_accessibility": "Foto van uw document",
       "no_barcode_detail": "Ga op een goed verlichte plek staan en houd de kaart dichter bij de camera",
       "no_barcode_title": "Streepjescode niet gedetecteerd",
       "no_doc_detail": "Zorg dat het hele document zichtbaar is op de foto",

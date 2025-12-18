@@ -288,7 +288,8 @@
         "ZMB": "Sambia",
         "ZWE": "Zimbabwe"
       },
-      "country_no_match": "Ei tuloksia"
+      "country_no_match": "Ei tuloksia",
+      "country_not_found": "Maata ei löydy"
     },
     "disclaimer": {
       "icon_info_accessibility": "Tietoa:"
@@ -877,7 +878,7 @@
       "failed_upload_title": "Lataus epäonnistui",
       "glare_detail": "Siirry pois suorasta valosta",
       "glare_title": "Häikäisyä havaittu",
-      "image_accessibility": "Valokuva asiakirjastasi. Suurenna kaksoisnapauttamalla.",
+      "image_accessibility": "Valokuva asiakirjastasi",
       "no_barcode_detail": "Ole hyvin valaistussa paikassa ja tuo kortti lähemmäs kameraa",
       "no_barcode_title": "Viivakoodia ei havaittu",
       "no_doc_detail": "Varmista, että koko asiakirja on kuvassa",
@@ -899,6 +900,7 @@
     },
     "scan": {
       "button_help": "Tarvitsetko apua?",
+      "button_manual": "Aloita skannaus",
       "feedback": {
         "alignment_center_document": "Keskitä asiakirja",
         "alignment_center_document_down_accessibility": "Siirrä asiakirjaasi alaspäin.",
@@ -1011,6 +1013,7 @@
       "button_secondary": "Poistumisvarmennus",
       "button_secondary_alt": "Yritä uudelleen",
       "subtitle": "Käytä toista asiakirjaa, jossa on NFC-ominaisuus. Etsi tämä kuvake",
+      "subtitle_icon": "Please use another document that is NFC-enabled. Look for this icon <icon></icon>",
       "title": "Tukematon asiakirja"
     },
     "upload": {
@@ -1799,6 +1802,7 @@
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
+        "button_manual": "document.scan.button_manual",
         "feedback": {
           "alignment_center_document": "document.scan.feedback.alignment_center_document",
           "alignment_center_document_down_accessibility": "document.scan.feedback.alignment_center_document_down_accessibility",
@@ -2589,7 +2593,8 @@
         "primary_button": "document.unsupported_document.button_secondary_alt"
       },
       "nfc_scan_error_document_unsupported": {
-        "subtitle": "document.unsupported_document.subtitle"
+        "subtitle": "document.unsupported_document.subtitle",
+        "subtitle_icon": "document.unsupported_document.subtitle_icon"
       },
       "nfc_scan_error_final_possible": {
         "card_secondary_button": "nfc.error.button_secondary.skip"
@@ -3509,7 +3514,7 @@
     "qr_screen": {
       "heading": "Kirjaudu portaaliin olemassa olevalla Verified ID -tunnuksellasi.",
       "list_item_1": "Avaa Microsoft Authenticator -sovellus mobiililaitteellasi.",
-      "list_item_2": "Avaa Varmennetut tunnukset -välilehti ja napauta oikeassa yläkulmassa olevaa QR-koodipainiketta skannataksesi."
+      "list_item_2": "Avaa Todennetut tunnukset -välilehti ja napauta QR-koodipainiketta skannataksesi."
     }
   },
   "motion": {
@@ -4156,7 +4161,7 @@
       "failed_upload_title": "Lataus epäonnistui",
       "glare_detail": "Siirry pois suorasta valosta",
       "glare_title": "Häikäisyä havaittu",
-      "image_accessibility": "Valokuva asiakirjastasi. Suurenna kaksoisnapauttamalla.",
+      "image_accessibility": "Valokuva asiakirjastasi",
       "no_barcode_detail": "Ole hyvin valaistussa paikassa ja tuo kortti lähemmäs kameraa",
       "no_barcode_title": "Viivakoodia ei havaittu",
       "no_doc_detail": "Varmista, että koko asiakirja on kuvassa",

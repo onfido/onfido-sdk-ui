@@ -288,7 +288,8 @@
         "ZMB": "Ζάμπια",
         "ZWE": "Ζιμπάμπουε"
       },
-      "country_no_match": "Δε βρέθηκαν αποτελέσματα"
+      "country_no_match": "Δε βρέθηκαν αποτελέσματα",
+      "country_not_found": "Η χώρα δεν βρέθηκε"
     },
     "disclaimer": {
       "icon_info_accessibility": "Πληροφορίες:"
@@ -877,7 +878,7 @@
       "failed_upload_title": "Η μεταφόρτωση απέτυχε",
       "glare_detail": "Απομακρυνθείτε από το άμεσο φως",
       "glare_title": "Ανιχνεύτηκε αντανάκλαση",
-      "image_accessibility": "Φωτογραφία του εγγράφου σας. Πατήστε δύο φορές για μεγέθυνση.",
+      "image_accessibility": "Φωτογραφία του εγγράφου σας",
       "no_barcode_detail": "Σταθείτε σε ένα καλά φωτισμένο μέρος και φέρτε το δελτίο πιο κοντά στην κάμερα",
       "no_barcode_title": "Δεν εντοπίστηκε γραμμωτός κώδικας",
       "no_doc_detail": "Βεβαιωθείτε ότι όλο το έγγραφο είναι στη φωτογραφία",
@@ -899,6 +900,7 @@
     },
     "scan": {
       "button_help": "Χρειάζεστε βοήθεια;",
+      "button_manual": "Έναρξη σάρωσης",
       "feedback": {
         "alignment_center_document": "Κεντράρισε το έγγραφο",
         "alignment_center_document_down_accessibility": "Μετακινήστε το έγγραφό σας προς τα κάτω.",
@@ -1011,6 +1013,7 @@
       "button_secondary": "Έξοδος επαλήθευσης",
       "button_secondary_alt": "Προσπαθήστε ξανά",
       "subtitle": "Παρακαλούμε χρησιμοποιήστε ένα άλλο έγγραφο που υποστηρίζει NFC. Αναζητήστε αυτό το εικονίδιο",
+      "subtitle_icon": "Please use another document that is NFC-enabled. Look for this icon <icon></icon>",
       "title": "Μη υποστηριζόμενο έγγραφο"
     },
     "upload": {
@@ -1799,6 +1802,7 @@
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
+        "button_manual": "document.scan.button_manual",
         "feedback": {
           "alignment_center_document": "document.scan.feedback.alignment_center_document",
           "alignment_center_document_down_accessibility": "document.scan.feedback.alignment_center_document_down_accessibility",
@@ -2589,7 +2593,8 @@
         "primary_button": "document.unsupported_document.button_secondary_alt"
       },
       "nfc_scan_error_document_unsupported": {
-        "subtitle": "document.unsupported_document.subtitle"
+        "subtitle": "document.unsupported_document.subtitle",
+        "subtitle_icon": "document.unsupported_document.subtitle_icon"
       },
       "nfc_scan_error_final_possible": {
         "card_secondary_button": "nfc.error.button_secondary.skip"
@@ -3509,7 +3514,7 @@
     "qr_screen": {
       "heading": "Αποκτήστε πρόσβαση στην πύλη με το υπάρχον Verified ID σας.",
       "list_item_1": "Ανοίξτε την εφαρμογή Microsoft Authenticator στη φορητή συσκευή σας.",
-      "list_item_2": "Ανοίξτε την καρτέλα Επαληθευμένες Ταυτότητες και πατήστε το κουμπί QR code στην επάνω δεξιά γωνία για να σαρώσετε."
+      "list_item_2": "Ανοίξτε την καρτέλα Επαληθευμένα αναγνωριστικά και πατήστε το κουμπί με τον κωδικό QR για σάρωση."
     }
   },
   "motion": {
@@ -4156,7 +4161,7 @@
       "failed_upload_title": "Η μεταφόρτωση απέτυχε",
       "glare_detail": "Απομακρυνθείτε από το άμεσο φως",
       "glare_title": "Ανιχνεύτηκε αντανάκλαση",
-      "image_accessibility": "Φωτογραφία του εγγράφου σας. Πατήστε δύο φορές για μεγέθυνση.",
+      "image_accessibility": "Φωτογραφία του εγγράφου σας",
       "no_barcode_detail": "Σταθείτε σε ένα καλά φωτισμένο μέρος και φέρτε το δελτίο πιο κοντά στην κάμερα",
       "no_barcode_title": "Δεν εντοπίστηκε γραμμωτός κώδικας",
       "no_doc_detail": "Βεβαιωθείτε ότι όλο το έγγραφο είναι στη φωτογραφία",

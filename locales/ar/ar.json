@@ -288,7 +288,8 @@
         "ZMB": "زامبيا",
         "ZWE": "زيمبابوي"
       },
-      "country_no_match": "لا توجد نتائج"
+      "country_no_match": "لا توجد نتائج",
+      "country_not_found": "البلد غير موجود"
     },
     "disclaimer": {
       "icon_info_accessibility": "معلومات:"
@@ -877,7 +878,7 @@
       "failed_upload_title": "فشل التحميل",
       "glare_detail": "ابتعد عن الضوء المباشر",
       "glare_title": "تم اكتشاف توهج",
-      "image_accessibility": "صورة مستندك. اضغط مرتين للتكبير.",
+      "image_accessibility": "صورة مستندك",
       "no_barcode_detail": "ابقَ في مكان جيد الإضاءة واجعل البطاقة أقرب إلى الكاميرا",
       "no_barcode_title": "لم يتم الكشف عن الباركود",
       "no_doc_detail": "تأكد من وجود جميع المستندات في الصورة",
@@ -899,6 +900,7 @@
     },
     "scan": {
       "button_help": "هل تحتاج إلى مساعدة؟",
+      "button_manual": "ابدأ المسح",
       "feedback": {
         "alignment_center_document": "ضع المستند في الوسط",
         "alignment_center_document_down_accessibility": "حرك مستندك إلى الأسفل.",
@@ -1011,6 +1013,7 @@
       "button_secondary": "التحقق عند الخروج",
       "button_secondary_alt": "إعادة المحاولة",
       "subtitle": "يرجى استخدام مستند آخر يدعم NFC. ابحث عن هذا الرمز",
+      "subtitle_icon": "Please use another document that is NFC-enabled. Look for this icon <icon></icon>",
       "title": "وثيقة غير مدعومة"
     },
     "upload": {
@@ -1799,6 +1802,7 @@
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
+        "button_manual": "document.scan.button_manual",
         "feedback": {
           "alignment_center_document": "document.scan.feedback.alignment_center_document",
           "alignment_center_document_down_accessibility": "document.scan.feedback.alignment_center_document_down_accessibility",
@@ -2589,7 +2593,8 @@
         "primary_button": "document.unsupported_document.button_secondary_alt"
       },
       "nfc_scan_error_document_unsupported": {
-        "subtitle": "document.unsupported_document.subtitle"
+        "subtitle": "document.unsupported_document.subtitle",
+        "subtitle_icon": "document.unsupported_document.subtitle_icon"
       },
       "nfc_scan_error_final_possible": {
         "card_secondary_button": "nfc.error.button_secondary.skip"
@@ -3509,7 +3514,7 @@
     "qr_screen": {
       "heading": "ادخل إلى البوابة باستخدام هوية التحقق الخاصة بك الحالية.",
       "list_item_1": "افتح تطبيق Microsoft Authenticator على جهازك المحمول.",
-      "list_item_2": "افتح علامة تبويب الهويات الموثقة واضغط على زر رمز الاستجابة السريعة في الزاوية العلوية اليمنى للمسح."
+      "list_item_2": "افتح علامة التبويب \"الهويات المُثبتة\" واضغط على زر رمز الاستجابة السريعة لمسحه."
     }
   },
   "motion": {
@@ -4156,7 +4161,7 @@
       "failed_upload_title": "فشل التحميل",
       "glare_detail": "ابتعد عن الضوء المباشر",
       "glare_title": "تم اكتشاف توهج",
-      "image_accessibility": "صورة مستندك. اضغط مرتين للتكبير.",
+      "image_accessibility": "صورة مستندك",
       "no_barcode_detail": "ابقَ في مكان جيد الإضاءة واجعل البطاقة أقرب إلى الكاميرا",
       "no_barcode_title": "لم يتم الكشف عن الباركود",
       "no_doc_detail": "تأكد من وجود جميع المستندات في الصورة",

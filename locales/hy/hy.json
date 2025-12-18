@@ -288,7 +288,8 @@
         "ZMB": "Զամբիա",
         "ZWE": "Զիմբաբվե"
       },
-      "country_no_match": "Ոչ մի արդյունք չի գտնվել"
+      "country_no_match": "Ոչ մի արդյունք չի գտնվել",
+      "country_not_found": "Երկիրը չի գտնվել"
     },
     "disclaimer": {
       "icon_info_accessibility": "Տեղեկություն:"
@@ -877,7 +878,7 @@
       "failed_upload_title": "Վերբեռնումը ձախողվեց",
       "glare_detail": "Հեռու կանգնեք ուղիղ լուսավորությունից",
       "glare_title": "Առկա է լրացուցիչ լուսավորություն",
-      "image_accessibility": "Ձեր փաստաթղթի լուսանկարը։ Մեծացնելու համար կրկնակի հպեք",
+      "image_accessibility": "Ձեր փաստաթղթի լուսանկարը",
       "no_barcode_detail": "Կանգնեք լավ լուսավորված տեղում և քարտը մոտեցրեք տեսախցիկին",
       "no_barcode_title": "Շտրիխ կոդը չի գտնվել",
       "no_doc_detail": "Համոզվեք, որ փաստաթուղթն ամբողջությամբ է երևում լուսանկարում",
@@ -899,6 +900,7 @@
     },
     "scan": {
       "button_help": "Օգնության կարիք ունե՞ք։",
+      "button_manual": "Սկսել սկանավորումը",
       "feedback": {
         "alignment_center_document": "Կենտրոնացրու փաստաթուղթը",
         "alignment_center_document_down_accessibility": "Տեղափոխեք ձեր փաստաթուղթը ներքև։",
@@ -1011,6 +1013,7 @@
       "button_secondary": "Ելքի ստուգում",
       "button_secondary_alt": "Կրկին փորձել",
       "subtitle": "Խնդրում ենք օգտագործել NFC-ով ակտիվացված այլ փաստաթուղթ։ Փնտրեք այս պատկերակը",
+      "subtitle_icon": "Please use another document that is NFC-enabled. Look for this icon <icon></icon>",
       "title": "Չաջակցվող փաստաթուղթ"
     },
     "upload": {
@@ -1799,6 +1802,7 @@
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
+        "button_manual": "document.scan.button_manual",
         "feedback": {
           "alignment_center_document": "document.scan.feedback.alignment_center_document",
           "alignment_center_document_down_accessibility": "document.scan.feedback.alignment_center_document_down_accessibility",
@@ -2589,7 +2593,8 @@
         "primary_button": "document.unsupported_document.button_secondary_alt"
       },
       "nfc_scan_error_document_unsupported": {
-        "subtitle": "document.unsupported_document.subtitle"
+        "subtitle": "document.unsupported_document.subtitle",
+        "subtitle_icon": "document.unsupported_document.subtitle_icon"
       },
       "nfc_scan_error_final_possible": {
         "card_secondary_button": "nfc.error.button_secondary.skip"
@@ -3509,7 +3514,7 @@
     "qr_screen": {
       "heading": "Մուտք գործեք պորտալ ձեր առկա հաստատված ID-ով։",
       "list_item_1": "Բացեք Microsoft Authenticator հավելվածը ձեր բջջային սարքում։",
-      "list_item_2": "Բացեք «Հաստատված ID-ներ» ներդիրը և սեղմեք վերևի աջ անկյունում գտնվող QR կոդի կոճակը՝ սկանավորելու համար։"
+      "list_item_2": "Բացեք «Հաստատված ID-ներ» ներդիրը և սեղմեք QR կոդի կոճակը՝ սկանավորելու համար։"
     }
   },
   "motion": {
@@ -4156,7 +4161,7 @@
       "failed_upload_title": "Վերբեռնումը ձախողվեց",
       "glare_detail": "Հեռու կանգնեք ուղիղ լուսավորությունից",
       "glare_title": "Առկա է լրացուցիչ լուսավորություն",
-      "image_accessibility": "Ձեր փաստաթղթի լուսանկարը։ Մեծացնելու համար կրկնակի հպեք",
+      "image_accessibility": "Ձեր փաստաթղթի լուսանկարը",
       "no_barcode_detail": "Կանգնեք լավ լուսավորված տեղում և քարտը մոտեցրեք տեսախցիկին",
       "no_barcode_title": "Շտրիխ կոդը չի գտնվել",
       "no_doc_detail": "Համոզվեք, որ փաստաթուղթն ամբողջությամբ է երևում լուսանկարում",

@@ -288,7 +288,8 @@
         "ZMB": "Zambie",
         "ZWE": "Zimbabwe"
       },
-      "country_no_match": "Žádné výsledky"
+      "country_no_match": "Žádné výsledky",
+      "country_not_found": "Země nebyla nalezena"
     },
     "disclaimer": {
       "icon_info_accessibility": "Informace:"
@@ -877,7 +878,7 @@
       "failed_upload_title": "Nahrání se nezdařilo",
       "glare_detail": "Odstupte od přímého světla",
       "glare_title": "Zjištěno oslnění",
-      "image_accessibility": "Fotografie dokumentu. Dvojitým klepnutím ji zvětšíte.",
+      "image_accessibility": "Fotografie Vašeho dokumentu",
       "no_barcode_detail": "Zůstaňte na dobře osvětleném místě a přiblížte kartu k fotoaparátu",
       "no_barcode_title": "Čárový kód nebyl detekován",
       "no_doc_detail": "Ujistěte se, že je na fotografii celý dokument",
@@ -899,6 +900,7 @@
     },
     "scan": {
       "button_help": "Potřebujete pomoc?",
+      "button_manual": "Spustit skenování",
       "feedback": {
         "alignment_center_document": "Vystřeďte doklad",
         "alignment_center_document_down_accessibility": "Posuňte svůj doklad dolů.",
@@ -1011,6 +1013,7 @@
       "button_secondary": "Ověření při odchodu",
       "button_secondary_alt": "Opakování",
       "subtitle": "Použijte prosím jiný doklad, který podporuje NFC. Hledejte tuto ikonu",
+      "subtitle_icon": "Please use another document that is NFC-enabled. Look for this icon <icon></icon>",
       "title": "Nepodporovaný doklad"
     },
     "upload": {
@@ -1799,6 +1802,7 @@
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
+        "button_manual": "document.scan.button_manual",
         "feedback": {
           "alignment_center_document": "document.scan.feedback.alignment_center_document",
           "alignment_center_document_down_accessibility": "document.scan.feedback.alignment_center_document_down_accessibility",
@@ -2589,7 +2593,8 @@
         "primary_button": "document.unsupported_document.button_secondary_alt"
       },
       "nfc_scan_error_document_unsupported": {
-        "subtitle": "document.unsupported_document.subtitle"
+        "subtitle": "document.unsupported_document.subtitle",
+        "subtitle_icon": "document.unsupported_document.subtitle_icon"
       },
       "nfc_scan_error_final_possible": {
         "card_secondary_button": "nfc.error.button_secondary.skip"
@@ -3509,7 +3514,7 @@
     "qr_screen": {
       "heading": "Přistupte k portálu se svým stávajícím ověřeným ID.",
       "list_item_1": "Otevřete aplikaci Microsoft Authenticator na svém mobilním zařízení.",
-      "list_item_2": "Otevřete kartu Ověřené ID a klepněte na tlačítko QR kódu v pravém horním rohu pro skenování."
+      "list_item_2": "Otevřete kartu Ověřené ID a klepnutím na tlačítko QR kódu naskenujte."
     }
   },
   "motion": {
@@ -4156,7 +4161,7 @@
       "failed_upload_title": "Nahrání se nezdařilo",
       "glare_detail": "Odstupte od přímého světla",
       "glare_title": "Zjištěno oslnění",
-      "image_accessibility": "Fotografie dokumentu. Dvojitým klepnutím ji zvětšíte.",
+      "image_accessibility": "Fotografie Vašeho dokumentu",
       "no_barcode_detail": "Zůstaňte na dobře osvětleném místě a přiblížte kartu k fotoaparátu",
       "no_barcode_title": "Čárový kód nebyl detekován",
       "no_doc_detail": "Ujistěte se, že je na fotografii celý dokument",

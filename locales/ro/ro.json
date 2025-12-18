@@ -288,7 +288,8 @@
         "ZMB": "Zambia",
         "ZWE": "Zimbabwe"
       },
-      "country_no_match": "Niciun rezultat"
+      "country_no_match": "Niciun rezultat",
+      "country_not_found": "Țara nu a fost găsită"
     },
     "disclaimer": {
       "icon_info_accessibility": "Informație:"
@@ -877,7 +878,7 @@
       "failed_upload_title": "Încărcare eșuată",
       "glare_detail": "Nu stați în lumină directă",
       "glare_title": "Luciu detectat",
-      "image_accessibility": "Poza documentului dvs. Atingeți de două ori pentru a mări.",
+      "image_accessibility": "Poză a documentului dvs.",
       "no_barcode_detail": "Stați într-un loc bine luminat și aduceți cardul mai aproape de camera video",
       "no_barcode_title": "Codul de bare nu a fost detectat",
       "no_doc_detail": "Asigurați-vă că întregul document este în poză",
@@ -899,6 +900,7 @@
     },
     "scan": {
       "button_help": "Ai nevoie de ajutor?",
+      "button_manual": "Începe scanarea",
       "feedback": {
         "alignment_center_document": "Centrează documentul",
         "alignment_center_document_down_accessibility": "Mută documentul în jos.",
@@ -1011,6 +1013,7 @@
       "button_secondary": "Ieşire din verificare",
       "button_secondary_alt": "Încercați din nou",
       "subtitle": "Vă rugăm să folosiți un alt document care are NFC activat. Căutați această pictogramă",
+      "subtitle_icon": "Please use another document that is NFC-enabled. Look for this icon <icon></icon>",
       "title": "Document neacceptat"
     },
     "upload": {
@@ -1799,6 +1802,7 @@
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
+        "button_manual": "document.scan.button_manual",
         "feedback": {
           "alignment_center_document": "document.scan.feedback.alignment_center_document",
           "alignment_center_document_down_accessibility": "document.scan.feedback.alignment_center_document_down_accessibility",
@@ -2589,7 +2593,8 @@
         "primary_button": "document.unsupported_document.button_secondary_alt"
       },
       "nfc_scan_error_document_unsupported": {
-        "subtitle": "document.unsupported_document.subtitle"
+        "subtitle": "document.unsupported_document.subtitle",
+        "subtitle_icon": "document.unsupported_document.subtitle_icon"
       },
       "nfc_scan_error_final_possible": {
         "card_secondary_button": "nfc.error.button_secondary.skip"
@@ -3509,7 +3514,7 @@
     "qr_screen": {
       "heading": "Accesează portalul cu ID-ul tău verificat existent.",
       "list_item_1": "Deschideți aplicația Microsoft Authenticator pe dispozitivul mobil.",
-      "list_item_2": "Deschideți fila ID-uri verificate și atingeți butonul cu cod QR din colțul din dreapta sus pentru a scana."
+      "list_item_2": "Deschide fila ID-uri verificate și atinge butonul cu cod QR pentru a scana."
     }
   },
   "motion": {
@@ -3621,7 +3626,7 @@
       "title": "Eroare de conectare"
     },
     "error": {
-      "button_primary": "Reîncearcă scanarea",
+      "button_primary": "Reîncercați scanarea",
       "button_secondary": {
         "exit": "Ieşire din verificare",
         "skip": "Verifică fără scanare"
@@ -4156,7 +4161,7 @@
       "failed_upload_title": "Încărcare eșuată",
       "glare_detail": "Nu stați în lumină directă",
       "glare_title": "Luciu detectat",
-      "image_accessibility": "Poza documentului dvs. Atingeți de două ori pentru a mări.",
+      "image_accessibility": "Poză a documentului dvs.",
       "no_barcode_detail": "Stați într-un loc bine luminat și aduceți cardul mai aproape de camera video",
       "no_barcode_title": "Codul de bare nu a fost detectat",
       "no_doc_detail": "Asigurați-vă că întregul document este în poză",
@@ -4312,7 +4317,7 @@
       "default": "Vă rugăm să încercați din nou",
       "expired_document": "Vă rugăm să încercați din nou cu un document de identitate cu poză valabil și asigurați-vă că informațiile dvs. sunt clar vizibile",
       "generic_document_issue": "Vă rugăm să încercați din nou cu un document de identitate cu poză valabil și asigurați-vă că informațiile dvs. sunt clar vizibile",
-      "generic_proof_of_address_issue": "Reîncearcă folosind un document valid și asigură-te că informațiile tale sunt clar vizibile",
+      "generic_proof_of_address_issue": "Reîncercați folosind un document valid și asigurați-vă că informațiile dumneavoastră sunt clar vizibile",
       "generic_selfie_issue": "Vă rugăm să încercați din nou și asigurați-vă că fața dvs. este vizibilă și bine luminată",
       "unaccepted_document": "Vă rugăm să încercați din nou cu un document de identitate cu poză valabil și asigurați-vă că informațiile dvs. sunt clar vizibile"
     },
@@ -4320,7 +4325,7 @@
       "default": "A fost o problemă",
       "expired_document": "Documentul dvs. a expirat",
       "generic_document_issue": "A apărut o problemă cu documentul tău",
-      "generic_proof_of_address_issue": "A apărut o problemă cu documentul tău",
+      "generic_proof_of_address_issue": "A apărut o problemă cu documentul dumneavoastră",
       "generic_selfie_issue": "A existat o problemă cu selfie-ul tău",
       "unaccepted_document": "Document neacceptat"
     }

@@ -288,7 +288,8 @@
         "ZMB": "Замбія",
         "ZWE": "Зімбабве"
       },
-      "country_no_match": "Результатів немає"
+      "country_no_match": "Результатів немає",
+      "country_not_found": "Країну не знайдено"
     },
     "disclaimer": {
       "icon_info_accessibility": "Інформація:"
@@ -877,7 +878,7 @@
       "failed_upload_title": "Помилка завантаження",
       "glare_detail": "Заберіть документ із-під прямого освітлення",
       "glare_title": "Виявлено відблиск",
-      "image_accessibility": "Фотографія вашого документа. Торкніться двічі, щоб збільшити.",
+      "image_accessibility": "Фотографія вашого документа",
       "no_barcode_detail": "Перебуваючи в добре освітленому місці, піднесіть посвідчення ближче до камери",
       "no_barcode_title": "Штрих-код не виявлено",
       "no_doc_detail": "Переконайтеся, що весь документ потрапляє в кадр",
@@ -899,6 +900,7 @@
     },
     "scan": {
       "button_help": "Потрібна допомога?",
+      "button_manual": "Почати сканування",
       "feedback": {
         "alignment_center_document": "Відцентруйте документ",
         "alignment_center_document_down_accessibility": "Перемістіть документ вниз.",
@@ -1011,6 +1013,7 @@
       "button_secondary": "Верифікація при виході",
       "button_secondary_alt": "Повторити",
       "subtitle": "Будь ласка, використайте інший документ з підтримкою NFC. Шукайте цю іконку",
+      "subtitle_icon": "Please use another document that is NFC-enabled. Look for this icon <icon></icon>",
       "title": "Непідтримуваний документ"
     },
     "upload": {
@@ -1799,6 +1802,7 @@
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
+        "button_manual": "document.scan.button_manual",
         "feedback": {
           "alignment_center_document": "document.scan.feedback.alignment_center_document",
           "alignment_center_document_down_accessibility": "document.scan.feedback.alignment_center_document_down_accessibility",
@@ -2589,7 +2593,8 @@
         "primary_button": "document.unsupported_document.button_secondary_alt"
       },
       "nfc_scan_error_document_unsupported": {
-        "subtitle": "document.unsupported_document.subtitle"
+        "subtitle": "document.unsupported_document.subtitle",
+        "subtitle_icon": "document.unsupported_document.subtitle_icon"
       },
       "nfc_scan_error_final_possible": {
         "card_secondary_button": "nfc.error.button_secondary.skip"
@@ -3509,7 +3514,7 @@
     "qr_screen": {
       "heading": "Отримайте доступ до порталу за допомогою вашого існуючого підтвердженого ID.",
       "list_item_1": "Відкрийте додаток Microsoft Authenticator на своєму мобільному пристрої.",
-      "list_item_2": "Відкрийте вкладку «Верифіковані ID» та натисніть кнопку QR-коду у верхньому правому куті для сканування."
+      "list_item_2": "Відкрийте вкладку \"Перевірені ID\" і торкніться кнопки з QR-кодом, щоб сканувати."
     }
   },
   "motion": {
@@ -4156,7 +4161,7 @@
       "failed_upload_title": "Помилка завантаження",
       "glare_detail": "Заберіть документ із-під прямого освітлення",
       "glare_title": "Виявлено відблиск",
-      "image_accessibility": "Фотографія вашого документа. Торкніться двічі, щоб збільшити.",
+      "image_accessibility": "Фотографія вашого документа",
       "no_barcode_detail": "Перебуваючи в добре освітленому місці, піднесіть посвідчення ближче до камери",
       "no_barcode_title": "Штрих-код не виявлено",
       "no_doc_detail": "Переконайтеся, що весь документ потрапляє в кадр",

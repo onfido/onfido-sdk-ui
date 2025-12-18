@@ -288,7 +288,8 @@
         "ZMB": "Zambia",
         "ZWE": "Zimbabwe"
       },
-      "country_no_match": "Inget resultat"
+      "country_no_match": "Inget resultat",
+      "country_not_found": "Landet hittades inte"
     },
     "disclaimer": {
       "icon_info_accessibility": "Information:"
@@ -877,7 +878,7 @@
       "failed_upload_title": "Uppladdning misslyckades",
       "glare_detail": "Flytta bort från direkt ljus",
       "glare_title": "Ljusreflex upptäckt",
-      "image_accessibility": "Foto av ditt dokument. Tryck två gånger för att förstora.",
+      "image_accessibility": "Foto av ditt dokument",
       "no_barcode_detail": "Var på en väl upplyst plats och för kortet närmare kameran",
       "no_barcode_title": "Ingen streckkod upptäcktes",
       "no_doc_detail": "Se till att alla dokument finns med på fotot",
@@ -899,6 +900,7 @@
     },
     "scan": {
       "button_help": "Behöver du hjälp?",
+      "button_manual": "Starta skanning",
       "feedback": {
         "alignment_center_document": "Centrera dokumentet",
         "alignment_center_document_down_accessibility": "Flytta ditt dokument nedåt.",
@@ -1011,6 +1013,7 @@
       "button_secondary": "Avsluta verifiering",
       "button_secondary_alt": "Försök igen",
       "subtitle": "Använd ett annat dokument som har NFC aktiverat. Leta efter denna ikon",
+      "subtitle_icon": "Please use another document that is NFC-enabled. Look for this icon <icon></icon>",
       "title": "Dokument som inte stöds"
     },
     "upload": {
@@ -1799,6 +1802,7 @@
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
+        "button_manual": "document.scan.button_manual",
         "feedback": {
           "alignment_center_document": "document.scan.feedback.alignment_center_document",
           "alignment_center_document_down_accessibility": "document.scan.feedback.alignment_center_document_down_accessibility",
@@ -2589,7 +2593,8 @@
         "primary_button": "document.unsupported_document.button_secondary_alt"
       },
       "nfc_scan_error_document_unsupported": {
-        "subtitle": "document.unsupported_document.subtitle"
+        "subtitle": "document.unsupported_document.subtitle",
+        "subtitle_icon": "document.unsupported_document.subtitle_icon"
       },
       "nfc_scan_error_final_possible": {
         "card_secondary_button": "nfc.error.button_secondary.skip"
@@ -3509,7 +3514,7 @@
     "qr_screen": {
       "heading": "Få åtkomst till portalen med ditt befintliga verifierade ID.",
       "list_item_1": "Öppna Microsoft Authenticator-appen på din mobila enhet.",
-      "list_item_2": "Öppna fliken Verifierade ID:n och tryck på QR-kodknappen i det övre högra hörnet för att skanna."
+      "list_item_2": "Öppna fliken Verifierade ID:n och tryck på QR-kodknappen för att skanna."
     }
   },
   "motion": {
@@ -4156,7 +4161,7 @@
       "failed_upload_title": "Uppladdning misslyckades",
       "glare_detail": "Flytta bort från direkt ljus",
       "glare_title": "Ljusreflex upptäckt",
-      "image_accessibility": "Foto av ditt dokument. Tryck två gånger för att förstora.",
+      "image_accessibility": "Foto av ditt dokument",
       "no_barcode_detail": "Var på en väl upplyst plats och för kortet närmare kameran",
       "no_barcode_title": "Ingen streckkod upptäcktes",
       "no_doc_detail": "Se till att alla dokument finns med på fotot",

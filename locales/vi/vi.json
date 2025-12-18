@@ -288,7 +288,8 @@
         "ZMB": "Zambia",
         "ZWE": "Zimbabwe"
       },
-      "country_no_match": "Không có kết quả"
+      "country_no_match": "Không có kết quả",
+      "country_not_found": "Không tìm thấy quốc gia"
     },
     "disclaimer": {
       "icon_info_accessibility": "Thông tin:"
@@ -877,7 +878,7 @@
       "failed_upload_title": "Tải lên không thành công",
       "glare_detail": "Tránh xa ánh sáng trực tiếp",
       "glare_title": "Phát hiện ánh sáng chói",
-      "image_accessibility": "Ảnh chụp giấy tờ của bạn. Chạm hai lần để phóng to.",
+      "image_accessibility": "Ảnh chụp giấy tờ của bạn",
       "no_barcode_detail": "Ở nơi có ánh sáng tốt và đưa thẻ đến gần máy ảnh",
       "no_barcode_title": "Không tìm thấy mã vạch",
       "no_doc_detail": "Đảm bảo tất cả các giấy tờ đều có trong ảnh",
@@ -899,6 +900,7 @@
     },
     "scan": {
       "button_help": "Cần trợ giúp?",
+      "button_manual": "Bắt đầu quét",
       "feedback": {
         "alignment_center_document": "Đặt tài liệu vào giữa",
         "alignment_center_document_down_accessibility": "Di chuyển giấy tờ của bạn xuống dưới.",
@@ -1011,6 +1013,7 @@
       "button_secondary": "Xác minh thoát",
       "button_secondary_alt": "Thử lại",
       "subtitle": "Vui lòng sử dụng một giấy tờ tùy thân khác có hỗ trợ NFC. Hãy tìm biểu tượng này",
+      "subtitle_icon": "Please use another document that is NFC-enabled. Look for this icon <icon></icon>",
       "title": "Tài liệu không được hỗ trợ"
     },
     "upload": {
@@ -1799,6 +1802,7 @@
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
+        "button_manual": "document.scan.button_manual",
         "feedback": {
           "alignment_center_document": "document.scan.feedback.alignment_center_document",
           "alignment_center_document_down_accessibility": "document.scan.feedback.alignment_center_document_down_accessibility",
@@ -2589,7 +2593,8 @@
         "primary_button": "document.unsupported_document.button_secondary_alt"
       },
       "nfc_scan_error_document_unsupported": {
-        "subtitle": "document.unsupported_document.subtitle"
+        "subtitle": "document.unsupported_document.subtitle",
+        "subtitle_icon": "document.unsupported_document.subtitle_icon"
       },
       "nfc_scan_error_final_possible": {
         "card_secondary_button": "nfc.error.button_secondary.skip"
@@ -3509,7 +3514,7 @@
     "qr_screen": {
       "heading": "Truy cập cổng thông tin bằng Verified ID hiện có của bạn.",
       "list_item_1": "Mở ứng dụng Microsoft Authenticator trên thiết bị di động của bạn.",
-      "list_item_2": "Mở tab ID đã xác minh và nhấn vào nút mã QR ở góc trên bên phải để quét."
+      "list_item_2": "Mở tab ID Đã Xác Minh và nhấn vào nút mã QR để quét."
     }
   },
   "motion": {
@@ -4156,7 +4161,7 @@
       "failed_upload_title": "Tải lên không thành công",
       "glare_detail": "Tránh xa ánh sáng trực tiếp",
       "glare_title": "Phát hiện ánh sáng chói",
-      "image_accessibility": "Ảnh chụp giấy tờ của bạn. Chạm hai lần để phóng to.",
+      "image_accessibility": "Ảnh chụp giấy tờ của bạn",
       "no_barcode_detail": "Ở nơi có ánh sáng tốt và đưa thẻ đến gần máy ảnh",
       "no_barcode_title": "Không tìm thấy mã vạch",
       "no_doc_detail": "Đảm bảo tất cả các giấy tờ đều có trong ảnh",

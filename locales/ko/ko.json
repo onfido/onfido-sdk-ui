@@ -288,7 +288,8 @@
         "ZMB": "잠비아",
         "ZWE": "짐바브웨"
       },
-      "country_no_match": "결과가 없습니다"
+      "country_no_match": "결과가 없습니다",
+      "country_not_found": "국가를 찾을 수 없습니다"
     },
     "disclaimer": {
       "icon_info_accessibility": "정보:"
@@ -877,7 +878,7 @@
       "failed_upload_title": "업로드 실패",
       "glare_detail": "직접적인 광원에서 살짝 벗어나세요",
       "glare_title": "빛 반사가 감지되었습니다",
-      "image_accessibility": "서류에 부착된 사진. 확대하려면 두 번 누르세요.",
+      "image_accessibility": "서류에 부착된 사진",
       "no_barcode_detail": "조명이 밝은 곳에 자리를 잡고 카드를 카메라 가까이로 가져가세요",
       "no_barcode_title": "바코드가 감지되지 않습니다",
       "no_doc_detail": "사진에 서류 전체가 포함되었는지 확인하세요",
@@ -899,6 +900,7 @@
     },
     "scan": {
       "button_help": "도움이 필요하신가요?",
+      "button_manual": "스캔 시작",
       "feedback": {
         "alignment_center_document": "문서를 중앙에 맞추세요",
         "alignment_center_document_down_accessibility": "신분증을 아래로 이동하세요.",
@@ -1011,6 +1013,7 @@
       "button_secondary": "출구 확인",
       "button_secondary_alt": "재시도",
       "subtitle": "NFC 기능이 있는 다른 신분증을 사용해 주세요. 이 아이콘을 찾아보세요",
+      "subtitle_icon": "Please use another document that is NFC-enabled. Look for this icon <icon></icon>",
       "title": "지원되지 않는 문서"
     },
     "upload": {
@@ -1799,6 +1802,7 @@
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
+        "button_manual": "document.scan.button_manual",
         "feedback": {
           "alignment_center_document": "document.scan.feedback.alignment_center_document",
           "alignment_center_document_down_accessibility": "document.scan.feedback.alignment_center_document_down_accessibility",
@@ -2589,7 +2593,8 @@
         "primary_button": "document.unsupported_document.button_secondary_alt"
       },
       "nfc_scan_error_document_unsupported": {
-        "subtitle": "document.unsupported_document.subtitle"
+        "subtitle": "document.unsupported_document.subtitle",
+        "subtitle_icon": "document.unsupported_document.subtitle_icon"
       },
       "nfc_scan_error_final_possible": {
         "card_secondary_button": "nfc.error.button_secondary.skip"
@@ -3509,7 +3514,7 @@
     "qr_screen": {
       "heading": "기존에 인증된 ID로 포털에 접속하세요.",
       "list_item_1": "모바일 기기에서 Microsoft Authenticator 앱을 여세요.",
-      "list_item_2": "Verified IDs 탭을 열고 오른쪽 상단에 있는 QR 코드 버튼을 눌러 스캔하세요."
+      "list_item_2": "\"Verified ID\" 탭을 열고 QR 코드 버튼을 눌러 스캔하세요."
     }
   },
   "motion": {
@@ -4156,7 +4161,7 @@
       "failed_upload_title": "업로드 실패",
       "glare_detail": "직접적인 광원에서 살짝 벗어나세요",
       "glare_title": "빛 반사가 감지되었습니다",
-      "image_accessibility": "서류에 부착된 사진. 확대하려면 두 번 누르세요.",
+      "image_accessibility": "서류에 부착된 사진",
       "no_barcode_detail": "조명이 밝은 곳에 자리를 잡고 카드를 카메라 가까이로 가져가세요",
       "no_barcode_title": "바코드가 감지되지 않습니다",
       "no_doc_detail": "사진에 서류 전체가 포함되었는지 확인하세요",

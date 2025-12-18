@@ -288,7 +288,8 @@
         "ZMB": "Замбия",
         "ZWE": "Зимбабве"
       },
-      "country_no_match": "Результаты отсутствуют"
+      "country_no_match": "Результаты отсутствуют",
+      "country_not_found": "Страна не найдена"
     },
     "disclaimer": {
       "icon_info_accessibility": "Информация:"
@@ -877,7 +878,7 @@
       "failed_upload_title": "Загрузка не удалась",
       "glare_detail": "Отойдите от прямого света",
       "glare_title": "Обнаружены блики",
-      "image_accessibility": "Фото вашего документа. Чтобы увеличить, нажмите дважды.",
+      "image_accessibility": "Фото вашего документа",
       "no_barcode_detail": "Оставайтесь на хорошо освещенном месте и поднесите карточку ближе к камере",
       "no_barcode_title": "Штрих-код не обнаружен",
       "no_doc_detail": "Убедитесь, что на фото весь документ",
@@ -899,6 +900,7 @@
     },
     "scan": {
       "button_help": "Нужна помощь?",
+      "button_manual": "Начать сканирование",
       "feedback": {
         "alignment_center_document": "Расположите документ по центру",
         "alignment_center_document_down_accessibility": "Опустите документ ниже.",
@@ -1011,6 +1013,7 @@
       "button_secondary": "Выход из проверки",
       "button_secondary_alt": "Повторить",
       "subtitle": "Пожалуйста, используйте другой документ с поддержкой NFC. Ищите этот значок",
+      "subtitle_icon": "Please use another document that is NFC-enabled. Look for this icon <icon></icon>",
       "title": "Неподдерживаемый документ"
     },
     "upload": {
@@ -1799,6 +1802,7 @@
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
+        "button_manual": "document.scan.button_manual",
         "feedback": {
           "alignment_center_document": "document.scan.feedback.alignment_center_document",
           "alignment_center_document_down_accessibility": "document.scan.feedback.alignment_center_document_down_accessibility",
@@ -2589,7 +2593,8 @@
         "primary_button": "document.unsupported_document.button_secondary_alt"
       },
       "nfc_scan_error_document_unsupported": {
-        "subtitle": "document.unsupported_document.subtitle"
+        "subtitle": "document.unsupported_document.subtitle",
+        "subtitle_icon": "document.unsupported_document.subtitle_icon"
       },
       "nfc_scan_error_final_possible": {
         "card_secondary_button": "nfc.error.button_secondary.skip"
@@ -3509,7 +3514,7 @@
     "qr_screen": {
       "heading": "Войдите в портал, используя свой существующий Verified ID.",
       "list_item_1": "Откройте приложение Microsoft Authenticator на своем мобильном устройстве.",
-      "list_item_2": "Откройте вкладку «Проверенные удостоверения» и нажмите кнопку с QR-кодом в правом верхнем углу, чтобы отсканировать."
+      "list_item_2": "Откройте вкладку «Проверенные ID» и нажмите кнопку QR-кода для сканирования."
     }
   },
   "motion": {
@@ -4156,7 +4161,7 @@
       "failed_upload_title": "Загрузка не удалась",
       "glare_detail": "Отойдите от прямого света",
       "glare_title": "Обнаружены блики",
-      "image_accessibility": "Фото вашего документа. Чтобы увеличить, нажмите дважды.",
+      "image_accessibility": "Фото вашего документа",
       "no_barcode_detail": "Оставайтесь на хорошо освещенном месте и поднесите карточку ближе к камере",
       "no_barcode_title": "Штрих-код не обнаружен",
       "no_doc_detail": "Убедитесь, что на фото весь документ",

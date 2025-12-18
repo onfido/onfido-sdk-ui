@@ -288,7 +288,8 @@
         "ZMB": "זמביה",
         "ZWE": "זימבבואה"
       },
-      "country_no_match": "אין תוצאות"
+      "country_no_match": "אין תוצאות",
+      "country_not_found": "הארץ לא נמצאה"
     },
     "disclaimer": {
       "icon_info_accessibility": "מידע:"
@@ -877,7 +878,7 @@
       "failed_upload_title": "ההעלאה נכשלה",
       "glare_detail": "התרחק מאור ישיר",
       "glare_title": "זוהתה השתקפות",
-      "image_accessibility": "תמונה של המסמך שלך.הקש פעמיים כדי להגדיל.",
+      "image_accessibility": "תמונה של המסמך שלך",
       "no_barcode_detail": "הישאר במקום מואר היטב וקרב את הכרטיס למצלמה",
       "no_barcode_title": "הברקוד לא זוהה",
       "no_doc_detail": "ודא שכל המסמך מופיע בתמונה",
@@ -899,6 +900,7 @@
     },
     "scan": {
       "button_help": "צריך עזרה?",
+      "button_manual": "התחל סריקה",
       "feedback": {
         "alignment_center_document": "מרכז את המסמך",
         "alignment_center_document_down_accessibility": "הזז את המסמך שלך למטה.",
@@ -1011,6 +1013,7 @@
       "button_secondary": "אימות יציאה",
       "button_secondary_alt": "נסה שוב",
       "subtitle": "אנא השתמש במסמך אחר שתומך ב-NFC. חפש את הסמל הזה",
+      "subtitle_icon": "Please use another document that is NFC-enabled. Look for this icon <icon></icon>",
       "title": "מסמך לא נתמך"
     },
     "upload": {
@@ -1799,6 +1802,7 @@
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
+        "button_manual": "document.scan.button_manual",
         "feedback": {
           "alignment_center_document": "document.scan.feedback.alignment_center_document",
           "alignment_center_document_down_accessibility": "document.scan.feedback.alignment_center_document_down_accessibility",
@@ -2589,7 +2593,8 @@
         "primary_button": "document.unsupported_document.button_secondary_alt"
       },
       "nfc_scan_error_document_unsupported": {
-        "subtitle": "document.unsupported_document.subtitle"
+        "subtitle": "document.unsupported_document.subtitle",
+        "subtitle_icon": "document.unsupported_document.subtitle_icon"
       },
       "nfc_scan_error_final_possible": {
         "card_secondary_button": "nfc.error.button_secondary.skip"
@@ -3509,7 +3514,7 @@
     "qr_screen": {
       "heading": "גשו לפורטל עם מזהה מאומת קיים שלכם.",
       "list_item_1": "פתח את אפליקציית Microsoft Authenticator במכשיר הנייד שלך.",
-      "list_item_2": "פתח את לשונית תעודות הזהות המאומתות והקש על כפתור קוד ה-QR בפינה הימנית העליונה כדי לסרוק."
+      "list_item_2": "פתח את הכרטיסייה זהויות מאומתות והקש על כפתור קוד ה-QR כדי לסרוק."
     }
   },
   "motion": {
@@ -4156,7 +4161,7 @@
       "failed_upload_title": "ההעלאה נכשלה",
       "glare_detail": "התרחק מאור ישיר",
       "glare_title": "זוהתה השתקפות",
-      "image_accessibility": "תמונה של המסמך שלך.הקש פעמיים כדי להגדיל.",
+      "image_accessibility": "תמונה של המסמך שלך",
       "no_barcode_detail": "הישאר במקום מואר היטב וקרב את הכרטיס למצלמה",
       "no_barcode_title": "הברקוד לא זוהה",
       "no_doc_detail": "ודא שכל המסמך מופיע בתמונה",

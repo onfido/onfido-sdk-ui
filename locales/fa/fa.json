@@ -288,7 +288,8 @@
         "ZMB": "زامبیا",
         "ZWE": "زیمبابوه"
       },
-      "country_no_match": "نتیجه‌ای نداشت"
+      "country_no_match": "نتیجه‌ای نداشت",
+      "country_not_found": "کشور مورد نظر پیدا نشد"
     },
     "disclaimer": {
       "icon_info_accessibility": "اطلاعات:"
@@ -877,7 +878,7 @@
       "failed_upload_title": "بارگذاری ناموفق بود",
       "glare_detail": "از نور مستقیم دور شوید",
       "glare_title": "انعکاس نور مزاحم است",
-      "image_accessibility": "عکس مدرک شما. برای بزرگنمایی، دو بار ضربه بزنید.",
+      "image_accessibility": "عکس مدرک شما",
       "no_barcode_detail": "در مکانی با نور مناسب باشید و کارت را به دوربین نزدیک کنید",
       "no_barcode_title": "بارکد شناسایی نشد",
       "no_doc_detail": "مطمئن شوید که تمام مدرک در عکس وجود دارد",
@@ -899,6 +900,7 @@
     },
     "scan": {
       "button_help": "نیاز به کمک دارید؟",
+      "button_manual": "شروع اسکن",
       "feedback": {
         "alignment_center_document": "مدرک را در مرکز قرار بده",
         "alignment_center_document_down_accessibility": "مدرک خود را پایین‌تر ببرید.",
@@ -1011,6 +1013,7 @@
       "button_secondary": "تأیید خروج",
       "button_secondary_alt": "سعی مجدد‌",
       "subtitle": "لطفاً از یک مدرک شناسایی دیگر که دارای قابلیت NFC است استفاده کنید. به دنبال این آیکون باشید",
+      "subtitle_icon": "Please use another document that is NFC-enabled. Look for this icon <icon></icon>",
       "title": "مدرک پشتیبانی‌نشده"
     },
     "upload": {
@@ -1799,6 +1802,7 @@
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
+        "button_manual": "document.scan.button_manual",
         "feedback": {
           "alignment_center_document": "document.scan.feedback.alignment_center_document",
           "alignment_center_document_down_accessibility": "document.scan.feedback.alignment_center_document_down_accessibility",
@@ -2589,7 +2593,8 @@
         "primary_button": "document.unsupported_document.button_secondary_alt"
       },
       "nfc_scan_error_document_unsupported": {
-        "subtitle": "document.unsupported_document.subtitle"
+        "subtitle": "document.unsupported_document.subtitle",
+        "subtitle_icon": "document.unsupported_document.subtitle_icon"
       },
       "nfc_scan_error_final_possible": {
         "card_secondary_button": "nfc.error.button_secondary.skip"
@@ -3509,7 +3514,7 @@
     "qr_screen": {
       "heading": "با شناسه تأییدشده موجود خود به پورتال دسترسی پیدا کنید.",
       "list_item_1": "برنامه Microsoft Authenticator را در دستگاه همراه خود باز کنید.",
-      "list_item_2": "برگه شناسه‌های تأییدشده را باز کنید و برای اسکن، دکمه کد QR را در گوشه بالا سمت راست لمس کنید."
+      "list_item_2": "تب «شناسه‌های تأییدشده» را باز کرده و دکمهٔ کد QR را برای اسکن لمس کنید."
     }
   },
   "motion": {
@@ -4156,7 +4161,7 @@
       "failed_upload_title": "بارگذاری ناموفق بود",
       "glare_detail": "از نور مستقیم دور شوید",
       "glare_title": "انعکاس نور مزاحم است",
-      "image_accessibility": "عکس مدرک شما. برای بزرگنمایی، دو بار ضربه بزنید.",
+      "image_accessibility": "عکس مدرک شما",
       "no_barcode_detail": "در مکانی با نور مناسب باشید و کارت را به دوربین نزدیک کنید",
       "no_barcode_title": "بارکد شناسایی نشد",
       "no_doc_detail": "مطمئن شوید که تمام مدرک در عکس وجود دارد",

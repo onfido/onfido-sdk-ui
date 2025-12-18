@@ -288,7 +288,8 @@
         "ZMB": "Zambia",
         "ZWE": "Zimbabwe"
       },
-      "country_no_match": "Nessun risultato"
+      "country_no_match": "Nessun risultato",
+      "country_not_found": "Paese non trovato"
     },
     "disclaimer": {
       "icon_info_accessibility": "Informazioni:"
@@ -877,7 +878,7 @@
       "failed_upload_title": "Caricamento non riuscito",
       "glare_detail": "Allontanati dalla luce diretta",
       "glare_title": "Riflesso rilevato",
-      "image_accessibility": "Foto del tuo documento. Tocca due volte per ingrandire.",
+      "image_accessibility": "Foto del tuo documento",
       "no_barcode_detail": "Resta in un punto ben illuminato e avvicina la carta alla fotocamera",
       "no_barcode_title": "Codice a barre non rilevato",
       "no_doc_detail": "Assicurati che la foto contenga tutto il documento",
@@ -899,6 +900,7 @@
     },
     "scan": {
       "button_help": "Serve aiuto?",
+      "button_manual": "Avvia scansione",
       "feedback": {
         "alignment_center_document": "Centra il documento",
         "alignment_center_document_down_accessibility": "Sposta il tuo documento verso il basso.",
@@ -1011,6 +1013,7 @@
       "button_secondary": "Uscita dalla verifica",
       "button_secondary_alt": "Riprova",
       "subtitle": "Utilizza un altro documento abilitato NFC. Cerca questa icona",
+      "subtitle_icon": "Please use another document that is NFC-enabled. Look for this icon <icon></icon>",
       "title": "Documento non supportato"
     },
     "upload": {
@@ -1799,6 +1802,7 @@
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
+        "button_manual": "document.scan.button_manual",
         "feedback": {
           "alignment_center_document": "document.scan.feedback.alignment_center_document",
           "alignment_center_document_down_accessibility": "document.scan.feedback.alignment_center_document_down_accessibility",
@@ -2589,7 +2593,8 @@
         "primary_button": "document.unsupported_document.button_secondary_alt"
       },
       "nfc_scan_error_document_unsupported": {
-        "subtitle": "document.unsupported_document.subtitle"
+        "subtitle": "document.unsupported_document.subtitle",
+        "subtitle_icon": "document.unsupported_document.subtitle_icon"
       },
       "nfc_scan_error_final_possible": {
         "card_secondary_button": "nfc.error.button_secondary.skip"
@@ -3509,7 +3514,7 @@
     "qr_screen": {
       "heading": "Accedi al portale con il tuo Verified ID esistente.",
       "list_item_1": "Apri l'app Microsoft Authenticator sul tuo dispositivo mobile.",
-      "list_item_2": "Apri la scheda ID verificati e tocca il pulsante del codice QR nell'angolo in alto a destra per scansionare."
+      "list_item_2": "Apri la scheda ID verificati e tocca il pulsante del codice QR per eseguire la scansione."
     }
   },
   "motion": {
@@ -4156,7 +4161,7 @@
       "failed_upload_title": "Caricamento non riuscito",
       "glare_detail": "Allontanati dalla luce diretta",
       "glare_title": "Riflesso rilevato",
-      "image_accessibility": "Foto del tuo documento. Tocca due volte per ingrandire.",
+      "image_accessibility": "Foto del tuo documento",
       "no_barcode_detail": "Resta in un punto ben illuminato e avvicina la carta alla fotocamera",
       "no_barcode_title": "Codice a barre non rilevato",
       "no_doc_detail": "Assicurati che la foto contenga tutto il documento",
