@@ -289,7 +289,7 @@
         "ZWE": "ジンバブエ"
       },
       "country_no_match": "一致する結果がありませんでした",
-      "country_not_found": "国名が見つかりません"
+      "country_not_found": "有効な国を選択してください"
     },
     "disclaimer": {
       "icon_info_accessibility": "情報:"
@@ -1013,7 +1013,7 @@
       "button_secondary": "退出確認",
       "button_secondary_alt": "再試行",
       "subtitle": "NFC対応の別の書類をご利用ください。このアイコンを探してください",
-      "subtitle_icon": "Please use another document that is NFC-enabled. Look for this icon <icon></icon>",
+      "subtitle_icon": "NFC対応の別の書類をご利用ください。このアイコンを探してください <icon></icon>",
       "title": "対応していない書類"
     },
     "upload": {
@@ -1931,6 +1931,9 @@
         "list_accessibility": "proofOfAddress.selection.accessibility",
         "pill": "sample.selection.pill",
         "section": {
+          "field_validation": {
+            "invalid_country": "common.country_selection.country_not_found"
+          },
           "header_country": "sample.selection.country_header",
           "header_doc_type": "sample.selection.doctypes_header",
           "input_country_not_found": "common.country_selection.country_no_match"
@@ -3257,6 +3260,18 @@
           "misconfigured": "qualifiedElectronicSignature.error.misconfigured"
         }
       },
+      "request_diatf_consent": {
+        "button_consent": "requestDiatfConsent.button.consent",
+        "button_no_consent": "requestDiatfConsent.button.no_consent",
+        "button_readmore": "requestDiatfConsent.button.read_more",
+        "prompt": {
+          "button_cancel_verification": "requestDiatfConsent.no_consent_prompt.button.cancel_verification",
+          "button_review_again": "requestDiatfConsent.no_consent_prompt.button.review_again",
+          "no_consent_detail": "requestDiatfConsent.no_consent_prompt.detail",
+          "no_consent_title": "requestDiatfConsent.no_consent_prompt.title"
+        },
+        "title": "requestDiatfConsent.title"
+      },
       "request_uk_evisa": {
         "biometric": {
           "subtitle": "requestEvisa.request_uk_evisa.consent.biometric.description",
@@ -3430,9 +3445,9 @@
         }
       },
       "user_consent_load_fail": {
-        "button_primary": "consent.loading_error.button_primary",
-        "detail": "consent.loading_error.detail",
-        "title": "consent.loading_error.title"
+        "button_primary": "requestDiatfConsent.error.button.refresh",
+        "detail": "requestDiatfConsent.error.detail",
+        "title": "requestDiatfConsent.error.title"
       },
       "video_capture": {
         "body_record": "faceVideo.capture.body_record",
@@ -4258,6 +4273,29 @@
       "title": "デジタル署名を作成して使用する",
       "validation": "同意が必要です"
     }
+  },
+  "requestDiatfConsent": {
+    "button": {
+      "consent": "Accept",
+      "no_consent": "Do not accept",
+      "read_more": "Read more"
+    },
+    "error": {
+      "button": {
+        "refresh": "画面を再読み込み"
+      },
+      "detail": "接続が安定していることを確認してから、もう一度お試しください",
+      "title": "コンテンツの読み込みに失敗しました"
+    },
+    "no_consent_prompt": {
+      "button": {
+        "cancel_verification": "Yes, Cancel verification",
+        "review_again": "Review again"
+      },
+      "detail": "If you do not accept Entrust’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
+      "title": "Consent to process biometric data and sensitive data"
+    },
+    "title": "Consent to process biometric data and sensitive data"
   },
   "requestEvisa": {
     "request_uk_evisa": {

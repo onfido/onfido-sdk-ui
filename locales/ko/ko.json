@@ -289,7 +289,7 @@
         "ZWE": "짐바브웨"
       },
       "country_no_match": "결과가 없습니다",
-      "country_not_found": "국가를 찾을 수 없습니다"
+      "country_not_found": "유효한 국가를 선택해 주세요"
     },
     "disclaimer": {
       "icon_info_accessibility": "정보:"
@@ -1013,7 +1013,7 @@
       "button_secondary": "출구 확인",
       "button_secondary_alt": "재시도",
       "subtitle": "NFC 기능이 있는 다른 신분증을 사용해 주세요. 이 아이콘을 찾아보세요",
-      "subtitle_icon": "Please use another document that is NFC-enabled. Look for this icon <icon></icon>",
+      "subtitle_icon": "NFC 기능이 있는 다른 신분증을 사용해 주세요. 이 아이콘을 찾아보세요 <icon></icon>",
       "title": "지원되지 않는 문서"
     },
     "upload": {
@@ -1931,6 +1931,9 @@
         "list_accessibility": "proofOfAddress.selection.accessibility",
         "pill": "sample.selection.pill",
         "section": {
+          "field_validation": {
+            "invalid_country": "common.country_selection.country_not_found"
+          },
           "header_country": "sample.selection.country_header",
           "header_doc_type": "sample.selection.doctypes_header",
           "input_country_not_found": "common.country_selection.country_no_match"
@@ -3257,6 +3260,18 @@
           "misconfigured": "qualifiedElectronicSignature.error.misconfigured"
         }
       },
+      "request_diatf_consent": {
+        "button_consent": "requestDiatfConsent.button.consent",
+        "button_no_consent": "requestDiatfConsent.button.no_consent",
+        "button_readmore": "requestDiatfConsent.button.read_more",
+        "prompt": {
+          "button_cancel_verification": "requestDiatfConsent.no_consent_prompt.button.cancel_verification",
+          "button_review_again": "requestDiatfConsent.no_consent_prompt.button.review_again",
+          "no_consent_detail": "requestDiatfConsent.no_consent_prompt.detail",
+          "no_consent_title": "requestDiatfConsent.no_consent_prompt.title"
+        },
+        "title": "requestDiatfConsent.title"
+      },
       "request_uk_evisa": {
         "biometric": {
           "subtitle": "requestEvisa.request_uk_evisa.consent.biometric.description",
@@ -3430,9 +3445,9 @@
         }
       },
       "user_consent_load_fail": {
-        "button_primary": "consent.loading_error.button_primary",
-        "detail": "consent.loading_error.detail",
-        "title": "consent.loading_error.title"
+        "button_primary": "requestDiatfConsent.error.button.refresh",
+        "detail": "requestDiatfConsent.error.detail",
+        "title": "requestDiatfConsent.error.title"
       },
       "video_capture": {
         "body_record": "faceVideo.capture.body_record",
@@ -4258,6 +4273,29 @@
       "title": "디지털 서명을 생성하고 사용하세요",
       "validation": "동의 필요"
     }
+  },
+  "requestDiatfConsent": {
+    "button": {
+      "consent": "Accept",
+      "no_consent": "Do not accept",
+      "read_more": "Read more"
+    },
+    "error": {
+      "button": {
+        "refresh": "화면 다시 불러오기"
+      },
+      "detail": "연결이 안정적인지 확인한 다음 다시 시도하세요",
+      "title": "콘텐츠 로드에 실패"
+    },
+    "no_consent_prompt": {
+      "button": {
+        "cancel_verification": "Yes, Cancel verification",
+        "review_again": "Review again"
+      },
+      "detail": "If you do not accept Entrust’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
+      "title": "Consent to process biometric data and sensitive data"
+    },
+    "title": "Consent to process biometric data and sensitive data"
   },
   "requestEvisa": {
     "request_uk_evisa": {
