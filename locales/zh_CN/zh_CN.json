@@ -401,6 +401,12 @@
         "button_enable_audio": "继续",
         "button_enable_video": "继续",
         "button_enable_video_audio": "继续",
+        "devicemotion": {
+          "body": "如果无法访问设备的运动数据，我们就无法验证您的身份",
+          "button_enable": "启用",
+          "subtitle": "出现提示时,请允许访问设备运动数据。这是继续操作所必需的。",
+          "title": "允许设备运动访问"
+        },
         "subtitle_audio": "出现提示时，您必须启用麦克风访问才能继续",
         "subtitle_video": "出现提示时，您必须启用相机访问才能继续",
         "subtitle_video_audio": "出现提示时，您必须启用这两者的访问才能继续",
@@ -419,6 +425,18 @@
           "button_label": "启用摄像头和麦克风",
           "subtitle": "出现提示时，您必须启用这两者的访问才能继续",
           "title": "允许相机和麦克风访问"
+        },
+        "video_audio_devicemotion": {
+          "body": "如果未授予摄像头、麦克风和设备运动权限，我们将无法完成您的验证",
+          "button_enable": "全部启用",
+          "subtitle": "在出现提示时，请依次允许每个权限。这是继续操作所必需的。",
+          "title": "允许访问相机、麦克风和设备运动"
+        },
+        "video_devicemotion": {
+          "body": "没有相机和设备运动权限,我们无法验证您的身份",
+          "button_enable": "启用两者",
+          "subtitle": "在提示时允许每项权限。这是继续操作所必需的。",
+          "title": "允许访问相机和设备运动"
         }
       },
       "recovery": {
@@ -1314,6 +1332,15 @@
         "up_accessibility": "慢慢抬起头部，直到听到确认提示"
       },
       "left_side_complete_accessibility": "左侧完成",
+      "passive": {
+        "title_failed_auth": "身份验证失败",
+        "title_failed_onboarding": "验证失败",
+        "title_recording": "扫描中",
+        "title_success_auth": "已认证",
+        "title_success_onboarding": "已验证",
+        "title_verifying_auth": "正在验证身份…",
+        "title_verifying_onboarding": "正在验证..."
+      },
       "recording_started_accessibility": "录制已开始",
       "right_side_complete_accessibility": "右侧完成",
       "title": "慢慢地将头转向两侧",
@@ -1331,6 +1358,14 @@
       "list_item_one_accessibility": "首先，您必须将面部放在设备前方",
       "list_item_two": "然后，慢慢地将头转向两侧",
       "list_item_two_accessibility": "然后，慢慢将头转向左侧，再转向右侧",
+      "passive": {
+        "button_primary_ready": "我准备好了",
+        "list_item_one": "确保您处于光线充足的地方",
+        "list_item_three": "将您的面部置于框内以开始扫描",
+        "list_item_two": "请移除遮挡面部的物品,眼镜可以保留",
+        "subtitle": "确认您的身份以保障账户安全",
+        "title": "扫描您的面部"
+      },
       "play_pause_accessibility": "播放或暂停",
       "randomness": {
         "list_item_one": "我们会要求您将头部转向四个方向",
@@ -2493,6 +2528,35 @@
           }
         }
       },
+      "motion_passive": {
+        "face_capture": {
+          "title": {
+            "failed": {
+              "auth": "faceMotion.face_capture.passive.title_failed_auth",
+              "onboarding": "faceMotion.face_capture.passive.title_failed_onboarding"
+            },
+            "recording": "faceMotion.face_capture.passive.title_recording",
+            "success": {
+              "auth": "faceMotion.face_capture.passive.title_success_auth",
+              "onboarding": "faceMotion.face_capture.passive.title_success_onboarding"
+            },
+            "verifying": {
+              "auth": "faceMotion.face_capture.passive.title_verifying_auth",
+              "onboarding": "faceMotion.face_capture.passive.title_verifying_onboarding"
+            }
+          }
+        },
+        "intro": {
+          "button_primary_ready": "faceMotion.intro.passive.button_primary_ready",
+          "list": {
+            "item_one": "faceMotion.intro.passive.list_item_one",
+            "item_three": "faceMotion.intro.passive.list_item_three",
+            "item_two": "faceMotion.intro.passive.list_item_two"
+          },
+          "subtitle": "faceMotion.intro.passive.subtitle",
+          "title": "faceMotion.intro.passive.title"
+        }
+      },
       "motion_randomness_capture": {
         "alert": {
           "button_primary_retry_fetching_challenge": "faceMotion.connection_error.button_primary_retry_fetch",
@@ -2671,17 +2735,29 @@
         "title": "complete.outro.title"
       },
       "permission": {
+        "banner_cam_devicemotion": "common.permissions.primer.video_devicemotion.body",
+        "banner_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.body",
+        "banner_devicemotion": "common.permissions.primer.devicemotion.body",
         "body_both": "common.permissions.primer.body_video_audio",
         "body_cam": "common.permissions.primer.body_video",
         "body_mic": "common.permissions.primer.body_audio",
         "button_primary_both": "common.permissions.primer.button_enable_video_audio",
         "button_primary_cam": "common.permissions.primer.button_enable_video",
+        "button_primary_cam_devicemotion": "common.permissions.primer.video_devicemotion.button_enable",
+        "button_primary_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.button_enable",
+        "button_primary_devicemotion": "common.permissions.primer.devicemotion.button_enable",
         "button_primary_mic": "common.permissions.primer.button_enable_audio",
         "subtitle_both": "common.permissions.primer.subtitle_video_audio",
         "subtitle_cam": "common.permissions.primer.subtitle_video",
+        "subtitle_cam_devicemotion": "common.permissions.primer.video_devicemotion.subtitle",
+        "subtitle_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.subtitle",
+        "subtitle_devicemotion": "common.permissions.primer.devicemotion.subtitle",
         "subtitle_mic": "common.permissions.primer.subtitle_audio",
         "title_both": "common.permissions.primer.title_video_audio",
         "title_cam": "common.permissions.primer.title_video",
+        "title_cam_devicemotion": "common.permissions.primer.video_devicemotion.title",
+        "title_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.title",
+        "title_devicemotion": "common.permissions.primer.devicemotion.title",
         "title_mic": "common.permissions.primer.title_audio"
       },
       "permission_recovery": {
@@ -3273,10 +3349,6 @@
         "title": "requestDiatfConsent.title"
       },
       "request_uk_evisa": {
-        "biometric": {
-          "subtitle": "requestEvisa.request_uk_evisa.consent.biometric.description",
-          "title": "requestEvisa.request_uk_evisa.consent.biometric.title"
-        },
         "button_primary": "requestEvisa.request_uk_evisa.submit",
         "disclosure": {
           "subtitle": "requestEvisa.request_uk_evisa.consent.disclosure.description",
@@ -3595,6 +3667,15 @@
         "up_accessibility": "慢慢抬起头部，直到听到确认提示"
       },
       "left_side_complete_accessibility": "左侧完成",
+      "passive": {
+        "title_failed_auth": "身份验证失败",
+        "title_failed_onboarding": "验证失败",
+        "title_recording": "扫描中",
+        "title_success_auth": "已认证",
+        "title_success_onboarding": "已验证",
+        "title_verifying_auth": "正在验证身份…",
+        "title_verifying_onboarding": "正在验证..."
+      },
       "recording_started_accessibility": "录制已开始",
       "right_side_complete_accessibility": "右侧完成",
       "title": "慢慢地将头转向两侧",
@@ -3612,6 +3693,14 @@
       "list_item_one_accessibility": "首先，您必须将面部放在设备前方",
       "list_item_two": "然后，慢慢地将头转向两侧",
       "list_item_two_accessibility": "然后，慢慢将头转向左侧，再转向右侧",
+      "passive": {
+        "button_primary_ready": "我准备好了",
+        "list_item_one": "确保您处于光线充足的地方",
+        "list_item_three": "将您的面部置于框内以开始扫描",
+        "list_item_two": "请移除遮挡面部的物品,眼镜可以保留",
+        "subtitle": "确认您的身份以保障账户安全",
+        "title": "扫描您的面部"
+      },
       "play_pause_accessibility": "播放或暂停",
       "randomness": {
         "list_item_one": "我们会要求您将头部转向四个方向",
@@ -4293,53 +4382,49 @@
         "review_again": "Review again"
       },
       "detail": "If you do not accept Entrust’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
-      "title": "Consent to process biometric data and sensitive data"
+      "title": "Are you sure?"
     },
     "title": "Consent to process biometric data and sensitive data"
   },
   "requestEvisa": {
     "request_uk_evisa": {
       "consent": {
-        "biometric": {
-          "description": "By checking this box, you consent to the use of your biometric data contained in visa records held by GOV.UK, together with the biometric data collected in the remaining stages of this visa check, to confirm your identity against visa records. <fallback>Read more</fallback>",
-          "title": "Consent to biometric check"
-        },
         "disclosure": {
-          "description": "By checking this box, you authorise Entrust to request and receive personal information about you from GOV.UK as required to verify your identity and prevent fraud. This may include your name, date of birth, and other personal details. <fallback>Read more</fallback>",
+          "description": "By checking this box, you authorise Entrust to request and receive personal information about you from GOV.UK as required to verify your identity and prevent fraud. This may include your name, photo, date of birth, and other personal details. <fallback>Read more</fallback>",
           "title": "Consent for disclosure of information"
         }
       },
       "dob": {
         "error": {
-          "dob_invalid": "Please enter a valid date of birth",
-          "dob_required": "Please enter your date of birth"
+          "dob_invalid": "请输入有效的出生日期",
+          "dob_required": "请输入您的出生日期"
         },
-        "label": "Date of birth",
+        "label": "出生日期",
         "placeholder": "dd/mm/yyyy"
       },
       "list_item_1": {
-        "accessibility": "View your eVisa and get a share code on the gov.uk website (opens in browser)",
-        "label": "View your eVisa and get a share code on the gov.uk website"
+        "accessibility": "在 GOV.UK 网站上查看您的电子签证并获取分享码(在浏览器中打开)",
+        "label": "在 GOV.UK 网站上查看您的电子签证并获取分享码"
       },
       "list_item_2": {
-        "accessibility": "When asked why you need a share code, select the option to prove your immigration status",
-        "label": "Select the option to prove your immigration status"
+        "accessibility": "当被问及为什么需要分享码时,请选择证明您的移民身份的选项",
+        "label": "选择证明您移民身份的选项"
       },
       "list_item_3": {
-        "accessibility": "Come back to this page and enter the 9-digit code below",
-        "label": "Enter the 9-digit code below"
+        "accessibility": "返回此页面并在下方输入9位字符代码",
+        "label": "请在下方输入9位字符代码"
       },
       "share_code_input": {
         "error": {
-          "share_code_invalid": "The code must start with 'S'",
-          "share_code_wrong": "The code must starts with 'S', not 'W' (right to work) or 'R' (right to rent)",
-          "share_code_wrong_accessibility": "The code to prove your immigration status must starts with 'S', not 'W' (right to work) or 'R' (right to rent)"
+          "share_code_invalid": "代码必须以",
+          "share_code_wrong": "代码必须以",
+          "share_code_wrong_accessibility": "用于证明您移民身份的代码必须以"
         },
-        "label": "Share code"
+        "label": "分享码"
       },
-      "submit": "Continue",
-      "subtitle": "Generate your 9-digit share code to verify your identity using your eVisa",
-      "title": "Enter your UK eVisa share code"
+      "submit": "继续",
+      "subtitle": "生成您的9位字符分享码,以使用您的电子签证验证您的身份",
+      "title": "输入您的英国电子签证分享码"
     }
   },
   "retry": {

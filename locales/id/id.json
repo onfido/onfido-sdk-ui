@@ -401,6 +401,12 @@
         "button_enable_audio": "Lanjutkan",
         "button_enable_video": "Lanjutkan",
         "button_enable_video_audio": "Lanjutkan",
+        "devicemotion": {
+          "body": "Kami tidak dapat memverifikasi Anda tanpa akses ke data gerakan perangkat",
+          "button_enable": "Aktifkan",
+          "subtitle": "Saat diminta, izinkan akses ke data gerakan perangkat. Ini wajib untuk melanjutkan.",
+          "title": "Izinkan akses gerakan perangkat"
+        },
         "subtitle_audio": "Saat diminta, Anda harus mengaktifkan akses mikrofon untuk melanjutkan",
         "subtitle_video": "Saat diminta, Anda harus mengaktifkan akses kamera untuk melanjutkan",
         "subtitle_video_audio": "Saat diminta, Anda harus mengaktifkan akses untuk keduanya agar dapat melanjutkan",
@@ -419,6 +425,18 @@
           "button_label": "Aktifkan kamera dan mikrofon",
           "subtitle": "Saat diminta, Anda harus mengaktifkan akses untuk keduanya agar dapat melanjutkan",
           "title": "Izinkan akses kamera dan mikrofon"
+        },
+        "video_audio_devicemotion": {
+          "body": "Kami tidak dapat memverifikasi Anda tanpa izin kamera, mikrofon, dan gerakan perangkat",
+          "button_enable": "Aktifkan semua",
+          "subtitle": "Izinkan setiap izin saat diminta. Ini diperlukan untuk melanjutkan.",
+          "title": "Izinkan akses kamera, mikrofon, dan gerakan perangkat"
+        },
+        "video_devicemotion": {
+          "body": "Kami tidak dapat memverifikasi Anda tanpa izin kamera dan gerak perangkat",
+          "button_enable": "Aktifkan keduanya",
+          "subtitle": "Izinkan setiap izin saat diminta. Ini diperlukan untuk melanjutkan.",
+          "title": "Izinkan akses kamera dan gerakan perangkat"
         }
       },
       "recovery": {
@@ -1314,6 +1332,15 @@
         "up_accessibility": "Perlahan miringkan kepala Anda ke atas hingga Anda mendengar konfirmasi"
       },
       "left_side_complete_accessibility": "Sisi kiri selesai",
+      "passive": {
+        "title_failed_auth": "Autentikasi gagal",
+        "title_failed_onboarding": "Verifikasi gagal",
+        "title_recording": "Memindai",
+        "title_success_auth": "Terautentikasi",
+        "title_success_onboarding": "Terverifikasi",
+        "title_verifying_auth": "Mengautentikasi…",
+        "title_verifying_onboarding": "Memverifikasi..."
+      },
       "recording_started_accessibility": "Perekaman telah dimulai",
       "right_side_complete_accessibility": "Sisi kanan selesai",
       "title": "Putar kepala Anda perlahan ke kedua sisi",
@@ -1331,6 +1358,14 @@
       "list_item_one_accessibility": "Pertama, Anda harus memosisikan wajah Anda di depan perangkat",
       "list_item_two": "Kemudian, putar kepala Anda ke kedua sisi",
       "list_item_two_accessibility": "Kemudian, putar kepala Anda perlahan ke kiri, lalu ke kanan",
+      "passive": {
+        "button_primary_ready": "Saya siap",
+        "list_item_one": "Pastikan Anda berada di tempat dengan pencahayaan yang baik",
+        "list_item_three": "Posisikan wajah Anda di dalam bingkai untuk memulai pemindaian",
+        "list_item_two": "Lepaskan benda yang menutupi wajah Anda, kacamata tidak masalah",
+        "subtitle": "Konfirmasi identitas Anda untuk menjaga keamanan akun Anda",
+        "title": "Memindai wajah Anda"
+      },
       "play_pause_accessibility": "Putar atau hentikan sementara",
       "randomness": {
         "list_item_one": "Kami akan meminta Anda menoleh ke empat arah",
@@ -2493,6 +2528,35 @@
           }
         }
       },
+      "motion_passive": {
+        "face_capture": {
+          "title": {
+            "failed": {
+              "auth": "faceMotion.face_capture.passive.title_failed_auth",
+              "onboarding": "faceMotion.face_capture.passive.title_failed_onboarding"
+            },
+            "recording": "faceMotion.face_capture.passive.title_recording",
+            "success": {
+              "auth": "faceMotion.face_capture.passive.title_success_auth",
+              "onboarding": "faceMotion.face_capture.passive.title_success_onboarding"
+            },
+            "verifying": {
+              "auth": "faceMotion.face_capture.passive.title_verifying_auth",
+              "onboarding": "faceMotion.face_capture.passive.title_verifying_onboarding"
+            }
+          }
+        },
+        "intro": {
+          "button_primary_ready": "faceMotion.intro.passive.button_primary_ready",
+          "list": {
+            "item_one": "faceMotion.intro.passive.list_item_one",
+            "item_three": "faceMotion.intro.passive.list_item_three",
+            "item_two": "faceMotion.intro.passive.list_item_two"
+          },
+          "subtitle": "faceMotion.intro.passive.subtitle",
+          "title": "faceMotion.intro.passive.title"
+        }
+      },
       "motion_randomness_capture": {
         "alert": {
           "button_primary_retry_fetching_challenge": "faceMotion.connection_error.button_primary_retry_fetch",
@@ -2671,17 +2735,29 @@
         "title": "complete.outro.title"
       },
       "permission": {
+        "banner_cam_devicemotion": "common.permissions.primer.video_devicemotion.body",
+        "banner_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.body",
+        "banner_devicemotion": "common.permissions.primer.devicemotion.body",
         "body_both": "common.permissions.primer.body_video_audio",
         "body_cam": "common.permissions.primer.body_video",
         "body_mic": "common.permissions.primer.body_audio",
         "button_primary_both": "common.permissions.primer.button_enable_video_audio",
         "button_primary_cam": "common.permissions.primer.button_enable_video",
+        "button_primary_cam_devicemotion": "common.permissions.primer.video_devicemotion.button_enable",
+        "button_primary_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.button_enable",
+        "button_primary_devicemotion": "common.permissions.primer.devicemotion.button_enable",
         "button_primary_mic": "common.permissions.primer.button_enable_audio",
         "subtitle_both": "common.permissions.primer.subtitle_video_audio",
         "subtitle_cam": "common.permissions.primer.subtitle_video",
+        "subtitle_cam_devicemotion": "common.permissions.primer.video_devicemotion.subtitle",
+        "subtitle_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.subtitle",
+        "subtitle_devicemotion": "common.permissions.primer.devicemotion.subtitle",
         "subtitle_mic": "common.permissions.primer.subtitle_audio",
         "title_both": "common.permissions.primer.title_video_audio",
         "title_cam": "common.permissions.primer.title_video",
+        "title_cam_devicemotion": "common.permissions.primer.video_devicemotion.title",
+        "title_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.title",
+        "title_devicemotion": "common.permissions.primer.devicemotion.title",
         "title_mic": "common.permissions.primer.title_audio"
       },
       "permission_recovery": {
@@ -3273,10 +3349,6 @@
         "title": "requestDiatfConsent.title"
       },
       "request_uk_evisa": {
-        "biometric": {
-          "subtitle": "requestEvisa.request_uk_evisa.consent.biometric.description",
-          "title": "requestEvisa.request_uk_evisa.consent.biometric.title"
-        },
         "button_primary": "requestEvisa.request_uk_evisa.submit",
         "disclosure": {
           "subtitle": "requestEvisa.request_uk_evisa.consent.disclosure.description",
@@ -3595,6 +3667,15 @@
         "up_accessibility": "Perlahan miringkan kepala Anda ke atas hingga Anda mendengar konfirmasi"
       },
       "left_side_complete_accessibility": "Sisi kiri selesai",
+      "passive": {
+        "title_failed_auth": "Autentikasi gagal",
+        "title_failed_onboarding": "Verifikasi gagal",
+        "title_recording": "Memindai",
+        "title_success_auth": "Terautentikasi",
+        "title_success_onboarding": "Terverifikasi",
+        "title_verifying_auth": "Mengautentikasi…",
+        "title_verifying_onboarding": "Memverifikasi..."
+      },
       "recording_started_accessibility": "Perekaman telah dimulai",
       "right_side_complete_accessibility": "Sisi kanan selesai",
       "title": "Putar kepala Anda perlahan ke kedua sisi",
@@ -3612,6 +3693,14 @@
       "list_item_one_accessibility": "Pertama, Anda harus memosisikan wajah Anda di depan perangkat",
       "list_item_two": "Kemudian, putar kepala Anda ke kedua sisi",
       "list_item_two_accessibility": "Kemudian, putar kepala Anda perlahan ke kiri, lalu ke kanan",
+      "passive": {
+        "button_primary_ready": "Saya siap",
+        "list_item_one": "Pastikan Anda berada di tempat dengan pencahayaan yang baik",
+        "list_item_three": "Posisikan wajah Anda di dalam bingkai untuk memulai pemindaian",
+        "list_item_two": "Lepaskan benda yang menutupi wajah Anda, kacamata tidak masalah",
+        "subtitle": "Konfirmasi identitas Anda untuk menjaga keamanan akun Anda",
+        "title": "Memindai wajah Anda"
+      },
       "play_pause_accessibility": "Putar atau hentikan sementara",
       "randomness": {
         "list_item_one": "Kami akan meminta Anda menoleh ke empat arah",
@@ -4293,53 +4382,49 @@
         "review_again": "Review again"
       },
       "detail": "If you do not accept Entrust’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
-      "title": "Consent to process biometric data and sensitive data"
+      "title": "Are you sure?"
     },
     "title": "Consent to process biometric data and sensitive data"
   },
   "requestEvisa": {
     "request_uk_evisa": {
       "consent": {
-        "biometric": {
-          "description": "By checking this box, you consent to the use of your biometric data contained in visa records held by GOV.UK, together with the biometric data collected in the remaining stages of this visa check, to confirm your identity against visa records. <fallback>Read more</fallback>",
-          "title": "Consent to biometric check"
-        },
         "disclosure": {
-          "description": "By checking this box, you authorise Entrust to request and receive personal information about you from GOV.UK as required to verify your identity and prevent fraud. This may include your name, date of birth, and other personal details. <fallback>Read more</fallback>",
+          "description": "By checking this box, you authorise Entrust to request and receive personal information about you from GOV.UK as required to verify your identity and prevent fraud. This may include your name, photo, date of birth, and other personal details. <fallback>Read more</fallback>",
           "title": "Consent for disclosure of information"
         }
       },
       "dob": {
         "error": {
-          "dob_invalid": "Please enter a valid date of birth",
-          "dob_required": "Please enter your date of birth"
+          "dob_invalid": "Harap masukkan tanggal lahir yang valid",
+          "dob_required": "Silakan masukkan tanggal lahir Anda"
         },
-        "label": "Date of birth",
+        "label": "Tanggal lahir",
         "placeholder": "dd/mm/yyyy"
       },
       "list_item_1": {
-        "accessibility": "View your eVisa and get a share code on the gov.uk website (opens in browser)",
-        "label": "View your eVisa and get a share code on the gov.uk website"
+        "accessibility": "Lihat visa elektronik Anda dan dapatkan kode berbagi di situs web GOV.UK (terbuka di browser)",
+        "label": "Lihat visa elektronik Anda dan dapatkan kode berbagi di situs web GOV.UK"
       },
       "list_item_2": {
-        "accessibility": "When asked why you need a share code, select the option to prove your immigration status",
-        "label": "Select the option to prove your immigration status"
+        "accessibility": "Ketika ditanya mengapa Anda memerlukan kode berbagi, pilih opsi untuk membuktikan status imigrasi Anda",
+        "label": "Pilih opsi untuk membuktikan status imigrasi Anda"
       },
       "list_item_3": {
-        "accessibility": "Come back to this page and enter the 9-digit code below",
-        "label": "Enter the 9-digit code below"
+        "accessibility": "Kembali ke halaman ini dan masukkan kode 9 karakter di bawah ini",
+        "label": "Masukkan kode 9 karakter di bawah ini"
       },
       "share_code_input": {
         "error": {
-          "share_code_invalid": "The code must start with 'S'",
-          "share_code_wrong": "The code must starts with 'S', not 'W' (right to work) or 'R' (right to rent)",
-          "share_code_wrong_accessibility": "The code to prove your immigration status must starts with 'S', not 'W' (right to work) or 'R' (right to rent)"
+          "share_code_invalid": "Kode harus dimulai dengan 'S'",
+          "share_code_wrong": "Kode harus dimulai dengan 'S', bukan 'W' (hak untuk bekerja) atau 'R' (hak untuk menyewa)",
+          "share_code_wrong_accessibility": "Kode untuk membuktikan status imigrasi Anda harus dimulai dengan 'S', bukan 'W' (hak untuk bekerja) atau 'R' (hak untuk menyewa)"
         },
-        "label": "Share code"
+        "label": "Kode berbagi"
       },
-      "submit": "Continue",
-      "subtitle": "Generate your 9-digit share code to verify your identity using your eVisa",
-      "title": "Enter your UK eVisa share code"
+      "submit": "Lanjutkan",
+      "subtitle": "Buat kode berbagi 9 karakter Anda untuk memverifikasi identitas Anda menggunakan visa elektronik Anda",
+      "title": "Masukkan kode berbagi eVisa Inggris Anda"
     }
   },
   "retry": {

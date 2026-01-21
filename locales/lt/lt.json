@@ -401,6 +401,12 @@
         "button_enable_audio": "Tęsti",
         "button_enable_video": "Tęsti",
         "button_enable_video_audio": "Tęsti",
+        "devicemotion": {
+          "body": "Negalime jūsų patvirtinti be prieigos prie įrenginio judesio duomenų",
+          "button_enable": "Įjungti",
+          "subtitle": "Kai būsite paraginti, leiskite pasiekti įrenginio judesio duomenis. Tai būtina norint tęsti.",
+          "title": "Leisti pasiekti įrenginio judėjimo duomenis"
+        },
         "subtitle_audio": "Kai būsite paraginti, turėsite įgalinti prieigą prie mikrofono, kad galėtumėte tęsti",
         "subtitle_video": "Kai būsite paprašyti, turite suteikti prieigą prie kameros, kad galėtumėte tęsti",
         "subtitle_video_audio": "Kai būsite paprašyti, turėsite suteikti prieigą prie kameros ir mikrofono, kad galėtumėte tęsti",
@@ -419,6 +425,18 @@
           "button_label": "Įjunkite kamerą ir mikrofoną",
           "subtitle": "Kai būsite paprašyti, turėsite suteikti prieigą prie kameros ir mikrofono, kad galėtumėte tęsti",
           "title": "Leisti prieigą prie kameros ir mikrofono"
+        },
+        "video_audio_devicemotion": {
+          "body": "Negalime jūsų patvirtinti be kameros, mikrofono ir įrenginio judesio leidimo",
+          "button_enable": "Įjungti visus",
+          "subtitle": "Leiskite kiekvieną leidimą, kai būsite paraginti. Tai būtina norint tęsti.",
+          "title": "Leisti prieigą prie kameros, mikrofono ir įrenginio judesio"
+        },
+        "video_devicemotion": {
+          "body": "Negalime atlikti tapatybės patvirtinimo be kameros ir įrenginio judesio leidimo",
+          "button_enable": "Įjungti abu",
+          "subtitle": "Kai būsite paraginti, leiskite kiekvieną leidimą. Tai būtina norint tęsti.",
+          "title": "Leisti naudotis kamera ir įrenginio judesiu"
         }
       },
       "recovery": {
@@ -1314,6 +1332,15 @@
         "up_accessibility": "Lėtai pakelkite galvą aukštyn, kol išgirsite patvirtinimą"
       },
       "left_side_complete_accessibility": "Kairė pusė baigta",
+      "passive": {
+        "title_failed_auth": "Autentifikavimas nepavyko",
+        "title_failed_onboarding": "Patvirtinimas nepavyko",
+        "title_recording": "Skenuojama",
+        "title_success_auth": "Autentifikuota",
+        "title_success_onboarding": "Patvirtinta",
+        "title_verifying_auth": "Autentifikuojama…",
+        "title_verifying_onboarding": "Tikrinama..."
+      },
       "recording_started_accessibility": "Įrašymas pradėtas",
       "right_side_complete_accessibility": "Dešinė pusė baigta",
       "title": "Lėtai pasukite galvą į abi puses",
@@ -1331,6 +1358,14 @@
       "list_item_one_accessibility": "Pirmiausia turėsite nukreipti savo veidą į įrenginį",
       "list_item_two": "Tada lėtai pasukite galvą į abi puses",
       "list_item_two_accessibility": "Tada lėtai pasukite galvą į kairę, o po to į dešinę",
+      "passive": {
+        "button_primary_ready": "Aš pasiruošęs",
+        "list_item_one": "Įsitikinkite, kad esate vietoje, kurioje yra geras apšvietimas",
+        "list_item_three": "Padėkite veidą rėmelyje, kad pradėtumėte nuskaitymą",
+        "list_item_two": "Nuimkite daiktus, dengiančius jūsų veidą; akiniai yra tinkami",
+        "subtitle": "Patvirtinkite savo tapatybę, kad apsaugotumėte paskyrą",
+        "title": "Nuskaitykite savo veidą"
+      },
       "play_pause_accessibility": "Leisti arba sustabdyti",
       "randomness": {
         "list_item_one": "Prašysime jūsų pasukti galvą į keturias puses",
@@ -2493,6 +2528,35 @@
           }
         }
       },
+      "motion_passive": {
+        "face_capture": {
+          "title": {
+            "failed": {
+              "auth": "faceMotion.face_capture.passive.title_failed_auth",
+              "onboarding": "faceMotion.face_capture.passive.title_failed_onboarding"
+            },
+            "recording": "faceMotion.face_capture.passive.title_recording",
+            "success": {
+              "auth": "faceMotion.face_capture.passive.title_success_auth",
+              "onboarding": "faceMotion.face_capture.passive.title_success_onboarding"
+            },
+            "verifying": {
+              "auth": "faceMotion.face_capture.passive.title_verifying_auth",
+              "onboarding": "faceMotion.face_capture.passive.title_verifying_onboarding"
+            }
+          }
+        },
+        "intro": {
+          "button_primary_ready": "faceMotion.intro.passive.button_primary_ready",
+          "list": {
+            "item_one": "faceMotion.intro.passive.list_item_one",
+            "item_three": "faceMotion.intro.passive.list_item_three",
+            "item_two": "faceMotion.intro.passive.list_item_two"
+          },
+          "subtitle": "faceMotion.intro.passive.subtitle",
+          "title": "faceMotion.intro.passive.title"
+        }
+      },
       "motion_randomness_capture": {
         "alert": {
           "button_primary_retry_fetching_challenge": "faceMotion.connection_error.button_primary_retry_fetch",
@@ -2671,17 +2735,29 @@
         "title": "complete.outro.title"
       },
       "permission": {
+        "banner_cam_devicemotion": "common.permissions.primer.video_devicemotion.body",
+        "banner_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.body",
+        "banner_devicemotion": "common.permissions.primer.devicemotion.body",
         "body_both": "common.permissions.primer.body_video_audio",
         "body_cam": "common.permissions.primer.body_video",
         "body_mic": "common.permissions.primer.body_audio",
         "button_primary_both": "common.permissions.primer.button_enable_video_audio",
         "button_primary_cam": "common.permissions.primer.button_enable_video",
+        "button_primary_cam_devicemotion": "common.permissions.primer.video_devicemotion.button_enable",
+        "button_primary_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.button_enable",
+        "button_primary_devicemotion": "common.permissions.primer.devicemotion.button_enable",
         "button_primary_mic": "common.permissions.primer.button_enable_audio",
         "subtitle_both": "common.permissions.primer.subtitle_video_audio",
         "subtitle_cam": "common.permissions.primer.subtitle_video",
+        "subtitle_cam_devicemotion": "common.permissions.primer.video_devicemotion.subtitle",
+        "subtitle_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.subtitle",
+        "subtitle_devicemotion": "common.permissions.primer.devicemotion.subtitle",
         "subtitle_mic": "common.permissions.primer.subtitle_audio",
         "title_both": "common.permissions.primer.title_video_audio",
         "title_cam": "common.permissions.primer.title_video",
+        "title_cam_devicemotion": "common.permissions.primer.video_devicemotion.title",
+        "title_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.title",
+        "title_devicemotion": "common.permissions.primer.devicemotion.title",
         "title_mic": "common.permissions.primer.title_audio"
       },
       "permission_recovery": {
@@ -3273,10 +3349,6 @@
         "title": "requestDiatfConsent.title"
       },
       "request_uk_evisa": {
-        "biometric": {
-          "subtitle": "requestEvisa.request_uk_evisa.consent.biometric.description",
-          "title": "requestEvisa.request_uk_evisa.consent.biometric.title"
-        },
         "button_primary": "requestEvisa.request_uk_evisa.submit",
         "disclosure": {
           "subtitle": "requestEvisa.request_uk_evisa.consent.disclosure.description",
@@ -3595,6 +3667,15 @@
         "up_accessibility": "Lėtai pakelkite galvą aukštyn, kol išgirsite patvirtinimą"
       },
       "left_side_complete_accessibility": "Kairė pusė baigta",
+      "passive": {
+        "title_failed_auth": "Autentifikavimas nepavyko",
+        "title_failed_onboarding": "Patvirtinimas nepavyko",
+        "title_recording": "Skenuojama",
+        "title_success_auth": "Autentifikuota",
+        "title_success_onboarding": "Patvirtinta",
+        "title_verifying_auth": "Autentifikuojama…",
+        "title_verifying_onboarding": "Tikrinama..."
+      },
       "recording_started_accessibility": "Įrašymas pradėtas",
       "right_side_complete_accessibility": "Dešinė pusė baigta",
       "title": "Lėtai pasukite galvą į abi puses",
@@ -3612,6 +3693,14 @@
       "list_item_one_accessibility": "Pirmiausia turėsite nukreipti savo veidą į įrenginį",
       "list_item_two": "Tada lėtai pasukite galvą į abi puses",
       "list_item_two_accessibility": "Tada lėtai pasukite galvą į kairę, o po to į dešinę",
+      "passive": {
+        "button_primary_ready": "Aš pasiruošęs",
+        "list_item_one": "Įsitikinkite, kad esate vietoje, kurioje yra geras apšvietimas",
+        "list_item_three": "Padėkite veidą rėmelyje, kad pradėtumėte nuskaitymą",
+        "list_item_two": "Nuimkite daiktus, dengiančius jūsų veidą; akiniai yra tinkami",
+        "subtitle": "Patvirtinkite savo tapatybę, kad apsaugotumėte paskyrą",
+        "title": "Nuskaitykite savo veidą"
+      },
       "play_pause_accessibility": "Leisti arba sustabdyti",
       "randomness": {
         "list_item_one": "Prašysime jūsų pasukti galvą į keturias puses",
@@ -4293,53 +4382,49 @@
         "review_again": "Review again"
       },
       "detail": "If you do not accept Entrust’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
-      "title": "Consent to process biometric data and sensitive data"
+      "title": "Are you sure?"
     },
     "title": "Consent to process biometric data and sensitive data"
   },
   "requestEvisa": {
     "request_uk_evisa": {
       "consent": {
-        "biometric": {
-          "description": "By checking this box, you consent to the use of your biometric data contained in visa records held by GOV.UK, together with the biometric data collected in the remaining stages of this visa check, to confirm your identity against visa records. <fallback>Read more</fallback>",
-          "title": "Consent to biometric check"
-        },
         "disclosure": {
-          "description": "By checking this box, you authorise Entrust to request and receive personal information about you from GOV.UK as required to verify your identity and prevent fraud. This may include your name, date of birth, and other personal details. <fallback>Read more</fallback>",
+          "description": "By checking this box, you authorise Entrust to request and receive personal information about you from GOV.UK as required to verify your identity and prevent fraud. This may include your name, photo, date of birth, and other personal details. <fallback>Read more</fallback>",
           "title": "Consent for disclosure of information"
         }
       },
       "dob": {
         "error": {
-          "dob_invalid": "Please enter a valid date of birth",
-          "dob_required": "Please enter your date of birth"
+          "dob_invalid": "Įveskite galiojančią gimimo datą",
+          "dob_required": "Įveskite savo gimimo datą"
         },
-        "label": "Date of birth",
-        "placeholder": "dd/mm/yyyy"
+        "label": "Gimimo data",
+        "placeholder": "dd/mm/mmmm"
       },
       "list_item_1": {
-        "accessibility": "View your eVisa and get a share code on the gov.uk website (opens in browser)",
-        "label": "View your eVisa and get a share code on the gov.uk website"
+        "accessibility": "Peržiūrėkite savo elektroninę vizą ir gaukite bendrinimo kodą GOV.UK svetainėje (atidaro naršyklėje)",
+        "label": "Peržiūrėkite savo elektroninę vizą ir gaukite bendrinimo kodą GOV.UK svetainėje"
       },
       "list_item_2": {
-        "accessibility": "When asked why you need a share code, select the option to prove your immigration status",
-        "label": "Select the option to prove your immigration status"
+        "accessibility": "Kai jūsų paklaus, kodėl jums reikia pasidalijimo kodo, pasirinkite parinktį patvirtinti savo imigracijos statusą",
+        "label": "Pasirinkite parinktį, kad įrodytumėte savo imigracinį statusą"
       },
       "list_item_3": {
-        "accessibility": "Come back to this page and enter the 9-digit code below",
-        "label": "Enter the 9-digit code below"
+        "accessibility": "Sugrįžkite į šį puslapį ir įveskite žemiau esantį 9 simbolių kodą",
+        "label": "Įveskite žemiau esantį 9 simbolių kodą"
       },
       "share_code_input": {
         "error": {
-          "share_code_invalid": "The code must start with 'S'",
-          "share_code_wrong": "The code must starts with 'S', not 'W' (right to work) or 'R' (right to rent)",
-          "share_code_wrong_accessibility": "The code to prove your immigration status must starts with 'S', not 'W' (right to work) or 'R' (right to rent)"
+          "share_code_invalid": "Kodas turi prasidėti raide „S“",
+          "share_code_wrong": "Kodą būtina pradėti raide „S“, o ne „W“ (teisė dirbti) ar „R“ (teisė nuomotis)",
+          "share_code_wrong_accessibility": "Jūsų imigracijos statusui patvirtinti skirtas kodas turi prasidėti raide „S“, o ne „W“ (teisė dirbti) ar „R“ (teisė nuomotis būstą)."
         },
-        "label": "Share code"
+        "label": "Bendrinimo kodas"
       },
-      "submit": "Continue",
-      "subtitle": "Generate your 9-digit share code to verify your identity using your eVisa",
-      "title": "Enter your UK eVisa share code"
+      "submit": "Tęsti",
+      "subtitle": "Sugeneruokite savo 9 simbolių dalijimosi kodą, kad patvirtintumėte tapatybę naudodamiesi savo elektronine viza",
+      "title": "Įveskite savo JK elektroninės vizos bendrinimo kodą"
     }
   },
   "retry": {

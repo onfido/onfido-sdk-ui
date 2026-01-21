@@ -401,6 +401,12 @@
         "button_enable_audio": "Tiếp tục",
         "button_enable_video": "Tiếp tục",
         "button_enable_video_audio": "Tiếp tục",
+        "devicemotion": {
+          "body": "Chúng tôi không thể xác minh bạn nếu không có quyền truy cập vào dữ liệu chuyển động của thiết bị",
+          "button_enable": "Bật",
+          "subtitle": "Khi được yêu cầu, hãy cho phép truy cập dữ liệu chuyển động của thiết bị. Điều này là bắt buộc để tiếp tục.",
+          "title": "Cho phép truy cập chuyển động thiết bị"
+        },
         "subtitle_audio": "Khi được hỏi, vui lòng bật quyền truy cập micrô để tiếp tục",
         "subtitle_video": "Khi được hỏi, vui lòng bật quyền truy cập máy ảnh để tiếp tục",
         "subtitle_video_audio": "Khi được hỏi, vui lòng bật quyền truy cập cho cả hai để tiếp tục",
@@ -419,6 +425,18 @@
           "button_label": "Bật cả camera và micro",
           "subtitle": "Khi được hỏi, vui lòng bật quyền truy cập cho cả hai để tiếp tục",
           "title": "Cho phép truy cập camera và micrô"
+        },
+        "video_audio_devicemotion": {
+          "body": "Chúng tôi không thể xác minh bạn nếu không có quyền sử dụng camera, micro và cảm biến chuyển động trên thiết bị",
+          "button_enable": "Bật tất cả",
+          "subtitle": "Cho phép từng quyền khi được yêu cầu. Đây là yêu cầu bắt buộc để tiếp tục.",
+          "title": "Cho phép truy cập camera, micrô và chuyển động thiết bị"
+        },
+        "video_devicemotion": {
+          "body": "Chúng tôi không thể xác minh danh tính của bạn nếu không có quyền truy cập camera và cảm biến chuyển động của thiết bị",
+          "button_enable": "Cho phép cả hai",
+          "subtitle": "Cho phép từng quyền khi được nhắc. Điều này là bắt buộc để tiếp tục.",
+          "title": "Cho phép truy cập camera và chuyển động thiết bị"
         }
       },
       "recovery": {
@@ -1314,6 +1332,15 @@
         "up_accessibility": "Từ từ ngẩng đầu lên cho đến khi bạn nghe thấy xác nhận"
       },
       "left_side_complete_accessibility": "Đã hoàn thành phía bên trái",
+      "passive": {
+        "title_failed_auth": "Xác thực không thành công",
+        "title_failed_onboarding": "Xác minh thất bại",
+        "title_recording": "Đang quét",
+        "title_success_auth": "Đã xác thực",
+        "title_success_onboarding": "Đã xác minh",
+        "title_verifying_auth": "Đang xác thực…",
+        "title_verifying_onboarding": "Đang xác minh..."
+      },
       "recording_started_accessibility": "Đã bắt đầu ghi",
       "right_side_complete_accessibility": "Đã hoàn thành phía bên phải",
       "title": "Hãy xoay đầu từ từ sang hai bên",
@@ -1331,6 +1358,14 @@
       "list_item_one_accessibility": "Đầu tiên, bạn sẽ phải định vị khuôn mặt trước thiết bị",
       "list_item_two": "Sau đó, bạn hãy xoay đầu từ từ sang hai bên",
       "list_item_two_accessibility": "Sau đó, hãy từ từ quay đầu sang trái, rồi sang phải",
+      "passive": {
+        "button_primary_ready": "Tôi đã sẵn sàng",
+        "list_item_one": "Đảm bảo bạn đang ở nơi có ánh sáng tốt",
+        "list_item_three": "Đặt khuôn mặt của bạn vào khung hình để bắt đầu quét",
+        "list_item_two": "Tháo bỏ các vật che khuất khuôn mặt của bạn, kính mắt thì không sao",
+        "subtitle": "Xác nhận danh tính của bạn để giữ tài khoản an toàn",
+        "title": "Quét khuôn mặt của bạn"
+      },
       "play_pause_accessibility": "Phát hoặc tạm dừng",
       "randomness": {
         "list_item_one": "Chúng tôi sẽ yêu cầu bạn quay đầu về bốn hướng",
@@ -2493,6 +2528,35 @@
           }
         }
       },
+      "motion_passive": {
+        "face_capture": {
+          "title": {
+            "failed": {
+              "auth": "faceMotion.face_capture.passive.title_failed_auth",
+              "onboarding": "faceMotion.face_capture.passive.title_failed_onboarding"
+            },
+            "recording": "faceMotion.face_capture.passive.title_recording",
+            "success": {
+              "auth": "faceMotion.face_capture.passive.title_success_auth",
+              "onboarding": "faceMotion.face_capture.passive.title_success_onboarding"
+            },
+            "verifying": {
+              "auth": "faceMotion.face_capture.passive.title_verifying_auth",
+              "onboarding": "faceMotion.face_capture.passive.title_verifying_onboarding"
+            }
+          }
+        },
+        "intro": {
+          "button_primary_ready": "faceMotion.intro.passive.button_primary_ready",
+          "list": {
+            "item_one": "faceMotion.intro.passive.list_item_one",
+            "item_three": "faceMotion.intro.passive.list_item_three",
+            "item_two": "faceMotion.intro.passive.list_item_two"
+          },
+          "subtitle": "faceMotion.intro.passive.subtitle",
+          "title": "faceMotion.intro.passive.title"
+        }
+      },
       "motion_randomness_capture": {
         "alert": {
           "button_primary_retry_fetching_challenge": "faceMotion.connection_error.button_primary_retry_fetch",
@@ -2671,17 +2735,29 @@
         "title": "complete.outro.title"
       },
       "permission": {
+        "banner_cam_devicemotion": "common.permissions.primer.video_devicemotion.body",
+        "banner_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.body",
+        "banner_devicemotion": "common.permissions.primer.devicemotion.body",
         "body_both": "common.permissions.primer.body_video_audio",
         "body_cam": "common.permissions.primer.body_video",
         "body_mic": "common.permissions.primer.body_audio",
         "button_primary_both": "common.permissions.primer.button_enable_video_audio",
         "button_primary_cam": "common.permissions.primer.button_enable_video",
+        "button_primary_cam_devicemotion": "common.permissions.primer.video_devicemotion.button_enable",
+        "button_primary_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.button_enable",
+        "button_primary_devicemotion": "common.permissions.primer.devicemotion.button_enable",
         "button_primary_mic": "common.permissions.primer.button_enable_audio",
         "subtitle_both": "common.permissions.primer.subtitle_video_audio",
         "subtitle_cam": "common.permissions.primer.subtitle_video",
+        "subtitle_cam_devicemotion": "common.permissions.primer.video_devicemotion.subtitle",
+        "subtitle_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.subtitle",
+        "subtitle_devicemotion": "common.permissions.primer.devicemotion.subtitle",
         "subtitle_mic": "common.permissions.primer.subtitle_audio",
         "title_both": "common.permissions.primer.title_video_audio",
         "title_cam": "common.permissions.primer.title_video",
+        "title_cam_devicemotion": "common.permissions.primer.video_devicemotion.title",
+        "title_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.title",
+        "title_devicemotion": "common.permissions.primer.devicemotion.title",
         "title_mic": "common.permissions.primer.title_audio"
       },
       "permission_recovery": {
@@ -3273,10 +3349,6 @@
         "title": "requestDiatfConsent.title"
       },
       "request_uk_evisa": {
-        "biometric": {
-          "subtitle": "requestEvisa.request_uk_evisa.consent.biometric.description",
-          "title": "requestEvisa.request_uk_evisa.consent.biometric.title"
-        },
         "button_primary": "requestEvisa.request_uk_evisa.submit",
         "disclosure": {
           "subtitle": "requestEvisa.request_uk_evisa.consent.disclosure.description",
@@ -3595,6 +3667,15 @@
         "up_accessibility": "Từ từ ngẩng đầu lên cho đến khi bạn nghe thấy xác nhận"
       },
       "left_side_complete_accessibility": "Đã hoàn thành phía bên trái",
+      "passive": {
+        "title_failed_auth": "Xác thực không thành công",
+        "title_failed_onboarding": "Xác minh thất bại",
+        "title_recording": "Đang quét",
+        "title_success_auth": "Đã xác thực",
+        "title_success_onboarding": "Đã xác minh",
+        "title_verifying_auth": "Đang xác thực…",
+        "title_verifying_onboarding": "Đang xác minh..."
+      },
       "recording_started_accessibility": "Đã bắt đầu ghi",
       "right_side_complete_accessibility": "Đã hoàn thành phía bên phải",
       "title": "Hãy xoay đầu từ từ sang hai bên",
@@ -3612,6 +3693,14 @@
       "list_item_one_accessibility": "Đầu tiên, bạn sẽ phải định vị khuôn mặt trước thiết bị",
       "list_item_two": "Sau đó, bạn hãy xoay đầu từ từ sang hai bên",
       "list_item_two_accessibility": "Sau đó, hãy từ từ quay đầu sang trái, rồi sang phải",
+      "passive": {
+        "button_primary_ready": "Tôi đã sẵn sàng",
+        "list_item_one": "Đảm bảo bạn đang ở nơi có ánh sáng tốt",
+        "list_item_three": "Đặt khuôn mặt của bạn vào khung hình để bắt đầu quét",
+        "list_item_two": "Tháo bỏ các vật che khuất khuôn mặt của bạn, kính mắt thì không sao",
+        "subtitle": "Xác nhận danh tính của bạn để giữ tài khoản an toàn",
+        "title": "Quét khuôn mặt của bạn"
+      },
       "play_pause_accessibility": "Phát hoặc tạm dừng",
       "randomness": {
         "list_item_one": "Chúng tôi sẽ yêu cầu bạn quay đầu về bốn hướng",
@@ -4293,53 +4382,49 @@
         "review_again": "Review again"
       },
       "detail": "If you do not accept Entrust’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
-      "title": "Consent to process biometric data and sensitive data"
+      "title": "Are you sure?"
     },
     "title": "Consent to process biometric data and sensitive data"
   },
   "requestEvisa": {
     "request_uk_evisa": {
       "consent": {
-        "biometric": {
-          "description": "By checking this box, you consent to the use of your biometric data contained in visa records held by GOV.UK, together with the biometric data collected in the remaining stages of this visa check, to confirm your identity against visa records. <fallback>Read more</fallback>",
-          "title": "Consent to biometric check"
-        },
         "disclosure": {
-          "description": "By checking this box, you authorise Entrust to request and receive personal information about you from GOV.UK as required to verify your identity and prevent fraud. This may include your name, date of birth, and other personal details. <fallback>Read more</fallback>",
+          "description": "By checking this box, you authorise Entrust to request and receive personal information about you from GOV.UK as required to verify your identity and prevent fraud. This may include your name, photo, date of birth, and other personal details. <fallback>Read more</fallback>",
           "title": "Consent for disclosure of information"
         }
       },
       "dob": {
         "error": {
-          "dob_invalid": "Please enter a valid date of birth",
-          "dob_required": "Please enter your date of birth"
+          "dob_invalid": "Vui lòng nhập ngày sinh hợp lệ",
+          "dob_required": "Vui lòng nhập ngày sinh của bạn"
         },
-        "label": "Date of birth",
+        "label": "Ngày sinh",
         "placeholder": "dd/mm/yyyy"
       },
       "list_item_1": {
-        "accessibility": "View your eVisa and get a share code on the gov.uk website (opens in browser)",
-        "label": "View your eVisa and get a share code on the gov.uk website"
+        "accessibility": "Xem thị thực điện tử của bạn và nhận mã chia sẻ trên trang web GOV.UK (mở trong trình duyệt)",
+        "label": "Xem thị thực điện tử của bạn và nhận mã chia sẻ trên trang web GOV.UK"
       },
       "list_item_2": {
-        "accessibility": "When asked why you need a share code, select the option to prove your immigration status",
-        "label": "Select the option to prove your immigration status"
+        "accessibility": "Khi được hỏi lý do bạn cần mã chia sẻ, hãy chọn tùy chọn để chứng minh tình trạng nhập cư của bạn",
+        "label": "Chọn tùy chọn để chứng minh tình trạng nhập cư của bạn"
       },
       "list_item_3": {
-        "accessibility": "Come back to this page and enter the 9-digit code below",
-        "label": "Enter the 9-digit code below"
+        "accessibility": "Quay lại trang này và nhập mã 9 ký tự bên dưới",
+        "label": "Nhập mã 9 ký tự bên dưới"
       },
       "share_code_input": {
         "error": {
-          "share_code_invalid": "The code must start with 'S'",
-          "share_code_wrong": "The code must starts with 'S', not 'W' (right to work) or 'R' (right to rent)",
-          "share_code_wrong_accessibility": "The code to prove your immigration status must starts with 'S', not 'W' (right to work) or 'R' (right to rent)"
+          "share_code_invalid": "Mã phải bắt đầu bằng 'S'",
+          "share_code_wrong": "Mã phải bắt đầu bằng 'S', không phải 'W' (quyền làm việc) hoặc 'R' (quyền thuê nhà)",
+          "share_code_wrong_accessibility": "Mã để chứng minh tình trạng nhập cư của bạn phải bắt đầu bằng 'S', không phải 'W' (quyền làm việc) hoặc 'R' (quyền thuê nhà)"
         },
-        "label": "Share code"
+        "label": "Mã chia sẻ"
       },
-      "submit": "Continue",
-      "subtitle": "Generate your 9-digit share code to verify your identity using your eVisa",
-      "title": "Enter your UK eVisa share code"
+      "submit": "Tiếp tục",
+      "subtitle": "Tạo mã chia sẻ 9 ký tự của bạn để xác minh danh tính bằng thị thực điện tử của bạn",
+      "title": "Nhập mã chia sẻ thị thực điện tử Vương quốc Anh của bạn"
     }
   },
   "retry": {

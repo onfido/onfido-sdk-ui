@@ -401,6 +401,12 @@
         "button_enable_audio": "המשך",
         "button_enable_video": "המשך",
         "button_enable_video_audio": "המשך",
+        "devicemotion": {
+          "body": "אנחנו לא יכולים לאמת אותך בלי גישה לנתוני תנועת המכשיר",
+          "button_enable": "הפעל",
+          "subtitle": "כאשר תתבקש/י, אפשר/י גישה לנתוני תנועת המכשיר. פעולה זו נדרשת כדי להמשיך.",
+          "title": "אפשר גישה לתנועת המכשיר"
+        },
         "subtitle_audio": "כאשר תתבקש, עליך לאפשר גישה לשניהם כדי להמשיך",
         "subtitle_video": "כאשר תתבקש, עליך לאפשר גישה עבור שניהם כדי להמשיך",
         "subtitle_video_audio": "כאשר תתבקש, עליך לאפשר גישה לשניהם כדי להמשיך",
@@ -419,6 +425,18 @@
           "button_label": "אפשר את המצלמה והמיקרופון",
           "subtitle": "כאשר תתבקש, עליך לאפשר גישה לשניהם כדי להמשיך",
           "title": "אפשר גישה למצלמה ולמיקרופון"
+        },
+        "video_audio_devicemotion": {
+          "body": "איננו יכולים לאמת את זהותך ללא הרשאות למצלמה, למיקרופון ולחיישני תנועה במכשיר",
+          "button_enable": "הפעל הכל",
+          "subtitle": "אפשר כל הרשאה כאשר תתבקש. זה נדרש כדי להמשיך.",
+          "title": "אפשר גישה למצלמה, מיקרופון ותנועת המכשיר"
+        },
+        "video_devicemotion": {
+          "body": "לא נוכל לאמת אותך ללא הרשאת מצלמה ותנועת מכשיר",
+          "button_enable": "הפעל את שניהם",
+          "subtitle": "אפשר כל הרשאה כאשר תתבקש. זה נדרש כדי להמשיך.",
+          "title": "אפשר גישה למצלמה ולתנועת המכשיר"
         }
       },
       "recovery": {
@@ -1314,6 +1332,15 @@
         "up_accessibility": "הטה את ראשך לאט כלפי מעלה עד שתשמע אישור"
       },
       "left_side_complete_accessibility": "צד שמאל הושלם",
+      "passive": {
+        "title_failed_auth": "האימות נכשל",
+        "title_failed_onboarding": "האימות נכשל",
+        "title_recording": "סורק",
+        "title_success_auth": "מאומת",
+        "title_success_onboarding": "מאומת",
+        "title_verifying_auth": "מאמת…",
+        "title_verifying_onboarding": "מאמת..."
+      },
       "recording_started_accessibility": "הצילום החל",
       "right_side_complete_accessibility": "צד ימין הושלם",
       "title": "לאחר מכן, סובב את ראשך לאט לשני הצדדים",
@@ -1331,6 +1358,14 @@
       "list_item_one_accessibility": "ראשית, עליך למקם את הפנים מול המכשיר",
       "list_item_two": "לאחר מכן, סובב את ראשך לאט לשני הצדדים",
       "list_item_two_accessibility": "לאחר מכן, סובב את הראש באיטיות שמאלה, ואז ימינה",
+      "passive": {
+        "button_primary_ready": "אני מוכן",
+        "list_item_one": "ודא שאתה נמצא במקום עם תאורה טובה",
+        "list_item_three": "מקמו את הפנים שלכם במסגרת כדי להתחיל את הסריקה",
+        "list_item_two": "הסר פריטים המכסים את פניך, משקפיים מותרים",
+        "subtitle": "אשר את זהותך כדי לשמור על חשבונך מאובטח",
+        "title": "לסרוק את הפנים שלך"
+      },
       "play_pause_accessibility": "הפעל או השהה",
       "randomness": {
         "list_item_one": "נבקש ממך להפנות את הראש לארבעה כיוונים",
@@ -2493,6 +2528,35 @@
           }
         }
       },
+      "motion_passive": {
+        "face_capture": {
+          "title": {
+            "failed": {
+              "auth": "faceMotion.face_capture.passive.title_failed_auth",
+              "onboarding": "faceMotion.face_capture.passive.title_failed_onboarding"
+            },
+            "recording": "faceMotion.face_capture.passive.title_recording",
+            "success": {
+              "auth": "faceMotion.face_capture.passive.title_success_auth",
+              "onboarding": "faceMotion.face_capture.passive.title_success_onboarding"
+            },
+            "verifying": {
+              "auth": "faceMotion.face_capture.passive.title_verifying_auth",
+              "onboarding": "faceMotion.face_capture.passive.title_verifying_onboarding"
+            }
+          }
+        },
+        "intro": {
+          "button_primary_ready": "faceMotion.intro.passive.button_primary_ready",
+          "list": {
+            "item_one": "faceMotion.intro.passive.list_item_one",
+            "item_three": "faceMotion.intro.passive.list_item_three",
+            "item_two": "faceMotion.intro.passive.list_item_two"
+          },
+          "subtitle": "faceMotion.intro.passive.subtitle",
+          "title": "faceMotion.intro.passive.title"
+        }
+      },
       "motion_randomness_capture": {
         "alert": {
           "button_primary_retry_fetching_challenge": "faceMotion.connection_error.button_primary_retry_fetch",
@@ -2671,17 +2735,29 @@
         "title": "complete.outro.title"
       },
       "permission": {
+        "banner_cam_devicemotion": "common.permissions.primer.video_devicemotion.body",
+        "banner_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.body",
+        "banner_devicemotion": "common.permissions.primer.devicemotion.body",
         "body_both": "common.permissions.primer.body_video_audio",
         "body_cam": "common.permissions.primer.body_video",
         "body_mic": "common.permissions.primer.body_audio",
         "button_primary_both": "common.permissions.primer.button_enable_video_audio",
         "button_primary_cam": "common.permissions.primer.button_enable_video",
+        "button_primary_cam_devicemotion": "common.permissions.primer.video_devicemotion.button_enable",
+        "button_primary_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.button_enable",
+        "button_primary_devicemotion": "common.permissions.primer.devicemotion.button_enable",
         "button_primary_mic": "common.permissions.primer.button_enable_audio",
         "subtitle_both": "common.permissions.primer.subtitle_video_audio",
         "subtitle_cam": "common.permissions.primer.subtitle_video",
+        "subtitle_cam_devicemotion": "common.permissions.primer.video_devicemotion.subtitle",
+        "subtitle_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.subtitle",
+        "subtitle_devicemotion": "common.permissions.primer.devicemotion.subtitle",
         "subtitle_mic": "common.permissions.primer.subtitle_audio",
         "title_both": "common.permissions.primer.title_video_audio",
         "title_cam": "common.permissions.primer.title_video",
+        "title_cam_devicemotion": "common.permissions.primer.video_devicemotion.title",
+        "title_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.title",
+        "title_devicemotion": "common.permissions.primer.devicemotion.title",
         "title_mic": "common.permissions.primer.title_audio"
       },
       "permission_recovery": {
@@ -3273,10 +3349,6 @@
         "title": "requestDiatfConsent.title"
       },
       "request_uk_evisa": {
-        "biometric": {
-          "subtitle": "requestEvisa.request_uk_evisa.consent.biometric.description",
-          "title": "requestEvisa.request_uk_evisa.consent.biometric.title"
-        },
         "button_primary": "requestEvisa.request_uk_evisa.submit",
         "disclosure": {
           "subtitle": "requestEvisa.request_uk_evisa.consent.disclosure.description",
@@ -3595,6 +3667,15 @@
         "up_accessibility": "הטה את ראשך לאט כלפי מעלה עד שתשמע אישור"
       },
       "left_side_complete_accessibility": "צד שמאל הושלם",
+      "passive": {
+        "title_failed_auth": "האימות נכשל",
+        "title_failed_onboarding": "האימות נכשל",
+        "title_recording": "סורק",
+        "title_success_auth": "מאומת",
+        "title_success_onboarding": "מאומת",
+        "title_verifying_auth": "מאמת…",
+        "title_verifying_onboarding": "מאמת..."
+      },
       "recording_started_accessibility": "הצילום החל",
       "right_side_complete_accessibility": "צד ימין הושלם",
       "title": "לאחר מכן, סובב את ראשך לאט לשני הצדדים",
@@ -3612,6 +3693,14 @@
       "list_item_one_accessibility": "ראשית, עליך למקם את הפנים מול המכשיר",
       "list_item_two": "לאחר מכן, סובב את ראשך לאט לשני הצדדים",
       "list_item_two_accessibility": "לאחר מכן, סובב את הראש באיטיות שמאלה, ואז ימינה",
+      "passive": {
+        "button_primary_ready": "אני מוכן",
+        "list_item_one": "ודא שאתה נמצא במקום עם תאורה טובה",
+        "list_item_three": "מקמו את הפנים שלכם במסגרת כדי להתחיל את הסריקה",
+        "list_item_two": "הסר פריטים המכסים את פניך, משקפיים מותרים",
+        "subtitle": "אשר את זהותך כדי לשמור על חשבונך מאובטח",
+        "title": "לסרוק את הפנים שלך"
+      },
       "play_pause_accessibility": "הפעל או השהה",
       "randomness": {
         "list_item_one": "נבקש ממך להפנות את הראש לארבעה כיוונים",
@@ -4293,53 +4382,49 @@
         "review_again": "Review again"
       },
       "detail": "If you do not accept Entrust’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
-      "title": "Consent to process biometric data and sensitive data"
+      "title": "Are you sure?"
     },
     "title": "Consent to process biometric data and sensitive data"
   },
   "requestEvisa": {
     "request_uk_evisa": {
       "consent": {
-        "biometric": {
-          "description": "By checking this box, you consent to the use of your biometric data contained in visa records held by GOV.UK, together with the biometric data collected in the remaining stages of this visa check, to confirm your identity against visa records. <fallback>Read more</fallback>",
-          "title": "Consent to biometric check"
-        },
         "disclosure": {
-          "description": "By checking this box, you authorise Entrust to request and receive personal information about you from GOV.UK as required to verify your identity and prevent fraud. This may include your name, date of birth, and other personal details. <fallback>Read more</fallback>",
+          "description": "By checking this box, you authorise Entrust to request and receive personal information about you from GOV.UK as required to verify your identity and prevent fraud. This may include your name, photo, date of birth, and other personal details. <fallback>Read more</fallback>",
           "title": "Consent for disclosure of information"
         }
       },
       "dob": {
         "error": {
-          "dob_invalid": "Please enter a valid date of birth",
-          "dob_required": "Please enter your date of birth"
+          "dob_invalid": "נא להזין תאריך לידה תקין",
+          "dob_required": "אנא הזן את תאריך הלידה שלך"
         },
-        "label": "Date of birth",
+        "label": "תאריך לידה",
         "placeholder": "dd/mm/yyyy"
       },
       "list_item_1": {
-        "accessibility": "View your eVisa and get a share code on the gov.uk website (opens in browser)",
-        "label": "View your eVisa and get a share code on the gov.uk website"
+        "accessibility": "הצג את אשרת הכניסה האלקטרונית שלך וקבל קוד שיתוף באתר GOV.UK (נפתח בדפדפן)",
+        "label": "הצג את אשרת הכניסה האלקטרונית שלך וקבל קוד שיתוף באתר GOV.UK"
       },
       "list_item_2": {
-        "accessibility": "When asked why you need a share code, select the option to prove your immigration status",
-        "label": "Select the option to prove your immigration status"
+        "accessibility": "כאשר נשאלת מדוע את זקוקה לקוד שיתוף, בחרי באפשרות להוכיח את מעמד ההגירה שלך",
+        "label": "בחר באפשרות להוכיח את מעמד ההגירה שלך"
       },
       "list_item_3": {
-        "accessibility": "Come back to this page and enter the 9-digit code below",
-        "label": "Enter the 9-digit code below"
+        "accessibility": "חזרו לדף זה והזינו את הקוד בן 9 התווים למטה",
+        "label": "הזן את הקוד בן 9 התווים למטה"
       },
       "share_code_input": {
         "error": {
-          "share_code_invalid": "The code must start with 'S'",
-          "share_code_wrong": "The code must starts with 'S', not 'W' (right to work) or 'R' (right to rent)",
-          "share_code_wrong_accessibility": "The code to prove your immigration status must starts with 'S', not 'W' (right to work) or 'R' (right to rent)"
+          "share_code_invalid": "הקוד חייב להתחיל ב-'S'",
+          "share_code_wrong": "הקוד חייב להתחיל ב-'S', לא ב-'W' (זכות לעבוד) או ב-'R' (זכות לשכור)",
+          "share_code_wrong_accessibility": "הקוד להוכחת מעמד ההגירה שלך חייב להתחיל ב-'S', ולא ב-'W' (זכות עבודה) או ב-'R' (זכות שכירות)"
         },
-        "label": "Share code"
+        "label": "קוד שיתוף"
       },
-      "submit": "Continue",
-      "subtitle": "Generate your 9-digit share code to verify your identity using your eVisa",
-      "title": "Enter your UK eVisa share code"
+      "submit": "המשך",
+      "subtitle": "צור את קוד השיתוף בן 9 התווים שלך כדי לאמת את זהותך באמצעות אשרה אלקטרונית",
+      "title": "הזן את קוד השיתוף של ה-eVisa הבריטי שלך"
     }
   },
   "retry": {

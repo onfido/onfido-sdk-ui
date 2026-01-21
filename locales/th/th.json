@@ -401,6 +401,12 @@
         "button_enable_audio": "ดำเนินการต่อ",
         "button_enable_video": "ดำเนินการต่อ",
         "button_enable_video_audio": "ดำเนินการต่อ",
+        "devicemotion": {
+          "body": "เราไม่สามารถยืนยันตัวตนของคุณได้หากไม่ได้รับสิทธิ์เข้าถึงข้อมูลการเคลื่อนไหวของอุปกรณ์",
+          "button_enable": "เปิดใช้งาน",
+          "subtitle": "เมื่อระบบแจ้งเตือน โปรดอนุญาตให้เข้าถึงข้อมูลการเคลื่อนไหวของอุปกรณ์ โดยจำเป็นต้องอนุญาตจึงจะดำเนินการต่อได้",
+          "title": "อนุญาตการเข้าถึงการเคลื่อนไหวของอุปกรณ์"
+        },
         "subtitle_audio": "เมื่อได้รับแจ้ง คุณต้องอนุญาตการเข้าถึงไมโครโฟนเพื่อดำเนินการต่อ",
         "subtitle_video": "เมื่อได้รับแจ้ง คุณต้องอนุญาตการเข้าถึงกล้องเพื่อดำเนินการต่อ",
         "subtitle_video_audio": "เมื่อได้รับแจ้ง คุณต้องอนุญาตการเข้าถึงสำหรับทั้งคู่เพื่อดำเนินการต่อ",
@@ -419,6 +425,18 @@
           "button_label": "เปิดใช้งานทั้งกล้องและไมโครโฟน",
           "subtitle": "เมื่อได้รับแจ้ง คุณต้องอนุญาตการเข้าถึงสำหรับทั้งคู่เพื่อดำเนินการต่อ",
           "title": "อนุญาตให้เข้าถึงกล้องและไมโครโฟน"
+        },
+        "video_audio_devicemotion": {
+          "body": "เราไม่สามารถยืนยันตัวตนของคุณได้ หากไม่ได้รับอนุญาตให้ใช้กล้อง ไมโครโฟน และการตรวจจับการเคลื่อนไหวของอุปกรณ์",
+          "button_enable": "เปิดใช้งานทั้งหมด",
+          "subtitle": "อนุญาตการเข้าถึงแต่ละสิทธิ์เมื่อระบบถาม นี่เป็นสิ่งจำเป็นเพื่อดำเนินการต่อ",
+          "title": "อนุญาตการเข้าถึงกล้อง ไมโครโฟน และการเคลื่อนไหวของอุปกรณ์"
+        },
+        "video_devicemotion": {
+          "body": "เราไม่สามารถยืนยันตัวตนของคุณได้หากไม่ได้รับอนุญาตให้เข้าถึงกล้องและการเคลื่อนไหวของอุปกรณ์",
+          "button_enable": "เปิดใช้งานทั้ง 2 อย่าง",
+          "subtitle": "อนุญาตสิทธิ์แต่ละรายการเมื่อได้รับการแจ้ง จำเป็นต้องดำเนินการเพื่อดำเนินการต่อ",
+          "title": "อนุญาตการเข้าถึงกล้องและการเคลื่อนไหวของอุปกรณ์"
         }
       },
       "recovery": {
@@ -1314,6 +1332,15 @@
         "up_accessibility": "ค่อยๆ เงยหน้าขึ้นจนกว่าคุณจะได้ยินการยืนยัน"
       },
       "left_side_complete_accessibility": "ด้านซ้ายเสร็จแล้ว",
+      "passive": {
+        "title_failed_auth": "การยืนยันตัวตนล้มเหลว",
+        "title_failed_onboarding": "การยืนยันล้มเหลว",
+        "title_recording": "กำลังสแกน",
+        "title_success_auth": "ยืนยันตัวตนแล้ว",
+        "title_success_onboarding": "ยืนยันแล้ว",
+        "title_verifying_auth": "กำลังตรวจสอบสิทธิ์…",
+        "title_verifying_onboarding": "กำลังตรวจสอบ..."
+      },
       "recording_started_accessibility": "เริ่มบันทึกแล้ว",
       "right_side_complete_accessibility": "ด้านขวาเสร็จแล้ว",
       "title": "ค่อยๆ หันศีรษะไปทั้ง 2 ข้าง",
@@ -1331,6 +1358,14 @@
       "list_item_one_accessibility": "อันดับแรก คุณต้องจัดวางใบหน้าไว้ที่ด้านหน้าของอุปกรณ์ของคุณ",
       "list_item_two": "จากนั้นค่อยๆ หันศีรษะไปทั้ง 2 ข้าง",
       "list_item_two_accessibility": "จากนั้น ค่อยๆ หันศีรษะไปทางซ้าย แล้วจึงหันไปทางขวา",
+      "passive": {
+        "button_primary_ready": "ฉันพร้อมแล้ว",
+        "list_item_one": "ตรวจสอบให้แน่ใจว่าคุณอยู่ในสถานที่ที่มีแสงสว่างเพียงพอ",
+        "list_item_three": "วางใบหน้าของคุณในกรอบเพื่อเริ่มการสแกน",
+        "list_item_two": "ถอดสิ่งของที่บังใบหน้าออก แว่นตาสามารถใส่ได้",
+        "subtitle": "ยืนยันตัวตนของคุณเพื่อรักษาความปลอดภัยให้บัญชีของคุณ",
+        "title": "สแกนใบหน้าของคุณ"
+      },
       "play_pause_accessibility": "เล่นหรือหยุดชั่วคราว",
       "randomness": {
         "list_item_one": "เราจะขอให้คุณหันศีรษะไปสี่ทิศทาง",
@@ -2493,6 +2528,35 @@
           }
         }
       },
+      "motion_passive": {
+        "face_capture": {
+          "title": {
+            "failed": {
+              "auth": "faceMotion.face_capture.passive.title_failed_auth",
+              "onboarding": "faceMotion.face_capture.passive.title_failed_onboarding"
+            },
+            "recording": "faceMotion.face_capture.passive.title_recording",
+            "success": {
+              "auth": "faceMotion.face_capture.passive.title_success_auth",
+              "onboarding": "faceMotion.face_capture.passive.title_success_onboarding"
+            },
+            "verifying": {
+              "auth": "faceMotion.face_capture.passive.title_verifying_auth",
+              "onboarding": "faceMotion.face_capture.passive.title_verifying_onboarding"
+            }
+          }
+        },
+        "intro": {
+          "button_primary_ready": "faceMotion.intro.passive.button_primary_ready",
+          "list": {
+            "item_one": "faceMotion.intro.passive.list_item_one",
+            "item_three": "faceMotion.intro.passive.list_item_three",
+            "item_two": "faceMotion.intro.passive.list_item_two"
+          },
+          "subtitle": "faceMotion.intro.passive.subtitle",
+          "title": "faceMotion.intro.passive.title"
+        }
+      },
       "motion_randomness_capture": {
         "alert": {
           "button_primary_retry_fetching_challenge": "faceMotion.connection_error.button_primary_retry_fetch",
@@ -2671,17 +2735,29 @@
         "title": "complete.outro.title"
       },
       "permission": {
+        "banner_cam_devicemotion": "common.permissions.primer.video_devicemotion.body",
+        "banner_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.body",
+        "banner_devicemotion": "common.permissions.primer.devicemotion.body",
         "body_both": "common.permissions.primer.body_video_audio",
         "body_cam": "common.permissions.primer.body_video",
         "body_mic": "common.permissions.primer.body_audio",
         "button_primary_both": "common.permissions.primer.button_enable_video_audio",
         "button_primary_cam": "common.permissions.primer.button_enable_video",
+        "button_primary_cam_devicemotion": "common.permissions.primer.video_devicemotion.button_enable",
+        "button_primary_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.button_enable",
+        "button_primary_devicemotion": "common.permissions.primer.devicemotion.button_enable",
         "button_primary_mic": "common.permissions.primer.button_enable_audio",
         "subtitle_both": "common.permissions.primer.subtitle_video_audio",
         "subtitle_cam": "common.permissions.primer.subtitle_video",
+        "subtitle_cam_devicemotion": "common.permissions.primer.video_devicemotion.subtitle",
+        "subtitle_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.subtitle",
+        "subtitle_devicemotion": "common.permissions.primer.devicemotion.subtitle",
         "subtitle_mic": "common.permissions.primer.subtitle_audio",
         "title_both": "common.permissions.primer.title_video_audio",
         "title_cam": "common.permissions.primer.title_video",
+        "title_cam_devicemotion": "common.permissions.primer.video_devicemotion.title",
+        "title_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.title",
+        "title_devicemotion": "common.permissions.primer.devicemotion.title",
         "title_mic": "common.permissions.primer.title_audio"
       },
       "permission_recovery": {
@@ -3273,10 +3349,6 @@
         "title": "requestDiatfConsent.title"
       },
       "request_uk_evisa": {
-        "biometric": {
-          "subtitle": "requestEvisa.request_uk_evisa.consent.biometric.description",
-          "title": "requestEvisa.request_uk_evisa.consent.biometric.title"
-        },
         "button_primary": "requestEvisa.request_uk_evisa.submit",
         "disclosure": {
           "subtitle": "requestEvisa.request_uk_evisa.consent.disclosure.description",
@@ -3595,6 +3667,15 @@
         "up_accessibility": "ค่อยๆ เงยหน้าขึ้นจนกว่าคุณจะได้ยินการยืนยัน"
       },
       "left_side_complete_accessibility": "ด้านซ้ายเสร็จแล้ว",
+      "passive": {
+        "title_failed_auth": "การยืนยันตัวตนล้มเหลว",
+        "title_failed_onboarding": "การยืนยันล้มเหลว",
+        "title_recording": "กำลังสแกน",
+        "title_success_auth": "ยืนยันตัวตนแล้ว",
+        "title_success_onboarding": "ยืนยันแล้ว",
+        "title_verifying_auth": "กำลังตรวจสอบสิทธิ์…",
+        "title_verifying_onboarding": "กำลังตรวจสอบ..."
+      },
       "recording_started_accessibility": "เริ่มบันทึกแล้ว",
       "right_side_complete_accessibility": "ด้านขวาเสร็จแล้ว",
       "title": "ค่อยๆ หันศีรษะไปทั้ง 2 ข้าง",
@@ -3612,6 +3693,14 @@
       "list_item_one_accessibility": "อันดับแรก คุณต้องจัดวางใบหน้าไว้ที่ด้านหน้าของอุปกรณ์ของคุณ",
       "list_item_two": "จากนั้นค่อยๆ หันศีรษะไปทั้ง 2 ข้าง",
       "list_item_two_accessibility": "จากนั้น ค่อยๆ หันศีรษะไปทางซ้าย แล้วจึงหันไปทางขวา",
+      "passive": {
+        "button_primary_ready": "ฉันพร้อมแล้ว",
+        "list_item_one": "ตรวจสอบให้แน่ใจว่าคุณอยู่ในสถานที่ที่มีแสงสว่างเพียงพอ",
+        "list_item_three": "วางใบหน้าของคุณในกรอบเพื่อเริ่มการสแกน",
+        "list_item_two": "ถอดสิ่งของที่บังใบหน้าออก แว่นตาสามารถใส่ได้",
+        "subtitle": "ยืนยันตัวตนของคุณเพื่อรักษาความปลอดภัยให้บัญชีของคุณ",
+        "title": "สแกนใบหน้าของคุณ"
+      },
       "play_pause_accessibility": "เล่นหรือหยุดชั่วคราว",
       "randomness": {
         "list_item_one": "เราจะขอให้คุณหันศีรษะไปสี่ทิศทาง",
@@ -4293,53 +4382,49 @@
         "review_again": "Review again"
       },
       "detail": "If you do not accept Entrust’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
-      "title": "Consent to process biometric data and sensitive data"
+      "title": "Are you sure?"
     },
     "title": "Consent to process biometric data and sensitive data"
   },
   "requestEvisa": {
     "request_uk_evisa": {
       "consent": {
-        "biometric": {
-          "description": "By checking this box, you consent to the use of your biometric data contained in visa records held by GOV.UK, together with the biometric data collected in the remaining stages of this visa check, to confirm your identity against visa records. <fallback>Read more</fallback>",
-          "title": "Consent to biometric check"
-        },
         "disclosure": {
-          "description": "By checking this box, you authorise Entrust to request and receive personal information about you from GOV.UK as required to verify your identity and prevent fraud. This may include your name, date of birth, and other personal details. <fallback>Read more</fallback>",
+          "description": "By checking this box, you authorise Entrust to request and receive personal information about you from GOV.UK as required to verify your identity and prevent fraud. This may include your name, photo, date of birth, and other personal details. <fallback>Read more</fallback>",
           "title": "Consent for disclosure of information"
         }
       },
       "dob": {
         "error": {
-          "dob_invalid": "Please enter a valid date of birth",
-          "dob_required": "Please enter your date of birth"
+          "dob_invalid": "กรุณากรอกวันเดือนปีเกิดที่ถูกต้อง",
+          "dob_required": "กรุณากรอกวันเดือนปีเกิดของคุณ"
         },
-        "label": "Date of birth",
-        "placeholder": "dd/mm/yyyy"
+        "label": "วันเดือนปีเกิด",
+        "placeholder": "วว/ดด/ปปปป"
       },
       "list_item_1": {
-        "accessibility": "View your eVisa and get a share code on the gov.uk website (opens in browser)",
-        "label": "View your eVisa and get a share code on the gov.uk website"
+        "accessibility": "ดูวีซ่าอิเล็กทรอนิกส์ของคุณและรับรหัสแชร์บนเว็บไซต์ GOV.UK (เปิดในเบราว์เซอร์)",
+        "label": "ดูวีซ่าอิเล็กทรอนิกส์ของคุณและรับรหัสแชร์บนเว็บไซต์ GOV.UK"
       },
       "list_item_2": {
-        "accessibility": "When asked why you need a share code, select the option to prove your immigration status",
-        "label": "Select the option to prove your immigration status"
+        "accessibility": "เมื่อถูกถามว่าทำไมคุณต้องการรหัสแชร์ ให้เลือกตัวเลือกเพื่อพิสูจน์สถานะการเข้าเมืองของคุณ",
+        "label": "เลือกตัวเลือกเพื่อพิสูจน์สถานะการเข้าเมืองของคุณ"
       },
       "list_item_3": {
-        "accessibility": "Come back to this page and enter the 9-digit code below",
-        "label": "Enter the 9-digit code below"
+        "accessibility": "กลับมาที่หน้านี้และป้อนรหัส 9 ตัวอักษรด้านล่าง",
+        "label": "ป้อนรหัส 9 ตัวอักษรด้านล่าง"
       },
       "share_code_input": {
         "error": {
-          "share_code_invalid": "The code must start with 'S'",
-          "share_code_wrong": "The code must starts with 'S', not 'W' (right to work) or 'R' (right to rent)",
-          "share_code_wrong_accessibility": "The code to prove your immigration status must starts with 'S', not 'W' (right to work) or 'R' (right to rent)"
+          "share_code_invalid": "รหัสต้องขึ้นต้นด้วย 'S'",
+          "share_code_wrong": "รหัสต้องขึ้นต้นด้วย 'S' ไม่ใช่ 'W' (สิทธิในการทำงาน) หรือ 'R' (สิทธิในการเช่า)",
+          "share_code_wrong_accessibility": "รหัสเพื่อพิสูจน์สถานะการเข้าเมืองของคุณต้องขึ้นต้นด้วย 'S' ไม่ใช่ 'W' (สิทธิในการทำงาน) หรือ 'R' (สิทธิในการเช่า)"
         },
-        "label": "Share code"
+        "label": "รหัสแชร์"
       },
-      "submit": "Continue",
-      "subtitle": "Generate your 9-digit share code to verify your identity using your eVisa",
-      "title": "Enter your UK eVisa share code"
+      "submit": "ดำเนินการต่อ",
+      "subtitle": "สร้างรหัสแชร์ 9 ตัวอักษรของคุณเพื่อยืนยันตัวตนโดยใช้วีซ่าอิเล็กทรอนิกส์ของคุณ",
+      "title": "ป้อนรหัสแชร์วีซ่าอิเล็กทรอนิกส์ของสหราชอาณาจักรของคุณ"
     }
   },
   "retry": {

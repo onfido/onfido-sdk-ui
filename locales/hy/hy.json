@@ -401,6 +401,12 @@
         "button_enable_audio": "Շարունակել",
         "button_enable_video": "Շարունակել",
         "button_enable_video_audio": "Շարունակել",
+        "devicemotion": {
+          "body": "Մենք չենք կարող যাচայել ձեր ինքնությունը՝ առանց սարքի շարժման տվյալներին մուտքի",
+          "button_enable": "Միացնել",
+          "subtitle": "Երբ ձեզ հուշվի, թույլատրեք մուտքը սարքի շարժման տվյալներին։ Սա անհրաժեշտ է շարունակելու համար։",
+          "title": "Թույլատրել սարքի շարժման մուտքը"
+        },
         "subtitle_audio": "Հարցումը ստանալուն պես պետք է թույլատրեք խոսափողի հասանելիությունը, որպեսզի կարողանաք շարունակել",
         "subtitle_video": "Հարցումը ստանալուն պես՝ պետք է թույլատրեք խոսափողի հասանելիությունը, որպեսզի կարողանաք շարունակել",
         "subtitle_video_audio": "Հարցումը ստանալուն պես պետք է թույլատրեք տեսախցիկի և խոսափողի հասանելիությունը, որպեսզի կարողանաք շարունակել",
@@ -419,6 +425,18 @@
           "button_label": "Միացրեք տեսախցիկը և միկրոֆոնը",
           "subtitle": "Հարցումը ստանալուն պես պետք է թույլատրեք տեսախցիկի և խոսափողի հասանելիությունը, որպեսզի կարողանաք շարունակել",
           "title": "Թույլատրել մուտքը դեպի տեսախցիկ և խոսափող"
+        },
+        "video_audio_devicemotion": {
+          "body": "Մենք չենք կարող հաստատել ձեր ինքնությունը առանց տեսախցիկի, խոսափողի և սարքի շարժման թույլտվության",
+          "button_enable": "Միացնել բոլորը",
+          "subtitle": "Յուրաքանչյուր թույլտվությունը տվեք, երբ կխնդրվի։ Սա պահանջվում է շարունակելու համար։",
+          "title": "Թույլատրել տեսախցիկի, միկրոֆոնի և սարքի շարժման հասանելիությունը"
+        },
+        "video_devicemotion": {
+          "body": "Մենք չենք կարող հաստատել ձեր ինքնությունը առանց տեսախցիկի և սարքի շարժման թույլտվության",
+          "button_enable": "Երկուսն էլ միացնել",
+          "subtitle": "Երբ կխնդրվի, թույլատրեք յուրաքանչյուր թույլտվություն։ Սա անհրաժեշտ է շարունակելու համար։",
+          "title": "Թույլատրել մուտքը տեսախցիկին և սարքի շարժմանը"
         }
       },
       "recovery": {
@@ -1314,6 +1332,15 @@
         "up_accessibility": "Դանդաղ բարձրացրեք ձեր գլուխը, մինչև լսեք հաստատումը"
       },
       "left_side_complete_accessibility": "Ձախ կողմը գրանցված է",
+      "passive": {
+        "title_failed_auth": "Նույնականացումը ձախողվեց",
+        "title_failed_onboarding": "Ստուգումը ձախողվեց",
+        "title_recording": "Սկանավորում",
+        "title_success_auth": "Նույնականացված",
+        "title_success_onboarding": "Ստուգված",
+        "title_verifying_auth": "Նույնականացում․․․",
+        "title_verifying_onboarding": "Ստուգվում է..."
+      },
       "recording_started_accessibility": "Տեսագրումը սկսված է",
       "right_side_complete_accessibility": "Աջ կողմը գրանցված է",
       "title": "Ձեր գլուխը դանդաղ պտտեք երկու կողմ",
@@ -1331,6 +1358,14 @@
       "list_item_one_accessibility": "Սկզբում ձեր դեմքը պետք է տեղադրեք ձեր սարքի դիմաց",
       "list_item_two": "Ապա գլուխը դանդաղ պտտեք երկու կողմ",
       "list_item_two_accessibility": "Այնուհետև դանդաղորեն շրջեք ձեր գլուխը դեպի ձախ, ապա դեպի աջ",
+      "passive": {
+        "button_primary_ready": "Ես պատրաստ եմ",
+        "list_item_one": "Համոզվեք, որ գտնվում եք լավ լուսավորությամբ վայրում",
+        "list_item_three": "Դիրքավորեք ձեր դեմքը շրջանակի մեջ՝ սկանավորումը սկսելու համար",
+        "list_item_two": "Հեռացրեք այն պարագաները, որոնք ծածկում են ձեր դեմքը, ակնոցները կարող եք թողնել",
+        "subtitle": "Հաստատեք ձեր ինքնությունը՝ ձեր հաշիվը պաշտպանված պահելու համար",
+        "title": "Սկանավորեք ձեր դեմքը"
+      },
       "play_pause_accessibility": "Նվագարկել կամ դադարեցնել",
       "randomness": {
         "list_item_one": "Մենք կխնդրենք, որ շրջեք ձեր գլուխը չորս ուղղությամբ",
@@ -2493,6 +2528,35 @@
           }
         }
       },
+      "motion_passive": {
+        "face_capture": {
+          "title": {
+            "failed": {
+              "auth": "faceMotion.face_capture.passive.title_failed_auth",
+              "onboarding": "faceMotion.face_capture.passive.title_failed_onboarding"
+            },
+            "recording": "faceMotion.face_capture.passive.title_recording",
+            "success": {
+              "auth": "faceMotion.face_capture.passive.title_success_auth",
+              "onboarding": "faceMotion.face_capture.passive.title_success_onboarding"
+            },
+            "verifying": {
+              "auth": "faceMotion.face_capture.passive.title_verifying_auth",
+              "onboarding": "faceMotion.face_capture.passive.title_verifying_onboarding"
+            }
+          }
+        },
+        "intro": {
+          "button_primary_ready": "faceMotion.intro.passive.button_primary_ready",
+          "list": {
+            "item_one": "faceMotion.intro.passive.list_item_one",
+            "item_three": "faceMotion.intro.passive.list_item_three",
+            "item_two": "faceMotion.intro.passive.list_item_two"
+          },
+          "subtitle": "faceMotion.intro.passive.subtitle",
+          "title": "faceMotion.intro.passive.title"
+        }
+      },
       "motion_randomness_capture": {
         "alert": {
           "button_primary_retry_fetching_challenge": "faceMotion.connection_error.button_primary_retry_fetch",
@@ -2671,17 +2735,29 @@
         "title": "complete.outro.title"
       },
       "permission": {
+        "banner_cam_devicemotion": "common.permissions.primer.video_devicemotion.body",
+        "banner_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.body",
+        "banner_devicemotion": "common.permissions.primer.devicemotion.body",
         "body_both": "common.permissions.primer.body_video_audio",
         "body_cam": "common.permissions.primer.body_video",
         "body_mic": "common.permissions.primer.body_audio",
         "button_primary_both": "common.permissions.primer.button_enable_video_audio",
         "button_primary_cam": "common.permissions.primer.button_enable_video",
+        "button_primary_cam_devicemotion": "common.permissions.primer.video_devicemotion.button_enable",
+        "button_primary_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.button_enable",
+        "button_primary_devicemotion": "common.permissions.primer.devicemotion.button_enable",
         "button_primary_mic": "common.permissions.primer.button_enable_audio",
         "subtitle_both": "common.permissions.primer.subtitle_video_audio",
         "subtitle_cam": "common.permissions.primer.subtitle_video",
+        "subtitle_cam_devicemotion": "common.permissions.primer.video_devicemotion.subtitle",
+        "subtitle_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.subtitle",
+        "subtitle_devicemotion": "common.permissions.primer.devicemotion.subtitle",
         "subtitle_mic": "common.permissions.primer.subtitle_audio",
         "title_both": "common.permissions.primer.title_video_audio",
         "title_cam": "common.permissions.primer.title_video",
+        "title_cam_devicemotion": "common.permissions.primer.video_devicemotion.title",
+        "title_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.title",
+        "title_devicemotion": "common.permissions.primer.devicemotion.title",
         "title_mic": "common.permissions.primer.title_audio"
       },
       "permission_recovery": {
@@ -3273,10 +3349,6 @@
         "title": "requestDiatfConsent.title"
       },
       "request_uk_evisa": {
-        "biometric": {
-          "subtitle": "requestEvisa.request_uk_evisa.consent.biometric.description",
-          "title": "requestEvisa.request_uk_evisa.consent.biometric.title"
-        },
         "button_primary": "requestEvisa.request_uk_evisa.submit",
         "disclosure": {
           "subtitle": "requestEvisa.request_uk_evisa.consent.disclosure.description",
@@ -3595,6 +3667,15 @@
         "up_accessibility": "Դանդաղ բարձրացրեք ձեր գլուխը, մինչև լսեք հաստատումը"
       },
       "left_side_complete_accessibility": "Ձախ կողմը գրանցված է",
+      "passive": {
+        "title_failed_auth": "Նույնականացումը ձախողվեց",
+        "title_failed_onboarding": "Ստուգումը ձախողվեց",
+        "title_recording": "Սկանավորում",
+        "title_success_auth": "Նույնականացված",
+        "title_success_onboarding": "Ստուգված",
+        "title_verifying_auth": "Նույնականացում․․․",
+        "title_verifying_onboarding": "Ստուգվում է..."
+      },
       "recording_started_accessibility": "Տեսագրումը սկսված է",
       "right_side_complete_accessibility": "Աջ կողմը գրանցված է",
       "title": "Ձեր գլուխը դանդաղ պտտեք երկու կողմ",
@@ -3612,6 +3693,14 @@
       "list_item_one_accessibility": "Սկզբում ձեր դեմքը պետք է տեղադրեք ձեր սարքի դիմաց",
       "list_item_two": "Ապա գլուխը դանդաղ պտտեք երկու կողմ",
       "list_item_two_accessibility": "Այնուհետև դանդաղորեն շրջեք ձեր գլուխը դեպի ձախ, ապա դեպի աջ",
+      "passive": {
+        "button_primary_ready": "Ես պատրաստ եմ",
+        "list_item_one": "Համոզվեք, որ գտնվում եք լավ լուսավորությամբ վայրում",
+        "list_item_three": "Դիրքավորեք ձեր դեմքը շրջանակի մեջ՝ սկանավորումը սկսելու համար",
+        "list_item_two": "Հեռացրեք այն պարագաները, որոնք ծածկում են ձեր դեմքը, ակնոցները կարող եք թողնել",
+        "subtitle": "Հաստատեք ձեր ինքնությունը՝ ձեր հաշիվը պաշտպանված պահելու համար",
+        "title": "Սկանավորեք ձեր դեմքը"
+      },
       "play_pause_accessibility": "Նվագարկել կամ դադարեցնել",
       "randomness": {
         "list_item_one": "Մենք կխնդրենք, որ շրջեք ձեր գլուխը չորս ուղղությամբ",
@@ -4293,53 +4382,49 @@
         "review_again": "Review again"
       },
       "detail": "If you do not accept Entrust’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
-      "title": "Consent to process biometric data and sensitive data"
+      "title": "Are you sure?"
     },
     "title": "Consent to process biometric data and sensitive data"
   },
   "requestEvisa": {
     "request_uk_evisa": {
       "consent": {
-        "biometric": {
-          "description": "By checking this box, you consent to the use of your biometric data contained in visa records held by GOV.UK, together with the biometric data collected in the remaining stages of this visa check, to confirm your identity against visa records. <fallback>Read more</fallback>",
-          "title": "Consent to biometric check"
-        },
         "disclosure": {
-          "description": "By checking this box, you authorise Entrust to request and receive personal information about you from GOV.UK as required to verify your identity and prevent fraud. This may include your name, date of birth, and other personal details. <fallback>Read more</fallback>",
+          "description": "By checking this box, you authorise Entrust to request and receive personal information about you from GOV.UK as required to verify your identity and prevent fraud. This may include your name, photo, date of birth, and other personal details. <fallback>Read more</fallback>",
           "title": "Consent for disclosure of information"
         }
       },
       "dob": {
         "error": {
-          "dob_invalid": "Please enter a valid date of birth",
-          "dob_required": "Please enter your date of birth"
+          "dob_invalid": "Խնդրում ենք մուտքագրել վավեր ծննդյան ամսաթիվ",
+          "dob_required": "Խնդրում ենք մուտքագրել ձեր ծննդյան ամսաթիվը"
         },
-        "label": "Date of birth",
-        "placeholder": "dd/mm/yyyy"
+        "label": "Ծննդյան ամսաթիվ",
+        "placeholder": "օր/ամիս/տարի"
       },
       "list_item_1": {
-        "accessibility": "View your eVisa and get a share code on the gov.uk website (opens in browser)",
-        "label": "View your eVisa and get a share code on the gov.uk website"
+        "accessibility": "Դիտեք Ձեր էլեկտրոնային վիզան և ստացեք կիսման կոդ GOV.UK կայքում (բացվում է դիտարկչում)",
+        "label": "Դիտեք ձեր էլեկտրոնային վիզան և ստացեք փոխանակման կոդ GOV.UK կայքում"
       },
       "list_item_2": {
-        "accessibility": "When asked why you need a share code, select the option to prove your immigration status",
-        "label": "Select the option to prove your immigration status"
+        "accessibility": "Երբ ձեզ հարցնում են, թե ինչու ձեզ պետք է բաժանման կոդ, ընտրեք տարբերակը՝ ձեր միգրացիոն կարգավիճակը հաստատելու համար",
+        "label": "Ընտրեք տարբերակը՝ ձեր միգրացիոն կարգավիճակը հաստատելու համար"
       },
       "list_item_3": {
-        "accessibility": "Come back to this page and enter the 9-digit code below",
-        "label": "Enter the 9-digit code below"
+        "accessibility": "Վերադարձեք այս էջ և մուտքագրեք ստորև նշված 9 նիշից բաղկացած կոդը",
+        "label": "Մուտքագրեք ստորև գտնվող 9-նիշ սիմվոլներով կազմված կոդը"
       },
       "share_code_input": {
         "error": {
-          "share_code_invalid": "The code must start with 'S'",
-          "share_code_wrong": "The code must starts with 'S', not 'W' (right to work) or 'R' (right to rent)",
-          "share_code_wrong_accessibility": "The code to prove your immigration status must starts with 'S', not 'W' (right to work) or 'R' (right to rent)"
+          "share_code_invalid": "Կոդը պետք է սկսվի «S»-ով",
+          "share_code_wrong": "Կոդը պետք է սկսվի «S»-ով, ոչ թե «W»-ով (աշխատելու իրավունք) կամ «R»-ով (վարձակալելու իրավունք)",
+          "share_code_wrong_accessibility": "Ձեր միգրացիոն կարգավիճակը հաստատելու կոդը պետք է սկսվի «S»-ով, այլ ոչ թե «W»-ով (աշխատելու իրավունք) կամ «R»-ով (վարձակալելու իրավունք)։"
         },
-        "label": "Share code"
+        "label": "Կիսման կոդ"
       },
-      "submit": "Continue",
-      "subtitle": "Generate your 9-digit share code to verify your identity using your eVisa",
-      "title": "Enter your UK eVisa share code"
+      "submit": "Շարունակել",
+      "subtitle": "Ստեղծեք ձեր 9 նիշանոց կոդը, որպեսզի հաստատեք ձեր ինքնությունը՝ օգտագործելով ձեր էլեկտրոնային վիզան",
+      "title": "Մուտքագրեք Ձեր ՄԹ էլեկտրոնային վիզայի կիսման կոդը"
     }
   },
   "retry": {

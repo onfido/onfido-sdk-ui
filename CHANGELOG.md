@@ -7,6 +7,23 @@ and the SDK adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html)
 
 When any of the string translations change, it will result in a MINOR version change. As a result, you are responsible for ensuring the correct layout if you are using custom translations (see [language localization](https://documentation.onfido.com/sdk/web/#custom-translations-and-text)).
 
+## [14.61.0] - 2026-01-21
+
+### Fixed
+
+- Disable the possibility to capture document on desktop using camera. Only mobiles, tablets and tablet PCs are now able to capture document using camera. Desktop can use manual upload or cross device flow if those are enabled.
+- Fix camera selection on PC Tablets with back camera
+
+### Changed
+
+- Improve behaviour of phone number input field
+
+## [14.60.0] - 2026-01-08
+
+### Fixed
+
+- Fix a bug when camera authorisation screen is dark after denying camera access in our enhanced Document Capture experience
+
 ## [14.59.0] - 2025-12-16
 
 ### Added

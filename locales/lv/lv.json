@@ -401,6 +401,12 @@
         "button_enable_audio": "Turpināt",
         "button_enable_video": "Turpināt",
         "button_enable_video_audio": "Turpināt",
+        "devicemotion": {
+          "body": "Mēs jūs nevaram verificēt bez piekļuves ierīces kustības datiem",
+          "button_enable": "Ieslēgt",
+          "subtitle": "Saņemot uzaicinājumu, atļaujiet piekļuvi ierīces kustības datiem. Tas ir nepieciešams, lai turpinātu.",
+          "title": "Atļaut ierīces kustības piekļuvi"
+        },
         "subtitle_audio": "Kad tiek parādīta uzvedne, ir jāiespējo piekļuve mikrofonam, lai turpinātu",
         "subtitle_video": "Kad tiek parādīta uzvedne, ir jāiespējo piekļuve kamerai, lai turpinātu",
         "subtitle_video_audio": "Kad tiek parādīta uzvedne, lai turpinātu, ir jāiespējo piekļuve abiem",
@@ -419,6 +425,18 @@
           "button_label": "Iespējojiet gan kameru, gan mikrofonu",
           "subtitle": "Kad tiek parādīta uzvedne, lai turpinātu, ir jāiespējo piekļuve abiem",
           "title": "Atļaut piekļuvi kamerai un mikrofonam"
+        },
+        "video_audio_devicemotion": {
+          "body": "Bez piekļuves kamerai, mikrofonam un ierīces kustības sensoriem mēs nevaram veikt jūsu pārbaudi",
+          "button_enable": "Ieslēgt visu",
+          "subtitle": "Kad tiek parādīts pieprasījums, piešķiriet katrai atļaujai piekļuvi. Tas ir nepieciešams, lai turpinātu.",
+          "title": "Atļaut piekļuvi kamerai, mikrofonam un ierīces kustības sensoriem"
+        },
+        "video_devicemotion": {
+          "body": "Mēs nevaram jūs verificēt bez kameras un ierīces kustības atļaujas",
+          "button_enable": "Iespējot abus",
+          "subtitle": "Kad tiek parādīts pieprasījums, piešķiriet visas atļaujas. Tas ir nepieciešams, lai turpinātu.",
+          "title": "Atļaut piekļuvi kamerai un ierīces kustībai"
         }
       },
       "recovery": {
@@ -1314,6 +1332,15 @@
         "up_accessibility": "Lēnām paceliet galvu uz augšu, līdz dzirdat apstiprinājumu"
       },
       "left_side_complete_accessibility": "Kreisā puse pabeigta",
+      "passive": {
+        "title_failed_auth": "Autentifikācija neizdevās",
+        "title_failed_onboarding": "Verifikācija neizdevās",
+        "title_recording": "Skenēšana",
+        "title_success_auth": "Autentificēts",
+        "title_success_onboarding": "Verificēts",
+        "title_verifying_auth": "Notiek autentificēšana…",
+        "title_verifying_onboarding": "Notiek pārbaude..."
+      },
       "recording_started_accessibility": "Ieraksts ir sācies",
       "right_side_complete_accessibility": "Labā puse pabeigta",
       "title": "Lēnām pagrieziet galvu uz abām pusēm",
@@ -1331,6 +1358,14 @@
       "list_item_one_accessibility": "Vispirms jums būs jāpozicionē seja pret ierīci",
       "list_item_two": "Pēc tam lēnām pagrieziet galvu uz abām pusēm",
       "list_item_two_accessibility": "Pēc tam lēnām pagrieziet galvu pa kreisi un pēc tam pa labi",
+      "passive": {
+        "button_primary_ready": "Esmu gatavs",
+        "list_item_one": "Pārliecinieties, ka atrodaties vietā ar labu apgaismojumu",
+        "list_item_three": "Novietojiet seju rāmī, lai sāktu skenēšanu",
+        "list_item_two": "Noņemiet priekšmetus, kas aizsedz jūsu seju, brilles drīkst atstāt",
+        "subtitle": "Apstipriniet savu identitāti, lai pasargātu savu kontu",
+        "title": "Noskenētu savu seju."
+      },
       "play_pause_accessibility": "Atskaņot vai apturēt",
       "randomness": {
         "list_item_one": "Mēs palūgsim jums pagriezt galvu četros virzienos",
@@ -2493,6 +2528,35 @@
           }
         }
       },
+      "motion_passive": {
+        "face_capture": {
+          "title": {
+            "failed": {
+              "auth": "faceMotion.face_capture.passive.title_failed_auth",
+              "onboarding": "faceMotion.face_capture.passive.title_failed_onboarding"
+            },
+            "recording": "faceMotion.face_capture.passive.title_recording",
+            "success": {
+              "auth": "faceMotion.face_capture.passive.title_success_auth",
+              "onboarding": "faceMotion.face_capture.passive.title_success_onboarding"
+            },
+            "verifying": {
+              "auth": "faceMotion.face_capture.passive.title_verifying_auth",
+              "onboarding": "faceMotion.face_capture.passive.title_verifying_onboarding"
+            }
+          }
+        },
+        "intro": {
+          "button_primary_ready": "faceMotion.intro.passive.button_primary_ready",
+          "list": {
+            "item_one": "faceMotion.intro.passive.list_item_one",
+            "item_three": "faceMotion.intro.passive.list_item_three",
+            "item_two": "faceMotion.intro.passive.list_item_two"
+          },
+          "subtitle": "faceMotion.intro.passive.subtitle",
+          "title": "faceMotion.intro.passive.title"
+        }
+      },
       "motion_randomness_capture": {
         "alert": {
           "button_primary_retry_fetching_challenge": "faceMotion.connection_error.button_primary_retry_fetch",
@@ -2671,17 +2735,29 @@
         "title": "complete.outro.title"
       },
       "permission": {
+        "banner_cam_devicemotion": "common.permissions.primer.video_devicemotion.body",
+        "banner_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.body",
+        "banner_devicemotion": "common.permissions.primer.devicemotion.body",
         "body_both": "common.permissions.primer.body_video_audio",
         "body_cam": "common.permissions.primer.body_video",
         "body_mic": "common.permissions.primer.body_audio",
         "button_primary_both": "common.permissions.primer.button_enable_video_audio",
         "button_primary_cam": "common.permissions.primer.button_enable_video",
+        "button_primary_cam_devicemotion": "common.permissions.primer.video_devicemotion.button_enable",
+        "button_primary_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.button_enable",
+        "button_primary_devicemotion": "common.permissions.primer.devicemotion.button_enable",
         "button_primary_mic": "common.permissions.primer.button_enable_audio",
         "subtitle_both": "common.permissions.primer.subtitle_video_audio",
         "subtitle_cam": "common.permissions.primer.subtitle_video",
+        "subtitle_cam_devicemotion": "common.permissions.primer.video_devicemotion.subtitle",
+        "subtitle_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.subtitle",
+        "subtitle_devicemotion": "common.permissions.primer.devicemotion.subtitle",
         "subtitle_mic": "common.permissions.primer.subtitle_audio",
         "title_both": "common.permissions.primer.title_video_audio",
         "title_cam": "common.permissions.primer.title_video",
+        "title_cam_devicemotion": "common.permissions.primer.video_devicemotion.title",
+        "title_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.title",
+        "title_devicemotion": "common.permissions.primer.devicemotion.title",
         "title_mic": "common.permissions.primer.title_audio"
       },
       "permission_recovery": {
@@ -3273,10 +3349,6 @@
         "title": "requestDiatfConsent.title"
       },
       "request_uk_evisa": {
-        "biometric": {
-          "subtitle": "requestEvisa.request_uk_evisa.consent.biometric.description",
-          "title": "requestEvisa.request_uk_evisa.consent.biometric.title"
-        },
         "button_primary": "requestEvisa.request_uk_evisa.submit",
         "disclosure": {
           "subtitle": "requestEvisa.request_uk_evisa.consent.disclosure.description",
@@ -3595,6 +3667,15 @@
         "up_accessibility": "Lēnām paceliet galvu uz augšu, līdz dzirdat apstiprinājumu"
       },
       "left_side_complete_accessibility": "Kreisā puse pabeigta",
+      "passive": {
+        "title_failed_auth": "Autentifikācija neizdevās",
+        "title_failed_onboarding": "Verifikācija neizdevās",
+        "title_recording": "Skenēšana",
+        "title_success_auth": "Autentificēts",
+        "title_success_onboarding": "Verificēts",
+        "title_verifying_auth": "Notiek autentificēšana…",
+        "title_verifying_onboarding": "Notiek pārbaude..."
+      },
       "recording_started_accessibility": "Ieraksts ir sācies",
       "right_side_complete_accessibility": "Labā puse pabeigta",
       "title": "Lēnām pagrieziet galvu uz abām pusēm",
@@ -3612,6 +3693,14 @@
       "list_item_one_accessibility": "Vispirms jums būs jāpozicionē seja pret ierīci",
       "list_item_two": "Pēc tam lēnām pagrieziet galvu uz abām pusēm",
       "list_item_two_accessibility": "Pēc tam lēnām pagrieziet galvu pa kreisi un pēc tam pa labi",
+      "passive": {
+        "button_primary_ready": "Esmu gatavs",
+        "list_item_one": "Pārliecinieties, ka atrodaties vietā ar labu apgaismojumu",
+        "list_item_three": "Novietojiet seju rāmī, lai sāktu skenēšanu",
+        "list_item_two": "Noņemiet priekšmetus, kas aizsedz jūsu seju, brilles drīkst atstāt",
+        "subtitle": "Apstipriniet savu identitāti, lai pasargātu savu kontu",
+        "title": "Noskenētu savu seju."
+      },
       "play_pause_accessibility": "Atskaņot vai apturēt",
       "randomness": {
         "list_item_one": "Mēs palūgsim jums pagriezt galvu četros virzienos",
@@ -4293,53 +4382,49 @@
         "review_again": "Review again"
       },
       "detail": "If you do not accept Entrust’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
-      "title": "Consent to process biometric data and sensitive data"
+      "title": "Are you sure?"
     },
     "title": "Consent to process biometric data and sensitive data"
   },
   "requestEvisa": {
     "request_uk_evisa": {
       "consent": {
-        "biometric": {
-          "description": "By checking this box, you consent to the use of your biometric data contained in visa records held by GOV.UK, together with the biometric data collected in the remaining stages of this visa check, to confirm your identity against visa records. <fallback>Read more</fallback>",
-          "title": "Consent to biometric check"
-        },
         "disclosure": {
-          "description": "By checking this box, you authorise Entrust to request and receive personal information about you from GOV.UK as required to verify your identity and prevent fraud. This may include your name, date of birth, and other personal details. <fallback>Read more</fallback>",
+          "description": "By checking this box, you authorise Entrust to request and receive personal information about you from GOV.UK as required to verify your identity and prevent fraud. This may include your name, photo, date of birth, and other personal details. <fallback>Read more</fallback>",
           "title": "Consent for disclosure of information"
         }
       },
       "dob": {
         "error": {
-          "dob_invalid": "Please enter a valid date of birth",
-          "dob_required": "Please enter your date of birth"
+          "dob_invalid": "Lūdzu, ievadiet derīgu dzimšanas datumu",
+          "dob_required": "Lūdzu, ievadiet savu dzimšanas datumu"
         },
-        "label": "Date of birth",
-        "placeholder": "dd/mm/yyyy"
+        "label": "Dzimšanas datums",
+        "placeholder": "dd/mm.gggg"
       },
       "list_item_1": {
-        "accessibility": "View your eVisa and get a share code on the gov.uk website (opens in browser)",
-        "label": "View your eVisa and get a share code on the gov.uk website"
+        "accessibility": "Skatiet savu elektronisko vīzu un iegūstiet koplietošanas kodu GOV.UK vietnē (atveras pārlūkā)",
+        "label": "Skatiet savu elektronisko vīzu un iegūstiet koplietošanas kodu GOV.UK vietnē"
       },
       "list_item_2": {
-        "accessibility": "When asked why you need a share code, select the option to prove your immigration status",
-        "label": "Select the option to prove your immigration status"
+        "accessibility": "Kad jums tiek jautāts, kāpēc jums nepieciešams kopīgošanas kods, izvēlieties opciju, lai pierādītu savu imigrācijas statusu",
+        "label": "Atlasiet iespēju, lai pierādītu savu imigrācijas statusu"
       },
       "list_item_3": {
-        "accessibility": "Come back to this page and enter the 9-digit code below",
-        "label": "Enter the 9-digit code below"
+        "accessibility": "Atgriezieties šajā lapā un ievadiet zemāk esošo 9 rakstzīmju kodu",
+        "label": "Ievadiet 9 rakstzīmju kodu zemāk"
       },
       "share_code_input": {
         "error": {
-          "share_code_invalid": "The code must start with 'S'",
-          "share_code_wrong": "The code must starts with 'S', not 'W' (right to work) or 'R' (right to rent)",
-          "share_code_wrong_accessibility": "The code to prove your immigration status must starts with 'S', not 'W' (right to work) or 'R' (right to rent)"
+          "share_code_invalid": "Kodam jāsākas ar \"S\"",
+          "share_code_wrong": "Kods jāsākas ar \"S\", nevis ar \"W\" (tiesības strādāt) vai \"R\" (tiesības īrēt)",
+          "share_code_wrong_accessibility": "Kods, lai apstiprinātu jūsu imigrācijas statusu, jāsākas ar \"S\", nevis ar \"W\" (tiesības strādāt) vai \"R\" (tiesības īrēt)"
         },
-        "label": "Share code"
+        "label": "Koplietošanas kods"
       },
-      "submit": "Continue",
-      "subtitle": "Generate your 9-digit share code to verify your identity using your eVisa",
-      "title": "Enter your UK eVisa share code"
+      "submit": "Turpināt",
+      "subtitle": "Ģenerējiet savu 9 rakstzīmju kopīgošanas kodu, lai apstiprinātu savu identitāti, izmantojot savu elektronisko vīzu",
+      "title": "Ievadiet Apvienotās Karalistes elektroniskās vīzas koplietošanas kodu"
     }
   },
   "retry": {

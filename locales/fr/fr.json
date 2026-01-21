@@ -401,6 +401,12 @@
         "button_enable_audio": "Continuer",
         "button_enable_video": "Continuer",
         "button_enable_video_audio": "Continuer",
+        "devicemotion": {
+          "body": "Nous ne pouvons pas vérifier votre identité sans accéder aux données de mouvement de l’appareil",
+          "button_enable": "Activer",
+          "subtitle": "Lorsque vous y êtes invité, autorisez l'accès aux données de mouvement de l'appareil. Cela est nécessaire pour continuer.",
+          "title": "Autoriser l'accès au mouvement de l'appareil"
+        },
         "subtitle_audio": "Autorisez l’accès au micro pour continuer",
         "subtitle_video": "Lorsque vous y serez invité, vous devrez autoriser l’accès à l’appareil photo pour continuer",
         "subtitle_video_audio": "Autorisez l’accès aux deux pour continuer",
@@ -419,6 +425,18 @@
           "button_label": "Activer à la fois la caméra et le microphone",
           "subtitle": "Autorisez l’accès aux deux pour continuer",
           "title": "Autoriser l’accès à l’appareil photo et au micro"
+        },
+        "video_audio_devicemotion": {
+          "body": "Nous ne pouvons pas vérifier votre identité sans l’autorisation d’utiliser la caméra, le microphone et les mouvements de l’appareil",
+          "button_enable": "Tout activer",
+          "subtitle": "Acceptez chaque autorisation lorsque vous y êtes invité. Cela est nécessaire pour continuer.",
+          "title": "Autoriser l'accès à la caméra, au microphone et au capteur de mouvement"
+        },
+        "video_devicemotion": {
+          "body": "Nous ne pouvons pas vous vérifier sans l'autorisation d'accès à la caméra et au capteur de mouvement",
+          "button_enable": "Activer les deux",
+          "subtitle": "Acceptez chaque autorisation lorsque vous y êtes invité. Cela est nécessaire pour continuer.",
+          "title": "Autoriser l'accès à la caméra et au capteur de mouvement"
         }
       },
       "recovery": {
@@ -1314,6 +1332,15 @@
         "up_accessibility": "Inclinez lentement la tête vers le haut jusqu'à ce que vous entendiez la confirmation"
       },
       "left_side_complete_accessibility": "Côté gauche terminé",
+      "passive": {
+        "title_failed_auth": "Échec de l'authentification",
+        "title_failed_onboarding": "Échec de la vérification",
+        "title_recording": "Numérisation",
+        "title_success_auth": "Authentifié",
+        "title_success_onboarding": "Vérifié",
+        "title_verifying_auth": "Authentification…",
+        "title_verifying_onboarding": "Vérification..."
+      },
       "recording_started_accessibility": "L’enregistrement a commencé",
       "right_side_complete_accessibility": "Côté droit terminé",
       "title": "Tournez votre tête lentement des deux côtés",
@@ -1331,6 +1358,14 @@
       "list_item_one_accessibility": "Tout d'abord, vous devrez positionner votre visage devant votre mobile",
       "list_item_two": "Ensuite, tournez votre tête lentement des deux côtés",
       "list_item_two_accessibility": "Ensuite, tournez lentement votre tête vers la gauche, puis vers la droite",
+      "passive": {
+        "button_primary_ready": "Je suis prêt",
+        "list_item_one": "Assurez-vous d'être dans un endroit bien éclairé",
+        "list_item_three": "Positionnez votre visage dans le cadre pour commencer la numérisation",
+        "list_item_two": "Retirez les objets qui couvrent votre visage, les lunettes de vue sont acceptées",
+        "subtitle": "Confirmez votre identité pour protéger votre compte",
+        "title": "Scannez votre visage"
+      },
       "play_pause_accessibility": "Lecture ou pause",
       "randomness": {
         "list_item_one": "Nous vous demanderons de tourner la tête dans quatre directions",
@@ -2493,6 +2528,35 @@
           }
         }
       },
+      "motion_passive": {
+        "face_capture": {
+          "title": {
+            "failed": {
+              "auth": "faceMotion.face_capture.passive.title_failed_auth",
+              "onboarding": "faceMotion.face_capture.passive.title_failed_onboarding"
+            },
+            "recording": "faceMotion.face_capture.passive.title_recording",
+            "success": {
+              "auth": "faceMotion.face_capture.passive.title_success_auth",
+              "onboarding": "faceMotion.face_capture.passive.title_success_onboarding"
+            },
+            "verifying": {
+              "auth": "faceMotion.face_capture.passive.title_verifying_auth",
+              "onboarding": "faceMotion.face_capture.passive.title_verifying_onboarding"
+            }
+          }
+        },
+        "intro": {
+          "button_primary_ready": "faceMotion.intro.passive.button_primary_ready",
+          "list": {
+            "item_one": "faceMotion.intro.passive.list_item_one",
+            "item_three": "faceMotion.intro.passive.list_item_three",
+            "item_two": "faceMotion.intro.passive.list_item_two"
+          },
+          "subtitle": "faceMotion.intro.passive.subtitle",
+          "title": "faceMotion.intro.passive.title"
+        }
+      },
       "motion_randomness_capture": {
         "alert": {
           "button_primary_retry_fetching_challenge": "faceMotion.connection_error.button_primary_retry_fetch",
@@ -2671,17 +2735,29 @@
         "title": "complete.outro.title"
       },
       "permission": {
+        "banner_cam_devicemotion": "common.permissions.primer.video_devicemotion.body",
+        "banner_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.body",
+        "banner_devicemotion": "common.permissions.primer.devicemotion.body",
         "body_both": "common.permissions.primer.body_video_audio",
         "body_cam": "common.permissions.primer.body_video",
         "body_mic": "common.permissions.primer.body_audio",
         "button_primary_both": "common.permissions.primer.button_enable_video_audio",
         "button_primary_cam": "common.permissions.primer.button_enable_video",
+        "button_primary_cam_devicemotion": "common.permissions.primer.video_devicemotion.button_enable",
+        "button_primary_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.button_enable",
+        "button_primary_devicemotion": "common.permissions.primer.devicemotion.button_enable",
         "button_primary_mic": "common.permissions.primer.button_enable_audio",
         "subtitle_both": "common.permissions.primer.subtitle_video_audio",
         "subtitle_cam": "common.permissions.primer.subtitle_video",
+        "subtitle_cam_devicemotion": "common.permissions.primer.video_devicemotion.subtitle",
+        "subtitle_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.subtitle",
+        "subtitle_devicemotion": "common.permissions.primer.devicemotion.subtitle",
         "subtitle_mic": "common.permissions.primer.subtitle_audio",
         "title_both": "common.permissions.primer.title_video_audio",
         "title_cam": "common.permissions.primer.title_video",
+        "title_cam_devicemotion": "common.permissions.primer.video_devicemotion.title",
+        "title_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.title",
+        "title_devicemotion": "common.permissions.primer.devicemotion.title",
         "title_mic": "common.permissions.primer.title_audio"
       },
       "permission_recovery": {
@@ -3273,10 +3349,6 @@
         "title": "requestDiatfConsent.title"
       },
       "request_uk_evisa": {
-        "biometric": {
-          "subtitle": "requestEvisa.request_uk_evisa.consent.biometric.description",
-          "title": "requestEvisa.request_uk_evisa.consent.biometric.title"
-        },
         "button_primary": "requestEvisa.request_uk_evisa.submit",
         "disclosure": {
           "subtitle": "requestEvisa.request_uk_evisa.consent.disclosure.description",
@@ -3595,6 +3667,15 @@
         "up_accessibility": "Inclinez lentement la tête vers le haut jusqu'à ce que vous entendiez la confirmation"
       },
       "left_side_complete_accessibility": "Côté gauche terminé",
+      "passive": {
+        "title_failed_auth": "Échec de l'authentification",
+        "title_failed_onboarding": "Échec de la vérification",
+        "title_recording": "Numérisation",
+        "title_success_auth": "Authentifié",
+        "title_success_onboarding": "Vérifié",
+        "title_verifying_auth": "Authentification…",
+        "title_verifying_onboarding": "Vérification..."
+      },
       "recording_started_accessibility": "L’enregistrement a commencé",
       "right_side_complete_accessibility": "Côté droit terminé",
       "title": "Tournez votre tête lentement des deux côtés",
@@ -3612,6 +3693,14 @@
       "list_item_one_accessibility": "Tout d'abord, vous devrez positionner votre visage devant votre mobile",
       "list_item_two": "Ensuite, tournez votre tête lentement des deux côtés",
       "list_item_two_accessibility": "Ensuite, tournez lentement votre tête vers la gauche, puis vers la droite",
+      "passive": {
+        "button_primary_ready": "Je suis prêt",
+        "list_item_one": "Assurez-vous d'être dans un endroit bien éclairé",
+        "list_item_three": "Positionnez votre visage dans le cadre pour commencer la numérisation",
+        "list_item_two": "Retirez les objets qui couvrent votre visage, les lunettes de vue sont acceptées",
+        "subtitle": "Confirmez votre identité pour protéger votre compte",
+        "title": "Scannez votre visage"
+      },
       "play_pause_accessibility": "Lecture ou pause",
       "randomness": {
         "list_item_one": "Nous vous demanderons de tourner la tête dans quatre directions",
@@ -4293,53 +4382,49 @@
         "review_again": "Review again"
       },
       "detail": "If you do not accept Entrust’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
-      "title": "Consent to process biometric data and sensitive data"
+      "title": "Are you sure?"
     },
     "title": "Consent to process biometric data and sensitive data"
   },
   "requestEvisa": {
     "request_uk_evisa": {
       "consent": {
-        "biometric": {
-          "description": "By checking this box, you consent to the use of your biometric data contained in visa records held by GOV.UK, together with the biometric data collected in the remaining stages of this visa check, to confirm your identity against visa records. <fallback>Read more</fallback>",
-          "title": "Consent to biometric check"
-        },
         "disclosure": {
-          "description": "By checking this box, you authorise Entrust to request and receive personal information about you from GOV.UK as required to verify your identity and prevent fraud. This may include your name, date of birth, and other personal details. <fallback>Read more</fallback>",
+          "description": "By checking this box, you authorise Entrust to request and receive personal information about you from GOV.UK as required to verify your identity and prevent fraud. This may include your name, photo, date of birth, and other personal details. <fallback>Read more</fallback>",
           "title": "Consent for disclosure of information"
         }
       },
       "dob": {
         "error": {
-          "dob_invalid": "Please enter a valid date of birth",
-          "dob_required": "Please enter your date of birth"
+          "dob_invalid": "Veuillez saisir une date de naissance valide",
+          "dob_required": "Veuillez saisir votre date de naissance"
         },
-        "label": "Date of birth",
-        "placeholder": "dd/mm/yyyy"
+        "label": "Date de naissance",
+        "placeholder": "jj/mm/aaaa"
       },
       "list_item_1": {
-        "accessibility": "View your eVisa and get a share code on the gov.uk website (opens in browser)",
-        "label": "View your eVisa and get a share code on the gov.uk website"
+        "accessibility": "Consultez votre visa électronique et obtenez un code de partage sur le site GOV.UK (s'ouvre dans le navigateur)",
+        "label": "Consultez votre visa électronique et obtenez un code de partage sur le site GOV.UK"
       },
       "list_item_2": {
-        "accessibility": "When asked why you need a share code, select the option to prove your immigration status",
-        "label": "Select the option to prove your immigration status"
+        "accessibility": "Lorsqu'on vous demande pourquoi vous avez besoin d'un code de partage, sélectionnez l'option pour prouver votre statut d'immigration",
+        "label": "Sélectionnez l'option pour prouver votre statut d'immigration"
       },
       "list_item_3": {
-        "accessibility": "Come back to this page and enter the 9-digit code below",
-        "label": "Enter the 9-digit code below"
+        "accessibility": "Revenez sur cette page et saisissez le code à 9 caractères ci-dessous",
+        "label": "Saisissez le code à 9 caractères ci-dessous"
       },
       "share_code_input": {
         "error": {
-          "share_code_invalid": "The code must start with 'S'",
-          "share_code_wrong": "The code must starts with 'S', not 'W' (right to work) or 'R' (right to rent)",
-          "share_code_wrong_accessibility": "The code to prove your immigration status must starts with 'S', not 'W' (right to work) or 'R' (right to rent)"
+          "share_code_invalid": "Le code doit commencer par « S »",
+          "share_code_wrong": "Le code doit commencer par 'S', et non par 'W' (droit de travailler) ou 'R' (droit de louer)",
+          "share_code_wrong_accessibility": "Le code pour prouver votre statut d'immigration doit commencer par 'S', et non par 'W' (droit de travailler) ou 'R' (droit de louer)"
         },
-        "label": "Share code"
+        "label": "Code de partage"
       },
-      "submit": "Continue",
-      "subtitle": "Generate your 9-digit share code to verify your identity using your eVisa",
-      "title": "Enter your UK eVisa share code"
+      "submit": "Continuer",
+      "subtitle": "Générez votre code de partage à 9 caractères pour vérifier votre identité à l'aide de votre visa électronique",
+      "title": "Saisissez votre code de partage de visa électronique britannique"
     }
   },
   "retry": {

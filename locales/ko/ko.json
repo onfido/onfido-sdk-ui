@@ -401,6 +401,12 @@
         "button_enable_audio": "계속",
         "button_enable_video": "계속",
         "button_enable_video_audio": "계속",
+        "devicemotion": {
+          "body": "기기 모션 데이터에 접근할 수 없으면 본인 확인을 진행할 수 없습니다",
+          "button_enable": "사용 설정",
+          "subtitle": "요청이 표시되면 기기 동작 데이터에 대한 접근을 허용해 주세요. 계속 진행하려면 필요합니다.",
+          "title": "기기 모션 액세스를 허용"
+        },
         "subtitle_audio": "계속하려면 안내 메시지가 표시될 때 마이크에 대한 접근 권한을 허용하셔야 합니다",
         "subtitle_video": "계속하려면 안내 메시지가 표시될 때 카메라에 대한 접근 권한을 허용하셔야 합니다",
         "subtitle_video_audio": "계속하려면 안내 메시지가 표시될 때 두 가지 기능에 대한 접근 권한을 허용하셔야 합니다",
@@ -419,6 +425,18 @@
           "button_label": "카메라와 마이크를 모두 활성화하세요",
           "subtitle": "계속하려면 안내 메시지가 표시될 때 두 가지 기능에 대한 접근 권한을 허용하셔야 합니다",
           "title": "카메라와 마이크에 대한 접근 권한 허용"
+        },
+        "video_audio_devicemotion": {
+          "body": "카메라, 마이크, 그리고 기기 동작 권한이 없으면 본인 확인을 진행할 수 없습니다",
+          "button_enable": "모두 사용",
+          "subtitle": "요청이 표시되면 각 권한을 허용해 주세요. 계속하기 위해 필요합니다.",
+          "title": "카메라, 마이크, 기기 동작에 대한 접근을 허용하세요"
+        },
+        "video_devicemotion": {
+          "body": "카메라와 기기 동작 권한이 없으면 본인 확인을 진행할 수 없습니다.",
+          "button_enable": "둘 다 사용",
+          "subtitle": "요청이 표시되면 각 권한을 허용하세요. 계속하려면 필요합니다.",
+          "title": "카메라 및 기기 동작 접근 허용"
         }
       },
       "recovery": {
@@ -1314,6 +1332,15 @@
         "up_accessibility": "알림이 들릴 때까지 천천히 고개를 위로 들어 올리세요"
       },
       "left_side_complete_accessibility": "왼쪽 완료",
+      "passive": {
+        "title_failed_auth": "인증에 실패했습니다",
+        "title_failed_onboarding": "인증에 실패했습니다",
+        "title_recording": "스캔하는 중",
+        "title_success_auth": "인증됨",
+        "title_success_onboarding": "인증됨",
+        "title_verifying_auth": "인증하는 중…",
+        "title_verifying_onboarding": "확인하는 중..."
+      },
       "recording_started_accessibility": "녹화가 시작되었습니다",
       "right_side_complete_accessibility": "오른쪽 완료",
       "title": "고개를 좌우로 천천히 돌리세요",
@@ -1331,6 +1358,14 @@
       "list_item_one_accessibility": "먼저, 얼굴 앞쪽에 기기를 두세요",
       "list_item_two": "그런 다음 고개를 좌우로 천천히 돌리세요",
       "list_item_two_accessibility": "그런 다음, 머리를 천천히 왼쪽으로 돌린 후 오른쪽으로 돌려주세요.",
+      "passive": {
+        "button_primary_ready": "준비됐어요",
+        "list_item_one": "조명이 잘 갖춰진 장소에 있는지 확인하세요",
+        "list_item_three": "스캔을 시작하려면 얼굴을 프레임 안에 맞춰 주세요",
+        "list_item_two": "얼굴을 가리는 물건은 제거하세요. 안경은 괜찮습니다.",
+        "subtitle": "본인 확인으로 계정을 안전하게 보호하세요",
+        "title": "얼굴을 스캔합니다"
+      },
       "play_pause_accessibility": "재생 또는 일시 중지",
       "randomness": {
         "list_item_one": "머리를 네 방향으로 돌려 달라고 요청할 거예요",
@@ -2493,6 +2528,35 @@
           }
         }
       },
+      "motion_passive": {
+        "face_capture": {
+          "title": {
+            "failed": {
+              "auth": "faceMotion.face_capture.passive.title_failed_auth",
+              "onboarding": "faceMotion.face_capture.passive.title_failed_onboarding"
+            },
+            "recording": "faceMotion.face_capture.passive.title_recording",
+            "success": {
+              "auth": "faceMotion.face_capture.passive.title_success_auth",
+              "onboarding": "faceMotion.face_capture.passive.title_success_onboarding"
+            },
+            "verifying": {
+              "auth": "faceMotion.face_capture.passive.title_verifying_auth",
+              "onboarding": "faceMotion.face_capture.passive.title_verifying_onboarding"
+            }
+          }
+        },
+        "intro": {
+          "button_primary_ready": "faceMotion.intro.passive.button_primary_ready",
+          "list": {
+            "item_one": "faceMotion.intro.passive.list_item_one",
+            "item_three": "faceMotion.intro.passive.list_item_three",
+            "item_two": "faceMotion.intro.passive.list_item_two"
+          },
+          "subtitle": "faceMotion.intro.passive.subtitle",
+          "title": "faceMotion.intro.passive.title"
+        }
+      },
       "motion_randomness_capture": {
         "alert": {
           "button_primary_retry_fetching_challenge": "faceMotion.connection_error.button_primary_retry_fetch",
@@ -2671,17 +2735,29 @@
         "title": "complete.outro.title"
       },
       "permission": {
+        "banner_cam_devicemotion": "common.permissions.primer.video_devicemotion.body",
+        "banner_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.body",
+        "banner_devicemotion": "common.permissions.primer.devicemotion.body",
         "body_both": "common.permissions.primer.body_video_audio",
         "body_cam": "common.permissions.primer.body_video",
         "body_mic": "common.permissions.primer.body_audio",
         "button_primary_both": "common.permissions.primer.button_enable_video_audio",
         "button_primary_cam": "common.permissions.primer.button_enable_video",
+        "button_primary_cam_devicemotion": "common.permissions.primer.video_devicemotion.button_enable",
+        "button_primary_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.button_enable",
+        "button_primary_devicemotion": "common.permissions.primer.devicemotion.button_enable",
         "button_primary_mic": "common.permissions.primer.button_enable_audio",
         "subtitle_both": "common.permissions.primer.subtitle_video_audio",
         "subtitle_cam": "common.permissions.primer.subtitle_video",
+        "subtitle_cam_devicemotion": "common.permissions.primer.video_devicemotion.subtitle",
+        "subtitle_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.subtitle",
+        "subtitle_devicemotion": "common.permissions.primer.devicemotion.subtitle",
         "subtitle_mic": "common.permissions.primer.subtitle_audio",
         "title_both": "common.permissions.primer.title_video_audio",
         "title_cam": "common.permissions.primer.title_video",
+        "title_cam_devicemotion": "common.permissions.primer.video_devicemotion.title",
+        "title_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.title",
+        "title_devicemotion": "common.permissions.primer.devicemotion.title",
         "title_mic": "common.permissions.primer.title_audio"
       },
       "permission_recovery": {
@@ -3273,10 +3349,6 @@
         "title": "requestDiatfConsent.title"
       },
       "request_uk_evisa": {
-        "biometric": {
-          "subtitle": "requestEvisa.request_uk_evisa.consent.biometric.description",
-          "title": "requestEvisa.request_uk_evisa.consent.biometric.title"
-        },
         "button_primary": "requestEvisa.request_uk_evisa.submit",
         "disclosure": {
           "subtitle": "requestEvisa.request_uk_evisa.consent.disclosure.description",
@@ -3595,6 +3667,15 @@
         "up_accessibility": "알림이 들릴 때까지 천천히 고개를 위로 들어 올리세요"
       },
       "left_side_complete_accessibility": "왼쪽 완료",
+      "passive": {
+        "title_failed_auth": "인증에 실패했습니다",
+        "title_failed_onboarding": "인증에 실패했습니다",
+        "title_recording": "스캔하는 중",
+        "title_success_auth": "인증됨",
+        "title_success_onboarding": "인증됨",
+        "title_verifying_auth": "인증하는 중…",
+        "title_verifying_onboarding": "확인하는 중..."
+      },
       "recording_started_accessibility": "녹화가 시작되었습니다",
       "right_side_complete_accessibility": "오른쪽 완료",
       "title": "고개를 좌우로 천천히 돌리세요",
@@ -3612,6 +3693,14 @@
       "list_item_one_accessibility": "먼저, 얼굴 앞쪽에 기기를 두세요",
       "list_item_two": "그런 다음 고개를 좌우로 천천히 돌리세요",
       "list_item_two_accessibility": "그런 다음, 머리를 천천히 왼쪽으로 돌린 후 오른쪽으로 돌려주세요.",
+      "passive": {
+        "button_primary_ready": "준비됐어요",
+        "list_item_one": "조명이 잘 갖춰진 장소에 있는지 확인하세요",
+        "list_item_three": "스캔을 시작하려면 얼굴을 프레임 안에 맞춰 주세요",
+        "list_item_two": "얼굴을 가리는 물건은 제거하세요. 안경은 괜찮습니다.",
+        "subtitle": "본인 확인으로 계정을 안전하게 보호하세요",
+        "title": "얼굴을 스캔합니다"
+      },
       "play_pause_accessibility": "재생 또는 일시 중지",
       "randomness": {
         "list_item_one": "머리를 네 방향으로 돌려 달라고 요청할 거예요",
@@ -4293,53 +4382,49 @@
         "review_again": "Review again"
       },
       "detail": "If you do not accept Entrust’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
-      "title": "Consent to process biometric data and sensitive data"
+      "title": "Are you sure?"
     },
     "title": "Consent to process biometric data and sensitive data"
   },
   "requestEvisa": {
     "request_uk_evisa": {
       "consent": {
-        "biometric": {
-          "description": "By checking this box, you consent to the use of your biometric data contained in visa records held by GOV.UK, together with the biometric data collected in the remaining stages of this visa check, to confirm your identity against visa records. <fallback>Read more</fallback>",
-          "title": "Consent to biometric check"
-        },
         "disclosure": {
-          "description": "By checking this box, you authorise Entrust to request and receive personal information about you from GOV.UK as required to verify your identity and prevent fraud. This may include your name, date of birth, and other personal details. <fallback>Read more</fallback>",
+          "description": "By checking this box, you authorise Entrust to request and receive personal information about you from GOV.UK as required to verify your identity and prevent fraud. This may include your name, photo, date of birth, and other personal details. <fallback>Read more</fallback>",
           "title": "Consent for disclosure of information"
         }
       },
       "dob": {
         "error": {
-          "dob_invalid": "Please enter a valid date of birth",
-          "dob_required": "Please enter your date of birth"
+          "dob_invalid": "유효한 생년월일을 입력해 주세요",
+          "dob_required": "생년월일을 입력해 주세요"
         },
-        "label": "Date of birth",
+        "label": "생년월일",
         "placeholder": "dd/mm/yyyy"
       },
       "list_item_1": {
-        "accessibility": "View your eVisa and get a share code on the gov.uk website (opens in browser)",
-        "label": "View your eVisa and get a share code on the gov.uk website"
+        "accessibility": "GOV.UK 웹사이트에서 전자비자를 확인하고 신분 조회 코드를 발급받으세요(브라우저에서 열림)",
+        "label": "GOV.UK 웹사이트에서 전자비자를 확인하고 신분 공유 코드를 받으세요"
       },
       "list_item_2": {
-        "accessibility": "When asked why you need a share code, select the option to prove your immigration status",
-        "label": "Select the option to prove your immigration status"
+        "accessibility": "공유 코드를 왜 필요로 하는지 이유를 묻는 경우, 당신의 이민 신분을 증명하기 위한 옵션을 선택하세요.",
+        "label": "이민 신분을 증명할 옵션을 선택하세요"
       },
       "list_item_3": {
-        "accessibility": "Come back to this page and enter the 9-digit code below",
-        "label": "Enter the 9-digit code below"
+        "accessibility": "이 페이지로 돌아와 아래에 9자리 코드를 입력하세요",
+        "label": "아래에 9자리 코드를 입력하세요"
       },
       "share_code_input": {
         "error": {
-          "share_code_invalid": "The code must start with 'S'",
-          "share_code_wrong": "The code must starts with 'S', not 'W' (right to work) or 'R' (right to rent)",
-          "share_code_wrong_accessibility": "The code to prove your immigration status must starts with 'S', not 'W' (right to work) or 'R' (right to rent)"
+          "share_code_invalid": "코드는 반드시 'S'로 시작해야 합니다.",
+          "share_code_wrong": "코드는 반드시 'S'로 시작해야 하며, 'W'(일할 권리)나 'R'(임대할 권리)로 시작하면 안 됩니다.",
+          "share_code_wrong_accessibility": "귀하의 이민 신분을 증명하는 코드는 ‘S’로 시작해야 하며, ‘W’(근로 권리)나 ‘R’(임대 권리)로 시작해서는 안 됩니다."
         },
-        "label": "Share code"
+        "label": "공유 코드"
       },
-      "submit": "Continue",
-      "subtitle": "Generate your 9-digit share code to verify your identity using your eVisa",
-      "title": "Enter your UK eVisa share code"
+      "submit": "계속",
+      "subtitle": "전자 비자를 사용해 본인 인증을 하려면 9자리 공유 코드를 생성하세요",
+      "title": "영국 전자비자 신분 공유 코드를 입력하세요"
     }
   },
   "retry": {

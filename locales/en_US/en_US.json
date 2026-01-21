@@ -401,6 +401,12 @@
         "button_enable_audio": "Continue",
         "button_enable_video": "Continue",
         "button_enable_video_audio": "Continue",
+        "devicemotion": {
+          "body": "We can’t verify you without access to device motion data",
+          "button_enable": "Enable",
+          "subtitle": "When prompted, allow access to device motion data. This is required to continue.",
+          "title": "Allow device motion access"
+        },
         "subtitle_audio": "When prompted, you must enable microphone access to continue",
         "subtitle_video": "When prompted, you must enable camera access to continue",
         "subtitle_video_audio": "When prompted, you must enable access for both to continue",
@@ -419,6 +425,18 @@
           "button_label": "Enable both the camera and microphone",
           "subtitle": "When prompted, you must enable access for both to continue",
           "title": "Allow camera and microphone access"
+        },
+        "video_audio_devicemotion": {
+          "body": "We can’t verify you without camera, microphone, and device motion permission",
+          "button_enable": "Enable all",
+          "subtitle": "Allow each permission when prompted. This is required to continue.",
+          "title": "Allow camera, microphone, and device motion access"
+        },
+        "video_devicemotion": {
+          "body": "We can’t verify you without camera and device motion permission",
+          "button_enable": "Enable both",
+          "subtitle": "Allow each permission when prompted. This is required to continue.",
+          "title": "Allow camera and device motion access"
         }
       },
       "recovery": {
@@ -1314,6 +1332,15 @@
         "up_accessibility": "Slowly tilt your head up until you hear confirmation"
       },
       "left_side_complete_accessibility": "Left side complete",
+      "passive": {
+        "title_failed_auth": "Authentication failed",
+        "title_failed_onboarding": "Verification failed",
+        "title_recording": "Scanning",
+        "title_success_auth": "Authenticated",
+        "title_success_onboarding": "Verified",
+        "title_verifying_auth": "Authenticating…",
+        "title_verifying_onboarding": "Verifying..."
+      },
       "recording_started_accessibility": "Recording has started",
       "right_side_complete_accessibility": "Right side complete",
       "title": "Turn your head slowly to both sides",
@@ -1331,6 +1358,14 @@
       "list_item_one_accessibility": "First, you will have to position your face in front of your device",
       "list_item_two": "Then, turn your head slowly to both sides",
       "list_item_two_accessibility": "Then, turn your head slowly to the left, and then to the right",
+      "passive": {
+        "button_primary_ready": "I’m ready",
+        "list_item_one": "Ensure you are in a place with good lighting",
+        "list_item_three": "Position your face in the frame to begin the scan",
+        "list_item_two": "Remove items that covers your face, eyeglasses are ok",
+        "subtitle": "Confirm your identity to keep your account safe",
+        "title": "Scan your face"
+      },
       "play_pause_accessibility": "Play or pause",
       "randomness": {
         "list_item_one": "We’ll ask you to turn your head in four directions",
@@ -2493,6 +2528,35 @@
           }
         }
       },
+      "motion_passive": {
+        "face_capture": {
+          "title": {
+            "failed": {
+              "auth": "faceMotion.face_capture.passive.title_failed_auth",
+              "onboarding": "faceMotion.face_capture.passive.title_failed_onboarding"
+            },
+            "recording": "faceMotion.face_capture.passive.title_recording",
+            "success": {
+              "auth": "faceMotion.face_capture.passive.title_success_auth",
+              "onboarding": "faceMotion.face_capture.passive.title_success_onboarding"
+            },
+            "verifying": {
+              "auth": "faceMotion.face_capture.passive.title_verifying_auth",
+              "onboarding": "faceMotion.face_capture.passive.title_verifying_onboarding"
+            }
+          }
+        },
+        "intro": {
+          "button_primary_ready": "faceMotion.intro.passive.button_primary_ready",
+          "list": {
+            "item_one": "faceMotion.intro.passive.list_item_one",
+            "item_three": "faceMotion.intro.passive.list_item_three",
+            "item_two": "faceMotion.intro.passive.list_item_two"
+          },
+          "subtitle": "faceMotion.intro.passive.subtitle",
+          "title": "faceMotion.intro.passive.title"
+        }
+      },
       "motion_randomness_capture": {
         "alert": {
           "button_primary_retry_fetching_challenge": "faceMotion.connection_error.button_primary_retry_fetch",
@@ -2671,17 +2735,29 @@
         "title": "complete.outro.title"
       },
       "permission": {
+        "banner_cam_devicemotion": "common.permissions.primer.video_devicemotion.body",
+        "banner_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.body",
+        "banner_devicemotion": "common.permissions.primer.devicemotion.body",
         "body_both": "common.permissions.primer.body_video_audio",
         "body_cam": "common.permissions.primer.body_video",
         "body_mic": "common.permissions.primer.body_audio",
         "button_primary_both": "common.permissions.primer.button_enable_video_audio",
         "button_primary_cam": "common.permissions.primer.button_enable_video",
+        "button_primary_cam_devicemotion": "common.permissions.primer.video_devicemotion.button_enable",
+        "button_primary_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.button_enable",
+        "button_primary_devicemotion": "common.permissions.primer.devicemotion.button_enable",
         "button_primary_mic": "common.permissions.primer.button_enable_audio",
         "subtitle_both": "common.permissions.primer.subtitle_video_audio",
         "subtitle_cam": "common.permissions.primer.subtitle_video",
+        "subtitle_cam_devicemotion": "common.permissions.primer.video_devicemotion.subtitle",
+        "subtitle_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.subtitle",
+        "subtitle_devicemotion": "common.permissions.primer.devicemotion.subtitle",
         "subtitle_mic": "common.permissions.primer.subtitle_audio",
         "title_both": "common.permissions.primer.title_video_audio",
         "title_cam": "common.permissions.primer.title_video",
+        "title_cam_devicemotion": "common.permissions.primer.video_devicemotion.title",
+        "title_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.title",
+        "title_devicemotion": "common.permissions.primer.devicemotion.title",
         "title_mic": "common.permissions.primer.title_audio"
       },
       "permission_recovery": {
@@ -3273,10 +3349,6 @@
         "title": "requestDiatfConsent.title"
       },
       "request_uk_evisa": {
-        "biometric": {
-          "subtitle": "requestEvisa.request_uk_evisa.consent.biometric.description",
-          "title": "requestEvisa.request_uk_evisa.consent.biometric.title"
-        },
         "button_primary": "requestEvisa.request_uk_evisa.submit",
         "disclosure": {
           "subtitle": "requestEvisa.request_uk_evisa.consent.disclosure.description",
@@ -3595,6 +3667,15 @@
         "up_accessibility": "Slowly tilt your head up until you hear confirmation"
       },
       "left_side_complete_accessibility": "Left side complete",
+      "passive": {
+        "title_failed_auth": "Authentication failed",
+        "title_failed_onboarding": "Verification failed",
+        "title_recording": "Scanning",
+        "title_success_auth": "Authenticated",
+        "title_success_onboarding": "Verified",
+        "title_verifying_auth": "Authenticating…",
+        "title_verifying_onboarding": "Verifying..."
+      },
       "recording_started_accessibility": "Recording has started",
       "right_side_complete_accessibility": "Right side complete",
       "title": "Turn your head slowly to both sides",
@@ -3612,6 +3693,14 @@
       "list_item_one_accessibility": "First, you will have to position your face in front of your device",
       "list_item_two": "Then, turn your head slowly to both sides",
       "list_item_two_accessibility": "Then, turn your head slowly to the left, and then to the right",
+      "passive": {
+        "button_primary_ready": "I’m ready",
+        "list_item_one": "Ensure you are in a place with good lighting",
+        "list_item_three": "Position your face in the frame to begin the scan",
+        "list_item_two": "Remove items that covers your face, eyeglasses are ok",
+        "subtitle": "Confirm your identity to keep your account safe",
+        "title": "Scan your face"
+      },
       "play_pause_accessibility": "Play or pause",
       "randomness": {
         "list_item_one": "We’ll ask you to turn your head in four directions",
@@ -4293,19 +4382,15 @@
         "review_again": "Review again"
       },
       "detail": "If you do not accept Entrust’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
-      "title": "Consent to process biometric data and sensitive data"
+      "title": "Are you sure?"
     },
     "title": "Consent to process biometric data and sensitive data"
   },
   "requestEvisa": {
     "request_uk_evisa": {
       "consent": {
-        "biometric": {
-          "description": "By checking this box, you consent to the use of your biometric data contained in visa records held by GOV.UK, together with the biometric data collected in the remaining stages of this visa check, to confirm your identity against visa records. <fallback>Read more</fallback>",
-          "title": "Consent to biometric check"
-        },
         "disclosure": {
-          "description": "By checking this box, you authorise Entrust to request and receive personal information about you from GOV.UK as required to verify your identity and prevent fraud. This may include your name, date of birth, and other personal details. <fallback>Read more</fallback>",
+          "description": "By checking this box, you authorise Entrust to request and receive personal information about you from GOV.UK as required to verify your identity and prevent fraud. This may include your name, photo, date of birth, and other personal details. <fallback>Read more</fallback>",
           "title": "Consent for disclosure of information"
         }
       },
@@ -4318,16 +4403,16 @@
         "placeholder": "dd/mm/yyyy"
       },
       "list_item_1": {
-        "accessibility": "View your eVisa and get a share code on the gov.uk website (opens in browser)",
-        "label": "View your eVisa and get a share code on the gov.uk website"
+        "accessibility": "View your eVisa and get a share code on the GOV.UK website (opens in browser)",
+        "label": "View your eVisa and get a share code on the GOV.UK website"
       },
       "list_item_2": {
         "accessibility": "When asked why you need a share code, select the option to prove your immigration status",
         "label": "Select the option to prove your immigration status"
       },
       "list_item_3": {
-        "accessibility": "Come back to this page and enter the 9-digit code below",
-        "label": "Enter the 9-digit code below"
+        "accessibility": "Come back to this page and enter the 9-character code below",
+        "label": "Enter the 9-character code below"
       },
       "share_code_input": {
         "error": {
@@ -4338,7 +4423,7 @@
         "label": "Share code"
       },
       "submit": "Continue",
-      "subtitle": "Generate your 9-digit share code to verify your identity using your eVisa",
+      "subtitle": "Generate your 9-character share code to verify your identity using your eVisa",
       "title": "Enter your UK eVisa share code"
     }
   },

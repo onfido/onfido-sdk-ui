@@ -401,6 +401,12 @@
         "button_enable_audio": "Nadaljuj",
         "button_enable_video": "Nadaljuj",
         "button_enable_video_audio": "Nadaljuj",
+        "devicemotion": {
+          "body": "Ne moremo vas preveriti brez dostopa do podatkov o gibanju naprave",
+          "button_enable": "Omogoči",
+          "subtitle": "Ko boste pozvani, dovolite dostop do podatkov o gibanju naprave. To je potrebno za nadaljevanje.",
+          "title": "Dovoli dostop do gibanja naprave"
+        },
         "subtitle_audio": "Ko boste pozvani, morate za nadaljevanje omogočiti dostop do mikrofona",
         "subtitle_video": "Ko boste pozvani, morate za nadaljevanje omogočiti dostop do kamere",
         "subtitle_video_audio": "Ko boste pozvani, morate za nadaljevanje omogočiti dostop za oboje",
@@ -419,6 +425,18 @@
           "button_label": "Omogočite tako kamero kot mikrofon",
           "subtitle": "Ko boste pozvani, morate za nadaljevanje omogočiti dostop za oboje",
           "title": "Omogočite dostop do kamere in mikrofona"
+        },
+        "video_audio_devicemotion": {
+          "body": "Ne moremo vas preveriti brez dovoljenja za kamero, mikrofon in zaznavanje gibanja naprave",
+          "button_enable": "Omogoči vse",
+          "subtitle": "Ko ste pozvani, dovolite vsako dovoljenje. To je potrebno za nadaljevanje.",
+          "title": "Dovoli dostop do kamere, mikrofona in gibanja naprave"
+        },
+        "video_devicemotion": {
+          "body": "Brez dovoljenja za kamero in gibanje naprave vas ne moremo preveriti",
+          "button_enable": "Omogoči oboje",
+          "subtitle": "Dovolite vsako dovoljenje, ko boste pozvani. To je potrebno za nadaljevanje.",
+          "title": "Dovoli dostop do kamere in gibanja naprave"
         }
       },
       "recovery": {
@@ -1314,6 +1332,15 @@
         "up_accessibility": "Počasi nagnite glavo navzgor, dokler ne slišite potrditve"
       },
       "left_side_complete_accessibility": "Leva stran je končana",
+      "passive": {
+        "title_failed_auth": "Preverjanje pristnosti ni uspelo",
+        "title_failed_onboarding": "Preverjanje ni uspelo",
+        "title_recording": "Skeniranje",
+        "title_success_auth": "Preverjeno",
+        "title_success_onboarding": "Preverjeno",
+        "title_verifying_auth": "Preverjanje pristnosti …",
+        "title_verifying_onboarding": "Preverjanje ..."
+      },
       "recording_started_accessibility": "Snemanje se je pričelo",
       "right_side_complete_accessibility": "Desna stran je končana",
       "title": "Glavo počasi obrnite na obe strani",
@@ -1331,6 +1358,14 @@
       "list_item_one_accessibility": "Najprej boste morali postaviti obraz pred napravo",
       "list_item_two": "Nato glavo počasi obrnite na obe strani",
       "list_item_two_accessibility": "Nato počasi obrnite glavo v levo in nato v desno",
+      "passive": {
+        "button_primary_ready": "Pripravljen sem",
+        "list_item_one": "Poskrbite, da ste na mestu z dobro osvetlitvijo",
+        "list_item_three": "Postavite obraz v okvir, da začnete skeniranje",
+        "list_item_two": "Odstranite predmete, ki pokrivajo vaš obraz, očala so v redu",
+        "subtitle": "Potrdite svojo identiteto, da ostane vaš račun varen",
+        "title": "Skenirajte vaš obraz"
+      },
       "play_pause_accessibility": "Predvajaj ali ustavi",
       "randomness": {
         "list_item_one": "Prosili vas bomo, da obrnete glavo v štiri smeri",
@@ -2493,6 +2528,35 @@
           }
         }
       },
+      "motion_passive": {
+        "face_capture": {
+          "title": {
+            "failed": {
+              "auth": "faceMotion.face_capture.passive.title_failed_auth",
+              "onboarding": "faceMotion.face_capture.passive.title_failed_onboarding"
+            },
+            "recording": "faceMotion.face_capture.passive.title_recording",
+            "success": {
+              "auth": "faceMotion.face_capture.passive.title_success_auth",
+              "onboarding": "faceMotion.face_capture.passive.title_success_onboarding"
+            },
+            "verifying": {
+              "auth": "faceMotion.face_capture.passive.title_verifying_auth",
+              "onboarding": "faceMotion.face_capture.passive.title_verifying_onboarding"
+            }
+          }
+        },
+        "intro": {
+          "button_primary_ready": "faceMotion.intro.passive.button_primary_ready",
+          "list": {
+            "item_one": "faceMotion.intro.passive.list_item_one",
+            "item_three": "faceMotion.intro.passive.list_item_three",
+            "item_two": "faceMotion.intro.passive.list_item_two"
+          },
+          "subtitle": "faceMotion.intro.passive.subtitle",
+          "title": "faceMotion.intro.passive.title"
+        }
+      },
       "motion_randomness_capture": {
         "alert": {
           "button_primary_retry_fetching_challenge": "faceMotion.connection_error.button_primary_retry_fetch",
@@ -2671,17 +2735,29 @@
         "title": "complete.outro.title"
       },
       "permission": {
+        "banner_cam_devicemotion": "common.permissions.primer.video_devicemotion.body",
+        "banner_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.body",
+        "banner_devicemotion": "common.permissions.primer.devicemotion.body",
         "body_both": "common.permissions.primer.body_video_audio",
         "body_cam": "common.permissions.primer.body_video",
         "body_mic": "common.permissions.primer.body_audio",
         "button_primary_both": "common.permissions.primer.button_enable_video_audio",
         "button_primary_cam": "common.permissions.primer.button_enable_video",
+        "button_primary_cam_devicemotion": "common.permissions.primer.video_devicemotion.button_enable",
+        "button_primary_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.button_enable",
+        "button_primary_devicemotion": "common.permissions.primer.devicemotion.button_enable",
         "button_primary_mic": "common.permissions.primer.button_enable_audio",
         "subtitle_both": "common.permissions.primer.subtitle_video_audio",
         "subtitle_cam": "common.permissions.primer.subtitle_video",
+        "subtitle_cam_devicemotion": "common.permissions.primer.video_devicemotion.subtitle",
+        "subtitle_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.subtitle",
+        "subtitle_devicemotion": "common.permissions.primer.devicemotion.subtitle",
         "subtitle_mic": "common.permissions.primer.subtitle_audio",
         "title_both": "common.permissions.primer.title_video_audio",
         "title_cam": "common.permissions.primer.title_video",
+        "title_cam_devicemotion": "common.permissions.primer.video_devicemotion.title",
+        "title_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.title",
+        "title_devicemotion": "common.permissions.primer.devicemotion.title",
         "title_mic": "common.permissions.primer.title_audio"
       },
       "permission_recovery": {
@@ -3273,10 +3349,6 @@
         "title": "requestDiatfConsent.title"
       },
       "request_uk_evisa": {
-        "biometric": {
-          "subtitle": "requestEvisa.request_uk_evisa.consent.biometric.description",
-          "title": "requestEvisa.request_uk_evisa.consent.biometric.title"
-        },
         "button_primary": "requestEvisa.request_uk_evisa.submit",
         "disclosure": {
           "subtitle": "requestEvisa.request_uk_evisa.consent.disclosure.description",
@@ -3595,6 +3667,15 @@
         "up_accessibility": "Počasi nagnite glavo navzgor, dokler ne slišite potrditve"
       },
       "left_side_complete_accessibility": "Leva stran je končana",
+      "passive": {
+        "title_failed_auth": "Preverjanje pristnosti ni uspelo",
+        "title_failed_onboarding": "Preverjanje ni uspelo",
+        "title_recording": "Skeniranje",
+        "title_success_auth": "Preverjeno",
+        "title_success_onboarding": "Preverjeno",
+        "title_verifying_auth": "Preverjanje pristnosti …",
+        "title_verifying_onboarding": "Preverjanje ..."
+      },
       "recording_started_accessibility": "Snemanje se je pričelo",
       "right_side_complete_accessibility": "Desna stran je končana",
       "title": "Glavo počasi obrnite na obe strani",
@@ -3612,6 +3693,14 @@
       "list_item_one_accessibility": "Najprej boste morali postaviti obraz pred napravo",
       "list_item_two": "Nato glavo počasi obrnite na obe strani",
       "list_item_two_accessibility": "Nato počasi obrnite glavo v levo in nato v desno",
+      "passive": {
+        "button_primary_ready": "Pripravljen sem",
+        "list_item_one": "Poskrbite, da ste na mestu z dobro osvetlitvijo",
+        "list_item_three": "Postavite obraz v okvir, da začnete skeniranje",
+        "list_item_two": "Odstranite predmete, ki pokrivajo vaš obraz, očala so v redu",
+        "subtitle": "Potrdite svojo identiteto, da ostane vaš račun varen",
+        "title": "Skenirajte vaš obraz"
+      },
       "play_pause_accessibility": "Predvajaj ali ustavi",
       "randomness": {
         "list_item_one": "Prosili vas bomo, da obrnete glavo v štiri smeri",
@@ -4293,53 +4382,49 @@
         "review_again": "Review again"
       },
       "detail": "If you do not accept Entrust’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
-      "title": "Consent to process biometric data and sensitive data"
+      "title": "Are you sure?"
     },
     "title": "Consent to process biometric data and sensitive data"
   },
   "requestEvisa": {
     "request_uk_evisa": {
       "consent": {
-        "biometric": {
-          "description": "By checking this box, you consent to the use of your biometric data contained in visa records held by GOV.UK, together with the biometric data collected in the remaining stages of this visa check, to confirm your identity against visa records. <fallback>Read more</fallback>",
-          "title": "Consent to biometric check"
-        },
         "disclosure": {
-          "description": "By checking this box, you authorise Entrust to request and receive personal information about you from GOV.UK as required to verify your identity and prevent fraud. This may include your name, date of birth, and other personal details. <fallback>Read more</fallback>",
+          "description": "By checking this box, you authorise Entrust to request and receive personal information about you from GOV.UK as required to verify your identity and prevent fraud. This may include your name, photo, date of birth, and other personal details. <fallback>Read more</fallback>",
           "title": "Consent for disclosure of information"
         }
       },
       "dob": {
         "error": {
-          "dob_invalid": "Please enter a valid date of birth",
-          "dob_required": "Please enter your date of birth"
+          "dob_invalid": "Vnesite veljaven datum rojstva",
+          "dob_required": "Vnesite svoj datum rojstva"
         },
-        "label": "Date of birth",
-        "placeholder": "dd/mm/yyyy"
+        "label": "Datum rojstva",
+        "placeholder": "dd/mm/llll"
       },
       "list_item_1": {
-        "accessibility": "View your eVisa and get a share code on the gov.uk website (opens in browser)",
-        "label": "View your eVisa and get a share code on the gov.uk website"
+        "accessibility": "Oglejte si svojo elektronsko vizo in pridobite kodo za skupno rabo na spletni strani GOV.UK (odpre se v brskalniku)",
+        "label": "Oglejte si svojo e-vizo in pridobite kodo za skupno rabo na spletni strani GOV.UK"
       },
       "list_item_2": {
-        "accessibility": "When asked why you need a share code, select the option to prove your immigration status",
-        "label": "Select the option to prove your immigration status"
+        "accessibility": "Ko vas vprašajo, zakaj potrebujete kodo za deljenje, izberite možnost za dokazovanje vašega priseljenskega statusa",
+        "label": "Izberite možnost za dokazovanje vašega priseljenskega statusa"
       },
       "list_item_3": {
-        "accessibility": "Come back to this page and enter the 9-digit code below",
-        "label": "Enter the 9-digit code below"
+        "accessibility": "Vrnite se na to stran in vnesite 9-mestno kodo spodaj",
+        "label": "Spodaj vnesite 9-mestno kodo"
       },
       "share_code_input": {
         "error": {
-          "share_code_invalid": "The code must start with 'S'",
-          "share_code_wrong": "The code must starts with 'S', not 'W' (right to work) or 'R' (right to rent)",
-          "share_code_wrong_accessibility": "The code to prove your immigration status must starts with 'S', not 'W' (right to work) or 'R' (right to rent)"
+          "share_code_invalid": "Koda se mora začeti s črko 'S'",
+          "share_code_wrong": "Koda se mora začeti s črko 'S', ne 'W' (pravica do dela) ali 'R' (pravica do najema)",
+          "share_code_wrong_accessibility": "Koda za dokazovanje vašega priseljenskega statusa se mora začeti s črko 'S', ne 'W' (pravica do dela) ali 'R' (pravica do najema)"
         },
-        "label": "Share code"
+        "label": "Koda za skupno rabo"
       },
-      "submit": "Continue",
-      "subtitle": "Generate your 9-digit share code to verify your identity using your eVisa",
-      "title": "Enter your UK eVisa share code"
+      "submit": "Nadaljuj",
+      "subtitle": "Ustvarite svojo 9-mestno kodo za skupno rabo za preverjanje vaše identitete z uporabo vaše elektronske vize",
+      "title": "Vnesite svojo kodo za skupno rabo e-vizuma za Združeno kraljestvo"
     }
   },
   "retry": {

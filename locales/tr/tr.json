@@ -401,6 +401,12 @@
         "button_enable_audio": "Devam et",
         "button_enable_video": "Devam et",
         "button_enable_video_audio": "Devam et",
+        "devicemotion": {
+          "body": "Cihaz hareket verilerine erişmeden kimliğinizi doğrulamayız",
+          "button_enable": "Etkinleştir",
+          "subtitle": "İstendiğinde, cihaz hareket verilerine erişime izin verin. Devam etmek için bu gereklidir.",
+          "title": "Cihaz hareketine erişime izin ver"
+        },
         "subtitle_audio": "İstendiğinde, devam etmek için mikrofon erişimini etkinleştirmeniz gerekir",
         "subtitle_video": "İstendiğinde, devam etmek için kamera erişimini etkinleştirmeniz gerekir",
         "subtitle_video_audio": "İstendiğinde, devam etmek için her ikisine de erişimi etkinleştirmeniz gerekir",
@@ -419,6 +425,18 @@
           "button_label": "Hem kamerayı hem de mikrofonu etkinleştir",
           "subtitle": "İstendiğinde, devam etmek için her ikisine de erişimi etkinleştirmeniz gerekir",
           "title": "Kamera ve mikrofon erişimine izin ver"
+        },
+        "video_audio_devicemotion": {
+          "body": "Kamera, mikrofon ve cihaz hareketi izni olmadan sizi doğrulayamıyoruz",
+          "button_enable": "Tümünü etkinleştir",
+          "subtitle": "İstendiğinde her izni verin. Devam etmek için bu gereklidir.",
+          "title": "Kamera, mikrofon ve cihaz hareketi erişimine izin verin"
+        },
+        "video_devicemotion": {
+          "body": "Kamera ve cihaz hareketi izni olmadan kimliğinizi doğrulayamayız",
+          "button_enable": "Her ikisini de etkinleştir",
+          "subtitle": "İstendiğinde her izni verin. Devam etmek için bu gereklidir.",
+          "title": "Kamera ve cihaz hareketi erişimine izin verin"
         }
       },
       "recovery": {
@@ -1314,6 +1332,15 @@
         "up_accessibility": "Onay sesini duyana kadar başınızı yavaşça yukarı doğru eğin"
       },
       "left_side_complete_accessibility": "Sol taraf tamamlandı",
+      "passive": {
+        "title_failed_auth": "Kimlik doğrulama başarısız oldu",
+        "title_failed_onboarding": "Doğrulama başarısız oldu",
+        "title_recording": "Taranıyor",
+        "title_success_auth": "Kimliği Doğrulanmış",
+        "title_success_onboarding": "Doğrulandı",
+        "title_verifying_auth": "Kimlik doğrulanıyor…",
+        "title_verifying_onboarding": "Doğrulanıyor..."
+      },
       "recording_started_accessibility": "Kayıt başladı",
       "right_side_complete_accessibility": "Sağ taraf tamamlandı",
       "title": "Başınızı yavaşça her iki tarafa çevirin",
@@ -1331,6 +1358,14 @@
       "list_item_one_accessibility": "İlk olarak, yüzünüzü cihazınızın önünde konumlandırmanız gerekiyor",
       "list_item_two": "Ardından, başınızı yavaşça her iki tarafa çevirin",
       "list_item_two_accessibility": "Ardından, başınızı yavaşça sola, sonra da sağa çevirin",
+      "passive": {
+        "button_primary_ready": "Hazırım",
+        "list_item_one": "İyi aydınlatmaya sahip bir yerde olduğunuzdan emin olun",
+        "list_item_three": "Taramaya başlamak için yüzünüzü çerçeveye konumlandırın",
+        "list_item_two": "Yüzünüzü kapatan eşyaları çıkarın, gözlükler sorun değil",
+        "subtitle": "Hesabınızı güvende tutmak için kimliğinizi doğrulayın",
+        "title": "Yüzünüzü tarayın"
+      },
       "play_pause_accessibility": "Oynat veya duraklat",
       "randomness": {
         "list_item_one": "Başınızı dört yöne çevirmenizi isteyeceğiz",
@@ -2493,6 +2528,35 @@
           }
         }
       },
+      "motion_passive": {
+        "face_capture": {
+          "title": {
+            "failed": {
+              "auth": "faceMotion.face_capture.passive.title_failed_auth",
+              "onboarding": "faceMotion.face_capture.passive.title_failed_onboarding"
+            },
+            "recording": "faceMotion.face_capture.passive.title_recording",
+            "success": {
+              "auth": "faceMotion.face_capture.passive.title_success_auth",
+              "onboarding": "faceMotion.face_capture.passive.title_success_onboarding"
+            },
+            "verifying": {
+              "auth": "faceMotion.face_capture.passive.title_verifying_auth",
+              "onboarding": "faceMotion.face_capture.passive.title_verifying_onboarding"
+            }
+          }
+        },
+        "intro": {
+          "button_primary_ready": "faceMotion.intro.passive.button_primary_ready",
+          "list": {
+            "item_one": "faceMotion.intro.passive.list_item_one",
+            "item_three": "faceMotion.intro.passive.list_item_three",
+            "item_two": "faceMotion.intro.passive.list_item_two"
+          },
+          "subtitle": "faceMotion.intro.passive.subtitle",
+          "title": "faceMotion.intro.passive.title"
+        }
+      },
       "motion_randomness_capture": {
         "alert": {
           "button_primary_retry_fetching_challenge": "faceMotion.connection_error.button_primary_retry_fetch",
@@ -2671,17 +2735,29 @@
         "title": "complete.outro.title"
       },
       "permission": {
+        "banner_cam_devicemotion": "common.permissions.primer.video_devicemotion.body",
+        "banner_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.body",
+        "banner_devicemotion": "common.permissions.primer.devicemotion.body",
         "body_both": "common.permissions.primer.body_video_audio",
         "body_cam": "common.permissions.primer.body_video",
         "body_mic": "common.permissions.primer.body_audio",
         "button_primary_both": "common.permissions.primer.button_enable_video_audio",
         "button_primary_cam": "common.permissions.primer.button_enable_video",
+        "button_primary_cam_devicemotion": "common.permissions.primer.video_devicemotion.button_enable",
+        "button_primary_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.button_enable",
+        "button_primary_devicemotion": "common.permissions.primer.devicemotion.button_enable",
         "button_primary_mic": "common.permissions.primer.button_enable_audio",
         "subtitle_both": "common.permissions.primer.subtitle_video_audio",
         "subtitle_cam": "common.permissions.primer.subtitle_video",
+        "subtitle_cam_devicemotion": "common.permissions.primer.video_devicemotion.subtitle",
+        "subtitle_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.subtitle",
+        "subtitle_devicemotion": "common.permissions.primer.devicemotion.subtitle",
         "subtitle_mic": "common.permissions.primer.subtitle_audio",
         "title_both": "common.permissions.primer.title_video_audio",
         "title_cam": "common.permissions.primer.title_video",
+        "title_cam_devicemotion": "common.permissions.primer.video_devicemotion.title",
+        "title_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.title",
+        "title_devicemotion": "common.permissions.primer.devicemotion.title",
         "title_mic": "common.permissions.primer.title_audio"
       },
       "permission_recovery": {
@@ -3273,10 +3349,6 @@
         "title": "requestDiatfConsent.title"
       },
       "request_uk_evisa": {
-        "biometric": {
-          "subtitle": "requestEvisa.request_uk_evisa.consent.biometric.description",
-          "title": "requestEvisa.request_uk_evisa.consent.biometric.title"
-        },
         "button_primary": "requestEvisa.request_uk_evisa.submit",
         "disclosure": {
           "subtitle": "requestEvisa.request_uk_evisa.consent.disclosure.description",
@@ -3595,6 +3667,15 @@
         "up_accessibility": "Onay sesini duyana kadar başınızı yavaşça yukarı doğru eğin"
       },
       "left_side_complete_accessibility": "Sol taraf tamamlandı",
+      "passive": {
+        "title_failed_auth": "Kimlik doğrulama başarısız oldu",
+        "title_failed_onboarding": "Doğrulama başarısız oldu",
+        "title_recording": "Taranıyor",
+        "title_success_auth": "Kimliği Doğrulanmış",
+        "title_success_onboarding": "Doğrulandı",
+        "title_verifying_auth": "Kimlik doğrulanıyor…",
+        "title_verifying_onboarding": "Doğrulanıyor..."
+      },
       "recording_started_accessibility": "Kayıt başladı",
       "right_side_complete_accessibility": "Sağ taraf tamamlandı",
       "title": "Başınızı yavaşça her iki tarafa çevirin",
@@ -3612,6 +3693,14 @@
       "list_item_one_accessibility": "İlk olarak, yüzünüzü cihazınızın önünde konumlandırmanız gerekiyor",
       "list_item_two": "Ardından, başınızı yavaşça her iki tarafa çevirin",
       "list_item_two_accessibility": "Ardından, başınızı yavaşça sola, sonra da sağa çevirin",
+      "passive": {
+        "button_primary_ready": "Hazırım",
+        "list_item_one": "İyi aydınlatmaya sahip bir yerde olduğunuzdan emin olun",
+        "list_item_three": "Taramaya başlamak için yüzünüzü çerçeveye konumlandırın",
+        "list_item_two": "Yüzünüzü kapatan eşyaları çıkarın, gözlükler sorun değil",
+        "subtitle": "Hesabınızı güvende tutmak için kimliğinizi doğrulayın",
+        "title": "Yüzünüzü tarayın"
+      },
       "play_pause_accessibility": "Oynat veya duraklat",
       "randomness": {
         "list_item_one": "Başınızı dört yöne çevirmenizi isteyeceğiz",
@@ -4293,53 +4382,49 @@
         "review_again": "Review again"
       },
       "detail": "If you do not accept Entrust’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
-      "title": "Consent to process biometric data and sensitive data"
+      "title": "Are you sure?"
     },
     "title": "Consent to process biometric data and sensitive data"
   },
   "requestEvisa": {
     "request_uk_evisa": {
       "consent": {
-        "biometric": {
-          "description": "By checking this box, you consent to the use of your biometric data contained in visa records held by GOV.UK, together with the biometric data collected in the remaining stages of this visa check, to confirm your identity against visa records. <fallback>Read more</fallback>",
-          "title": "Consent to biometric check"
-        },
         "disclosure": {
-          "description": "By checking this box, you authorise Entrust to request and receive personal information about you from GOV.UK as required to verify your identity and prevent fraud. This may include your name, date of birth, and other personal details. <fallback>Read more</fallback>",
+          "description": "By checking this box, you authorise Entrust to request and receive personal information about you from GOV.UK as required to verify your identity and prevent fraud. This may include your name, photo, date of birth, and other personal details. <fallback>Read more</fallback>",
           "title": "Consent for disclosure of information"
         }
       },
       "dob": {
         "error": {
-          "dob_invalid": "Please enter a valid date of birth",
-          "dob_required": "Please enter your date of birth"
+          "dob_invalid": "Lütfen geçerli bir doğum tarihi girin",
+          "dob_required": "Lütfen doğum tarihinizi girin"
         },
-        "label": "Date of birth",
-        "placeholder": "dd/mm/yyyy"
+        "label": "Doğum tarihi",
+        "placeholder": "gg/aa/yyyy"
       },
       "list_item_1": {
-        "accessibility": "View your eVisa and get a share code on the gov.uk website (opens in browser)",
-        "label": "View your eVisa and get a share code on the gov.uk website"
+        "accessibility": "GOV.UK web sitesinde elektronik vizenizi görüntüleyin ve paylaşım kodu alın (tarayıcıda açılır)",
+        "label": "GOV.UK web sitesinde elektronik vizenizi görüntüleyin ve paylaşım kodu alın"
       },
       "list_item_2": {
-        "accessibility": "When asked why you need a share code, select the option to prove your immigration status",
-        "label": "Select the option to prove your immigration status"
+        "accessibility": "Neden bir paylaşım koduna ihtiyacınız olduğu sorulduğunda, göçmenlik durumunuzu kanıtlamak için seçeneği seçin",
+        "label": "Göçmenlik durumunuzu kanıtlama seçeneğini seçin"
       },
       "list_item_3": {
-        "accessibility": "Come back to this page and enter the 9-digit code below",
-        "label": "Enter the 9-digit code below"
+        "accessibility": "Bu sayfaya geri dönün ve aşağıdaki 9 karakterli kodu girin",
+        "label": "Aşağıdaki 9 karakterli kodu girin"
       },
       "share_code_input": {
         "error": {
-          "share_code_invalid": "The code must start with 'S'",
-          "share_code_wrong": "The code must starts with 'S', not 'W' (right to work) or 'R' (right to rent)",
-          "share_code_wrong_accessibility": "The code to prove your immigration status must starts with 'S', not 'W' (right to work) or 'R' (right to rent)"
+          "share_code_invalid": "Kod 'S' ile başlamalıdır",
+          "share_code_wrong": "Kod 'S' ile başlamalıdır, 'W' (çalışma hakkı) veya 'R' (kiralama hakkı) ile değil",
+          "share_code_wrong_accessibility": "Göçmenlik durumunuzu kanıtlamak için kullanılan kod 'S' ile başlamalıdır, 'W' (çalışma hakkı) veya 'R' (kiralama hakkı) ile değil"
         },
-        "label": "Share code"
+        "label": "Paylaşım kodu"
       },
-      "submit": "Continue",
-      "subtitle": "Generate your 9-digit share code to verify your identity using your eVisa",
-      "title": "Enter your UK eVisa share code"
+      "submit": "Devam Et",
+      "subtitle": "Kimliğinizi elektronik vizenizi kullanarak doğrulamak için 9 karakterli paylaşım kodunuzu oluşturun",
+      "title": "Birleşik Krallık e-Vize paylaşım kodunuzu girin"
     }
   },
   "retry": {

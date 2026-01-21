@@ -401,6 +401,12 @@
         "button_enable_audio": "Fortsæt",
         "button_enable_video": "Fortsæt",
         "button_enable_video_audio": "Fortsæt",
+        "devicemotion": {
+          "body": "Vi kan ikke bekræfte din identitet uden adgang til enhedens bevægelsesdata",
+          "button_enable": "Aktivér",
+          "subtitle": "Når du bliver bedt om det, skal du give adgang til data om enhedens bevægelse. Dette er nødvendigt for at fortsætte.",
+          "title": "Tillad adgang til enhedens bevægelse"
+        },
         "subtitle_audio": "Når du bliver bedt om det, skal du aktivere adgang til mikrofonen for at fortsætte",
         "subtitle_video": "Når du bliver bedt om det, skal du aktivere adgang til kameraet for at fortsætte",
         "subtitle_video_audio": "Når du bliver bedt om det, skal du aktivere adgang til begge dele for at fortsætte",
@@ -419,6 +425,18 @@
           "button_label": "Aktiver både kamera og mikrofon",
           "subtitle": "Når du bliver bedt om det, skal du aktivere adgang til begge dele for at fortsætte",
           "title": "Tillad adgang til kamera og mikrofon"
+        },
+        "video_audio_devicemotion": {
+          "body": "Vi kan ikke verificere dig uden tilladelse til kamera, mikrofon og enhedens bevægelse",
+          "button_enable": "Aktivér alle",
+          "subtitle": "Tillad hver tilladelse, når du bliver bedt om det. Dette er nødvendigt for at fortsætte.",
+          "title": "Tillad adgang til kamera, mikrofon og enhedsbevægelse"
+        },
+        "video_devicemotion": {
+          "body": "Vi kan ikke verificere dig uden tilladelse til kamera og enhedsbevægelse",
+          "button_enable": "Aktivér begge dele",
+          "subtitle": "Tillad hver tilladelse, når du bliver bedt om det. Dette er påkrævet for at fortsætte.",
+          "title": "Tillad adgang til kamera og enhedsbevægelse"
         }
       },
       "recovery": {
@@ -1314,6 +1332,15 @@
         "up_accessibility": "Vip langsomt dit hoved opad, indtil du hører en bekræftelse"
       },
       "left_side_complete_accessibility": "Venstre side er fuldført",
+      "passive": {
+        "title_failed_auth": "Godkendelse mislykkedes",
+        "title_failed_onboarding": "Bekræftelse mislykkedes",
+        "title_recording": "Scanner",
+        "title_success_auth": "Godkendt",
+        "title_success_onboarding": "Verificeret",
+        "title_verifying_auth": "Godkender…",
+        "title_verifying_onboarding": "Verificerer..."
+      },
       "recording_started_accessibility": "Optagelsen er startet",
       "right_side_complete_accessibility": "Højre side er fuldført",
       "title": "Drej hovedet langsomt til begge sider",
@@ -1331,6 +1358,14 @@
       "list_item_one_accessibility": "Først skal du placere ansigtet foran enheden",
       "list_item_two": "Dernæst drejer du hovedet langsomt til begge sider",
       "list_item_two_accessibility": "Drej derefter langsomt hovedet til venstre og derefter til højre",
+      "passive": {
+        "button_primary_ready": "Jeg er klar",
+        "list_item_one": "Sørg for, at du er et sted med god belysning",
+        "list_item_three": "Placer dit ansigt i rammen for at starte scanningen",
+        "list_item_two": "Fjern genstande, der dækker dit ansigt, briller er ok",
+        "subtitle": "Bekræft din identitet for at holde din konto sikker",
+        "title": "Scan dit ansigt"
+      },
       "play_pause_accessibility": "Afspil eller sæt på pause",
       "randomness": {
         "list_item_one": "Vi beder dig om at dreje hovedet i fire retninger",
@@ -2493,6 +2528,35 @@
           }
         }
       },
+      "motion_passive": {
+        "face_capture": {
+          "title": {
+            "failed": {
+              "auth": "faceMotion.face_capture.passive.title_failed_auth",
+              "onboarding": "faceMotion.face_capture.passive.title_failed_onboarding"
+            },
+            "recording": "faceMotion.face_capture.passive.title_recording",
+            "success": {
+              "auth": "faceMotion.face_capture.passive.title_success_auth",
+              "onboarding": "faceMotion.face_capture.passive.title_success_onboarding"
+            },
+            "verifying": {
+              "auth": "faceMotion.face_capture.passive.title_verifying_auth",
+              "onboarding": "faceMotion.face_capture.passive.title_verifying_onboarding"
+            }
+          }
+        },
+        "intro": {
+          "button_primary_ready": "faceMotion.intro.passive.button_primary_ready",
+          "list": {
+            "item_one": "faceMotion.intro.passive.list_item_one",
+            "item_three": "faceMotion.intro.passive.list_item_three",
+            "item_two": "faceMotion.intro.passive.list_item_two"
+          },
+          "subtitle": "faceMotion.intro.passive.subtitle",
+          "title": "faceMotion.intro.passive.title"
+        }
+      },
       "motion_randomness_capture": {
         "alert": {
           "button_primary_retry_fetching_challenge": "faceMotion.connection_error.button_primary_retry_fetch",
@@ -2671,17 +2735,29 @@
         "title": "complete.outro.title"
       },
       "permission": {
+        "banner_cam_devicemotion": "common.permissions.primer.video_devicemotion.body",
+        "banner_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.body",
+        "banner_devicemotion": "common.permissions.primer.devicemotion.body",
         "body_both": "common.permissions.primer.body_video_audio",
         "body_cam": "common.permissions.primer.body_video",
         "body_mic": "common.permissions.primer.body_audio",
         "button_primary_both": "common.permissions.primer.button_enable_video_audio",
         "button_primary_cam": "common.permissions.primer.button_enable_video",
+        "button_primary_cam_devicemotion": "common.permissions.primer.video_devicemotion.button_enable",
+        "button_primary_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.button_enable",
+        "button_primary_devicemotion": "common.permissions.primer.devicemotion.button_enable",
         "button_primary_mic": "common.permissions.primer.button_enable_audio",
         "subtitle_both": "common.permissions.primer.subtitle_video_audio",
         "subtitle_cam": "common.permissions.primer.subtitle_video",
+        "subtitle_cam_devicemotion": "common.permissions.primer.video_devicemotion.subtitle",
+        "subtitle_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.subtitle",
+        "subtitle_devicemotion": "common.permissions.primer.devicemotion.subtitle",
         "subtitle_mic": "common.permissions.primer.subtitle_audio",
         "title_both": "common.permissions.primer.title_video_audio",
         "title_cam": "common.permissions.primer.title_video",
+        "title_cam_devicemotion": "common.permissions.primer.video_devicemotion.title",
+        "title_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.title",
+        "title_devicemotion": "common.permissions.primer.devicemotion.title",
         "title_mic": "common.permissions.primer.title_audio"
       },
       "permission_recovery": {
@@ -3273,10 +3349,6 @@
         "title": "requestDiatfConsent.title"
       },
       "request_uk_evisa": {
-        "biometric": {
-          "subtitle": "requestEvisa.request_uk_evisa.consent.biometric.description",
-          "title": "requestEvisa.request_uk_evisa.consent.biometric.title"
-        },
         "button_primary": "requestEvisa.request_uk_evisa.submit",
         "disclosure": {
           "subtitle": "requestEvisa.request_uk_evisa.consent.disclosure.description",
@@ -3595,6 +3667,15 @@
         "up_accessibility": "Vip langsomt dit hoved opad, indtil du hører en bekræftelse"
       },
       "left_side_complete_accessibility": "Venstre side er fuldført",
+      "passive": {
+        "title_failed_auth": "Godkendelse mislykkedes",
+        "title_failed_onboarding": "Bekræftelse mislykkedes",
+        "title_recording": "Scanner",
+        "title_success_auth": "Godkendt",
+        "title_success_onboarding": "Verificeret",
+        "title_verifying_auth": "Godkender…",
+        "title_verifying_onboarding": "Verificerer..."
+      },
       "recording_started_accessibility": "Optagelsen er startet",
       "right_side_complete_accessibility": "Højre side er fuldført",
       "title": "Drej hovedet langsomt til begge sider",
@@ -3612,6 +3693,14 @@
       "list_item_one_accessibility": "Først skal du placere ansigtet foran enheden",
       "list_item_two": "Dernæst drejer du hovedet langsomt til begge sider",
       "list_item_two_accessibility": "Drej derefter langsomt hovedet til venstre og derefter til højre",
+      "passive": {
+        "button_primary_ready": "Jeg er klar",
+        "list_item_one": "Sørg for, at du er et sted med god belysning",
+        "list_item_three": "Placer dit ansigt i rammen for at starte scanningen",
+        "list_item_two": "Fjern genstande, der dækker dit ansigt, briller er ok",
+        "subtitle": "Bekræft din identitet for at holde din konto sikker",
+        "title": "Scan dit ansigt"
+      },
       "play_pause_accessibility": "Afspil eller sæt på pause",
       "randomness": {
         "list_item_one": "Vi beder dig om at dreje hovedet i fire retninger",
@@ -4293,53 +4382,49 @@
         "review_again": "Review again"
       },
       "detail": "If you do not accept Entrust’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
-      "title": "Consent to process biometric data and sensitive data"
+      "title": "Are you sure?"
     },
     "title": "Consent to process biometric data and sensitive data"
   },
   "requestEvisa": {
     "request_uk_evisa": {
       "consent": {
-        "biometric": {
-          "description": "By checking this box, you consent to the use of your biometric data contained in visa records held by GOV.UK, together with the biometric data collected in the remaining stages of this visa check, to confirm your identity against visa records. <fallback>Read more</fallback>",
-          "title": "Consent to biometric check"
-        },
         "disclosure": {
-          "description": "By checking this box, you authorise Entrust to request and receive personal information about you from GOV.UK as required to verify your identity and prevent fraud. This may include your name, date of birth, and other personal details. <fallback>Read more</fallback>",
+          "description": "By checking this box, you authorise Entrust to request and receive personal information about you from GOV.UK as required to verify your identity and prevent fraud. This may include your name, photo, date of birth, and other personal details. <fallback>Read more</fallback>",
           "title": "Consent for disclosure of information"
         }
       },
       "dob": {
         "error": {
-          "dob_invalid": "Please enter a valid date of birth",
-          "dob_required": "Please enter your date of birth"
+          "dob_invalid": "Indtast venligst en gyldig fødselsdato",
+          "dob_required": "Indtast venligst din fødselsdato"
         },
-        "label": "Date of birth",
-        "placeholder": "dd/mm/yyyy"
+        "label": "Fødselsdato",
+        "placeholder": "dd/mm/åååå"
       },
       "list_item_1": {
-        "accessibility": "View your eVisa and get a share code on the gov.uk website (opens in browser)",
-        "label": "View your eVisa and get a share code on the gov.uk website"
+        "accessibility": "Se din elektroniske visum og få en delekode på GOV.UK-webstedet (åbnes i browser)",
+        "label": "Se dit elektroniske visum og få en delingskode på GOV.UK-webstedet"
       },
       "list_item_2": {
-        "accessibility": "When asked why you need a share code, select the option to prove your immigration status",
-        "label": "Select the option to prove your immigration status"
+        "accessibility": "Når du bliver spurgt, hvorfor du har brug for en delekode, skal du vælge muligheden for at bevise din immigrationsstatus",
+        "label": "Vælg muligheden for at bevise din immigrationsstatus"
       },
       "list_item_3": {
-        "accessibility": "Come back to this page and enter the 9-digit code below",
-        "label": "Enter the 9-digit code below"
+        "accessibility": "Vend tilbage til denne side og indtast den 9-cifrede kode nedenfor",
+        "label": "Indtast den 9-tegns kode nedenfor"
       },
       "share_code_input": {
         "error": {
-          "share_code_invalid": "The code must start with 'S'",
-          "share_code_wrong": "The code must starts with 'S', not 'W' (right to work) or 'R' (right to rent)",
-          "share_code_wrong_accessibility": "The code to prove your immigration status must starts with 'S', not 'W' (right to work) or 'R' (right to rent)"
+          "share_code_invalid": "Koden skal starte med 'S'",
+          "share_code_wrong": "Koden skal starte med 'S', ikke 'W' (ret til at arbejde) eller 'R' (ret til at leje)",
+          "share_code_wrong_accessibility": "Koden til at bevise din immigrationsstatus skal starte med 'S', ikke 'W' (ret til at arbejde) eller 'R' (ret til at leje)"
         },
-        "label": "Share code"
+        "label": "Delingskode"
       },
-      "submit": "Continue",
-      "subtitle": "Generate your 9-digit share code to verify your identity using your eVisa",
-      "title": "Enter your UK eVisa share code"
+      "submit": "Fortsæt",
+      "subtitle": "Generer din 9-tegns delingskode for at verificere din identitet ved hjælp af dit eVisum",
+      "title": "Indtast din britiske eVisa-delingskode"
     }
   },
   "retry": {

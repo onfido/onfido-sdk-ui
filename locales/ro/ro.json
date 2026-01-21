@@ -401,6 +401,12 @@
         "button_enable_audio": "Continuați",
         "button_enable_video": "Continuați",
         "button_enable_video_audio": "Continuați",
+        "devicemotion": {
+          "body": "Nu te putem verifica fără acces la datele privind mișcarea dispozitivului",
+          "button_enable": "Activează",
+          "subtitle": "Când ți se solicită, permite accesul la datele privind mișcarea dispozitivului. Acest lucru este necesar pentru a continua.",
+          "title": "Permite accesul la mișcarea dispozitivului"
+        },
         "subtitle_audio": "Când vi se solicită, trebuie să activați accesul la microfon pentru a continua",
         "subtitle_video": "Când vi se solicită, trebuie să activați accesul la camera video pentru a continua",
         "subtitle_video_audio": "Când vi se solicită, trebuie să activați accesul la ambele pentru a continua",
@@ -419,6 +425,18 @@
           "button_label": "Activează atât camera, cât și microfonul",
           "subtitle": "Când vi se solicită, trebuie să activați accesul la ambele pentru a continua",
           "title": "Permiteți accesul la camera video și microfon"
+        },
+        "video_audio_devicemotion": {
+          "body": "Nu te putem verifica fără permisiunile pentru cameră, microfon și mișcarea dispozitivului",
+          "button_enable": "Activează tot",
+          "subtitle": "Permite fiecare permisiune atunci când ți se solicită. Acest lucru este necesar pentru a continua.",
+          "title": "Permite acces la cameră, microfon și mișcarea dispozitivului"
+        },
+        "video_devicemotion": {
+          "body": "Nu te putem verifica fără permisiunea pentru cameră și mișcarea dispozitivului",
+          "button_enable": "Activați ambele",
+          "subtitle": "Permite fiecare permisiune atunci când ți se solicită. Acest lucru este necesar pentru a continua.",
+          "title": "Permite accesul la cameră și la mișcarea dispozitivului"
         }
       },
       "recovery": {
@@ -1314,6 +1332,15 @@
         "up_accessibility": "Înclinați ușor capul în sus până când auziți confirmarea"
       },
       "left_side_complete_accessibility": "Partea stângă a fost finalizată",
+      "passive": {
+        "title_failed_auth": "Autentificare eșuată",
+        "title_failed_onboarding": "Verificare eșuată",
+        "title_recording": "Scanare",
+        "title_success_auth": "Autentificat",
+        "title_success_onboarding": "Verificat",
+        "title_verifying_auth": "Se autentifică…",
+        "title_verifying_onboarding": "Se verifică..."
+      },
       "recording_started_accessibility": "Înregistrarea a început",
       "right_side_complete_accessibility": "Partea dreaptă a fost finalizată",
       "title": "Întoarceți capul încet în ambele părți",
@@ -1331,6 +1358,14 @@
       "list_item_one_accessibility": "Mai întâi, trebuie să vă poziționați fața în fața dispozitivului dumneavoastră",
       "list_item_two": "Apoi, întoarceți capul încet în ambele părți",
       "list_item_two_accessibility": "Apoi, întoarceți capul încet spre stânga, și apoi spre dreapta",
+      "passive": {
+        "button_primary_ready": "Sunt gata",
+        "list_item_one": "Asigură-te că te afli într-un loc cu o bună iluminare",
+        "list_item_three": "Poziționează-ți fața în chenar pentru a începe scanarea",
+        "list_item_two": "Îndepărtează obiectele care îți acoperă fața; ochelarii sunt în regulă",
+        "subtitle": "Confirmați-vă identitatea pentru a vă menține contul în siguranță",
+        "title": "Scanați fața dvs."
+      },
       "play_pause_accessibility": "Redați sau puneți pe pauză",
       "randomness": {
         "list_item_one": "Vă vom cere să vă întoarceți capul în patru direcții",
@@ -2493,6 +2528,35 @@
           }
         }
       },
+      "motion_passive": {
+        "face_capture": {
+          "title": {
+            "failed": {
+              "auth": "faceMotion.face_capture.passive.title_failed_auth",
+              "onboarding": "faceMotion.face_capture.passive.title_failed_onboarding"
+            },
+            "recording": "faceMotion.face_capture.passive.title_recording",
+            "success": {
+              "auth": "faceMotion.face_capture.passive.title_success_auth",
+              "onboarding": "faceMotion.face_capture.passive.title_success_onboarding"
+            },
+            "verifying": {
+              "auth": "faceMotion.face_capture.passive.title_verifying_auth",
+              "onboarding": "faceMotion.face_capture.passive.title_verifying_onboarding"
+            }
+          }
+        },
+        "intro": {
+          "button_primary_ready": "faceMotion.intro.passive.button_primary_ready",
+          "list": {
+            "item_one": "faceMotion.intro.passive.list_item_one",
+            "item_three": "faceMotion.intro.passive.list_item_three",
+            "item_two": "faceMotion.intro.passive.list_item_two"
+          },
+          "subtitle": "faceMotion.intro.passive.subtitle",
+          "title": "faceMotion.intro.passive.title"
+        }
+      },
       "motion_randomness_capture": {
         "alert": {
           "button_primary_retry_fetching_challenge": "faceMotion.connection_error.button_primary_retry_fetch",
@@ -2671,17 +2735,29 @@
         "title": "complete.outro.title"
       },
       "permission": {
+        "banner_cam_devicemotion": "common.permissions.primer.video_devicemotion.body",
+        "banner_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.body",
+        "banner_devicemotion": "common.permissions.primer.devicemotion.body",
         "body_both": "common.permissions.primer.body_video_audio",
         "body_cam": "common.permissions.primer.body_video",
         "body_mic": "common.permissions.primer.body_audio",
         "button_primary_both": "common.permissions.primer.button_enable_video_audio",
         "button_primary_cam": "common.permissions.primer.button_enable_video",
+        "button_primary_cam_devicemotion": "common.permissions.primer.video_devicemotion.button_enable",
+        "button_primary_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.button_enable",
+        "button_primary_devicemotion": "common.permissions.primer.devicemotion.button_enable",
         "button_primary_mic": "common.permissions.primer.button_enable_audio",
         "subtitle_both": "common.permissions.primer.subtitle_video_audio",
         "subtitle_cam": "common.permissions.primer.subtitle_video",
+        "subtitle_cam_devicemotion": "common.permissions.primer.video_devicemotion.subtitle",
+        "subtitle_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.subtitle",
+        "subtitle_devicemotion": "common.permissions.primer.devicemotion.subtitle",
         "subtitle_mic": "common.permissions.primer.subtitle_audio",
         "title_both": "common.permissions.primer.title_video_audio",
         "title_cam": "common.permissions.primer.title_video",
+        "title_cam_devicemotion": "common.permissions.primer.video_devicemotion.title",
+        "title_cam_mic_devicemotion": "common.permissions.primer.video_audio_devicemotion.title",
+        "title_devicemotion": "common.permissions.primer.devicemotion.title",
         "title_mic": "common.permissions.primer.title_audio"
       },
       "permission_recovery": {
@@ -3273,10 +3349,6 @@
         "title": "requestDiatfConsent.title"
       },
       "request_uk_evisa": {
-        "biometric": {
-          "subtitle": "requestEvisa.request_uk_evisa.consent.biometric.description",
-          "title": "requestEvisa.request_uk_evisa.consent.biometric.title"
-        },
         "button_primary": "requestEvisa.request_uk_evisa.submit",
         "disclosure": {
           "subtitle": "requestEvisa.request_uk_evisa.consent.disclosure.description",
@@ -3595,6 +3667,15 @@
         "up_accessibility": "Înclinați ușor capul în sus până când auziți confirmarea"
       },
       "left_side_complete_accessibility": "Partea stângă a fost finalizată",
+      "passive": {
+        "title_failed_auth": "Autentificare eșuată",
+        "title_failed_onboarding": "Verificare eșuată",
+        "title_recording": "Scanare",
+        "title_success_auth": "Autentificat",
+        "title_success_onboarding": "Verificat",
+        "title_verifying_auth": "Se autentifică…",
+        "title_verifying_onboarding": "Se verifică..."
+      },
       "recording_started_accessibility": "Înregistrarea a început",
       "right_side_complete_accessibility": "Partea dreaptă a fost finalizată",
       "title": "Întoarceți capul încet în ambele părți",
@@ -3612,6 +3693,14 @@
       "list_item_one_accessibility": "Mai întâi, trebuie să vă poziționați fața în fața dispozitivului dumneavoastră",
       "list_item_two": "Apoi, întoarceți capul încet în ambele părți",
       "list_item_two_accessibility": "Apoi, întoarceți capul încet spre stânga, și apoi spre dreapta",
+      "passive": {
+        "button_primary_ready": "Sunt gata",
+        "list_item_one": "Asigură-te că te afli într-un loc cu o bună iluminare",
+        "list_item_three": "Poziționează-ți fața în chenar pentru a începe scanarea",
+        "list_item_two": "Îndepărtează obiectele care îți acoperă fața; ochelarii sunt în regulă",
+        "subtitle": "Confirmați-vă identitatea pentru a vă menține contul în siguranță",
+        "title": "Scanați fața dvs."
+      },
       "play_pause_accessibility": "Redați sau puneți pe pauză",
       "randomness": {
         "list_item_one": "Vă vom cere să vă întoarceți capul în patru direcții",
@@ -4293,53 +4382,49 @@
         "review_again": "Review again"
       },
       "detail": "If you do not accept Entrust’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
-      "title": "Consent to process biometric data and sensitive data"
+      "title": "Are you sure?"
     },
     "title": "Consent to process biometric data and sensitive data"
   },
   "requestEvisa": {
     "request_uk_evisa": {
       "consent": {
-        "biometric": {
-          "description": "By checking this box, you consent to the use of your biometric data contained in visa records held by GOV.UK, together with the biometric data collected in the remaining stages of this visa check, to confirm your identity against visa records. <fallback>Read more</fallback>",
-          "title": "Consent to biometric check"
-        },
         "disclosure": {
-          "description": "By checking this box, you authorise Entrust to request and receive personal information about you from GOV.UK as required to verify your identity and prevent fraud. This may include your name, date of birth, and other personal details. <fallback>Read more</fallback>",
+          "description": "By checking this box, you authorise Entrust to request and receive personal information about you from GOV.UK as required to verify your identity and prevent fraud. This may include your name, photo, date of birth, and other personal details. <fallback>Read more</fallback>",
           "title": "Consent for disclosure of information"
         }
       },
       "dob": {
         "error": {
-          "dob_invalid": "Please enter a valid date of birth",
-          "dob_required": "Please enter your date of birth"
+          "dob_invalid": "Introduceți o dată de naștere validă",
+          "dob_required": "Introduceți data nașterii"
         },
-        "label": "Date of birth",
-        "placeholder": "dd/mm/yyyy"
+        "label": "Data nașterii",
+        "placeholder": "zz/ll/aaaa"
       },
       "list_item_1": {
-        "accessibility": "View your eVisa and get a share code on the gov.uk website (opens in browser)",
-        "label": "View your eVisa and get a share code on the gov.uk website"
+        "accessibility": "Vezi viza electronică și obține un cod de partajare pe site-ul GOV.UK (se deschide în browser)",
+        "label": "Vizualizează viza electronică și obține un cod de partajare pe site-ul GOV.UK"
       },
       "list_item_2": {
-        "accessibility": "When asked why you need a share code, select the option to prove your immigration status",
-        "label": "Select the option to prove your immigration status"
+        "accessibility": "Când ți se cere să precizezi de ce ai nevoie de un cod de partajare, selectează opțiunea pentru a-ți dovedi statutul de imigrare",
+        "label": "Selectați opțiunea pentru a vă dovedi statutul de imigrație"
       },
       "list_item_3": {
-        "accessibility": "Come back to this page and enter the 9-digit code below",
-        "label": "Enter the 9-digit code below"
+        "accessibility": "Reveniți pe această pagină și introduceți mai jos codul din 9 caractere",
+        "label": "Introduce mai jos codul din 9 caractere"
       },
       "share_code_input": {
         "error": {
-          "share_code_invalid": "The code must start with 'S'",
-          "share_code_wrong": "The code must starts with 'S', not 'W' (right to work) or 'R' (right to rent)",
-          "share_code_wrong_accessibility": "The code to prove your immigration status must starts with 'S', not 'W' (right to work) or 'R' (right to rent)"
+          "share_code_invalid": "Codul trebuie să înceapă cu „S”",
+          "share_code_wrong": "Codul trebuie să înceapă cu „S”, nu cu „W” (drept de muncă) sau „R” (drept de închiriere)",
+          "share_code_wrong_accessibility": "Codul pentru a dovedi statutul tău de imigrat trebuie să înceapă cu „S”, nu cu „W” (drept de muncă) sau „R” (drept de închiriere)"
         },
-        "label": "Share code"
+        "label": "Cod de partajare"
       },
-      "submit": "Continue",
-      "subtitle": "Generate your 9-digit share code to verify your identity using your eVisa",
-      "title": "Enter your UK eVisa share code"
+      "submit": "Continuă",
+      "subtitle": "Generează codul tău de partajare din 9 caractere pentru a-ți verifica identitatea folosind viza ta electronică",
+      "title": "Introduceți codul de partajare pentru viza electronică din Regatul Unit"
     }
   },
   "retry": {
