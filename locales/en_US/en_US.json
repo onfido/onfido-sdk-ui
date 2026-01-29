@@ -581,7 +581,7 @@
           },
           "device_settings": {
             "list_item_1": "On your device, open the <strong>Settings</strong> app",
-            "list_item_2": "Scroll through the list and tap <browser_icon></browser_icon>",
+            "list_item_2": "Tap on <strong>Apps</strong> and scroll through the list and find your browser",
             "list_item_3_audio": "Activate the toggle next to <strong>Microphone</strong>",
             "list_item_3_video": "Activate the toggle next to <strong>Camera</strong>",
             "list_item_4": "Come back to this page and tap the <strong>Refresh the page</strong> button"
@@ -593,7 +593,7 @@
         "ios_safari": {
           "device_settings": {
             "list_item_1": "On your device, open the <strong>Settings</strong> app",
-            "list_item_2": "Scroll through the list and tap <browser_icon></browser_icon>",
+            "list_item_2": "Tap on <strong>Apps</strong> and scroll through the list and tap <browser_icon></browser_icon>",
             "list_item_3_audio": "Tap <strong>Microphone</strong> and select <strong>Allow</strong>",
             "list_item_3_video": "Tap <strong>Camera</strong> and select <strong>Allow</strong>",
             "list_item_4": "Come back to this page and tap the <strong>Refresh the page</strong> button"
@@ -3364,6 +3364,7 @@
         "field_validation": {
           "dob_invalid": "requestEvisa.request_uk_evisa.dob.error.dob_invalid",
           "dob_required": "requestEvisa.request_uk_evisa.dob.error.dob_required",
+          "share_code_incomplete": "requestEvisa.request_uk_evisa.share_code_input.error.share_code_incomplete",
           "share_code_invalid": "requestEvisa.request_uk_evisa.share_code_input.error.share_code_invalid",
           "share_code_wrong": "requestEvisa.request_uk_evisa.share_code_input.error.share_code_wrong",
           "share_code_wrong_accessibility": "requestEvisa.request_uk_evisa.share_code_input.error.share_code_wrong_accessibility"
@@ -4378,7 +4379,7 @@
     },
     "no_consent_prompt": {
       "button": {
-        "cancel_verification": "Yes, Cancel verification",
+        "cancel_verification": "Yes, cancel verification",
         "review_again": "Review again"
       },
       "detail": "If you do not accept Entrust’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
@@ -4416,6 +4417,7 @@
       },
       "share_code_input": {
         "error": {
+          "share_code_incomplete": "The code must be 9 characters",
           "share_code_invalid": "The code must start with 'S'",
           "share_code_wrong": "The code must starts with 'S', not 'W' (right to work) or 'R' (right to rent)",
           "share_code_wrong_accessibility": "The code to prove your immigration status must starts with 'S', not 'W' (right to work) or 'R' (right to rent)"

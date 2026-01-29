@@ -3364,6 +3364,7 @@
         "field_validation": {
           "dob_invalid": "requestEvisa.request_uk_evisa.dob.error.dob_invalid",
           "dob_required": "requestEvisa.request_uk_evisa.dob.error.dob_required",
+          "share_code_incomplete": "requestEvisa.request_uk_evisa.share_code_input.error.share_code_incomplete",
           "share_code_invalid": "requestEvisa.request_uk_evisa.share_code_input.error.share_code_invalid",
           "share_code_wrong": "requestEvisa.request_uk_evisa.share_code_input.error.share_code_wrong",
           "share_code_wrong_accessibility": "requestEvisa.request_uk_evisa.share_code_input.error.share_code_wrong_accessibility"
@@ -4378,7 +4379,7 @@
     },
     "no_consent_prompt": {
       "button": {
-        "cancel_verification": "Yes, Cancel verification",
+        "cancel_verification": "Yes, cancel verification",
         "review_again": "Review again"
       },
       "detail": "If you do not accept Entrust’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
@@ -4416,6 +4417,7 @@
       },
       "share_code_input": {
         "error": {
+          "share_code_incomplete": "Kod itu mestilah 9 aksara",
           "share_code_invalid": "Kod tersebut mesti bermula dengan 'S'",
           "share_code_wrong": "Kod mestilah bermula dengan 'S', bukan 'W' (hak untuk bekerja) atau 'R' (hak untuk menyewa)",
           "share_code_wrong_accessibility": "Kod untuk membuktikan status imigresen anda mesti bermula dengan \"S\", bukan \"W\" (hak untuk bekerja) atau \"R\" (hak untuk menyewa)"

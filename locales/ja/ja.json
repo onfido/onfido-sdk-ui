@@ -3364,6 +3364,7 @@
         "field_validation": {
           "dob_invalid": "requestEvisa.request_uk_evisa.dob.error.dob_invalid",
           "dob_required": "requestEvisa.request_uk_evisa.dob.error.dob_required",
+          "share_code_incomplete": "requestEvisa.request_uk_evisa.share_code_input.error.share_code_incomplete",
           "share_code_invalid": "requestEvisa.request_uk_evisa.share_code_input.error.share_code_invalid",
           "share_code_wrong": "requestEvisa.request_uk_evisa.share_code_input.error.share_code_wrong",
           "share_code_wrong_accessibility": "requestEvisa.request_uk_evisa.share_code_input.error.share_code_wrong_accessibility"
@@ -4378,7 +4379,7 @@
     },
     "no_consent_prompt": {
       "button": {
-        "cancel_verification": "Yes, Cancel verification",
+        "cancel_verification": "Yes, cancel verification",
         "review_again": "Review again"
       },
       "detail": "If you do not accept Entrust’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
@@ -4416,6 +4417,7 @@
       },
       "share_code_input": {
         "error": {
+          "share_code_incomplete": "コードは9文字である必要があります",
           "share_code_invalid": "コードは「S」で始まる必要があります",
           "share_code_wrong": "コードは「S」で始まる必要があります。「W」(就労権)または「R」(賃貸権)ではありません",
           "share_code_wrong_accessibility": "移民ステータスを証明するコードは「S」で始まる必要があり、「W」(就労権)または「R」(賃貸権)ではありません"

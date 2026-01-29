@@ -3364,6 +3364,7 @@
         "field_validation": {
           "dob_invalid": "requestEvisa.request_uk_evisa.dob.error.dob_invalid",
           "dob_required": "requestEvisa.request_uk_evisa.dob.error.dob_required",
+          "share_code_incomplete": "requestEvisa.request_uk_evisa.share_code_input.error.share_code_incomplete",
           "share_code_invalid": "requestEvisa.request_uk_evisa.share_code_input.error.share_code_invalid",
           "share_code_wrong": "requestEvisa.request_uk_evisa.share_code_input.error.share_code_wrong",
           "share_code_wrong_accessibility": "requestEvisa.request_uk_evisa.share_code_input.error.share_code_wrong_accessibility"
@@ -4378,7 +4379,7 @@
     },
     "no_consent_prompt": {
       "button": {
-        "cancel_verification": "Yes, Cancel verification",
+        "cancel_verification": "Yes, cancel verification",
         "review_again": "Review again"
       },
       "detail": "If you do not accept Entrust’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
@@ -4416,6 +4417,7 @@
       },
       "share_code_input": {
         "error": {
+          "share_code_incomplete": "Koden må bestå av 9 tegn",
           "share_code_invalid": "Koden må starte med \"S\"",
           "share_code_wrong": "Koden må starte med \"S\", ikke \"W\" (rett til å arbeide) eller \"R\" (rett til å leie)",
           "share_code_wrong_accessibility": "Koden for å bevise din innvandringsstatus må begynne med 'S', ikke 'W' (rett til å arbeide) eller 'R' (rett til å leie)"

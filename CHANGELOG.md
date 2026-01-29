@@ -7,6 +7,12 @@ and the SDK adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html)
 
 When any of the string translations change, it will result in a MINOR version change. As a result, you are responsible for ensuring the correct layout if you are using custom translations (see [language localization](https://documentation.onfido.com/sdk/web/#custom-translations-and-text)).
 
+## [14.62.0] - 2026-01-29
+
+### Changed
+
+- Multiple UI fixes and improvements: Face Photo/Video capture alert contrast and corrected UI customization of: back/exit buttons, document selection, profile data screens, cross-device QR icon, field labels.
+
 ## [14.61.0] - 2026-01-21
 
 ### Fixed

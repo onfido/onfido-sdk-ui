@@ -581,7 +581,7 @@
           },
           "device_settings": {
             "list_item_1": "Στη συσκευή σας, ανοίξτε την εφαρμογή <strong>Ρυθμίσεις</strong>",
-            "list_item_2": "Κυλήστε μέσα στη λίστα και πατήστε <browser_icon></browser_icon>",
+            "list_item_2": "Περιηγηθείτε στη λίστα και πατήστε <browser_icon></browser_icon>",
             "list_item_3_audio": "Ενεργοποιήστε τον διακόπτη δίπλα στο <strong>Μικρόφωνο</strong>",
             "list_item_3_video": "Ενεργοποιήστε τον διακόπτη δίπλα στην <strong>Κάμερα</strong>",
             "list_item_4": "Επιστρέψτε σε αυτή τη σελίδα και πατήστε το κουμπί <strong>Ανανέωση της σελίδας</strong>"
@@ -593,7 +593,7 @@
         "ios_safari": {
           "device_settings": {
             "list_item_1": "Στη συσκευή σας, ανοίξτε την εφαρμογή <strong>Ρυθμίσεις</strong>",
-            "list_item_2": "Κυλήστε μέσα στη λίστα και πατήστε <browser_icon></browser_icon>",
+            "list_item_2": "Περιηγηθείτε στη λίστα και πατήστε <browser_icon></browser_icon>",
             "list_item_3_audio": "Πατήστε <strong>Μικρόφωνο</strong> και επιλέξτε <strong>Επιτρέπεται</strong>",
             "list_item_3_video": "Πατήστε <strong>Κάμερα</strong> και επιλέξτε <strong>Επιτρέπεται</strong>",
             "list_item_4": "Επιστρέψτε σε αυτή τη σελίδα και πατήστε το κουμπί <strong>Ανανέωση της σελίδας</strong>"
@@ -3364,6 +3364,7 @@
         "field_validation": {
           "dob_invalid": "requestEvisa.request_uk_evisa.dob.error.dob_invalid",
           "dob_required": "requestEvisa.request_uk_evisa.dob.error.dob_required",
+          "share_code_incomplete": "requestEvisa.request_uk_evisa.share_code_input.error.share_code_incomplete",
           "share_code_invalid": "requestEvisa.request_uk_evisa.share_code_input.error.share_code_invalid",
           "share_code_wrong": "requestEvisa.request_uk_evisa.share_code_input.error.share_code_wrong",
           "share_code_wrong_accessibility": "requestEvisa.request_uk_evisa.share_code_input.error.share_code_wrong_accessibility"
@@ -4378,7 +4379,7 @@
     },
     "no_consent_prompt": {
       "button": {
-        "cancel_verification": "Yes, Cancel verification",
+        "cancel_verification": "Yes, cancel verification",
         "review_again": "Review again"
       },
       "detail": "If you do not accept Entrust’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
@@ -4416,6 +4417,7 @@
       },
       "share_code_input": {
         "error": {
+          "share_code_incomplete": "Ο κωδικός πρέπει να αποτελείται από 9 χαρακτήρες",
           "share_code_invalid": "Ο κωδικός πρέπει να ξεκινά με \"S\"",
           "share_code_wrong": "Ο κωδικός πρέπει να ξεκινά με «S», όχι με «W» (δικαίωμα εργασίας) ή «R» (δικαίωμα ενοικίασης)",
           "share_code_wrong_accessibility": "Ο κωδικός για να αποδείξετε το καθεστώς μετανάστευσής σας πρέπει να ξεκινά με \"S\", όχι με \"W\" (δικαίωμα εργασίας) ή \"R\" (δικαίωμα ενοικίασης)"
