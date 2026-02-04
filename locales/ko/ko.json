@@ -2484,6 +2484,10 @@
           "pin_code_label": "microsoftEntraIssueVerifiedCredential.button_screen.pin_code_label",
           "sub_heading": "microsoftEntraIssueVerifiedCredential.button_screen.sub_heading"
         },
+        "client_secret_expired_error_screen": {
+          "heading": "microsoftEntraIssueVerifiedCredential.client_secret_expired_error_screen.heading",
+          "sub_heading": "microsoftEntraIssueVerifiedCredential.client_secret_expired_error_screen.sub_heading"
+        },
         "qr_screen": {
           "get_authenticator_button": "microsoftEntraIssueVerifiedCredential.qr_screen.get_authenticator_button",
           "heading": "microsoftEntraIssueVerifiedCredential.qr_screen.heading",
@@ -2498,6 +2502,10 @@
           "heading": "microsoftEntraPresentVerifiedCredential.button_screen.heading",
           "share_verified_id_button": "microsoftEntraPresentVerifiedCredential.button_screen.share_verified_id_button",
           "sub_heading": "microsoftEntraPresentVerifiedCredential.button_screen.sub_heading"
+        },
+        "client_secret_expired_error_screen": {
+          "heading": "microsoftEntraPresentVerifiedCredential.client_secret_expired_error_screen.heading",
+          "sub_heading": "microsoftEntraPresentVerifiedCredential.client_secret_expired_error_screen.sub_heading"
         },
         "intro_screen": {
           "create_verified_id_button": "microsoftEntraPresentVerifiedCredential.intro_screen.create_verified_id_button",
@@ -3349,34 +3357,34 @@
         "title": "requestDiatfConsent.title"
       },
       "request_uk_evisa": {
-        "button_primary": "requestEvisa.request_uk_evisa.submit",
+        "button_primary": "requestEvisaUk.request_uk_evisa.submit",
         "disclosure": {
-          "subtitle": "requestEvisa.request_uk_evisa.consent.disclosure.description",
-          "title": "requestEvisa.request_uk_evisa.consent.disclosure.title"
+          "subtitle": "requestEvisaUk.request_uk_evisa.consent.disclosure.description",
+          "title": "requestEvisaUk.request_uk_evisa.consent.disclosure.title"
         },
         "field_helper": {
-          "dob": "requestEvisa.request_uk_evisa.dob.placeholder"
+          "dob": "requestEvisaUk.request_uk_evisa.dob.placeholder"
         },
         "field_label": {
-          "dob": "requestEvisa.request_uk_evisa.dob.label",
-          "share_code": "requestEvisa.request_uk_evisa.share_code_input.label"
+          "dob": "requestEvisaUk.request_uk_evisa.dob.label",
+          "share_code": "requestEvisaUk.request_uk_evisa.share_code_input.label"
         },
         "field_validation": {
-          "dob_invalid": "requestEvisa.request_uk_evisa.dob.error.dob_invalid",
-          "dob_required": "requestEvisa.request_uk_evisa.dob.error.dob_required",
-          "share_code_incomplete": "requestEvisa.request_uk_evisa.share_code_input.error.share_code_incomplete",
-          "share_code_invalid": "requestEvisa.request_uk_evisa.share_code_input.error.share_code_invalid",
-          "share_code_wrong": "requestEvisa.request_uk_evisa.share_code_input.error.share_code_wrong",
-          "share_code_wrong_accessibility": "requestEvisa.request_uk_evisa.share_code_input.error.share_code_wrong_accessibility"
+          "dob_invalid": "requestEvisaUk.request_uk_evisa.dob.error.dob_invalid",
+          "dob_required": "requestEvisaUk.request_uk_evisa.dob.error.dob_required",
+          "share_code_incomplete": "requestEvisaUk.request_uk_evisa.share_code_input.error.share_code_incomplete",
+          "share_code_invalid": "requestEvisaUk.request_uk_evisa.share_code_input.error.share_code_invalid",
+          "share_code_wrong": "requestEvisaUk.request_uk_evisa.share_code_input.error.share_code_wrong",
+          "share_code_wrong_accessibility": "requestEvisaUk.request_uk_evisa.share_code_input.error.share_code_wrong_accessibility"
         },
-        "list_item_1": "requestEvisa.request_uk_evisa.list_item_1.label",
-        "list_item_1_accessibility": "requestEvisa.request_uk_evisa.list_item_1.accessibility",
-        "list_item_2": "requestEvisa.request_uk_evisa.list_item_2.label",
-        "list_item_2_accessibility": "requestEvisa.request_uk_evisa.list_item_2.accessibility",
-        "list_item_3": "requestEvisa.request_uk_evisa.list_item_3.label",
-        "list_item_3_accessibility": "requestEvisa.request_uk_evisa.list_item_3.accessibility",
-        "subtitle": "requestEvisa.request_uk_evisa.subtitle",
-        "title": "requestEvisa.request_uk_evisa.title"
+        "list_item_1": "requestEvisaUk.request_uk_evisa.list_item_1.label",
+        "list_item_1_accessibility": "requestEvisaUk.request_uk_evisa.list_item_1.accessibility",
+        "list_item_2": "requestEvisaUk.request_uk_evisa.list_item_2.label",
+        "list_item_2_accessibility": "requestEvisaUk.request_uk_evisa.list_item_2.accessibility",
+        "list_item_3": "requestEvisaUk.request_uk_evisa.list_item_3.label",
+        "list_item_3_accessibility": "requestEvisaUk.request_uk_evisa.list_item_3.accessibility",
+        "subtitle": "requestEvisaUk.request_uk_evisa.subtitle",
+        "title": "requestEvisaUk.request_uk_evisa.title"
       },
       "retry_feedback_id_generic": {
         "subtitle": "common.alert.instruction",
@@ -3576,6 +3584,10 @@
       "pin_code_label": "핀 코드:",
       "sub_heading": "Microsoft Authenticator를 사용하여 본인 확인 ID를 저장하세요. 앱을 열려면 '본인 확인 ID 추가'를 클릭하세요. 요청 시 핀 코드를 입력하세요."
     },
+    "client_secret_expired_error_screen": {
+      "heading": "Verified ID 발급을 계속 진행할 수 없습니다",
+      "sub_heading": "Entra 비밀이 만료되었습니다. 지원팀에 문의해 도움을 받으세요."
+    },
     "qr_screen": {
       "get_authenticator_button": "Microsoft Authenticator 앱 받기",
       "heading": "인증이 완료되었습니다. Verified ID 발급을 계속 진행하세요.",
@@ -3590,6 +3602,10 @@
       "heading": "기존에 인증된 ID로 포털에 접속하세요.",
       "share_verified_id_button": "인증된 신원 정보 공유",
       "sub_heading": "Microsoft Authenticator 앱을 사용하여 본인 인증을 진행하세요. 이 단계가 완료되면 접근 권한이 부여됩니다."
+    },
+    "client_secret_expired_error_screen": {
+      "heading": "Verified ID 프레젠테이션을 계속 진행할 수 없습니다",
+      "sub_heading": "Entra 비밀값이 만료되었습니다. 지원팀에 문의해 도움을 받으세요."
     },
     "intro_screen": {
       "create_verified_id_button": "새로운 인증 ID 만들기",
@@ -4387,7 +4403,7 @@
     },
     "title": "Consent to process biometric data and sensitive data"
   },
-  "requestEvisa": {
+  "requestEvisaUk": {
     "request_uk_evisa": {
       "consent": {
         "disclosure": {

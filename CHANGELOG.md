@@ -7,6 +7,16 @@ and the SDK adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html)
 
 When any of the string translations change, it will result in a MINOR version change. As a result, you are responsible for ensuring the correct layout if you are using custom translations (see [language localization](https://documentation.onfido.com/sdk/web/#custom-translations-and-text)).
 
+## [14.63.0] - 2026-02-04
+
+### Fixed
+
+- Fix crash in crossdevice when api call fails
+
+### Changed
+
+- Add error screens when Entra application client secret is expired
+
 ## [14.62.0] - 2026-01-29
 
 ### Changed

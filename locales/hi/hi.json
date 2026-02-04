@@ -2484,6 +2484,10 @@
           "pin_code_label": "microsoftEntraIssueVerifiedCredential.button_screen.pin_code_label",
           "sub_heading": "microsoftEntraIssueVerifiedCredential.button_screen.sub_heading"
         },
+        "client_secret_expired_error_screen": {
+          "heading": "microsoftEntraIssueVerifiedCredential.client_secret_expired_error_screen.heading",
+          "sub_heading": "microsoftEntraIssueVerifiedCredential.client_secret_expired_error_screen.sub_heading"
+        },
         "qr_screen": {
           "get_authenticator_button": "microsoftEntraIssueVerifiedCredential.qr_screen.get_authenticator_button",
           "heading": "microsoftEntraIssueVerifiedCredential.qr_screen.heading",
@@ -2498,6 +2502,10 @@
           "heading": "microsoftEntraPresentVerifiedCredential.button_screen.heading",
           "share_verified_id_button": "microsoftEntraPresentVerifiedCredential.button_screen.share_verified_id_button",
           "sub_heading": "microsoftEntraPresentVerifiedCredential.button_screen.sub_heading"
+        },
+        "client_secret_expired_error_screen": {
+          "heading": "microsoftEntraPresentVerifiedCredential.client_secret_expired_error_screen.heading",
+          "sub_heading": "microsoftEntraPresentVerifiedCredential.client_secret_expired_error_screen.sub_heading"
         },
         "intro_screen": {
           "create_verified_id_button": "microsoftEntraPresentVerifiedCredential.intro_screen.create_verified_id_button",
@@ -3349,34 +3357,34 @@
         "title": "requestDiatfConsent.title"
       },
       "request_uk_evisa": {
-        "button_primary": "requestEvisa.request_uk_evisa.submit",
+        "button_primary": "requestEvisaUk.request_uk_evisa.submit",
         "disclosure": {
-          "subtitle": "requestEvisa.request_uk_evisa.consent.disclosure.description",
-          "title": "requestEvisa.request_uk_evisa.consent.disclosure.title"
+          "subtitle": "requestEvisaUk.request_uk_evisa.consent.disclosure.description",
+          "title": "requestEvisaUk.request_uk_evisa.consent.disclosure.title"
         },
         "field_helper": {
-          "dob": "requestEvisa.request_uk_evisa.dob.placeholder"
+          "dob": "requestEvisaUk.request_uk_evisa.dob.placeholder"
         },
         "field_label": {
-          "dob": "requestEvisa.request_uk_evisa.dob.label",
-          "share_code": "requestEvisa.request_uk_evisa.share_code_input.label"
+          "dob": "requestEvisaUk.request_uk_evisa.dob.label",
+          "share_code": "requestEvisaUk.request_uk_evisa.share_code_input.label"
         },
         "field_validation": {
-          "dob_invalid": "requestEvisa.request_uk_evisa.dob.error.dob_invalid",
-          "dob_required": "requestEvisa.request_uk_evisa.dob.error.dob_required",
-          "share_code_incomplete": "requestEvisa.request_uk_evisa.share_code_input.error.share_code_incomplete",
-          "share_code_invalid": "requestEvisa.request_uk_evisa.share_code_input.error.share_code_invalid",
-          "share_code_wrong": "requestEvisa.request_uk_evisa.share_code_input.error.share_code_wrong",
-          "share_code_wrong_accessibility": "requestEvisa.request_uk_evisa.share_code_input.error.share_code_wrong_accessibility"
+          "dob_invalid": "requestEvisaUk.request_uk_evisa.dob.error.dob_invalid",
+          "dob_required": "requestEvisaUk.request_uk_evisa.dob.error.dob_required",
+          "share_code_incomplete": "requestEvisaUk.request_uk_evisa.share_code_input.error.share_code_incomplete",
+          "share_code_invalid": "requestEvisaUk.request_uk_evisa.share_code_input.error.share_code_invalid",
+          "share_code_wrong": "requestEvisaUk.request_uk_evisa.share_code_input.error.share_code_wrong",
+          "share_code_wrong_accessibility": "requestEvisaUk.request_uk_evisa.share_code_input.error.share_code_wrong_accessibility"
         },
-        "list_item_1": "requestEvisa.request_uk_evisa.list_item_1.label",
-        "list_item_1_accessibility": "requestEvisa.request_uk_evisa.list_item_1.accessibility",
-        "list_item_2": "requestEvisa.request_uk_evisa.list_item_2.label",
-        "list_item_2_accessibility": "requestEvisa.request_uk_evisa.list_item_2.accessibility",
-        "list_item_3": "requestEvisa.request_uk_evisa.list_item_3.label",
-        "list_item_3_accessibility": "requestEvisa.request_uk_evisa.list_item_3.accessibility",
-        "subtitle": "requestEvisa.request_uk_evisa.subtitle",
-        "title": "requestEvisa.request_uk_evisa.title"
+        "list_item_1": "requestEvisaUk.request_uk_evisa.list_item_1.label",
+        "list_item_1_accessibility": "requestEvisaUk.request_uk_evisa.list_item_1.accessibility",
+        "list_item_2": "requestEvisaUk.request_uk_evisa.list_item_2.label",
+        "list_item_2_accessibility": "requestEvisaUk.request_uk_evisa.list_item_2.accessibility",
+        "list_item_3": "requestEvisaUk.request_uk_evisa.list_item_3.label",
+        "list_item_3_accessibility": "requestEvisaUk.request_uk_evisa.list_item_3.accessibility",
+        "subtitle": "requestEvisaUk.request_uk_evisa.subtitle",
+        "title": "requestEvisaUk.request_uk_evisa.title"
       },
       "retry_feedback_id_generic": {
         "subtitle": "common.alert.instruction",
@@ -3576,6 +3584,10 @@
       "pin_code_label": "पिन कोड:",
       "sub_heading": "Microsoft Authenticator का उपयोग करके अपना सत्यापित आईडी सहेजें, ऐप खोलने के लिए 'Add Verified ID' पर क्लिक करें। अनुरोध किए जाने पर पिन कोड दर्ज करें।"
     },
+    "client_secret_expired_error_screen": {
+      "heading": "आपकी सत्यापित ID जारी करने के साथ जारी रखने में असमर्थ",
+      "sub_heading": "एक Entra सीक्रेट की समय सीमा समाप्त हो गई है। सहायता के लिए सपोर्ट से संपर्क करें।"
+    },
     "qr_screen": {
       "get_authenticator_button": "Microsoft Authenticator ऐप प्राप्त करें",
       "heading": "सत्यापन पूरा हो गया है, अपना सत्यापित आईडी जारी करने के लिए आगे बढ़ें।",
@@ -3590,6 +3602,10 @@
       "heading": "अपने मौजूदा सत्यापित आईडी के साथ पोर्टल तक पहुँचें।",
       "share_verified_id_button": "सत्यापित आईडी साझा करें",
       "sub_heading": "अपनी पहचान सत्यापित करने के लिए Microsoft Authenticator ऐप का उपयोग करें। यह चरण पूरा होने के बाद, आपको एक्सेस प्रदान कर दी जाएगी।"
+    },
+    "client_secret_expired_error_screen": {
+      "heading": "आपकी सत्यापित ID प्रस्तुति जारी रखने में असमर्थ",
+      "sub_heading": "एक Entra सीक्रेट की समय सीमा समाप्त हो गई है। सहायता के लिए सपोर्ट से संपर्क करें।"
     },
     "intro_screen": {
       "create_verified_id_button": "नई सत्यापित आईडी बनाएं",
@@ -4387,7 +4403,7 @@
     },
     "title": "Consent to process biometric data and sensitive data"
   },
-  "requestEvisa": {
+  "requestEvisaUk": {
     "request_uk_evisa": {
       "consent": {
         "disclosure": {
