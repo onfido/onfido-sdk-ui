@@ -754,12 +754,14 @@
     },
     "mobile_confirmation": {
       "abort_button": "Nu, nu sunt eu",
+      "banner_content": "Asigură-te că ai inițiat tu însuți această acțiune. Dacă altcineva ți-a cerut să deschizi acest link, este posibil să fie o tentativă de înșelătorie.",
+      "banner_title": "Verificare de securitate",
       "browser_info": "<bold>Browser original:</bold> <info></info>",
       "continue_button": "Da, continuă",
       "device_info": "<bold>Dispozitiv original:</bold> <info></info>",
       "location": "<bold>Locație:</bold> <city></city>, <country></country>",
       "location_undetermined": "<bold>Locație:</bold> Nedeterminată",
-      "subtitle": "Dacă acest link nu a fost trimis de dumneavoastră și credeți că ar putea fi o înșelătorie, solicitați sfaturi.",
+      "subtitle": "Dacă acest link nu a fost trimis de tine și crezi că ar putea fi o tentativă de fraudă, nu continua și anunță-ne.",
       "title": "Ați solicitat să vă verificați identitatea pe un alt dispozitiv?"
     },
     "mobile_connection_error": {
@@ -1647,6 +1649,10 @@
         "button_primary_upload": "document.upload.continue_btn",
         "mobile_confirmation": {
           "abort_button": "crossdevice.mobile_confirmation.abort_button",
+          "banner": {
+            "content": "crossdevice.mobile_confirmation.banner_content",
+            "title": "crossdevice.mobile_confirmation.banner_title"
+          },
           "browser_info": "crossdevice.mobile_confirmation.browser_info",
           "continue_button": "crossdevice.mobile_confirmation.continue_button",
           "device_info": "crossdevice.mobile_confirmation.device_info",

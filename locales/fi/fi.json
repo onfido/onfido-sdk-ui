@@ -754,12 +754,14 @@
     },
     "mobile_confirmation": {
       "abort_button": "Ei, se en ole minä",
+      "banner_content": "Varmista, että aloitit tämän toimenpiteen itse. Jos joku muu pyysi sinua avaamaan tämän linkin, se voi olla huijaus.",
+      "banner_title": "Turvallisuustarkistus",
       "browser_info": "<bold>Alkuperäinen selain:</bold> <info></info>",
       "continue_button": "Kyllä, jatka",
       "device_info": "<bold>Alkuperäinen laite:</bold> <info></info>",
       "location": "<bold>Sijainti:</bold> <city></city>, <country></country>",
       "location_undetermined": "<bold>Sijainti:</bold> Määrittelemätön",
-      "subtitle": "Jos et itse lähettänyt tätä linkkiä ja epäilet, että kyseessä voisi olla huijaus, kysy neuvoa.",
+      "subtitle": "Jos et lähettänyt tätä linkkiä itse ja epäilet, että kyseessä voi olla huijaus, älä jatka vaan ilmoita siitä meille.",
       "title": "Oletko pyytänyt henkilöllisyytesi vahvistamista toisella laitteella?"
     },
     "mobile_connection_error": {
@@ -1647,6 +1649,10 @@
         "button_primary_upload": "document.upload.continue_btn",
         "mobile_confirmation": {
           "abort_button": "crossdevice.mobile_confirmation.abort_button",
+          "banner": {
+            "content": "crossdevice.mobile_confirmation.banner_content",
+            "title": "crossdevice.mobile_confirmation.banner_title"
+          },
           "browser_info": "crossdevice.mobile_confirmation.browser_info",
           "continue_button": "crossdevice.mobile_confirmation.continue_button",
           "device_info": "crossdevice.mobile_confirmation.device_info",

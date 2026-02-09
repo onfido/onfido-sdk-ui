@@ -754,12 +754,14 @@
     },
     "mobile_confirmation": {
       "abort_button": "Não, não sou eu",
+      "banner_content": "Certifique-se de que você mesmo iniciou esta ação. Se alguém pediu para você abrir este link, pode ser um golpe.",
+      "banner_title": "Verificação de segurança",
       "browser_info": "<bold>Navegador original:</bold> <info></info>",
       "continue_button": "Sim, continuar",
       "device_info": "<bold>Dispositivo original:</bold> <info></info>",
       "location": "<bold>Localização:</bold> <city></city>, <country></country>",
       "location_undetermined": "<bold>Localização:</bold> Indeterminada",
-      "subtitle": "Se este link não foi enviado por você e você acha que pode ser um golpe, procure orientação.",
+      "subtitle": "Se este link não foi enviado por você e você acha que pode ser um golpe, não continue e nos avise.",
       "title": "Você solicitou verificar sua identidade em outro dispositivo?"
     },
     "mobile_connection_error": {
@@ -1647,6 +1649,10 @@
         "button_primary_upload": "document.upload.continue_btn",
         "mobile_confirmation": {
           "abort_button": "crossdevice.mobile_confirmation.abort_button",
+          "banner": {
+            "content": "crossdevice.mobile_confirmation.banner_content",
+            "title": "crossdevice.mobile_confirmation.banner_title"
+          },
           "browser_info": "crossdevice.mobile_confirmation.browser_info",
           "continue_button": "crossdevice.mobile_confirmation.continue_button",
           "device_info": "crossdevice.mobile_confirmation.device_info",

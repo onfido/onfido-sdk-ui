@@ -754,12 +754,14 @@
     },
     "mobile_confirmation": {
       "abort_button": "Όχι, δεν είμαι εγώ",
+      "banner_content": "Βεβαιωθείτε ότι ξεκινήσατε εσείς αυτήν την ενέργεια. Αν κάποιος άλλος σάς ζήτησε να ανοίξετε αυτόν τον σύνδεσμο, μπορεί να πρόκειται για απάτη.",
+      "banner_title": "Έλεγχος ασφαλείας",
       "browser_info": "<bold>Αρχικός περιηγητής:</bold> <info></info>",
       "continue_button": "Ναι, συνεχίστε",
       "device_info": "<bold>Αρχική συσκευή:</bold> <info></info>",
       "location": "<bold>Τοποθεσία:</bold> <city></city>, <country></country>",
       "location_undetermined": "<bold>Τοποθεσία:</bold> Απροσδιόριστη",
-      "subtitle": "Αν αυτός ο σύνδεσμος δεν στάλθηκε από εσάς και νομίζετε ότι μπορεί να είναι απάτη, ζητήστε συμβουλή.",
+      "subtitle": "Αν αυτός ο σύνδεσμος δεν στάλθηκε από εσάς και πιστεύετε ότι μπορεί να είναι απάτη, μην συνεχίσετε και ενημερώστε μας.",
       "title": "Έχετε ζητήσει να επαληθεύσετε την ταυτότητά σας σε άλλη συσκευή;"
     },
     "mobile_connection_error": {
@@ -1647,6 +1649,10 @@
         "button_primary_upload": "document.upload.continue_btn",
         "mobile_confirmation": {
           "abort_button": "crossdevice.mobile_confirmation.abort_button",
+          "banner": {
+            "content": "crossdevice.mobile_confirmation.banner_content",
+            "title": "crossdevice.mobile_confirmation.banner_title"
+          },
           "browser_info": "crossdevice.mobile_confirmation.browser_info",
           "continue_button": "crossdevice.mobile_confirmation.continue_button",
           "device_info": "crossdevice.mobile_confirmation.device_info",

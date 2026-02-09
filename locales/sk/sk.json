@@ -754,12 +754,14 @@
     },
     "mobile_confirmation": {
       "abort_button": "Nie, to nie som ja",
+      "banner_content": "Uistite sa, že ste túto akciu spustili vy sami. Ak vás niekto iný požiadal, aby ste otvorili tento odkaz, môže ísť o podvod.",
+      "banner_title": "Bezpečnostná kontrola",
       "browser_info": "<bold>Pôvodný prehliadač:</bold> <info></info>",
       "continue_button": "Áno, pokračujte",
       "device_info": "<bold>Pôvodné zariadenie:</bold> <info></info>",
       "location": "<bold>Miesto:</bold> <city></city>, <country></country>",
       "location_undetermined": "<bold>Umiestnenie:</bold> Neurčené",
-      "subtitle": "Ak tento odkaz nebol odoslaný vami a myslíte si, že by to mohol byť podvod, vyhľadajte radu.",
+      "subtitle": "Ak ste si tento odkaz neposlali sami a myslíte si, že by mohlo ísť o podvod, nepokračujte a dajte nám vedieť.",
       "title": "Požiadali ste o overenie svojej identity na inom zariadení?"
     },
     "mobile_connection_error": {
@@ -1647,6 +1649,10 @@
         "button_primary_upload": "document.upload.continue_btn",
         "mobile_confirmation": {
           "abort_button": "crossdevice.mobile_confirmation.abort_button",
+          "banner": {
+            "content": "crossdevice.mobile_confirmation.banner_content",
+            "title": "crossdevice.mobile_confirmation.banner_title"
+          },
           "browser_info": "crossdevice.mobile_confirmation.browser_info",
           "continue_button": "crossdevice.mobile_confirmation.continue_button",
           "device_info": "crossdevice.mobile_confirmation.device_info",

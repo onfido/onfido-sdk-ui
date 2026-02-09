@@ -754,12 +754,14 @@
     },
     "mobile_confirmation": {
       "abort_button": "Nē, tas neesmu es",
+      "banner_content": "Pārliecinieties, ka šo darbību esat sācis pats. Ja kāds cits jums lika atvērt šo saiti, tā var būt krāpšana.",
+      "banner_title": "Drošības pārbaude",
       "browser_info": "<bold>Oriģinālais pārlūks:</bold> <info></info>",
       "continue_button": "Jā, turpināt",
       "device_info": "<bold>Oriģinālā ierīce:</bold> <info></info>",
       "location": "<bold>Atrašanās vieta:</bold> <city></city>, <country></country>",
       "location_undetermined": "<bold>Atrašanās vieta:</bold> Nenoteikta",
-      "subtitle": "Ja šo saiti nesūtījāt jūs pats un domājat, ka tas varētu būt krāpniecība, meklējiet padomu.",
+      "subtitle": "Ja šo saiti neesat nosūtījis(-usi) pats(-i) un domājat, ka tā varētu būt krāpšana, nep turpiniet un informējiet mūs.",
       "title": "Vai esat pieprasījis pārbaudīt savu identitāti citā ierīcē?"
     },
     "mobile_connection_error": {
@@ -1647,6 +1649,10 @@
         "button_primary_upload": "document.upload.continue_btn",
         "mobile_confirmation": {
           "abort_button": "crossdevice.mobile_confirmation.abort_button",
+          "banner": {
+            "content": "crossdevice.mobile_confirmation.banner_content",
+            "title": "crossdevice.mobile_confirmation.banner_title"
+          },
           "browser_info": "crossdevice.mobile_confirmation.browser_info",
           "continue_button": "crossdevice.mobile_confirmation.continue_button",
           "device_info": "crossdevice.mobile_confirmation.device_info",

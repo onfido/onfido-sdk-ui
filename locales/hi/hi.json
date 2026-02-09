@@ -754,12 +754,14 @@
     },
     "mobile_confirmation": {
       "abort_button": "नहीं, यह मैं नहीं हूँ",
+      "banner_content": "सुनिश्चित करें कि आपने यह कार्रवाई स्वयं शुरू की है। यदि किसी और ने आपसे यह लिंक खोलने के लिए कहा है, तो यह एक घोटाला हो सकता है।",
+      "banner_title": "सुरक्षा जांच",
       "browser_info": "<bold>मूल ब्राउज़र:</bold> <info></info>",
       "continue_button": "हाँ, जारी रखें",
       "device_info": "<bold>मूल डिवाइस:</bold> <info></info>",
       "location": "<bold>स्थान:</bold> <city></city>, <country></country>",
       "location_undetermined": "<bold>स्थान:</bold> अनिर्धारित",
-      "subtitle": "यदि यह लिंक आपके द्वारा नहीं भेजा गया था और आपको लगता है कि यह एक धोखाधड़ी हो सकती है, तो सलाह लें।",
+      "subtitle": "यदि यह लिंक आपके द्वारा नहीं भेजा गया है और आपको लगता है कि यह एक घोटाला हो सकता है तो आगे न बढ़ें और हमें बताएं।",
       "title": "क्या आपने किसी अन्य डिवाइस पर अपनी पहचान सत्यापित करने का अनुरोध किया है?"
     },
     "mobile_connection_error": {
@@ -1647,6 +1649,10 @@
         "button_primary_upload": "document.upload.continue_btn",
         "mobile_confirmation": {
           "abort_button": "crossdevice.mobile_confirmation.abort_button",
+          "banner": {
+            "content": "crossdevice.mobile_confirmation.banner_content",
+            "title": "crossdevice.mobile_confirmation.banner_title"
+          },
           "browser_info": "crossdevice.mobile_confirmation.browser_info",
           "continue_button": "crossdevice.mobile_confirmation.continue_button",
           "device_info": "crossdevice.mobile_confirmation.device_info",

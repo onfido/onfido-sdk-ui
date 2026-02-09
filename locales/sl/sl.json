@@ -754,12 +754,14 @@
     },
     "mobile_confirmation": {
       "abort_button": "Ne, to nisem jaz",
+      "banner_content": "Prepričajte se, da ste to dejanje začeli sami. Če vas je nekdo drug prosil, da odprete to povezavo, bi lahko šlo za prevaro.",
+      "banner_title": "Varnostna preveritev",
       "browser_info": "<bold>Izvirni brskalnik:</bold> <info></info>",
       "continue_button": "Da, nadaljuj",
       "device_info": "<bold>Izvirna naprava:</bold> <info></info>",
       "location": "<bold>Lokacija:</bold> <city></city>, <country></country>",
       "location_undetermined": "<bold>Lokacija:</bold> Nedoločena",
-      "subtitle": "Če te povezave niste poslali sami in menite, da bi lahko šlo za prevaro, poiščite nasvet.",
+      "subtitle": "Če te povezave niste poslali sami in menite, da bi lahko šlo za prevaro, ne nadaljujte in nas obvestite.",
       "title": "Ste zahtevali preverjanje svoje identitete na drugi napravi?"
     },
     "mobile_connection_error": {
@@ -1647,6 +1649,10 @@
         "button_primary_upload": "document.upload.continue_btn",
         "mobile_confirmation": {
           "abort_button": "crossdevice.mobile_confirmation.abort_button",
+          "banner": {
+            "content": "crossdevice.mobile_confirmation.banner_content",
+            "title": "crossdevice.mobile_confirmation.banner_title"
+          },
           "browser_info": "crossdevice.mobile_confirmation.browser_info",
           "continue_button": "crossdevice.mobile_confirmation.continue_button",
           "device_info": "crossdevice.mobile_confirmation.device_info",

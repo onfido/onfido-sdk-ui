@@ -754,12 +754,14 @@
     },
     "mobile_confirmation": {
       "abort_button": "Ei, see ei ole mina",
+      "banner_content": "Veenduge, et alustasite seda tegevust ise. Kui keegi teine palus teil seda linki avada, võib tegemist olla pettusega.",
+      "banner_title": "Turvakontroll",
       "browser_info": "<bold>Originaalne brauser:</bold> <info></info>",
       "continue_button": "Jah, jätka",
       "device_info": "<bold>Originaalseade:</bold> <info></info>",
       "location": "<bold>Asukoht:</bold> <city></city>, <country></country>",
       "location_undetermined": "<bold>Asukoht:</bold> Määramata",
-      "subtitle": "Kui te ei saatnud seda linki ise ja arvate, et see võib olla pettus, küsige nõu.",
+      "subtitle": "Kui te ei saatnud seda linki ise ja arvate, et tegemist võib olla pettusega, siis ärge jätkake ja andke meile teada.",
       "title": "Kas olete taotlenud oma isiku tuvastamist teisel seadmel?"
     },
     "mobile_connection_error": {
@@ -1647,6 +1649,10 @@
         "button_primary_upload": "document.upload.continue_btn",
         "mobile_confirmation": {
           "abort_button": "crossdevice.mobile_confirmation.abort_button",
+          "banner": {
+            "content": "crossdevice.mobile_confirmation.banner_content",
+            "title": "crossdevice.mobile_confirmation.banner_title"
+          },
           "browser_info": "crossdevice.mobile_confirmation.browser_info",
           "continue_button": "crossdevice.mobile_confirmation.continue_button",
           "device_info": "crossdevice.mobile_confirmation.device_info",

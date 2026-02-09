@@ -754,12 +754,14 @@
     },
     "mobile_confirmation": {
       "abort_button": "Не, това не съм аз",
+      "banner_content": "Уверете се, че сте започнали това действие сами. Ако някой друг ви е помолил да отворите този линк, това може да е измама.",
+      "banner_title": "Проверка за сигурност",
       "browser_info": "<bold>Оригинален браузър:</bold> <info></info>",
       "continue_button": "Да, продължете",
       "device_info": "<bold>Оригинално устройство:</bold> <info></info>",
       "location": "<bold>Местоположение:</bold> <city></city>, <country></country>",
       "location_undetermined": "<bold>Местоположение:</bold> Неопределено",
-      "subtitle": "Ако този линк не е изпратен от вас и смятате, че това може да е измама, потърсете съвет.",
+      "subtitle": "Ако тази връзка не е изпратена от вас и смятате, че това може да е измама, не продължавайте и ни уведомете.",
       "title": "Заявили ли сте проверка на самоличността си на друго устройство?"
     },
     "mobile_connection_error": {
@@ -1647,6 +1649,10 @@
         "button_primary_upload": "document.upload.continue_btn",
         "mobile_confirmation": {
           "abort_button": "crossdevice.mobile_confirmation.abort_button",
+          "banner": {
+            "content": "crossdevice.mobile_confirmation.banner_content",
+            "title": "crossdevice.mobile_confirmation.banner_title"
+          },
           "browser_info": "crossdevice.mobile_confirmation.browser_info",
           "continue_button": "crossdevice.mobile_confirmation.continue_button",
           "device_info": "crossdevice.mobile_confirmation.device_info",

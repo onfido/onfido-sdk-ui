@@ -754,12 +754,14 @@
     },
     "mobile_confirmation": {
       "abort_button": "Nej, det er ikke mig",
+      "banner_content": "Sørg for, at du selv har startet denne handling. Hvis du er blevet bedt af en anden om at åbne dette link, kan det være et forsøg på svindel.",
+      "banner_title": "Sikkerhedstjek",
       "browser_info": "<bold>Original browser:</bold> <info></info>",
       "continue_button": "Ja, fortsæt",
       "device_info": "<bold>Original enhed:</bold> <info></info>",
       "location": "<bold>Placering:</bold> <city></city>, <country></country>",
       "location_undetermined": "<bold>Placering:</bold> Ubestemt",
-      "subtitle": "Hvis dette link ikke blev sendt af dig selv, og du tror, det kunne være et svindelnummer, søg råd.",
+      "subtitle": "Hvis dette link ikke blev sendt af dig selv, og du tror, det kan være svindel, så fortsæt ikke og giv os besked.",
       "title": "Har du anmodet om at bekræfte din identitet på en anden enhed?"
     },
     "mobile_connection_error": {
@@ -1647,6 +1649,10 @@
         "button_primary_upload": "document.upload.continue_btn",
         "mobile_confirmation": {
           "abort_button": "crossdevice.mobile_confirmation.abort_button",
+          "banner": {
+            "content": "crossdevice.mobile_confirmation.banner_content",
+            "title": "crossdevice.mobile_confirmation.banner_title"
+          },
           "browser_info": "crossdevice.mobile_confirmation.browser_info",
           "continue_button": "crossdevice.mobile_confirmation.continue_button",
           "device_info": "crossdevice.mobile_confirmation.device_info",

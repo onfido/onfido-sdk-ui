@@ -754,12 +754,14 @@
     },
     "mobile_confirmation": {
       "abort_button": "Không, đó không phải là tôi",
+      "banner_content": "Hãy đảm bảo rằng bạn tự mình bắt đầu hành động này. Nếu có ai đó yêu cầu bạn mở liên kết này, đó có thể là một trò lừa đảo.",
+      "banner_title": "Kiểm tra bảo mật",
       "browser_info": "<bold>Trình duyệt gốc:</bold> <info></info>",
       "continue_button": "Vâng, tiếp tục",
       "device_info": "<bold>Thiết bị gốc:</bold> <info></info>",
       "location": "<bold>Vị trí:</bold> <city></city>, <country></country>",
       "location_undetermined": "<bold>Vị trí:</bold> Chưa xác định",
-      "subtitle": "Nếu liên kết này không phải do bạn gửi và bạn nghĩ rằng đây có thể là một trò lừa đảo, hãy tìm kiếm lời khuyên.",
+      "subtitle": "Nếu liên kết này không do bạn gửi và bạn nghĩ đây có thể là một trò lừa đảo, vui lòng không tiếp tục và cho chúng tôi biết.",
       "title": "Bạn đã yêu cầu xác minh danh tính của mình trên thiết bị khác chưa?"
     },
     "mobile_connection_error": {
@@ -1647,6 +1649,10 @@
         "button_primary_upload": "document.upload.continue_btn",
         "mobile_confirmation": {
           "abort_button": "crossdevice.mobile_confirmation.abort_button",
+          "banner": {
+            "content": "crossdevice.mobile_confirmation.banner_content",
+            "title": "crossdevice.mobile_confirmation.banner_title"
+          },
           "browser_info": "crossdevice.mobile_confirmation.browser_info",
           "continue_button": "crossdevice.mobile_confirmation.continue_button",
           "device_info": "crossdevice.mobile_confirmation.device_info",

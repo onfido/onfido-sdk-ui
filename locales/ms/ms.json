@@ -754,12 +754,14 @@
     },
     "mobile_confirmation": {
       "abort_button": "Tidak, itu bukan saya",
+      "banner_content": "Pastikan anda memulakan tindakan ini sendiri. Jika orang lain meminta anda membuka pautan ini, ia mungkin satu penipuan.",
+      "banner_title": "Semakan keselamatan",
       "browser_info": "<bold>Pelayar asal:</bold> <info></info>",
       "continue_button": "Ya, teruskan",
       "device_info": "<bold>Peranti asal:</bold> <info></info>",
       "location": "<bold>Lokasi:</bold> <city></city>, <country></country>",
       "location_undetermined": "<bold>Lokasi:</bold> Tidak ditentukan",
-      "subtitle": "Jika pautan ini bukan dihantar oleh anda sendiri dan anda fikir ini mungkin penipuan, dapatkan nasihat.",
+      "subtitle": "Jika pautan ini tidak dihantar oleh anda sendiri dan anda fikir ini mungkin satu penipuan, jangan teruskan dan maklumkan kepada kami.",
       "title": "Adakah anda telah meminta untuk mengesahkan identiti anda pada peranti lain?"
     },
     "mobile_connection_error": {
@@ -1647,6 +1649,10 @@
         "button_primary_upload": "document.upload.continue_btn",
         "mobile_confirmation": {
           "abort_button": "crossdevice.mobile_confirmation.abort_button",
+          "banner": {
+            "content": "crossdevice.mobile_confirmation.banner_content",
+            "title": "crossdevice.mobile_confirmation.banner_title"
+          },
           "browser_info": "crossdevice.mobile_confirmation.browser_info",
           "continue_button": "crossdevice.mobile_confirmation.continue_button",
           "device_info": "crossdevice.mobile_confirmation.device_info",

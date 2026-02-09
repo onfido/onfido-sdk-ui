@@ -754,12 +754,14 @@
     },
     "mobile_confirmation": {
       "abort_button": "No, it isn't me",
+      "banner_content": "Make sure you started this action yourself. If you were asked by someone else to open this link, it might be a scam.",
+      "banner_title": "Security check",
       "browser_info": "<bold>Original browser:</bold> <info></info>",
       "continue_button": "Yes, continue",
       "device_info": "<bold>Original device:</bold> <info></info>",
       "location": "<bold>Location:</bold> <city></city>, <country></country>",
       "location_undetermined": "<bold>Location:</bold> Undetermined",
-      "subtitle": "If this link wasn’t sent by you and you think this could be a scam, seek advice.",
+      "subtitle": "If this link wasn’t sent by you and you think this could be a scam, do not continue and let us know.",
       "title": "Have you requested to verify your identity on another device?"
     },
     "mobile_connection_error": {
@@ -1647,6 +1649,10 @@
         "button_primary_upload": "document.upload.continue_btn",
         "mobile_confirmation": {
           "abort_button": "crossdevice.mobile_confirmation.abort_button",
+          "banner": {
+            "content": "crossdevice.mobile_confirmation.banner_content",
+            "title": "crossdevice.mobile_confirmation.banner_title"
+          },
           "browser_info": "crossdevice.mobile_confirmation.browser_info",
           "continue_button": "crossdevice.mobile_confirmation.continue_button",
           "device_info": "crossdevice.mobile_confirmation.device_info",

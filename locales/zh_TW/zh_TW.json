@@ -754,12 +754,14 @@
     },
     "mobile_confirmation": {
       "abort_button": "不，不是我",
+      "banner_content": "請確認此操作是由您本人發起的。如果是其他人要求您開啟此連結,這可能是詐騙行為。",
+      "banner_title": "安全檢查",
       "browser_info": "<bold>原始瀏覽器：</bold> <info></info>",
       "continue_button": "是的，繼續",
       "device_info": "<bold>原始裝置：</bold> <info></info>",
       "location": "<bold>地點：</bold> <city></city>, <country></country>",
       "location_undetermined": "<bold>位置：</bold> 未確定",
-      "subtitle": "如果這個連結不是由您自己發送的，並且您認為這可能是詐騙，請尋求建議。",
+      "subtitle": "如果此連結不是您本人發送的,且您認為這可能是詐騙,請勿繼續並通知我們。",
       "title": "您是否已在其他裝置上請求驗證您的身份？"
     },
     "mobile_connection_error": {
@@ -1647,6 +1649,10 @@
         "button_primary_upload": "document.upload.continue_btn",
         "mobile_confirmation": {
           "abort_button": "crossdevice.mobile_confirmation.abort_button",
+          "banner": {
+            "content": "crossdevice.mobile_confirmation.banner_content",
+            "title": "crossdevice.mobile_confirmation.banner_title"
+          },
           "browser_info": "crossdevice.mobile_confirmation.browser_info",
           "continue_button": "crossdevice.mobile_confirmation.continue_button",
           "device_info": "crossdevice.mobile_confirmation.device_info",

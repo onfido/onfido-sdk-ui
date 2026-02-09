@@ -754,12 +754,14 @@
     },
     "mobile_confirmation": {
       "abort_button": "Hayır, bu ben değilim",
+      "banner_content": "Bu işlemi kendinizin başlattığından emin olun. Bu bağlantıyı açmanız için başka biri tarafından istendiyseniz, bu bir dolandırıcılık girişimi olabilir.",
+      "banner_title": "Güvenlik kontrolü",
       "browser_info": "<bold>Orijinal tarayıcı:</bold> <info></info>",
       "continue_button": "Evet, devam et",
       "device_info": "<bold>Orijinal cihaz:</bold> <info></info>",
       "location": "<bold>Konum:</bold> <city></city>, <country></country>",
       "location_undetermined": "<bold>Konum:</bold> Belirlenmemiş",
-      "subtitle": "Bu bağlantı sizin tarafınızdan gönderilmediyse ve bunun bir dolandırıcılık olabileceğini düşünüyorsanız, tavsiye alın.",
+      "subtitle": "Bu bağlantıyı siz göndermediyseniz ve bunun bir dolandırıcılık olabileceğini düşünüyorsanız devam etmeyin ve bize bildirin.",
       "title": "Başka bir cihazda kimliğinizi doğrulamak için talepte bulundunuz mu?"
     },
     "mobile_connection_error": {
@@ -1647,6 +1649,10 @@
         "button_primary_upload": "document.upload.continue_btn",
         "mobile_confirmation": {
           "abort_button": "crossdevice.mobile_confirmation.abort_button",
+          "banner": {
+            "content": "crossdevice.mobile_confirmation.banner_content",
+            "title": "crossdevice.mobile_confirmation.banner_title"
+          },
           "browser_info": "crossdevice.mobile_confirmation.browser_info",
           "continue_button": "crossdevice.mobile_confirmation.continue_button",
           "device_info": "crossdevice.mobile_confirmation.device_info",

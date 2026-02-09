@@ -754,12 +754,14 @@
     },
     "mobile_confirmation": {
       "abort_button": "نه، این من نیستم",
+      "banner_content": "مطمئن شوید که این اقدام را خودتان آغاز کرده‌اید. اگر شخص دیگری از شما خواسته است این لینک را باز کنید، ممکن است کلاهبرداری باشد.",
+      "banner_title": "بررسی امنیتی",
       "browser_info": "<bold>مرورگر اصلی:</bold> <info></info>",
       "continue_button": "بله، ادامه دهید",
       "device_info": "<bold>دستگاه اصلی:</bold> <info></info>",
       "location": "<bold>مکان:</bold> <city></city>، <country></country>",
       "location_undetermined": "<bold>مکان:</bold> نامشخص",
-      "subtitle": "اگر این لینک توسط خودتان ارسال نشده و فکر می‌کنید که ممکن است یک کلاهبرداری باشد، مشاوره بگیرید.",
+      "subtitle": "اگر این لینک را خودتان ارسال نکرده‌اید و فکر می‌کنید ممکن است کلاهبرداری باشد، ادامه ندهید و به ما اطلاع دهید.",
       "title": "آیا درخواست کرده‌اید که هویت خود را در دستگاه دیگری تأیید کنید؟"
     },
     "mobile_connection_error": {
@@ -1647,6 +1649,10 @@
         "button_primary_upload": "document.upload.continue_btn",
         "mobile_confirmation": {
           "abort_button": "crossdevice.mobile_confirmation.abort_button",
+          "banner": {
+            "content": "crossdevice.mobile_confirmation.banner_content",
+            "title": "crossdevice.mobile_confirmation.banner_title"
+          },
           "browser_info": "crossdevice.mobile_confirmation.browser_info",
           "continue_button": "crossdevice.mobile_confirmation.continue_button",
           "device_info": "crossdevice.mobile_confirmation.device_info",

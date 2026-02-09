@@ -754,12 +754,14 @@
     },
     "mobile_confirmation": {
       "abort_button": "Ne, tai ne aš",
+      "banner_content": "Įsitikinkite, kad šį veiksmą pradėjote jūs pats. Jei kas nors kitas paprašė jūsų atidaryti šią nuorodą, tai gali būti sukčiavimas.",
+      "banner_title": "Saugumo patikra",
       "browser_info": "<bold>Originali naršyklė:</bold> <info></info>",
       "continue_button": "Taip, tęsti",
       "device_info": "<bold>Originalus įrenginys:</bold> <info></info>",
       "location": "<bold>Vieta:</bold> <city></city>, <country></country>",
       "location_undetermined": "<bold>Vieta:</bold> Nenustatyta",
-      "subtitle": "Jei šią nuorodą nesiuntėte patys ir manote, kad tai gali būti sukčiavimas, kreipkitės patarimo.",
+      "subtitle": "Jei šią nuorodą atsiuntėte ne jūs ir manote, kad tai gali būti sukčiavimas, nesitęskite ir praneškite mums.",
       "title": "Ar prašėte patvirtinti savo tapatybę kitame įrenginyje?"
     },
     "mobile_connection_error": {
@@ -1647,6 +1649,10 @@
         "button_primary_upload": "document.upload.continue_btn",
         "mobile_confirmation": {
           "abort_button": "crossdevice.mobile_confirmation.abort_button",
+          "banner": {
+            "content": "crossdevice.mobile_confirmation.banner_content",
+            "title": "crossdevice.mobile_confirmation.banner_title"
+          },
           "browser_info": "crossdevice.mobile_confirmation.browser_info",
           "continue_button": "crossdevice.mobile_confirmation.continue_button",
           "device_info": "crossdevice.mobile_confirmation.device_info",

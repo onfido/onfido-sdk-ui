@@ -754,12 +754,14 @@
     },
     "mobile_confirmation": {
       "abort_button": "Ոչ, դա ես չեմ",
+      "banner_content": "Համոզվեք, որ այս գործողությունն սկսել եք ինքներդ։ Եթե որևէ մեկ ուրիշն է խնդրել ձեզ բացել այս հղումը, դա կարող է լինել խարդախություն։",
+      "banner_title": "Անվտանգության ստուգում",
       "browser_info": "<bold>Նախնական զննարկիչը:</bold> <info></info>",
       "continue_button": "Այո, շարունակել",
       "device_info": "<bold>Սկզբնական սարք:</bold> <info></info>",
       "location": "<bold>Տեղադրություն:</bold> <city></city>, <country></country>",
       "location_undetermined": "<bold>Տեղադրություն:</bold> Անորոշ",
-      "subtitle": "Եթե այս հղումը դուք չեք ուղարկել և կարծում եք, որ սա կարող է խարդախություն լինել, դիմեք խորհրդատվության։",
+      "subtitle": "Եթե այս հղումը դուք չեք ուղարկել և կարծում եք, որ դա կարող է խաբեություն լինել, մի շարունակեք և տեղեկացրեք մեզ։",
       "title": "Դուք խնդրե՞լ եք հաստատել ձեր ինքնությունը այլ սարքում։"
     },
     "mobile_connection_error": {
@@ -1647,6 +1649,10 @@
         "button_primary_upload": "document.upload.continue_btn",
         "mobile_confirmation": {
           "abort_button": "crossdevice.mobile_confirmation.abort_button",
+          "banner": {
+            "content": "crossdevice.mobile_confirmation.banner_content",
+            "title": "crossdevice.mobile_confirmation.banner_title"
+          },
           "browser_info": "crossdevice.mobile_confirmation.browser_info",
           "continue_button": "crossdevice.mobile_confirmation.continue_button",
           "device_info": "crossdevice.mobile_confirmation.device_info",

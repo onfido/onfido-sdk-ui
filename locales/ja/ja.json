@@ -754,12 +754,14 @@
     },
     "mobile_confirmation": {
       "abort_button": "いいえ、それは私ではありません",
+      "banner_content": "この操作をご自身で開始したことを確認してください。他の誰かにこのリンクを開くよう依頼された場合は、詐欺の可能性があります。",
+      "banner_title": "セキュリティチェック",
       "browser_info": "<bold>オリジナルブラウザ：</bold> <info></info>",
       "continue_button": "はい、続ける",
       "device_info": "<bold>元のデバイス：</bold> <info></info>",
       "location": "<bold>場所:</bold> <city></city>, <country></country>",
       "location_undetermined": "<bold>場所:</bold> 未定",
-      "subtitle": "このリンクが自分で送信したものでなく、詐欺の可能性があると思われる場合は、アドバイスを求めてください。",
+      "subtitle": "このリンクがご本人によって送信されたものではなく、詐欺の可能性があると思われる場合は、続行せずに当社までお知らせください。",
       "title": "別のデバイスで本人確認をリクエストしましたか？"
     },
     "mobile_connection_error": {
@@ -1647,6 +1649,10 @@
         "button_primary_upload": "document.upload.continue_btn",
         "mobile_confirmation": {
           "abort_button": "crossdevice.mobile_confirmation.abort_button",
+          "banner": {
+            "content": "crossdevice.mobile_confirmation.banner_content",
+            "title": "crossdevice.mobile_confirmation.banner_title"
+          },
           "browser_info": "crossdevice.mobile_confirmation.browser_info",
           "continue_button": "crossdevice.mobile_confirmation.continue_button",
           "device_info": "crossdevice.mobile_confirmation.device_info",

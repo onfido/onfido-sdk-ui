@@ -754,12 +754,14 @@
     },
     "mobile_confirmation": {
       "abort_button": "Ні, це не я",
+      "banner_content": "Переконайтеся, що ви самі ініціювали цю дію. Якщо хтось інший попросив вас відкрити це посилання, це може бути шахрайством.",
+      "banner_title": "Перевірка безпеки",
       "browser_info": "<bold>Оригінальний браузер:</bold> <info></info>",
       "continue_button": "Так, продовжити",
       "device_info": "<bold>Оригінальний пристрій:</bold> <info></info>",
       "location": "<bold>Місцезнаходження:</bold> <city></city>, <country></country>",
       "location_undetermined": "<bold>Місцезнаходження:</bold> Невизначено",
-      "subtitle": "Якщо це посилання не було надіслано вами і ви вважаєте, що це може бути шахрайством, зверніться за порадою.",
+      "subtitle": "Якщо ви не надсилали це посилання і вважаєте, що це може бути шахрайством, не продовжуйте й повідомте нам про це.",
       "title": "Ви запитували перевірку своєї особи на іншому пристрої?"
     },
     "mobile_connection_error": {
@@ -1647,6 +1649,10 @@
         "button_primary_upload": "document.upload.continue_btn",
         "mobile_confirmation": {
           "abort_button": "crossdevice.mobile_confirmation.abort_button",
+          "banner": {
+            "content": "crossdevice.mobile_confirmation.banner_content",
+            "title": "crossdevice.mobile_confirmation.banner_title"
+          },
           "browser_info": "crossdevice.mobile_confirmation.browser_info",
           "continue_button": "crossdevice.mobile_confirmation.continue_button",
           "device_info": "crossdevice.mobile_confirmation.device_info",

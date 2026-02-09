@@ -754,12 +754,14 @@
     },
     "mobile_confirmation": {
       "abort_button": "Nee, dat ben ik niet",
+      "banner_content": "Controleer of je deze actie zelf bent gestart. Als iemand anders je heeft gevraagd om deze link te openen, kan het om een oplichting gaan.",
+      "banner_title": "Beveiligingscontrole",
       "browser_info": "<bold>Originele browser:</bold> <info></info>",
       "continue_button": "Ja, doorgaan",
       "device_info": "<bold>Origineel apparaat:</bold> <info></info>",
       "location": "<bold>Locatie:</bold> <city></city>, <country></country>",
       "location_undetermined": "<bold>Locatie:</bold> Onbepaald",
-      "subtitle": "Als deze link niet door uzelf is verzonden en u denkt dat dit een scam zou kunnen zijn, zoek dan advies.",
+      "subtitle": "Als je deze link niet zelf hebt verzonden en je denkt dat dit een poging tot oplichting kan zijn, ga dan niet verder en laat het ons weten.",
       "title": "Heb je gevraagd om je identiteit op een ander apparaat te verifiëren?"
     },
     "mobile_connection_error": {
@@ -1647,6 +1649,10 @@
         "button_primary_upload": "document.upload.continue_btn",
         "mobile_confirmation": {
           "abort_button": "crossdevice.mobile_confirmation.abort_button",
+          "banner": {
+            "content": "crossdevice.mobile_confirmation.banner_content",
+            "title": "crossdevice.mobile_confirmation.banner_title"
+          },
           "browser_info": "crossdevice.mobile_confirmation.browser_info",
           "continue_button": "crossdevice.mobile_confirmation.continue_button",
           "device_info": "crossdevice.mobile_confirmation.device_info",

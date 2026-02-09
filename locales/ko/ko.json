@@ -754,12 +754,14 @@
     },
     "mobile_confirmation": {
       "abort_button": "아니요, 저 아닙니다",
+      "banner_content": "이 작업을 직접 시작했는지 확인하세요. 다른 사람이 이 링크를 열라고 요청했다면, 사기일 수 있습니다.",
+      "banner_title": "보안 확인",
       "browser_info": "<bold>원본 브라우저:</bold> <info></info>",
       "continue_button": "네, 계속",
       "device_info": "<bold>원래 장치:</bold> <info></info>",
       "location": "<bold>위치:</bold> <city></city>, <country></country>",
       "location_undetermined": "<bold>위치:</bold> 미확정",
-      "subtitle": "이 링크가 본인에 의해 전송된 것이 아니며 사기일 수 있다고 생각되면 조언을 구하세요.",
+      "subtitle": "이 링크를 직접 보낸 것이 아니고, 이 링크가 사기일 수 있다고 생각된다면 계속 진행하지 말고 저희에게 알려주세요.",
       "title": "다른 기기에서 본인 확인을 요청하셨습니까?"
     },
     "mobile_connection_error": {
@@ -1647,6 +1649,10 @@
         "button_primary_upload": "document.upload.continue_btn",
         "mobile_confirmation": {
           "abort_button": "crossdevice.mobile_confirmation.abort_button",
+          "banner": {
+            "content": "crossdevice.mobile_confirmation.banner_content",
+            "title": "crossdevice.mobile_confirmation.banner_title"
+          },
           "browser_info": "crossdevice.mobile_confirmation.browser_info",
           "continue_button": "crossdevice.mobile_confirmation.continue_button",
           "device_info": "crossdevice.mobile_confirmation.device_info",

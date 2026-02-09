@@ -754,12 +754,14 @@
     },
     "mobile_confirmation": {
       "abort_button": "Nein, das bin ich nicht",
+      "banner_content": "Stellen Sie sicher, dass Sie diese Aktion selbst gestartet haben. Wenn Sie von jemand anderem aufgefordert wurden, diesen Link zu öffnen, könnte es sich um einen Betrug handeln.",
+      "banner_title": "Sicherheitsüberprüfung",
       "browser_info": "<bold>Ursprünglicher Browser:</bold> <info></info>",
       "continue_button": "Ja, fortfahren",
       "device_info": "<bold>Ursprüngliches Gerät:</bold> <info></info>",
       "location": "<bold>Standort:</bold> <city></city>, <country></country>",
       "location_undetermined": "<bold>Standort:</bold> Unbestimmt",
-      "subtitle": "Wenn dieser Link nicht von Ihnen gesendet wurde und Sie denken, dass es sich um einen Betrug handeln könnte, suchen Sie Rat.",
+      "subtitle": "Wenn Sie diesen Link nicht selbst gesendet haben und vermuten, dass es sich um einen Betrugsversuch handelt, fahren Sie nicht fort und informieren Sie uns.",
       "title": "Haben Sie angefordert, Ihre Identität auf einem anderen Gerät zu verifizieren?"
     },
     "mobile_connection_error": {
@@ -1647,6 +1649,10 @@
         "button_primary_upload": "document.upload.continue_btn",
         "mobile_confirmation": {
           "abort_button": "crossdevice.mobile_confirmation.abort_button",
+          "banner": {
+            "content": "crossdevice.mobile_confirmation.banner_content",
+            "title": "crossdevice.mobile_confirmation.banner_title"
+          },
           "browser_info": "crossdevice.mobile_confirmation.browser_info",
           "continue_button": "crossdevice.mobile_confirmation.continue_button",
           "device_info": "crossdevice.mobile_confirmation.device_info",

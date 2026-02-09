@@ -754,12 +754,14 @@
     },
     "mobile_confirmation": {
       "abort_button": "Nej, det är inte jag",
+      "banner_content": "Se till att du själv startade den här åtgärden. Om någon annan bad dig öppna den här länken kan det vara en bluff.",
+      "banner_title": "Säkerhetskontroll",
       "browser_info": "<bold>Ursprunglig webbläsare:</bold> <info></info>",
       "continue_button": "Ja, fortsätt",
       "device_info": "<bold>Ursprunglig enhet:</bold> <info></info>",
       "location": "<bold>Plats:</bold> <city></city>, <country></country>",
       "location_undetermined": "<bold>Plats:</bold> Obestämd",
-      "subtitle": "Om denna länk inte skickades av dig själv och du tror att detta kan vara ett bedrägeri, sök råd.",
+      "subtitle": "Om den här länken inte skickades av dig själv och du tror att det kan vara en bluff, fortsätt inte utan låt oss veta.",
       "title": "Har du begärt att verifiera din identitet på en annan enhet?"
     },
     "mobile_connection_error": {
@@ -1647,6 +1649,10 @@
         "button_primary_upload": "document.upload.continue_btn",
         "mobile_confirmation": {
           "abort_button": "crossdevice.mobile_confirmation.abort_button",
+          "banner": {
+            "content": "crossdevice.mobile_confirmation.banner_content",
+            "title": "crossdevice.mobile_confirmation.banner_title"
+          },
           "browser_info": "crossdevice.mobile_confirmation.browser_info",
           "continue_button": "crossdevice.mobile_confirmation.continue_button",
           "device_info": "crossdevice.mobile_confirmation.device_info",

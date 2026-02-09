@@ -754,12 +754,14 @@
     },
     "mobile_confirmation": {
       "abort_button": "Nem, ez nem én vagyok",
+      "banner_content": "Győződjön meg róla, hogy ezt a műveletet saját maga indította el. Ha valaki más kérte, hogy nyissa meg ezt a hivatkozást, előfordulhat, hogy csalásról van szó.",
+      "banner_title": "Biztonsági ellenőrzés",
       "browser_info": "<bold>Eredeti böngésző:</bold> <info></info>",
       "continue_button": "Igen, folytatás",
       "device_info": "<bold>Eredeti eszköz:</bold> <info></info>",
       "location": "<bold>Helyszín:</bold> <city></city>, <country></country>",
       "location_undetermined": "<bold>Helyszín:</bold> Meghatározatlan",
-      "subtitle": "Ha ezt a linket nem Ön küldte, és úgy gondolja, hogy ez egy átverés lehet, kérjen tanácsot.",
+      "subtitle": "Ha nem Ön küldte ezt a hivatkozást, és úgy gondolja, hogy ez egy csalás lehet, ne folytassa, és jelezze felénk.",
       "title": "Kérte, hogy igazolja személyazonosságát egy másik eszközön?"
     },
     "mobile_connection_error": {
@@ -1647,6 +1649,10 @@
         "button_primary_upload": "document.upload.continue_btn",
         "mobile_confirmation": {
           "abort_button": "crossdevice.mobile_confirmation.abort_button",
+          "banner": {
+            "content": "crossdevice.mobile_confirmation.banner_content",
+            "title": "crossdevice.mobile_confirmation.banner_title"
+          },
           "browser_info": "crossdevice.mobile_confirmation.browser_info",
           "continue_button": "crossdevice.mobile_confirmation.continue_button",
           "device_info": "crossdevice.mobile_confirmation.device_info",

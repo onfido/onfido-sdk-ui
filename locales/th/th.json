@@ -754,12 +754,14 @@
     },
     "mobile_confirmation": {
       "abort_button": "ไม่ใช่ฉัน",
+      "banner_content": "ตรวจสอบให้แน่ใจว่าคุณเป็นผู้เริ่มการดำเนินการนี้ด้วยตัวเอง หากมีผู้อื่นขอให้คุณเปิดลิงก์นี้ อาจเป็นการหลอกลวงได้",
+      "banner_title": "การตรวจสอบความปลอดภัย",
       "browser_info": "<bold>เบราว์เซอร์ดั้งเดิม:</bold> <info></info>",
       "continue_button": "ใช่, ดำเนินการต่อ",
       "device_info": "<bold>อุปกรณ์ดั้งเดิม:</bold> <info></info>",
       "location": "<bold>สถานที่:</bold> <city></city>, <country></country>",
       "location_undetermined": "<bold>ตำแหน่งที่ตั้ง:</bold> ไม่สามารถระบุได้",
-      "subtitle": "หากลิงก์นี้ไม่ได้ส่งโดยตัวคุณเองและคุณคิดว่านี่อาจเป็นการหลอกลวง โปรดขอคำแนะนำ",
+      "subtitle": "หากลิงก์นี้ไม่ได้ถูกส่งโดยคุณเองและคุณคิดว่าอาจเป็นการหลอกลวง โปรดอย่าดำเนินการต่อและแจ้งให้เราทราบ",
       "title": "คุณได้ขอให้ยืนยันตัวตนของคุณบนอุปกรณ์อื่นหรือไม่?"
     },
     "mobile_connection_error": {
@@ -1647,6 +1649,10 @@
         "button_primary_upload": "document.upload.continue_btn",
         "mobile_confirmation": {
           "abort_button": "crossdevice.mobile_confirmation.abort_button",
+          "banner": {
+            "content": "crossdevice.mobile_confirmation.banner_content",
+            "title": "crossdevice.mobile_confirmation.banner_title"
+          },
           "browser_info": "crossdevice.mobile_confirmation.browser_info",
           "continue_button": "crossdevice.mobile_confirmation.continue_button",
           "device_info": "crossdevice.mobile_confirmation.device_info",
