@@ -1149,6 +1149,10 @@
       "subtitle": "Wróć do swojego komputera, aby ponownie rozpocząć weryfikację, skanując kod QR lub wybierając inną opcję.",
       "title": "Utracono połączenie z komputerem"
     },
+    "cross_device_signature_invalid": {
+      "subtitle": "Ze względów bezpieczeństwa ten kod QR mógł wygasnąć. Aby kontynuować, zeskanuj ponownie kod QR wyświetlany na komputerze.",
+      "title": "Nie udało się zweryfikować tego kodu QR"
+    },
     "cross_device_verification_abort": {
       "title": "Weryfikacja anulowana"
     },
@@ -2342,6 +2346,10 @@
           "cross_device_desktop_unavailable": {
             "subtitle": "error.cross_device_desktop_unavailable.subtitle",
             "title": "error.cross_device_desktop_unavailable.title"
+          },
+          "cross_device_signature_invalid": {
+            "subtitle": "error.cross_device_signature_invalid.subtitle",
+            "title": "error.cross_device_signature_invalid.title"
           },
           "desktop": {
             "subtitle": "error.desktop.subtitle",

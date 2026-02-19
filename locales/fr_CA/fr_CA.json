@@ -1149,6 +1149,10 @@
       "subtitle": "Veuillez retourner à votre ordinateur de bureau pour redémarrer la vérification en numérisant le code QR ou en sélectionnant une autre option.",
       "title": "Connexion au bureau perdue"
     },
+    "cross_device_signature_invalid": {
+      "subtitle": "Pour des raisons de sécurité, ce code QR a peut-être expiré. Veuillez numériser à nouveau le code QR affiché sur votre ordinateur de bureau pour continuer.",
+      "title": "Nous n'avons pas pu vérifier ce code QR"
+    },
     "cross_device_verification_abort": {
       "title": "Vérification annulée"
     },
@@ -2342,6 +2346,10 @@
           "cross_device_desktop_unavailable": {
             "subtitle": "error.cross_device_desktop_unavailable.subtitle",
             "title": "error.cross_device_desktop_unavailable.title"
+          },
+          "cross_device_signature_invalid": {
+            "subtitle": "error.cross_device_signature_invalid.subtitle",
+            "title": "error.cross_device_signature_invalid.title"
           },
           "desktop": {
             "subtitle": "error.desktop.subtitle",

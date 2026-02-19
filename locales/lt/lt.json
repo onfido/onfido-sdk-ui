@@ -1149,6 +1149,10 @@
       "subtitle": "Prašome grįžti prie savo kompiuterio ir iš naujo pradėti tapatybės patvirtinimą nuskenuodami QR kodą arba pasirinkdami kitą parinktį.",
       "title": "Prarastas ryšys su kompiuteriu"
     },
+    "cross_device_signature_invalid": {
+      "subtitle": "Dėl saugumo sumetimų šis QR kodas galėjo nebegalioti. Norėdami tęsti, dar kartą nuskaitykite QR kodą, rodomą jūsų kompiuterio ekrane.",
+      "title": "Nepavyko patvirtinti šio QR kodo"
+    },
     "cross_device_verification_abort": {
       "title": "Tapatybės patikrinimas atšauktas"
     },
@@ -2342,6 +2346,10 @@
           "cross_device_desktop_unavailable": {
             "subtitle": "error.cross_device_desktop_unavailable.subtitle",
             "title": "error.cross_device_desktop_unavailable.title"
+          },
+          "cross_device_signature_invalid": {
+            "subtitle": "error.cross_device_signature_invalid.subtitle",
+            "title": "error.cross_device_signature_invalid.title"
           },
           "desktop": {
             "subtitle": "error.desktop.subtitle",

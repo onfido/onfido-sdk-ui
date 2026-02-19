@@ -1149,6 +1149,10 @@
       "subtitle": "Խնդրում ենք վերադառնալ ձեր աշխատասեղան՝ վավերացումը վերսկսելու համար՝ սկանավորելով QR կոդը կամ ընտրելով այլ տարբերակ։",
       "title": "Աշխատասեղանի կապը կորցվել է"
     },
+    "cross_device_signature_invalid": {
+      "subtitle": "Անվտանգության նկատառումներով այս QR կոդը կարող է ժամկետանց լինել։ Խնդրում ենք շարունակելու համար կրկին սկանավորել ձեր աշխատասեղանին ցուցադրված QR կոդը։",
+      "title": "Մենք չկարողացանք հաստատել այս QR կոդը"
+    },
     "cross_device_verification_abort": {
       "title": "Հաստատումը չեղարկվել է"
     },
@@ -2342,6 +2346,10 @@
           "cross_device_desktop_unavailable": {
             "subtitle": "error.cross_device_desktop_unavailable.subtitle",
             "title": "error.cross_device_desktop_unavailable.title"
+          },
+          "cross_device_signature_invalid": {
+            "subtitle": "error.cross_device_signature_invalid.subtitle",
+            "title": "error.cross_device_signature_invalid.title"
           },
           "desktop": {
             "subtitle": "error.desktop.subtitle",

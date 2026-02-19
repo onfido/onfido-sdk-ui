@@ -1149,6 +1149,10 @@
       "subtitle": "Gå venligst tilbage til din computer for at genstarte verificeringen ved at scanne QR-koden eller vælge en anden mulighed.",
       "title": "Forbindelsen til skrivebordet er mistet"
     },
+    "cross_device_signature_invalid": {
+      "subtitle": "Af sikkerhedsmæssige årsager kan denne QR-kode være udløbet. Scan venligst QR-koden vist på din computer igen for at fortsætte.",
+      "title": "Vi kunne ikke verificere denne QR-kode"
+    },
     "cross_device_verification_abort": {
       "title": "Bekræftelse annulleret"
     },
@@ -2342,6 +2346,10 @@
           "cross_device_desktop_unavailable": {
             "subtitle": "error.cross_device_desktop_unavailable.subtitle",
             "title": "error.cross_device_desktop_unavailable.title"
+          },
+          "cross_device_signature_invalid": {
+            "subtitle": "error.cross_device_signature_invalid.subtitle",
+            "title": "error.cross_device_signature_invalid.title"
           },
           "desktop": {
             "subtitle": "error.desktop.subtitle",

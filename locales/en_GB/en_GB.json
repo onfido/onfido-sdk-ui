@@ -1149,6 +1149,10 @@
       "subtitle": "Please return to your desktop to restart verification by scanning the QR code or selecting another option.",
       "title": "Desktop connection lost"
     },
+    "cross_device_signature_invalid": {
+      "subtitle": "For security reasons, this QR code may have expired. Please scan the QR code shown on your desktop again to continue.",
+      "title": "We couldn’t verify this QR code"
+    },
     "cross_device_verification_abort": {
       "title": "Verification cancelled"
     },
@@ -2342,6 +2346,10 @@
           "cross_device_desktop_unavailable": {
             "subtitle": "error.cross_device_desktop_unavailable.subtitle",
             "title": "error.cross_device_desktop_unavailable.title"
+          },
+          "cross_device_signature_invalid": {
+            "subtitle": "error.cross_device_signature_invalid.subtitle",
+            "title": "error.cross_device_signature_invalid.title"
           },
           "desktop": {
             "subtitle": "error.desktop.subtitle",

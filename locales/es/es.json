@@ -1149,6 +1149,10 @@
       "subtitle": "Por favor, regrese a su computadora de escritorio para reiniciar la verificación escaneando el código QR o seleccionando otra opción.",
       "title": "Conexión de escritorio perdida"
     },
+    "cross_device_signature_invalid": {
+      "subtitle": "Por motivos de seguridad, es posible que este código QR haya caducado. Vuelve a escanear el código QR que aparece en tu escritorio para continuar.",
+      "title": "No hemos podido verificar este código QR"
+    },
     "cross_device_verification_abort": {
       "title": "Verificación cancelada"
     },
@@ -2342,6 +2346,10 @@
           "cross_device_desktop_unavailable": {
             "subtitle": "error.cross_device_desktop_unavailable.subtitle",
             "title": "error.cross_device_desktop_unavailable.title"
+          },
+          "cross_device_signature_invalid": {
+            "subtitle": "error.cross_device_signature_invalid.subtitle",
+            "title": "error.cross_device_signature_invalid.title"
           },
           "desktop": {
             "subtitle": "error.desktop.subtitle",

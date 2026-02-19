@@ -1149,6 +1149,10 @@
       "subtitle": "请返回到您的桌面，通过扫描二维码或选择其他选项来重新开始验证。",
       "title": "桌面连接已断开"
     },
+    "cross_device_signature_invalid": {
+      "subtitle": "出于安全原因,此二维码可能已过期。请重新扫描桌面上显示的二维码以继续。",
+      "title": "无法验证此二维码"
+    },
     "cross_device_verification_abort": {
       "title": "验证已取消"
     },
@@ -2342,6 +2346,10 @@
           "cross_device_desktop_unavailable": {
             "subtitle": "error.cross_device_desktop_unavailable.subtitle",
             "title": "error.cross_device_desktop_unavailable.title"
+          },
+          "cross_device_signature_invalid": {
+            "subtitle": "error.cross_device_signature_invalid.subtitle",
+            "title": "error.cross_device_signature_invalid.title"
           },
           "desktop": {
             "subtitle": "error.desktop.subtitle",

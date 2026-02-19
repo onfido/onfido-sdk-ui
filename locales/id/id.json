@@ -1149,6 +1149,10 @@
       "subtitle": "Silakan kembali ke desktop Anda untuk memulai ulang verifikasi dengan memindai kode QR atau memilih opsi lain.",
       "title": "Koneksi desktop terputus"
     },
+    "cross_device_signature_invalid": {
+      "subtitle": "Untuk alasan keamanan, kode QR ini mungkin sudah kedaluwarsa. Silakan pindai kode QR yang ditampilkan di desktop Anda lagi untuk melanjutkan.",
+      "title": "Kami tidak dapat memverifikasi kode QR ini"
+    },
     "cross_device_verification_abort": {
       "title": "Verifikasi dibatalkan"
     },
@@ -2342,6 +2346,10 @@
           "cross_device_desktop_unavailable": {
             "subtitle": "error.cross_device_desktop_unavailable.subtitle",
             "title": "error.cross_device_desktop_unavailable.title"
+          },
+          "cross_device_signature_invalid": {
+            "subtitle": "error.cross_device_signature_invalid.subtitle",
+            "title": "error.cross_device_signature_invalid.title"
           },
           "desktop": {
             "subtitle": "error.desktop.subtitle",

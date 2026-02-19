@@ -1149,6 +1149,10 @@
       "subtitle": "कृपया सत्यापन पुनः शुरू करने के लिए अपने डेस्कटॉप पर लौटें और QR कोड स्कैन करें या कोई अन्य विकल्प चुनें।",
       "title": "डेस्कटॉप कनेक्शन खो गया"
     },
+    "cross_device_signature_invalid": {
+      "subtitle": "सुरक्षा कारणों से, यह QR कोड समाप्त हो सकता है। कृपया जारी रखने के लिए अपने डेस्कटॉप पर दिखाए गए QR कोड को फिर से स्कैन करें।",
+      "title": "हम इस QR कोड को सत्यापित नहीं कर सके"
+    },
     "cross_device_verification_abort": {
       "title": "सत्यापन रद्द कर दिया गया"
     },
@@ -2342,6 +2346,10 @@
           "cross_device_desktop_unavailable": {
             "subtitle": "error.cross_device_desktop_unavailable.subtitle",
             "title": "error.cross_device_desktop_unavailable.title"
+          },
+          "cross_device_signature_invalid": {
+            "subtitle": "error.cross_device_signature_invalid.subtitle",
+            "title": "error.cross_device_signature_invalid.title"
           },
           "desktop": {
             "subtitle": "error.desktop.subtitle",

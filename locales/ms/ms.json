@@ -1149,6 +1149,10 @@
       "subtitle": "Sila kembali ke desktop anda untuk memulakan semula pengesahan dengan mengimbas kod QR atau memilih pilihan lain.",
       "title": "Sambungan desktop terputus"
     },
+    "cross_device_signature_invalid": {
+      "subtitle": "Atas sebab keselamatan, kod QR ini mungkin telah tamat tempoh. Sila imbas semula kod QR yang dipaparkan pada desktop anda untuk meneruskan.",
+      "title": "Kami tidak dapat mengesahkan kod QR ini"
+    },
     "cross_device_verification_abort": {
       "title": "Pengesahan dibatalkan"
     },
@@ -2342,6 +2346,10 @@
           "cross_device_desktop_unavailable": {
             "subtitle": "error.cross_device_desktop_unavailable.subtitle",
             "title": "error.cross_device_desktop_unavailable.title"
+          },
+          "cross_device_signature_invalid": {
+            "subtitle": "error.cross_device_signature_invalid.subtitle",
+            "title": "error.cross_device_signature_invalid.title"
           },
           "desktop": {
             "subtitle": "error.desktop.subtitle",

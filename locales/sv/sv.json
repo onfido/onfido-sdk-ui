@@ -1149,6 +1149,10 @@
       "subtitle": "Vänligen återgå till din dator för att starta om verifieringen genom att skanna QR-koden eller välja ett annat alternativ.",
       "title": "Anslutning till datorn förlorad"
     },
+    "cross_device_signature_invalid": {
+      "subtitle": "Av säkerhetsskäl kan denna QR-kod ha upphört att gälla. Skanna QR-koden som visas på din dator igen för att fortsätta.",
+      "title": "Vi kunde inte verifiera denna QR-kod"
+    },
     "cross_device_verification_abort": {
       "title": "Verifiering avbruten"
     },
@@ -2342,6 +2346,10 @@
           "cross_device_desktop_unavailable": {
             "subtitle": "error.cross_device_desktop_unavailable.subtitle",
             "title": "error.cross_device_desktop_unavailable.title"
+          },
+          "cross_device_signature_invalid": {
+            "subtitle": "error.cross_device_signature_invalid.subtitle",
+            "title": "error.cross_device_signature_invalid.title"
           },
           "desktop": {
             "subtitle": "error.desktop.subtitle",

@@ -1149,6 +1149,10 @@
       "subtitle": "Doğrulamayı yeniden başlatmak için lütfen masaüstünüze dönün ve QR kodunu tarayın veya başka bir seçenek seçin.",
       "title": "Masaüstü bağlantısı kesildi"
     },
+    "cross_device_signature_invalid": {
+      "subtitle": "Güvenlik nedeniyle bu QR kod süresi dolmuş olabilir. Devam etmek için lütfen masaüstünüzde gösterilen QR kodu tekrar tarayın.",
+      "title": "Bu QR kodu doğrulayamadık"
+    },
     "cross_device_verification_abort": {
       "title": "Doğrulama iptal edildi"
     },
@@ -2342,6 +2346,10 @@
           "cross_device_desktop_unavailable": {
             "subtitle": "error.cross_device_desktop_unavailable.subtitle",
             "title": "error.cross_device_desktop_unavailable.title"
+          },
+          "cross_device_signature_invalid": {
+            "subtitle": "error.cross_device_signature_invalid.subtitle",
+            "title": "error.cross_device_signature_invalid.title"
           },
           "desktop": {
             "subtitle": "error.desktop.subtitle",

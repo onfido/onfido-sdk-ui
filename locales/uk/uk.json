@@ -1149,6 +1149,10 @@
       "subtitle": "Будь ласка, поверніться до робочого столу, щоб перезапустити перевірку, відсканувавши QR-код або вибравши інший варіант.",
       "title": "З'єднання з комп'ютером втрачено"
     },
+    "cross_device_signature_invalid": {
+      "subtitle": "З міркувань безпеки термін дії цього QR-коду міг завершитися. Щоб продовжити, відскануйте QR-код, знову показаний на вашому комп’ютері.",
+      "title": "Нам не вдалося підтвердити цей QR-код"
+    },
     "cross_device_verification_abort": {
       "title": "Верифікацію скасовано"
     },
@@ -2342,6 +2346,10 @@
           "cross_device_desktop_unavailable": {
             "subtitle": "error.cross_device_desktop_unavailable.subtitle",
             "title": "error.cross_device_desktop_unavailable.title"
+          },
+          "cross_device_signature_invalid": {
+            "subtitle": "error.cross_device_signature_invalid.subtitle",
+            "title": "error.cross_device_signature_invalid.title"
           },
           "desktop": {
             "subtitle": "error.desktop.subtitle",

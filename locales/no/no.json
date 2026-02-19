@@ -1149,6 +1149,10 @@
       "subtitle": "Vennligst gå tilbake til datamaskinen din for å starte verifiseringen på nytt ved å skanne QR-koden eller velge et annet alternativ.",
       "title": "Tilkoblingen til skrivebordet ble brutt"
     },
+    "cross_device_signature_invalid": {
+      "subtitle": "Av sikkerhetsgrunner kan denne QR-koden ha utløpt. Skann QR-koden som vises på datamaskinen din på nytt for å fortsette.",
+      "title": "Vi kunne ikke bekrefte denne QR-koden"
+    },
     "cross_device_verification_abort": {
       "title": "Bekreftelse avbrutt"
     },
@@ -2342,6 +2346,10 @@
           "cross_device_desktop_unavailable": {
             "subtitle": "error.cross_device_desktop_unavailable.subtitle",
             "title": "error.cross_device_desktop_unavailable.title"
+          },
+          "cross_device_signature_invalid": {
+            "subtitle": "error.cross_device_signature_invalid.subtitle",
+            "title": "error.cross_device_signature_invalid.title"
           },
           "desktop": {
             "subtitle": "error.desktop.subtitle",

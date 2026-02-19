@@ -1149,6 +1149,10 @@
       "subtitle": "يرجى العودة إلى جهاز الكمبيوتر الخاص بك لإعادة بدء عملية التحقق عن طريق مسح رمز الاستجابة السريعة (QR) أو اختيار خيار آخر.",
       "title": "تم فقدان الاتصال بسطح المكتب"
     },
+    "cross_device_signature_invalid": {
+      "subtitle": "لأسباب أمنية، ربما انتهت صلاحية رمز الاستجابة السريعة هذا. يُرجى مسح رمز الاستجابة السريعة المعروض على جهاز الكمبيوتر المكتبي مرة أخرى للمتابعة.",
+      "title": "تعذَّر علينا التحقق من رمز الاستجابة السريعة هذا"
+    },
     "cross_device_verification_abort": {
       "title": "تم إلغاء التحقق من الهوية"
     },
@@ -2342,6 +2346,10 @@
           "cross_device_desktop_unavailable": {
             "subtitle": "error.cross_device_desktop_unavailable.subtitle",
             "title": "error.cross_device_desktop_unavailable.title"
+          },
+          "cross_device_signature_invalid": {
+            "subtitle": "error.cross_device_signature_invalid.subtitle",
+            "title": "error.cross_device_signature_invalid.title"
           },
           "desktop": {
             "subtitle": "error.desktop.subtitle",

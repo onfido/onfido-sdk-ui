@@ -1149,6 +1149,10 @@
       "subtitle": "QRコードをスキャンするか、別のオプションを選択して、デスクトップに戻り、認証を再開してください。",
       "title": "デスクトップ接続が失われました"
     },
+    "cross_device_signature_invalid": {
+      "subtitle": "セキュリティ上の理由により、このQRコードは有効期限が切れている可能性があります。続行するには、デスクトップに表示されているQRコードを再度スキャンしてください。",
+      "title": "このQRコードを確認できませんでした"
+    },
     "cross_device_verification_abort": {
       "title": "確認がキャンセルされました"
     },
@@ -2342,6 +2346,10 @@
           "cross_device_desktop_unavailable": {
             "subtitle": "error.cross_device_desktop_unavailable.subtitle",
             "title": "error.cross_device_desktop_unavailable.title"
+          },
+          "cross_device_signature_invalid": {
+            "subtitle": "error.cross_device_signature_invalid.subtitle",
+            "title": "error.cross_device_signature_invalid.title"
           },
           "desktop": {
             "subtitle": "error.desktop.subtitle",

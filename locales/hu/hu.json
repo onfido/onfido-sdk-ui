@@ -1149,6 +1149,10 @@
       "subtitle": "Kérjük, térjen vissza az asztali számítógépéhez, hogy újraindítsa az ellenőrzést a QR-kód beolvasásával vagy egy másik lehetőség kiválasztásával.",
       "title": "Asztali kapcsolat megszakadt"
     },
+    "cross_device_signature_invalid": {
+      "subtitle": "Biztonsági okokból előfordulhat, hogy ez a QR-kód lejárt. Kérjük, olvassa be újra az asztali számítógépén megjelenő QR-kódot a folytatáshoz.",
+      "title": "Nem sikerült ellenőriznünk ezt a QR-kódot"
+    },
     "cross_device_verification_abort": {
       "title": "Azonosítás megszakítva"
     },
@@ -2342,6 +2346,10 @@
           "cross_device_desktop_unavailable": {
             "subtitle": "error.cross_device_desktop_unavailable.subtitle",
             "title": "error.cross_device_desktop_unavailable.title"
+          },
+          "cross_device_signature_invalid": {
+            "subtitle": "error.cross_device_signature_invalid.subtitle",
+            "title": "error.cross_device_signature_invalid.title"
           },
           "desktop": {
             "subtitle": "error.desktop.subtitle",

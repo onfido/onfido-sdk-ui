@@ -1149,6 +1149,10 @@
       "subtitle": "Vratite se na svoj desktop da ponovo pokrenete verifikaciju skeniranjem QR koda ili izborom druge opcije.",
       "title": "Veza sa desktopom je prekinuta"
     },
+    "cross_device_signature_invalid": {
+      "subtitle": "Iz bezbednosnih razloga, ovaj QR kod je možda istekao. Molimo vas da ponovo skenirate QR kod prikazan na vašem računaru kako biste nastavili.",
+      "title": "Nismo mogli da verifikujemo ovaj QR kod"
+    },
     "cross_device_verification_abort": {
       "title": "Verifikacija otkazana"
     },
@@ -2342,6 +2346,10 @@
           "cross_device_desktop_unavailable": {
             "subtitle": "error.cross_device_desktop_unavailable.subtitle",
             "title": "error.cross_device_desktop_unavailable.title"
+          },
+          "cross_device_signature_invalid": {
+            "subtitle": "error.cross_device_signature_invalid.subtitle",
+            "title": "error.cross_device_signature_invalid.title"
           },
           "desktop": {
             "subtitle": "error.desktop.subtitle",

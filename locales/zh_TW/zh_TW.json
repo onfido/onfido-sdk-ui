@@ -1149,6 +1149,10 @@
       "subtitle": "請返回您的桌面，透過掃描 QR 碼或選擇其他選項來重新開始驗證。",
       "title": "桌面連線中斷"
     },
+    "cross_device_signature_invalid": {
+      "subtitle": "基於安全考量,此 QR code 可能已過期。請重新掃描您桌面上顯示的 QR code 以繼續。",
+      "title": "我們無法驗證此 QR code"
+    },
     "cross_device_verification_abort": {
       "title": "驗證已取消"
     },
@@ -2342,6 +2346,10 @@
           "cross_device_desktop_unavailable": {
             "subtitle": "error.cross_device_desktop_unavailable.subtitle",
             "title": "error.cross_device_desktop_unavailable.title"
+          },
+          "cross_device_signature_invalid": {
+            "subtitle": "error.cross_device_signature_invalid.subtitle",
+            "title": "error.cross_device_signature_invalid.title"
           },
           "desktop": {
             "subtitle": "error.desktop.subtitle",

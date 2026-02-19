@@ -1149,6 +1149,10 @@
       "subtitle": "Molimo vas da se vratite na svoje računalo kako biste ponovno pokrenuli provjeru identiteta skeniranjem QR koda ili odabirom druge opcije.",
       "title": "Veza s desktopom je izgubljena"
     },
+    "cross_device_signature_invalid": {
+      "subtitle": "Iz sigurnosnih razloga, ovaj QR kod je možda istekao. Molimo skenirajte QR kod prikazan na vašem računalu ponovno kako biste nastavili.",
+      "title": "Nismo mogli provjeriti ovaj QR kod"
+    },
     "cross_device_verification_abort": {
       "title": "Otkazana provjera identiteta"
     },
@@ -2342,6 +2346,10 @@
           "cross_device_desktop_unavailable": {
             "subtitle": "error.cross_device_desktop_unavailable.subtitle",
             "title": "error.cross_device_desktop_unavailable.title"
+          },
+          "cross_device_signature_invalid": {
+            "subtitle": "error.cross_device_signature_invalid.subtitle",
+            "title": "error.cross_device_signature_invalid.title"
           },
           "desktop": {
             "subtitle": "error.desktop.subtitle",

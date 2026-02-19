@@ -1149,6 +1149,10 @@
       "subtitle": "กรุณากลับไปที่เดสก์ท็อปของคุณเพื่อเริ่มการยืนยันตัวตนใหม่โดยการสแกนคิวอาร์โค้ดหรือเลือกตัวเลือกอื่น",
       "title": "การเชื่อมต่อเดสก์ท็อปขาดหาย"
     },
+    "cross_device_signature_invalid": {
+      "subtitle": "ด้วยเหตุผลด้านความปลอดภัย คิวอาร์โค้ดนี้อาจหมดอายุแล้ว กรุณาสแกนคิวอาร์โค้ดที่แสดงบนเดสก์ท็อปของคุณอีกครั้งเพื่อดำเนินการต่อ",
+      "title": "เราไม่สามารถยืนยัน QR code นี้ได้"
+    },
     "cross_device_verification_abort": {
       "title": "ยกเลิกการตรวจสอบตัวตน"
     },
@@ -2342,6 +2346,10 @@
           "cross_device_desktop_unavailable": {
             "subtitle": "error.cross_device_desktop_unavailable.subtitle",
             "title": "error.cross_device_desktop_unavailable.title"
+          },
+          "cross_device_signature_invalid": {
+            "subtitle": "error.cross_device_signature_invalid.subtitle",
+            "title": "error.cross_device_signature_invalid.title"
           },
           "desktop": {
             "subtitle": "error.desktop.subtitle",

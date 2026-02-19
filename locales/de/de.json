@@ -1149,6 +1149,10 @@
       "subtitle": "Bitte kehren Sie zu Ihrem Desktop zurück, um die Verifizierung neu zu starten, indem Sie den QR-Code scannen oder eine andere Option auswählen.",
       "title": "Desktop-Verbindung verloren"
     },
+    "cross_device_signature_invalid": {
+      "subtitle": "Aus Sicherheitsgründen ist dieser QR-Code möglicherweise abgelaufen. Bitte scannen Sie den auf Ihrem Desktop angezeigten QR-Code erneut, um fortzufahren.",
+      "title": "Wir konnten diesen QR-Code nicht verifizieren"
+    },
     "cross_device_verification_abort": {
       "title": "Überprüfung abgebrochen"
     },
@@ -2342,6 +2346,10 @@
           "cross_device_desktop_unavailable": {
             "subtitle": "error.cross_device_desktop_unavailable.subtitle",
             "title": "error.cross_device_desktop_unavailable.title"
+          },
+          "cross_device_signature_invalid": {
+            "subtitle": "error.cross_device_signature_invalid.subtitle",
+            "title": "error.cross_device_signature_invalid.title"
           },
           "desktop": {
             "subtitle": "error.desktop.subtitle",

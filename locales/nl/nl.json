@@ -1149,6 +1149,10 @@
       "subtitle": "Ga terug naar uw desktop om de verificatie opnieuw te starten door de QR-code te scannen of een andere optie te selecteren.",
       "title": "Desktopverbinding verbroken"
     },
+    "cross_device_signature_invalid": {
+      "subtitle": "Om veiligheidsredenen is deze QR-code mogelijk verlopen. Scan de QR-code die op uw desktop wordt weergegeven opnieuw om verder te gaan.",
+      "title": "We konden deze QR-code niet verifiëren"
+    },
     "cross_device_verification_abort": {
       "title": "Verificatie geannuleerd"
     },
@@ -2342,6 +2346,10 @@
           "cross_device_desktop_unavailable": {
             "subtitle": "error.cross_device_desktop_unavailable.subtitle",
             "title": "error.cross_device_desktop_unavailable.title"
+          },
+          "cross_device_signature_invalid": {
+            "subtitle": "error.cross_device_signature_invalid.subtitle",
+            "title": "error.cross_device_signature_invalid.title"
           },
           "desktop": {
             "subtitle": "error.desktop.subtitle",

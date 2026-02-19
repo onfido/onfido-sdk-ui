@@ -1149,6 +1149,10 @@
       "subtitle": "Lūdzu, atgriezieties pie sava datora, lai atsāktu verifikāciju, skenējot QR kodu vai izvēloties citu iespēju.",
       "title": "Darbvirsmas savienojums ir zudis"
     },
+    "cross_device_signature_invalid": {
+      "subtitle": "Drošības apsvērumu dēļ šim QR kodam, iespējams, ir beidzies derīguma termiņš. Lai turpinātu, lūdzu, vēlreiz noskenējiet QR kodu, kas tiek rādīts uz datora ekrāna.",
+      "title": "Mums neizdevās pārbaudīt šo QR kodu"
+    },
     "cross_device_verification_abort": {
       "title": "Verifikācija atcelta"
     },
@@ -2342,6 +2346,10 @@
           "cross_device_desktop_unavailable": {
             "subtitle": "error.cross_device_desktop_unavailable.subtitle",
             "title": "error.cross_device_desktop_unavailable.title"
+          },
+          "cross_device_signature_invalid": {
+            "subtitle": "error.cross_device_signature_invalid.subtitle",
+            "title": "error.cross_device_signature_invalid.title"
           },
           "desktop": {
             "subtitle": "error.desktop.subtitle",

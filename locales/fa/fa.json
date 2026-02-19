@@ -1149,6 +1149,10 @@
       "subtitle": "لطفاً برای شروع مجدد فرایند احراز هویت، به رایانه خود بازگردید و کد QR را اسکن کنید یا گزینه دیگری را انتخاب نمایید.",
       "title": "ارتباط دسکتاپ قطع شد"
     },
+    "cross_device_signature_invalid": {
+      "subtitle": "به دلایل امنیتی، ممکن است این کد QR منقضی شده باشد. لطفاً برای ادامه، دوباره کد QR نمایش‌داده‌شده روی رایانه خود را اسکن کنید.",
+      "title": "نتوانستیم این کد QR را تأیید کنیم"
+    },
     "cross_device_verification_abort": {
       "title": "تأیید هویت لغو شد"
     },
@@ -2342,6 +2346,10 @@
           "cross_device_desktop_unavailable": {
             "subtitle": "error.cross_device_desktop_unavailable.subtitle",
             "title": "error.cross_device_desktop_unavailable.title"
+          },
+          "cross_device_signature_invalid": {
+            "subtitle": "error.cross_device_signature_invalid.subtitle",
+            "title": "error.cross_device_signature_invalid.title"
           },
           "desktop": {
             "subtitle": "error.desktop.subtitle",

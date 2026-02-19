@@ -1149,6 +1149,10 @@
       "subtitle": "אנא חזור למחשב השולחני שלך כדי להפעיל מחדש את תהליך האימות על ידי סריקת קוד ה-QR או בחירה באפשרות אחרת.",
       "title": "החיבור לשולחן העבודה נותק"
     },
+    "cross_device_signature_invalid": {
+      "subtitle": "מטעמי אבטחה, ייתכן שקוד QR זה פג תוקף. אנא סרוק שוב את קוד ה-QR המוצג במחשב השולחני שלך כדי להמשיך.",
+      "title": "לא הצלחנו לאמת את קוד QR זה"
+    },
     "cross_device_verification_abort": {
       "title": "האימות בוטל"
     },
@@ -2342,6 +2346,10 @@
           "cross_device_desktop_unavailable": {
             "subtitle": "error.cross_device_desktop_unavailable.subtitle",
             "title": "error.cross_device_desktop_unavailable.title"
+          },
+          "cross_device_signature_invalid": {
+            "subtitle": "error.cross_device_signature_invalid.subtitle",
+            "title": "error.cross_device_signature_invalid.title"
           },
           "desktop": {
             "subtitle": "error.desktop.subtitle",

@@ -1149,6 +1149,10 @@
       "subtitle": "Prosimo, vrnite se na namizje in ponovno začnite preverjanje tako, da skenirate QR kodo ali izberete drugo možnost.",
       "title": "Povezava z namizjem je prekinjena"
     },
+    "cross_device_signature_invalid": {
+      "subtitle": "Iz varnostnih razlogov je ta QR-koda morda potekla. Za nadaljevanje ponovno skenirajte QR-kodo, prikazano na vašem namiznem računalniku.",
+      "title": "Te QR-kode ni bilo mogoče preveriti"
+    },
     "cross_device_verification_abort": {
       "title": "Preverjanje identitete preklicano"
     },
@@ -2342,6 +2346,10 @@
           "cross_device_desktop_unavailable": {
             "subtitle": "error.cross_device_desktop_unavailable.subtitle",
             "title": "error.cross_device_desktop_unavailable.title"
+          },
+          "cross_device_signature_invalid": {
+            "subtitle": "error.cross_device_signature_invalid.subtitle",
+            "title": "error.cross_device_signature_invalid.title"
           },
           "desktop": {
             "subtitle": "error.desktop.subtitle",

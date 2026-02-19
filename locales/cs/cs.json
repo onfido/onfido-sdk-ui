@@ -1149,6 +1149,10 @@
       "subtitle": "Vraťte se prosím ke svému počítači a znovu spusťte ověření naskenováním QR kódu nebo výběrem jiné možnosti.",
       "title": "Připojení k počítači bylo ztraceno"
     },
+    "cross_device_signature_invalid": {
+      "subtitle": "Z bezpečnostních důvodů mohl tento QR kód vypršet. Pokračujte prosím naskenováním QR kódu zobrazeného na vašem počítači.",
+      "title": "Tento QR kód se nepodařilo ověřit"
+    },
     "cross_device_verification_abort": {
       "title": "Ověření zrušeno"
     },
@@ -2342,6 +2346,10 @@
           "cross_device_desktop_unavailable": {
             "subtitle": "error.cross_device_desktop_unavailable.subtitle",
             "title": "error.cross_device_desktop_unavailable.title"
+          },
+          "cross_device_signature_invalid": {
+            "subtitle": "error.cross_device_signature_invalid.subtitle",
+            "title": "error.cross_device_signature_invalid.title"
           },
           "desktop": {
             "subtitle": "error.desktop.subtitle",

@@ -1149,6 +1149,10 @@
       "subtitle": "Παρακαλούμε επιστρέψτε στον υπολογιστή σας για να επανεκκινήσετε την επαλήθευση, σαρώνοντας τον κωδικό QR ή επιλέγοντας άλλη επιλογή.",
       "title": "Η σύνδεση με τον υπολογιστή χάθηκε"
     },
+    "cross_device_signature_invalid": {
+      "subtitle": "Για λόγους ασφαλείας, αυτός ο κωδικός QR ενδέχεται να έχει λήξει. Σαρώστε ξανά τον κωδικό QR που εμφανίζεται στον επιτραπέζιο υπολογιστή σας για να συνεχίσετε.",
+      "title": "Δεν μπορέσαμε να επαληθεύσουμε αυτόν τον κωδικό QR"
+    },
     "cross_device_verification_abort": {
       "title": "Η επαλήθευση ακυρώθηκε"
     },
@@ -2342,6 +2346,10 @@
           "cross_device_desktop_unavailable": {
             "subtitle": "error.cross_device_desktop_unavailable.subtitle",
             "title": "error.cross_device_desktop_unavailable.title"
+          },
+          "cross_device_signature_invalid": {
+            "subtitle": "error.cross_device_signature_invalid.subtitle",
+            "title": "error.cross_device_signature_invalid.title"
           },
           "desktop": {
             "subtitle": "error.desktop.subtitle",

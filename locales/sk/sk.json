@@ -1149,6 +1149,10 @@
       "subtitle": "Vráťte sa, prosím, na svoj počítač a reštartujte overenie naskenovaním QR kódu alebo výberom inej možnosti.",
       "title": "Pripojenie k počítaču bolo prerušené"
     },
+    "cross_device_signature_invalid": {
+      "subtitle": "Z bezpečnostných dôvodov mohol tento QR kód vypršať. Ak chcete pokračovať, znova naskenujte QR kód zobrazený na pracovnej ploche.",
+      "title": "Tento QR kód sa nepodarilo overiť"
+    },
     "cross_device_verification_abort": {
       "title": "Overenie zrušené"
     },
@@ -2342,6 +2346,10 @@
           "cross_device_desktop_unavailable": {
             "subtitle": "error.cross_device_desktop_unavailable.subtitle",
             "title": "error.cross_device_desktop_unavailable.title"
+          },
+          "cross_device_signature_invalid": {
+            "subtitle": "error.cross_device_signature_invalid.subtitle",
+            "title": "error.cross_device_signature_invalid.title"
           },
           "desktop": {
             "subtitle": "error.desktop.subtitle",

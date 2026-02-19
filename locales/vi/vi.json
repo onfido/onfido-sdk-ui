@@ -1149,6 +1149,10 @@
       "subtitle": "Vui lòng quay lại máy tính để khởi động lại quá trình xác minh bằng cách quét mã QR hoặc chọn một tùy chọn khác.",
       "title": "Kết nối máy tính để bàn đã bị mất"
     },
+    "cross_device_signature_invalid": {
+      "subtitle": "Vì lý do bảo mật, mã QR này có thể đã hết hạn. Vui lòng quét lại mã QR hiển thị trên máy tính để bàn của bạn để tiếp tục.",
+      "title": "Chúng tôi không thể xác minh mã QR này"
+    },
     "cross_device_verification_abort": {
       "title": "Xác minh đã bị hủy"
     },
@@ -2342,6 +2346,10 @@
           "cross_device_desktop_unavailable": {
             "subtitle": "error.cross_device_desktop_unavailable.subtitle",
             "title": "error.cross_device_desktop_unavailable.title"
+          },
+          "cross_device_signature_invalid": {
+            "subtitle": "error.cross_device_signature_invalid.subtitle",
+            "title": "error.cross_device_signature_invalid.title"
           },
           "desktop": {
             "subtitle": "error.desktop.subtitle",

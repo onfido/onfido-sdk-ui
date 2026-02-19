@@ -1149,6 +1149,10 @@
       "subtitle": "QR 코드를 스캔하거나 다른 옵션을 선택하여 인증을 다시 시작하려면 데스크톱으로 돌아가 주세요.",
       "title": "데스크톱 연결이 끊어졌습니다"
     },
+    "cross_device_signature_invalid": {
+      "subtitle": "보안상의 이유로 이 QR 코드는 만료되었을 수 있습니다. 계속하시려면 데스크톱에 표시된 QR 코드를 다시 스캔해 주세요.",
+      "title": "이 QR 코드를 인증할 수 없습니다"
+    },
     "cross_device_verification_abort": {
       "title": "인증 취소됨"
     },
@@ -2342,6 +2346,10 @@
           "cross_device_desktop_unavailable": {
             "subtitle": "error.cross_device_desktop_unavailable.subtitle",
             "title": "error.cross_device_desktop_unavailable.title"
+          },
+          "cross_device_signature_invalid": {
+            "subtitle": "error.cross_device_signature_invalid.subtitle",
+            "title": "error.cross_device_signature_invalid.title"
           },
           "desktop": {
             "subtitle": "error.desktop.subtitle",

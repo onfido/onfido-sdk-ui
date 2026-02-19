@@ -1149,6 +1149,10 @@
       "subtitle": "Torna al desktop per riavviare la verifica scansionando il codice QR o selezionando un'altra opzione.",
       "title": "Connessione desktop persa"
     },
+    "cross_device_signature_invalid": {
+      "subtitle": "Per motivi di sicurezza, questo codice QR potrebbe essere scaduto. Scansiona di nuovo il codice QR mostrato sul tuo desktop per continuare.",
+      "title": "Non siamo riusciti a verificare questo codice QR"
+    },
     "cross_device_verification_abort": {
       "title": "Verifica annullata"
     },
@@ -2342,6 +2346,10 @@
           "cross_device_desktop_unavailable": {
             "subtitle": "error.cross_device_desktop_unavailable.subtitle",
             "title": "error.cross_device_desktop_unavailable.title"
+          },
+          "cross_device_signature_invalid": {
+            "subtitle": "error.cross_device_signature_invalid.subtitle",
+            "title": "error.cross_device_signature_invalid.title"
           },
           "desktop": {
             "subtitle": "error.desktop.subtitle",
