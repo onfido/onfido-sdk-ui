@@ -1803,6 +1803,12 @@ index.html
 </html>
 ```
 
+## Cookies
+
+The Web SDK creates a single cookie - 'onfido-web-sdk-analytics' - containing a randomly generated UUID used only for internal analytics purposes. This identifier helps Entrust link together multiple verification sessions associated with the same end user, particularly when a single end user has multiple applicant ids instead of reusing the recommended single applicant profile.
+
+The cookie persists for 30 days, but can be disabled using the 'disableAnalyticsCookies' option, removing the cookie if it already exists.
+
 ## More information
 
 ### Supported browsers
