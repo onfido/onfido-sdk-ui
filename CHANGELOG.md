@@ -7,6 +7,12 @@ and the SDK adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html)
 
 When any of the string translations change, it will result in a MINOR version change. As a result, you are responsible for ensuring the correct layout if you are using custom translations (see [language localization](https://documentation.onfido.com/sdk/web/#custom-translations-and-text)).
 
+## [14.68.0] - 2026-03-11
+
+### Changed
+
+- Add support for QES in e-signature module
+
 ## [14.67.0] - 2026-03-04
 
 ### Changed
