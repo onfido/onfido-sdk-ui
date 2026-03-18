@@ -878,6 +878,15 @@
       "title_tip_2": "Positionnez votre pièce d'identité dans le cadre",
       "title_tip_3": "Assurez-vous que tous les champs sont lisibles"
     },
+    "help_tilt": {
+      "description_tip_1": "Pour de meilleurs résultats, tenez votre pièce d'identité dans votre main pendant que vous l'inclinez. Suivez les instructions à l'écran en faisant pivoter votre pièce d'identité jusqu'à ce que tous les côtés deviennent verts.",
+      "description_tip_2": "Gardez tous les côtés de votre pièce d'identité visibles dans le cadre pour effectuer le mouvement d'inclinaison. Si un côté ne devient pas vert, reculez et centrez votre pièce d'identité.",
+      "subtitle": "Suivez ces conseils pour capturer les hologrammes de votre pièce d'identité avec succès",
+      "subtitle_timeout": "Pour des raisons de sécurité, vous disposez de 20 secondes maximum pour effectuer cette étape",
+      "title_timeout": "Temps imparti écoulé. \nEssayez ces conseils",
+      "title_tip_1": "Tenez votre pièce d'identité et effectuez un mouvement d'inclinaison",
+      "title_tip_2": "Positionnez votre pièce d'identité dans le cadre"
+    },
     "intro": {
       "button_primary_selection_off": "Commencer la numérisation",
       "button_primary_selection_on": "Sélectionner le document",
@@ -886,6 +895,13 @@
       "list_item_tip_3": "Assurez-vous que tous les champs sont lisibles",
       "subtitle": "Nous devons prendre des photos de votre document pour vérifier qu'il est authentique.",
       "title": "Scannez votre pièce d'identité"
+    },
+    "intro_tilt": {
+      "callout": "Nous utiliserons la lampe torche de votre téléphone",
+      "list_item_tip_1": "Maintenez votre pièce d'identité dans le cadre",
+      "list_item_tip_2": "Inclinez votre pièce d'identité jusqu'à ce que les quatre côtés du cadre deviennent verts",
+      "subtitle": "Nous procédons ainsi pour vérifier l'authenticité de votre document.",
+      "title": "Inclinez votre pièce d'identité pour afficher ses hologrammes"
     },
     "preview": {
       "blur_detail": "Assurez-vous que tout est bien net",
@@ -957,6 +973,19 @@
         "iq_mrz_3": "Rendez les 3 lignes du bas visibles",
         "iq_no_doc": "Placez le document dans le cadre",
         "iq_obstruction": "Éloignez vos doigts du document",
+        "tilt": {
+          "down": "Inclinez votre pièce d'identité vers le bas",
+          "left": "Inclinez votre pièce d'identité vers la gauche",
+          "right": "Inclinez votre pièce d'identité vers la droite",
+          "up": "Inclinez votre pièce d'identité vers le haut"
+        },
+        "tilt_accessibility": {
+          "complete": "Terminer",
+          "down": "Inclinez votre pièce d'identité vers le bas jusqu'à entendre la confirmation",
+          "left": "Inclinez votre pièce d'identité vers la gauche jusqu'à entendre la confirmation",
+          "right": "Inclinez votre pièce d'identité vers la droite jusqu'à entendre la confirmation",
+          "up": "Inclinez votre pièce d'identité vers le haut jusqu'à entendre la confirmation"
+        },
         "validity": {
           "button_primary": "Réessayer",
           "button_secondary": "Sélectionnez un autre document"
@@ -1003,6 +1032,7 @@
         "subtitle_passport_accessibility": "Placez la page photo de votre passeport contre l'arrière de votre téléphone et éloignez-le lentement jusqu'à entendre un signal.",
         "subtitle_passport_manual": "Scannez le côté photo de votre document",
         "subtitle_passport_manual_accessibility": "Placez la page photo de votre passeport devant votre caméra arrière et appuyez sur le bouton ci-dessous.",
+        "subtitle_tilt_generic": "Inclinez votre pièce d'identité jusqu'à ce que le cadre devienne vert",
         "title_back": "Verso",
         "title_front": "Recto",
         "title_passport": "Page photo"
@@ -1632,6 +1662,16 @@
       "bottom_sheet": {
         "handle_accessibility": "document.bottom_sheet.handle_dismiss_accessibility"
       },
+      "chip_blocked": {
+        "button_help": "nfc.chip_blocked.button_help",
+        "subtitle": "nfc.chip_blocked.subtitle",
+        "title": "nfc.chip_blocked.title"
+      },
+      "chip_blocked_optional": {
+        "button_primary": "nfc.chip_blocked.optional_button_primary",
+        "subtitle": "nfc.chip_blocked.optional_subtitle",
+        "title": "nfc.chip_blocked.optional_title"
+      },
       "country_select": {
         "alert": {
           "another_doc": "sample.selection.country_select_another_doc"
@@ -2055,6 +2095,40 @@
           "title": "document.upload.success.title"
         }
       },
+      "doc_video_intro": {
+        "callout": "document.intro_tilt.callout",
+        "list_item_tip_1": "document.intro_tilt.list_item_tip_1",
+        "list_item_tip_2": "document.intro_tilt.list_item_tip_2",
+        "sub-title": "document.intro_tilt.subtitle",
+        "title": "document.intro_tilt.title"
+      },
+      "doc_video_tilt": {
+        "feedback": {
+          "side_complete_accessibility": "document.scan.feedback.tilt_accessibility.complete",
+          "tilt_down": "document.scan.feedback.tilt.down",
+          "tilt_down_accessibility": "document.scan.feedback.tilt_accessibility.down",
+          "tilt_left": "document.scan.feedback.tilt.left",
+          "tilt_left_accessibility": "document.scan.feedback.tilt_accessibility.left",
+          "tilt_right": "document.scan.feedback.tilt.right",
+          "tilt_right_accessibility": "document.scan.feedback.tilt_accessibility.right",
+          "tilt_up": "document.scan.feedback.tilt.up",
+          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up"
+        },
+        "instructions": {
+          "sub_title_generic": "document.scan.instructions.subtitle_tilt_generic"
+        }
+      },
+      "doc_video_tilt_help": {
+        "description_tip_1": "document.help_tilt.description_tip_1",
+        "description_tip_2": "document.help_tilt.description_tip_2",
+        "sub_title": "document.help_tilt.subtitle",
+        "title_tip_1": "document.help_tilt.title_tip_1",
+        "title_tip_2": "document.help_tilt.title_tip_2"
+      },
+      "doc_video_tilt_timeout": {
+        "sub_title": "document.help_tilt.subtitle_timeout",
+        "title": "document.help_tilt.title_timeout"
+      },
       "eid": {
         "scheme_form": {
           "subtitle": "electronicId.scheme_form.subtitle",
@@ -2113,6 +2187,19 @@
           "subtitle": "enrollPasskey.not_supported_error.subtitle",
           "title": "enrollPasskey.not_supported_error.title"
         }
+      },
+      "enter_pin": {
+        "button_primary": "nfc.pin_entry.button_primary",
+        "helper_attempts_left": "nfc.pin_entry.helper_attempts_left",
+        "helper_final_attempt": "nfc.pin_entry.helper_final_attempt",
+        "subtitle": "nfc.pin_entry.subtitle",
+        "title": "nfc.pin_entry.title",
+        "title_incorrect": "nfc.pin_entry.title_incorrect"
+      },
+      "enter_pin_optional": {
+        "button_tertiary": "nfc.pin_entry.optional_button_tertiary",
+        "helper_attempts_left": "nfc.pin_entry.optional_helper_attempts_left",
+        "helper_final_attempt": "nfc.pin_entry.optional_helper_final_attempt"
       },
       "generic": {
         "accessibility": {
@@ -2679,6 +2766,10 @@
         "list_item_nfc": "nfc.settings.list_item_nfc",
         "subtitle": "nfc.settings.subtitle",
         "title": "nfc.settings.title"
+      },
+      "nfc_scan": {
+        "pin_disclaimer": "nfc.scan.pin_disclaimer",
+        "video_instruction_accessibility": "nfc.error.video_instruction_accessibility"
       },
       "nfc_scan_error_device": {
         "primary_button": "nfc.unsupported_device.button_primary",
@@ -3773,6 +3864,14 @@
     }
   },
   "nfc": {
+    "chip_blocked": {
+      "button_help": "Portail gouvernemental",
+      "optional_button_primary": "Continuer",
+      "optional_subtitle": "Trop de saisies de code PIN incorrectes ont bloqué votre puce NFC, nous allons donc ignorer cette étape. Contactez vos autorités pour réinitialiser votre code PIN pour une utilisation future.",
+      "optional_title": "Continuer sans scanner la puce",
+      "subtitle": "Il s'agit d'une mesure de sécurité pour prévenir la fraude. Contactez votre autorité émettrice locale pour débloquer votre puce.",
+      "title": "Puce NFC bloquée"
+    },
     "connection_error": {
       "button_primary": "Réessayer de téléverser",
       "subtitle": "Vérifiez que votre connexion est stable, puis réessayez",
@@ -3806,7 +3905,19 @@
         "passport_usa": "Vous devrez peut-être faire glisser lentement votre téléphone de haut en bas contre l'intérieur de la couverture arrière jusqu'à ce que vous localisiez la puce."
       },
       "instruction_5_passport": "Une fois que votre téléphone détecte la puce dans votre passeport, le scan commencera automatiquement. Gardez votre téléphone et votre passeport immobiles pour que la numérisation puisse se terminer.",
-      "title": "Incapable de scanner la puce. Besoin d'aide?"
+      "title": "Incapable de scanner la puce. Besoin d'aide?",
+      "video_instruction_accessibility": "Tutoriel vidéo"
+    },
+    "pin_entry": {
+      "button_primary": "Continuer",
+      "helper_attempts_left": "[%i] tentatives restantes",
+      "helper_final_attempt": "Il reste 1 tentative. Votre puce sera bloquée après le prochain échec",
+      "optional_button_tertiary": "Ignorer la lecture de la puce NFC",
+      "optional_helper_attempts_left": "[%i] tentatives restantes. Ignorez cette étape ci-dessous.",
+      "optional_helper_final_attempt": "[%i] tentative restante avant le blocage de votre puce NFC. Ignorez cette étape ci-dessous.",
+      "subtitle": "Ceci est nécessaire pour lire en toute sécurité la puce NFC. Vous avez créé ce numéro à [%i] chiffres lors de l'émission de votre document.",
+      "title": "Saisissez le code PIN de votre document",
+      "title_incorrect": "Code PIN incorrect"
     },
     "scan": {
       "button_primary": "Commencer le scan",
@@ -3827,8 +3938,10 @@
         "document": "Une fois la puce détectée, gardez votre téléphone et votre document immobiles.",
         "passport": "Une fois la puce détectée, maintenez votre téléphone et votre passeport immobiles."
       },
+      "pin_disclaimer": "Nous vous demanderons le code PIN à [%i] chiffres de votre document avant de scanner la puce.",
       "title_document": "Scannez votre document",
-      "title_passport": "Scannez la puce de votre passeport"
+      "title_passport": "Scannez la puce de votre passeport",
+      "video_instruction_accessibility": "Tutoriel vidéo"
     },
     "settings": {
       "button_primary": "Ouvrir les paramètres",
@@ -3864,7 +3977,8 @@
         "ready": "Prêt à scanner",
         "scanning": "Scan en cours...",
         "success": "Scan réussi."
-      }
+      },
+      "video_instruction_accessibility": "Tutoriel vidéo"
     },
     "unsupported_device": {
       "button_primary": "Quitter la vérification",
@@ -4481,6 +4595,7 @@
     "button": {
       "default": "Réessayer",
       "expired_document": "Réessayer",
+      "failed_authentication": "Réessayer",
       "generic_document_issue": "Réessayer",
       "generic_proof_of_address_issue": "Réessayer",
       "generic_selfie_issue": "Réessayer",
@@ -4489,6 +4604,7 @@
     "description": {
       "default": "Veuillez réessayer",
       "expired_document": "Veuillez réessayer avec une pièce d'identité valide avec photo et en vous assurant que vos coordonnées sont bien visibles",
+      "failed_authentication": "Veuillez réessayer",
       "generic_document_issue": "Veuillez réessayer avec une pièce d'identité valide avec photo et en vous assurant que vos coordonnées sont bien visibles",
       "generic_proof_of_address_issue": "Veuillez réessayer avec un document valide et assurez-vous que vos informations sont clairement visibles",
       "generic_selfie_issue": "Veuillez réessayer en vous assurant que votre visage est visible et suffisamment éclairé",
@@ -4497,6 +4613,7 @@
     "headline": {
       "default": "Il y avait un problème",
       "expired_document": "Votre document a expiré",
+      "failed_authentication": "Échec de l'authentification",
       "generic_document_issue": "Il y avait un problème avec votre document",
       "generic_proof_of_address_issue": "Il y avait un problème avec votre document",
       "generic_selfie_issue": "Il y a eu un problème avec votre selfie",

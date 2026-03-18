@@ -878,6 +878,15 @@
       "title_tip_2": "Position your ID in the frame",
       "title_tip_3": "Make sure all fields are readable"
     },
+    "help_tilt": {
+      "description_tip_1": "For best results, hold your ID in your hand as you tilt. Follow the on-screen instructions, angling your ID until all sides turn green.",
+      "description_tip_2": "Keep all sides of your ID visible in the frame to complete the tilt movement. If a side isn’t turning green, move back and centre your ID.",
+      "subtitle": "Follow these tips to capture your ID’s holograms successfully",
+      "subtitle_timeout": "For security reasons, you have up to 20 seconds to complete this step",
+      "title_timeout": "Time limit reached. \nTry these tips",
+      "title_tip_1": "Hold your ID to perform a tilt movement",
+      "title_tip_2": "Position your ID in the frame"
+    },
     "intro": {
       "button_primary_selection_off": "Start scan",
       "button_primary_selection_on": "Select document",
@@ -886,6 +895,13 @@
       "list_item_tip_3": "Make sure all fields are readable",
       "subtitle": "We need to take photos of your document to ensure it is genuine.",
       "title": "Scan your ID"
+    },
+    "intro_tilt": {
+      "callout": "We will use your phone’s flash light",
+      "list_item_tip_1": "Hold your ID in the frame",
+      "list_item_tip_2": "Tilt your ID until all four sides of the frame turn green",
+      "subtitle": "We do this to ensure your document is genuine",
+      "title": "Tilt your ID to display its holograms"
     },
     "preview": {
       "blur_detail": "Make sure everything is clear",
@@ -957,6 +973,19 @@
         "iq_mrz_3": "Make bottom 3 lines visible",
         "iq_no_doc": "Show document in frame",
         "iq_obstruction": "Move fingers away from document",
+        "tilt": {
+          "down": "Tilt your ID down",
+          "left": "Tilt your ID left",
+          "right": "Tilt your ID to the right",
+          "up": "Tilt your ID up"
+        },
+        "tilt_accessibility": {
+          "complete": "Complete",
+          "down": "Tilt your ID down until you hear confirmation",
+          "left": "Tilt your ID to the left until you hear confirmation",
+          "right": "Tilt your ID to the right until you hear confirmation",
+          "up": "Tilt your ID up until you hear confirmation"
+        },
         "validity": {
           "button_primary": "Try again",
           "button_secondary": "Select another document"
@@ -1003,6 +1032,7 @@
         "subtitle_passport_accessibility": "Place the photo page of your passport against the back of your phone and move it back slowly until you hear feedback.",
         "subtitle_passport_manual": "Scan the photo side of your document",
         "subtitle_passport_manual_accessibility": "Place the photo page of your passport in front of your back camera and press the button below.",
+        "subtitle_tilt_generic": "Tilt your ID until the frame turns green",
         "title_back": "Back side",
         "title_front": "Front side",
         "title_passport": "Photo page"
@@ -1632,6 +1662,16 @@
       "bottom_sheet": {
         "handle_accessibility": "document.bottom_sheet.handle_dismiss_accessibility"
       },
+      "chip_blocked": {
+        "button_help": "nfc.chip_blocked.button_help",
+        "subtitle": "nfc.chip_blocked.subtitle",
+        "title": "nfc.chip_blocked.title"
+      },
+      "chip_blocked_optional": {
+        "button_primary": "nfc.chip_blocked.optional_button_primary",
+        "subtitle": "nfc.chip_blocked.optional_subtitle",
+        "title": "nfc.chip_blocked.optional_title"
+      },
       "country_select": {
         "alert": {
           "another_doc": "sample.selection.country_select_another_doc"
@@ -2055,6 +2095,40 @@
           "title": "document.upload.success.title"
         }
       },
+      "doc_video_intro": {
+        "callout": "document.intro_tilt.callout",
+        "list_item_tip_1": "document.intro_tilt.list_item_tip_1",
+        "list_item_tip_2": "document.intro_tilt.list_item_tip_2",
+        "sub-title": "document.intro_tilt.subtitle",
+        "title": "document.intro_tilt.title"
+      },
+      "doc_video_tilt": {
+        "feedback": {
+          "side_complete_accessibility": "document.scan.feedback.tilt_accessibility.complete",
+          "tilt_down": "document.scan.feedback.tilt.down",
+          "tilt_down_accessibility": "document.scan.feedback.tilt_accessibility.down",
+          "tilt_left": "document.scan.feedback.tilt.left",
+          "tilt_left_accessibility": "document.scan.feedback.tilt_accessibility.left",
+          "tilt_right": "document.scan.feedback.tilt.right",
+          "tilt_right_accessibility": "document.scan.feedback.tilt_accessibility.right",
+          "tilt_up": "document.scan.feedback.tilt.up",
+          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up"
+        },
+        "instructions": {
+          "sub_title_generic": "document.scan.instructions.subtitle_tilt_generic"
+        }
+      },
+      "doc_video_tilt_help": {
+        "description_tip_1": "document.help_tilt.description_tip_1",
+        "description_tip_2": "document.help_tilt.description_tip_2",
+        "sub_title": "document.help_tilt.subtitle",
+        "title_tip_1": "document.help_tilt.title_tip_1",
+        "title_tip_2": "document.help_tilt.title_tip_2"
+      },
+      "doc_video_tilt_timeout": {
+        "sub_title": "document.help_tilt.subtitle_timeout",
+        "title": "document.help_tilt.title_timeout"
+      },
       "eid": {
         "scheme_form": {
           "subtitle": "electronicId.scheme_form.subtitle",
@@ -2113,6 +2187,19 @@
           "subtitle": "enrollPasskey.not_supported_error.subtitle",
           "title": "enrollPasskey.not_supported_error.title"
         }
+      },
+      "enter_pin": {
+        "button_primary": "nfc.pin_entry.button_primary",
+        "helper_attempts_left": "nfc.pin_entry.helper_attempts_left",
+        "helper_final_attempt": "nfc.pin_entry.helper_final_attempt",
+        "subtitle": "nfc.pin_entry.subtitle",
+        "title": "nfc.pin_entry.title",
+        "title_incorrect": "nfc.pin_entry.title_incorrect"
+      },
+      "enter_pin_optional": {
+        "button_tertiary": "nfc.pin_entry.optional_button_tertiary",
+        "helper_attempts_left": "nfc.pin_entry.optional_helper_attempts_left",
+        "helper_final_attempt": "nfc.pin_entry.optional_helper_final_attempt"
       },
       "generic": {
         "accessibility": {
@@ -2679,6 +2766,10 @@
         "list_item_nfc": "nfc.settings.list_item_nfc",
         "subtitle": "nfc.settings.subtitle",
         "title": "nfc.settings.title"
+      },
+      "nfc_scan": {
+        "pin_disclaimer": "nfc.scan.pin_disclaimer",
+        "video_instruction_accessibility": "nfc.error.video_instruction_accessibility"
       },
       "nfc_scan_error_device": {
         "primary_button": "nfc.unsupported_device.button_primary",
@@ -3773,6 +3864,14 @@
     }
   },
   "nfc": {
+    "chip_blocked": {
+      "button_help": "Government portal",
+      "optional_button_primary": "Continue",
+      "optional_subtitle": "Too many incorrect PIN entries have blocked your NFC chip, so we'll skip this step. Contact your authorities to reset your PIN for future use.",
+      "optional_title": "Continue without scanning chip",
+      "subtitle": "This is a security measure to prevent fraud. Contact your local issuing authority to unblock your chip.",
+      "title": "NFC chip blocked"
+    },
     "connection_error": {
       "button_primary": "Retry upload",
       "subtitle": "Check that your connection is stable, then try again",
@@ -3806,7 +3905,19 @@
         "passport_usa": "You may need to slowly slide your phone up and down against the inside back cover until you locate the chip."
       },
       "instruction_5_passport": "Once your phone detects the chip in your passport, the scan will start automatically. Keep your phone and passport still so the scan can complete.",
-      "title": "Unable to scan the chip. Need help?"
+      "title": "Unable to scan the chip. Need help?",
+      "video_instruction_accessibility": "Video instruction"
+    },
+    "pin_entry": {
+      "button_primary": "Continue",
+      "helper_attempts_left": "[%i] attempts left",
+      "helper_final_attempt": "1 attempt left. Your chip will be blocked after the next failed attempt",
+      "optional_button_tertiary": "Skip NFC chip scanning",
+      "optional_helper_attempts_left": "[%i] attempts left. Skip this step below.",
+      "optional_helper_final_attempt": "[%i] attempt left before your NFC chip is blocked. Skip this step below.",
+      "subtitle": "This is needed to securely read the NFC chip. You created this [%i]-digit number when your document was issued.",
+      "title": "Enter your document PIN",
+      "title_incorrect": "Incorrect PIN"
     },
     "scan": {
       "button_primary": "Start scan",
@@ -3827,8 +3938,10 @@
         "document": "Once the chip is detected, keep your phone and document still.",
         "passport": "Once the chip is detected, keep your phone and passport still."
       },
+      "pin_disclaimer": "We'll ask you for your document's [%i]-digit PIN before scanning the chip.",
       "title_document": "Scan your document",
-      "title_passport": "Scan your passport's chip"
+      "title_passport": "Scan your passport's chip",
+      "video_instruction_accessibility": "Video instruction"
     },
     "settings": {
       "button_primary": "Open settings",
@@ -3864,7 +3977,8 @@
         "ready": "Ready to scan",
         "scanning": "Scanning...",
         "success": "Scan successful."
-      }
+      },
+      "video_instruction_accessibility": "Video instruction"
     },
     "unsupported_device": {
       "button_primary": "Exit verification",
@@ -4481,6 +4595,7 @@
     "button": {
       "default": "Try again",
       "expired_document": "Try again",
+      "failed_authentication": "Try again",
       "generic_document_issue": "Try again",
       "generic_proof_of_address_issue": "Try again",
       "generic_selfie_issue": "Try again",
@@ -4489,6 +4604,7 @@
     "description": {
       "default": "Please try again",
       "expired_document": "Please try again with a valid photo ID and make sure your information is clearly visible",
+      "failed_authentication": "Please try again",
       "generic_document_issue": "Please try again with a valid photo ID and make sure your information is clearly visible",
       "generic_proof_of_address_issue": "Please try again with a valid document and make sure your information is clearly visible",
       "generic_selfie_issue": "Please try again, and make sure your face is visible and well lit",
@@ -4497,6 +4613,7 @@
     "headline": {
       "default": "There was a problem",
       "expired_document": "Your document has expired",
+      "failed_authentication": "Authentication failed",
       "generic_document_issue": "There was a problem with your document",
       "generic_proof_of_address_issue": "There was a problem with your document",
       "generic_selfie_issue": "There was a problem with your selfie",

@@ -878,6 +878,15 @@
       "title_tip_2": "Positionieren Sie Ihr Ausweisdokument im Rahmen",
       "title_tip_3": "Stellen Sie sicher, dass alle Angaben lesbar sind"
     },
+    "help_tilt": {
+      "description_tip_1": "Für optimale Ergebnisse halte deinen Ausweis in der Hand, während du kippst. Folge den Anweisungen auf dem Bildschirm und neige deinen Ausweis, bis alle Seiten grün werden.",
+      "description_tip_2": "Halte alle Seiten deines Ausweises im Rahmen sichtbar, um die Kippbewegung abzuschließen. Wenn eine Seite nicht grün wird, geh etwas zurück und richte deinen Ausweis mittig aus.",
+      "subtitle": "Befolge diese Tipps, um die Hologramme deines Ausweises erfolgreich zu erfassen",
+      "subtitle_timeout": "Aus Sicherheitsgründen haben Sie bis zu 20 Sekunden Zeit, um diesen Schritt abzuschließen",
+      "title_timeout": "Zeitlimit erreicht. \nProbiere diese Tipps aus",
+      "title_tip_1": "Halte deinen Ausweis und führe eine Kippbewegung aus",
+      "title_tip_2": "Positionieren Sie Ihren Ausweis im Rahmen"
+    },
     "intro": {
       "button_primary_selection_off": "Scan starten",
       "button_primary_selection_on": "Dokument auswählen",
@@ -886,6 +895,13 @@
       "list_item_tip_3": "Stellen Sie sicher, dass alle Angaben lesbar sind",
       "subtitle": "Wir müssen Fotos Ihres Dokuments machen, um sicherzustellen, dass es echt ist.",
       "title": "Scannen Sie Ihr Ausweisdokument"
+    },
+    "intro_tilt": {
+      "callout": "Wir verwenden die Taschenlampe Ihres Telefons",
+      "list_item_tip_1": "Halten Sie Ihren Ausweis im Rahmen",
+      "list_item_tip_2": "Kippen Sie Ihren Ausweis, bis alle vier Seiten des Rahmens grün werden",
+      "subtitle": "Wir tun dies, um sicherzustellen, dass Ihr Dokument echt ist.",
+      "title": "Kippen Sie Ihren Ausweis, um die Hologramme sichtbar zu machen"
     },
     "preview": {
       "blur_detail": "Stellen Sie sicher, dass alles klar ist",
@@ -957,6 +973,19 @@
         "iq_mrz_3": "Machen Sie die unteren 3 Zeilen sichtbar",
         "iq_no_doc": "Dokument im Rahmen anzeigen",
         "iq_obstruction": "Finger vom Ausweis wegnehmen",
+        "tilt": {
+          "down": "Kippen Sie Ihren Ausweis nach unten",
+          "left": "Neigen Sie Ihren Ausweis nach links",
+          "right": "Kippen Sie Ihren Ausweis nach rechts",
+          "up": "Kippen Sie Ihren Ausweis nach oben"
+        },
+        "tilt_accessibility": {
+          "complete": "Abschließen",
+          "down": "Neigen Sie Ihren Ausweis nach unten, bis Sie eine Bestätigung hören",
+          "left": "Kippen Sie Ihren Ausweis nach links, bis Sie eine Bestätigung hören",
+          "right": "Kippen Sie Ihren Ausweis nach rechts, bis Sie die Bestätigung hören",
+          "up": "Kippen Sie Ihren Ausweis nach oben, bis Sie eine Bestätigung hören"
+        },
         "validity": {
           "button_primary": "Erneut versuchen",
           "button_secondary": "Anderes Dokument auswählen"
@@ -1003,6 +1032,7 @@
         "subtitle_passport_accessibility": "Legen Sie die Fotoseite Ihres Reisepasses an die Rückseite Ihres Handys und bewegen Sie ihn langsam zurück, bis Sie eine Rückmeldung hören.",
         "subtitle_passport_manual": "Scannen Sie die Fotoseite Ihres Dokuments",
         "subtitle_passport_manual_accessibility": "Legen Sie die Fotoseite Ihres Reisepasses vor Ihre Rückkamera und drücken Sie den untenstehenden Knopf.",
+        "subtitle_tilt_generic": "Kippen Sie Ihren Ausweis, bis der Rahmen grün wird",
         "title_back": "Rückseite",
         "title_front": "Vorderseite",
         "title_passport": "Fotoseite"
@@ -1632,6 +1662,16 @@
       "bottom_sheet": {
         "handle_accessibility": "document.bottom_sheet.handle_dismiss_accessibility"
       },
+      "chip_blocked": {
+        "button_help": "nfc.chip_blocked.button_help",
+        "subtitle": "nfc.chip_blocked.subtitle",
+        "title": "nfc.chip_blocked.title"
+      },
+      "chip_blocked_optional": {
+        "button_primary": "nfc.chip_blocked.optional_button_primary",
+        "subtitle": "nfc.chip_blocked.optional_subtitle",
+        "title": "nfc.chip_blocked.optional_title"
+      },
       "country_select": {
         "alert": {
           "another_doc": "sample.selection.country_select_another_doc"
@@ -2055,6 +2095,40 @@
           "title": "document.upload.success.title"
         }
       },
+      "doc_video_intro": {
+        "callout": "document.intro_tilt.callout",
+        "list_item_tip_1": "document.intro_tilt.list_item_tip_1",
+        "list_item_tip_2": "document.intro_tilt.list_item_tip_2",
+        "sub-title": "document.intro_tilt.subtitle",
+        "title": "document.intro_tilt.title"
+      },
+      "doc_video_tilt": {
+        "feedback": {
+          "side_complete_accessibility": "document.scan.feedback.tilt_accessibility.complete",
+          "tilt_down": "document.scan.feedback.tilt.down",
+          "tilt_down_accessibility": "document.scan.feedback.tilt_accessibility.down",
+          "tilt_left": "document.scan.feedback.tilt.left",
+          "tilt_left_accessibility": "document.scan.feedback.tilt_accessibility.left",
+          "tilt_right": "document.scan.feedback.tilt.right",
+          "tilt_right_accessibility": "document.scan.feedback.tilt_accessibility.right",
+          "tilt_up": "document.scan.feedback.tilt.up",
+          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up"
+        },
+        "instructions": {
+          "sub_title_generic": "document.scan.instructions.subtitle_tilt_generic"
+        }
+      },
+      "doc_video_tilt_help": {
+        "description_tip_1": "document.help_tilt.description_tip_1",
+        "description_tip_2": "document.help_tilt.description_tip_2",
+        "sub_title": "document.help_tilt.subtitle",
+        "title_tip_1": "document.help_tilt.title_tip_1",
+        "title_tip_2": "document.help_tilt.title_tip_2"
+      },
+      "doc_video_tilt_timeout": {
+        "sub_title": "document.help_tilt.subtitle_timeout",
+        "title": "document.help_tilt.title_timeout"
+      },
       "eid": {
         "scheme_form": {
           "subtitle": "electronicId.scheme_form.subtitle",
@@ -2113,6 +2187,19 @@
           "subtitle": "enrollPasskey.not_supported_error.subtitle",
           "title": "enrollPasskey.not_supported_error.title"
         }
+      },
+      "enter_pin": {
+        "button_primary": "nfc.pin_entry.button_primary",
+        "helper_attempts_left": "nfc.pin_entry.helper_attempts_left",
+        "helper_final_attempt": "nfc.pin_entry.helper_final_attempt",
+        "subtitle": "nfc.pin_entry.subtitle",
+        "title": "nfc.pin_entry.title",
+        "title_incorrect": "nfc.pin_entry.title_incorrect"
+      },
+      "enter_pin_optional": {
+        "button_tertiary": "nfc.pin_entry.optional_button_tertiary",
+        "helper_attempts_left": "nfc.pin_entry.optional_helper_attempts_left",
+        "helper_final_attempt": "nfc.pin_entry.optional_helper_final_attempt"
       },
       "generic": {
         "accessibility": {
@@ -2679,6 +2766,10 @@
         "list_item_nfc": "nfc.settings.list_item_nfc",
         "subtitle": "nfc.settings.subtitle",
         "title": "nfc.settings.title"
+      },
+      "nfc_scan": {
+        "pin_disclaimer": "nfc.scan.pin_disclaimer",
+        "video_instruction_accessibility": "nfc.error.video_instruction_accessibility"
       },
       "nfc_scan_error_device": {
         "primary_button": "nfc.unsupported_device.button_primary",
@@ -3773,6 +3864,14 @@
     }
   },
   "nfc": {
+    "chip_blocked": {
+      "button_help": "Behördenportal",
+      "optional_button_primary": "Fortfahren",
+      "optional_subtitle": "Zu viele falsche PIN-Eingaben haben Ihren NFC-Chip blockiert, daher überspringen wir diesen Schritt. Wenden Sie sich an die zuständigen Behörden, um Ihre PIN für die zukünftige Nutzung zurückzusetzen.",
+      "optional_title": "Ohne Chip-Scan fortfahren",
+      "subtitle": "Dies ist eine Sicherheitsmaßnahme zur Verhinderung von Betrug. Wenden Sie sich an Ihre örtliche ausstellende Behörde, um Ihren Chip zu entsperren.",
+      "title": "NFC-Chip gesperrt"
+    },
     "connection_error": {
       "button_primary": "Upload wiederholen",
       "subtitle": "Prüfen Sie, ob Ihre Internetverbindung stabil ist, und versuchen Sie es dann erneut",
@@ -3806,7 +3905,19 @@
         "passport_usa": "Möglicherweise müssen Sie Ihr Telefon langsam auf und ab entlang der Innenseite des hinteren Covers bewegen, bis Sie den Chip finden."
       },
       "instruction_5_passport": "Sobald Ihr Telefon den Chip in Ihrem Reisepass erkennt, beginnt der Scan automatisch. Halten Sie Ihr Telefon und Ihren Reisepass ruhig, damit der Scan abgeschlossen werden kann.",
-      "title": "Unfähig, den Chip zu scannen. Brauchen Sie Hilfe?"
+      "title": "Unfähig, den Chip zu scannen. Brauchen Sie Hilfe?",
+      "video_instruction_accessibility": "Videoanleitung"
+    },
+    "pin_entry": {
+      "button_primary": "Fortfahren",
+      "helper_attempts_left": "[%i] Versuche übrig",
+      "helper_final_attempt": "1 Versuch übrig. Ihr Chip wird nach dem nächsten Fehlversuch gesperrt.",
+      "optional_button_tertiary": "NFC-Chip-Scan überspringen",
+      "optional_helper_attempts_left": "[%i] Versuche übrig. Überspringen Sie diesen Schritt unten.",
+      "optional_helper_final_attempt": "[%i] Versuch übrig, bevor Ihr NFC‑Chip gesperrt wird. Überspringen Sie diesen Schritt unten.",
+      "subtitle": "Dies ist erforderlich, um den NFC-Chip sicher auszulesen. Sie haben diese [%i]-stellige Nummer erstellt, als Ihr Dokument ausgestellt wurde.",
+      "title": "Geben Sie Ihre Dokumenten-PIN ein",
+      "title_incorrect": "Falsche PIN"
     },
     "scan": {
       "button_primary": "Scan starten",
@@ -3827,8 +3938,10 @@
         "document": "Sobald der Chip erkannt wird, halten Sie Ihr Telefon und das Dokument still.",
         "passport": "Sobald der Chip erkannt wird, halten Sie Ihr Telefon und Ihren Reisepass still."
       },
+      "pin_disclaimer": "Bevor wir den Chip auslesen, fragen wir Sie nach der [%i]-stelligen PIN Ihres Dokuments.",
       "title_document": "Scannen Sie Ihr Dokument",
-      "title_passport": "Scannen Sie den Chip Ihres Passes"
+      "title_passport": "Scannen Sie den Chip Ihres Passes",
+      "video_instruction_accessibility": "Videoanleitung"
     },
     "settings": {
       "button_primary": "Einstellungen öffnen",
@@ -3864,7 +3977,8 @@
         "ready": "Bereit zum Scannen",
         "scanning": "Scannen…",
         "success": "Scan erfolgreich."
-      }
+      },
+      "video_instruction_accessibility": "Videoanleitung"
     },
     "unsupported_device": {
       "button_primary": "Verifizierung beenden",
@@ -4481,6 +4595,7 @@
     "button": {
       "default": "Versuchen Sie es erneut.",
       "expired_document": "Versuchen Sie es erneut.",
+      "failed_authentication": "Versuchen Sie es erneut.",
       "generic_document_issue": "Versuchen Sie es erneut.",
       "generic_proof_of_address_issue": "Versuchen Sie es erneut.",
       "generic_selfie_issue": "Versuchen Sie es erneut.",
@@ -4489,6 +4604,7 @@
     "description": {
       "default": "Bitte versuchen Sie es erneut",
       "expired_document": "Versuchen Sie es mit einem gültigen Lichtbildausweis erneut und stellen Sie sicher, dass die Angaben zu Ihrer Person gut sichtbar sind",
+      "failed_authentication": "Bitte versuchen Sie es erneut",
       "generic_document_issue": "Versuchen Sie es mit einem gültigen Lichtbildausweis erneut und stellen Sie sicher, dass die Angaben zu Ihrer Person gut sichtbar sind",
       "generic_proof_of_address_issue": "Bitte versuchen Sie es erneut mit einem gültigen Dokument und stellen Sie sicher, dass Ihre Angaben deutlich sichtbar sind",
       "generic_selfie_issue": "Versuchen Sie es erneut und stellen Sie sicher, dass Ihr Gesicht sichtbar und gut beleuchtet ist",
@@ -4497,6 +4613,7 @@
     "headline": {
       "default": "Es gab ein Problem",
       "expired_document": "Ihr Ausweis ist ungültig",
+      "failed_authentication": "Authentifizierung fehlgeschlagen",
       "generic_document_issue": "Es gab ein Problem mit Ihrem Dokument",
       "generic_proof_of_address_issue": "Es gab ein Problem mit Ihrem Dokument",
       "generic_selfie_issue": "Es gab ein Problem mit Ihrem Selfie",

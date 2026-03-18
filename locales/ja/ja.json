@@ -878,6 +878,15 @@
       "title_tip_2": "身分証明書を枠内に合わせてください",
       "title_tip_3": "すべての項目が読み取れることを確認してください"
     },
+    "help_tilt": {
+      "description_tip_1": "最良の結果を得るには、傾けながらIDを手に持ってください。画面の指示に従い、すべての辺が緑色になるまでIDの角度を調整してください。",
+      "description_tip_2": "IDのすべての辺がフレーム内に収まるようにして、傾け動作を完了してください。辺が緑色に変わらない場合は、少し離れてIDを中央に合わせてください。",
+      "subtitle": "IDのホログラムを正常に撮影するためのヒント",
+      "subtitle_timeout": "セキュリティ上の理由により、この手順を完了するまでの時間は最大20秒です",
+      "title_timeout": "制限時間に達しました。\n次のヒントをお試しください",
+      "title_tip_1": "IDを持って傾ける動作を行ってください",
+      "title_tip_2": "枠内にIDを配置してください"
+    },
     "intro": {
       "button_primary_selection_off": "スキャンを開始",
       "button_primary_selection_on": "書類を選択",
@@ -886,6 +895,13 @@
       "list_item_tip_3": "すべての項目が読み取れるようにしてください",
       "subtitle": "書類が本物であることを確認するために、写真を撮影する必要があります。",
       "title": "身分証明書をスキャンしてください"
+    },
+    "intro_tilt": {
+      "callout": "お使いの携帯電話のフラッシュライトを使用します",
+      "list_item_tip_1": "IDをフレーム内に収めてください",
+      "list_item_tip_2": "IDを傾けて、フレームの四辺すべてが緑色になるようにしてください",
+      "subtitle": "お客様の書類が本物であることを確認するために行っています。",
+      "title": "IDを傾けてホログラムを表示してください"
     },
     "preview": {
       "blur_detail": "すべてがはっきりしていることを確認してください",
@@ -957,6 +973,19 @@
         "iq_mrz_3": "下部の3行を表示してください",
         "iq_no_doc": "枠内に本人確認書類を表示してください",
         "iq_obstruction": "指を書類から離してください",
+        "tilt": {
+          "down": "IDを下に傾けてください",
+          "left": "IDを左に傾けてください",
+          "right": "IDを右に傾けてください",
+          "up": "IDを上に傾けてください"
+        },
+        "tilt_accessibility": {
+          "complete": "完了",
+          "down": "確認音が鳴るまでIDを下に傾けてください",
+          "left": "確認音が鳴るまで、IDを左に傾けてください",
+          "right": "確認音が鳴るまで、IDを右に傾けてください",
+          "up": "確認音が鳴るまでIDを上に傾けてください"
+        },
         "validity": {
           "button_primary": "再試行",
           "button_secondary": "別の書類を選択する"
@@ -1003,6 +1032,7 @@
         "subtitle_passport_accessibility": "パスポートの写真ページを携帯電話の背面に当て、フィードバックが聞こえるまでゆっくりと離してください。",
         "subtitle_passport_manual": "書類の写真面をスキャンしてください",
         "subtitle_passport_manual_accessibility": "パスポートの写真ページを背面カメラの前に置き、下のボタンを押してください。",
+        "subtitle_tilt_generic": "枠が緑色になるまでIDを傾けてください",
         "title_back": "裏面",
         "title_front": "表面",
         "title_passport": "写真ページ"
@@ -1632,6 +1662,16 @@
       "bottom_sheet": {
         "handle_accessibility": "document.bottom_sheet.handle_dismiss_accessibility"
       },
+      "chip_blocked": {
+        "button_help": "nfc.chip_blocked.button_help",
+        "subtitle": "nfc.chip_blocked.subtitle",
+        "title": "nfc.chip_blocked.title"
+      },
+      "chip_blocked_optional": {
+        "button_primary": "nfc.chip_blocked.optional_button_primary",
+        "subtitle": "nfc.chip_blocked.optional_subtitle",
+        "title": "nfc.chip_blocked.optional_title"
+      },
       "country_select": {
         "alert": {
           "another_doc": "sample.selection.country_select_another_doc"
@@ -2055,6 +2095,40 @@
           "title": "document.upload.success.title"
         }
       },
+      "doc_video_intro": {
+        "callout": "document.intro_tilt.callout",
+        "list_item_tip_1": "document.intro_tilt.list_item_tip_1",
+        "list_item_tip_2": "document.intro_tilt.list_item_tip_2",
+        "sub-title": "document.intro_tilt.subtitle",
+        "title": "document.intro_tilt.title"
+      },
+      "doc_video_tilt": {
+        "feedback": {
+          "side_complete_accessibility": "document.scan.feedback.tilt_accessibility.complete",
+          "tilt_down": "document.scan.feedback.tilt.down",
+          "tilt_down_accessibility": "document.scan.feedback.tilt_accessibility.down",
+          "tilt_left": "document.scan.feedback.tilt.left",
+          "tilt_left_accessibility": "document.scan.feedback.tilt_accessibility.left",
+          "tilt_right": "document.scan.feedback.tilt.right",
+          "tilt_right_accessibility": "document.scan.feedback.tilt_accessibility.right",
+          "tilt_up": "document.scan.feedback.tilt.up",
+          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up"
+        },
+        "instructions": {
+          "sub_title_generic": "document.scan.instructions.subtitle_tilt_generic"
+        }
+      },
+      "doc_video_tilt_help": {
+        "description_tip_1": "document.help_tilt.description_tip_1",
+        "description_tip_2": "document.help_tilt.description_tip_2",
+        "sub_title": "document.help_tilt.subtitle",
+        "title_tip_1": "document.help_tilt.title_tip_1",
+        "title_tip_2": "document.help_tilt.title_tip_2"
+      },
+      "doc_video_tilt_timeout": {
+        "sub_title": "document.help_tilt.subtitle_timeout",
+        "title": "document.help_tilt.title_timeout"
+      },
       "eid": {
         "scheme_form": {
           "subtitle": "electronicId.scheme_form.subtitle",
@@ -2113,6 +2187,19 @@
           "subtitle": "enrollPasskey.not_supported_error.subtitle",
           "title": "enrollPasskey.not_supported_error.title"
         }
+      },
+      "enter_pin": {
+        "button_primary": "nfc.pin_entry.button_primary",
+        "helper_attempts_left": "nfc.pin_entry.helper_attempts_left",
+        "helper_final_attempt": "nfc.pin_entry.helper_final_attempt",
+        "subtitle": "nfc.pin_entry.subtitle",
+        "title": "nfc.pin_entry.title",
+        "title_incorrect": "nfc.pin_entry.title_incorrect"
+      },
+      "enter_pin_optional": {
+        "button_tertiary": "nfc.pin_entry.optional_button_tertiary",
+        "helper_attempts_left": "nfc.pin_entry.optional_helper_attempts_left",
+        "helper_final_attempt": "nfc.pin_entry.optional_helper_final_attempt"
       },
       "generic": {
         "accessibility": {
@@ -2679,6 +2766,10 @@
         "list_item_nfc": "nfc.settings.list_item_nfc",
         "subtitle": "nfc.settings.subtitle",
         "title": "nfc.settings.title"
+      },
+      "nfc_scan": {
+        "pin_disclaimer": "nfc.scan.pin_disclaimer",
+        "video_instruction_accessibility": "nfc.error.video_instruction_accessibility"
       },
       "nfc_scan_error_device": {
         "primary_button": "nfc.unsupported_device.button_primary",
@@ -3773,6 +3864,14 @@
     }
   },
   "nfc": {
+    "chip_blocked": {
+      "button_help": "政府ポータル",
+      "optional_button_primary": "続行",
+      "optional_subtitle": "PINの入力ミスが多すぎたため、NFCチップがブロックされました。この手順はスキップします。今後の使用のためにPINをリセットするには、当局にお問い合わせください。",
+      "optional_title": "チップをスキャンせずに続行",
+      "subtitle": "これは不正行為を防止するためのセキュリティ対策です。チップのブロックを解除するには、お住まいの地域の発行機関にお問い合わせください。",
+      "title": "NFCチップがブロックされています"
+    },
     "connection_error": {
       "button_primary": "アップロードを再試行",
       "subtitle": "接続が安定していることを確認してから、もう一度お試しください",
@@ -3806,7 +3905,19 @@
         "passport_usa": "チップを見つけるまで、携帯電話を内側の裏表紙に沿ってゆっくりと上下にスライドさせる必要があるかもしれません。"
       },
       "instruction_5_passport": "パスポートのチップが携帯電話に検出されると、スキャンが自動的に開始されます。スキャンが完了するまで、携帯電話とパスポートを静止させてください。",
-      "title": "チップをスキャンできません。ヘルプが必要ですか？"
+      "title": "チップをスキャンできません。ヘルプが必要ですか？",
+      "video_instruction_accessibility": "動画の説明"
+    },
+    "pin_entry": {
+      "button_primary": "続行",
+      "helper_attempts_left": "[%i]回の試行が残っています",
+      "helper_final_attempt": "残り1回の試行です。次回の失敗でチップがブロックされます",
+      "optional_button_tertiary": "NFCチップスキャンをスキップ",
+      "optional_helper_attempts_left": "[%i] 回の試行が残っています。以下でこのステップをスキップしてください。",
+      "optional_helper_final_attempt": "[%i] 回の試行が残っています。NFCチップがブロックされる前に、以下でこのステップをスキップしてください。",
+      "subtitle": "これは、NFCチップを安全に読み取るために必要です。この[%i]桁の番号は、書類が発行された際に作成されたものです。",
+      "title": "書類のPINを入力してください",
+      "title_incorrect": "PINが正しくありません"
     },
     "scan": {
       "button_primary": "スキャンを開始",
@@ -3827,8 +3938,10 @@
         "document": "チップが検出されたら、携帯電話と身分証明書を動かさないでください。",
         "passport": "チップが検出されたら、スマートフォンとパスポートを静止させてください。"
       },
+      "pin_disclaimer": "書類の[%i]桁のPINを入力していただいた後、チップをスキャンします。",
       "title_document": "あなたのドキュメントをスキャンする",
-      "title_passport": "パスポートのチップをスキャンします"
+      "title_passport": "パスポートのチップをスキャンします",
+      "video_instruction_accessibility": "動画の説明"
     },
     "settings": {
       "button_primary": "設定を開く",
@@ -3864,7 +3977,8 @@
         "ready": "スキャンの準備ができました",
         "scanning": "スキャンしています...",
         "success": "スキャンが成功しました。"
-      }
+      },
+      "video_instruction_accessibility": "動画の説明"
     },
     "unsupported_device": {
       "button_primary": "退出確認",
@@ -4481,6 +4595,7 @@
     "button": {
       "default": "再試行",
       "expired_document": "再試行",
+      "failed_authentication": "再試行",
       "generic_document_issue": "再試行",
       "generic_proof_of_address_issue": "再試行",
       "generic_selfie_issue": "再試行",
@@ -4489,6 +4604,7 @@
     "description": {
       "default": "再度お試しください",
       "expired_document": "有効な写真付き身分証明書で再度お試しいただき、情報がはっきりと見えるようにしてください",
+      "failed_authentication": "再度お試しください",
       "generic_document_issue": "有効な写真付き身分証明書で再度お試しいただき、情報がはっきりと見えるようにしてください",
       "generic_proof_of_address_issue": "有効な書類で再度お試しいただき、情報が明瞭に表示されていることをご確認ください",
       "generic_selfie_issue": "もう一度お試しください。顔が見え、明るい場所にいることを確認してください",
@@ -4497,6 +4613,7 @@
     "headline": {
       "default": "問題が発生しました",
       "expired_document": "ドキュメントの有効期限が切れています",
+      "failed_authentication": "認証に失敗しました",
       "generic_document_issue": "あなたのドキュメントに問題がありました",
       "generic_proof_of_address_issue": "あなたのドキュメントに問題がありました",
       "generic_selfie_issue": "あなたのセルフィーに問題がありました",

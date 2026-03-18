@@ -878,6 +878,15 @@
       "title_tip_2": "Postavite svojo osebno izkaznico v okvir",
       "title_tip_3": "Prepričajte se, da so vsa polja berljiva"
     },
+    "help_tilt": {
+      "description_tip_1": "Za najboljše rezultate držite osebni dokument v roki med nagibanjem. Sledite navodilom na zaslonu in nagibajte dokument, dokler vse strani ne postanejo zelene.",
+      "description_tip_2": "Poskrbite, da so med nagibanjem vse strani vašega osebnega dokumenta vidne v okvirju. Če se katera stran ne obarva zeleno, se umaknite nazaj in osebni dokument poravnajte na sredino.",
+      "subtitle": "Upoštevajte te nasvete za uspešno zajemanje hologramov na vašem osebnem dokumentu",
+      "subtitle_timeout": "Iz varnostnih razlogov imate do 20 sekund časa za dokončanje tega koraka",
+      "title_timeout": "Časovna omejitev je dosežena. \nPreizkusite te nasvete",
+      "title_tip_1": "Držite osebni dokument in ga nagnite",
+      "title_tip_2": "Postavite osebni dokument v okvir"
+    },
     "intro": {
       "button_primary_selection_off": "Začni skeniranje",
       "button_primary_selection_on": "Izberite dokument",
@@ -886,6 +895,13 @@
       "list_item_tip_3": "Prepričajte se, da so vsa polja berljiva",
       "subtitle": "Za preverjanje pristnosti moramo fotografirati vaš dokument.",
       "title": "Skenirajte svoj osebni dokument"
+    },
+    "intro_tilt": {
+      "callout": "Uporabili bomo svetilko vašega telefona",
+      "list_item_tip_1": "Držite osebni dokument v okvirju",
+      "list_item_tip_2": "Nagibajte osebni dokument, dokler vse štiri strani okvirja ne postanejo zelene",
+      "subtitle": "To storimo, da zagotovimo pristnost vašega dokumenta.",
+      "title": "Nagnite osebni dokument, da prikažete njegove holograme"
     },
     "preview": {
       "blur_detail": "Prepričajte se, da je vse jasno",
@@ -957,6 +973,19 @@
         "iq_mrz_3": "Naredite spodnje 3 vrstice vidne",
         "iq_no_doc": "Postavite dokument v okvir",
         "iq_obstruction": "Odmaknite prste od dokumenta",
+        "tilt": {
+          "down": "Nagnite osebni dokument navzdol",
+          "left": "Nagnite osebni dokument v levo",
+          "right": "Nagnite osebni dokument v desno",
+          "up": "Nagnite osebni dokument navzgor"
+        },
+        "tilt_accessibility": {
+          "complete": "Dokončano",
+          "down": "Nagibajte osebni dokument navzdol, dokler ne zaslišite potrditve",
+          "left": "Nagibajte osebni dokument v levo, dokler ne zaslišite potrditve",
+          "right": "Nagibajte osebni dokument v desno, dokler ne zaslišite potrditve",
+          "up": "Nagibajte osebni dokument navzgor, dokler ne zaslišite potrditve"
+        },
         "validity": {
           "button_primary": "Poskusite znova",
           "button_secondary": "Izberite drug dokument"
@@ -1003,6 +1032,7 @@
         "subtitle_passport_accessibility": "Postavite stran s fotografijo v vašem potnem listu na zadnjo stran telefona in jo počasi odmaknite, dokler ne zaslišite povratne informacije.",
         "subtitle_passport_manual": "Skenirajte stran z fotografijo vašega dokumenta",
         "subtitle_passport_manual_accessibility": "Postavite stran s fotografijo vašega potnega lista pred zadnjo kamero in pritisnite spodnji gumb.",
+        "subtitle_tilt_generic": "Nagibajte osebni dokument, dokler okvir ne postane zelen",
         "title_back": "Hrbtna stran",
         "title_front": "Sprednja stran",
         "title_passport": "Stran s fotografijo"
@@ -1632,6 +1662,16 @@
       "bottom_sheet": {
         "handle_accessibility": "document.bottom_sheet.handle_dismiss_accessibility"
       },
+      "chip_blocked": {
+        "button_help": "nfc.chip_blocked.button_help",
+        "subtitle": "nfc.chip_blocked.subtitle",
+        "title": "nfc.chip_blocked.title"
+      },
+      "chip_blocked_optional": {
+        "button_primary": "nfc.chip_blocked.optional_button_primary",
+        "subtitle": "nfc.chip_blocked.optional_subtitle",
+        "title": "nfc.chip_blocked.optional_title"
+      },
       "country_select": {
         "alert": {
           "another_doc": "sample.selection.country_select_another_doc"
@@ -2055,6 +2095,40 @@
           "title": "document.upload.success.title"
         }
       },
+      "doc_video_intro": {
+        "callout": "document.intro_tilt.callout",
+        "list_item_tip_1": "document.intro_tilt.list_item_tip_1",
+        "list_item_tip_2": "document.intro_tilt.list_item_tip_2",
+        "sub-title": "document.intro_tilt.subtitle",
+        "title": "document.intro_tilt.title"
+      },
+      "doc_video_tilt": {
+        "feedback": {
+          "side_complete_accessibility": "document.scan.feedback.tilt_accessibility.complete",
+          "tilt_down": "document.scan.feedback.tilt.down",
+          "tilt_down_accessibility": "document.scan.feedback.tilt_accessibility.down",
+          "tilt_left": "document.scan.feedback.tilt.left",
+          "tilt_left_accessibility": "document.scan.feedback.tilt_accessibility.left",
+          "tilt_right": "document.scan.feedback.tilt.right",
+          "tilt_right_accessibility": "document.scan.feedback.tilt_accessibility.right",
+          "tilt_up": "document.scan.feedback.tilt.up",
+          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up"
+        },
+        "instructions": {
+          "sub_title_generic": "document.scan.instructions.subtitle_tilt_generic"
+        }
+      },
+      "doc_video_tilt_help": {
+        "description_tip_1": "document.help_tilt.description_tip_1",
+        "description_tip_2": "document.help_tilt.description_tip_2",
+        "sub_title": "document.help_tilt.subtitle",
+        "title_tip_1": "document.help_tilt.title_tip_1",
+        "title_tip_2": "document.help_tilt.title_tip_2"
+      },
+      "doc_video_tilt_timeout": {
+        "sub_title": "document.help_tilt.subtitle_timeout",
+        "title": "document.help_tilt.title_timeout"
+      },
       "eid": {
         "scheme_form": {
           "subtitle": "electronicId.scheme_form.subtitle",
@@ -2113,6 +2187,19 @@
           "subtitle": "enrollPasskey.not_supported_error.subtitle",
           "title": "enrollPasskey.not_supported_error.title"
         }
+      },
+      "enter_pin": {
+        "button_primary": "nfc.pin_entry.button_primary",
+        "helper_attempts_left": "nfc.pin_entry.helper_attempts_left",
+        "helper_final_attempt": "nfc.pin_entry.helper_final_attempt",
+        "subtitle": "nfc.pin_entry.subtitle",
+        "title": "nfc.pin_entry.title",
+        "title_incorrect": "nfc.pin_entry.title_incorrect"
+      },
+      "enter_pin_optional": {
+        "button_tertiary": "nfc.pin_entry.optional_button_tertiary",
+        "helper_attempts_left": "nfc.pin_entry.optional_helper_attempts_left",
+        "helper_final_attempt": "nfc.pin_entry.optional_helper_final_attempt"
       },
       "generic": {
         "accessibility": {
@@ -2679,6 +2766,10 @@
         "list_item_nfc": "nfc.settings.list_item_nfc",
         "subtitle": "nfc.settings.subtitle",
         "title": "nfc.settings.title"
+      },
+      "nfc_scan": {
+        "pin_disclaimer": "nfc.scan.pin_disclaimer",
+        "video_instruction_accessibility": "nfc.error.video_instruction_accessibility"
       },
       "nfc_scan_error_device": {
         "primary_button": "nfc.unsupported_device.button_primary",
@@ -3773,6 +3864,14 @@
     }
   },
   "nfc": {
+    "chip_blocked": {
+      "button_help": "Vladni portal",
+      "optional_button_primary": "Nadaljuj",
+      "optional_subtitle": "Preveč napačnih vnosov PIN-a je blokiralo vaš NFC čip, zato bomo ta korak preskočili. Za ponastavitev PIN-a za prihodnjo uporabo se obrnite na pristojne organe.",
+      "optional_title": "Nadaljuj brez skeniranja čipa",
+      "subtitle": "To je varnostni ukrep za preprečevanje goljufij. Za odblokiranje čipa se obrnite na lokalni organ, ki je izdal dokument.",
+      "title": "NFC čip blokiran"
+    },
     "connection_error": {
       "button_primary": "Poskusite znova prenesti",
       "subtitle": "Preverite, ali je vaša povezava stabilna, nato poskusite znova",
@@ -3806,7 +3905,19 @@
         "passport_usa": "Morda boste morali počasi drseti s telefonom gor in dol po notranji zadnji strani ovitka, dokler ne najdete čipa."
       },
       "instruction_5_passport": "Ko vaš telefon zazna čip v vašem potnem listu, se bo skeniranje začelo samodejno. Držite telefon in potni list pri miru, da se skeniranje lahko dokonča.",
-      "title": "Čipa ni mogoče skenirati. Potrebujete pomoč?"
+      "title": "Čipa ni mogoče skenirati. Potrebujete pomoč?",
+      "video_instruction_accessibility": "Video navodila"
+    },
+    "pin_entry": {
+      "button_primary": "Nadaljuj",
+      "helper_attempts_left": "[%i] preostalih poskusov",
+      "helper_final_attempt": "Preostal je še 1 poskus. Vaš čip bo blokiran po naslednjem neuspelem poskusu",
+      "optional_button_tertiary": "Preskoči skeniranje NFC čipa",
+      "optional_helper_attempts_left": "[%i] preostalih poskusov. Spodaj preskočite ta korak.",
+      "optional_helper_final_attempt": "[%i] poskus ostane, preden bo vaš NFC čip blokiran. Spodaj preskočite ta korak.",
+      "subtitle": "To je potrebno za varno branje NFC čipa. To [%i]-mestno številko ste ustvarili ob izdaji dokumenta.",
+      "title": "Vnesite PIN dokumenta",
+      "title_incorrect": "Napačna PIN"
     },
     "scan": {
       "button_primary": "Začni skeniranje",
@@ -3827,8 +3938,10 @@
         "document": "Ko je čip zaznan, držite telefon in dokument pri miru.",
         "passport": "Ko je čip zaznan, obdržite svoj telefon in potni list mirno."
       },
+      "pin_disclaimer": "Pred skeniranjem čipa vas bomo prosili za [%i]-mestno PIN kodo vašega dokumenta.",
       "title_document": "Preglejte svoj dokument",
-      "title_passport": "Skenirajte čip na vašem potnem listu"
+      "title_passport": "Skenirajte čip na vašem potnem listu",
+      "video_instruction_accessibility": "Video navodila"
     },
     "settings": {
       "button_primary": "Odprite nastavitve",
@@ -3864,7 +3977,8 @@
         "ready": "Pripravljen za skeniranje",
         "scanning": "Skeniranje...",
         "success": "Skeniranje uspešno."
-      }
+      },
+      "video_instruction_accessibility": "Video navodila"
     },
     "unsupported_device": {
       "button_primary": "Preverjanje izhoda",
@@ -4481,6 +4595,7 @@
     "button": {
       "default": "Poskusite znova",
       "expired_document": "Poskusite znova",
+      "failed_authentication": "Poskusite znova",
       "generic_document_issue": "Poskusite znova",
       "generic_proof_of_address_issue": "Poskusite znova",
       "generic_selfie_issue": "Poskusite znova",
@@ -4489,6 +4604,7 @@
     "description": {
       "default": "Poskusite znova",
       "expired_document": "Poskusite znova z veljavnim osebnim dokumentom s fotografijo in preverite, ali so vaši podatki jasno vidni",
+      "failed_authentication": "Poskusite znova",
       "generic_document_issue": "Poskusite znova z veljavnim osebnim dokumentom s fotografijo in preverite, ali so vaši podatki jasno vidni",
       "generic_proof_of_address_issue": "Poskusite znova z veljavnim dokumentom in poskrbite, da bodo vaši podatki jasno vidni",
       "generic_selfie_issue": "Poskusite znova in poskrbite, da bo vaš obraz viden in dobro osvetljen",
@@ -4497,6 +4613,7 @@
     "headline": {
       "default": "Prišlo je do težave",
       "expired_document": "Vaš dokument je potekel",
+      "failed_authentication": "Preverjanje pristnosti ni uspelo",
       "generic_document_issue": "Prišlo je do težave z vašim dokumentom",
       "generic_proof_of_address_issue": "Prišlo je do težave z vašim dokumentom",
       "generic_selfie_issue": "Prišlo je do težave s tvojo selfi fotografijo",

@@ -878,6 +878,15 @@
       "title_tip_2": "Umieść swój dokument tożsamości w ramce",
       "title_tip_3": "Upewnij się, że wszystkie pola są czytelne"
     },
+    "help_tilt": {
+      "description_tip_1": "Aby uzyskać najlepszy efekt, trzymaj dokument tożsamości w dłoni i delikatnie go przechylaj. Postępuj zgodnie z instrukcjami na ekranie, zmieniając kąt nachylenia dokumentu, aż wszystkie krawędzie zazielenią się.",
+      "description_tip_2": "Utrzymuj wszystkie krawędzie dokumentu w kadrze, aby poprawnie wykonać ruch przechylenia. Jeśli któraś krawędź nie zmienia koloru na zielony, odsuń się i wycentruj dokument.",
+      "subtitle": "Skorzystaj z tych wskazówek, aby poprawnie uchwycić hologramy na swoim dokumencie tożsamości",
+      "subtitle_timeout": "Ze względów bezpieczeństwa masz do 20 sekund na ukończenie tego kroku",
+      "title_timeout": "Limit czasu został osiągnięty. \nWypróbuj te wskazówki",
+      "title_tip_1": "Trzymaj swój dokument tożsamości i wykonaj ruch przechylenia",
+      "title_tip_2": "Umieść swój dokument tożsamości w ramce"
+    },
     "intro": {
       "button_primary_selection_off": "Rozpocznij skanowanie",
       "button_primary_selection_on": "Wybierz dokument",
@@ -886,6 +895,13 @@
       "list_item_tip_3": "Upewnij się, że wszystkie pola są czytelne",
       "subtitle": "Musimy zrobić zdjęcia Twojego dokumentu, aby upewnić się, że jest autentyczny.",
       "title": "Zeskanuj swój dokument tożsamości"
+    },
+    "intro_tilt": {
+      "callout": "Użyjemy latarki w Twoim telefonie",
+      "list_item_tip_1": "Trzymaj dokument tożsamości w ramce",
+      "list_item_tip_2": "Przechyl dowód tożsamości, aż wszystkie cztery boki ramki zrobią się zielone",
+      "subtitle": "Robimy to, aby upewnić się, że Twój dokument jest autentyczny",
+      "title": "Przechyl swój dokument tożsamości, aby wyświetlić jego hologramy"
     },
     "preview": {
       "blur_detail": "Upewnij się, że wszystko jest wyraźne",
@@ -957,6 +973,19 @@
         "iq_mrz_3": "Upewnij się, że trzy dolne linie są widoczne",
         "iq_no_doc": "Umieść dokument w ramce",
         "iq_obstruction": "Usuń palce z dokumentu",
+        "tilt": {
+          "down": "Przechyl dowód w dół",
+          "left": "Przechyl swój dokument w lewo",
+          "right": "Przechyl swój dokument w prawo",
+          "up": "Przechyl dokument do góry"
+        },
+        "tilt_accessibility": {
+          "complete": "Zakończ",
+          "down": "Przechyl dowód w dół, aż usłyszysz potwierdzenie",
+          "left": "Przechyl dowód w lewo, aż usłyszysz potwierdzenie",
+          "right": "Przechyl swój dokument w prawo, aż usłyszysz potwierdzenie",
+          "up": "Przechyl dowód w górę, aż usłyszysz potwierdzenie"
+        },
         "validity": {
           "button_primary": "Spróbuj ponownie",
           "button_secondary": "Wybierz inny dokument"
@@ -1003,6 +1032,7 @@
         "subtitle_passport_accessibility": "Przyłóż stronę ze zdjęciem paszportu do tylnej części telefonu i powoli odsuń, aż usłyszysz sygnał.",
         "subtitle_passport_manual": "Zeskanuj stronę ze zdjęciem swojego dokumentu",
         "subtitle_passport_manual_accessibility": "Umieść stronę ze zdjęciem swojego paszportu przed tylną kamerą i naciśnij przycisk poniżej.",
+        "subtitle_tilt_generic": "Przechyl dowód osobisty, aż ramka zmieni kolor na zielony",
         "title_back": "Tył dokumentu",
         "title_front": "Przednia strona",
         "title_passport": "Strona ze zdjęciem"
@@ -1632,6 +1662,16 @@
       "bottom_sheet": {
         "handle_accessibility": "document.bottom_sheet.handle_dismiss_accessibility"
       },
+      "chip_blocked": {
+        "button_help": "nfc.chip_blocked.button_help",
+        "subtitle": "nfc.chip_blocked.subtitle",
+        "title": "nfc.chip_blocked.title"
+      },
+      "chip_blocked_optional": {
+        "button_primary": "nfc.chip_blocked.optional_button_primary",
+        "subtitle": "nfc.chip_blocked.optional_subtitle",
+        "title": "nfc.chip_blocked.optional_title"
+      },
       "country_select": {
         "alert": {
           "another_doc": "sample.selection.country_select_another_doc"
@@ -2055,6 +2095,40 @@
           "title": "document.upload.success.title"
         }
       },
+      "doc_video_intro": {
+        "callout": "document.intro_tilt.callout",
+        "list_item_tip_1": "document.intro_tilt.list_item_tip_1",
+        "list_item_tip_2": "document.intro_tilt.list_item_tip_2",
+        "sub-title": "document.intro_tilt.subtitle",
+        "title": "document.intro_tilt.title"
+      },
+      "doc_video_tilt": {
+        "feedback": {
+          "side_complete_accessibility": "document.scan.feedback.tilt_accessibility.complete",
+          "tilt_down": "document.scan.feedback.tilt.down",
+          "tilt_down_accessibility": "document.scan.feedback.tilt_accessibility.down",
+          "tilt_left": "document.scan.feedback.tilt.left",
+          "tilt_left_accessibility": "document.scan.feedback.tilt_accessibility.left",
+          "tilt_right": "document.scan.feedback.tilt.right",
+          "tilt_right_accessibility": "document.scan.feedback.tilt_accessibility.right",
+          "tilt_up": "document.scan.feedback.tilt.up",
+          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up"
+        },
+        "instructions": {
+          "sub_title_generic": "document.scan.instructions.subtitle_tilt_generic"
+        }
+      },
+      "doc_video_tilt_help": {
+        "description_tip_1": "document.help_tilt.description_tip_1",
+        "description_tip_2": "document.help_tilt.description_tip_2",
+        "sub_title": "document.help_tilt.subtitle",
+        "title_tip_1": "document.help_tilt.title_tip_1",
+        "title_tip_2": "document.help_tilt.title_tip_2"
+      },
+      "doc_video_tilt_timeout": {
+        "sub_title": "document.help_tilt.subtitle_timeout",
+        "title": "document.help_tilt.title_timeout"
+      },
       "eid": {
         "scheme_form": {
           "subtitle": "electronicId.scheme_form.subtitle",
@@ -2113,6 +2187,19 @@
           "subtitle": "enrollPasskey.not_supported_error.subtitle",
           "title": "enrollPasskey.not_supported_error.title"
         }
+      },
+      "enter_pin": {
+        "button_primary": "nfc.pin_entry.button_primary",
+        "helper_attempts_left": "nfc.pin_entry.helper_attempts_left",
+        "helper_final_attempt": "nfc.pin_entry.helper_final_attempt",
+        "subtitle": "nfc.pin_entry.subtitle",
+        "title": "nfc.pin_entry.title",
+        "title_incorrect": "nfc.pin_entry.title_incorrect"
+      },
+      "enter_pin_optional": {
+        "button_tertiary": "nfc.pin_entry.optional_button_tertiary",
+        "helper_attempts_left": "nfc.pin_entry.optional_helper_attempts_left",
+        "helper_final_attempt": "nfc.pin_entry.optional_helper_final_attempt"
       },
       "generic": {
         "accessibility": {
@@ -2679,6 +2766,10 @@
         "list_item_nfc": "nfc.settings.list_item_nfc",
         "subtitle": "nfc.settings.subtitle",
         "title": "nfc.settings.title"
+      },
+      "nfc_scan": {
+        "pin_disclaimer": "nfc.scan.pin_disclaimer",
+        "video_instruction_accessibility": "nfc.error.video_instruction_accessibility"
       },
       "nfc_scan_error_device": {
         "primary_button": "nfc.unsupported_device.button_primary",
@@ -3773,6 +3864,14 @@
     }
   },
   "nfc": {
+    "chip_blocked": {
+      "button_help": "Portal rządowy",
+      "optional_button_primary": "Kontynuuj",
+      "optional_subtitle": "Zbyt wiele niepoprawnych wpisów kodu PIN zablokowało Twój chip NFC, więc pominiemy ten krok. Skontaktuj się z odpowiednimi instytucjami, aby zresetować swój PIN do przyszłego użytku.",
+      "optional_title": "Kontynuuj bez skanowania chipa",
+      "subtitle": "To środek bezpieczeństwa mający zapobiegać oszustwom. Skontaktuj się z lokalnym organem wydającym dokumenty, aby odblokować chip.",
+      "title": "Zablokowany chip NFC"
+    },
     "connection_error": {
       "button_primary": "Ponów próbę wysłania",
       "subtitle": "Sprawdź, czy połączenie z internetem jest stabilne, a następnie spróbuj ponownie",
@@ -3806,7 +3905,19 @@
         "passport_usa": "Może być konieczne powolne przesuwanie telefonu w górę i w dół wzdłuż wewnętrznej strony tylnej okładki, aż zlokalizujesz chip."
       },
       "instruction_5_passport": "Gdy telefon wykryje chip w twoim paszporcie, skanowanie rozpocznie się automatycznie. Trzymaj telefon i paszport nieruchomo, aby skanowanie mogło się zakończyć.",
-      "title": "Nie można zeskanować chipa. Potrzebujesz pomocy?"
+      "title": "Nie można zeskanować chipa. Potrzebujesz pomocy?",
+      "video_instruction_accessibility": "Instrukcja wideo"
+    },
+    "pin_entry": {
+      "button_primary": "Kontynuuj",
+      "helper_attempts_left": "[%i] pozostałe próby",
+      "helper_final_attempt": "Pozostała 1 próba. Twój chip zostanie zablokowany po następnej nieudanej próbie",
+      "optional_button_tertiary": "Pomiń skanowanie chipu NFC",
+      "optional_helper_attempts_left": "[%i] prób pozostało. Pomiń ten krok poniżej.",
+      "optional_helper_final_attempt": "[%i] pozostała próba, zanim Twój chip NFC zostanie zablokowany. Pomiń ten krok poniżej.",
+      "subtitle": "To jest potrzebne do bezpiecznego odczytania chipu NFC. Utworzyłeś ten [%i]-cyfrowy numer, gdy wydano Twój dokument.",
+      "title": "Wprowadź PIN dokumentu",
+      "title_incorrect": "Nieprawidłowy PIN"
     },
     "scan": {
       "button_primary": "Rozpocznij skanowanie",
@@ -3827,8 +3938,10 @@
         "document": "Gdy chip zostanie wykryty, trzymaj telefon i dokument nieruchomo.",
         "passport": "Gdy chip zostanie wykryty, utrzymuj telefon i paszport w bezruchu."
       },
+      "pin_disclaimer": "Poprosimy Cię o [%i]-cyfrowy PIN Twojego dokumentu [%i] przed zeskanowaniem chipa.",
       "title_document": "Zeskanuj swój dokument",
-      "title_passport": "Zeskanuj chip swojego paszportu"
+      "title_passport": "Zeskanuj chip swojego paszportu",
+      "video_instruction_accessibility": "Instrukcja wideo"
     },
     "settings": {
       "button_primary": "Otwórz ustawienia",
@@ -3864,7 +3977,8 @@
         "ready": "Gotowość do skanowania",
         "scanning": "Skanowanie...",
         "success": "Skanowanie zakończone sukcesem."
-      }
+      },
+      "video_instruction_accessibility": "Instrukcja wideo"
     },
     "unsupported_device": {
       "button_primary": "Weryfikacja wyjścia",
@@ -4481,6 +4595,7 @@
     "button": {
       "default": "Spróbuj ponownie",
       "expired_document": "Spróbuj ponownie",
+      "failed_authentication": "Spróbuj ponownie",
       "generic_document_issue": "Spróbuj ponownie",
       "generic_proof_of_address_issue": "Spróbuj ponownie",
       "generic_selfie_issue": "Spróbuj ponownie",
@@ -4489,6 +4604,7 @@
     "description": {
       "default": "Spróbuj ponownie",
       "expired_document": "Spróbuj ponownie z ważnym dokumentem tożsamości ze zdjęciem i upewnij się, że Twoje dane są wyraźnie widoczne",
+      "failed_authentication": "Spróbuj ponownie",
       "generic_document_issue": "Spróbuj ponownie z ważnym dokumentem tożsamości ze zdjęciem i upewnij się, że Twoje dane są wyraźnie widoczne",
       "generic_proof_of_address_issue": "Spróbuj ponownie, używając poprawnego dokumentu i upewnij się, że wszystkie dane są wyraźnie widoczne",
       "generic_selfie_issue": "Spróbuj ponownie i upewnij się, że twarz jest widoczna i dobrze oświetlona",
@@ -4497,6 +4613,7 @@
     "headline": {
       "default": "Wystąpił problem",
       "expired_document": "Twój dokument stracił ważność",
+      "failed_authentication": "Uwierzytelnianie nie powiodło się",
       "generic_document_issue": "Wystąpił problem z twoim dokumentem",
       "generic_proof_of_address_issue": "Wystąpił problem z twoim dokumentem",
       "generic_selfie_issue": "Wystąpił problem z Twoim selfie",

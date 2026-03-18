@@ -878,6 +878,15 @@
       "title_tip_2": "วางบัตรประจำตัวของคุณให้อยู่ในกรอบ",
       "title_tip_3": "โปรดตรวจสอบให้แน่ใจว่าข้อมูลทั้งหมดอ่านได้ชัดเจน"
     },
+    "help_tilt": {
+      "description_tip_1": "เพื่อผลลัพธ์ที่ดีที่สุด ให้ถือบัตรประจำตัวไว้ในมือขณะเอียง ทำตามคำแนะนำบนหน้าจอ โดยปรับมุมบัตรประจำตัวจนกว่าทุกด้านจะเปลี่ยนเป็นสีเขียว",
+      "description_tip_2": "รักษาให้ทุกด้านของบัตรประจำตัวของคุณอยู่ในกรอบเพื่อให้การเอียงสมบูรณ์ หากด้านใดด้านหนึ่งไม่เปลี่ยนเป็นสีเขียว ให้ถอยออกและจัดบัตรประจำตัวของคุณให้อยู่ตรงกลาง",
+      "subtitle": "ทำตามเคล็ดลับเหล่านี้เพื่อถ่ายภาพโฮโลแกรมบนบัตรประจำตัวของคุณได้สำเร็จ",
+      "subtitle_timeout": "ด้วยเหตุผลด้านความปลอดภัย คุณมีเวลาสูงสุด 20 วินาทีในการดำเนินการขั้นตอนนี้ให้เสร็จสิ้น",
+      "title_timeout": "ถึงขีดจำกัดเวลาแล้ว \nลองทำตามคำแนะนำเหล่านี้",
+      "title_tip_1": "ถือบัตรประจำตัวของคุณเพื่อทำการเอียง",
+      "title_tip_2": "วางบัตรประจำตัวของคุณในกรอบ"
+    },
     "intro": {
       "button_primary_selection_off": "เริ่มสแกน",
       "button_primary_selection_on": "เลือกเอกสาร",
@@ -886,6 +895,13 @@
       "list_item_tip_3": "ตรวจสอบให้แน่ใจว่าข้อมูลทั้งหมดอ่านได้ชัดเจน",
       "subtitle": "เราจำเป็นต้องถ่ายภาพเอกสารของคุณเพื่อยืนยันว่าเป็นของแท้",
       "title": "สแกนบัตรประจำตัวของคุณ"
+    },
+    "intro_tilt": {
+      "callout": "เราจะใช้ไฟฉายของโทรศัพท์คุณ",
+      "list_item_tip_1": "ถือบัตรประจำตัวของคุณให้อยู่ในกรอบ",
+      "list_item_tip_2": "เอียงบัตรประจำตัวของคุณจนกว่าทั้งสี่ด้านของกรอบเปลี่ยนเป็นสีเขียว",
+      "subtitle": "เราดำเนินการนี้เพื่อตรวจสอบว่าเอกสารของคุณเป็นของแท้",
+      "title": "เอียงบัตรประจำตัวของคุณเพื่อแสดงโฮโลแกรม"
     },
     "preview": {
       "blur_detail": "เช็คให้แน่ใจว่าทุกอย่างชัดเจน",
@@ -957,6 +973,19 @@
         "iq_mrz_3": "ให้เห็นบรรทัดล่างสุด 3 บรรทัด",
         "iq_no_doc": "แสดงเอกสารให้พอดีในกรอบ",
         "iq_obstruction": "เอานิ้วออกจากเอกสาร",
+        "tilt": {
+          "down": "เอียงบัตรประจำตัวลง",
+          "left": "เอียงบัตรประจำตัวของคุณไปทางซ้าย",
+          "right": "เอียงบัตรประจำตัวของคุณไปทางขวา",
+          "up": "เอียงบัตรประจำตัวขึ้น"
+        },
+        "tilt_accessibility": {
+          "complete": "เสร็จสมบูรณ์",
+          "down": "เอียงบัตรประจำตัวของคุณลงจนกว่าจะได้ยินเสียงยืนยัน",
+          "left": "เอียงบัตรประจำตัวของคุณไปทางซ้ายจนกว่าจะได้ยินเสียงยืนยัน",
+          "right": "เอียงบัตรประจำตัวของคุณไปทางขวาจนกว่าจะได้ยินเสียงยืนยัน",
+          "up": "เอียงบัตรประจำตัวของคุณขึ้นจนกว่าจะได้ยินเสียงยืนยัน"
+        },
         "validity": {
           "button_primary": "ลองอีกครั้ง",
           "button_secondary": "เลือกเอกสารอื่น"
@@ -1003,6 +1032,7 @@
         "subtitle_passport_accessibility": "วางหน้าที่มีรูปถ่ายของหนังสือเดินทางแนบกับด้านหลังโทรศัพท์ของคุณ แล้วค่อย ๆ ขยับออกช้า ๆ จนกว่าจะได้ยินเสียงแจ้งเตือน",
         "subtitle_passport_manual": "สแกนหน้าที่มีรูปถ่ายของเอกสารของคุณ",
         "subtitle_passport_manual_accessibility": "วางหน้าที่มีรูปถ่ายของหนังสือเดินทางไว้หน้ากล้องหลังของคุณ แล้วกดปุ่มด้านล่าง",
+        "subtitle_tilt_generic": "เอียงบัตรประจำตัวของคุณจนกว่ากรอบจะเปลี่ยนเป็นสีเขียว",
         "title_back": "ด้านหลัง",
         "title_front": "ด้านหน้า",
         "title_passport": "หน้าที่มีรูปถ่าย"
@@ -1632,6 +1662,16 @@
       "bottom_sheet": {
         "handle_accessibility": "document.bottom_sheet.handle_dismiss_accessibility"
       },
+      "chip_blocked": {
+        "button_help": "nfc.chip_blocked.button_help",
+        "subtitle": "nfc.chip_blocked.subtitle",
+        "title": "nfc.chip_blocked.title"
+      },
+      "chip_blocked_optional": {
+        "button_primary": "nfc.chip_blocked.optional_button_primary",
+        "subtitle": "nfc.chip_blocked.optional_subtitle",
+        "title": "nfc.chip_blocked.optional_title"
+      },
       "country_select": {
         "alert": {
           "another_doc": "sample.selection.country_select_another_doc"
@@ -2055,6 +2095,40 @@
           "title": "document.upload.success.title"
         }
       },
+      "doc_video_intro": {
+        "callout": "document.intro_tilt.callout",
+        "list_item_tip_1": "document.intro_tilt.list_item_tip_1",
+        "list_item_tip_2": "document.intro_tilt.list_item_tip_2",
+        "sub-title": "document.intro_tilt.subtitle",
+        "title": "document.intro_tilt.title"
+      },
+      "doc_video_tilt": {
+        "feedback": {
+          "side_complete_accessibility": "document.scan.feedback.tilt_accessibility.complete",
+          "tilt_down": "document.scan.feedback.tilt.down",
+          "tilt_down_accessibility": "document.scan.feedback.tilt_accessibility.down",
+          "tilt_left": "document.scan.feedback.tilt.left",
+          "tilt_left_accessibility": "document.scan.feedback.tilt_accessibility.left",
+          "tilt_right": "document.scan.feedback.tilt.right",
+          "tilt_right_accessibility": "document.scan.feedback.tilt_accessibility.right",
+          "tilt_up": "document.scan.feedback.tilt.up",
+          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up"
+        },
+        "instructions": {
+          "sub_title_generic": "document.scan.instructions.subtitle_tilt_generic"
+        }
+      },
+      "doc_video_tilt_help": {
+        "description_tip_1": "document.help_tilt.description_tip_1",
+        "description_tip_2": "document.help_tilt.description_tip_2",
+        "sub_title": "document.help_tilt.subtitle",
+        "title_tip_1": "document.help_tilt.title_tip_1",
+        "title_tip_2": "document.help_tilt.title_tip_2"
+      },
+      "doc_video_tilt_timeout": {
+        "sub_title": "document.help_tilt.subtitle_timeout",
+        "title": "document.help_tilt.title_timeout"
+      },
       "eid": {
         "scheme_form": {
           "subtitle": "electronicId.scheme_form.subtitle",
@@ -2113,6 +2187,19 @@
           "subtitle": "enrollPasskey.not_supported_error.subtitle",
           "title": "enrollPasskey.not_supported_error.title"
         }
+      },
+      "enter_pin": {
+        "button_primary": "nfc.pin_entry.button_primary",
+        "helper_attempts_left": "nfc.pin_entry.helper_attempts_left",
+        "helper_final_attempt": "nfc.pin_entry.helper_final_attempt",
+        "subtitle": "nfc.pin_entry.subtitle",
+        "title": "nfc.pin_entry.title",
+        "title_incorrect": "nfc.pin_entry.title_incorrect"
+      },
+      "enter_pin_optional": {
+        "button_tertiary": "nfc.pin_entry.optional_button_tertiary",
+        "helper_attempts_left": "nfc.pin_entry.optional_helper_attempts_left",
+        "helper_final_attempt": "nfc.pin_entry.optional_helper_final_attempt"
       },
       "generic": {
         "accessibility": {
@@ -2679,6 +2766,10 @@
         "list_item_nfc": "nfc.settings.list_item_nfc",
         "subtitle": "nfc.settings.subtitle",
         "title": "nfc.settings.title"
+      },
+      "nfc_scan": {
+        "pin_disclaimer": "nfc.scan.pin_disclaimer",
+        "video_instruction_accessibility": "nfc.error.video_instruction_accessibility"
       },
       "nfc_scan_error_device": {
         "primary_button": "nfc.unsupported_device.button_primary",
@@ -3773,6 +3864,14 @@
     }
   },
   "nfc": {
+    "chip_blocked": {
+      "button_help": "พอร์ทัลของรัฐบาล",
+      "optional_button_primary": "ดำเนินการต่อ",
+      "optional_subtitle": "การป้อน PIN ผิดหลายครั้งเกินไปทำให้ชิป NFC ของคุณถูกบล็อก ดังนั้นเราจะข้ามขั้นตอนนี้ กรุณาติดต่อหน่วยงานที่เกี่ยวข้องเพื่อรีเซ็ต PIN ของคุณสำหรับการใช้งานในอนาคต",
+      "optional_title": "ดำเนินการต่อโดยไม่ต้องสแกนชิป",
+      "subtitle": "นี่เป็นมาตรการรักษาความปลอดภัยเพื่อป้องกันการฉ้อโกง โปรดติดต่อหน่วยงานออกเอกสารในพื้นที่ของคุณเพื่อปลดล็อกชิป",
+      "title": "ชิป NFC ถูกบล็อก"
+    },
     "connection_error": {
       "button_primary": "ลองอัปโหลดอีกครั้ง",
       "subtitle": "เช็คว่าการเชื่อมต่อของคุณเสถียร แล้วลองอีกครั้ง",
@@ -3806,7 +3905,19 @@
         "passport_usa": "คุณอาจต้องเลื่อนโทรศัพท์ของคุณขึ้นและลงช้า ๆ กับด้านในของปกหลังจนกว่าคุณจะพบชิป"
       },
       "instruction_5_passport": "เมื่อโทรศัพท์ของคุณตรวจพบชิปในหนังสือเดินทาง การสแกนจะเริ่มต้นโดยอัตโนมัติ กรุณาถือโทรศัพท์และหนังสือเดินทางให้นิ่งเพื่อให้การสแกนเสร็จสมบูรณ์",
-      "title": "ไม่สามารถสแกนชิปได้ ต้องการความช่วยเหลือหรือไม่?"
+      "title": "ไม่สามารถสแกนชิปได้ ต้องการความช่วยเหลือหรือไม่?",
+      "video_instruction_accessibility": "วิดีโอการสอน"
+    },
+    "pin_entry": {
+      "button_primary": "ดำเนินการต่อ",
+      "helper_attempts_left": "[%i] ครั้งที่เหลืออยู่",
+      "helper_final_attempt": "เหลือความพยายาม 1 ครั้ง ชิปของคุณจะถูกบล็อกหลังจากความพยายามครั้งถัดล้มเหลว",
+      "optional_button_tertiary": "ข้ามการสแกนชิป NFC",
+      "optional_helper_attempts_left": "[%i] ครั้งที่เหลืออยู่ ข้ามขั้นตอนนี้ด้านล่าง",
+      "optional_helper_final_attempt": "[%i] ครั้งที่เหลืออยู่ก่อนที่ชิป NFC ของคุณจะถูกบล็อก ข้ามขั้นตอนนี้ด้านล่าง",
+      "subtitle": "สิ่งนี้จำเป็นสำหรับการอ่านชิป NFC อย่างปลอดภัย คุณได้สร้างหมายเลข [%i] หลักนี้เมื่อเอกสารของคุณถูกออก",
+      "title": "ป้อนรหัส PIN ของเอกสารของคุณ",
+      "title_incorrect": "PIN ไม่ถูกต้อง"
     },
     "scan": {
       "button_primary": "เริ่มการสแกน",
@@ -3827,8 +3938,10 @@
         "document": "เมื่อชิปถูกตรวจพบ ให้ถือโทรศัพท์และเอกสารของคุณให้นิ่ง",
         "passport": "เมื่อตรวจจับชิปแล้ว ให้คุณรักษาโทรศัพท์และพาสปอร์ตของคุณให้นิ่ง"
       },
+      "pin_disclaimer": "เราจะขอ PIN [%i] หลักของเอกสารของคุณก่อนสแกนชิป",
       "title_document": "สแกนเอกสารของคุณ",
-      "title_passport": "สแกนชิปในพาสปอร์ตของคุณ"
+      "title_passport": "สแกนชิปในพาสปอร์ตของคุณ",
+      "video_instruction_accessibility": "วิดีโอการสอน"
     },
     "settings": {
       "button_primary": "เปิดการตั้งค่า",
@@ -3864,7 +3977,8 @@
         "ready": "พร้อมสแกน",
         "scanning": "กำลังสแกน...",
         "success": "สแกนสำเร็จ"
-      }
+      },
+      "video_instruction_accessibility": "วิดีโอการสอน"
     },
     "unsupported_device": {
       "button_primary": "การตรวจสอบการออก",
@@ -4481,6 +4595,7 @@
     "button": {
       "default": "ลองอีกครั้ง",
       "expired_document": "ลองอีกครั้ง",
+      "failed_authentication": "ลองอีกครั้ง",
       "generic_document_issue": "ลองอีกครั้ง",
       "generic_proof_of_address_issue": "ลองอีกครั้ง",
       "generic_selfie_issue": "ลองอีกครั้ง",
@@ -4489,6 +4604,7 @@
     "description": {
       "default": "โปรดลองอีกครั้ง",
       "expired_document": "โปรดลองอีกครั้งโดยใช้บัตรประจำตัวที่มีรูปถ่ายที่ถูกต้อง และตรวจให้แน่ใจว่าเห็นข้อมูลของคุณได้อย่างชัดเจน",
+      "failed_authentication": "โปรดลองอีกครั้ง",
       "generic_document_issue": "โปรดลองอีกครั้งโดยใช้บัตรประจำตัวที่มีรูปถ่ายที่ถูกต้อง และตรวจให้แน่ใจว่าเห็นข้อมูลของคุณได้อย่างชัดเจน",
       "generic_proof_of_address_issue": "โปรดลองอีกครั้งด้วยเอกสารที่ถูกต้องและตรวจสอบให้แน่ใจว่าข้อมูลของคุณมองเห็นได้ชัดเจน",
       "generic_selfie_issue": "โปรดลองอีกครั้ง และเช็คให้แน่ใจว่ามองเห็นใบหน้าของคุณได้ชัดเจนและมีแสงสว่างเพียงพอ",
@@ -4497,6 +4613,7 @@
     "headline": {
       "default": "มีปัญหาเกิดขึ้น",
       "expired_document": "เอกสารของคุณหมดอายุแล้ว",
+      "failed_authentication": "การยืนยันตัวตนล้มเหลว",
       "generic_document_issue": "เกิดปัญหากับเอกสารของคุณ",
       "generic_proof_of_address_issue": "เกิดปัญหากับเอกสารของคุณ",
       "generic_selfie_issue": "มีปัญหาเกี่ยวกับภาพเซลฟี่ของคุณ",

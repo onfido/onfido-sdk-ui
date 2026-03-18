@@ -878,6 +878,15 @@
       "title_tip_2": "Helyezze az igazolványát a keretbe",
       "title_tip_3": "Győződjön meg róla, hogy minden mező olvasható"
     },
+    "help_tilt": {
+      "description_tip_1": "A legjobb eredmény érdekében tartsa a kezében a személyi igazolványát döntés közben. Kövesse a képernyőn megjelenő utasításokat, és addig döntse az igazolványt, amíg minden oldal zöldre nem vált.",
+      "description_tip_2": "Tartsa az igazolványának minden oldalát jól láthatóan a keretben, hogy befejezhesse a döntéses mozdulatot. Ha egy oldal nem vált zöldre, hátráljon kicsit, és igazítsa középre az igazolványát.",
+      "subtitle": "Kövesse ezeket a tippeket, hogy sikeresen rögzítse az igazolvány hologramját",
+      "subtitle_timeout": "Biztonsági okokból legfeljebb 20 másodperce van ennek a lépésnek a befejezésére",
+      "title_timeout": "Időkorlát lejárt.\nPróbálja meg ezeket a tippeket",
+      "title_tip_1": "Tartsa az igazolványát, és döntse meg",
+      "title_tip_2": "Helyezze a személyi igazolványát a keretbe"
+    },
     "intro": {
       "button_primary_selection_off": "Szkennelés indítása",
       "button_primary_selection_on": "Válasszon okmányt",
@@ -886,6 +895,13 @@
       "list_item_tip_3": "Győződjön meg róla, hogy minden mező olvasható",
       "subtitle": "Le kell fényképeznünk az okmányát, hogy megbizonyosodjunk annak hitelességéről.",
       "title": "Szkennelje be személyazonosító okmányát"
+    },
+    "intro_tilt": {
+      "callout": "A telefonja zseblámpáját fogjuk használni",
+      "list_item_tip_1": "Tartsa a személyi igazolványát a keretben",
+      "list_item_tip_2": "Döntse meg a személyi igazolványát, amíg a keret mind a négy oldala zöldre nem vált",
+      "subtitle": "Ezt azért tesszük, hogy megbizonyosodjunk arról, hogy az okmánya hiteles.",
+      "title": "Döntse meg az igazolványát, hogy láthatóvá váljanak a hologramok"
     },
     "preview": {
       "blur_detail": "Győződjön meg róla, hogy minden jól látható",
@@ -957,6 +973,19 @@
         "iq_mrz_3": "Tegye láthatóvá az alsó 3 sort",
         "iq_no_doc": "Mutassa a dokumentumot a keretben",
         "iq_obstruction": "Vegye el az ujjait az okmánytól",
+        "tilt": {
+          "down": "Billentse lefelé a személyi igazolványát",
+          "left": "Billentse balra a személyi igazolványát",
+          "right": "Billentse jobbra az igazolványát",
+          "up": "Billentse felfelé a személyi igazolványát"
+        },
+        "tilt_accessibility": {
+          "complete": "Kész",
+          "down": "Döntse lefelé a személyi igazolványát, amíg meg nem hallja a visszajelzést",
+          "left": "Billentse balra az igazolványát, amíg meg nem hallja a megerősítést",
+          "right": "Döntse jobbra a személyi igazolványát, amíg megerősítést nem hall.",
+          "up": "Döntse felfelé a személyi igazolványát, amíg nem hallja a megerősítést"
+        },
         "validity": {
           "button_primary": "Próbálja újra",
           "button_secondary": "Válassz másik okmányt"
@@ -1003,6 +1032,7 @@
         "subtitle_passport_accessibility": "Helyezze útlevelének fényképes oldalát a telefon hátuljához, majd lassan húzza vissza, amíg visszajelzést nem hall.",
         "subtitle_passport_manual": "Szkenneld le a dokumentumod fényképes oldalát",
         "subtitle_passport_manual_accessibility": "Helyezze az útlevele fényképes oldalát a hátsó kamerája elé, majd nyomja meg az alábbi gombot.",
+        "subtitle_tilt_generic": "Döntse meg a személyi igazolványát, amíg a keret zöldre nem vált",
         "title_back": "Hátoldal",
         "title_front": "Előoldal",
         "title_passport": "Fényképes oldal"
@@ -1632,6 +1662,16 @@
       "bottom_sheet": {
         "handle_accessibility": "document.bottom_sheet.handle_dismiss_accessibility"
       },
+      "chip_blocked": {
+        "button_help": "nfc.chip_blocked.button_help",
+        "subtitle": "nfc.chip_blocked.subtitle",
+        "title": "nfc.chip_blocked.title"
+      },
+      "chip_blocked_optional": {
+        "button_primary": "nfc.chip_blocked.optional_button_primary",
+        "subtitle": "nfc.chip_blocked.optional_subtitle",
+        "title": "nfc.chip_blocked.optional_title"
+      },
       "country_select": {
         "alert": {
           "another_doc": "sample.selection.country_select_another_doc"
@@ -2055,6 +2095,40 @@
           "title": "document.upload.success.title"
         }
       },
+      "doc_video_intro": {
+        "callout": "document.intro_tilt.callout",
+        "list_item_tip_1": "document.intro_tilt.list_item_tip_1",
+        "list_item_tip_2": "document.intro_tilt.list_item_tip_2",
+        "sub-title": "document.intro_tilt.subtitle",
+        "title": "document.intro_tilt.title"
+      },
+      "doc_video_tilt": {
+        "feedback": {
+          "side_complete_accessibility": "document.scan.feedback.tilt_accessibility.complete",
+          "tilt_down": "document.scan.feedback.tilt.down",
+          "tilt_down_accessibility": "document.scan.feedback.tilt_accessibility.down",
+          "tilt_left": "document.scan.feedback.tilt.left",
+          "tilt_left_accessibility": "document.scan.feedback.tilt_accessibility.left",
+          "tilt_right": "document.scan.feedback.tilt.right",
+          "tilt_right_accessibility": "document.scan.feedback.tilt_accessibility.right",
+          "tilt_up": "document.scan.feedback.tilt.up",
+          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up"
+        },
+        "instructions": {
+          "sub_title_generic": "document.scan.instructions.subtitle_tilt_generic"
+        }
+      },
+      "doc_video_tilt_help": {
+        "description_tip_1": "document.help_tilt.description_tip_1",
+        "description_tip_2": "document.help_tilt.description_tip_2",
+        "sub_title": "document.help_tilt.subtitle",
+        "title_tip_1": "document.help_tilt.title_tip_1",
+        "title_tip_2": "document.help_tilt.title_tip_2"
+      },
+      "doc_video_tilt_timeout": {
+        "sub_title": "document.help_tilt.subtitle_timeout",
+        "title": "document.help_tilt.title_timeout"
+      },
       "eid": {
         "scheme_form": {
           "subtitle": "electronicId.scheme_form.subtitle",
@@ -2113,6 +2187,19 @@
           "subtitle": "enrollPasskey.not_supported_error.subtitle",
           "title": "enrollPasskey.not_supported_error.title"
         }
+      },
+      "enter_pin": {
+        "button_primary": "nfc.pin_entry.button_primary",
+        "helper_attempts_left": "nfc.pin_entry.helper_attempts_left",
+        "helper_final_attempt": "nfc.pin_entry.helper_final_attempt",
+        "subtitle": "nfc.pin_entry.subtitle",
+        "title": "nfc.pin_entry.title",
+        "title_incorrect": "nfc.pin_entry.title_incorrect"
+      },
+      "enter_pin_optional": {
+        "button_tertiary": "nfc.pin_entry.optional_button_tertiary",
+        "helper_attempts_left": "nfc.pin_entry.optional_helper_attempts_left",
+        "helper_final_attempt": "nfc.pin_entry.optional_helper_final_attempt"
       },
       "generic": {
         "accessibility": {
@@ -2679,6 +2766,10 @@
         "list_item_nfc": "nfc.settings.list_item_nfc",
         "subtitle": "nfc.settings.subtitle",
         "title": "nfc.settings.title"
+      },
+      "nfc_scan": {
+        "pin_disclaimer": "nfc.scan.pin_disclaimer",
+        "video_instruction_accessibility": "nfc.error.video_instruction_accessibility"
       },
       "nfc_scan_error_device": {
         "primary_button": "nfc.unsupported_device.button_primary",
@@ -3773,6 +3864,14 @@
     }
   },
   "nfc": {
+    "chip_blocked": {
+      "button_help": "Kormányzati portál",
+      "optional_button_primary": "Tovább",
+      "optional_subtitle": "Túl sok hibás PIN-kód beírása letiltotta az Ön NFC‑chipjét, ezért ezt a lépést most kihagyjuk. Kérjük, lépjen kapcsolatba az illetékes hatóságokkal a PIN-kód jövőbeli használathoz szükséges visszaállításához.",
+      "optional_title": "Folytatás chipolvasás nélkül",
+      "subtitle": "Ez egy biztonsági intézkedés a csalás megelőzésére. Lépjen kapcsolatba a helyi okmánykiállító hatósággal, hogy feloldja a chip zárolását.",
+      "title": "NFC-chip blokkolva"
+    },
     "connection_error": {
       "button_primary": "Próbálja újra feltölteni",
       "subtitle": "Ellenőrizze, hogy stabil-e a kapcsolat, majd próbálja újra",
@@ -3806,7 +3905,19 @@
         "passport_usa": "Lehet, hogy lassan fel és le kell csúsztatnia a telefonját a belső hátsó borító mentén, amíg meg nem találja a chipet."
       },
       "instruction_5_passport": "Amint a telefonod érzékeli a chipet az útleveledben, a beolvasás automatikusan elindul. Tartsd mozdulatlanul a telefonodat és az útleveledet, hogy a beolvasás befejeződhessen.",
-      "title": "Nem sikerült a chip beolvasása. Segítségre van szüksége?"
+      "title": "Nem sikerült a chip beolvasása. Segítségre van szüksége?",
+      "video_instruction_accessibility": "Videós útmutató"
+    },
+    "pin_entry": {
+      "button_primary": "Tovább",
+      "helper_attempts_left": "[%i] próbálkozás van hátra",
+      "helper_final_attempt": "Még 1 próbálkozás maradt. A chip blokkolva lesz a következő sikertelen próbálkozás után",
+      "optional_button_tertiary": "NFC-chipolvasás kihagyása",
+      "optional_helper_attempts_left": "[%i] próbálkozás maradt. Hagyja ki ezt a lépést lentebb.",
+      "optional_helper_final_attempt": "[%i] próbálkozása maradt, mielőtt az NFC-chipje zárolásra kerül. Az alábbi lépéssel kihagyhatja ezt.",
+      "subtitle": "Ez szükséges az NFC‑chip biztonságos leolvasásához. Ezt a [%i] számjegyű számot a dokumentuma kiállításakor hozta létre.",
+      "title": "Adja meg a dokumentum PIN-kódját",
+      "title_incorrect": "Helytelen PIN-kód"
     },
     "scan": {
       "button_primary": "Indítási szkennelés",
@@ -3827,8 +3938,10 @@
         "document": "Amint a chipet észlelik, tartsa mozdulatlanul a telefonját és az okmányt.",
         "passport": "Amint a chipet felismeri, tartsa mozdulatlanul a telefonját és az útlevelét."
       },
+      "pin_disclaimer": "A chip beolvasása előtt kérni fogjuk a dokumentum [%i] számjegyű PIN-kódját.",
       "title_document": "Scannelje be a dokumentumát",
-      "title_passport": "Olvassa le az útlevelének chipjét"
+      "title_passport": "Olvassa le az útlevelének chipjét",
+      "video_instruction_accessibility": "Videós útmutató"
     },
     "settings": {
       "button_primary": "Beállítások megnyitása",
@@ -3864,7 +3977,8 @@
         "ready": "Szkennelésre kész",
         "scanning": "Beolvasás…",
         "success": "Sikeres beolvasás."
-      }
+      },
+      "video_instruction_accessibility": "Videós útmutató"
     },
     "unsupported_device": {
       "button_primary": "Azonosítás megszakítása",
@@ -4481,6 +4595,7 @@
     "button": {
       "default": "Próbálja újra",
       "expired_document": "Próbálja újra",
+      "failed_authentication": "Próbálja újra",
       "generic_document_issue": "Próbálja újra",
       "generic_proof_of_address_issue": "Próbálja újra",
       "generic_selfie_issue": "Próbálja újra",
@@ -4489,6 +4604,7 @@
     "description": {
       "default": "Kérjük, próbálja újra",
       "expired_document": "Próbálkozzon újra érvényes fényképes személyazonosító okmánnyal, és győződjön meg róla, hogy az adatai jól láthatók",
+      "failed_authentication": "Kérjük, próbálja újra",
       "generic_document_issue": "Próbálkozzon újra érvényes fényképes személyazonosító okmánnyal, és győződjön meg róla, hogy az adatai jól láthatók",
       "generic_proof_of_address_issue": "Próbálja meg újra egy érvényes okmánnyal, és győződjön meg róla, hogy az adatai jól láthatók",
       "generic_selfie_issue": "Próbálkozzon újra, és ügyeljen, hogy arca látható és jól megvilágított legyen",
@@ -4497,6 +4613,7 @@
     "headline": {
       "default": "Probléma merült fel",
       "expired_document": "A dokumentuma lejárt",
+      "failed_authentication": "Sikertelen hitelesítés",
       "generic_document_issue": "Probléma merült fel a dokumentumával",
       "generic_proof_of_address_issue": "Probléma merült fel a dokumentumával",
       "generic_selfie_issue": "Probléma volt az ön szelfijével",

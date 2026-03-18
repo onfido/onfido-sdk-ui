@@ -878,6 +878,15 @@
       "title_tip_2": "Kimliğinizi çerçeveye yerleştirin",
       "title_tip_3": "Tüm alanların okunabilir olduğundan emin olun"
     },
+    "help_tilt": {
+      "description_tip_1": "En iyi sonuçlar için, eğerken kimliğinizi elinizde tutun. Ekrandaki talimatları takip ederek tüm kenarlar yeşile dönene kadar kimliğinizi açılandırın.",
+      "description_tip_2": "Eğme hareketini tamamlamak için kimliğinizin tüm kenarlarının çerçeve içinde görünür olmasını sağlayın. Bir kenar yeşile dönmüyorsa geri çekilin ve kimliğinizi ortaya hizalayın.",
+      "subtitle": "Kimliğinizdeki hologramları başarıyla yakalamak için bu ipuçlarını izleyin",
+      "subtitle_timeout": "Güvenlik nedeniyle, bu adımı tamamlamak için 20 saniyeniz var",
+      "title_timeout": "Zaman sınırına ulaşıldı. \nŞu ipuçlarını deneyin",
+      "title_tip_1": "Eğme hareketi gerçekleştirmek için kimliğinizi tutun",
+      "title_tip_2": "Kimliğinizi çerçevenin içine yerleştirin"
+    },
     "intro": {
       "button_primary_selection_off": "Taramayı başlat",
       "button_primary_selection_on": "Belge seçin",
@@ -886,6 +895,13 @@
       "list_item_tip_3": "Tüm alanların okunabilir olduğundan emin olun",
       "subtitle": "Belgenizin gerçek olduğunu doğrulamak için fotoğraflarını çekmemiz gerekiyor.",
       "title": "Kimliğinizi tarayın"
+    },
+    "intro_tilt": {
+      "callout": "Telefonunuzun fenerini kullanacağız",
+      "list_item_tip_1": "Kimliğinizi çerçeve içinde tutun",
+      "list_item_tip_2": "Çerçevenin dört tarafı da yeşile dönene kadar kimliğinizi eğin",
+      "subtitle": "Belgenizin gerçek olduğunu doğrulamak için bunu yapıyoruz",
+      "title": "Hologramları görüntülemek için kimliğinizi eğin"
     },
     "preview": {
       "blur_detail": "Her şeyin net olduğundan emin olun",
@@ -957,6 +973,19 @@
         "iq_mrz_3": "Alt kısımdaki 3 satırı görünür yapın",
         "iq_no_doc": "Belgeyi kadraja yerleştir",
         "iq_obstruction": "Parmaklarınızı belgeden uzaklaştırın",
+        "tilt": {
+          "down": "Kimliğinizi aşağı eğin",
+          "left": "Kimliğinizi sola eğin",
+          "right": "Kimliğinizi sağa eğin",
+          "up": "Kimliğinizi yukarı eğin"
+        },
+        "tilt_accessibility": {
+          "complete": "Tamamla",
+          "down": "Onay sesini duyana kadar kimliğinizi aşağı eğin",
+          "left": "Onay sesini duyana kadar kimliğinizi sola eğin",
+          "right": "Onay sesini duyana kadar kimliğinizi sağa doğru eğin",
+          "up": "Onay sesini duyana kadar kimliğinizi yukarı eğin"
+        },
         "validity": {
           "button_primary": "Tekrar deneyin",
           "button_secondary": "Başka bir belge seç"
@@ -1003,6 +1032,7 @@
         "subtitle_passport_accessibility": "Pasaportunuzun fotoğraf sayfasını telefonunuzun arkasına yerleştirin ve geri bildirim sesi duyana kadar yavaşça geri çekin.",
         "subtitle_passport_manual": "Belgenizin fotoğraflı yüzünü tarayın",
         "subtitle_passport_manual_accessibility": "Pasaportunuzun fotoğraf sayfasını arka kameranızın önüne yerleştirin ve aşağıdaki butona basın.",
+        "subtitle_tilt_generic": "Çerçeve yeşile dönene kadar kimliğinizi eğin",
         "title_back": "Arka yüz",
         "title_front": "Ön yüz",
         "title_passport": "Fotoğraf sayfası"
@@ -1632,6 +1662,16 @@
       "bottom_sheet": {
         "handle_accessibility": "document.bottom_sheet.handle_dismiss_accessibility"
       },
+      "chip_blocked": {
+        "button_help": "nfc.chip_blocked.button_help",
+        "subtitle": "nfc.chip_blocked.subtitle",
+        "title": "nfc.chip_blocked.title"
+      },
+      "chip_blocked_optional": {
+        "button_primary": "nfc.chip_blocked.optional_button_primary",
+        "subtitle": "nfc.chip_blocked.optional_subtitle",
+        "title": "nfc.chip_blocked.optional_title"
+      },
       "country_select": {
         "alert": {
           "another_doc": "sample.selection.country_select_another_doc"
@@ -2055,6 +2095,40 @@
           "title": "document.upload.success.title"
         }
       },
+      "doc_video_intro": {
+        "callout": "document.intro_tilt.callout",
+        "list_item_tip_1": "document.intro_tilt.list_item_tip_1",
+        "list_item_tip_2": "document.intro_tilt.list_item_tip_2",
+        "sub-title": "document.intro_tilt.subtitle",
+        "title": "document.intro_tilt.title"
+      },
+      "doc_video_tilt": {
+        "feedback": {
+          "side_complete_accessibility": "document.scan.feedback.tilt_accessibility.complete",
+          "tilt_down": "document.scan.feedback.tilt.down",
+          "tilt_down_accessibility": "document.scan.feedback.tilt_accessibility.down",
+          "tilt_left": "document.scan.feedback.tilt.left",
+          "tilt_left_accessibility": "document.scan.feedback.tilt_accessibility.left",
+          "tilt_right": "document.scan.feedback.tilt.right",
+          "tilt_right_accessibility": "document.scan.feedback.tilt_accessibility.right",
+          "tilt_up": "document.scan.feedback.tilt.up",
+          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up"
+        },
+        "instructions": {
+          "sub_title_generic": "document.scan.instructions.subtitle_tilt_generic"
+        }
+      },
+      "doc_video_tilt_help": {
+        "description_tip_1": "document.help_tilt.description_tip_1",
+        "description_tip_2": "document.help_tilt.description_tip_2",
+        "sub_title": "document.help_tilt.subtitle",
+        "title_tip_1": "document.help_tilt.title_tip_1",
+        "title_tip_2": "document.help_tilt.title_tip_2"
+      },
+      "doc_video_tilt_timeout": {
+        "sub_title": "document.help_tilt.subtitle_timeout",
+        "title": "document.help_tilt.title_timeout"
+      },
       "eid": {
         "scheme_form": {
           "subtitle": "electronicId.scheme_form.subtitle",
@@ -2113,6 +2187,19 @@
           "subtitle": "enrollPasskey.not_supported_error.subtitle",
           "title": "enrollPasskey.not_supported_error.title"
         }
+      },
+      "enter_pin": {
+        "button_primary": "nfc.pin_entry.button_primary",
+        "helper_attempts_left": "nfc.pin_entry.helper_attempts_left",
+        "helper_final_attempt": "nfc.pin_entry.helper_final_attempt",
+        "subtitle": "nfc.pin_entry.subtitle",
+        "title": "nfc.pin_entry.title",
+        "title_incorrect": "nfc.pin_entry.title_incorrect"
+      },
+      "enter_pin_optional": {
+        "button_tertiary": "nfc.pin_entry.optional_button_tertiary",
+        "helper_attempts_left": "nfc.pin_entry.optional_helper_attempts_left",
+        "helper_final_attempt": "nfc.pin_entry.optional_helper_final_attempt"
       },
       "generic": {
         "accessibility": {
@@ -2679,6 +2766,10 @@
         "list_item_nfc": "nfc.settings.list_item_nfc",
         "subtitle": "nfc.settings.subtitle",
         "title": "nfc.settings.title"
+      },
+      "nfc_scan": {
+        "pin_disclaimer": "nfc.scan.pin_disclaimer",
+        "video_instruction_accessibility": "nfc.error.video_instruction_accessibility"
       },
       "nfc_scan_error_device": {
         "primary_button": "nfc.unsupported_device.button_primary",
@@ -3773,6 +3864,14 @@
     }
   },
   "nfc": {
+    "chip_blocked": {
+      "button_help": "Devlet portalı",
+      "optional_button_primary": "Devam et",
+      "optional_subtitle": "Çok fazla hatalı PIN girişi NFC çipinizi engelledi, bu nedenle bu adımı atlayacağız. Gelecekte kullanmak üzere PIN'inizi sıfırlamak için yetkili makamlarınızla iletişime geçin.",
+      "optional_title": "Çip taraması olmadan devam et",
+      "subtitle": "Bu, dolandırıcılığı önlemek için alınan bir güvenlik önlemidir. Çipinizin engelini kaldırmak için yerel düzenleyici kurumunuzla iletişime geçin.",
+      "title": "NFC çipi engellendi"
+    },
     "connection_error": {
       "button_primary": "Yüklemeyi yeniden dene",
       "subtitle": "Bağlantınızın kararlı olup olmadığını kontrol edin, ardından tekrar deneyin",
@@ -3806,7 +3905,19 @@
         "passport_usa": "Çipi bulana kadar telefonunuzu iç arka kapak boyunca yavaşça yukarı ve aşağı kaydırmanız gerekebilir."
       },
       "instruction_5_passport": "Telefonunuz pasaportunuzdaki çipi algıladığında, tarama otomatik olarak başlayacaktır. Taramanın tamamlanabilmesi için telefonunuzu ve pasaportunuzu sabit tutun.",
-      "title": "Çipi tarayamıyoruz. Yardıma mı ihtiyacınız var?"
+      "title": "Çipi tarayamıyoruz. Yardıma mı ihtiyacınız var?",
+      "video_instruction_accessibility": "Video talimatı"
+    },
+    "pin_entry": {
+      "button_primary": "Devam et",
+      "helper_attempts_left": "[%i] deneme hakkı kaldı",
+      "helper_final_attempt": "1 deneme hakkı kaldı. Bir sonraki başarısız denemeden sonra çipiniz engellenecektir",
+      "optional_button_tertiary": "NFC çip taramasını atla",
+      "optional_helper_attempts_left": "[%i] deneme hakkı kaldı. Bu adımı aşağıdan atlayın.",
+      "optional_helper_final_attempt": "[%i] deneme hakkınız kaldı, sonrasında NFC çipiniz bloke edilecek. Bu adımı aşağıdan atlayın.",
+      "subtitle": "Bu, NFC çipini güvenli bir şekilde okumak için gereklidir. Bu [%i] haneli numarayı belgeniz düzenlendiğinde oluşturdunuz.",
+      "title": "Belge PIN'inizi girin",
+      "title_incorrect": "Yanlış PIN"
     },
     "scan": {
       "button_primary": "Taramayı başlat",
@@ -3827,8 +3938,10 @@
         "document": "Çip algılandığında, telefonunuzu ve kimlik belgenizi sabit tutun.",
         "passport": "Çip algılandığında, telefonunuzu ve pasaportunuzu hareketsiz tutun."
       },
+      "pin_disclaimer": "Çipi taramadan önce belgenizin [%i] haneli PIN kodunu isteyeceğiz.",
       "title_document": "Belgenizi tarayın",
-      "title_passport": "Pasaportunuzun çipini tarayın"
+      "title_passport": "Pasaportunuzun çipini tarayın",
+      "video_instruction_accessibility": "Video talimatı"
     },
     "settings": {
       "button_primary": "Ayarları aç",
@@ -3864,7 +3977,8 @@
         "ready": "Taramaya hazır",
         "scanning": "Taranıyor...",
         "success": "Tarama başarılı."
-      }
+      },
+      "video_instruction_accessibility": "Video talimatı"
     },
     "unsupported_device": {
       "button_primary": "Çıkış doğrulaması",
@@ -4481,6 +4595,7 @@
     "button": {
       "default": "Tekrar deneyin",
       "expired_document": "Tekrar deneyin",
+      "failed_authentication": "Tekrar deneyin",
       "generic_document_issue": "Tekrar deneyin",
       "generic_proof_of_address_issue": "Tekrar deneyin",
       "generic_selfie_issue": "Tekrar deneyin",
@@ -4489,6 +4604,7 @@
     "description": {
       "default": "Lütfen tekrar deneyin",
       "expired_document": "Lütfen geçerli bir fotoğraflı kimlikle tekrar deneyin ve bilgilerinizin net bir şekilde göründüğünden emin olun",
+      "failed_authentication": "Lütfen tekrar deneyin",
       "generic_document_issue": "Lütfen geçerli bir fotoğraflı kimlikle tekrar deneyin ve bilgilerinizin net bir şekilde göründüğünden emin olun",
       "generic_proof_of_address_issue": "Lütfen geçerli bir belge ile tekrar deneyin ve bilgilerinizin net bir şekilde görülebildğinden emin olun",
       "generic_selfie_issue": "Lütfen tekrar deneyin ve yüzünüzün görünür ve iyi aydınlatılmış olduğundan emin olun",
@@ -4497,6 +4613,7 @@
     "headline": {
       "default": "Bir problem oldu",
       "expired_document": "Belgenizin süresi doldu",
+      "failed_authentication": "Kimlik doğrulama başarısız oldu",
       "generic_document_issue": "Belgenizle ilgili bir sorun oldu",
       "generic_proof_of_address_issue": "Belgenizle ilgili bir sorun oldu",
       "generic_selfie_issue": "Selfie'nizle ilgili bir sorun oldu",

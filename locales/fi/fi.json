@@ -878,6 +878,15 @@
       "title_tip_2": "Aseta henkilöllisyystodistuksesi kehykseen",
       "title_tip_3": "Varmista, että kaikki kentät ovat luettavissa"
     },
+    "help_tilt": {
+      "description_tip_1": "Parhaan tuloksen saavuttamiseksi pidä henkilötodistustasi kädessäsi kallistaessasi laitetta. Seuraa näytön ohjeita ja kallista henkilötodistusta, kunnes kaikki reunat muuttuvat vihreiksi.",
+      "description_tip_2": "Pidä henkilöllisyystodistuksesi kaikki sivut näkyvissä kehyksessä, jotta kallistusliike onnistuu. Jos jokin sivu ei muutu vihreäksi, siirry hieman kauemmas ja keskitä henkilöllisyystodistuksesi.",
+      "subtitle": "Seuraa näitä ohjeita, jotta saat tallennettua henkilöllisyystodistuksesi hologrammit onnistuneesti",
+      "subtitle_timeout": "Turvallisuussyistä sinulla on enintään 20 sekuntia aikaa suorittaa tämä vaihe",
+      "title_timeout": "Aikaraja saavutettu. \nKokeile näitä vinkkejä",
+      "title_tip_1": "Pidä henkilöllisyystodistustasi ja kallista sitä",
+      "title_tip_2": "Aseta henkilöllisyystodistuksesi kehykseen"
+    },
     "intro": {
       "button_primary_selection_off": "Aloita skannaus",
       "button_primary_selection_on": "Valitse asiakirja",
@@ -886,6 +895,13 @@
       "list_item_tip_3": "Varmista, että kaikki kentät ovat luettavissa",
       "subtitle": "Meidän täytyy ottaa kuvia asiakirjastasi varmistaaksemme, että se on aito.",
       "title": "Skannaa henkilöllisyystodistuksesi"
+    },
+    "intro_tilt": {
+      "callout": "Käytämme puhelimesi taskulamppua",
+      "list_item_tip_1": "Pidä henkilöllisyystodistuksesi kehyksen sisällä",
+      "list_item_tip_2": "Kallista henkilötodistustasi, kunnes kaikki kehyksen neljä sivua muuttuvat vihreiksi",
+      "subtitle": "Teemme tämän varmistaaksemme, että asiakirjasi on aito",
+      "title": "Kallista henkilöllisyystodistustasi, jotta hologrammit näkyvät"
     },
     "preview": {
       "blur_detail": "Varmista, että kaikki on selkeää",
@@ -957,6 +973,19 @@
         "iq_mrz_3": "Tee alimmat 3 riviä näkyviksi",
         "iq_no_doc": "Näytä asiakirja kehyksessä",
         "iq_obstruction": "Siirrä sormet pois asiakirjan päältä",
+        "tilt": {
+          "down": "Kallista henkilöllisyystodistustasi alaspäin",
+          "left": "Kallista henkilöllisyystodistusta vasemmalle",
+          "right": "Kallista henkilökorttia oikealle",
+          "up": "Kallista henkilötodistustasi ylöspäin"
+        },
+        "tilt_accessibility": {
+          "complete": "Valmis",
+          "down": "Kallista henkilöllisyystodistusta alaspäin, kunnes kuulet vahvistusäänen",
+          "left": "Kallista henkilöllisyystodistusta vasemmalle, kunnes kuulet vahvistuksen",
+          "right": "Kallista henkilöllisyystodistustasi oikealle, kunnes kuulet vahvistuksen",
+          "up": "Kallista henkilöllisyystodistusta ylöspäin, kunnes kuulet vahvistuksen"
+        },
         "validity": {
           "button_primary": "Yritä uudelleen",
           "button_secondary": "Valitse toinen asiakirja"
@@ -1003,6 +1032,7 @@
         "subtitle_passport_accessibility": "Aseta passisi valokuvasivu puhelimesi taakse ja siirrä sitä hitaasti poispäin, kunnes kuulet palautteen.",
         "subtitle_passport_manual": "Skannaa asiakirjasi valokuvapuoli",
         "subtitle_passport_manual_accessibility": "Aseta passisi valokuvasivu takakameran eteen ja paina alla olevaa painiketta.",
+        "subtitle_tilt_generic": "Kallista henkilöllisyystodistusta, kunnes kehys muuttuu vihreäksi",
         "title_back": "Takapuoli",
         "title_front": "Etupuoli",
         "title_passport": "Valokuvasivu"
@@ -1632,6 +1662,16 @@
       "bottom_sheet": {
         "handle_accessibility": "document.bottom_sheet.handle_dismiss_accessibility"
       },
+      "chip_blocked": {
+        "button_help": "nfc.chip_blocked.button_help",
+        "subtitle": "nfc.chip_blocked.subtitle",
+        "title": "nfc.chip_blocked.title"
+      },
+      "chip_blocked_optional": {
+        "button_primary": "nfc.chip_blocked.optional_button_primary",
+        "subtitle": "nfc.chip_blocked.optional_subtitle",
+        "title": "nfc.chip_blocked.optional_title"
+      },
       "country_select": {
         "alert": {
           "another_doc": "sample.selection.country_select_another_doc"
@@ -2055,6 +2095,40 @@
           "title": "document.upload.success.title"
         }
       },
+      "doc_video_intro": {
+        "callout": "document.intro_tilt.callout",
+        "list_item_tip_1": "document.intro_tilt.list_item_tip_1",
+        "list_item_tip_2": "document.intro_tilt.list_item_tip_2",
+        "sub-title": "document.intro_tilt.subtitle",
+        "title": "document.intro_tilt.title"
+      },
+      "doc_video_tilt": {
+        "feedback": {
+          "side_complete_accessibility": "document.scan.feedback.tilt_accessibility.complete",
+          "tilt_down": "document.scan.feedback.tilt.down",
+          "tilt_down_accessibility": "document.scan.feedback.tilt_accessibility.down",
+          "tilt_left": "document.scan.feedback.tilt.left",
+          "tilt_left_accessibility": "document.scan.feedback.tilt_accessibility.left",
+          "tilt_right": "document.scan.feedback.tilt.right",
+          "tilt_right_accessibility": "document.scan.feedback.tilt_accessibility.right",
+          "tilt_up": "document.scan.feedback.tilt.up",
+          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up"
+        },
+        "instructions": {
+          "sub_title_generic": "document.scan.instructions.subtitle_tilt_generic"
+        }
+      },
+      "doc_video_tilt_help": {
+        "description_tip_1": "document.help_tilt.description_tip_1",
+        "description_tip_2": "document.help_tilt.description_tip_2",
+        "sub_title": "document.help_tilt.subtitle",
+        "title_tip_1": "document.help_tilt.title_tip_1",
+        "title_tip_2": "document.help_tilt.title_tip_2"
+      },
+      "doc_video_tilt_timeout": {
+        "sub_title": "document.help_tilt.subtitle_timeout",
+        "title": "document.help_tilt.title_timeout"
+      },
       "eid": {
         "scheme_form": {
           "subtitle": "electronicId.scheme_form.subtitle",
@@ -2113,6 +2187,19 @@
           "subtitle": "enrollPasskey.not_supported_error.subtitle",
           "title": "enrollPasskey.not_supported_error.title"
         }
+      },
+      "enter_pin": {
+        "button_primary": "nfc.pin_entry.button_primary",
+        "helper_attempts_left": "nfc.pin_entry.helper_attempts_left",
+        "helper_final_attempt": "nfc.pin_entry.helper_final_attempt",
+        "subtitle": "nfc.pin_entry.subtitle",
+        "title": "nfc.pin_entry.title",
+        "title_incorrect": "nfc.pin_entry.title_incorrect"
+      },
+      "enter_pin_optional": {
+        "button_tertiary": "nfc.pin_entry.optional_button_tertiary",
+        "helper_attempts_left": "nfc.pin_entry.optional_helper_attempts_left",
+        "helper_final_attempt": "nfc.pin_entry.optional_helper_final_attempt"
       },
       "generic": {
         "accessibility": {
@@ -2679,6 +2766,10 @@
         "list_item_nfc": "nfc.settings.list_item_nfc",
         "subtitle": "nfc.settings.subtitle",
         "title": "nfc.settings.title"
+      },
+      "nfc_scan": {
+        "pin_disclaimer": "nfc.scan.pin_disclaimer",
+        "video_instruction_accessibility": "nfc.error.video_instruction_accessibility"
       },
       "nfc_scan_error_device": {
         "primary_button": "nfc.unsupported_device.button_primary",
@@ -3773,6 +3864,14 @@
     }
   },
   "nfc": {
+    "chip_blocked": {
+      "button_help": "Viranomaisportaali",
+      "optional_button_primary": "Jatka",
+      "optional_subtitle": "Liian monet virheelliset PIN-koodin syötöt ovat estäneet NFC-sirusi, joten ohitamme tämän vaiheen. Ota yhteyttä viranomaisiin PIN-koodisi nollaamiseksi tulevaa käyttöä varten.",
+      "optional_title": "Jatka ilman sirun lukemista",
+      "subtitle": "Tämä on turvatoimi petosten estämiseksi. Ota yhteyttä paikalliseen myöntävään viranomaiseen poistaaksesi sirun lukituksen.",
+      "title": "NFC-siru estetty"
+    },
     "connection_error": {
       "button_primary": "Yritä ladata uud.",
       "subtitle": "Tarkista, että yhteys on vakaa, ja yritä sitten uudelleen",
@@ -3806,7 +3905,19 @@
         "passport_usa": "Saatat joutua liu'uttamaan puhelintasi hitaasti ylös ja alas takakannen sisäpuolta vasten, kunnes löydät sirun."
       },
       "instruction_5_passport": "Kun puhelimesi havaitsee sirun passissasi, skannaus alkaa automaattisesti. Pidä puhelin ja passi paikallaan, jotta skannaus voi valmistua.",
-      "title": "Sirun skannaaminen ei onnistu. Tarvitsetko apua?"
+      "title": "Sirun skannaaminen ei onnistu. Tarvitsetko apua?",
+      "video_instruction_accessibility": "Video-opastus"
+    },
+    "pin_entry": {
+      "button_primary": "Jatka",
+      "helper_attempts_left": "[%i] yritystä jäljellä",
+      "helper_final_attempt": "1 yritys jäljellä. Siru estetään seuraavan epäonnistuneen yrityksen jälkeen",
+      "optional_button_tertiary": "Ohita NFC-sirun skannaus",
+      "optional_helper_attempts_left": "[%i] yritystä jäljellä. Ohita tämä vaihe alla.",
+      "optional_helper_final_attempt": "[%i] yritys jäljellä ennen kuin NFC-sirusi estetään. Ohita tämä vaihe alla.",
+      "subtitle": "Tätä tarvitaan NFC-sirun turvalliseen lukemiseen. Loit tämän [%i]-numeroisen luvun, kun asiakirjasi myönnettiin.",
+      "title": "Anna asiakirjasi PIN-koodi",
+      "title_incorrect": "Virheellinen PIN-koodi"
     },
     "scan": {
       "button_primary": "Aloita skannaus",
@@ -3827,8 +3938,10 @@
         "document": "Kun siru on havaittu, pidä puhelin ja asiakirja paikallaan.",
         "passport": "Kun siru on havaittu, pidä puhelimesi ja passisi paikallaan."
       },
+      "pin_disclaimer": "Pyydämme asiakirjasi [%i]-numeroista PIN-koodia ennen sirun lukemista.",
       "title_document": "Skannaa dokumenttisi",
-      "title_passport": "Skannaa passisi siru"
+      "title_passport": "Skannaa passisi siru",
+      "video_instruction_accessibility": "Video-opastus"
     },
     "settings": {
       "button_primary": "Avaa asetukset",
@@ -3864,7 +3977,8 @@
         "ready": "Valmis skannaukseen",
         "scanning": "Skannataan...",
         "success": "Skannaus onnistui."
-      }
+      },
+      "video_instruction_accessibility": "Video-opastus"
     },
     "unsupported_device": {
       "button_primary": "Poistumisvarmennus",
@@ -4481,6 +4595,7 @@
     "button": {
       "default": "Yritä uud.",
       "expired_document": "Yritä uud.",
+      "failed_authentication": "Yritä uud.",
       "generic_document_issue": "Yritä uud.",
       "generic_proof_of_address_issue": "Yritä uud.",
       "generic_selfie_issue": "Yritä uud.",
@@ -4489,6 +4604,7 @@
     "description": {
       "default": "Yritä uudelleen",
       "expired_document": "Yritä uudelleen voimassa olevalla kuvallisella ID:llä ja varmista, että tietosi näkyvät selvästi",
+      "failed_authentication": "Yritä uudelleen",
       "generic_document_issue": "Yritä uudelleen voimassa olevalla kuvallisella ID:llä ja varmista, että tietosi näkyvät selvästi",
       "generic_proof_of_address_issue": "Yritä uudelleen kelvollisella asiakirjalla ja varmista, että tietosi näkyvät selkeästi",
       "generic_selfie_issue": "Yritä uudelleen ja varmista, että kasvosi ovat näkyvissä ja hyvin valaistut",
@@ -4497,6 +4613,7 @@
     "headline": {
       "default": "Oli ongelma",
       "expired_document": "Asiakirjasi on vanhentunut",
+      "failed_authentication": "Tunnistautuminen epäonnistui",
       "generic_document_issue": "Asiakirjassasi oli ongelma",
       "generic_proof_of_address_issue": "Asiakirjassasi oli ongelma",
       "generic_selfie_issue": "Oli ongelma selfienne kanssa",

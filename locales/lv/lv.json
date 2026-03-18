@@ -878,6 +878,15 @@
       "title_tip_2": "Novietojiet savu personas apliecību rāmī",
       "title_tip_3": "Pārliecinieties, ka visi lauki ir salasāmi"
     },
+    "help_tilt": {
+      "description_tip_1": "Lai iegūtu vislabākos rezultātus, turiet savu dokumentu rokā un lēnām to slīpiniet. Sekojiet norādēm ekrānā un mainiet dokumenta leņķi, līdz visas malas kļūst zaļas.",
+      "description_tip_2": "Lai pabeigtu sasvēršanas kustību, turiet visus savas personas apliecības stūrus redzamus kadrā. Ja kāds stūris nekļūst zaļš, atkāpieties un novietojiet dokumentu centrā.",
+      "subtitle": "Izmantojiet šos padomus, lai veiksmīgi nofotografētu sava personas dokumenta hologrammas",
+      "subtitle_timeout": "Drošības nolūkos jums ir līdz 20 sekundēm, lai pabeigtu šo darbību",
+      "title_timeout": "Laika limits ir sasniegts. \nIzmēģiniet šos padomus",
+      "title_tip_1": "Turiet savu dokumentu, lai veiktu slīpo kustību",
+      "title_tip_2": "Novietojiet savu identifikācijas dokumentu rāmī"
+    },
     "intro": {
       "button_primary_selection_off": "Sākt skenēšanu",
       "button_primary_selection_on": "Izvēlieties dokumentu",
@@ -886,6 +895,13 @@
       "list_item_tip_3": "Pārliecinieties, ka visi lauki ir salasāmi",
       "subtitle": "Mums ir jāuzņem jūsu dokumenta fotogrāfijas, lai pārliecinātos, ka tas ir īsts.",
       "title": "Skenējiet savu identitātes dokumentu"
+    },
+    "intro_tilt": {
+      "callout": "Mēs izmantosim Jūsu tālruņa zibspuldzi",
+      "list_item_tip_1": "Turiet savu dokumentu rāmī",
+      "list_item_tip_2": "Nolieciet savu dokumentu tā, lai visas četras ietvara malas kļūtu zaļas",
+      "subtitle": "Mēs to darām, lai pārliecinātos, ka jūsu dokuments ir īsts.",
+      "title": "Nolieciet savu dokumentu, lai parādītu tā hologrammas"
     },
     "preview": {
       "blur_detail": "Pārliecinieties, ka viss ir skaidri redzams",
@@ -957,6 +973,19 @@
         "iq_mrz_3": "Padariet apakšējās 3 rindas redzamas",
         "iq_no_doc": "Parādiet dokumentu kadrā",
         "iq_obstruction": "Noņemiet pirkstus no dokumenta",
+        "tilt": {
+          "down": "Nolieciet savu apliecību uz leju",
+          "left": "Pagrieziet savu ID pa kreisi",
+          "right": "Nolieciet savu dokumentu pa labi",
+          "up": "Nolieciet savu ID uz augšu"
+        },
+        "tilt_accessibility": {
+          "complete": "Pabeigts",
+          "down": "Nolieciet savu dokumentu uz leju, līdz dzirdat apstiprinājumu",
+          "left": "Nolieciet savu dokumentu pa kreisi, līdz dzirdat apstiprinājumu",
+          "right": "Pagrieziet savu ID pa labi, līdz dzirdat apstiprinājumu",
+          "up": "Nolieciet savu dokumentu uz augšu, līdz dzirdat apstiprinājumu"
+        },
         "validity": {
           "button_primary": "Mēģiniet vēlreiz",
           "button_secondary": "Izvēlies citu dokumentu"
@@ -1003,6 +1032,7 @@
         "subtitle_passport_accessibility": "Novietojiet sava pases foto lapu pie telefona aizmugures un lēnām attāliniet to, līdz dzirdat atgriezenisko saiti.",
         "subtitle_passport_manual": "Skenējiet sava dokumenta foto pusi",
         "subtitle_passport_manual_accessibility": "Novietojiet sava pases foto lapu kameras aizmugurē un nospiediet zemāk esošo pogu.",
+        "subtitle_tilt_generic": "Pagrieziet savu dokumentu, līdz ietvars kļūst zaļš",
         "title_back": "Aizmugurējā puse",
         "title_front": "Priekšpuse",
         "title_passport": "Foto lapa"
@@ -1632,6 +1662,16 @@
       "bottom_sheet": {
         "handle_accessibility": "document.bottom_sheet.handle_dismiss_accessibility"
       },
+      "chip_blocked": {
+        "button_help": "nfc.chip_blocked.button_help",
+        "subtitle": "nfc.chip_blocked.subtitle",
+        "title": "nfc.chip_blocked.title"
+      },
+      "chip_blocked_optional": {
+        "button_primary": "nfc.chip_blocked.optional_button_primary",
+        "subtitle": "nfc.chip_blocked.optional_subtitle",
+        "title": "nfc.chip_blocked.optional_title"
+      },
       "country_select": {
         "alert": {
           "another_doc": "sample.selection.country_select_another_doc"
@@ -2055,6 +2095,40 @@
           "title": "document.upload.success.title"
         }
       },
+      "doc_video_intro": {
+        "callout": "document.intro_tilt.callout",
+        "list_item_tip_1": "document.intro_tilt.list_item_tip_1",
+        "list_item_tip_2": "document.intro_tilt.list_item_tip_2",
+        "sub-title": "document.intro_tilt.subtitle",
+        "title": "document.intro_tilt.title"
+      },
+      "doc_video_tilt": {
+        "feedback": {
+          "side_complete_accessibility": "document.scan.feedback.tilt_accessibility.complete",
+          "tilt_down": "document.scan.feedback.tilt.down",
+          "tilt_down_accessibility": "document.scan.feedback.tilt_accessibility.down",
+          "tilt_left": "document.scan.feedback.tilt.left",
+          "tilt_left_accessibility": "document.scan.feedback.tilt_accessibility.left",
+          "tilt_right": "document.scan.feedback.tilt.right",
+          "tilt_right_accessibility": "document.scan.feedback.tilt_accessibility.right",
+          "tilt_up": "document.scan.feedback.tilt.up",
+          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up"
+        },
+        "instructions": {
+          "sub_title_generic": "document.scan.instructions.subtitle_tilt_generic"
+        }
+      },
+      "doc_video_tilt_help": {
+        "description_tip_1": "document.help_tilt.description_tip_1",
+        "description_tip_2": "document.help_tilt.description_tip_2",
+        "sub_title": "document.help_tilt.subtitle",
+        "title_tip_1": "document.help_tilt.title_tip_1",
+        "title_tip_2": "document.help_tilt.title_tip_2"
+      },
+      "doc_video_tilt_timeout": {
+        "sub_title": "document.help_tilt.subtitle_timeout",
+        "title": "document.help_tilt.title_timeout"
+      },
       "eid": {
         "scheme_form": {
           "subtitle": "electronicId.scheme_form.subtitle",
@@ -2113,6 +2187,19 @@
           "subtitle": "enrollPasskey.not_supported_error.subtitle",
           "title": "enrollPasskey.not_supported_error.title"
         }
+      },
+      "enter_pin": {
+        "button_primary": "nfc.pin_entry.button_primary",
+        "helper_attempts_left": "nfc.pin_entry.helper_attempts_left",
+        "helper_final_attempt": "nfc.pin_entry.helper_final_attempt",
+        "subtitle": "nfc.pin_entry.subtitle",
+        "title": "nfc.pin_entry.title",
+        "title_incorrect": "nfc.pin_entry.title_incorrect"
+      },
+      "enter_pin_optional": {
+        "button_tertiary": "nfc.pin_entry.optional_button_tertiary",
+        "helper_attempts_left": "nfc.pin_entry.optional_helper_attempts_left",
+        "helper_final_attempt": "nfc.pin_entry.optional_helper_final_attempt"
       },
       "generic": {
         "accessibility": {
@@ -2679,6 +2766,10 @@
         "list_item_nfc": "nfc.settings.list_item_nfc",
         "subtitle": "nfc.settings.subtitle",
         "title": "nfc.settings.title"
+      },
+      "nfc_scan": {
+        "pin_disclaimer": "nfc.scan.pin_disclaimer",
+        "video_instruction_accessibility": "nfc.error.video_instruction_accessibility"
       },
       "nfc_scan_error_device": {
         "primary_button": "nfc.unsupported_device.button_primary",
@@ -3773,6 +3864,14 @@
     }
   },
   "nfc": {
+    "chip_blocked": {
+      "button_help": "Valsts portāls",
+      "optional_button_primary": "Turpināt",
+      "optional_subtitle": "Pārāk daudz nepareizu PIN ievadīšanas mēģinājumu ir bloķējuši jūsu NFC mikroshēmu, tāpēc mēs izlaidīsim šo soli. Sazinieties ar atbildīgo iestādi, lai atiestatītu savu PIN turpmākai lietošanai.",
+      "optional_title": "Turpināt bez čipa skenēšanas",
+      "subtitle": "Šis ir drošības pasākums, lai novērstu krāpniecību. Lai atbloķētu mikroshēmu, sazinieties ar savu vietējo izdevējiestādi.",
+      "title": "NFC mikroshēma bloķēta"
+    },
     "connection_error": {
       "button_primary": "Mēģināt augšupielādēt vēlreiz",
       "subtitle": "Pārbaudiet, vai savienojums ir stabils, un pēc tam mēģiniet vēlreiz",
@@ -3806,7 +3905,19 @@
         "passport_usa": "Jums, iespējams, būs nepieciešams lēnām slīdēt tālruni uz augšu un leju pret iekšējo aizmugurējo vāku, līdz atrodat čipu."
       },
       "instruction_5_passport": "Kad jūsu tālrunis atklāj čipu jūsu pasē, skenēšana sāksies automātiski. Turiet tālruni un pasi nekustīgi, lai skenēšana varētu pabeigties.",
-      "title": "Nevar skenēt mikroshēmu. Vajadzīga palīdzība?"
+      "title": "Nevar skenēt mikroshēmu. Vajadzīga palīdzība?",
+      "video_instruction_accessibility": "Video instrukcija"
+    },
+    "pin_entry": {
+      "button_primary": "Turpināt",
+      "helper_attempts_left": "[%i] mēģinājumi atlikuši",
+      "helper_final_attempt": "Atlikis 1 mēģinājums. Pēc nākamā neveiksmīgā mēģinājuma jūsu čips tiks bloķēts",
+      "optional_button_tertiary": "Izlaist NFC čipa skenēšanu",
+      "optional_helper_attempts_left": "[%i] mēģinājumi atlikuši. Izlaidiet šo soli zemāk.",
+      "optional_helper_final_attempt": "[%i] mēģinājums atlicis, pirms jūsu NFC čips tiks bloķēts. Izlaidiet šo soli zemāk.",
+      "subtitle": "Tas ir nepieciešams, lai droši nolasītu NFC mikroshēmu. Jūs izveidojāt šo [%i] ciparu skaitli, kad tika izsniegts jūsu dokuments.",
+      "title": "Ievadiet sava dokumenta PIN kodu",
+      "title_incorrect": "Nepareizs PIN"
     },
     "scan": {
       "button_primary": "Sākt skenēšanu",
@@ -3827,8 +3938,10 @@
         "document": "Kad mikroshēma ir atklāta, turiet savu tālruni un dokumentu nekustīgi.",
         "passport": "Kad čips ir noteikts, turiet tālruni un pasi tuvu vienu otrai un nemainiet tos."
       },
+      "pin_disclaimer": "Pirms mikroshēmas skenēšanas mēs lūgsim ievadīt jūsu dokumenta [%i] ciparu PIN kodu.",
       "title_document": "Skenējiet savu dokumentu",
-      "title_passport": "Skenējiet savas pases mikroshēmu"
+      "title_passport": "Skenējiet savas pases mikroshēmu",
+      "video_instruction_accessibility": "Video instrukcija"
     },
     "settings": {
       "button_primary": "Atvērt iestatījumus",
@@ -3864,7 +3977,8 @@
         "ready": "Gatavs skenēšanai",
         "scanning": "Skenē...",
         "success": "Skenēšana veiksmīga."
-      }
+      },
+      "video_instruction_accessibility": "Video instrukcija"
     },
     "unsupported_device": {
       "button_primary": "Izejas pārbaude",
@@ -4481,6 +4595,7 @@
     "button": {
       "default": "Mēģināt vēlreiz",
       "expired_document": "Mēģināt vēlreiz",
+      "failed_authentication": "Mēģināt vēlreiz",
       "generic_document_issue": "Mēģināt vēlreiz",
       "generic_proof_of_address_issue": "Mēģināt vēlreiz",
       "generic_selfie_issue": "Mēģināt vēlreiz",
@@ -4489,6 +4604,7 @@
     "description": {
       "default": "Mēģiniet vēlreiz",
       "expired_document": "Mēģiniet vēlreiz, izmantojot derīgu ID ar fotoattēlu, un pārliecinieties, ka jūsu informācija ir skaidri redzama",
+      "failed_authentication": "Mēģiniet vēlreiz",
       "generic_document_issue": "Mēģiniet vēlreiz, izmantojot derīgu ID ar fotoattēlu, un pārliecinieties, ka jūsu informācija ir skaidri redzama",
       "generic_proof_of_address_issue": "Lūdzu, mēģiniet vēlreiz ar derīgu dokumentu un pārliecinieties, ka jūsu dati ir skaidri saskatāmi",
       "generic_selfie_issue": "Mēģiniet vēlreiz un pārliecinieties, ka jūsu seja ir redzama un labi apgaismota",
@@ -4497,6 +4613,7 @@
     "headline": {
       "default": "Radās problēma",
       "expired_document": "Jūsu dokumenta derīguma termiņš ir beidzies",
+      "failed_authentication": "Neizdevās autentificēt",
       "generic_document_issue": "Ar jūsu dokumentu radās problēma",
       "generic_proof_of_address_issue": "Ar jūsu dokumentu radās problēma",
       "generic_selfie_issue": "Ar jūsu pašbildi radās problēma",

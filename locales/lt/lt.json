@@ -878,6 +878,15 @@
       "title_tip_2": "Padėkite savo asmens dokumentą rėmelyje",
       "title_tip_3": "Įsitikinkite, kad visi laukai yra įskaitomi"
     },
+    "help_tilt": {
+      "description_tip_1": "Geriausiam rezultatui pasiekti laikykite pažymėjimą rankoje ir palenkite jį. Vadovaukitės ekrane pateikiamomis instrukcijomis ir keiskite pažymėjimo kampą, kol visos kraštinės taps žalios.",
+      "description_tip_2": "Laikykite visus savo dokumento kraštus matomus kadre, kad užbaigtumėte pakreipimo judesį. Jei kuri nors pusė nepažaliuoja, atsitraukite ir sulyginkite dokumentą centre.",
+      "subtitle": "Vadovaukitės šiais patarimais, kad sėkmingai užfiksuotumėte savo asmens dokumento hologramas",
+      "subtitle_timeout": "Saugumo sumetimais šį veiksmą turite atlikti per 20 sekundžių",
+      "title_timeout": "Laikas baigėsi. \nIšbandykite šiuos patarimus",
+      "title_tip_1": "Laikykite savo asmens dokumentą ir pakreipkite jį",
+      "title_tip_2": "Padėkite savo dokumentą rėmelyje"
+    },
     "intro": {
       "button_primary_selection_off": "Pradėti skenavimą",
       "button_primary_selection_on": "Pasirinkite dokumentą",
@@ -886,6 +895,13 @@
       "list_item_tip_3": "Įsitikinkite, kad visi laukai yra įskaitomi",
       "subtitle": "Turime nufotografuoti jūsų dokumentą, kad įsitikintume jo autentiškumu.",
       "title": "Nuskenuokite savo asmens dokumentą"
+    },
+    "intro_tilt": {
+      "callout": "Naudosime jūsų telefono žibintuvėlį",
+      "list_item_tip_1": "Laikykite savo asmens dokumentą rėmelyje",
+      "list_item_tip_2": "Pakreipkite savo asmens dokumentą, kol visos keturios rėmelio pusės taps žalios",
+      "subtitle": "Tai darome siekdami užtikrinti, kad jūsų dokumentas yra tikras",
+      "title": "Palenkite savo asmens dokumentą, kad matytųsi jo hologramos"
     },
     "preview": {
       "blur_detail": "Įsitikinkite, kad viskas aiškiai matosi",
@@ -957,6 +973,19 @@
         "iq_mrz_3": "Padarykite matomas apatinės 3 eilutes",
         "iq_no_doc": "Laikykite dokumentą rėmelyje",
         "iq_obstruction": "Patraukite pirštus nuo dokumento",
+        "tilt": {
+          "down": "Nukreipkite savo dokumentą žemyn",
+          "left": "Palenkite savo dokumentą į kairę",
+          "right": "Šiek tiek pakreipkite savo asmens dokumentą į dešinę",
+          "up": "Pakelkite savo ID aukštyn"
+        },
+        "tilt_accessibility": {
+          "complete": "Baigta",
+          "down": "Nuleiskite savo asmens dokumentą žemyn, kol išgirsite patvirtinimą",
+          "left": "Pakreipkite savo asmens dokumentą į kairę, kol išgirsite patvirtinimą",
+          "right": "Pakreipkite savo asmens dokumentą į dešinę, kol išgirsite patvirtinimą",
+          "up": "Pakelkite savo dokumentą aukštyn, kol išgirsite patvirtinimą"
+        },
         "validity": {
           "button_primary": "Bandyti dar kartą",
           "button_secondary": "Pasirinkite kitą dokumentą"
@@ -1003,6 +1032,7 @@
         "subtitle_passport_accessibility": "Padėkite paso puslapį su nuotrauka prie telefono nugarėlės ir lėtai traukite atgal, kol išgirsite garsinį signalą.",
         "subtitle_passport_manual": "Nuskenuokite dokumento pusę su nuotrauka",
         "subtitle_passport_manual_accessibility": "Padėkite paso puslapį su nuotrauka prieš galinę kamerą ir paspauskite žemiau esantį mygtuką.",
+        "subtitle_tilt_generic": "Pakreipkite savo asmens dokumentą, kol rėmelis taps žalias",
         "title_back": "Galinė pusė",
         "title_front": "Priekinė pusė",
         "title_passport": "Nuotraukos puslapis"
@@ -1632,6 +1662,16 @@
       "bottom_sheet": {
         "handle_accessibility": "document.bottom_sheet.handle_dismiss_accessibility"
       },
+      "chip_blocked": {
+        "button_help": "nfc.chip_blocked.button_help",
+        "subtitle": "nfc.chip_blocked.subtitle",
+        "title": "nfc.chip_blocked.title"
+      },
+      "chip_blocked_optional": {
+        "button_primary": "nfc.chip_blocked.optional_button_primary",
+        "subtitle": "nfc.chip_blocked.optional_subtitle",
+        "title": "nfc.chip_blocked.optional_title"
+      },
       "country_select": {
         "alert": {
           "another_doc": "sample.selection.country_select_another_doc"
@@ -2055,6 +2095,40 @@
           "title": "document.upload.success.title"
         }
       },
+      "doc_video_intro": {
+        "callout": "document.intro_tilt.callout",
+        "list_item_tip_1": "document.intro_tilt.list_item_tip_1",
+        "list_item_tip_2": "document.intro_tilt.list_item_tip_2",
+        "sub-title": "document.intro_tilt.subtitle",
+        "title": "document.intro_tilt.title"
+      },
+      "doc_video_tilt": {
+        "feedback": {
+          "side_complete_accessibility": "document.scan.feedback.tilt_accessibility.complete",
+          "tilt_down": "document.scan.feedback.tilt.down",
+          "tilt_down_accessibility": "document.scan.feedback.tilt_accessibility.down",
+          "tilt_left": "document.scan.feedback.tilt.left",
+          "tilt_left_accessibility": "document.scan.feedback.tilt_accessibility.left",
+          "tilt_right": "document.scan.feedback.tilt.right",
+          "tilt_right_accessibility": "document.scan.feedback.tilt_accessibility.right",
+          "tilt_up": "document.scan.feedback.tilt.up",
+          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up"
+        },
+        "instructions": {
+          "sub_title_generic": "document.scan.instructions.subtitle_tilt_generic"
+        }
+      },
+      "doc_video_tilt_help": {
+        "description_tip_1": "document.help_tilt.description_tip_1",
+        "description_tip_2": "document.help_tilt.description_tip_2",
+        "sub_title": "document.help_tilt.subtitle",
+        "title_tip_1": "document.help_tilt.title_tip_1",
+        "title_tip_2": "document.help_tilt.title_tip_2"
+      },
+      "doc_video_tilt_timeout": {
+        "sub_title": "document.help_tilt.subtitle_timeout",
+        "title": "document.help_tilt.title_timeout"
+      },
       "eid": {
         "scheme_form": {
           "subtitle": "electronicId.scheme_form.subtitle",
@@ -2113,6 +2187,19 @@
           "subtitle": "enrollPasskey.not_supported_error.subtitle",
           "title": "enrollPasskey.not_supported_error.title"
         }
+      },
+      "enter_pin": {
+        "button_primary": "nfc.pin_entry.button_primary",
+        "helper_attempts_left": "nfc.pin_entry.helper_attempts_left",
+        "helper_final_attempt": "nfc.pin_entry.helper_final_attempt",
+        "subtitle": "nfc.pin_entry.subtitle",
+        "title": "nfc.pin_entry.title",
+        "title_incorrect": "nfc.pin_entry.title_incorrect"
+      },
+      "enter_pin_optional": {
+        "button_tertiary": "nfc.pin_entry.optional_button_tertiary",
+        "helper_attempts_left": "nfc.pin_entry.optional_helper_attempts_left",
+        "helper_final_attempt": "nfc.pin_entry.optional_helper_final_attempt"
       },
       "generic": {
         "accessibility": {
@@ -2679,6 +2766,10 @@
         "list_item_nfc": "nfc.settings.list_item_nfc",
         "subtitle": "nfc.settings.subtitle",
         "title": "nfc.settings.title"
+      },
+      "nfc_scan": {
+        "pin_disclaimer": "nfc.scan.pin_disclaimer",
+        "video_instruction_accessibility": "nfc.error.video_instruction_accessibility"
       },
       "nfc_scan_error_device": {
         "primary_button": "nfc.unsupported_device.button_primary",
@@ -3773,6 +3864,14 @@
     }
   },
   "nfc": {
+    "chip_blocked": {
+      "button_help": "Valstybinis portalas",
+      "optional_button_primary": "Tęsti",
+      "optional_subtitle": "Per daug neteisingai įvestų PIN kodų užblokavo jūsų NFC lustą, todėl šį žingsnį praleisime. Susisiekite su atitinkamomis institucijomis, kad ateityje galėtumėte iš naujo nustatyti PIN kodą.",
+      "optional_title": "Tęsti be mikroschemos nuskaitymo",
+      "subtitle": "Tai yra saugumo priemonė sukčiavimui užkirsti. Susisiekite su savo vietine dokumentų išdavimo institucija, kad atblokuotumėte lustą.",
+      "title": "NFC mikroschema užblokuota"
+    },
     "connection_error": {
       "button_primary": "Bandyti įkelti dar kartą",
       "subtitle": "Patikrinkite, ar ryšys stabilus, tada bandykite dar kartą",
@@ -3806,7 +3905,19 @@
         "passport_usa": "Jums gali tekti lėtai slinkti telefoną aukštyn ir žemyn prieš vidinį galinio viršelio paviršių, kol surasite lustą."
       },
       "instruction_5_passport": "Kai jūsų telefonas aptinka lustą jūsų pase, nuskaitymas prasidės automatiškai. Laikykite telefoną ir pasą nejudančius, kad nuskaitymas galėtų baigtis.",
-      "title": "Nepavyko nuskaityti lusto. Reikia pagalbos?"
+      "title": "Nepavyko nuskaityti lusto. Reikia pagalbos?",
+      "video_instruction_accessibility": "Video instrukcija"
+    },
+    "pin_entry": {
+      "button_primary": "Tęsti",
+      "helper_attempts_left": "[%i] bandymai liko",
+      "helper_final_attempt": "Liko 1 bandymas. Po kito nesėkmingo bandymo jūsų lustas bus užblokuotas",
+      "optional_button_tertiary": "Praleisti NFC lustų nuskaitymą",
+      "optional_helper_attempts_left": "[%i] bandymų liko. Praleiskite šį veiksmą žemiau.",
+      "optional_helper_final_attempt": "Likęs bandymų skaičius: [%i]. Po to jūsų NFC lustas bus užblokuotas. Praleiskite šį veiksmą žemiau.",
+      "subtitle": "To reikia, kad būtų galima saugiai nuskaityti NFC lustą. Šį [%i] skaitmenų numerį sukūrėte, kai buvo išduotas jūsų dokumentas.",
+      "title": "Įveskite savo dokumento PIN kodą",
+      "title_incorrect": "Neteisingas PIN"
     },
     "scan": {
       "button_primary": "Pradėti nuskaitymą",
@@ -3827,8 +3938,10 @@
         "document": "Kai lustas aptinkamas, laikykite telefoną ir dokumentą nejudančius.",
         "passport": "Kai lustas aptinkamas, laikykite telefoną ir pasą nejudant."
       },
+      "pin_disclaimer": "Prieš nuskaitydami lustą paprašysime jūsų dokumento [%i] skaitmenų PIN kodo.",
       "title_document": "Nuskanuokite savo dokumentą",
-      "title_passport": "Nuskaitykite savo paso lustą"
+      "title_passport": "Nuskaitykite savo paso lustą",
+      "video_instruction_accessibility": "Video instrukcija"
     },
     "settings": {
       "button_primary": "Atidaryti nustatymus",
@@ -3864,7 +3977,8 @@
         "ready": "Parengta nuskaityti",
         "scanning": "Nuskaitoma...",
         "success": "Nuskaitymas sėkmingas."
-      }
+      },
+      "video_instruction_accessibility": "Video instrukcija"
     },
     "unsupported_device": {
       "button_primary": "Išeiti iš patvirtinimo",
@@ -4481,6 +4595,7 @@
     "button": {
       "default": "Bandyti dar kartą",
       "expired_document": "Bandyti dar kartą",
+      "failed_authentication": "Bandyti dar kartą",
       "generic_document_issue": "Bandyti dar kartą",
       "generic_proof_of_address_issue": "Bandyti dar kartą",
       "generic_selfie_issue": "Bandyti dar kartą",
@@ -4489,6 +4604,7 @@
     "description": {
       "default": "Bandykite dar kartą",
       "expired_document": "Bandykite dar kartą naudodami galiojantį asmens tapatybės dokumentą su nuotrauka ir įsitikinkite, kad jūsų informacija aiškiai matoma",
+      "failed_authentication": "Bandykite dar kartą",
       "generic_document_issue": "Bandykite dar kartą naudodami galiojantį asmens tapatybės dokumentą su nuotrauka ir įsitikinkite, kad jūsų informacija aiškiai matoma",
       "generic_proof_of_address_issue": "Bandykite dar kartą su galiojančiu dokumentu ir įsitikinkite, kad jūsų informacija aiškiai matoma",
       "generic_selfie_issue": "Bandykite dar kartą ir įsitikinkite, kad jūsų veidas matomas ir gerai apšviestas",
@@ -4497,6 +4613,7 @@
     "headline": {
       "default": "Įvyko problema",
       "expired_document": "Jūsų dokumentas nebegalioja",
+      "failed_authentication": "Tapatybės patvirtinti nepavyko",
       "generic_document_issue": "Su jūsų dokumentu kilo problema",
       "generic_proof_of_address_issue": "Su jūsų dokumentu kilo problema",
       "generic_selfie_issue": "Problema su jūsų savęs portretu",

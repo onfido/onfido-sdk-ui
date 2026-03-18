@@ -878,6 +878,15 @@
       "title_tip_2": "Letakkan dokumen pengenalan anda dalam bingkai",
       "title_tip_3": "Pastikan semua medan boleh dibaca"
     },
+    "help_tilt": {
+      "description_tip_1": "Untuk hasil terbaik, pegang ID anda di tangan semasa anda menggerakkannya. Ikuti arahan pada skrin dan ubah sudut ID anda sehingga semua bahagian menjadi hijau.",
+      "description_tip_2": "Pastikan semua bahagian ID anda kelihatan dalam bingkai untuk melengkapkan pergerakan condong. Jika bahagian tertentu tidak bertukar menjadi hijau, undur sedikit dan letakkan ID anda di tengah.",
+      "subtitle": "Ikuti petua ini untuk merakam hologram pada ID anda dengan berjaya",
+      "subtitle_timeout": "Atas sebab keselamatan, anda mempunyai sehingga 20 saat untuk melengkapkan langkah ini",
+      "title_timeout": "Had masa tamat.\nCuba petua ini",
+      "title_tip_1": "Pegang ID anda untuk melakukan pergerakan condong",
+      "title_tip_2": "Letakkan ID anda dalam bingkai"
+    },
     "intro": {
       "button_primary_selection_off": "Mulakan imbasan",
       "button_primary_selection_on": "Pilih dokumen",
@@ -886,6 +895,13 @@
       "list_item_tip_3": "Pastikan semua medan boleh dibaca",
       "subtitle": "Kami perlu mengambil gambar dokumen anda untuk memastikan ia adalah asli.",
       "title": "Imbas dokumen pengenalan anda"
+    },
+    "intro_tilt": {
+      "callout": "Kami akan menggunakan lampu suluh telefon anda",
+      "list_item_tip_1": "Pegang ID anda dalam bingkai",
+      "list_item_tip_2": "Condongkan ID anda sehingga keempat-empat sisi bingkai bertukar hijau",
+      "subtitle": "Kami melakukan ini untuk memastikan dokumen anda adalah tulen",
+      "title": "Condongkan ID anda untuk memaparkan hologramnya"
     },
     "preview": {
       "blur_detail": "Pastikan segala-galanya adalah jelas",
@@ -957,6 +973,19 @@
         "iq_mrz_3": "Pastikan 3 baris bawah kelihatan",
         "iq_no_doc": "Tunjukkan dokumen dalam bingkai",
         "iq_obstruction": "Alihkan jari daripada dokumen",
+        "tilt": {
+          "down": "Condongkan ID anda ke bawah",
+          "left": "Sengetkan ID anda ke kiri",
+          "right": "Sengetkan ID anda ke kanan",
+          "up": "Condongkan ID anda ke atas"
+        },
+        "tilt_accessibility": {
+          "complete": "Lengkap",
+          "down": "Condongkan ID anda ke bawah sehingga anda mendengar pengesahan",
+          "left": "Condongkan ID anda ke kiri sehingga anda mendengar pengesahan",
+          "right": "Condongkan ID anda ke kanan sehingga anda mendengar pengesahan",
+          "up": "Condongkan ID anda ke atas sehingga anda mendengar pengesahan"
+        },
         "validity": {
           "button_primary": "Cuba lagi",
           "button_secondary": "Pilih dokumen lain"
@@ -1003,6 +1032,7 @@
         "subtitle_passport_accessibility": "Letakkan halaman foto pasport anda di belakang telefon anda dan gerakkan perlahan ke belakang sehingga anda mendengar maklum balas.",
         "subtitle_passport_manual": "Imbas bahagian foto dokumen anda",
         "subtitle_passport_manual_accessibility": "Letakkan halaman foto pasport anda di hadapan kamera belakang dan tekan butang di bawah.",
+        "subtitle_tilt_generic": "Condongkan ID anda sehingga bingkai bertukar hijau",
         "title_back": "Bahagian belakang",
         "title_front": "Bahagian hadapan",
         "title_passport": "Halaman foto"
@@ -1632,6 +1662,16 @@
       "bottom_sheet": {
         "handle_accessibility": "document.bottom_sheet.handle_dismiss_accessibility"
       },
+      "chip_blocked": {
+        "button_help": "nfc.chip_blocked.button_help",
+        "subtitle": "nfc.chip_blocked.subtitle",
+        "title": "nfc.chip_blocked.title"
+      },
+      "chip_blocked_optional": {
+        "button_primary": "nfc.chip_blocked.optional_button_primary",
+        "subtitle": "nfc.chip_blocked.optional_subtitle",
+        "title": "nfc.chip_blocked.optional_title"
+      },
       "country_select": {
         "alert": {
           "another_doc": "sample.selection.country_select_another_doc"
@@ -2055,6 +2095,40 @@
           "title": "document.upload.success.title"
         }
       },
+      "doc_video_intro": {
+        "callout": "document.intro_tilt.callout",
+        "list_item_tip_1": "document.intro_tilt.list_item_tip_1",
+        "list_item_tip_2": "document.intro_tilt.list_item_tip_2",
+        "sub-title": "document.intro_tilt.subtitle",
+        "title": "document.intro_tilt.title"
+      },
+      "doc_video_tilt": {
+        "feedback": {
+          "side_complete_accessibility": "document.scan.feedback.tilt_accessibility.complete",
+          "tilt_down": "document.scan.feedback.tilt.down",
+          "tilt_down_accessibility": "document.scan.feedback.tilt_accessibility.down",
+          "tilt_left": "document.scan.feedback.tilt.left",
+          "tilt_left_accessibility": "document.scan.feedback.tilt_accessibility.left",
+          "tilt_right": "document.scan.feedback.tilt.right",
+          "tilt_right_accessibility": "document.scan.feedback.tilt_accessibility.right",
+          "tilt_up": "document.scan.feedback.tilt.up",
+          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up"
+        },
+        "instructions": {
+          "sub_title_generic": "document.scan.instructions.subtitle_tilt_generic"
+        }
+      },
+      "doc_video_tilt_help": {
+        "description_tip_1": "document.help_tilt.description_tip_1",
+        "description_tip_2": "document.help_tilt.description_tip_2",
+        "sub_title": "document.help_tilt.subtitle",
+        "title_tip_1": "document.help_tilt.title_tip_1",
+        "title_tip_2": "document.help_tilt.title_tip_2"
+      },
+      "doc_video_tilt_timeout": {
+        "sub_title": "document.help_tilt.subtitle_timeout",
+        "title": "document.help_tilt.title_timeout"
+      },
       "eid": {
         "scheme_form": {
           "subtitle": "electronicId.scheme_form.subtitle",
@@ -2113,6 +2187,19 @@
           "subtitle": "enrollPasskey.not_supported_error.subtitle",
           "title": "enrollPasskey.not_supported_error.title"
         }
+      },
+      "enter_pin": {
+        "button_primary": "nfc.pin_entry.button_primary",
+        "helper_attempts_left": "nfc.pin_entry.helper_attempts_left",
+        "helper_final_attempt": "nfc.pin_entry.helper_final_attempt",
+        "subtitle": "nfc.pin_entry.subtitle",
+        "title": "nfc.pin_entry.title",
+        "title_incorrect": "nfc.pin_entry.title_incorrect"
+      },
+      "enter_pin_optional": {
+        "button_tertiary": "nfc.pin_entry.optional_button_tertiary",
+        "helper_attempts_left": "nfc.pin_entry.optional_helper_attempts_left",
+        "helper_final_attempt": "nfc.pin_entry.optional_helper_final_attempt"
       },
       "generic": {
         "accessibility": {
@@ -2679,6 +2766,10 @@
         "list_item_nfc": "nfc.settings.list_item_nfc",
         "subtitle": "nfc.settings.subtitle",
         "title": "nfc.settings.title"
+      },
+      "nfc_scan": {
+        "pin_disclaimer": "nfc.scan.pin_disclaimer",
+        "video_instruction_accessibility": "nfc.error.video_instruction_accessibility"
       },
       "nfc_scan_error_device": {
         "primary_button": "nfc.unsupported_device.button_primary",
@@ -3773,6 +3864,14 @@
     }
   },
   "nfc": {
+    "chip_blocked": {
+      "button_help": "Portal kerajaan",
+      "optional_button_primary": "Sambung",
+      "optional_subtitle": "Terlalu banyak percubaan PIN yang salah telah menyekat cip NFC anda, jadi kami akan melangkau langkah ini. Hubungi pihak berkuasa anda untuk menetapkan semula PIN anda bagi penggunaan pada masa hadapan.",
+      "optional_title": "Teruskan tanpa mengimbas cip",
+      "subtitle": "Ini adalah langkah keselamatan untuk mencegah penipuan. Hubungi pihak berkuasa pengeluar tempatan anda untuk menyahsekat cip anda.",
+      "title": "Cip NFC disekat"
+    },
     "connection_error": {
       "button_primary": "Cuba muat naik semula",
       "subtitle": "Sila periksa sama ada sambungan anda stabil dan cuba lagi kemudian",
@@ -3806,7 +3905,19 @@
         "passport_usa": "Anda mungkin perlu perlahan-lahan menggeser telefon anda ke atas dan ke bawah pada bahagian dalam penutup belakang sehingga anda menemui cip tersebut."
       },
       "instruction_5_passport": "Sebaik sahaja telefon anda mengesan cip dalam pasport anda, imbasan akan bermula secara automatik. Pastikan telefon dan pasport anda tidak bergerak supaya imbasan dapat diselesaikan.",
-      "title": "Tidak dapat mengimbas cip. Perlukan bantuan?"
+      "title": "Tidak dapat mengimbas cip. Perlukan bantuan?",
+      "video_instruction_accessibility": "Arahan video"
+    },
+    "pin_entry": {
+      "button_primary": "Sambung",
+      "helper_attempts_left": "[%i] percubaan berbaki",
+      "helper_final_attempt": "1 percubaan berbaki. Cip anda akan disekat selepas percubaan gagal seterusnya",
+      "optional_button_tertiary": "Langkau pengimbasan cip NFC",
+      "optional_helper_attempts_left": "[%i] percubaan berbaki. Langkau langkah ini di bawah.",
+      "optional_helper_final_attempt": "[%i] percubaan berbaki sebelum cip NFC anda disekat. Langkau langkah ini di bawah.",
+      "subtitle": "Ini diperlukan untuk membaca cip NFC dengan selamat. Anda mencipta nombor [%i] digit ini apabila dokumen anda dikeluarkan.",
+      "title": "Masukkan PIN dokumen anda",
+      "title_incorrect": "PIN tidak betul"
     },
     "scan": {
       "button_primary": "Mulakan imbasan",
@@ -3827,8 +3938,10 @@
         "document": "Setelah cip dikesan, pastikan telefon dan dokumen anda tidak bergerak.",
         "passport": "Setelah cip dikesan, kekalkan telefon dan pasport anda dalam keadaan diam."
       },
+      "pin_disclaimer": "Kami akan meminta PIN [%i] digit untuk dokumen anda sebelum mengimbas cip.",
       "title_document": "Imbas dokumen anda",
-      "title_passport": "Imbas cip pasport anda"
+      "title_passport": "Imbas cip pasport anda",
+      "video_instruction_accessibility": "Arahan video"
     },
     "settings": {
       "button_primary": "Buka tetapan",
@@ -3864,7 +3977,8 @@
         "ready": "Sedia untuk diimbas",
         "scanning": "Mengimbas...",
         "success": "Imbasan berjaya."
-      }
+      },
+      "video_instruction_accessibility": "Arahan video"
     },
     "unsupported_device": {
       "button_primary": "Pengesahan keluar",
@@ -4481,6 +4595,7 @@
     "button": {
       "default": "Cuba lagi",
       "expired_document": "Cuba lagi",
+      "failed_authentication": "Cuba lagi",
       "generic_document_issue": "Cuba lagi",
       "generic_proof_of_address_issue": "Cuba lagi",
       "generic_selfie_issue": "Cuba lagi",
@@ -4489,6 +4604,7 @@
     "description": {
       "default": "Sila cuba lagi",
       "expired_document": "Sila cuba lagi dengan ID bergambar yang sah dan pastikan maklumat anda kelihatan dengan jelas",
+      "failed_authentication": "Sila cuba lagi",
       "generic_document_issue": "Sila cuba lagi dengan ID bergambar yang sah dan pastikan maklumat anda kelihatan dengan jelas",
       "generic_proof_of_address_issue": "Sila cuba lagi dengan dokumen yang sah dan pastikan maklumat anda jelas kelihatan",
       "generic_selfie_issue": "Sila cuba lagi serta pastikan wajah anda kelihatan dan terang",
@@ -4497,6 +4613,7 @@
     "headline": {
       "default": "Ada masalah",
       "expired_document": "Dokumen anda telah tamat tempoh",
+      "failed_authentication": "Pengesahan gagal",
       "generic_document_issue": "Ada masalah dengan dokumen anda",
       "generic_proof_of_address_issue": "Ada masalah dengan dokumen anda",
       "generic_selfie_issue": "Ada masalah dengan selfie anda",

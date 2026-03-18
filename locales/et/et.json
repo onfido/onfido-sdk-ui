@@ -878,6 +878,15 @@
       "title_tip_2": "Aseta oma isikut tõendav dokument raami sisse",
       "title_tip_3": "Veendu, et kõik väljad oleksid loetavad"
     },
+    "help_tilt": {
+      "description_tip_1": "Parima tulemuse saavutamiseks hoidke kallutamise ajal isikutunnistust käes. Järgige ekraanil kuvatavaid juhiseid ja kallutage isikutunnistust, kuni kõik küljed muutuvad roheliseks.",
+      "description_tip_2": "Hoidke kõik isikutunnistuse küljed kaadris nähtavana, et kallutamisliigutus lõpule viia. Kui mõni külg ei muutu roheliseks, liikuge tagasi ja tsentreerige isikutunnistus.",
+      "subtitle": "Järgige neid näpunäiteid, et jäädvustada oma isikutunnistuse hologrammid edukalt",
+      "subtitle_timeout": "Turvalisuse tagamiseks on teil selle sammu lõpuleviimiseks kuni 20 sekundit",
+      "title_timeout": "Ajalimiit täis. \nProovi neid näpunäiteid",
+      "title_tip_1": "Hoidke oma isikut tõendavat dokumenti ja tehke kallutusliigutus",
+      "title_tip_2": "Asetage oma isikutunnistus kaadri sisse"
+    },
     "intro": {
       "button_primary_selection_off": "Alusta skaneerimist",
       "button_primary_selection_on": "Vali dokument",
@@ -886,6 +895,13 @@
       "list_item_tip_3": "Veendu, et kõik väljad oleksid loetavad",
       "subtitle": "Peame teie dokumendist fotod tegema, et veenduda selle ehtsuses.",
       "title": "Skaneeri oma isikut tõendavat dokumenti"
+    },
+    "intro_tilt": {
+      "callout": "Kasutame teie telefoni taskulampi",
+      "list_item_tip_1": "Hoidke oma isikutunnistust kaadris",
+      "list_item_tip_2": "Kallutage oma ID-d, kuni raami kõik neli külge muutuvad roheliseks",
+      "subtitle": "Teeme seda, et veenduda teie dokumendi ehtsuses",
+      "title": "Kallutage oma ID-d, et kuvada selle hologrammid"
     },
     "preview": {
       "blur_detail": "Veenduge, et kõik on selge",
@@ -957,6 +973,19 @@
         "iq_mrz_3": "Tee alumised 3 rida nähtavaks",
         "iq_no_doc": "Aseta dokument kaadrisse",
         "iq_obstruction": "Liiguta sõrmed dokumendist eemale",
+        "tilt": {
+          "down": "Kallutage ID-d allapoole",
+          "left": "Kallutage ID-d vasakule",
+          "right": "Kallutage ID-d paremale",
+          "up": "Kallutage ID-d ülespoole"
+        },
+        "tilt_accessibility": {
+          "complete": "Valmis",
+          "down": "Kallutage oma ID-d allapoole, kuni kuulete kinnitust",
+          "left": "Kallutage oma isikutunnistust vasakule, kuni kuulete kinnitust",
+          "right": "Kallutage oma isikut tõendavat dokumenti paremale, kuni kuulete kinnitust",
+          "up": "Kallutage oma ID-d üles, kuni kuulete kinnitust"
+        },
         "validity": {
           "button_primary": "Proovi uuesti",
           "button_secondary": "Vali muu dokument"
@@ -1003,6 +1032,7 @@
         "subtitle_passport_accessibility": "Aseta oma passi fotoleht telefoni tagakülje vastu ja liigu aeglaselt tagasi, kuni kuuled tagasisidet.",
         "subtitle_passport_manual": "Skaneeri oma dokumendi foto pool",
         "subtitle_passport_manual_accessibility": "Aseta oma passi fotoleht tagumise kaamera ette ja vajuta allolevat nuppu.",
+        "subtitle_tilt_generic": "Kallutage oma ID-d, kuni raam muutub roheliseks",
         "title_back": "Tagakülg",
         "title_front": "Eesmine külg",
         "title_passport": "Fotoleht"
@@ -1632,6 +1662,16 @@
       "bottom_sheet": {
         "handle_accessibility": "document.bottom_sheet.handle_dismiss_accessibility"
       },
+      "chip_blocked": {
+        "button_help": "nfc.chip_blocked.button_help",
+        "subtitle": "nfc.chip_blocked.subtitle",
+        "title": "nfc.chip_blocked.title"
+      },
+      "chip_blocked_optional": {
+        "button_primary": "nfc.chip_blocked.optional_button_primary",
+        "subtitle": "nfc.chip_blocked.optional_subtitle",
+        "title": "nfc.chip_blocked.optional_title"
+      },
       "country_select": {
         "alert": {
           "another_doc": "sample.selection.country_select_another_doc"
@@ -2055,6 +2095,40 @@
           "title": "document.upload.success.title"
         }
       },
+      "doc_video_intro": {
+        "callout": "document.intro_tilt.callout",
+        "list_item_tip_1": "document.intro_tilt.list_item_tip_1",
+        "list_item_tip_2": "document.intro_tilt.list_item_tip_2",
+        "sub-title": "document.intro_tilt.subtitle",
+        "title": "document.intro_tilt.title"
+      },
+      "doc_video_tilt": {
+        "feedback": {
+          "side_complete_accessibility": "document.scan.feedback.tilt_accessibility.complete",
+          "tilt_down": "document.scan.feedback.tilt.down",
+          "tilt_down_accessibility": "document.scan.feedback.tilt_accessibility.down",
+          "tilt_left": "document.scan.feedback.tilt.left",
+          "tilt_left_accessibility": "document.scan.feedback.tilt_accessibility.left",
+          "tilt_right": "document.scan.feedback.tilt.right",
+          "tilt_right_accessibility": "document.scan.feedback.tilt_accessibility.right",
+          "tilt_up": "document.scan.feedback.tilt.up",
+          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up"
+        },
+        "instructions": {
+          "sub_title_generic": "document.scan.instructions.subtitle_tilt_generic"
+        }
+      },
+      "doc_video_tilt_help": {
+        "description_tip_1": "document.help_tilt.description_tip_1",
+        "description_tip_2": "document.help_tilt.description_tip_2",
+        "sub_title": "document.help_tilt.subtitle",
+        "title_tip_1": "document.help_tilt.title_tip_1",
+        "title_tip_2": "document.help_tilt.title_tip_2"
+      },
+      "doc_video_tilt_timeout": {
+        "sub_title": "document.help_tilt.subtitle_timeout",
+        "title": "document.help_tilt.title_timeout"
+      },
       "eid": {
         "scheme_form": {
           "subtitle": "electronicId.scheme_form.subtitle",
@@ -2113,6 +2187,19 @@
           "subtitle": "enrollPasskey.not_supported_error.subtitle",
           "title": "enrollPasskey.not_supported_error.title"
         }
+      },
+      "enter_pin": {
+        "button_primary": "nfc.pin_entry.button_primary",
+        "helper_attempts_left": "nfc.pin_entry.helper_attempts_left",
+        "helper_final_attempt": "nfc.pin_entry.helper_final_attempt",
+        "subtitle": "nfc.pin_entry.subtitle",
+        "title": "nfc.pin_entry.title",
+        "title_incorrect": "nfc.pin_entry.title_incorrect"
+      },
+      "enter_pin_optional": {
+        "button_tertiary": "nfc.pin_entry.optional_button_tertiary",
+        "helper_attempts_left": "nfc.pin_entry.optional_helper_attempts_left",
+        "helper_final_attempt": "nfc.pin_entry.optional_helper_final_attempt"
       },
       "generic": {
         "accessibility": {
@@ -2679,6 +2766,10 @@
         "list_item_nfc": "nfc.settings.list_item_nfc",
         "subtitle": "nfc.settings.subtitle",
         "title": "nfc.settings.title"
+      },
+      "nfc_scan": {
+        "pin_disclaimer": "nfc.scan.pin_disclaimer",
+        "video_instruction_accessibility": "nfc.error.video_instruction_accessibility"
       },
       "nfc_scan_error_device": {
         "primary_button": "nfc.unsupported_device.button_primary",
@@ -3773,6 +3864,14 @@
     }
   },
   "nfc": {
+    "chip_blocked": {
+      "button_help": "Valitsusportaal",
+      "optional_button_primary": "Jätkake",
+      "optional_subtitle": "Liiga paljud valed PIN-koodi sisestused on teie NFC-kiibil blokeerinud, seega jätame selle sammu vahele. Võtke ühendust oma ametiasutustega, et tulevikus kasutamiseks oma PIN-kood lähtestada.",
+      "optional_title": "Jätka ilma kiibi skaneerimiseta",
+      "subtitle": "See on turvameede pettuse vältimiseks. Kiibistiku blokeeringu eemaldamiseks võtke ühendust kohaliku väljaandva asutusega.",
+      "title": "NFC kiip blokeeritud"
+    },
     "connection_error": {
       "button_primary": "Proovige üleslaadimist uuesti",
       "subtitle": "Kontrollige, kas ühendus on stabiilne ning proovige uuesti",
@@ -3806,7 +3905,19 @@
         "passport_usa": "Võib-olla peate telefoni aeglaselt üles-alla libistama vastu tagakaane sisekülge, kuni leiate kiibi."
       },
       "instruction_5_passport": "Kui teie telefon tuvastab teie passi kiibi, algab skannimine automaatselt. Hoidke oma telefon ja pass paigal, et skannimine saaks lõpule viia.",
-      "title": "Ei suuda kiipi skaneerida. Vajate abi?"
+      "title": "Ei suuda kiipi skaneerida. Vajate abi?",
+      "video_instruction_accessibility": "Video juhend"
+    },
+    "pin_entry": {
+      "button_primary": "Jätkake",
+      "helper_attempts_left": "[%i] katset jäänud",
+      "helper_final_attempt": "1 katse jäänud. Teie kiip blokeeritakse pärast järgmist ebaõnnestunud katset",
+      "optional_button_tertiary": "Jäta NFC-kiibiskaneerimine vahele",
+      "optional_helper_attempts_left": "[%i] katset jäänud. Jäta see samm vahele allpool.",
+      "optional_helper_final_attempt": "[%i] katse jäänud enne NFC-kibi blokeerimist. Jäta see samm vahele allpool.",
+      "subtitle": "See on vajalik NFC-kibi turvaliseks lugemiseks. Lõite selle [%i]-kohalise numbri, kui teie dokument väljastati.",
+      "title": "Sisestage oma dokumendi PIN-kood",
+      "title_incorrect": "Vale PIN-kood"
     },
     "scan": {
       "button_primary": "Alusta skannimist",
@@ -3827,8 +3938,10 @@
         "document": "Kui kiip on tuvastatud, hoidke oma telefoni ja dokumenti paigal.",
         "passport": "Kui kiip on tuvastatud, hoidke oma telefoni ja passi paigal."
       },
+      "pin_disclaimer": "Enne kiibilt lugemist küsime teie dokumendi [%i]-kohalist PIN-koodi.",
       "title_document": "Skaneeri oma dokument",
-      "title_passport": "Skaneerige oma passi kiip"
+      "title_passport": "Skaneerige oma passi kiip",
+      "video_instruction_accessibility": "Video juhend"
     },
     "settings": {
       "button_primary": "Avage sätted",
@@ -3864,7 +3977,8 @@
         "ready": "Skannimiseks valmis",
         "scanning": "Skaneerimine...",
         "success": "Skannimine õnnestus."
-      }
+      },
+      "video_instruction_accessibility": "Video juhend"
     },
     "unsupported_device": {
       "button_primary": "Väljumise kontroll",
@@ -4481,6 +4595,7 @@
     "button": {
       "default": "Proovige uuesti",
       "expired_document": "Proovige uuesti",
+      "failed_authentication": "Proovige uuesti",
       "generic_document_issue": "Proovige uuesti",
       "generic_proof_of_address_issue": "Proovige uuesti",
       "generic_selfie_issue": "Proovige uuesti",
@@ -4489,6 +4604,7 @@
     "description": {
       "default": "Proovige uuesti",
       "expired_document": "Proovige uuesti, kasutades kehtiva fotoga isikutunnistust ja veenduge, et teie andmed on selgelt nähtavad",
+      "failed_authentication": "Proovige uuesti",
       "generic_document_issue": "Proovige uuesti, kasutades kehtiva fotoga isikutunnistust ja veenduge, et teie andmed on selgelt nähtavad",
       "generic_proof_of_address_issue": "Palun proovige uuesti kehtiva dokumendiga ja veenduge, et teie andmed oleksid selgelt nähtavad",
       "generic_selfie_issue": "Proovige uuesti ja veenduge, et teie nägu on nähtav ja hästi valgustatud",
@@ -4497,6 +4613,7 @@
     "headline": {
       "default": "Esines probleem",
       "expired_document": "Teie dokument on aegunud",
+      "failed_authentication": "Autentimine ebaõnnestus",
       "generic_document_issue": "Teie dokumendiga oli probleem",
       "generic_proof_of_address_issue": "Teie dokumendiga oli probleem",
       "generic_selfie_issue": "Teie selfie'ga oli probleem",

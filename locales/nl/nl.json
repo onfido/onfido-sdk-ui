@@ -878,6 +878,15 @@
       "title_tip_2": "Plaats je identiteitsbewijs in het kader",
       "title_tip_3": "Zorg ervoor dat alle velden leesbaar zijn"
     },
+    "help_tilt": {
+      "description_tip_1": "Voor het beste resultaat houdt u uw identiteitsbewijs in uw hand terwijl u kantelt. Volg de instructies op het scherm en kantel uw identiteitsbewijs totdat alle zijden groen worden.",
+      "description_tip_2": "Houd alle zijden van je identiteitsbewijs zichtbaar in het kader om de kantelbeweging te voltooien. Als een zijde niet groen wordt, ga dan een stukje naar achteren en centreer je identiteitsbewijs.",
+      "subtitle": "Volg deze tips om de hologrammen op je identiteitsbewijs goed vast te leggen",
+      "subtitle_timeout": "Om veiligheidsredenen hebt u maximaal 20 seconden om deze stap te voltooien",
+      "title_timeout": "Tijdslimiet bereikt. \nProbeer deze tips",
+      "title_tip_1": "Houd je ID vast en kantel het",
+      "title_tip_2": "Plaats je ID in het kader"
+    },
     "intro": {
       "button_primary_selection_off": "Start scan",
       "button_primary_selection_on": "Selecteer document",
@@ -886,6 +895,13 @@
       "list_item_tip_3": "Zorg ervoor dat alle velden leesbaar zijn",
       "subtitle": "We moeten foto's van uw document maken om te controleren of het echt is.",
       "title": "Scan je ID"
+    },
+    "intro_tilt": {
+      "callout": "We gebruiken de zaklamp van je telefoon",
+      "list_item_tip_1": "Houd uw identiteitsbewijs in het kader",
+      "list_item_tip_2": "Kantel uw identiteitsbewijs totdat alle vier de zijden van het kader groen worden",
+      "subtitle": "We doen dit om te controleren of uw document echt is",
+      "title": "Kantel je ID zodat de hologrammen zichtbaar worden"
     },
     "preview": {
       "blur_detail": "Zorg dat alles helder zichtbaar is",
@@ -957,6 +973,19 @@
         "iq_mrz_3": "Zorg dat de onderste 3 regels zichtbaar zijn",
         "iq_no_doc": "Toon document in kader",
         "iq_obstruction": "Haal vingers weg van document",
+        "tilt": {
+          "down": "Kantel je ID omlaag",
+          "left": "Kantel je ID naar links",
+          "right": "Kantel je ID naar rechts",
+          "up": "Kantel je ID omhoog"
+        },
+        "tilt_accessibility": {
+          "complete": "Voltooid",
+          "down": "Kantel uw ID omlaag tot u een bevestiging hoort",
+          "left": "Kantel je identiteitsbewijs naar links totdat je een bevestiging hoort",
+          "right": "Kantel je identiteitsbewijs naar rechts totdat je een bevestiging hoort",
+          "up": "Kantel uw identiteitsbewijs omhoog totdat u een bevestiging hoort"
+        },
         "validity": {
           "button_primary": "Probeer opnieuw",
           "button_secondary": "Selecteer een ander document"
@@ -1003,6 +1032,7 @@
         "subtitle_passport_accessibility": "Plaats de fotopagina van je paspoort tegen de achterkant van je telefoon en beweeg deze langzaam naar achteren tot je feedback hoort.",
         "subtitle_passport_manual": "Scan de fotokant van je document",
         "subtitle_passport_manual_accessibility": "Plaats de fotopagina van je paspoort voor je achtercamera en druk op de knop hieronder.",
+        "subtitle_tilt_generic": "Kantel je ID totdat het kader groen wordt",
         "title_back": "Achterkant",
         "title_front": "Voorkant",
         "title_passport": "Fotopagina"
@@ -1632,6 +1662,16 @@
       "bottom_sheet": {
         "handle_accessibility": "document.bottom_sheet.handle_dismiss_accessibility"
       },
+      "chip_blocked": {
+        "button_help": "nfc.chip_blocked.button_help",
+        "subtitle": "nfc.chip_blocked.subtitle",
+        "title": "nfc.chip_blocked.title"
+      },
+      "chip_blocked_optional": {
+        "button_primary": "nfc.chip_blocked.optional_button_primary",
+        "subtitle": "nfc.chip_blocked.optional_subtitle",
+        "title": "nfc.chip_blocked.optional_title"
+      },
       "country_select": {
         "alert": {
           "another_doc": "sample.selection.country_select_another_doc"
@@ -2055,6 +2095,40 @@
           "title": "document.upload.success.title"
         }
       },
+      "doc_video_intro": {
+        "callout": "document.intro_tilt.callout",
+        "list_item_tip_1": "document.intro_tilt.list_item_tip_1",
+        "list_item_tip_2": "document.intro_tilt.list_item_tip_2",
+        "sub-title": "document.intro_tilt.subtitle",
+        "title": "document.intro_tilt.title"
+      },
+      "doc_video_tilt": {
+        "feedback": {
+          "side_complete_accessibility": "document.scan.feedback.tilt_accessibility.complete",
+          "tilt_down": "document.scan.feedback.tilt.down",
+          "tilt_down_accessibility": "document.scan.feedback.tilt_accessibility.down",
+          "tilt_left": "document.scan.feedback.tilt.left",
+          "tilt_left_accessibility": "document.scan.feedback.tilt_accessibility.left",
+          "tilt_right": "document.scan.feedback.tilt.right",
+          "tilt_right_accessibility": "document.scan.feedback.tilt_accessibility.right",
+          "tilt_up": "document.scan.feedback.tilt.up",
+          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up"
+        },
+        "instructions": {
+          "sub_title_generic": "document.scan.instructions.subtitle_tilt_generic"
+        }
+      },
+      "doc_video_tilt_help": {
+        "description_tip_1": "document.help_tilt.description_tip_1",
+        "description_tip_2": "document.help_tilt.description_tip_2",
+        "sub_title": "document.help_tilt.subtitle",
+        "title_tip_1": "document.help_tilt.title_tip_1",
+        "title_tip_2": "document.help_tilt.title_tip_2"
+      },
+      "doc_video_tilt_timeout": {
+        "sub_title": "document.help_tilt.subtitle_timeout",
+        "title": "document.help_tilt.title_timeout"
+      },
       "eid": {
         "scheme_form": {
           "subtitle": "electronicId.scheme_form.subtitle",
@@ -2113,6 +2187,19 @@
           "subtitle": "enrollPasskey.not_supported_error.subtitle",
           "title": "enrollPasskey.not_supported_error.title"
         }
+      },
+      "enter_pin": {
+        "button_primary": "nfc.pin_entry.button_primary",
+        "helper_attempts_left": "nfc.pin_entry.helper_attempts_left",
+        "helper_final_attempt": "nfc.pin_entry.helper_final_attempt",
+        "subtitle": "nfc.pin_entry.subtitle",
+        "title": "nfc.pin_entry.title",
+        "title_incorrect": "nfc.pin_entry.title_incorrect"
+      },
+      "enter_pin_optional": {
+        "button_tertiary": "nfc.pin_entry.optional_button_tertiary",
+        "helper_attempts_left": "nfc.pin_entry.optional_helper_attempts_left",
+        "helper_final_attempt": "nfc.pin_entry.optional_helper_final_attempt"
       },
       "generic": {
         "accessibility": {
@@ -2679,6 +2766,10 @@
         "list_item_nfc": "nfc.settings.list_item_nfc",
         "subtitle": "nfc.settings.subtitle",
         "title": "nfc.settings.title"
+      },
+      "nfc_scan": {
+        "pin_disclaimer": "nfc.scan.pin_disclaimer",
+        "video_instruction_accessibility": "nfc.error.video_instruction_accessibility"
       },
       "nfc_scan_error_device": {
         "primary_button": "nfc.unsupported_device.button_primary",
@@ -3773,6 +3864,14 @@
     }
   },
   "nfc": {
+    "chip_blocked": {
+      "button_help": "Overheidsportaal",
+      "optional_button_primary": "Doorgaan",
+      "optional_subtitle": "Te veel onjuiste pincode‑invoer heeft uw NFC‑chip geblokkeerd, dus we slaan deze stap over. Neem contact op met de bevoegde instantie om uw pincode te laten resetten voor toekomstig gebruik.",
+      "optional_title": "Doorgaan zonder chip te scannen",
+      "subtitle": "Dit is een veiligheidsmaatregel om fraude te voorkomen. Neem contact op met uw lokale uitgevende instantie om uw chip te deblokkeren.",
+      "title": "NFC-chip geblokkeerd"
+    },
     "connection_error": {
       "button_primary": "Upload opnieuw proberen",
       "subtitle": "Controleer of u een stabiele verbinding heeft en probeer het daarna opnieuw",
@@ -3806,7 +3905,19 @@
         "passport_usa": "U moet mogelijk uw telefoon langzaam omhoog en omlaag schuiven tegen de binnenkant van de achteromslag totdat u de chip vindt."
       },
       "instruction_5_passport": "Zodra je telefoon de chip in je paspoort detecteert, start de scan automatisch. Houd je telefoon en paspoort stil zodat de scan kan voltooien.",
-      "title": "Niet in staat om de chip te scannen. Hulp nodig?"
+      "title": "Niet in staat om de chip te scannen. Hulp nodig?",
+      "video_instruction_accessibility": "Video-instructie"
+    },
+    "pin_entry": {
+      "button_primary": "Doorgaan",
+      "helper_attempts_left": "[%i] pogingen resterend",
+      "helper_final_attempt": "1 poging over. Uw chip wordt geblokkeerd na de volgende mislukte poging",
+      "optional_button_tertiary": "NFC-chips scannen overslaan",
+      "optional_helper_attempts_left": "[%i] pogingen over. Sla deze stap hieronder over.",
+      "optional_helper_final_attempt": "[%i] poging resterend voordat uw NFC-chip wordt geblokkeerd. Sla deze stap hieronder over.",
+      "subtitle": "Dit is nodig om de NFC-chip veilig uit te lezen. Je hebt dit [%i]-cijferige nummer aangemaakt toen je document werd uitgegeven.",
+      "title": "Voer uw document-pincode in",
+      "title_incorrect": "Onjuiste pincode"
     },
     "scan": {
       "button_primary": "Scan starten",
@@ -3827,8 +3938,10 @@
         "document": "Zodra de chip is gedetecteerd, houd je telefoon en document stil.",
         "passport": "Zodra de chip is gedetecteerd, houd uw telefoon en paspoort stil."
       },
+      "pin_disclaimer": "We vragen je om de [%i]-cijferige pincode van je document voordat we de chip scannen.",
       "title_document": "Scan uw document",
-      "title_passport": "Scan de chip van uw paspoort"
+      "title_passport": "Scan de chip van uw paspoort",
+      "video_instruction_accessibility": "Video-instructie"
     },
     "settings": {
       "button_primary": "Open instellingen",
@@ -3864,7 +3977,8 @@
         "ready": "Klaar om te scannen",
         "scanning": "Bezig met scannen...",
         "success": "Scan geslaagd."
-      }
+      },
+      "video_instruction_accessibility": "Video-instructie"
     },
     "unsupported_device": {
       "button_primary": "Verificatie afsluiten",
@@ -4481,6 +4595,7 @@
     "button": {
       "default": "Probeer het opnieuw",
       "expired_document": "Probeer het opnieuw",
+      "failed_authentication": "Probeer het opnieuw",
       "generic_document_issue": "Probeer het opnieuw",
       "generic_proof_of_address_issue": "Probeer het opnieuw",
       "generic_selfie_issue": "Probeer het opnieuw",
@@ -4489,6 +4604,7 @@
     "description": {
       "default": "Probeer het opnieuw",
       "expired_document": "Probeer het opnieuw met een geldig identiteitsbewijs met foto en zorg ervoor dat uw gegevens duidelijk leesbaar zijn",
+      "failed_authentication": "Probeer het opnieuw",
       "generic_document_issue": "Probeer het opnieuw met een geldig identiteitsbewijs met foto en zorg ervoor dat uw gegevens duidelijk leesbaar zijn",
       "generic_proof_of_address_issue": "Probeer het opnieuw met een geldig document en zorg ervoor dat uw gegevens duidelijk zichtbaar zijn",
       "generic_selfie_issue": "Probeer het opnieuw en zorg ervoor dat uw gezicht goed zichtbaar en verlicht is",
@@ -4497,6 +4613,7 @@
     "headline": {
       "default": "Er was een probleem",
       "expired_document": "Uw document is verlopen",
+      "failed_authentication": "Verificatie mislukt",
       "generic_document_issue": "Er was een probleem met uw document",
       "generic_proof_of_address_issue": "Er was een probleem met uw document",
       "generic_selfie_issue": "Er was een probleem met je selfie",

@@ -878,6 +878,15 @@
       "title_tip_2": "अपने पहचान पत्र को फ्रेम में रखें",
       "title_tip_3": "सुनिश्चित करें कि सभी विवरण पढ़ने योग्य हों"
     },
+    "help_tilt": {
+      "description_tip_1": "सर्वोत्तम परिणामों के लिए, झुकाते समय अपना आईडी हाथ में पकड़ें। स्क्रीन पर दिए गए निर्देशों का पालन करें और अपना आईडी तब तक घुमाएँ जब तक सभी किनारे हरे न हो जाएँ।",
+      "description_tip_2": "फ़्रेम में अपने आईडी की सभी साइड दिखाई देती रहें, ताकि टिल्ट मूवमेंट पूरा हो सके। अगर कोई साइड हरी नहीं हो रही है, तो पीछे जाएँ और अपनी आईडी को बीच में रखें।",
+      "subtitle": "अपनी आईडी के होलोग्राम सफलतापूर्वक कैप्चर करने के लिए इन सुझावों का पालन करें",
+      "subtitle_timeout": "सुरक्षा कारणों से, इस चरण को पूरा करने के लिए आपके पास 20 सेकंड तक का समय है",
+      "title_timeout": "समय सीमा समाप्त हो गई। \nये सुझाव आज़माएँ",
+      "title_tip_1": "अपना आईडी पकड़ें और झुकाने की क्रिया करें",
+      "title_tip_2": "अपना आईडी फ्रेम में रखें"
+    },
     "intro": {
       "button_primary_selection_off": "स्कैन शुरू करें",
       "button_primary_selection_on": "दस्तावेज़ चुनें",
@@ -886,6 +895,13 @@
       "list_item_tip_3": "सुनिश्चित करें कि सभी विवरण पढ़ने योग्य हों",
       "subtitle": "हमें यह सुनिश्चित करने के लिए आपके दस्तावेज़ की तस्वीरें लेनी होंगी कि यह असली है।",
       "title": "अपना पहचान पत्र स्कैन करें"
+    },
+    "intro_tilt": {
+      "callout": "हम आपके फ़ोन की फ्लैशलाइट का उपयोग करेंगे",
+      "list_item_tip_1": "अपना आईडी फ्रेम में रखें",
+      "list_item_tip_2": "फ़्रेम की चारों भुजाएँ हरी होने तक अपना आईडी झुकाएँ",
+      "subtitle": "हम यह सुनिश्चित करने के लिए ऐसा करते हैं कि आपका दस्तावेज़ वास्तविक है",
+      "title": "अपनी ID को होलोग्राम दिखाने के लिए झुकाएँ"
     },
     "preview": {
       "blur_detail": "पक्का करें कि सब कुछ साफ़-साफ़ दिख रहा है",
@@ -957,6 +973,19 @@
         "iq_mrz_3": "नीचे की 3 पंक्तियाँ दिखाएं",
         "iq_no_doc": "दस्तावेज़ को फ़्रेम में दिखाएँ",
         "iq_obstruction": "दस्तावेज़ से उंगलियाँ हटाएँ",
+        "tilt": {
+          "down": "अपना ID नीचे की ओर झुकाएं",
+          "left": "अपना ID बाईं ओर झुकाएँ",
+          "right": "अपना ID दाईं ओर झुकाएं",
+          "up": "अपना ID ऊपर की ओर झुकाएं"
+        },
+        "tilt_accessibility": {
+          "complete": "पूर्ण",
+          "down": "अपना ID तब तक नीचे झुकाएं जब तक आपको पुष्टि की आवाज़ न सुनाई दे",
+          "left": "पुष्टि की आवाज़ सुनाई देने तक अपना आईडी बाईं ओर झुकाएं",
+          "right": "पुष्टि सुनाई देने तक अपना आईडी दाईं ओर झुकाएं",
+          "up": "पुष्टि की आवाज़ सुनाई देने तक अपना आईडी ऊपर की ओर झुकाएं"
+        },
         "validity": {
           "button_primary": "फिर से प्रयास करें",
           "button_secondary": "कोई दूसरा दस्तावेज़ चुनें"
@@ -1003,6 +1032,7 @@
         "subtitle_passport_accessibility": "अपने पासपोर्ट के फोटो पेज को अपने फोन के पीछे रखें और धीरे-धीरे पीछे हटाएं जब तक आपको फीडबैक न सुनाई दे।",
         "subtitle_passport_manual": "अपने दस्तावेज़ के फोटो वाले हिस्से को स्कैन करें",
         "subtitle_passport_manual_accessibility": "अपने पासपोर्ट के फोटो पेज को अपने पीछे वाले कैमरे के सामने रखें और नीचे दिए गए बटन को दबाएँ।",
+        "subtitle_tilt_generic": "अपना ID तब तक झुकाएं जब तक फ्रेम हरा न हो जाए",
         "title_back": "पीछला पक्ष",
         "title_front": "सामने का हिस्सा",
         "title_passport": "फोटो पेज"
@@ -1632,6 +1662,16 @@
       "bottom_sheet": {
         "handle_accessibility": "document.bottom_sheet.handle_dismiss_accessibility"
       },
+      "chip_blocked": {
+        "button_help": "nfc.chip_blocked.button_help",
+        "subtitle": "nfc.chip_blocked.subtitle",
+        "title": "nfc.chip_blocked.title"
+      },
+      "chip_blocked_optional": {
+        "button_primary": "nfc.chip_blocked.optional_button_primary",
+        "subtitle": "nfc.chip_blocked.optional_subtitle",
+        "title": "nfc.chip_blocked.optional_title"
+      },
       "country_select": {
         "alert": {
           "another_doc": "sample.selection.country_select_another_doc"
@@ -2055,6 +2095,40 @@
           "title": "document.upload.success.title"
         }
       },
+      "doc_video_intro": {
+        "callout": "document.intro_tilt.callout",
+        "list_item_tip_1": "document.intro_tilt.list_item_tip_1",
+        "list_item_tip_2": "document.intro_tilt.list_item_tip_2",
+        "sub-title": "document.intro_tilt.subtitle",
+        "title": "document.intro_tilt.title"
+      },
+      "doc_video_tilt": {
+        "feedback": {
+          "side_complete_accessibility": "document.scan.feedback.tilt_accessibility.complete",
+          "tilt_down": "document.scan.feedback.tilt.down",
+          "tilt_down_accessibility": "document.scan.feedback.tilt_accessibility.down",
+          "tilt_left": "document.scan.feedback.tilt.left",
+          "tilt_left_accessibility": "document.scan.feedback.tilt_accessibility.left",
+          "tilt_right": "document.scan.feedback.tilt.right",
+          "tilt_right_accessibility": "document.scan.feedback.tilt_accessibility.right",
+          "tilt_up": "document.scan.feedback.tilt.up",
+          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up"
+        },
+        "instructions": {
+          "sub_title_generic": "document.scan.instructions.subtitle_tilt_generic"
+        }
+      },
+      "doc_video_tilt_help": {
+        "description_tip_1": "document.help_tilt.description_tip_1",
+        "description_tip_2": "document.help_tilt.description_tip_2",
+        "sub_title": "document.help_tilt.subtitle",
+        "title_tip_1": "document.help_tilt.title_tip_1",
+        "title_tip_2": "document.help_tilt.title_tip_2"
+      },
+      "doc_video_tilt_timeout": {
+        "sub_title": "document.help_tilt.subtitle_timeout",
+        "title": "document.help_tilt.title_timeout"
+      },
       "eid": {
         "scheme_form": {
           "subtitle": "electronicId.scheme_form.subtitle",
@@ -2113,6 +2187,19 @@
           "subtitle": "enrollPasskey.not_supported_error.subtitle",
           "title": "enrollPasskey.not_supported_error.title"
         }
+      },
+      "enter_pin": {
+        "button_primary": "nfc.pin_entry.button_primary",
+        "helper_attempts_left": "nfc.pin_entry.helper_attempts_left",
+        "helper_final_attempt": "nfc.pin_entry.helper_final_attempt",
+        "subtitle": "nfc.pin_entry.subtitle",
+        "title": "nfc.pin_entry.title",
+        "title_incorrect": "nfc.pin_entry.title_incorrect"
+      },
+      "enter_pin_optional": {
+        "button_tertiary": "nfc.pin_entry.optional_button_tertiary",
+        "helper_attempts_left": "nfc.pin_entry.optional_helper_attempts_left",
+        "helper_final_attempt": "nfc.pin_entry.optional_helper_final_attempt"
       },
       "generic": {
         "accessibility": {
@@ -2679,6 +2766,10 @@
         "list_item_nfc": "nfc.settings.list_item_nfc",
         "subtitle": "nfc.settings.subtitle",
         "title": "nfc.settings.title"
+      },
+      "nfc_scan": {
+        "pin_disclaimer": "nfc.scan.pin_disclaimer",
+        "video_instruction_accessibility": "nfc.error.video_instruction_accessibility"
       },
       "nfc_scan_error_device": {
         "primary_button": "nfc.unsupported_device.button_primary",
@@ -3773,6 +3864,14 @@
     }
   },
   "nfc": {
+    "chip_blocked": {
+      "button_help": "सरकारी पोर्टल",
+      "optional_button_primary": "जारी रखें",
+      "optional_subtitle": "बहुत अधिक गलत पिन प्रविष्टियों के कारण आपकी NFC चिप ब्लॉक हो गई है, इसलिए हम इस चरण को छोड़ देंगे। भविष्य में उपयोग के लिए अपना पिन रीसेट करने के लिए अपने अधिकारियों से संपर्क करें।",
+      "optional_title": "चिप स्कैन किए बिना जारी रखें",
+      "subtitle": "यह धोखाधड़ी को रोकने के लिए एक सुरक्षा उपाय है। अपनी चिप को अनब्लॉक करने के लिए अपने स्थानीय जारीकर्ता प्राधिकरण से संपर्क करें।",
+      "title": "NFC चिप अवरुद्ध"
+    },
     "connection_error": {
       "button_primary": "फिर से अपलोड करें",
       "subtitle": "जाँच करें कि आपका कनेक्शन स्थिर है और फिर कोशिश करें",
@@ -3806,7 +3905,19 @@
         "passport_usa": "आपको चिप का पता लगाने के लिए अपने फोन को धीरे-धीरे ऊपर और नीचे अंदर के पिछले कवर के खिलाफ स्लाइड करना पड़ सकता है।"
       },
       "instruction_5_passport": "एक बार जब आपका फोन आपके पासपोर्ट में चिप का पता लगा लेता है, तो स्कैन अपने आप शुरू हो जाएगा। स्कैन पूरा होने के लिए अपने फोन और पासपोर्ट को स्थिर रखें।",
-      "title": "चिप स्कैन करने में असमर्थ। क्या मदद चाहिए?"
+      "title": "चिप स्कैन करने में असमर्थ। क्या मदद चाहिए?",
+      "video_instruction_accessibility": "वीडियो निर्देश"
+    },
+    "pin_entry": {
+      "button_primary": "जारी रखें",
+      "helper_attempts_left": "[%i] प्रयास शेष हैं",
+      "helper_final_attempt": "1 प्रयास शेष है। अगले असफल प्रयास के बाद आपकी चिप ब्लॉक हो जाएगी",
+      "optional_button_tertiary": "NFC चिप स्कैनिंग छोड़ें",
+      "optional_helper_attempts_left": "[%i] प्रयास शेष हैं। नीचे यह चरण छोड़ें।",
+      "optional_helper_final_attempt": "[%i] प्रयास शेष है इससे पहले कि आपकी NFC चिप ब्लॉक हो जाए। नीचे इस चरण को छोड़ें।",
+      "subtitle": "यह NFC चिप को सुरक्षित रूप से पढ़ने के लिए आवश्यक है। आपने यह [%i]-अंकीय संख्या अपने दस्तावेज़ जारी होने के समय बनाई थी।",
+      "title": "अपना दस्तावेज़ PIN दर्ज करें",
+      "title_incorrect": "गलत पिन"
     },
     "scan": {
       "button_primary": "स्कैन शुरू करें",
@@ -3827,8 +3938,10 @@
         "document": "एक बार चिप का पता चलने पर, अपने फोन और दस्तावेज़ को स्थिर रखें।",
         "passport": "एक बार चिप का पता चल जाए, तो अपने फ़ोन और पासपोर्ट को स्थिर रखें।"
       },
+      "pin_disclaimer": "हम चिप को स्कैन करने से पहले आपसे आपके दस्तावेज़ का [%i]-अंकों वाला PIN मांगेंगे।",
       "title_document": "अपना दस्तावेज़ स्कैन करें",
-      "title_passport": "अपने पासपोर्ट की चिप स्कैन करें"
+      "title_passport": "अपने पासपोर्ट की चिप स्कैन करें",
+      "video_instruction_accessibility": "वीडियो निर्देश"
     },
     "settings": {
       "button_primary": "सेटिंग खोलें",
@@ -3864,7 +3977,8 @@
         "ready": "स्कैन करने के लिए तैयार",
         "scanning": "स्कैन हो रहा है...",
         "success": "स्कैन सफल।"
-      }
+      },
+      "video_instruction_accessibility": "वीडियो निर्देश"
     },
     "unsupported_device": {
       "button_primary": "पहचान सत्यापन से बाहर निकलें",
@@ -4481,6 +4595,7 @@
     "button": {
       "default": "फिर से कोशिश करें",
       "expired_document": "फिर से कोशिश करें",
+      "failed_authentication": "फिर से कोशिश करें",
       "generic_document_issue": "फिर से कोशिश करें",
       "generic_proof_of_address_issue": "फिर से कोशिश करें",
       "generic_selfie_issue": "फिर से कोशिश करें",
@@ -4489,6 +4604,7 @@
     "description": {
       "default": "कृपया फिर से कोशिश करें",
       "expired_document": "कृपया एक मान्य फ़ोटो आईडी के साथ फिर से कोशिश करें और पक्का करें कि आपकी जानकारी साफ़-साफ़ दिख रही है",
+      "failed_authentication": "कृपया फिर से कोशिश करें",
       "generic_document_issue": "कृपया एक मान्य फ़ोटो आईडी के साथ फिर से कोशिश करें और पक्का करें कि आपकी जानकारी साफ़-साफ़ दिख रही है",
       "generic_proof_of_address_issue": "कृपया एक वैध दस्तावेज़ के साथ पुनः प्रयास करें और सुनिश्चित करें कि आपकी जानकारी स्पष्ट रूप से दिखाई दे रही है",
       "generic_selfie_issue": "कृपया फिर से कोशिश करें और पक्का करें कि आपका चेहरे पर अच्छी रोशनी पड़ रही है और वह दिख रहा है",
@@ -4497,6 +4613,7 @@
     "headline": {
       "default": "एक समस्या थी",
       "expired_document": "आपके डॉक्यूमेंट की समय-अवधि खत्म हो गई है",
+      "failed_authentication": "प्रमाणीकरण विफल रहा",
       "generic_document_issue": "आपके दस्तावेज़ में एक समस्या थी",
       "generic_proof_of_address_issue": "आपके दस्तावेज़ में एक समस्या थी",
       "generic_selfie_issue": "आपकी सेल्फी के साथ एक समस्या थी",

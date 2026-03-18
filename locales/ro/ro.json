@@ -878,6 +878,15 @@
       "title_tip_2": "Poziționează documentul de identitate în cadru",
       "title_tip_3": "Asigură-te că toate câmpurile sunt lizibile"
     },
+    "help_tilt": {
+      "description_tip_1": "Pentru cele mai bune rezultate, ține actul de identitate în mână în timp ce înclini. Urmează instrucțiunile de pe ecran și înclină actul de identitate până când toate laturile devin verzi.",
+      "description_tip_2": "Păstrați toate marginile actului de identitate vizibile în cadru pentru a finaliza mișcarea de înclinare. Dacă o margine nu devine verde, îndepărtați-vă puțin și centrați actul de identitate.",
+      "subtitle": "Urmează aceste sfaturi pentru a surprinde corect hologramele actului tău de identitate",
+      "subtitle_timeout": "Din motive de securitate, aveți până la 20 de secunde pentru a finaliza acest pas",
+      "title_timeout": "Timpul a expirat. \nÎncearcă aceste sfaturi",
+      "title_tip_1": "Ține-ți actul de identitate și înclină-l ușor",
+      "title_tip_2": "Poziționați actul de identitate în cadru"
+    },
     "intro": {
       "button_primary_selection_off": "Începe scanarea",
       "button_primary_selection_on": "Selectează documentul",
@@ -886,6 +895,13 @@
       "list_item_tip_3": "Asigură-te că toate câmpurile sunt lizibile",
       "subtitle": "Trebuie să facem fotografii ale documentului tău pentru a ne asigura că este autentic.",
       "title": "Scanează-ți documentul de identitate"
+    },
+    "intro_tilt": {
+      "callout": "Vom folosi lanterna telefonului tău",
+      "list_item_tip_1": "Ține actul de identitate în cadru",
+      "list_item_tip_2": "Înclinați actul de identitate până când toate cele patru laturi ale chenarului devin verzi",
+      "subtitle": "Facem acest lucru pentru a ne asigura că documentul dumneavoastră este autentic",
+      "title": "Înclinați actul de identitate pentru a afișa hologramele"
     },
     "preview": {
       "blur_detail": "Asigurați-vă că totul este clar",
@@ -957,6 +973,19 @@
         "iq_mrz_3": "Faceți vizibile ultimele 3 rânduri",
         "iq_no_doc": "Arată documentul în cadru",
         "iq_obstruction": "Îndepărtează degetele de pe document",
+        "tilt": {
+          "down": "Înclinați buletinul în jos",
+          "left": "Înclinați actul de identitate spre stânga",
+          "right": "Înclinați actul de identitate spre dreapta",
+          "up": "Înclinați actul de identitate în sus"
+        },
+        "tilt_accessibility": {
+          "complete": "Finalizat",
+          "down": "Înclinați actul de identitate în jos până când auziți confirmarea",
+          "left": "Înclinați actul de identitate spre stânga până când auziți confirmarea",
+          "right": "Înclinați actul de identitate spre dreapta până când auziți confirmarea",
+          "up": "Înclinați actul de identitate în sus până când auziți confirmarea"
+        },
         "validity": {
           "button_primary": "Încearcă din nou",
           "button_secondary": "Selectează alt document"
@@ -1003,6 +1032,7 @@
         "subtitle_passport_accessibility": "Plasează pagina cu fotografia din pașaport pe spatele telefonului și îndepărtează-l încet până auzi feedback.",
         "subtitle_passport_manual": "Scanează partea cu fotografia documentului tău",
         "subtitle_passport_manual_accessibility": "Plasează pagina cu fotografia din pașaportul tău în fața camerei din spate și apasă butonul de mai jos.",
+        "subtitle_tilt_generic": "Înclinați-vă actul de identitate până când cadrul devine verde",
         "title_back": "Verso",
         "title_front": "Partea din față",
         "title_passport": "Pagina cu fotografia"
@@ -1632,6 +1662,16 @@
       "bottom_sheet": {
         "handle_accessibility": "document.bottom_sheet.handle_dismiss_accessibility"
       },
+      "chip_blocked": {
+        "button_help": "nfc.chip_blocked.button_help",
+        "subtitle": "nfc.chip_blocked.subtitle",
+        "title": "nfc.chip_blocked.title"
+      },
+      "chip_blocked_optional": {
+        "button_primary": "nfc.chip_blocked.optional_button_primary",
+        "subtitle": "nfc.chip_blocked.optional_subtitle",
+        "title": "nfc.chip_blocked.optional_title"
+      },
       "country_select": {
         "alert": {
           "another_doc": "sample.selection.country_select_another_doc"
@@ -2055,6 +2095,40 @@
           "title": "document.upload.success.title"
         }
       },
+      "doc_video_intro": {
+        "callout": "document.intro_tilt.callout",
+        "list_item_tip_1": "document.intro_tilt.list_item_tip_1",
+        "list_item_tip_2": "document.intro_tilt.list_item_tip_2",
+        "sub-title": "document.intro_tilt.subtitle",
+        "title": "document.intro_tilt.title"
+      },
+      "doc_video_tilt": {
+        "feedback": {
+          "side_complete_accessibility": "document.scan.feedback.tilt_accessibility.complete",
+          "tilt_down": "document.scan.feedback.tilt.down",
+          "tilt_down_accessibility": "document.scan.feedback.tilt_accessibility.down",
+          "tilt_left": "document.scan.feedback.tilt.left",
+          "tilt_left_accessibility": "document.scan.feedback.tilt_accessibility.left",
+          "tilt_right": "document.scan.feedback.tilt.right",
+          "tilt_right_accessibility": "document.scan.feedback.tilt_accessibility.right",
+          "tilt_up": "document.scan.feedback.tilt.up",
+          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up"
+        },
+        "instructions": {
+          "sub_title_generic": "document.scan.instructions.subtitle_tilt_generic"
+        }
+      },
+      "doc_video_tilt_help": {
+        "description_tip_1": "document.help_tilt.description_tip_1",
+        "description_tip_2": "document.help_tilt.description_tip_2",
+        "sub_title": "document.help_tilt.subtitle",
+        "title_tip_1": "document.help_tilt.title_tip_1",
+        "title_tip_2": "document.help_tilt.title_tip_2"
+      },
+      "doc_video_tilt_timeout": {
+        "sub_title": "document.help_tilt.subtitle_timeout",
+        "title": "document.help_tilt.title_timeout"
+      },
       "eid": {
         "scheme_form": {
           "subtitle": "electronicId.scheme_form.subtitle",
@@ -2113,6 +2187,19 @@
           "subtitle": "enrollPasskey.not_supported_error.subtitle",
           "title": "enrollPasskey.not_supported_error.title"
         }
+      },
+      "enter_pin": {
+        "button_primary": "nfc.pin_entry.button_primary",
+        "helper_attempts_left": "nfc.pin_entry.helper_attempts_left",
+        "helper_final_attempt": "nfc.pin_entry.helper_final_attempt",
+        "subtitle": "nfc.pin_entry.subtitle",
+        "title": "nfc.pin_entry.title",
+        "title_incorrect": "nfc.pin_entry.title_incorrect"
+      },
+      "enter_pin_optional": {
+        "button_tertiary": "nfc.pin_entry.optional_button_tertiary",
+        "helper_attempts_left": "nfc.pin_entry.optional_helper_attempts_left",
+        "helper_final_attempt": "nfc.pin_entry.optional_helper_final_attempt"
       },
       "generic": {
         "accessibility": {
@@ -2679,6 +2766,10 @@
         "list_item_nfc": "nfc.settings.list_item_nfc",
         "subtitle": "nfc.settings.subtitle",
         "title": "nfc.settings.title"
+      },
+      "nfc_scan": {
+        "pin_disclaimer": "nfc.scan.pin_disclaimer",
+        "video_instruction_accessibility": "nfc.error.video_instruction_accessibility"
       },
       "nfc_scan_error_device": {
         "primary_button": "nfc.unsupported_device.button_primary",
@@ -3773,6 +3864,14 @@
     }
   },
   "nfc": {
+    "chip_blocked": {
+      "button_help": "Portal guvernamental",
+      "optional_button_primary": "Continuați",
+      "optional_subtitle": "Prea multe introduceri greșite ale PIN-ului v-au blocat cipul NFC, așa că vom sări peste acest pas. Contactați autoritățile pentru a reseta PIN-ul pentru utilizări viitoare.",
+      "optional_title": "Continuați fără scanarea cipului",
+      "subtitle": "Aceasta este o măsură de securitate pentru prevenirea fraudei. Contactați autoritatea emitentă locală pentru a debloca cipul.",
+      "title": "Cip NFC blocat"
+    },
     "connection_error": {
       "button_primary": "Încercați din nou să încărcați",
       "subtitle": "Verificați stabilitatea conexiunii dvs. și apoi încercați din nou",
@@ -3806,7 +3905,19 @@
         "passport_usa": "Este posibil să fie necesar să glisați încet telefonul în sus și în jos pe partea interioară a copertei din spate până când localizați cipul."
       },
       "instruction_5_passport": "Odată ce telefonul detectează cipul din pașaportul tău, scanarea va începe automat. Ține telefonul și pașaportul nemișcate pentru ca scanarea să se poată finaliza.",
-      "title": "Imposibil de scanat cipul. Aveți nevoie de ajutor?"
+      "title": "Imposibil de scanat cipul. Aveți nevoie de ajutor?",
+      "video_instruction_accessibility": "Instrucțiuni video"
+    },
+    "pin_entry": {
+      "button_primary": "Continuați",
+      "helper_attempts_left": "[%i] încercări rămase",
+      "helper_final_attempt": "A mai rămas 1 încercare. Cipul va fi blocat după următoarea încercare eșuată",
+      "optional_button_tertiary": "Omiteți scanarea cipului NFC",
+      "optional_helper_attempts_left": "[%i] încercări rămase. Omiteți acest pas mai jos.",
+      "optional_helper_final_attempt": "[%i] încercare rămasă înainte ca cipul dvs. NFC să fie blocat. Săriți peste acest pas mai jos.",
+      "subtitle": "Este necesar pentru a citi în siguranță cipul NFC. Ați creat acest număr de [%i] cifre atunci când a fost emis documentul.",
+      "title": "Introduceți codul PIN al documentului",
+      "title_incorrect": "PIN incorect"
     },
     "scan": {
       "button_primary": "Începe scanarea",
@@ -3827,8 +3938,10 @@
         "document": "Odată ce cipul este detectat, țineți telefonul și documentul nemișcate.",
         "passport": "Odată ce cipul este detectat, mențineți telefonul și pașaportul dvs. nemișcate."
       },
+      "pin_disclaimer": "Vă vom cere codul PIN din [%i] cifre al documentului înainte de a scana cipul.",
       "title_document": "Scanați documentul",
-      "title_passport": "Scanați cipul din pașaportul dvs."
+      "title_passport": "Scanați cipul din pașaportul dvs.",
+      "video_instruction_accessibility": "Instrucțiuni video"
     },
     "settings": {
       "button_primary": "Deschideți setări",
@@ -3864,7 +3977,8 @@
         "ready": "Gata de scanare",
         "scanning": "Scanare în curs...",
         "success": "Scanare reușită."
-      }
+      },
+      "video_instruction_accessibility": "Instrucțiuni video"
     },
     "unsupported_device": {
       "button_primary": "Ieşire din verificare",
@@ -4481,6 +4595,7 @@
     "button": {
       "default": "Încercați din nou",
       "expired_document": "Încercați din nou",
+      "failed_authentication": "Încercați din nou",
       "generic_document_issue": "Încercați din nou",
       "generic_proof_of_address_issue": "Încercați din nou",
       "generic_selfie_issue": "Încercați din nou",
@@ -4489,6 +4604,7 @@
     "description": {
       "default": "Vă rugăm să încercați din nou",
       "expired_document": "Vă rugăm să încercați din nou cu un document de identitate cu poză valabil și asigurați-vă că informațiile dvs. sunt clar vizibile",
+      "failed_authentication": "Vă rugăm să încercați din nou",
       "generic_document_issue": "Vă rugăm să încercați din nou cu un document de identitate cu poză valabil și asigurați-vă că informațiile dvs. sunt clar vizibile",
       "generic_proof_of_address_issue": "Reîncercați folosind un document valid și asigurați-vă că informațiile dumneavoastră sunt clar vizibile",
       "generic_selfie_issue": "Vă rugăm să încercați din nou și asigurați-vă că fața dvs. este vizibilă și bine luminată",
@@ -4497,6 +4613,7 @@
     "headline": {
       "default": "A fost o problemă",
       "expired_document": "Documentul dvs. a expirat",
+      "failed_authentication": "Autentificare eșuată",
       "generic_document_issue": "A apărut o problemă cu documentul tău",
       "generic_proof_of_address_issue": "A apărut o problemă cu documentul dumneavoastră",
       "generic_selfie_issue": "A existat o problemă cu selfie-ul tău",

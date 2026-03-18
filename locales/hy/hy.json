@@ -878,6 +878,15 @@
       "title_tip_2": "Տեղադրեք ձեր անձնագիրը շրջանակի մեջ",
       "title_tip_3": "Համոզվեք, որ բոլոր դաշտերը ընթեռնելի են"
     },
+    "help_tilt": {
+      "description_tip_1": "Լավագույն արդյունքի համար թեքվելու ընթացքում անձնագիրը պահեք ձեռքում։ Հետևեք էկրանին ցուցվող հրահանգներին՝ թեքելով ձեր անձնագիրը, մինչև բոլոր կողմերը կանաչվեն։",
+      "description_tip_2": "Թեքելու շարժումը ավարտելու համար պահեք ձեր անձնագրի բոլոր կողմերը տեսանելի կադրի մեջ։ Եթե որևէ կողմը չի կանաչում, մի փոքր հետ գնացեք և ձեր փաստաթուղթը տեղադրեք կադրի կենտրոնում։",
+      "subtitle": "Հետևեք այս խորհուրդներին՝ հաջողությամբ նկարելու ձեր անձնագրի հոլոգրամները",
+      "subtitle_timeout": "Անվտանգության նկատառումներից ելնելով՝ այս քայլը կատարելու համար ունեք մինչև 20 վայրկյան",
+      "title_timeout": "Ժամկետը սպառվեց։ \nՓորձեք հետևյալ խորհուրդները",
+      "title_tip_1": "Պահեք ձեր անձնագրային փաստաթուղթը՝ թեքելու շարժում կատարելու համար",
+      "title_tip_2": "Տեղադրեք Ձեր անձնագրային փաստաթուղթը շրջանակի մեջ"
+    },
     "intro": {
       "button_primary_selection_off": "Սկսել սկանավորումը",
       "button_primary_selection_on": "Ընտրեք փաստաթուղթը",
@@ -886,6 +895,13 @@
       "list_item_tip_3": "Համոզվեք, որ բոլոր դաշտերը ընթեռնելի են",
       "subtitle": "Մեզ անհրաժեշտ է լուսանկարել ձեր փաստաթուղթը՝ համոզվելու համար, որ այն իսկական է։",
       "title": "Սկանավորեք ձեր անձնագիրը"
+    },
+    "intro_tilt": {
+      "callout": "Մենք կօգտագործենք ձեր հեռախոսի լապտերը",
+      "list_item_tip_1": "Պահեք ձեր անձնագրային փաստաթուղթը շրջանակի մեջ",
+      "list_item_tip_2": "Թեքեք ձեր անձնագիրը, մինչև շրջանակի բոլոր չորս կողմերը կանաչ դառնան",
+      "subtitle": "Մենք սա անում ենք՝ համոզվելու համար, որ ձեր փաստաթուղթը իսկական է",
+      "title": "Ձեր անձնագիրը թեքեք, որպեսզի երևան դրա հոլոգրամները"
     },
     "preview": {
       "blur_detail": "Համոզվեք, որ ամեն ինչ հասկացել եք",
@@ -957,6 +973,19 @@
         "iq_mrz_3": "Դարձրեք ներքևի 3 տողերը տեսանելի",
         "iq_no_doc": "Ցույց տվեք փաստաթուղթը շրջանակում",
         "iq_obstruction": "Հեռացրեք մատները փաստաթղթից",
+        "tilt": {
+          "down": "Թեքեք ձեր անձնագրի/նույնականացման քարտի ներքևի մասը",
+          "left": "Թեքեք ձեր անձը հաստատող փաստաթուղթը ձախ",
+          "right": "Շեղեք ձեր անձնագիրը դեպի աջ",
+          "up": "Բարձրացրեք ձեր անձնագրի/հայտնության վկայականը վերև"
+        },
+        "tilt_accessibility": {
+          "complete": "Ավարտված",
+          "down": "Խոնարհեցրեք ձեր անձնագրային փաստաթուղթը դեպի ներքև, մինչև լսեք հաստատման ազդանշանը",
+          "left": "Թեքեք ձեր անձնագրի/նույնականացման քարտը ձախ, մինչեւ լսեք հաստատումը",
+          "right": "Շրջեք ձեր անձը հաստատող փաստաթուղթը դեպի աջ, մինչև լսեք հաստատումը",
+          "up": "Թեքեք անձնագրային փաստաթուղթը վերև, մինչև լսեք հաստատումը"
+        },
         "validity": {
           "button_primary": "Կրկին փորձեք",
           "button_secondary": "Ընտրեք մեկ այլ փաստաթուղթ"
@@ -1003,6 +1032,7 @@
         "subtitle_passport_accessibility": "Դրեք ձեր անձնագրի լուսանկարով էջը հեռախոսի հետևի մասի վրա և դանդաղ հետ տարեք, մինչև լսեք արձագանք։",
         "subtitle_passport_manual": "Սկանավորեք ձեր փաստաթղթի լուսանկարով կողմը",
         "subtitle_passport_manual_accessibility": "Դրեք ձեր անձնագրի լուսանկարի էջը ձեր հետին տեսախցիկի դիմաց և սեղմեք ներքևի կոճակը։",
+        "subtitle_tilt_generic": "Թեքեք ձեր անձնագիրն այնքան ժամանակ, մինչև շրջանակը կանաչվի",
         "title_back": "Հետեւի կողմ",
         "title_front": "Առջևի կողմ",
         "title_passport": "Լուսանկարի էջ"
@@ -1632,6 +1662,16 @@
       "bottom_sheet": {
         "handle_accessibility": "document.bottom_sheet.handle_dismiss_accessibility"
       },
+      "chip_blocked": {
+        "button_help": "nfc.chip_blocked.button_help",
+        "subtitle": "nfc.chip_blocked.subtitle",
+        "title": "nfc.chip_blocked.title"
+      },
+      "chip_blocked_optional": {
+        "button_primary": "nfc.chip_blocked.optional_button_primary",
+        "subtitle": "nfc.chip_blocked.optional_subtitle",
+        "title": "nfc.chip_blocked.optional_title"
+      },
       "country_select": {
         "alert": {
           "another_doc": "sample.selection.country_select_another_doc"
@@ -2055,6 +2095,40 @@
           "title": "document.upload.success.title"
         }
       },
+      "doc_video_intro": {
+        "callout": "document.intro_tilt.callout",
+        "list_item_tip_1": "document.intro_tilt.list_item_tip_1",
+        "list_item_tip_2": "document.intro_tilt.list_item_tip_2",
+        "sub-title": "document.intro_tilt.subtitle",
+        "title": "document.intro_tilt.title"
+      },
+      "doc_video_tilt": {
+        "feedback": {
+          "side_complete_accessibility": "document.scan.feedback.tilt_accessibility.complete",
+          "tilt_down": "document.scan.feedback.tilt.down",
+          "tilt_down_accessibility": "document.scan.feedback.tilt_accessibility.down",
+          "tilt_left": "document.scan.feedback.tilt.left",
+          "tilt_left_accessibility": "document.scan.feedback.tilt_accessibility.left",
+          "tilt_right": "document.scan.feedback.tilt.right",
+          "tilt_right_accessibility": "document.scan.feedback.tilt_accessibility.right",
+          "tilt_up": "document.scan.feedback.tilt.up",
+          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up"
+        },
+        "instructions": {
+          "sub_title_generic": "document.scan.instructions.subtitle_tilt_generic"
+        }
+      },
+      "doc_video_tilt_help": {
+        "description_tip_1": "document.help_tilt.description_tip_1",
+        "description_tip_2": "document.help_tilt.description_tip_2",
+        "sub_title": "document.help_tilt.subtitle",
+        "title_tip_1": "document.help_tilt.title_tip_1",
+        "title_tip_2": "document.help_tilt.title_tip_2"
+      },
+      "doc_video_tilt_timeout": {
+        "sub_title": "document.help_tilt.subtitle_timeout",
+        "title": "document.help_tilt.title_timeout"
+      },
       "eid": {
         "scheme_form": {
           "subtitle": "electronicId.scheme_form.subtitle",
@@ -2113,6 +2187,19 @@
           "subtitle": "enrollPasskey.not_supported_error.subtitle",
           "title": "enrollPasskey.not_supported_error.title"
         }
+      },
+      "enter_pin": {
+        "button_primary": "nfc.pin_entry.button_primary",
+        "helper_attempts_left": "nfc.pin_entry.helper_attempts_left",
+        "helper_final_attempt": "nfc.pin_entry.helper_final_attempt",
+        "subtitle": "nfc.pin_entry.subtitle",
+        "title": "nfc.pin_entry.title",
+        "title_incorrect": "nfc.pin_entry.title_incorrect"
+      },
+      "enter_pin_optional": {
+        "button_tertiary": "nfc.pin_entry.optional_button_tertiary",
+        "helper_attempts_left": "nfc.pin_entry.optional_helper_attempts_left",
+        "helper_final_attempt": "nfc.pin_entry.optional_helper_final_attempt"
       },
       "generic": {
         "accessibility": {
@@ -2679,6 +2766,10 @@
         "list_item_nfc": "nfc.settings.list_item_nfc",
         "subtitle": "nfc.settings.subtitle",
         "title": "nfc.settings.title"
+      },
+      "nfc_scan": {
+        "pin_disclaimer": "nfc.scan.pin_disclaimer",
+        "video_instruction_accessibility": "nfc.error.video_instruction_accessibility"
       },
       "nfc_scan_error_device": {
         "primary_button": "nfc.unsupported_device.button_primary",
@@ -3773,6 +3864,14 @@
     }
   },
   "nfc": {
+    "chip_blocked": {
+      "button_help": "Կառավարական պորտալ",
+      "optional_button_primary": "Շարունակել",
+      "optional_subtitle": "Շատ սխալ մուտքագրված PIN-ների պատճառով ձեր NFC չիպը արգելափակվել է, այդ պատճառով մենք կանցնենք այս քայլը։ Կապվեք համապատասխան մարմինների հետ՝ ձեր PIN-ը ապագայում օգտագործելու համար վերականգնելու նպատակով։",
+      "optional_title": "Շարունակել առանց չիպը սկանավորելու",
+      "subtitle": "Սա անվտանգության միջոցառում է խարդախությունը կանխելու համար։ Կապվեք ձեր տեղական տրամադրող մարմնի հետ՝ չիպը ապաբլոկավորելու համար։",
+      "title": "NFC չիպը արգելափակված է"
+    },
     "connection_error": {
       "button_primary": "Կրկին վերբեռնել",
       "subtitle": "Համոզվեք, որ ձեր կապը կայուն է, ապա կրկին փորձեք",
@@ -3806,7 +3905,19 @@
         "passport_usa": "Դուք կարող եք դանդաղ սահեցնել ձեր հեռախոսը վերև և ներքև դեպի ներքին հետևի կազմը, մինչև գտնեք չիպը։"
       },
       "instruction_5_passport": "Երբ ձեր հեռախոսը հայտնաբերի չիպը ձեր անձնագրում, սկանավորումը կսկսվի ավտոմատ կերպով։ Պահեք ձեր հեռախոսը և անձնագիրը անշարժ, որպեսզի սկանավորումը ավարտվի։",
-      "title": "Չիպը սկանավորելը չի հաջողվում։ Օգտագործել օգնությունը՞"
+      "title": "Չիպը սկանավորելը չի հաջողվում։ Օգտագործել օգնությունը՞",
+      "video_instruction_accessibility": "Տեսանյութով հրահանգավորում"
+    },
+    "pin_entry": {
+      "button_primary": "Շարունակել",
+      "helper_attempts_left": "[%i] փորձ մնաց",
+      "helper_final_attempt": "Մնացել է 1 փորձ։ Ձեր չիպը կհակարգելվի հաջորդ անհաջող փորձից հետո",
+      "optional_button_tertiary": "Բաց թողնել NFC չիպի սկանավորումը",
+      "optional_helper_attempts_left": "[%i] փորձ է մնացել։ Բաց թողեք այս քայլը ստորև։",
+      "optional_helper_final_attempt": "[%i] փորձ է մնացել, մինչ ձեր NFC չիպը կարգելափակվի։ Բաց թողեք այս քայլը ներքևում։",
+      "subtitle": "Սա անհրաժեշտ է NFC չիպը անվտանգ կարդալու համար։ Դուք ստեղծել եք այս [%i]-նիշանոց թիվը, երբ ձեր փաստաթուղթը տրվել է։",
+      "title": "Մուտքագրեք ձեր փաստաթղթի PIN կոդը",
+      "title_incorrect": "Սխալ PIN"
     },
     "scan": {
       "button_primary": "Սկսել սկանավորումը",
@@ -3827,8 +3938,10 @@
         "document": "Երբ չիպը հայտնաբերվի, պահեք ձեր հեռախոսը և փաստաթուղթը անշարժ։",
         "passport": "Երբ չիպը հայտնաբերվում է, պահեք ձեր հեռախոսը և անձնագիրը անշարժ։"
       },
+      "pin_disclaimer": "Մինչ չիպի սկանավորումը, մենք կխնդրենք տրամադրել ձեր փաստաթղթի [%i]-անիշ PIN կոդը։",
       "title_document": "Սկանավորեք ձեր փաստաթուղթը",
-      "title_passport": "Սկանավորեք ձեր անձնագրի չիպը"
+      "title_passport": "Սկանավորեք ձեր անձնագրի չիպը",
+      "video_instruction_accessibility": "Տեսանյութով հրահանգավորում"
     },
     "settings": {
       "button_primary": "Բացել կարգավորումները",
@@ -3864,7 +3977,8 @@
         "ready": "Պատրաստ է սկանավորման",
         "scanning": "Սկանավորվում է․․․",
         "success": "Սկանավորումը հաջողվեց։"
-      }
+      },
+      "video_instruction_accessibility": "Տեսանյութով հրահանգավորում"
     },
     "unsupported_device": {
       "button_primary": "Ելքի ստուգում",
@@ -4481,6 +4595,7 @@
     "button": {
       "default": "Կրկին փորձել",
       "expired_document": "Կրկին փորձել",
+      "failed_authentication": "Կրկին փորձել",
       "generic_document_issue": "Կրկին փորձել",
       "generic_proof_of_address_issue": "Կրկին փորձել",
       "generic_selfie_issue": "Կրկին փորձել",
@@ -4489,6 +4604,7 @@
     "description": {
       "default": "Խնդրում ենք կրկին փորձել",
       "expired_document": "Կրկին փորձեք լուսանկար պարունակող, վավեր անձը հաստատող փաստաթղթով և համոզվեք, որ ձեր տվյալները հստակ երևում են",
+      "failed_authentication": "Խնդրում ենք կրկին փորձել",
       "generic_document_issue": "Կրկին փորձեք լուսանկար պարունակող, վավեր անձը հաստատող փաստաթղթով և համոզվեք, որ ձեր տվյալները հստակ երևում են",
       "generic_proof_of_address_issue": "Խնդրում ենք կրկին փորձել վավեր փաստաթղթով և համոզվել, որ ձեր տվյալները հստակ տեսանելի են",
       "generic_selfie_issue": "Խնդրում ենք կրկին փորձել և համոզվել, որ ձեր դեմքը երևում է և լավ լուսավորված է",
@@ -4497,6 +4613,7 @@
     "headline": {
       "default": "Խնդիր է եղել",
       "expired_document": "Ձեր փաստաթղթի ժամկետը սպառվել է",
+      "failed_authentication": "Նույնականացումը ձախողվեց",
       "generic_document_issue": "Ձեր փաստաթուղթի հետ խնդիր է եղել",
       "generic_proof_of_address_issue": "Ձեր փաստաթուղթի հետ խնդիր է եղել",
       "generic_selfie_issue": "Ձեր սելֆիի հետ խնդիր է եղել",

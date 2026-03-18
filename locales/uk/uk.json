@@ -878,6 +878,15 @@
       "title_tip_2": "Розмістіть ваш документ у рамці",
       "title_tip_3": "Переконайтеся, що всі поля читабельні"
     },
+    "help_tilt": {
+      "description_tip_1": "Для найкращого результату тримайте посвідчення в руці й повільно нахиляйте його. Дотримуйтеся інструкцій на екрані, змінюючи кут посвідчення, доки всі сторони не стануть зеленими.",
+      "description_tip_2": "Тримайте всі боки вашого посвідчення особи в межах кадру, щоб завершити нахил. Якщо якийсь бік не стає зеленим, відсуньтеся трохи назад і розташуйте посвідчення по центру.",
+      "subtitle": "Дотримуйтесь цих порад, щоб успішно зафіксувати голограми вашого посвідчення",
+      "subtitle_timeout": "З міркувань безпеки у вас є до 20 секунд, щоб виконати цей крок",
+      "title_timeout": "Час вичерпано. \nСпробуйте ці поради",
+      "title_tip_1": "Тримайте своє посвідчення особи, щоб виконати нахил",
+      "title_tip_2": "Розмістіть своє посвідчення особи в рамці"
+    },
     "intro": {
       "button_primary_selection_off": "Почати сканування",
       "button_primary_selection_on": "Оберіть документ",
@@ -886,6 +895,13 @@
       "list_item_tip_3": "Переконайтеся, що всі поля читабельні",
       "subtitle": "Нам потрібно зробити фото вашого документа, щоб переконатися в його справжності.",
       "title": "Відскануйте ваш документ"
+    },
+    "intro_tilt": {
+      "callout": "Ми використаємо ліхтарик вашого телефону",
+      "list_item_tip_1": "Тримайте своє посвідчення особи в рамці",
+      "list_item_tip_2": "Нахиліть своє посвідчення особи, доки всі чотири сторони рамки не стануть зеленими",
+      "subtitle": "Ми робимо це, щоб переконатися, що ваш документ є справжнім",
+      "title": "Нахиліть посвідчення особи, щоб побачити його голограми"
     },
     "preview": {
       "blur_detail": "Переконайтеся, що зображення чітке",
@@ -957,6 +973,19 @@
         "iq_mrz_3": "Зробіть видимими нижні 3 рядки",
         "iq_no_doc": "Покажіть документ у рамці",
         "iq_obstruction": "Приберіть пальці від документа",
+        "tilt": {
+          "down": "Нахиліть своє посвідчення вниз",
+          "left": "Нахиліть своє посвідчення ліворуч",
+          "right": "Нахиліть своє посвідчення праворуч",
+          "up": "Підніміть своє посвідчення"
+        },
+        "tilt_accessibility": {
+          "complete": "Завершено",
+          "down": "Нахиліть своє посвідчення нижче, доки не почуєте підтвердження",
+          "left": "Нахиліть своє посвідчення особи ліворуч, доки не почуєте підтвердження",
+          "right": "Нахиліть своє посвідчення особи вправо, доки не почуєте підтвердження",
+          "up": "Поверніть своє посвідчення вгору, доки не почуєте підтвердження"
+        },
         "validity": {
           "button_primary": "Спробуйте ще раз",
           "button_secondary": "Оберіть інший документ"
@@ -1003,6 +1032,7 @@
         "subtitle_passport_accessibility": "Розмістіть фотосторінку вашого паспорта біля задньої частини телефону та повільно відсувайте її, поки не почуєте сигнал.",
         "subtitle_passport_manual": "Відскануйте сторону документа з фото",
         "subtitle_passport_manual_accessibility": "Розмістіть сторінку з фото вашого паспорта перед задньою камерою та натисніть кнопку нижче.",
+        "subtitle_tilt_generic": "Нахиліть своє посвідчення, доки рамка не стане зеленою",
         "title_back": "Зворотна сторона",
         "title_front": "Лицьова сторона",
         "title_passport": "Сторінка з фото"
@@ -1632,6 +1662,16 @@
       "bottom_sheet": {
         "handle_accessibility": "document.bottom_sheet.handle_dismiss_accessibility"
       },
+      "chip_blocked": {
+        "button_help": "nfc.chip_blocked.button_help",
+        "subtitle": "nfc.chip_blocked.subtitle",
+        "title": "nfc.chip_blocked.title"
+      },
+      "chip_blocked_optional": {
+        "button_primary": "nfc.chip_blocked.optional_button_primary",
+        "subtitle": "nfc.chip_blocked.optional_subtitle",
+        "title": "nfc.chip_blocked.optional_title"
+      },
       "country_select": {
         "alert": {
           "another_doc": "sample.selection.country_select_another_doc"
@@ -2055,6 +2095,40 @@
           "title": "document.upload.success.title"
         }
       },
+      "doc_video_intro": {
+        "callout": "document.intro_tilt.callout",
+        "list_item_tip_1": "document.intro_tilt.list_item_tip_1",
+        "list_item_tip_2": "document.intro_tilt.list_item_tip_2",
+        "sub-title": "document.intro_tilt.subtitle",
+        "title": "document.intro_tilt.title"
+      },
+      "doc_video_tilt": {
+        "feedback": {
+          "side_complete_accessibility": "document.scan.feedback.tilt_accessibility.complete",
+          "tilt_down": "document.scan.feedback.tilt.down",
+          "tilt_down_accessibility": "document.scan.feedback.tilt_accessibility.down",
+          "tilt_left": "document.scan.feedback.tilt.left",
+          "tilt_left_accessibility": "document.scan.feedback.tilt_accessibility.left",
+          "tilt_right": "document.scan.feedback.tilt.right",
+          "tilt_right_accessibility": "document.scan.feedback.tilt_accessibility.right",
+          "tilt_up": "document.scan.feedback.tilt.up",
+          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up"
+        },
+        "instructions": {
+          "sub_title_generic": "document.scan.instructions.subtitle_tilt_generic"
+        }
+      },
+      "doc_video_tilt_help": {
+        "description_tip_1": "document.help_tilt.description_tip_1",
+        "description_tip_2": "document.help_tilt.description_tip_2",
+        "sub_title": "document.help_tilt.subtitle",
+        "title_tip_1": "document.help_tilt.title_tip_1",
+        "title_tip_2": "document.help_tilt.title_tip_2"
+      },
+      "doc_video_tilt_timeout": {
+        "sub_title": "document.help_tilt.subtitle_timeout",
+        "title": "document.help_tilt.title_timeout"
+      },
       "eid": {
         "scheme_form": {
           "subtitle": "electronicId.scheme_form.subtitle",
@@ -2113,6 +2187,19 @@
           "subtitle": "enrollPasskey.not_supported_error.subtitle",
           "title": "enrollPasskey.not_supported_error.title"
         }
+      },
+      "enter_pin": {
+        "button_primary": "nfc.pin_entry.button_primary",
+        "helper_attempts_left": "nfc.pin_entry.helper_attempts_left",
+        "helper_final_attempt": "nfc.pin_entry.helper_final_attempt",
+        "subtitle": "nfc.pin_entry.subtitle",
+        "title": "nfc.pin_entry.title",
+        "title_incorrect": "nfc.pin_entry.title_incorrect"
+      },
+      "enter_pin_optional": {
+        "button_tertiary": "nfc.pin_entry.optional_button_tertiary",
+        "helper_attempts_left": "nfc.pin_entry.optional_helper_attempts_left",
+        "helper_final_attempt": "nfc.pin_entry.optional_helper_final_attempt"
       },
       "generic": {
         "accessibility": {
@@ -2679,6 +2766,10 @@
         "list_item_nfc": "nfc.settings.list_item_nfc",
         "subtitle": "nfc.settings.subtitle",
         "title": "nfc.settings.title"
+      },
+      "nfc_scan": {
+        "pin_disclaimer": "nfc.scan.pin_disclaimer",
+        "video_instruction_accessibility": "nfc.error.video_instruction_accessibility"
       },
       "nfc_scan_error_device": {
         "primary_button": "nfc.unsupported_device.button_primary",
@@ -3773,6 +3864,14 @@
     }
   },
   "nfc": {
+    "chip_blocked": {
+      "button_help": "Державний портал",
+      "optional_button_primary": "Продовжити",
+      "optional_subtitle": "Надто багато неправильних введень PIN заблокували ваш NFC-чип, тому ми пропустимо цей крок. Зверніться до відповідних органів, щоб скинути свій PIN для подальшого використання.",
+      "optional_title": "Продовжити без сканування чипа",
+      "subtitle": "Це захід безпеки для запобігання шахрайству. Щоб розблокувати чип, зверніться до місцевого органу, який видав документ.",
+      "title": "NFC-чип заблоковано"
+    },
     "connection_error": {
       "button_primary": "Повторити спробу передавання",
       "subtitle": "Перевірте, чи з’єднання стабільне, а потім спробуйте ще раз",
@@ -3806,7 +3905,19 @@
         "passport_usa": "Можливо, вам доведеться повільно переміщувати телефон вгору і вниз по внутрішній стороні задньої обкладинки, поки ви не знайдете чип."
       },
       "instruction_5_passport": "Як тільки ваш телефон виявить чип у вашому паспорті, сканування розпочнеться автоматично. Тримайте телефон і паспорт нерухомо, щоб сканування завершилося.",
-      "title": "Не вдається відсканувати чіп. Потрібна допомога?"
+      "title": "Не вдається відсканувати чіп. Потрібна допомога?",
+      "video_instruction_accessibility": "Відеоінструкція"
+    },
+    "pin_entry": {
+      "button_primary": "Продовжити",
+      "helper_attempts_left": "Залишилося [%i] спроб",
+      "helper_final_attempt": "Залишилася 1 спроба. Після наступної невдалої спроби ваш чип буде заблоковано",
+      "optional_button_tertiary": "Пропустити сканування чипа NFC",
+      "optional_helper_attempts_left": "[%i] спроб залишилося. Пропустіть цей крок нижче.",
+      "optional_helper_final_attempt": "[%i] спроба залишилася, перш ніж ваш NFC-чип буде заблоковано. Пропустіть цей крок нижче.",
+      "subtitle": "Це потрібно для надійного зчитування чипа NFC. Ви створили цей [%i]-значний номер, коли ваш документ було видано.",
+      "title": "Введіть PIN вашого документа",
+      "title_incorrect": "Неправильний PIN"
     },
     "scan": {
       "button_primary": "Почати сканування",
@@ -3827,8 +3938,10 @@
         "document": "Як тільки чіп буде виявлено, тримайте телефон і документ нерухомо.",
         "passport": "Як тільки чіп буде виявлено, не забирайте телефон від паспорта."
       },
+      "pin_disclaimer": "Перед скануванням чипа ми попросимо вас ввести [%i]-значний PIN-код вашого документа.",
       "title_document": "Скануйте ваш документ",
-      "title_passport": "Відскануйте чіп вашого паспорта"
+      "title_passport": "Відскануйте чіп вашого паспорта",
+      "video_instruction_accessibility": "Відеоінструкція"
     },
     "settings": {
       "button_primary": "Відкрити налаштування",
@@ -3864,7 +3977,8 @@
         "ready": "Готово до сканування",
         "scanning": "Сканування...",
         "success": "Сканування успішне."
-      }
+      },
+      "video_instruction_accessibility": "Відеоінструкція"
     },
     "unsupported_device": {
       "button_primary": "Верифікація при виході",
@@ -4481,6 +4595,7 @@
     "button": {
       "default": "Повторити спробу",
       "expired_document": "Повторити спробу",
+      "failed_authentication": "Повторити спробу",
       "generic_document_issue": "Повторити спробу",
       "generic_proof_of_address_issue": "Повторити спробу",
       "generic_selfie_issue": "Повторити спробу",
@@ -4489,6 +4604,7 @@
     "description": {
       "default": "Спробуйте ще раз",
       "expired_document": "Повторіть спробу, надавши дійсне посвідчення особи з фотографією, і переконайтеся, що всі ваші дані чітко видно",
+      "failed_authentication": "Спробуйте ще раз",
       "generic_document_issue": "Повторіть спробу, надавши дійсне посвідчення особи з фотографією, і переконайтеся, що всі ваші дані чітко видно",
       "generic_proof_of_address_issue": "Будь ласка, спробуйте ще раз, використавши дійсний документ, і переконайтеся, що ваша інформація добре видно",
       "generic_selfie_issue": "Спробуйте ще раз і переконайтеся, що ваше обличчя добре видно й воно добре освітлене",
@@ -4497,6 +4613,7 @@
     "headline": {
       "default": "Виникла проблема",
       "expired_document": "Строк дії документа закінчився",
+      "failed_authentication": "Не вдалося виконати автентифікацію",
       "generic_document_issue": "Виникла проблема з вашим документом",
       "generic_proof_of_address_issue": "Виникла проблема з вашим документом",
       "generic_selfie_issue": "Виникла проблема з вашим селфі",

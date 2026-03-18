@@ -878,6 +878,15 @@
       "title_tip_2": "신분증을 프레임 안에 맞춰주세요",
       "title_tip_3": "모든 항목이 읽을 수 있도록 하세요"
     },
+    "help_tilt": {
+      "description_tip_1": "가장 좋은 결과를 위해, 기울일 때 신분증을 손에 들고 움직여 주세요. 화면의 안내에 따라 신분증을 기울여 모든 가장자리가 초록색으로 변할 때까지 조정해 주세요.",
+      "description_tip_2": "기울이기 동작을 완료하려면 신분증의 모든 면이 화면 안에 보이도록 유지하세요. 어떤 면이 초록색으로 표시되지 않으면, 기기를 조금 뒤로 떼고 신분증을 화면 중앙에 맞춰 주세요.",
+      "subtitle": "다음 팁을 따라 신분증의 홀로그램을 제대로 촬영하세요",
+      "subtitle_timeout": "보안을 위해 이 단계를 완료할 수 있는 시간은 최대 20초입니다.",
+      "title_timeout": "시간 제한을 초과했습니다.\n다음 방법을 시도해 보세요",
+      "title_tip_1": "기울이기 동작을 위해 신분증을 잡고 움직여 주세요",
+      "title_tip_2": "신분증을 프레임 안에 맞춰 주세요"
+    },
     "intro": {
       "button_primary_selection_off": "스캔 시작",
       "button_primary_selection_on": "신분증 선택",
@@ -886,6 +895,13 @@
       "list_item_tip_3": "모든 항목이 읽을 수 있도록 하세요",
       "subtitle": "신분증이 진짜인지 확인하기 위해 사진을 촬영해야 합니다.",
       "title": "신분증을 스캔하세요"
+    },
+    "intro_tilt": {
+      "callout": "휴대전화 플래시를 사용합니다",
+      "list_item_tip_1": "신분증을 프레임 안에 맞춰 주세요",
+      "list_item_tip_2": "테두리의 네 변이 모두 초록색이 될 때까지 신분증을 기울이세요",
+      "subtitle": "이 절차는 사용자의 문서가 진본인지 확인하기 위해 진행됩니다.",
+      "title": "ID를 기울여 홀로그램을 보이게 해 주세요"
     },
     "preview": {
       "blur_detail": "모든 부분이 선명하게 나타나는지 확인하세요",
@@ -957,6 +973,19 @@
         "iq_mrz_3": "아래쪽 3줄이 보이도록 하세요",
         "iq_no_doc": "문서를 프레임에 맞춰 보여주세요",
         "iq_obstruction": "손가락을 문서에서 떼세요",
+        "tilt": {
+          "down": "신분증을 아래로 기울이세요",
+          "left": "신분증을 왼쪽으로 기울이세요",
+          "right": "신분증을 오른쪽으로 기울이세요",
+          "up": "신분증을 위로 기울여 주세요"
+        },
+        "tilt_accessibility": {
+          "complete": "완료",
+          "down": "확인 소리가 들릴 때까지 신분증을 아래로 기울이세요",
+          "left": "확인 소리가 날 때까지 신분증을 왼쪽으로 기울이세요",
+          "right": "확인 소리가 들릴 때까지 신분증을 오른쪽으로 기울이세요",
+          "up": "확인 소리가 날 때까지 신분증을 위로 기울이세요"
+        },
         "validity": {
           "button_primary": "다시 시도하세요",
           "button_secondary": "다른 신분증 선택"
@@ -1003,6 +1032,7 @@
         "subtitle_passport_accessibility": "여권의 사진이 있는 페이지를 휴대폰 뒷면에 대고, 소리가 들릴 때까지 천천히 뒤로 이동하세요.",
         "subtitle_passport_manual": "신분증의 사진 면을 스캔하세요",
         "subtitle_passport_manual_accessibility": "여권의 사진이 있는 페이지를 후면 카메라 앞에 두고 아래 버튼을 누르세요.",
+        "subtitle_tilt_generic": "프레임이 초록색이 될 때까지 신분증을 기울여 주세요",
         "title_back": "뒷면",
         "title_front": "앞면",
         "title_passport": "사진이 있는 면"
@@ -1632,6 +1662,16 @@
       "bottom_sheet": {
         "handle_accessibility": "document.bottom_sheet.handle_dismiss_accessibility"
       },
+      "chip_blocked": {
+        "button_help": "nfc.chip_blocked.button_help",
+        "subtitle": "nfc.chip_blocked.subtitle",
+        "title": "nfc.chip_blocked.title"
+      },
+      "chip_blocked_optional": {
+        "button_primary": "nfc.chip_blocked.optional_button_primary",
+        "subtitle": "nfc.chip_blocked.optional_subtitle",
+        "title": "nfc.chip_blocked.optional_title"
+      },
       "country_select": {
         "alert": {
           "another_doc": "sample.selection.country_select_another_doc"
@@ -2055,6 +2095,40 @@
           "title": "document.upload.success.title"
         }
       },
+      "doc_video_intro": {
+        "callout": "document.intro_tilt.callout",
+        "list_item_tip_1": "document.intro_tilt.list_item_tip_1",
+        "list_item_tip_2": "document.intro_tilt.list_item_tip_2",
+        "sub-title": "document.intro_tilt.subtitle",
+        "title": "document.intro_tilt.title"
+      },
+      "doc_video_tilt": {
+        "feedback": {
+          "side_complete_accessibility": "document.scan.feedback.tilt_accessibility.complete",
+          "tilt_down": "document.scan.feedback.tilt.down",
+          "tilt_down_accessibility": "document.scan.feedback.tilt_accessibility.down",
+          "tilt_left": "document.scan.feedback.tilt.left",
+          "tilt_left_accessibility": "document.scan.feedback.tilt_accessibility.left",
+          "tilt_right": "document.scan.feedback.tilt.right",
+          "tilt_right_accessibility": "document.scan.feedback.tilt_accessibility.right",
+          "tilt_up": "document.scan.feedback.tilt.up",
+          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up"
+        },
+        "instructions": {
+          "sub_title_generic": "document.scan.instructions.subtitle_tilt_generic"
+        }
+      },
+      "doc_video_tilt_help": {
+        "description_tip_1": "document.help_tilt.description_tip_1",
+        "description_tip_2": "document.help_tilt.description_tip_2",
+        "sub_title": "document.help_tilt.subtitle",
+        "title_tip_1": "document.help_tilt.title_tip_1",
+        "title_tip_2": "document.help_tilt.title_tip_2"
+      },
+      "doc_video_tilt_timeout": {
+        "sub_title": "document.help_tilt.subtitle_timeout",
+        "title": "document.help_tilt.title_timeout"
+      },
       "eid": {
         "scheme_form": {
           "subtitle": "electronicId.scheme_form.subtitle",
@@ -2113,6 +2187,19 @@
           "subtitle": "enrollPasskey.not_supported_error.subtitle",
           "title": "enrollPasskey.not_supported_error.title"
         }
+      },
+      "enter_pin": {
+        "button_primary": "nfc.pin_entry.button_primary",
+        "helper_attempts_left": "nfc.pin_entry.helper_attempts_left",
+        "helper_final_attempt": "nfc.pin_entry.helper_final_attempt",
+        "subtitle": "nfc.pin_entry.subtitle",
+        "title": "nfc.pin_entry.title",
+        "title_incorrect": "nfc.pin_entry.title_incorrect"
+      },
+      "enter_pin_optional": {
+        "button_tertiary": "nfc.pin_entry.optional_button_tertiary",
+        "helper_attempts_left": "nfc.pin_entry.optional_helper_attempts_left",
+        "helper_final_attempt": "nfc.pin_entry.optional_helper_final_attempt"
       },
       "generic": {
         "accessibility": {
@@ -2679,6 +2766,10 @@
         "list_item_nfc": "nfc.settings.list_item_nfc",
         "subtitle": "nfc.settings.subtitle",
         "title": "nfc.settings.title"
+      },
+      "nfc_scan": {
+        "pin_disclaimer": "nfc.scan.pin_disclaimer",
+        "video_instruction_accessibility": "nfc.error.video_instruction_accessibility"
       },
       "nfc_scan_error_device": {
         "primary_button": "nfc.unsupported_device.button_primary",
@@ -3773,6 +3864,14 @@
     }
   },
   "nfc": {
+    "chip_blocked": {
+      "button_help": "정부 포털",
+      "optional_button_primary": "계속",
+      "optional_subtitle": "PIN을 여러 번 잘못 입력하여 NFC 칩이 차단되었으므로, 이 단계를 건너뛰겠습니다. 앞으로 사용하시려면 PIN 재설정을 위해 관계 기관에 문의하세요.",
+      "optional_title": "칩 스캔 없이 계속하기",
+      "subtitle": "이는 사기를 방지하기 위한 보안 조치입니다. 칩 잠금을 해제하려면 가까운 발급 기관에 문의하세요.",
+      "title": "NFC 칩이 차단됨"
+    },
     "connection_error": {
       "button_primary": "다시 업로드 시도하기",
       "subtitle": "연결이 안정적인지 확인한 다음 다시 시도하세요",
@@ -3806,7 +3905,19 @@
         "passport_usa": "칩을 찾을 때까지 휴대폰을 천천히 위아래로 움직여서 뒷면 커버 안쪽에 대어야 할 수 있습니다."
       },
       "instruction_5_passport": "휴대폰이 여권의 칩을 감지하면 스캔이 자동으로 시작됩니다. 스캔이 완료될 수 있도록 휴대폰과 여권을 고정하세요.",
-      "title": "칩을 스캔할 수 없습니다. 도움이 필요하신가요?"
+      "title": "칩을 스캔할 수 없습니다. 도움이 필요하신가요?",
+      "video_instruction_accessibility": "동영상 안내"
+    },
+    "pin_entry": {
+      "button_primary": "계속",
+      "helper_attempts_left": "[%i]번 남음",
+      "helper_final_attempt": "1번의 시도만 남았습니다. 다음 시도가 실패하면 칩이 차단됩니다",
+      "optional_button_tertiary": "NFC 칩 스캔 건너뛰기",
+      "optional_helper_attempts_left": "[%i]회 남았습니다. 아래에서 이 단계를 건너뛰세요.",
+      "optional_helper_final_attempt": "[%i]번 남으면 NFC 칩이 차단됩니다. 아래에서 이 단계를 건너뛰세요.",
+      "subtitle": "이는 NFC 칩을 안전하게 읽기 위해 필요합니다. 이 [%i]자리 숫자는 문서가 발급될 때 사용자가 생성한 것입니다.",
+      "title": "문서 PIN을 입력하세요",
+      "title_incorrect": "잘못된 PIN"
     },
     "scan": {
       "button_primary": "스캔 시작",
@@ -3827,8 +3938,10 @@
         "document": "칩이 감지되면, 휴대폰과 신분증을 고정하세요.",
         "passport": "칩이 감지되면 휴대폰과 여권을 움직이지 마세요."
       },
+      "pin_disclaimer": "칩을 스캔하기 전에 문서의 [%i]자리 PIN을 요청합니다.",
       "title_document": "문서를 스캔하십시오",
-      "title_passport": "여권의 칩을 스캔합니다"
+      "title_passport": "여권의 칩을 스캔합니다",
+      "video_instruction_accessibility": "동영상 안내"
     },
     "settings": {
       "button_primary": "설정 열기",
@@ -3864,7 +3977,8 @@
         "ready": "스캔 준비 완료",
         "scanning": "스캔 중...",
         "success": "스캔 성공."
-      }
+      },
+      "video_instruction_accessibility": "동영상 안내"
     },
     "unsupported_device": {
       "button_primary": "출구 확인",
@@ -4481,6 +4595,7 @@
     "button": {
       "default": "다시 시도하기",
       "expired_document": "다시 시도하기",
+      "failed_authentication": "다시 시도하기",
       "generic_document_issue": "다시 시도하기",
       "generic_proof_of_address_issue": "다시 시도하기",
       "generic_selfie_issue": "다시 시도하기",
@@ -4489,6 +4604,7 @@
     "description": {
       "default": "다시 시도해주세요",
       "expired_document": "사진이 부착된 유효한 신분증으로 다시 시도하고 정보가 선명하게 보이는지 확인하세요",
+      "failed_authentication": "다시 시도해주세요",
       "generic_document_issue": "사진이 부착된 유효한 신분증으로 다시 시도하고 정보가 선명하게 보이는지 확인하세요",
       "generic_proof_of_address_issue": "유효한 문서로 다시 시도하고, 정보가 또렷하게 보이도록 해주세요",
       "generic_selfie_issue": "조명이 밝고 얼굴이 선명하게 나타나도록 하여 다시 시도해주세요",
@@ -4497,6 +4613,7 @@
     "headline": {
       "default": "문제가 발생했습니다",
       "expired_document": "서류가 만료되었습니다",
+      "failed_authentication": "인증에 실패했습니다",
       "generic_document_issue": "문서에 문제가 있었습니다",
       "generic_proof_of_address_issue": "문서에 문제가 있었습니다",
       "generic_selfie_issue": "당신의 셀카에 문제가 있었습니다",

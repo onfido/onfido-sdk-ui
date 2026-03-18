@@ -878,6 +878,15 @@
       "title_tip_2": "Đặt giấy tờ tùy thân của bạn vào khung",
       "title_tip_3": "Đảm bảo tất cả các trường đều dễ đọc"
     },
+    "help_tilt": {
+      "description_tip_1": "Để có kết quả tốt nhất, hãy cầm giấy tờ tùy thân trên tay khi nghiêng. Làm theo hướng dẫn trên màn hình, nghiêng giấy tờ tùy thân cho đến khi tất cả các cạnh chuyển sang màu xanh lá.",
+      "description_tip_2": "Giữ tất cả các cạnh của giấy tờ tùy thân hiển thị trong khung hình để hoàn thành chuyển động nghiêng. Nếu một cạnh không chuyển sang màu xanh lá, hãy lùi lại và căn giữa giấy tờ tùy thân của bạn.",
+      "subtitle": "Làm theo các mẹo sau để chụp ảnh hologram trên giấy tờ tùy thân thành công",
+      "subtitle_timeout": "Vì lý do bảo mật, bạn có tối đa 20 giây để hoàn thành bước này",
+      "title_timeout": "Đã hết thời gian. \nThử các mẹo sau",
+      "title_tip_1": "Giữ giấy tờ tùy thân của bạn để thực hiện chuyển động nghiêng",
+      "title_tip_2": "Đặt giấy tờ tùy thân của bạn vào khung hình"
+    },
     "intro": {
       "button_primary_selection_off": "Bắt đầu quét",
       "button_primary_selection_on": "Chọn giấy tờ tùy thân",
@@ -886,6 +895,13 @@
       "list_item_tip_3": "Đảm bảo tất cả các trường đều đọc được",
       "subtitle": "Chúng tôi cần chụp ảnh giấy tờ tùy thân của bạn để đảm bảo tính xác thực.",
       "title": "Quét giấy tờ tùy thân của bạn"
+    },
+    "intro_tilt": {
+      "callout": "Chúng tôi sẽ sử dụng đèn pin trên điện thoại của bạn",
+      "list_item_tip_1": "Giữ giấy tờ tùy thân trong khung hình",
+      "list_item_tip_2": "Nghiêng giấy tờ tùy thân cho đến khi cả bốn cạnh của khung chuyển sang màu xanh lá",
+      "subtitle": "Chúng tôi thực hiện điều này để đảm bảo tài liệu của bạn là xác thực",
+      "title": "Nghiêng giấy tờ tùy thân để hiển thị hình ảnh ba chiều"
     },
     "preview": {
       "blur_detail": "Đảm bảo hình ảnh rõ ràng",
@@ -957,6 +973,19 @@
         "iq_mrz_3": "Hiển thị 3 dòng dưới cùng",
         "iq_no_doc": "Đưa giấy tờ vào khung",
         "iq_obstruction": "Di chuyển ngón tay ra khỏi giấy tờ",
+        "tilt": {
+          "down": "Nghiêng giấy tờ tùy thân xuống",
+          "left": "Nghiêng giấy tờ tùy thân sang trái",
+          "right": "Nghiêng giấy tờ tùy thân sang phải",
+          "up": "Nghiêng giấy tờ tùy thân lên"
+        },
+        "tilt_accessibility": {
+          "complete": "Hoàn tất",
+          "down": "Nghiêng giấy tờ tùy thân xuống cho đến khi nghe thấy xác nhận",
+          "left": "Nghiêng giấy tờ tùy thân của bạn sang trái cho đến khi nghe thấy xác nhận",
+          "right": "Nghiêng giấy tờ tùy thân sang phải cho đến khi bạn nghe thấy xác nhận",
+          "up": "Nghiêng giấy tờ tùy thân lên cho đến khi bạn nghe thấy xác nhận"
+        },
         "validity": {
           "button_primary": "Thử lại",
           "button_secondary": "Chọn tài liệu khác"
@@ -1003,6 +1032,7 @@
         "subtitle_passport_accessibility": "Đặt trang ảnh của hộ chiếu lên mặt lưng điện thoại và di chuyển từ từ ra sau cho đến khi bạn nghe thấy phản hồi.",
         "subtitle_passport_manual": "Quét mặt có ảnh của giấy tờ của bạn",
         "subtitle_passport_manual_accessibility": "Đặt trang chứa ảnh của hộ chiếu trước camera sau và nhấn nút bên dưới.",
+        "subtitle_tilt_generic": "Nghiêng giấy tờ tùy thân cho đến khi khung chuyển sang màu xanh lá",
         "title_back": "Mặt sau",
         "title_front": "Mặt trước",
         "title_passport": "Trang ảnh"
@@ -1632,6 +1662,16 @@
       "bottom_sheet": {
         "handle_accessibility": "document.bottom_sheet.handle_dismiss_accessibility"
       },
+      "chip_blocked": {
+        "button_help": "nfc.chip_blocked.button_help",
+        "subtitle": "nfc.chip_blocked.subtitle",
+        "title": "nfc.chip_blocked.title"
+      },
+      "chip_blocked_optional": {
+        "button_primary": "nfc.chip_blocked.optional_button_primary",
+        "subtitle": "nfc.chip_blocked.optional_subtitle",
+        "title": "nfc.chip_blocked.optional_title"
+      },
       "country_select": {
         "alert": {
           "another_doc": "sample.selection.country_select_another_doc"
@@ -2055,6 +2095,40 @@
           "title": "document.upload.success.title"
         }
       },
+      "doc_video_intro": {
+        "callout": "document.intro_tilt.callout",
+        "list_item_tip_1": "document.intro_tilt.list_item_tip_1",
+        "list_item_tip_2": "document.intro_tilt.list_item_tip_2",
+        "sub-title": "document.intro_tilt.subtitle",
+        "title": "document.intro_tilt.title"
+      },
+      "doc_video_tilt": {
+        "feedback": {
+          "side_complete_accessibility": "document.scan.feedback.tilt_accessibility.complete",
+          "tilt_down": "document.scan.feedback.tilt.down",
+          "tilt_down_accessibility": "document.scan.feedback.tilt_accessibility.down",
+          "tilt_left": "document.scan.feedback.tilt.left",
+          "tilt_left_accessibility": "document.scan.feedback.tilt_accessibility.left",
+          "tilt_right": "document.scan.feedback.tilt.right",
+          "tilt_right_accessibility": "document.scan.feedback.tilt_accessibility.right",
+          "tilt_up": "document.scan.feedback.tilt.up",
+          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up"
+        },
+        "instructions": {
+          "sub_title_generic": "document.scan.instructions.subtitle_tilt_generic"
+        }
+      },
+      "doc_video_tilt_help": {
+        "description_tip_1": "document.help_tilt.description_tip_1",
+        "description_tip_2": "document.help_tilt.description_tip_2",
+        "sub_title": "document.help_tilt.subtitle",
+        "title_tip_1": "document.help_tilt.title_tip_1",
+        "title_tip_2": "document.help_tilt.title_tip_2"
+      },
+      "doc_video_tilt_timeout": {
+        "sub_title": "document.help_tilt.subtitle_timeout",
+        "title": "document.help_tilt.title_timeout"
+      },
       "eid": {
         "scheme_form": {
           "subtitle": "electronicId.scheme_form.subtitle",
@@ -2113,6 +2187,19 @@
           "subtitle": "enrollPasskey.not_supported_error.subtitle",
           "title": "enrollPasskey.not_supported_error.title"
         }
+      },
+      "enter_pin": {
+        "button_primary": "nfc.pin_entry.button_primary",
+        "helper_attempts_left": "nfc.pin_entry.helper_attempts_left",
+        "helper_final_attempt": "nfc.pin_entry.helper_final_attempt",
+        "subtitle": "nfc.pin_entry.subtitle",
+        "title": "nfc.pin_entry.title",
+        "title_incorrect": "nfc.pin_entry.title_incorrect"
+      },
+      "enter_pin_optional": {
+        "button_tertiary": "nfc.pin_entry.optional_button_tertiary",
+        "helper_attempts_left": "nfc.pin_entry.optional_helper_attempts_left",
+        "helper_final_attempt": "nfc.pin_entry.optional_helper_final_attempt"
       },
       "generic": {
         "accessibility": {
@@ -2679,6 +2766,10 @@
         "list_item_nfc": "nfc.settings.list_item_nfc",
         "subtitle": "nfc.settings.subtitle",
         "title": "nfc.settings.title"
+      },
+      "nfc_scan": {
+        "pin_disclaimer": "nfc.scan.pin_disclaimer",
+        "video_instruction_accessibility": "nfc.error.video_instruction_accessibility"
       },
       "nfc_scan_error_device": {
         "primary_button": "nfc.unsupported_device.button_primary",
@@ -3773,6 +3864,14 @@
     }
   },
   "nfc": {
+    "chip_blocked": {
+      "button_help": "Cổng thông tin chính phủ",
+      "optional_button_primary": "Tiếp tục",
+      "optional_subtitle": "Bạn đã nhập mã PIN sai quá nhiều lần khiến chip NFC của bạn bị khóa, vì vậy chúng tôi sẽ bỏ qua bước này. Vui lòng liên hệ với cơ quan có thẩm quyền để đặt lại mã PIN cho lần sử dụng sau.",
+      "optional_title": "Tiếp tục mà không quét chip",
+      "subtitle": "Đây là biện pháp bảo mật nhằm ngăn chặn gian lận. Vui lòng liên hệ với cơ quan cấp phát tại địa phương để mở khóa chip của bạn.",
+      "title": "Chip NFC bị chặn"
+    },
     "connection_error": {
       "button_primary": "Thử tải lên lại",
       "subtitle": "Kiểm tra xem kết nối của bạn và thử lại",
@@ -3806,7 +3905,19 @@
         "passport_usa": "Bạn có thể cần từ từ trượt điện thoại của mình lên xuống dọc theo mặt trong của bìa sau cho đến khi bạn tìm thấy chip."
       },
       "instruction_5_passport": "Khi điện thoại của bạn phát hiện chip trong hộ chiếu, quá trình quét sẽ tự động bắt đầu. Giữ điện thoại và hộ chiếu của bạn yên để quá trình quét có thể hoàn tất.",
-      "title": "Không thể quét chip. Cần trợ giúp?"
+      "title": "Không thể quét chip. Cần trợ giúp?",
+      "video_instruction_accessibility": "Hướng dẫn video"
+    },
+    "pin_entry": {
+      "button_primary": "Tiếp tục",
+      "helper_attempts_left": "[%i] lần thử còn lại",
+      "helper_final_attempt": "Còn 1 lần thử. Chip của bạn sẽ bị khóa sau lần thử thất bại tiếp theo",
+      "optional_button_tertiary": "Bỏ qua quét chip NFC",
+      "optional_helper_attempts_left": "Còn [%i] lần thử. Bỏ qua bước này bên dưới.",
+      "optional_helper_final_attempt": "Còn [%i] lần thử trước khi chip NFC của bạn bị khóa. Bỏ qua bước này bên dưới.",
+      "subtitle": "Điều này cần thiết để đọc chip NFC một cách an toàn. Bạn đã tạo số gồm [%i] chữ số này khi tài liệu của bạn được cấp.",
+      "title": "Nhập mã PIN tài liệu của bạn",
+      "title_incorrect": "Mã PIN không đúng"
     },
     "scan": {
       "button_primary": "Bắt đầu quét",
@@ -3827,8 +3938,10 @@
         "document": "Khi chip được phát hiện, hãy giữ điện thoại và tài liệu của bạn ổn định.",
         "passport": "Một khi chip được phát hiện, hãy giữ điện thoại và hộ chiếu của bạn không động."
       },
+      "pin_disclaimer": "Chúng tôi sẽ yêu cầu bạn nhập mã PIN [%i] chữ số của tài liệu trước khi quét chip.",
       "title_document": "Quét tài liệu của bạn",
-      "title_passport": "Quét chip trong hộ chiếu của bạn"
+      "title_passport": "Quét chip trong hộ chiếu của bạn",
+      "video_instruction_accessibility": "Hướng dẫn video"
     },
     "settings": {
       "button_primary": "Mở phần cài đặt",
@@ -3864,7 +3977,8 @@
         "ready": "Sẵn sàng quét",
         "scanning": "Đang quét...",
         "success": "Quét thành công."
-      }
+      },
+      "video_instruction_accessibility": "Hướng dẫn video"
     },
     "unsupported_device": {
       "button_primary": "Xác minh thoát",
@@ -4481,6 +4595,7 @@
     "button": {
       "default": "Thử lại",
       "expired_document": "Thử lại",
+      "failed_authentication": "Thử lại",
       "generic_document_issue": "Thử lại",
       "generic_proof_of_address_issue": "Thử lại",
       "generic_selfie_issue": "Thử lại",
@@ -4489,6 +4604,7 @@
     "description": {
       "default": "Vui lòng thử lại",
       "expired_document": "Vui lòng thử lại với giấy tờ tùy thân có ảnh hợp lệ và đảm bảo thông tin của bạn được hiển thị rõ ràng",
+      "failed_authentication": "Vui lòng thử lại",
       "generic_document_issue": "Vui lòng thử lại với giấy tờ tùy thân có ảnh hợp lệ và đảm bảo thông tin của bạn được hiển thị rõ ràng",
       "generic_proof_of_address_issue": "Vui lòng thử lại với giấy tờ hợp lệ và đảm bảo thông tin của bạn hiển thị rõ ràng",
       "generic_selfie_issue": "Vui lòng thử lại và đảm bảo khuôn mặt của bạn được hiển thị rõ ràng và có đủ ánh sáng",
@@ -4497,6 +4613,7 @@
     "headline": {
       "default": "Có một vấn đề",
       "expired_document": "Giấy tờ của bạn đã hết hạn",
+      "failed_authentication": "Xác thực không thành công",
       "generic_document_issue": "Có vấn đề với tài liệu của bạn",
       "generic_proof_of_address_issue": "Có vấn đề với tài liệu của bạn",
       "generic_selfie_issue": "Có vấn đề với bức ảnh tự sướng của bạn",

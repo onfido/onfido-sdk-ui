@@ -878,6 +878,15 @@
       "title_tip_2": "Τοποθετήστε το έγγραφό σας ταυτότητας στο πλαίσιο",
       "title_tip_3": "Βεβαιωθείτε ότι όλα τα πεδία είναι ευανάγνωστα"
     },
+    "help_tilt": {
+      "description_tip_1": "Για καλύτερα αποτελέσματα, κρατήστε την ταυτότητά σας στο χέρι σας καθώς γέρνετε. Ακολουθήστε τις οδηγίες στην οθόνη και αλλάζετε τη γωνία της ταυτότητάς σας μέχρι όλες οι πλευρές να γίνουν πράσινες.",
+      "description_tip_2": "Κρατήστε όλες τις πλευρές της ταυτότητάς σας ορατές μέσα στο πλαίσιο για να ολοκληρώσετε την κίνηση κλίσης. Αν κάποια πλευρά δεν γίνεται πράσινη, απομακρυνθείτε λίγο και κεντράρετε την ταυτότητά σας.",
+      "subtitle": "Ακολουθήστε αυτές τις συμβουλές για να καταγράψετε με επιτυχία τα ολογράμματα της ταυτότητάς σας",
+      "subtitle_timeout": "Για λόγους ασφαλείας, έχετε έως 20 δευτερόλεπτα για να ολοκληρώσετε αυτό το βήμα",
+      "title_timeout": "Έληξε το χρονικό όριο. \nΔοκιμάστε αυτές τις συμβουλές",
+      "title_tip_1": "Κρατήστε την ταυτότητά σας και κάντε κίνηση κλίσης",
+      "title_tip_2": "Τοποθετήστε την ταυτότητά σας στο πλαίσιο"
+    },
     "intro": {
       "button_primary_selection_off": "Έναρξη σάρωσης",
       "button_primary_selection_on": "Επιλέξτε έγγραφο",
@@ -886,6 +895,13 @@
       "list_item_tip_3": "Βεβαιωθείτε ότι όλα τα πεδία είναι ευανάγνωστα",
       "subtitle": "Χρειάζεται να τραβήξουμε φωτογραφίες του εγγράφου σας για να διασφαλίσουμε ότι είναι αυθεντικό.",
       "title": "Σαρώστε το έγγραφό σας ταυτότητας"
+    },
+    "intro_tilt": {
+      "callout": "Θα χρησιμοποιήσουμε τον φακό του τηλεφώνου σας",
+      "list_item_tip_1": "Κρατήστε την ταυτότητά σας μέσα στο πλαίσιο",
+      "list_item_tip_2": "Γείρετε την ταυτότητά σας μέχρι να γίνουν πράσινες και οι τέσσερις πλευρές του πλαισίου",
+      "subtitle": "Το κάνουμε αυτό για να διασφαλίσουμε ότι το έγγραφό σας είναι γνήσιο",
+      "title": "Γείρετε την ταυτότητά σας ώστε να εμφανιστούν τα ολογράμματά της"
     },
     "preview": {
       "blur_detail": "Βεβαιωθείτε ότι όλα εμφανίζονται με σαφήνεια",
@@ -957,6 +973,19 @@
         "iq_mrz_3": "Βεβαιωθείτε ότι οι 3 τελευταίες γραμμές είναι ορατές",
         "iq_no_doc": "Δείξτε το έγγραφο στο πλαίσιο",
         "iq_obstruction": "Απομακρύνετε τα δάχτυλα από το έγγραφο",
+        "tilt": {
+          "down": "Γείρετε την ταυτότητά σας προς τα κάτω",
+          "left": "Γείρετε την ταυτότητά σας προς τα αριστερά",
+          "right": "Γείρετε την ταυτότητά σας προς τα δεξιά",
+          "up": "Γείρετε την ταυτότητά σας προς τα πάνω"
+        },
+        "tilt_accessibility": {
+          "complete": "Ολοκληρώθηκε",
+          "down": "Γείρετε την ταυτότητά σας προς τα κάτω μέχρι να ακούσετε επιβεβαίωση",
+          "left": "Γείρετε την ταυτότητά σας προς τα αριστερά μέχρι να ακούσετε την επιβεβαίωση",
+          "right": "Γείρετε την ταυτότητά σας προς τα δεξιά μέχρι να ακούσετε επιβεβαίωση",
+          "up": "Γείρετε την ταυτότητά σας προς τα πάνω μέχρι να ακούσετε την επιβεβαίωση"
+        },
         "validity": {
           "button_primary": "Δοκιμάστε ξανά",
           "button_secondary": "Επίλεξε άλλο έγγραφο"
@@ -1003,6 +1032,7 @@
         "subtitle_passport_accessibility": "Τοποθετήστε τη σελίδα με τη φωτογραφία του διαβατηρίου σας στην πίσω πλευρά του τηλεφώνου σας και μετακινήστε το αργά προς τα πίσω μέχρι να ακούσετε ειδοποίηση.",
         "subtitle_passport_manual": "Σαρώστε τη σελίδα με τη φωτογραφία του εγγράφου σας",
         "subtitle_passport_manual_accessibility": "Τοποθετήστε τη σελίδα με τη φωτογραφία του διαβατηρίου σας μπροστά από την πίσω κάμερα και πατήστε το κουμπί παρακάτω.",
+        "subtitle_tilt_generic": "Γείρετε την ταυτότητά σας μέχρι να γίνει πράσινο το πλαίσιο",
         "title_back": "Πίσω πλευρά",
         "title_front": "Μπροστινή πλευρά",
         "title_passport": "Σελίδα με τη φωτογραφία"
@@ -1632,6 +1662,16 @@
       "bottom_sheet": {
         "handle_accessibility": "document.bottom_sheet.handle_dismiss_accessibility"
       },
+      "chip_blocked": {
+        "button_help": "nfc.chip_blocked.button_help",
+        "subtitle": "nfc.chip_blocked.subtitle",
+        "title": "nfc.chip_blocked.title"
+      },
+      "chip_blocked_optional": {
+        "button_primary": "nfc.chip_blocked.optional_button_primary",
+        "subtitle": "nfc.chip_blocked.optional_subtitle",
+        "title": "nfc.chip_blocked.optional_title"
+      },
       "country_select": {
         "alert": {
           "another_doc": "sample.selection.country_select_another_doc"
@@ -2055,6 +2095,40 @@
           "title": "document.upload.success.title"
         }
       },
+      "doc_video_intro": {
+        "callout": "document.intro_tilt.callout",
+        "list_item_tip_1": "document.intro_tilt.list_item_tip_1",
+        "list_item_tip_2": "document.intro_tilt.list_item_tip_2",
+        "sub-title": "document.intro_tilt.subtitle",
+        "title": "document.intro_tilt.title"
+      },
+      "doc_video_tilt": {
+        "feedback": {
+          "side_complete_accessibility": "document.scan.feedback.tilt_accessibility.complete",
+          "tilt_down": "document.scan.feedback.tilt.down",
+          "tilt_down_accessibility": "document.scan.feedback.tilt_accessibility.down",
+          "tilt_left": "document.scan.feedback.tilt.left",
+          "tilt_left_accessibility": "document.scan.feedback.tilt_accessibility.left",
+          "tilt_right": "document.scan.feedback.tilt.right",
+          "tilt_right_accessibility": "document.scan.feedback.tilt_accessibility.right",
+          "tilt_up": "document.scan.feedback.tilt.up",
+          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up"
+        },
+        "instructions": {
+          "sub_title_generic": "document.scan.instructions.subtitle_tilt_generic"
+        }
+      },
+      "doc_video_tilt_help": {
+        "description_tip_1": "document.help_tilt.description_tip_1",
+        "description_tip_2": "document.help_tilt.description_tip_2",
+        "sub_title": "document.help_tilt.subtitle",
+        "title_tip_1": "document.help_tilt.title_tip_1",
+        "title_tip_2": "document.help_tilt.title_tip_2"
+      },
+      "doc_video_tilt_timeout": {
+        "sub_title": "document.help_tilt.subtitle_timeout",
+        "title": "document.help_tilt.title_timeout"
+      },
       "eid": {
         "scheme_form": {
           "subtitle": "electronicId.scheme_form.subtitle",
@@ -2113,6 +2187,19 @@
           "subtitle": "enrollPasskey.not_supported_error.subtitle",
           "title": "enrollPasskey.not_supported_error.title"
         }
+      },
+      "enter_pin": {
+        "button_primary": "nfc.pin_entry.button_primary",
+        "helper_attempts_left": "nfc.pin_entry.helper_attempts_left",
+        "helper_final_attempt": "nfc.pin_entry.helper_final_attempt",
+        "subtitle": "nfc.pin_entry.subtitle",
+        "title": "nfc.pin_entry.title",
+        "title_incorrect": "nfc.pin_entry.title_incorrect"
+      },
+      "enter_pin_optional": {
+        "button_tertiary": "nfc.pin_entry.optional_button_tertiary",
+        "helper_attempts_left": "nfc.pin_entry.optional_helper_attempts_left",
+        "helper_final_attempt": "nfc.pin_entry.optional_helper_final_attempt"
       },
       "generic": {
         "accessibility": {
@@ -2679,6 +2766,10 @@
         "list_item_nfc": "nfc.settings.list_item_nfc",
         "subtitle": "nfc.settings.subtitle",
         "title": "nfc.settings.title"
+      },
+      "nfc_scan": {
+        "pin_disclaimer": "nfc.scan.pin_disclaimer",
+        "video_instruction_accessibility": "nfc.error.video_instruction_accessibility"
       },
       "nfc_scan_error_device": {
         "primary_button": "nfc.unsupported_device.button_primary",
@@ -3773,6 +3864,14 @@
     }
   },
   "nfc": {
+    "chip_blocked": {
+      "button_help": "Κυβερνητική πύλη",
+      "optional_button_primary": "Συνέχεια",
+      "optional_subtitle": "Πάρα πολλές λανθασμένες εισαγωγές PIN έχουν μπλοκάρει το NFC chip σας, επομένως θα παραλείψουμε αυτό το βήμα. Επικοινωνήστε με τις αρμόδιες αρχές για να επαναφέρετε το PIN σας για μελλοντική χρήση.",
+      "optional_title": "Συνέχεια χωρίς σάρωση chip",
+      "subtitle": "Αυτό είναι ένα μέτρο ασφαλείας για την αποτροπή απάτης. Επικοινωνήστε με την αρμόδια αρχή έκδοσης στην περιοχή σας για να ξεμπλοκάρετε το τσιπ σας.",
+      "title": "Το τσιπ NFC έχει αποκλειστεί"
+    },
     "connection_error": {
       "button_primary": "Επανάληψη αποστολής",
       "subtitle": "Βεβαιωθείτε ότι η σύνδεσή σας είναι σταθερή και, στη συνέχεια, δοκιμάστε ξανά",
@@ -3806,7 +3905,19 @@
         "passport_usa": "Ίσως χρειαστεί να σύρετε αργά το τηλέφωνό σας πάνω και κάτω κατά μήκος του εσωτερικού πίσω καλύμματος μέχρι να εντοπίσετε το chip."
       },
       "instruction_5_passport": "Μόλις το τηλέφωνό σας ανιχνεύσει το chip στο διαβατήριό σας, η σάρωση θα ξεκινήσει αυτόματα. Κρατήστε το τηλέφωνο και το διαβατήριο σταθερά ώστε να ολοκληρωθεί η σάρωση.",
-      "title": "Αδυναμία σάρωσης του τσιπ. Χρειάζεστε βοήθεια;"
+      "title": "Αδυναμία σάρωσης του τσιπ. Χρειάζεστε βοήθεια;",
+      "video_instruction_accessibility": "Βίντεο οδηγιών"
+    },
+    "pin_entry": {
+      "button_primary": "Συνέχεια",
+      "helper_attempts_left": "[%i] προσπάθειες απομένουν",
+      "helper_final_attempt": "Απομένει 1 προσπάθεια. Το chip σας θα αποκλειστεί μετά την επόμενη αποτυχημένη προσπάθεια",
+      "optional_button_tertiary": "Παράλειψη σάρωσης τσιπ NFC",
+      "optional_helper_attempts_left": "[%i] προσπάθειες απομένουν. Παραλείψτε αυτό το βήμα παρακάτω.",
+      "optional_helper_final_attempt": "[%i] προσπάθεια απομένει πριν αποκλειστεί το NFC τσιπ σας. Παραλείψτε αυτό το βήμα παρακάτω.",
+      "subtitle": "Αυτό είναι απαραίτητο για την ασφαλή ανάγνωση του NFC chip. Δημιουργήσατε αυτόν τον αριθμό [%i] ψηφίων όταν εκδόθηκε το έγγραφό σας.",
+      "title": "Εισαγάγετε το PIN του εγγράφου σας",
+      "title_incorrect": "Λανθασμένο PIN"
     },
     "scan": {
       "button_primary": "Έναρξη σάρωσης",
@@ -3827,8 +3938,10 @@
         "document": "Μόλις ανιχνευθεί το τσιπ, κρατήστε το τηλέφωνο και το έγγραφο σταθερά.",
         "passport": "Μόλις ανιχνευτεί το chip, κρατήστε το τηλέφωνό σας και το διαβατήριό σας ακίνητα."
       },
+      "pin_disclaimer": "Θα σας ζητήσουμε τον [%i]-ψήφιο PIN του εγγράφου σας πριν σαρώσουμε το τσιπ.",
       "title_document": "Σαρώστε το έγγραφό σας",
-      "title_passport": "Σαρώστε το τσιπ του διαβατηρίου σας"
+      "title_passport": "Σαρώστε το τσιπ του διαβατηρίου σας",
+      "video_instruction_accessibility": "Βίντεο οδηγιών"
     },
     "settings": {
       "button_primary": "Άνοιγμα ρυθμίσεων",
@@ -3864,7 +3977,8 @@
         "ready": "Έτοιμοι για σάρωση",
         "scanning": "Σάρωση σε εξέλιξη...",
         "success": "Σάρωση επιτυχής."
-      }
+      },
+      "video_instruction_accessibility": "Βίντεο οδηγιών"
     },
     "unsupported_device": {
       "button_primary": "Έξοδος επαλήθευσης",
@@ -4481,6 +4595,7 @@
     "button": {
       "default": "Προσπαθήστε ξανά",
       "expired_document": "Προσπαθήστε ξανά",
+      "failed_authentication": "Προσπαθήστε ξανά",
       "generic_document_issue": "Προσπαθήστε ξανά",
       "generic_proof_of_address_issue": "Προσπαθήστε ξανά",
       "generic_selfie_issue": "Προσπαθήστε ξανά",
@@ -4489,6 +4604,7 @@
     "description": {
       "default": "Δοκιμάστε ξανά",
       "expired_document": "Δοκιμάστε ξανά με μια έγκυρη φωτογραφία ταυτότητας και βεβαιωθείτε ότι τα στοιχεία σας είναι ευδιάκριτα",
+      "failed_authentication": "Δοκιμάστε ξανά",
       "generic_document_issue": "Δοκιμάστε ξανά με μια έγκυρη φωτογραφία ταυτότητας και βεβαιωθείτε ότι τα στοιχεία σας είναι ευδιάκριτα",
       "generic_proof_of_address_issue": "Δοκιμάστε ξανά με ένα έγκυρο έγγραφο και βεβαιωθείτε ότι οι πληροφορίες σας είναι ευδιάκριτες",
       "generic_selfie_issue": "Δοκιμάστε ξανά και βεβαιωθείτε ότι το πρόσωπό σας είναι ορατό και καλά φωτισμένο",
@@ -4497,6 +4613,7 @@
     "headline": {
       "default": "Υπήρξε ένα πρόβλημα",
       "expired_document": "Το έγγραφό σας έχει λήξει",
+      "failed_authentication": "Η ταυτοποίηση απέτυχε",
       "generic_document_issue": "Υπήρξε ένα πρόβλημα με το έγγραφό σας",
       "generic_proof_of_address_issue": "Υπήρξε ένα πρόβλημα με το έγγραφό σας",
       "generic_selfie_issue": "Υπήρξε ένα πρόβλημα με την selfie σας",

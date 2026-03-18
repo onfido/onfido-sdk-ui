@@ -878,6 +878,15 @@
       "title_tip_2": "ضع هويتك في الإطار",
       "title_tip_3": "تأكد من أن جميع الحقول واضحة للقراءة"
     },
+    "help_tilt": {
+      "description_tip_1": "للحصول على أفضل نتيجة، أمسك هويتك بيدك أثناء الإمالة. اتبع التعليمات على الشاشة، وغيّر زاوية هويتك حتى تتحول جميع الحواف إلى اللون الأخضر.",
+      "description_tip_2": "احرص على أن تبقى كل جوانب هويتك مرئية داخل الإطار لإكمال حركة الإمالة. إذا لم يتحول أحد الجوانب إلى اللون الأخضر، فارجع إلى الخلف وحرّك هويتك إلى المنتصف.",
+      "subtitle": "اتبع هذه النصائح لالتقاط الهولوغرام على هويتك بنجاح",
+      "subtitle_timeout": "لأسباب أمنية، لديك ما يصل إلى 20 ثانية لإكمال هذه الخطوة",
+      "title_timeout": "انتهت المهلة المحددة.\nجرّب هذه النصائح",
+      "title_tip_1": "أمسك هويتك للقيام بحركة إمالة",
+      "title_tip_2": "ضع هويتك داخل الإطار"
+    },
     "intro": {
       "button_primary_selection_off": "ابدأ المسح",
       "button_primary_selection_on": "اختر الوثيقة",
@@ -886,6 +895,13 @@
       "list_item_tip_3": "تأكد من أن جميع الحقول واضحة للقراءة",
       "subtitle": "نحتاج إلى التقاط صور لوثيقتك للتأكد من أنها أصلية.",
       "title": "امسح مستند هويتك"
+    },
+    "intro_tilt": {
+      "callout": "سنستخدم ضوء الفلاش في هاتفك",
+      "list_item_tip_1": "أمسِك هويتك داخل الإطار",
+      "list_item_tip_2": "أملِ بطاقة هويتك حتى تتحول جميع جوانب الإطار الأربعة إلى اللون الأخضر",
+      "subtitle": "نقوم بذلك للتأكد من أن مستندك أصلي",
+      "title": "أمل ميل بطاقتك التعريفية لإظهار العناصر الهولوغرافية الخاصة بها"
     },
     "preview": {
       "blur_detail": "تأكد من أن كل شيء واضح",
@@ -957,6 +973,19 @@
         "iq_mrz_3": "اجعل الخطوط الثلاثة السفلية مرئية",
         "iq_no_doc": "أظهر المستند داخل الإطار",
         "iq_obstruction": "أبعد أصابعك عن المستند",
+        "tilt": {
+          "down": "أملِ بطاقة هويتك للأسفل",
+          "left": "أمل البطاقة إلى اليسار",
+          "right": "أمل بطاقة هويتك إلى اليمين",
+          "up": "أمِل بطاقة هويتك للأعلى"
+        },
+        "tilt_accessibility": {
+          "complete": "إكمال",
+          "down": "أمل بطاقة الهوية إلى الأسفل حتى تسمع تأكيدًا",
+          "left": "أمِل هويتك إلى اليسار حتى تسمع تأكيدًا",
+          "right": "أمل بطاقة هويتك إلى اليمين حتى تسمع تأكيدًا",
+          "up": "ارفع هويتك إلى الأعلى حتى تسمع تأكيدًا"
+        },
         "validity": {
           "button_primary": "حاول مرة أخرى",
           "button_secondary": "اختر مستندًا آخر"
@@ -1003,6 +1032,7 @@
         "subtitle_passport_accessibility": "ضع صفحة الصورة من جواز سفرك على ظهر هاتفك وحركها ببطء إلى الخلف حتى تسمع إشعارًا.",
         "subtitle_passport_manual": "امسح جانب الصورة من وثيقتك",
         "subtitle_passport_manual_accessibility": "ضع صفحة الصورة من جواز سفرك أمام الكاميرا الخلفية واضغط على الزر أدناه.",
+        "subtitle_tilt_generic": "أمل بطاقة هويتك حتى يتحول الإطار إلى اللون الأخضر",
         "title_back": "الجهة الخلفية",
         "title_front": "الجانب الأمامي",
         "title_passport": "صفحة الصورة"
@@ -1632,6 +1662,16 @@
       "bottom_sheet": {
         "handle_accessibility": "document.bottom_sheet.handle_dismiss_accessibility"
       },
+      "chip_blocked": {
+        "button_help": "nfc.chip_blocked.button_help",
+        "subtitle": "nfc.chip_blocked.subtitle",
+        "title": "nfc.chip_blocked.title"
+      },
+      "chip_blocked_optional": {
+        "button_primary": "nfc.chip_blocked.optional_button_primary",
+        "subtitle": "nfc.chip_blocked.optional_subtitle",
+        "title": "nfc.chip_blocked.optional_title"
+      },
       "country_select": {
         "alert": {
           "another_doc": "sample.selection.country_select_another_doc"
@@ -2055,6 +2095,40 @@
           "title": "document.upload.success.title"
         }
       },
+      "doc_video_intro": {
+        "callout": "document.intro_tilt.callout",
+        "list_item_tip_1": "document.intro_tilt.list_item_tip_1",
+        "list_item_tip_2": "document.intro_tilt.list_item_tip_2",
+        "sub-title": "document.intro_tilt.subtitle",
+        "title": "document.intro_tilt.title"
+      },
+      "doc_video_tilt": {
+        "feedback": {
+          "side_complete_accessibility": "document.scan.feedback.tilt_accessibility.complete",
+          "tilt_down": "document.scan.feedback.tilt.down",
+          "tilt_down_accessibility": "document.scan.feedback.tilt_accessibility.down",
+          "tilt_left": "document.scan.feedback.tilt.left",
+          "tilt_left_accessibility": "document.scan.feedback.tilt_accessibility.left",
+          "tilt_right": "document.scan.feedback.tilt.right",
+          "tilt_right_accessibility": "document.scan.feedback.tilt_accessibility.right",
+          "tilt_up": "document.scan.feedback.tilt.up",
+          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up"
+        },
+        "instructions": {
+          "sub_title_generic": "document.scan.instructions.subtitle_tilt_generic"
+        }
+      },
+      "doc_video_tilt_help": {
+        "description_tip_1": "document.help_tilt.description_tip_1",
+        "description_tip_2": "document.help_tilt.description_tip_2",
+        "sub_title": "document.help_tilt.subtitle",
+        "title_tip_1": "document.help_tilt.title_tip_1",
+        "title_tip_2": "document.help_tilt.title_tip_2"
+      },
+      "doc_video_tilt_timeout": {
+        "sub_title": "document.help_tilt.subtitle_timeout",
+        "title": "document.help_tilt.title_timeout"
+      },
       "eid": {
         "scheme_form": {
           "subtitle": "electronicId.scheme_form.subtitle",
@@ -2113,6 +2187,19 @@
           "subtitle": "enrollPasskey.not_supported_error.subtitle",
           "title": "enrollPasskey.not_supported_error.title"
         }
+      },
+      "enter_pin": {
+        "button_primary": "nfc.pin_entry.button_primary",
+        "helper_attempts_left": "nfc.pin_entry.helper_attempts_left",
+        "helper_final_attempt": "nfc.pin_entry.helper_final_attempt",
+        "subtitle": "nfc.pin_entry.subtitle",
+        "title": "nfc.pin_entry.title",
+        "title_incorrect": "nfc.pin_entry.title_incorrect"
+      },
+      "enter_pin_optional": {
+        "button_tertiary": "nfc.pin_entry.optional_button_tertiary",
+        "helper_attempts_left": "nfc.pin_entry.optional_helper_attempts_left",
+        "helper_final_attempt": "nfc.pin_entry.optional_helper_final_attempt"
       },
       "generic": {
         "accessibility": {
@@ -2679,6 +2766,10 @@
         "list_item_nfc": "nfc.settings.list_item_nfc",
         "subtitle": "nfc.settings.subtitle",
         "title": "nfc.settings.title"
+      },
+      "nfc_scan": {
+        "pin_disclaimer": "nfc.scan.pin_disclaimer",
+        "video_instruction_accessibility": "nfc.error.video_instruction_accessibility"
       },
       "nfc_scan_error_device": {
         "primary_button": "nfc.unsupported_device.button_primary",
@@ -3773,6 +3864,14 @@
     }
   },
   "nfc": {
+    "chip_blocked": {
+      "button_help": "بوابة حكومية",
+      "optional_button_primary": "استمر",
+      "optional_subtitle": "عدد كبير جدًا من محاولات إدخال رقم التعريف الشخصي غير الصحيح أدى إلى حظر شريحة NFC، لذا سنتجاوز هذه الخطوة. يُرجى الاتصال بالجهات المختصة لإعادة تعيين رقم التعريف الشخصي للاستخدام في المستقبل.",
+      "optional_title": "المتابعة بدون مسح الشريحة",
+      "subtitle": "هذا إجراء أمني لمنع الاحتيال. يرجى التواصل مع الجهة المُصدِرة المحلية لفك حظر الشريحة الخاصة بك.",
+      "title": "شريحة NFC محظورة"
+    },
     "connection_error": {
       "button_primary": "إعادة محاولة التحميل",
       "subtitle": "تحقّق من أن اتصالك مستقر، ثم حاول مرة أخرى",
@@ -3806,7 +3905,19 @@
         "passport_usa": "قد تحتاج إلى تحريك هاتفك ببطء لأعلى ولأسفل مقابل الغلاف الخلفي الداخلي حتى تعثر على الشريحة."
       },
       "instruction_5_passport": "بمجرد أن يكتشف هاتفك الشريحة في جواز سفرك، سيبدأ الفحص تلقائيًا. حافظ على ثبات هاتفك وجواز سفرك حتى يكتمل الفحص.",
-      "title": "غير قادر على مسح الرقاقة. هل تحتاج إلى مساعدة؟"
+      "title": "غير قادر على مسح الرقاقة. هل تحتاج إلى مساعدة؟",
+      "video_instruction_accessibility": "تعليمات فيديو"
+    },
+    "pin_entry": {
+      "button_primary": "استمر",
+      "helper_attempts_left": "[%i] محاولات متبقية",
+      "helper_final_attempt": "محاولة واحدة متبقية. سيتم حظر الشريحة بعد المحاولة الفاشلة التالية",
+      "optional_button_tertiary": "تخطي مسح شريحة NFC",
+      "optional_helper_attempts_left": "[%i] محاولات متبقية. تخطَّ هذه الخطوة أدناه.",
+      "optional_helper_final_attempt": "[%i] محاولة متبقية قبل حظر شريحة NFC الخاصة بك. تخطَّ هذه الخطوة أدناه.",
+      "subtitle": "هذا ضروري لقراءة شريحة NFC بأمان. لقد أنشأت هذا الرقم المكوَّن من [%i] أرقام عند إصدار مستندك.",
+      "title": "أدخل الرقم السري لوثيقتك",
+      "title_incorrect": "رمز PIN غير صحيح"
     },
     "scan": {
       "button_primary": "ابدأ المسح",
@@ -3827,8 +3938,10 @@
         "document": "بمجرد اكتشاف الشريحة، حافظ على هاتفك والوثيقة ثابتين.",
         "passport": "بمجرد اكتشاف الرقاقة، ابق هاتفك وجواز سفرك ثابتين."
       },
+      "pin_disclaimer": "سنطلب منك رقم التعريف الشخصي (PIN) المكوّن من [%i] أرقام لوثيقتك قبل مسح الشريحة.",
       "title_document": "افحص الوثيقة الخاصة بك",
-      "title_passport": "قم بمسح رقاقة جواز سفرك"
+      "title_passport": "قم بمسح رقاقة جواز سفرك",
+      "video_instruction_accessibility": "تعليمات فيديو"
     },
     "settings": {
       "button_primary": "افتح الإعدادات",
@@ -3864,7 +3977,8 @@
         "ready": "مستعد للفحص",
         "scanning": "جارٍ المسح الضوئي...",
         "success": "تمت عملية المسح بنجاح."
-      }
+      },
+      "video_instruction_accessibility": "تعليمات فيديو"
     },
     "unsupported_device": {
       "button_primary": "التحقق عند الخروج",
@@ -4481,6 +4595,7 @@
     "button": {
       "default": "إعادة المحاولة",
       "expired_document": "إعادة المحاولة",
+      "failed_authentication": "إعادة المحاولة",
       "generic_document_issue": "إعادة المحاولة",
       "generic_proof_of_address_issue": "إعادة المحاولة",
       "generic_selfie_issue": "إعادة المحاولة",
@@ -4489,6 +4604,7 @@
     "description": {
       "default": "يُرجى إعادة المحاولة",
       "expired_document": "يُرجى المحاولة مرة أخرى باستخدام بطاقة هوية صالحة تحمل صورة والتأكد من أن معلوماتك مرئية بوضوح",
+      "failed_authentication": "يُرجى إعادة المحاولة",
       "generic_document_issue": "يُرجى المحاولة مرة أخرى باستخدام بطاقة هوية صالحة تحمل صورة والتأكد من أن معلوماتك مرئية بوضوح",
       "generic_proof_of_address_issue": "يرجى المحاولة مرة أخرى باستخدام مستند صالح والتأكد من أن معلوماتك واضحة ومقروءة",
       "generic_selfie_issue": "يرجى المحاولة مرة أخرى، والتأكد من أن وجهك مرئي ومضاء جيدًا",
@@ -4497,6 +4613,7 @@
     "headline": {
       "default": "كان هناك مشكلة",
       "expired_document": "انتهت صلاحية مستندك",
+      "failed_authentication": "فشل التحقق من الهوية",
       "generic_document_issue": "كان هناك مشكلة في وثيقتك",
       "generic_proof_of_address_issue": "كان هناك مشكلة في وثيقتك",
       "generic_selfie_issue": "كان هناك مشكلة مع صورتك الشخصية",

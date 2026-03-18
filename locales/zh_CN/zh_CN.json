@@ -878,6 +878,15 @@
       "title_tip_2": "将您的身份证件放置在框内",
       "title_tip_3": "确保所有字段清晰可读"
     },
+    "help_tilt": {
+      "description_tip_1": "为获得最佳效果，请在倾斜时手持您的证件。按照屏幕上的提示操作，调整证件角度，直到四边全部变为绿色。",
+      "description_tip_2": "确保证件的所有边缘在画面中可见，以完成倾斜动作。如果某一边未变为绿色，请后退并将证件居中。",
+      "subtitle": "请按照以下提示成功拍摄您身份证件上的全息图",
+      "subtitle_timeout": "出于安全原因，您有最多 20 秒的时间来完成此步骤",
+      "title_timeout": "已达到时间限制。\n试试以下提示",
+      "title_tip_1": "持握您的证件并执行倾斜动作",
+      "title_tip_2": "将您的证件放置在框内"
+    },
     "intro": {
       "button_primary_selection_off": "开始扫描",
       "button_primary_selection_on": "选择证件",
@@ -886,6 +895,13 @@
       "list_item_tip_3": "确保所有字段清晰可读",
       "subtitle": "我们需要拍摄您的证件照片以确保其真实性。",
       "title": "扫描您的身份证件"
+    },
+    "intro_tilt": {
+      "callout": "我们将使用您手机的闪光灯",
+      "list_item_tip_1": "将您的证件保持在框内",
+      "list_item_tip_2": "倾斜您的证件，直到边框四边全部变为绿色",
+      "subtitle": "我们这样做是为了确保您的证件真实有效",
+      "title": "倾斜您的证件以显示其全息图"
     },
     "preview": {
       "blur_detail": "请确保一切都清晰",
@@ -957,6 +973,19 @@
         "iq_mrz_3": "使底部3行可见",
         "iq_no_doc": "将证件放入框内",
         "iq_obstruction": "请将手指移开证件",
+        "tilt": {
+          "down": "将您的证件向下倾斜",
+          "left": "将您的证件向左倾斜",
+          "right": "将您的证件向右倾斜",
+          "up": "将您的证件向上倾斜"
+        },
+        "tilt_accessibility": {
+          "complete": "完成",
+          "down": "向下倾斜您的证件，直到听到确认提示",
+          "left": "将您的证件向左倾斜，直到听到确认提示",
+          "right": "将您的证件向右倾斜，直到听到确认提示",
+          "up": "倾斜您的证件，直到听到确认提示"
+        },
         "validity": {
           "button_primary": "重试",
           "button_secondary": "选择其他证件"
@@ -1003,6 +1032,7 @@
         "subtitle_passport_accessibility": "将护照的照片页贴在手机背面，然后慢慢向后移动，直到听到反馈声。",
         "subtitle_passport_manual": "扫描您证件的照片页",
         "subtitle_passport_manual_accessibility": "将护照的照片页放在后置摄像头前，然后按下方按钮。",
+        "subtitle_tilt_generic": "倾斜您的证件，直到边框变为绿色",
         "title_back": "背面",
         "title_front": "正面",
         "title_passport": "照片页"
@@ -1632,6 +1662,16 @@
       "bottom_sheet": {
         "handle_accessibility": "document.bottom_sheet.handle_dismiss_accessibility"
       },
+      "chip_blocked": {
+        "button_help": "nfc.chip_blocked.button_help",
+        "subtitle": "nfc.chip_blocked.subtitle",
+        "title": "nfc.chip_blocked.title"
+      },
+      "chip_blocked_optional": {
+        "button_primary": "nfc.chip_blocked.optional_button_primary",
+        "subtitle": "nfc.chip_blocked.optional_subtitle",
+        "title": "nfc.chip_blocked.optional_title"
+      },
       "country_select": {
         "alert": {
           "another_doc": "sample.selection.country_select_another_doc"
@@ -2055,6 +2095,40 @@
           "title": "document.upload.success.title"
         }
       },
+      "doc_video_intro": {
+        "callout": "document.intro_tilt.callout",
+        "list_item_tip_1": "document.intro_tilt.list_item_tip_1",
+        "list_item_tip_2": "document.intro_tilt.list_item_tip_2",
+        "sub-title": "document.intro_tilt.subtitle",
+        "title": "document.intro_tilt.title"
+      },
+      "doc_video_tilt": {
+        "feedback": {
+          "side_complete_accessibility": "document.scan.feedback.tilt_accessibility.complete",
+          "tilt_down": "document.scan.feedback.tilt.down",
+          "tilt_down_accessibility": "document.scan.feedback.tilt_accessibility.down",
+          "tilt_left": "document.scan.feedback.tilt.left",
+          "tilt_left_accessibility": "document.scan.feedback.tilt_accessibility.left",
+          "tilt_right": "document.scan.feedback.tilt.right",
+          "tilt_right_accessibility": "document.scan.feedback.tilt_accessibility.right",
+          "tilt_up": "document.scan.feedback.tilt.up",
+          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up"
+        },
+        "instructions": {
+          "sub_title_generic": "document.scan.instructions.subtitle_tilt_generic"
+        }
+      },
+      "doc_video_tilt_help": {
+        "description_tip_1": "document.help_tilt.description_tip_1",
+        "description_tip_2": "document.help_tilt.description_tip_2",
+        "sub_title": "document.help_tilt.subtitle",
+        "title_tip_1": "document.help_tilt.title_tip_1",
+        "title_tip_2": "document.help_tilt.title_tip_2"
+      },
+      "doc_video_tilt_timeout": {
+        "sub_title": "document.help_tilt.subtitle_timeout",
+        "title": "document.help_tilt.title_timeout"
+      },
       "eid": {
         "scheme_form": {
           "subtitle": "electronicId.scheme_form.subtitle",
@@ -2113,6 +2187,19 @@
           "subtitle": "enrollPasskey.not_supported_error.subtitle",
           "title": "enrollPasskey.not_supported_error.title"
         }
+      },
+      "enter_pin": {
+        "button_primary": "nfc.pin_entry.button_primary",
+        "helper_attempts_left": "nfc.pin_entry.helper_attempts_left",
+        "helper_final_attempt": "nfc.pin_entry.helper_final_attempt",
+        "subtitle": "nfc.pin_entry.subtitle",
+        "title": "nfc.pin_entry.title",
+        "title_incorrect": "nfc.pin_entry.title_incorrect"
+      },
+      "enter_pin_optional": {
+        "button_tertiary": "nfc.pin_entry.optional_button_tertiary",
+        "helper_attempts_left": "nfc.pin_entry.optional_helper_attempts_left",
+        "helper_final_attempt": "nfc.pin_entry.optional_helper_final_attempt"
       },
       "generic": {
         "accessibility": {
@@ -2679,6 +2766,10 @@
         "list_item_nfc": "nfc.settings.list_item_nfc",
         "subtitle": "nfc.settings.subtitle",
         "title": "nfc.settings.title"
+      },
+      "nfc_scan": {
+        "pin_disclaimer": "nfc.scan.pin_disclaimer",
+        "video_instruction_accessibility": "nfc.error.video_instruction_accessibility"
       },
       "nfc_scan_error_device": {
         "primary_button": "nfc.unsupported_device.button_primary",
@@ -3773,6 +3864,14 @@
     }
   },
   "nfc": {
+    "chip_blocked": {
+      "button_help": "政府门户网站",
+      "optional_button_primary": "继续",
+      "optional_subtitle": "PIN 码输入错误次数过多已导致您的 NFC 芯片被锁定,因此我们将跳过此步骤。请联系相关部门重置您的 PIN 码以便日后使用。",
+      "optional_title": "继续而不扫描芯片",
+      "subtitle": "这是一项防止欺诈的安全措施。请联系您当地的签发机构以解除芯片锁定。",
+      "title": "NFC芯片被阻止"
+    },
     "connection_error": {
       "button_primary": "重试上传",
       "subtitle": "请检查连接是否稳定，然后重试",
@@ -3806,7 +3905,19 @@
         "passport_usa": "您可能需要将手机在内侧后盖上慢慢上下滑动，直到找到芯片。"
       },
       "instruction_5_passport": "一旦您的手机检测到护照中的芯片，扫描将自动开始。请保持手机和护照静止，以便扫描完成。",
-      "title": "无法扫描芯片。需要帮助吗？"
+      "title": "无法扫描芯片。需要帮助吗？",
+      "video_instruction_accessibility": "视频教程"
+    },
+    "pin_entry": {
+      "button_primary": "继续",
+      "helper_attempts_left": "剩余 [%i] 次尝试机会",
+      "helper_final_attempt": "剩余 1 次尝试机会。下次尝试失败后,您的芯片将被锁定",
+      "optional_button_tertiary": "跳过NFC芯片扫描",
+      "optional_helper_attempts_left": "[%i] 次尝试机会剩余。在下方跳过此步骤。",
+      "optional_helper_final_attempt": "[%i] 次尝试机会后,您的 NFC 芯片将被锁定。请在下方跳过此步骤。",
+      "subtitle": "这是安全读取NFC芯片所必需的。您在签发文件时创建了这个[%i]位数字。",
+      "title": "输入您的证件PIN码",
+      "title_incorrect": "PIN码错误"
     },
     "scan": {
       "button_primary": "开始扫描",
@@ -3827,8 +3938,10 @@
         "document": "一旦检测到芯片，请保持手机和身份证件不动。",
         "passport": "一旦检测到芯片，保持手机和护照静止不动。"
       },
+      "pin_disclaimer": "我们将在扫描芯片之前要求您提供文件的 [%i] 位 PIN 码。",
       "title_document": "扫描您的文档",
-      "title_passport": "扫描您护照的芯片"
+      "title_passport": "扫描您护照的芯片",
+      "video_instruction_accessibility": "视频教程"
     },
     "settings": {
       "button_primary": "打开设置",
@@ -3864,7 +3977,8 @@
         "ready": "扫描已准备就绪",
         "scanning": "正在扫描......",
         "success": "扫描成功。"
-      }
+      },
+      "video_instruction_accessibility": "视频教程"
     },
     "unsupported_device": {
       "button_primary": "退出验证",
@@ -4481,6 +4595,7 @@
     "button": {
       "default": "请重试",
       "expired_document": "请重试",
+      "failed_authentication": "请重试",
       "generic_document_issue": "请重试",
       "generic_proof_of_address_issue": "请重试",
       "generic_selfie_issue": "请重试",
@@ -4489,6 +4604,7 @@
     "description": {
       "default": "请重试",
       "expired_document": "请使用带照片的有效身份证件重试，并确保您的信息清晰可见",
+      "failed_authentication": "请重试",
       "generic_document_issue": "请使用带照片的有效身份证件重试，并确保您的信息清晰可见",
       "generic_proof_of_address_issue": "请使用有效证件重试,并确保您的信息清晰可见",
       "generic_selfie_issue": "请重试，并确保您的面部清晰且光线充足",
@@ -4497,6 +4613,7 @@
     "headline": {
       "default": "出现了一个问题",
       "expired_document": "您的证明文件已过期",
+      "failed_authentication": "身份验证失败",
       "generic_document_issue": "您的文档出现了问题",
       "generic_proof_of_address_issue": "您的文档出现了问题",
       "generic_selfie_issue": "您的自拍照出现了问题",

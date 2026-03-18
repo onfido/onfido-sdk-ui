@@ -878,6 +878,15 @@
       "title_tip_2": "Umístěte svůj doklad totožnosti do rámečku",
       "title_tip_3": "Ujistěte se, že všechna pole jsou čitelná"
     },
+    "help_tilt": {
+      "description_tip_1": "Pro nejlepší výsledky držte doklad v ruce při naklánění. Postupujte podle pokynů na obrazovce a naklánějte doklad, dokud všechny strany nezzelenají.",
+      "description_tip_2": "Udržujte všechny strany dokladu viditelné v rámečku, abyste dokončili pohyb naklonění. Pokud některá strana nezezelená, posuňte se zpět a vycentrujte doklad.",
+      "subtitle": "Postupujte podle těchto tipů pro úspěšné zachycení hologramů na vašem dokladu",
+      "subtitle_timeout": "Z bezpečnostních důvodů máte na dokončení tohoto kroku až 20 sekund",
+      "title_timeout": "Časový limit vypršel. \nVyzkoušejte tyto tipy",
+      "title_tip_1": "Držte doklad totožnosti a provádějte naklápěcí pohyb",
+      "title_tip_2": "Umístěte doklad totožnosti do rámečku"
+    },
     "intro": {
       "button_primary_selection_off": "Spustit skenování",
       "button_primary_selection_on": "Vyberte doklad",
@@ -886,6 +895,13 @@
       "list_item_tip_3": "Ujistěte se, že všechna pole jsou čitelná",
       "subtitle": "Potřebujeme pořídit fotografie vašeho dokladu, abychom ověřili jeho pravost.",
       "title": "Naskenujte svůj doklad"
+    },
+    "intro_tilt": {
+      "callout": "Použijeme baterku vašeho telefonu",
+      "list_item_tip_1": "Držte doklad totožnosti v rámečku",
+      "list_item_tip_2": "Nakloňte doklad totožnosti, dokud všechny čtyři strany rámečku nezzelenají",
+      "subtitle": "Tímto způsobem ověřujeme pravost vašeho dokladu",
+      "title": "Nakloňte doklad totožnosti, aby se zobrazily hologramy"
     },
     "preview": {
       "blur_detail": "Ujistěte se, že je vše jasné a čisté",
@@ -957,6 +973,19 @@
         "iq_mrz_3": "Zviditelněte spodní 3 řádky",
         "iq_no_doc": "Umístěte doklad do rámečku",
         "iq_obstruction": "Odstraňte prsty z dokladu",
+        "tilt": {
+          "down": "Nakloňte doklad dolů",
+          "left": "Nakloňte doklad doleva",
+          "right": "Nakloňte doklad doprava",
+          "up": "Nakloňte doklad nahoru"
+        },
+        "tilt_accessibility": {
+          "complete": "Dokončit",
+          "down": "Nakloňte doklad dolů, dokud neuslyšíte potvrzení",
+          "left": "Nakloňte doklad doleva, dokud neuslyšíte potvrzení",
+          "right": "Nakloňte doklad doprava, dokud neuslyšíte potvrzení",
+          "up": "Nakloňte doklad totožnosti nahoru, dokud neuslyšíte potvrzení"
+        },
         "validity": {
           "button_primary": "Zkuste to znovu",
           "button_secondary": "Vyberte jiný doklad"
@@ -1003,6 +1032,7 @@
         "subtitle_passport_accessibility": "Přiložte stránku pasu s fotografií k zadní straně telefonu a pomalu ji oddalujte, dokud neuslyšíte zpětnou vazbu.",
         "subtitle_passport_manual": "Naskenujte stranu s fotografií vašeho dokladu",
         "subtitle_passport_manual_accessibility": "Umístěte stránku s fotografií vašeho pasu před zadní kameru a stiskněte tlačítko níže.",
+        "subtitle_tilt_generic": "Nakloňte doklad totožnosti, dokud rámeček nezezelená",
         "title_back": "Zadní strana",
         "title_front": "Přední strana",
         "title_passport": "Stránka s fotografií"
@@ -1632,6 +1662,16 @@
       "bottom_sheet": {
         "handle_accessibility": "document.bottom_sheet.handle_dismiss_accessibility"
       },
+      "chip_blocked": {
+        "button_help": "nfc.chip_blocked.button_help",
+        "subtitle": "nfc.chip_blocked.subtitle",
+        "title": "nfc.chip_blocked.title"
+      },
+      "chip_blocked_optional": {
+        "button_primary": "nfc.chip_blocked.optional_button_primary",
+        "subtitle": "nfc.chip_blocked.optional_subtitle",
+        "title": "nfc.chip_blocked.optional_title"
+      },
       "country_select": {
         "alert": {
           "another_doc": "sample.selection.country_select_another_doc"
@@ -2055,6 +2095,40 @@
           "title": "document.upload.success.title"
         }
       },
+      "doc_video_intro": {
+        "callout": "document.intro_tilt.callout",
+        "list_item_tip_1": "document.intro_tilt.list_item_tip_1",
+        "list_item_tip_2": "document.intro_tilt.list_item_tip_2",
+        "sub-title": "document.intro_tilt.subtitle",
+        "title": "document.intro_tilt.title"
+      },
+      "doc_video_tilt": {
+        "feedback": {
+          "side_complete_accessibility": "document.scan.feedback.tilt_accessibility.complete",
+          "tilt_down": "document.scan.feedback.tilt.down",
+          "tilt_down_accessibility": "document.scan.feedback.tilt_accessibility.down",
+          "tilt_left": "document.scan.feedback.tilt.left",
+          "tilt_left_accessibility": "document.scan.feedback.tilt_accessibility.left",
+          "tilt_right": "document.scan.feedback.tilt.right",
+          "tilt_right_accessibility": "document.scan.feedback.tilt_accessibility.right",
+          "tilt_up": "document.scan.feedback.tilt.up",
+          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up"
+        },
+        "instructions": {
+          "sub_title_generic": "document.scan.instructions.subtitle_tilt_generic"
+        }
+      },
+      "doc_video_tilt_help": {
+        "description_tip_1": "document.help_tilt.description_tip_1",
+        "description_tip_2": "document.help_tilt.description_tip_2",
+        "sub_title": "document.help_tilt.subtitle",
+        "title_tip_1": "document.help_tilt.title_tip_1",
+        "title_tip_2": "document.help_tilt.title_tip_2"
+      },
+      "doc_video_tilt_timeout": {
+        "sub_title": "document.help_tilt.subtitle_timeout",
+        "title": "document.help_tilt.title_timeout"
+      },
       "eid": {
         "scheme_form": {
           "subtitle": "electronicId.scheme_form.subtitle",
@@ -2113,6 +2187,19 @@
           "subtitle": "enrollPasskey.not_supported_error.subtitle",
           "title": "enrollPasskey.not_supported_error.title"
         }
+      },
+      "enter_pin": {
+        "button_primary": "nfc.pin_entry.button_primary",
+        "helper_attempts_left": "nfc.pin_entry.helper_attempts_left",
+        "helper_final_attempt": "nfc.pin_entry.helper_final_attempt",
+        "subtitle": "nfc.pin_entry.subtitle",
+        "title": "nfc.pin_entry.title",
+        "title_incorrect": "nfc.pin_entry.title_incorrect"
+      },
+      "enter_pin_optional": {
+        "button_tertiary": "nfc.pin_entry.optional_button_tertiary",
+        "helper_attempts_left": "nfc.pin_entry.optional_helper_attempts_left",
+        "helper_final_attempt": "nfc.pin_entry.optional_helper_final_attempt"
       },
       "generic": {
         "accessibility": {
@@ -2679,6 +2766,10 @@
         "list_item_nfc": "nfc.settings.list_item_nfc",
         "subtitle": "nfc.settings.subtitle",
         "title": "nfc.settings.title"
+      },
+      "nfc_scan": {
+        "pin_disclaimer": "nfc.scan.pin_disclaimer",
+        "video_instruction_accessibility": "nfc.error.video_instruction_accessibility"
       },
       "nfc_scan_error_device": {
         "primary_button": "nfc.unsupported_device.button_primary",
@@ -3773,6 +3864,14 @@
     }
   },
   "nfc": {
+    "chip_blocked": {
+      "button_help": "Vládní portál",
+      "optional_button_primary": "Pokračovat",
+      "optional_subtitle": "Příliš mnoho nesprávných zadání PIN zzablokovalo váš NFC čip, proto tento krok přeskočíme. Kontaktujte příslušné úřady, aby vám obnovily PIN pro budoucí použití.",
+      "optional_title": "Pokračovat bez skenování čipu",
+      "subtitle": "Jedná se o bezpečnostní opatření k prevenci podvodů. Kontaktujte místní vydávající orgán, aby vám odblokoval čip.",
+      "title": "NFC čip zablokován"
+    },
     "connection_error": {
       "button_primary": "Opakování nahrávání",
       "subtitle": "Zkontrolujte, zda je připojení stabilní, a opakujte akci",
@@ -3806,7 +3905,19 @@
         "passport_usa": "Možná budete muset pomalu posouvat telefon nahoru a dolů po vnitřní zadní straně obalu, dokud nenajdete čip."
       },
       "instruction_5_passport": "Jakmile váš telefon detekuje čip ve vašem pasu, skenování se automaticky spustí. Držte telefon a pas v klidu, aby se skenování mohlo dokončit.",
-      "title": "Nelze naskenovat čip. Potřebujete pomoc?"
+      "title": "Nelze naskenovat čip. Potřebujete pomoc?",
+      "video_instruction_accessibility": "Video návod"
+    },
+    "pin_entry": {
+      "button_primary": "Pokračovat",
+      "helper_attempts_left": "[%i] zbývající pokusy",
+      "helper_final_attempt": "Zbývá 1 pokus. Po dalším neúspěšném pokusu bude váš čip zablokován",
+      "optional_button_tertiary": "Přeskočit skenování NFC čipu",
+      "optional_helper_attempts_left": "[%i] zbývající pokusy. Přeskočte tento krok níže.",
+      "optional_helper_final_attempt": "[%i] pokus zbývá před zablokováním vašeho NFC čipu. Přeskočte tento krok níže.",
+      "subtitle": "Toto je potřeba k bezpečnému čtení NFC čipu. Tento [%i]-místný kód jste vytvořili při vydání vašeho dokladu.",
+      "title": "Zadejte PIN dokumentu",
+      "title_incorrect": "Nesprávný PIN"
     },
     "scan": {
       "button_primary": "Zahájit skenování",
@@ -3827,8 +3938,10 @@
         "document": "Jakmile je čip detekován, udržujte svůj telefon a dokument v klidu.",
         "passport": "Jakmile je čip detekován, udržujte telefon a pas v klidu."
       },
+      "pin_disclaimer": "Před skenováním čipu vás požádáme o [%i]místný PIN vašeho dokladu.",
       "title_document": "Skenovat váš dokument",
-      "title_passport": "Naskenujte čip Vašeho pasu"
+      "title_passport": "Naskenujte čip Vašeho pasu",
+      "video_instruction_accessibility": "Video návod"
     },
     "settings": {
       "button_primary": "Otevřít nastavení",
@@ -3864,7 +3977,8 @@
         "ready": "Připraveno ke skenování",
         "scanning": "Skenování...",
         "success": "Skenování úspěšné."
-      }
+      },
+      "video_instruction_accessibility": "Video návod"
     },
     "unsupported_device": {
       "button_primary": "Ověření při odchodu",
@@ -4481,6 +4595,7 @@
     "button": {
       "default": "Zkuste to znovu",
       "expired_document": "Zkuste to znovu",
+      "failed_authentication": "Zkuste to znovu",
       "generic_document_issue": "Zkuste to znovu",
       "generic_proof_of_address_issue": "Zkuste to znovu",
       "generic_selfie_issue": "Zkuste to znovu",
@@ -4489,6 +4604,7 @@
     "description": {
       "default": "Zkuste to znovu",
       "expired_document": "Zkuste to znovu s platným průkazem totožnosti s fotografií a ujistěte se, že jsou Vaše údaje jasně viditelné.",
+      "failed_authentication": "Zkuste to znovu",
       "generic_document_issue": "Zkuste to znovu s platným průkazem totožnosti s fotografií a ujistěte se, že jsou Vaše údaje jasně viditelné.",
       "generic_proof_of_address_issue": "Zkuste to prosím znovu s platným dokladem a ujistěte se, že vaše údaje jsou jasně viditelné",
       "generic_selfie_issue": "Zkuste to znovu a ujistěte se, že je Váš obličej viditelný a dobře osvětlený.",
@@ -4497,6 +4613,7 @@
     "headline": {
       "default": "Nastal problém",
       "expired_document": "Platnost Vašeho dokumentu vypršela",
+      "failed_authentication": "Ověření se nezdařilo",
       "generic_document_issue": "Vyskytl se problém s vaším dokumentem",
       "generic_proof_of_address_issue": "Vyskytl se problém s vaším dokumentem",
       "generic_selfie_issue": "Vyskytl se problém s vaší selfie",

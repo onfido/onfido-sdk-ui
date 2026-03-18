@@ -878,6 +878,15 @@
       "title_tip_2": "Placer dit ID i rammen",
       "title_tip_3": "Sørg for, at alle felter er læselige"
     },
+    "help_tilt": {
+      "description_tip_1": "For bedste resultater skal du holde dit ID i hånden, mens du vipper det. Følg instruktionerne på skærmen, og vip dit ID, indtil alle sider bliver grønne.",
+      "description_tip_2": "Sørg for, at alle sider af dit ID er synlige i rammen for at fuldføre vippebevægelsen. Hvis en side ikke bliver grøn, skal du flytte dig tilbage og centrere dit ID.",
+      "subtitle": "Følg disse tips for at fotografere dit ID's hologrammer korrekt",
+      "subtitle_timeout": "Af sikkerhedsmæssige årsager har du op til 20 sekunder til at fuldføre dette trin",
+      "title_timeout": "Tidsgrænsen er nået. \nPrøv disse tips",
+      "title_tip_1": "Hold dit ID frem og udfør en vippebevægelse",
+      "title_tip_2": "Placer dit ID i rammen"
+    },
     "intro": {
       "button_primary_selection_off": "Start scanning",
       "button_primary_selection_on": "Vælg dokument",
@@ -886,6 +895,13 @@
       "list_item_tip_3": "Sørg for, at alle felter er læselige",
       "subtitle": "Vi skal tage billeder af dit dokument for at sikre, at det er ægte.",
       "title": "Scan dit ID-dokument"
+    },
+    "intro_tilt": {
+      "callout": "Vi bruger din telefons lommelygte",
+      "list_item_tip_1": "Hold dit ID inden for rammen",
+      "list_item_tip_2": "Vip dit ID, indtil alle fire sider af rammen bliver grønne",
+      "subtitle": "Vi gør dette for at sikre, at dit dokument er ægte",
+      "title": "Vip dit ID for at vise dets hologrammer"
     },
     "preview": {
       "blur_detail": "Sørg for, at alt fremstår tydeligt",
@@ -957,6 +973,19 @@
         "iq_mrz_3": "Gør de nederste 3 linjer synlige",
         "iq_no_doc": "Vis dokument i rammen",
         "iq_obstruction": "Flyt fingrene væk fra dokumentet",
+        "tilt": {
+          "down": "Vip dit ID ned",
+          "left": "Vip dit ID til venstre",
+          "right": "Vip dit ID til højre",
+          "up": "Vip dit ID op"
+        },
+        "tilt_accessibility": {
+          "complete": "Fuldfør",
+          "down": "Vip dit ID ned, indtil du hører en bekræftelse",
+          "left": "Vip dit ID til venstre, indtil du hører en bekræftelse",
+          "right": "Vip dit ID til højre, indtil du hører en bekræftelse",
+          "up": "Vip dit ID op, indtil du hører en bekræftelse"
+        },
         "validity": {
           "button_primary": "Prøv igen",
           "button_secondary": "Vælg et andet dokument"
@@ -1003,6 +1032,7 @@
         "subtitle_passport_accessibility": "Placer fotosiden af dit pas mod bagsiden af din telefon, og bevæg det langsomt tilbage, indtil du hører feedback.",
         "subtitle_passport_manual": "Scan fotosiden af dit dokument",
         "subtitle_passport_manual_accessibility": "Placer fotosiden af dit pas foran dit bagkamera, og tryk på knappen nedenfor.",
+        "subtitle_tilt_generic": "Vip dit ID, indtil rammen bliver grøn",
         "title_back": "Bagside",
         "title_front": "Forside",
         "title_passport": "Fotoside"
@@ -1632,6 +1662,16 @@
       "bottom_sheet": {
         "handle_accessibility": "document.bottom_sheet.handle_dismiss_accessibility"
       },
+      "chip_blocked": {
+        "button_help": "nfc.chip_blocked.button_help",
+        "subtitle": "nfc.chip_blocked.subtitle",
+        "title": "nfc.chip_blocked.title"
+      },
+      "chip_blocked_optional": {
+        "button_primary": "nfc.chip_blocked.optional_button_primary",
+        "subtitle": "nfc.chip_blocked.optional_subtitle",
+        "title": "nfc.chip_blocked.optional_title"
+      },
       "country_select": {
         "alert": {
           "another_doc": "sample.selection.country_select_another_doc"
@@ -2055,6 +2095,40 @@
           "title": "document.upload.success.title"
         }
       },
+      "doc_video_intro": {
+        "callout": "document.intro_tilt.callout",
+        "list_item_tip_1": "document.intro_tilt.list_item_tip_1",
+        "list_item_tip_2": "document.intro_tilt.list_item_tip_2",
+        "sub-title": "document.intro_tilt.subtitle",
+        "title": "document.intro_tilt.title"
+      },
+      "doc_video_tilt": {
+        "feedback": {
+          "side_complete_accessibility": "document.scan.feedback.tilt_accessibility.complete",
+          "tilt_down": "document.scan.feedback.tilt.down",
+          "tilt_down_accessibility": "document.scan.feedback.tilt_accessibility.down",
+          "tilt_left": "document.scan.feedback.tilt.left",
+          "tilt_left_accessibility": "document.scan.feedback.tilt_accessibility.left",
+          "tilt_right": "document.scan.feedback.tilt.right",
+          "tilt_right_accessibility": "document.scan.feedback.tilt_accessibility.right",
+          "tilt_up": "document.scan.feedback.tilt.up",
+          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up"
+        },
+        "instructions": {
+          "sub_title_generic": "document.scan.instructions.subtitle_tilt_generic"
+        }
+      },
+      "doc_video_tilt_help": {
+        "description_tip_1": "document.help_tilt.description_tip_1",
+        "description_tip_2": "document.help_tilt.description_tip_2",
+        "sub_title": "document.help_tilt.subtitle",
+        "title_tip_1": "document.help_tilt.title_tip_1",
+        "title_tip_2": "document.help_tilt.title_tip_2"
+      },
+      "doc_video_tilt_timeout": {
+        "sub_title": "document.help_tilt.subtitle_timeout",
+        "title": "document.help_tilt.title_timeout"
+      },
       "eid": {
         "scheme_form": {
           "subtitle": "electronicId.scheme_form.subtitle",
@@ -2113,6 +2187,19 @@
           "subtitle": "enrollPasskey.not_supported_error.subtitle",
           "title": "enrollPasskey.not_supported_error.title"
         }
+      },
+      "enter_pin": {
+        "button_primary": "nfc.pin_entry.button_primary",
+        "helper_attempts_left": "nfc.pin_entry.helper_attempts_left",
+        "helper_final_attempt": "nfc.pin_entry.helper_final_attempt",
+        "subtitle": "nfc.pin_entry.subtitle",
+        "title": "nfc.pin_entry.title",
+        "title_incorrect": "nfc.pin_entry.title_incorrect"
+      },
+      "enter_pin_optional": {
+        "button_tertiary": "nfc.pin_entry.optional_button_tertiary",
+        "helper_attempts_left": "nfc.pin_entry.optional_helper_attempts_left",
+        "helper_final_attempt": "nfc.pin_entry.optional_helper_final_attempt"
       },
       "generic": {
         "accessibility": {
@@ -2679,6 +2766,10 @@
         "list_item_nfc": "nfc.settings.list_item_nfc",
         "subtitle": "nfc.settings.subtitle",
         "title": "nfc.settings.title"
+      },
+      "nfc_scan": {
+        "pin_disclaimer": "nfc.scan.pin_disclaimer",
+        "video_instruction_accessibility": "nfc.error.video_instruction_accessibility"
       },
       "nfc_scan_error_device": {
         "primary_button": "nfc.unsupported_device.button_primary",
@@ -3773,6 +3864,14 @@
     }
   },
   "nfc": {
+    "chip_blocked": {
+      "button_help": "Offentlig portal",
+      "optional_button_primary": "Fortsæt",
+      "optional_subtitle": "For mange forkerte PIN-indtastninger har blokeret din NFC-chip, så vi springer dette trin over. Kontakt dine myndigheder for at nulstille din PIN til fremtidig brug.",
+      "optional_title": "Fortsæt uden at scanne chip",
+      "subtitle": "Dette er en sikkerhedsforanstaltning for at forhindre svindel. Kontakt din lokale udstedende myndighed for at fjerne blokeringen af din chip.",
+      "title": "NFC-chip blokeret"
+    },
     "connection_error": {
       "button_primary": "Prøv at uploade igen",
       "subtitle": "Tjek, at din forbindelse er stabil, og prøv igen",
@@ -3806,7 +3905,19 @@
         "passport_usa": "Du skal muligvis langsomt glide din telefon op og ned mod indersiden af bagcoveret, indtil du finder chippen."
       },
       "instruction_5_passport": "Når din telefon registrerer chippen i dit pas, vil scanningen starte automatisk. Hold din telefon og dit pas stille, så scanningen kan fuldføres.",
-      "title": "Ikke i stand til at scanne chippen. Har du brug for hjælp?"
+      "title": "Ikke i stand til at scanne chippen. Har du brug for hjælp?",
+      "video_instruction_accessibility": "Videovejledning"
+    },
+    "pin_entry": {
+      "button_primary": "Fortsæt",
+      "helper_attempts_left": "[%i] forsøg tilbage",
+      "helper_final_attempt": "1 forsøg tilbage. Din chip vil blive blokeret efter det næste mislykkede forsøg",
+      "optional_button_tertiary": "Spring NFC-chipscanning over",
+      "optional_helper_attempts_left": "[%i] forsøg tilbage. Spring dette trin over nedenfor.",
+      "optional_helper_final_attempt": "[%i] forsøg tilbage, før din NFC-chip blokeres. Spring dette trin over nedenfor.",
+      "subtitle": "Dette er nødvendigt for sikkert at læse NFC-chippen. Du oprettede dette [%i]-cifrede nummer, da dit dokument blev udstedt.",
+      "title": "Indtast din dokument-PIN",
+      "title_incorrect": "Forkert pinkode"
     },
     "scan": {
       "button_primary": "Start scanning",
@@ -3827,8 +3938,10 @@
         "document": "Når chippen er registreret, skal du holde din telefon og dokumentet stille.",
         "passport": "Når chippen er registreret, skal du holde din telefon og dit pas stille."
       },
+      "pin_disclaimer": "Vi beder dig om din dokuments [%i]-cifrede pinkode, før vi scanner chippen.",
       "title_document": "Scan dit dokument",
-      "title_passport": "Scan chippen i dit pas"
+      "title_passport": "Scan chippen i dit pas",
+      "video_instruction_accessibility": "Videovejledning"
     },
     "settings": {
       "button_primary": "Åbn indstillinger",
@@ -3864,7 +3977,8 @@
         "ready": "Klar til at scanne",
         "scanning": "Scanner...",
         "success": "Scanning lykkedes."
-      }
+      },
+      "video_instruction_accessibility": "Videovejledning"
     },
     "unsupported_device": {
       "button_primary": "Afslut verifikation",
@@ -4481,6 +4595,7 @@
     "button": {
       "default": "Prøv igen",
       "expired_document": "Prøv igen",
+      "failed_authentication": "Prøv igen",
       "generic_document_issue": "Prøv igen",
       "generic_proof_of_address_issue": "Prøv igen",
       "generic_selfie_issue": "Prøv igen",
@@ -4489,6 +4604,7 @@
     "description": {
       "default": "Prøv igen",
       "expired_document": "Prøv igen med et gyldigt billed-ID, og sørg for, at dine oplysninger kan ses tydeligt",
+      "failed_authentication": "Prøv igen",
       "generic_document_issue": "Prøv igen med et gyldigt billed-ID, og sørg for, at dine oplysninger kan ses tydeligt",
       "generic_proof_of_address_issue": "Prøv venligst igen med et gyldigt dokument, og sørg for, at dine oplysninger er tydeligt synlige",
       "generic_selfie_issue": "Prøv igen, og sørg for, at dit ansigt er synligt og godt oplyst",
@@ -4497,6 +4613,7 @@
     "headline": {
       "default": "Der var et problem",
       "expired_document": "Dit dokument er udløbet",
+      "failed_authentication": "Godkendelse mislykkedes",
       "generic_document_issue": "Der var et problem med dit dokument",
       "generic_proof_of_address_issue": "Der var et problem med dit dokument",
       "generic_selfie_issue": "Der var et problem med dit selfie",

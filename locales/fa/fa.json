@@ -878,6 +878,15 @@
       "title_tip_2": "کارت شناسایی خود را در قاب قرار دهید",
       "title_tip_3": "اطمینان حاصل کنید که همه فیلدها قابل خواندن باشند"
     },
+    "help_tilt": {
+      "description_tip_1": "برای بهترین نتیجه، هنگام حرکت دادن، کارت شناسایی را در دست خود نگه دارید. طبق دستورالعمل‌های روی صفحه عمل کنید و کارت شناسایی را آن‌قدر زاویه دهید تا همه لبه‌ها سبز شوند.",
+      "description_tip_2": "برای تکمیل حرکت چرخشی، همه طرف‌های کارت شناسایی خود را در قاب و در معرض دید نگه دارید. اگر یکی از طرف‌ها سبز نمی‌شود، کمی عقب بروید و کارت شناسایی را در مرکز قاب قرار دهید.",
+      "subtitle": "برای ثبت موفق هولوگرام‌های کارت شناسایی خود، این نکات را دنبال کنید",
+      "subtitle_timeout": "به دلایل امنیتی، برای تکمیل این مرحله حداکثر ۲۰ ثانیه فرصت دارید",
+      "title_timeout": "مهلت به پایان رسید.\nاین نکات را امتحان کنید",
+      "title_tip_1": "کارت شناسایی خود را نگه دارید و آن را کمی کج کنید",
+      "title_tip_2": "کارت شناسایی خود را در قاب قرار دهید"
+    },
     "intro": {
       "button_primary_selection_off": "شروع اسکن",
       "button_primary_selection_on": "انتخاب مدرک شناسایی",
@@ -886,6 +895,13 @@
       "list_item_tip_3": "اطمینان حاصل کنید که همه اطلاعات قابل خواندن باشند",
       "subtitle": "ما باید از مدرک شناسایی شما عکس بگیریم تا از اصالت آن اطمینان حاصل کنیم.",
       "title": "مدرک شناسایی خود را اسکن کنید"
+    },
+    "intro_tilt": {
+      "callout": "ما از چراغ‌قوهٔ گوشی شما استفاده می‌کنیم",
+      "list_item_tip_1": "کارت شناسایی خود را در قاب نگه دارید",
+      "list_item_tip_2": "کارت شناسایی خود را آن‌قدر بچرخانید تا چهار طرف قاب سبز شوند",
+      "subtitle": "این کار را انجام می‌دهیم تا مطمئن شویم مدرک شما معتبر است",
+      "title": "کارت شناسایی خود را کمی بچرخانید تا هولوگرام‌های آن دیده شود"
     },
     "preview": {
       "blur_detail": "مطمئن شوید که همه چیز واضح است",
@@ -957,6 +973,19 @@
         "iq_mrz_3": "سه خط پایین را قابل مشاهده کنید",
         "iq_no_doc": "سند را داخل کادر نشان دهید",
         "iq_obstruction": "انگشت‌ها را از روی مدرک کنار بکشید",
+        "tilt": {
+          "down": "کارت شناسایی خود را کمی به سمت پایین خم کنید",
+          "left": "کارت شناسایی خود را به چپ متمایل کنید",
+          "right": "کارت شناسایی خود را به سمت راست کج کنید",
+          "up": "کارت شناسایی‌تان را کمی بالا بیاورید"
+        },
+        "tilt_accessibility": {
+          "complete": "تکمیل شد",
+          "down": "کارت شناسایی را به سمت پایین خم کنید تا زمانی که صدای تأیید را بشنوید",
+          "left": "کارت شناسایی خود را به سمت چپ بچرخانید تا زمانی که صدای تأیید را بشنوید",
+          "right": "کارت شناسایی خود را به سمت راست کج کنید تا زمانی که صدای تأیید را بشنوید",
+          "up": "کارت شناسایی خود را کمی رو به بالا بگیرید تا زمانی که تأیید را بشنوید"
+        },
         "validity": {
           "button_primary": "دوباره تلاش کنید",
           "button_secondary": "یک سند دیگری را انتخاب کن"
@@ -1003,6 +1032,7 @@
         "subtitle_passport_accessibility": "صفحه عکس گذرنامه خود را به پشت گوشی قرار دهید و به آرامی آن را عقب ببرید تا زمانی که بازخوردی دریافت کنید.",
         "subtitle_passport_manual": "صفحه عکس مدرک شناسایی خود را اسکن کنید",
         "subtitle_passport_manual_accessibility": "صفحه عکس گذرنامه خود را مقابل دوربین پشتی قرار دهید و دکمه زیر را فشار دهید.",
+        "subtitle_tilt_generic": "کارت شناسایی خود را کج کنید تا قاب به رنگ سبز درآید",
         "title_back": "پشت کارت",
         "title_front": "سمت جلو",
         "title_passport": "صفحه عکس"
@@ -1632,6 +1662,16 @@
       "bottom_sheet": {
         "handle_accessibility": "document.bottom_sheet.handle_dismiss_accessibility"
       },
+      "chip_blocked": {
+        "button_help": "nfc.chip_blocked.button_help",
+        "subtitle": "nfc.chip_blocked.subtitle",
+        "title": "nfc.chip_blocked.title"
+      },
+      "chip_blocked_optional": {
+        "button_primary": "nfc.chip_blocked.optional_button_primary",
+        "subtitle": "nfc.chip_blocked.optional_subtitle",
+        "title": "nfc.chip_blocked.optional_title"
+      },
       "country_select": {
         "alert": {
           "another_doc": "sample.selection.country_select_another_doc"
@@ -2055,6 +2095,40 @@
           "title": "document.upload.success.title"
         }
       },
+      "doc_video_intro": {
+        "callout": "document.intro_tilt.callout",
+        "list_item_tip_1": "document.intro_tilt.list_item_tip_1",
+        "list_item_tip_2": "document.intro_tilt.list_item_tip_2",
+        "sub-title": "document.intro_tilt.subtitle",
+        "title": "document.intro_tilt.title"
+      },
+      "doc_video_tilt": {
+        "feedback": {
+          "side_complete_accessibility": "document.scan.feedback.tilt_accessibility.complete",
+          "tilt_down": "document.scan.feedback.tilt.down",
+          "tilt_down_accessibility": "document.scan.feedback.tilt_accessibility.down",
+          "tilt_left": "document.scan.feedback.tilt.left",
+          "tilt_left_accessibility": "document.scan.feedback.tilt_accessibility.left",
+          "tilt_right": "document.scan.feedback.tilt.right",
+          "tilt_right_accessibility": "document.scan.feedback.tilt_accessibility.right",
+          "tilt_up": "document.scan.feedback.tilt.up",
+          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up"
+        },
+        "instructions": {
+          "sub_title_generic": "document.scan.instructions.subtitle_tilt_generic"
+        }
+      },
+      "doc_video_tilt_help": {
+        "description_tip_1": "document.help_tilt.description_tip_1",
+        "description_tip_2": "document.help_tilt.description_tip_2",
+        "sub_title": "document.help_tilt.subtitle",
+        "title_tip_1": "document.help_tilt.title_tip_1",
+        "title_tip_2": "document.help_tilt.title_tip_2"
+      },
+      "doc_video_tilt_timeout": {
+        "sub_title": "document.help_tilt.subtitle_timeout",
+        "title": "document.help_tilt.title_timeout"
+      },
       "eid": {
         "scheme_form": {
           "subtitle": "electronicId.scheme_form.subtitle",
@@ -2113,6 +2187,19 @@
           "subtitle": "enrollPasskey.not_supported_error.subtitle",
           "title": "enrollPasskey.not_supported_error.title"
         }
+      },
+      "enter_pin": {
+        "button_primary": "nfc.pin_entry.button_primary",
+        "helper_attempts_left": "nfc.pin_entry.helper_attempts_left",
+        "helper_final_attempt": "nfc.pin_entry.helper_final_attempt",
+        "subtitle": "nfc.pin_entry.subtitle",
+        "title": "nfc.pin_entry.title",
+        "title_incorrect": "nfc.pin_entry.title_incorrect"
+      },
+      "enter_pin_optional": {
+        "button_tertiary": "nfc.pin_entry.optional_button_tertiary",
+        "helper_attempts_left": "nfc.pin_entry.optional_helper_attempts_left",
+        "helper_final_attempt": "nfc.pin_entry.optional_helper_final_attempt"
       },
       "generic": {
         "accessibility": {
@@ -2679,6 +2766,10 @@
         "list_item_nfc": "nfc.settings.list_item_nfc",
         "subtitle": "nfc.settings.subtitle",
         "title": "nfc.settings.title"
+      },
+      "nfc_scan": {
+        "pin_disclaimer": "nfc.scan.pin_disclaimer",
+        "video_instruction_accessibility": "nfc.error.video_instruction_accessibility"
       },
       "nfc_scan_error_device": {
         "primary_button": "nfc.unsupported_device.button_primary",
@@ -3773,6 +3864,14 @@
     }
   },
   "nfc": {
+    "chip_blocked": {
+      "button_help": "درگاه دولتی",
+      "optional_button_primary": "ادامه",
+      "optional_subtitle": "تعداد زیاد ورود نادرست PIN باعث مسدود شدن تراشه NFC شما شده است، بنابراین این مرحله را رد می‌کنیم. برای تنظیم مجدد PIN جهت استفاده‌های بعدی، با مراجع مربوطه تماس بگیرید.",
+      "optional_title": "ادامه بدون اسکن تراشه",
+      "subtitle": "این یک اقدام امنیتی برای جلوگیری از تقلب است. برای باز کردن قفل چیپ خود، با مرجع صادرکننده محلی‌تان تماس بگیرید.",
+      "title": "تراشه NFC مسدود شد"
+    },
     "connection_error": {
       "button_primary": "بارگذاری مجدد",
       "subtitle": "بررسی کنید که اتصال اینترنت برقرار است، سپس دوباره سعی کنید",
@@ -3806,7 +3905,19 @@
         "passport_usa": "ممکن است نیاز باشد که گوشی خود را به آرامی به بالا و پایین در برابر داخل جلد پشتی بکشید تا تراشه را پیدا کنید."
       },
       "instruction_5_passport": "به محض اینکه تلفن شما تراشه موجود در گذرنامه را شناسایی کند، اسکن به طور خودکار شروع می‌شود. تلفن و گذرنامه خود را ثابت نگه دارید تا اسکن کامل شود.",
-      "title": "قادر به اسکن کردن چیپ نیستید. نیاز به کمک دارید؟"
+      "title": "قادر به اسکن کردن چیپ نیستید. نیاز به کمک دارید؟",
+      "video_instruction_accessibility": "آموزش ویدیویی"
+    },
+    "pin_entry": {
+      "button_primary": "ادامه",
+      "helper_attempts_left": "[%i] تلاش باقی‌مانده",
+      "helper_final_attempt": "۱ تلاش باقی مانده است. در صورت ناموفق بودن تلاش بعدی، چیپ شما مسدود خواهد شد",
+      "optional_button_tertiary": "رد کردن اسکن تراشه NFC",
+      "optional_helper_attempts_left": "[%i] تلاش باقی مانده است. از مرحلهٔ زیر صرف‌نظر کنید.",
+      "optional_helper_final_attempt": "[%i] تلاش دیگر تا زمانی که تراشه NFC شما مسدود شود باقی مانده است. این مرحله را در زیر رد کنید.",
+      "subtitle": "این مورد برای خواندن امن تراشه NFC لازم است. شما این عدد [%i] رقمی را زمانی ایجاد کردید که سند شما صادر شد.",
+      "title": "رمز پین سند خود را وارد کنید",
+      "title_incorrect": "رمز عبور نادرست"
     },
     "scan": {
       "button_primary": "شروع اسکن",
@@ -3827,8 +3938,10 @@
         "document": "هنگامی که تراشه شناسایی شد، گوشی و سند خود را ثابت نگه دارید.",
         "passport": "پس از شناسایی چیپ، تلفن و گذرنامه خود را ثابت نگه دارید."
       },
+      "pin_disclaimer": "پیش از اسکن تراشه، از شما می‌خواهیم [%i] رقمِ PIN سند خود را وارد کنید.",
       "title_document": "سند خود را بررسی کنید",
-      "title_passport": "تراشه گذرنامه شما را اسکن کنید"
+      "title_passport": "تراشه گذرنامه شما را اسکن کنید",
+      "video_instruction_accessibility": "آموزش ویدیویی"
     },
     "settings": {
       "button_primary": "باز کردن تنظیمات",
@@ -3864,7 +3977,8 @@
         "ready": "آماده اسکن",
         "scanning": "در حال اسکن ...",
         "success": "اسکن موفقیت‌آمیز بود."
-      }
+      },
+      "video_instruction_accessibility": "آموزش ویدیویی"
     },
     "unsupported_device": {
       "button_primary": "تأیید خروج",
@@ -4481,6 +4595,7 @@
     "button": {
       "default": "سعی مجدد",
       "expired_document": "سعی مجدد",
+      "failed_authentication": "سعی مجدد",
       "generic_document_issue": "سعی مجدد",
       "generic_proof_of_address_issue": "سعی مجدد",
       "generic_selfie_issue": "سعی مجدد",
@@ -4489,6 +4604,7 @@
     "description": {
       "default": "لطفاً دوباره سعی کنید",
       "expired_document": "لطفاً با یک کارت شناسایی عکس‌دار معتبر دوباره امتحان کنید و مطمئن شوید که اطلاعات شما به وضوح قابل مشاهده است",
+      "failed_authentication": "لطفاً دوباره سعی کنید",
       "generic_document_issue": "لطفاً با یک کارت شناسایی عکس‌دار معتبر دوباره امتحان کنید و مطمئن شوید که اطلاعات شما به وضوح قابل مشاهده است",
       "generic_proof_of_address_issue": "لطفاً دوباره با یک مدرک معتبر تلاش کنید و مطمئن شوید که اطلاعات شما به‌وضوح قابل مشاهده است",
       "generic_selfie_issue": "لطفاً دوباره سعی کنید و مطمئن شوید که چهره شما قابل مشاهده بوده و محیط دارای نور مناسب است",
@@ -4497,6 +4613,7 @@
     "headline": {
       "default": "یک مشکل وجود داشت",
       "expired_document": "مدرک شما منقضی شده است",
+      "failed_authentication": "احراز هویت ناموفق بود",
       "generic_document_issue": "مشکلی با سند شما وجود داشت",
       "generic_proof_of_address_issue": "مشکلی با سند شما وجود داشت",
       "generic_selfie_issue": "مشکلی با سلفی شما وجود داشت",

@@ -878,6 +878,15 @@
       "title_tip_2": "Posicione o seu documento na moldura",
       "title_tip_3": "Certifique-se de que todos os campos estão legíveis"
     },
+    "help_tilt": {
+      "description_tip_1": "Para melhores resultados, segure o seu documento de identificação na mão enquanto inclina. Siga as instruções no ecrã, inclinando o documento até que todos os lados fiquem verdes.",
+      "description_tip_2": "Mantenha todos os lados do seu documento de identificação visíveis na moldura para concluir o movimento de inclinação. Se um lado não ficar verde, afaste-se e centre o seu documento de identificação.",
+      "subtitle": "Siga estas dicas para capturar os hologramas do seu documento de identidade com sucesso",
+      "subtitle_timeout": "Por razões de segurança, tem até 20 segundos para concluir este passo",
+      "title_timeout": "Limite de tempo atingido. \nExperimente estas dicas",
+      "title_tip_1": "Segure o seu documento de identidade para realizar o movimento de inclinação",
+      "title_tip_2": "Posicione o seu documento na moldura"
+    },
     "intro": {
       "button_primary_selection_off": "Iniciar digitalização",
       "button_primary_selection_on": "Selecionar documento",
@@ -886,6 +895,13 @@
       "list_item_tip_3": "Certifique-se de que todos os campos estão legíveis",
       "subtitle": "Precisamos tirar fotos do seu documento para garantir que é genuíno.",
       "title": "Digitalize o seu documento"
+    },
+    "intro_tilt": {
+      "callout": "Vamos utilizar a lanterna do seu telemóvel",
+      "list_item_tip_1": "Mantenha o seu documento de identificação na moldura",
+      "list_item_tip_2": "Incline o seu documento de identificação até que os quatro lados da moldura fiquem verdes",
+      "subtitle": "Fazemos isto para garantir que o seu documento é genuíno",
+      "title": "Incline o seu documento para exibir os hologramas"
     },
     "preview": {
       "blur_detail": "Certifique-se de que tudo está nítido",
@@ -957,6 +973,19 @@
         "iq_mrz_3": "Torne as 3 linhas inferiores visíveis",
         "iq_no_doc": "Mostrar documento no enquadramento",
         "iq_obstruction": "Afaste os dedos do documento",
+        "tilt": {
+          "down": "Incline o seu documento para baixo",
+          "left": "Incline o seu documento para a esquerda",
+          "right": "Incline o seu documento para a direita",
+          "up": "Incline o seu documento para cima"
+        },
+        "tilt_accessibility": {
+          "complete": "Concluído",
+          "down": "Incline o seu documento para baixo até ouvir a confirmação",
+          "left": "Incline o seu documento de identidade para a esquerda até ouvir a confirmação",
+          "right": "Incline o seu documento de identificação para a direita até ouvir a confirmação",
+          "up": "Incline o seu documento de identificação até ouvir a confirmação"
+        },
         "validity": {
           "button_primary": "Tente novamente",
           "button_secondary": "Selecione outro documento"
@@ -1003,6 +1032,7 @@
         "subtitle_passport_accessibility": "Coloque a página com foto do seu passaporte contra a parte de trás do seu telefone e mova-o lentamente para trás até ouvir o feedback.",
         "subtitle_passport_manual": "Digitalize o lado da foto do seu documento",
         "subtitle_passport_manual_accessibility": "Coloque a página com foto do seu passaporte em frente à câmara traseira e pressione o botão abaixo.",
+        "subtitle_tilt_generic": "Incline o seu documento até a moldura ficar verde",
         "title_back": "Verso",
         "title_front": "Frente",
         "title_passport": "Página da foto"
@@ -1632,6 +1662,16 @@
       "bottom_sheet": {
         "handle_accessibility": "document.bottom_sheet.handle_dismiss_accessibility"
       },
+      "chip_blocked": {
+        "button_help": "nfc.chip_blocked.button_help",
+        "subtitle": "nfc.chip_blocked.subtitle",
+        "title": "nfc.chip_blocked.title"
+      },
+      "chip_blocked_optional": {
+        "button_primary": "nfc.chip_blocked.optional_button_primary",
+        "subtitle": "nfc.chip_blocked.optional_subtitle",
+        "title": "nfc.chip_blocked.optional_title"
+      },
       "country_select": {
         "alert": {
           "another_doc": "sample.selection.country_select_another_doc"
@@ -2055,6 +2095,40 @@
           "title": "document.upload.success.title"
         }
       },
+      "doc_video_intro": {
+        "callout": "document.intro_tilt.callout",
+        "list_item_tip_1": "document.intro_tilt.list_item_tip_1",
+        "list_item_tip_2": "document.intro_tilt.list_item_tip_2",
+        "sub-title": "document.intro_tilt.subtitle",
+        "title": "document.intro_tilt.title"
+      },
+      "doc_video_tilt": {
+        "feedback": {
+          "side_complete_accessibility": "document.scan.feedback.tilt_accessibility.complete",
+          "tilt_down": "document.scan.feedback.tilt.down",
+          "tilt_down_accessibility": "document.scan.feedback.tilt_accessibility.down",
+          "tilt_left": "document.scan.feedback.tilt.left",
+          "tilt_left_accessibility": "document.scan.feedback.tilt_accessibility.left",
+          "tilt_right": "document.scan.feedback.tilt.right",
+          "tilt_right_accessibility": "document.scan.feedback.tilt_accessibility.right",
+          "tilt_up": "document.scan.feedback.tilt.up",
+          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up"
+        },
+        "instructions": {
+          "sub_title_generic": "document.scan.instructions.subtitle_tilt_generic"
+        }
+      },
+      "doc_video_tilt_help": {
+        "description_tip_1": "document.help_tilt.description_tip_1",
+        "description_tip_2": "document.help_tilt.description_tip_2",
+        "sub_title": "document.help_tilt.subtitle",
+        "title_tip_1": "document.help_tilt.title_tip_1",
+        "title_tip_2": "document.help_tilt.title_tip_2"
+      },
+      "doc_video_tilt_timeout": {
+        "sub_title": "document.help_tilt.subtitle_timeout",
+        "title": "document.help_tilt.title_timeout"
+      },
       "eid": {
         "scheme_form": {
           "subtitle": "electronicId.scheme_form.subtitle",
@@ -2113,6 +2187,19 @@
           "subtitle": "enrollPasskey.not_supported_error.subtitle",
           "title": "enrollPasskey.not_supported_error.title"
         }
+      },
+      "enter_pin": {
+        "button_primary": "nfc.pin_entry.button_primary",
+        "helper_attempts_left": "nfc.pin_entry.helper_attempts_left",
+        "helper_final_attempt": "nfc.pin_entry.helper_final_attempt",
+        "subtitle": "nfc.pin_entry.subtitle",
+        "title": "nfc.pin_entry.title",
+        "title_incorrect": "nfc.pin_entry.title_incorrect"
+      },
+      "enter_pin_optional": {
+        "button_tertiary": "nfc.pin_entry.optional_button_tertiary",
+        "helper_attempts_left": "nfc.pin_entry.optional_helper_attempts_left",
+        "helper_final_attempt": "nfc.pin_entry.optional_helper_final_attempt"
       },
       "generic": {
         "accessibility": {
@@ -2679,6 +2766,10 @@
         "list_item_nfc": "nfc.settings.list_item_nfc",
         "subtitle": "nfc.settings.subtitle",
         "title": "nfc.settings.title"
+      },
+      "nfc_scan": {
+        "pin_disclaimer": "nfc.scan.pin_disclaimer",
+        "video_instruction_accessibility": "nfc.error.video_instruction_accessibility"
       },
       "nfc_scan_error_device": {
         "primary_button": "nfc.unsupported_device.button_primary",
@@ -3773,6 +3864,14 @@
     }
   },
   "nfc": {
+    "chip_blocked": {
+      "button_help": "Portal governamental",
+      "optional_button_primary": "Continuar",
+      "optional_subtitle": "Demasiadas tentativas incorretas de PIN bloquearam o seu chip NFC, por isso vamos saltar este passo. Contacte as suas autoridades para redefinir o seu PIN para utilização futura.",
+      "optional_title": "Continuar sem digitalizar o chip",
+      "subtitle": "Esta é uma medida de segurança para prevenir fraudes. Entre em contato com a autoridade emissora local para desbloquear o seu chip.",
+      "title": "Chip NFC bloqueado"
+    },
     "connection_error": {
       "button_primary": "Tentar novamente o carregamento",
       "subtitle": "Verifique se a sua ligação é estável e tente novamente",
@@ -3806,7 +3905,19 @@
         "passport_usa": "Pode ser necessário deslizar lentamente o seu telefone para cima e para baixo contra a parte interna da capa traseira até localizar o chip."
       },
       "instruction_5_passport": "Assim que seu telefone detectar o chip no seu passaporte, a leitura começará automaticamente. Mantenha seu telefone e passaporte imóveis para que a leitura possa ser concluída.",
-      "title": "Incapaz de digitalizar o chip. Precisa de ajuda?"
+      "title": "Incapaz de digitalizar o chip. Precisa de ajuda?",
+      "video_instruction_accessibility": "Instruções em vídeo"
+    },
+    "pin_entry": {
+      "button_primary": "Continuar",
+      "helper_attempts_left": "[%i] tentativas restantes",
+      "helper_final_attempt": "Resta 1 tentativa. O seu chip será bloqueado após a próxima tentativa falhada",
+      "optional_button_tertiary": "Ignorar leitura do chip NFC",
+      "optional_helper_attempts_left": "[%i] tentativas restantes. Pule esta etapa abaixo.",
+      "optional_helper_final_attempt": "[%i] tentativa restante antes do bloqueio do chip NFC. Ignore esta etapa abaixo.",
+      "subtitle": "Isto é necessário para ler com segurança o chip NFC. Você criou este número de [%i] dígitos quando o seu documento foi emitido.",
+      "title": "Insira o PIN do seu documento",
+      "title_incorrect": "PIN incorreto"
     },
     "scan": {
       "button_primary": "Iniciar digitalização",
@@ -3827,8 +3938,10 @@
         "document": "Uma vez que o chip é detectado, mantenha seu telefone e documento parados.",
         "passport": "Uma vez que o chip é detectado, mantenha o seu telefone e passaporte imóveis."
       },
+      "pin_disclaimer": "Solicitaremos o PIN de [%i] dígitos do seu documento antes de escanear o chip.",
       "title_document": "Escaneie o seu documento",
-      "title_passport": "Digitalize o chip do seu passaporte"
+      "title_passport": "Digitalize o chip do seu passaporte",
+      "video_instruction_accessibility": "Instruções em vídeo"
     },
     "settings": {
       "button_primary": "Definições abertas",
@@ -3864,7 +3977,8 @@
         "ready": "Pronto para digitalizar",
         "scanning": "A digitalizar...",
         "success": "Leitura bem-sucedida."
-      }
+      },
+      "video_instruction_accessibility": "Instruções em vídeo"
     },
     "unsupported_device": {
       "button_primary": "Saída da verificação",
@@ -4481,6 +4595,7 @@
     "button": {
       "default": "Tente novamente",
       "expired_document": "Tente novamente",
+      "failed_authentication": "Tente novamente",
       "generic_document_issue": "Tente novamente",
       "generic_proof_of_address_issue": "Tente novamente",
       "generic_selfie_issue": "Tente novamente",
@@ -4489,6 +4604,7 @@
     "description": {
       "default": "Tente novamente",
       "expired_document": "Tente de novo com uma identificação com foto válida e garanta que os seus dados estão claramente visíveis",
+      "failed_authentication": "Tente novamente",
       "generic_document_issue": "Tente de novo com uma identificação com foto válida e garanta que os seus dados estão claramente visíveis",
       "generic_proof_of_address_issue": "Por favor, tente novamente com um documento válido e certifique-se de que suas informações estejam claramente visíveis",
       "generic_selfie_issue": "Tente de novo e certifique-se de que o seu rosto está visível e bem iluminado",
@@ -4497,6 +4613,7 @@
     "headline": {
       "default": "Houve um problema",
       "expired_document": "O seu documento está caducado",
+      "failed_authentication": "Falha na autenticação",
       "generic_document_issue": "Houve um problema com o seu documento",
       "generic_proof_of_address_issue": "Houve um problema com o seu documento",
       "generic_selfie_issue": "Houve um problema com a sua selfie",
