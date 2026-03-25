@@ -13,6 +13,12 @@ When any of the string translations change, it will result in a MINOR version ch
 
 - Remove analytics logging for failed requests.
 
+## [v14.70.0] - 2026-03-25
+
+### Fixed
+
+- Fix theme property in typescript types for npm package 
+
 ## [14.68.0] - 2026-03-11
 
 ### Changed
