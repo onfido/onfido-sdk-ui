@@ -402,7 +402,7 @@
         "button_enable_video": "Tęsti",
         "button_enable_video_audio": "Tęsti",
         "devicemotion": {
-          "body": "Negalime jūsų patvirtinti be prieigos prie įrenginio judesio duomenų",
+          "body": "Negalime jūsų patvirtinti be prieigos prie įrenginio judesio duomenų. Daugiau informacijos rasite mūsų <link>privatumo pranešime</link>.",
           "button_enable": "Įjungti",
           "subtitle": "Kai būsite paraginti, leiskite pasiekti įrenginio judesio duomenis. Tai būtina norint tęsti.",
           "title": "Leisti pasiekti įrenginio judėjimo duomenis"
@@ -427,13 +427,13 @@
           "title": "Leisti prieigą prie kameros ir mikrofono"
         },
         "video_audio_devicemotion": {
-          "body": "Negalime jūsų patvirtinti be kameros, mikrofono ir įrenginio judesio leidimo",
+          "body": "Negalime jūsų patvirtinti be kameros, mikrofono ir įrenginio judesio leidimų. Daugiau informacijos rasite mūsų <link>privatumo pranešime</link>.",
           "button_enable": "Įjungti visus",
           "subtitle": "Leiskite kiekvieną leidimą, kai būsite paraginti. Tai būtina norint tęsti.",
           "title": "Leisti prieigą prie kameros, mikrofono ir įrenginio judesio"
         },
         "video_devicemotion": {
-          "body": "Negalime atlikti tapatybės patvirtinimo be kameros ir įrenginio judesio leidimo",
+          "body": "Negalime jūsų patvirtinti be kameros ir įrenginio judesio leidimų. Daugiau informacijos rasite mūsų <link>privatumo pranešime</link>.",
           "button_enable": "Įjungti abu",
           "subtitle": "Kai būsite paraginti, leiskite kiekvieną leidimą. Tai būtina norint tęsti.",
           "title": "Leisti naudotis kamera ir įrenginio judesiu"
@@ -571,6 +571,13 @@
         "device_settings": {
           "title": "Sprendimas 2: Įrenginio nustatymai"
         },
+        "devicemotion": {
+          "banner": "Jūsų pažanga bus prarasta, atsiprašome už nepatogumus.",
+          "device_settings": {
+            "list_item_1": "<strong>Uždarykite ir vėl atidarykite programėlę</strong>, kad iš naujo pradėtumėte tapatybės patvirtinimo procesą.",
+            "list_item_2": "Kai būsite paraginti, leiskite naudoti įrenginio judesio duomenis, kad galėtumėte tęsti."
+          }
+        },
         "disclaimer": "Tapatybės patvirtinimo procesas gali būti iš naujo paleistas. Atsiprašome už bet kokius nepatogumus",
         "info": "Atkūrimas",
         "ios": {
@@ -610,9 +617,11 @@
           "how_to_video_audio": "Suteikite prieigą prie fotoaparato ir mikrofono naudodami naršyklės nustatymus"
         },
         "subtitle_audio": "Mums reikia prieigos prie jūsų mikrofono, kad patikrintume jūsų tapatybę. Sekite žemiau pateiktas instrukcijas, kad atkurtumėte prieigą",
+        "subtitle_devicemotion": "Norėdami patvirtinti jūsų tapatybę, turime gauti prieigą prie jūsų įrenginio judesio ir orientacijos duomenų. Vykdykite toliau pateiktas instrukcijas, kad atkurtumėte prieigą:",
         "subtitle_video": "Mums reikia prieigos prie jūsų kameros, kad patikrintume jūsų tapatybę. Sekite žemiau pateiktas instrukcijas, kad atkurtumėte prieigą",
         "subtitle_video_audio": "Mums reikia prieigos prie jūsų kameros ir mikrofono, kad patikrintume jūsų tapatybę. Sekite žemiau pateiktas instrukcijas, kad atkurtumėte prieigą",
         "title_audio": "Prieiga prie mikrofono uždrausta",
+        "title_devicemotion": "Įrenginio judesio prieiga atmesta",
         "title_video": "Prieiga prie kameros uždrausta",
         "title_video_audio": "Kameros ir mikrofono prieiga uždrausta"
       }
@@ -867,6 +876,9 @@
       "title": "Pateikti paso nuotraukos puslapį"
     },
     "help": {
+      "button_dot_1_accessibility": "Go to slide 1",
+      "button_dot_2_accessibility": "Go to slide 2",
+      "button_dot_3_accessibility": "Go to slide 3",
       "button_primary": "Bandyti dar kartą",
       "button_secondary": "Skenuoti rankiniu būdu",
       "description_tip_1": "Venkite prasto apšvietimo, kad vaizdas nebūtų sulietas. Pasitraukite nuo tiesioginės šviesos, kad išvengtumėte atspindžių.",
@@ -888,6 +900,7 @@
       "title_tip_2": "Padėkite savo dokumentą rėmelyje"
     },
     "intro": {
+      "animation_accessibility": "An animation of the successful ID scanning process",
       "button_primary_selection_off": "Pradėti skenavimą",
       "button_primary_selection_on": "Pasirinkite dokumentą",
       "list_item_tip_1": "Raskite gerai apšviestą vietą",
@@ -975,8 +988,20 @@
         "iq_obstruction": "Patraukite pirštus nuo dokumento",
         "tilt": {
           "down": "Palenkite ID žemyn",
+          "error": {
+            "camera": {
+              "button_primary": "Bandyti dar kartą",
+              "subtitle": "Nepavyko įrašyti dokumento vaizdo įrašo, bandykite dar kartą",
+              "title": "Įvyko klaida"
+            }
+          },
           "left": "Pakreipkite ID į kairę",
           "right": "Palenkite ID į dešinę",
+          "too_fast": {
+            "button_primary": "Bandyti dar kartą",
+            "subtitle": "Pakreipkite asmens dokumentą lėčiau, kad nebūtų suliejimo",
+            "title": "Per greitai pakreipta"
+          },
           "up": "Pakreipkite ID aukštyn"
         },
         "tilt_accessibility": {
@@ -985,6 +1010,17 @@
           "left": "Pakreipkite savo asmens dokumentą į kairę, kol išgirsite patvirtinimą",
           "right": "Pakreipkite savo asmens dokumentą į dešinę, kol išgirsite patvirtinimą",
           "up": "Pakelkite savo dokumentą aukštyn, kol išgirsite patvirtinimą"
+        },
+        "tilt_issue": {
+          "button_primary": "Bandyti dar kartą",
+          "time_limit": {
+            "subtitle": "Saugumo sumetimais šį veiksmą turite atlikti per 20 sekundžių",
+            "title": "Laikas baigėsi. \nIšbandykite šiuos patarimus"
+          },
+          "too_fast": {
+            "subtitle": "Pakreipkite asmens dokumentą lėčiau, kad nebūtų suliejimo",
+            "title": "Per greitai pakreipta"
+          }
         },
         "validity": {
           "button_primary": "Bandyti dar kartą",
@@ -1072,7 +1108,9 @@
         "iq_no_doc_title": "Dokumento nerasta",
         "iq_obstruction_subtitle": "Patraukite pirštus nuo dokumento",
         "iq_obstruction_title": "Jūsų dokumentas nematomas visas",
-        "title": "Aptikome problemą"
+        "title": "Aptikome problemą",
+        "wrong_side_subtitle": "We need the back of your ID to continue",
+        "wrong_side_title": "Incorrect side"
       }
     },
     "selection": {
@@ -1916,6 +1954,9 @@
         "title": "sample.preview.title"
       },
       "doc_help": {
+        "button_dot_1_accessibility": "document.help.button_dot_1_accessibility",
+        "button_dot_2_accessibility": "document.help.button_dot_2_accessibility",
+        "button_dot_3_accessibility": "document.help.button_dot_3_accessibility",
         "button_primary": "document.help.button_primary",
         "button_secondary": "document.help.button_secondary",
         "description_tip_1": "document.help.description_tip_1",
@@ -1928,6 +1969,7 @@
         "title_tip_3": "document.help.title_tip_3"
       },
       "doc_intro": {
+        "animation_accessibility": "document.intro.animation_accessibility",
         "button_primary_selection_off": "document.intro.button_primary_selection_off",
         "button_primary_selection_on": "document.intro.button_primary_selection_on",
         "list_item_tip_1": "document.intro.list_item_tip_1",
@@ -2055,7 +2097,9 @@
           "iq_no_doc_title": "document.scan.manual_quality_issue.iq_no_doc_title",
           "iq_obstruction_subtitle": "document.scan.manual_quality_issue.iq_obstruction_subtitle",
           "iq_obstruction_title": "document.scan.manual_quality_issue.iq_obstruction_title",
-          "title": "document.scan.manual_quality_issue.title"
+          "title": "document.scan.manual_quality_issue.title",
+          "wrong_side_subtitle": "document.scan.manual_quality_issue.wrong_side_subtitle",
+          "wrong_side_title": "document.scan.manual_quality_issue.wrong_side_title"
         }
       },
       "doc_select": {
@@ -2179,6 +2223,13 @@
         "title": "document.intro_tilt.title"
       },
       "doc_video_tilt": {
+        "error": {
+          "camera": {
+            "button_primary": "document.scan.feedback.tilt.error.camera.button_primary",
+            "subtitle": "document.scan.feedback.tilt.error.camera.subtitle",
+            "title": "document.scan.feedback.tilt.error.camera.title"
+          }
+        },
         "feedback": {
           "side_complete_accessibility": "document.scan.feedback.tilt_accessibility.complete",
           "tilt_down": "document.scan.feedback.tilt.down",
@@ -2188,7 +2239,12 @@
           "tilt_right": "document.scan.feedback.tilt.right",
           "tilt_right_accessibility": "document.scan.feedback.tilt_accessibility.right",
           "tilt_up": "document.scan.feedback.tilt.up",
-          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up"
+          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up",
+          "too_fast": {
+            "button_primary": "document.scan.feedback.tilt_issue.button_primary",
+            "subtitle": "document.scan.feedback.tilt_issue.too_fast.subtitle",
+            "title": "document.scan.feedback.tilt_issue.too_fast.title"
+          }
         },
         "instructions": {
           "sub_title_generic": "document.scan.instructions.subtitle_tilt_generic"
@@ -3093,6 +3149,13 @@
             "list_item_3_mic": "common.permissions.recovery.desktop_windows.device_settings.list_item_3_audio",
             "list_item_4": "common.permissions.recovery.desktop_windows.device_settings.list_item_4"
           }
+        },
+        "device_motion": {
+          "banner": "common.permissions.recovery.devicemotion.banner",
+          "item_1": "common.permissions.recovery.devicemotion.device_settings.list_item_1",
+          "item_2": "common.permissions.recovery.devicemotion.device_settings.list_item_2",
+          "subtitle": "common.permissions.recovery.subtitle_devicemotion",
+          "title": "common.permissions.recovery.title_devicemotion"
         },
         "info": "common.permissions.recovery.info",
         "ios": {

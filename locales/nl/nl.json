@@ -402,7 +402,7 @@
         "button_enable_video": "Doorgaan",
         "button_enable_video_audio": "Doorgaan",
         "devicemotion": {
-          "body": "We kunnen je niet verifiëren zonder toegang tot bewegingsgegevens van het apparaat",
+          "body": "We kunnen uw identiteit niet verifiëren zonder toegang tot gegevens over apparaatbewegingen. Lees meer in onze <link>privacyverklaring</link>.",
           "button_enable": "Inschakelen",
           "subtitle": "Wanneer hierom wordt gevraagd, sta dan toegang tot bewegingsgegevens van het apparaat toe. Dit is vereist om verder te gaan.",
           "title": "Toegang tot apparaatbeweging toestaan"
@@ -427,13 +427,13 @@
           "title": "Sta toegang toe tot camera en microfoon"
         },
         "video_audio_devicemotion": {
-          "body": "We kunnen je niet verifiëren zonder toestemming voor camera, microfoon en apparaatbeweging",
+          "body": "We kunnen uw identiteit niet verifiëren zonder toestemming voor camera, microfoon en apparaatbewegingen. Lees meer in onze <link>privacyverklaring</link>.",
           "button_enable": "Alles inschakelen",
           "subtitle": "Sta elke toestemming toe wanneer daarom wordt gevraagd. Dit is nodig om door te gaan.",
           "title": "Camera-, microfoon- en apparaatsensorstoegang toestaan"
         },
         "video_devicemotion": {
-          "body": "We kunnen je niet verifiëren zonder camera- en apparaattbewegingsmachtiging",
+          "body": "We kunnen uw identiteit niet verifiëren zonder toestemming voor camera en apparaatbewegingen. Lees meer in onze <link>privacyverklaring</link>.",
           "button_enable": "Allebei inschakelen",
           "subtitle": "Sta elke machtiging toe wanneer daarom wordt gevraagd. Dit is nodig om verder te gaan.",
           "title": "Camera- en apparaatbewegings­toegang toestaan"
@@ -571,6 +571,13 @@
         "device_settings": {
           "title": "Oplossing 2: Apparaatinstellingen"
         },
+        "devicemotion": {
+          "banner": "Uw voortgang gaat verloren. Onze excuses voor het ongemak.",
+          "device_settings": {
+            "list_item_1": "<strong>Sluit de app en open deze opnieuw</strong> om het verificatieproces te herstarten.",
+            "list_item_2": "Sta, wanneer hierom wordt gevraagd, toegang tot apparaatgegevens over beweging toe om verder te gaan."
+          }
+        },
         "disclaimer": "Het identiteitsverificatieproces kan opnieuw starten. Onze excuses voor het eventuele ongemak",
         "info": "Herstellen",
         "ios": {
@@ -610,9 +617,11 @@
           "how_to_video_audio": "Verleen via uw browserinstellingen toegang tot uw camera en microfoon"
         },
         "subtitle_audio": "We hebben toegang tot uw microfoon nodig om uw identiteit te verifiëren. Volg de onderstaande instructies om toegang te herstellen",
+        "subtitle_devicemotion": "We hebben toegang tot de bewegings- en oriëntatiegegevens van uw apparaat nodig om uw identiteit te verifiëren. Volg de onderstaande instructies om opnieuw toegang te krijgen:",
         "subtitle_video": "We hebben toegang tot uw camera nodig om uw identiteit te verifiëren. Volg de onderstaande instructies om toegang te herstellen",
         "subtitle_video_audio": "We hebben toegang nodig tot uw camera en microfoon om uw identiteit te verifiëren. Volg de onderstaande instructies om toegang te herstellen",
         "title_audio": "Toegang tot microfoon geweigerd",
+        "title_devicemotion": "Toegang tot apparaatgegevens over beweging geweigerd",
         "title_video": "Toegang tot camera geweigerd",
         "title_video_audio": "Toegang tot camera en microfoon geweigerd"
       }
@@ -867,6 +876,9 @@
       "title": "Dien de fotopagina van uw paspoort in"
     },
     "help": {
+      "button_dot_1_accessibility": "Go to slide 1",
+      "button_dot_2_accessibility": "Go to slide 2",
+      "button_dot_3_accessibility": "Go to slide 3",
       "button_primary": "Probeer opnieuw",
       "button_secondary": "Handmatig scannen",
       "description_tip_1": "Vermijd plaatsen met weinig licht om vervaging te voorkomen. Ga weg van direct licht om reflecties te voorkomen.",
@@ -888,6 +900,7 @@
       "title_tip_2": "Plaats je ID in het kader"
     },
     "intro": {
+      "animation_accessibility": "An animation of the successful ID scanning process",
       "button_primary_selection_off": "Start scan",
       "button_primary_selection_on": "Selecteer document",
       "list_item_tip_1": "Zoek een plek met goede verlichting",
@@ -975,8 +988,20 @@
         "iq_obstruction": "Haal vingers weg van document",
         "tilt": {
           "down": "Kantel je ID omlaag",
+          "error": {
+            "camera": {
+              "button_primary": "Probeer het opnieuw",
+              "subtitle": "Video-opname van document mislukt, probeer het opnieuw",
+              "title": "Er is iets misgegaan"
+            }
+          },
           "left": "Kantel je ID naar links",
           "right": "Kantel je ID naar rechts",
+          "too_fast": {
+            "button_primary": "Probeer het opnieuw",
+            "subtitle": "Kantel uw ID langzamer om wazigheid te voorkomen",
+            "title": "Te snel kantelen"
+          },
           "up": "Kantel je ID omhoog"
         },
         "tilt_accessibility": {
@@ -985,6 +1010,17 @@
           "left": "Kantel je identiteitsbewijs naar links totdat je een bevestiging hoort",
           "right": "Kantel je identiteitsbewijs naar rechts totdat je een bevestiging hoort",
           "up": "Kantel uw identiteitsbewijs omhoog totdat u een bevestiging hoort"
+        },
+        "tilt_issue": {
+          "button_primary": "Probeer het opnieuw",
+          "time_limit": {
+            "subtitle": "Om veiligheidsredenen hebt u maximaal 20 seconden om deze stap te voltooien",
+            "title": "Tijdslimiet bereikt. \nProbeer deze tips"
+          },
+          "too_fast": {
+            "subtitle": "Kantel uw ID langzamer om wazigheid te voorkomen",
+            "title": "Te snel kantelen"
+          }
         },
         "validity": {
           "button_primary": "Probeer opnieuw",
@@ -1072,7 +1108,9 @@
         "iq_no_doc_title": "Geen document gedetecteerd",
         "iq_obstruction_subtitle": "Houd uw vingers weg van het ID",
         "iq_obstruction_title": "Uw document is niet volledig zichtbaar",
-        "title": "We hebben een probleem ontdekt"
+        "title": "We hebben een probleem ontdekt",
+        "wrong_side_subtitle": "We need the back of your ID to continue",
+        "wrong_side_title": "Incorrect side"
       }
     },
     "selection": {
@@ -1916,6 +1954,9 @@
         "title": "sample.preview.title"
       },
       "doc_help": {
+        "button_dot_1_accessibility": "document.help.button_dot_1_accessibility",
+        "button_dot_2_accessibility": "document.help.button_dot_2_accessibility",
+        "button_dot_3_accessibility": "document.help.button_dot_3_accessibility",
         "button_primary": "document.help.button_primary",
         "button_secondary": "document.help.button_secondary",
         "description_tip_1": "document.help.description_tip_1",
@@ -1928,6 +1969,7 @@
         "title_tip_3": "document.help.title_tip_3"
       },
       "doc_intro": {
+        "animation_accessibility": "document.intro.animation_accessibility",
         "button_primary_selection_off": "document.intro.button_primary_selection_off",
         "button_primary_selection_on": "document.intro.button_primary_selection_on",
         "list_item_tip_1": "document.intro.list_item_tip_1",
@@ -2055,7 +2097,9 @@
           "iq_no_doc_title": "document.scan.manual_quality_issue.iq_no_doc_title",
           "iq_obstruction_subtitle": "document.scan.manual_quality_issue.iq_obstruction_subtitle",
           "iq_obstruction_title": "document.scan.manual_quality_issue.iq_obstruction_title",
-          "title": "document.scan.manual_quality_issue.title"
+          "title": "document.scan.manual_quality_issue.title",
+          "wrong_side_subtitle": "document.scan.manual_quality_issue.wrong_side_subtitle",
+          "wrong_side_title": "document.scan.manual_quality_issue.wrong_side_title"
         }
       },
       "doc_select": {
@@ -2179,6 +2223,13 @@
         "title": "document.intro_tilt.title"
       },
       "doc_video_tilt": {
+        "error": {
+          "camera": {
+            "button_primary": "document.scan.feedback.tilt.error.camera.button_primary",
+            "subtitle": "document.scan.feedback.tilt.error.camera.subtitle",
+            "title": "document.scan.feedback.tilt.error.camera.title"
+          }
+        },
         "feedback": {
           "side_complete_accessibility": "document.scan.feedback.tilt_accessibility.complete",
           "tilt_down": "document.scan.feedback.tilt.down",
@@ -2188,7 +2239,12 @@
           "tilt_right": "document.scan.feedback.tilt.right",
           "tilt_right_accessibility": "document.scan.feedback.tilt_accessibility.right",
           "tilt_up": "document.scan.feedback.tilt.up",
-          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up"
+          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up",
+          "too_fast": {
+            "button_primary": "document.scan.feedback.tilt_issue.button_primary",
+            "subtitle": "document.scan.feedback.tilt_issue.too_fast.subtitle",
+            "title": "document.scan.feedback.tilt_issue.too_fast.title"
+          }
         },
         "instructions": {
           "sub_title_generic": "document.scan.instructions.subtitle_tilt_generic"
@@ -3093,6 +3149,13 @@
             "list_item_3_mic": "common.permissions.recovery.desktop_windows.device_settings.list_item_3_audio",
             "list_item_4": "common.permissions.recovery.desktop_windows.device_settings.list_item_4"
           }
+        },
+        "device_motion": {
+          "banner": "common.permissions.recovery.devicemotion.banner",
+          "item_1": "common.permissions.recovery.devicemotion.device_settings.list_item_1",
+          "item_2": "common.permissions.recovery.devicemotion.device_settings.list_item_2",
+          "subtitle": "common.permissions.recovery.subtitle_devicemotion",
+          "title": "common.permissions.recovery.title_devicemotion"
         },
         "info": "common.permissions.recovery.info",
         "ios": {

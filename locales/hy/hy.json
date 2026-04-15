@@ -402,7 +402,7 @@
         "button_enable_video": "Շարունակել",
         "button_enable_video_audio": "Շարունակել",
         "devicemotion": {
-          "body": "Մենք չենք կարող যাচայել ձեր ինքնությունը՝ առանց սարքի շարժման տվյալներին մուտքի",
+          "body": "Չենք կարող հաստատել ձեր ինքնությունը առանց սարքի շարժման տվյալներին մուտքի։ Մանրամասներին կարող եք ծանոթանալ մեր <link>գաղտնիության ծանուցման</link> մեջ։",
           "button_enable": "Միացնել",
           "subtitle": "Երբ ձեզ հուշվի, թույլատրեք մուտքը սարքի շարժման տվյալներին։ Սա անհրաժեշտ է շարունակելու համար։",
           "title": "Թույլատրել սարքի շարժման մուտքը"
@@ -427,13 +427,13 @@
           "title": "Թույլատրել մուտքը դեպի տեսախցիկ և խոսափող"
         },
         "video_audio_devicemotion": {
-          "body": "Մենք չենք կարող հաստատել ձեր ինքնությունը առանց տեսախցիկի, խոսափողի և սարքի շարժման թույլտվության",
+          "body": "Չենք կարող հաստատել ձեր ինքնությունը առանց տեսախցիկի, միկրոֆոնի և սարքի շարժման թույլտվությունների։ Մանրամասներին կարող եք ծանոթանալ մեր <link>գաղտնիության ծանուցման</link> մեջ։",
           "button_enable": "Միացնել բոլորը",
           "subtitle": "Յուրաքանչյուր թույլտվությունը տվեք, երբ կխնդրվի։ Սա պահանջվում է շարունակելու համար։",
           "title": "Թույլատրել տեսախցիկի, միկրոֆոնի և սարքի շարժման հասանելիությունը"
         },
         "video_devicemotion": {
-          "body": "Մենք չենք կարող հաստատել ձեր ինքնությունը առանց տեսախցիկի և սարքի շարժման թույլտվության",
+          "body": "Չենք կարող հաստատել ձեր ինքնությունը առանց տեսախցիկի և սարքի շարժման թույլտվությունների։ Մանրամասներին կարող եք ծանոթանալ մեր <link>գաղտնիության ծանուցման</link> մեջ։",
           "button_enable": "Երկուսն էլ միացնել",
           "subtitle": "Երբ կխնդրվի, թույլատրեք յուրաքանչյուր թույլտվություն։ Սա անհրաժեշտ է շարունակելու համար։",
           "title": "Թույլատրել մուտքը տեսախցիկին և սարքի շարժմանը"
@@ -571,6 +571,13 @@
         "device_settings": {
           "title": "Լուծում 2: Սարքավորման կարգավորումներ"
         },
+        "devicemotion": {
+          "banner": "Ձեր առաջընթացը չի պահպանվի, ներողություն անհարմարության համար։",
+          "device_settings": {
+            "list_item_1": "<strong>Փակեք եւ նորից բացեք հավելվածը</strong>՝ հաստատման գործընթացը վերսկսելու համար։",
+            "list_item_2": "Երբ ցուցադրվի հարցումը, թույլատրեք սարքի շարժման մուտքը՝ շարունակելու համար։"
+          }
+        },
         "disclaimer": "Նույնականացման ստուգման գործընթացը կարող է վերսկսվել։ Ներողություն ամենական անհարմարության համար",
         "info": "Վերականգնում",
         "ios": {
@@ -610,9 +617,11 @@
           "how_to_video_audio": "Ձեր տեսախցիկի հասանելիությունը կարող եք թույլատրեք դիտարկչի կարգավորումների միջոցով"
         },
         "subtitle_audio": "Մեզ անհրաժեշտ է ձեր միկրոֆոնին ձեր իսկությունը ստուգելու համար։ Հետեւեք ստորև ներկայացված հրահանգներին մուտքի վերականգնելու համար։",
+        "subtitle_devicemotion": "Ձեր ինքնությունը հաստատելու համար մեզ անհրաժեշտ է մուտք ձեր սարքի շարժման և կողմնորոշման տվյալներին։ Մուտքը վերականգնելու համար հետևեք ստորև ներկայացված ցուցումներին․",
         "subtitle_video": "Մեզ անհրաժեշտ է ձեր կամերային մուտքը ձեր իսկությունը ստուգելու համար։ Հետևեք ստորև ներկայացված հրահանգներին մուտքը վերականգնելու համար",
         "subtitle_video_audio": "Մեզ անհրաժեշտ է մուտք ունենալ ձեր կամերայի և միկրոֆոնին ձեր իսկությունը ստուգելու համար։ Հետևեք ստորև նշված հրահանգներին մուտքը վերականգնելու համար",
         "title_audio": "Խոսափողի հասանելիությունը մերժվել է",
+        "title_devicemotion": "Սարքի շարժման մուտքը մերժվել է",
         "title_video": "Տեսախցիկի հասանելիությունը մերժվել է",
         "title_video_audio": "Տեսախցիկի և խոսափողի հասանելիությունը մերժվել է"
       }
@@ -867,6 +876,9 @@
       "title": "Տրամադրեք անձնագրի լուսանկարի էջը"
     },
     "help": {
+      "button_dot_1_accessibility": "Go to slide 1",
+      "button_dot_2_accessibility": "Go to slide 2",
+      "button_dot_3_accessibility": "Go to slide 3",
       "button_primary": "Կրկին փորձեք",
       "button_secondary": "Սկանավորել ձեռքով",
       "description_tip_1": "Խուսափեք թույլ լուսավորությունից՝ մգումն ու շառագայթումը կանխելու համար։ Հեռացեք ուղիղ լույսից՝ անդրադարձերը կանխելու համար։",
@@ -888,6 +900,7 @@
       "title_tip_2": "Տեղադրեք Ձեր անձնագրային փաստաթուղթը շրջանակի մեջ"
     },
     "intro": {
+      "animation_accessibility": "An animation of the successful ID scanning process",
       "button_primary_selection_off": "Սկսել սկանավորումը",
       "button_primary_selection_on": "Ընտրեք փաստաթուղթը",
       "list_item_tip_1": "Գտեք լավ լուսավորությամբ վայր",
@@ -975,8 +988,20 @@
         "iq_obstruction": "Հեռացրեք մատները փաստաթղթից",
         "tilt": {
           "down": "Թեքեք՝ ID-ն ներքև",
+          "error": {
+            "camera": {
+              "button_primary": "Կրկին փորձել",
+              "subtitle": "Փաստաթղթի տեսագրման ընթացքում սխալ է տեղի ունեցել, խնդրում ենք կրկին փորձել",
+              "title": "Ինչ-որ բան այնքան էլ ճիշտ չէ"
+            }
+          },
           "left": "Շեղեք ձեր ID-ն ձախ",
           "right": "Շեղեցրու ID-ն աջ",
+          "too_fast": {
+            "button_primary": "Կրկին փորձել",
+            "subtitle": "Խնդրում ենք ձեր անձնագրի շարժումը դանդաղեցնել՝ մարումից խուսափելու համար",
+            "title": "Շարժումը չափազանց արագ է"
+          },
           "up": "Թեքեք ձեր ID-ն վերեւ"
         },
         "tilt_accessibility": {
@@ -985,6 +1010,17 @@
           "left": "Թեքեք ձեր անձնագրի/նույնականացման քարտը ձախ, մինչեւ լսեք հաստատումը",
           "right": "Շրջեք ձեր անձը հաստատող փաստաթուղթը դեպի աջ, մինչև լսեք հաստատումը",
           "up": "Թեքեք անձնագրային փաստաթուղթը վերև, մինչև լսեք հաստատումը"
+        },
+        "tilt_issue": {
+          "button_primary": "Կրկին փորձել",
+          "time_limit": {
+            "subtitle": "Անվտանգության նկատառումներից ելնելով՝ այս քայլը կատարելու համար ունեք մինչև 20 վայրկյան",
+            "title": "Ժամկետը սպառվեց։ \nՓորձեք հետևյալ խորհուրդները"
+          },
+          "too_fast": {
+            "subtitle": "Խնդրում ենք ձեր անձնագրի շարժումը դանդաղեցնել՝ մարումից խուսափելու համար",
+            "title": "Շարժումը չափազանց արագ է"
+          }
         },
         "validity": {
           "button_primary": "Կրկին փորձեք",
@@ -1072,7 +1108,9 @@
         "iq_no_doc_title": "Փաստաթուղթ չի հայտնաբերվել",
         "iq_obstruction_subtitle": "Հեռացրեք մատները փաստաթղթից",
         "iq_obstruction_title": "Ձեր անձնագրի պատկերը ամբողջությամբ տեսանելի չէ",
-        "title": "Մենք խնդիր ենք հայտնաբերել"
+        "title": "Մենք խնդիր ենք հայտնաբերել",
+        "wrong_side_subtitle": "We need the back of your ID to continue",
+        "wrong_side_title": "Incorrect side"
       }
     },
     "selection": {
@@ -1916,6 +1954,9 @@
         "title": "sample.preview.title"
       },
       "doc_help": {
+        "button_dot_1_accessibility": "document.help.button_dot_1_accessibility",
+        "button_dot_2_accessibility": "document.help.button_dot_2_accessibility",
+        "button_dot_3_accessibility": "document.help.button_dot_3_accessibility",
         "button_primary": "document.help.button_primary",
         "button_secondary": "document.help.button_secondary",
         "description_tip_1": "document.help.description_tip_1",
@@ -1928,6 +1969,7 @@
         "title_tip_3": "document.help.title_tip_3"
       },
       "doc_intro": {
+        "animation_accessibility": "document.intro.animation_accessibility",
         "button_primary_selection_off": "document.intro.button_primary_selection_off",
         "button_primary_selection_on": "document.intro.button_primary_selection_on",
         "list_item_tip_1": "document.intro.list_item_tip_1",
@@ -2055,7 +2097,9 @@
           "iq_no_doc_title": "document.scan.manual_quality_issue.iq_no_doc_title",
           "iq_obstruction_subtitle": "document.scan.manual_quality_issue.iq_obstruction_subtitle",
           "iq_obstruction_title": "document.scan.manual_quality_issue.iq_obstruction_title",
-          "title": "document.scan.manual_quality_issue.title"
+          "title": "document.scan.manual_quality_issue.title",
+          "wrong_side_subtitle": "document.scan.manual_quality_issue.wrong_side_subtitle",
+          "wrong_side_title": "document.scan.manual_quality_issue.wrong_side_title"
         }
       },
       "doc_select": {
@@ -2179,6 +2223,13 @@
         "title": "document.intro_tilt.title"
       },
       "doc_video_tilt": {
+        "error": {
+          "camera": {
+            "button_primary": "document.scan.feedback.tilt.error.camera.button_primary",
+            "subtitle": "document.scan.feedback.tilt.error.camera.subtitle",
+            "title": "document.scan.feedback.tilt.error.camera.title"
+          }
+        },
         "feedback": {
           "side_complete_accessibility": "document.scan.feedback.tilt_accessibility.complete",
           "tilt_down": "document.scan.feedback.tilt.down",
@@ -2188,7 +2239,12 @@
           "tilt_right": "document.scan.feedback.tilt.right",
           "tilt_right_accessibility": "document.scan.feedback.tilt_accessibility.right",
           "tilt_up": "document.scan.feedback.tilt.up",
-          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up"
+          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up",
+          "too_fast": {
+            "button_primary": "document.scan.feedback.tilt_issue.button_primary",
+            "subtitle": "document.scan.feedback.tilt_issue.too_fast.subtitle",
+            "title": "document.scan.feedback.tilt_issue.too_fast.title"
+          }
         },
         "instructions": {
           "sub_title_generic": "document.scan.instructions.subtitle_tilt_generic"
@@ -3093,6 +3149,13 @@
             "list_item_3_mic": "common.permissions.recovery.desktop_windows.device_settings.list_item_3_audio",
             "list_item_4": "common.permissions.recovery.desktop_windows.device_settings.list_item_4"
           }
+        },
+        "device_motion": {
+          "banner": "common.permissions.recovery.devicemotion.banner",
+          "item_1": "common.permissions.recovery.devicemotion.device_settings.list_item_1",
+          "item_2": "common.permissions.recovery.devicemotion.device_settings.list_item_2",
+          "subtitle": "common.permissions.recovery.subtitle_devicemotion",
+          "title": "common.permissions.recovery.title_devicemotion"
         },
         "info": "common.permissions.recovery.info",
         "ios": {

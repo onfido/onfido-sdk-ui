@@ -402,7 +402,7 @@
         "button_enable_video": "Tovább",
         "button_enable_video_audio": "Tovább",
         "devicemotion": {
-          "body": "Nem tudjuk ellenőrizni az Ön személyazonosságát az eszköz mozgási adatainak elérése nélkül",
+          "body": "Nem tudjuk ellenőrizni az adatait az eszközmozgási adatokhoz való hozzáférés nélkül. További információkért olvassa el a <link>adatvédelmi tájékoztatónkat</link>.",
           "button_enable": "Engedélyezés",
           "subtitle": "Amikor a rendszer kéri, engedélyezze a hozzáférést a készülék mozgásadatainak használatához. Erre a folytatáshoz van szükség.",
           "title": "Engedélyezze az eszközmozgás elérését"
@@ -427,13 +427,13 @@
           "title": "Kamera- és mikrofon-hozzáférés engedélyezése"
         },
         "video_audio_devicemotion": {
-          "body": "Nem tudjuk ellenőrizni személyazonosságát kamera-, mikrofon- és eszközmozgás-engedély nélkül.",
+          "body": "Nem tudjuk ellenőrizni az adatait a kamera-, mikrofon- és eszközmozgás-jogosultságok nélkül. További információkért olvassa el a <link>adatvédelmi tájékoztatónkat</link>.",
           "button_enable": "Összes engedélyezése",
           "subtitle": "Kérjük, adja meg a kért engedélyeket. Ezek szükségesek a folytatáshoz.",
           "title": "Engedélyezze a kamera, a mikrofon és az eszközmozgás elérését"
         },
         "video_devicemotion": {
-          "body": "Nem tudjuk ellenőrizni az adatait kamera- és eszközmozgás-engedély nélkül",
+          "body": "Nem tudjuk ellenőrizni az adatait a kamera- és eszközmozgás-jogosultságok nélkül. További információkért olvassa el a <link>adatvédelmi tájékoztatónkat</link>.",
           "button_enable": "Mindkettő engedélyezése",
           "subtitle": "Amikor a rendszer kéri, engedélyezzen minden jogosultságot. Ez szükséges a folytatáshoz.",
           "title": "Engedélyezze a kamera és az eszközmozgás használatát"
@@ -571,6 +571,13 @@
         "device_settings": {
           "title": "Megoldás 2: Eszközbeállítások"
         },
+        "devicemotion": {
+          "banner": "A jelenlegi folyamat elvész, elnézést a kellemetlenségért.",
+          "device_settings": {
+            "list_item_1": "<strong>Zárja be, majd nyissa meg újra az alkalmazást</strong> a hitelesítési folyamat újraindításához.",
+            "list_item_2": "Amikor a rendszer kéri, engedélyezze az eszközmozgás‑hozzáférést a folytatáshoz."
+          }
+        },
         "disclaimer": "Az azonosító ellenőrzési folyamat újraindulhat. Elnézést kérünk a kellemetlenségért",
         "info": "Újraindítás",
         "ios": {
@@ -610,9 +617,11 @@
           "how_to_video_audio": "Engedélyezze a fényképezőgéphez és a mikrofonhoz való hozzáférést a böngésző beállításaiban"
         },
         "subtitle_audio": "Szükségünk van a mikrofonjához való hozzáférésre azonosításának ellenőrzéséhez. Kövesse az alábbi utasításokat a hozzáférés visszaszerzéséhez",
+        "subtitle_devicemotion": "Szükségünk van az eszköz mozgására és tájolására vonatkozó adatokhoz való hozzáférésre személyazonossága ellenőrzéséhez. Kövesse az alábbi lépéseket a hozzáférés visszaállításához:",
         "subtitle_video": "Szükségünk van a kamerájához való hozzáférésre azonosításának ellenőrzése érdekében. Kövesse az alábbi utasításokat a hozzáférés visszaszerzéséhez",
         "subtitle_video_audio": "Szükségünk van a kamera és a mikrofon hozzáférésére azonosításához. Kövesse az alábbi utasításokat a hozzáférés visszaszerzéséhez",
         "title_audio": "Mikrofon-hozzáférés megtagadva",
+        "title_devicemotion": "Az eszközmozgás‑hozzáférés megtagadva",
         "title_video": "Kamerához való hozzáférés elutasítva",
         "title_video_audio": "Kamera- és mikrofon-hozzáférés megtagadva"
       }
@@ -867,6 +876,9 @@
       "title": "Küldje be az útlevél fényképes oldalát"
     },
     "help": {
+      "button_dot_1_accessibility": "Go to slide 1",
+      "button_dot_2_accessibility": "Go to slide 2",
+      "button_dot_3_accessibility": "Go to slide 3",
       "button_primary": "Próbálja újra",
       "button_secondary": "Kézi szkennelés",
       "description_tip_1": "Kerülje a gyenge fényt, hogy elkerülje az elmosódást. Lépjen el a közvetlen fénytől, hogy megelőzze a tükröződést.",
@@ -888,6 +900,7 @@
       "title_tip_2": "Helyezze a személyi igazolványát a keretbe"
     },
     "intro": {
+      "animation_accessibility": "An animation of the successful ID scanning process",
       "button_primary_selection_off": "Szkennelés indítása",
       "button_primary_selection_on": "Válasszon okmányt",
       "list_item_tip_1": "Keressen egy jól megvilágított helyet",
@@ -975,8 +988,20 @@
         "iq_obstruction": "Vegye el az ujjait az okmánytól",
         "tilt": {
           "down": "Döntse lefelé az ID-t",
+          "error": {
+            "camera": {
+              "button_primary": "Próbálja újra",
+              "subtitle": "A dokumentum videófelvétele nem sikerült, kérjük, próbálja újra",
+              "title": "Hiba történt"
+            }
+          },
           "left": "Billentse balra az ID-t",
           "right": "Billentse jobbra az ID-t",
+          "too_fast": {
+            "button_primary": "Próbálja újra",
+            "subtitle": "Kérjük, lassabban döntse meg az igazolványát, hogy elkerülje az elmosódást",
+            "title": "Túl gyors mozgatás"
+          },
           "up": "Döntse az ID-t felfelé"
         },
         "tilt_accessibility": {
@@ -985,6 +1010,17 @@
           "left": "Billentse balra az igazolványát, amíg meg nem hallja a megerősítést",
           "right": "Döntse jobbra a személyi igazolványát, amíg megerősítést nem hall.",
           "up": "Döntse felfelé a személyi igazolványát, amíg nem hallja a megerősítést"
+        },
+        "tilt_issue": {
+          "button_primary": "Próbálja újra",
+          "time_limit": {
+            "subtitle": "Biztonsági okokból legfeljebb 20 másodperce van ennek a lépésnek a befejezésére",
+            "title": "Időkorlát lejárt.\nPróbálja meg ezeket a tippeket"
+          },
+          "too_fast": {
+            "subtitle": "Kérjük, lassabban döntse meg az igazolványát, hogy elkerülje az elmosódást",
+            "title": "Túl gyors mozgatás"
+          }
         },
         "validity": {
           "button_primary": "Próbálja újra",
@@ -1072,7 +1108,9 @@
         "iq_no_doc_title": "Nem észleltünk okmányt",
         "iq_obstruction_subtitle": "Vegye el az ujjait az igazolványtól",
         "iq_obstruction_title": "Az igazolványa nem látható teljesen",
-        "title": "Problémát észleltünk"
+        "title": "Problémát észleltünk",
+        "wrong_side_subtitle": "We need the back of your ID to continue",
+        "wrong_side_title": "Incorrect side"
       }
     },
     "selection": {
@@ -1916,6 +1954,9 @@
         "title": "sample.preview.title"
       },
       "doc_help": {
+        "button_dot_1_accessibility": "document.help.button_dot_1_accessibility",
+        "button_dot_2_accessibility": "document.help.button_dot_2_accessibility",
+        "button_dot_3_accessibility": "document.help.button_dot_3_accessibility",
         "button_primary": "document.help.button_primary",
         "button_secondary": "document.help.button_secondary",
         "description_tip_1": "document.help.description_tip_1",
@@ -1928,6 +1969,7 @@
         "title_tip_3": "document.help.title_tip_3"
       },
       "doc_intro": {
+        "animation_accessibility": "document.intro.animation_accessibility",
         "button_primary_selection_off": "document.intro.button_primary_selection_off",
         "button_primary_selection_on": "document.intro.button_primary_selection_on",
         "list_item_tip_1": "document.intro.list_item_tip_1",
@@ -2055,7 +2097,9 @@
           "iq_no_doc_title": "document.scan.manual_quality_issue.iq_no_doc_title",
           "iq_obstruction_subtitle": "document.scan.manual_quality_issue.iq_obstruction_subtitle",
           "iq_obstruction_title": "document.scan.manual_quality_issue.iq_obstruction_title",
-          "title": "document.scan.manual_quality_issue.title"
+          "title": "document.scan.manual_quality_issue.title",
+          "wrong_side_subtitle": "document.scan.manual_quality_issue.wrong_side_subtitle",
+          "wrong_side_title": "document.scan.manual_quality_issue.wrong_side_title"
         }
       },
       "doc_select": {
@@ -2179,6 +2223,13 @@
         "title": "document.intro_tilt.title"
       },
       "doc_video_tilt": {
+        "error": {
+          "camera": {
+            "button_primary": "document.scan.feedback.tilt.error.camera.button_primary",
+            "subtitle": "document.scan.feedback.tilt.error.camera.subtitle",
+            "title": "document.scan.feedback.tilt.error.camera.title"
+          }
+        },
         "feedback": {
           "side_complete_accessibility": "document.scan.feedback.tilt_accessibility.complete",
           "tilt_down": "document.scan.feedback.tilt.down",
@@ -2188,7 +2239,12 @@
           "tilt_right": "document.scan.feedback.tilt.right",
           "tilt_right_accessibility": "document.scan.feedback.tilt_accessibility.right",
           "tilt_up": "document.scan.feedback.tilt.up",
-          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up"
+          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up",
+          "too_fast": {
+            "button_primary": "document.scan.feedback.tilt_issue.button_primary",
+            "subtitle": "document.scan.feedback.tilt_issue.too_fast.subtitle",
+            "title": "document.scan.feedback.tilt_issue.too_fast.title"
+          }
         },
         "instructions": {
           "sub_title_generic": "document.scan.instructions.subtitle_tilt_generic"
@@ -3093,6 +3149,13 @@
             "list_item_3_mic": "common.permissions.recovery.desktop_windows.device_settings.list_item_3_audio",
             "list_item_4": "common.permissions.recovery.desktop_windows.device_settings.list_item_4"
           }
+        },
+        "device_motion": {
+          "banner": "common.permissions.recovery.devicemotion.banner",
+          "item_1": "common.permissions.recovery.devicemotion.device_settings.list_item_1",
+          "item_2": "common.permissions.recovery.devicemotion.device_settings.list_item_2",
+          "subtitle": "common.permissions.recovery.subtitle_devicemotion",
+          "title": "common.permissions.recovery.title_devicemotion"
         },
         "info": "common.permissions.recovery.info",
         "ios": {

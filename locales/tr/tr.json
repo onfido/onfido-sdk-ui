@@ -402,7 +402,7 @@
         "button_enable_video": "Devam et",
         "button_enable_video_audio": "Devam et",
         "devicemotion": {
-          "body": "Cihaz hareket verilerine erişmeden kimliğinizi doğrulamayız",
+          "body": "Cihaz hareketi verilerine erişim olmadan kimliğinizi doğrulayamayız. <link>Gizlilik bildirimizden</link> daha fazla bilgi edinin.",
           "button_enable": "Etkinleştir",
           "subtitle": "İstendiğinde, cihaz hareket verilerine erişime izin verin. Devam etmek için bu gereklidir.",
           "title": "Cihaz hareketine erişime izin ver"
@@ -427,13 +427,13 @@
           "title": "Kamera ve mikrofon erişimine izin ver"
         },
         "video_audio_devicemotion": {
-          "body": "Kamera, mikrofon ve cihaz hareketi izni olmadan sizi doğrulayamıyoruz",
+          "body": "Kamera, mikrofon ve cihaz hareketi izinleri olmadan kimliğinizi doğrulayamayız. <link>Gizlilik bildirimizden</link> daha fazla bilgi edinin.",
           "button_enable": "Tümünü etkinleştir",
           "subtitle": "İstendiğinde her izni verin. Devam etmek için bu gereklidir.",
           "title": "Kamera, mikrofon ve cihaz hareketi erişimine izin verin"
         },
         "video_devicemotion": {
-          "body": "Kamera ve cihaz hareketi izni olmadan kimliğinizi doğrulayamayız",
+          "body": "Kamera ve cihaz hareketi izinleri olmadan kimliğinizi doğrulayamayız. <link>Gizlilik bildirimizden</link> daha fazla bilgi edinin.",
           "button_enable": "Her ikisini de etkinleştir",
           "subtitle": "İstendiğinde her izni verin. Devam etmek için bu gereklidir.",
           "title": "Kamera ve cihaz hareketi erişimine izin verin"
@@ -571,6 +571,13 @@
         "device_settings": {
           "title": "Çözüm 2: Cihaz ayarları"
         },
+        "devicemotion": {
+          "banner": "İlerlemeniz kaybolacak, rahatsızlık için özür dileriz.",
+          "device_settings": {
+            "list_item_1": "Doğrulama sürecini yeniden başlatmak için <strong>uygulamanızı kapatıp yeniden açın</strong>.",
+            "list_item_2": "İstendiğinde, devam etmek için cihaz hareketi erişimine izin verin."
+          }
+        },
         "disclaimer": "Kimlik doğrulama süreci yeniden başlayabilir. Herhangi bir rahatsızlık için özür dileriz.",
         "info": "Kurtarma",
         "ios": {
@@ -610,9 +617,11 @@
           "how_to_video_audio": "Tarayıcı ayarlarınızdan kameranıza ve mikrofonunuza erişim izni verin"
         },
         "subtitle_audio": "Kimliğinizi doğrulamak için mikrofonunuza erişim hakkına ihtiyacımız var. Erişimi geri almak için aşağıdaki talimatları izleyin",
+        "subtitle_devicemotion": "Kimliğinizi doğrulamak için cihazınızın hareket ve yön verilerine erişmemiz gerekiyor. Erişimi yeniden sağlamak için aşağıdaki talimatları izleyin:",
         "subtitle_video": "Kimliğinizi doğrulamak için kameranıza erişim hakkına ihtiyacımız var. Erişimi geri almak için aşağıdaki talimatları izleyin",
         "subtitle_video_audio": "Kimliğinizi doğrulamak için kameranıza ve mikrofonunuza erişim gerekiyoruz. Erişimi geri almak için aşağıdaki talimatları izleyin",
         "title_audio": "Mikrofon erişimi reddedildi",
+        "title_devicemotion": "Cihaz hareketi erişimi reddedildi",
         "title_video": "Kamera erişimi reddedildi",
         "title_video_audio": "Kamera ve mikrofon erişimi reddedildi"
       }
@@ -867,6 +876,9 @@
       "title": "Pasaport fotoğraf sayfanızı gönderin"
     },
     "help": {
+      "button_dot_1_accessibility": "Go to slide 1",
+      "button_dot_2_accessibility": "Go to slide 2",
+      "button_dot_3_accessibility": "Go to slide 3",
       "button_primary": "Tekrar deneyin",
       "button_secondary": "Manuel tara",
       "description_tip_1": "Bulanıklığı önlemek için loş alanlardan kaçının. Yansımayı önlemek için doğrudan ışıktan uzaklaşın.",
@@ -888,6 +900,7 @@
       "title_tip_2": "Kimliğinizi çerçevenin içine yerleştirin"
     },
     "intro": {
+      "animation_accessibility": "An animation of the successful ID scanning process",
       "button_primary_selection_off": "Taramayı başlat",
       "button_primary_selection_on": "Belge seçin",
       "list_item_tip_1": "İyi aydınlatılmış bir yer bulun",
@@ -975,8 +988,20 @@
         "iq_obstruction": "Parmaklarınızı belgeden uzaklaştırın",
         "tilt": {
           "down": "Kimliğinizi aşağı eğin",
+          "error": {
+            "camera": {
+              "button_primary": "Tekrar deneyin",
+              "subtitle": "Belge video kaydı başarısız oldu, lütfen tekrar deneyin",
+              "title": "Bir şeyler ters gitti"
+            }
+          },
           "left": "Kimliğinizi sola eğin",
           "right": "Kimliğinizi sağa eğin",
+          "too_fast": {
+            "button_primary": "Tekrar deneyin",
+            "subtitle": "Bulanıklığı önlemek için kimliğinizi daha yavaş eğin",
+            "title": "Çok hızlı eğildi"
+          },
           "up": "Kimliğinizi yukarı eğin"
         },
         "tilt_accessibility": {
@@ -985,6 +1010,17 @@
           "left": "Onay sesini duyana kadar kimliğinizi sola eğin",
           "right": "Onay sesini duyana kadar kimliğinizi sağa doğru eğin",
           "up": "Onay sesini duyana kadar kimliğinizi yukarı eğin"
+        },
+        "tilt_issue": {
+          "button_primary": "Tekrar deneyin",
+          "time_limit": {
+            "subtitle": "Güvenlik nedeniyle, bu adımı tamamlamak için 20 saniyeniz var",
+            "title": "Zaman sınırına ulaşıldı. \nŞu ipuçlarını deneyin"
+          },
+          "too_fast": {
+            "subtitle": "Bulanıklığı önlemek için kimliğinizi daha yavaş eğin",
+            "title": "Çok hızlı eğildi"
+          }
         },
         "validity": {
           "button_primary": "Tekrar deneyin",
@@ -1072,7 +1108,9 @@
         "iq_no_doc_title": "Belge algılanamadı",
         "iq_obstruction_subtitle": "Parmakları belgeden uzaklaştırın",
         "iq_obstruction_title": "Belgeniz tam olarak görünmüyor",
-        "title": "Bir sorun tespit ettik"
+        "title": "Bir sorun tespit ettik",
+        "wrong_side_subtitle": "We need the back of your ID to continue",
+        "wrong_side_title": "Incorrect side"
       }
     },
     "selection": {
@@ -1916,6 +1954,9 @@
         "title": "sample.preview.title"
       },
       "doc_help": {
+        "button_dot_1_accessibility": "document.help.button_dot_1_accessibility",
+        "button_dot_2_accessibility": "document.help.button_dot_2_accessibility",
+        "button_dot_3_accessibility": "document.help.button_dot_3_accessibility",
         "button_primary": "document.help.button_primary",
         "button_secondary": "document.help.button_secondary",
         "description_tip_1": "document.help.description_tip_1",
@@ -1928,6 +1969,7 @@
         "title_tip_3": "document.help.title_tip_3"
       },
       "doc_intro": {
+        "animation_accessibility": "document.intro.animation_accessibility",
         "button_primary_selection_off": "document.intro.button_primary_selection_off",
         "button_primary_selection_on": "document.intro.button_primary_selection_on",
         "list_item_tip_1": "document.intro.list_item_tip_1",
@@ -2055,7 +2097,9 @@
           "iq_no_doc_title": "document.scan.manual_quality_issue.iq_no_doc_title",
           "iq_obstruction_subtitle": "document.scan.manual_quality_issue.iq_obstruction_subtitle",
           "iq_obstruction_title": "document.scan.manual_quality_issue.iq_obstruction_title",
-          "title": "document.scan.manual_quality_issue.title"
+          "title": "document.scan.manual_quality_issue.title",
+          "wrong_side_subtitle": "document.scan.manual_quality_issue.wrong_side_subtitle",
+          "wrong_side_title": "document.scan.manual_quality_issue.wrong_side_title"
         }
       },
       "doc_select": {
@@ -2179,6 +2223,13 @@
         "title": "document.intro_tilt.title"
       },
       "doc_video_tilt": {
+        "error": {
+          "camera": {
+            "button_primary": "document.scan.feedback.tilt.error.camera.button_primary",
+            "subtitle": "document.scan.feedback.tilt.error.camera.subtitle",
+            "title": "document.scan.feedback.tilt.error.camera.title"
+          }
+        },
         "feedback": {
           "side_complete_accessibility": "document.scan.feedback.tilt_accessibility.complete",
           "tilt_down": "document.scan.feedback.tilt.down",
@@ -2188,7 +2239,12 @@
           "tilt_right": "document.scan.feedback.tilt.right",
           "tilt_right_accessibility": "document.scan.feedback.tilt_accessibility.right",
           "tilt_up": "document.scan.feedback.tilt.up",
-          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up"
+          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up",
+          "too_fast": {
+            "button_primary": "document.scan.feedback.tilt_issue.button_primary",
+            "subtitle": "document.scan.feedback.tilt_issue.too_fast.subtitle",
+            "title": "document.scan.feedback.tilt_issue.too_fast.title"
+          }
         },
         "instructions": {
           "sub_title_generic": "document.scan.instructions.subtitle_tilt_generic"
@@ -3093,6 +3149,13 @@
             "list_item_3_mic": "common.permissions.recovery.desktop_windows.device_settings.list_item_3_audio",
             "list_item_4": "common.permissions.recovery.desktop_windows.device_settings.list_item_4"
           }
+        },
+        "device_motion": {
+          "banner": "common.permissions.recovery.devicemotion.banner",
+          "item_1": "common.permissions.recovery.devicemotion.device_settings.list_item_1",
+          "item_2": "common.permissions.recovery.devicemotion.device_settings.list_item_2",
+          "subtitle": "common.permissions.recovery.subtitle_devicemotion",
+          "title": "common.permissions.recovery.title_devicemotion"
         },
         "info": "common.permissions.recovery.info",
         "ios": {

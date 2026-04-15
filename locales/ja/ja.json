@@ -402,7 +402,7 @@
         "button_enable_video": "続行",
         "button_enable_video_audio": "続行",
         "devicemotion": {
-          "body": "端末のモーションデータにアクセスできないため、本人確認を行えません。",
+          "body": "デバイスモーションデータへのアクセス権限がないと本人確認ができません。詳しくは<link>プライバシーに関するお知らせ</link>をご覧ください。",
           "button_enable": "有効にする",
           "subtitle": "求められたら、デバイスのモーションデータへのアクセスを許可してください。続行するために必要です。",
           "title": "デバイスの動きへのアクセスを許可"
@@ -427,13 +427,13 @@
           "title": "カメラとマイクへのアクセスを許可する"
         },
         "video_audio_devicemotion": {
-          "body": "カメラ、マイク、デバイスモーションの許可がないと本人確認ができません",
+          "body": "カメラ、マイク、デバイスモーションの権限がないと本人確認ができません。詳しくは<link>プライバシーに関するお知らせ</link>をご覧ください。",
           "button_enable": "すべてを有効にする",
           "subtitle": "プロンプトが表示されたら、各権限を許可してください。続行するには必須です。",
           "title": "カメラ、マイク、デバイスモーションへのアクセスを許可してください"
         },
         "video_devicemotion": {
-          "body": "カメラとデバイスモーションの許可がないと本人確認ができません",
+          "body": "カメラとデバイスモーションの権限がないと本人確認ができません。詳しくは<link>プライバシーに関するお知らせ</link>をご覧ください。",
           "button_enable": "両方を有効にする",
           "subtitle": "プロンプトが表示されたら、各権限を許可してください。続行するには必須です。",
           "title": "カメラとデバイスモーションへのアクセスを許可"
@@ -571,6 +571,13 @@
         "device_settings": {
           "title": "ソリューション2：デバイス設定"
         },
+        "devicemotion": {
+          "banner": "進行状況は失われます。ご不便をおかけして申し訳ございません。",
+          "device_settings": {
+            "list_item_1": "<strong>アプリを閉じて再度開き</strong>、確認プロセスを再開してください。",
+            "list_item_2": "プロンプトが表示されたら、デバイスモーションへのアクセスを許可して続行してください。"
+          }
+        },
         "disclaimer": "本人確認のプロセスが再開する可能性があります。ご不便をおかけして申し訳ありません",
         "info": "回復",
         "ios": {
@@ -610,9 +617,11 @@
           "how_to_video_audio": "ブラウザの設定からカメラとマイクへのアクセスを許可する"
         },
         "subtitle_audio": "あなたの身元を確認するために、マイクへのアクセスが必要です。以下の指示に従ってアクセスを回復してください。",
+        "subtitle_devicemotion": "本人確認のため、デバイスのモーションと向きのデータへのアクセスが必要です。アクセスを回復するには、以下の手順に従ってください。",
         "subtitle_video": "あなたの身元を確認するために、カメラへのアクセスが必要です。以下の指示に従ってアクセスを回復してください。",
         "subtitle_video_audio": "あなたの身元を確認するために、カメラとマイクへのアクセスが必要です。以下の指示に従ってアクセスを回復してください",
         "title_audio": "マイクへのアクセスが拒否されました",
+        "title_devicemotion": "デバイスモーションへのアクセスが拒否されました",
         "title_video": "カメラへのアクセスが拒否されました",
         "title_video_audio": "カメラとマイクへのアクセスが拒否されました"
       }
@@ -867,6 +876,9 @@
       "title": "パスポートの写真ページを提出してください"
     },
     "help": {
+      "button_dot_1_accessibility": "Go to slide 1",
+      "button_dot_2_accessibility": "Go to slide 2",
+      "button_dot_3_accessibility": "Go to slide 3",
       "button_primary": "再試行",
       "button_secondary": "手動でスキャン",
       "description_tip_1": "暗い場所は避けて、ブレを防ぎましょう。直射光から離れて、反射を防いでください。",
@@ -888,6 +900,7 @@
       "title_tip_2": "枠内にIDを配置してください"
     },
     "intro": {
+      "animation_accessibility": "An animation of the successful ID scanning process",
       "button_primary_selection_off": "スキャンを開始",
       "button_primary_selection_on": "書類を選択",
       "list_item_tip_1": "明るい場所を見つけてください",
@@ -975,8 +988,20 @@
         "iq_obstruction": "指を書類から離してください",
         "tilt": {
           "down": "IDを下に傾けてください",
+          "error": {
+            "camera": {
+              "button_primary": "再試行",
+              "subtitle": "書類の動画撮影に失敗しました。もう一度お試しください",
+              "title": "エラーが発生しました"
+            }
+          },
           "left": "IDを左に傾けてください",
           "right": "IDを右に傾けてください",
+          "too_fast": {
+            "button_primary": "再試行",
+            "subtitle": "ぼやけを防ぐため、IDをゆっくり傾けてください",
+            "title": "傾けるのが速すぎます"
+          },
           "up": "IDを上に傾けてください"
         },
         "tilt_accessibility": {
@@ -985,6 +1010,17 @@
           "left": "確認音が鳴るまで、IDを左に傾けてください",
           "right": "確認音が鳴るまで、IDを右に傾けてください",
           "up": "確認音が鳴るまでIDを上に傾けてください"
+        },
+        "tilt_issue": {
+          "button_primary": "再試行",
+          "time_limit": {
+            "subtitle": "セキュリティ上の理由により、この手順を完了するまでの時間は最大20秒です",
+            "title": "制限時間に達しました。\n次のヒントをお試しください"
+          },
+          "too_fast": {
+            "subtitle": "ぼやけを防ぐため、IDをゆっくり傾けてください",
+            "title": "傾けるのが速すぎます"
+          }
         },
         "validity": {
           "button_primary": "再試行",
@@ -1072,7 +1108,9 @@
         "iq_no_doc_title": "書類が検出されませんでした",
         "iq_obstruction_subtitle": "書類から指を離してください",
         "iq_obstruction_title": "書類が完全に表示されていません",
-        "title": "問題が検出されました"
+        "title": "問題が検出されました",
+        "wrong_side_subtitle": "We need the back of your ID to continue",
+        "wrong_side_title": "Incorrect side"
       }
     },
     "selection": {
@@ -1916,6 +1954,9 @@
         "title": "sample.preview.title"
       },
       "doc_help": {
+        "button_dot_1_accessibility": "document.help.button_dot_1_accessibility",
+        "button_dot_2_accessibility": "document.help.button_dot_2_accessibility",
+        "button_dot_3_accessibility": "document.help.button_dot_3_accessibility",
         "button_primary": "document.help.button_primary",
         "button_secondary": "document.help.button_secondary",
         "description_tip_1": "document.help.description_tip_1",
@@ -1928,6 +1969,7 @@
         "title_tip_3": "document.help.title_tip_3"
       },
       "doc_intro": {
+        "animation_accessibility": "document.intro.animation_accessibility",
         "button_primary_selection_off": "document.intro.button_primary_selection_off",
         "button_primary_selection_on": "document.intro.button_primary_selection_on",
         "list_item_tip_1": "document.intro.list_item_tip_1",
@@ -2055,7 +2097,9 @@
           "iq_no_doc_title": "document.scan.manual_quality_issue.iq_no_doc_title",
           "iq_obstruction_subtitle": "document.scan.manual_quality_issue.iq_obstruction_subtitle",
           "iq_obstruction_title": "document.scan.manual_quality_issue.iq_obstruction_title",
-          "title": "document.scan.manual_quality_issue.title"
+          "title": "document.scan.manual_quality_issue.title",
+          "wrong_side_subtitle": "document.scan.manual_quality_issue.wrong_side_subtitle",
+          "wrong_side_title": "document.scan.manual_quality_issue.wrong_side_title"
         }
       },
       "doc_select": {
@@ -2179,6 +2223,13 @@
         "title": "document.intro_tilt.title"
       },
       "doc_video_tilt": {
+        "error": {
+          "camera": {
+            "button_primary": "document.scan.feedback.tilt.error.camera.button_primary",
+            "subtitle": "document.scan.feedback.tilt.error.camera.subtitle",
+            "title": "document.scan.feedback.tilt.error.camera.title"
+          }
+        },
         "feedback": {
           "side_complete_accessibility": "document.scan.feedback.tilt_accessibility.complete",
           "tilt_down": "document.scan.feedback.tilt.down",
@@ -2188,7 +2239,12 @@
           "tilt_right": "document.scan.feedback.tilt.right",
           "tilt_right_accessibility": "document.scan.feedback.tilt_accessibility.right",
           "tilt_up": "document.scan.feedback.tilt.up",
-          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up"
+          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up",
+          "too_fast": {
+            "button_primary": "document.scan.feedback.tilt_issue.button_primary",
+            "subtitle": "document.scan.feedback.tilt_issue.too_fast.subtitle",
+            "title": "document.scan.feedback.tilt_issue.too_fast.title"
+          }
         },
         "instructions": {
           "sub_title_generic": "document.scan.instructions.subtitle_tilt_generic"
@@ -3093,6 +3149,13 @@
             "list_item_3_mic": "common.permissions.recovery.desktop_windows.device_settings.list_item_3_audio",
             "list_item_4": "common.permissions.recovery.desktop_windows.device_settings.list_item_4"
           }
+        },
+        "device_motion": {
+          "banner": "common.permissions.recovery.devicemotion.banner",
+          "item_1": "common.permissions.recovery.devicemotion.device_settings.list_item_1",
+          "item_2": "common.permissions.recovery.devicemotion.device_settings.list_item_2",
+          "subtitle": "common.permissions.recovery.subtitle_devicemotion",
+          "title": "common.permissions.recovery.title_devicemotion"
         },
         "info": "common.permissions.recovery.info",
         "ios": {

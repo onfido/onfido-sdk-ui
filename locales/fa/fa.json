@@ -402,7 +402,7 @@
         "button_enable_video": "ادامه",
         "button_enable_video_audio": "ادامه",
         "devicemotion": {
-          "body": "بدون دسترسی به داده‌های حرکتی دستگاه، نمی‌توانیم هویت شما را تأیید کنیم",
+          "body": "ما بدون دسترسی به داده‌های حرکت دستگاه، نمی‌توانیم هویت شما را تأیید کنیم. برای اطلاعات بیشتر، <link>اطلاعیه حریم خصوصی</link> ما را بخوانید.",
           "button_enable": "فعال کردن",
           "subtitle": "وقتی از شما خواسته شد، اجازهٔ دسترسی به داده‌های حرکت دستگاه را بدهید. این برای ادامه لازم است.",
           "title": "اجازه دسترسی به حرکت دستگاه"
@@ -427,13 +427,13 @@
           "title": "اجازه دسترسی به دوربین و میکروفون را بدهید"
         },
         "video_audio_devicemotion": {
-          "body": "بدون اجازه دسترسی به دوربین، میکروفن و تشخیص حرکت دستگاه نمی‌توانیم هویت شما را تأیید کنیم",
+          "body": "ما بدون مجوزهای دسترسی به دوربین، میکروفون و حرکت دستگاه، نمی‌توانیم هویت شما را تأیید کنیم. برای اطلاعات بیشتر، <link>اطلاعیه حریم خصوصی</link> ما را بخوانید.",
           "button_enable": "فعال کردن همه",
           "subtitle": "هنگام درخواست، هر مجوز را تأیید کنید. این برای ادامه لازم است.",
           "title": "اجازه دسترسی به دوربین، میکروفون و حرکت دستگاه را بدهید"
         },
         "video_devicemotion": {
-          "body": "بدون اجازهٔ دسترسی به دوربین و حرکت دستگاه، نمی‌توانیم هویت شما را تأیید کنیم",
+          "body": "ما بدون مجوزهای دسترسی به دوربین و حرکت دستگاه، نمی‌توانیم هویت شما را تأیید کنیم. برای اطلاعات بیشتر، <link>اطلاعیه حریم خصوصی</link> ما را بخوانید.",
           "button_enable": "دسترسی به هر دو را فعال کنید",
           "subtitle": "هر مجوزی را که درخواست می‌شود تأیید کنید. این کار برای ادامه لازم است.",
           "title": "اجازه دسترسی به دوربین و حرکت دستگاه را بدهید"
@@ -571,6 +571,13 @@
         "device_settings": {
           "title": "راه حل 2: تنظیمات دستگاه"
         },
+        "devicemotion": {
+          "banner": "پیشرفت شما از بین می‌رود، بابت ایجاد این مشکل پوزش می‌خواهیم.",
+          "device_settings": {
+            "list_item_1": "<strong>برنامه را ببندید و دوباره باز کنید</strong> تا فرایند تأیید هویت دوباره شروع شود.",
+            "list_item_2": "وقتی از شما خواسته شد، برای ادامه، اجازه دسترسی به حرکت دستگاه را بدهید."
+          }
+        },
         "disclaimer": "ممکن است فرآیند تأیید هویت دوباره شروع شود. بابت هرگونه ناراحتی پوزش می طلبیم",
         "info": "فعال‌سازی مجدد",
         "ios": {
@@ -610,9 +617,11 @@
           "how_to_video_audio": "از بخش تنظیمات مرورگر خود، مجوز دسترسی به دوربین و میکروفون را بدهید"
         },
         "subtitle_audio": "ما برای تأیید هویت شما به دسترسی به میکروفون شما نیاز داریم. دستورالعمل های زیر را برای بازیابی دسترسی دنبال کنید",
+        "subtitle_devicemotion": "برای تأیید هویتتان، به دسترسی به داده‌های حرکت و جهت‌گیری دستگاه شما نیاز داریم. برای بازیابی دسترسی، دستورالعمل‌های زیر را دنبال کنید:",
         "subtitle_video": "ما برای تأیید هویت شما به دسترسی به دوربین شما نیاز داریم. برای بازیابی دسترسی، دستورالعمل های زیر را دنبال کنید",
         "subtitle_video_audio": "ما برای تأیید هویت شما به دسترسی به دوربین و میکروفون شما نیاز داریم. دستورالعمل های زیر را برای بازیابی دسترسی دنبال کنید",
         "title_audio": "دسترسی به میکروفون رد شد",
+        "title_devicemotion": "دسترسی به حرکت دستگاه رد شد",
         "title_video": "دسترسی به دوربین رد شد",
         "title_video_audio": "دسترسی به دوربین و میکروفون رد شد"
       }
@@ -867,6 +876,9 @@
       "title": "صفحه عکس گذرنامه را ارسال کنید"
     },
     "help": {
+      "button_dot_1_accessibility": "Go to slide 1",
+      "button_dot_2_accessibility": "Go to slide 2",
+      "button_dot_3_accessibility": "Go to slide 3",
       "button_primary": "دوباره تلاش کنید",
       "button_secondary": "اسکن دستی",
       "description_tip_1": "از مکان‌های کم‌نور دوری کنید تا تصویر تار نشود. از نور مستقیم فاصله بگیرید تا بازتاب ایجاد نشود.",
@@ -888,6 +900,7 @@
       "title_tip_2": "کارت شناسایی خود را در قاب قرار دهید"
     },
     "intro": {
+      "animation_accessibility": "An animation of the successful ID scanning process",
       "button_primary_selection_off": "شروع اسکن",
       "button_primary_selection_on": "انتخاب مدرک شناسایی",
       "list_item_tip_1": "یک محل با نور مناسب پیدا کنید",
@@ -975,8 +988,20 @@
         "iq_obstruction": "انگشت‌ها را از روی مدرک کنار بکشید",
         "tilt": {
           "down": "کارت شناسایی را به پایین کج کنید",
+          "error": {
+            "camera": {
+              "button_primary": "سعی مجدد",
+              "subtitle": "ضبط ویدیوی مدرک ناموفق بود، لطفاً دوباره تلاش کنید",
+              "title": "چیزی اشتباه شد"
+            }
+          },
           "left": "کارت ID را به چپ کج کنید",
           "right": "کارت شناسایی را به راست کج کنید",
+          "too_fast": {
+            "button_primary": "سعی مجدد",
+            "subtitle": "لطفاً کارت شناسایی خود را آهسته‌تر بچرخانید تا تصویر تار نشود",
+            "title": "چرخش خیلی سریع است"
+          },
           "up": "کارت شناسایی را رو به بالا کج کنید"
         },
         "tilt_accessibility": {
@@ -985,6 +1010,17 @@
           "left": "کارت شناسایی خود را به سمت چپ بچرخانید تا زمانی که صدای تأیید را بشنوید",
           "right": "کارت شناسایی خود را به سمت راست کج کنید تا زمانی که صدای تأیید را بشنوید",
           "up": "کارت شناسایی خود را کمی رو به بالا بگیرید تا زمانی که تأیید را بشنوید"
+        },
+        "tilt_issue": {
+          "button_primary": "سعی مجدد",
+          "time_limit": {
+            "subtitle": "به دلایل امنیتی، برای تکمیل این مرحله حداکثر ۲۰ ثانیه فرصت دارید",
+            "title": "مهلت به پایان رسید.\nاین نکات را امتحان کنید"
+          },
+          "too_fast": {
+            "subtitle": "لطفاً کارت شناسایی خود را آهسته‌تر بچرخانید تا تصویر تار نشود",
+            "title": "چرخش خیلی سریع است"
+          }
         },
         "validity": {
           "button_primary": "دوباره تلاش کنید",
@@ -1072,7 +1108,9 @@
         "iq_no_doc_title": "هیچ مدرکی شناسایی نشد",
         "iq_obstruction_subtitle": "انگشتان خود را از روی مدرک کنار ببرید",
         "iq_obstruction_title": "مدرک هویت شما کامل دیده نمی‌شود",
-        "title": "ما مشکلی شناسایی کردیم"
+        "title": "ما مشکلی شناسایی کردیم",
+        "wrong_side_subtitle": "We need the back of your ID to continue",
+        "wrong_side_title": "Incorrect side"
       }
     },
     "selection": {
@@ -1916,6 +1954,9 @@
         "title": "sample.preview.title"
       },
       "doc_help": {
+        "button_dot_1_accessibility": "document.help.button_dot_1_accessibility",
+        "button_dot_2_accessibility": "document.help.button_dot_2_accessibility",
+        "button_dot_3_accessibility": "document.help.button_dot_3_accessibility",
         "button_primary": "document.help.button_primary",
         "button_secondary": "document.help.button_secondary",
         "description_tip_1": "document.help.description_tip_1",
@@ -1928,6 +1969,7 @@
         "title_tip_3": "document.help.title_tip_3"
       },
       "doc_intro": {
+        "animation_accessibility": "document.intro.animation_accessibility",
         "button_primary_selection_off": "document.intro.button_primary_selection_off",
         "button_primary_selection_on": "document.intro.button_primary_selection_on",
         "list_item_tip_1": "document.intro.list_item_tip_1",
@@ -2055,7 +2097,9 @@
           "iq_no_doc_title": "document.scan.manual_quality_issue.iq_no_doc_title",
           "iq_obstruction_subtitle": "document.scan.manual_quality_issue.iq_obstruction_subtitle",
           "iq_obstruction_title": "document.scan.manual_quality_issue.iq_obstruction_title",
-          "title": "document.scan.manual_quality_issue.title"
+          "title": "document.scan.manual_quality_issue.title",
+          "wrong_side_subtitle": "document.scan.manual_quality_issue.wrong_side_subtitle",
+          "wrong_side_title": "document.scan.manual_quality_issue.wrong_side_title"
         }
       },
       "doc_select": {
@@ -2179,6 +2223,13 @@
         "title": "document.intro_tilt.title"
       },
       "doc_video_tilt": {
+        "error": {
+          "camera": {
+            "button_primary": "document.scan.feedback.tilt.error.camera.button_primary",
+            "subtitle": "document.scan.feedback.tilt.error.camera.subtitle",
+            "title": "document.scan.feedback.tilt.error.camera.title"
+          }
+        },
         "feedback": {
           "side_complete_accessibility": "document.scan.feedback.tilt_accessibility.complete",
           "tilt_down": "document.scan.feedback.tilt.down",
@@ -2188,7 +2239,12 @@
           "tilt_right": "document.scan.feedback.tilt.right",
           "tilt_right_accessibility": "document.scan.feedback.tilt_accessibility.right",
           "tilt_up": "document.scan.feedback.tilt.up",
-          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up"
+          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up",
+          "too_fast": {
+            "button_primary": "document.scan.feedback.tilt_issue.button_primary",
+            "subtitle": "document.scan.feedback.tilt_issue.too_fast.subtitle",
+            "title": "document.scan.feedback.tilt_issue.too_fast.title"
+          }
         },
         "instructions": {
           "sub_title_generic": "document.scan.instructions.subtitle_tilt_generic"
@@ -3093,6 +3149,13 @@
             "list_item_3_mic": "common.permissions.recovery.desktop_windows.device_settings.list_item_3_audio",
             "list_item_4": "common.permissions.recovery.desktop_windows.device_settings.list_item_4"
           }
+        },
+        "device_motion": {
+          "banner": "common.permissions.recovery.devicemotion.banner",
+          "item_1": "common.permissions.recovery.devicemotion.device_settings.list_item_1",
+          "item_2": "common.permissions.recovery.devicemotion.device_settings.list_item_2",
+          "subtitle": "common.permissions.recovery.subtitle_devicemotion",
+          "title": "common.permissions.recovery.title_devicemotion"
         },
         "info": "common.permissions.recovery.info",
         "ios": {

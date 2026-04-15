@@ -402,7 +402,7 @@
         "button_enable_video": "Pokračovať",
         "button_enable_video_audio": "Pokračovať",
         "devicemotion": {
-          "body": "Bez prístupu k údajom o pohybe zariadenia vás nemôžeme overiť",
+          "body": "Bez prístupu k údajom o pohybe zariadenia vás nemôžeme overiť. Viac sa dozviete v našom <link>oznámení o ochrane osobných údajov</link>.",
           "button_enable": "Zapnúť",
           "subtitle": "Keď budete vyzvaní, povoľte prístup k údajom o pohybe zariadenia. Toto je potrebné na pokračovanie.",
           "title": "Povoliť prístup k pohybu zariadenia"
@@ -427,13 +427,13 @@
           "title": "Povoliť prístup k fotoaparátu a mikrofónu"
         },
         "video_audio_devicemotion": {
-          "body": "Nemôžeme vás overiť bez povolenia na používanie kamery, mikrofónu a pohybu zariadenia",
+          "body": "Bez povolení na používanie fotoaparátu, mikrofónu a zisťovanie pohybu zariadenia vás nemôžeme overiť. Viac sa dozviete v našom <link>oznámení o ochrane osobných údajov</link>.",
           "button_enable": "Povoliť všetko",
           "subtitle": "Keď sa zobrazí výzva, povoľte každé oprávnenie. Je to potrebné na pokračovanie.",
           "title": "Povoliť prístup ku kamere, mikrofónu a pohybu zariadenia"
         },
         "video_devicemotion": {
-          "body": "Nemôžeme vás overiť bez povolenia na používanie kamery a pohybu zariadenia",
+          "body": "Bez povolení na používanie fotoaparátu a zisťovanie pohybu zariadenia vás nemôžeme overiť. Viac sa dozviete v našom <link>oznámení o ochrane osobných údajov</link>.",
           "button_enable": "Povoliť oboje",
           "subtitle": "Keď budete vyzvaní, povoľte každé povolenie. Je to potrebné na pokračovanie.",
           "title": "Povoliť prístup ku kamere a pohybu zariadenia"
@@ -571,6 +571,13 @@
         "device_settings": {
           "title": "Riešenie 2: Nastavenia zariadenia"
         },
+        "devicemotion": {
+          "banner": "Váš doterajší postup sa stratí, ospravedlňujeme sa za nepríjemnosti.",
+          "device_settings": {
+            "list_item_1": "<strong>Zatvorte a znova otvorte aplikáciu</strong>, aby ste reštartovali proces overenia.",
+            "list_item_2": "Keď sa zobrazí výzva, povoľte prístup k pohybu zariadenia, aby ste mohli pokračovať."
+          }
+        },
         "disclaimer": "Proces overovania identity sa môže reštartovať. Ospravedlňujeme sa za akékoľvek nepríjemnosti",
         "info": "Obnovenie",
         "ios": {
@@ -610,9 +617,11 @@
           "how_to_video_audio": "Udeľte prístup k fotoaparátu a mikrofónu v nastaveniach prehliadača"
         },
         "subtitle_audio": "Potrebujeme prístup k vášmu mikrofónu na overenie vašej identity. Postupujte podľa pokynov nižšie na obnovenie prístupu",
+        "subtitle_devicemotion": "Na overenie vašej identity potrebujeme prístup k údajom o pohybe a orientácii vášho zariadenia. Postupujte podľa pokynov nižšie na obnovenie prístupu:",
         "subtitle_video": "Potrebujeme prístup k vašej kamere na overenie vašej identity. Postupujte podľa nižšie uvedených pokynov na obnovenie prístupu",
         "subtitle_video_audio": "Potrebujeme prístup k vašej kamere a mikrofónu na overenie vašej identity. Postupujte podľa pokynov nižšie na obnovenie prístupu",
         "title_audio": "Prístup k mikrofónu bol zamietnutý",
+        "title_devicemotion": "Prístup k pohybu zariadenia bol zamietnutý",
         "title_video": "Prístup k fotoaparátu bol zamietnutý",
         "title_video_audio": "Prístup k fotoaparátu a mikrofónu bol zamietnutý"
       }
@@ -867,6 +876,9 @@
       "title": "Odošlite stránku pasu s fotografiou"
     },
     "help": {
+      "button_dot_1_accessibility": "Go to slide 1",
+      "button_dot_2_accessibility": "Go to slide 2",
+      "button_dot_3_accessibility": "Go to slide 3",
       "button_primary": "Skúste znova",
       "button_secondary": "Skenovať manuálne",
       "description_tip_1": "Vyhnite sa tmavým miestam, aby ste predišli rozmazaniu. Odsuňte sa od priameho svetla, aby ste zabránili odleskom.",
@@ -888,6 +900,7 @@
       "title_tip_2": "Umiestnite svoj doklad totožnosti do rámčeka"
     },
     "intro": {
+      "animation_accessibility": "An animation of the successful ID scanning process",
       "button_primary_selection_off": "Spustiť skenovanie",
       "button_primary_selection_on": "Vyberte doklad",
       "list_item_tip_1": "Nájdite miesto s dobrým osvetlením",
@@ -975,8 +988,20 @@
         "iq_obstruction": "Odstráňte prsty od dokladu",
         "tilt": {
           "down": "Nakloňte svoj ID dole",
+          "error": {
+            "camera": {
+              "button_primary": "Skúsiť znova",
+              "subtitle": "Nahrávanie videa dokladu zlyhalo, skúste to znova",
+              "title": "Niečo sa pokazilo"
+            }
+          },
           "left": "Natočte svoj ID doľava",
           "right": "Nakloňte svoj ID doprava",
+          "too_fast": {
+            "button_primary": "Skúsiť znova",
+            "subtitle": "Nakláňajte svoj doklad pomalšie, aby nebol rozmazaný",
+            "title": "Nakláňate príliš rýchlo"
+          },
           "up": "Nahnite občiansky hore"
         },
         "tilt_accessibility": {
@@ -985,6 +1010,17 @@
           "left": "Nakloňte svoj doklad doľava, kým nebudete počuť potvrdenie",
           "right": "Nakloňte svoj doklad doprava, kým nebudete počuť potvrdenie",
           "up": "Nadvihnite svoj doklad totožnosti, kým nebudete počuť potvrdenie"
+        },
+        "tilt_issue": {
+          "button_primary": "Skúsiť znova",
+          "time_limit": {
+            "subtitle": "Z bezpečnostných dôvodov máte na dokončenie tohto kroku až 20 sekúnd",
+            "title": "Časový limit uplynul. \nSkúste tieto tipy"
+          },
+          "too_fast": {
+            "subtitle": "Nakláňajte svoj doklad pomalšie, aby nebol rozmazaný",
+            "title": "Nakláňate príliš rýchlo"
+          }
         },
         "validity": {
           "button_primary": "Skúste znova",
@@ -1072,7 +1108,9 @@
         "iq_no_doc_title": "Doklad nerozpoznaný",
         "iq_obstruction_subtitle": "Odstráňte prsty od dokladu",
         "iq_obstruction_title": "Váš doklad nie je viditeľný celý",
-        "title": "Zistili sme problém"
+        "title": "Zistili sme problém",
+        "wrong_side_subtitle": "We need the back of your ID to continue",
+        "wrong_side_title": "Incorrect side"
       }
     },
     "selection": {
@@ -1916,6 +1954,9 @@
         "title": "sample.preview.title"
       },
       "doc_help": {
+        "button_dot_1_accessibility": "document.help.button_dot_1_accessibility",
+        "button_dot_2_accessibility": "document.help.button_dot_2_accessibility",
+        "button_dot_3_accessibility": "document.help.button_dot_3_accessibility",
         "button_primary": "document.help.button_primary",
         "button_secondary": "document.help.button_secondary",
         "description_tip_1": "document.help.description_tip_1",
@@ -1928,6 +1969,7 @@
         "title_tip_3": "document.help.title_tip_3"
       },
       "doc_intro": {
+        "animation_accessibility": "document.intro.animation_accessibility",
         "button_primary_selection_off": "document.intro.button_primary_selection_off",
         "button_primary_selection_on": "document.intro.button_primary_selection_on",
         "list_item_tip_1": "document.intro.list_item_tip_1",
@@ -2055,7 +2097,9 @@
           "iq_no_doc_title": "document.scan.manual_quality_issue.iq_no_doc_title",
           "iq_obstruction_subtitle": "document.scan.manual_quality_issue.iq_obstruction_subtitle",
           "iq_obstruction_title": "document.scan.manual_quality_issue.iq_obstruction_title",
-          "title": "document.scan.manual_quality_issue.title"
+          "title": "document.scan.manual_quality_issue.title",
+          "wrong_side_subtitle": "document.scan.manual_quality_issue.wrong_side_subtitle",
+          "wrong_side_title": "document.scan.manual_quality_issue.wrong_side_title"
         }
       },
       "doc_select": {
@@ -2179,6 +2223,13 @@
         "title": "document.intro_tilt.title"
       },
       "doc_video_tilt": {
+        "error": {
+          "camera": {
+            "button_primary": "document.scan.feedback.tilt.error.camera.button_primary",
+            "subtitle": "document.scan.feedback.tilt.error.camera.subtitle",
+            "title": "document.scan.feedback.tilt.error.camera.title"
+          }
+        },
         "feedback": {
           "side_complete_accessibility": "document.scan.feedback.tilt_accessibility.complete",
           "tilt_down": "document.scan.feedback.tilt.down",
@@ -2188,7 +2239,12 @@
           "tilt_right": "document.scan.feedback.tilt.right",
           "tilt_right_accessibility": "document.scan.feedback.tilt_accessibility.right",
           "tilt_up": "document.scan.feedback.tilt.up",
-          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up"
+          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up",
+          "too_fast": {
+            "button_primary": "document.scan.feedback.tilt_issue.button_primary",
+            "subtitle": "document.scan.feedback.tilt_issue.too_fast.subtitle",
+            "title": "document.scan.feedback.tilt_issue.too_fast.title"
+          }
         },
         "instructions": {
           "sub_title_generic": "document.scan.instructions.subtitle_tilt_generic"
@@ -3093,6 +3149,13 @@
             "list_item_3_mic": "common.permissions.recovery.desktop_windows.device_settings.list_item_3_audio",
             "list_item_4": "common.permissions.recovery.desktop_windows.device_settings.list_item_4"
           }
+        },
+        "device_motion": {
+          "banner": "common.permissions.recovery.devicemotion.banner",
+          "item_1": "common.permissions.recovery.devicemotion.device_settings.list_item_1",
+          "item_2": "common.permissions.recovery.devicemotion.device_settings.list_item_2",
+          "subtitle": "common.permissions.recovery.subtitle_devicemotion",
+          "title": "common.permissions.recovery.title_devicemotion"
         },
         "info": "common.permissions.recovery.info",
         "ios": {

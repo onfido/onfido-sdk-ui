@@ -402,7 +402,7 @@
         "button_enable_video": "Continue",
         "button_enable_video_audio": "Continue",
         "devicemotion": {
-          "body": "We can’t verify you without access to device motion data",
+          "body": "We can’t verify you without access to device motion data. Learn more in our <link>privacy notice</link>.",
           "button_enable": "Enable",
           "subtitle": "When prompted, allow access to device motion data. This is required to continue.",
           "title": "Allow device motion access"
@@ -427,13 +427,13 @@
           "title": "Allow camera and microphone access"
         },
         "video_audio_devicemotion": {
-          "body": "We can’t verify you without camera, microphone, and device motion permission",
+          "body": "We can’t verify you without camera, microphone and device motion permissions. Learn more in our <link>privacy notice</link>.",
           "button_enable": "Enable all",
           "subtitle": "Allow each permission when prompted. This is required to continue.",
           "title": "Allow camera, microphone and device motion access"
         },
         "video_devicemotion": {
-          "body": "We can’t verify you without camera and device motion permissions",
+          "body": "We can’t verify you without camera and device motion permissions. Learn more in our <link>privacy notice</link>.",
           "button_enable": "Enable both",
           "subtitle": "Allow each permission when prompted. This is required to continue.",
           "title": "Allow camera and device motion access"
@@ -571,6 +571,13 @@
         "device_settings": {
           "title": "Solution 2: Device settings"
         },
+        "devicemotion": {
+          "banner": "Your progress will be lost. Sorry for the inconvenience.",
+          "device_settings": {
+            "list_item_1": "<strong>Close and reopen your app</strong> to restart the verification process.",
+            "list_item_2": "When prompted, allow device motion access to continue."
+          }
+        },
         "disclaimer": "The identity verification process might restart. Sorry for any inconvenience",
         "info": "Recovery",
         "ios": {
@@ -610,9 +617,11 @@
           "how_to_video_audio": "Grant access to your camera and microphone from your browser settings"
         },
         "subtitle_audio": "We need access to your microphone to verify your identity. Follow the instructions below to recover access",
+        "subtitle_devicemotion": "We need access to your device motion and orientation data to verify your identity. Follow the instructions below to recover access:",
         "subtitle_video": "We need access to your camera to verify your identity. Follow the instructions below to recover access",
         "subtitle_video_audio": "We need access to your camera and microphone to verify your identity. Follow the instructions below to recover access",
         "title_audio": "Microphone access denied",
+        "title_devicemotion": "Device motion access denied",
         "title_video": "Camera access denied",
         "title_video_audio": "Camera and microphone access denied"
       }
@@ -867,6 +876,9 @@
       "title": "Provide passport photo page"
     },
     "help": {
+      "button_dot_1_accessibility": "Go to slide 1",
+      "button_dot_2_accessibility": "Go to slide 2",
+      "button_dot_3_accessibility": "Go to slide 3",
       "button_primary": "Try again",
       "button_secondary": "Scan manually",
       "description_tip_1": "Avoid places with low light to prevent blur. Move away from direct light to prevent reflections.",
@@ -888,6 +900,7 @@
       "title_tip_2": "Position your ID in the frame"
     },
     "intro": {
+      "animation_accessibility": "An animation of the successful ID scanning process",
       "button_primary_selection_off": "Start scan",
       "button_primary_selection_on": "Select document",
       "list_item_tip_1": "Find a place with good lighting",
@@ -975,8 +988,20 @@
         "iq_obstruction": "Move fingers away from document",
         "tilt": {
           "down": "Tilt your ID down",
+          "error": {
+            "camera": {
+              "button_primary": "Try again",
+              "subtitle": "Document video recording failed, please try again",
+              "title": "Something went wrong"
+            }
+          },
           "left": "Tilt your ID left",
           "right": "Tilt your ID right",
+          "too_fast": {
+            "button_primary": "Try again",
+            "subtitle": "Please tilt your ID more slowly to prevent blur",
+            "title": "Tilt too fast"
+          },
           "up": "Tilt your ID up"
         },
         "tilt_accessibility": {
@@ -985,6 +1010,17 @@
           "left": "Tilt your ID to the left until you hear confirmation",
           "right": "Tilt your ID to the right until you hear confirmation",
           "up": "Tilt your ID up until you hear confirmation"
+        },
+        "tilt_issue": {
+          "button_primary": "Try again",
+          "time_limit": {
+            "subtitle": "For security reasons, you have up to 20 seconds to complete this step",
+            "title": "Time limit reached. \nTry these tips"
+          },
+          "too_fast": {
+            "subtitle": "Please tilt your ID more slowly to prevent blur",
+            "title": "Tilt too fast"
+          }
         },
         "validity": {
           "button_primary": "Try again",
@@ -1072,7 +1108,9 @@
         "iq_no_doc_title": "No document detected",
         "iq_obstruction_subtitle": "Move fingers away from document",
         "iq_obstruction_title": "Your document isn’t fully visible",
-        "title": "We detected an issue"
+        "title": "We detected an issue",
+        "wrong_side_subtitle": "We need the back of your ID to continue",
+        "wrong_side_title": "Incorrect side"
       }
     },
     "selection": {
@@ -1916,6 +1954,9 @@
         "title": "sample.preview.title"
       },
       "doc_help": {
+        "button_dot_1_accessibility": "document.help.button_dot_1_accessibility",
+        "button_dot_2_accessibility": "document.help.button_dot_2_accessibility",
+        "button_dot_3_accessibility": "document.help.button_dot_3_accessibility",
         "button_primary": "document.help.button_primary",
         "button_secondary": "document.help.button_secondary",
         "description_tip_1": "document.help.description_tip_1",
@@ -1928,6 +1969,7 @@
         "title_tip_3": "document.help.title_tip_3"
       },
       "doc_intro": {
+        "animation_accessibility": "document.intro.animation_accessibility",
         "button_primary_selection_off": "document.intro.button_primary_selection_off",
         "button_primary_selection_on": "document.intro.button_primary_selection_on",
         "list_item_tip_1": "document.intro.list_item_tip_1",
@@ -2055,7 +2097,9 @@
           "iq_no_doc_title": "document.scan.manual_quality_issue.iq_no_doc_title",
           "iq_obstruction_subtitle": "document.scan.manual_quality_issue.iq_obstruction_subtitle",
           "iq_obstruction_title": "document.scan.manual_quality_issue.iq_obstruction_title",
-          "title": "document.scan.manual_quality_issue.title"
+          "title": "document.scan.manual_quality_issue.title",
+          "wrong_side_subtitle": "document.scan.manual_quality_issue.wrong_side_subtitle",
+          "wrong_side_title": "document.scan.manual_quality_issue.wrong_side_title"
         }
       },
       "doc_select": {
@@ -2179,6 +2223,13 @@
         "title": "document.intro_tilt.title"
       },
       "doc_video_tilt": {
+        "error": {
+          "camera": {
+            "button_primary": "document.scan.feedback.tilt.error.camera.button_primary",
+            "subtitle": "document.scan.feedback.tilt.error.camera.subtitle",
+            "title": "document.scan.feedback.tilt.error.camera.title"
+          }
+        },
         "feedback": {
           "side_complete_accessibility": "document.scan.feedback.tilt_accessibility.complete",
           "tilt_down": "document.scan.feedback.tilt.down",
@@ -2188,7 +2239,12 @@
           "tilt_right": "document.scan.feedback.tilt.right",
           "tilt_right_accessibility": "document.scan.feedback.tilt_accessibility.right",
           "tilt_up": "document.scan.feedback.tilt.up",
-          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up"
+          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up",
+          "too_fast": {
+            "button_primary": "document.scan.feedback.tilt_issue.button_primary",
+            "subtitle": "document.scan.feedback.tilt_issue.too_fast.subtitle",
+            "title": "document.scan.feedback.tilt_issue.too_fast.title"
+          }
         },
         "instructions": {
           "sub_title_generic": "document.scan.instructions.subtitle_tilt_generic"
@@ -3093,6 +3149,13 @@
             "list_item_3_mic": "common.permissions.recovery.desktop_windows.device_settings.list_item_3_audio",
             "list_item_4": "common.permissions.recovery.desktop_windows.device_settings.list_item_4"
           }
+        },
+        "device_motion": {
+          "banner": "common.permissions.recovery.devicemotion.banner",
+          "item_1": "common.permissions.recovery.devicemotion.device_settings.list_item_1",
+          "item_2": "common.permissions.recovery.devicemotion.device_settings.list_item_2",
+          "subtitle": "common.permissions.recovery.subtitle_devicemotion",
+          "title": "common.permissions.recovery.title_devicemotion"
         },
         "info": "common.permissions.recovery.info",
         "ios": {

@@ -402,7 +402,7 @@
         "button_enable_video": "Fortfahren",
         "button_enable_video_audio": "Fortfahren",
         "devicemotion": {
-          "body": "Wir können Ihre Identität ohne Zugriff auf die Bewegungsdaten des Geräts nicht überprüfen",
+          "body": "Wir können Ihre Identität ohne Zugriff auf Bewegungsdaten des Geräts nicht überprüfen. Weitere Informationen finden Sie in unserem <link>Datenschutzhinweis</link>.",
           "button_enable": "Aktivieren",
           "subtitle": "Wenn Sie dazu aufgefordert werden, erlauben Sie den Zugriff auf die Bewegungsdaten des Geräts. Dies ist erforderlich, um fortzufahren.",
           "title": "Gerätebewegung zulassen"
@@ -427,13 +427,13 @@
           "title": "Zugriff auf Kamera und Mikrofon erlauben"
         },
         "video_audio_devicemotion": {
-          "body": "Wir können Ihre Identität ohne Zugriff auf Kamera, Mikrofon und Bewegungsdaten des Geräts nicht überprüfen",
+          "body": "Wir können Ihre Identität ohne Kamera-, Mikrofon- und Bewegungsdatenberechtigungen nicht überprüfen. Weitere Informationen finden Sie in unserem <link>Datenschutzhinweis</link>.",
           "button_enable": "Alle aktivieren",
           "subtitle": "Erlaube jede Berechtigung, wenn du dazu aufgefordert wirst. Dies ist erforderlich, um fortzufahren.",
           "title": "Kamera-, Mikrofon- und Gerätebewegungszugriff zulassen"
         },
         "video_devicemotion": {
-          "body": "Wir können Ihre Identität ohne Kamera- und Bewegungssensorzugriff nicht überprüfen",
+          "body": "Wir können Ihre Identität ohne Kamera- und Bewegungsdatenberechtigungen nicht überprüfen. Weitere Informationen finden Sie in unserem <link>Datenschutzhinweis</link>.",
           "button_enable": "Beides aktivieren",
           "subtitle": "Erlaube jede Berechtigung, wenn du dazu aufgefordert wirst. Dies ist erforderlich, um fortzufahren.",
           "title": "Kamera- und Bewegungszugriff des Geräts zulassen"
@@ -571,6 +571,13 @@
         "device_settings": {
           "title": "Lösung 2: Geräteeinstellungen"
         },
+        "devicemotion": {
+          "banner": "Ihr Fortschritt geht dabei verloren. Wir entschuldigen uns für die Unannehmlichkeiten.",
+          "device_settings": {
+            "list_item_1": "<strong>Schließen Sie die App und öffnen Sie sie erneut</strong>, um den Verifizierungsprozess neu zu starten.",
+            "list_item_2": "Erteilen Sie den Zugriff auf die Gerätebewegung, wenn Sie dazu aufgefordert werden, um fortzufahren."
+          }
+        },
         "disclaimer": "Der Identitätsüberprüfungsprozess könnte neu starten. Entschuldigung für etwaige Unannehmlichkeiten",
         "info": "Wiederherstellen",
         "ios": {
@@ -610,9 +617,11 @@
           "how_to_video_audio": "Gewähren Sie den Zugriff auf Ihre Kamera und Ihr Mikrofon über Ihre Browsereinstellungen"
         },
         "subtitle_audio": "Wir benötigen Zugriff auf Ihr Mikrofon, um Ihre Identität zu überprüfen. Befolgen Sie die unten stehenden Anweisungen, um den Zugriff wiederherzustellen",
+        "subtitle_devicemotion": "Wir benötigen Zugriff auf die Bewegungs- und Ausrichtungsdaten Ihres Geräts, um Ihre Identität zu überprüfen. Folgen Sie den Anweisungen unten, um den Zugriff wiederherzustellen:",
         "subtitle_video": "Wir benötigen Zugang zu Ihrer Kamera, um Ihre Identität zu überprüfen. Befolgen Sie die unten stehenden Anweisungen, um den Zugang wiederherzustellen",
         "subtitle_video_audio": "Wir benötigen Zugriff auf Ihre Kamera und Ihr Mikrofon, um Ihre Identität zu überprüfen. Befolgen Sie die untenstehenden Anweisungen, um den Zugriff wiederherzustellen",
         "title_audio": "Mikrofonzugriff verweigert",
+        "title_devicemotion": "Zugriff auf Gerätebewegung verweigert",
         "title_video": "Kamerazugriff verweigert",
         "title_video_audio": "Kamera- und Mikrofonzugriff verweigert"
       }
@@ -867,6 +876,9 @@
       "title": "Seite mit Passfoto einreichen"
     },
     "help": {
+      "button_dot_1_accessibility": "Go to slide 1",
+      "button_dot_2_accessibility": "Go to slide 2",
+      "button_dot_3_accessibility": "Go to slide 3",
       "button_primary": "Erneut versuchen",
       "button_secondary": "Manuell scannen",
       "description_tip_1": "Vermeide Orte mit wenig Licht, um Unschärfe zu verhindern. Gehe aus direktem Licht, um Spiegelungen zu vermeiden.",
@@ -888,6 +900,7 @@
       "title_tip_2": "Positionieren Sie Ihren Ausweis im Rahmen"
     },
     "intro": {
+      "animation_accessibility": "An animation of the successful ID scanning process",
       "button_primary_selection_off": "Scan starten",
       "button_primary_selection_on": "Dokument auswählen",
       "list_item_tip_1": "Suchen Sie einen gut beleuchteten Ort",
@@ -975,8 +988,20 @@
         "iq_obstruction": "Finger vom Ausweis wegnehmen",
         "tilt": {
           "down": "ID nach unten kippen",
+          "error": {
+            "camera": {
+              "button_primary": "Versuchen Sie es erneut.",
+              "subtitle": "Videoaufnahme des Dokuments fehlgeschlagen, bitte versuche es erneut",
+              "title": "Es ist ein Fehler aufgetreten"
+            }
+          },
           "left": "ID nach links kippen",
           "right": "ID nach rechts kippen",
+          "too_fast": {
+            "button_primary": "Versuchen Sie es erneut.",
+            "subtitle": "Bitte kippe deinen Ausweis langsamer, um Unschärfe zu vermeiden",
+            "title": "Zu schnell gekippt"
+          },
           "up": "ID nach oben kippen"
         },
         "tilt_accessibility": {
@@ -985,6 +1010,17 @@
           "left": "Kippen Sie Ihren Ausweis nach links, bis Sie eine Bestätigung hören",
           "right": "Kippen Sie Ihren Ausweis nach rechts, bis Sie die Bestätigung hören",
           "up": "Kippen Sie Ihren Ausweis nach oben, bis Sie eine Bestätigung hören"
+        },
+        "tilt_issue": {
+          "button_primary": "Versuchen Sie es erneut.",
+          "time_limit": {
+            "subtitle": "Aus Sicherheitsgründen haben Sie bis zu 20 Sekunden Zeit, um diesen Schritt abzuschließen",
+            "title": "Zeitlimit erreicht. \nProbiere diese Tipps aus"
+          },
+          "too_fast": {
+            "subtitle": "Bitte kippe deinen Ausweis langsamer, um Unschärfe zu vermeiden",
+            "title": "Zu schnell gekippt"
+          }
         },
         "validity": {
           "button_primary": "Erneut versuchen",
@@ -1072,7 +1108,9 @@
         "iq_no_doc_title": "Kein Ausweis erkannt",
         "iq_obstruction_subtitle": "Finger vom Ausweis wegnehmen",
         "iq_obstruction_title": "Ihr Ausweis ist nicht vollständig sichtbar",
-        "title": "Wir haben ein Problem erkannt"
+        "title": "Wir haben ein Problem erkannt",
+        "wrong_side_subtitle": "We need the back of your ID to continue",
+        "wrong_side_title": "Incorrect side"
       }
     },
     "selection": {
@@ -1916,6 +1954,9 @@
         "title": "sample.preview.title"
       },
       "doc_help": {
+        "button_dot_1_accessibility": "document.help.button_dot_1_accessibility",
+        "button_dot_2_accessibility": "document.help.button_dot_2_accessibility",
+        "button_dot_3_accessibility": "document.help.button_dot_3_accessibility",
         "button_primary": "document.help.button_primary",
         "button_secondary": "document.help.button_secondary",
         "description_tip_1": "document.help.description_tip_1",
@@ -1928,6 +1969,7 @@
         "title_tip_3": "document.help.title_tip_3"
       },
       "doc_intro": {
+        "animation_accessibility": "document.intro.animation_accessibility",
         "button_primary_selection_off": "document.intro.button_primary_selection_off",
         "button_primary_selection_on": "document.intro.button_primary_selection_on",
         "list_item_tip_1": "document.intro.list_item_tip_1",
@@ -2055,7 +2097,9 @@
           "iq_no_doc_title": "document.scan.manual_quality_issue.iq_no_doc_title",
           "iq_obstruction_subtitle": "document.scan.manual_quality_issue.iq_obstruction_subtitle",
           "iq_obstruction_title": "document.scan.manual_quality_issue.iq_obstruction_title",
-          "title": "document.scan.manual_quality_issue.title"
+          "title": "document.scan.manual_quality_issue.title",
+          "wrong_side_subtitle": "document.scan.manual_quality_issue.wrong_side_subtitle",
+          "wrong_side_title": "document.scan.manual_quality_issue.wrong_side_title"
         }
       },
       "doc_select": {
@@ -2179,6 +2223,13 @@
         "title": "document.intro_tilt.title"
       },
       "doc_video_tilt": {
+        "error": {
+          "camera": {
+            "button_primary": "document.scan.feedback.tilt.error.camera.button_primary",
+            "subtitle": "document.scan.feedback.tilt.error.camera.subtitle",
+            "title": "document.scan.feedback.tilt.error.camera.title"
+          }
+        },
         "feedback": {
           "side_complete_accessibility": "document.scan.feedback.tilt_accessibility.complete",
           "tilt_down": "document.scan.feedback.tilt.down",
@@ -2188,7 +2239,12 @@
           "tilt_right": "document.scan.feedback.tilt.right",
           "tilt_right_accessibility": "document.scan.feedback.tilt_accessibility.right",
           "tilt_up": "document.scan.feedback.tilt.up",
-          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up"
+          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up",
+          "too_fast": {
+            "button_primary": "document.scan.feedback.tilt_issue.button_primary",
+            "subtitle": "document.scan.feedback.tilt_issue.too_fast.subtitle",
+            "title": "document.scan.feedback.tilt_issue.too_fast.title"
+          }
         },
         "instructions": {
           "sub_title_generic": "document.scan.instructions.subtitle_tilt_generic"
@@ -3093,6 +3149,13 @@
             "list_item_3_mic": "common.permissions.recovery.desktop_windows.device_settings.list_item_3_audio",
             "list_item_4": "common.permissions.recovery.desktop_windows.device_settings.list_item_4"
           }
+        },
+        "device_motion": {
+          "banner": "common.permissions.recovery.devicemotion.banner",
+          "item_1": "common.permissions.recovery.devicemotion.device_settings.list_item_1",
+          "item_2": "common.permissions.recovery.devicemotion.device_settings.list_item_2",
+          "subtitle": "common.permissions.recovery.subtitle_devicemotion",
+          "title": "common.permissions.recovery.title_devicemotion"
         },
         "info": "common.permissions.recovery.info",
         "ios": {

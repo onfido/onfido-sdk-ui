@@ -402,7 +402,7 @@
         "button_enable_video": "जारी रखें",
         "button_enable_video_audio": "जारी रखें",
         "devicemotion": {
-          "body": "हम डिवाइस मोशन डेटा तक पहुंच के बिना आपकी पहचान सत्यापित नहीं कर सकते",
+          "body": "डिवाइस मोशन डेटा तक पहुँच के बिना हम आपकी पहचान सत्यापित नहीं कर सकते। हमारी <link>गोपनीयता सूचना</link> में अधिक जानें।",
           "button_enable": "सक्रिय करें",
           "subtitle": "अनुरोध किए जाने पर, डिवाइस मोशन डेटा तक पहुँच की अनुमति दें। आगे बढ़ने के लिए यह आवश्यक है।",
           "title": "डिवाइस मोशन एक्सेस की अनुमति दें"
@@ -427,13 +427,13 @@
           "title": "कैमरा और माइक्रोफ़ोन ऐक्सेस की अनुमति दें"
         },
         "video_audio_devicemotion": {
-          "body": "हम आपके कैमरा, माइक्रोफ़ोन और डिवाइस मोशन की अनुमति के बिना आपकी पुष्टि नहीं कर सकते",
+          "body": "कैमरा, माइक्रोफ़ोन और डिवाइस मोशन अनुमतियों के बिना हम आपकी पहचान सत्यापित नहीं कर सकते। हमारी <link>गोपनीयता सूचना</link> में अधिक जानें।",
           "button_enable": "सभी सक्षम करें",
           "subtitle": "जब भी अनुमति मांगी जाए, उसे स्वीकार करें। आगे बढ़ने के लिए यह आवश्यक है।",
           "title": "कैमरा, माइक्रोफ़ोन और डिवाइस मोशन की अनुमति दें"
         },
         "video_devicemotion": {
-          "body": "हम कैमरा और डिवाइस मोशन अनुमति के बिना आपकी पहचान सत्यापित नहीं कर सकते",
+          "body": "कैमरा और डिवाइस मोशन अनुमतियों के बिना हम आपकी पहचान सत्यापित नहीं कर सकते। हमारी <link>गोपनीयता सूचना</link> में अधिक जानें।",
           "button_enable": "दोनों चालू करें",
           "subtitle": "जब संकेत मिले तो प्रत्येक अनुमति दें। जारी रखने के लिए यह आवश्यक है।",
           "title": "कैमरा और डिवाइस मोशन एक्सेस की अनुमति दें"
@@ -571,6 +571,13 @@
         "device_settings": {
           "title": "समाधान 2: उपकरण सेटिंग्स"
         },
+        "devicemotion": {
+          "banner": "आपकी प्रगति खो जाएगी, असुविधा के लिए खेद है।",
+          "device_settings": {
+            "list_item_1": "सत्यापन प्रक्रिया को पुनः आरंभ करने के लिए <strong>अपना ऐप बंद करें और फिर से खोलें</strong>।",
+            "list_item_2": "संकेत मिलने पर, जारी रखने के लिए डिवाइस मोशन एक्सेस की अनुमति दें।"
+          }
+        },
         "disclaimer": "पहचान सत्यापन प्रक्रिया पुनः शुरू हो सकती है। किसी भी असुविधा के लिए खेद है",
         "info": "रिकवरी",
         "ios": {
@@ -610,9 +617,11 @@
           "how_to_video_audio": "अपनी ब्राउज़र सेटिंग से अपने कैमरे और माइक्रोफ़ोन का ऐक्सेस दें"
         },
         "subtitle_audio": "हमें आपकी पहचान की पुष्टि करने के लिए आपके माइक्रोफ़ोन तक पहुँच की आवश्यकता है। पहुँच पुनः प्राप्त करने के लिए नीचे दिए गए निर्देशों का पालन करें",
+        "subtitle_devicemotion": "आपकी पहचान सत्यापित करने के लिए हमें आपके डिवाइस की गति और ओरिएंटेशन डेटा तक पहुँच की आवश्यकता है। एक्सेस पुनः प्राप्त करने के लिए नीचे दिए गए निर्देशों का पालन करें:",
         "subtitle_video": "हमें आपकी पहचान की पुष्टि करने के लिए आपके कैमरा तक पहुंच की आवश्यकता है। पहुंच पुनः प्राप्त करने के निर्देशों का पालन करें",
         "subtitle_video_audio": "हमें आपकी पहचान की पुष्टि करने के लिए आपके कैमरा और माइक्रोफ़ोन तक पहुँच की आवश्यकता है। पहुँच पुनः प्राप्त करने के लिए नीचे दिए गए निर्देशों का पालन करें",
         "title_audio": "माइक्रोफ़ोन का ऐक्सेस नहीं मिला",
+        "title_devicemotion": "डिवाइस मोशन एक्सेस अस्वीकृत",
         "title_video": "कैमरे का ऐक्सेस नहीं मिला",
         "title_video_audio": "कैमरे और माइक्रोफ़ोन का ऐक्सेस अस्वीकार कर दिया गया"
       }
@@ -867,6 +876,9 @@
       "title": "पासपोर्ट का फोटो पेज सबमिट करें"
     },
     "help": {
+      "button_dot_1_accessibility": "Go to slide 1",
+      "button_dot_2_accessibility": "Go to slide 2",
+      "button_dot_3_accessibility": "Go to slide 3",
       "button_primary": "फिर से प्रयास करें",
       "button_secondary": "मैन्युअल रूप से स्कैन करें",
       "description_tip_1": "धुंधलापन से बचने के लिए कम रोशनी वाले स्थानों से दूर रहें। प्रतिबिंब से बचने के लिए सीधे प्रकाश से हटें।",
@@ -888,6 +900,7 @@
       "title_tip_2": "अपना आईडी फ्रेम में रखें"
     },
     "intro": {
+      "animation_accessibility": "An animation of the successful ID scanning process",
       "button_primary_selection_off": "स्कैन शुरू करें",
       "button_primary_selection_on": "दस्तावेज़ चुनें",
       "list_item_tip_1": "अच्छी रोशनी वाली जगह चुनें",
@@ -975,8 +988,20 @@
         "iq_obstruction": "दस्तावेज़ से उंगलियाँ हटाएँ",
         "tilt": {
           "down": "अपना ID नीचे झुकाएं",
+          "error": {
+            "camera": {
+              "button_primary": "फिर से कोशिश करें",
+              "subtitle": "दस्तावेज़ वीडियो रिकॉर्डिंग विफल हुई, कृपया पुनः प्रयास करें",
+              "title": "कुछ गलत हो गया"
+            }
+          },
           "left": "अपनी ID को बाईं ओर झुकाएं",
           "right": "अपनी ID को दाईं ओर झुकाएं",
+          "too_fast": {
+            "button_primary": "फिर से कोशिश करें",
+            "subtitle": "धुंधलापन रोकने के लिए अपना ID धीरे झुकाएं",
+            "title": "बहुत तेज़ झुकाव"
+          },
           "up": "अपनी ID को ऊपर झुकाएं"
         },
         "tilt_accessibility": {
@@ -985,6 +1010,17 @@
           "left": "पुष्टि की आवाज़ सुनाई देने तक अपना आईडी बाईं ओर झुकाएं",
           "right": "पुष्टि सुनाई देने तक अपना आईडी दाईं ओर झुकाएं",
           "up": "पुष्टि की आवाज़ सुनाई देने तक अपना आईडी ऊपर की ओर झुकाएं"
+        },
+        "tilt_issue": {
+          "button_primary": "फिर से कोशिश करें",
+          "time_limit": {
+            "subtitle": "सुरक्षा कारणों से, इस चरण को पूरा करने के लिए आपके पास 20 सेकंड तक का समय है",
+            "title": "समय सीमा समाप्त हो गई। \nये सुझाव आज़माएँ"
+          },
+          "too_fast": {
+            "subtitle": "धुंधलापन रोकने के लिए अपना ID धीरे झुकाएं",
+            "title": "बहुत तेज़ झुकाव"
+          }
         },
         "validity": {
           "button_primary": "फिर से प्रयास करें",
@@ -1072,7 +1108,9 @@
         "iq_no_doc_title": "कोई दस्तावेज़ नहीं मिला",
         "iq_obstruction_subtitle": "दस्तावेज़ से उंगलियाँ हटाएँ",
         "iq_obstruction_title": "आपका दस्तावेज़ पूरी तरह दिखाई नहीं दे रहा",
-        "title": "हमें एक समस्या मिली"
+        "title": "हमें एक समस्या मिली",
+        "wrong_side_subtitle": "We need the back of your ID to continue",
+        "wrong_side_title": "Incorrect side"
       }
     },
     "selection": {
@@ -1916,6 +1954,9 @@
         "title": "sample.preview.title"
       },
       "doc_help": {
+        "button_dot_1_accessibility": "document.help.button_dot_1_accessibility",
+        "button_dot_2_accessibility": "document.help.button_dot_2_accessibility",
+        "button_dot_3_accessibility": "document.help.button_dot_3_accessibility",
         "button_primary": "document.help.button_primary",
         "button_secondary": "document.help.button_secondary",
         "description_tip_1": "document.help.description_tip_1",
@@ -1928,6 +1969,7 @@
         "title_tip_3": "document.help.title_tip_3"
       },
       "doc_intro": {
+        "animation_accessibility": "document.intro.animation_accessibility",
         "button_primary_selection_off": "document.intro.button_primary_selection_off",
         "button_primary_selection_on": "document.intro.button_primary_selection_on",
         "list_item_tip_1": "document.intro.list_item_tip_1",
@@ -2055,7 +2097,9 @@
           "iq_no_doc_title": "document.scan.manual_quality_issue.iq_no_doc_title",
           "iq_obstruction_subtitle": "document.scan.manual_quality_issue.iq_obstruction_subtitle",
           "iq_obstruction_title": "document.scan.manual_quality_issue.iq_obstruction_title",
-          "title": "document.scan.manual_quality_issue.title"
+          "title": "document.scan.manual_quality_issue.title",
+          "wrong_side_subtitle": "document.scan.manual_quality_issue.wrong_side_subtitle",
+          "wrong_side_title": "document.scan.manual_quality_issue.wrong_side_title"
         }
       },
       "doc_select": {
@@ -2179,6 +2223,13 @@
         "title": "document.intro_tilt.title"
       },
       "doc_video_tilt": {
+        "error": {
+          "camera": {
+            "button_primary": "document.scan.feedback.tilt.error.camera.button_primary",
+            "subtitle": "document.scan.feedback.tilt.error.camera.subtitle",
+            "title": "document.scan.feedback.tilt.error.camera.title"
+          }
+        },
         "feedback": {
           "side_complete_accessibility": "document.scan.feedback.tilt_accessibility.complete",
           "tilt_down": "document.scan.feedback.tilt.down",
@@ -2188,7 +2239,12 @@
           "tilt_right": "document.scan.feedback.tilt.right",
           "tilt_right_accessibility": "document.scan.feedback.tilt_accessibility.right",
           "tilt_up": "document.scan.feedback.tilt.up",
-          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up"
+          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up",
+          "too_fast": {
+            "button_primary": "document.scan.feedback.tilt_issue.button_primary",
+            "subtitle": "document.scan.feedback.tilt_issue.too_fast.subtitle",
+            "title": "document.scan.feedback.tilt_issue.too_fast.title"
+          }
         },
         "instructions": {
           "sub_title_generic": "document.scan.instructions.subtitle_tilt_generic"
@@ -3093,6 +3149,13 @@
             "list_item_3_mic": "common.permissions.recovery.desktop_windows.device_settings.list_item_3_audio",
             "list_item_4": "common.permissions.recovery.desktop_windows.device_settings.list_item_4"
           }
+        },
+        "device_motion": {
+          "banner": "common.permissions.recovery.devicemotion.banner",
+          "item_1": "common.permissions.recovery.devicemotion.device_settings.list_item_1",
+          "item_2": "common.permissions.recovery.devicemotion.device_settings.list_item_2",
+          "subtitle": "common.permissions.recovery.subtitle_devicemotion",
+          "title": "common.permissions.recovery.title_devicemotion"
         },
         "info": "common.permissions.recovery.info",
         "ios": {

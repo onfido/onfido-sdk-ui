@@ -402,7 +402,7 @@
         "button_enable_video": "Jätkake",
         "button_enable_video_audio": "Jätkake",
         "devicemotion": {
-          "body": "Me ei saa teid ilma seadme liikumisandmetele juurdepääsuta tuvastada",
+          "body": "Ilma juurdepääsuta seadme liikumisandmetele ei saa me teid tuvastada. Lisateave meie <link>privaatsusteatises</link>.",
           "button_enable": "Luba",
           "subtitle": "Kui küsitakse, luba juurdepääs seadme liikumisandmetele. See on jätkamiseks vajalik.",
           "title": "Luba seadme liikumisandmetele juurdepääs"
@@ -427,13 +427,13 @@
           "title": "Lubage juurdepääs kaamerale ja mikrofonile"
         },
         "video_audio_devicemotion": {
-          "body": "Ilma kaamera, mikrofoni ja seadme liikumisanduri loata ei saa me teid tuvastada",
+          "body": "Ilma kaamera, mikrofoni ja seadme liikumise lubadeta ei saa me teid tuvastada. Lisateave meie <link>privaatsusteatises</link>.",
           "button_enable": "Luba kõik",
           "subtitle": "Luba iga luba, kui seda küsitakse. See on jätkamiseks nõutav.",
           "title": "Luba juurdepääs kaamerale, mikrofonile ja seadme liikumisandmetele"
         },
         "video_devicemotion": {
-          "body": "Me ei saa teid ilma kaamera ja seadme liikumise loata tuvastada",
+          "body": "Ilma kaamera ja seadme liikumise lubadeta ei saa me teid tuvastada. Lisateave meie <link>privaatsusteatises</link>.",
           "button_enable": "Lubage mõlemad",
           "subtitle": "Luba iga luba, kui seda küsitakse. See on jätkamiseks nõutav.",
           "title": "Luba juurdepääs kaamerale ja seadme liikumisanduritele"
@@ -571,6 +571,13 @@
         "device_settings": {
           "title": "Lahendus 2: Seadme seaded"
         },
+        "devicemotion": {
+          "banner": "Teie edusammud lähevad kaotsi, vabandame ebamugavuste pärast.",
+          "device_settings": {
+            "list_item_1": "<strong>Sulgege ja avage rakendus uuesti</strong>, et taaskäivitada kinnitamisprotsess.",
+            "list_item_2": "Kui küsitakse, lubage seadme liikumisele juurdepääs, et jätkata."
+          }
+        },
         "disclaimer": "Identiteedi kinnitamise protsess võib taaskäivituda. Vabandame ebamugavuste pärast",
         "info": "Taastamine",
         "ios": {
@@ -610,9 +617,11 @@
           "how_to_video_audio": "Juurdepääsu andmine kaamerale ja mikrofonile brauseri seadetest"
         },
         "subtitle_audio": "Meil on vaja juurdepääsu teie mikrofonile, et kinnitada teie isikut. Järgige allpool toodud juhiseid juurdepääsu taastamiseks",
+        "subtitle_devicemotion": "Teie isiku tuvastamiseks vajame juurdepääsu teie seadme liikumis- ja orientatsiooniandmetele. Juurdepääsu taastamiseks järgige allolevaid juhiseid:",
         "subtitle_video": "Meil on vaja juurdepääsu teie kaamerale, et kinnitada teie isikut. Järgige allpool toodud juhiseid juurdepääsu taastamiseks",
         "subtitle_video_audio": "Meil on vaja juurdepääsu teie kaamerale ja mikrofonile, et kinnitada teie identiteeti. Järgige allpool toodud juhiseid juurdepääsu taastamiseks",
         "title_audio": "Mikrofoni juurdepääs keelatud",
+        "title_devicemotion": "Seadme liikumisele juurdepääs keelatud",
         "title_video": "Juurdepääs kaamerale on keelatud",
         "title_video_audio": "Juurdepääs kaamerale ja mikrofonile on keelatud"
       }
@@ -867,6 +876,9 @@
       "title": "Esitage passi fotoleht"
     },
     "help": {
+      "button_dot_1_accessibility": "Go to slide 1",
+      "button_dot_2_accessibility": "Go to slide 2",
+      "button_dot_3_accessibility": "Go to slide 3",
       "button_primary": "Proovi uuesti",
       "button_secondary": "Skaneeri käsitsi",
       "description_tip_1": "Väldi vähese valgusega kohti, et vältida hägusust. Liigu eemale otsesest valgusest, et vältida peegeldusi.",
@@ -888,6 +900,7 @@
       "title_tip_2": "Asetage oma isikutunnistus kaadri sisse"
     },
     "intro": {
+      "animation_accessibility": "An animation of the successful ID scanning process",
       "button_primary_selection_off": "Alusta skaneerimist",
       "button_primary_selection_on": "Vali dokument",
       "list_item_tip_1": "Leia hea valgustusega koht",
@@ -975,8 +988,20 @@
         "iq_obstruction": "Liiguta sõrmed dokumendist eemale",
         "tilt": {
           "down": "Kalluta ID-d alla",
+          "error": {
+            "camera": {
+              "button_primary": "Proovige uuesti",
+              "subtitle": "Dokumendi videosalvestus ebaõnnestus, palun proovige uuesti",
+              "title": "Midagi läks valesti"
+            }
+          },
           "left": "Kalluta ID-d vasakule",
           "right": "Kalluta ID-d paremale",
+          "too_fast": {
+            "button_primary": "Proovige uuesti",
+            "subtitle": "Kallutage ID-d aeglasemalt, et vältida hägusust",
+            "title": "Kallutamine liiga kiire"
+          },
           "up": "Kalluta ID-d üles"
         },
         "tilt_accessibility": {
@@ -985,6 +1010,17 @@
           "left": "Kallutage oma isikutunnistust vasakule, kuni kuulete kinnitust",
           "right": "Kallutage oma isikut tõendavat dokumenti paremale, kuni kuulete kinnitust",
           "up": "Kallutage oma ID-d üles, kuni kuulete kinnitust"
+        },
+        "tilt_issue": {
+          "button_primary": "Proovige uuesti",
+          "time_limit": {
+            "subtitle": "Turvalisuse tagamiseks on teil selle sammu lõpuleviimiseks kuni 20 sekundit",
+            "title": "Ajalimiit täis. \nProovi neid näpunäiteid"
+          },
+          "too_fast": {
+            "subtitle": "Kallutage ID-d aeglasemalt, et vältida hägusust",
+            "title": "Kallutamine liiga kiire"
+          }
         },
         "validity": {
           "button_primary": "Proovi uuesti",
@@ -1072,7 +1108,9 @@
         "iq_no_doc_title": "Dokumenti ei tuvastatud",
         "iq_obstruction_subtitle": "Liigutage sõrmed dokumendilt eemale",
         "iq_obstruction_title": "Teie dokument pole täielikult nähtav",
-        "title": "Tuvastasime probleemi"
+        "title": "Tuvastasime probleemi",
+        "wrong_side_subtitle": "We need the back of your ID to continue",
+        "wrong_side_title": "Incorrect side"
       }
     },
     "selection": {
@@ -1916,6 +1954,9 @@
         "title": "sample.preview.title"
       },
       "doc_help": {
+        "button_dot_1_accessibility": "document.help.button_dot_1_accessibility",
+        "button_dot_2_accessibility": "document.help.button_dot_2_accessibility",
+        "button_dot_3_accessibility": "document.help.button_dot_3_accessibility",
         "button_primary": "document.help.button_primary",
         "button_secondary": "document.help.button_secondary",
         "description_tip_1": "document.help.description_tip_1",
@@ -1928,6 +1969,7 @@
         "title_tip_3": "document.help.title_tip_3"
       },
       "doc_intro": {
+        "animation_accessibility": "document.intro.animation_accessibility",
         "button_primary_selection_off": "document.intro.button_primary_selection_off",
         "button_primary_selection_on": "document.intro.button_primary_selection_on",
         "list_item_tip_1": "document.intro.list_item_tip_1",
@@ -2055,7 +2097,9 @@
           "iq_no_doc_title": "document.scan.manual_quality_issue.iq_no_doc_title",
           "iq_obstruction_subtitle": "document.scan.manual_quality_issue.iq_obstruction_subtitle",
           "iq_obstruction_title": "document.scan.manual_quality_issue.iq_obstruction_title",
-          "title": "document.scan.manual_quality_issue.title"
+          "title": "document.scan.manual_quality_issue.title",
+          "wrong_side_subtitle": "document.scan.manual_quality_issue.wrong_side_subtitle",
+          "wrong_side_title": "document.scan.manual_quality_issue.wrong_side_title"
         }
       },
       "doc_select": {
@@ -2179,6 +2223,13 @@
         "title": "document.intro_tilt.title"
       },
       "doc_video_tilt": {
+        "error": {
+          "camera": {
+            "button_primary": "document.scan.feedback.tilt.error.camera.button_primary",
+            "subtitle": "document.scan.feedback.tilt.error.camera.subtitle",
+            "title": "document.scan.feedback.tilt.error.camera.title"
+          }
+        },
         "feedback": {
           "side_complete_accessibility": "document.scan.feedback.tilt_accessibility.complete",
           "tilt_down": "document.scan.feedback.tilt.down",
@@ -2188,7 +2239,12 @@
           "tilt_right": "document.scan.feedback.tilt.right",
           "tilt_right_accessibility": "document.scan.feedback.tilt_accessibility.right",
           "tilt_up": "document.scan.feedback.tilt.up",
-          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up"
+          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up",
+          "too_fast": {
+            "button_primary": "document.scan.feedback.tilt_issue.button_primary",
+            "subtitle": "document.scan.feedback.tilt_issue.too_fast.subtitle",
+            "title": "document.scan.feedback.tilt_issue.too_fast.title"
+          }
         },
         "instructions": {
           "sub_title_generic": "document.scan.instructions.subtitle_tilt_generic"
@@ -3093,6 +3149,13 @@
             "list_item_3_mic": "common.permissions.recovery.desktop_windows.device_settings.list_item_3_audio",
             "list_item_4": "common.permissions.recovery.desktop_windows.device_settings.list_item_4"
           }
+        },
+        "device_motion": {
+          "banner": "common.permissions.recovery.devicemotion.banner",
+          "item_1": "common.permissions.recovery.devicemotion.device_settings.list_item_1",
+          "item_2": "common.permissions.recovery.devicemotion.device_settings.list_item_2",
+          "subtitle": "common.permissions.recovery.subtitle_devicemotion",
+          "title": "common.permissions.recovery.title_devicemotion"
         },
         "info": "common.permissions.recovery.info",
         "ios": {

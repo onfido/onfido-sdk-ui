@@ -402,7 +402,7 @@
         "button_enable_video": "继续",
         "button_enable_video_audio": "继续",
         "devicemotion": {
-          "body": "如果无法访问设备的运动数据，我们就无法验证您的身份",
+          "body": "未获得设备运动数据访问权限，我们将无法验证您的身份。请参阅我们的<link>隐私声明</link>了解更多信息。",
           "button_enable": "启用",
           "subtitle": "出现提示时,请允许访问设备运动数据。这是继续操作所必需的。",
           "title": "允许设备运动访问"
@@ -427,13 +427,13 @@
           "title": "允许相机和麦克风访问"
         },
         "video_audio_devicemotion": {
-          "body": "如果未授予摄像头、麦克风和设备运动权限，我们将无法完成您的验证",
+          "body": "未获得摄像头、麦克风和设备运动权限，我们将无法验证您的身份。请参阅我们的<link>隐私声明</link>了解更多信息。",
           "button_enable": "全部启用",
           "subtitle": "在出现提示时，请依次允许每个权限。这是继续操作所必需的。",
           "title": "允许访问相机、麦克风和设备运动"
         },
         "video_devicemotion": {
-          "body": "没有相机和设备运动权限,我们无法验证您的身份",
+          "body": "未获得摄像头和设备运动权限，我们将无法验证您的身份。请参阅我们的<link>隐私声明</link>了解更多信息。",
           "button_enable": "启用两者",
           "subtitle": "在提示时允许每项权限。这是继续操作所必需的。",
           "title": "允许访问相机和设备运动"
@@ -571,6 +571,13 @@
         "device_settings": {
           "title": "解决方案2：设备设置"
         },
+        "devicemotion": {
+          "banner": "您的进度将会丢失，对此带来的不便深感抱歉。",
+          "device_settings": {
+            "list_item_1": "<strong>关闭并重新打开您的应用程序</strong>以重新开始验证流程。",
+            "list_item_2": "出现提示时，请允许访问设备运动以继续。"
+          }
+        },
         "disclaimer": "身份验证过程可能会重新开始。对任何不便表示歉意",
         "info": "恢复",
         "ios": {
@@ -610,9 +617,11 @@
           "how_to_video_audio": "通过浏览器设置授予对相机和麦克风的访问"
         },
         "subtitle_audio": "我们需要访问您的麦克风以验证您的身份。请按照以下指示恢复访问权限",
+        "subtitle_devicemotion": "我们需要访问您的设备运动和方向数据以验证您的身份。请按照以下说明恢复访问权限：",
         "subtitle_video": "我们需要访问您的摄像头以验证您的身份。请按照以下指示恢复访问权限",
         "subtitle_video_audio": "我们需要访问您的摄像头和麦克风以验证您的身份。按照下面的指示恢复访问权限",
         "title_audio": "麦克风访问被拒绝",
+        "title_devicemotion": "设备运动访问被拒绝",
         "title_video": "相机访问被拒绝",
         "title_video_audio": "相机和麦克风访问被拒绝"
       }
@@ -867,6 +876,9 @@
       "title": "提交护照照片页"
     },
     "help": {
+      "button_dot_1_accessibility": "Go to slide 1",
+      "button_dot_2_accessibility": "Go to slide 2",
+      "button_dot_3_accessibility": "Go to slide 3",
       "button_primary": "重试",
       "button_secondary": "手动扫描",
       "description_tip_1": "避免在光线不足的地方拍摄以防模糊。远离直射光源以防反光。",
@@ -888,6 +900,7 @@
       "title_tip_2": "将您的证件放置在框内"
     },
     "intro": {
+      "animation_accessibility": "An animation of the successful ID scanning process",
       "button_primary_selection_off": "开始扫描",
       "button_primary_selection_on": "选择证件",
       "list_item_tip_1": "找一个光线充足的地方",
@@ -975,8 +988,20 @@
         "iq_obstruction": "请将手指移开证件",
         "tilt": {
           "down": "将证件向下倾斜",
+          "error": {
+            "camera": {
+              "button_primary": "请重试",
+              "subtitle": "证件视频录制失败，请重试",
+              "title": "出现错误"
+            }
+          },
           "left": "将证件向左倾斜",
           "right": "向右倾斜证件",
+          "too_fast": {
+            "button_primary": "请重试",
+            "subtitle": "请缓慢倾斜证件，以防模糊",
+            "title": "倾斜过快"
+          },
           "up": "向上倾斜证件"
         },
         "tilt_accessibility": {
@@ -985,6 +1010,17 @@
           "left": "将您的证件向左倾斜，直到听到确认提示",
           "right": "将您的证件向右倾斜，直到听到确认提示",
           "up": "倾斜您的证件，直到听到确认提示"
+        },
+        "tilt_issue": {
+          "button_primary": "请重试",
+          "time_limit": {
+            "subtitle": "出于安全原因，您有最多 20 秒的时间来完成此步骤",
+            "title": "已达到时间限制。\n试试以下提示"
+          },
+          "too_fast": {
+            "subtitle": "请缓慢倾斜证件，以防模糊",
+            "title": "倾斜过快"
+          }
         },
         "validity": {
           "button_primary": "重试",
@@ -1072,7 +1108,9 @@
         "iq_no_doc_title": "未检测到证件",
         "iq_obstruction_subtitle": "将手指移离证件",
         "iq_obstruction_title": "您的证件未完全显示",
-        "title": "我们检测到一个问题"
+        "title": "我们检测到一个问题",
+        "wrong_side_subtitle": "We need the back of your ID to continue",
+        "wrong_side_title": "Incorrect side"
       }
     },
     "selection": {
@@ -1916,6 +1954,9 @@
         "title": "sample.preview.title"
       },
       "doc_help": {
+        "button_dot_1_accessibility": "document.help.button_dot_1_accessibility",
+        "button_dot_2_accessibility": "document.help.button_dot_2_accessibility",
+        "button_dot_3_accessibility": "document.help.button_dot_3_accessibility",
         "button_primary": "document.help.button_primary",
         "button_secondary": "document.help.button_secondary",
         "description_tip_1": "document.help.description_tip_1",
@@ -1928,6 +1969,7 @@
         "title_tip_3": "document.help.title_tip_3"
       },
       "doc_intro": {
+        "animation_accessibility": "document.intro.animation_accessibility",
         "button_primary_selection_off": "document.intro.button_primary_selection_off",
         "button_primary_selection_on": "document.intro.button_primary_selection_on",
         "list_item_tip_1": "document.intro.list_item_tip_1",
@@ -2055,7 +2097,9 @@
           "iq_no_doc_title": "document.scan.manual_quality_issue.iq_no_doc_title",
           "iq_obstruction_subtitle": "document.scan.manual_quality_issue.iq_obstruction_subtitle",
           "iq_obstruction_title": "document.scan.manual_quality_issue.iq_obstruction_title",
-          "title": "document.scan.manual_quality_issue.title"
+          "title": "document.scan.manual_quality_issue.title",
+          "wrong_side_subtitle": "document.scan.manual_quality_issue.wrong_side_subtitle",
+          "wrong_side_title": "document.scan.manual_quality_issue.wrong_side_title"
         }
       },
       "doc_select": {
@@ -2179,6 +2223,13 @@
         "title": "document.intro_tilt.title"
       },
       "doc_video_tilt": {
+        "error": {
+          "camera": {
+            "button_primary": "document.scan.feedback.tilt.error.camera.button_primary",
+            "subtitle": "document.scan.feedback.tilt.error.camera.subtitle",
+            "title": "document.scan.feedback.tilt.error.camera.title"
+          }
+        },
         "feedback": {
           "side_complete_accessibility": "document.scan.feedback.tilt_accessibility.complete",
           "tilt_down": "document.scan.feedback.tilt.down",
@@ -2188,7 +2239,12 @@
           "tilt_right": "document.scan.feedback.tilt.right",
           "tilt_right_accessibility": "document.scan.feedback.tilt_accessibility.right",
           "tilt_up": "document.scan.feedback.tilt.up",
-          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up"
+          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up",
+          "too_fast": {
+            "button_primary": "document.scan.feedback.tilt_issue.button_primary",
+            "subtitle": "document.scan.feedback.tilt_issue.too_fast.subtitle",
+            "title": "document.scan.feedback.tilt_issue.too_fast.title"
+          }
         },
         "instructions": {
           "sub_title_generic": "document.scan.instructions.subtitle_tilt_generic"
@@ -3093,6 +3149,13 @@
             "list_item_3_mic": "common.permissions.recovery.desktop_windows.device_settings.list_item_3_audio",
             "list_item_4": "common.permissions.recovery.desktop_windows.device_settings.list_item_4"
           }
+        },
+        "device_motion": {
+          "banner": "common.permissions.recovery.devicemotion.banner",
+          "item_1": "common.permissions.recovery.devicemotion.device_settings.list_item_1",
+          "item_2": "common.permissions.recovery.devicemotion.device_settings.list_item_2",
+          "subtitle": "common.permissions.recovery.subtitle_devicemotion",
+          "title": "common.permissions.recovery.title_devicemotion"
         },
         "info": "common.permissions.recovery.info",
         "ios": {

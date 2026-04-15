@@ -402,7 +402,7 @@
         "button_enable_video": "Jatka",
         "button_enable_video_audio": "Jatka",
         "devicemotion": {
-          "body": "Emme voi varmentaa henkilöllisyyttäsi ilman pääsyä laitteen liikeantureiden tietoihin",
+          "body": "Emme voi vahvistaa henkilöllisyyttäsi ilman pääsyä laitteen liiketunnistimen tietoihin. Lue lisää <link>tietosuojailmoituksestamme</link>.",
           "button_enable": "Ota käyttöön",
           "subtitle": "Kun sinua pyydetään, salli pääsy laitteen liikedataan. Tämä on edellytys jatkamiselle.",
           "title": "Salli laitteen liikepääsy"
@@ -427,13 +427,13 @@
           "title": "Salli kameran ja mikrofonin käyttö"
         },
         "video_audio_devicemotion": {
-          "body": "Emme voi vahvistaa henkilöllisyyttäsi ilman kamera-, mikrofoni- ja laitteen liikeoikeuksia",
+          "body": "Emme voi vahvistaa henkilöllisyyttäsi ilman kameran, mikrofonin ja laitteen liiketunnistimen käyttöoikeuksia. Lue lisää <link>tietosuojailmoituksestamme</link>.",
           "button_enable": "Ota kaikki käyttöön",
           "subtitle": "Salli jokainen käyttöoikeus, kun niitä pyydetään. Tämä vaaditaan jatkamista varten.",
           "title": "Salli kameran, mikrofonin ja laitteen liikkeentunnistuksen käyttöoikeus"
         },
         "video_devicemotion": {
-          "body": "Emme voi vahvistaa henkilöllisyyttäsi ilman kamera- ja laiteen liikeoikeuksia",
+          "body": "Emme voi vahvistaa henkilöllisyyttäsi ilman kamera- ja laitteen liiketunnistimen käyttöoikeuksia. Lue lisää <link>tietosuojailmoituksestamme</link>.",
           "button_enable": "Ota molemm. käytt.",
           "subtitle": "Salli jokainen käyttöoikeus, kun sitä pyydetään. Tämä vaaditaan jatkamiseksi.",
           "title": "Salli kamera- ja laiteliikkeen käyttöoikeus"
@@ -571,6 +571,13 @@
         "device_settings": {
           "title": "Ratkaisu 2: Laitteen asetukset"
         },
+        "devicemotion": {
+          "banner": "Edistymisesi menetetään. Pahoittelemme aiheutunutta haittaa.",
+          "device_settings": {
+            "list_item_1": "<strong>Sulje sovellus ja avaa se uudelleen</strong> käynnistääksesi vahvistusprosessin uudelleen.",
+            "list_item_2": "Salli laitteen liiketunnistuksen käyttö pyydettäessä jatkaaksesi."
+          }
+        },
         "disclaimer": "Henkilöllisyyden vahvistusprosessi saattaa käynnistyä uudelleen. Pahoittelemme mahdollista haittaa",
         "info": "Palautus",
         "ios": {
@@ -610,9 +617,11 @@
           "how_to_video_audio": "Myönnä kamerasi ja mikrofonisi käyttöoikeus selainasetuksistasi"
         },
         "subtitle_audio": "Tarvitsemme pääsyn mikrofoniisi henkilöllisyytesi varmistamiseksi. Noudata alla olevia ohjeita pääsyn palauttamiseksi",
+        "subtitle_devicemotion": "Tarvitsemme pääsyn laitteesi liike- ja suuntaustietoihin henkilöllisyytesi vahvistamiseksi. Palauta käyttöoikeus noudattamalla alla olevia ohjeita:",
         "subtitle_video": "Tarvitsemme pääsyn kameraasi henkilöllisyytesi varmistamiseksi. Noudata alla olevia ohjeita pääsyn palauttamiseksi",
         "subtitle_video_audio": "Tarvitsemme pääsyn kameraasi ja mikrofoniisi henkilöllisyytesi varmistamiseksi. Noudata alla olevia ohjeita pääsyn palauttamiseksi",
         "title_audio": "Mikrofonin käyttö estetty",
+        "title_devicemotion": "Laitteen liiketunnistuksen käyttöoikeus evätty",
         "title_video": "Kameran käyttö estetty",
         "title_video_audio": "Kameran ja mikrofonin käyttö estetty"
       }
@@ -867,6 +876,9 @@
       "title": "Toimita passin kuvallinen sivu"
     },
     "help": {
+      "button_dot_1_accessibility": "Go to slide 1",
+      "button_dot_2_accessibility": "Go to slide 2",
+      "button_dot_3_accessibility": "Go to slide 3",
       "button_primary": "Yritä uudelleen",
       "button_secondary": "Skannaa manuaalisesti",
       "description_tip_1": "Vältä hämärää, jotta kuva ei suttaannu. Siirry pois suorasta valosta, jotta heijastuksia ei synny.",
@@ -888,6 +900,7 @@
       "title_tip_2": "Aseta henkilöllisyystodistuksesi kehykseen"
     },
     "intro": {
+      "animation_accessibility": "An animation of the successful ID scanning process",
       "button_primary_selection_off": "Aloita skannaus",
       "button_primary_selection_on": "Valitse asiakirja",
       "list_item_tip_1": "Etsi paikka, jossa on hyvä valaistus",
@@ -975,8 +988,20 @@
         "iq_obstruction": "Siirrä sormet pois asiakirjan päältä",
         "tilt": {
           "down": "Kallista ID alas",
+          "error": {
+            "camera": {
+              "button_primary": "Yritä uud.",
+              "subtitle": "Asiakirjan videotallennus epäonnistui, yritä uudelleen",
+              "title": "Jokin meni pieleen"
+            }
+          },
           "left": "Kallista ID vasemmalle",
           "right": "Kallista ID:tä oikealle",
+          "too_fast": {
+            "button_primary": "Yritä uud.",
+            "subtitle": "Kallista henkilötodistustasi hitaammin epäterävyyden välttämiseksi",
+            "title": "Kallistus liian nopea"
+          },
           "up": "Kallista ID ylös"
         },
         "tilt_accessibility": {
@@ -985,6 +1010,17 @@
           "left": "Kallista henkilöllisyystodistusta vasemmalle, kunnes kuulet vahvistuksen",
           "right": "Kallista henkilöllisyystodistustasi oikealle, kunnes kuulet vahvistuksen",
           "up": "Kallista henkilöllisyystodistusta ylöspäin, kunnes kuulet vahvistuksen"
+        },
+        "tilt_issue": {
+          "button_primary": "Yritä uud.",
+          "time_limit": {
+            "subtitle": "Turvallisuussyistä sinulla on enintään 20 sekuntia aikaa suorittaa tämä vaihe",
+            "title": "Aikaraja saavutettu. \nKokeile näitä vinkkejä"
+          },
+          "too_fast": {
+            "subtitle": "Kallista henkilötodistustasi hitaammin epäterävyyden välttämiseksi",
+            "title": "Kallistus liian nopea"
+          }
         },
         "validity": {
           "button_primary": "Yritä uudelleen",
@@ -1072,7 +1108,9 @@
         "iq_no_doc_title": "Asiakirjaa ei havaittu",
         "iq_obstruction_subtitle": "Siirrä sormet irti asiakirjasta",
         "iq_obstruction_title": "Asiakirjasi ei näy kokonaan",
-        "title": "Havaitsimme ongelman"
+        "title": "Havaitsimme ongelman",
+        "wrong_side_subtitle": "We need the back of your ID to continue",
+        "wrong_side_title": "Incorrect side"
       }
     },
     "selection": {
@@ -1916,6 +1954,9 @@
         "title": "sample.preview.title"
       },
       "doc_help": {
+        "button_dot_1_accessibility": "document.help.button_dot_1_accessibility",
+        "button_dot_2_accessibility": "document.help.button_dot_2_accessibility",
+        "button_dot_3_accessibility": "document.help.button_dot_3_accessibility",
         "button_primary": "document.help.button_primary",
         "button_secondary": "document.help.button_secondary",
         "description_tip_1": "document.help.description_tip_1",
@@ -1928,6 +1969,7 @@
         "title_tip_3": "document.help.title_tip_3"
       },
       "doc_intro": {
+        "animation_accessibility": "document.intro.animation_accessibility",
         "button_primary_selection_off": "document.intro.button_primary_selection_off",
         "button_primary_selection_on": "document.intro.button_primary_selection_on",
         "list_item_tip_1": "document.intro.list_item_tip_1",
@@ -2055,7 +2097,9 @@
           "iq_no_doc_title": "document.scan.manual_quality_issue.iq_no_doc_title",
           "iq_obstruction_subtitle": "document.scan.manual_quality_issue.iq_obstruction_subtitle",
           "iq_obstruction_title": "document.scan.manual_quality_issue.iq_obstruction_title",
-          "title": "document.scan.manual_quality_issue.title"
+          "title": "document.scan.manual_quality_issue.title",
+          "wrong_side_subtitle": "document.scan.manual_quality_issue.wrong_side_subtitle",
+          "wrong_side_title": "document.scan.manual_quality_issue.wrong_side_title"
         }
       },
       "doc_select": {
@@ -2179,6 +2223,13 @@
         "title": "document.intro_tilt.title"
       },
       "doc_video_tilt": {
+        "error": {
+          "camera": {
+            "button_primary": "document.scan.feedback.tilt.error.camera.button_primary",
+            "subtitle": "document.scan.feedback.tilt.error.camera.subtitle",
+            "title": "document.scan.feedback.tilt.error.camera.title"
+          }
+        },
         "feedback": {
           "side_complete_accessibility": "document.scan.feedback.tilt_accessibility.complete",
           "tilt_down": "document.scan.feedback.tilt.down",
@@ -2188,7 +2239,12 @@
           "tilt_right": "document.scan.feedback.tilt.right",
           "tilt_right_accessibility": "document.scan.feedback.tilt_accessibility.right",
           "tilt_up": "document.scan.feedback.tilt.up",
-          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up"
+          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up",
+          "too_fast": {
+            "button_primary": "document.scan.feedback.tilt_issue.button_primary",
+            "subtitle": "document.scan.feedback.tilt_issue.too_fast.subtitle",
+            "title": "document.scan.feedback.tilt_issue.too_fast.title"
+          }
         },
         "instructions": {
           "sub_title_generic": "document.scan.instructions.subtitle_tilt_generic"
@@ -3093,6 +3149,13 @@
             "list_item_3_mic": "common.permissions.recovery.desktop_windows.device_settings.list_item_3_audio",
             "list_item_4": "common.permissions.recovery.desktop_windows.device_settings.list_item_4"
           }
+        },
+        "device_motion": {
+          "banner": "common.permissions.recovery.devicemotion.banner",
+          "item_1": "common.permissions.recovery.devicemotion.device_settings.list_item_1",
+          "item_2": "common.permissions.recovery.devicemotion.device_settings.list_item_2",
+          "subtitle": "common.permissions.recovery.subtitle_devicemotion",
+          "title": "common.permissions.recovery.title_devicemotion"
         },
         "info": "common.permissions.recovery.info",
         "ios": {

@@ -402,7 +402,7 @@
         "button_enable_video": "Fortsæt",
         "button_enable_video_audio": "Fortsæt",
         "devicemotion": {
-          "body": "Vi kan ikke bekræfte din identitet uden adgang til enhedens bevægelsesdata",
+          "body": "Vi kan ikke bekræfte din identitet uden adgang til enhedsbevægelsesdata. Læs mere i vores <link>databeskyttelsesmeddelelse</link>.",
           "button_enable": "Aktivér",
           "subtitle": "Når du bliver bedt om det, skal du give adgang til data om enhedens bevægelse. Dette er nødvendigt for at fortsætte.",
           "title": "Tillad adgang til enhedens bevægelse"
@@ -427,13 +427,13 @@
           "title": "Tillad adgang til kamera og mikrofon"
         },
         "video_audio_devicemotion": {
-          "body": "Vi kan ikke verificere dig uden tilladelse til kamera, mikrofon og enhedens bevægelse",
+          "body": "Vi kan ikke bekræfte din identitet uden tilladelse til kamera, mikrofon og enhedsbevægelse. Læs mere i vores <link>databeskyttelsesmeddelelse</link>.",
           "button_enable": "Aktivér alle",
           "subtitle": "Tillad hver tilladelse, når du bliver bedt om det. Dette er nødvendigt for at fortsætte.",
           "title": "Tillad adgang til kamera, mikrofon og enhedsbevægelse"
         },
         "video_devicemotion": {
-          "body": "Vi kan ikke verificere dig uden tilladelse til kamera og enhedsbevægelse",
+          "body": "Vi kan ikke bekræfte din identitet uden tilladelse til kamera og enhedsbevægelse. Læs mere i vores <link>databeskyttelsesmeddelelse</link>.",
           "button_enable": "Aktivér begge dele",
           "subtitle": "Tillad hver tilladelse, når du bliver bedt om det. Dette er påkrævet for at fortsætte.",
           "title": "Tillad adgang til kamera og enhedsbevægelse"
@@ -571,6 +571,13 @@
         "device_settings": {
           "title": "Løsning 2: Enhedsindstillinger"
         },
+        "devicemotion": {
+          "banner": "Din fremgang går tabt. Vi beklager ulejligheden.",
+          "device_settings": {
+            "list_item_1": "<strong>Luk og åbn appen igen</strong> for at genstarte bekræftelsesprocessen.",
+            "list_item_2": "Når du bliver bedt om det, skal du give adgang til enhedsbevægelse for at fortsætte."
+          }
+        },
         "disclaimer": "Identitetsverifikationsprocessen kan muligvis genstarte. Beklager eventuelle ulemper",
         "info": "Gendannelse",
         "ios": {
@@ -610,9 +617,11 @@
           "how_to_video_audio": "Giv adgang til dit kamera og din mikrofon fra dine browserindstillinger"
         },
         "subtitle_audio": "Vi har brug for adgang til din mikrofon for at verificere din identitet. Følg instruktionerne nedenfor for at gendanne adgang",
+        "subtitle_devicemotion": "Vi har brug for adgang til data om enhedens bevægelse og orientering for at bekræfte din identitet. Følg vejledningen nedenfor for at gendanne adgangen:",
         "subtitle_video": "Vi har brug for adgang til dit kamera for at verificere din identitet. Følg instruktionerne nedenfor for at gendanne adgangen",
         "subtitle_video_audio": "Vi har brug for adgang til dit kamera og mikrofon for at verificere din identitet. Følg instruktionerne nedenfor for at gendanne adgang",
         "title_audio": "Adgang til mikrofon er nægtet",
+        "title_devicemotion": "Adgang til enhedsbevægelse nægtet",
         "title_video": "Der er nægtet adgang til kameraet",
         "title_video_audio": "Adgang til mikrofon og kamera er nægtet"
       }
@@ -867,6 +876,9 @@
       "title": "Indsend side med pasfoto"
     },
     "help": {
+      "button_dot_1_accessibility": "Go to slide 1",
+      "button_dot_2_accessibility": "Go to slide 2",
+      "button_dot_3_accessibility": "Go to slide 3",
       "button_primary": "Prøv igen",
       "button_secondary": "Scan manuelt",
       "description_tip_1": "Undgå steder med svagt lys for at undgå slør. Flyt dig væk fra direkte lys for at undgå reflekser.",
@@ -888,6 +900,7 @@
       "title_tip_2": "Placer dit ID i rammen"
     },
     "intro": {
+      "animation_accessibility": "An animation of the successful ID scanning process",
       "button_primary_selection_off": "Start scanning",
       "button_primary_selection_on": "Vælg dokument",
       "list_item_tip_1": "Find et sted med god belysning",
@@ -975,8 +988,20 @@
         "iq_obstruction": "Flyt fingrene væk fra dokumentet",
         "tilt": {
           "down": "Vip dit ID ned",
+          "error": {
+            "camera": {
+              "button_primary": "Prøv igen",
+              "subtitle": "Optagelse af video af dokument mislykkedes. Prøv igen",
+              "title": "Der opstod en fejl"
+            }
+          },
           "left": "Vip dit ID til venstre",
           "right": "Vip dit ID til højre",
+          "too_fast": {
+            "button_primary": "Prøv igen",
+            "subtitle": "Vip dit ID langsommere for at undgå slør",
+            "title": "Vip for hurtigt"
+          },
           "up": "Vip dit ID op"
         },
         "tilt_accessibility": {
@@ -985,6 +1010,17 @@
           "left": "Vip dit ID til venstre, indtil du hører en bekræftelse",
           "right": "Vip dit ID til højre, indtil du hører en bekræftelse",
           "up": "Vip dit ID op, indtil du hører en bekræftelse"
+        },
+        "tilt_issue": {
+          "button_primary": "Prøv igen",
+          "time_limit": {
+            "subtitle": "Af sikkerhedsmæssige årsager har du op til 20 sekunder til at fuldføre dette trin",
+            "title": "Tidsgrænsen er nået. \nPrøv disse tips"
+          },
+          "too_fast": {
+            "subtitle": "Vip dit ID langsommere for at undgå slør",
+            "title": "Vip for hurtigt"
+          }
         },
         "validity": {
           "button_primary": "Prøv igen",
@@ -1072,7 +1108,9 @@
         "iq_no_doc_title": "Intet dokument registreret",
         "iq_obstruction_subtitle": "Flyt fingrene væk fra dokumentet",
         "iq_obstruction_title": "Dit dokument er ikke fuldt synligt",
-        "title": "Vi registrerede et problem"
+        "title": "Vi registrerede et problem",
+        "wrong_side_subtitle": "We need the back of your ID to continue",
+        "wrong_side_title": "Incorrect side"
       }
     },
     "selection": {
@@ -1916,6 +1954,9 @@
         "title": "sample.preview.title"
       },
       "doc_help": {
+        "button_dot_1_accessibility": "document.help.button_dot_1_accessibility",
+        "button_dot_2_accessibility": "document.help.button_dot_2_accessibility",
+        "button_dot_3_accessibility": "document.help.button_dot_3_accessibility",
         "button_primary": "document.help.button_primary",
         "button_secondary": "document.help.button_secondary",
         "description_tip_1": "document.help.description_tip_1",
@@ -1928,6 +1969,7 @@
         "title_tip_3": "document.help.title_tip_3"
       },
       "doc_intro": {
+        "animation_accessibility": "document.intro.animation_accessibility",
         "button_primary_selection_off": "document.intro.button_primary_selection_off",
         "button_primary_selection_on": "document.intro.button_primary_selection_on",
         "list_item_tip_1": "document.intro.list_item_tip_1",
@@ -2055,7 +2097,9 @@
           "iq_no_doc_title": "document.scan.manual_quality_issue.iq_no_doc_title",
           "iq_obstruction_subtitle": "document.scan.manual_quality_issue.iq_obstruction_subtitle",
           "iq_obstruction_title": "document.scan.manual_quality_issue.iq_obstruction_title",
-          "title": "document.scan.manual_quality_issue.title"
+          "title": "document.scan.manual_quality_issue.title",
+          "wrong_side_subtitle": "document.scan.manual_quality_issue.wrong_side_subtitle",
+          "wrong_side_title": "document.scan.manual_quality_issue.wrong_side_title"
         }
       },
       "doc_select": {
@@ -2179,6 +2223,13 @@
         "title": "document.intro_tilt.title"
       },
       "doc_video_tilt": {
+        "error": {
+          "camera": {
+            "button_primary": "document.scan.feedback.tilt.error.camera.button_primary",
+            "subtitle": "document.scan.feedback.tilt.error.camera.subtitle",
+            "title": "document.scan.feedback.tilt.error.camera.title"
+          }
+        },
         "feedback": {
           "side_complete_accessibility": "document.scan.feedback.tilt_accessibility.complete",
           "tilt_down": "document.scan.feedback.tilt.down",
@@ -2188,7 +2239,12 @@
           "tilt_right": "document.scan.feedback.tilt.right",
           "tilt_right_accessibility": "document.scan.feedback.tilt_accessibility.right",
           "tilt_up": "document.scan.feedback.tilt.up",
-          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up"
+          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up",
+          "too_fast": {
+            "button_primary": "document.scan.feedback.tilt_issue.button_primary",
+            "subtitle": "document.scan.feedback.tilt_issue.too_fast.subtitle",
+            "title": "document.scan.feedback.tilt_issue.too_fast.title"
+          }
         },
         "instructions": {
           "sub_title_generic": "document.scan.instructions.subtitle_tilt_generic"
@@ -3093,6 +3149,13 @@
             "list_item_3_mic": "common.permissions.recovery.desktop_windows.device_settings.list_item_3_audio",
             "list_item_4": "common.permissions.recovery.desktop_windows.device_settings.list_item_4"
           }
+        },
+        "device_motion": {
+          "banner": "common.permissions.recovery.devicemotion.banner",
+          "item_1": "common.permissions.recovery.devicemotion.device_settings.list_item_1",
+          "item_2": "common.permissions.recovery.devicemotion.device_settings.list_item_2",
+          "subtitle": "common.permissions.recovery.subtitle_devicemotion",
+          "title": "common.permissions.recovery.title_devicemotion"
         },
         "info": "common.permissions.recovery.info",
         "ios": {

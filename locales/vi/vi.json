@@ -402,7 +402,7 @@
         "button_enable_video": "Tiếp tục",
         "button_enable_video_audio": "Tiếp tục",
         "devicemotion": {
-          "body": "Chúng tôi không thể xác minh bạn nếu không có quyền truy cập vào dữ liệu chuyển động của thiết bị",
+          "body": "Chúng tôi không thể xác minh bạn nếu không có quyền truy cập dữ liệu chuyển động của thiết bị. Tìm hiểu thêm trong <link>thông báo quyền riêng tư</link> của chúng tôi.",
           "button_enable": "Bật",
           "subtitle": "Khi được yêu cầu, hãy cho phép truy cập dữ liệu chuyển động của thiết bị. Điều này là bắt buộc để tiếp tục.",
           "title": "Cho phép truy cập chuyển động thiết bị"
@@ -427,13 +427,13 @@
           "title": "Cho phép truy cập camera và micrô"
         },
         "video_audio_devicemotion": {
-          "body": "Chúng tôi không thể xác minh bạn nếu không có quyền sử dụng camera, micro và cảm biến chuyển động trên thiết bị",
+          "body": "Chúng tôi không thể xác minh bạn nếu không có quyền truy cập camera, micro và cảm biến chuyển động của thiết bị. Tìm hiểu thêm trong <link>thông báo quyền riêng tư</link> của chúng tôi.",
           "button_enable": "Bật tất cả",
           "subtitle": "Cho phép từng quyền khi được yêu cầu. Đây là yêu cầu bắt buộc để tiếp tục.",
           "title": "Cho phép truy cập camera, micrô và chuyển động thiết bị"
         },
         "video_devicemotion": {
-          "body": "Chúng tôi không thể xác minh danh tính của bạn nếu không có quyền truy cập camera và cảm biến chuyển động của thiết bị",
+          "body": "Chúng tôi không thể xác minh bạn nếu không có quyền truy cập camera và cảm biến chuyển động của thiết bị. Tìm hiểu thêm trong <link>thông báo quyền riêng tư</link> của chúng tôi.",
           "button_enable": "Cho phép cả hai",
           "subtitle": "Cho phép từng quyền khi được nhắc. Điều này là bắt buộc để tiếp tục.",
           "title": "Cho phép truy cập camera và chuyển động thiết bị"
@@ -571,6 +571,13 @@
         "device_settings": {
           "title": "Giải pháp 2: Cài đặt thiết bị"
         },
+        "devicemotion": {
+          "banner": "Tiến trình của bạn sẽ bị mất, xin lỗi vì sự bất tiện này.",
+          "device_settings": {
+            "list_item_1": "<strong>Đóng và mở lại ứng dụng</strong> để khởi động lại quy trình xác minh.",
+            "list_item_2": "Khi được hỏi, hãy cho phép truy cập chuyển động thiết bị để tiếp tục."
+          }
+        },
         "disclaimer": "Quá trình xác minh danh tính có thể bắt đầu lại. Xin lỗi vì bất kỳ sự bất tiện nào",
         "info": "Khôi phục",
         "ios": {
@@ -610,9 +617,11 @@
           "how_to_video_audio": "Cấp quyền truy cập vào máy ảnh và micrô từ cài đặt trình duyệt của bạn"
         },
         "subtitle_audio": "Chúng tôi cần quyền truy cập vào microphone của bạn để xác minh danh tính. Hãy làm theo hướng dẫn dưới đây để khôi phục quyền truy cập",
+        "subtitle_devicemotion": "Chúng tôi cần quyền truy cập vào dữ liệu chuyển động và định hướng của thiết bị để xác minh danh tính của bạn. Hãy làm theo hướng dẫn bên dưới để khôi phục quyền truy cập:",
         "subtitle_video": "Chúng tôi cần quyền truy cập vào camera của bạn để xác minh danh tính. Vui lòng làm theo hướng dẫn dưới đây để khôi phục quyền truy cập",
         "subtitle_video_audio": "Chúng tôi cần quyền truy cập vào camera và microphone của bạn để xác minh danh tính. Hãy làm theo hướng dẫn dưới đây để khôi phục quyền truy cập",
         "title_audio": "Quyền truy cập micrô bị từ chối",
+        "title_devicemotion": "Truy cập chuyển động thiết bị bị từ chối",
         "title_video": "Quyền truy cập máy ảnh bị từ chối",
         "title_video_audio": "Quyền truy cập máy ảnh và micrô bị từ chối"
       }
@@ -867,6 +876,9 @@
       "title": "Gửi trang có ảnh trong hộ chiếu"
     },
     "help": {
+      "button_dot_1_accessibility": "Go to slide 1",
+      "button_dot_2_accessibility": "Go to slide 2",
+      "button_dot_3_accessibility": "Go to slide 3",
       "button_primary": "Thử lại",
       "button_secondary": "Quét thủ công",
       "description_tip_1": "Tránh nơi thiếu sáng để không bị mờ. Tránh ánh sáng trực tiếp để không bị phản chiếu.",
@@ -888,6 +900,7 @@
       "title_tip_2": "Đặt giấy tờ tùy thân của bạn vào khung hình"
     },
     "intro": {
+      "animation_accessibility": "An animation of the successful ID scanning process",
       "button_primary_selection_off": "Bắt đầu quét",
       "button_primary_selection_on": "Chọn giấy tờ tùy thân",
       "list_item_tip_1": "Tìm một nơi có đủ ánh sáng",
@@ -975,8 +988,20 @@
         "iq_obstruction": "Di chuyển ngón tay ra khỏi giấy tờ",
         "tilt": {
           "down": "Nghiêng CMND xuống",
+          "error": {
+            "camera": {
+              "button_primary": "Thử lại",
+              "subtitle": "Ghi hình giấy tờ không thành công, vui lòng thử lại",
+              "title": "Đã xảy ra lỗi"
+            }
+          },
           "left": "Nghiêng CMND sang trái",
           "right": "Nghiêng CMND sang phải",
+          "too_fast": {
+            "button_primary": "Thử lại",
+            "subtitle": "Vui lòng nghiêng giấy tờ chậm hơn để tránh bị mờ",
+            "title": "Nghiêng quá nhanh"
+          },
           "up": "Nghiêng CMND lên"
         },
         "tilt_accessibility": {
@@ -985,6 +1010,17 @@
           "left": "Nghiêng giấy tờ tùy thân của bạn sang trái cho đến khi nghe thấy xác nhận",
           "right": "Nghiêng giấy tờ tùy thân sang phải cho đến khi bạn nghe thấy xác nhận",
           "up": "Nghiêng giấy tờ tùy thân lên cho đến khi bạn nghe thấy xác nhận"
+        },
+        "tilt_issue": {
+          "button_primary": "Thử lại",
+          "time_limit": {
+            "subtitle": "Vì lý do bảo mật, bạn có tối đa 20 giây để hoàn thành bước này",
+            "title": "Đã hết thời gian. \nThử các mẹo sau"
+          },
+          "too_fast": {
+            "subtitle": "Vui lòng nghiêng giấy tờ chậm hơn để tránh bị mờ",
+            "title": "Nghiêng quá nhanh"
+          }
         },
         "validity": {
           "button_primary": "Thử lại",
@@ -1072,7 +1108,9 @@
         "iq_no_doc_title": "Không phát hiện tài liệu",
         "iq_obstruction_subtitle": "Di chuyển ngón tay ra khỏi giấy tờ",
         "iq_obstruction_title": "Giấy tờ của bạn chưa hiển thị đầy đủ",
-        "title": "Đã phát hiện sự cố"
+        "title": "Đã phát hiện sự cố",
+        "wrong_side_subtitle": "We need the back of your ID to continue",
+        "wrong_side_title": "Incorrect side"
       }
     },
     "selection": {
@@ -1916,6 +1954,9 @@
         "title": "sample.preview.title"
       },
       "doc_help": {
+        "button_dot_1_accessibility": "document.help.button_dot_1_accessibility",
+        "button_dot_2_accessibility": "document.help.button_dot_2_accessibility",
+        "button_dot_3_accessibility": "document.help.button_dot_3_accessibility",
         "button_primary": "document.help.button_primary",
         "button_secondary": "document.help.button_secondary",
         "description_tip_1": "document.help.description_tip_1",
@@ -1928,6 +1969,7 @@
         "title_tip_3": "document.help.title_tip_3"
       },
       "doc_intro": {
+        "animation_accessibility": "document.intro.animation_accessibility",
         "button_primary_selection_off": "document.intro.button_primary_selection_off",
         "button_primary_selection_on": "document.intro.button_primary_selection_on",
         "list_item_tip_1": "document.intro.list_item_tip_1",
@@ -2055,7 +2097,9 @@
           "iq_no_doc_title": "document.scan.manual_quality_issue.iq_no_doc_title",
           "iq_obstruction_subtitle": "document.scan.manual_quality_issue.iq_obstruction_subtitle",
           "iq_obstruction_title": "document.scan.manual_quality_issue.iq_obstruction_title",
-          "title": "document.scan.manual_quality_issue.title"
+          "title": "document.scan.manual_quality_issue.title",
+          "wrong_side_subtitle": "document.scan.manual_quality_issue.wrong_side_subtitle",
+          "wrong_side_title": "document.scan.manual_quality_issue.wrong_side_title"
         }
       },
       "doc_select": {
@@ -2179,6 +2223,13 @@
         "title": "document.intro_tilt.title"
       },
       "doc_video_tilt": {
+        "error": {
+          "camera": {
+            "button_primary": "document.scan.feedback.tilt.error.camera.button_primary",
+            "subtitle": "document.scan.feedback.tilt.error.camera.subtitle",
+            "title": "document.scan.feedback.tilt.error.camera.title"
+          }
+        },
         "feedback": {
           "side_complete_accessibility": "document.scan.feedback.tilt_accessibility.complete",
           "tilt_down": "document.scan.feedback.tilt.down",
@@ -2188,7 +2239,12 @@
           "tilt_right": "document.scan.feedback.tilt.right",
           "tilt_right_accessibility": "document.scan.feedback.tilt_accessibility.right",
           "tilt_up": "document.scan.feedback.tilt.up",
-          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up"
+          "tilt_up_accessibility": "document.scan.feedback.tilt_accessibility.up",
+          "too_fast": {
+            "button_primary": "document.scan.feedback.tilt_issue.button_primary",
+            "subtitle": "document.scan.feedback.tilt_issue.too_fast.subtitle",
+            "title": "document.scan.feedback.tilt_issue.too_fast.title"
+          }
         },
         "instructions": {
           "sub_title_generic": "document.scan.instructions.subtitle_tilt_generic"
@@ -3093,6 +3149,13 @@
             "list_item_3_mic": "common.permissions.recovery.desktop_windows.device_settings.list_item_3_audio",
             "list_item_4": "common.permissions.recovery.desktop_windows.device_settings.list_item_4"
           }
+        },
+        "device_motion": {
+          "banner": "common.permissions.recovery.devicemotion.banner",
+          "item_1": "common.permissions.recovery.devicemotion.device_settings.list_item_1",
+          "item_2": "common.permissions.recovery.devicemotion.device_settings.list_item_2",
+          "subtitle": "common.permissions.recovery.subtitle_devicemotion",
+          "title": "common.permissions.recovery.title_devicemotion"
         },
         "info": "common.permissions.recovery.info",
         "ios": {
