@@ -987,7 +987,7 @@
         "iq_no_doc": "Belgeyi kadraja yerleştir",
         "iq_obstruction": "Parmaklarınızı belgeden uzaklaştırın",
         "tilt": {
-          "down": "Kimliğinizi aşağı eğin",
+          "down": "Kimliği aşağı eğin",
           "error": {
             "camera": {
               "button_primary": "Tekrar deneyin",
@@ -995,14 +995,14 @@
               "title": "Bir şeyler ters gitti"
             }
           },
-          "left": "Kimliğinizi sola eğin",
-          "right": "Kimliğinizi sağa eğin",
+          "left": "Kimliği sola eğin",
+          "right": "Kimliği sağa eğin",
           "too_fast": {
             "button_primary": "Tekrar deneyin",
             "subtitle": "Bulanıklığı önlemek için kimliğinizi daha yavaş eğin",
             "title": "Çok hızlı eğildi"
           },
-          "up": "Kimliğinizi yukarı eğin"
+          "up": "Kimliği yukarı eğin"
         },
         "tilt_accessibility": {
           "complete": "Tamamla",
@@ -1482,7 +1482,8 @@
         "list_item_three": "Taramaya başlamak için yüzünüzü çerçeveye konumlandırın",
         "list_item_two": "Yüzünüzü kapatan eşyaları çıkarın, gözlükler sorun değil",
         "subtitle": "Hesabınızı güvende tutmak için kimliğinizi doğrulayın",
-        "title": "Yüzünüzü tarayın"
+        "title": "Yüzünüzü tarayın",
+        "video_label_accessibility": "Yüzünü tararken hareketsiz duran birinin örnek animasyonu."
       },
       "play_pause_accessibility": "Oynat veya duraklat",
       "randomness": {
@@ -2807,7 +2808,8 @@
             "item_two": "faceMotion.intro.passive.list_item_two"
           },
           "subtitle": "faceMotion.intro.passive.subtitle",
-          "title": "faceMotion.intro.passive.title"
+          "title": "faceMotion.intro.passive.title",
+          "video_accessibility": "faceMotion.intro.passive.video_label_accessibility"
         }
       },
       "motion_randomness_capture": {
@@ -3979,7 +3981,8 @@
         "list_item_three": "Taramaya başlamak için yüzünüzü çerçeveye konumlandırın",
         "list_item_two": "Yüzünüzü kapatan eşyaları çıkarın, gözlükler sorun değil",
         "subtitle": "Hesabınızı güvende tutmak için kimliğinizi doğrulayın",
-        "title": "Yüzünüzü tarayın"
+        "title": "Yüzünüzü tarayın",
+        "video_label_accessibility": "Yüzünü tararken hareketsiz duran birinin örnek animasyonu."
       },
       "play_pause_accessibility": "Oynat veya duraklat",
       "randomness": {

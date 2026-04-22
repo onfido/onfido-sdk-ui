@@ -987,7 +987,7 @@
         "iq_no_doc": "枠内に本人確認書類を表示してください",
         "iq_obstruction": "指を書類から離してください",
         "tilt": {
-          "down": "IDを下に傾けてください",
+          "down": "IDを下に傾けて",
           "error": {
             "camera": {
               "button_primary": "再試行",
@@ -995,14 +995,14 @@
               "title": "エラーが発生しました"
             }
           },
-          "left": "IDを左に傾けてください",
-          "right": "IDを右に傾けてください",
+          "left": "IDを左に傾けて",
+          "right": "IDを右に傾けて",
           "too_fast": {
             "button_primary": "再試行",
             "subtitle": "ぼやけを防ぐため、IDをゆっくり傾けてください",
             "title": "傾けるのが速すぎます"
           },
-          "up": "IDを上に傾けてください"
+          "up": "IDを上に傾けて"
         },
         "tilt_accessibility": {
           "complete": "完了",
@@ -1482,7 +1482,8 @@
         "list_item_three": "顔をフレーム内に配置してスキャンを開始してください",
         "list_item_two": "顔を覆うものを外してください。眼鏡は問題ありません",
         "subtitle": "アカウントを安全に保つために本人確認を行ってください",
-        "title": "ご自身の顔をスキャンする"
+        "title": "ご自身の顔をスキャンする",
+        "video_label_accessibility": "顔をスキャンする際に静止している様子のアニメーション例。"
       },
       "play_pause_accessibility": "再生または一時停止",
       "randomness": {
@@ -2807,7 +2808,8 @@
             "item_two": "faceMotion.intro.passive.list_item_two"
           },
           "subtitle": "faceMotion.intro.passive.subtitle",
-          "title": "faceMotion.intro.passive.title"
+          "title": "faceMotion.intro.passive.title",
+          "video_accessibility": "faceMotion.intro.passive.video_label_accessibility"
         }
       },
       "motion_randomness_capture": {
@@ -3979,7 +3981,8 @@
         "list_item_three": "顔をフレーム内に配置してスキャンを開始してください",
         "list_item_two": "顔を覆うものを外してください。眼鏡は問題ありません",
         "subtitle": "アカウントを安全に保つために本人確認を行ってください",
-        "title": "ご自身の顔をスキャンする"
+        "title": "ご自身の顔をスキャンする",
+        "video_label_accessibility": "顔をスキャンする際に静止している様子のアニメーション例。"
       },
       "play_pause_accessibility": "再生または一時停止",
       "randomness": {

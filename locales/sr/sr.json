@@ -987,7 +987,7 @@
         "iq_no_doc": "Prikažite dokument u okviru",
         "iq_obstruction": "Померите прсте даље од документа",
         "tilt": {
-          "down": "Nagnite ID nadole",
+          "down": "Nakrenite ID dole",
           "error": {
             "camera": {
               "button_primary": "Probajte ponovo",
@@ -995,14 +995,14 @@
               "title": "Nešto je pošlo po zlu"
             }
           },
-          "left": "Nagnite ID ulevo",
-          "right": "Nagnite ID udesno",
+          "left": "Nakrenite ID levo",
+          "right": "Nakrenite ID desno",
           "too_fast": {
             "button_primary": "Probajte ponovo",
             "subtitle": "Нагињите личну карту спорије да бисте избегли замућenje",
             "title": "Нагиб превише брз"
           },
-          "up": "Nagnite ID gore"
+          "up": "Nakrenite ID gore"
         },
         "tilt_accessibility": {
           "complete": "Završeno",
@@ -1482,7 +1482,8 @@
         "list_item_three": "Позиционирајте лице у оквиру да бисте започели скенирање",
         "list_item_two": "Uklonite predmete koji pokrivaju vaše lice, naočare su u redu",
         "subtitle": "Potvrdite svoj identitet da biste zaštitili nalog",
-        "title": "skenirate lice"
+        "title": "skenirate lice",
+        "video_label_accessibility": "Пример анимације особе која мирно стоји током скенирања лица."
       },
       "play_pause_accessibility": "Pusti ili pauziraj",
       "randomness": {
@@ -2807,7 +2808,8 @@
             "item_two": "faceMotion.intro.passive.list_item_two"
           },
           "subtitle": "faceMotion.intro.passive.subtitle",
-          "title": "faceMotion.intro.passive.title"
+          "title": "faceMotion.intro.passive.title",
+          "video_accessibility": "faceMotion.intro.passive.video_label_accessibility"
         }
       },
       "motion_randomness_capture": {
@@ -3979,7 +3981,8 @@
         "list_item_three": "Позиционирајте лице у оквиру да бисте започели скенирање",
         "list_item_two": "Uklonite predmete koji pokrivaju vaše lice, naočare su u redu",
         "subtitle": "Potvrdite svoj identitet da biste zaštitili nalog",
-        "title": "skenirate lice"
+        "title": "skenirate lice",
+        "video_label_accessibility": "Пример анимације особе која мирно стоји током скенирања лица."
       },
       "play_pause_accessibility": "Pusti ili pauziraj",
       "randomness": {

@@ -987,7 +987,7 @@
         "iq_no_doc": "Visa dokument i ramen",
         "iq_obstruction": "Flytta fingrarna från dokumentet",
         "tilt": {
-          "down": "Luta ID:t nedåt",
+          "down": "Luta ID nedåt",
           "error": {
             "camera": {
               "button_primary": "Försök igen",
@@ -995,8 +995,8 @@
               "title": "Något gick fel"
             }
           },
-          "left": "Luta ID:t åt vänster",
-          "right": "Luta ID åt höger",
+          "left": "Luta ID vänster",
+          "right": "Luta ID höger",
           "too_fast": {
             "button_primary": "Försök igen",
             "subtitle": "Luta ditt ID långsammare för att undvika oskärpa",
@@ -1482,7 +1482,8 @@
         "list_item_three": "Placera ditt ansikte i ramen för att påbörja skanningen",
         "list_item_two": "Ta bort föremål som täcker ditt ansikte, glasögon är okej",
         "subtitle": "Bekräfta din identitet för att hålla ditt konto säkert",
-        "title": "Skanna ditt ansikte"
+        "title": "Skanna ditt ansikte",
+        "video_label_accessibility": "Exempelanimering av någon som håller sig stilla medan ansiktet skannas."
       },
       "play_pause_accessibility": "Spela upp eller pausa",
       "randomness": {
@@ -2807,7 +2808,8 @@
             "item_two": "faceMotion.intro.passive.list_item_two"
           },
           "subtitle": "faceMotion.intro.passive.subtitle",
-          "title": "faceMotion.intro.passive.title"
+          "title": "faceMotion.intro.passive.title",
+          "video_accessibility": "faceMotion.intro.passive.video_label_accessibility"
         }
       },
       "motion_randomness_capture": {
@@ -3979,7 +3981,8 @@
         "list_item_three": "Placera ditt ansikte i ramen för att påbörja skanningen",
         "list_item_two": "Ta bort föremål som täcker ditt ansikte, glasögon är okej",
         "subtitle": "Bekräfta din identitet för att hålla ditt konto säkert",
-        "title": "Skanna ditt ansikte"
+        "title": "Skanna ditt ansikte",
+        "video_label_accessibility": "Exempelanimering av någon som håller sig stilla medan ansiktet skannas."
       },
       "play_pause_accessibility": "Spela upp eller pausa",
       "randomness": {

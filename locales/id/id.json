@@ -1482,7 +1482,8 @@
         "list_item_three": "Posisikan wajah Anda di dalam bingkai untuk memulai pemindaian",
         "list_item_two": "Lepaskan benda yang menutupi wajah Anda, kacamata tidak masalah",
         "subtitle": "Konfirmasi identitas Anda untuk menjaga keamanan akun Anda",
-        "title": "Memindai wajah Anda"
+        "title": "Memindai wajah Anda",
+        "video_label_accessibility": "Contoh animasi seseorang yang diam saat memindai wajah mereka."
       },
       "play_pause_accessibility": "Putar atau hentikan sementara",
       "randomness": {
@@ -2807,7 +2808,8 @@
             "item_two": "faceMotion.intro.passive.list_item_two"
           },
           "subtitle": "faceMotion.intro.passive.subtitle",
-          "title": "faceMotion.intro.passive.title"
+          "title": "faceMotion.intro.passive.title",
+          "video_accessibility": "faceMotion.intro.passive.video_label_accessibility"
         }
       },
       "motion_randomness_capture": {
@@ -3979,7 +3981,8 @@
         "list_item_three": "Posisikan wajah Anda di dalam bingkai untuk memulai pemindaian",
         "list_item_two": "Lepaskan benda yang menutupi wajah Anda, kacamata tidak masalah",
         "subtitle": "Konfirmasi identitas Anda untuk menjaga keamanan akun Anda",
-        "title": "Memindai wajah Anda"
+        "title": "Memindai wajah Anda",
+        "video_label_accessibility": "Contoh animasi seseorang yang diam saat memindai wajah mereka."
       },
       "play_pause_accessibility": "Putar atau hentikan sementara",
       "randomness": {

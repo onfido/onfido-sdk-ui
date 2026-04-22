@@ -987,7 +987,7 @@
         "iq_no_doc": "दस्तावेज़ को फ़्रेम में दिखाएँ",
         "iq_obstruction": "दस्तावेज़ से उंगलियाँ हटाएँ",
         "tilt": {
-          "down": "अपना ID नीचे झुकाएं",
+          "down": "ID नीचे झुकाएं",
           "error": {
             "camera": {
               "button_primary": "फिर से कोशिश करें",
@@ -995,14 +995,14 @@
               "title": "कुछ गलत हो गया"
             }
           },
-          "left": "अपनी ID को बाईं ओर झुकाएं",
-          "right": "अपनी ID को दाईं ओर झुकाएं",
+          "left": "ID बाएं झुकाएं",
+          "right": "ID दाएं झुकाएं",
           "too_fast": {
             "button_primary": "फिर से कोशिश करें",
             "subtitle": "धुंधलापन रोकने के लिए अपना ID धीरे झुकाएं",
             "title": "बहुत तेज़ झुकाव"
           },
-          "up": "अपनी ID को ऊपर झुकाएं"
+          "up": "ID ऊपर झुकाएं"
         },
         "tilt_accessibility": {
           "complete": "पूर्ण",
@@ -1482,7 +1482,8 @@
         "list_item_three": "स्कैन शुरू करने के लिए अपने चेहरे को फ्रेम में रखें",
         "list_item_two": "अपने चेहरे को ढकने वाली वस्तुओं को हटाएं, चश्मा ठीक है",
         "subtitle": "अपने खाते को सुरक्षित रखने के लिए अपनी पहचान की पुष्टि करें",
-        "title": "अपना चेहरा स्कैन करें"
+        "title": "अपना चेहरा स्कैन करें",
+        "video_label_accessibility": "किसी व्यक्ति के चेहरे को स्कैन करते समय स्थिर रहने का उदाहरण एनिमेशन।"
       },
       "play_pause_accessibility": "चलाएँ या रोकें",
       "randomness": {
@@ -2807,7 +2808,8 @@
             "item_two": "faceMotion.intro.passive.list_item_two"
           },
           "subtitle": "faceMotion.intro.passive.subtitle",
-          "title": "faceMotion.intro.passive.title"
+          "title": "faceMotion.intro.passive.title",
+          "video_accessibility": "faceMotion.intro.passive.video_label_accessibility"
         }
       },
       "motion_randomness_capture": {
@@ -3979,7 +3981,8 @@
         "list_item_three": "स्कैन शुरू करने के लिए अपने चेहरे को फ्रेम में रखें",
         "list_item_two": "अपने चेहरे को ढकने वाली वस्तुओं को हटाएं, चश्मा ठीक है",
         "subtitle": "अपने खाते को सुरक्षित रखने के लिए अपनी पहचान की पुष्टि करें",
-        "title": "अपना चेहरा स्कैन करें"
+        "title": "अपना चेहरा स्कैन करें",
+        "video_label_accessibility": "किसी व्यक्ति के चेहरे को स्कैन करते समय स्थिर रहने का उदाहरण एनिमेशन।"
       },
       "play_pause_accessibility": "चलाएँ या रोकें",
       "randomness": {

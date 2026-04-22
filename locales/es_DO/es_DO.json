@@ -1482,7 +1482,8 @@
         "list_item_three": "Coloca tu cara dentro del recuadro para comenzar el escaneo",
         "list_item_two": "Quítate cualquier objeto que te cubra la cara; los lentes están bien.",
         "subtitle": "Confirma tu identidad para mantener tu cuenta segura",
-        "title": "Escanee su rostro"
+        "title": "Escanee su rostro",
+        "video_label_accessibility": "Animación de ejemplo de una persona manteniéndose quieta mientras escanea su rostro."
       },
       "play_pause_accessibility": "Reproducir o pausar",
       "randomness": {
@@ -2807,7 +2808,8 @@
             "item_two": "faceMotion.intro.passive.list_item_two"
           },
           "subtitle": "faceMotion.intro.passive.subtitle",
-          "title": "faceMotion.intro.passive.title"
+          "title": "faceMotion.intro.passive.title",
+          "video_accessibility": "faceMotion.intro.passive.video_label_accessibility"
         }
       },
       "motion_randomness_capture": {
@@ -3979,7 +3981,8 @@
         "list_item_three": "Coloca tu cara dentro del recuadro para comenzar el escaneo",
         "list_item_two": "Quítate cualquier objeto que te cubra la cara; los lentes están bien.",
         "subtitle": "Confirma tu identidad para mantener tu cuenta segura",
-        "title": "Escanee su rostro"
+        "title": "Escanee su rostro",
+        "video_label_accessibility": "Animación de ejemplo de una persona manteniéndose quieta mientras escanea su rostro."
       },
       "play_pause_accessibility": "Reproducir o pausar",
       "randomness": {

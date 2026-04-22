@@ -987,7 +987,7 @@
         "iq_no_doc": "Postavite dokument v okvir",
         "iq_obstruction": "Odmaknite prste od dokumenta",
         "tilt": {
-          "down": "Nagnite ID navzdol",
+          "down": "Nagnite ID dol",
           "error": {
             "camera": {
               "button_primary": "Poskusite znova",
@@ -995,14 +995,14 @@
               "title": "Nekaj je šlo narobe"
             }
           },
-          "left": "Nagnite ID v levo",
-          "right": "Nagnite ID v desno",
+          "left": "Nagnite ID levo",
+          "right": "Nagnite ID desno",
           "too_fast": {
             "button_primary": "Poskusite znova",
             "subtitle": "Nagibajte osebni dokument počasneje, da preprečite zamegljeno sliko",
             "title": "Nagib prehiter"
           },
-          "up": "Nagnite ID navzgor"
+          "up": "Nagnite ID gor"
         },
         "tilt_accessibility": {
           "complete": "Dokončano",
@@ -1482,7 +1482,8 @@
         "list_item_three": "Postavite obraz v okvir, da začnete skeniranje",
         "list_item_two": "Odstranite predmete, ki pokrivajo vaš obraz, očala so v redu",
         "subtitle": "Potrdite svojo identiteto, da ostane vaš račun varen",
-        "title": "Skenirajte vaš obraz"
+        "title": "Skenirajte vaš obraz",
+        "video_label_accessibility": "Primer animacije osebe, ki miruje med skeniranjem obraza."
       },
       "play_pause_accessibility": "Predvajaj ali ustavi",
       "randomness": {
@@ -2807,7 +2808,8 @@
             "item_two": "faceMotion.intro.passive.list_item_two"
           },
           "subtitle": "faceMotion.intro.passive.subtitle",
-          "title": "faceMotion.intro.passive.title"
+          "title": "faceMotion.intro.passive.title",
+          "video_accessibility": "faceMotion.intro.passive.video_label_accessibility"
         }
       },
       "motion_randomness_capture": {
@@ -3979,7 +3981,8 @@
         "list_item_three": "Postavite obraz v okvir, da začnete skeniranje",
         "list_item_two": "Odstranite predmete, ki pokrivajo vaš obraz, očala so v redu",
         "subtitle": "Potrdite svojo identiteto, da ostane vaš račun varen",
-        "title": "Skenirajte vaš obraz"
+        "title": "Skenirajte vaš obraz",
+        "video_label_accessibility": "Primer animacije osebe, ki miruje med skeniranjem obraza."
       },
       "play_pause_accessibility": "Predvajaj ali ustavi",
       "randomness": {

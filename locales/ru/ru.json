@@ -1482,7 +1482,8 @@
         "list_item_three": "Расположите лицо в кадре, чтобы начать сканирование",
         "list_item_two": "Уберите предметы, закрывающие лицо, очки можно оставить",
         "subtitle": "Подтвердите свою личность, чтобы обеспечить безопасность вашей учетной записи",
-        "title": "Отсканировать лицо"
+        "title": "Отсканировать лицо",
+        "video_label_accessibility": "Пример анимации человека, который держится неподвижно во время сканирования лица."
       },
       "play_pause_accessibility": "Воспроизведение или пауза",
       "randomness": {
@@ -2807,7 +2808,8 @@
             "item_two": "faceMotion.intro.passive.list_item_two"
           },
           "subtitle": "faceMotion.intro.passive.subtitle",
-          "title": "faceMotion.intro.passive.title"
+          "title": "faceMotion.intro.passive.title",
+          "video_accessibility": "faceMotion.intro.passive.video_label_accessibility"
         }
       },
       "motion_randomness_capture": {
@@ -3979,7 +3981,8 @@
         "list_item_three": "Расположите лицо в кадре, чтобы начать сканирование",
         "list_item_two": "Уберите предметы, закрывающие лицо, очки можно оставить",
         "subtitle": "Подтвердите свою личность, чтобы обеспечить безопасность вашей учетной записи",
-        "title": "Отсканировать лицо"
+        "title": "Отсканировать лицо",
+        "video_label_accessibility": "Пример анимации человека, который держится неподвижно во время сканирования лица."
       },
       "play_pause_accessibility": "Воспроизведение или пауза",
       "randomness": {

@@ -987,7 +987,7 @@
         "iq_no_doc": "أظهر المستند داخل الإطار",
         "iq_obstruction": "أبعد أصابعك عن المستند",
         "tilt": {
-          "down": "أمل البطاقة لأسفل",
+          "down": "أملْ ID للأسفل",
           "error": {
             "camera": {
               "button_primary": "إعادة المحاولة",
@@ -995,14 +995,14 @@
               "title": "حدث خطأ ما"
             }
           },
-          "left": "أملِ بطاقة هويتك يسارًا",
-          "right": "أمل مَعرِفَتَك يمينًا",
+          "left": "أملْ ID يسارًا",
+          "right": "أملْ ID يمينًا",
           "too_fast": {
             "button_primary": "إعادة المحاولة",
             "subtitle": "يُرجى إمالة هويتك ببطء لتجنّب الضبابية",
             "title": "الإمالة سريعة جدًا"
           },
-          "up": "أمل مَعرِفَتك لأعلى"
+          "up": "أملْ ID للأعلى"
         },
         "tilt_accessibility": {
           "complete": "إكمال",
@@ -1482,7 +1482,8 @@
         "list_item_three": "ضع وجهك داخل الإطار لبدء المسح",
         "list_item_two": "أزل أي شيء يغطي وجهك، النظارات الطبية مسموح بها",
         "subtitle": "تأكيد هويتك للحفاظ على أمان حسابك",
-        "title": "قم بمسح ضوئي لوجهك"
+        "title": "قم بمسح ضوئي لوجهك",
+        "video_label_accessibility": "مثال على رسم متحرك لشخص يبقى ثابتًا أثناء مسح وجهه."
       },
       "play_pause_accessibility": "تشغيل أو إيقاف مؤقت",
       "randomness": {
@@ -2807,7 +2808,8 @@
             "item_two": "faceMotion.intro.passive.list_item_two"
           },
           "subtitle": "faceMotion.intro.passive.subtitle",
-          "title": "faceMotion.intro.passive.title"
+          "title": "faceMotion.intro.passive.title",
+          "video_accessibility": "faceMotion.intro.passive.video_label_accessibility"
         }
       },
       "motion_randomness_capture": {
@@ -3979,7 +3981,8 @@
         "list_item_three": "ضع وجهك داخل الإطار لبدء المسح",
         "list_item_two": "أزل أي شيء يغطي وجهك، النظارات الطبية مسموح بها",
         "subtitle": "تأكيد هويتك للحفاظ على أمان حسابك",
-        "title": "قم بمسح ضوئي لوجهك"
+        "title": "قم بمسح ضوئي لوجهك",
+        "video_label_accessibility": "مثال على رسم متحرك لشخص يبقى ثابتًا أثناء مسح وجهه."
       },
       "play_pause_accessibility": "تشغيل أو إيقاف مؤقت",
       "randomness": {

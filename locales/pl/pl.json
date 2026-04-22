@@ -987,7 +987,7 @@
         "iq_no_doc": "Umieść dokument w ramce",
         "iq_obstruction": "Usuń palce z dokumentu",
         "tilt": {
-          "down": "Przechyl ID w dół",
+          "down": "Przechyl ID w dół",
           "error": {
             "camera": {
               "button_primary": "Spróbuj ponownie",
@@ -995,14 +995,14 @@
               "title": "Coś poszło nie tak"
             }
           },
-          "left": "Przechyl swój ID w lewo",
-          "right": "Przechyl dowód w prawo",
+          "left": "Przechyl ID w lewo",
+          "right": "Przechyl ID w prawo",
           "too_fast": {
             "button_primary": "Spróbuj ponownie",
             "subtitle": "Przechylaj dowód wolniej, aby uniknąć rozmycia",
             "title": "Zbyt szybkie przechylenie"
           },
-          "up": "Przechyl dowód w górę"
+          "up": "Przechyl ID w górę"
         },
         "tilt_accessibility": {
           "complete": "Zakończ",
@@ -1482,7 +1482,8 @@
         "list_item_three": "Ustaw twarz w ramce, aby rozpocząć skanowanie",
         "list_item_two": "Usuń przedmioty zasłaniające twarz, okulary są w porządku",
         "subtitle": "Potwierdź swoją tożsamość, aby chronić swoje konto",
-        "title": "Zeskanować swoją twarz"
+        "title": "Zeskanować swoją twarz",
+        "video_label_accessibility": "Przykładowa animacja przedstawiająca osobę trzymającą się nieruchomo podczas skanowania twarzy."
       },
       "play_pause_accessibility": "Odtwórz lub wstrzymaj",
       "randomness": {
@@ -2807,7 +2808,8 @@
             "item_two": "faceMotion.intro.passive.list_item_two"
           },
           "subtitle": "faceMotion.intro.passive.subtitle",
-          "title": "faceMotion.intro.passive.title"
+          "title": "faceMotion.intro.passive.title",
+          "video_accessibility": "faceMotion.intro.passive.video_label_accessibility"
         }
       },
       "motion_randomness_capture": {
@@ -3979,7 +3981,8 @@
         "list_item_three": "Ustaw twarz w ramce, aby rozpocząć skanowanie",
         "list_item_two": "Usuń przedmioty zasłaniające twarz, okulary są w porządku",
         "subtitle": "Potwierdź swoją tożsamość, aby chronić swoje konto",
-        "title": "Zeskanować swoją twarz"
+        "title": "Zeskanować swoją twarz",
+        "video_label_accessibility": "Przykładowa animacja przedstawiająca osobę trzymającą się nieruchomo podczas skanowania twarzy."
       },
       "play_pause_accessibility": "Odtwórz lub wstrzymaj",
       "randomness": {
@@ -4078,7 +4081,7 @@
         "document": "Gdy chip zostanie wykryty, trzymaj telefon i dokument nieruchomo.",
         "passport": "Gdy chip zostanie wykryty, utrzymuj telefon i paszport w bezruchu."
       },
-      "pin_disclaimer": "Poprosimy Cię o [%i]-cyfrowy PIN Twojego dokumentu [%i] przed zeskanowaniem chipa.",
+      "pin_disclaimer": "Poprosimy Cię o [%i]-cyfrowy PIN Twojego dokumentu przed zeskanowaniem chipa.",
       "title_document": "Zeskanuj swój dokument",
       "title_passport": "Zeskanuj chip swojego paszportu",
       "video_instruction_accessibility": "Instrukcja wideo"

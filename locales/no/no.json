@@ -987,7 +987,7 @@
         "iq_no_doc": "Vis ID i rammen",
         "iq_obstruction": "Flytt fingrene bort fra dokumentet",
         "tilt": {
-          "down": "Vipp ID-en ned",
+          "down": "Vipp ID ned",
           "error": {
             "camera": {
               "button_primary": "Prøv på nytt",
@@ -995,14 +995,14 @@
               "title": "Noe gikk galt"
             }
           },
-          "left": "Vipp ID-en til venstre",
-          "right": "Vipp ID-en til høyre",
+          "left": "Vipp ID til venstre",
+          "right": "Vipp ID til høyre",
           "too_fast": {
             "button_primary": "Prøv på nytt",
             "subtitle": "Vipp ID-en saktere for å unngå uskarphet",
             "title": "Vipper for raskt"
           },
-          "up": "Vipp ID-en opp"
+          "up": "Vipp ID opp"
         },
         "tilt_accessibility": {
           "complete": "Fullført",
@@ -1482,7 +1482,8 @@
         "list_item_three": "Plasser ansiktet ditt i rammen for å starte skanningen",
         "list_item_two": "Fjern gjenstander som dekker ansiktet ditt, briller går fint",
         "subtitle": "Bekreft identiteten din for å holde kontoen din trygg",
-        "title": "Skann ansiktet ditt"
+        "title": "Skann ansiktet ditt",
+        "video_label_accessibility": "Eksempel på animasjon av en person som holder seg i ro mens ansiktet skannes."
       },
       "play_pause_accessibility": "Spill av eller sett på pause",
       "randomness": {
@@ -2807,7 +2808,8 @@
             "item_two": "faceMotion.intro.passive.list_item_two"
           },
           "subtitle": "faceMotion.intro.passive.subtitle",
-          "title": "faceMotion.intro.passive.title"
+          "title": "faceMotion.intro.passive.title",
+          "video_accessibility": "faceMotion.intro.passive.video_label_accessibility"
         }
       },
       "motion_randomness_capture": {
@@ -3979,7 +3981,8 @@
         "list_item_three": "Plasser ansiktet ditt i rammen for å starte skanningen",
         "list_item_two": "Fjern gjenstander som dekker ansiktet ditt, briller går fint",
         "subtitle": "Bekreft identiteten din for å holde kontoen din trygg",
-        "title": "Skann ansiktet ditt"
+        "title": "Skann ansiktet ditt",
+        "video_label_accessibility": "Eksempel på animasjon av en person som holder seg i ro mens ansiktet skannes."
       },
       "play_pause_accessibility": "Spill av eller sett på pause",
       "randomness": {

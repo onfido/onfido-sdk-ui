@@ -987,7 +987,7 @@
         "iq_no_doc": "แสดงเอกสารให้พอดีในกรอบ",
         "iq_obstruction": "เอานิ้วออกจากเอกสาร",
         "tilt": {
-          "down": "เอียงบัตร ID ลง",
+          "down": "เอียง ID ลง",
           "error": {
             "camera": {
               "button_primary": "ลองอีกครั้ง",
@@ -995,14 +995,14 @@
               "title": "เกิดข้อผิดพลาดบางอย่าง"
             }
           },
-          "left": "เอียงบัตร ID ไปทางซ้าย",
-          "right": "เอียงบัตรไปทางขวา",
+          "left": "เอียง ID ซ้าย",
+          "right": "เอียง ID ขวา",
           "too_fast": {
             "button_primary": "ลองอีกครั้ง",
             "subtitle": "กรุณาเอียงบัตรช้าลงเพื่อป้องกันภาพเบลอ",
             "title": "เอียงเร็วเกินไป"
           },
-          "up": "เอียงบัตร ID ขึ้น"
+          "up": "เอียง ID ขึ้น"
         },
         "tilt_accessibility": {
           "complete": "เสร็จสมบูรณ์",
@@ -1482,7 +1482,8 @@
         "list_item_three": "วางใบหน้าของคุณในกรอบเพื่อเริ่มการสแกน",
         "list_item_two": "ถอดสิ่งของที่บังใบหน้าออก แว่นตาสามารถใส่ได้",
         "subtitle": "ยืนยันตัวตนของคุณเพื่อรักษาความปลอดภัยให้บัญชีของคุณ",
-        "title": "สแกนใบหน้าของคุณ"
+        "title": "สแกนใบหน้าของคุณ",
+        "video_label_accessibility": "ตัวอย่างภาพเคลื่อนไหวของบุคคลที่อยู่นิ่งขณะสแกนใบหน้า"
       },
       "play_pause_accessibility": "เล่นหรือหยุดชั่วคราว",
       "randomness": {
@@ -2807,7 +2808,8 @@
             "item_two": "faceMotion.intro.passive.list_item_two"
           },
           "subtitle": "faceMotion.intro.passive.subtitle",
-          "title": "faceMotion.intro.passive.title"
+          "title": "faceMotion.intro.passive.title",
+          "video_accessibility": "faceMotion.intro.passive.video_label_accessibility"
         }
       },
       "motion_randomness_capture": {
@@ -3979,7 +3981,8 @@
         "list_item_three": "วางใบหน้าของคุณในกรอบเพื่อเริ่มการสแกน",
         "list_item_two": "ถอดสิ่งของที่บังใบหน้าออก แว่นตาสามารถใส่ได้",
         "subtitle": "ยืนยันตัวตนของคุณเพื่อรักษาความปลอดภัยให้บัญชีของคุณ",
-        "title": "สแกนใบหน้าของคุณ"
+        "title": "สแกนใบหน้าของคุณ",
+        "video_label_accessibility": "ตัวอย่างภาพเคลื่อนไหวของบุคคลที่อยู่นิ่งขณะสแกนใบหน้า"
       },
       "play_pause_accessibility": "เล่นหรือหยุดชั่วคราว",
       "randomness": {

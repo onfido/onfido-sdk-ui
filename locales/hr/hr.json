@@ -987,7 +987,7 @@
         "iq_no_doc": "Prikažite dokument u okviru",
         "iq_obstruction": "Maknite prste s dokumenta",
         "tilt": {
-          "down": "Nagnite osobnu iskaznicu prema dolje",
+          "down": "Nagnite ID dolje",
           "error": {
             "camera": {
               "button_primary": "Pokušajte ponovno",
@@ -995,8 +995,8 @@
               "title": "Nešto je pošlo po zlu"
             }
           },
-          "left": "Nagnite ID ulijevo",
-          "right": "Nagnite osobnu iskaznicu udesno",
+          "left": "Nagnite ID lijevo",
+          "right": "Nagnite ID desno",
           "too_fast": {
             "button_primary": "Pokušajte ponovno",
             "subtitle": "Naginjajte osobnu iskaznicu sporije kako biste izbjegli zamućenje",
@@ -1482,7 +1482,8 @@
         "list_item_three": "Postavite lice u okvir kako biste započeli skeniranje",
         "list_item_two": "Uklonite predmete koji pokrivaju vaše lice, naočale su u redu",
         "subtitle": "Potvrdite svoj identitet kako biste zaštitili svoj račun",
-        "title": "Skenirajte svoje lice"
+        "title": "Skenirajte svoje lice",
+        "video_label_accessibility": "Primjer animacije osobe koja miruje dok se skenira njezino lice."
       },
       "play_pause_accessibility": "Reprodukcija ili pauza",
       "randomness": {
@@ -2807,7 +2808,8 @@
             "item_two": "faceMotion.intro.passive.list_item_two"
           },
           "subtitle": "faceMotion.intro.passive.subtitle",
-          "title": "faceMotion.intro.passive.title"
+          "title": "faceMotion.intro.passive.title",
+          "video_accessibility": "faceMotion.intro.passive.video_label_accessibility"
         }
       },
       "motion_randomness_capture": {
@@ -3979,7 +3981,8 @@
         "list_item_three": "Postavite lice u okvir kako biste započeli skeniranje",
         "list_item_two": "Uklonite predmete koji pokrivaju vaše lice, naočale su u redu",
         "subtitle": "Potvrdite svoj identitet kako biste zaštitili svoj račun",
-        "title": "Skenirajte svoje lice"
+        "title": "Skenirajte svoje lice",
+        "video_label_accessibility": "Primjer animacije osobe koja miruje dok se skenira njezino lice."
       },
       "play_pause_accessibility": "Reprodukcija ili pauza",
       "randomness": {

@@ -987,7 +987,7 @@
         "iq_no_doc": "Muestra el documento en el marco",
         "iq_obstruction": "Aparta los dedos del documento",
         "tilt": {
-          "down": "Inclina tu ID hacia abajo",
+          "down": "Inclina el ID hacia abajo",
           "error": {
             "camera": {
               "button_primary": "Intentar otra vez",
@@ -995,14 +995,14 @@
               "title": "Algo salió mal"
             }
           },
-          "left": "Inclina tu ID a la izquierda",
-          "right": "Inclina tu ID a la derecha",
+          "left": "Inclina el ID a la izquierda",
+          "right": "Inclina el ID a la derecha",
           "too_fast": {
             "button_primary": "Intentar otra vez",
             "subtitle": "Inclina tu documento más despacio para evitar el desenfoque",
             "title": "Inclinación demasiado rápida"
           },
-          "up": "Inclina tu ID hacia arriba"
+          "up": "Inclina el ID hacia arriba"
         },
         "tilt_accessibility": {
           "complete": "Completado",
@@ -1482,7 +1482,8 @@
         "list_item_three": "Coloca tu rostro dentro del marco para comenzar el escaneo",
         "list_item_two": "Retira cualquier objeto que cubra tu rostro; las gafas están bien.",
         "subtitle": "Confirma tu identidad para mantener tu cuenta segura",
-        "title": "Escanear su cara"
+        "title": "Escanear su cara",
+        "video_label_accessibility": "Animación de ejemplo de una persona que permanece quieta mientras se escanea su rostro."
       },
       "play_pause_accessibility": "Reproducir o pausar",
       "randomness": {
@@ -2807,7 +2808,8 @@
             "item_two": "faceMotion.intro.passive.list_item_two"
           },
           "subtitle": "faceMotion.intro.passive.subtitle",
-          "title": "faceMotion.intro.passive.title"
+          "title": "faceMotion.intro.passive.title",
+          "video_accessibility": "faceMotion.intro.passive.video_label_accessibility"
         }
       },
       "motion_randomness_capture": {
@@ -3979,7 +3981,8 @@
         "list_item_three": "Coloca tu rostro dentro del marco para comenzar el escaneo",
         "list_item_two": "Retira cualquier objeto que cubra tu rostro; las gafas están bien.",
         "subtitle": "Confirma tu identidad para mantener tu cuenta segura",
-        "title": "Escanear su cara"
+        "title": "Escanear su cara",
+        "video_label_accessibility": "Animación de ejemplo de una persona que permanece quieta mientras se escanea su rostro."
       },
       "play_pause_accessibility": "Reproducir o pausar",
       "randomness": {

@@ -987,7 +987,7 @@
         "iq_no_doc": "Ցույց տվեք փաստաթուղթը շրջանակում",
         "iq_obstruction": "Հեռացրեք մատները փաստաթղթից",
         "tilt": {
-          "down": "Թեքեք՝ ID-ն ներքև",
+          "down": "Թեքիր ID-ը վար",
           "error": {
             "camera": {
               "button_primary": "Կրկին փորձել",
@@ -995,14 +995,14 @@
               "title": "Ինչ-որ բան այնքան էլ ճիշտ չէ"
             }
           },
-          "left": "Շեղեք ձեր ID-ն ձախ",
-          "right": "Շեղեցրու ID-ն աջ",
+          "left": "Թեքիր ID-ը ձախ",
+          "right": "Թեքիր ID-ը աջ",
           "too_fast": {
             "button_primary": "Կրկին փորձել",
             "subtitle": "Խնդրում ենք ձեր անձնագրի շարժումը դանդաղեցնել՝ մարումից խուսափելու համար",
             "title": "Շարժումը չափազանց արագ է"
           },
-          "up": "Թեքեք ձեր ID-ն վերեւ"
+          "up": "Թեքիր ID-ը վեր"
         },
         "tilt_accessibility": {
           "complete": "Ավարտված",
@@ -1482,7 +1482,8 @@
         "list_item_three": "Դիրքավորեք ձեր դեմքը շրջանակի մեջ՝ սկանավորումը սկսելու համար",
         "list_item_two": "Հեռացրեք այն պարագաները, որոնք ծածկում են ձեր դեմքը, ակնոցները կարող եք թողնել",
         "subtitle": "Հաստատեք ձեր ինքնությունը՝ ձեր հաշիվը պաշտպանված պահելու համար",
-        "title": "Սկանավորեք ձեր դեմքը"
+        "title": "Սկանավորեք ձեր դեմքը",
+        "video_label_accessibility": "Օրինակային անիմացիա՝ ինչ-որ մեկի, ով պահում է անշարժ դեմքը՝ այն սկանավորելու ընթացքում։"
       },
       "play_pause_accessibility": "Նվագարկել կամ դադարեցնել",
       "randomness": {
@@ -2807,7 +2808,8 @@
             "item_two": "faceMotion.intro.passive.list_item_two"
           },
           "subtitle": "faceMotion.intro.passive.subtitle",
-          "title": "faceMotion.intro.passive.title"
+          "title": "faceMotion.intro.passive.title",
+          "video_accessibility": "faceMotion.intro.passive.video_label_accessibility"
         }
       },
       "motion_randomness_capture": {
@@ -3979,7 +3981,8 @@
         "list_item_three": "Դիրքավորեք ձեր դեմքը շրջանակի մեջ՝ սկանավորումը սկսելու համար",
         "list_item_two": "Հեռացրեք այն պարագաները, որոնք ծածկում են ձեր դեմքը, ակնոցները կարող եք թողնել",
         "subtitle": "Հաստատեք ձեր ինքնությունը՝ ձեր հաշիվը պաշտպանված պահելու համար",
-        "title": "Սկանավորեք ձեր դեմքը"
+        "title": "Սկանավորեք ձեր դեմքը",
+        "video_label_accessibility": "Օրինակային անիմացիա՝ ինչ-որ մեկի, ով պահում է անշարժ դեմքը՝ այն սկանավորելու ընթացքում։"
       },
       "play_pause_accessibility": "Նվագարկել կամ դադարեցնել",
       "randomness": {

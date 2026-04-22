@@ -987,7 +987,7 @@
         "iq_no_doc": "Parādiet dokumentu kadrā",
         "iq_obstruction": "Noņemiet pirkstus no dokumenta",
         "tilt": {
-          "down": "Nolieciet ID lejup",
+          "down": "Pagriez ID uz leju",
           "error": {
             "camera": {
               "button_primary": "Mēģināt vēlreiz",
@@ -995,14 +995,14 @@
               "title": "Radās kļūda"
             }
           },
-          "left": "Nolieciet ID pa kreisi",
-          "right": "Pagrieziet ID pa labi",
+          "left": "Pagriez ID pa kreisi",
+          "right": "Pagriez ID pa labi",
           "too_fast": {
             "button_primary": "Mēģināt vēlreiz",
             "subtitle": "Lūdzu, kustiniet savu ID lēnāk, lai izvairītos no aizmiglojuma",
             "title": "Pārāk ātra kustināšana"
           },
-          "up": "Paceliet ID uz augšu"
+          "up": "Pagriez ID uz augšu"
         },
         "tilt_accessibility": {
           "complete": "Pabeigts",
@@ -1482,7 +1482,8 @@
         "list_item_three": "Novietojiet seju rāmī, lai sāktu skenēšanu",
         "list_item_two": "Noņemiet priekšmetus, kas aizsedz jūsu seju, brilles drīkst atstāt",
         "subtitle": "Apstipriniet savu identitāti, lai pasargātu savu kontu",
-        "title": "Noskenētu savu seju."
+        "title": "Noskenētu savu seju.",
+        "video_label_accessibility": "Piemēra animācija ar cilvēku, kurš nekustīgi stāv, kamēr tiek skenēta viņa seja."
       },
       "play_pause_accessibility": "Atskaņot vai apturēt",
       "randomness": {
@@ -2807,7 +2808,8 @@
             "item_two": "faceMotion.intro.passive.list_item_two"
           },
           "subtitle": "faceMotion.intro.passive.subtitle",
-          "title": "faceMotion.intro.passive.title"
+          "title": "faceMotion.intro.passive.title",
+          "video_accessibility": "faceMotion.intro.passive.video_label_accessibility"
         }
       },
       "motion_randomness_capture": {
@@ -3979,7 +3981,8 @@
         "list_item_three": "Novietojiet seju rāmī, lai sāktu skenēšanu",
         "list_item_two": "Noņemiet priekšmetus, kas aizsedz jūsu seju, brilles drīkst atstāt",
         "subtitle": "Apstipriniet savu identitāti, lai pasargātu savu kontu",
-        "title": "Noskenētu savu seju."
+        "title": "Noskenētu savu seju.",
+        "video_label_accessibility": "Piemēra animācija ar cilvēku, kurš nekustīgi stāv, kamēr tiek skenēta viņa seja."
       },
       "play_pause_accessibility": "Atskaņot vai apturēt",
       "randomness": {

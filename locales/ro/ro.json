@@ -987,7 +987,7 @@
         "iq_no_doc": "Arată documentul în cadru",
         "iq_obstruction": "Îndepărtează degetele de pe document",
         "tilt": {
-          "down": "Înclină ID-ul în jos",
+          "down": "Înclină ID jos",
           "error": {
             "camera": {
               "button_primary": "Încercați din nou",
@@ -995,14 +995,14 @@
               "title": "Ceva nu a funcționat"
             }
           },
-          "left": "Înclină-ți ID-ul spre stânga",
-          "right": "Înclinați ID-ul spre dreapta",
+          "left": "Înclină ID stânga",
+          "right": "Înclină ID dreapta",
           "too_fast": {
             "button_primary": "Încercați din nou",
             "subtitle": "Vă rugăm să înclinați mai încet actul de identitate pentru a evita neclaritatea",
             "title": "Înclinați prea repede"
           },
-          "up": "Înclină-ți ID-ul în sus"
+          "up": "Înclină ID sus"
         },
         "tilt_accessibility": {
           "complete": "Finalizat",
@@ -1482,7 +1482,8 @@
         "list_item_three": "Poziționează-ți fața în chenar pentru a începe scanarea",
         "list_item_two": "Îndepărtează obiectele care îți acoperă fața; ochelarii sunt în regulă",
         "subtitle": "Confirmați-vă identitatea pentru a vă menține contul în siguranță",
-        "title": "Scanați fața dvs."
+        "title": "Scanați fața dvs.",
+        "video_label_accessibility": "Animație exemplu cu o persoană care stă nemișcată în timp ce își scanează fața."
       },
       "play_pause_accessibility": "Redați sau puneți pe pauză",
       "randomness": {
@@ -2807,7 +2808,8 @@
             "item_two": "faceMotion.intro.passive.list_item_two"
           },
           "subtitle": "faceMotion.intro.passive.subtitle",
-          "title": "faceMotion.intro.passive.title"
+          "title": "faceMotion.intro.passive.title",
+          "video_accessibility": "faceMotion.intro.passive.video_label_accessibility"
         }
       },
       "motion_randomness_capture": {
@@ -3979,7 +3981,8 @@
         "list_item_three": "Poziționează-ți fața în chenar pentru a începe scanarea",
         "list_item_two": "Îndepărtează obiectele care îți acoperă fața; ochelarii sunt în regulă",
         "subtitle": "Confirmați-vă identitatea pentru a vă menține contul în siguranță",
-        "title": "Scanați fața dvs."
+        "title": "Scanați fața dvs.",
+        "video_label_accessibility": "Animație exemplu cu o persoană care stă nemișcată în timp ce își scanează fața."
       },
       "play_pause_accessibility": "Redați sau puneți pe pauză",
       "randomness": {

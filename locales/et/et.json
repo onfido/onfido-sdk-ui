@@ -987,7 +987,7 @@
         "iq_no_doc": "Aseta dokument kaadrisse",
         "iq_obstruction": "Liiguta sõrmed dokumendist eemale",
         "tilt": {
-          "down": "Kalluta ID-d alla",
+          "down": "Kalluta ID alla",
           "error": {
             "camera": {
               "button_primary": "Proovige uuesti",
@@ -995,14 +995,14 @@
               "title": "Midagi läks valesti"
             }
           },
-          "left": "Kalluta ID-d vasakule",
-          "right": "Kalluta ID-d paremale",
+          "left": "Kalluta ID vasakule",
+          "right": "Kalluta ID paremale",
           "too_fast": {
             "button_primary": "Proovige uuesti",
             "subtitle": "Kallutage ID-d aeglasemalt, et vältida hägusust",
             "title": "Kallutamine liiga kiire"
           },
-          "up": "Kalluta ID-d üles"
+          "up": "Kalluta ID üles"
         },
         "tilt_accessibility": {
           "complete": "Valmis",
@@ -1482,7 +1482,8 @@
         "list_item_three": "Skaneerimise alustamiseks aseta oma nägu kaadri sisse",
         "list_item_two": "Eemaldage esemed, mis katavad teie nägu, prillid on lubatud",
         "subtitle": "Kinnitage oma isik, et hoida oma konto turvalisena",
-        "title": "Näo skannimine"
+        "title": "Näo skannimine",
+        "video_label_accessibility": "Näidisanimatsioon inimesest, kes hoiab näo skaneerimisel paigal."
       },
       "play_pause_accessibility": "Esita või peata",
       "randomness": {
@@ -2807,7 +2808,8 @@
             "item_two": "faceMotion.intro.passive.list_item_two"
           },
           "subtitle": "faceMotion.intro.passive.subtitle",
-          "title": "faceMotion.intro.passive.title"
+          "title": "faceMotion.intro.passive.title",
+          "video_accessibility": "faceMotion.intro.passive.video_label_accessibility"
         }
       },
       "motion_randomness_capture": {
@@ -3979,7 +3981,8 @@
         "list_item_three": "Skaneerimise alustamiseks aseta oma nägu kaadri sisse",
         "list_item_two": "Eemaldage esemed, mis katavad teie nägu, prillid on lubatud",
         "subtitle": "Kinnitage oma isik, et hoida oma konto turvalisena",
-        "title": "Näo skannimine"
+        "title": "Näo skannimine",
+        "video_label_accessibility": "Näidisanimatsioon inimesest, kes hoiab näo skaneerimisel paigal."
       },
       "play_pause_accessibility": "Esita või peata",
       "randomness": {

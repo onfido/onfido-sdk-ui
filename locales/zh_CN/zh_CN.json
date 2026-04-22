@@ -987,7 +987,7 @@
         "iq_no_doc": "将证件放入框内",
         "iq_obstruction": "请将手指移开证件",
         "tilt": {
-          "down": "将证件向下倾斜",
+          "down": "向下倾斜ID",
           "error": {
             "camera": {
               "button_primary": "请重试",
@@ -995,14 +995,14 @@
               "title": "出现错误"
             }
           },
-          "left": "将证件向左倾斜",
-          "right": "向右倾斜证件",
+          "left": "向左倾斜ID",
+          "right": "向右倾斜ID",
           "too_fast": {
             "button_primary": "请重试",
             "subtitle": "请缓慢倾斜证件，以防模糊",
             "title": "倾斜过快"
           },
-          "up": "向上倾斜证件"
+          "up": "向上倾斜ID"
         },
         "tilt_accessibility": {
           "complete": "完成",
@@ -1482,7 +1482,8 @@
         "list_item_three": "将您的面部置于框内以开始扫描",
         "list_item_two": "请移除遮挡面部的物品,眼镜可以保留",
         "subtitle": "确认您的身份以保障账户安全",
-        "title": "扫描您的面部"
+        "title": "扫描您的面部",
+        "video_label_accessibility": "某人保持静止并扫描面部的示例动画。"
       },
       "play_pause_accessibility": "播放或暂停",
       "randomness": {
@@ -2807,7 +2808,8 @@
             "item_two": "faceMotion.intro.passive.list_item_two"
           },
           "subtitle": "faceMotion.intro.passive.subtitle",
-          "title": "faceMotion.intro.passive.title"
+          "title": "faceMotion.intro.passive.title",
+          "video_accessibility": "faceMotion.intro.passive.video_label_accessibility"
         }
       },
       "motion_randomness_capture": {
@@ -3979,7 +3981,8 @@
         "list_item_three": "将您的面部置于框内以开始扫描",
         "list_item_two": "请移除遮挡面部的物品,眼镜可以保留",
         "subtitle": "确认您的身份以保障账户安全",
-        "title": "扫描您的面部"
+        "title": "扫描您的面部",
+        "video_label_accessibility": "某人保持静止并扫描面部的示例动画。"
       },
       "play_pause_accessibility": "播放或暂停",
       "randomness": {

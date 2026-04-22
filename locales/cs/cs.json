@@ -987,7 +987,7 @@
         "iq_no_doc": "Umístěte doklad do rámečku",
         "iq_obstruction": "Odstraňte prsty z dokladu",
         "tilt": {
-          "down": "Nakloňte doklad dolů",
+          "down": "Nakloňte ID dolů",
           "error": {
             "camera": {
               "button_primary": "Zkuste to znovu",
@@ -995,14 +995,14 @@
               "title": "Došlo k chybě"
             }
           },
-          "left": "Nakloňte doklad doleva",
-          "right": "Nakloňte doklad doprava",
+          "left": "Nakloňte ID vlevo",
+          "right": "Nakloňte ID vpravo",
           "too_fast": {
             "button_primary": "Zkuste to znovu",
             "subtitle": "Nakloňte prosím svůj doklad pomaleji, aby se předešlo rozmazání",
             "title": "Příliš rychlé naklonění"
           },
-          "up": "Nakloňte doklad nahoru"
+          "up": "Nakloňte ID nahoru"
         },
         "tilt_accessibility": {
           "complete": "Dokončit",
@@ -1482,7 +1482,8 @@
         "list_item_three": "Umístěte obličej do rámečku pro zahájení skenování",
         "list_item_two": "Odstraňte předměty, které zakrývají váš obličej, brýle jsou v pořádku",
         "subtitle": "Potvrďte svou identitu, abyste udrželi svůj účet v bezpečí",
-        "title": "Skenování obličeje"
+        "title": "Skenování obličeje",
+        "video_label_accessibility": "Ukázková animace osoby, která se nehýbe při snímání obličeje."
       },
       "play_pause_accessibility": "Přehrát nebo pozastavit",
       "randomness": {
@@ -2807,7 +2808,8 @@
             "item_two": "faceMotion.intro.passive.list_item_two"
           },
           "subtitle": "faceMotion.intro.passive.subtitle",
-          "title": "faceMotion.intro.passive.title"
+          "title": "faceMotion.intro.passive.title",
+          "video_accessibility": "faceMotion.intro.passive.video_label_accessibility"
         }
       },
       "motion_randomness_capture": {
@@ -3979,7 +3981,8 @@
         "list_item_three": "Umístěte obličej do rámečku pro zahájení skenování",
         "list_item_two": "Odstraňte předměty, které zakrývají váš obličej, brýle jsou v pořádku",
         "subtitle": "Potvrďte svou identitu, abyste udrželi svůj účet v bezpečí",
-        "title": "Skenování obličeje"
+        "title": "Skenování obličeje",
+        "video_label_accessibility": "Ukázková animace osoby, která se nehýbe při snímání obličeje."
       },
       "play_pause_accessibility": "Přehrát nebo pozastavit",
       "randomness": {

@@ -995,14 +995,14 @@
               "title": "Sesuatu telah berlaku salah"
             }
           },
-          "left": "Condongkan ID anda ke kiri",
+          "left": "Condongkan ID ke kiri",
           "right": "Condongkan ID ke kanan",
           "too_fast": {
             "button_primary": "Cuba lagi",
             "subtitle": "Sila condongkan ID anda dengan lebih perlahan untuk elakkan kabur",
             "title": "Condong terlalu laju"
           },
-          "up": "Miringkan ID ke atas"
+          "up": "Condongkan ID ke atas"
         },
         "tilt_accessibility": {
           "complete": "Lengkap",
@@ -1482,7 +1482,8 @@
         "list_item_three": "Posisikan muka anda dalam bingkai untuk memulakan imbasan",
         "list_item_two": "Tanggalkan barang yang menutupi muka anda, cermin mata dibenarkan",
         "subtitle": "Sahkan identiti anda untuk memastikan akaun anda kekal selamat",
-        "title": "Imbas wajah anda"
+        "title": "Imbas wajah anda",
+        "video_label_accessibility": "Animasi contoh seseorang yang kekal kaku semasa mengimbas wajah mereka."
       },
       "play_pause_accessibility": "Main atau jeda",
       "randomness": {
@@ -2807,7 +2808,8 @@
             "item_two": "faceMotion.intro.passive.list_item_two"
           },
           "subtitle": "faceMotion.intro.passive.subtitle",
-          "title": "faceMotion.intro.passive.title"
+          "title": "faceMotion.intro.passive.title",
+          "video_accessibility": "faceMotion.intro.passive.video_label_accessibility"
         }
       },
       "motion_randomness_capture": {
@@ -3979,7 +3981,8 @@
         "list_item_three": "Posisikan muka anda dalam bingkai untuk memulakan imbasan",
         "list_item_two": "Tanggalkan barang yang menutupi muka anda, cermin mata dibenarkan",
         "subtitle": "Sahkan identiti anda untuk memastikan akaun anda kekal selamat",
-        "title": "Imbas wajah anda"
+        "title": "Imbas wajah anda",
+        "video_label_accessibility": "Animasi contoh seseorang yang kekal kaku semasa mengimbas wajah mereka."
       },
       "play_pause_accessibility": "Main atau jeda",
       "randomness": {

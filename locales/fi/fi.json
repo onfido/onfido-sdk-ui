@@ -996,7 +996,7 @@
             }
           },
           "left": "Kallista ID vasemmalle",
-          "right": "Kallista ID:tä oikealle",
+          "right": "Kallista ID oikealle",
           "too_fast": {
             "button_primary": "Yritä uud.",
             "subtitle": "Kallista henkilötodistustasi hitaammin epäterävyyden välttämiseksi",
@@ -1482,7 +1482,8 @@
         "list_item_three": "Aseta kasvosi kehyksen sisään aloittaaksesi skannauksen",
         "list_item_two": "Poista kasvojasi peittävät esineet, silmälasit ovat ok",
         "subtitle": "Vahvista henkilöllisyytesi suojataksesi tilisi",
-        "title": "skannataksesi kasvosi"
+        "title": "skannataksesi kasvosi",
+        "video_label_accessibility": "Esimerkkianimaatio henkilöstä, joka pitää päänsä paikallaan kasvoja skannattaessa."
       },
       "play_pause_accessibility": "Toista tai keskeytä",
       "randomness": {
@@ -2807,7 +2808,8 @@
             "item_two": "faceMotion.intro.passive.list_item_two"
           },
           "subtitle": "faceMotion.intro.passive.subtitle",
-          "title": "faceMotion.intro.passive.title"
+          "title": "faceMotion.intro.passive.title",
+          "video_accessibility": "faceMotion.intro.passive.video_label_accessibility"
         }
       },
       "motion_randomness_capture": {
@@ -3979,7 +3981,8 @@
         "list_item_three": "Aseta kasvosi kehyksen sisään aloittaaksesi skannauksen",
         "list_item_two": "Poista kasvojasi peittävät esineet, silmälasit ovat ok",
         "subtitle": "Vahvista henkilöllisyytesi suojataksesi tilisi",
-        "title": "skannataksesi kasvosi"
+        "title": "skannataksesi kasvosi",
+        "video_label_accessibility": "Esimerkkianimaatio henkilöstä, joka pitää päänsä paikallaan kasvoja skannattaessa."
       },
       "play_pause_accessibility": "Toista tai keskeytä",
       "randomness": {

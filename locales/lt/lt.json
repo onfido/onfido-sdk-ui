@@ -987,7 +987,7 @@
         "iq_no_doc": "Laikykite dokumentą rėmelyje",
         "iq_obstruction": "Patraukite pirštus nuo dokumento",
         "tilt": {
-          "down": "Palenkite ID žemyn",
+          "down": "Palenk ID žemyn",
           "error": {
             "camera": {
               "button_primary": "Bandyti dar kartą",
@@ -995,14 +995,14 @@
               "title": "Įvyko klaida"
             }
           },
-          "left": "Pakreipkite ID į kairę",
-          "right": "Palenkite ID į dešinę",
+          "left": "Palenk ID kairėn",
+          "right": "Palenk ID dešinėn",
           "too_fast": {
             "button_primary": "Bandyti dar kartą",
             "subtitle": "Pakreipkite asmens dokumentą lėčiau, kad nebūtų suliejimo",
             "title": "Per greitai pakreipta"
           },
-          "up": "Pakreipkite ID aukštyn"
+          "up": "Palenk ID aukštyn"
         },
         "tilt_accessibility": {
           "complete": "Baigta",
@@ -1482,7 +1482,8 @@
         "list_item_three": "Padėkite veidą rėmelyje, kad pradėtumėte nuskaitymą",
         "list_item_two": "Nuimkite daiktus, dengiančius jūsų veidą; akiniai yra tinkami",
         "subtitle": "Patvirtinkite savo tapatybę, kad apsaugotumėte paskyrą",
-        "title": "Nuskaitykite savo veidą"
+        "title": "Nuskaitykite savo veidą",
+        "video_label_accessibility": "Pavyzdinė animacija, kurioje matyti žmogus, ramiai laikantis galvą veido skenavimo metu."
       },
       "play_pause_accessibility": "Leisti arba sustabdyti",
       "randomness": {
@@ -2807,7 +2808,8 @@
             "item_two": "faceMotion.intro.passive.list_item_two"
           },
           "subtitle": "faceMotion.intro.passive.subtitle",
-          "title": "faceMotion.intro.passive.title"
+          "title": "faceMotion.intro.passive.title",
+          "video_accessibility": "faceMotion.intro.passive.video_label_accessibility"
         }
       },
       "motion_randomness_capture": {
@@ -3979,7 +3981,8 @@
         "list_item_three": "Padėkite veidą rėmelyje, kad pradėtumėte nuskaitymą",
         "list_item_two": "Nuimkite daiktus, dengiančius jūsų veidą; akiniai yra tinkami",
         "subtitle": "Patvirtinkite savo tapatybę, kad apsaugotumėte paskyrą",
-        "title": "Nuskaitykite savo veidą"
+        "title": "Nuskaitykite savo veidą",
+        "video_label_accessibility": "Pavyzdinė animacija, kurioje matyti žmogus, ramiai laikantis galvą veido skenavimo metu."
       },
       "play_pause_accessibility": "Leisti arba sustabdyti",
       "randomness": {

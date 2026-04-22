@@ -987,7 +987,7 @@
         "iq_no_doc": "Mostre o documento no quadro",
         "iq_obstruction": "Afaste os dedos do documento",
         "tilt": {
-          "down": "Incline seu ID para baixo",
+          "down": "Incline o ID para baixo",
           "error": {
             "camera": {
               "button_primary": "Tentar novamente",
@@ -995,14 +995,14 @@
               "title": "Algo deu errado"
             }
           },
-          "left": "Incline seu ID para a esquerda",
-          "right": "Incline seu ID para a direita",
+          "left": "Incline o ID à esquerda",
+          "right": "Incline o ID à direita",
           "too_fast": {
             "button_primary": "Tentar novamente",
             "subtitle": "Incline seu documento mais devagar para evitar desfoque",
             "title": "Inclinação muito rápida"
           },
-          "up": "Incline seu ID para cima"
+          "up": "Incline o ID para cima"
         },
         "tilt_accessibility": {
           "complete": "Concluído",
@@ -1482,7 +1482,8 @@
         "list_item_three": "Posicione seu rosto no quadro para iniciar a verificação",
         "list_item_two": "Remova itens que cobrem seu rosto, óculos de grau são permitidos",
         "subtitle": "Confirme sua identidade para manter sua conta segura",
-        "title": "Digitalizar seu rosto"
+        "title": "Digitalizar seu rosto",
+        "video_label_accessibility": "Exemplo de animação de alguém ficando parado enquanto escaneia o rosto."
       },
       "play_pause_accessibility": "Reproduzir ou pausar",
       "randomness": {
@@ -2807,7 +2808,8 @@
             "item_two": "faceMotion.intro.passive.list_item_two"
           },
           "subtitle": "faceMotion.intro.passive.subtitle",
-          "title": "faceMotion.intro.passive.title"
+          "title": "faceMotion.intro.passive.title",
+          "video_accessibility": "faceMotion.intro.passive.video_label_accessibility"
         }
       },
       "motion_randomness_capture": {
@@ -3979,7 +3981,8 @@
         "list_item_three": "Posicione seu rosto no quadro para iniciar a verificação",
         "list_item_two": "Remova itens que cobrem seu rosto, óculos de grau são permitidos",
         "subtitle": "Confirme sua identidade para manter sua conta segura",
-        "title": "Digitalizar seu rosto"
+        "title": "Digitalizar seu rosto",
+        "video_label_accessibility": "Exemplo de animação de alguém ficando parado enquanto escaneia o rosto."
       },
       "play_pause_accessibility": "Reproduzir ou pausar",
       "randomness": {

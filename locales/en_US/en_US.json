@@ -1482,7 +1482,8 @@
         "list_item_three": "Position your face in the frame to begin the scan",
         "list_item_two": "Remove items that cover your face, eyeglasses are ok",
         "subtitle": "Confirm your identity to keep your account safe",
-        "title": "Scan your face"
+        "title": "Scan your face",
+        "video_label_accessibility": "Example animation of someone holding still while scanning their face."
       },
       "play_pause_accessibility": "Play or pause",
       "randomness": {
@@ -2807,7 +2808,8 @@
             "item_two": "faceMotion.intro.passive.list_item_two"
           },
           "subtitle": "faceMotion.intro.passive.subtitle",
-          "title": "faceMotion.intro.passive.title"
+          "title": "faceMotion.intro.passive.title",
+          "video_accessibility": "faceMotion.intro.passive.video_label_accessibility"
         }
       },
       "motion_randomness_capture": {
@@ -3979,7 +3981,8 @@
         "list_item_three": "Position your face in the frame to begin the scan",
         "list_item_two": "Remove items that cover your face, eyeglasses are ok",
         "subtitle": "Confirm your identity to keep your account safe",
-        "title": "Scan your face"
+        "title": "Scan your face",
+        "video_label_accessibility": "Example animation of someone holding still while scanning their face."
       },
       "play_pause_accessibility": "Play or pause",
       "randomness": {

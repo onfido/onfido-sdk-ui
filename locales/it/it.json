@@ -987,7 +987,7 @@
         "iq_no_doc": "Mostra il documento nell’inquadratura",
         "iq_obstruction": "Allontana le dita dal documento",
         "tilt": {
-          "down": "Inclina il tuo ID verso il basso",
+          "down": "Inclina ID in basso",
           "error": {
             "camera": {
               "button_primary": "Riprova",
@@ -995,14 +995,14 @@
               "title": "Si è verificato un errore"
             }
           },
-          "left": "Inclina la tua ID a sinistra",
-          "right": "Inclina l’ID a destra",
+          "left": "Inclina ID a sinistra",
+          "right": "Inclina ID a destra",
           "too_fast": {
             "button_primary": "Riprova",
             "subtitle": "Inclina il tuo documento più lentamente per evitare sfocature",
             "title": "Inclinazione troppo veloce"
           },
-          "up": "Inclina il tuo ID verso l’alto"
+          "up": "Inclina ID in alto"
         },
         "tilt_accessibility": {
           "complete": "Completa",
@@ -1482,7 +1482,8 @@
         "list_item_three": "Posiziona il tuo viso nell’inquadratura per iniziare la scansione",
         "list_item_two": "Rimuovi gli oggetti che coprono il viso, gli occhiali vanno bene",
         "subtitle": "Conferma la tua identità per mantenere il tuo account al sicuro",
-        "title": "Scansionare il tuo viso"
+        "title": "Scansionare il tuo viso",
+        "video_label_accessibility": "Animazione di esempio di una persona che resta immobile mentre scansiona il proprio volto."
       },
       "play_pause_accessibility": "Play o pausa",
       "randomness": {
@@ -2807,7 +2808,8 @@
             "item_two": "faceMotion.intro.passive.list_item_two"
           },
           "subtitle": "faceMotion.intro.passive.subtitle",
-          "title": "faceMotion.intro.passive.title"
+          "title": "faceMotion.intro.passive.title",
+          "video_accessibility": "faceMotion.intro.passive.video_label_accessibility"
         }
       },
       "motion_randomness_capture": {
@@ -3979,7 +3981,8 @@
         "list_item_three": "Posiziona il tuo viso nell’inquadratura per iniziare la scansione",
         "list_item_two": "Rimuovi gli oggetti che coprono il viso, gli occhiali vanno bene",
         "subtitle": "Conferma la tua identità per mantenere il tuo account al sicuro",
-        "title": "Scansionare il tuo viso"
+        "title": "Scansionare il tuo viso",
+        "video_label_accessibility": "Animazione di esempio di una persona che resta immobile mentre scansiona il proprio volto."
       },
       "play_pause_accessibility": "Play o pausa",
       "randomness": {

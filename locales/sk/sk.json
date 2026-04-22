@@ -987,7 +987,7 @@
         "iq_no_doc": "Ukážte doklad v rámčeku",
         "iq_obstruction": "Odstráňte prsty od dokladu",
         "tilt": {
-          "down": "Nakloňte svoj ID dole",
+          "down": "Nakloň ID dole",
           "error": {
             "camera": {
               "button_primary": "Skúsiť znova",
@@ -995,14 +995,14 @@
               "title": "Niečo sa pokazilo"
             }
           },
-          "left": "Natočte svoj ID doľava",
-          "right": "Nakloňte svoj ID doprava",
+          "left": "Nakloň ID doľava",
+          "right": "Nakloň ID doprava",
           "too_fast": {
             "button_primary": "Skúsiť znova",
             "subtitle": "Nakláňajte svoj doklad pomalšie, aby nebol rozmazaný",
             "title": "Nakláňate príliš rýchlo"
           },
-          "up": "Nahnite občiansky hore"
+          "up": "Nakloň ID hore"
         },
         "tilt_accessibility": {
           "complete": "Dokončené",
@@ -1482,7 +1482,8 @@
         "list_item_three": "Umiestnite svoju tvár do rámčeka, aby sa spustilo skenovanie",
         "list_item_two": "Odstráňte predmety zakrývajúce tvár, okuliare sú v poriadku",
         "subtitle": "Potvrďte svoju identitu, aby ste udržali svoj účet v bezpečí",
-        "title": "Naskenujte svoju tvár"
+        "title": "Naskenujte svoju tvár",
+        "video_label_accessibility": "Ukážková animácia osoby, ktorá zostáva nehybná, kým skenuje svoju tvár."
       },
       "play_pause_accessibility": "Prehrať alebo pozastaviť",
       "randomness": {
@@ -2807,7 +2808,8 @@
             "item_two": "faceMotion.intro.passive.list_item_two"
           },
           "subtitle": "faceMotion.intro.passive.subtitle",
-          "title": "faceMotion.intro.passive.title"
+          "title": "faceMotion.intro.passive.title",
+          "video_accessibility": "faceMotion.intro.passive.video_label_accessibility"
         }
       },
       "motion_randomness_capture": {
@@ -3979,7 +3981,8 @@
         "list_item_three": "Umiestnite svoju tvár do rámčeka, aby sa spustilo skenovanie",
         "list_item_two": "Odstráňte predmety zakrývajúce tvár, okuliare sú v poriadku",
         "subtitle": "Potvrďte svoju identitu, aby ste udržali svoj účet v bezpečí",
-        "title": "Naskenujte svoju tvár"
+        "title": "Naskenujte svoju tvár",
+        "video_label_accessibility": "Ukážková animácia osoby, ktorá zostáva nehybná, kým skenuje svoju tvár."
       },
       "play_pause_accessibility": "Prehrať alebo pozastaviť",
       "randomness": {

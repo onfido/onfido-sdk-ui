@@ -995,8 +995,8 @@
               "title": "Algo correu mal"
             }
           },
-          "left": "Incline o ID para a esquerda",
-          "right": "Incline o ID para a direita",
+          "left": "Incline o ID à esquerda",
+          "right": "Incline o ID à direita",
           "too_fast": {
             "button_primary": "Tente novamente",
             "subtitle": "Por favor, incline o seu documento mais devagar para evitar desfoque",
@@ -1482,7 +1482,8 @@
         "list_item_three": "Posicione o seu rosto na moldura para iniciar a digitalização",
         "list_item_two": "Remova itens que cobrem o seu rosto, óculos de grau são permitidos",
         "subtitle": "Confirme a sua identidade para manter a sua conta segura",
-        "title": "Digitalizar a sua cara"
+        "title": "Digitalizar a sua cara",
+        "video_label_accessibility": "Exemplo de animação de alguém ficando imóvel enquanto escaneia o rosto."
       },
       "play_pause_accessibility": "Reproduzir ou pausar",
       "randomness": {
@@ -2807,7 +2808,8 @@
             "item_two": "faceMotion.intro.passive.list_item_two"
           },
           "subtitle": "faceMotion.intro.passive.subtitle",
-          "title": "faceMotion.intro.passive.title"
+          "title": "faceMotion.intro.passive.title",
+          "video_accessibility": "faceMotion.intro.passive.video_label_accessibility"
         }
       },
       "motion_randomness_capture": {
@@ -3979,7 +3981,8 @@
         "list_item_three": "Posicione o seu rosto na moldura para iniciar a digitalização",
         "list_item_two": "Remova itens que cobrem o seu rosto, óculos de grau são permitidos",
         "subtitle": "Confirme a sua identidade para manter a sua conta segura",
-        "title": "Digitalizar a sua cara"
+        "title": "Digitalizar a sua cara",
+        "video_label_accessibility": "Exemplo de animação de alguém ficando imóvel enquanto escaneia o rosto."
       },
       "play_pause_accessibility": "Reproduzir ou pausar",
       "randomness": {

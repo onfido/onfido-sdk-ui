@@ -1482,7 +1482,8 @@
         "list_item_three": "스캔을 시작하려면 얼굴을 프레임 안에 맞춰 주세요",
         "list_item_two": "얼굴을 가리는 물건은 제거하세요. 안경은 괜찮습니다.",
         "subtitle": "본인 확인으로 계정을 안전하게 보호하세요",
-        "title": "얼굴을 스캔합니다"
+        "title": "얼굴을 스캔합니다",
+        "video_label_accessibility": "얼굴을 스캔하는 동안 가만히 있는 사람의 예시 애니메이션입니다."
       },
       "play_pause_accessibility": "재생 또는 일시 중지",
       "randomness": {
@@ -2807,7 +2808,8 @@
             "item_two": "faceMotion.intro.passive.list_item_two"
           },
           "subtitle": "faceMotion.intro.passive.subtitle",
-          "title": "faceMotion.intro.passive.title"
+          "title": "faceMotion.intro.passive.title",
+          "video_accessibility": "faceMotion.intro.passive.video_label_accessibility"
         }
       },
       "motion_randomness_capture": {
@@ -3979,7 +3981,8 @@
         "list_item_three": "스캔을 시작하려면 얼굴을 프레임 안에 맞춰 주세요",
         "list_item_two": "얼굴을 가리는 물건은 제거하세요. 안경은 괜찮습니다.",
         "subtitle": "본인 확인으로 계정을 안전하게 보호하세요",
-        "title": "얼굴을 스캔합니다"
+        "title": "얼굴을 스캔합니다",
+        "video_label_accessibility": "얼굴을 스캔하는 동안 가만히 있는 사람의 예시 애니메이션입니다."
       },
       "play_pause_accessibility": "재생 또는 일시 중지",
       "randomness": {

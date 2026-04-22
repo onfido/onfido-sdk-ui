@@ -987,7 +987,7 @@
         "iq_no_doc": "Show document in frame",
         "iq_obstruction": "Move fingers away from document",
         "tilt": {
-          "down": "Tilt your ID down",
+          "down": "Tilt ID down",
           "error": {
             "camera": {
               "button_primary": "Try again",
@@ -995,14 +995,14 @@
               "title": "Something went wrong"
             }
           },
-          "left": "Tilt your ID left",
-          "right": "Tilt your ID right",
+          "left": "Tilt ID left",
+          "right": "Tilt ID right",
           "too_fast": {
             "button_primary": "Try again",
             "subtitle": "Please tilt your ID more slowly to prevent blur",
             "title": "Tilt too fast"
           },
-          "up": "Tilt your ID up"
+          "up": "Tilt ID up"
         },
         "tilt_accessibility": {
           "complete": "Complete",
@@ -1482,7 +1482,8 @@
         "list_item_three": "Position your face in the frame to begin the scan",
         "list_item_two": "Remove items that cover your face; eyeglasses are OK",
         "subtitle": "Confirm your identity to keep your account secure",
-        "title": "Scan your face"
+        "title": "Scan your face",
+        "video_label_accessibility": "Example animation of someone keeping still while scanning their face."
       },
       "play_pause_accessibility": "Play or pause",
       "randomness": {
@@ -2807,7 +2808,8 @@
             "item_two": "faceMotion.intro.passive.list_item_two"
           },
           "subtitle": "faceMotion.intro.passive.subtitle",
-          "title": "faceMotion.intro.passive.title"
+          "title": "faceMotion.intro.passive.title",
+          "video_accessibility": "faceMotion.intro.passive.video_label_accessibility"
         }
       },
       "motion_randomness_capture": {
@@ -3979,7 +3981,8 @@
         "list_item_three": "Position your face in the frame to begin the scan",
         "list_item_two": "Remove items that cover your face; eyeglasses are OK",
         "subtitle": "Confirm your identity to keep your account secure",
-        "title": "Scan your face"
+        "title": "Scan your face",
+        "video_label_accessibility": "Example animation of someone keeping still while scanning their face."
       },
       "play_pause_accessibility": "Play or pause",
       "randomness": {

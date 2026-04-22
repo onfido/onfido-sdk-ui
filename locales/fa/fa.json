@@ -987,7 +987,7 @@
         "iq_no_doc": "سند را داخل کادر نشان دهید",
         "iq_obstruction": "انگشت‌ها را از روی مدرک کنار بکشید",
         "tilt": {
-          "down": "کارت شناسایی را به پایین کج کنید",
+          "down": "کارت را پایین کج کن",
           "error": {
             "camera": {
               "button_primary": "سعی مجدد",
@@ -995,14 +995,14 @@
               "title": "چیزی اشتباه شد"
             }
           },
-          "left": "کارت ID را به چپ کج کنید",
-          "right": "کارت شناسایی را به راست کج کنید",
+          "left": "کارت را چپ کج کن",
+          "right": "کارت را راست کج کن",
           "too_fast": {
             "button_primary": "سعی مجدد",
             "subtitle": "لطفاً کارت شناسایی خود را آهسته‌تر بچرخانید تا تصویر تار نشود",
             "title": "چرخش خیلی سریع است"
           },
-          "up": "کارت شناسایی را رو به بالا کج کنید"
+          "up": "کارت را بالا کج کن"
         },
         "tilt_accessibility": {
           "complete": "تکمیل شد",
@@ -1482,7 +1482,8 @@
         "list_item_three": "صورت خود را در قاب قرار دهید تا اسکن آغاز شود",
         "list_item_two": "مواردی را که صورتتان را می‌پوشانند بردارید، عینک اشکالی ندارد",
         "subtitle": "برای حفظ امنیت حسابتان، هویت خود را تأیید کنید",
-        "title": "چهره خود را اسکن کنید"
+        "title": "چهره خود را اسکن کنید",
+        "video_label_accessibility": "نمونه انیمیشن فردی که هنگام اسکن چهره خود بی‌حرکت ایستاده است."
       },
       "play_pause_accessibility": "پخش یا مکث",
       "randomness": {
@@ -2807,7 +2808,8 @@
             "item_two": "faceMotion.intro.passive.list_item_two"
           },
           "subtitle": "faceMotion.intro.passive.subtitle",
-          "title": "faceMotion.intro.passive.title"
+          "title": "faceMotion.intro.passive.title",
+          "video_accessibility": "faceMotion.intro.passive.video_label_accessibility"
         }
       },
       "motion_randomness_capture": {
@@ -3979,7 +3981,8 @@
         "list_item_three": "صورت خود را در قاب قرار دهید تا اسکن آغاز شود",
         "list_item_two": "مواردی را که صورتتان را می‌پوشانند بردارید، عینک اشکالی ندارد",
         "subtitle": "برای حفظ امنیت حسابتان، هویت خود را تأیید کنید",
-        "title": "چهره خود را اسکن کنید"
+        "title": "چهره خود را اسکن کنید",
+        "video_label_accessibility": "نمونه انیمیشن فردی که هنگام اسکن چهره خود بی‌حرکت ایستاده است."
       },
       "play_pause_accessibility": "پخش یا مکث",
       "randomness": {

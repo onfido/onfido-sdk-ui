@@ -987,7 +987,7 @@
         "iq_no_doc": "הציגו את המסמך במסגרת",
         "iq_obstruction": "הזיזו את האצבעות מהמסמך",
         "tilt": {
-          "down": "הטה את תעודת הזהות כלפי מטה",
+          "down": "הטה את תעודת הזהות למטה",
           "error": {
             "camera": {
               "button_primary": "נסה שוב",
@@ -1482,7 +1482,8 @@
         "list_item_three": "מקמו את הפנים שלכם במסגרת כדי להתחיל את הסריקה",
         "list_item_two": "הסר פריטים המכסים את פניך, משקפיים מותרים",
         "subtitle": "אשר את זהותך כדי לשמור על חשבונך מאובטח",
-        "title": "לסרוק את הפנים שלך"
+        "title": "לסרוק את הפנים שלך",
+        "video_label_accessibility": "דוגמת אנימציה של אדם שעומד בשקט בזמן סריקת הפנים שלו."
       },
       "play_pause_accessibility": "הפעל או השהה",
       "randomness": {
@@ -2807,7 +2808,8 @@
             "item_two": "faceMotion.intro.passive.list_item_two"
           },
           "subtitle": "faceMotion.intro.passive.subtitle",
-          "title": "faceMotion.intro.passive.title"
+          "title": "faceMotion.intro.passive.title",
+          "video_accessibility": "faceMotion.intro.passive.video_label_accessibility"
         }
       },
       "motion_randomness_capture": {
@@ -3979,7 +3981,8 @@
         "list_item_three": "מקמו את הפנים שלכם במסגרת כדי להתחיל את הסריקה",
         "list_item_two": "הסר פריטים המכסים את פניך, משקפיים מותרים",
         "subtitle": "אשר את זהותך כדי לשמור על חשבונך מאובטח",
-        "title": "לסרוק את הפנים שלך"
+        "title": "לסרוק את הפנים שלך",
+        "video_label_accessibility": "דוגמת אנימציה של אדם שעומד בשקט בזמן סריקת הפנים שלו."
       },
       "play_pause_accessibility": "הפעל או השהה",
       "randomness": {

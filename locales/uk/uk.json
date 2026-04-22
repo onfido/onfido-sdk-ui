@@ -1482,7 +1482,8 @@
         "list_item_three": "Розташуйте своє обличчя в рамці, щоб розпочати сканування",
         "list_item_two": "Зніміть предмети, які закривають обличчя; окуляри можна залишити",
         "subtitle": "Підтвердіть свою особу, щоб зберегти безпеку облікового запису",
-        "title": "відсканувати своє обличчя."
+        "title": "відсканувати своє обличчя.",
+        "video_label_accessibility": "Приклад анімації людини, яка тримається нерухомо під час сканування обличчя."
       },
       "play_pause_accessibility": "Відтворити або призупинити",
       "randomness": {
@@ -2807,7 +2808,8 @@
             "item_two": "faceMotion.intro.passive.list_item_two"
           },
           "subtitle": "faceMotion.intro.passive.subtitle",
-          "title": "faceMotion.intro.passive.title"
+          "title": "faceMotion.intro.passive.title",
+          "video_accessibility": "faceMotion.intro.passive.video_label_accessibility"
         }
       },
       "motion_randomness_capture": {
@@ -3979,7 +3981,8 @@
         "list_item_three": "Розташуйте своє обличчя в рамці, щоб розпочати сканування",
         "list_item_two": "Зніміть предмети, які закривають обличчя; окуляри можна залишити",
         "subtitle": "Підтвердіть свою особу, щоб зберегти безпеку облікового запису",
-        "title": "відсканувати своє обличчя."
+        "title": "відсканувати своє обличчя.",
+        "video_label_accessibility": "Приклад анімації людини, яка тримається нерухомо під час сканування обличчя."
       },
       "play_pause_accessibility": "Відтворити або призупинити",
       "randomness": {

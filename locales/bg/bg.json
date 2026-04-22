@@ -987,7 +987,7 @@
         "iq_no_doc": "Покажете документа в рамката",
         "iq_obstruction": "Отстъпете пръстите от документа",
         "tilt": {
-          "down": "Наклонете документа надолу",
+          "down": "Наклони ID надолу",
           "error": {
             "camera": {
               "button_primary": "Опитайте отново",
@@ -995,14 +995,14 @@
               "title": "Нещо се обърка"
             }
           },
-          "left": "Наклонете документа си наляво",
-          "right": "Наклонете документа надясно",
+          "left": "Наклони ID наляво",
+          "right": "Наклони ID надясно",
           "too_fast": {
             "button_primary": "Опитайте отново",
             "subtitle": "Моля, накланяйте документа си по-бавно, за да избегнете замъгляване",
             "title": "Накланяте твърде бързо"
           },
-          "up": "Наклонете документа нагоре"
+          "up": "Наклони ID нагоре"
         },
         "tilt_accessibility": {
           "complete": "Завършено",
@@ -1482,7 +1482,8 @@
         "list_item_three": "Позиционирайте лицето си в рамката, за да започнете сканирането",
         "list_item_two": "Премахнете предмети, които покриват лицето ви, очилата са позволени",
         "subtitle": "Потвърдете самоличността си, за да запазите акаунта си в безопасност",
-        "title": "Сканирате лицето си"
+        "title": "Сканирате лицето си",
+        "video_label_accessibility": "Примерна анимация на човек, който стои неподвижно, докато лицето му се сканира."
       },
       "play_pause_accessibility": "Възпроизвеждане или пауза",
       "randomness": {
@@ -2807,7 +2808,8 @@
             "item_two": "faceMotion.intro.passive.list_item_two"
           },
           "subtitle": "faceMotion.intro.passive.subtitle",
-          "title": "faceMotion.intro.passive.title"
+          "title": "faceMotion.intro.passive.title",
+          "video_accessibility": "faceMotion.intro.passive.video_label_accessibility"
         }
       },
       "motion_randomness_capture": {
@@ -3979,7 +3981,8 @@
         "list_item_three": "Позиционирайте лицето си в рамката, за да започнете сканирането",
         "list_item_two": "Премахнете предмети, които покриват лицето ви, очилата са позволени",
         "subtitle": "Потвърдете самоличността си, за да запазите акаунта си в безопасност",
-        "title": "Сканирате лицето си"
+        "title": "Сканирате лицето си",
+        "video_label_accessibility": "Примерна анимация на човек, който стои неподвижно, докато лицето му се сканира."
       },
       "play_pause_accessibility": "Възпроизвеждане или пауза",
       "randomness": {

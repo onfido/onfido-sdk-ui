@@ -987,7 +987,7 @@
         "iq_no_doc": "Mutassa a dokumentumot a keretben",
         "iq_obstruction": "Vegye el az ujjait az okmánytól",
         "tilt": {
-          "down": "Döntse lefelé az ID-t",
+          "down": "Döntse le az ID-t",
           "error": {
             "camera": {
               "button_primary": "Próbálja újra",
@@ -995,14 +995,14 @@
               "title": "Hiba történt"
             }
           },
-          "left": "Billentse balra az ID-t",
-          "right": "Billentse jobbra az ID-t",
+          "left": "Döntse balra az ID-t",
+          "right": "Döntse jobbra az ID-t",
           "too_fast": {
             "button_primary": "Próbálja újra",
             "subtitle": "Kérjük, lassabban döntse meg az igazolványát, hogy elkerülje az elmosódást",
             "title": "Túl gyors mozgatás"
           },
-          "up": "Döntse az ID-t felfelé"
+          "up": "Döntse fel az ID-t"
         },
         "tilt_accessibility": {
           "complete": "Kész",
@@ -1482,7 +1482,8 @@
         "list_item_three": "Igazítsa az arcát a keretbe a beolvasás megkezdéséhez",
         "list_item_two": "Távolítson el minden arcát takaró tárgyat, a szemüveg maradhat",
         "subtitle": "Erősítse meg személyazonosságát fiókja biztonságban tartásához",
-        "title": "Szkennelje az arcát"
+        "title": "Szkennelje az arcát",
+        "video_label_accessibility": "Példa animáció arra, ahogy valaki mozdulatlanul marad az arca vizsgálata közben."
       },
       "play_pause_accessibility": "Lejátszás vagy szünet",
       "randomness": {
@@ -2807,7 +2808,8 @@
             "item_two": "faceMotion.intro.passive.list_item_two"
           },
           "subtitle": "faceMotion.intro.passive.subtitle",
-          "title": "faceMotion.intro.passive.title"
+          "title": "faceMotion.intro.passive.title",
+          "video_accessibility": "faceMotion.intro.passive.video_label_accessibility"
         }
       },
       "motion_randomness_capture": {
@@ -3979,7 +3981,8 @@
         "list_item_three": "Igazítsa az arcát a keretbe a beolvasás megkezdéséhez",
         "list_item_two": "Távolítson el minden arcát takaró tárgyat, a szemüveg maradhat",
         "subtitle": "Erősítse meg személyazonosságát fiókja biztonságban tartásához",
-        "title": "Szkennelje az arcát"
+        "title": "Szkennelje az arcát",
+        "video_label_accessibility": "Példa animáció arra, ahogy valaki mozdulatlanul marad az arca vizsgálata közben."
       },
       "play_pause_accessibility": "Lejátszás vagy szünet",
       "randomness": {

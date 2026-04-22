@@ -995,8 +995,8 @@
               "title": "Er is iets misgegaan"
             }
           },
-          "left": "Kantel je ID naar links",
-          "right": "Kantel je ID naar rechts",
+          "left": "Kantel je ID links",
+          "right": "Kantel je ID rechts",
           "too_fast": {
             "button_primary": "Probeer het opnieuw",
             "subtitle": "Kantel uw ID langzamer om wazigheid te voorkomen",
@@ -1482,7 +1482,8 @@
         "list_item_three": "Plaats uw gezicht in het kader om de scan te starten",
         "list_item_two": "Verwijder alles wat je gezicht bedekt; een bril is oké",
         "subtitle": "Bevestig uw identiteit om uw account veilig te houden",
-        "title": "Scan uw gezicht"
+        "title": "Scan uw gezicht",
+        "video_label_accessibility": "Voorbeeldanimatie van iemand die stil blijft staan terwijl het gezicht wordt gescand."
       },
       "play_pause_accessibility": "Afspelen of pauzeren",
       "randomness": {
@@ -2807,7 +2808,8 @@
             "item_two": "faceMotion.intro.passive.list_item_two"
           },
           "subtitle": "faceMotion.intro.passive.subtitle",
-          "title": "faceMotion.intro.passive.title"
+          "title": "faceMotion.intro.passive.title",
+          "video_accessibility": "faceMotion.intro.passive.video_label_accessibility"
         }
       },
       "motion_randomness_capture": {
@@ -3979,7 +3981,8 @@
         "list_item_three": "Plaats uw gezicht in het kader om de scan te starten",
         "list_item_two": "Verwijder alles wat je gezicht bedekt; een bril is oké",
         "subtitle": "Bevestig uw identiteit om uw account veilig te houden",
-        "title": "Scan uw gezicht"
+        "title": "Scan uw gezicht",
+        "video_label_accessibility": "Voorbeeldanimatie van iemand die stil blijft staan terwijl het gezicht wordt gescand."
       },
       "play_pause_accessibility": "Afspelen of pauzeren",
       "randomness": {

@@ -987,7 +987,7 @@
         "iq_no_doc": "Montrez le document dans le cadre",
         "iq_obstruction": "Éloignez vos doigts du document",
         "tilt": {
-          "down": "Inclinez votre pièce d'identité vers le bas",
+          "down": "Inclinez l'ID vers le bas",
           "error": {
             "camera": {
               "button_primary": "Réessayer",
@@ -996,13 +996,13 @@
             }
           },
           "left": "Inclinez l’ID à gauche",
-          "right": "Inclinez votre pièce d'identité vers la droite",
+          "right": "Inclinez l'ID vers la droite",
           "too_fast": {
             "button_primary": "Réessayer",
             "subtitle": "Veuillez incliner votre pièce d'identité plus lentement pour éviter le flou",
             "title": "Inclinaison trop rapide"
           },
-          "up": "Inclinez votre pièce d'identité vers le haut"
+          "up": "Inclinez l'ID vers le haut"
         },
         "tilt_accessibility": {
           "complete": "Terminé",
@@ -1482,7 +1482,8 @@
         "list_item_three": "Positionnez votre visage dans le cadre pour commencer la numérisation",
         "list_item_two": "Retirez les articles qui couvrent votre visage, les lunettes sont acceptables",
         "subtitle": "Confirmez votre identité pour protéger votre compte",
-        "title": "Numériser votre visage"
+        "title": "Numériser votre visage",
+        "video_label_accessibility": "Exemple d'animation d'une personne restant immobile pendant la numérisation de son visage."
       },
       "play_pause_accessibility": "Lecture ou pause",
       "randomness": {
@@ -2807,7 +2808,8 @@
             "item_two": "faceMotion.intro.passive.list_item_two"
           },
           "subtitle": "faceMotion.intro.passive.subtitle",
-          "title": "faceMotion.intro.passive.title"
+          "title": "faceMotion.intro.passive.title",
+          "video_accessibility": "faceMotion.intro.passive.video_label_accessibility"
         }
       },
       "motion_randomness_capture": {
@@ -3979,7 +3981,8 @@
         "list_item_three": "Positionnez votre visage dans le cadre pour commencer la numérisation",
         "list_item_two": "Retirez les articles qui couvrent votre visage, les lunettes sont acceptables",
         "subtitle": "Confirmez votre identité pour protéger votre compte",
-        "title": "Numériser votre visage"
+        "title": "Numériser votre visage",
+        "video_label_accessibility": "Exemple d'animation d'une personne restant immobile pendant la numérisation de son visage."
       },
       "play_pause_accessibility": "Lecture ou pause",
       "randomness": {

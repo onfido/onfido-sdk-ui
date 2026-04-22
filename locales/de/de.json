@@ -1482,7 +1482,8 @@
         "list_item_three": "Positionieren Sie Ihr Gesicht im Rahmen, um den Scan zu starten",
         "list_item_two": "Entferne Gegenstände, die dein Gesicht verdecken; eine Brille ist in Ordnung.",
         "subtitle": "Bestätige deine Identität, um dein Konto zu schützen",
-        "title": "Scannen Sie Ihr Gesicht"
+        "title": "Scannen Sie Ihr Gesicht",
+        "video_label_accessibility": "Beispielanimation einer Person, die beim Scannen ihres Gesichts stillhält."
       },
       "play_pause_accessibility": "Abspielen oder Pause",
       "randomness": {
@@ -2807,7 +2808,8 @@
             "item_two": "faceMotion.intro.passive.list_item_two"
           },
           "subtitle": "faceMotion.intro.passive.subtitle",
-          "title": "faceMotion.intro.passive.title"
+          "title": "faceMotion.intro.passive.title",
+          "video_accessibility": "faceMotion.intro.passive.video_label_accessibility"
         }
       },
       "motion_randomness_capture": {
@@ -3979,7 +3981,8 @@
         "list_item_three": "Positionieren Sie Ihr Gesicht im Rahmen, um den Scan zu starten",
         "list_item_two": "Entferne Gegenstände, die dein Gesicht verdecken; eine Brille ist in Ordnung.",
         "subtitle": "Bestätige deine Identität, um dein Konto zu schützen",
-        "title": "Scannen Sie Ihr Gesicht"
+        "title": "Scannen Sie Ihr Gesicht",
+        "video_label_accessibility": "Beispielanimation einer Person, die beim Scannen ihres Gesichts stillhält."
       },
       "play_pause_accessibility": "Abspielen oder Pause",
       "randomness": {

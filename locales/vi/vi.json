@@ -987,7 +987,7 @@
         "iq_no_doc": "Đưa giấy tờ vào khung",
         "iq_obstruction": "Di chuyển ngón tay ra khỏi giấy tờ",
         "tilt": {
-          "down": "Nghiêng CMND xuống",
+          "down": "Nghiêng ID xuống",
           "error": {
             "camera": {
               "button_primary": "Thử lại",
@@ -995,14 +995,14 @@
               "title": "Đã xảy ra lỗi"
             }
           },
-          "left": "Nghiêng CMND sang trái",
-          "right": "Nghiêng CMND sang phải",
+          "left": "Nghiêng ID sang trái",
+          "right": "Nghiêng ID sang phải",
           "too_fast": {
             "button_primary": "Thử lại",
             "subtitle": "Vui lòng nghiêng giấy tờ chậm hơn để tránh bị mờ",
             "title": "Nghiêng quá nhanh"
           },
-          "up": "Nghiêng CMND lên"
+          "up": "Nghiêng ID lên"
         },
         "tilt_accessibility": {
           "complete": "Hoàn tất",
@@ -1482,7 +1482,8 @@
         "list_item_three": "Đặt khuôn mặt của bạn vào khung hình để bắt đầu quét",
         "list_item_two": "Tháo bỏ các vật che khuất khuôn mặt của bạn, kính mắt thì không sao",
         "subtitle": "Xác nhận danh tính của bạn để giữ tài khoản an toàn",
-        "title": "Quét khuôn mặt của bạn"
+        "title": "Quét khuôn mặt của bạn",
+        "video_label_accessibility": "Hoạt ảnh minh họa một người giữ yên khuôn mặt trong khi quét khuôn mặt."
       },
       "play_pause_accessibility": "Phát hoặc tạm dừng",
       "randomness": {
@@ -2807,7 +2808,8 @@
             "item_two": "faceMotion.intro.passive.list_item_two"
           },
           "subtitle": "faceMotion.intro.passive.subtitle",
-          "title": "faceMotion.intro.passive.title"
+          "title": "faceMotion.intro.passive.title",
+          "video_accessibility": "faceMotion.intro.passive.video_label_accessibility"
         }
       },
       "motion_randomness_capture": {
@@ -3979,7 +3981,8 @@
         "list_item_three": "Đặt khuôn mặt của bạn vào khung hình để bắt đầu quét",
         "list_item_two": "Tháo bỏ các vật che khuất khuôn mặt của bạn, kính mắt thì không sao",
         "subtitle": "Xác nhận danh tính của bạn để giữ tài khoản an toàn",
-        "title": "Quét khuôn mặt của bạn"
+        "title": "Quét khuôn mặt của bạn",
+        "video_label_accessibility": "Hoạt ảnh minh họa một người giữ yên khuôn mặt trong khi quét khuôn mặt."
       },
       "play_pause_accessibility": "Phát hoặc tạm dừng",
       "randomness": {

@@ -987,7 +987,7 @@
         "iq_no_doc": "Vis dokument i rammen",
         "iq_obstruction": "Flyt fingrene væk fra dokumentet",
         "tilt": {
-          "down": "Vip dit ID ned",
+          "down": "Vip ID ned",
           "error": {
             "camera": {
               "button_primary": "Prøv igen",
@@ -995,14 +995,14 @@
               "title": "Der opstod en fejl"
             }
           },
-          "left": "Vip dit ID til venstre",
-          "right": "Vip dit ID til højre",
+          "left": "Vip ID til venstre",
+          "right": "Vip ID til højre",
           "too_fast": {
             "button_primary": "Prøv igen",
             "subtitle": "Vip dit ID langsommere for at undgå slør",
             "title": "Vip for hurtigt"
           },
-          "up": "Vip dit ID op"
+          "up": "Vip ID op"
         },
         "tilt_accessibility": {
           "complete": "Fuldfør",
@@ -1482,7 +1482,8 @@
         "list_item_three": "Placer dit ansigt i rammen for at starte scanningen",
         "list_item_two": "Fjern genstande, der dækker dit ansigt, briller er ok",
         "subtitle": "Bekræft din identitet for at holde din konto sikker",
-        "title": "Scan dit ansigt"
+        "title": "Scan dit ansigt",
+        "video_label_accessibility": "Eksempelanimation af en person, der holder sig stille, mens vedkommendes ansigt scannes."
       },
       "play_pause_accessibility": "Afspil eller sæt på pause",
       "randomness": {
@@ -2807,7 +2808,8 @@
             "item_two": "faceMotion.intro.passive.list_item_two"
           },
           "subtitle": "faceMotion.intro.passive.subtitle",
-          "title": "faceMotion.intro.passive.title"
+          "title": "faceMotion.intro.passive.title",
+          "video_accessibility": "faceMotion.intro.passive.video_label_accessibility"
         }
       },
       "motion_randomness_capture": {
@@ -3979,7 +3981,8 @@
         "list_item_three": "Placer dit ansigt i rammen for at starte scanningen",
         "list_item_two": "Fjern genstande, der dækker dit ansigt, briller er ok",
         "subtitle": "Bekræft din identitet for at holde din konto sikker",
-        "title": "Scan dit ansigt"
+        "title": "Scan dit ansigt",
+        "video_label_accessibility": "Eksempelanimation af en person, der holder sig stille, mens vedkommendes ansigt scannes."
       },
       "play_pause_accessibility": "Afspil eller sæt på pause",
       "randomness": {
