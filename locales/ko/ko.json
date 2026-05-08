@@ -940,7 +940,7 @@
       "photo_of_screen_detail": "원본 문서를 사용해 주세요. 화면의 사진이나 사본은 허용되지 않습니다.",
       "photo_of_screen_title": "화면의 사진이 감지되었습니다",
       "redo": "다시 실행",
-      "title": "이미지 확인",
+      "title": "이미지를 확인하세요",
       "unsupported_file_detail": "JPG, JPEG, PNG 또는 PDF 형식의 사진을 업로드해 주세요. 파일 크기는 10MB를 초과할 수 없습니다.",
       "unsupported_file_title": "지원되지 않는 파일입니다",
       "upload": "업로드",
@@ -949,6 +949,7 @@
     },
     "scan": {
       "button_help": "도움이 필요하신가요?",
+      "button_help_accessibility": "The Need Help? button is now highlighted. Tap it if you need assistance.",
       "button_manual": "스캔 시작",
       "feedback": {
         "alignment_center_document": "문서를 중앙에 맞추세요",
@@ -1406,6 +1407,8 @@
       "feedback_move_left_accessibility": "기기 위치를 왼쪽으로 옮기세요",
       "feedback_move_right_accessibility": "기기 위치를 오른쪽으로 옮기세요",
       "feedback_move_up_accessibility": "기기 위치를 위쪽으로 옮기세요",
+      "feedback_multiple_faces_detected": "여러 얼굴이 감지되었습니다",
+      "feedback_multiple_faces_detected_accessibility": "여러 얼굴이 감지되었습니다. 카메라 앞에 본인만 있도록 해 주세요",
       "feedback_no_face_detected": "얼굴이 감지되지 않습니다",
       "feedback_no_face_detected_accessibility": "얼굴이 감지되지 않습니다. 얼굴 앞쪽에 기기를 두세요",
       "feedback_not_centered": "얼굴이 중앙에 위치해 있지 않습니다",
@@ -1981,6 +1984,7 @@
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
+        "button_help_accessibility": "document.scan.button_help_accessibility",
         "button_manual": "document.scan.button_manual",
         "feedback": {
           "alignment_center_document": "document.scan.feedback.alignment_center_document",
@@ -2333,6 +2337,14 @@
         "button_tertiary": "nfc.pin_entry.optional_button_tertiary",
         "helper_attempts_left": "nfc.pin_entry.optional_helper_attempts_left",
         "helper_final_attempt": "nfc.pin_entry.optional_helper_final_attempt"
+      },
+      "face_biometrics": {
+        "capture": {
+          "feedback": {
+            "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
+            "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
+          }
+        }
       },
       "generic": {
         "accessibility": {
@@ -3905,6 +3917,8 @@
       "feedback_move_left_accessibility": "기기 위치를 왼쪽으로 옮기세요",
       "feedback_move_right_accessibility": "기기 위치를 오른쪽으로 옮기세요",
       "feedback_move_up_accessibility": "기기 위치를 위쪽으로 옮기세요",
+      "feedback_multiple_faces_detected": "여러 얼굴이 감지되었습니다",
+      "feedback_multiple_faces_detected_accessibility": "여러 얼굴이 감지되었습니다. 카메라 앞에 본인만 있도록 해 주세요",
       "feedback_no_face_detected": "얼굴이 감지되지 않습니다",
       "feedback_no_face_detected_accessibility": "얼굴이 감지되지 않습니다. 얼굴 앞쪽에 기기를 두세요",
       "feedback_not_centered": "얼굴이 중앙에 위치해 있지 않습니다",
@@ -4053,12 +4067,12 @@
     },
     "pin_entry": {
       "button_primary": "계속",
-      "helper_attempts_left": "[%i]번 남음",
+      "helper_attempts_left": "%d번 남음",
       "helper_final_attempt": "1번의 시도만 남았습니다. 다음 시도가 실패하면 칩이 차단됩니다",
       "optional_button_tertiary": "NFC 칩 스캔 건너뛰기",
-      "optional_helper_attempts_left": "[%i]회 남았습니다. 아래에서 이 단계를 건너뛰세요.",
-      "optional_helper_final_attempt": "[%i]번 남으면 NFC 칩이 차단됩니다. 아래에서 이 단계를 건너뛰세요.",
-      "subtitle": "이는 NFC 칩을 안전하게 읽기 위해 필요합니다. 이 [%i]자리 숫자는 문서가 발급될 때 사용자가 생성한 것입니다.",
+      "optional_helper_attempts_left": "%d회 남았습니다. 아래에서 이 단계를 건너뛰세요.",
+      "optional_helper_final_attempt": "%d번 남으면 NFC 칩이 차단됩니다. 아래에서 이 단계를 건너뛰세요.",
+      "subtitle": "이는 NFC 칩을 안전하게 읽기 위해 필요합니다. 이 %d자리 숫자는 문서가 발급될 때 사용자가 생성한 것입니다.",
       "title": "문서 PIN을 입력하세요",
       "title_incorrect": "잘못된 PIN"
     },
@@ -4081,7 +4095,7 @@
         "document": "칩이 감지되면, 휴대폰과 신분증을 고정하세요.",
         "passport": "칩이 감지되면 휴대폰과 여권을 움직이지 마세요."
       },
-      "pin_disclaimer": "칩을 스캔하기 전에 문서의 [%i]자리 PIN을 요청합니다.",
+      "pin_disclaimer": "칩을 스캔하기 전에 문서의 %d자리 PIN을 요청합니다.",
       "title_document": "문서를 스캔하십시오",
       "title_passport": "여권의 칩을 스캔합니다",
       "video_instruction_accessibility": "동영상 안내"
@@ -4546,24 +4560,24 @@
       "blur_detail": "모든 부분이 선명하게 나타나는지 확인하세요",
       "blur_title": "흐릿한 사진이 감지되었습니다",
       "body": "세부 정보가 명확하게 나타나고 가려진 부분이 없는지 확인하세요",
-      "body_accommodation_tenancy_certificate": "전체 문서 페이지를 업로드했는지 확인하고, 세부 사항이 흐림이나 반사 없이 명확하게 읽히는지 확인하세요",
-      "body_address_card": "전체 문서 페이지를 업로드했는지 확인하고, 세부 사항이 흐림이나 반사 없이 명확하게 읽히는지 확인하세요",
-      "body_address_certificate": "전체 문서 페이지를 업로드했는지 확인하고, 세부 사항이 흐림이나 반사 없이 명확하게 읽히는지 확인하세요",
-      "body_bank_building_society_statement": "전체 서류 페이지를 업로드했는지 확인하고, 세부 정보가 선명하게 읽히며 빛 반사되는 부분이 없는지 확인하세요",
-      "body_bank_statement": "전체 서류 페이지를 업로드했는지 확인하고, 세부 정보가 선명하게 읽히며 빛 반사되는 부분이 없는지 확인하세요",
-      "body_benefit_letters": "전체 서류 페이지를 업로드했는지 확인하고, 세부 정보가 선명하게 읽히며 빛 반사되는 부분이 없는지 확인하세요",
-      "body_bill": "전체 서류 페이지를 업로드했는지 확인하고, 세부 정보가 선명하게 읽히며 빛 반사되는 부분이 없는지 확인하세요",
-      "body_council_tax": "전체 서류 페이지를 업로드했는지 확인하고, 세부 정보가 선명하게 읽히며 빛 반사되는 부분이 없는지 확인하세요",
-      "body_exchange_house_statement": "전체 문서 페이지를 업로드했는지 확인하고, 세부 사항이 흐림이나 반사 없이 명확하게 읽히는지 확인하세요",
-      "body_general_letter": "전체 문서 페이지를 업로드했는지 확인하고, 세부 사항이 흐림이나 반사 없이 명확하게 읽히는지 확인하세요",
+      "body_accommodation_tenancy_certificate": "서류 전체 페이지를 업로드했는지 확인하고, 흐림이나 빛 반사 없이 세부 사항이 또렷하게 보이도록 해 주세요.",
+      "body_address_card": "서류 전체 페이지를 업로드했는지 확인하고, 흐림이나 빛 반사 없이 세부 사항이 또렷하게 보이도록 해 주세요.",
+      "body_address_certificate": "서류 전체 페이지를 업로드했는지 확인하고, 흐림이나 빛 반사 없이 세부 사항이 또렷하게 보이도록 해 주세요.",
+      "body_bank_building_society_statement": "문서 전체가 보이고 모든 정보가 선명하며, 흐릿하거나 빛이 반사된 부분이 없도록 해 주세요",
+      "body_bank_statement": "문서 전체가 보이고 모든 정보가 선명하며, 흐릿하거나 빛이 반사된 부분이 없도록 해 주세요",
+      "body_benefit_letters": "문서 전체가 보이고 모든 정보가 선명하며, 흐릿하거나 빛이 반사된 부분이 없도록 해 주세요",
+      "body_bill": "문서 전체가 보이고 모든 정보가 선명하며, 흐릿하거나 빛이 반사된 부분이 없도록 해 주세요",
+      "body_council_tax": "문서 전체가 보이고 모든 정보가 선명하며, 흐릿하거나 빛이 반사된 부분이 없도록 해 주세요",
+      "body_exchange_house_statement": "서류 전체 페이지를 업로드했는지 확인하고, 흐림이나 빛 반사 없이 세부 사항이 또렷하게 보이도록 해 주세요.",
+      "body_general_letter": "서류 전체 페이지를 업로드했는지 확인하고, 흐림이나 빛 반사 없이 세부 사항이 또렷하게 보이도록 해 주세요.",
       "body_government_letter": "최상의 결과를 위해 서류 전체 페이지를 제출하세요",
-      "body_identity_document_with_address": "전체 문서 페이지를 업로드했는지 확인하고, 세부 사항이 흐림이나 반사 없이 명확하게 읽히는지 확인하세요",
-      "body_insurance_statement": "전체 문서 페이지를 업로드했는지 확인하고, 세부 사항이 흐림이나 반사 없이 명확하게 읽히는지 확인하세요",
-      "body_mobile_phone_bill": "전체 문서 페이지를 업로드했는지 확인하고, 세부 사항이 흐림이나 반사 없이 명확하게 읽히는지 확인하세요",
-      "body_mortgage_statement": "전체 문서 페이지를 업로드했는지 확인하고, 세부 사항이 흐림이나 반사 없이 명확하게 읽히는지 확인하세요",
-      "body_pension_property_statement_letter": "전체 문서 페이지를 업로드했는지 확인하고, 세부 사항이 흐림이나 반사 없이 명확하게 읽히는지 확인하세요",
-      "body_tax_letter": "전체 서류 페이지를 업로드했는지 확인하고, 세부 정보가 선명하게 읽히며 빛 반사되는 부분이 없는지 확인하세요",
-      "body_utility_bill": "전체 서류 페이지를 업로드했는지 확인하고, 세부 정보가 선명하게 읽히며 빛 반사되는 부분이 없는지 확인하세요",
+      "body_identity_document_with_address": "서류 전체 페이지를 업로드했는지 확인하고, 흐림이나 빛 반사 없이 세부 사항이 또렷하게 보이도록 해 주세요.",
+      "body_insurance_statement": "서류 전체 페이지를 업로드했는지 확인하고, 흐림이나 빛 반사 없이 세부 사항이 또렷하게 보이도록 해 주세요.",
+      "body_mobile_phone_bill": "서류 전체 페이지를 업로드했는지 확인하고, 흐림이나 빛 반사 없이 세부 사항이 또렷하게 보이도록 해 주세요.",
+      "body_mortgage_statement": "서류 전체 페이지를 업로드했는지 확인하고, 흐림이나 빛 반사 없이 세부 사항이 또렷하게 보이도록 해 주세요.",
+      "body_pension_property_statement_letter": "서류 전체 페이지를 업로드했는지 확인하고, 흐림이나 빛 반사 없이 세부 사항이 또렷하게 보이도록 해 주세요.",
+      "body_tax_letter": "문서 전체가 보이고 모든 정보가 선명하며, 흐릿하거나 빛이 반사된 부분이 없도록 해 주세요",
+      "body_utility_bill": "문서 전체가 보이고 모든 정보가 선명하며, 흐릿하거나 빛이 반사된 부분이 없도록 해 주세요",
       "close": "닫기",
       "crop_detail": "전체 서류가 잘 보이는지 확인하세요",
       "crop_title": "이미지 잘림 현상이 감지되었습니다",
@@ -4577,7 +4591,7 @@
       "no_doc_detail": "사진에 서류 전체가 포함되었는지 확인하세요",
       "no_doc_title": "서류가 감지되지 않았습니다",
       "redo": "다시 실행",
-      "title": "이미지 확인",
+      "title": "이미지를 확인하세요",
       "unsupported_file_detail": "JPG, JPEG, PNG 또는 PDF 형식의 사진을 업로드해 주세요. 파일 크기는 10MB를 초과할 수 없습니다.",
       "unsupported_file_title": "지원되지 않는 파일입니다",
       "upload": "업로드",
@@ -4588,9 +4602,9 @@
       "accessibility": "본인 인증에 사용할 수 있는 서류",
       "country_header": "발급 국가",
       "doctypes_header": "허용되는 서류",
-      "subtitle": "현재 집 주소가 표시될 가능성이 가장 높은 서류입니다",
+      "subtitle": "현재 거주지 주소가 표시된 최근 문서를 선택하세요",
       "subtitle_merged": "어떤 서류가 허용되는지 확인하려면 발급 국가를 선택하세요",
-      "title": "서류를 선택하십시오",
+      "title": "주소를 인증하세요",
       "title_merged": "서류 선택"
     },
     "upload": {
@@ -4774,7 +4788,7 @@
       "retake": "다시 실행",
       "submit": "업로드",
       "subtitle": "세부 정보가 명확하게 나타나고 가려진 부분이 없는지 확인하세요",
-      "title": "이미지 확인"
+      "title": "이미지를 확인하세요"
     },
     "selection": {
       "body": "녹화 재시작",

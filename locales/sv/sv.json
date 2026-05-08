@@ -940,7 +940,7 @@
       "photo_of_screen_detail": "Använd ditt ursprungliga dokument. Foton av skärm eller fotokopior accepteras inte",
       "photo_of_screen_title": "Foto av skärm upptäckt",
       "redo": "Gör om",
-      "title": "Kontrollera din bild",
+      "title": "Granska din bild",
       "unsupported_file_detail": "Vänligen ladda upp ditt foto i JPG, JPEG, PNG eller PDF-format. Filstorleken får inte överstiga 10MB.",
       "unsupported_file_title": "Filen stöds inte",
       "upload": "Ladda upp",
@@ -949,6 +949,7 @@
     },
     "scan": {
       "button_help": "Behöver du hjälp?",
+      "button_help_accessibility": "The Need Help? button is now highlighted. Tap it if you need assistance.",
       "button_manual": "Starta skanning",
       "feedback": {
         "alignment_center_document": "Centrera dokumentet",
@@ -1406,6 +1407,8 @@
       "feedback_move_left_accessibility": "Flytta enheten åt vänster",
       "feedback_move_right_accessibility": "Flytta enheten åt höger",
       "feedback_move_up_accessibility": "Flytta enheten uppåt",
+      "feedback_multiple_faces_detected": "Flera ansikten upptäcktes",
+      "feedback_multiple_faces_detected_accessibility": "Flera ansikten upptäcktes. Se till att du är den enda personen framför kameran",
       "feedback_no_face_detected": "Inget ansikte upptäcktes",
       "feedback_no_face_detected_accessibility": "Inget ansikte upptäcktes. Placera ditt ansikte framför enheten",
       "feedback_not_centered": "Ansiktet är inte centrerat",
@@ -1981,6 +1984,7 @@
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
+        "button_help_accessibility": "document.scan.button_help_accessibility",
         "button_manual": "document.scan.button_manual",
         "feedback": {
           "alignment_center_document": "document.scan.feedback.alignment_center_document",
@@ -2333,6 +2337,14 @@
         "button_tertiary": "nfc.pin_entry.optional_button_tertiary",
         "helper_attempts_left": "nfc.pin_entry.optional_helper_attempts_left",
         "helper_final_attempt": "nfc.pin_entry.optional_helper_final_attempt"
+      },
+      "face_biometrics": {
+        "capture": {
+          "feedback": {
+            "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
+            "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
+          }
+        }
       },
       "generic": {
         "accessibility": {
@@ -3905,6 +3917,8 @@
       "feedback_move_left_accessibility": "Flytta enheten åt vänster",
       "feedback_move_right_accessibility": "Flytta enheten åt höger",
       "feedback_move_up_accessibility": "Flytta enheten uppåt",
+      "feedback_multiple_faces_detected": "Flera ansikten upptäcktes",
+      "feedback_multiple_faces_detected_accessibility": "Flera ansikten upptäcktes. Se till att du är den enda personen framför kameran",
       "feedback_no_face_detected": "Inget ansikte upptäcktes",
       "feedback_no_face_detected_accessibility": "Inget ansikte upptäcktes. Placera ditt ansikte framför enheten",
       "feedback_not_centered": "Ansiktet är inte centrerat",
@@ -4053,12 +4067,12 @@
     },
     "pin_entry": {
       "button_primary": "Fortsätt",
-      "helper_attempts_left": "[%i] försök kvar",
+      "helper_attempts_left": "%d försök kvar",
       "helper_final_attempt": "1 försök kvar. Ditt chip kommer att blockeras efter nästa misslyckade försök",
       "optional_button_tertiary": "Hoppa över NFC-chipskanning",
-      "optional_helper_attempts_left": "[%i] försök kvar. Hoppa över detta steg nedan.",
-      "optional_helper_final_attempt": "[%i] försök kvar innan din NFC-chip blockeras. Hoppa över detta steg nedan.",
-      "subtitle": "Detta behövs för att säkert läsa NFC-chipet. Du skapade detta [%i]-siffriga nummer när ditt dokument utfärdades.",
+      "optional_helper_attempts_left": "%d försök kvar. Hoppa över detta steg nedan.",
+      "optional_helper_final_attempt": "%d försök kvar innan din NFC-chip blockeras. Hoppa över detta steg nedan.",
+      "subtitle": "Detta behövs för att säkert läsa NFC-chipet. Du skapade detta %d-siffriga nummer när ditt dokument utfärdades.",
       "title": "Ange din dokument-PIN",
       "title_incorrect": "Felaktig PIN-kod"
     },
@@ -4081,7 +4095,7 @@
         "document": "När chipet har upptäckts, håll din telefon och dokumentet stilla.",
         "passport": "När chippet upptäcks, håll din telefon och pass stilla."
       },
-      "pin_disclaimer": "Vi kommer att be dig om din dokuments [%i]-siffriga PIN-kod innan vi skannar chipet.",
+      "pin_disclaimer": "Vi kommer att be dig om din dokuments %d-siffriga PIN-kod innan vi skannar chipet.",
       "title_document": "Skanna ditt dokument",
       "title_passport": "Skanna ditt pass NFC-chip",
       "video_instruction_accessibility": "Videoinstruktion"
@@ -4546,24 +4560,24 @@
       "blur_detail": "Se till att allt är tydligt",
       "blur_title": "Suddigt foto upptäckt",
       "body": "Se till att dina uppgifter syns tydligt och inte skyms",
-      "body_accommodation_tenancy_certificate": "Se till att du har laddat upp hela dokument sidan, och detaljerna är tydliga att läsa utan suddighet eller bländning",
-      "body_address_card": "Se till att du har laddat upp hela dokument sidan, och detaljerna är tydliga att läsa utan suddighet eller bländning",
-      "body_address_certificate": "Se till att du har laddat upp hela dokument sidan, och detaljerna är tydliga att läsa utan suddighet eller bländning",
-      "body_bank_building_society_statement": "Se till att du har laddat upp hela dokumentsidan, att detaljerna är tydliga och att det inte finns några oskarpa områden eller ljusreflexer",
-      "body_bank_statement": "Se till att du har laddat upp hela dokumentsidan, att detaljerna är tydliga och att det inte finns några oskarpa områden eller ljusreflexer",
-      "body_benefit_letters": "Se till att du har laddat upp hela dokumentsidan, att detaljerna är tydliga och att det inte finns några oskarpa områden eller ljusreflexer",
-      "body_bill": "Se till att du har laddat upp hela dokumentsidan, att detaljerna är tydliga och att det inte finns några oskarpa områden eller ljusreflexer",
-      "body_council_tax": "Se till att du har laddat upp hela dokumentsidan, att detaljerna är tydliga och att det inte finns några oskarpa områden eller ljusreflexer",
-      "body_exchange_house_statement": "Se till att du har laddat upp hela dokument sidan, och detaljerna är tydliga att läsa utan suddighet eller bländning",
-      "body_general_letter": "Se till att du har laddat upp hela dokument sidan, och detaljerna är tydliga att läsa utan suddighet eller bländning",
+      "body_accommodation_tenancy_certificate": "Se till att du har laddat upp hela dokumentsidan och att detaljerna är tydligt läsbara utan oskärpa eller bländning",
+      "body_address_card": "Se till att du har laddat upp hela dokumentsidan och att detaljerna är tydligt läsbara utan oskärpa eller bländning",
+      "body_address_certificate": "Se till att du har laddat upp hela dokumentsidan och att detaljerna är tydligt läsbara utan oskärpa eller bländning",
+      "body_bank_building_society_statement": "Se till att hela dokumentet är synligt och att alla uppgifter är tydliga, utan oskärpa eller reflexer",
+      "body_bank_statement": "Se till att hela dokumentet är synligt och att alla uppgifter är tydliga, utan oskärpa eller reflexer",
+      "body_benefit_letters": "Se till att hela dokumentet är synligt och att alla uppgifter är tydliga, utan oskärpa eller reflexer",
+      "body_bill": "Se till att hela dokumentet är synligt och att alla uppgifter är tydliga, utan oskärpa eller reflexer",
+      "body_council_tax": "Se till att hela dokumentet är synligt och att alla uppgifter är tydliga, utan oskärpa eller reflexer",
+      "body_exchange_house_statement": "Se till att du har laddat upp hela dokumentsidan och att detaljerna är tydligt läsbara utan oskärpa eller bländning",
+      "body_general_letter": "Se till att du har laddat upp hela dokumentsidan och att detaljerna är tydligt läsbara utan oskärpa eller bländning",
       "body_government_letter": "Se till att skicka in hela dokumentsidan för bästa resultat",
-      "body_identity_document_with_address": "Se till att du har laddat upp hela dokument sidan, och detaljerna är tydliga att läsa utan suddighet eller bländning",
-      "body_insurance_statement": "Se till att du har laddat upp hela dokument sidan, och detaljerna är tydliga att läsa utan suddighet eller bländning",
-      "body_mobile_phone_bill": "Se till att du har laddat upp hela dokument sidan, och detaljerna är tydliga att läsa utan suddighet eller bländning",
-      "body_mortgage_statement": "Se till att du har laddat upp hela dokument sidan, och detaljerna är tydliga att läsa utan suddighet eller bländning",
-      "body_pension_property_statement_letter": "Se till att du har laddat upp hela dokument sidan, och detaljerna är tydliga att läsa utan suddighet eller bländning",
-      "body_tax_letter": "Se till att du har laddat upp hela dokumentsidan, att detaljerna är tydliga och att det inte finns några oskarpa områden eller ljusreflexer",
-      "body_utility_bill": "Se till att du har laddat upp hela dokumentsidan, att detaljerna är tydliga och att det inte finns några oskarpa områden eller ljusreflexer",
+      "body_identity_document_with_address": "Se till att du har laddat upp hela dokumentsidan och att detaljerna är tydligt läsbara utan oskärpa eller bländning",
+      "body_insurance_statement": "Se till att du har laddat upp hela dokumentsidan och att detaljerna är tydligt läsbara utan oskärpa eller bländning",
+      "body_mobile_phone_bill": "Se till att du har laddat upp hela dokumentsidan och att detaljerna är tydligt läsbara utan oskärpa eller bländning",
+      "body_mortgage_statement": "Se till att du har laddat upp hela dokumentsidan och att detaljerna är tydligt läsbara utan oskärpa eller bländning",
+      "body_pension_property_statement_letter": "Se till att du har laddat upp hela dokumentsidan och att detaljerna är tydligt läsbara utan oskärpa eller bländning",
+      "body_tax_letter": "Se till att hela dokumentet är synligt och att alla uppgifter är tydliga, utan oskärpa eller reflexer",
+      "body_utility_bill": "Se till att hela dokumentet är synligt och att alla uppgifter är tydliga, utan oskärpa eller reflexer",
       "close": "Stäng",
       "crop_detail": "Se till att hela dokumentet är synligt",
       "crop_title": "Manipulerad bild upptäckt",
@@ -4577,7 +4591,7 @@
       "no_doc_detail": "Se till att alla dokument finns med på fotot",
       "no_doc_title": "Inget dokument upptäcktes",
       "redo": "Gör om",
-      "title": "Kontrollera din bild",
+      "title": "Granska din bild",
       "unsupported_file_detail": "Vänligen ladda upp ditt foto i JPG, JPEG, PNG eller PDF-format. Filstorleken får inte överstiga 10MB.",
       "unsupported_file_title": "Filen stöds inte",
       "upload": "Ladda upp",
@@ -4588,9 +4602,9 @@
       "accessibility": "Dokument som du kan använda för att verifiera din identitet",
       "country_header": "Utfärdande land",
       "doctypes_header": "Accepterade dokument",
-      "subtitle": "Dessa dokument är de som mest sannolikt visar din nuvarande hemadress",
+      "subtitle": "Välj ett nyligt dokument som visar din nuvarande hemadress",
       "subtitle_merged": "Välj utfärdande land för att se vilka dokument vi accepterar",
-      "title": "Välj ett dokument",
+      "title": "Verifiera din adress",
       "title_merged": "Välj ditt dokument"
     },
     "upload": {
@@ -4774,7 +4788,7 @@
       "retake": "Gör om",
       "submit": "Ladda upp",
       "subtitle": "Se till att dina uppgifter syns tydligt och inte skyms",
-      "title": "Kontrollera din bild"
+      "title": "Granska din bild"
     },
     "selection": {
       "body": "Starta om inspelningen",

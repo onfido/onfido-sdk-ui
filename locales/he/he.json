@@ -949,6 +949,7 @@
     },
     "scan": {
       "button_help": "צריך עזרה?",
+      "button_help_accessibility": "The Need Help? button is now highlighted. Tap it if you need assistance.",
       "button_manual": "התחל סריקה",
       "feedback": {
         "alignment_center_document": "מרכז את המסמך",
@@ -1406,6 +1407,8 @@
       "feedback_move_left_accessibility": "הזז את המכשיר לצד שמאל",
       "feedback_move_right_accessibility": "הזז את המכשיר לצד לימין",
       "feedback_move_up_accessibility": "הזז את המכשיר למעלה",
+      "feedback_multiple_faces_detected": "זוהו מספר פנים",
+      "feedback_multiple_faces_detected_accessibility": "זוהו מספר פנים. ודא שאתה האדם היחיד מול המצלמה",
       "feedback_no_face_detected": "לא זוהו פנים",
       "feedback_no_face_detected_accessibility": "לא זוהו פנים. מקם את הפנים מול המכשיר",
       "feedback_not_centered": "הפנים לא מופיעות במרכז",
@@ -1981,6 +1984,7 @@
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
+        "button_help_accessibility": "document.scan.button_help_accessibility",
         "button_manual": "document.scan.button_manual",
         "feedback": {
           "alignment_center_document": "document.scan.feedback.alignment_center_document",
@@ -2333,6 +2337,14 @@
         "button_tertiary": "nfc.pin_entry.optional_button_tertiary",
         "helper_attempts_left": "nfc.pin_entry.optional_helper_attempts_left",
         "helper_final_attempt": "nfc.pin_entry.optional_helper_final_attempt"
+      },
+      "face_biometrics": {
+        "capture": {
+          "feedback": {
+            "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
+            "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
+          }
+        }
       },
       "generic": {
         "accessibility": {
@@ -3905,6 +3917,8 @@
       "feedback_move_left_accessibility": "הזז את המכשיר לצד שמאל",
       "feedback_move_right_accessibility": "הזז את המכשיר לצד לימין",
       "feedback_move_up_accessibility": "הזז את המכשיר למעלה",
+      "feedback_multiple_faces_detected": "זוהו מספר פנים",
+      "feedback_multiple_faces_detected_accessibility": "זוהו מספר פנים. ודא שאתה האדם היחיד מול המצלמה",
       "feedback_no_face_detected": "לא זוהו פנים",
       "feedback_no_face_detected_accessibility": "לא זוהו פנים. מקם את הפנים מול המכשיר",
       "feedback_not_centered": "הפנים לא מופיעות במרכז",
@@ -4053,12 +4067,12 @@
     },
     "pin_entry": {
       "button_primary": "המשך",
-      "helper_attempts_left": "[%i] ניסיונות נותרו",
+      "helper_attempts_left": "%d ניסיונות נותרו",
       "helper_final_attempt": "נותר ניסיון אחד. השבב שלך ייחסם לאחר הניסיון הכושל הבא",
       "optional_button_tertiary": "דלג על סריקת שבב NFC",
-      "optional_helper_attempts_left": "[%i] ניסיונות נותרו. דלג על שלב זה למטה.",
-      "optional_helper_final_attempt": "[%i] ניסיונות נותרו לפני שצ'יפ ה-NFC שלך ייחסם. דלג על שלב זה למטה.",
-      "subtitle": "זה נדרש כדי לקרוא בצורה מאובטחת את שבב ה-NFC. יצרת מספר בן [%i] ספרות זה כאשר המסמך שלך הונפק.",
+      "optional_helper_attempts_left": "%d ניסיונות נותרו. דלג על שלב זה למטה.",
+      "optional_helper_final_attempt": "%d ניסיונות נותרו לפני שצ'יפ ה-NFC שלך ייחסם. דלג על שלב זה למטה.",
+      "subtitle": "זה נדרש כדי לקרוא בצורה מאובטחת את שבב ה-NFC. יצרת מספר בן %d ספרות זה כאשר המסמך שלך הונפק.",
       "title": "הזן את קוד ה-PIN של המסמך שלך",
       "title_incorrect": "PIN שגוי"
     },
@@ -4081,7 +4095,7 @@
         "document": "ברגע שהשבב מזוהה, שמור את הטלפון והמסמך שלך יציבים.",
         "passport": "לאחר שהשבב מזוהה, ודא שהטלפון והדרכון נשארים במקום."
       },
-      "pin_disclaimer": "נבקש ממך את קוד ה-PIN בן [%i] ספרות של המסמך שלך לפני סריקת השבב.",
+      "pin_disclaimer": "נבקש ממך את קוד ה-PIN בן %d ספרות של המסמך שלך לפני סריקת השבב.",
       "title_document": "סרוק את המסמך שלך",
       "title_passport": "סרוק את שבב הדרכון שלך",
       "video_instruction_accessibility": "הוראות וידאו"
@@ -4546,24 +4560,24 @@
       "blur_detail": "ודא שהכול ברור",
       "blur_title": "זוהתה תמונה מטושטשת",
       "body": "ודא שהפרטים ברורים ולא חסומים",
-      "body_accommodation_tenancy_certificate": "ודא שהעלית את כל עמוד המסמך, והפרטים ברורים לקריאה ללא טשטוש או בהירות יתר",
-      "body_address_card": "ודא שהעלית את כל עמוד המסמך, והפרטים ברורים לקריאה ללא טשטוש או הבהוב",
-      "body_address_certificate": "ודא שהעלית את כל עמוד המסמך, והפרטים ברורים לקריאה ללא טשטוש או הבהוב",
-      "body_bank_building_society_statement": "ודא שהעלית את עמוד המסמך בשלמותו ושהפרטים ברורים לקריאה ללא טשטוש או השתקפות",
-      "body_bank_statement": "ודא שהעלית את עמוד המסמך בשלמותו ושהפרטים ברורים לקריאה ללא טשטוש או השתקפות",
-      "body_benefit_letters": "ודא שהעלית את עמוד המסמך בשלמותו ושהפרטים ברורים לקריאה ללא טשטוש או השתקפות",
-      "body_bill": "ודא שהעלית את עמוד המסמך בשלמותו ושהפרטים ברורים לקריאה ללא טשטוש או השתקפות",
-      "body_council_tax": "ודא שהעלית את עמוד המסמך בשלמותו ושהפרטים ברורים לקריאה ללא טשטוש או השתקפות",
-      "body_exchange_house_statement": "ודא שהעלית את כל עמוד המסמך, והפרטים ברורים לקריאה ללא טשטוש או הבהוב",
-      "body_general_letter": "ודא שהעלית את כל עמוד המסמך, והפרטים ברורים לקריאה ללא טשטוש או הבהוב",
+      "body_accommodation_tenancy_certificate": "ודא שהעלית את עמוד המסמך במלואו, והפרטים ברורים לקריאה ללא טשטוש או השתקפות",
+      "body_address_card": "ודא שהעלית את עמוד המסמך במלואו, והפרטים ברורים לקריאה ללא טשטוש או השתקפות",
+      "body_address_certificate": "ודא שהעלית את עמוד המסמך במלואו, והפרטים ברורים לקריאה ללא טשטוש או השתקפות",
+      "body_bank_building_society_statement": "ודאו שהמסמך כולו גלוי וכל הפרטים ברורים, ללא טשטוש או השתקפות",
+      "body_bank_statement": "ודאו שהמסמך כולו גלוי וכל הפרטים ברורים, ללא טשטוש או השתקפות",
+      "body_benefit_letters": "ודאו שהמסמך כולו גלוי וכל הפרטים ברורים, ללא טשטוש או השתקפות",
+      "body_bill": "ודאו שהמסמך כולו גלוי וכל הפרטים ברורים, ללא טשטוש או השתקפות",
+      "body_council_tax": "ודאו שהמסמך כולו גלוי וכל הפרטים ברורים, ללא טשטוש או השתקפות",
+      "body_exchange_house_statement": "ודא שהעלית את עמוד המסמך במלואו, והפרטים ברורים לקריאה ללא טשטוש או השתקפות",
+      "body_general_letter": "ודא שהעלית את עמוד המסמך במלואו, והפרטים ברורים לקריאה ללא טשטוש או השתקפות",
       "body_government_letter": "שלח את עמוד המסמך בשלמותו כדי לקבל התוצאות הטובות ביותר",
-      "body_identity_document_with_address": "ודא שהעלית את כל עמוד המסמך, והפרטים ברורים לקריאה ללא טשטוש או הבהוב",
-      "body_insurance_statement": "ודא שהעלית את כל עמוד המסמך, והפרטים ברורים לקריאה ללא טשטוש או הבהוב",
-      "body_mobile_phone_bill": "ודא שהעלית את כל עמוד המסמך, והפרטים ברורים לקריאה ללא טשטוש או הבהוב",
-      "body_mortgage_statement": "ודא שהעלית את כל עמוד המסמך, והפרטים ברורים לקריאה ללא טשטוש או הבהוב",
-      "body_pension_property_statement_letter": "ודא שהעלית את כל עמוד המסמך, והפרטים ברורים לקריאה ללא טשטוש או בהירות יתר",
-      "body_tax_letter": "ודא שהעלית את עמוד המסמך בשלמותו ושהפרטים ברורים לקריאה ללא טשטוש או השתקפות",
-      "body_utility_bill": "ודא שהעלית את עמוד המסמך בשלמותו ושהפרטים ברורים לקריאה ללא טשטוש או השתקפות",
+      "body_identity_document_with_address": "ודא שהעלית את עמוד המסמך במלואו, והפרטים ברורים לקריאה ללא טשטוש או השתקפות",
+      "body_insurance_statement": "ודא שהעלית את עמוד המסמך במלואו, והפרטים ברורים לקריאה ללא טשטוש או השתקפות",
+      "body_mobile_phone_bill": "ודא שהעלית את עמוד המסמך במלואו, והפרטים ברורים לקריאה ללא טשטוש או השתקפות",
+      "body_mortgage_statement": "ודא שהעלית את עמוד המסמך במלואו, והפרטים ברורים לקריאה ללא טשטוש או השתקפות",
+      "body_pension_property_statement_letter": "ודא שהעלית את עמוד המסמך במלואו, והפרטים ברורים לקריאה ללא טשטוש או השתקפות",
+      "body_tax_letter": "ודאו שהמסמך כולו גלוי וכל הפרטים ברורים, ללא טשטוש או השתקפות",
+      "body_utility_bill": "ודאו שהמסמך כולו גלוי וכל הפרטים ברורים, ללא טשטוש או השתקפות",
       "close": "סגור",
       "crop_detail": "ודא שניתן לראות את המסמך במלואו",
       "crop_title": "זיהינו שהתמונה חתוכה",
@@ -4588,9 +4602,9 @@
       "accessibility": "מסמכים שבהם אפשר להשתמש כדי לאמת את הזהות שלך",
       "country_header": "ארץ ההנפקה",
       "doctypes_header": "מסמכים קבילים",
-      "subtitle": "אלה המסמכים שהכי סביר שיציגו את כתובת המגורים הנוכחית שלך",
+      "subtitle": "יש לבחור מסמך עדכני המציג את כתובת המגורים הנוכחית",
       "subtitle_merged": "בחר את ארץ ההנפקה כדי לראות אילו מסמכים אנחנו מקבלים",
-      "title": "אנא בחר מסמך",
+      "title": "אימות כתובת",
       "title_merged": "בחר את המסמך שלך"
     },
     "upload": {

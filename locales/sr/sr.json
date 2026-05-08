@@ -940,7 +940,7 @@
       "photo_of_screen_detail": "Molimo Vas da koristite svoj originalni dokument. Fotografije ekrana ili fotokopije nisu prihvatljive.",
       "photo_of_screen_title": "Fotografija ekrana detektovana",
       "redo": "Ponovi",
-      "title": "Proverite sliku",
+      "title": "Pregledajte svoju sliku",
       "unsupported_file_detail": "Molimo vas da otpremite svoju fotografiju u JPG, JPEG, PNG ili PDF formatu. Veličina fajla ne sme prelaziti 10MB.",
       "unsupported_file_title": "Datoteka nije podržana",
       "upload": "Nastavi",
@@ -949,6 +949,7 @@
     },
     "scan": {
       "button_help": "Treba vam pomoć?",
+      "button_help_accessibility": "The Need Help? button is now highlighted. Tap it if you need assistance.",
       "button_manual": "Započni skeniranje",
       "feedback": {
         "alignment_center_document": "Centriraj dokument",
@@ -1406,6 +1407,8 @@
       "feedback_move_left_accessibility": "Pomerite uređaj ulevo",
       "feedback_move_right_accessibility": "Pomerite uređaj udesno",
       "feedback_move_up_accessibility": "Pomerite uređaj nagore",
+      "feedback_multiple_faces_detected": "Otkriveno više lica",
+      "feedback_multiple_faces_detected_accessibility": "Otkriveno je više lica. Uverite se da ste jedina osoba ispred kamere",
       "feedback_no_face_detected": "Lice nije nađeno",
       "feedback_no_face_detected_accessibility": "Lice nije nađeno. Stanite licem okrenutim prema uređaju",
       "feedback_not_centered": "Lice nije centrirano",
@@ -1981,6 +1984,7 @@
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
+        "button_help_accessibility": "document.scan.button_help_accessibility",
         "button_manual": "document.scan.button_manual",
         "feedback": {
           "alignment_center_document": "document.scan.feedback.alignment_center_document",
@@ -2333,6 +2337,14 @@
         "button_tertiary": "nfc.pin_entry.optional_button_tertiary",
         "helper_attempts_left": "nfc.pin_entry.optional_helper_attempts_left",
         "helper_final_attempt": "nfc.pin_entry.optional_helper_final_attempt"
+      },
+      "face_biometrics": {
+        "capture": {
+          "feedback": {
+            "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
+            "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
+          }
+        }
       },
       "generic": {
         "accessibility": {
@@ -3905,6 +3917,8 @@
       "feedback_move_left_accessibility": "Pomerite uređaj ulevo",
       "feedback_move_right_accessibility": "Pomerite uređaj udesno",
       "feedback_move_up_accessibility": "Pomerite uređaj nagore",
+      "feedback_multiple_faces_detected": "Otkriveno više lica",
+      "feedback_multiple_faces_detected_accessibility": "Otkriveno je više lica. Uverite se da ste jedina osoba ispred kamere",
       "feedback_no_face_detected": "Lice nije nađeno",
       "feedback_no_face_detected_accessibility": "Lice nije nađeno. Stanite licem okrenutim prema uređaju",
       "feedback_not_centered": "Lice nije centrirano",
@@ -4053,12 +4067,12 @@
     },
     "pin_entry": {
       "button_primary": "Nastavi",
-      "helper_attempts_left": "[%i] preostalih pokušaja",
+      "helper_attempts_left": "%d preostalih pokušaja",
       "helper_final_attempt": "Preostao je 1 pokušaj. Vaš čip će biti blokiran nakon sledećeg neuspešnog pokušaja",
       "optional_button_tertiary": "Прескочи скенирање NFC чипа",
-      "optional_helper_attempts_left": "[%i] preostalih pokušaja. Preskočite ovaj korak ispod.",
-      "optional_helper_final_attempt": "[%i] pokušaj preostao pre nego što se vaš NFC čip blokira. Preskočite ovaj korak ispod.",
-      "subtitle": "Ovo je potrebno za bezbedno očitavanje NFC čipa. Kreirali ste ovaj [%i]-cifreni broj kada je vaš dokument izdat.",
+      "optional_helper_attempts_left": "%d preostalih pokušaja. Preskočite ovaj korak ispod.",
+      "optional_helper_final_attempt": "%d pokušaj preostao pre nego što se vaš NFC čip blokira. Preskočite ovaj korak ispod.",
+      "subtitle": "Ovo je potrebno za bezbedno očitavanje NFC čipa. Kreirali ste ovaj %d-cifreni broj kada je vaš dokument izdat.",
       "title": "Unesite PIN dokumenta",
       "title_incorrect": "Netačan PIN"
     },
@@ -4081,7 +4095,7 @@
         "document": "Kada se čip detektuje, držite telefon i dokument mirno.",
         "passport": "Kada se čip detektuje, držite svoj telefon i pasoš mirno."
       },
-      "pin_disclaimer": "Zatražićemo od vas [%i]-cifreni PIN vašeg dokumenta pre skeniranja čipa.",
+      "pin_disclaimer": "Zatražićemo od vas %d-cifreni PIN vašeg dokumenta pre skeniranja čipa.",
       "title_document": "Skenirajte svoj dokument",
       "title_passport": "Skenirajte čip na vašem pasošu",
       "video_instruction_accessibility": "Видео упутство"
@@ -4546,24 +4560,24 @@
       "blur_detail": "Proverite da li se sve jasno vidi",
       "blur_title": "Otkrivena je mutna fotografija",
       "body": "Proverite da li se podaci jasno vide i da li ih nešto ne zaklanja",
-      "body_accommodation_tenancy_certificate": "Postarajte se da ste otpremili celu stranicu dokumenta, i da su detalji jasno vidljivi bez zamagljenosti ili odsjaja",
-      "body_address_card": "Postarajte se da ste otpremili celu stranicu dokumenta, i da su detalji jasno vidljivi bez zamagljenosti ili odsjaja",
-      "body_address_certificate": "Postarajte se da ste otpremili celu stranicu dokumenta, i da su detalji jasno vidljivi bez zamagljenosti ili odsjaja",
-      "body_bank_building_society_statement": "Proverite da li ste otpremili celu stranicu dokumenta i da li su podaci jasno čitljivi, nisu mutni i nema odsjaja",
-      "body_bank_statement": "Proverite da li ste otpremili celu stranicu dokumenta i da li su podaci jasno čitljivi, nisu mutni i nema odsjaja",
-      "body_benefit_letters": "Proverite da li ste otpremili celu stranicu dokumenta i da li su podaci jasno čitljivi, nisu mutni i nema odsjaja",
-      "body_bill": "Proverite da li ste otpremili celu stranicu dokumenta i da li su podaci jasno čitljivi, nisu mutni i nema odsjaja",
-      "body_council_tax": "Proverite da li ste otpremili celu stranicu dokumenta i da li su podaci jasno čitljivi, nisu mutni i nema odsjaja",
-      "body_exchange_house_statement": "Postarajte se da ste otpremili celu stranicu dokumenta, i da su detalji jasno vidljivi bez zamagljenosti ili odsjaja",
-      "body_general_letter": "Postarajte se da ste otpremili celu stranicu dokumenta, i da su detalji jasno vidljivi bez zamagljenosti ili odsjaja",
+      "body_accommodation_tenancy_certificate": "Uverite se da ste otpremili celu stranicu dokumenta i da su detalji jasno čitljivi, bez zamućenja ili odsjaja",
+      "body_address_card": "Uverite se da ste otpremili celu stranicu dokumenta i da su detalji jasno čitljivi, bez zamućenja ili odsjaja",
+      "body_address_certificate": "Uverite se da ste otpremili celu stranicu dokumenta i da su detalji jasno čitljivi, bez zamućenja ili odsjaja",
+      "body_bank_building_society_statement": "Уверите се да је цео документ видљив и да су сви детаљи јасни, без замућења или одсјаја",
+      "body_bank_statement": "Уверите се да је цео документ видљив и да су сви детаљи јасни, без замућења или одсјаја",
+      "body_benefit_letters": "Уверите се да је цео документ видљив и да су сви детаљи јасни, без замућења или одсјаја",
+      "body_bill": "Уверите се да је цео документ видљив и да су сви детаљи јасни, без замућења или одсјаја",
+      "body_council_tax": "Уверите се да је цео документ видљив и да су сви детаљи јасни, без замућења или одсјаја",
+      "body_exchange_house_statement": "Uverite se da ste otpremili celu stranicu dokumenta i da su detalji jasno čitljivi, bez zamućenja ili odsjaja",
+      "body_general_letter": "Uverite se da ste otpremili celu stranicu dokumenta i da su detalji jasno čitljivi, bez zamućenja ili odsjaja",
       "body_government_letter": "Najbolje je da pošaljete celu stranicu dokumenta",
-      "body_identity_document_with_address": "Postarajte se da ste otpremili celu stranicu dokumenta, i da su detalji jasno vidljivi bez zamagljenosti ili odsjaja",
-      "body_insurance_statement": "Postarajte se da ste otpremili celu stranicu dokumenta, i da su detalji jasno vidljivi bez zamagljenosti ili odsjaja",
-      "body_mobile_phone_bill": "Postarajte se da ste otpremili celu stranicu dokumenta, i da su detalji jasno vidljivi bez zamagljenosti ili odsjaja",
-      "body_mortgage_statement": "Postarajte se da ste otpremili celu stranicu dokumenta, i da su detalji jasno vidljivi bez zamagljenosti ili odsjaja",
-      "body_pension_property_statement_letter": "Postarajte se da ste otpremili celu stranicu dokumenta, i da su detalji jasno vidljivi bez zamagljenosti ili odsjaja",
-      "body_tax_letter": "Proverite da li ste otpremili celu stranicu dokumenta i da li su podaci jasno čitljivi, nisu mutni i nema odsjaja",
-      "body_utility_bill": "Proverite da li ste otpremili celu stranicu dokumenta i da li su podaci jasno čitljivi, nisu mutni i nema odsjaja",
+      "body_identity_document_with_address": "Uverite se da ste otpremili celu stranicu dokumenta i da su detalji jasno čitljivi, bez zamućenja ili odsjaja",
+      "body_insurance_statement": "Uverite se da ste otpremili celu stranicu dokumenta i da su detalji jasno čitljivi, bez zamućenja ili odsjaja",
+      "body_mobile_phone_bill": "Uverite se da ste otpremili celu stranicu dokumenta i da su detalji jasno čitljivi, bez zamućenja ili odsjaja",
+      "body_mortgage_statement": "Uverite se da ste otpremili celu stranicu dokumenta i da su detalji jasno čitljivi, bez zamućenja ili odsjaja",
+      "body_pension_property_statement_letter": "Uverite se da ste otpremili celu stranicu dokumenta i da su detalji jasno čitljivi, bez zamućenja ili odsjaja",
+      "body_tax_letter": "Уверите се да је цео документ видљив и да су сви детаљи јасни, без замућења или одсјаја",
+      "body_utility_bill": "Уверите се да је цео документ видљив и да су сви детаљи јасни, без замућења или одсјаја",
       "close": "Zatvori",
       "crop_detail": "Proverite da li je ceo dokument vidljiv",
       "crop_title": "Nađena je izrezana slika",
@@ -4577,7 +4591,7 @@
       "no_doc_detail": "Proverite da li je ceo dokument na fotografiji",
       "no_doc_title": "Dokument nije nađen",
       "redo": "Ponovi",
-      "title": "Proverite sliku",
+      "title": "Pregledajte svoju sliku",
       "unsupported_file_detail": "Molimo vas da otpremite svoju fotografiju u JPG, JPEG, PNG ili PDF formatu. Veličina fajla ne sme prelaziti 10MB.",
       "unsupported_file_title": "Datoteka nije podržana",
       "upload": "Nastavi",
@@ -4588,9 +4602,9 @@
       "accessibility": "Dokumenti koje možete da koristite za proveru identiteta",
       "country_header": "Zemlja izdavanja",
       "doctypes_header": "Prihvaćeni dokumenti",
-      "subtitle": "Ovo su dokumenti koji će najverovatnije prikazivati vašu trenutnu kućnu adresu",
+      "subtitle": "Odaberite nedavni dokument koji prikazuje vašu trenutnu kućnu adresu",
       "subtitle_merged": "Izaberite zemlju izdavanja da biste videli koje dokumente prihvatamo",
-      "title": "Izaberite dokument",
+      "title": "Potvrdite svoju adresu",
       "title_merged": "Izaberite dokument"
     },
     "upload": {
@@ -4774,7 +4788,7 @@
       "retake": "Ponovi",
       "submit": "Nastavi",
       "subtitle": "Proverite da li se podaci jasno vide i da li ih nešto ne zaklanja",
-      "title": "Proverite sliku"
+      "title": "Pregledajte svoju sliku"
     },
     "selection": {
       "body": "Ponovo započnite snimanje",

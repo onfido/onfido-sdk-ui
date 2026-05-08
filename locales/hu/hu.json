@@ -949,6 +949,7 @@
     },
     "scan": {
       "button_help": "Segítségre van szüksége?",
+      "button_help_accessibility": "The Need Help? button is now highlighted. Tap it if you need assistance.",
       "button_manual": "Szkennelés indítása",
       "feedback": {
         "alignment_center_document": "Igazítsa középre a dokumentumot",
@@ -1406,6 +1407,8 @@
       "feedback_move_left_accessibility": "Mozgassa az eszközt balra",
       "feedback_move_right_accessibility": "Mozgassa az eszközt jobbra",
       "feedback_move_up_accessibility": "Mozgassa az eszközt felfelé",
+      "feedback_multiple_faces_detected": "Több arcot észleltünk",
+      "feedback_multiple_faces_detected_accessibility": "Több arcot észleltünk. Kérjük, ügyeljen rá, hogy csak Ön legyen a kamera előtt",
       "feedback_no_face_detected": "Arc nem észlelhető",
       "feedback_no_face_detected_accessibility": "Arc nem észlelhető. Arca legyen az eszköz előtt",
       "feedback_not_centered": "Arca nincs középen",
@@ -1981,6 +1984,7 @@
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
+        "button_help_accessibility": "document.scan.button_help_accessibility",
         "button_manual": "document.scan.button_manual",
         "feedback": {
           "alignment_center_document": "document.scan.feedback.alignment_center_document",
@@ -2333,6 +2337,14 @@
         "button_tertiary": "nfc.pin_entry.optional_button_tertiary",
         "helper_attempts_left": "nfc.pin_entry.optional_helper_attempts_left",
         "helper_final_attempt": "nfc.pin_entry.optional_helper_final_attempt"
+      },
+      "face_biometrics": {
+        "capture": {
+          "feedback": {
+            "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
+            "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
+          }
+        }
       },
       "generic": {
         "accessibility": {
@@ -3905,6 +3917,8 @@
       "feedback_move_left_accessibility": "Mozgassa az eszközt balra",
       "feedback_move_right_accessibility": "Mozgassa az eszközt jobbra",
       "feedback_move_up_accessibility": "Mozgassa az eszközt felfelé",
+      "feedback_multiple_faces_detected": "Több arcot észleltünk",
+      "feedback_multiple_faces_detected_accessibility": "Több arcot észleltünk. Kérjük, ügyeljen rá, hogy csak Ön legyen a kamera előtt",
       "feedback_no_face_detected": "Arc nem észlelhető",
       "feedback_no_face_detected_accessibility": "Arc nem észlelhető. Arca legyen az eszköz előtt",
       "feedback_not_centered": "Arca nincs középen",
@@ -4053,12 +4067,12 @@
     },
     "pin_entry": {
       "button_primary": "Tovább",
-      "helper_attempts_left": "[%i] próbálkozás van hátra",
+      "helper_attempts_left": "%d próbálkozás van hátra",
       "helper_final_attempt": "Még 1 próbálkozás maradt. A chip blokkolva lesz a következő sikertelen próbálkozás után",
       "optional_button_tertiary": "NFC-chipolvasás kihagyása",
-      "optional_helper_attempts_left": "[%i] próbálkozás maradt. Hagyja ki ezt a lépést lentebb.",
-      "optional_helper_final_attempt": "[%i] próbálkozása maradt, mielőtt az NFC-chipje zárolásra kerül. Az alábbi lépéssel kihagyhatja ezt.",
-      "subtitle": "Ez szükséges az NFC‑chip biztonságos leolvasásához. Ezt a [%i] számjegyű számot a dokumentuma kiállításakor hozta létre.",
+      "optional_helper_attempts_left": "%d próbálkozás maradt. Hagyja ki ezt a lépést lentebb.",
+      "optional_helper_final_attempt": "%d próbálkozása maradt, mielőtt az NFC-chipje zárolásra kerül. Az alábbi lépéssel kihagyhatja ezt.",
+      "subtitle": "Ez szükséges az NFC‑chip biztonságos leolvasásához. Ezt a %d számjegyű számot a dokumentuma kiállításakor hozta létre.",
       "title": "Adja meg a dokumentum PIN-kódját",
       "title_incorrect": "Helytelen PIN-kód"
     },
@@ -4081,7 +4095,7 @@
         "document": "Amint a chipet észlelik, tartsa mozdulatlanul a telefonját és az okmányt.",
         "passport": "Amint a chipet felismeri, tartsa mozdulatlanul a telefonját és az útlevelét."
       },
-      "pin_disclaimer": "A chip beolvasása előtt kérni fogjuk a dokumentum [%i] számjegyű PIN-kódját.",
+      "pin_disclaimer": "A chip beolvasása előtt kérni fogjuk a dokumentum %d számjegyű PIN-kódját.",
       "title_document": "Scannelje be a dokumentumát",
       "title_passport": "Olvassa le az útlevelének chipjét",
       "video_instruction_accessibility": "Videós útmutató"
@@ -4546,24 +4560,24 @@
       "blur_detail": "Győződjön meg róla, hogy minden jól látható",
       "blur_title": "Homályos kép észlelve",
       "body": "Gondoskodjon arról, hogy az adatai világosan és egyértelműen olvashatók legyenek",
-      "body_accommodation_tenancy_certificate": "Ellenőrizze, hogy a teljes dokumentum oldalt feltöltötte-e, és az információk világosan olvashatóak-e, nincs-e elmosódás vagy fényvisszaverődés",
-      "body_address_card": "Győződjön meg róla, hogy feltöltötte az egész dokumentum oldalt, és az adatok jól olvashatóak, nincs elmosódás vagy vakítás",
-      "body_address_certificate": "Győződjön meg róla, hogy feltöltötte az egész dokumentum oldalt, és az adatok jól olvashatóak, nincs elmosódás vagy vakítás",
-      "body_bank_building_society_statement": "Győződjön meg róla, hogy feltöltötte a teljes dokumentumoldalt, és az adatok tisztán, elmosódás- és tükröződésmentesen olvashatók",
-      "body_bank_statement": "Győződjön meg róla, hogy feltöltötte a teljes dokumentumoldalt, és az adatok tisztán, elmosódás- és tükröződésmentesen olvashatók",
-      "body_benefit_letters": "Győződjön meg róla, hogy feltöltötte a teljes dokumentumoldalt, és az adatok tisztán, elmosódás- és tükröződésmentesen olvashatók",
-      "body_bill": "Győződjön meg róla, hogy feltöltötte a teljes dokumentumoldalt, és az adatok tisztán, elmosódás- és tükröződésmentesen olvashatók",
-      "body_council_tax": "Győződjön meg róla, hogy feltöltötte a teljes dokumentumoldalt, és az adatok tisztán, elmosódás- és tükröződésmentesen olvashatók",
-      "body_exchange_house_statement": "Győződjön meg róla, hogy feltöltötte az egész dokumentum oldalt, és az adatok jól olvashatóak, nincs elmosódás vagy vakítás",
-      "body_general_letter": "Győződjön meg róla, hogy feltöltötte az egész dokumentum oldalt, és az adatok jól olvashatóak, nincs elmosódás vagy vakítás",
+      "body_accommodation_tenancy_certificate": "Kérjük, ellenőrizze, hogy a teljes okmányszakaszt feltöltötte-e, és hogy minden adat élesen, elmosódás és csillogás nélkül olvasható-e",
+      "body_address_card": "Kérjük, ellenőrizze, hogy a teljes okmányszakaszt feltöltötte-e, és hogy minden adat élesen, elmosódás és csillogás nélkül olvasható-e",
+      "body_address_certificate": "Kérjük, ellenőrizze, hogy a teljes okmányszakaszt feltöltötte-e, és hogy minden adat élesen, elmosódás és csillogás nélkül olvasható-e",
+      "body_bank_building_society_statement": "Győződjön meg róla, hogy a teljes dokumentum látható, és minden adat jól olvasható, elmosódás vagy tükröződés nélkül.",
+      "body_bank_statement": "Győződjön meg róla, hogy a teljes dokumentum látható, és minden adat jól olvasható, elmosódás vagy tükröződés nélkül.",
+      "body_benefit_letters": "Győződjön meg róla, hogy a teljes dokumentum látható, és minden adat jól olvasható, elmosódás vagy tükröződés nélkül.",
+      "body_bill": "Győződjön meg róla, hogy a teljes dokumentum látható, és minden adat jól olvasható, elmosódás vagy tükröződés nélkül.",
+      "body_council_tax": "Győződjön meg róla, hogy a teljes dokumentum látható, és minden adat jól olvasható, elmosódás vagy tükröződés nélkül.",
+      "body_exchange_house_statement": "Kérjük, ellenőrizze, hogy a teljes okmányszakaszt feltöltötte-e, és hogy minden adat élesen, elmosódás és csillogás nélkül olvasható-e",
+      "body_general_letter": "Kérjük, ellenőrizze, hogy a teljes okmányszakaszt feltöltötte-e, és hogy minden adat élesen, elmosódás és csillogás nélkül olvasható-e",
       "body_government_letter": "A legjobb eredményhez adja meg a teljes dokumentumoldalt",
-      "body_identity_document_with_address": "Győződjön meg róla, hogy feltöltötte az egész dokumentum oldalt, és az adatok jól olvashatóak, nincs elmosódás vagy vakítás",
-      "body_insurance_statement": "Győződjön meg róla, hogy feltöltötte az egész dokumentum oldalt, és az adatok jól olvashatóak, nincs elmosódás vagy vakítás",
-      "body_mobile_phone_bill": "Győződjön meg róla, hogy feltöltötte az egész dokumentum oldalt, és az adatok jól olvashatóak, nincs elmosódás vagy vakítás",
-      "body_mortgage_statement": "Győződjön meg róla, hogy feltöltötte az egész dokumentum oldalt, és az adatok jól olvashatóak, nincs elmosódás vagy vakítás",
-      "body_pension_property_statement_letter": "Győződjön meg róla, hogy feltöltötte az egész dokumentum oldalt, és az adatok jól olvashatóak, nincs elmosódás vagy vakítás",
-      "body_tax_letter": "Győződjön meg róla, hogy feltöltötte a teljes dokumentumoldalt, és az adatok tisztán, elmosódás- és tükröződésmentesen olvashatók",
-      "body_utility_bill": "Győződjön meg róla, hogy feltöltötte a teljes dokumentumoldalt, és az adatok tisztán, elmosódás- és tükröződésmentesen olvashatók",
+      "body_identity_document_with_address": "Kérjük, ellenőrizze, hogy a teljes okmányszakaszt feltöltötte-e, és hogy minden adat élesen, elmosódás és csillogás nélkül olvasható-e",
+      "body_insurance_statement": "Kérjük, ellenőrizze, hogy a teljes okmányszakaszt feltöltötte-e, és hogy minden adat élesen, elmosódás és csillogás nélkül olvasható-e",
+      "body_mobile_phone_bill": "Kérjük, ellenőrizze, hogy a teljes okmányszakaszt feltöltötte-e, és hogy minden adat élesen, elmosódás és csillogás nélkül olvasható-e",
+      "body_mortgage_statement": "Kérjük, ellenőrizze, hogy a teljes okmányszakaszt feltöltötte-e, és hogy minden adat élesen, elmosódás és csillogás nélkül olvasható-e",
+      "body_pension_property_statement_letter": "Kérjük, ellenőrizze, hogy a teljes okmányszakaszt feltöltötte-e, és hogy minden adat élesen, elmosódás és csillogás nélkül olvasható-e",
+      "body_tax_letter": "Győződjön meg róla, hogy a teljes dokumentum látható, és minden adat jól olvasható, elmosódás vagy tükröződés nélkül.",
+      "body_utility_bill": "Győződjön meg róla, hogy a teljes dokumentum látható, és minden adat jól olvasható, elmosódás vagy tükröződés nélkül.",
       "close": "Bezár",
       "crop_detail": "Győződjön meg róla, hogy a teljes dokumentum látható",
       "crop_title": "Levágott kép észlelve",
@@ -4588,9 +4602,9 @@
       "accessibility": "A személyazonosság igazolására használható dokumentumok",
       "country_header": "Kibocsátó ország",
       "doctypes_header": "Elfogadott dokumentumok",
-      "subtitle": "Ezek a dokumentumok valószínűleg tartalmazzák a jelenlegi lakcímét",
+      "subtitle": "Válasszon egy nemrég kiállított dokumentumot, amely tartalmazza az aktuális lakcímét",
       "subtitle_merged": "Válassza ki a kibocsátó országot, hogy lássa, mely dokumentumokat fogadjuk el",
-      "title": "Válasszon az alábbi dokumentumtípusok közül",
+      "title": "Erősítse meg a lakcímét",
       "title_merged": "Válassza ki a dokumentumot"
     },
     "upload": {

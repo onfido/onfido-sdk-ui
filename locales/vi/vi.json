@@ -940,7 +940,7 @@
       "photo_of_screen_detail": "Vui lòng sử dụng tài liệu gốc của bạn. Ảnh chụp màn hình hoặc bản sao không được chấp nhận",
       "photo_of_screen_title": "Đã phát hiện ảnh của màn hình",
       "redo": "Làm lại",
-      "title": "Kiểm tra hình ảnh của bạn",
+      "title": "Xem lại ảnh của bạn",
       "unsupported_file_detail": "Vui lòng tải lên ảnh của bạn ở định dạng JPG, JPEG, PNG hoặc PDF. Kích thước tệp không được vượt quá 10MB.",
       "unsupported_file_title": "Tệp không được hỗ trợ",
       "upload": "Tải lên",
@@ -949,6 +949,7 @@
     },
     "scan": {
       "button_help": "Cần trợ giúp?",
+      "button_help_accessibility": "The Need Help? button is now highlighted. Tap it if you need assistance.",
       "button_manual": "Bắt đầu quét",
       "feedback": {
         "alignment_center_document": "Đặt tài liệu vào giữa",
@@ -1406,6 +1407,8 @@
       "feedback_move_left_accessibility": "Di chuyển thiết bị của bạn sang bên trái",
       "feedback_move_right_accessibility": "Di chuyển thiết bị của bạn sang phải",
       "feedback_move_up_accessibility": "Di chuyển thiết bị của bạn lên trên",
+      "feedback_multiple_faces_detected": "Phát hiện nhiều khuôn mặt",
+      "feedback_multiple_faces_detected_accessibility": "Phát hiện nhiều khuôn mặt. Đảm bảo chỉ có bạn ở trước camera",
       "feedback_no_face_detected": "Không nhận dạng được khuôn mặt",
       "feedback_no_face_detected_accessibility": "Không nhận dạng được khuôn mặt. Định vị khuôn mặt của bạn trước thiết bị",
       "feedback_not_centered": "Khuôn mặt không được căn giữa",
@@ -1981,6 +1984,7 @@
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
+        "button_help_accessibility": "document.scan.button_help_accessibility",
         "button_manual": "document.scan.button_manual",
         "feedback": {
           "alignment_center_document": "document.scan.feedback.alignment_center_document",
@@ -2333,6 +2337,14 @@
         "button_tertiary": "nfc.pin_entry.optional_button_tertiary",
         "helper_attempts_left": "nfc.pin_entry.optional_helper_attempts_left",
         "helper_final_attempt": "nfc.pin_entry.optional_helper_final_attempt"
+      },
+      "face_biometrics": {
+        "capture": {
+          "feedback": {
+            "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
+            "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
+          }
+        }
       },
       "generic": {
         "accessibility": {
@@ -3905,6 +3917,8 @@
       "feedback_move_left_accessibility": "Di chuyển thiết bị của bạn sang bên trái",
       "feedback_move_right_accessibility": "Di chuyển thiết bị của bạn sang phải",
       "feedback_move_up_accessibility": "Di chuyển thiết bị của bạn lên trên",
+      "feedback_multiple_faces_detected": "Phát hiện nhiều khuôn mặt",
+      "feedback_multiple_faces_detected_accessibility": "Phát hiện nhiều khuôn mặt. Đảm bảo chỉ có bạn ở trước camera",
       "feedback_no_face_detected": "Không nhận dạng được khuôn mặt",
       "feedback_no_face_detected_accessibility": "Không nhận dạng được khuôn mặt. Định vị khuôn mặt của bạn trước thiết bị",
       "feedback_not_centered": "Khuôn mặt không được căn giữa",
@@ -4053,12 +4067,12 @@
     },
     "pin_entry": {
       "button_primary": "Tiếp tục",
-      "helper_attempts_left": "[%i] lần thử còn lại",
+      "helper_attempts_left": "%d lần thử còn lại",
       "helper_final_attempt": "Còn 1 lần thử. Chip của bạn sẽ bị khóa sau lần thử thất bại tiếp theo",
       "optional_button_tertiary": "Bỏ qua quét chip NFC",
-      "optional_helper_attempts_left": "Còn [%i] lần thử. Bỏ qua bước này bên dưới.",
-      "optional_helper_final_attempt": "Còn [%i] lần thử trước khi chip NFC của bạn bị khóa. Bỏ qua bước này bên dưới.",
-      "subtitle": "Điều này cần thiết để đọc chip NFC một cách an toàn. Bạn đã tạo số gồm [%i] chữ số này khi tài liệu của bạn được cấp.",
+      "optional_helper_attempts_left": "Còn %d lần thử. Bỏ qua bước này bên dưới.",
+      "optional_helper_final_attempt": "Còn %d lần thử trước khi chip NFC của bạn bị khóa. Bỏ qua bước này bên dưới.",
+      "subtitle": "Điều này cần thiết để đọc chip NFC một cách an toàn. Bạn đã tạo số gồm %d chữ số này khi tài liệu của bạn được cấp.",
       "title": "Nhập mã PIN tài liệu của bạn",
       "title_incorrect": "Mã PIN không đúng"
     },
@@ -4081,7 +4095,7 @@
         "document": "Khi chip được phát hiện, hãy giữ điện thoại và tài liệu của bạn ổn định.",
         "passport": "Một khi chip được phát hiện, hãy giữ điện thoại và hộ chiếu của bạn không động."
       },
-      "pin_disclaimer": "Chúng tôi sẽ yêu cầu bạn nhập mã PIN [%i] chữ số của tài liệu trước khi quét chip.",
+      "pin_disclaimer": "Chúng tôi sẽ yêu cầu bạn nhập mã PIN %d chữ số của tài liệu trước khi quét chip.",
       "title_document": "Quét tài liệu của bạn",
       "title_passport": "Quét chip trong hộ chiếu của bạn",
       "video_instruction_accessibility": "Hướng dẫn video"
@@ -4546,24 +4560,24 @@
       "blur_detail": "Đảm bảo hình ảnh rõ ràng",
       "blur_title": "Phát hiện ảnh mờ",
       "body": "Đảm bảo thông tin của bạn rõ ràng và dễ nhìn",
-      "body_accommodation_tenancy_certificate": "Hãy đảm bảo bạn đã tải lên toàn bộ trang tài liệu, và chi tiết rõ ràng để đọc mà không có độ mờ hoặc chói lóa",
-      "body_address_card": "Hãy đảm bảo bạn đã tải lên toàn bộ trang tài liệu, và chi tiết rõ ràng để đọc mà không có độ mờ hoặc chói lóa",
-      "body_address_certificate": "Hãy đảm bảo bạn đã tải lên toàn bộ trang tài liệu, và chi tiết rõ ràng để đọc mà không có độ mờ hoặc chói lóa",
-      "body_bank_building_society_statement": "Đảm bảo bạn đã tải lên toàn bộ trang giấy tờ và chi tiết phải rõ ràng để đọc mà không bị mờ hoặc lóa",
-      "body_bank_statement": "Đảm bảo bạn đã tải lên toàn bộ trang giấy tờ và chi tiết phải rõ ràng để đọc mà không bị mờ hoặc lóa",
-      "body_benefit_letters": "Đảm bảo bạn đã tải lên toàn bộ trang giấy tờ và chi tiết phải rõ ràng để đọc mà không bị mờ hoặc lóa",
-      "body_bill": "Đảm bảo bạn đã tải lên toàn bộ trang giấy tờ và chi tiết phải rõ ràng để đọc mà không bị mờ hoặc lóa",
-      "body_council_tax": "Đảm bảo bạn đã tải lên toàn bộ trang giấy tờ và chi tiết phải rõ ràng để đọc mà không bị mờ hoặc lóa",
-      "body_exchange_house_statement": "Hãy đảm bảo bạn đã tải lên toàn bộ trang tài liệu, và chi tiết rõ ràng để đọc mà không có độ mờ hoặc chói lóa",
-      "body_general_letter": "Hãy đảm bảo bạn đã tải lên toàn bộ trang tài liệu, và chi tiết rõ ràng để đọc mà không có độ mờ hoặc chói lóa",
+      "body_accommodation_tenancy_certificate": "Hãy đảm bảo bạn đã tải lên toàn bộ trang của tài liệu và mọi chi tiết đều rõ ràng, không bị nhòe hay lóa sáng",
+      "body_address_card": "Hãy đảm bảo bạn đã tải lên toàn bộ trang của tài liệu và mọi chi tiết đều rõ ràng, không bị nhòe hay lóa sáng",
+      "body_address_certificate": "Hãy đảm bảo bạn đã tải lên toàn bộ trang của tài liệu và mọi chi tiết đều rõ ràng, không bị nhòe hay lóa sáng",
+      "body_bank_building_society_statement": "Hãy đảm bảo toàn bộ tài liệu hiển thị đầy đủ và mọi chi tiết đều rõ ràng, không bị mờ hoặc lóa",
+      "body_bank_statement": "Hãy đảm bảo toàn bộ tài liệu hiển thị đầy đủ và mọi chi tiết đều rõ ràng, không bị mờ hoặc lóa",
+      "body_benefit_letters": "Hãy đảm bảo toàn bộ tài liệu hiển thị đầy đủ và mọi chi tiết đều rõ ràng, không bị mờ hoặc lóa",
+      "body_bill": "Hãy đảm bảo toàn bộ tài liệu hiển thị đầy đủ và mọi chi tiết đều rõ ràng, không bị mờ hoặc lóa",
+      "body_council_tax": "Hãy đảm bảo toàn bộ tài liệu hiển thị đầy đủ và mọi chi tiết đều rõ ràng, không bị mờ hoặc lóa",
+      "body_exchange_house_statement": "Hãy đảm bảo bạn đã tải lên toàn bộ trang của tài liệu và mọi chi tiết đều rõ ràng, không bị nhòe hay lóa sáng",
+      "body_general_letter": "Hãy đảm bảo bạn đã tải lên toàn bộ trang của tài liệu và mọi chi tiết đều rõ ràng, không bị nhòe hay lóa sáng",
       "body_government_letter": "Cung cấp toàn bộ trang tài liệu để có kết quả tốt nhất",
-      "body_identity_document_with_address": "Hãy đảm bảo bạn đã tải lên toàn bộ trang tài liệu, và chi tiết rõ ràng để đọc mà không có độ mờ hoặc chói lóa",
-      "body_insurance_statement": "Hãy đảm bảo bạn đã tải lên toàn bộ trang tài liệu, và chi tiết rõ ràng để đọc mà không có độ mờ hoặc chói lóa",
-      "body_mobile_phone_bill": "Hãy đảm bảo bạn đã tải lên toàn bộ trang tài liệu, và chi tiết rõ ràng để đọc mà không có độ mờ hoặc chói lóa",
-      "body_mortgage_statement": "Hãy đảm bảo bạn đã tải lên toàn bộ trang tài liệu, và chi tiết rõ ràng để đọc mà không có độ mờ hoặc chói lóa",
-      "body_pension_property_statement_letter": "Hãy đảm bảo bạn đã tải lên toàn bộ trang tài liệu, và chi tiết rõ ràng để đọc mà không có độ mờ hoặc chói lóa",
-      "body_tax_letter": "Đảm bảo bạn đã tải lên toàn bộ trang giấy tờ và chi tiết phải rõ ràng để đọc mà không bị mờ hoặc lóa",
-      "body_utility_bill": "Đảm bảo bạn đã tải lên toàn bộ trang giấy tờ và chi tiết phải rõ ràng để đọc mà không bị mờ hoặc lóa",
+      "body_identity_document_with_address": "Hãy đảm bảo bạn đã tải lên toàn bộ trang của tài liệu và mọi chi tiết đều rõ ràng, không bị nhòe hay lóa sáng",
+      "body_insurance_statement": "Hãy đảm bảo bạn đã tải lên toàn bộ trang của tài liệu và mọi chi tiết đều rõ ràng, không bị nhòe hay lóa sáng",
+      "body_mobile_phone_bill": "Hãy đảm bảo bạn đã tải lên toàn bộ trang của tài liệu và mọi chi tiết đều rõ ràng, không bị nhòe hay lóa sáng",
+      "body_mortgage_statement": "Hãy đảm bảo bạn đã tải lên toàn bộ trang của tài liệu và mọi chi tiết đều rõ ràng, không bị nhòe hay lóa sáng",
+      "body_pension_property_statement_letter": "Hãy đảm bảo bạn đã tải lên toàn bộ trang của tài liệu và mọi chi tiết đều rõ ràng, không bị nhòe hay lóa sáng",
+      "body_tax_letter": "Hãy đảm bảo toàn bộ tài liệu hiển thị đầy đủ và mọi chi tiết đều rõ ràng, không bị mờ hoặc lóa",
+      "body_utility_bill": "Hãy đảm bảo toàn bộ tài liệu hiển thị đầy đủ và mọi chi tiết đều rõ ràng, không bị mờ hoặc lóa",
       "close": "Đóng",
       "crop_detail": "Đảm bảo toàn bộ giấy tờ rõ ràng",
       "crop_title": "Đã phát hiện hình ảnh bị cắt",
@@ -4577,7 +4591,7 @@
       "no_doc_detail": "Đảm bảo tất cả các giấy tờ đều có trong ảnh",
       "no_doc_title": "Không tìm thấy giấy tờ",
       "redo": "Làm lại",
-      "title": "Kiểm tra hình ảnh của bạn",
+      "title": "Xem lại ảnh của bạn",
       "unsupported_file_detail": "Vui lòng tải lên ảnh của bạn ở định dạng JPG, JPEG, PNG hoặc PDF. Kích thước tệp không được vượt quá 10MB.",
       "unsupported_file_title": "Tệp không được hỗ trợ",
       "upload": "Tải lên",
@@ -4588,9 +4602,9 @@
       "accessibility": "Những giấy tờ bạn có thể sử dụng để xác minh danh tính",
       "country_header": "Quốc gia cấp giấy tờ",
       "doctypes_header": "Những giấy tờ được chấp nhận",
-      "subtitle": "Đây là những giấy tờ có nhiều khả năng hiển thị địa chỉ nhà hiện tại của bạn nhất",
+      "subtitle": "Chọn một tài liệu gần đây hiển thị địa chỉ nhà hiện tại của bạn",
       "subtitle_merged": "Nhập quốc gia phát hành để chọn loại giấy tờ được chấp nhận",
-      "title": "Chọn một tài liệu",
+      "title": "Xác minh địa chỉ của bạn",
       "title_merged": "Chọn giấy tờ của bạn"
     },
     "upload": {
@@ -4774,7 +4788,7 @@
       "retake": "Làm lại",
       "submit": "Tải lên",
       "subtitle": "Đảm bảo thông tin của bạn rõ ràng và dễ nhìn",
-      "title": "Kiểm tra hình ảnh của bạn"
+      "title": "Xem lại ảnh của bạn"
     },
     "selection": {
       "body": "Quay lại video",

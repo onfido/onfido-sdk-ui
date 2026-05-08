@@ -940,7 +940,7 @@
       "photo_of_screen_detail": "Silakan gunakan dokumen asli Anda. Foto layar atau fotokopi tidak diterima",
       "photo_of_screen_title": "Foto layar terdeteksi",
       "redo": "Ulangi",
-      "title": "Periksa foto Anda",
+      "title": "Tinjau gambar Anda",
       "unsupported_file_detail": "Silakan unggah foto Anda dalam format JPG, JPEG, PNG, atau PDF. Ukuran file tidak boleh melebihi 10MB.",
       "unsupported_file_title": "File tidak didukung",
       "upload": "Unggah",
@@ -949,6 +949,7 @@
     },
     "scan": {
       "button_help": "Butuh bantuan?",
+      "button_help_accessibility": "The Need Help? button is now highlighted. Tap it if you need assistance.",
       "button_manual": "Mulai pemindaian",
       "feedback": {
         "alignment_center_document": "Posisikan dokumen di tengah",
@@ -1406,6 +1407,8 @@
       "feedback_move_left_accessibility": "Gerakkan perangkat Anda ke kiri",
       "feedback_move_right_accessibility": "Gerakkan perangkat Anda ke kanan",
       "feedback_move_up_accessibility": "Gerakkan perangkat Anda ke atas",
+      "feedback_multiple_faces_detected": "Beberapa wajah terdeteksi",
+      "feedback_multiple_faces_detected_accessibility": "Beberapa wajah terdeteksi. Pastikan Anda satu-satunya orang yang berada di depan kamera",
       "feedback_no_face_detected": "Wajah tidak terdeteksi",
       "feedback_no_face_detected_accessibility": "Wajah tidak terdeteksi. Posisikan wajah Anda di depan perangkat",
       "feedback_not_centered": "Wajah tidak berada di tengah",
@@ -1981,6 +1984,7 @@
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
+        "button_help_accessibility": "document.scan.button_help_accessibility",
         "button_manual": "document.scan.button_manual",
         "feedback": {
           "alignment_center_document": "document.scan.feedback.alignment_center_document",
@@ -2333,6 +2337,14 @@
         "button_tertiary": "nfc.pin_entry.optional_button_tertiary",
         "helper_attempts_left": "nfc.pin_entry.optional_helper_attempts_left",
         "helper_final_attempt": "nfc.pin_entry.optional_helper_final_attempt"
+      },
+      "face_biometrics": {
+        "capture": {
+          "feedback": {
+            "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
+            "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
+          }
+        }
       },
       "generic": {
         "accessibility": {
@@ -3905,6 +3917,8 @@
       "feedback_move_left_accessibility": "Gerakkan perangkat Anda ke kiri",
       "feedback_move_right_accessibility": "Gerakkan perangkat Anda ke kanan",
       "feedback_move_up_accessibility": "Gerakkan perangkat Anda ke atas",
+      "feedback_multiple_faces_detected": "Beberapa wajah terdeteksi",
+      "feedback_multiple_faces_detected_accessibility": "Beberapa wajah terdeteksi. Pastikan Anda satu-satunya orang yang berada di depan kamera",
       "feedback_no_face_detected": "Wajah tidak terdeteksi",
       "feedback_no_face_detected_accessibility": "Wajah tidak terdeteksi. Posisikan wajah Anda di depan perangkat",
       "feedback_not_centered": "Wajah tidak berada di tengah",
@@ -4053,12 +4067,12 @@
     },
     "pin_entry": {
       "button_primary": "Lanjutkan",
-      "helper_attempts_left": "[%i] percobaan tersisa",
+      "helper_attempts_left": "%d percobaan tersisa",
       "helper_final_attempt": "Tersisa 1 percobaan. Chip Anda akan diblokir setelah percobaan gagal berikutnya",
       "optional_button_tertiary": "Lewati pemindaian chip NFC",
-      "optional_helper_attempts_left": "[%i] percobaan tersisa. Lewati langkah ini di bawah.",
-      "optional_helper_final_attempt": "[%i] percobaan tersisa sebelum chip NFC Anda diblokir. Lewati langkah ini di bawah.",
-      "subtitle": "Ini diperlukan untuk membaca chip NFC dengan aman. Anda membuat nomor [%i] digit ini saat dokumen Anda diterbitkan.",
+      "optional_helper_attempts_left": "%d percobaan tersisa. Lewati langkah ini di bawah.",
+      "optional_helper_final_attempt": "%d percobaan tersisa sebelum chip NFC Anda diblokir. Lewati langkah ini di bawah.",
+      "subtitle": "Ini diperlukan untuk membaca chip NFC dengan aman. Anda membuat nomor %d digit ini saat dokumen Anda diterbitkan.",
       "title": "Masukkan PIN dokumen Anda",
       "title_incorrect": "PIN Salah"
     },
@@ -4081,7 +4095,7 @@
         "document": "Setelah chip terdeteksi, jaga agar ponsel dan dokumen Anda tetap diam.",
         "passport": "Setelah chip terdeteksi, jaga agar ponsel dan paspor Anda tetap diam."
       },
-      "pin_disclaimer": "Kami akan meminta PIN [%i] digit dokumen Anda sebelum memindai chip.",
+      "pin_disclaimer": "Kami akan meminta PIN %d digit dokumen Anda sebelum memindai chip.",
       "title_document": "Pindai dokumen Anda",
       "title_passport": "Pindai chip paspor Anda",
       "video_instruction_accessibility": "Instruksi video"
@@ -4546,24 +4560,24 @@
       "blur_detail": "Pastikan semuanya jelas",
       "blur_title": "Foto buram terdeteksi",
       "body": "Pastikan detail Anda jelas dan tidak terhalang",
-      "body_accommodation_tenancy_certificate": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya jelas untuk dibaca tanpa kabur atau silau",
-      "body_address_card": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya jelas untuk dibaca tanpa kabur atau silau",
-      "body_address_certificate": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya jelas untuk dibaca tanpa kabur atau silau",
-      "body_bank_building_society_statement": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya bisa dibaca dengan jelas, tidak buram atau silau",
-      "body_bank_statement": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya bisa dibaca dengan jelas, tidak buram atau silau",
-      "body_benefit_letters": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya bisa dibaca dengan jelas, tidak buram atau silau",
-      "body_bill": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya bisa dibaca dengan jelas, tidak buram atau silau",
-      "body_council_tax": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya bisa dibaca dengan jelas, tidak buram atau silau",
-      "body_exchange_house_statement": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya jelas untuk dibaca tanpa kabur atau silau",
-      "body_general_letter": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya jelas untuk dibaca tanpa kabur atau silau",
+      "body_accommodation_tenancy_certificate": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya jelas terbaca tanpa blur atau silau",
+      "body_address_card": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya jelas terbaca tanpa blur atau silau",
+      "body_address_certificate": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya jelas terbaca tanpa blur atau silau",
+      "body_bank_building_society_statement": "Pastikan seluruh dokumen terlihat dan semua detail jelas, tanpa buram atau silau",
+      "body_bank_statement": "Pastikan seluruh dokumen terlihat dan semua detail jelas, tanpa buram atau silau",
+      "body_benefit_letters": "Pastikan seluruh dokumen terlihat dan semua detail jelas, tanpa buram atau silau",
+      "body_bill": "Pastikan seluruh dokumen terlihat dan semua detail jelas, tanpa buram atau silau",
+      "body_council_tax": "Pastikan seluruh dokumen terlihat dan semua detail jelas, tanpa buram atau silau",
+      "body_exchange_house_statement": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya jelas terbaca tanpa blur atau silau",
+      "body_general_letter": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya jelas terbaca tanpa blur atau silau",
       "body_government_letter": "Berikan seluruh halaman dokumen untuk hasil terbaik",
-      "body_identity_document_with_address": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya jelas untuk dibaca tanpa kabur atau silau",
-      "body_insurance_statement": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya jelas untuk dibaca tanpa kabur atau silau",
-      "body_mobile_phone_bill": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya jelas untuk dibaca tanpa kabur atau silau",
-      "body_mortgage_statement": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya jelas untuk dibaca tanpa kabur atau silau",
-      "body_pension_property_statement_letter": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya jelas untuk dibaca tanpa kabur atau silau",
-      "body_tax_letter": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya bisa dibaca dengan jelas, tidak buram atau silau",
-      "body_utility_bill": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya bisa dibaca dengan jelas, tidak buram atau silau",
+      "body_identity_document_with_address": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya jelas terbaca tanpa blur atau silau",
+      "body_insurance_statement": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya jelas terbaca tanpa blur atau silau",
+      "body_mobile_phone_bill": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya jelas terbaca tanpa blur atau silau",
+      "body_mortgage_statement": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya jelas terbaca tanpa blur atau silau",
+      "body_pension_property_statement_letter": "Pastikan Anda telah mengunggah seluruh halaman dokumen, dan detailnya jelas terbaca tanpa blur atau silau",
+      "body_tax_letter": "Pastikan seluruh dokumen terlihat dan semua detail jelas, tanpa buram atau silau",
+      "body_utility_bill": "Pastikan seluruh dokumen terlihat dan semua detail jelas, tanpa buram atau silau",
       "close": "Tutup",
       "crop_detail": "Pastikan seluruh dokumen terlihat",
       "crop_title": "Gambar terpotong terdeteksi",
@@ -4577,7 +4591,7 @@
       "no_doc_detail": "Pastikan semua dokumen ada di foto",
       "no_doc_title": "Dokumen tidak ditemukan",
       "redo": "Ulangi",
-      "title": "Periksa foto Anda",
+      "title": "Tinjau gambar Anda",
       "unsupported_file_detail": "Silakan unggah foto Anda dalam format JPG, JPEG, PNG, atau PDF. Ukuran file tidak boleh melebihi 10MB.",
       "unsupported_file_title": "File tidak didukung",
       "upload": "Unggah",
@@ -4588,9 +4602,9 @@
       "accessibility": "Dokumen yang dapat Anda gunakan untuk memverifikasi identitas Anda",
       "country_header": "Negara penerbit",
       "doctypes_header": "Dokumen yang diterima",
-      "subtitle": "Ini adalah dokumen yang hampir bisa dipastikan menunjukkan alamat rumah Anda saat ini",
+      "subtitle": "Pilih dokumen terbaru yang menunjukkan alamat rumah Anda saat ini",
       "subtitle_merged": "Pilih negara penerbit untuk melihat dokumen apa saja yang kami terima",
-      "title": "Pilih sebuah dokumen",
+      "title": "Verifikasi alamat Anda",
       "title_merged": "Pilih dokumen Anda"
     },
     "upload": {
@@ -4774,7 +4788,7 @@
       "retake": "Ulangi",
       "submit": "Unggah",
       "subtitle": "Pastikan detail Anda jelas dan tidak terhalang",
-      "title": "Periksa foto Anda"
+      "title": "Tinjau gambar Anda"
     },
     "selection": {
       "body": "Mulai ulang perekaman",

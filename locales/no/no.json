@@ -940,7 +940,7 @@
       "photo_of_screen_detail": "Vennligst bruk ditt originale dokument. Bilder av skjerm eller fotokopier blir ikke akseptert",
       "photo_of_screen_title": "Bilde av skjerm oppdaget",
       "redo": "Ta på nytt",
-      "title": "Sjekk bildet ditt",
+      "title": "Se over bildet ditt",
       "unsupported_file_detail": "Vennligst last opp bildet ditt i JPG, JPEG, PNG eller PDF-format. Filstørrelsen må ikke overstige 10MB.",
       "unsupported_file_title": "Filen støttes ikke",
       "upload": "Last opp",
@@ -949,6 +949,7 @@
     },
     "scan": {
       "button_help": "Trenger du hjelp?",
+      "button_help_accessibility": "The Need Help? button is now highlighted. Tap it if you need assistance.",
       "button_manual": "Start skanning",
       "feedback": {
         "alignment_center_document": "Sentrer dokumentet",
@@ -1406,6 +1407,8 @@
       "feedback_move_left_accessibility": "Flytt enheten til venstre",
       "feedback_move_right_accessibility": "Flytt enheten til høyre",
       "feedback_move_up_accessibility": "Flytt enheten opp",
+      "feedback_multiple_faces_detected": "Flere ansikter oppdaget",
+      "feedback_multiple_faces_detected_accessibility": "Flere ansikter oppdaget. Sørg for at du er den eneste personen foran kameraet",
       "feedback_no_face_detected": "Ansikt ikke oppdaget",
       "feedback_no_face_detected_accessibility": "Ansikt ikke oppdaget. Plasser ansiktet foran enheten",
       "feedback_not_centered": "Ansiktet er ikke sentrert",
@@ -1981,6 +1984,7 @@
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
+        "button_help_accessibility": "document.scan.button_help_accessibility",
         "button_manual": "document.scan.button_manual",
         "feedback": {
           "alignment_center_document": "document.scan.feedback.alignment_center_document",
@@ -2333,6 +2337,14 @@
         "button_tertiary": "nfc.pin_entry.optional_button_tertiary",
         "helper_attempts_left": "nfc.pin_entry.optional_helper_attempts_left",
         "helper_final_attempt": "nfc.pin_entry.optional_helper_final_attempt"
+      },
+      "face_biometrics": {
+        "capture": {
+          "feedback": {
+            "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
+            "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
+          }
+        }
       },
       "generic": {
         "accessibility": {
@@ -3905,6 +3917,8 @@
       "feedback_move_left_accessibility": "Flytt enheten til venstre",
       "feedback_move_right_accessibility": "Flytt enheten til høyre",
       "feedback_move_up_accessibility": "Flytt enheten opp",
+      "feedback_multiple_faces_detected": "Flere ansikter oppdaget",
+      "feedback_multiple_faces_detected_accessibility": "Flere ansikter oppdaget. Sørg for at du er den eneste personen foran kameraet",
       "feedback_no_face_detected": "Ansikt ikke oppdaget",
       "feedback_no_face_detected_accessibility": "Ansikt ikke oppdaget. Plasser ansiktet foran enheten",
       "feedback_not_centered": "Ansiktet er ikke sentrert",
@@ -4053,12 +4067,12 @@
     },
     "pin_entry": {
       "button_primary": "Fortsett",
-      "helper_attempts_left": "[%i] forsøk igjen",
+      "helper_attempts_left": "%d forsøk igjen",
       "helper_final_attempt": "1 forsøk igjen. Brikken din blir blokkert etter neste mislykkede forsøk",
       "optional_button_tertiary": "Hopp over skanning av NFC-brikke",
-      "optional_helper_attempts_left": "[%i] forsøk igjen. Hopp over dette trinnet nedenfor.",
-      "optional_helper_final_attempt": "[%i] forsøk igjen før NFC-brikken din blir blokkert. Hopp over dette trinnet nedenfor.",
-      "subtitle": "Dette er nødvendig for å lese NFC-brikken på en sikker måte. Du opprettet dette [%i]-sifrede nummeret da dokumentet ditt ble utstedt.",
+      "optional_helper_attempts_left": "%d forsøk igjen. Hopp over dette trinnet nedenfor.",
+      "optional_helper_final_attempt": "%d forsøk igjen før NFC-brikken din blir blokkert. Hopp over dette trinnet nedenfor.",
+      "subtitle": "Dette er nødvendig for å lese NFC-brikken på en sikker måte. Du opprettet dette %d-sifrede nummeret da dokumentet ditt ble utstedt.",
       "title": "Skriv inn PIN-koden for dokumentet ditt",
       "title_incorrect": "Feil PIN-kode"
     },
@@ -4081,7 +4095,7 @@
         "document": "Når brikken er oppdaget, hold telefonen og dokumentet stille.",
         "passport": "Når chipen er oppdaget, hold telefonen og passet ditt i ro."
       },
-      "pin_disclaimer": "Vi ber deg oppgi dokumentets [%i]-sifrede PIN-kode før vi skanner chipen.",
+      "pin_disclaimer": "Vi ber deg oppgi dokumentets %d-sifrede PIN-kode før vi skanner chipen.",
       "title_document": "Skann dokumentet ditt",
       "title_passport": "Skann NFC-brikken til passet ditt",
       "video_instruction_accessibility": "Videoinstruksjon"
@@ -4546,24 +4560,24 @@
       "blur_detail": "Sørg for at alt er skarpt",
       "blur_title": "Uskarpt bilde oppdaget",
       "body": "Sørg for at opplysningene dine er tydelige og uhindret",
-      "body_accommodation_tenancy_certificate": "Sørg for at du har lastet opp hele dokumentets side, og detaljene er klare til å lese uten uskarphet eller blendingslys",
-      "body_address_card": "Sørg for at du har lastet opp hele dokumentetsiden, og detaljene er klare til å lese uten uskarphet eller blendingslys",
-      "body_address_certificate": "Sørg for at du har lastet opp hele dokumentetsiden, og detaljene er klare til å lese uten uskarphet eller blendingslys",
-      "body_bank_building_society_statement": "Pass på at du har lastet opp hele dokumentsiden, og detaljene er tydelige og lette å lese, uten uskarphet eller gjenskinn",
-      "body_bank_statement": "Pass på at du har lastet opp hele dokumentsiden, og detaljene er tydelige og lette å lese, uten uskarphet eller gjenskinn",
-      "body_benefit_letters": "Pass på at du har lastet opp hele dokumentsiden, og detaljene er tydelige og lette å lese, uten uskarphet eller gjenskinn",
-      "body_bill": "Pass på at du har lastet opp hele dokumentsiden, og detaljene er tydelige og lette å lese, uten uskarphet eller gjenskinn",
-      "body_council_tax": "Pass på at du har lastet opp hele dokumentsiden, og detaljene er tydelige og lette å lese, uten uskarphet eller gjenskinn",
-      "body_exchange_house_statement": "Sørg for at du har lastet opp hele dokumentetsiden, og detaljene er klare til å lese uten uskarphet eller blendingslys",
-      "body_general_letter": "Sørg for at du har lastet opp hele dokumentetsiden, og detaljene er klare til å lese uten uskarphet eller blendingslys",
+      "body_accommodation_tenancy_certificate": "Sørg for at du har lastet opp hele dokumentsiden, og at detaljene er tydelige å lese uten uskarphet eller gjenskinn",
+      "body_address_card": "Sørg for at du har lastet opp hele dokumentsiden, og at detaljene er tydelige å lese uten uskarphet eller gjenskinn",
+      "body_address_certificate": "Sørg for at du har lastet opp hele dokumentsiden, og at detaljene er tydelige å lese uten uskarphet eller gjenskinn",
+      "body_bank_building_society_statement": "Pass på at hele dokumentet er synlig og at alle detaljer er klare, uten uskarphet eller gjenskinn",
+      "body_bank_statement": "Pass på at hele dokumentet er synlig og at alle detaljer er klare, uten uskarphet eller gjenskinn",
+      "body_benefit_letters": "Pass på at hele dokumentet er synlig og at alle detaljer er klare, uten uskarphet eller gjenskinn",
+      "body_bill": "Pass på at hele dokumentet er synlig og at alle detaljer er klare, uten uskarphet eller gjenskinn",
+      "body_council_tax": "Pass på at hele dokumentet er synlig og at alle detaljer er klare, uten uskarphet eller gjenskinn",
+      "body_exchange_house_statement": "Sørg for at du har lastet opp hele dokumentsiden, og at detaljene er tydelige å lese uten uskarphet eller gjenskinn",
+      "body_general_letter": "Sørg for at du har lastet opp hele dokumentsiden, og at detaljene er tydelige å lese uten uskarphet eller gjenskinn",
       "body_government_letter": "Bruk hele dokumentsiden for det beste resultatet",
-      "body_identity_document_with_address": "Sørg for at du har lastet opp hele dokumentetsiden, og detaljene er klare til å lese uten uskarphet eller blendingslys",
-      "body_insurance_statement": "Sørg for at du har lastet opp hele dokumentetsiden, og detaljene er klare til å lese uten uskarphet eller blendingslys",
-      "body_mobile_phone_bill": "Sørg for at du har lastet opp hele dokumentetsiden, og detaljene er klare til å lese uten uskarphet eller blendingslys",
-      "body_mortgage_statement": "Sørg for at du har lastet opp hele dokumentetsiden, og detaljene er klare til å lese uten uskarphet eller blendingslys",
-      "body_pension_property_statement_letter": "Sørg for at du har lastet opp hele dokumentets side, og detaljene er klare til å lese uten uskarphet eller blendingslys",
-      "body_tax_letter": "Pass på at du har lastet opp hele dokumentsiden, og detaljene er tydelige og lette å lese, uten uskarphet eller gjenskinn",
-      "body_utility_bill": "Pass på at du har lastet opp hele dokumentsiden, og detaljene er tydelige og lette å lese, uten uskarphet eller gjenskinn",
+      "body_identity_document_with_address": "Sørg for at du har lastet opp hele dokumentsiden, og at detaljene er tydelige å lese uten uskarphet eller gjenskinn",
+      "body_insurance_statement": "Sørg for at du har lastet opp hele dokumentsiden, og at detaljene er tydelige å lese uten uskarphet eller gjenskinn",
+      "body_mobile_phone_bill": "Sørg for at du har lastet opp hele dokumentsiden, og at detaljene er tydelige å lese uten uskarphet eller gjenskinn",
+      "body_mortgage_statement": "Sørg for at du har lastet opp hele dokumentsiden, og at detaljene er tydelige å lese uten uskarphet eller gjenskinn",
+      "body_pension_property_statement_letter": "Sørg for at du har lastet opp hele dokumentsiden, og at detaljene er tydelige å lese uten uskarphet eller gjenskinn",
+      "body_tax_letter": "Pass på at hele dokumentet er synlig og at alle detaljer er klare, uten uskarphet eller gjenskinn",
+      "body_utility_bill": "Pass på at hele dokumentet er synlig og at alle detaljer er klare, uten uskarphet eller gjenskinn",
       "close": "Lukk",
       "crop_detail": "Kontroller at hele dokumentet er synlig",
       "crop_title": "Avskåret bilde oppdaget",
@@ -4577,7 +4591,7 @@
       "no_doc_detail": "Sørg for at hele dokumentet er på bildet",
       "no_doc_title": "Dokument ikke oppdaget",
       "redo": "Ta på nytt",
-      "title": "Sjekk bildet ditt",
+      "title": "Se over bildet ditt",
       "unsupported_file_detail": "Vennligst last opp bildet ditt i JPG, JPEG, PNG eller PDF-format. Filstørrelsen må ikke overstige 10MB.",
       "unsupported_file_title": "Filen støttes ikke",
       "upload": "Last opp",
@@ -4588,9 +4602,9 @@
       "accessibility": "Dokumenter du kan bruke til å verifisere identiteten din",
       "country_header": "Utstedelsesland",
       "doctypes_header": "Godkjente dokumenter",
-      "subtitle": "Dette er dokumentene som mest sannsynlig vil vise din nåværende hjemmeadresse",
+      "subtitle": "Velg et nyere dokument som viser din nåværende hjemmeadresse",
       "subtitle_merged": "Velg utstedelsesland for å se hvilke dokumenter vi godtar",
-      "title": "Velg et dokument",
+      "title": "Bekreft adressen din",
       "title_merged": "Velg dokumentet ditt"
     },
     "upload": {
@@ -4774,7 +4788,7 @@
       "retake": "Ta på nytt",
       "submit": "Last opp",
       "subtitle": "Sørg for at opplysningene dine er tydelige og uhindret",
-      "title": "Sjekk bildet ditt"
+      "title": "Se over bildet ditt"
     },
     "selection": {
       "body": "Start opptaket på nytt",

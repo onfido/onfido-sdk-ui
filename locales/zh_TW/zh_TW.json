@@ -949,6 +949,7 @@
     },
     "scan": {
       "button_help": "需要協助嗎？",
+      "button_help_accessibility": "The Need Help? button is now highlighted. Tap it if you need assistance.",
       "button_manual": "開始掃描",
       "feedback": {
         "alignment_center_document": "將證件置中",
@@ -1406,6 +1407,8 @@
       "feedback_move_left_accessibility": "向左移動裝置",
       "feedback_move_right_accessibility": "向右移動裝置",
       "feedback_move_up_accessibility": "向上移動裝置",
+      "feedback_multiple_faces_detected": "偵測到多張臉孔",
+      "feedback_multiple_faces_detected_accessibility": "偵測到多張臉。請確保您是鏡頭前唯一的人",
       "feedback_no_face_detected": "未偵測到臉部",
       "feedback_no_face_detected_accessibility": "未偵測到臉部。將臉部置於裝置前方",
       "feedback_not_centered": "臉部未在中心位置",
@@ -1981,6 +1984,7 @@
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
+        "button_help_accessibility": "document.scan.button_help_accessibility",
         "button_manual": "document.scan.button_manual",
         "feedback": {
           "alignment_center_document": "document.scan.feedback.alignment_center_document",
@@ -2333,6 +2337,14 @@
         "button_tertiary": "nfc.pin_entry.optional_button_tertiary",
         "helper_attempts_left": "nfc.pin_entry.optional_helper_attempts_left",
         "helper_final_attempt": "nfc.pin_entry.optional_helper_final_attempt"
+      },
+      "face_biometrics": {
+        "capture": {
+          "feedback": {
+            "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
+            "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
+          }
+        }
       },
       "generic": {
         "accessibility": {
@@ -3905,6 +3917,8 @@
       "feedback_move_left_accessibility": "向左移動裝置",
       "feedback_move_right_accessibility": "向右移動裝置",
       "feedback_move_up_accessibility": "向上移動裝置",
+      "feedback_multiple_faces_detected": "偵測到多張臉孔",
+      "feedback_multiple_faces_detected_accessibility": "偵測到多張臉。請確保您是鏡頭前唯一的人",
       "feedback_no_face_detected": "未偵測到臉部",
       "feedback_no_face_detected_accessibility": "未偵測到臉部。將臉部置於裝置前方",
       "feedback_not_centered": "臉部未在中心位置",
@@ -4053,12 +4067,12 @@
     },
     "pin_entry": {
       "button_primary": "繼續",
-      "helper_attempts_left": "剩餘 [%i] 次嘗試機會",
+      "helper_attempts_left": "剩餘 %d 次嘗試機會",
       "helper_final_attempt": "剩餘 1 次嘗試機會。下次嘗試失敗後,您的晶片將被鎖定",
       "optional_button_tertiary": "略過 NFC 晶片掃描",
-      "optional_helper_attempts_left": "[%i] 次嘗試機會。在下方跳過此步驟。",
-      "optional_helper_final_attempt": "[%i] 次嘗試機會後,您的 NFC 晶片將被鎖定。請在下方跳過此步驟。",
-      "subtitle": "這是安全讀取 NFC 晶片所需的資訊。您在文件核發時建立了這組 [%i] 位數的號碼。",
+      "optional_helper_attempts_left": "%d 次嘗試機會。在下方跳過此步驟。",
+      "optional_helper_final_attempt": "%d 次嘗試機會後,您的 NFC 晶片將被鎖定。請在下方跳過此步驟。",
+      "subtitle": "這是安全讀取 NFC 晶片所需的資訊。您在文件核發時建立了這組 %d 位數的號碼。",
       "title": "輸入您的文件 PIN 碼",
       "title_incorrect": "PIN 碼錯誤"
     },
@@ -4081,7 +4095,7 @@
         "document": "一旦偵測到晶片，請保持手機和身份文件不動。",
         "passport": "一旦偵測到晶片，請保持您的手機和護照靜止不動。"
       },
-      "pin_disclaimer": "我們會在掃描晶片前要求您提供文件的 [%i] 位數 PIN 碼。",
+      "pin_disclaimer": "我們會在掃描晶片前要求您提供文件的 %d 位數 PIN 碼。",
       "title_document": "掃描您的文件",
       "title_passport": "掃描您護照的晶片",
       "video_instruction_accessibility": "影片教學"
@@ -4546,24 +4560,24 @@
       "blur_detail": "請確保所有內容清晰可見",
       "blur_title": "偵測到模糊的相片",
       "body": "請確保您的個人詳細資料清晰且未被遮蔽",
-      "body_accommodation_tenancy_certificate": "請確保您已上傳整個文件頁面，並且細節清晰可讀，沒有模糊或眩光",
-      "body_address_card": "請確保您已上傳整個文件頁面，並且細節清晰可讀，沒有模糊或眩光",
-      "body_address_certificate": "請確保您已上傳整個文件頁面，並且細節清晰可讀，沒有模糊或眩光",
-      "body_bank_building_society_statement": "請確保您已上傳整個文件頁面，且詳細資料清晰可閱，沒有模糊或眩光",
-      "body_bank_statement": "請確保您已上傳整個文件頁面，且詳細資料清晰可閱，沒有模糊或眩光",
-      "body_benefit_letters": "請確保您已上傳整個文件頁面，且詳細資料清晰可閱，沒有模糊或眩光",
-      "body_bill": "請確保您已上傳整個文件頁面，且詳細資料清晰可閱，沒有模糊或眩光",
-      "body_council_tax": "請確保您已上傳整個文件頁面，且詳細資料清晰可閱，沒有模糊或眩光",
-      "body_exchange_house_statement": "請確保您已上傳整個文件頁面，並且細節清晰可讀，沒有模糊或眩光",
-      "body_general_letter": "請確保您已上傳整個文件頁面，並且細節清晰可讀，沒有模糊或眩光",
+      "body_accommodation_tenancy_certificate": "請確保您已上傳完整的文件頁面，且內容清晰可讀，無模糊或反光情形。",
+      "body_address_card": "請確保您已上傳完整的文件頁面，且內容清晰可讀，無模糊或反光情形。",
+      "body_address_certificate": "請確保您已上傳完整的文件頁面，且內容清晰可讀，無模糊或反光情形。",
+      "body_bank_building_society_statement": "確保整份文件清晰可見，所有細節均清楚呈現，無模糊或反光",
+      "body_bank_statement": "確保整份文件清晰可見，所有細節均清楚呈現，無模糊或反光",
+      "body_benefit_letters": "確保整份文件清晰可見，所有細節均清楚呈現，無模糊或反光",
+      "body_bill": "確保整份文件清晰可見，所有細節均清楚呈現，無模糊或反光",
+      "body_council_tax": "確保整份文件清晰可見，所有細節均清楚呈現，無模糊或反光",
+      "body_exchange_house_statement": "請確保您已上傳完整的文件頁面，且內容清晰可讀，無模糊或反光情形。",
+      "body_general_letter": "請確保您已上傳完整的文件頁面，且內容清晰可讀，無模糊或反光情形。",
       "body_government_letter": "提供整個文件頁面以取得最佳結果",
-      "body_identity_document_with_address": "請確保您已上傳整個文件頁面，並且細節清晰可讀，沒有模糊或眩光",
-      "body_insurance_statement": "請確保您已上傳整個文件頁面，並且細節清晰可讀，沒有模糊或眩光",
-      "body_mobile_phone_bill": "請確保您已上傳整個文件頁面，並且細節清晰可讀，沒有模糊或眩光",
-      "body_mortgage_statement": "請確保您已上傳整個文件頁面，並且細節清晰可讀，沒有模糊或眩光",
-      "body_pension_property_statement_letter": "請確保您已上傳整個文件頁面，並且細節清晰可讀，沒有模糊或眩光",
-      "body_tax_letter": "請確保您已上傳整個文件頁面，且詳細資料清晰可閱，沒有模糊或眩光",
-      "body_utility_bill": "請確保您已上傳整個文件頁面，且詳細資料清晰可閱，沒有模糊或眩光",
+      "body_identity_document_with_address": "請確保您已上傳完整的文件頁面，且內容清晰可讀，無模糊或反光情形。",
+      "body_insurance_statement": "請確保您已上傳完整的文件頁面，且內容清晰可讀，無模糊或反光情形。",
+      "body_mobile_phone_bill": "請確保您已上傳完整的文件頁面，且內容清晰可讀，無模糊或反光情形。",
+      "body_mortgage_statement": "請確保您已上傳完整的文件頁面，且內容清晰可讀，無模糊或反光情形。",
+      "body_pension_property_statement_letter": "請確保您已上傳完整的文件頁面，且內容清晰可讀，無模糊或反光情形。",
+      "body_tax_letter": "確保整份文件清晰可見，所有細節均清楚呈現，無模糊或反光",
+      "body_utility_bill": "確保整份文件清晰可見，所有細節均清楚呈現，無模糊或反光",
       "close": "關閉",
       "crop_detail": "請確保完整文件清晰可見",
       "crop_title": "偵測到部完整照片",
@@ -4588,9 +4602,9 @@
       "accessibility": "可用於驗證您身份的文件",
       "country_header": "核發國家",
       "doctypes_header": "可接受的文件",
-      "subtitle": "這些是最可能顯示您目前住家地址的文件",
+      "subtitle": "請選擇一份近期文件，以顯示您目前的住家地址",
       "subtitle_merged": "選擇核發國家，查看我們接受的文件",
-      "title": "選擇一份文件",
+      "title": "驗證您的地址",
       "title_merged": "選擇文件"
     },
     "upload": {

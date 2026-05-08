@@ -940,7 +940,7 @@
       "photo_of_screen_detail": "Lūdzu, izmantojiet savu oriģinālo dokumentu. Ekrāna fotogrāfijas vai fotokopijas netiek pieņemtas.",
       "photo_of_screen_title": "Ekrāna fotoattēls konstatēts",
       "redo": "Atkārtot",
-      "title": "Apskatiet savu attēlu",
+      "title": "Pārskatiet attēlu",
       "unsupported_file_detail": "Lūdzu, augšupielādējiet savu fotogrāfiju JPG, JPEG, PNG vai PDF formātā. Faila izmērs nedrīkst pārsniegt 10 MB.",
       "unsupported_file_title": "Fails nav atbalstīts",
       "upload": "Augšupielādēt",
@@ -949,6 +949,7 @@
     },
     "scan": {
       "button_help": "Nepieciešama palīdzība?",
+      "button_help_accessibility": "The Need Help? button is now highlighted. Tap it if you need assistance.",
       "button_manual": "Sākt skenēšanu",
       "feedback": {
         "alignment_center_document": "Novieto dokumentu centrā",
@@ -1406,6 +1407,8 @@
       "feedback_move_left_accessibility": "Pavirziet ierīci pa kreisi",
       "feedback_move_right_accessibility": "Pavirziet ierīci pa labi",
       "feedback_move_up_accessibility": "Pavirziet ierīci augšup",
+      "feedback_multiple_faces_detected": "Konstatētas vairākas sejas",
+      "feedback_multiple_faces_detected_accessibility": "Konstatētas vairākas sejas. Pārliecinies, ka kamerā esi tikai tu",
       "feedback_no_face_detected": "Seja nav atrasta",
       "feedback_no_face_detected_accessibility": "Nav atrasta seja. Pozicionējiet seju pret ierīci",
       "feedback_not_centered": "Seja nav centrēta",
@@ -1981,6 +1984,7 @@
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
+        "button_help_accessibility": "document.scan.button_help_accessibility",
         "button_manual": "document.scan.button_manual",
         "feedback": {
           "alignment_center_document": "document.scan.feedback.alignment_center_document",
@@ -2333,6 +2337,14 @@
         "button_tertiary": "nfc.pin_entry.optional_button_tertiary",
         "helper_attempts_left": "nfc.pin_entry.optional_helper_attempts_left",
         "helper_final_attempt": "nfc.pin_entry.optional_helper_final_attempt"
+      },
+      "face_biometrics": {
+        "capture": {
+          "feedback": {
+            "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
+            "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
+          }
+        }
       },
       "generic": {
         "accessibility": {
@@ -3905,6 +3917,8 @@
       "feedback_move_left_accessibility": "Pavirziet ierīci pa kreisi",
       "feedback_move_right_accessibility": "Pavirziet ierīci pa labi",
       "feedback_move_up_accessibility": "Pavirziet ierīci augšup",
+      "feedback_multiple_faces_detected": "Konstatētas vairākas sejas",
+      "feedback_multiple_faces_detected_accessibility": "Konstatētas vairākas sejas. Pārliecinies, ka kamerā esi tikai tu",
       "feedback_no_face_detected": "Seja nav atrasta",
       "feedback_no_face_detected_accessibility": "Nav atrasta seja. Pozicionējiet seju pret ierīci",
       "feedback_not_centered": "Seja nav centrēta",
@@ -4053,12 +4067,12 @@
     },
     "pin_entry": {
       "button_primary": "Turpināt",
-      "helper_attempts_left": "[%i] mēģinājumi atlikuši",
+      "helper_attempts_left": "%d mēģinājumi atlikuši",
       "helper_final_attempt": "Atlikis 1 mēģinājums. Pēc nākamā neveiksmīgā mēģinājuma jūsu čips tiks bloķēts",
       "optional_button_tertiary": "Izlaist NFC čipa skenēšanu",
-      "optional_helper_attempts_left": "[%i] mēģinājumi atlikuši. Izlaidiet šo soli zemāk.",
-      "optional_helper_final_attempt": "[%i] mēģinājums atlicis, pirms jūsu NFC čips tiks bloķēts. Izlaidiet šo soli zemāk.",
-      "subtitle": "Tas ir nepieciešams, lai droši nolasītu NFC mikroshēmu. Jūs izveidojāt šo [%i] ciparu skaitli, kad tika izsniegts jūsu dokuments.",
+      "optional_helper_attempts_left": "%d mēģinājumi atlikuši. Izlaidiet šo soli zemāk.",
+      "optional_helper_final_attempt": "%d mēģinājums atlicis, pirms jūsu NFC čips tiks bloķēts. Izlaidiet šo soli zemāk.",
+      "subtitle": "Tas ir nepieciešams, lai droši nolasītu NFC mikroshēmu. Jūs izveidojāt šo %d ciparu skaitli, kad tika izsniegts jūsu dokuments.",
       "title": "Ievadiet sava dokumenta PIN kodu",
       "title_incorrect": "Nepareizs PIN"
     },
@@ -4081,7 +4095,7 @@
         "document": "Kad mikroshēma ir atklāta, turiet savu tālruni un dokumentu nekustīgi.",
         "passport": "Kad čips ir noteikts, turiet tālruni un pasi tuvu vienu otrai un nemainiet tos."
       },
-      "pin_disclaimer": "Pirms mikroshēmas skenēšanas mēs lūgsim ievadīt jūsu dokumenta [%i] ciparu PIN kodu.",
+      "pin_disclaimer": "Pirms mikroshēmas skenēšanas mēs lūgsim ievadīt jūsu dokumenta %d ciparu PIN kodu.",
       "title_document": "Skenējiet savu dokumentu",
       "title_passport": "Skenējiet savas pases mikroshēmu",
       "video_instruction_accessibility": "Video instrukcija"
@@ -4546,24 +4560,24 @@
       "blur_detail": "Pārliecinieties, ka viss ir skaidri redzams",
       "blur_title": "Konstatēts izplūdis fotoattēls",
       "body": "Jūsu informācijai ir jābūt skaidri redzamai",
-      "body_accommodation_tenancy_certificate": "Pārliecinieties, ka esat augšupielādējis visu dokumenta lapu, un detaļas ir skaidri lasāmas bez izplūduma vai spīduma",
-      "body_address_card": "Pārliecinieties, ka esat augšupielādējis visu dokumenta lapu, un detaļas ir skaidri lasāmas bez izplūduma vai spīduma",
-      "body_address_certificate": "Pārliecinieties, ka esat augšupielādējis visu dokumenta lapu, un detaļas ir skaidri lasāmas bez izplūduma vai spīduma",
-      "body_bank_building_society_statement": "Pārliecinieties, ka esat augšupielādējis visu dokumenta lapu un ka informācija ir skaidri salasāma bez izplūduma vai atspīduma",
-      "body_bank_statement": "Pārliecinieties, ka esat augšupielādējis visu dokumenta lapu un ka informācija ir skaidri salasāma bez izplūduma vai atspīduma",
-      "body_benefit_letters": "Pārliecinieties, ka esat augšupielādējis visu dokumenta lapu un ka informācija ir skaidri salasāma bez izplūduma vai atspīduma",
-      "body_bill": "Pārliecinieties, ka esat augšupielādējis visu dokumenta lapu un ka informācija ir skaidri salasāma bez izplūduma vai atspīduma",
-      "body_council_tax": "Pārliecinieties, ka esat augšupielādējis visu dokumenta lapu un ka informācija ir skaidri salasāma bez izplūduma vai atspīduma",
-      "body_exchange_house_statement": "Pārliecinieties, ka esat augšupielādējis visu dokumenta lapu, un detaļas ir skaidri lasāmas bez izplūduma vai spīduma",
-      "body_general_letter": "Pārliecinieties, ka esat augšupielādējis visu dokumenta lapu, un detaļas ir skaidri lasāmas bez izplūduma vai spīduma",
+      "body_accommodation_tenancy_certificate": "Pārliecinieties, ka esat augšupielādējis visu dokumenta lapu un ka visas detaļas ir skaidri salasāmas bez izplūduma vai atspīduma.",
+      "body_address_card": "Pārliecinieties, ka esat augšupielādējis visu dokumenta lapu un ka visas detaļas ir skaidri salasāmas bez izplūduma vai atspīduma.",
+      "body_address_certificate": "Pārliecinieties, ka esat augšupielādējis visu dokumenta lapu un ka visas detaļas ir skaidri salasāmas bez izplūduma vai atspīduma.",
+      "body_bank_building_society_statement": "Pārliecinieties, ka viss dokuments ir redzams un visi dati ir skaidri, bez izplūduma vai atspīduma",
+      "body_bank_statement": "Pārliecinieties, ka viss dokuments ir redzams un visi dati ir skaidri, bez izplūduma vai atspīduma",
+      "body_benefit_letters": "Pārliecinieties, ka viss dokuments ir redzams un visi dati ir skaidri, bez izplūduma vai atspīduma",
+      "body_bill": "Pārliecinieties, ka viss dokuments ir redzams un visi dati ir skaidri, bez izplūduma vai atspīduma",
+      "body_council_tax": "Pārliecinieties, ka viss dokuments ir redzams un visi dati ir skaidri, bez izplūduma vai atspīduma",
+      "body_exchange_house_statement": "Pārliecinieties, ka esat augšupielādējis visu dokumenta lapu un ka visas detaļas ir skaidri salasāmas bez izplūduma vai atspīduma.",
+      "body_general_letter": "Pārliecinieties, ka esat augšupielādējis visu dokumenta lapu un ka visas detaļas ir skaidri salasāmas bez izplūduma vai atspīduma.",
       "body_government_letter": "Iesniedziet visu dokumenta lapu, lai iegūtu pēc iespējas labāku rezultātu",
-      "body_identity_document_with_address": "Pārliecinieties, ka esat augšupielādējis visu dokumenta lapu, un detaļas ir skaidri lasāmas bez izplūduma vai spīduma",
-      "body_insurance_statement": "Pārliecinieties, ka esat augšupielādējis visu dokumenta lapu, un detaļas ir skaidri lasāmas bez izplūduma vai spīduma",
-      "body_mobile_phone_bill": "Pārliecinieties, ka esat augšupielādējis visu dokumenta lapu, un detaļas ir skaidri lasāmas bez izplūduma vai spīduma",
-      "body_mortgage_statement": "Pārliecinieties, ka esat augšupielādējis visu dokumenta lapu, un detaļas ir skaidri lasāmas bez izplūduma vai spīduma",
-      "body_pension_property_statement_letter": "Pārliecinieties, ka esat augšupielādējis visu dokumenta lapu, un detaļas ir skaidri lasāmas bez izplūduma vai spīduma",
-      "body_tax_letter": "Pārliecinieties, ka esat augšupielādējis visu dokumenta lapu un ka informācija ir skaidri salasāma bez izplūduma vai atspīduma",
-      "body_utility_bill": "Pārliecinieties, ka esat augšupielādējis visu dokumenta lapu un ka informācija ir skaidri salasāma bez izplūduma vai atspīduma",
+      "body_identity_document_with_address": "Pārliecinieties, ka esat augšupielādējis visu dokumenta lapu un ka visas detaļas ir skaidri salasāmas bez izplūduma vai atspīduma.",
+      "body_insurance_statement": "Pārliecinieties, ka esat augšupielādējis visu dokumenta lapu un ka visas detaļas ir skaidri salasāmas bez izplūduma vai atspīduma.",
+      "body_mobile_phone_bill": "Pārliecinieties, ka esat augšupielādējis visu dokumenta lapu un ka visas detaļas ir skaidri salasāmas bez izplūduma vai atspīduma.",
+      "body_mortgage_statement": "Pārliecinieties, ka esat augšupielādējis visu dokumenta lapu un ka visas detaļas ir skaidri salasāmas bez izplūduma vai atspīduma.",
+      "body_pension_property_statement_letter": "Pārliecinieties, ka esat augšupielādējis visu dokumenta lapu un ka visas detaļas ir skaidri salasāmas bez izplūduma vai atspīduma.",
+      "body_tax_letter": "Pārliecinieties, ka viss dokuments ir redzams un visi dati ir skaidri, bez izplūduma vai atspīduma",
+      "body_utility_bill": "Pārliecinieties, ka viss dokuments ir redzams un visi dati ir skaidri, bez izplūduma vai atspīduma",
       "close": "Aizvērt",
       "crop_detail": "Pārliecinieties, ka ir redzams viss dokuments",
       "crop_title": "Atrasts apgriezts attēls",
@@ -4577,7 +4591,7 @@
       "no_doc_detail": "Pārliecinieties, ka tas ir pilnībā ievietots kadrā",
       "no_doc_title": "Dokuments nav atrasts",
       "redo": "Atkārtot",
-      "title": "Apskatiet savu attēlu",
+      "title": "Pārskatiet attēlu",
       "unsupported_file_detail": "Lūdzu, augšupielādējiet savu fotogrāfiju JPG, JPEG, PNG vai PDF formātā. Faila izmērs nedrīkst pārsniegt 10 MB.",
       "unsupported_file_title": "Fails nav atbalstīts",
       "upload": "Augšupielādēt",
@@ -4588,9 +4602,9 @@
       "accessibility": "Dokumenti, kurus varat izmantot identitātes pārbaudei",
       "country_header": "Izdevējvalsts",
       "doctypes_header": "Pieņemamie dokumenti",
-      "subtitle": "Šie ir dokumenti, kuros, visticamāk, ir redzama jūsu pašreizējā dzīvesvietas adrese",
+      "subtitle": "Izvēlieties nesenu dokumentu, kurā norādīta jūsu pašreizējā dzīvesvietas adrese",
       "subtitle_merged": "Atlasiet izdevējvalsti, lai redzētu, kurus dokumentus mēs pieņemam",
-      "title": "Izvēlieties dokumentu",
+      "title": "Apstipriniet savu adresi",
       "title_merged": "Izvēlieties savu dokumentu"
     },
     "upload": {
@@ -4774,7 +4788,7 @@
       "retake": "Atkārtot",
       "submit": "Augšupielādēt",
       "subtitle": "Jūsu informācijai ir jābūt skaidri redzamai",
-      "title": "Apskatiet savu attēlu"
+      "title": "Pārskatiet attēlu"
     },
     "selection": {
       "body": "Sākt ierakstu no jauna",

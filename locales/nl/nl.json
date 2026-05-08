@@ -940,7 +940,7 @@
       "photo_of_screen_detail": "Gebruik alstublieft uw originele document. Foto's van schermen of fotokopieën worden niet geaccepteerd",
       "photo_of_screen_title": "Foto van scherm gedetecteerd",
       "redo": "Opnieuw uitvoeren",
-      "title": "Controleer uw afbeelding",
+      "title": "Controleer je afbeelding",
       "unsupported_file_detail": "Upload uw foto in JPG, JPEG, PNG of PDF formaat. De bestandsgrootte mag niet groter zijn dan 10MB.",
       "unsupported_file_title": "Bestand niet ondersteund",
       "upload": "Uploaden",
@@ -949,6 +949,7 @@
     },
     "scan": {
       "button_help": "Hulp nodig?",
+      "button_help_accessibility": "The Need Help? button is now highlighted. Tap it if you need assistance.",
       "button_manual": "Start scan",
       "feedback": {
         "alignment_center_document": "Centreer document",
@@ -1406,6 +1407,8 @@
       "feedback_move_left_accessibility": "Beweeg uw apparaat naar links",
       "feedback_move_right_accessibility": "Beweeg uw apparaat naar rechts",
       "feedback_move_up_accessibility": "Beweeg uw apparaat omhoog",
+      "feedback_multiple_faces_detected": "Meerdere gezichten gedetecteerd",
+      "feedback_multiple_faces_detected_accessibility": "Meerdere gezichten gedetecteerd. Zorg dat jij de enige persoon voor de camera bent",
       "feedback_no_face_detected": "Gezicht niet gedetecteerd",
       "feedback_no_face_detected_accessibility": "Gezicht niet gedetecteerd. Plaats uw gezicht voor het apparaat",
       "feedback_not_centered": "Gezicht niet gecentreerd",
@@ -1981,6 +1984,7 @@
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
+        "button_help_accessibility": "document.scan.button_help_accessibility",
         "button_manual": "document.scan.button_manual",
         "feedback": {
           "alignment_center_document": "document.scan.feedback.alignment_center_document",
@@ -2333,6 +2337,14 @@
         "button_tertiary": "nfc.pin_entry.optional_button_tertiary",
         "helper_attempts_left": "nfc.pin_entry.optional_helper_attempts_left",
         "helper_final_attempt": "nfc.pin_entry.optional_helper_final_attempt"
+      },
+      "face_biometrics": {
+        "capture": {
+          "feedback": {
+            "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
+            "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
+          }
+        }
       },
       "generic": {
         "accessibility": {
@@ -3905,6 +3917,8 @@
       "feedback_move_left_accessibility": "Beweeg uw apparaat naar links",
       "feedback_move_right_accessibility": "Beweeg uw apparaat naar rechts",
       "feedback_move_up_accessibility": "Beweeg uw apparaat omhoog",
+      "feedback_multiple_faces_detected": "Meerdere gezichten gedetecteerd",
+      "feedback_multiple_faces_detected_accessibility": "Meerdere gezichten gedetecteerd. Zorg dat jij de enige persoon voor de camera bent",
       "feedback_no_face_detected": "Gezicht niet gedetecteerd",
       "feedback_no_face_detected_accessibility": "Gezicht niet gedetecteerd. Plaats uw gezicht voor het apparaat",
       "feedback_not_centered": "Gezicht niet gecentreerd",
@@ -4053,12 +4067,12 @@
     },
     "pin_entry": {
       "button_primary": "Doorgaan",
-      "helper_attempts_left": "[%i] pogingen resterend",
+      "helper_attempts_left": "%d pogingen resterend",
       "helper_final_attempt": "1 poging over. Uw chip wordt geblokkeerd na de volgende mislukte poging",
       "optional_button_tertiary": "NFC-chips scannen overslaan",
-      "optional_helper_attempts_left": "[%i] pogingen over. Sla deze stap hieronder over.",
-      "optional_helper_final_attempt": "[%i] poging resterend voordat uw NFC-chip wordt geblokkeerd. Sla deze stap hieronder over.",
-      "subtitle": "Dit is nodig om de NFC-chip veilig uit te lezen. Je hebt dit [%i]-cijferige nummer aangemaakt toen je document werd uitgegeven.",
+      "optional_helper_attempts_left": "%d pogingen over. Sla deze stap hieronder over.",
+      "optional_helper_final_attempt": "%d poging resterend voordat uw NFC-chip wordt geblokkeerd. Sla deze stap hieronder over.",
+      "subtitle": "Dit is nodig om de NFC-chip veilig uit te lezen. Je hebt dit %d-cijferige nummer aangemaakt toen je document werd uitgegeven.",
       "title": "Voer uw document-pincode in",
       "title_incorrect": "Onjuiste pincode"
     },
@@ -4081,7 +4095,7 @@
         "document": "Zodra de chip is gedetecteerd, houd je telefoon en document stil.",
         "passport": "Zodra de chip is gedetecteerd, houd uw telefoon en paspoort stil."
       },
-      "pin_disclaimer": "We vragen je om de [%i]-cijferige pincode van je document voordat we de chip scannen.",
+      "pin_disclaimer": "We vragen je om de %d-cijferige pincode van je document voordat we de chip scannen.",
       "title_document": "Scan uw document",
       "title_passport": "Scan de chip van uw paspoort",
       "video_instruction_accessibility": "Video-instructie"
@@ -4546,24 +4560,24 @@
       "blur_detail": "Zorg dat alles helder zichtbaar is",
       "blur_title": "Onscherpe foto gedetecteerd",
       "body": "Controleer of uw gegevens goed en volledig zichtbaar zijn",
-      "body_accommodation_tenancy_certificate": "Zorg ervoor dat u de volledige documentpagina heeft geüpload, en dat de details duidelijk leesbaar zijn zonder wazigheid of schittering",
-      "body_address_card": "Zorg ervoor dat u de volledige documentpagina heeft geüpload, en dat de details duidelijk leesbaar zijn zonder wazigheid of schittering",
-      "body_address_certificate": "Zorg ervoor dat u de volledige documentpagina heeft geüpload, en dat de details duidelijk leesbaar zijn zonder wazigheid of schittering",
-      "body_bank_building_society_statement": "Zorg ervoor dat u de volledige documentpagina heeft geüpload, en dat de details duidelijk en zonder wazigheid of spiegeling te lezen zijn",
-      "body_bank_statement": "Zorg ervoor dat u de volledige documentpagina heeft geüpload, en dat de details duidelijk en zonder wazigheid of spiegeling te lezen zijn",
-      "body_benefit_letters": "Zorg ervoor dat u de volledige documentpagina heeft geüpload, en dat de details duidelijk en zonder wazigheid of spiegeling te lezen zijn",
-      "body_bill": "Zorg ervoor dat u de volledige documentpagina heeft geüpload, en dat de details duidelijk en zonder wazigheid of spiegeling te lezen zijn",
-      "body_council_tax": "Zorg ervoor dat u de volledige documentpagina heeft geüpload, en dat de details duidelijk en zonder wazigheid of spiegeling te lezen zijn",
-      "body_exchange_house_statement": "Zorg ervoor dat u de volledige documentpagina heeft geüpload, en dat de details duidelijk leesbaar zijn zonder wazigheid of schittering",
-      "body_general_letter": "Zorg ervoor dat u de volledige documentpagina heeft geüpload, en dat de details duidelijk leesbaar zijn zonder wazigheid of schittering",
+      "body_accommodation_tenancy_certificate": "Zorg ervoor dat je de volledige documentpagina hebt geüpload en dat alle details duidelijk leesbaar zijn, zonder wazigheid of schittering",
+      "body_address_card": "Zorg ervoor dat je de volledige documentpagina hebt geüpload en dat alle details duidelijk leesbaar zijn, zonder wazigheid of schittering",
+      "body_address_certificate": "Zorg ervoor dat je de volledige documentpagina hebt geüpload en dat alle details duidelijk leesbaar zijn, zonder wazigheid of schittering",
+      "body_bank_building_society_statement": "Zorg dat het hele document zichtbaar is en alle details duidelijk zijn, zonder vervaging of schittering",
+      "body_bank_statement": "Zorg dat het hele document zichtbaar is en alle details duidelijk zijn, zonder vervaging of schittering",
+      "body_benefit_letters": "Zorg dat het hele document zichtbaar is en alle details duidelijk zijn, zonder vervaging of schittering",
+      "body_bill": "Zorg dat het hele document zichtbaar is en alle details duidelijk zijn, zonder vervaging of schittering",
+      "body_council_tax": "Zorg dat het hele document zichtbaar is en alle details duidelijk zijn, zonder vervaging of schittering",
+      "body_exchange_house_statement": "Zorg ervoor dat je de volledige documentpagina hebt geüpload en dat alle details duidelijk leesbaar zijn, zonder wazigheid of schittering",
+      "body_general_letter": "Zorg ervoor dat je de volledige documentpagina hebt geüpload en dat alle details duidelijk leesbaar zijn, zonder wazigheid of schittering",
       "body_government_letter": "Verstrek de hele documentpagina voor de beste resultaten",
-      "body_identity_document_with_address": "Zorg ervoor dat u de volledige documentpagina heeft geüpload, en dat de details duidelijk leesbaar zijn zonder wazigheid of schittering",
-      "body_insurance_statement": "Zorg ervoor dat u de volledige documentpagina heeft geüpload, en dat de details duidelijk leesbaar zijn zonder wazigheid of schittering",
-      "body_mobile_phone_bill": "Zorg ervoor dat u de volledige documentpagina heeft geüpload, en dat de details duidelijk leesbaar zijn zonder wazigheid of schittering",
-      "body_mortgage_statement": "Zorg ervoor dat u de volledige documentpagina heeft geüpload, en dat de details duidelijk leesbaar zijn zonder wazigheid of schittering",
-      "body_pension_property_statement_letter": "Zorg ervoor dat u de volledige documentpagina heeft geüpload, en dat de details duidelijk leesbaar zijn zonder wazigheid of schittering",
-      "body_tax_letter": "Zorg ervoor dat u de volledige documentpagina heeft geüpload, en dat de details duidelijk en zonder wazigheid of spiegeling te lezen zijn",
-      "body_utility_bill": "Zorg ervoor dat u de volledige documentpagina heeft geüpload, en dat de details duidelijk en zonder wazigheid of spiegeling te lezen zijn",
+      "body_identity_document_with_address": "Zorg ervoor dat je de volledige documentpagina hebt geüpload en dat alle details duidelijk leesbaar zijn, zonder wazigheid of schittering",
+      "body_insurance_statement": "Zorg ervoor dat je de volledige documentpagina hebt geüpload en dat alle details duidelijk leesbaar zijn, zonder wazigheid of schittering",
+      "body_mobile_phone_bill": "Zorg ervoor dat je de volledige documentpagina hebt geüpload en dat alle details duidelijk leesbaar zijn, zonder wazigheid of schittering",
+      "body_mortgage_statement": "Zorg ervoor dat je de volledige documentpagina hebt geüpload en dat alle details duidelijk leesbaar zijn, zonder wazigheid of schittering",
+      "body_pension_property_statement_letter": "Zorg ervoor dat je de volledige documentpagina hebt geüpload en dat alle details duidelijk leesbaar zijn, zonder wazigheid of schittering",
+      "body_tax_letter": "Zorg dat het hele document zichtbaar is en alle details duidelijk zijn, zonder vervaging of schittering",
+      "body_utility_bill": "Zorg dat het hele document zichtbaar is en alle details duidelijk zijn, zonder vervaging of schittering",
       "close": "Sluiten",
       "crop_detail": "Zorg dat het volledige document zichtbaar is",
       "crop_title": "Afgesneden afbeelding gedetecteerd",
@@ -4577,7 +4591,7 @@
       "no_doc_detail": "Zorg dat het hele document zichtbaar is op de foto",
       "no_doc_title": "Document niet gedetecteerd",
       "redo": "Opnieuw uitvoeren",
-      "title": "Controleer uw afbeelding",
+      "title": "Controleer je afbeelding",
       "unsupported_file_detail": "Upload uw foto in JPG, JPEG, PNG of PDF formaat. De bestandsgrootte mag niet groter zijn dan 10MB.",
       "unsupported_file_title": "Bestand niet ondersteund",
       "upload": "Uploaden",
@@ -4588,9 +4602,9 @@
       "accessibility": "Document die u kunt gebruiken voor het verifiëren van uw identiteit",
       "country_header": "Land van uitgifte",
       "doctypes_header": "Geaccepteerde documenten",
-      "subtitle": "Dit zijn de meest waarschijnlijke documenten waaruit uw huidige adres blijkt",
+      "subtitle": "Kies een recent document waarop je huidige huisadres staat",
       "subtitle_merged": "Selecteer het land van uitgifte om te zien welke documenten we accepteren",
-      "title": "Selecteer een document",
+      "title": "Verifieer je adres",
       "title_merged": "Kies uw document"
     },
     "upload": {
@@ -4774,7 +4788,7 @@
       "retake": "Opnieuw uitvoeren",
       "submit": "Uploaden",
       "subtitle": "Controleer of uw gegevens goed en volledig zichtbaar zijn",
-      "title": "Controleer uw afbeelding"
+      "title": "Controleer je afbeelding"
     },
     "selection": {
       "body": "Opname opnieuw starten",

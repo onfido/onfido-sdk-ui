@@ -940,7 +940,7 @@
       "photo_of_screen_detail": "Lütfen orijinal belgenizi kullanın. Ekran fotoğrafları veya fotokopiler kabul edilmez",
       "photo_of_screen_title": "Ekran fotoğrafı algılandı",
       "redo": "Tekrar et",
-      "title": "Resminizi kontrol edin",
+      "title": "Görüntünüzü inceleyin",
       "unsupported_file_detail": "Lütfen fotoğrafınızı JPG, JPEG, PNG veya PDF formatında yükleyin. Dosya boyutu 10MB'ı aşmamalıdır.",
       "unsupported_file_title": "Dosya desteklenmiyor",
       "upload": "Yükle",
@@ -949,6 +949,7 @@
     },
     "scan": {
       "button_help": "Yardım mı gerekiyor?",
+      "button_help_accessibility": "The Need Help? button is now highlighted. Tap it if you need assistance.",
       "button_manual": "Taramayı başlat",
       "feedback": {
         "alignment_center_document": "Belgeyi ortala",
@@ -1406,6 +1407,8 @@
       "feedback_move_left_accessibility": "Cihazınızı sola hareket ettirin",
       "feedback_move_right_accessibility": "Cihazınızı sağa hareket ettirin",
       "feedback_move_up_accessibility": "Cihazınızı yukarı hareket ettirin",
+      "feedback_multiple_faces_detected": "Birden fazla yüz algılandı",
+      "feedback_multiple_faces_detected_accessibility": "Birden fazla yüz algılandı. Kameranın önünde yalnızca siz olduğunuzdan emin olun",
       "feedback_no_face_detected": "Yüz tespit edilmedi",
       "feedback_no_face_detected_accessibility": "Yüz tespit edilemedi. Yüzünüzü cihazınızın önüne yerleştirin",
       "feedback_not_centered": "Yüz ortalanmamış",
@@ -1981,6 +1984,7 @@
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
+        "button_help_accessibility": "document.scan.button_help_accessibility",
         "button_manual": "document.scan.button_manual",
         "feedback": {
           "alignment_center_document": "document.scan.feedback.alignment_center_document",
@@ -2333,6 +2337,14 @@
         "button_tertiary": "nfc.pin_entry.optional_button_tertiary",
         "helper_attempts_left": "nfc.pin_entry.optional_helper_attempts_left",
         "helper_final_attempt": "nfc.pin_entry.optional_helper_final_attempt"
+      },
+      "face_biometrics": {
+        "capture": {
+          "feedback": {
+            "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
+            "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
+          }
+        }
       },
       "generic": {
         "accessibility": {
@@ -3905,6 +3917,8 @@
       "feedback_move_left_accessibility": "Cihazınızı sola hareket ettirin",
       "feedback_move_right_accessibility": "Cihazınızı sağa hareket ettirin",
       "feedback_move_up_accessibility": "Cihazınızı yukarı hareket ettirin",
+      "feedback_multiple_faces_detected": "Birden fazla yüz algılandı",
+      "feedback_multiple_faces_detected_accessibility": "Birden fazla yüz algılandı. Kameranın önünde yalnızca siz olduğunuzdan emin olun",
       "feedback_no_face_detected": "Yüz tespit edilmedi",
       "feedback_no_face_detected_accessibility": "Yüz tespit edilemedi. Yüzünüzü cihazınızın önüne yerleştirin",
       "feedback_not_centered": "Yüz ortalanmamış",
@@ -4053,12 +4067,12 @@
     },
     "pin_entry": {
       "button_primary": "Devam et",
-      "helper_attempts_left": "[%i] deneme hakkı kaldı",
+      "helper_attempts_left": "%d deneme hakkı kaldı",
       "helper_final_attempt": "1 deneme hakkı kaldı. Bir sonraki başarısız denemeden sonra çipiniz engellenecektir",
       "optional_button_tertiary": "NFC çip taramasını atla",
-      "optional_helper_attempts_left": "[%i] deneme hakkı kaldı. Bu adımı aşağıdan atlayın.",
-      "optional_helper_final_attempt": "[%i] deneme hakkınız kaldı, sonrasında NFC çipiniz bloke edilecek. Bu adımı aşağıdan atlayın.",
-      "subtitle": "Bu, NFC çipini güvenli bir şekilde okumak için gereklidir. Bu [%i] haneli numarayı belgeniz düzenlendiğinde oluşturdunuz.",
+      "optional_helper_attempts_left": "%d deneme hakkı kaldı. Bu adımı aşağıdan atlayın.",
+      "optional_helper_final_attempt": "%d deneme hakkınız kaldı, sonrasında NFC çipiniz bloke edilecek. Bu adımı aşağıdan atlayın.",
+      "subtitle": "Bu, NFC çipini güvenli bir şekilde okumak için gereklidir. Bu %d haneli numarayı belgeniz düzenlendiğinde oluşturdunuz.",
       "title": "Belge PIN'inizi girin",
       "title_incorrect": "Yanlış PIN"
     },
@@ -4081,7 +4095,7 @@
         "document": "Çip algılandığında, telefonunuzu ve kimlik belgenizi sabit tutun.",
         "passport": "Çip algılandığında, telefonunuzu ve pasaportunuzu hareketsiz tutun."
       },
-      "pin_disclaimer": "Çipi taramadan önce belgenizin [%i] haneli PIN kodunu isteyeceğiz.",
+      "pin_disclaimer": "Çipi taramadan önce belgenizin %d haneli PIN kodunu isteyeceğiz.",
       "title_document": "Belgenizi tarayın",
       "title_passport": "Pasaportunuzun çipini tarayın",
       "video_instruction_accessibility": "Video talimatı"
@@ -4546,24 +4560,24 @@
       "blur_detail": "Her şeyin net olduğundan emin olun",
       "blur_title": "Bulanık fotoğraf tespit edildi",
       "body": "Bilgilerinizin net olduğundan ve tamamen göründüğünden emin olun",
-      "body_accommodation_tenancy_certificate": "Tüm belge sayfasını yüklediğinizden ve ayrıntıların bulanıklık veya parlamasız okunabilir olduğundan emin olun",
-      "body_address_card": "Tüm belge sayfasını yüklediğinizden ve detayların bulanıklık veya parlamasız okunabilir olduğundan emin olun",
-      "body_address_certificate": "Tüm belge sayfasını yüklediğinizden ve detayların bulanıklık veya parlamasız okunabilir olduğundan emin olun",
-      "body_bank_building_society_statement": "Belge sayfasının tamamını yüklediğinizden ve ayrıntıların bulanıklık veya parlama olmadan okunabilecek netlikte olduğundan emin olun",
-      "body_bank_statement": "Belge sayfasının tamamını yüklediğinizden ve ayrıntıların bulanıklık veya parlama olmadan okunabilecek netlikte olduğundan emin olun",
-      "body_benefit_letters": "Belge sayfasının tamamını yüklediğinizden ve ayrıntıların bulanıklık veya parlama olmadan okunabilecek netlikte olduğundan emin olun",
-      "body_bill": "Belge sayfasının tamamını yüklediğinizden ve ayrıntıların bulanıklık veya parlama olmadan okunabilecek netlikte olduğundan emin olun",
-      "body_council_tax": "Belge sayfasının tamamını yüklediğinizden ve ayrıntıların bulanıklık veya parlama olmadan okunabilecek netlikte olduğundan emin olun",
-      "body_exchange_house_statement": "Tüm belge sayfasını yüklediğinizden ve detayların bulanıklık veya parlamasız okunabilir olduğundan emin olun",
-      "body_general_letter": "Tüm belge sayfasını yüklediğinizden ve detayların bulanıklık veya parlamasız okunabilir olduğundan emin olun",
+      "body_accommodation_tenancy_certificate": "Belgenin tüm sayfasını yüklediğinizden ve ayrıntıların bulanıklık veya parlaklık olmadan net bir şekilde okunabildiğinden emin olun",
+      "body_address_card": "Belgenin tüm sayfasını yüklediğinizden ve ayrıntıların bulanıklık veya parlaklık olmadan net bir şekilde okunabildiğinden emin olun",
+      "body_address_certificate": "Belgenin tüm sayfasını yüklediğinizden ve ayrıntıların bulanıklık veya parlaklık olmadan net bir şekilde okunabildiğinden emin olun",
+      "body_bank_building_society_statement": "Belgenin tamamının görünür olduğundan ve tüm ayrıntıların bulanıklık veya parlaklık olmaksızın net olduğundan emin olun",
+      "body_bank_statement": "Belgenin tamamının görünür olduğundan ve tüm ayrıntıların bulanıklık veya parlaklık olmaksızın net olduğundan emin olun",
+      "body_benefit_letters": "Belgenin tamamının görünür olduğundan ve tüm ayrıntıların bulanıklık veya parlaklık olmaksızın net olduğundan emin olun",
+      "body_bill": "Belgenin tamamının görünür olduğundan ve tüm ayrıntıların bulanıklık veya parlaklık olmaksızın net olduğundan emin olun",
+      "body_council_tax": "Belgenin tamamının görünür olduğundan ve tüm ayrıntıların bulanıklık veya parlaklık olmaksızın net olduğundan emin olun",
+      "body_exchange_house_statement": "Belgenin tüm sayfasını yüklediğinizden ve ayrıntıların bulanıklık veya parlaklık olmadan net bir şekilde okunabildiğinden emin olun",
+      "body_general_letter": "Belgenin tüm sayfasını yüklediğinizden ve ayrıntıların bulanıklık veya parlaklık olmadan net bir şekilde okunabildiğinden emin olun",
       "body_government_letter": "En iyi sonuçlar için belge sayfasının tamamını gönderin",
-      "body_identity_document_with_address": "Tüm belge sayfasını yüklediğinizden ve detayların bulanıklık veya parlamasız okunabilir olduğundan emin olun",
-      "body_insurance_statement": "Tüm belge sayfasını yüklediğinizden ve detayların bulanıklık veya parlamasız okunabilir olduğundan emin olun",
-      "body_mobile_phone_bill": "Tüm belge sayfasını yüklediğinizden ve detayların bulanıklık veya parlamasız okunabilir olduğundan emin olun",
-      "body_mortgage_statement": "Tüm belge sayfasını yüklediğinizden ve detayların bulanıklık veya parlamasız okunabilir olduğundan emin olun",
-      "body_pension_property_statement_letter": "Tüm belge sayfasını yüklediğinizden ve ayrıntıların bulanıklık veya parlamasız okunabilir olduğundan emin olun",
-      "body_tax_letter": "Belge sayfasının tamamını yüklediğinizden ve ayrıntıların bulanıklık veya parlama olmadan okunabilecek netlikte olduğundan emin olun",
-      "body_utility_bill": "Belge sayfasının tamamını yüklediğinizden ve ayrıntıların bulanıklık veya parlama olmadan okunabilecek netlikte olduğundan emin olun",
+      "body_identity_document_with_address": "Belgenin tüm sayfasını yüklediğinizden ve ayrıntıların bulanıklık veya parlaklık olmadan net bir şekilde okunabildiğinden emin olun",
+      "body_insurance_statement": "Belgenin tüm sayfasını yüklediğinizden ve ayrıntıların bulanıklık veya parlaklık olmadan net bir şekilde okunabildiğinden emin olun",
+      "body_mobile_phone_bill": "Belgenin tüm sayfasını yüklediğinizden ve ayrıntıların bulanıklık veya parlaklık olmadan net bir şekilde okunabildiğinden emin olun",
+      "body_mortgage_statement": "Belgenin tüm sayfasını yüklediğinizden ve ayrıntıların bulanıklık veya parlaklık olmadan net bir şekilde okunabildiğinden emin olun",
+      "body_pension_property_statement_letter": "Belgenin tüm sayfasını yüklediğinizden ve ayrıntıların bulanıklık veya parlaklık olmadan net bir şekilde okunabildiğinden emin olun",
+      "body_tax_letter": "Belgenin tamamının görünür olduğundan ve tüm ayrıntıların bulanıklık veya parlaklık olmaksızın net olduğundan emin olun",
+      "body_utility_bill": "Belgenin tamamının görünür olduğundan ve tüm ayrıntıların bulanıklık veya parlaklık olmaksızın net olduğundan emin olun",
       "close": "Kapat",
       "crop_detail": "Belgenin tamamının görünür olduğundan emin olun",
       "crop_title": "Kesik görüntü tespit edildi",
@@ -4577,7 +4591,7 @@
       "no_doc_detail": "Belgenin tamamının fotoğrafta olduğundan emin olun",
       "no_doc_title": "Belge tespit edilmedi",
       "redo": "Tekrar et",
-      "title": "Resminizi kontrol edin",
+      "title": "Görüntünüzü inceleyin",
       "unsupported_file_detail": "Lütfen fotoğrafınızı JPG, JPEG, PNG veya PDF formatında yükleyin. Dosya boyutu 10MB'ı aşmamalıdır.",
       "unsupported_file_title": "Dosya desteklenmiyor",
       "upload": "Yükle",
@@ -4588,9 +4602,9 @@
       "accessibility": "Kimliğinizi doğrulamak için kullanabileceğiniz belgeler",
       "country_header": "Düzenleyen ülke",
       "doctypes_header": "Kabul edilen belgeler",
-      "subtitle": "Bunlar mevcut ev adresinizi göstermesi en muhtemel belgelerdir",
+      "subtitle": "Güncel ev adresinizi gösteren yakın tarihli bir belge seçin",
       "subtitle_merged": "Hangi belgeleri kabul ettiğimizi görmek için düzenleyen ülkeyi seçin",
-      "title": "Bir belge seçiniz",
+      "title": "Adresinizi doğrulayın",
       "title_merged": "Belgenizi seçin"
     },
     "upload": {
@@ -4774,7 +4788,7 @@
       "retake": "Tekrar et",
       "submit": "Yükle",
       "subtitle": "Bilgilerinizin net olduğundan ve tamamen göründüğünden emin olun",
-      "title": "Resminizi kontrol edin"
+      "title": "Görüntünüzü inceleyin"
     },
     "selection": {
       "body": "Kaydı yeniden başlat",

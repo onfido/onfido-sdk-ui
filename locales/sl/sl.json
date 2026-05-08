@@ -940,7 +940,7 @@
       "photo_of_screen_detail": "Prosimo, uporabite svoj izvirni dokument. Fotografije zaslona ali fotokopije niso sprejemljive.",
       "photo_of_screen_title": "Zaznana fotografija zaslona",
       "redo": "Ponovi",
-      "title": "Preverite svojo sliko",
+      "title": "Preglejte svojo sliko",
       "unsupported_file_detail": "Naložite svojo fotografijo v formatu JPG, JPEG, PNG ali PDF. Velikost datoteke ne sme presegati 10 MB.",
       "unsupported_file_title": "Datoteka ni podprta",
       "upload": "Naloži",
@@ -949,6 +949,7 @@
     },
     "scan": {
       "button_help": "Potrebujete pomoč?",
+      "button_help_accessibility": "The Need Help? button is now highlighted. Tap it if you need assistance.",
       "button_manual": "Začni skeniranje",
       "feedback": {
         "alignment_center_document": "Poravnaj dokument na sredino",
@@ -1406,6 +1407,8 @@
       "feedback_move_left_accessibility": "Premaknite napravo v levo",
       "feedback_move_right_accessibility": "Premaknite napravo v desno",
       "feedback_move_up_accessibility": "Premaknite napravo navzgor",
+      "feedback_multiple_faces_detected": "Zaznanih je bilo več obrazov",
+      "feedback_multiple_faces_detected_accessibility": "Zaznanih je bilo več obrazov. Zagotovite, da ste pred kamero samo vi",
       "feedback_no_face_detected": "Obraz ni zaznan",
       "feedback_no_face_detected_accessibility": "Obraz ni zaznan. Postavite obraz pred napravo",
       "feedback_not_centered": "Obraz ni centriran",
@@ -1981,6 +1984,7 @@
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
+        "button_help_accessibility": "document.scan.button_help_accessibility",
         "button_manual": "document.scan.button_manual",
         "feedback": {
           "alignment_center_document": "document.scan.feedback.alignment_center_document",
@@ -2333,6 +2337,14 @@
         "button_tertiary": "nfc.pin_entry.optional_button_tertiary",
         "helper_attempts_left": "nfc.pin_entry.optional_helper_attempts_left",
         "helper_final_attempt": "nfc.pin_entry.optional_helper_final_attempt"
+      },
+      "face_biometrics": {
+        "capture": {
+          "feedback": {
+            "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
+            "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
+          }
+        }
       },
       "generic": {
         "accessibility": {
@@ -3905,6 +3917,8 @@
       "feedback_move_left_accessibility": "Premaknite napravo v levo",
       "feedback_move_right_accessibility": "Premaknite napravo v desno",
       "feedback_move_up_accessibility": "Premaknite napravo navzgor",
+      "feedback_multiple_faces_detected": "Zaznanih je bilo več obrazov",
+      "feedback_multiple_faces_detected_accessibility": "Zaznanih je bilo več obrazov. Zagotovite, da ste pred kamero samo vi",
       "feedback_no_face_detected": "Obraz ni zaznan",
       "feedback_no_face_detected_accessibility": "Obraz ni zaznan. Postavite obraz pred napravo",
       "feedback_not_centered": "Obraz ni centriran",
@@ -4053,12 +4067,12 @@
     },
     "pin_entry": {
       "button_primary": "Nadaljuj",
-      "helper_attempts_left": "[%i] preostalih poskusov",
+      "helper_attempts_left": "%d preostalih poskusov",
       "helper_final_attempt": "Preostal je še 1 poskus. Vaš čip bo blokiran po naslednjem neuspelem poskusu",
       "optional_button_tertiary": "Preskoči skeniranje NFC čipa",
-      "optional_helper_attempts_left": "[%i] preostalih poskusov. Spodaj preskočite ta korak.",
-      "optional_helper_final_attempt": "[%i] poskus ostane, preden bo vaš NFC čip blokiran. Spodaj preskočite ta korak.",
-      "subtitle": "To je potrebno za varno branje NFC čipa. To [%i]-mestno številko ste ustvarili ob izdaji dokumenta.",
+      "optional_helper_attempts_left": "%d preostalih poskusov. Spodaj preskočite ta korak.",
+      "optional_helper_final_attempt": "%d poskus ostane, preden bo vaš NFC čip blokiran. Spodaj preskočite ta korak.",
+      "subtitle": "To je potrebno za varno branje NFC čipa. To %d-mestno številko ste ustvarili ob izdaji dokumenta.",
       "title": "Vnesite PIN dokumenta",
       "title_incorrect": "Napačna PIN"
     },
@@ -4081,7 +4095,7 @@
         "document": "Ko je čip zaznan, držite telefon in dokument pri miru.",
         "passport": "Ko je čip zaznan, obdržite svoj telefon in potni list mirno."
       },
-      "pin_disclaimer": "Pred skeniranjem čipa vas bomo prosili za [%i]-mestno PIN kodo vašega dokumenta.",
+      "pin_disclaimer": "Pred skeniranjem čipa vas bomo prosili za %d-mestno PIN kodo vašega dokumenta.",
       "title_document": "Preglejte svoj dokument",
       "title_passport": "Skenirajte čip na vašem potnem listu",
       "video_instruction_accessibility": "Video navodila"
@@ -4546,24 +4560,24 @@
       "blur_detail": "Prepričajte se, da je vse jasno",
       "blur_title": "Zaznana je zamegljena fotografija",
       "body": "Prepričajte se, da so vaši podatki jasni in pregledni",
-      "body_accommodation_tenancy_certificate": "Prepričajte se, da ste naložili celotno stran dokumenta in da so podrobnosti jasno vidne brez zamegljenosti ali bleščanja",
-      "body_address_card": "Prepričajte se, da ste naložili celotno stran dokumenta in da so podrobnosti jasno vidne brez zamegljenosti ali bleščanja",
-      "body_address_certificate": "Prepričajte se, da ste naložili celotno stran dokumenta in da so podrobnosti jasno vidne brez zamegljenosti ali bleščanja",
-      "body_bank_building_society_statement": "Prepričajte se, da ste naložili celotno stran dokumenta in da so podrobnosti jasno berljive, brez zamegljenosti ali bleščanja",
-      "body_bank_statement": "Prepričajte se, da ste naložili celotno stran dokumenta in da so podrobnosti jasno berljive, brez zamegljenosti ali bleščanja",
-      "body_benefit_letters": "Prepričajte se, da ste naložili celotno stran dokumenta in da so podrobnosti jasno berljive, brez zamegljenosti ali bleščanja",
-      "body_bill": "Prepričajte se, da ste naložili celotno stran dokumenta in da so podrobnosti jasno berljive, brez zamegljenosti ali bleščanja",
-      "body_council_tax": "Prepričajte se, da ste naložili celotno stran dokumenta in da so podrobnosti jasno berljive, brez zamegljenosti ali bleščanja",
-      "body_exchange_house_statement": "Prepričajte se, da ste naložili celotno stran dokumenta in da so podrobnosti jasno vidne brez zamegljenosti ali bleščanja",
-      "body_general_letter": "Prepričajte se, da ste naložili celotno stran dokumenta in da so podrobnosti jasno vidne brez zamegljenosti ali bleščanja",
+      "body_accommodation_tenancy_certificate": "Prepričajte se, da ste naložili celotno stran dokumenta in da so podrobnosti jasno berljive brez zamegljenosti ali odsevov.",
+      "body_address_card": "Prepričajte se, da ste naložili celotno stran dokumenta in da so podrobnosti jasno berljive brez zamegljenosti ali odsevov.",
+      "body_address_certificate": "Prepričajte se, da ste naložili celotno stran dokumenta in da so podrobnosti jasno berljive brez zamegljenosti ali odsevov.",
+      "body_bank_building_society_statement": "Preverite, da je celoten dokument viden in da so vse podrobnosti jasne, brez zameglitev ali bleščanja",
+      "body_bank_statement": "Preverite, da je celoten dokument viden in da so vse podrobnosti jasne, brez zameglitev ali bleščanja",
+      "body_benefit_letters": "Preverite, da je celoten dokument viden in da so vse podrobnosti jasne, brez zameglitev ali bleščanja",
+      "body_bill": "Preverite, da je celoten dokument viden in da so vse podrobnosti jasne, brez zameglitev ali bleščanja",
+      "body_council_tax": "Preverite, da je celoten dokument viden in da so vse podrobnosti jasne, brez zameglitev ali bleščanja",
+      "body_exchange_house_statement": "Prepričajte se, da ste naložili celotno stran dokumenta in da so podrobnosti jasno berljive brez zamegljenosti ali odsevov.",
+      "body_general_letter": "Prepričajte se, da ste naložili celotno stran dokumenta in da so podrobnosti jasno berljive brez zamegljenosti ali odsevov.",
       "body_government_letter": "Za najboljše rezultate zagotovite celotno stran dokumenta",
-      "body_identity_document_with_address": "Prepričajte se, da ste naložili celotno stran dokumenta in da so podrobnosti jasno vidne brez zamegljenosti ali bleščanja",
-      "body_insurance_statement": "Prepričajte se, da ste naložili celotno stran dokumenta in da so podrobnosti jasno vidne brez zamegljenosti ali bleščanja",
-      "body_mobile_phone_bill": "Prepričajte se, da ste naložili celotno stran dokumenta in da so podrobnosti jasno vidne brez zamegljenosti ali bleščanja",
-      "body_mortgage_statement": "Prepričajte se, da ste naložili celotno stran dokumenta in da so podrobnosti jasno vidne brez zamegljenosti ali bleščanja",
-      "body_pension_property_statement_letter": "Poskrbite, da ste naložili celotno stran dokumenta in da so podrobnosti jasno vidne brez zamegljenosti ali bleščanja",
-      "body_tax_letter": "Prepričajte se, da ste naložili celotno stran dokumenta in da so podrobnosti jasno berljive, brez zamegljenosti ali bleščanja",
-      "body_utility_bill": "Prepričajte se, da ste naložili celotno stran dokumenta in da so podrobnosti jasno berljive, brez zamegljenosti ali bleščanja",
+      "body_identity_document_with_address": "Prepričajte se, da ste naložili celotno stran dokumenta in da so podrobnosti jasno berljive brez zamegljenosti ali odsevov.",
+      "body_insurance_statement": "Prepričajte se, da ste naložili celotno stran dokumenta in da so podrobnosti jasno berljive brez zamegljenosti ali odsevov.",
+      "body_mobile_phone_bill": "Prepričajte se, da ste naložili celotno stran dokumenta in da so podrobnosti jasno berljive brez zamegljenosti ali odsevov.",
+      "body_mortgage_statement": "Prepričajte se, da ste naložili celotno stran dokumenta in da so podrobnosti jasno berljive brez zamegljenosti ali odsevov.",
+      "body_pension_property_statement_letter": "Prepričajte se, da ste naložili celotno stran dokumenta in da so podrobnosti jasno berljive brez zamegljenosti ali odsevov.",
+      "body_tax_letter": "Preverite, da je celoten dokument viden in da so vse podrobnosti jasne, brez zameglitev ali bleščanja",
+      "body_utility_bill": "Preverite, da je celoten dokument viden in da so vse podrobnosti jasne, brez zameglitev ali bleščanja",
       "close": "Zapri",
       "crop_detail": "Prepričajte se, da je celoten dokument viden",
       "crop_title": "Zaznana odrezana slika",
@@ -4577,7 +4591,7 @@
       "no_doc_detail": "Prepričajte se, da je ves dokument na fotografiji",
       "no_doc_title": "Dokument ni zaznan",
       "redo": "Ponovi",
-      "title": "Preverite svojo sliko",
+      "title": "Preglejte svojo sliko",
       "unsupported_file_detail": "Naložite svojo fotografijo v formatu JPG, JPEG, PNG ali PDF. Velikost datoteke ne sme presegati 10 MB.",
       "unsupported_file_title": "Datoteka ni podprta",
       "upload": "Naloži",
@@ -4588,9 +4602,9 @@
       "accessibility": "Dokumenti, ki jih lahko uporabite za preverjanje svoje identitete",
       "country_header": "Država izdajateljica",
       "doctypes_header": "Sprejeti dokumenti",
-      "subtitle": "To so dokumenti, ki bodo najverjetneje prikazali vaš trenutni domači naslov",
+      "subtitle": "Izberite nedavni dokument, ki prikazuje vaš trenutni domači naslov",
       "subtitle_merged": "Izberite državo izdajateljico, da vidite, katere dokumente sprejemamo",
-      "title": "Izberite dokument",
+      "title": "Preverite svoj naslov",
       "title_merged": "Izberite dokument"
     },
     "upload": {
@@ -4774,7 +4788,7 @@
       "retake": "Ponovi",
       "submit": "Naloži",
       "subtitle": "Prepričajte se, da so vaši podatki jasni in pregledni",
-      "title": "Preverite svojo sliko"
+      "title": "Preglejte svojo sliko"
     },
     "selection": {
       "body": "Ponovni zagon snemanja",

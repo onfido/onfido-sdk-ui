@@ -940,7 +940,7 @@
       "photo_of_screen_detail": "Prosím, použijte svůj původní dokument. Fotografie obrazovky nebo fotokopie nejsou přijímány.",
       "photo_of_screen_title": "Fotografie obrazovky detekována",
       "redo": "Přepracovat",
-      "title": "Zkontrolujte svůj snímek",
+      "title": "Zkontrolujte svůj obrázek",
       "unsupported_file_detail": "Nahrajte prosím svou fotografii ve formátu JPG, JPEG, PNG nebo PDF. Velikost souboru nesmí přesáhnout 10 MB.",
       "unsupported_file_title": "Soubor není podporován",
       "upload": "Nahrát",
@@ -949,6 +949,7 @@
     },
     "scan": {
       "button_help": "Potřebujete pomoc?",
+      "button_help_accessibility": "The Need Help? button is now highlighted. Tap it if you need assistance.",
       "button_manual": "Spustit skenování",
       "feedback": {
         "alignment_center_document": "Vystřeďte doklad",
@@ -1406,6 +1407,8 @@
       "feedback_move_left_accessibility": "Posuňte zařízení doleva",
       "feedback_move_right_accessibility": "Posuňte zařízení doprava",
       "feedback_move_up_accessibility": "Posuňte zařízení nahoru",
+      "feedback_multiple_faces_detected": "Zjištěno více tváří",
+      "feedback_multiple_faces_detected_accessibility": "Bylo zjištěno více tváří. Ujistěte se, že jste před kamerou pouze vy",
       "feedback_no_face_detected": "Obličej nebyl rozpoznán",
       "feedback_no_face_detected_accessibility": "Obličej nebyl rozpoznán. Posuňte obličej před zařízení",
       "feedback_not_centered": "Obličej není vycentrovaný",
@@ -1981,6 +1984,7 @@
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
+        "button_help_accessibility": "document.scan.button_help_accessibility",
         "button_manual": "document.scan.button_manual",
         "feedback": {
           "alignment_center_document": "document.scan.feedback.alignment_center_document",
@@ -2333,6 +2337,14 @@
         "button_tertiary": "nfc.pin_entry.optional_button_tertiary",
         "helper_attempts_left": "nfc.pin_entry.optional_helper_attempts_left",
         "helper_final_attempt": "nfc.pin_entry.optional_helper_final_attempt"
+      },
+      "face_biometrics": {
+        "capture": {
+          "feedback": {
+            "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
+            "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
+          }
+        }
       },
       "generic": {
         "accessibility": {
@@ -3905,6 +3917,8 @@
       "feedback_move_left_accessibility": "Posuňte zařízení doleva",
       "feedback_move_right_accessibility": "Posuňte zařízení doprava",
       "feedback_move_up_accessibility": "Posuňte zařízení nahoru",
+      "feedback_multiple_faces_detected": "Zjištěno více tváří",
+      "feedback_multiple_faces_detected_accessibility": "Bylo zjištěno více tváří. Ujistěte se, že jste před kamerou pouze vy",
       "feedback_no_face_detected": "Obličej nebyl rozpoznán",
       "feedback_no_face_detected_accessibility": "Obličej nebyl rozpoznán. Posuňte obličej před zařízení",
       "feedback_not_centered": "Obličej není vycentrovaný",
@@ -4053,12 +4067,12 @@
     },
     "pin_entry": {
       "button_primary": "Pokračovat",
-      "helper_attempts_left": "[%i] zbývající pokusy",
+      "helper_attempts_left": "%d zbývající pokusy",
       "helper_final_attempt": "Zbývá 1 pokus. Po dalším neúspěšném pokusu bude váš čip zablokován",
       "optional_button_tertiary": "Přeskočit skenování NFC čipu",
-      "optional_helper_attempts_left": "[%i] zbývající pokusy. Přeskočte tento krok níže.",
-      "optional_helper_final_attempt": "[%i] pokus zbývá před zablokováním vašeho NFC čipu. Přeskočte tento krok níže.",
-      "subtitle": "Toto je potřeba k bezpečnému čtení NFC čipu. Tento [%i]-místný kód jste vytvořili při vydání vašeho dokladu.",
+      "optional_helper_attempts_left": "%d zbývající pokusy. Přeskočte tento krok níže.",
+      "optional_helper_final_attempt": "%d pokus zbývá před zablokováním vašeho NFC čipu. Přeskočte tento krok níže.",
+      "subtitle": "Toto je potřeba k bezpečnému čtení NFC čipu. Tento %d-místný kód jste vytvořili při vydání vašeho dokladu.",
       "title": "Zadejte PIN dokumentu",
       "title_incorrect": "Nesprávný PIN"
     },
@@ -4081,7 +4095,7 @@
         "document": "Jakmile je čip detekován, udržujte svůj telefon a dokument v klidu.",
         "passport": "Jakmile je čip detekován, udržujte telefon a pas v klidu."
       },
-      "pin_disclaimer": "Před skenováním čipu vás požádáme o [%i]místný PIN vašeho dokladu.",
+      "pin_disclaimer": "Před skenováním čipu vás požádáme o %dmístný PIN vašeho dokladu.",
       "title_document": "Skenovat váš dokument",
       "title_passport": "Naskenujte čip Vašeho pasu",
       "video_instruction_accessibility": "Video návod"
@@ -4546,24 +4560,24 @@
       "blur_detail": "Ujistěte se, že je vše jasné a čisté",
       "blur_title": "Detekce rozmazané fotografie",
       "body": "Ujistěte se, že jsou Vaše údaje jasné a nezkreslené",
-      "body_accommodation_tenancy_certificate": "Ujistěte se, že jste nahráli celou stránku dokumentu a detaily jsou jasně čitelné bez rozmazání nebo odlesku",
-      "body_address_card": "Ujistěte se, že jste nahráli celou stránku dokumentu a detaily jsou jasně čitelné bez rozmazání nebo odlesku",
-      "body_address_certificate": "Ujistěte se, že jste nahráli celou stránku dokumentu a detaily jsou jasně čitelné bez rozmazání nebo odlesku",
-      "body_bank_building_society_statement": "Ujistěte se, že jste nahráli celou stránku dokumentu a detaily jsou dobře čitelné bez rozmazání nebo odlesků.",
-      "body_bank_statement": "Ujistěte se, že jste nahráli celou stránku dokumentu a detaily jsou dobře čitelné bez rozmazání nebo odlesků.",
-      "body_benefit_letters": "Ujistěte se, že jste nahráli celou stránku dokumentu a detaily jsou dobře čitelné bez rozmazání nebo odlesků.",
-      "body_bill": "Ujistěte se, že jste nahráli celou stránku dokumentu a detaily jsou dobře čitelné bez rozmazání nebo odlesků.",
-      "body_council_tax": "Ujistěte se, že jste nahráli celou stránku dokumentu a detaily jsou dobře čitelné bez rozmazání nebo odlesků.",
-      "body_exchange_house_statement": "Ujistěte se, že jste nahráli celou stránku dokumentu a detaily jsou jasně čitelné bez rozmazání nebo odlesku",
-      "body_general_letter": "Ujistěte se, že jste nahráli celou stránku dokumentu a detaily jsou jasně čitelné bez rozmazání nebo odlesku",
+      "body_accommodation_tenancy_certificate": "Ujistěte se, že jste nahráli celou stránku dokumentu a že detaily jsou čitelné, bez rozmazání nebo odlesků",
+      "body_address_card": "Ujistěte se, že jste nahráli celou stránku dokumentu a že detaily jsou čitelné, bez rozmazání nebo odlesků",
+      "body_address_certificate": "Ujistěte se, že jste nahráli celou stránku dokumentu a že detaily jsou čitelné, bez rozmazání nebo odlesků",
+      "body_bank_building_society_statement": "Ujistěte se, že je celý dokument viditelný a všechny údaje jsou jasné, bez rozmazání nebo odlesků",
+      "body_bank_statement": "Ujistěte se, že je celý dokument viditelný a všechny údaje jsou jasné, bez rozmazání nebo odlesků",
+      "body_benefit_letters": "Ujistěte se, že je celý dokument viditelný a všechny údaje jsou jasné, bez rozmazání nebo odlesků",
+      "body_bill": "Ujistěte se, že je celý dokument viditelný a všechny údaje jsou jasné, bez rozmazání nebo odlesků",
+      "body_council_tax": "Ujistěte se, že je celý dokument viditelný a všechny údaje jsou jasné, bez rozmazání nebo odlesků",
+      "body_exchange_house_statement": "Ujistěte se, že jste nahráli celou stránku dokumentu a že detaily jsou čitelné, bez rozmazání nebo odlesků",
+      "body_general_letter": "Ujistěte se, že jste nahráli celou stránku dokumentu a že detaily jsou čitelné, bez rozmazání nebo odlesků",
       "body_government_letter": "Pro dosažení nejlepších výsledků použijte celou stránku dokumentu",
-      "body_identity_document_with_address": "Ujistěte se, že jste nahráli celou stránku dokumentu a detaily jsou jasně čitelné bez rozmazání nebo odlesku",
-      "body_insurance_statement": "Ujistěte se, že jste nahráli celou stránku dokumentu a detaily jsou jasně čitelné bez rozmazání nebo odlesku",
-      "body_mobile_phone_bill": "Ujistěte se, že jste nahráli celou stránku dokumentu a detaily jsou jasně čitelné bez rozmazání nebo odlesku",
-      "body_mortgage_statement": "Ujistěte se, že jste nahráli celou stránku dokumentu a detaily jsou jasně čitelné bez rozmazání nebo odlesku",
-      "body_pension_property_statement_letter": "Ujistěte se, že jste nahráli celou stránku dokumentu a detaily jsou jasně čitelné bez rozmazání nebo odlesku",
-      "body_tax_letter": "Ujistěte se, že jste nahráli celou stránku dokumentu a detaily jsou dobře čitelné bez rozmazání nebo odlesků.",
-      "body_utility_bill": "Ujistěte se, že jste nahráli celou stránku dokumentu a detaily jsou dobře čitelné bez rozmazání nebo odlesků.",
+      "body_identity_document_with_address": "Ujistěte se, že jste nahráli celou stránku dokumentu a že detaily jsou čitelné, bez rozmazání nebo odlesků",
+      "body_insurance_statement": "Ujistěte se, že jste nahráli celou stránku dokumentu a že detaily jsou čitelné, bez rozmazání nebo odlesků",
+      "body_mobile_phone_bill": "Ujistěte se, že jste nahráli celou stránku dokumentu a že detaily jsou čitelné, bez rozmazání nebo odlesků",
+      "body_mortgage_statement": "Ujistěte se, že jste nahráli celou stránku dokumentu a že detaily jsou čitelné, bez rozmazání nebo odlesků",
+      "body_pension_property_statement_letter": "Ujistěte se, že jste nahráli celou stránku dokumentu a že detaily jsou čitelné, bez rozmazání nebo odlesků",
+      "body_tax_letter": "Ujistěte se, že je celý dokument viditelný a všechny údaje jsou jasné, bez rozmazání nebo odlesků",
+      "body_utility_bill": "Ujistěte se, že je celý dokument viditelný a všechny údaje jsou jasné, bez rozmazání nebo odlesků",
       "close": "Zavřít",
       "crop_detail": "Ujistěte se, že je viditelný celý dokument",
       "crop_title": "Zjištěný obraz s oříznutým okrajem",
@@ -4577,7 +4591,7 @@
       "no_doc_detail": "Ujistěte se, že je na fotografii celý dokument",
       "no_doc_title": "Dokument nebyl zjištěn",
       "redo": "Přepracovat",
-      "title": "Zkontrolujte svůj snímek",
+      "title": "Zkontrolujte svůj obrázek",
       "unsupported_file_detail": "Nahrajte prosím svou fotografii ve formátu JPG, JPEG, PNG nebo PDF. Velikost souboru nesmí přesáhnout 10 MB.",
       "unsupported_file_title": "Soubor není podporován",
       "upload": "Nahrát",
@@ -4588,9 +4602,9 @@
       "accessibility": "Doklady, které můžete použít k ověření své totožnosti",
       "country_header": "Vydávající země",
       "doctypes_header": "Akceptované dokumenty",
-      "subtitle": "V těchto dokumentech je nejčastěji uvedena Vaše současná adresa bydliště",
+      "subtitle": "Vyberte nedávný dokument, který uvádí vaši aktuální domácí adresu",
       "subtitle_merged": "Vyberte zemi vydání a podívejte se, které doklady přijímáme",
-      "title": "Zvolte dokument",
+      "title": "Ověřte svou adresu",
       "title_merged": "Vyberte svůj dokument"
     },
     "upload": {
@@ -4774,7 +4788,7 @@
       "retake": "Přepracovat",
       "submit": "Nahrát",
       "subtitle": "Ujistěte se, že jsou Vaše údaje jasné a nezkreslené",
-      "title": "Zkontrolujte svůj snímek"
+      "title": "Zkontrolujte svůj obrázek"
     },
     "selection": {
       "body": "Restart nahrávání",

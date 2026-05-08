@@ -940,7 +940,7 @@
       "photo_of_screen_detail": "يرجى استخدام المستند الأصلي الخاص بك. لا يتم قبول الصور من الشاشة أو النسخ الفوتوغرافية",
       "photo_of_screen_title": "تم اكتشاف صورة للشاشة",
       "redo": "إعادة",
-      "title": "تحقق من صورتك",
+      "title": "راجع صورتك",
       "unsupported_file_detail": "يرجى تحميل صورتك بصيغة JPG أو JPEG أو PNG أو PDF. يجب ألا يتجاوز حجم الملف 10 ميغابايت.",
       "unsupported_file_title": "الملف غير مدعوم",
       "upload": "التحميل",
@@ -949,6 +949,7 @@
     },
     "scan": {
       "button_help": "هل تحتاج إلى مساعدة؟",
+      "button_help_accessibility": "The Need Help? button is now highlighted. Tap it if you need assistance.",
       "button_manual": "ابدأ المسح",
       "feedback": {
         "alignment_center_document": "ضع المستند في الوسط",
@@ -1406,6 +1407,8 @@
       "feedback_move_left_accessibility": "حرك جهازك إلى اليسار",
       "feedback_move_right_accessibility": "حرك جهازك إلى اليمين",
       "feedback_move_up_accessibility": "حرك جهازك للأعلى",
+      "feedback_multiple_faces_detected": "تم اكتشاف عدة وجوه",
+      "feedback_multiple_faces_detected_accessibility": "تم اكتشاف عدة وجوه. تأكد من أنك الشخص الوحيد أمام الكاميرا",
       "feedback_no_face_detected": "لم يتم اكتشاف وجهك",
       "feedback_no_face_detected_accessibility": "لم يتم الكشف عن الوجه. ضع وجهك أمام جهازك",
       "feedback_not_centered": "الوجه ليس في المنتصف",
@@ -1981,6 +1984,7 @@
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
+        "button_help_accessibility": "document.scan.button_help_accessibility",
         "button_manual": "document.scan.button_manual",
         "feedback": {
           "alignment_center_document": "document.scan.feedback.alignment_center_document",
@@ -2333,6 +2337,14 @@
         "button_tertiary": "nfc.pin_entry.optional_button_tertiary",
         "helper_attempts_left": "nfc.pin_entry.optional_helper_attempts_left",
         "helper_final_attempt": "nfc.pin_entry.optional_helper_final_attempt"
+      },
+      "face_biometrics": {
+        "capture": {
+          "feedback": {
+            "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
+            "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
+          }
+        }
       },
       "generic": {
         "accessibility": {
@@ -3905,6 +3917,8 @@
       "feedback_move_left_accessibility": "حرك جهازك إلى اليسار",
       "feedback_move_right_accessibility": "حرك جهازك إلى اليمين",
       "feedback_move_up_accessibility": "حرك جهازك للأعلى",
+      "feedback_multiple_faces_detected": "تم اكتشاف عدة وجوه",
+      "feedback_multiple_faces_detected_accessibility": "تم اكتشاف عدة وجوه. تأكد من أنك الشخص الوحيد أمام الكاميرا",
       "feedback_no_face_detected": "لم يتم اكتشاف وجهك",
       "feedback_no_face_detected_accessibility": "لم يتم الكشف عن الوجه. ضع وجهك أمام جهازك",
       "feedback_not_centered": "الوجه ليس في المنتصف",
@@ -4053,12 +4067,12 @@
     },
     "pin_entry": {
       "button_primary": "استمر",
-      "helper_attempts_left": "[%i] محاولات متبقية",
+      "helper_attempts_left": "%d محاولات متبقية",
       "helper_final_attempt": "محاولة واحدة متبقية. سيتم حظر الشريحة بعد المحاولة الفاشلة التالية",
       "optional_button_tertiary": "تخطي مسح شريحة NFC",
-      "optional_helper_attempts_left": "[%i] محاولات متبقية. تخطَّ هذه الخطوة أدناه.",
-      "optional_helper_final_attempt": "[%i] محاولة متبقية قبل حظر شريحة NFC الخاصة بك. تخطَّ هذه الخطوة أدناه.",
-      "subtitle": "هذا ضروري لقراءة شريحة NFC بأمان. لقد أنشأت هذا الرقم المكوَّن من [%i] أرقام عند إصدار مستندك.",
+      "optional_helper_attempts_left": "%d محاولات متبقية. تخطَّ هذه الخطوة أدناه.",
+      "optional_helper_final_attempt": "%d محاولة متبقية قبل حظر شريحة NFC الخاصة بك. تخطَّ هذه الخطوة أدناه.",
+      "subtitle": "هذا ضروري لقراءة شريحة NFC بأمان. لقد أنشأت هذا الرقم المكوَّن من %d أرقام عند إصدار مستندك.",
       "title": "أدخل الرقم السري لوثيقتك",
       "title_incorrect": "رمز PIN غير صحيح"
     },
@@ -4081,7 +4095,7 @@
         "document": "بمجرد اكتشاف الشريحة، حافظ على هاتفك والوثيقة ثابتين.",
         "passport": "بمجرد اكتشاف الرقاقة، ابق هاتفك وجواز سفرك ثابتين."
       },
-      "pin_disclaimer": "سنطلب منك رقم التعريف الشخصي (PIN) المكوّن من [%i] أرقام لوثيقتك قبل مسح الشريحة.",
+      "pin_disclaimer": "سنطلب منك رقم التعريف الشخصي (PIN) المكوّن من %d أرقام لوثيقتك قبل مسح الشريحة.",
       "title_document": "افحص الوثيقة الخاصة بك",
       "title_passport": "قم بمسح رقاقة جواز سفرك",
       "video_instruction_accessibility": "تعليمات فيديو"
@@ -4546,24 +4560,24 @@
       "blur_detail": "تأكد من أن كل شيء واضح",
       "blur_title": "تم كشف صورة ضبابية",
       "body": "تأكد من أن بياناتك واضحة وليست محجوبة",
-      "body_accommodation_tenancy_certificate": "تأكد من أنك قمت بتحميل صفحة الوثيقة بأكملها، وأن التفاصيل واضحة للقراءة بدون ضبابية أو وهج",
-      "body_address_card": "تأكد من أنك قمت بتحميل صفحة الوثيقة بأكملها، وأن التفاصيل واضحة للقراءة بدون ضبابية أو وهج",
-      "body_address_certificate": "تأكد من أنك قمت بتحميل صفحة الوثيقة بأكملها، وأن التفاصيل واضحة للقراءة بدون ضبابية أو وهج",
-      "body_bank_building_society_statement": "تأكد من تحميل صفحة المستند بأكملها، وأن التفاصيل واضحة للقراءة دون أي ضبابية أو وهج",
-      "body_bank_statement": "تأكد من تحميل صفحة المستند بأكملها، وأن التفاصيل واضحة للقراءة دون أي ضبابية أو وهج",
-      "body_benefit_letters": "تأكد من تحميل صفحة المستند بأكملها، وأن التفاصيل واضحة للقراءة دون أي ضبابية أو وهج",
-      "body_bill": "تأكد من تحميل صفحة المستند بأكملها، وأن التفاصيل واضحة للقراءة دون أي ضبابية أو وهج",
-      "body_council_tax": "تأكد من تحميل صفحة المستند بأكملها، وأن التفاصيل واضحة للقراءة دون أي ضبابية أو وهج",
-      "body_exchange_house_statement": "تأكد من أنك قمت بتحميل صفحة الوثيقة بأكملها، وأن التفاصيل واضحة للقراءة بدون ضبابية أو وهج",
-      "body_general_letter": "تأكد من أنك قمت بتحميل صفحة الوثيقة بأكملها، وأن التفاصيل واضحة للقراءة بدون ضبابية أو وهج",
+      "body_accommodation_tenancy_certificate": "تأكد من أن المستند بأكمله ظاهر وأن جميع التفاصيل واضحة، بدون أي تشويش أو وهج",
+      "body_address_card": "تأكد من أن المستند بأكمله ظاهر وأن جميع التفاصيل واضحة، بدون أي تشويش أو وهج",
+      "body_address_certificate": "تأكد من أن المستند بأكمله ظاهر وأن جميع التفاصيل واضحة، بدون أي تشويش أو وهج",
+      "body_bank_building_society_statement": "تأكد من أن المستند بأكمله ظاهر وأن جميع التفاصيل واضحة، بدون أي تشويش أو وهج",
+      "body_bank_statement": "تأكد من أن المستند بأكمله ظاهر وأن جميع التفاصيل واضحة، بدون أي تشويش أو وهج",
+      "body_benefit_letters": "تأكد من أن المستند بأكمله ظاهر وأن جميع التفاصيل واضحة، بدون أي تشويش أو وهج",
+      "body_bill": "تأكد من أن المستند بأكمله ظاهر وأن جميع التفاصيل واضحة، بدون أي تشويش أو وهج",
+      "body_council_tax": "تأكد من أن المستند بأكمله ظاهر وأن جميع التفاصيل واضحة، بدون أي تشويش أو وهج",
+      "body_exchange_house_statement": "تأكد من أن المستند بأكمله ظاهر وأن جميع التفاصيل واضحة، بدون أي تشويش أو وهج",
+      "body_general_letter": "تأكد من أن المستند بأكمله ظاهر وأن جميع التفاصيل واضحة، بدون أي تشويش أو وهج",
       "body_government_letter": "قدّم صفحة المستند بالكامل للحصول على أفضل النتائج",
-      "body_identity_document_with_address": "تأكد من أنك قمت بتحميل صفحة الوثيقة بأكملها، وأن التفاصيل واضحة للقراءة بدون ضبابية أو وهج",
-      "body_insurance_statement": "تأكد من أنك قمت بتحميل صفحة الوثيقة بأكملها، وأن التفاصيل واضحة للقراءة بدون ضبابية أو وهج",
-      "body_mobile_phone_bill": "تأكد من أنك قمت بتحميل صفحة الوثيقة بأكملها، وأن التفاصيل واضحة للقراءة بدون ضبابية أو وهج",
-      "body_mortgage_statement": "تأكد من أنك قمت بتحميل صفحة الوثيقة بأكملها، وأن التفاصيل واضحة للقراءة بدون ضبابية أو وهج",
-      "body_pension_property_statement_letter": "تأكد من أنك قمت بتحميل صفحة الوثيقة بأكملها، وأن التفاصيل واضحة للقراءة بدون ضبابية أو وهج",
-      "body_tax_letter": "تأكد من تحميل صفحة المستند بأكملها، وأن التفاصيل واضحة للقراءة دون أي ضبابية أو وهج",
-      "body_utility_bill": "تأكد من تحميل صفحة المستند بأكملها، وأن التفاصيل واضحة للقراءة دون أي ضبابية أو وهج",
+      "body_identity_document_with_address": "تأكد من أن المستند بأكمله ظاهر وأن جميع التفاصيل واضحة، بدون أي تشويش أو وهج",
+      "body_insurance_statement": "تأكد من أن المستند بأكمله ظاهر وأن جميع التفاصيل واضحة، بدون أي تشويش أو وهج",
+      "body_mobile_phone_bill": "تأكد من أن المستند بأكمله ظاهر وأن جميع التفاصيل واضحة، بدون أي تشويش أو وهج",
+      "body_mortgage_statement": "تأكد من أن المستند بأكمله ظاهر وأن جميع التفاصيل واضحة، بدون أي تشويش أو وهج",
+      "body_pension_property_statement_letter": "تأكد من أن المستند بأكمله ظاهر وأن جميع التفاصيل واضحة، بدون أي تشويش أو وهج",
+      "body_tax_letter": "تأكد من أن المستند بأكمله ظاهر وأن جميع التفاصيل واضحة، بدون أي تشويش أو وهج",
+      "body_utility_bill": "تأكد من أن المستند بأكمله ظاهر وأن جميع التفاصيل واضحة، بدون أي تشويش أو وهج",
       "close": "إغلاق",
       "crop_detail": "تأكد من أن المستند مرئي بالكامل",
       "crop_title": "تم اكتشاف صورة مقطوعة",
@@ -4577,7 +4591,7 @@
       "no_doc_detail": "تأكد من وجود جميع المستندات في الصورة",
       "no_doc_title": "لم يتم اكتشاف المستند",
       "redo": "إعادة",
-      "title": "تحقق من صورتك",
+      "title": "راجع صورتك",
       "unsupported_file_detail": "يرجى تحميل صورتك بصيغة JPG أو JPEG أو PNG أو PDF. يجب ألا يتجاوز حجم الملف 10 ميغابايت.",
       "unsupported_file_title": "الملف غير مدعوم",
       "upload": "التحميل",
@@ -4588,9 +4602,9 @@
       "accessibility": "المستندات التي يمكنك استخدامها للتحقق من هويتك",
       "country_header": "دولة الإصدار",
       "doctypes_header": "المستندات المقبولة",
-      "subtitle": "هذه هي الوثائق الأكثر احتمالاً لإظهار العنوان الحالي لمسكنك",
+      "subtitle": "اختر مستندًا حديثًا يوضح عنوان منزلك الحالي",
       "subtitle_merged": "حدد الدولة المصدرة لمعرفة المستندات التي نقبلها",
-      "title": "تحديد مستند",
+      "title": "تحقَّق من عنوانك",
       "title_merged": "اختر مستندك"
     },
     "upload": {
@@ -4774,7 +4788,7 @@
       "retake": "إعادة",
       "submit": "التحميل",
       "subtitle": "تأكد من أن بياناتك واضحة وليست محجوبة",
-      "title": "تحقق من صورتك"
+      "title": "راجع صورتك"
     },
     "selection": {
       "body": "إعادة بدء التسجيل",

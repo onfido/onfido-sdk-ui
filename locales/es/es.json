@@ -940,7 +940,7 @@
       "photo_of_screen_detail": "Por favor, utilice su documento original. No se aceptan fotos de pantalla ni fotocopias",
       "photo_of_screen_title": "Foto de pantalla detectada",
       "redo": "Reintentar",
-      "title": "Compruebe su imagen",
+      "title": "Revisa tu imagen",
       "unsupported_file_detail": "Por favor, suba su foto en formato JPG, JPEG, PNG o PDF. El tamaño del archivo no debe superar los 10MB.",
       "unsupported_file_title": "Archivo no compatible",
       "upload": "Subir",
@@ -949,6 +949,7 @@
     },
     "scan": {
       "button_help": "¿Necesitas ayuda?",
+      "button_help_accessibility": "The Need Help? button is now highlighted. Tap it if you need assistance.",
       "button_manual": "Iniciar escaneo",
       "feedback": {
         "alignment_center_document": "Centrar el documento",
@@ -1406,6 +1407,8 @@
       "feedback_move_left_accessibility": "Mueva el dispositivo hacia la izquierda",
       "feedback_move_right_accessibility": "Mueva el dispositivo hacia la derecha",
       "feedback_move_up_accessibility": "Mueva el dispositivo hacia arriba",
+      "feedback_multiple_faces_detected": "Se detectaron varias caras",
+      "feedback_multiple_faces_detected_accessibility": "Se han detectado varios rostros. Asegúrate de ser la única persona frente a la cámara",
       "feedback_no_face_detected": "Cara no encontrada",
       "feedback_no_face_detected_accessibility": "No se ha detectado la cara. Coloque la cara frente a su móvil",
       "feedback_not_centered": "La cara no está centrada",
@@ -1981,6 +1984,7 @@
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
+        "button_help_accessibility": "document.scan.button_help_accessibility",
         "button_manual": "document.scan.button_manual",
         "feedback": {
           "alignment_center_document": "document.scan.feedback.alignment_center_document",
@@ -2333,6 +2337,14 @@
         "button_tertiary": "nfc.pin_entry.optional_button_tertiary",
         "helper_attempts_left": "nfc.pin_entry.optional_helper_attempts_left",
         "helper_final_attempt": "nfc.pin_entry.optional_helper_final_attempt"
+      },
+      "face_biometrics": {
+        "capture": {
+          "feedback": {
+            "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
+            "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
+          }
+        }
       },
       "generic": {
         "accessibility": {
@@ -3905,6 +3917,8 @@
       "feedback_move_left_accessibility": "Mueva el dispositivo hacia la izquierda",
       "feedback_move_right_accessibility": "Mueva el dispositivo hacia la derecha",
       "feedback_move_up_accessibility": "Mueva el dispositivo hacia arriba",
+      "feedback_multiple_faces_detected": "Se detectaron varias caras",
+      "feedback_multiple_faces_detected_accessibility": "Se han detectado varios rostros. Asegúrate de ser la única persona frente a la cámara",
       "feedback_no_face_detected": "Cara no encontrada",
       "feedback_no_face_detected_accessibility": "No se ha detectado la cara. Coloque la cara frente a su móvil",
       "feedback_not_centered": "La cara no está centrada",
@@ -4053,12 +4067,12 @@
     },
     "pin_entry": {
       "button_primary": "Continuar",
-      "helper_attempts_left": "[%i] intentos restantes",
+      "helper_attempts_left": "%d intentos restantes",
       "helper_final_attempt": "Queda 1 intento. Su chip se bloqueará después del próximo intento fallido",
       "optional_button_tertiary": "Omitir el escaneo del chip NFC",
-      "optional_helper_attempts_left": "[%i] intentos restantes. Omite este paso a continuación.",
-      "optional_helper_final_attempt": "[%i] intento restante antes de que se bloquee tu chip NFC. Omite este paso a continuación.",
-      "subtitle": "Esto es necesario para leer de forma segura el chip NFC. Creaste este número de [%i] dígitos cuando se emitió tu documento.",
+      "optional_helper_attempts_left": "%d intentos restantes. Omite este paso a continuación.",
+      "optional_helper_final_attempt": "%d intento restante antes de que se bloquee tu chip NFC. Omite este paso a continuación.",
+      "subtitle": "Esto es necesario para leer de forma segura el chip NFC. Creaste este número de %d dígitos cuando se emitió tu documento.",
       "title": "Introduce el PIN de tu documento",
       "title_incorrect": "PIN incorrecto"
     },
@@ -4081,7 +4095,7 @@
         "document": "Una vez que se detecte el chip, mantén tu teléfono y documento quietos.",
         "passport": "Una vez que se detecta el chip, mantenga su teléfono y pasaporte quietos."
       },
-      "pin_disclaimer": "Te pediremos el PIN de [%i] dígitos de tu documento antes de escanear el chip.",
+      "pin_disclaimer": "Te pediremos el PIN de %d dígitos de tu documento antes de escanear el chip.",
       "title_document": "Escanear su documento",
       "title_passport": "Escanea el chip de tu pasaporte",
       "video_instruction_accessibility": "Instrucción en vídeo"
@@ -4546,24 +4560,24 @@
       "blur_detail": "Asegúrese de que todo se vea nítido",
       "blur_title": "Se detectó una foto borrosa",
       "body": "Asegúrese de que los datos sean claros y no estén ocultos",
-      "body_accommodation_tenancy_certificate": "Asegúrate de haber subido toda la página del documento, y que los detalles se pueden leer claramente sin desenfoque o deslumbramiento",
-      "body_address_card": "Asegúrate de haber subido toda la página del documento, y que los detalles se pueden leer claramente sin desenfoque o deslumbramiento",
-      "body_address_certificate": "Asegúrate de haber subido toda la página del documento, y que los detalles se pueden leer claramente sin desenfoque o deslumbramiento",
-      "body_bank_building_society_statement": "Asegúrese de haber subido la página completa del documento y de que pueda leerse con claridad, sin destellos ni partes borrosas",
-      "body_bank_statement": "Asegúrese de haber subido la página completa del documento y de que pueda leerse con claridad, sin destellos ni partes borrosas",
-      "body_benefit_letters": "Asegúrese de haber subido la página completa del documento y de que pueda leerse con claridad, sin destellos ni partes borrosas",
-      "body_bill": "Asegúrese de haber subido la página completa del documento y de que pueda leerse con claridad, sin destellos ni partes borrosas",
-      "body_council_tax": "Asegúrese de haber subido la página completa del documento y de que pueda leerse con claridad, sin destellos ni partes borrosas",
-      "body_exchange_house_statement": "Asegúrate de haber subido toda la página del documento, y que los detalles se pueden leer claramente sin desenfoque o deslumbramiento",
-      "body_general_letter": "Asegúrate de haber subido toda la página del documento, y que los detalles se pueden leer claramente sin desenfoque o deslumbramiento",
+      "body_accommodation_tenancy_certificate": "Asegúrate de que todo el documento sea visible y de que todos los detalles se vean claros, sin borrosidad ni reflejos",
+      "body_address_card": "Asegúrate de que todo el documento sea visible y de que todos los detalles se vean claros, sin borrosidad ni reflejos",
+      "body_address_certificate": "Asegúrate de que todo el documento sea visible y de que todos los detalles se vean claros, sin borrosidad ni reflejos",
+      "body_bank_building_society_statement": "Asegúrate de que todo el documento sea visible y de que todos los detalles se vean claros, sin borrosidad ni reflejos",
+      "body_bank_statement": "Asegúrate de que todo el documento sea visible y de que todos los detalles se vean claros, sin borrosidad ni reflejos",
+      "body_benefit_letters": "Asegúrate de que todo el documento sea visible y de que todos los detalles se vean claros, sin borrosidad ni reflejos",
+      "body_bill": "Asegúrate de que todo el documento sea visible y de que todos los detalles se vean claros, sin borrosidad ni reflejos",
+      "body_council_tax": "Asegúrate de que todo el documento sea visible y de que todos los detalles se vean claros, sin borrosidad ni reflejos",
+      "body_exchange_house_statement": "Asegúrate de que todo el documento sea visible y de que todos los detalles se vean claros, sin borrosidad ni reflejos",
+      "body_general_letter": "Asegúrate de que todo el documento sea visible y de que todos los detalles se vean claros, sin borrosidad ni reflejos",
       "body_government_letter": "Facilite la página completa del documento para obtener mejores resultados",
-      "body_identity_document_with_address": "Asegúrate de haber subido toda la página del documento, y que los detalles se pueden leer claramente sin desenfoque o deslumbramiento",
-      "body_insurance_statement": "Asegúrate de haber subido toda la página del documento, y que los detalles se pueden leer claramente sin desenfoque o deslumbramiento",
-      "body_mobile_phone_bill": "Asegúrate de haber subido toda la página del documento, y que los detalles se pueden leer claramente sin desenfoque o deslumbramiento",
-      "body_mortgage_statement": "Asegúrate de haber subido toda la página del documento, y que los detalles se pueden leer claramente sin desenfoque o deslumbramiento",
-      "body_pension_property_statement_letter": "Asegúrate de haber subido toda la página del documento, y que los detalles se pueden leer claramente sin desenfoque o deslumbramiento",
-      "body_tax_letter": "Asegúrese de haber subido la página completa del documento y de que pueda leerse con claridad, sin destellos ni partes borrosas",
-      "body_utility_bill": "Asegúrese de haber subido la página completa del documento y de que pueda leerse con claridad, sin destellos ni partes borrosas",
+      "body_identity_document_with_address": "Asegúrate de que todo el documento sea visible y de que todos los detalles se vean claros, sin borrosidad ni reflejos",
+      "body_insurance_statement": "Asegúrate de que todo el documento sea visible y de que todos los detalles se vean claros, sin borrosidad ni reflejos",
+      "body_mobile_phone_bill": "Asegúrate de que todo el documento sea visible y de que todos los detalles se vean claros, sin borrosidad ni reflejos",
+      "body_mortgage_statement": "Asegúrate de que todo el documento sea visible y de que todos los detalles se vean claros, sin borrosidad ni reflejos",
+      "body_pension_property_statement_letter": "Asegúrate de que todo el documento sea visible y de que todos los detalles se vean claros, sin borrosidad ni reflejos",
+      "body_tax_letter": "Asegúrate de que todo el documento sea visible y de que todos los detalles se vean claros, sin borrosidad ni reflejos",
+      "body_utility_bill": "Asegúrate de que todo el documento sea visible y de que todos los detalles se vean claros, sin borrosidad ni reflejos",
       "close": "Cerrar",
       "crop_detail": "Asegúrese que su documento sea completamente visible",
       "crop_title": "Se ha detectado una imagen recortada",
@@ -4577,7 +4591,7 @@
       "no_doc_detail": "Asegúrese de que todo el documento esté en la foto",
       "no_doc_title": "Documento no detectado",
       "redo": "Reintentar",
-      "title": "Compruebe su imagen",
+      "title": "Revisa tu imagen",
       "unsupported_file_detail": "Por favor, suba su foto en formato JPG, JPEG, PNG o PDF. El tamaño del archivo no debe superar los 10MB.",
       "unsupported_file_title": "Archivo no compatible",
       "upload": "Subir",
@@ -4588,9 +4602,9 @@
       "accessibility": "Documentos que puede utilizar para verificar su identidad",
       "country_header": "País emisor",
       "doctypes_header": "Documentos aceptados",
-      "subtitle": "Estos son los documentos en los que es más probable que se muestre la dirección de su hogar",
+      "subtitle": "Elige un documento reciente que muestre tu domicilio actual",
       "subtitle_merged": "Seleccione el país emisor para ver qué documentos aceptamos",
-      "title": "Elija un documento",
+      "title": "Verifica tu dirección",
       "title_merged": "Seleccione un documento"
     },
     "upload": {
@@ -4774,7 +4788,7 @@
       "retake": "Reintentar",
       "submit": "Subir",
       "subtitle": "Asegúrese de que los datos sean claros y no estén ocultos",
-      "title": "Compruebe su imagen"
+      "title": "Revisa tu imagen"
     },
     "selection": {
       "body": "Reiniciar la grabación",

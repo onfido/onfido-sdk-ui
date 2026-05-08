@@ -940,7 +940,7 @@
       "photo_of_screen_detail": "Prašome naudoti savo originalų dokumentą. Ekrano nuotraukos arba fotokopijos nėra priimamos",
       "photo_of_screen_title": "Nuotrauka ekrano aptikta",
       "redo": "Atstatyti",
-      "title": "Patikrinkite savo atvaizdą",
+      "title": "Peržiūrėkite savo nuotrauką",
       "unsupported_file_detail": "Įkelkite savo nuotrauką JPG, JPEG, PNG arba PDF formatu. Failo dydis neturi viršyti 10 MB.",
       "unsupported_file_title": "Failas nepalaikomas",
       "upload": "Įkelti",
@@ -949,6 +949,7 @@
     },
     "scan": {
       "button_help": "Reikia pagalbos?",
+      "button_help_accessibility": "The Need Help? button is now highlighted. Tap it if you need assistance.",
       "button_manual": "Pradėti skenavimą",
       "feedback": {
         "alignment_center_document": "Sulygiuokite dokumentą centre",
@@ -1406,6 +1407,8 @@
       "feedback_move_left_accessibility": "Patraukite įrenginį į kairę",
       "feedback_move_right_accessibility": "Patraukite įrenginį į dešinę",
       "feedback_move_up_accessibility": "Pakelkite įrenginį aukštyn",
+      "feedback_multiple_faces_detected": "Aptikta kelios veidai",
+      "feedback_multiple_faces_detected_accessibility": "Aptikta kelios veidai. Įsitikinkite, kad prieš kamerą esate tik jūs vienas",
       "feedback_no_face_detected": "Veidas neaptiktas",
       "feedback_no_face_detected_accessibility": "Veidas neaptiktas. Laikykite įrenginį priešais savo veidą",
       "feedback_not_centered": "Veidas nėra centre",
@@ -1981,6 +1984,7 @@
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
+        "button_help_accessibility": "document.scan.button_help_accessibility",
         "button_manual": "document.scan.button_manual",
         "feedback": {
           "alignment_center_document": "document.scan.feedback.alignment_center_document",
@@ -2333,6 +2337,14 @@
         "button_tertiary": "nfc.pin_entry.optional_button_tertiary",
         "helper_attempts_left": "nfc.pin_entry.optional_helper_attempts_left",
         "helper_final_attempt": "nfc.pin_entry.optional_helper_final_attempt"
+      },
+      "face_biometrics": {
+        "capture": {
+          "feedback": {
+            "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
+            "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
+          }
+        }
       },
       "generic": {
         "accessibility": {
@@ -3905,6 +3917,8 @@
       "feedback_move_left_accessibility": "Patraukite įrenginį į kairę",
       "feedback_move_right_accessibility": "Patraukite įrenginį į dešinę",
       "feedback_move_up_accessibility": "Pakelkite įrenginį aukštyn",
+      "feedback_multiple_faces_detected": "Aptikta kelios veidai",
+      "feedback_multiple_faces_detected_accessibility": "Aptikta kelios veidai. Įsitikinkite, kad prieš kamerą esate tik jūs vienas",
       "feedback_no_face_detected": "Veidas neaptiktas",
       "feedback_no_face_detected_accessibility": "Veidas neaptiktas. Laikykite įrenginį priešais savo veidą",
       "feedback_not_centered": "Veidas nėra centre",
@@ -4053,12 +4067,12 @@
     },
     "pin_entry": {
       "button_primary": "Tęsti",
-      "helper_attempts_left": "[%i] bandymai liko",
+      "helper_attempts_left": "%d bandymai liko",
       "helper_final_attempt": "Liko 1 bandymas. Po kito nesėkmingo bandymo jūsų lustas bus užblokuotas",
       "optional_button_tertiary": "Praleisti NFC lustų nuskaitymą",
-      "optional_helper_attempts_left": "[%i] bandymų liko. Praleiskite šį veiksmą žemiau.",
-      "optional_helper_final_attempt": "Likęs bandymų skaičius: [%i]. Po to jūsų NFC lustas bus užblokuotas. Praleiskite šį veiksmą žemiau.",
-      "subtitle": "To reikia, kad būtų galima saugiai nuskaityti NFC lustą. Šį [%i] skaitmenų numerį sukūrėte, kai buvo išduotas jūsų dokumentas.",
+      "optional_helper_attempts_left": "%d bandymų liko. Praleiskite šį veiksmą žemiau.",
+      "optional_helper_final_attempt": "Likęs bandymų skaičius: %d. Po to jūsų NFC lustas bus užblokuotas. Praleiskite šį veiksmą žemiau.",
+      "subtitle": "To reikia, kad būtų galima saugiai nuskaityti NFC lustą. Šį %d skaitmenų numerį sukūrėte, kai buvo išduotas jūsų dokumentas.",
       "title": "Įveskite savo dokumento PIN kodą",
       "title_incorrect": "Neteisingas PIN"
     },
@@ -4081,7 +4095,7 @@
         "document": "Kai lustas aptinkamas, laikykite telefoną ir dokumentą nejudančius.",
         "passport": "Kai lustas aptinkamas, laikykite telefoną ir pasą nejudant."
       },
-      "pin_disclaimer": "Prieš nuskaitydami lustą paprašysime jūsų dokumento [%i] skaitmenų PIN kodo.",
+      "pin_disclaimer": "Prieš nuskaitydami lustą paprašysime jūsų dokumento %d skaitmenų PIN kodo.",
       "title_document": "Nuskanuokite savo dokumentą",
       "title_passport": "Nuskaitykite savo paso lustą",
       "video_instruction_accessibility": "Video instrukcija"
@@ -4546,24 +4560,24 @@
       "blur_detail": "Įsitikinkite, kad viskas aiškiai matosi",
       "blur_title": "Aptikta neryški nuotrauka",
       "body": "Įsitikinkite, kad jūsų informacija yra aiškiai matoma ir neuždengta",
-      "body_accommodation_tenancy_certificate": "Įsitikinkite, kad įkėlėte visą dokumento puslapį ir detalės yra aiškiai skaitomos, be jokių dūmų ar blizgesio",
-      "body_address_card": "Įsitikinkite, kad įkėlėte visą dokumento puslapį ir detalės yra aiškiai skaitomos, be jokių dūmų ar blizgesio",
-      "body_address_certificate": "Įsitikinkite, kad įkėlėte visą dokumento puslapį ir detalės yra aiškiai skaitomos, be jokių dūmų ar blizgesio",
-      "body_bank_building_society_statement": "Įsitikinkite, kad įkėlėte visą dokumento puslapį ir kad informacija yra aiškiai matoma, kad ją būtų galima perskaityti, nesusiliejusi ir be atspindžių",
-      "body_bank_statement": "Įsitikinkite, kad įkėlėte visą dokumento puslapį ir kad informacija yra aiškiai matoma, kad ją būtų galima perskaityti, nesusiliejusi ir be atspindžių",
-      "body_benefit_letters": "Įsitikinkite, kad įkėlėte visą dokumento puslapį ir kad informacija yra aiškiai matoma, kad ją būtų galima perskaityti, nesusiliejusi ir be atspindžių",
-      "body_bill": "Įsitikinkite, kad įkėlėte visą dokumento puslapį ir kad informacija yra aiškiai matoma, kad ją būtų galima perskaityti, nesusiliejusi ir be atspindžių",
-      "body_council_tax": "Įsitikinkite, kad įkėlėte visą dokumento puslapį ir kad informacija yra aiškiai matoma, kad ją būtų galima perskaityti, nesusiliejusi ir be atspindžių",
-      "body_exchange_house_statement": "Įsitikinkite, kad įkėlėte visą dokumento puslapį ir detalės yra aiškiai skaitomos, be jokių dūmų ar blizgesio",
-      "body_general_letter": "Įsitikinkite, kad įkėlėte visą dokumento puslapį ir detalės yra aiškiai skaitomos, be jokių dūmų ar blizgesio",
+      "body_accommodation_tenancy_certificate": "Įsitikinkite, kad įkėlėte visą dokumento puslapį ir kad visi duomenys yra aiškiai įskaitomi, be suliejimų ar atspindžių",
+      "body_address_card": "Įsitikinkite, kad įkėlėte visą dokumento puslapį ir kad visi duomenys yra aiškiai įskaitomi, be suliejimų ar atspindžių",
+      "body_address_certificate": "Įsitikinkite, kad įkėlėte visą dokumento puslapį ir kad visi duomenys yra aiškiai įskaitomi, be suliejimų ar atspindžių",
+      "body_bank_building_society_statement": "Įsitikinkite, kad visas dokumentas yra matomas ir visos detalės aiškios, be suliejimų ar atspindžių",
+      "body_bank_statement": "Įsitikinkite, kad visas dokumentas yra matomas ir visos detalės aiškios, be suliejimų ar atspindžių",
+      "body_benefit_letters": "Įsitikinkite, kad visas dokumentas yra matomas ir visos detalės aiškios, be suliejimų ar atspindžių",
+      "body_bill": "Įsitikinkite, kad visas dokumentas yra matomas ir visos detalės aiškios, be suliejimų ar atspindžių",
+      "body_council_tax": "Įsitikinkite, kad visas dokumentas yra matomas ir visos detalės aiškios, be suliejimų ar atspindžių",
+      "body_exchange_house_statement": "Įsitikinkite, kad įkėlėte visą dokumento puslapį ir kad visi duomenys yra aiškiai įskaitomi, be suliejimų ar atspindžių",
+      "body_general_letter": "Įsitikinkite, kad įkėlėte visą dokumento puslapį ir kad visi duomenys yra aiškiai įskaitomi, be suliejimų ar atspindžių",
       "body_government_letter": "Pateikite visą dokumento puslapį, kad pasiektumėte geriausių rezultatų",
-      "body_identity_document_with_address": "Įsitikinkite, kad įkėlėte visą dokumento puslapį ir detalės yra aiškiai skaitomos, be jokių dūmų ar blizgesio",
-      "body_insurance_statement": "Įsitikinkite, kad įkėlėte visą dokumento puslapį ir detalės yra aiškiai skaitomos, be jokių dūmų ar blizgesio",
-      "body_mobile_phone_bill": "Įsitikinkite, kad įkėlėte visą dokumento puslapį ir detalės yra aiškiai skaitomos, be jokių dūmų ar blizgesio",
-      "body_mortgage_statement": "Įsitikinkite, kad įkėlėte visą dokumento puslapį ir detalės yra aiškiai skaitomos, be jokių dūmų ar blizgesio",
-      "body_pension_property_statement_letter": "Įsitikinkite, kad įkėlėte visą dokumento puslapį ir detalės yra aiškiai skaitomos, be jokių dūmų ar blizgesio",
-      "body_tax_letter": "Įsitikinkite, kad įkėlėte visą dokumento puslapį ir kad informacija yra aiškiai matoma, kad ją būtų galima perskaityti, nesusiliejusi ir be atspindžių",
-      "body_utility_bill": "Įsitikinkite, kad įkėlėte visą dokumento puslapį ir kad informacija yra aiškiai matoma, kad ją būtų galima perskaityti, nesusiliejusi ir be atspindžių",
+      "body_identity_document_with_address": "Įsitikinkite, kad įkėlėte visą dokumento puslapį ir kad visi duomenys yra aiškiai įskaitomi, be suliejimų ar atspindžių",
+      "body_insurance_statement": "Įsitikinkite, kad įkėlėte visą dokumento puslapį ir kad visi duomenys yra aiškiai įskaitomi, be suliejimų ar atspindžių",
+      "body_mobile_phone_bill": "Įsitikinkite, kad įkėlėte visą dokumento puslapį ir kad visi duomenys yra aiškiai įskaitomi, be suliejimų ar atspindžių",
+      "body_mortgage_statement": "Įsitikinkite, kad įkėlėte visą dokumento puslapį ir kad visi duomenys yra aiškiai įskaitomi, be suliejimų ar atspindžių",
+      "body_pension_property_statement_letter": "Įsitikinkite, kad įkėlėte visą dokumento puslapį ir kad visi duomenys yra aiškiai įskaitomi, be suliejimų ar atspindžių",
+      "body_tax_letter": "Įsitikinkite, kad visas dokumentas yra matomas ir visos detalės aiškios, be suliejimų ar atspindžių",
+      "body_utility_bill": "Įsitikinkite, kad visas dokumentas yra matomas ir visos detalės aiškios, be suliejimų ar atspindžių",
       "close": "Uždaryti",
       "crop_detail": "Įsitikinkite, kad matomas visas dokumentas",
       "crop_title": "Aptiktas apkarpytas vaizdas",
@@ -4577,7 +4591,7 @@
       "no_doc_detail": "Įsitikinkite, kad nuotraukoje telpa visas dokumentas",
       "no_doc_title": "Dokumentas neaptiktas",
       "redo": "Atstatyti",
-      "title": "Patikrinkite savo atvaizdą",
+      "title": "Peržiūrėkite savo nuotrauką",
       "unsupported_file_detail": "Įkelkite savo nuotrauką JPG, JPEG, PNG arba PDF formatu. Failo dydis neturi viršyti 10 MB.",
       "unsupported_file_title": "Failas nepalaikomas",
       "upload": "Įkelti",
@@ -4588,9 +4602,9 @@
       "accessibility": "Dokumentai, kuriuos galite naudoti savo tapatybei patvirtinti",
       "country_header": "Dokumentą išdavusi šalis",
       "doctypes_header": "Priimami dokumentai",
-      "subtitle": "Dokumentai, kuriuose nurodytas Jūsų namų adresas",
+      "subtitle": "Pasirinkite neseniai išduotą dokumentą, kuriame nurodytas jūsų dabartinis namų adresas",
       "subtitle_merged": "Pasirinkite dokumentą išdavusią šalį, kad pamatytumėte, kuriuos dokumentus priimame",
-      "title": "Pasirinkite dokumentą",
+      "title": "Patvirtinkite savo adresą",
       "title_merged": "Pasirinkite dokumentą"
     },
     "upload": {
@@ -4774,7 +4788,7 @@
       "retake": "Atstatyti",
       "submit": "Įkelti",
       "subtitle": "Įsitikinkite, kad jūsų informacija yra aiškiai matoma ir neuždengta",
-      "title": "Patikrinkite savo atvaizdą"
+      "title": "Peržiūrėkite savo nuotrauką"
     },
     "selection": {
       "body": "Iš naujo pradėti įrašymą",

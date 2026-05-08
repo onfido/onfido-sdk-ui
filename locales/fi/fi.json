@@ -949,6 +949,7 @@
     },
     "scan": {
       "button_help": "Tarvitsetko apua?",
+      "button_help_accessibility": "The Need Help? button is now highlighted. Tap it if you need assistance.",
       "button_manual": "Aloita skannaus",
       "feedback": {
         "alignment_center_document": "Keskitä asiakirja",
@@ -1406,6 +1407,8 @@
       "feedback_move_left_accessibility": "Siirrä laitettasi vasemmalle",
       "feedback_move_right_accessibility": "Siirrä laitettasi oikealle",
       "feedback_move_up_accessibility": "Siirrä laitettasi ylös",
+      "feedback_multiple_faces_detected": "Useita kasvoja havaittu",
+      "feedback_multiple_faces_detected_accessibility": "Useita kasvoja havaittu. Varmista, että olet ainoa henkilö kameran edessä",
       "feedback_no_face_detected": "Kasvoja ei havaittu",
       "feedback_no_face_detected_accessibility": "Kasvoja ei havaittu. Aseta kasvosi laitteesi eteen",
       "feedback_not_centered": "Kasvot eivät ole keskellä",
@@ -1981,6 +1984,7 @@
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
+        "button_help_accessibility": "document.scan.button_help_accessibility",
         "button_manual": "document.scan.button_manual",
         "feedback": {
           "alignment_center_document": "document.scan.feedback.alignment_center_document",
@@ -2333,6 +2337,14 @@
         "button_tertiary": "nfc.pin_entry.optional_button_tertiary",
         "helper_attempts_left": "nfc.pin_entry.optional_helper_attempts_left",
         "helper_final_attempt": "nfc.pin_entry.optional_helper_final_attempt"
+      },
+      "face_biometrics": {
+        "capture": {
+          "feedback": {
+            "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
+            "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
+          }
+        }
       },
       "generic": {
         "accessibility": {
@@ -3905,6 +3917,8 @@
       "feedback_move_left_accessibility": "Siirrä laitettasi vasemmalle",
       "feedback_move_right_accessibility": "Siirrä laitettasi oikealle",
       "feedback_move_up_accessibility": "Siirrä laitettasi ylös",
+      "feedback_multiple_faces_detected": "Useita kasvoja havaittu",
+      "feedback_multiple_faces_detected_accessibility": "Useita kasvoja havaittu. Varmista, että olet ainoa henkilö kameran edessä",
       "feedback_no_face_detected": "Kasvoja ei havaittu",
       "feedback_no_face_detected_accessibility": "Kasvoja ei havaittu. Aseta kasvosi laitteesi eteen",
       "feedback_not_centered": "Kasvot eivät ole keskellä",
@@ -4053,12 +4067,12 @@
     },
     "pin_entry": {
       "button_primary": "Jatka",
-      "helper_attempts_left": "[%i] yritystä jäljellä",
+      "helper_attempts_left": "%d yritystä jäljellä",
       "helper_final_attempt": "1 yritys jäljellä. Siru estetään seuraavan epäonnistuneen yrityksen jälkeen",
       "optional_button_tertiary": "Ohita NFC-sirun skannaus",
-      "optional_helper_attempts_left": "[%i] yritystä jäljellä. Ohita tämä vaihe alla.",
-      "optional_helper_final_attempt": "[%i] yritys jäljellä ennen kuin NFC-sirusi estetään. Ohita tämä vaihe alla.",
-      "subtitle": "Tätä tarvitaan NFC-sirun turvalliseen lukemiseen. Loit tämän [%i]-numeroisen luvun, kun asiakirjasi myönnettiin.",
+      "optional_helper_attempts_left": "%d yritystä jäljellä. Ohita tämä vaihe alla.",
+      "optional_helper_final_attempt": "%d yritys jäljellä ennen kuin NFC-sirusi estetään. Ohita tämä vaihe alla.",
+      "subtitle": "Tätä tarvitaan NFC-sirun turvalliseen lukemiseen. Loit tämän %d-numeroisen luvun, kun asiakirjasi myönnettiin.",
       "title": "Anna asiakirjasi PIN-koodi",
       "title_incorrect": "Virheellinen PIN-koodi"
     },
@@ -4081,7 +4095,7 @@
         "document": "Kun siru on havaittu, pidä puhelin ja asiakirja paikallaan.",
         "passport": "Kun siru on havaittu, pidä puhelimesi ja passisi paikallaan."
       },
-      "pin_disclaimer": "Pyydämme asiakirjasi [%i]-numeroista PIN-koodia ennen sirun lukemista.",
+      "pin_disclaimer": "Pyydämme asiakirjasi %d-numeroista PIN-koodia ennen sirun lukemista.",
       "title_document": "Skannaa dokumenttisi",
       "title_passport": "Skannaa passisi siru",
       "video_instruction_accessibility": "Video-opastus"
@@ -4546,24 +4560,24 @@
       "blur_detail": "Varmista, että kaikki on selkeää",
       "blur_title": "Epäselvä kuva havaittu",
       "body": "Varmista, että tietosi ovat selkeät ja että ne näkyvät kunnolla",
-      "body_accommodation_tenancy_certificate": "Varmista, että olet ladannut koko dokumenttisivun, ja tiedot ovat selkeästi luettavissa ilman suttuisuutta tai häikäisyä",
-      "body_address_card": "Varmista, että olet ladannut koko dokumenttisivun, ja tiedot ovat selkeästi luettavissa ilman suttuisuutta tai häikäisyä",
-      "body_address_certificate": "Varmista, että olet ladannut koko dokumenttisivun, ja tiedot ovat selkeästi luettavissa ilman suttuisuutta tai häikäisyä",
-      "body_bank_building_society_statement": "Varmista, että olet ladannut asiakirjan koko sivun ja että tiedot ovat luettavissa selkeästi ilman epäselviä tai häikäiseviä kohtia",
-      "body_bank_statement": "Varmista, että olet ladannut asiakirjan koko sivun ja että tiedot ovat luettavissa selkeästi ilman epäselviä tai häikäiseviä kohtia",
-      "body_benefit_letters": "Varmista, että olet ladannut asiakirjan koko sivun ja että tiedot ovat luettavissa selkeästi ilman epäselviä tai häikäiseviä kohtia",
-      "body_bill": "Varmista, että olet ladannut asiakirjan koko sivun ja että tiedot ovat luettavissa selkeästi ilman epäselviä tai häikäiseviä kohtia",
-      "body_council_tax": "Varmista, että olet ladannut asiakirjan koko sivun ja että tiedot ovat luettavissa selkeästi ilman epäselviä tai häikäiseviä kohtia",
-      "body_exchange_house_statement": "Varmista, että olet ladannut koko dokumenttisivun, ja tiedot ovat selkeästi luettavissa ilman suttuisuutta tai häikäisyä",
-      "body_general_letter": "Varmista, että olet ladannut koko dokumenttisivun, ja tiedot ovat selkeästi luettavissa ilman suttuisuutta tai häikäisyä",
+      "body_accommodation_tenancy_certificate": "Varmista, että olet ladannut koko asiakirjasivun ja että tiedot ovat selkeästi luettavissa ilman sumentumia tai heijastuksia",
+      "body_address_card": "Varmista, että olet ladannut koko asiakirjasivun ja että tiedot ovat selkeästi luettavissa ilman sumentumia tai heijastuksia",
+      "body_address_certificate": "Varmista, että olet ladannut koko asiakirjasivun ja että tiedot ovat selkeästi luettavissa ilman sumentumia tai heijastuksia",
+      "body_bank_building_society_statement": "Varmista, että koko asiakirja näkyy selvästi ja kaikki tiedot ovat tarkkoja, ilman sumeutta tai heijastuksia",
+      "body_bank_statement": "Varmista, että koko asiakirja näkyy selvästi ja kaikki tiedot ovat tarkkoja, ilman sumeutta tai heijastuksia",
+      "body_benefit_letters": "Varmista, että koko asiakirja näkyy selvästi ja kaikki tiedot ovat tarkkoja, ilman sumeutta tai heijastuksia",
+      "body_bill": "Varmista, että koko asiakirja näkyy selvästi ja kaikki tiedot ovat tarkkoja, ilman sumeutta tai heijastuksia",
+      "body_council_tax": "Varmista, että koko asiakirja näkyy selvästi ja kaikki tiedot ovat tarkkoja, ilman sumeutta tai heijastuksia",
+      "body_exchange_house_statement": "Varmista, että olet ladannut koko asiakirjasivun ja että tiedot ovat selkeästi luettavissa ilman sumentumia tai heijastuksia",
+      "body_general_letter": "Varmista, että olet ladannut koko asiakirjasivun ja että tiedot ovat selkeästi luettavissa ilman sumentumia tai heijastuksia",
       "body_government_letter": "Toimita asiakirjan koko sivu parhaan tuloksen saamiseksi",
-      "body_identity_document_with_address": "Varmista, että olet ladannut koko dokumenttisivun, ja tiedot ovat selkeästi luettavissa ilman suttuisuutta tai häikäisyä",
-      "body_insurance_statement": "Varmista, että olet ladannut koko dokumenttisivun, ja tiedot ovat selkeästi luettavissa ilman suttuisuutta tai häikäisyä",
-      "body_mobile_phone_bill": "Varmista, että olet ladannut koko dokumenttisivun, ja tiedot ovat selkeästi luettavissa ilman suttuisuutta tai häikäisyä",
-      "body_mortgage_statement": "Varmista, että olet ladannut koko dokumenttisivun, ja tiedot ovat selkeästi luettavissa ilman suttuisuutta tai häikäisyä",
-      "body_pension_property_statement_letter": "Varmista, että olet ladannut koko asiakirjasivun, ja tiedot ovat selkeästi luettavissa ilman suttuisuutta tai heijastusta",
-      "body_tax_letter": "Varmista, että olet ladannut asiakirjan koko sivun ja että tiedot ovat luettavissa selkeästi ilman epäselviä tai häikäiseviä kohtia",
-      "body_utility_bill": "Varmista, että olet ladannut asiakirjan koko sivun ja että tiedot ovat luettavissa selkeästi ilman epäselviä tai häikäiseviä kohtia",
+      "body_identity_document_with_address": "Varmista, että olet ladannut koko asiakirjasivun ja että tiedot ovat selkeästi luettavissa ilman sumentumia tai heijastuksia",
+      "body_insurance_statement": "Varmista, että olet ladannut koko asiakirjasivun ja että tiedot ovat selkeästi luettavissa ilman sumentumia tai heijastuksia",
+      "body_mobile_phone_bill": "Varmista, että olet ladannut koko asiakirjasivun ja että tiedot ovat selkeästi luettavissa ilman sumentumia tai heijastuksia",
+      "body_mortgage_statement": "Varmista, että olet ladannut koko asiakirjasivun ja että tiedot ovat selkeästi luettavissa ilman sumentumia tai heijastuksia",
+      "body_pension_property_statement_letter": "Varmista, että olet ladannut koko asiakirjasivun ja että tiedot ovat selkeästi luettavissa ilman sumentumia tai heijastuksia",
+      "body_tax_letter": "Varmista, että koko asiakirja näkyy selvästi ja kaikki tiedot ovat tarkkoja, ilman sumeutta tai heijastuksia",
+      "body_utility_bill": "Varmista, että koko asiakirja näkyy selvästi ja kaikki tiedot ovat tarkkoja, ilman sumeutta tai heijastuksia",
       "close": "Sulje",
       "crop_detail": "Varmista, että koko asiakirja on näkyy",
       "crop_title": "Rajattu kuva havaittu",
@@ -4588,9 +4602,9 @@
       "accessibility": "Asiakirjat, joilla voit vahvistaa henkilöllisyytesi",
       "country_header": "Myöntämismaa",
       "doctypes_header": "Hyväksytyt asiakirjat",
-      "subtitle": "Nämä asiakirjat näyttävät todennäköisimmin nykyisen kotiosoitteesi",
+      "subtitle": "Valitse viimeaikainen asiakirja, jossa näkyy nykyinen kotiosoitteesi",
       "subtitle_merged": "Valitse asiakirjan myöntämismaa nähdäksesi, mitkä asiakirjat hyväksymme",
-      "title": "Valitse asiakirja",
+      "title": "Vahvista osoitteesi",
       "title_merged": "Valitse asiakirjasi"
     },
     "upload": {

@@ -949,6 +949,7 @@
     },
     "scan": {
       "button_help": "Brauchen Sie Hilfe?",
+      "button_help_accessibility": "The Need Help? button is now highlighted. Tap it if you need assistance.",
       "button_manual": "Scan starten",
       "feedback": {
         "alignment_center_document": "Dokument zentrieren",
@@ -1406,6 +1407,8 @@
       "feedback_move_left_accessibility": "Bewegen Sie Ihr Gerät nach links",
       "feedback_move_right_accessibility": "Bewegen Sie Ihr Gerät nach rechts",
       "feedback_move_up_accessibility": "Bewegen Sie Ihr Gerät nach oben",
+      "feedback_multiple_faces_detected": "Mehrere Gesichter erkannt",
+      "feedback_multiple_faces_detected_accessibility": "Mehrere Gesichter erkannt. Stelle sicher, dass du die einzige Person vor der Kamera bist",
       "feedback_no_face_detected": "Gesicht nicht erkannt",
       "feedback_no_face_detected_accessibility": "Gesicht nicht erkannt. Positionieren Sie Ihr Gesicht vor dem Gerät",
       "feedback_not_centered": "Gesicht nicht mittig",
@@ -1981,6 +1984,7 @@
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
+        "button_help_accessibility": "document.scan.button_help_accessibility",
         "button_manual": "document.scan.button_manual",
         "feedback": {
           "alignment_center_document": "document.scan.feedback.alignment_center_document",
@@ -2333,6 +2337,14 @@
         "button_tertiary": "nfc.pin_entry.optional_button_tertiary",
         "helper_attempts_left": "nfc.pin_entry.optional_helper_attempts_left",
         "helper_final_attempt": "nfc.pin_entry.optional_helper_final_attempt"
+      },
+      "face_biometrics": {
+        "capture": {
+          "feedback": {
+            "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
+            "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
+          }
+        }
       },
       "generic": {
         "accessibility": {
@@ -3905,6 +3917,8 @@
       "feedback_move_left_accessibility": "Bewegen Sie Ihr Gerät nach links",
       "feedback_move_right_accessibility": "Bewegen Sie Ihr Gerät nach rechts",
       "feedback_move_up_accessibility": "Bewegen Sie Ihr Gerät nach oben",
+      "feedback_multiple_faces_detected": "Mehrere Gesichter erkannt",
+      "feedback_multiple_faces_detected_accessibility": "Mehrere Gesichter erkannt. Stelle sicher, dass du die einzige Person vor der Kamera bist",
       "feedback_no_face_detected": "Gesicht nicht erkannt",
       "feedback_no_face_detected_accessibility": "Gesicht nicht erkannt. Positionieren Sie Ihr Gesicht vor dem Gerät",
       "feedback_not_centered": "Gesicht nicht mittig",
@@ -4053,12 +4067,12 @@
     },
     "pin_entry": {
       "button_primary": "Fortfahren",
-      "helper_attempts_left": "[%i] Versuche übrig",
+      "helper_attempts_left": "%d Versuche übrig",
       "helper_final_attempt": "1 Versuch übrig. Ihr Chip wird nach dem nächsten Fehlversuch gesperrt.",
       "optional_button_tertiary": "NFC-Chip-Scan überspringen",
-      "optional_helper_attempts_left": "[%i] Versuche übrig. Überspringen Sie diesen Schritt unten.",
-      "optional_helper_final_attempt": "[%i] Versuch übrig, bevor Ihr NFC‑Chip gesperrt wird. Überspringen Sie diesen Schritt unten.",
-      "subtitle": "Dies ist erforderlich, um den NFC-Chip sicher auszulesen. Sie haben diese [%i]-stellige Nummer erstellt, als Ihr Dokument ausgestellt wurde.",
+      "optional_helper_attempts_left": "%d Versuche übrig. Überspringen Sie diesen Schritt unten.",
+      "optional_helper_final_attempt": "%d Versuch übrig, bevor Ihr NFC‑Chip gesperrt wird. Überspringen Sie diesen Schritt unten.",
+      "subtitle": "Dies ist erforderlich, um den NFC-Chip sicher auszulesen. Sie haben diese %d-stellige Nummer erstellt, als Ihr Dokument ausgestellt wurde.",
       "title": "Geben Sie Ihre Dokumenten-PIN ein",
       "title_incorrect": "Falsche PIN"
     },
@@ -4081,7 +4095,7 @@
         "document": "Sobald der Chip erkannt wird, halten Sie Ihr Telefon und das Dokument still.",
         "passport": "Sobald der Chip erkannt wird, halten Sie Ihr Telefon und Ihren Reisepass still."
       },
-      "pin_disclaimer": "Bevor wir den Chip auslesen, fragen wir Sie nach der [%i]-stelligen PIN Ihres Dokuments.",
+      "pin_disclaimer": "Bevor wir den Chip auslesen, fragen wir Sie nach der %d-stelligen PIN Ihres Dokuments.",
       "title_document": "Scannen Sie Ihr Dokument",
       "title_passport": "Scannen Sie den Chip Ihres Passes",
       "video_instruction_accessibility": "Videoanleitung"
@@ -4546,24 +4560,24 @@
       "blur_detail": "Stellen Sie sicher, dass alles klar ist",
       "blur_title": "Unscharfes Foto erkannt",
       "body": "Einzelheiten müssen klar lesbar sein, ohne Unschärfe oder Spiegelung",
-      "body_accommodation_tenancy_certificate": "Stellen Sie sicher, dass Sie die gesamte Dokumentseite hochgeladen haben und die Details klar zu lesen sind, ohne Unschärfe oder Blendung",
-      "body_address_card": "Stellen Sie sicher, dass Sie die gesamte Dokumentseite hochgeladen haben und die Details klar zu lesen sind, ohne Unschärfe oder Blendung",
-      "body_address_certificate": "Stellen Sie sicher, dass Sie die gesamte Dokumentseite hochgeladen haben und die Details klar zu lesen sind, ohne Unschärfe oder Blendung",
-      "body_bank_building_society_statement": "Überprüfen Sie, dass Sie die gesamte Dokumentseite hochgeladen haben, und dass man die Details ohne Unschärfen und blendfrei lesen kann",
-      "body_bank_statement": "Überprüfen Sie, dass Sie die gesamte Dokumentseite hochgeladen haben, und dass man die Details ohne Unschärfen und blendfrei lesen kann",
-      "body_benefit_letters": "Überprüfen Sie, dass Sie die gesamte Dokumentseite hochgeladen haben, und dass man die Details ohne Unschärfen und blendfrei lesen kann",
-      "body_bill": "Überprüfen Sie, dass Sie die gesamte Dokumentseite hochgeladen haben, und dass man die Details ohne Unschärfen und blendfrei lesen kann",
-      "body_council_tax": "Überprüfen Sie, dass Sie die gesamte Dokumentseite hochgeladen haben, und dass man die Details ohne Unschärfen und blendfrei lesen kann",
-      "body_exchange_house_statement": "Stellen Sie sicher, dass Sie die gesamte Dokumentseite hochgeladen haben und die Details klar zu lesen sind, ohne Unschärfe oder Blendung",
-      "body_general_letter": "Stellen Sie sicher, dass Sie die gesamte Dokumentseite hochgeladen haben und die Details klar zu lesen sind, ohne Unschärfe oder Blendung",
+      "body_accommodation_tenancy_certificate": "Stellen Sie sicher, dass Sie die gesamte Dokumentenseite hochgeladen haben und dass alle Details klar lesbar sind, ohne Unschärfe oder Blendung.",
+      "body_address_card": "Stellen Sie sicher, dass Sie die gesamte Dokumentenseite hochgeladen haben und dass alle Details klar lesbar sind, ohne Unschärfe oder Blendung.",
+      "body_address_certificate": "Stellen Sie sicher, dass Sie die gesamte Dokumentenseite hochgeladen haben und dass alle Details klar lesbar sind, ohne Unschärfe oder Blendung.",
+      "body_bank_building_society_statement": "Stellen Sie sicher, dass das gesamte Dokument sichtbar ist und alle Angaben klar erkennbar sind, ohne Unschärfen oder Spiegelungen.",
+      "body_bank_statement": "Stellen Sie sicher, dass das gesamte Dokument sichtbar ist und alle Angaben klar erkennbar sind, ohne Unschärfen oder Spiegelungen.",
+      "body_benefit_letters": "Stellen Sie sicher, dass das gesamte Dokument sichtbar ist und alle Angaben klar erkennbar sind, ohne Unschärfen oder Spiegelungen.",
+      "body_bill": "Stellen Sie sicher, dass das gesamte Dokument sichtbar ist und alle Angaben klar erkennbar sind, ohne Unschärfen oder Spiegelungen.",
+      "body_council_tax": "Stellen Sie sicher, dass das gesamte Dokument sichtbar ist und alle Angaben klar erkennbar sind, ohne Unschärfen oder Spiegelungen.",
+      "body_exchange_house_statement": "Stellen Sie sicher, dass Sie die gesamte Dokumentenseite hochgeladen haben und dass alle Details klar lesbar sind, ohne Unschärfe oder Blendung.",
+      "body_general_letter": "Stellen Sie sicher, dass Sie die gesamte Dokumentenseite hochgeladen haben und dass alle Details klar lesbar sind, ohne Unschärfe oder Blendung.",
       "body_government_letter": "Für das beste Ergebnis die gesamte Dokumentseite abbilden",
-      "body_identity_document_with_address": "Stellen Sie sicher, dass Sie die gesamte Dokumentseite hochgeladen haben und die Details klar zu lesen sind, ohne Unschärfe oder Blendung",
-      "body_insurance_statement": "Stellen Sie sicher, dass Sie die gesamte Dokumentseite hochgeladen haben und die Details klar zu lesen sind, ohne Unschärfe oder Blendung",
-      "body_mobile_phone_bill": "Stellen Sie sicher, dass Sie die gesamte Dokumentseite hochgeladen haben und die Details klar zu lesen sind, ohne Unschärfe oder Blendung",
-      "body_mortgage_statement": "Stellen Sie sicher, dass Sie die gesamte Dokumentseite hochgeladen haben und die Details klar zu lesen sind, ohne Unschärfe oder Blendung",
-      "body_pension_property_statement_letter": "Stellen Sie sicher, dass Sie die gesamte Dokumentseite hochgeladen haben und die Details klar zu lesen sind, ohne Unschärfe oder Blendung",
-      "body_tax_letter": "Überprüfen Sie, dass Sie die gesamte Dokumentseite hochgeladen haben, und dass man die Details ohne Unschärfen und blendfrei lesen kann",
-      "body_utility_bill": "Überprüfen Sie, dass Sie die gesamte Dokumentseite hochgeladen haben, und dass man die Details ohne Unschärfen und blendfrei lesen kann",
+      "body_identity_document_with_address": "Stellen Sie sicher, dass Sie die gesamte Dokumentenseite hochgeladen haben und dass alle Details klar lesbar sind, ohne Unschärfe oder Blendung.",
+      "body_insurance_statement": "Stellen Sie sicher, dass Sie die gesamte Dokumentenseite hochgeladen haben und dass alle Details klar lesbar sind, ohne Unschärfe oder Blendung.",
+      "body_mobile_phone_bill": "Stellen Sie sicher, dass Sie die gesamte Dokumentenseite hochgeladen haben und dass alle Details klar lesbar sind, ohne Unschärfe oder Blendung.",
+      "body_mortgage_statement": "Stellen Sie sicher, dass Sie die gesamte Dokumentenseite hochgeladen haben und dass alle Details klar lesbar sind, ohne Unschärfe oder Blendung.",
+      "body_pension_property_statement_letter": "Stellen Sie sicher, dass Sie die gesamte Dokumentenseite hochgeladen haben und dass alle Details klar lesbar sind, ohne Unschärfe oder Blendung.",
+      "body_tax_letter": "Stellen Sie sicher, dass das gesamte Dokument sichtbar ist und alle Angaben klar erkennbar sind, ohne Unschärfen oder Spiegelungen.",
+      "body_utility_bill": "Stellen Sie sicher, dass das gesamte Dokument sichtbar ist und alle Angaben klar erkennbar sind, ohne Unschärfen oder Spiegelungen.",
       "close": "Schließen",
       "crop_detail": "Stellen Sie sicher, dass das vollständige Dokument zu sehen ist",
       "crop_title": "Abgeschnittenes Bild erkannt",
@@ -4588,9 +4602,9 @@
       "accessibility": "Dokumente, die Sie zur Überprüfung Ihrer Identität verwenden können",
       "country_header": "Ausstellendes Land",
       "doctypes_header": "Akzeptierte Dokumente",
-      "subtitle": "Diese Dokumente zeigen wahrscheinlich Ihre aktuelle Wohnadresse:",
+      "subtitle": "Wählen Sie ein aktuelles Dokument aus, das Ihre derzeitige Wohnadresse enthält",
       "subtitle_merged": "Wählen Sie das ausstellende Land aus, um zu sehen, welche Dokumente wir akzeptieren",
-      "title": "Wählen Sie ein Dokument",
+      "title": "Bestätigen Sie Ihre Adresse",
       "title_merged": "Dokument auswählen"
     },
     "upload": {

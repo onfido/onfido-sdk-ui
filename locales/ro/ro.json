@@ -940,7 +940,7 @@
       "photo_of_screen_detail": "Vă rugăm să utilizați documentul dvs. original. Fotografiile de pe ecran sau fotocopiile nu sunt acceptate",
       "photo_of_screen_title": "Fotografie a ecranului detectată",
       "redo": "Refaceți",
-      "title": "Verificați imaginea dvs.",
+      "title": "Verifică imaginea",
       "unsupported_file_detail": "Vă rugăm să încărcați fotografia dumneavoastră în format JPG, JPEG, PNG sau PDF. Dimensiunea fișierului nu trebuie să depășească 10MB.",
       "unsupported_file_title": "Fișier neacceptat",
       "upload": "Încărcați",
@@ -949,6 +949,7 @@
     },
     "scan": {
       "button_help": "Ai nevoie de ajutor?",
+      "button_help_accessibility": "The Need Help? button is now highlighted. Tap it if you need assistance.",
       "button_manual": "Începe scanarea",
       "feedback": {
         "alignment_center_document": "Centrează documentul",
@@ -1406,6 +1407,8 @@
       "feedback_move_left_accessibility": "Mișcați dispozitivul spre stânga",
       "feedback_move_right_accessibility": "Mișcați dispozitivul spre dreapta",
       "feedback_move_up_accessibility": "Mișcați dispozitivul în sus",
+      "feedback_multiple_faces_detected": "Au fost detectate mai multe fețe",
+      "feedback_multiple_faces_detected_accessibility": "Au fost detectate mai multe chipuri. Asigură-te că ești singura persoană din fața camerei",
       "feedback_no_face_detected": "Fața nu este detectată",
       "feedback_no_face_detected_accessibility": "Fața nu a fost detectată. Poziționați-vă fața în fața dispozitivului",
       "feedback_not_centered": "Fața nu este centrată",
@@ -1981,6 +1984,7 @@
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
+        "button_help_accessibility": "document.scan.button_help_accessibility",
         "button_manual": "document.scan.button_manual",
         "feedback": {
           "alignment_center_document": "document.scan.feedback.alignment_center_document",
@@ -2333,6 +2337,14 @@
         "button_tertiary": "nfc.pin_entry.optional_button_tertiary",
         "helper_attempts_left": "nfc.pin_entry.optional_helper_attempts_left",
         "helper_final_attempt": "nfc.pin_entry.optional_helper_final_attempt"
+      },
+      "face_biometrics": {
+        "capture": {
+          "feedback": {
+            "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
+            "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
+          }
+        }
       },
       "generic": {
         "accessibility": {
@@ -3905,6 +3917,8 @@
       "feedback_move_left_accessibility": "Mișcați dispozitivul spre stânga",
       "feedback_move_right_accessibility": "Mișcați dispozitivul spre dreapta",
       "feedback_move_up_accessibility": "Mișcați dispozitivul în sus",
+      "feedback_multiple_faces_detected": "Au fost detectate mai multe fețe",
+      "feedback_multiple_faces_detected_accessibility": "Au fost detectate mai multe chipuri. Asigură-te că ești singura persoană din fața camerei",
       "feedback_no_face_detected": "Fața nu este detectată",
       "feedback_no_face_detected_accessibility": "Fața nu a fost detectată. Poziționați-vă fața în fața dispozitivului",
       "feedback_not_centered": "Fața nu este centrată",
@@ -4053,12 +4067,12 @@
     },
     "pin_entry": {
       "button_primary": "Continuați",
-      "helper_attempts_left": "[%i] încercări rămase",
+      "helper_attempts_left": "%d încercări rămase",
       "helper_final_attempt": "A mai rămas 1 încercare. Cipul va fi blocat după următoarea încercare eșuată",
       "optional_button_tertiary": "Omiteți scanarea cipului NFC",
-      "optional_helper_attempts_left": "[%i] încercări rămase. Omiteți acest pas mai jos.",
-      "optional_helper_final_attempt": "[%i] încercare rămasă înainte ca cipul dvs. NFC să fie blocat. Săriți peste acest pas mai jos.",
-      "subtitle": "Este necesar pentru a citi în siguranță cipul NFC. Ați creat acest număr de [%i] cifre atunci când a fost emis documentul.",
+      "optional_helper_attempts_left": "%d încercări rămase. Omiteți acest pas mai jos.",
+      "optional_helper_final_attempt": "%d încercare rămasă înainte ca cipul dvs. NFC să fie blocat. Săriți peste acest pas mai jos.",
+      "subtitle": "Este necesar pentru a citi în siguranță cipul NFC. Ați creat acest număr de %d cifre atunci când a fost emis documentul.",
       "title": "Introduceți codul PIN al documentului",
       "title_incorrect": "PIN incorect"
     },
@@ -4081,7 +4095,7 @@
         "document": "Odată ce cipul este detectat, țineți telefonul și documentul nemișcate.",
         "passport": "Odată ce cipul este detectat, mențineți telefonul și pașaportul dvs. nemișcate."
       },
-      "pin_disclaimer": "Vă vom cere codul PIN din [%i] cifre al documentului înainte de a scana cipul.",
+      "pin_disclaimer": "Vă vom cere codul PIN din %d cifre al documentului înainte de a scana cipul.",
       "title_document": "Scanați documentul",
       "title_passport": "Scanați cipul din pașaportul dvs.",
       "video_instruction_accessibility": "Instrucțiuni video"
@@ -4546,24 +4560,24 @@
       "blur_detail": "Asigurați-vă că totul este clar",
       "blur_title": "Pozǎ neclarǎ detectatǎ",
       "body": "Asigurați-vă că detaliile dvs. sunt clare și neacoperite",
-      "body_accommodation_tenancy_certificate": "Asigurați-vă că ați încărcat întreaga pagină a documentului și detaliile sunt clare pentru a fi citite, fǎrǎ zone neclare sau lucioase",
-      "body_address_card": "Asigurați-vă că ați încărcat întreaga pagină a documentului și detaliile sunt clare pentru a fi citite, fǎrǎ zone neclare sau lucioase",
-      "body_address_certificate": "Asigurați-vă că ați încărcat întreaga pagină a documentului și detaliile sunt clare pentru a fi citite, fǎrǎ zone neclare sau lucioase",
-      "body_bank_building_society_statement": "Asigurați-vă că ați încărcat întreaga pagină a documentului și că detaliile sunt clare, fără estompări sau luciri, pentru a fi citite",
-      "body_bank_statement": "Asigurați-vă că ați încărcat întreaga pagină a documentului și că detaliile sunt clare, fără estompări sau luciri, pentru a fi citite",
-      "body_benefit_letters": "Asigurați-vă că ați încărcat întreaga pagină a documentului și că detaliile sunt clare, fără estompări sau luciri, pentru a fi citite",
-      "body_bill": "Asigurați-vă că ați încărcat întreaga pagină a documentului și că detaliile sunt clare, fără estompări sau luciri, pentru a fi citite",
-      "body_council_tax": "Asigurați-vă că ați încărcat întreaga pagină a documentului și că detaliile sunt clare, fără estompări sau luciri, pentru a fi citite",
-      "body_exchange_house_statement": "Asigurați-vă că ați încărcat întreaga pagină a documentului și detaliile sunt clare pentru a fi citite, fǎrǎ zone neclare sau lucioase",
-      "body_general_letter": "Asigurați-vă că ați încărcat întreaga pagină a documentului și detaliile sunt clare pentru a fi citite, fǎrǎ zone neclare sau lucioase",
+      "body_accommodation_tenancy_certificate": "Asigură-te că ai încărcat întreaga pagină a documentului și că detaliile sunt clare, fără neclarități sau reflexii",
+      "body_address_card": "Asigură-te că ai încărcat întreaga pagină a documentului și că detaliile sunt clare, fără neclarități sau reflexii",
+      "body_address_certificate": "Asigură-te că ai încărcat întreaga pagină a documentului și că detaliile sunt clare, fără neclarități sau reflexii",
+      "body_bank_building_society_statement": "Asigură-te că întregul document este vizibil și toate detaliile sunt clare, fără blur sau strălucire puternică",
+      "body_bank_statement": "Asigură-te că întregul document este vizibil și toate detaliile sunt clare, fără blur sau strălucire puternică",
+      "body_benefit_letters": "Asigură-te că întregul document este vizibil și toate detaliile sunt clare, fără blur sau strălucire puternică",
+      "body_bill": "Asigură-te că întregul document este vizibil și toate detaliile sunt clare, fără blur sau strălucire puternică",
+      "body_council_tax": "Asigură-te că întregul document este vizibil și toate detaliile sunt clare, fără blur sau strălucire puternică",
+      "body_exchange_house_statement": "Asigură-te că ai încărcat întreaga pagină a documentului și că detaliile sunt clare, fără neclarități sau reflexii",
+      "body_general_letter": "Asigură-te că ai încărcat întreaga pagină a documentului și că detaliile sunt clare, fără neclarități sau reflexii",
       "body_government_letter": "Furnizați întreaga pagină a documentului pentru rezultate mai bune",
-      "body_identity_document_with_address": "Asigurați-vă că ați încărcat întreaga pagină a documentului și detaliile sunt clare pentru a fi citite, fǎrǎ zone neclare sau lucioase",
-      "body_insurance_statement": "Asigurați-vă că ați încărcat întreaga pagină a documentului și detaliile sunt clare pentru a fi citite, fǎrǎ zone neclare sau lucioase",
-      "body_mobile_phone_bill": "Asigurați-vă că ați încărcat întreaga pagină a documentului și detaliile sunt clare pentru a fi citite, fǎrǎ zone neclare sau lucioase",
-      "body_mortgage_statement": "Asigurați-vă că ați încărcat întreaga pagină a documentului și detaliile sunt clare pentru a fi citite, fǎrǎ zone neclare sau lucioase",
-      "body_pension_property_statement_letter": "Asigurați-vă că ați încărcat întreaga pagină a documentului și detaliile sunt clare pentru citire, fără blur sau strălucire",
-      "body_tax_letter": "Asigurați-vă că ați încărcat întreaga pagină a documentului și că detaliile sunt clare, fără estompări sau luciri, pentru a fi citite",
-      "body_utility_bill": "Asigurați-vă că ați încărcat întreaga pagină a documentului și că detaliile sunt clare, fără estompări sau luciri, pentru a fi citite",
+      "body_identity_document_with_address": "Asigură-te că ai încărcat întreaga pagină a documentului și că detaliile sunt clare, fără neclarități sau reflexii",
+      "body_insurance_statement": "Asigură-te că ai încărcat întreaga pagină a documentului și că detaliile sunt clare, fără neclarități sau reflexii",
+      "body_mobile_phone_bill": "Asigură-te că ai încărcat întreaga pagină a documentului și că detaliile sunt clare, fără neclarități sau reflexii",
+      "body_mortgage_statement": "Asigură-te că ai încărcat întreaga pagină a documentului și că detaliile sunt clare, fără neclarități sau reflexii",
+      "body_pension_property_statement_letter": "Asigură-te că ai încărcat întreaga pagină a documentului și că detaliile sunt clare, fără neclarități sau reflexii",
+      "body_tax_letter": "Asigură-te că întregul document este vizibil și toate detaliile sunt clare, fără blur sau strălucire puternică",
+      "body_utility_bill": "Asigură-te că întregul document este vizibil și toate detaliile sunt clare, fără blur sau strălucire puternică",
       "close": "Închideți",
       "crop_detail": "Asigurați-vă că întregul document este vizibil",
       "crop_title": "Imagine decupatǎ detectatǎ",
@@ -4577,7 +4591,7 @@
       "no_doc_detail": "Asigurați-vă că întregul document este în poză",
       "no_doc_title": "Documentul nu a fost detectat",
       "redo": "Refaceți",
-      "title": "Verificați imaginea dvs.",
+      "title": "Verifică imaginea",
       "unsupported_file_detail": "Vă rugăm să încărcați fotografia dumneavoastră în format JPG, JPEG, PNG sau PDF. Dimensiunea fișierului nu trebuie să depășească 10MB.",
       "unsupported_file_title": "Fișier neacceptat",
       "upload": "Încărcați",
@@ -4588,9 +4602,9 @@
       "accessibility": "Documente pe care le puteți utiliza pentru a vă verifica identitatea",
       "country_header": "Țară emitentă",
       "doctypes_header": "Documente acceptate",
-      "subtitle": "Acestea sunt documente care cel mai probabil indică adresa dvs. de reședință actuală",
+      "subtitle": "Alege un document recent care arată adresa ta actuală de domiciliu",
       "subtitle_merged": "Selectați țara emitentă pentru a vedea ce documente acceptăm",
-      "title": "Alegeți un document",
+      "title": "Verifică-ți adresa",
       "title_merged": "Alegeți documentul dvs."
     },
     "upload": {
@@ -4774,7 +4788,7 @@
       "retake": "Refaceți",
       "submit": "Încărcați",
       "subtitle": "Asigurați-vă că detaliile dvs. sunt clare și neacoperite",
-      "title": "Verificați imaginea dvs."
+      "title": "Verifică imaginea"
     },
     "selection": {
       "body": "Începeți din nou înregistrarea",

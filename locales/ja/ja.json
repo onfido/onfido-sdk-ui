@@ -940,7 +940,7 @@
       "photo_of_screen_detail": "元のドキュメントを使用してください。スクリーンの写真やコピーは受け付けていません",
       "photo_of_screen_title": "画面の写真が検出されました",
       "redo": "やり直し",
-      "title": "画像を確認する",
+      "title": "画像を確認してください",
       "unsupported_file_detail": "JPG、JPEG、PNG、またはPDF形式の写真をアップロードしてください。ファイルサイズは10MB以下である必要があります。",
       "unsupported_file_title": "ファイルがサポートされていません",
       "upload": "アップロード",
@@ -949,6 +949,7 @@
     },
     "scan": {
       "button_help": "お困りですか？",
+      "button_help_accessibility": "The Need Help? button is now highlighted. Tap it if you need assistance.",
       "button_manual": "スキャンを開始",
       "feedback": {
         "alignment_center_document": "書類を中央に合わせる",
@@ -1406,6 +1407,8 @@
       "feedback_move_left_accessibility": "デバイスを左に移動させてください",
       "feedback_move_right_accessibility": "デバイスを右に移動させてください",
       "feedback_move_up_accessibility": "デバイスを上に移動させてください",
+      "feedback_multiple_faces_detected": "複数の顔が検出されました",
+      "feedback_multiple_faces_detected_accessibility": "複数の顔が検出されました。カメラの前にいるのがご本人のみであることを確認してください",
       "feedback_no_face_detected": "顔が検出されませんでした",
       "feedback_no_face_detected_accessibility": "顔が検出されませんでした。顔をデバイスの前に配置します",
       "feedback_not_centered": "顔が中央に配置されていません",
@@ -1981,6 +1984,7 @@
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
+        "button_help_accessibility": "document.scan.button_help_accessibility",
         "button_manual": "document.scan.button_manual",
         "feedback": {
           "alignment_center_document": "document.scan.feedback.alignment_center_document",
@@ -2333,6 +2337,14 @@
         "button_tertiary": "nfc.pin_entry.optional_button_tertiary",
         "helper_attempts_left": "nfc.pin_entry.optional_helper_attempts_left",
         "helper_final_attempt": "nfc.pin_entry.optional_helper_final_attempt"
+      },
+      "face_biometrics": {
+        "capture": {
+          "feedback": {
+            "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
+            "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
+          }
+        }
       },
       "generic": {
         "accessibility": {
@@ -3905,6 +3917,8 @@
       "feedback_move_left_accessibility": "デバイスを左に移動させてください",
       "feedback_move_right_accessibility": "デバイスを右に移動させてください",
       "feedback_move_up_accessibility": "デバイスを上に移動させてください",
+      "feedback_multiple_faces_detected": "複数の顔が検出されました",
+      "feedback_multiple_faces_detected_accessibility": "複数の顔が検出されました。カメラの前にいるのがご本人のみであることを確認してください",
       "feedback_no_face_detected": "顔が検出されませんでした",
       "feedback_no_face_detected_accessibility": "顔が検出されませんでした。顔をデバイスの前に配置します",
       "feedback_not_centered": "顔が中央に配置されていません",
@@ -4053,12 +4067,12 @@
     },
     "pin_entry": {
       "button_primary": "続行",
-      "helper_attempts_left": "[%i]回の試行が残っています",
+      "helper_attempts_left": "%d回の試行が残っています",
       "helper_final_attempt": "残り1回の試行です。次回の失敗でチップがブロックされます",
       "optional_button_tertiary": "NFCチップスキャンをスキップ",
-      "optional_helper_attempts_left": "[%i] 回の試行が残っています。以下でこのステップをスキップしてください。",
-      "optional_helper_final_attempt": "[%i] 回の試行が残っています。NFCチップがブロックされる前に、以下でこのステップをスキップしてください。",
-      "subtitle": "これは、NFCチップを安全に読み取るために必要です。この[%i]桁の番号は、書類が発行された際に作成されたものです。",
+      "optional_helper_attempts_left": "%d 回の試行が残っています。以下でこのステップをスキップしてください。",
+      "optional_helper_final_attempt": "%d 回の試行が残っています。NFCチップがブロックされる前に、以下でこのステップをスキップしてください。",
+      "subtitle": "これは、NFCチップを安全に読み取るために必要です。この%d桁の番号は、書類が発行された際に作成されたものです。",
       "title": "書類のPINを入力してください",
       "title_incorrect": "PINが正しくありません"
     },
@@ -4081,7 +4095,7 @@
         "document": "チップが検出されたら、携帯電話と身分証明書を動かさないでください。",
         "passport": "チップが検出されたら、スマートフォンとパスポートを静止させてください。"
       },
-      "pin_disclaimer": "書類の[%i]桁のPINを入力していただいた後、チップをスキャンします。",
+      "pin_disclaimer": "書類の%d桁のPINを入力していただいた後、チップをスキャンします。",
       "title_document": "あなたのドキュメントをスキャンする",
       "title_passport": "パスポートのチップをスキャンします",
       "video_instruction_accessibility": "動画の説明"
@@ -4546,24 +4560,24 @@
       "blur_detail": "すべてがはっきりしていることを確認してください",
       "blur_title": "ぼやけた写真が検出されました",
       "body": "詳細が明確で遮られていないことを確認してください",
-      "body_accommodation_tenancy_certificate": "全体のドキュメントページがアップロードされていること、そして詳細がぼやけたり、眩しさがないように読みやすいことを確認してください",
-      "body_address_card": "ドキュメントの全ページがアップロードされていること、そして詳細がはっきりと読め、ぼやけや眩しさがないことを確認してください",
-      "body_address_certificate": "ドキュメントの全ページがアップロードされていること、そして詳細がはっきりと読め、ぼやけや眩しさがないことを確認してください",
-      "body_bank_building_society_statement": "ドキュメントページ全体をアップロードしており、ぼかしや照り返しがなく、詳細がはっきりしていることを確認してください",
-      "body_bank_statement": "ドキュメントページ全体をアップロードしており、ぼかしや照り返しがなく、詳細がはっきりしていることを確認してください",
-      "body_benefit_letters": "ドキュメントページ全体をアップロードしており、ぼかしや照り返しがなく、詳細がはっきりしていることを確認してください",
-      "body_bill": "ドキュメントページ全体をアップロードしており、ぼかしや照り返しがなく、詳細がはっきりしていることを確認してください",
-      "body_council_tax": "ドキュメントページ全体をアップロードしており、ぼかしや照り返しがなく、詳細がはっきりしていることを確認してください",
-      "body_exchange_house_statement": "ドキュメントの全ページがアップロードされていること、そして詳細がはっきりと読め、ぼやけや眩しさがないことを確認してください",
-      "body_general_letter": "ドキュメントの全ページがアップロードされていること、そして詳細がはっきりと読め、ぼやけや眩しさがないことを確認してください",
+      "body_accommodation_tenancy_certificate": "ドキュメントのページ全体がアップロードされており、ぼやけや光の反射がなく、詳細が明確に読み取れることを確認してください",
+      "body_address_card": "ドキュメントのページ全体がアップロードされており、ぼやけや光の反射がなく、詳細が明確に読み取れることを確認してください",
+      "body_address_certificate": "ドキュメントのページ全体がアップロードされており、ぼやけや光の反射がなく、詳細が明確に読み取れることを確認してください",
+      "body_bank_building_society_statement": "書類全体が映っていて、すべての内容がはっきりと読み取れ、ぼやけや反射がないことを確認してください",
+      "body_bank_statement": "書類全体が映っていて、すべての内容がはっきりと読み取れ、ぼやけや反射がないことを確認してください",
+      "body_benefit_letters": "書類全体が映っていて、すべての内容がはっきりと読み取れ、ぼやけや反射がないことを確認してください",
+      "body_bill": "書類全体が映っていて、すべての内容がはっきりと読み取れ、ぼやけや反射がないことを確認してください",
+      "body_council_tax": "書類全体が映っていて、すべての内容がはっきりと読み取れ、ぼやけや反射がないことを確認してください",
+      "body_exchange_house_statement": "ドキュメントのページ全体がアップロードされており、ぼやけや光の反射がなく、詳細が明確に読み取れることを確認してください",
+      "body_general_letter": "ドキュメントのページ全体がアップロードされており、ぼやけや光の反射がなく、詳細が明確に読み取れることを確認してください",
       "body_government_letter": "最高の結果が得られるよう、ドキュメントページの全体を写してください",
-      "body_identity_document_with_address": "ドキュメントの全ページがアップロードされていること、そして詳細がはっきりと読め、ぼやけや眩しさがないことを確認してください",
-      "body_insurance_statement": "ドキュメントの全ページがアップロードされていること、そして詳細がはっきりと読め、ぼやけや眩しさがないことを確認してください",
-      "body_mobile_phone_bill": "ドキュメントの全ページがアップロードされていること、そして詳細がはっきりと読め、ぼやけや眩しさがないことを確認してください",
-      "body_mortgage_statement": "ドキュメントの全ページがアップロードされていること、そして詳細がはっきりと読め、ぼやけや眩しさがないことを確認してください",
-      "body_pension_property_statement_letter": "全体のドキュメントページがアップロードされていること、そして詳細がぼやけたり、眩しさがないように読みやすいことを確認してください",
-      "body_tax_letter": "ドキュメントページ全体をアップロードしており、ぼかしや照り返しがなく、詳細がはっきりしていることを確認してください",
-      "body_utility_bill": "ドキュメントページ全体をアップロードしており、ぼかしや照り返しがなく、詳細がはっきりしていることを確認してください",
+      "body_identity_document_with_address": "ドキュメントのページ全体がアップロードされており、ぼやけや光の反射がなく、詳細が明確に読み取れることを確認してください",
+      "body_insurance_statement": "ドキュメントのページ全体がアップロードされており、ぼやけや光の反射がなく、詳細が明確に読み取れることを確認してください",
+      "body_mobile_phone_bill": "ドキュメントのページ全体がアップロードされており、ぼやけや光の反射がなく、詳細が明確に読み取れることを確認してください",
+      "body_mortgage_statement": "ドキュメントのページ全体がアップロードされており、ぼやけや光の反射がなく、詳細が明確に読み取れることを確認してください",
+      "body_pension_property_statement_letter": "ドキュメントのページ全体がアップロードされており、ぼやけや光の反射がなく、詳細が明確に読み取れることを確認してください",
+      "body_tax_letter": "書類全体が映っていて、すべての内容がはっきりと読み取れ、ぼやけや反射がないことを確認してください",
+      "body_utility_bill": "書類全体が映っていて、すべての内容がはっきりと読み取れ、ぼやけや反射がないことを確認してください",
       "close": "閉じる",
       "crop_detail": "ドキュメント全体が表示されていることを確認する",
       "crop_title": "カットオフ画像が検出されました",
@@ -4577,7 +4591,7 @@
       "no_doc_detail": "ドキュメント全体が写真に写っていることを確認してください",
       "no_doc_title": "ドキュメントが検出されませんでした",
       "redo": "やり直し",
-      "title": "画像を確認する",
+      "title": "画像を確認してください",
       "unsupported_file_detail": "JPG、JPEG、PNG、またはPDF形式の写真をアップロードしてください。ファイルサイズは10MB以下である必要があります。",
       "unsupported_file_title": "ファイルがサポートされていません",
       "upload": "アップロード",
@@ -4588,9 +4602,9 @@
       "accessibility": "本人確認に使用できるドキュメント",
       "country_header": "発行国",
       "doctypes_header": "受け入れられるドキュメント",
-      "subtitle": "次のドキュメントが、現在の自宅の住所を示す可能性の最も高いものです",
+      "subtitle": "現在の自宅住所が記載された最新の書類を選択してください",
       "subtitle_merged": "発行国を選択すると、当社が受理できるドキュメントを確認できます",
-      "title": "ドキュメントを選択してください",
+      "title": "住所を確認する",
       "title_merged": "ドキュメントを選択"
     },
     "upload": {
@@ -4774,7 +4788,7 @@
       "retake": "やり直し",
       "submit": "アップロード",
       "subtitle": "詳細が明確で遮られていないことを確認してください",
-      "title": "画像を確認する"
+      "title": "画像を確認してください"
     },
     "selection": {
       "body": "録画を再開する",

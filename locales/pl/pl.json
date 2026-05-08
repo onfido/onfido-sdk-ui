@@ -940,7 +940,7 @@
       "photo_of_screen_detail": "Proszę użyć swojego oryginalnego dokumentu. Zdjęcia ekranu lub fotokopie nie są akceptowane",
       "photo_of_screen_title": "Zdjęcie ekranu wykryte",
       "redo": "Ponów",
-      "title": "Sprawdź obraz",
+      "title": "Sprawdź swoje zdjęcie",
       "unsupported_file_detail": "Prześlij swoje zdjęcie w formacie JPG, JPEG, PNG lub PDF. Rozmiar pliku nie może przekraczać 10 MB.",
       "unsupported_file_title": "Nieobsługiwany plik",
       "upload": "Prześlij",
@@ -949,6 +949,7 @@
     },
     "scan": {
       "button_help": "Potrzebujesz pomocy?",
+      "button_help_accessibility": "The Need Help? button is now highlighted. Tap it if you need assistance.",
       "button_manual": "Rozpocznij skanowanie",
       "feedback": {
         "alignment_center_document": "Wyśrodkuj dokument",
@@ -1406,6 +1407,8 @@
       "feedback_move_left_accessibility": "Przesuń urządzenie w lewo",
       "feedback_move_right_accessibility": "Przesuń urządzenie w prawo",
       "feedback_move_up_accessibility": "Przesuń urządzenie w górę",
+      "feedback_multiple_faces_detected": "Wykryto wiele twarzy",
+      "feedback_multiple_faces_detected_accessibility": "Wykryto wiele twarzy. Upewnij się, że jesteś jedyną osobą przed kamerą",
       "feedback_no_face_detected": "Nie wykryto twarzy",
       "feedback_no_face_detected_accessibility": "Nie wykryto twarzy. Ustaw twarz przed urządzeniem",
       "feedback_not_centered": "Twarz nie jest wyśrodkowana",
@@ -1981,6 +1984,7 @@
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
+        "button_help_accessibility": "document.scan.button_help_accessibility",
         "button_manual": "document.scan.button_manual",
         "feedback": {
           "alignment_center_document": "document.scan.feedback.alignment_center_document",
@@ -2333,6 +2337,14 @@
         "button_tertiary": "nfc.pin_entry.optional_button_tertiary",
         "helper_attempts_left": "nfc.pin_entry.optional_helper_attempts_left",
         "helper_final_attempt": "nfc.pin_entry.optional_helper_final_attempt"
+      },
+      "face_biometrics": {
+        "capture": {
+          "feedback": {
+            "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
+            "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
+          }
+        }
       },
       "generic": {
         "accessibility": {
@@ -3905,6 +3917,8 @@
       "feedback_move_left_accessibility": "Przesuń urządzenie w lewo",
       "feedback_move_right_accessibility": "Przesuń urządzenie w prawo",
       "feedback_move_up_accessibility": "Przesuń urządzenie w górę",
+      "feedback_multiple_faces_detected": "Wykryto wiele twarzy",
+      "feedback_multiple_faces_detected_accessibility": "Wykryto wiele twarzy. Upewnij się, że jesteś jedyną osobą przed kamerą",
       "feedback_no_face_detected": "Nie wykryto twarzy",
       "feedback_no_face_detected_accessibility": "Nie wykryto twarzy. Ustaw twarz przed urządzeniem",
       "feedback_not_centered": "Twarz nie jest wyśrodkowana",
@@ -4053,12 +4067,12 @@
     },
     "pin_entry": {
       "button_primary": "Kontynuuj",
-      "helper_attempts_left": "[%i] pozostałe próby",
+      "helper_attempts_left": "%d pozostałe próby",
       "helper_final_attempt": "Pozostała 1 próba. Twój chip zostanie zablokowany po następnej nieudanej próbie",
       "optional_button_tertiary": "Pomiń skanowanie chipu NFC",
-      "optional_helper_attempts_left": "[%i] prób pozostało. Pomiń ten krok poniżej.",
-      "optional_helper_final_attempt": "[%i] pozostała próba, zanim Twój chip NFC zostanie zablokowany. Pomiń ten krok poniżej.",
-      "subtitle": "To jest potrzebne do bezpiecznego odczytania chipu NFC. Utworzyłeś ten [%i]-cyfrowy numer, gdy wydano Twój dokument.",
+      "optional_helper_attempts_left": "%d prób pozostało. Pomiń ten krok poniżej.",
+      "optional_helper_final_attempt": "%d pozostała próba, zanim Twój chip NFC zostanie zablokowany. Pomiń ten krok poniżej.",
+      "subtitle": "To jest potrzebne do bezpiecznego odczytania chipu NFC. Utworzyłeś ten %d-cyfrowy numer, gdy wydano Twój dokument.",
       "title": "Wprowadź PIN dokumentu",
       "title_incorrect": "Nieprawidłowy PIN"
     },
@@ -4081,7 +4095,7 @@
         "document": "Gdy chip zostanie wykryty, trzymaj telefon i dokument nieruchomo.",
         "passport": "Gdy chip zostanie wykryty, utrzymuj telefon i paszport w bezruchu."
       },
-      "pin_disclaimer": "Poprosimy Cię o [%i]-cyfrowy PIN Twojego dokumentu przed zeskanowaniem chipa.",
+      "pin_disclaimer": "Poprosimy Cię o %d-cyfrowy PIN Twojego dokumentu przed zeskanowaniem chipa.",
       "title_document": "Zeskanuj swój dokument",
       "title_passport": "Zeskanuj chip swojego paszportu",
       "video_instruction_accessibility": "Instrukcja wideo"
@@ -4546,24 +4560,24 @@
       "blur_detail": "Upewnij się, że wszystko jest wyraźne",
       "blur_title": "Wykryto nieostre zdjęcie",
       "body": "Upewnij się, że Twoje dane są wyraźne i niezasłonięte",
-      "body_accommodation_tenancy_certificate": "Upewnij się, że przesłałeś całą stronę dokumentu, a szczegóły są czytelne, bez rozmazania lub odblasków",
-      "body_address_card": "Upewnij się, że przesłałeś całą stronę dokumentu, a szczegóły są czytelne, bez rozmazania lub odblasków",
-      "body_address_certificate": "Upewnij się, że przesłałeś całą stronę dokumentu, a szczegóły są czytelne, bez rozmazania lub odblasków",
-      "body_bank_building_society_statement": "Upewnij się, że widoczna jest cała strona dokumentu, a szczegóły są czytelne, bez rozmyć i odblasków",
-      "body_bank_statement": "Upewnij się, że widoczna jest cała strona dokumentu, a szczegóły są czytelne, bez rozmyć i odblasków",
-      "body_benefit_letters": "Upewnij się, że widoczna jest cała strona dokumentu, a szczegóły są czytelne, bez rozmyć i odblasków",
-      "body_bill": "Upewnij się, że widoczna jest cała strona dokumentu, a szczegóły są czytelne, bez rozmyć i odblasków",
-      "body_council_tax": "Upewnij się, że widoczna jest cała strona dokumentu, a szczegóły są czytelne, bez rozmyć i odblasków",
-      "body_exchange_house_statement": "Upewnij się, że przesłałeś całą stronę dokumentu, a szczegóły są czytelne, bez rozmazania lub odblasków",
-      "body_general_letter": "Upewnij się, że przesłałeś całą stronę dokumentu, a szczegóły są czytelne, bez rozmazania lub odblasków",
+      "body_accommodation_tenancy_certificate": "Upewnij się, że przesłano całą stronę dokumentu, a szczegóły są czytelne — bez rozmycia ani odblasków",
+      "body_address_card": "Upewnij się, że przesłano całą stronę dokumentu, a szczegóły są czytelne — bez rozmycia ani odblasków.",
+      "body_address_certificate": "Upewnij się, że przesłano całą stronę dokumentu, a szczegóły są czytelne — bez rozmycia ani odblasków.",
+      "body_bank_building_society_statement": "Upewnij się, że cały dokument jest widoczny, a wszystkie dane są czytelne — bez rozmycia i odblasków",
+      "body_bank_statement": "Upewnij się, że cały dokument jest widoczny, a wszystkie dane są czytelne — bez rozmycia i odblasków",
+      "body_benefit_letters": "Upewnij się, że cały dokument jest widoczny, a wszystkie dane są czytelne — bez rozmycia i odblasków",
+      "body_bill": "Upewnij się, że cały dokument jest widoczny, a wszystkie dane są czytelne — bez rozmycia i odblasków",
+      "body_council_tax": "Upewnij się, że cały dokument jest widoczny, a wszystkie dane są czytelne — bez rozmycia i odblasków",
+      "body_exchange_house_statement": "Upewnij się, że przesłano całą stronę dokumentu, a szczegóły są czytelne — bez rozmycia ani odblasków.",
+      "body_general_letter": "Upewnij się, że przesłano całą stronę dokumentu, a szczegóły są czytelne — bez rozmycia ani odblasków.",
       "body_government_letter": "Podaj całą stronę dokumentu, aby uzyskać najlepsze wyniki",
-      "body_identity_document_with_address": "Upewnij się, że przesłałeś całą stronę dokumentu, a szczegóły są czytelne, bez rozmazania lub odblasków",
-      "body_insurance_statement": "Upewnij się, że przesłałeś całą stronę dokumentu, a szczegóły są czytelne, bez rozmazania lub odblasków",
-      "body_mobile_phone_bill": "Upewnij się, że przesłałeś całą stronę dokumentu, a szczegóły są czytelne, bez rozmazania lub odblasków",
-      "body_mortgage_statement": "Upewnij się, że przesłałeś całą stronę dokumentu, a szczegóły są czytelne, bez rozmazania lub odblasków",
-      "body_pension_property_statement_letter": "Upewnij się, że przesłałeś całą stronę dokumentu, a szczegóły są czytelne, bez rozmazania lub odblasków",
-      "body_tax_letter": "Upewnij się, że widoczna jest cała strona dokumentu, a szczegóły są czytelne, bez rozmyć i odblasków",
-      "body_utility_bill": "Upewnij się, że widoczna jest cała strona dokumentu, a szczegóły są czytelne, bez rozmyć i odblasków",
+      "body_identity_document_with_address": "Upewnij się, że przesłano całą stronę dokumentu, a szczegóły są czytelne — bez rozmycia ani odblasków.",
+      "body_insurance_statement": "Upewnij się, że przesłano całą stronę dokumentu, a szczegóły są czytelne — bez rozmycia ani odblasków.",
+      "body_mobile_phone_bill": "Upewnij się, że przesłano całą stronę dokumentu, a szczegóły są czytelne — bez rozmycia ani odblasków.",
+      "body_mortgage_statement": "Upewnij się, że przesłano całą stronę dokumentu, a szczegóły są czytelne — bez rozmycia ani odblasków.",
+      "body_pension_property_statement_letter": "Upewnij się, że przesłano całą stronę dokumentu, a szczegóły są czytelne — bez rozmycia ani odblasków",
+      "body_tax_letter": "Upewnij się, że cały dokument jest widoczny, a wszystkie dane są czytelne — bez rozmycia i odblasków",
+      "body_utility_bill": "Upewnij się, że cały dokument jest widoczny, a wszystkie dane są czytelne — bez rozmycia i odblasków",
       "close": "Zamknij",
       "crop_detail": "Upewnij się, że widoczny jest cały dokument",
       "crop_title": "Wykryto obcięty obraz",
@@ -4577,7 +4591,7 @@
       "no_doc_detail": "Upewnij się, że cały dokument znajduje się na zdjęciu",
       "no_doc_title": "Nie wykryto dokumentu",
       "redo": "Ponów",
-      "title": "Sprawdź obraz",
+      "title": "Sprawdź swoje zdjęcie",
       "unsupported_file_detail": "Prześlij swoje zdjęcie w formacie JPG, JPEG, PNG lub PDF. Rozmiar pliku nie może przekraczać 10 MB.",
       "unsupported_file_title": "Nieobsługiwany plik",
       "upload": "Prześlij",
@@ -4588,9 +4602,9 @@
       "accessibility": "Dokumenty, które można wykorzystać do weryfikacji tożsamości",
       "country_header": "Kraj wydania",
       "doctypes_header": "Akceptowane dokumenty",
-      "subtitle": "Te dokumenty najprawdopodobniej zawierają Twój aktualny adres zamieszkania",
+      "subtitle": "Wybierz aktualny dokument potwierdzający Twój obecny adres zamieszkania",
       "subtitle_merged": "Wybierz kraj wydania, aby zobaczyć, jakie dokumenty akceptujemy",
-      "title": "Wybierz dokument",
+      "title": "Zweryfikuj swój adres",
       "title_merged": "Wybierz swój dokument"
     },
     "upload": {
@@ -4774,7 +4788,7 @@
       "retake": "Ponów",
       "submit": "Prześlij",
       "subtitle": "Upewnij się, że Twoje dane są wyraźne i niezasłonięte",
-      "title": "Sprawdź obraz"
+      "title": "Sprawdź swoje zdjęcie"
     },
     "selection": {
       "body": "Nagraj ponownie",

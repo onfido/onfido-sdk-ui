@@ -940,7 +940,7 @@
       "photo_of_screen_detail": "Palun kasutage oma algset dokumenti. Ekraanipiltide või fotokoopiate kasutamine ei ole lubatud",
       "photo_of_screen_title": "Ekraanipildi foto tuvastatud",
       "redo": "Tehke uuesti",
-      "title": "Kontrollige oma pilti",
+      "title": "Vaadake oma pilt üle",
       "unsupported_file_detail": "Palun laadige üles oma foto JPG, JPEG, PNG või PDF formaadis. Faili suurus ei tohi ületada 10 MB.",
       "unsupported_file_title": "Faili ei toetata",
       "upload": "Üleslaadimine",
@@ -949,6 +949,7 @@
     },
     "scan": {
       "button_help": "Vajad abi?",
+      "button_help_accessibility": "The Need Help? button is now highlighted. Tap it if you need assistance.",
       "button_manual": "Alusta skaneerimist",
       "feedback": {
         "alignment_center_document": "Aseta dokument keskele",
@@ -1406,6 +1407,8 @@
       "feedback_move_left_accessibility": "Liigutage seadet vasakule",
       "feedback_move_right_accessibility": "Liigutage seadet paremale",
       "feedback_move_up_accessibility": "Liigutage seadet üles",
+      "feedback_multiple_faces_detected": "Tuvastati mitu nägu",
+      "feedback_multiple_faces_detected_accessibility": "Tuvastati mitu nägu. Veenduge, et olete kaamera ees ainus inimene",
       "feedback_no_face_detected": "Nägu ei tuvastatud",
       "feedback_no_face_detected_accessibility": "Nägu ei tuvastatud. Asetage nägu seadme ette",
       "feedback_not_centered": "Nägu pole kaadri keskel",
@@ -1981,6 +1984,7 @@
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
+        "button_help_accessibility": "document.scan.button_help_accessibility",
         "button_manual": "document.scan.button_manual",
         "feedback": {
           "alignment_center_document": "document.scan.feedback.alignment_center_document",
@@ -2333,6 +2337,14 @@
         "button_tertiary": "nfc.pin_entry.optional_button_tertiary",
         "helper_attempts_left": "nfc.pin_entry.optional_helper_attempts_left",
         "helper_final_attempt": "nfc.pin_entry.optional_helper_final_attempt"
+      },
+      "face_biometrics": {
+        "capture": {
+          "feedback": {
+            "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
+            "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
+          }
+        }
       },
       "generic": {
         "accessibility": {
@@ -3905,6 +3917,8 @@
       "feedback_move_left_accessibility": "Liigutage seadet vasakule",
       "feedback_move_right_accessibility": "Liigutage seadet paremale",
       "feedback_move_up_accessibility": "Liigutage seadet üles",
+      "feedback_multiple_faces_detected": "Tuvastati mitu nägu",
+      "feedback_multiple_faces_detected_accessibility": "Tuvastati mitu nägu. Veenduge, et olete kaamera ees ainus inimene",
       "feedback_no_face_detected": "Nägu ei tuvastatud",
       "feedback_no_face_detected_accessibility": "Nägu ei tuvastatud. Asetage nägu seadme ette",
       "feedback_not_centered": "Nägu pole kaadri keskel",
@@ -4053,12 +4067,12 @@
     },
     "pin_entry": {
       "button_primary": "Jätkake",
-      "helper_attempts_left": "[%i] katset jäänud",
+      "helper_attempts_left": "%d katset jäänud",
       "helper_final_attempt": "1 katse jäänud. Teie kiip blokeeritakse pärast järgmist ebaõnnestunud katset",
       "optional_button_tertiary": "Jäta NFC-kiibiskaneerimine vahele",
-      "optional_helper_attempts_left": "[%i] katset jäänud. Jäta see samm vahele allpool.",
-      "optional_helper_final_attempt": "[%i] katse jäänud enne NFC-kibi blokeerimist. Jäta see samm vahele allpool.",
-      "subtitle": "See on vajalik NFC-kibi turvaliseks lugemiseks. Lõite selle [%i]-kohalise numbri, kui teie dokument väljastati.",
+      "optional_helper_attempts_left": "%d katset jäänud. Jäta see samm vahele allpool.",
+      "optional_helper_final_attempt": "%d katse jäänud enne NFC-kibi blokeerimist. Jäta see samm vahele allpool.",
+      "subtitle": "See on vajalik NFC-kibi turvaliseks lugemiseks. Lõite selle %d-kohalise numbri, kui teie dokument väljastati.",
       "title": "Sisestage oma dokumendi PIN-kood",
       "title_incorrect": "Vale PIN-kood"
     },
@@ -4081,7 +4095,7 @@
         "document": "Kui kiip on tuvastatud, hoidke oma telefoni ja dokumenti paigal.",
         "passport": "Kui kiip on tuvastatud, hoidke oma telefoni ja passi paigal."
       },
-      "pin_disclaimer": "Enne kiibilt lugemist küsime teie dokumendi [%i]-kohalist PIN-koodi.",
+      "pin_disclaimer": "Enne kiibilt lugemist küsime teie dokumendi %d-kohalist PIN-koodi.",
       "title_document": "Skaneeri oma dokument",
       "title_passport": "Skaneerige oma passi kiip",
       "video_instruction_accessibility": "Video juhend"
@@ -4546,24 +4560,24 @@
       "blur_detail": "Veenduge, et kõik on selge",
       "blur_title": "Tuvastati hägune foto",
       "body": "Veenduge, et teie andmed on selged ja katmata",
-      "body_accommodation_tenancy_certificate": "Veenduge, et olete üles laadinud kogu dokumendi lehekülje ja detailid on selgelt loetavad ilma udususe või helenduseta",
-      "body_address_card": "Veenduge, et olete üles laadinud kogu dokumendi lehekülje ja detailid on selgelt loetavad ilma udususe või helenduseta",
-      "body_address_certificate": "Veenduge, et olete üles laadinud kogu dokumendi lehekülje ja detailid on selgelt loetavad ilma udususe või helenduseta",
-      "body_bank_building_society_statement": "Veenduge, et olete kogu dokumendi lehe üles laadinud ja andmed on loetavad ning ei ole hägused ega ülevalgustatud",
-      "body_bank_statement": "Veenduge, et olete kogu dokumendi lehe üles laadinud ja andmed on loetavad ning ei ole hägused ega ülevalgustatud",
-      "body_benefit_letters": "Veenduge, et olete kogu dokumendi lehe üles laadinud ja andmed on loetavad ning ei ole hägused ega ülevalgustatud",
-      "body_bill": "Veenduge, et olete kogu dokumendi lehe üles laadinud ja andmed on loetavad ning ei ole hägused ega ülevalgustatud",
-      "body_council_tax": "Veenduge, et olete kogu dokumendi lehe üles laadinud ja andmed on loetavad ning ei ole hägused ega ülevalgustatud",
-      "body_exchange_house_statement": "Veenduge, et olete üles laadinud kogu dokumendi lehekülje ja detailid on selgelt loetavad ilma udususe või helenduseta",
-      "body_general_letter": "Veenduge, et olete üles laadinud kogu dokumendi lehekülje ja detailid on selgelt loetavad ilma udususe või helenduseta",
+      "body_accommodation_tenancy_certificate": "Veenduge, et olete üles laaditud kogu dokumendi lehekülje ning üksikasjad on selgelt loetavad, ilma hägususe või peegelduseta.",
+      "body_address_card": "Veenduge, et olete üles laaditud kogu dokumendi lehekülje ning üksikasjad on selgelt loetavad, ilma hägususe või peegelduseta.",
+      "body_address_certificate": "Veenduge, et olete üles laaditud kogu dokumendi lehekülje ning üksikasjad on selgelt loetavad, ilma hägususe või peegelduseta.",
+      "body_bank_building_society_statement": "Veendu, et kogu dokument on näha ja kõik üksikasjad on selged, ilma ähmasuse või pimestuseta",
+      "body_bank_statement": "Veendu, et kogu dokument on näha ja kõik üksikasjad on selged, ilma ähmasuse või pimestuseta",
+      "body_benefit_letters": "Veendu, et kogu dokument on näha ja kõik üksikasjad on selged, ilma ähmasuse või pimestuseta",
+      "body_bill": "Veendu, et kogu dokument on näha ja kõik üksikasjad on selged, ilma ähmasuse või pimestuseta",
+      "body_council_tax": "Veendu, et kogu dokument on näha ja kõik üksikasjad on selged, ilma ähmasuse või pimestuseta",
+      "body_exchange_house_statement": "Veenduge, et olete üles laaditud kogu dokumendi lehekülje ning üksikasjad on selgelt loetavad, ilma hägususe või peegelduseta.",
+      "body_general_letter": "Veenduge, et olete üles laaditud kogu dokumendi lehekülje ning üksikasjad on selgelt loetavad, ilma hägususe või peegelduseta.",
       "body_government_letter": "Parima tulemuse saamiseks esitage kogu dokumendileht",
-      "body_identity_document_with_address": "Veenduge, et olete üles laadinud kogu dokumendi lehekülje ja detailid on selgelt loetavad ilma udususe või helenduseta",
-      "body_insurance_statement": "Veenduge, et olete üles laadinud kogu dokumendi lehekülje ja detailid on selgelt loetavad ilma udususe või helenduseta",
-      "body_mobile_phone_bill": "Veenduge, et olete üles laadinud kogu dokumendi lehekülje ja detailid on selgelt loetavad ilma udususe või helenduseta",
-      "body_mortgage_statement": "Veenduge, et olete üles laadinud kogu dokumendi lehekülje ja detailid on selgelt loetavad ilma udususe või helenduseta",
-      "body_pension_property_statement_letter": "Veenduge, et olete üles laadinud kogu dokumendi lehe ja detailid on selgelt loetavad ilma udususe või helenduseta",
-      "body_tax_letter": "Veenduge, et olete kogu dokumendi lehe üles laadinud ja andmed on loetavad ning ei ole hägused ega ülevalgustatud",
-      "body_utility_bill": "Veenduge, et olete kogu dokumendi lehe üles laadinud ja andmed on loetavad ning ei ole hägused ega ülevalgustatud",
+      "body_identity_document_with_address": "Veenduge, et olete üles laaditud kogu dokumendi lehekülje ning üksikasjad on selgelt loetavad, ilma hägususe või peegelduseta.",
+      "body_insurance_statement": "Veenduge, et olete üles laaditud kogu dokumendi lehekülje ning üksikasjad on selgelt loetavad, ilma hägususe või peegelduseta.",
+      "body_mobile_phone_bill": "Veenduge, et olete üles laaditud kogu dokumendi lehekülje ning üksikasjad on selgelt loetavad, ilma hägususe või peegelduseta.",
+      "body_mortgage_statement": "Veenduge, et olete üles laaditud kogu dokumendi lehekülje ning üksikasjad on selgelt loetavad, ilma hägususe või peegelduseta.",
+      "body_pension_property_statement_letter": "Veenduge, et olete üles laaditud kogu dokumendi lehekülje ning üksikasjad on selgelt loetavad, ilma hägususe või peegelduseta.",
+      "body_tax_letter": "Veendu, et kogu dokument on näha ja kõik üksikasjad on selged, ilma ähmasuse või pimestuseta",
+      "body_utility_bill": "Veendu, et kogu dokument on näha ja kõik üksikasjad on selged, ilma ähmasuse või pimestuseta",
       "close": "Sulgege",
       "crop_detail": "Veenduge, et kogu dokument on nähtav",
       "crop_title": "Tuvastati kärbitud pilt",
@@ -4577,7 +4591,7 @@
       "no_doc_detail": "Veenduge, et fotol on kogu dokument",
       "no_doc_title": "Dokumenti ei tuvastatud",
       "redo": "Tehke uuesti",
-      "title": "Kontrollige oma pilti",
+      "title": "Vaadake oma pilt üle",
       "unsupported_file_detail": "Palun laadige üles oma foto JPG, JPEG, PNG või PDF formaadis. Faili suurus ei tohi ületada 10 MB.",
       "unsupported_file_title": "Faili ei toetata",
       "upload": "Üleslaadimine",
@@ -4588,9 +4602,9 @@
       "accessibility": "Dokumendid, mida saate oma isiku kinnitamiseks kasutada",
       "country_header": "Väljastanud riik",
       "doctypes_header": "Sobivad dokumendid",
-      "subtitle": "Need on dokumendid, mis näitavad kõige tõenäolisemalt teie praegust kodust aadressi",
+      "subtitle": "Valige hiljutine dokument, millel on näidatud teie praegune koduaadress",
       "subtitle_merged": "Valige väljastanud riik, et näha, millised dokumendid sobivad",
-      "title": "Valige dokument",
+      "title": "Kinnitage oma aadress",
       "title_merged": "Valige dokument"
     },
     "upload": {
@@ -4774,7 +4788,7 @@
       "retake": "Tehke uuesti",
       "submit": "Üleslaadimine",
       "subtitle": "Veenduge, et teie andmed on selged ja katmata",
-      "title": "Kontrollige oma pilti"
+      "title": "Vaadake oma pilt üle"
     },
     "selection": {
       "body": "Alustage salvestamist uuesti",

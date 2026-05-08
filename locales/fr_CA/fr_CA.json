@@ -949,6 +949,7 @@
     },
     "scan": {
       "button_help": "Besoin d'aide ?",
+      "button_help_accessibility": "The Need Help? button is now highlighted. Tap it if you need assistance.",
       "button_manual": "Commencer la numérisation",
       "feedback": {
         "alignment_center_document": "Centrez le document",
@@ -1406,6 +1407,8 @@
       "feedback_move_left_accessibility": "Déplacez votre appareil vers la gauche",
       "feedback_move_right_accessibility": "Déplacez votre appareil vers la droite",
       "feedback_move_up_accessibility": "Déplacez votre appareil vers le haut",
+      "feedback_multiple_faces_detected": "Plusieurs visages détectés",
+      "feedback_multiple_faces_detected_accessibility": "Plusieurs visages détectés. Assurez-vous d'être la seule personne devant la caméra",
       "feedback_no_face_detected": "Aucun visage détecté",
       "feedback_no_face_detected_accessibility": "Aucun visage détecté. Placez votre visage devant votre appareil",
       "feedback_not_centered": "Visage non centré",
@@ -1981,6 +1984,7 @@
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
+        "button_help_accessibility": "document.scan.button_help_accessibility",
         "button_manual": "document.scan.button_manual",
         "feedback": {
           "alignment_center_document": "document.scan.feedback.alignment_center_document",
@@ -2333,6 +2337,14 @@
         "button_tertiary": "nfc.pin_entry.optional_button_tertiary",
         "helper_attempts_left": "nfc.pin_entry.optional_helper_attempts_left",
         "helper_final_attempt": "nfc.pin_entry.optional_helper_final_attempt"
+      },
+      "face_biometrics": {
+        "capture": {
+          "feedback": {
+            "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
+            "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
+          }
+        }
       },
       "generic": {
         "accessibility": {
@@ -3905,6 +3917,8 @@
       "feedback_move_left_accessibility": "Déplacez votre appareil vers la gauche",
       "feedback_move_right_accessibility": "Déplacez votre appareil vers la droite",
       "feedback_move_up_accessibility": "Déplacez votre appareil vers le haut",
+      "feedback_multiple_faces_detected": "Plusieurs visages détectés",
+      "feedback_multiple_faces_detected_accessibility": "Plusieurs visages détectés. Assurez-vous d'être la seule personne devant la caméra",
       "feedback_no_face_detected": "Aucun visage détecté",
       "feedback_no_face_detected_accessibility": "Aucun visage détecté. Placez votre visage devant votre appareil",
       "feedback_not_centered": "Visage non centré",
@@ -4053,12 +4067,12 @@
     },
     "pin_entry": {
       "button_primary": "Continuer",
-      "helper_attempts_left": "[%i] tentatives restantes",
+      "helper_attempts_left": "%d tentatives restantes",
       "helper_final_attempt": "Il reste 1 tentative. Votre puce sera bloquée après le prochain échec",
       "optional_button_tertiary": "Ignorer la lecture de la puce NFC",
-      "optional_helper_attempts_left": "[%i] tentatives restantes. Passez cette étape ci-dessous.",
-      "optional_helper_final_attempt": "[%i] tentative restante avant que votre puce NFC soit bloquée. Passez cette étape ci-dessous.",
-      "subtitle": "Ceci est nécessaire pour lire de manière sécurisée la puce NFC. Vous avez créé ce nombre à [%i] chiffres lors de l'émission de votre document.",
+      "optional_helper_attempts_left": "%d tentatives restantes. Passez cette étape ci-dessous.",
+      "optional_helper_final_attempt": "%d tentative restante avant que votre puce NFC soit bloquée. Passez cette étape ci-dessous.",
+      "subtitle": "Ceci est nécessaire pour lire de manière sécurisée la puce NFC. Vous avez créé ce nombre à %d chiffres lors de l'émission de votre document.",
       "title": "Entrez le NIP de votre document",
       "title_incorrect": "NIP incorrect"
     },
@@ -4081,7 +4095,7 @@
         "document": "Une fois la puce détectée, gardez votre téléphone et votre document immobiles.",
         "passport": "Une fois la puce détectée, gardez votre téléphone et votre passeport immobiles."
       },
-      "pin_disclaimer": "Nous vous demanderons le NIP à [%i] chiffres de votre document avant de numériser la puce.",
+      "pin_disclaimer": "Nous vous demanderons le NIP à %d chiffres de votre document avant de numériser la puce.",
       "title_document": "Numérisez votre document",
       "title_passport": "Scannez la puce de votre passeport",
       "video_instruction_accessibility": "Instruction vidéo"
@@ -4546,24 +4560,24 @@
       "blur_detail": "Assurez-vous que tout est clair",
       "blur_title": "Photo floue détectée",
       "body": "Assurez-vous que vos coordonnées sont claires et dégagées",
-      "body_accommodation_tenancy_certificate": "Assurez-vous d'avoir téléchargé la totalité de la page du document, et que les détails sont clairs à lire sans flou ou éblouissement",
-      "body_address_card": "Assurez-vous d'avoir téléchargé la totalité de la page du document, et que les détails sont clairs à lire sans flou ou éblouissement",
-      "body_address_certificate": "Assurez-vous d'avoir téléchargé la totalité de la page du document, et que les détails sont clairs à lire sans flou ou éblouissement",
-      "body_bank_building_society_statement": "Assurez-vous que vous avez téléversé la page entière du document et que les détails sont lisibles, sans flou ni reflet",
-      "body_bank_statement": "Assurez-vous que vous avez téléversé la page entière du document et que les détails sont lisibles, sans flou ni reflet",
-      "body_benefit_letters": "Assurez-vous que vous avez téléversé la page entière du document et que les détails sont lisibles, sans flou ni reflet",
-      "body_bill": "Assurez-vous que vous avez téléversé la page entière du document et que les détails sont lisibles, sans flou ni reflet",
-      "body_council_tax": "Assurez-vous que vous avez téléversé la page entière du document et que les détails sont lisibles, sans flou ni reflet",
-      "body_exchange_house_statement": "Assurez-vous d'avoir téléchargé la totalité de la page du document, et que les détails sont clairs à lire sans flou ou éblouissement",
-      "body_general_letter": "Assurez-vous d'avoir téléchargé la totalité de la page du document, et que les détails sont clairs à lire sans flou ou éblouissement",
+      "body_accommodation_tenancy_certificate": "Assurez-vous que le document est entièrement visible et que tous les détails sont clairs, sans flou ni reflet",
+      "body_address_card": "Assurez-vous que le document est entièrement visible et que tous les détails sont clairs, sans flou ni reflet",
+      "body_address_certificate": "Assurez-vous que le document est entièrement visible et que tous les détails sont clairs, sans flou ni reflet",
+      "body_bank_building_society_statement": "Assurez-vous que le document est entièrement visible et que tous les détails sont clairs, sans flou ni reflet",
+      "body_bank_statement": "Assurez-vous que le document est entièrement visible et que tous les détails sont clairs, sans flou ni reflet",
+      "body_benefit_letters": "Assurez-vous que le document est entièrement visible et que tous les détails sont clairs, sans flou ni reflet",
+      "body_bill": "Assurez-vous que le document est entièrement visible et que tous les détails sont clairs, sans flou ni reflet",
+      "body_council_tax": "Assurez-vous que le document est entièrement visible et que tous les détails sont clairs, sans flou ni reflet",
+      "body_exchange_house_statement": "Assurez-vous que le document est entièrement visible et que tous les détails sont clairs, sans flou ni reflet",
+      "body_general_letter": "Assurez-vous que le document est entièrement visible et que tous les détails sont clairs, sans flou ni reflet",
       "body_government_letter": "Fournir l'intégralité de la page du document pour de meilleurs résultats",
-      "body_identity_document_with_address": "Assurez-vous d'avoir téléchargé la totalité de la page du document, et que les détails sont clairs à lire sans flou ou éblouissement",
-      "body_insurance_statement": "Assurez-vous d'avoir téléchargé la totalité de la page du document, et que les détails sont clairs à lire sans flou ou éblouissement",
-      "body_mobile_phone_bill": "Assurez-vous d'avoir téléchargé la totalité de la page du document, et que les détails sont clairs à lire sans flou ou éblouissement",
-      "body_mortgage_statement": "Assurez-vous d'avoir téléchargé la totalité de la page du document, et que les détails sont clairs à lire sans flou ou éblouissement",
-      "body_pension_property_statement_letter": "Assurez-vous d'avoir téléchargé la totalité de la page du document, et que les détails sont clairs à lire sans flou ou éblouissement",
-      "body_tax_letter": "Assurez-vous que vous avez téléversé la page entière du document et que les détails sont lisibles, sans flou ni reflet",
-      "body_utility_bill": "Assurez-vous que vous avez téléversé la page entière du document et que les détails sont lisibles, sans flou ni reflet",
+      "body_identity_document_with_address": "Assurez-vous que le document est entièrement visible et que tous les détails sont clairs, sans flou ni reflet",
+      "body_insurance_statement": "Assurez-vous que le document est entièrement visible et que tous les détails sont clairs, sans flou ni reflet",
+      "body_mobile_phone_bill": "Assurez-vous que le document est entièrement visible et que tous les détails sont clairs, sans flou ni reflet",
+      "body_mortgage_statement": "Assurez-vous que le document est entièrement visible et que tous les détails sont clairs, sans flou ni reflet",
+      "body_pension_property_statement_letter": "Assurez-vous que le document est entièrement visible et que tous les détails sont clairs, sans flou ni reflet",
+      "body_tax_letter": "Assurez-vous que le document est entièrement visible et que tous les détails sont clairs, sans flou ni reflet",
+      "body_utility_bill": "Assurez-vous que le document est entièrement visible et que tous les détails sont clairs, sans flou ni reflet",
       "close": "Fermer",
       "crop_detail": "Assurez-vous que le document complet est visible",
       "crop_title": "Image coupée détectée",
@@ -4588,9 +4602,9 @@
       "accessibility": "Documents que vous pouvez utiliser pour vérifier votre identité",
       "country_header": "Pays émetteur",
       "doctypes_header": "Documents acceptés",
-      "subtitle": "Ce sont les documents les plus susceptibles d'indiquer l'adresse de votre domicile actuel",
+      "subtitle": "Choisissez un document récent indiquant votre adresse domiciliaire actuelle",
       "subtitle_merged": "Sélectionnez le pays d'émission pour voir quels documents nous acceptons",
-      "title": "Choisissez un document",
+      "title": "Vérifiez votre adresse",
       "title_merged": "Choisir votre document"
     },
     "upload": {

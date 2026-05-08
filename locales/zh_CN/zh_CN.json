@@ -940,7 +940,7 @@
       "photo_of_screen_detail": "请使用您的原始文件。屏幕照片或复印件将不被接受",
       "photo_of_screen_title": "检测到屏幕照片",
       "redo": "重做",
-      "title": "查看您的图像",
+      "title": "检查您的图片",
       "unsupported_file_detail": "请上传JPG、JPEG、PNG或PDF格式的照片。文件大小不得超过10MB。",
       "unsupported_file_title": "文件格式不支持",
       "upload": "上传",
@@ -949,6 +949,7 @@
     },
     "scan": {
       "button_help": "需要帮助吗？",
+      "button_help_accessibility": "The Need Help? button is now highlighted. Tap it if you need assistance.",
       "button_manual": "开始扫描",
       "feedback": {
         "alignment_center_document": "居中放置证件",
@@ -1406,6 +1407,8 @@
       "feedback_move_left_accessibility": "将设备向左移动",
       "feedback_move_right_accessibility": "将设备向右移动",
       "feedback_move_up_accessibility": "将设备向上移动",
+      "feedback_multiple_faces_detected": "检测到多张人脸",
+      "feedback_multiple_faces_detected_accessibility": "检测到多张人脸。请确保您是镜头前唯一的人",
       "feedback_no_face_detected": "未检测到面部",
       "feedback_no_face_detected_accessibility": "未检测到面部。将面部放在设备前方",
       "feedback_not_centered": "面部未居中",
@@ -1981,6 +1984,7 @@
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
+        "button_help_accessibility": "document.scan.button_help_accessibility",
         "button_manual": "document.scan.button_manual",
         "feedback": {
           "alignment_center_document": "document.scan.feedback.alignment_center_document",
@@ -2333,6 +2337,14 @@
         "button_tertiary": "nfc.pin_entry.optional_button_tertiary",
         "helper_attempts_left": "nfc.pin_entry.optional_helper_attempts_left",
         "helper_final_attempt": "nfc.pin_entry.optional_helper_final_attempt"
+      },
+      "face_biometrics": {
+        "capture": {
+          "feedback": {
+            "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
+            "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
+          }
+        }
       },
       "generic": {
         "accessibility": {
@@ -3905,6 +3917,8 @@
       "feedback_move_left_accessibility": "将设备向左移动",
       "feedback_move_right_accessibility": "将设备向右移动",
       "feedback_move_up_accessibility": "将设备向上移动",
+      "feedback_multiple_faces_detected": "检测到多张人脸",
+      "feedback_multiple_faces_detected_accessibility": "检测到多张人脸。请确保您是镜头前唯一的人",
       "feedback_no_face_detected": "未检测到面部",
       "feedback_no_face_detected_accessibility": "未检测到面部。将面部放在设备前方",
       "feedback_not_centered": "面部未居中",
@@ -4053,12 +4067,12 @@
     },
     "pin_entry": {
       "button_primary": "继续",
-      "helper_attempts_left": "剩余 [%i] 次尝试机会",
+      "helper_attempts_left": "剩余 %d 次尝试机会",
       "helper_final_attempt": "剩余 1 次尝试机会。下次尝试失败后,您的芯片将被锁定",
       "optional_button_tertiary": "跳过NFC芯片扫描",
-      "optional_helper_attempts_left": "[%i] 次尝试机会剩余。在下方跳过此步骤。",
-      "optional_helper_final_attempt": "[%i] 次尝试机会后,您的 NFC 芯片将被锁定。请在下方跳过此步骤。",
-      "subtitle": "这是安全读取NFC芯片所必需的。您在签发文件时创建了这个[%i]位数字。",
+      "optional_helper_attempts_left": "%d 次尝试机会剩余。在下方跳过此步骤。",
+      "optional_helper_final_attempt": "%d 次尝试机会后,您的 NFC 芯片将被锁定。请在下方跳过此步骤。",
+      "subtitle": "这是安全读取NFC芯片所必需的。您在签发文件时创建了这个%d位数字。",
       "title": "输入您的证件PIN码",
       "title_incorrect": "PIN码错误"
     },
@@ -4081,7 +4095,7 @@
         "document": "一旦检测到芯片，请保持手机和身份证件不动。",
         "passport": "一旦检测到芯片，保持手机和护照静止不动。"
       },
-      "pin_disclaimer": "我们将在扫描芯片之前要求您提供文件的 [%i] 位 PIN 码。",
+      "pin_disclaimer": "我们将在扫描芯片之前要求您提供文件的 %d 位 PIN 码。",
       "title_document": "扫描您的文档",
       "title_passport": "扫描您护照的芯片",
       "video_instruction_accessibility": "视频教程"
@@ -4546,24 +4560,24 @@
       "blur_detail": "请确保一切都清晰",
       "blur_title": "检测到模糊照片",
       "body": "请确保您的细节清晰且未受遮挡",
-      "body_accommodation_tenancy_certificate": "确保您已上传整个文档页面，并且细节清晰可读，没有模糊或眩光",
-      "body_address_card": "确保您已上传整个文档页面，并且细节清晰可读，没有模糊或眩光",
-      "body_address_certificate": "确保您已上传整个文档页面，并且细节清晰可读，没有模糊或眩光",
-      "body_bank_building_society_statement": "请确保您已上传整个证明文件页面，且细节清晰可辨，无模糊或眩光",
-      "body_bank_statement": "请确保您已上传整个证明文件页面，且细节清晰可辨，无模糊或眩光",
-      "body_benefit_letters": "请确保您已上传整个证明文件页面，且细节清晰可辨，无模糊或眩光",
-      "body_bill": "请确保您已上传整个证明文件页面，且细节清晰可辨，无模糊或眩光",
-      "body_council_tax": "请确保您已上传整个证明文件页面，且细节清晰可辨，无模糊或眩光",
-      "body_exchange_house_statement": "确保您已上传整个文档页面，并且细节清晰可读，没有模糊或眩光",
-      "body_general_letter": "确保您已上传整个文档页面，并且细节清晰可读，没有模糊或眩光",
+      "body_accommodation_tenancy_certificate": "请确保您已上传完整的文件页面，且详细信息清晰可读，无模糊或反光",
+      "body_address_card": "请确保您已上传完整的文件页面，且详细信息清晰可读，无模糊或反光",
+      "body_address_certificate": "请确保您已上传完整的文件页面，且详细信息清晰可读，无模糊或反光",
+      "body_bank_building_society_statement": "请确保整个文件完整可见，且所有信息清晰可读，没有模糊或反光",
+      "body_bank_statement": "请确保整个文件完整可见，且所有信息清晰可读，没有模糊或反光",
+      "body_benefit_letters": "请确保整个文件完整可见，且所有信息清晰可读，没有模糊或反光",
+      "body_bill": "请确保整个文件完整可见，且所有信息清晰可读，没有模糊或反光",
+      "body_council_tax": "请确保整个文件完整可见，且所有信息清晰可读，没有模糊或反光",
+      "body_exchange_house_statement": "请确保您已上传完整的文件页面，且详细信息清晰可读，无模糊或反光",
+      "body_general_letter": "请确保您已上传完整的文件页面，且详细信息清晰可读，无模糊或反光",
       "body_government_letter": "提供整个证明文件页面以获得最佳结果",
-      "body_identity_document_with_address": "确保您已上传整个文档页面，并且细节清晰可读，没有模糊或眩光",
-      "body_insurance_statement": "确保您已上传整个文档页面，并且细节清晰可读，没有模糊或眩光",
-      "body_mobile_phone_bill": "确保您已上传整个文档页面，并且细节清晰可读，没有模糊或眩光",
-      "body_mortgage_statement": "确保您已上传整个文档页面，并且细节清晰可读，没有模糊或眩光",
-      "body_pension_property_statement_letter": "确保您已上传整个文档页面，并且细节清晰可读，没有模糊或眩光",
-      "body_tax_letter": "请确保您已上传整个证明文件页面，且细节清晰可辨，无模糊或眩光",
-      "body_utility_bill": "请确保您已上传整个证明文件页面，且细节清晰可辨，无模糊或眩光",
+      "body_identity_document_with_address": "请确保您已上传完整的文件页面，且详细信息清晰可读，无模糊或反光",
+      "body_insurance_statement": "请确保您已上传完整的文件页面，且详细信息清晰可读，无模糊或反光",
+      "body_mobile_phone_bill": "请确保您已上传完整的文件页面，且详细信息清晰可读，无模糊或反光",
+      "body_mortgage_statement": "请确保您已上传完整的文件页面，且详细信息清晰可读，无模糊或反光",
+      "body_pension_property_statement_letter": "请确保您已上传完整的文件页面，且详细信息清晰可读，无模糊或反光",
+      "body_tax_letter": "请确保整个文件完整可见，且所有信息清晰可读，没有模糊或反光",
+      "body_utility_bill": "请确保整个文件完整可见，且所有信息清晰可读，没有模糊或反光",
       "close": "关闭",
       "crop_detail": "确保证明文件完整可见",
       "crop_title": "检测到经裁剪的图像",
@@ -4577,7 +4591,7 @@
       "no_doc_detail": "请确保照片中包含了所有证明文件",
       "no_doc_title": "未检测到证明文件",
       "redo": "重做",
-      "title": "查看您的图像",
+      "title": "检查您的图片",
       "unsupported_file_detail": "请上传JPG、JPEG、PNG或PDF格式的照片。文件大小不得超过10MB。",
       "unsupported_file_title": "文件格式不支持",
       "upload": "上传",
@@ -4588,9 +4602,9 @@
       "accessibility": "可用于验证身份的证明文件",
       "country_header": "签发国家/地区",
       "doctypes_header": "可接受的证明文件",
-      "subtitle": "这些证明文件最有可能显示您当前的家庭地址",
+      "subtitle": "请选择一份近期文件，该文件须显示您当前的家庭住址",
       "subtitle_merged": "选择签发国家/地区以查看我们接受的证明文件",
-      "title": "选择一个文档",
+      "title": "验证您的地址",
       "title_merged": "选择您的证明文件"
     },
     "upload": {
@@ -4774,7 +4788,7 @@
       "retake": "重做",
       "submit": "上传",
       "subtitle": "请确保您的细节清晰且未受遮挡",
-      "title": "查看您的图像"
+      "title": "检查您的图片"
     },
     "selection": {
       "body": "重新开始录制",

@@ -940,7 +940,7 @@
       "photo_of_screen_detail": "Brug venligst dit originale dokument. Fotos af skærm eller fotokopier accepteres ikke",
       "photo_of_screen_title": "Foto af skærm registreret",
       "redo": "Tag om",
-      "title": "Tjek dit billede",
+      "title": "Gennemgå dit billede",
       "unsupported_file_detail": "Upload venligst dit foto i JPG, JPEG, PNG eller PDF-format. Filstørrelsen må ikke overstige 10MB.",
       "unsupported_file_title": "Fil understøttes ikke",
       "upload": "Upload",
@@ -949,6 +949,7 @@
     },
     "scan": {
       "button_help": "Brug for hjælp?",
+      "button_help_accessibility": "The Need Help? button is now highlighted. Tap it if you need assistance.",
       "button_manual": "Start scanning",
       "feedback": {
         "alignment_center_document": "Centrér dokumentet",
@@ -1406,6 +1407,8 @@
       "feedback_move_left_accessibility": "Flyt din enhed til venstre",
       "feedback_move_right_accessibility": "Flyt din enhed til højre",
       "feedback_move_up_accessibility": "Flyt din enhed opad",
+      "feedback_multiple_faces_detected": "Flere ansigter registreret",
+      "feedback_multiple_faces_detected_accessibility": "Flere ansigter registreret. Sørg for, at du er den eneste person foran kameraet",
       "feedback_no_face_detected": "Ansigtet er ikke detekteret",
       "feedback_no_face_detected_accessibility": "Ansigtet er ikke detekteret. Placer dit ansigt foran enheden",
       "feedback_not_centered": "Ansigtet er ikke centreret",
@@ -1981,6 +1984,7 @@
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
+        "button_help_accessibility": "document.scan.button_help_accessibility",
         "button_manual": "document.scan.button_manual",
         "feedback": {
           "alignment_center_document": "document.scan.feedback.alignment_center_document",
@@ -2333,6 +2337,14 @@
         "button_tertiary": "nfc.pin_entry.optional_button_tertiary",
         "helper_attempts_left": "nfc.pin_entry.optional_helper_attempts_left",
         "helper_final_attempt": "nfc.pin_entry.optional_helper_final_attempt"
+      },
+      "face_biometrics": {
+        "capture": {
+          "feedback": {
+            "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
+            "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
+          }
+        }
       },
       "generic": {
         "accessibility": {
@@ -3905,6 +3917,8 @@
       "feedback_move_left_accessibility": "Flyt din enhed til venstre",
       "feedback_move_right_accessibility": "Flyt din enhed til højre",
       "feedback_move_up_accessibility": "Flyt din enhed opad",
+      "feedback_multiple_faces_detected": "Flere ansigter registreret",
+      "feedback_multiple_faces_detected_accessibility": "Flere ansigter registreret. Sørg for, at du er den eneste person foran kameraet",
       "feedback_no_face_detected": "Ansigtet er ikke detekteret",
       "feedback_no_face_detected_accessibility": "Ansigtet er ikke detekteret. Placer dit ansigt foran enheden",
       "feedback_not_centered": "Ansigtet er ikke centreret",
@@ -4053,12 +4067,12 @@
     },
     "pin_entry": {
       "button_primary": "Fortsæt",
-      "helper_attempts_left": "[%i] forsøg tilbage",
+      "helper_attempts_left": "%d forsøg tilbage",
       "helper_final_attempt": "1 forsøg tilbage. Din chip vil blive blokeret efter det næste mislykkede forsøg",
       "optional_button_tertiary": "Spring NFC-chipscanning over",
-      "optional_helper_attempts_left": "[%i] forsøg tilbage. Spring dette trin over nedenfor.",
-      "optional_helper_final_attempt": "[%i] forsøg tilbage, før din NFC-chip blokeres. Spring dette trin over nedenfor.",
-      "subtitle": "Dette er nødvendigt for sikkert at læse NFC-chippen. Du oprettede dette [%i]-cifrede nummer, da dit dokument blev udstedt.",
+      "optional_helper_attempts_left": "%d forsøg tilbage. Spring dette trin over nedenfor.",
+      "optional_helper_final_attempt": "%d forsøg tilbage, før din NFC-chip blokeres. Spring dette trin over nedenfor.",
+      "subtitle": "Dette er nødvendigt for sikkert at læse NFC-chippen. Du oprettede dette %d-cifrede nummer, da dit dokument blev udstedt.",
       "title": "Indtast din dokument-PIN",
       "title_incorrect": "Forkert pinkode"
     },
@@ -4081,7 +4095,7 @@
         "document": "Når chippen er registreret, skal du holde din telefon og dokumentet stille.",
         "passport": "Når chippen er registreret, skal du holde din telefon og dit pas stille."
       },
-      "pin_disclaimer": "Vi beder dig om din dokuments [%i]-cifrede pinkode, før vi scanner chippen.",
+      "pin_disclaimer": "Vi beder dig om din dokuments %d-cifrede pinkode, før vi scanner chippen.",
       "title_document": "Scan dit dokument",
       "title_passport": "Scan chippen i dit pas",
       "video_instruction_accessibility": "Videovejledning"
@@ -4546,24 +4560,24 @@
       "blur_detail": "Sørg for, at alt fremstår tydeligt",
       "blur_title": "Billedet er sløret",
       "body": "Sørg for, at dine oplysninger er tydelige og ikke er dækket af noget",
-      "body_accommodation_tenancy_certificate": "Sørg for, at du har uploadet hele dokumentets side, og detaljerne er klare til at læse uden sløring eller blænding",
-      "body_address_card": "Sørg for, at du har uploadet hele dokumentets side, og detaljerne er klare til at læse uden sløring eller blænding",
-      "body_address_certificate": "Sørg for, at du har uploadet hele dokumentets side, og detaljerne er klare til at læse uden sløring eller blænding",
-      "body_bank_building_society_statement": "Sørg for, at du har uploadet hele siden af dokumentet, og at oplysningerne fremstår tydelige, uden at de er slørede eller har genskin",
-      "body_bank_statement": "Sørg for, at du har uploadet hele siden af dokumentet, og at oplysningerne fremstår tydelige, uden at de er slørede eller har genskin",
-      "body_benefit_letters": "Sørg for, at du har uploadet hele siden af dokumentet, og at oplysningerne fremstår tydelige, uden at de er slørede eller har genskin",
-      "body_bill": "Sørg for, at du har uploadet hele siden af dokumentet, og at oplysningerne fremstår tydelige, uden at de er slørede eller har genskin",
-      "body_council_tax": "Sørg for, at du har uploadet hele siden af dokumentet, og at oplysningerne fremstår tydelige, uden at de er slørede eller har genskin",
-      "body_exchange_house_statement": "Sørg for, at du har uploadet hele dokumentets side, og detaljerne er klare til at læse uden sløring eller blænding",
-      "body_general_letter": "Sørg for, at du har uploadet hele dokumentets side, og detaljerne er klare til at læse uden sløring eller blænding",
+      "body_accommodation_tenancy_certificate": "Sørg for, at du har uploadet hele dokumentsiden, og at detaljerne er tydelige at læse uden sløring eller genskin",
+      "body_address_card": "Sørg for, at du har uploadet hele dokumentsiden, og at detaljerne er tydelige at læse uden sløring eller genskin",
+      "body_address_certificate": "Sørg for, at du har uploadet hele dokumentsiden, og at detaljerne er tydelige at læse uden sløring eller genskin",
+      "body_bank_building_society_statement": "Sørg for, at hele dokumentet er synligt, og at alle oplysninger er tydelige, uden sløring eller genskin",
+      "body_bank_statement": "Sørg for, at hele dokumentet er synligt, og at alle oplysninger er tydelige, uden sløring eller genskin",
+      "body_benefit_letters": "Sørg for, at hele dokumentet er synligt, og at alle oplysninger er tydelige, uden sløring eller genskin",
+      "body_bill": "Sørg for, at hele dokumentet er synligt, og at alle oplysninger er tydelige, uden sløring eller genskin",
+      "body_council_tax": "Sørg for, at hele dokumentet er synligt, og at alle oplysninger er tydelige, uden sløring eller genskin",
+      "body_exchange_house_statement": "Sørg for, at du har uploadet hele dokumentsiden, og at detaljerne er tydelige at læse uden sløring eller genskin",
+      "body_general_letter": "Sørg for, at du har uploadet hele dokumentsiden, og at detaljerne er tydelige at læse uden sløring eller genskin",
       "body_government_letter": "Hele dokumentets side skal fremgå for at få det bedste resultat",
-      "body_identity_document_with_address": "Sørg for, at du har uploadet hele dokumentets side, og detaljerne er klare til at læse uden sløring eller blænding",
-      "body_insurance_statement": "Sørg for, at du har uploadet hele dokumentets side, og detaljerne er klare til at læse uden sløring eller blænding",
-      "body_mobile_phone_bill": "Sørg for, at du har uploadet hele dokumentets side, og detaljerne er klare til at læse uden sløring eller blænding",
-      "body_mortgage_statement": "Sørg for, at du har uploadet hele dokumentets side, og detaljerne er klare til at læse uden sløring eller blænding",
-      "body_pension_property_statement_letter": "Sørg for, at du har uploadet hele dokumentets side, og detaljerne er klare til at læse uden sløring eller blænding",
-      "body_tax_letter": "Sørg for, at du har uploadet hele siden af dokumentet, og at oplysningerne fremstår tydelige, uden at de er slørede eller har genskin",
-      "body_utility_bill": "Sørg for, at du har uploadet hele siden af dokumentet, og at oplysningerne fremstår tydelige, uden at de er slørede eller har genskin",
+      "body_identity_document_with_address": "Sørg for, at du har uploadet hele dokumentsiden, og at detaljerne er tydelige at læse uden sløring eller genskin",
+      "body_insurance_statement": "Sørg for, at du har uploadet hele dokumentsiden, og at detaljerne er tydelige at læse uden sløring eller genskin",
+      "body_mobile_phone_bill": "Sørg for, at du har uploadet hele dokumentsiden, og at detaljerne er tydelige at læse uden sløring eller genskin",
+      "body_mortgage_statement": "Sørg for, at du har uploadet hele dokumentsiden, og at detaljerne er tydelige at læse uden sløring eller genskin",
+      "body_pension_property_statement_letter": "Sørg for, at du har uploadet hele dokumentsiden, og at detaljerne er tydelige at læse uden sløring eller genskin",
+      "body_tax_letter": "Sørg for, at hele dokumentet er synligt, og at alle oplysninger er tydelige, uden sløring eller genskin",
+      "body_utility_bill": "Sørg for, at hele dokumentet er synligt, og at alle oplysninger er tydelige, uden sløring eller genskin",
       "close": "Luk",
       "crop_detail": "Sørg for, at hele dokumentet er synligt",
       "crop_title": "Beskåret billede er detekteret",
@@ -4577,7 +4591,7 @@
       "no_doc_detail": "Sørg for, at hele dokumentet fremgår af billedet",
       "no_doc_title": "Dokumentet er ikke detekteret",
       "redo": "Tag om",
-      "title": "Tjek dit billede",
+      "title": "Gennemgå dit billede",
       "unsupported_file_detail": "Upload venligst dit foto i JPG, JPEG, PNG eller PDF-format. Filstørrelsen må ikke overstige 10MB.",
       "unsupported_file_title": "Fil understøttes ikke",
       "upload": "Upload",
@@ -4588,9 +4602,9 @@
       "accessibility": "Dokumenter, du kan bruge til at verificere din identitet",
       "country_header": "Udstedelsesland",
       "doctypes_header": "Accepterede dokumenter",
-      "subtitle": "Det er de dokumenter, der med størst sandsynlighed viser din nuværende bopælsadresse",
+      "subtitle": "Vælg et nyere dokument, der viser din nuværende hjemmeadresse",
       "subtitle_merged": "Vælg udstedelsesland for at se, hvilke dokumenter vi accepterer",
-      "title": "Vælg et dokument",
+      "title": "Bekræft din adresse",
       "title_merged": "Vælg dit dokument"
     },
     "upload": {
@@ -4774,7 +4788,7 @@
       "retake": "Tag om",
       "submit": "Upload",
       "subtitle": "Sørg for, at dine oplysninger er tydelige og ikke er dækket af noget",
-      "title": "Tjek dit billede"
+      "title": "Gennemgå dit billede"
     },
     "selection": {
       "body": "Start optagelsen forfra",

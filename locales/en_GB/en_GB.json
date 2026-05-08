@@ -940,7 +940,7 @@
       "photo_of_screen_detail": "Please use your original document. Photos of screen or photocopies are not accepted",
       "photo_of_screen_title": "Photo of screen detected",
       "redo": "Redo",
-      "title": "Check your image",
+      "title": "Review your image",
       "unsupported_file_detail": "Please upload your photo in JPG, JPEG, PNG, or PDF format. The file size must not exceed 10MB.",
       "unsupported_file_title": "File not supported",
       "upload": "Upload",
@@ -949,6 +949,7 @@
     },
     "scan": {
       "button_help": "Need help?",
+      "button_help_accessibility": "The Need Help? button is now highlighted. Tap it if you need assistance.",
       "button_manual": "Start scan",
       "feedback": {
         "alignment_center_document": "Center document",
@@ -1406,6 +1407,8 @@
       "feedback_move_left_accessibility": "Move your device to the left",
       "feedback_move_right_accessibility": "Move your device to the right",
       "feedback_move_up_accessibility": "Move your device up",
+      "feedback_multiple_faces_detected": "Multiple faces detected",
+      "feedback_multiple_faces_detected_accessibility": "Multiple faces detected. Ensure you are the only person in front of the camera",
       "feedback_no_face_detected": "Face not detected",
       "feedback_no_face_detected_accessibility": "Face not detected. Position your face in front of your device",
       "feedback_not_centered": "Face not centred",
@@ -1981,6 +1984,7 @@
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
+        "button_help_accessibility": "document.scan.button_help_accessibility",
         "button_manual": "document.scan.button_manual",
         "feedback": {
           "alignment_center_document": "document.scan.feedback.alignment_center_document",
@@ -2333,6 +2337,14 @@
         "button_tertiary": "nfc.pin_entry.optional_button_tertiary",
         "helper_attempts_left": "nfc.pin_entry.optional_helper_attempts_left",
         "helper_final_attempt": "nfc.pin_entry.optional_helper_final_attempt"
+      },
+      "face_biometrics": {
+        "capture": {
+          "feedback": {
+            "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
+            "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
+          }
+        }
       },
       "generic": {
         "accessibility": {
@@ -3905,6 +3917,8 @@
       "feedback_move_left_accessibility": "Move your device to the left",
       "feedback_move_right_accessibility": "Move your device to the right",
       "feedback_move_up_accessibility": "Move your device up",
+      "feedback_multiple_faces_detected": "Multiple faces detected",
+      "feedback_multiple_faces_detected_accessibility": "Multiple faces detected. Ensure you are the only person in front of the camera",
       "feedback_no_face_detected": "Face not detected",
       "feedback_no_face_detected_accessibility": "Face not detected. Position your face in front of your device",
       "feedback_not_centered": "Face not centred",
@@ -4053,12 +4067,12 @@
     },
     "pin_entry": {
       "button_primary": "Continue",
-      "helper_attempts_left": "[%i] attempts left",
+      "helper_attempts_left": "%d attempts left",
       "helper_final_attempt": "1 attempt left. Your chip will be blocked after the next failed attempt",
       "optional_button_tertiary": "Skip NFC chip scanning",
-      "optional_helper_attempts_left": "[%i] attempts left. Skip this step below.",
-      "optional_helper_final_attempt": "[%i] attempt left before your NFC chip is blocked. Skip this step below.",
-      "subtitle": "This is needed to securely read the NFC chip. You created this [%i]-digit number when your document was issued.",
+      "optional_helper_attempts_left": "%d attempts left. Skip this step below.",
+      "optional_helper_final_attempt": "%d attempt left before your NFC chip is blocked. Skip this step below.",
+      "subtitle": "This is needed to securely read the NFC chip. You created this %d-digit number when your document was issued.",
       "title": "Enter your document PIN",
       "title_incorrect": "Incorrect PIN"
     },
@@ -4081,7 +4095,7 @@
         "document": "Once the chip is detected, keep your phone and document still.",
         "passport": "Once the chip is detected, keep your phone and passport still."
       },
-      "pin_disclaimer": "We'll ask you for your document's [%i]-digit PIN before scanning the chip.",
+      "pin_disclaimer": "We'll ask you for your document's %d-digit PIN before scanning the chip.",
       "title_document": "Scan your document",
       "title_passport": "Scan your passport's chip",
       "video_instruction_accessibility": "Video instruction"
@@ -4546,24 +4560,24 @@
       "blur_detail": "Make sure everything is clear",
       "blur_title": "Blurry photo detected",
       "body": "Make sure your details are clear and unobstructed",
-      "body_accommodation_tenancy_certificate": "Make sure you have uploaded the entire document page, and details are clear to read with no blur or glare",
-      "body_address_card": "Ensure you've uploaded the entire document page, and details are clear to read with no blur or glare",
-      "body_address_certificate": "Ensure you've uploaded the entire document page, and details are clear to read with no blur or glare",
-      "body_bank_building_society_statement": "Make sure you have uploaded the entire document page, and details are clear to read with no blur or glare",
-      "body_bank_statement": "Make sure you have uploaded the entire document page, and details are clear to read with no blur or glare",
-      "body_benefit_letters": "Make sure you have uploaded the entire document page, and details are clear to read with no blur or glare",
-      "body_bill": "Make sure you have uploaded the entire document page, and details are clear to read with no blur or glare",
-      "body_council_tax": "Make sure you have uploaded the entire document page, and details are clear to read with no blur or glare",
-      "body_exchange_house_statement": "Ensure you've uploaded the entire document page, and details are clear to read with no blur or glare",
-      "body_general_letter": "Ensure you've uploaded the entire document page, and details are clear to read with no blur or glare",
+      "body_accommodation_tenancy_certificate": "Make sure the entire document is visible and all details are clear, with no blur or glare",
+      "body_address_card": "Make sure the entire document is visible and all details are clear, with no blur or glare",
+      "body_address_certificate": "Make sure the entire document is visible and all details are clear, with no blur or glare",
+      "body_bank_building_society_statement": "Make sure the entire document is visible and all details are clear, with no blur or glare",
+      "body_bank_statement": "Make sure the entire document is visible and all details are clear, with no blur or glare",
+      "body_benefit_letters": "Make sure the entire document is visible and all details are clear, with no blur or glare",
+      "body_bill": "Make sure the entire document is visible and all details are clear, with no blur or glare",
+      "body_council_tax": "Make sure the entire document is visible and all details are clear, with no blur or glare",
+      "body_exchange_house_statement": "Make sure the entire document is visible and all details are clear, with no blur or glare",
+      "body_general_letter": "Make sure the entire document is visible and all details are clear, with no blur or glare",
       "body_government_letter": "Provide the whole document page for best results",
-      "body_identity_document_with_address": "Ensure you've uploaded the entire document page, and details are clear to read with no blur or glare",
-      "body_insurance_statement": "Ensure you've uploaded the entire document page, and details are clear to read with no blur or glare",
-      "body_mobile_phone_bill": "Ensure you've uploaded the entire document page, and details are clear to read with no blur or glare",
-      "body_mortgage_statement": "Ensure you've uploaded the entire document page, and details are clear to read with no blur or glare",
-      "body_pension_property_statement_letter": "Ensure you've uploaded the entire document page, and details are clear to read with no blur or glare",
-      "body_tax_letter": "Make sure you have uploaded the entire document page, and details are clear to read with no blur or glare",
-      "body_utility_bill": "Make sure you have uploaded the entire document page, and details are clear to read with no blur or glare",
+      "body_identity_document_with_address": "Make sure the entire document is visible and all details are clear, with no blur or glare",
+      "body_insurance_statement": "Make sure the entire document is visible and all details are clear, with no blur or glare",
+      "body_mobile_phone_bill": "Make sure the entire document is visible and all details are clear, with no blur or glare",
+      "body_mortgage_statement": "Make sure the entire document is visible and all details are clear, with no blur or glare",
+      "body_pension_property_statement_letter": "Make sure the entire document is visible and all details are clear, with no blur or glare",
+      "body_tax_letter": "Make sure the entire document is visible and all details are clear, with no blur or glare",
+      "body_utility_bill": "Make sure the entire document is visible and all details are clear, with no blur or glare",
       "close": "Close",
       "crop_detail": "Make sure full document is visible",
       "crop_title": "Cut-off image detected",
@@ -4577,7 +4591,7 @@
       "no_doc_detail": "Make sure all of the document is in the photo",
       "no_doc_title": "Document not detected",
       "redo": "Redo",
-      "title": "Check your image",
+      "title": "Review your image",
       "unsupported_file_detail": "Please upload your photo in JPG, JPEG, PNG, or PDF format. The file size must not exceed 10MB.",
       "unsupported_file_title": "File not supported",
       "upload": "Upload",
@@ -4588,9 +4602,9 @@
       "accessibility": "Documents you can use to verify your identity",
       "country_header": "Issuing country",
       "doctypes_header": "Accepted documents",
-      "subtitle": "These are the documents most likely to show your current home address",
+      "subtitle": "Choose a recent document that shows your current home address",
       "subtitle_merged": "Select issuing country to see which documents we accept",
-      "title": "Choose a document",
+      "title": "Verify your address",
       "title_merged": "Choose your document"
     },
     "upload": {
@@ -4774,7 +4788,7 @@
       "retake": "Redo",
       "submit": "Upload",
       "subtitle": "Make sure your details are clear and unobstructed",
-      "title": "Check your image"
+      "title": "Review your image"
     },
     "selection": {
       "body": "Restart recording",
