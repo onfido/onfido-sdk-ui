@@ -669,7 +669,9 @@
       "utility_bill": "Strømregning",
       "utility_bill_details": "Gass, elektrisitet, vann, fasttelefon eller bredbånd",
       "utility_bill_extra": "e-setninger akseptert",
-      "utility_bill_warning": "Beklager, ingen mobiltelefonregninger"
+      "utility_bill_warning": "Beklager, ingen mobiltelefonregninger",
+      "v5c": "Vognkort (V5C)",
+      "v5c_details": "Også kjent som vognkortet, utstedt av DVLA"
     },
     "video_player": {
       "button_pause_accessibility": "Pause illustrativ animasjon av skanningsprosedyre",
@@ -884,6 +886,9 @@
       "description_tip_1": "Unngå områder med lite lys for å forhindre uskarphet. Flytt deg bort fra direkte lys for å unngå refleksjoner.",
       "description_tip_2": "Sørg for at ID-en er helt innenfor rammen. Bruk en ensfarget mørk bakgrunn hvis dokumentet ikke blir oppdaget.",
       "description_tip_3": "Unngå å dekke til bilde og tekst på ID-en. Vinkle dokumentet litt for å fjerne refleksjoner.",
+      "next_slide_button_accessibility": "Neste lysbilde",
+      "previous_slide_button_accessibility": "Forrige lysbilde",
+      "slide_stepper_accessibility": "Lysbilde %d av %d",
       "subtitle": "Følg disse tipsene for å skanne ID-en din på en vellykket måte.",
       "title": "Trenger du hjelp?",
       "title_tip_1": "Finn et sted med godt lys",
@@ -1968,6 +1973,9 @@
         "description_tip_1": "document.help.description_tip_1",
         "description_tip_2": "document.help.description_tip_2",
         "description_tip_3": "document.help.description_tip_3",
+        "next_slide_button_accessibility": "document.help.next_slide_button_accessibility",
+        "previous_slide_button_accessibility": "document.help.previous_slide_button_accessibility",
+        "slide_stepper_accessibility": "document.help.slide_stepper_accessibility",
         "subtitle": "document.help.subtitle",
         "title": "document.help.title",
         "title_tip_1": "document.help.title_tip_1",
@@ -3303,7 +3311,7 @@
         "title_mortgage_statement": "proofOfAddress.upload.title_mortgage_statement_back",
         "title_pension_property_statement_letter": "proofOfAddress.upload.title_pension_property_statement_letter_back",
         "title_tax_letter": "proofOfAddress.upload.title_council_tax_front",
-        "title_v5c": "proofOfAddress.upload.title_v5c"
+        "title_v5c": "proofOfAddress.guide.title_v5c"
       },
       "poa_welcome_text": "welcome.list_item.poa",
       "profile_data": {
@@ -4580,7 +4588,8 @@
       "title_mortgage_statement": "Send inn låneerklæring",
       "title_pension_property_statement_letter": "Send inn uttalelse eller brev",
       "title_tax_letter": "Send inn skattebrev for lokalregjering",
-      "title_utility_bill": "Send inn regning"
+      "title_utility_bill": "Send inn regning",
+      "title_v5c": "Send inn vognkort (V5C)"
     },
     "intro": {
       "button_primary": "Start verifisering",
@@ -4702,7 +4711,7 @@
       "title_pension_property_statement_letter_front": "Send inn uttalelse eller brev",
       "title_utility_bill_back": "Send inn regning",
       "title_utility_bill_front": "Send inn regning",
-      "title_v5c": "Send inn vognkort (V5C)",
+      "title_v5c_front": "Send inn vognkort (V5C)",
       "upload_photo": "Last opp fil"
     }
   },

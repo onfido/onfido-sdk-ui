@@ -669,7 +669,9 @@
       "utility_bill": "Сметка за комунални услуги",
       "utility_bill_details": "Сметки за газ, електричество, вода, стационарен телефон или интернет",
       "utility_bill_extra": "приемат се електронни извлечения",
-      "utility_bill_warning": "Съжалявам, няма мобилни телефонни сметки"
+      "utility_bill_warning": "Съжалявам, няма мобилни телефонни сметки",
+      "v5c": "Регистрационен талон на превозното средство (V5C)",
+      "v5c_details": "Известен също като удостоверение за регистрация на превозното средство, издадено от DVLA"
     },
     "video_player": {
       "button_pause_accessibility": "Пауза на илюстративната анимация на процедурата за сканиране",
@@ -884,6 +886,9 @@
       "description_tip_1": "Избягвайте места със слаба светлина, за да няма размазване. Отдалечете се от директна светлина, за да избегнете отражения.",
       "description_tip_2": "Уверете се, че документът е изцяло в рамката. Използвайте едноцветен тъмен фон, ако документът не бъде разпознат.",
       "description_tip_3": "Избягвайте да покривате снимката и текста на документа. Наклонете леко документа, за да премахнете отраженията.",
+      "next_slide_button_accessibility": "Следващ слайд",
+      "previous_slide_button_accessibility": "Предишен слайд",
+      "slide_stepper_accessibility": "Слайд %d от %d",
       "subtitle": "Следвайте тези съвети, за да сканирате успешно своя документ за самоличност.",
       "title": "Нуждаете се от помощ?",
       "title_tip_1": "Намерете място с добро осветление",
@@ -1968,6 +1973,9 @@
         "description_tip_1": "document.help.description_tip_1",
         "description_tip_2": "document.help.description_tip_2",
         "description_tip_3": "document.help.description_tip_3",
+        "next_slide_button_accessibility": "document.help.next_slide_button_accessibility",
+        "previous_slide_button_accessibility": "document.help.previous_slide_button_accessibility",
+        "slide_stepper_accessibility": "document.help.slide_stepper_accessibility",
         "subtitle": "document.help.subtitle",
         "title": "document.help.title",
         "title_tip_1": "document.help.title_tip_1",
@@ -3303,7 +3311,7 @@
         "title_mortgage_statement": "proofOfAddress.upload.title_mortgage_statement_back",
         "title_pension_property_statement_letter": "proofOfAddress.upload.title_pension_property_statement_letter_back",
         "title_tax_letter": "proofOfAddress.upload.title_council_tax_front",
-        "title_v5c": "proofOfAddress.upload.title_v5c"
+        "title_v5c": "proofOfAddress.guide.title_v5c"
       },
       "poa_welcome_text": "welcome.list_item.poa",
       "profile_data": {
@@ -4580,7 +4588,8 @@
       "title_mortgage_statement": "Представете извлечение за ипотека",
       "title_pension_property_statement_letter": "Изпратете изявление или писмо",
       "title_tax_letter": "Подайте писмо за местен данък от общината",
-      "title_utility_bill": "Подаване на сметка за комунални услуги"
+      "title_utility_bill": "Подаване на сметка за комунални услуги",
+      "title_v5c": "Изпратете регистрационен талон на превозното средство (V5C)"
     },
     "intro": {
       "button_primary": "Стартиране на проверката",
@@ -4702,7 +4711,7 @@
       "title_pension_property_statement_letter_front": "Изпратете изявление или писмо",
       "title_utility_bill_back": "Подаване на сметка за комунални услуги",
       "title_utility_bill_front": "Подаване на сметка за комунални услуги",
-      "title_v5c": "Изпратете регистрационен талон на превозното средство (V5C)",
+      "title_v5c_front": "Изпратете регистрационен талон на превозното средство (V5C)",
       "upload_photo": "Качване на файл"
     }
   },

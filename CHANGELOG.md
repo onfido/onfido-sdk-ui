@@ -7,14 +7,6 @@ and the SDK adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html)
 
 When any of the string translations change, it will result in a MINOR version change. As a result, you are responsible for ensuring the correct layout if you are using custom translations (see [language localization](https://documentation.onfido.com/sdk/web/#custom-translations-and-text)).
 
-## [v14.74.0] - 2026-05-13
-
-### Added
-
-- Add support for skipping the Proof of Address intro and selection screens when `preferredUserCountry` and `preferredUserDocumentType` are provided as module inputs
-- Remove the Proof of Address guide screen — guidance content (document requirements list and grace period notice) is now shown directly on the upload screen
-- Fix CaptureModuleError reaching host SDKs with an empty `{}` exception payload when a module forwarded a non-SdkError. Errors are now always serialized into a fully enumerable payload before being sent across the bridge
-
 ## [v14.73.0] - 2026-05-06
 
 ### Added

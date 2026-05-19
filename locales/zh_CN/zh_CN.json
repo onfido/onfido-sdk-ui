@@ -669,7 +669,9 @@
       "utility_bill": "水电费账单",
       "utility_bill_details": "煤气、水电、固话或宽带账单",
       "utility_bill_extra": "已接受电子对账单",
-      "utility_bill_warning": "对不起，没有手机账单"
+      "utility_bill_warning": "对不起，没有手机账单",
+      "v5c": "车辆登记簿 (V5C)",
+      "v5c_details": "又称车辆登记证，由 DVLA 签发"
     },
     "video_player": {
       "button_pause_accessibility": "暂停扫描程序的示意动画",
@@ -884,6 +886,9 @@
       "description_tip_1": "避免在光线不足的地方拍摄以防模糊。远离直射光源以防反光。",
       "description_tip_2": "确保您的证件完全在框内。如果无法检测到证件，请使用纯色深色背景。",
       "description_tip_3": "避免遮挡证件上的照片和文字。稍微倾斜证件以消除反光。",
+      "next_slide_button_accessibility": "下一张幻灯片",
+      "previous_slide_button_accessibility": "上一张幻灯片",
+      "slide_stepper_accessibility": "第 %d 张，共 %d 张",
       "subtitle": "按照这些提示成功扫描您的身份证件。",
       "title": "需要帮助吗？",
       "title_tip_1": "找一个光线充足的地方",
@@ -1968,6 +1973,9 @@
         "description_tip_1": "document.help.description_tip_1",
         "description_tip_2": "document.help.description_tip_2",
         "description_tip_3": "document.help.description_tip_3",
+        "next_slide_button_accessibility": "document.help.next_slide_button_accessibility",
+        "previous_slide_button_accessibility": "document.help.previous_slide_button_accessibility",
+        "slide_stepper_accessibility": "document.help.slide_stepper_accessibility",
         "subtitle": "document.help.subtitle",
         "title": "document.help.title",
         "title_tip_1": "document.help.title_tip_1",
@@ -3303,7 +3311,7 @@
         "title_mortgage_statement": "proofOfAddress.upload.title_mortgage_statement_back",
         "title_pension_property_statement_letter": "proofOfAddress.upload.title_pension_property_statement_letter_back",
         "title_tax_letter": "proofOfAddress.upload.title_council_tax_front",
-        "title_v5c": "proofOfAddress.upload.title_v5c"
+        "title_v5c": "proofOfAddress.guide.title_v5c"
       },
       "poa_welcome_text": "welcome.list_item.poa",
       "profile_data": {
@@ -4580,7 +4588,8 @@
       "title_mortgage_statement": "提交抵押贷款声明",
       "title_pension_property_statement_letter": "提交声明或信件",
       "title_tax_letter": "提交地方政府税务信函",
-      "title_utility_bill": "提交账单"
+      "title_utility_bill": "提交账单",
+      "title_v5c": "提交车辆登记证书 (V5C)"
     },
     "intro": {
       "button_primary": "开始验证",
@@ -4702,7 +4711,7 @@
       "title_pension_property_statement_letter_front": "提交声明或信件",
       "title_utility_bill_back": "提交账单",
       "title_utility_bill_front": "提交账单",
-      "title_v5c": "提交车辆登记证书 (V5C)",
+      "title_v5c_front": "提交车辆登记证书 (V5C)",
       "upload_photo": "上传文件"
     }
   },

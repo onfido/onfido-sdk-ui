@@ -669,7 +669,9 @@
       "utility_bill": "공과금 청구서",
       "utility_bill_details": "가스, 전기, 수도, 유선전화 또는 광대역 요금 청구서",
       "utility_bill_extra": "전자 명세서 허용",
-      "utility_bill_warning": "죄송합니다, 휴대폰 요금 청구서가 없습니다"
+      "utility_bill_warning": "죄송합니다, 휴대폰 요금 청구서가 없습니다",
+      "v5c": "차량 등록 문서 (V5C)",
+      "v5c_details": "DVLA에서 발급하는 차량 등록 증명서라고도 합니다"
     },
     "video_player": {
       "button_pause_accessibility": "스캔 절차의 설명 애니메이션 일시 중지",
@@ -884,6 +886,9 @@
       "description_tip_1": "흐림을 막으려면 어두운 곳을 피하세요. 반사를 줄이려면 직사광선을 피하세요.",
       "description_tip_2": "문서가 프레임 안에 완전히 들어가도록 해주세요. 문서가 인식되지 않으면 단색의 어두운 배경을 사용하세요.",
       "description_tip_3": "신분증의 사진과 글자가 가려지지 않게 해주세요. 반사를 줄이려면 신분증을 약간 기울여 주세요.",
+      "next_slide_button_accessibility": "다음 슬라이드",
+      "previous_slide_button_accessibility": "이전 슬라이드",
+      "slide_stepper_accessibility": "슬라이드 %d/%d",
       "subtitle": "신분증을 성공적으로 스캔하려면 다음 안내를 따라주세요.",
       "title": "도움이 필요하신가요?",
       "title_tip_1": "조명이 좋은 곳을 찾으세요",
@@ -1968,6 +1973,9 @@
         "description_tip_1": "document.help.description_tip_1",
         "description_tip_2": "document.help.description_tip_2",
         "description_tip_3": "document.help.description_tip_3",
+        "next_slide_button_accessibility": "document.help.next_slide_button_accessibility",
+        "previous_slide_button_accessibility": "document.help.previous_slide_button_accessibility",
+        "slide_stepper_accessibility": "document.help.slide_stepper_accessibility",
         "subtitle": "document.help.subtitle",
         "title": "document.help.title",
         "title_tip_1": "document.help.title_tip_1",
@@ -3303,7 +3311,7 @@
         "title_mortgage_statement": "proofOfAddress.upload.title_mortgage_statement_back",
         "title_pension_property_statement_letter": "proofOfAddress.upload.title_pension_property_statement_letter_back",
         "title_tax_letter": "proofOfAddress.upload.title_council_tax_front",
-        "title_v5c": "proofOfAddress.upload.title_v5c"
+        "title_v5c": "proofOfAddress.guide.title_v5c"
       },
       "poa_welcome_text": "welcome.list_item.poa",
       "profile_data": {
@@ -4580,7 +4588,8 @@
       "title_mortgage_statement": "담보 대출 서류 제출",
       "title_pension_property_statement_letter": "서류 또는 편지 제출",
       "title_tax_letter": "지방 정부 세금 통지서 제출",
-      "title_utility_bill": "청구서 제출"
+      "title_utility_bill": "청구서 제출",
+      "title_v5c": "자동차 등록 문서(V5C) 제출"
     },
     "intro": {
       "button_primary": "인증 절차 시작하기",
@@ -4702,7 +4711,7 @@
       "title_pension_property_statement_letter_front": "서류 또는 편지 제출",
       "title_utility_bill_back": "청구서 제출",
       "title_utility_bill_front": "청구서 제출",
-      "title_v5c": "자동차 등록 문서(V5C) 제출",
+      "title_v5c_front": "자동차 등록 문서(V5C) 제출",
       "upload_photo": "파일 업로드"
     }
   },

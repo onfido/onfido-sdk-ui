@@ -669,7 +669,9 @@
       "utility_bill": "Рахунок за комунальні послуги",
       "utility_bill_details": "Газ, електроенергія, вода, стаціонарний телефон або широкосмуговий інтернет-зв’язок",
       "utility_bill_extra": "електронні виписки прийнято",
-      "utility_bill_warning": "Вибачте, рахунків за мобільний телефон немає"
+      "utility_bill_warning": "Вибачте, рахунків за мобільний телефон немає",
+      "v5c": "Реєстраційний документ транспортного засобу (V5C)",
+      "v5c_details": "Також відомий як свідоцтво про реєстрацію транспортного засобу, видане DVLA"
     },
     "video_player": {
       "button_pause_accessibility": "Призупинити ілюстративну анімацію процедури сканування",
@@ -884,6 +886,9 @@
       "description_tip_1": "Уникайте місць з поганим освітленням, щоб запобігти розмитості. Відійдіть від прямого світла, щоб уникнути відблисків.",
       "description_tip_2": "Переконайтеся, що ваш документ повністю знаходиться в рамці. Використовуйте простий темний фон, якщо документ не розпізнається.",
       "description_tip_3": "Не закривайте фото та текст на документі. Злегка нахиліть документ, щоб позбутися відблисків.",
+      "next_slide_button_accessibility": "Наступний слайд",
+      "previous_slide_button_accessibility": "Попередній слайд",
+      "slide_stepper_accessibility": "Слайд %d з %d",
       "subtitle": "Дотримуйтесь цих порад для успішного сканування вашого документа.",
       "title": "Потрібна допомога?",
       "title_tip_1": "Знайдіть місце з хорошим освітленням",
@@ -1968,6 +1973,9 @@
         "description_tip_1": "document.help.description_tip_1",
         "description_tip_2": "document.help.description_tip_2",
         "description_tip_3": "document.help.description_tip_3",
+        "next_slide_button_accessibility": "document.help.next_slide_button_accessibility",
+        "previous_slide_button_accessibility": "document.help.previous_slide_button_accessibility",
+        "slide_stepper_accessibility": "document.help.slide_stepper_accessibility",
         "subtitle": "document.help.subtitle",
         "title": "document.help.title",
         "title_tip_1": "document.help.title_tip_1",
@@ -3303,7 +3311,7 @@
         "title_mortgage_statement": "proofOfAddress.upload.title_mortgage_statement_back",
         "title_pension_property_statement_letter": "proofOfAddress.upload.title_pension_property_statement_letter_back",
         "title_tax_letter": "proofOfAddress.upload.title_council_tax_front",
-        "title_v5c": "proofOfAddress.upload.title_v5c"
+        "title_v5c": "proofOfAddress.guide.title_v5c"
       },
       "poa_welcome_text": "welcome.list_item.poa",
       "profile_data": {
@@ -4580,7 +4588,8 @@
       "title_mortgage_statement": "Надіслати виписку з іпотеки",
       "title_pension_property_statement_letter": "Надішліть заяву або лист",
       "title_tax_letter": "Надіслати лист про місцевий податок від органів місцевого самоврядування",
-      "title_utility_bill": "Надіслати рахунок"
+      "title_utility_bill": "Надіслати рахунок",
+      "title_v5c": "Надіслати технічний паспорт транспортного засобу (V5C)"
     },
     "intro": {
       "button_primary": "Почати верифікацію",
@@ -4702,7 +4711,7 @@
       "title_pension_property_statement_letter_front": "Надішліть заяву або лист",
       "title_utility_bill_back": "Надіслати рахунок",
       "title_utility_bill_front": "Надіслати рахунок",
-      "title_v5c": "Надіслати технічний паспорт транспортного засобу (V5C)",
+      "title_v5c_front": "Надіслати технічний паспорт транспортного засобу (V5C)",
       "upload_photo": "Завантажити файл"
     }
   },

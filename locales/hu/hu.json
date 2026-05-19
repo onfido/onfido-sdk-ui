@@ -669,7 +669,9 @@
       "utility_bill": "Közüzemi számla",
       "utility_bill_details": "Gáz, villamos energia, víz, vezetékes telefon vagy szélessávú kapcsolat",
       "utility_bill_extra": "e-nyilatkozatok elfogadottak",
-      "utility_bill_warning": "Sajnáljuk, mobiltelefon-számlák nem elfogadhatók"
+      "utility_bill_warning": "Sajnáljuk, mobiltelefon-számlák nem elfogadhatók",
+      "v5c": "Jármű forgalmi engedélye (V5C)",
+      "v5c_details": "Más néven jármű forgalmi engedély, amelyet a DVLA állít ki"
     },
     "video_player": {
       "button_pause_accessibility": "A beolvasási eljárás illusztratív animációjának szüneteltetése",
@@ -884,6 +886,9 @@
       "description_tip_1": "Kerülje a gyenge fényt, hogy elkerülje az elmosódást. Lépjen el a közvetlen fénytől, hogy megelőzze a tükröződést.",
       "description_tip_2": "Győződj meg róla, hogy az okmány teljesen a keretben van. Ha az okmányt nem észleli, használj egyszínű sötét hátteret.",
       "description_tip_3": "Ne takarja el a személyin a fényképet és a szöveget. Döntse meg kissé a dokumentumot, hogy megszüntesse a tükröződést.",
+      "next_slide_button_accessibility": "Következő dia",
+      "previous_slide_button_accessibility": "Előző dia",
+      "slide_stepper_accessibility": "Csúszka %d/%d",
       "subtitle": "Kövesse ezeket a tippeket az igazolvány sikeres beolvasásához.",
       "title": "Segítségre van szüksége?",
       "title_tip_1": "Keressen egy jól megvilágított helyet",
@@ -1968,6 +1973,9 @@
         "description_tip_1": "document.help.description_tip_1",
         "description_tip_2": "document.help.description_tip_2",
         "description_tip_3": "document.help.description_tip_3",
+        "next_slide_button_accessibility": "document.help.next_slide_button_accessibility",
+        "previous_slide_button_accessibility": "document.help.previous_slide_button_accessibility",
+        "slide_stepper_accessibility": "document.help.slide_stepper_accessibility",
         "subtitle": "document.help.subtitle",
         "title": "document.help.title",
         "title_tip_1": "document.help.title_tip_1",
@@ -3303,7 +3311,7 @@
         "title_mortgage_statement": "proofOfAddress.upload.title_mortgage_statement_back",
         "title_pension_property_statement_letter": "proofOfAddress.upload.title_pension_property_statement_letter_back",
         "title_tax_letter": "proofOfAddress.upload.title_council_tax_front",
-        "title_v5c": "proofOfAddress.upload.title_v5c"
+        "title_v5c": "proofOfAddress.guide.title_v5c"
       },
       "poa_welcome_text": "welcome.list_item.poa",
       "profile_data": {
@@ -4580,7 +4588,8 @@
       "title_mortgage_statement": "Jelzálognyilatkozat benyújtása",
       "title_pension_property_statement_letter": "Nyilatkozat vagy levél benyújtása",
       "title_tax_letter": "Helyi Önkormányzati Adólevél benyújtása",
-      "title_utility_bill": "Számla beküldése"
+      "title_utility_bill": "Számla beküldése",
+      "title_v5c": "Forgalmi engedély (V5C) benyújtása"
     },
     "intro": {
       "button_primary": "Ellenőrzés megkezdése",
@@ -4702,7 +4711,7 @@
       "title_pension_property_statement_letter_front": "Nyilatkozat vagy levél benyújtása",
       "title_utility_bill_back": "Számla beküldése",
       "title_utility_bill_front": "Számla beküldése",
-      "title_v5c": "Forgalmi engedély (V5C) benyújtása",
+      "title_v5c_front": "Forgalmi engedély (V5C) benyújtása",
       "upload_photo": "Fájl feltöltése"
     }
   },

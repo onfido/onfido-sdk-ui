@@ -669,7 +669,9 @@
       "utility_bill": "Bil Utiliti",
       "utility_bill_details": "Gas, elektrik, air, talian tetap atau jalur lebar",
       "utility_bill_extra": "e-penyata diterima",
-      "utility_bill_warning": "Maaf, tiada bil telefon bimbit"
+      "utility_bill_warning": "Maaf, tiada bil telefon bimbit",
+      "v5c": "Buku log kenderaan (V5C)",
+      "v5c_details": "Juga dikenali sebagai sijil pendaftaran kenderaan, dikeluarkan oleh DVLA"
     },
     "video_player": {
       "button_pause_accessibility": "Jeda animasi ilustratif prosedur pengimbasan",
@@ -884,6 +886,9 @@
       "description_tip_1": "Elakkan tempat bercahaya rendah untuk mengelakkan imej kabur. Jauhkan daripada cahaya langsung untuk mengelakkan pantulan.",
       "description_tip_2": "Pastikan dokumen anda sepenuhnya dalam bingkai. Gunakan latar belakang gelap kosong jika dokumen tidak dikesan.",
       "description_tip_3": "Elakkan menutup foto dan teks pada dokumen anda. Condongkan dokumen sedikit untuk menghilangkan pantulan.",
+      "next_slide_button_accessibility": "Slaid seterusnya",
+      "previous_slide_button_accessibility": "Slaid sebelumnya",
+      "slide_stepper_accessibility": "Slaid %d daripada %d",
       "subtitle": "Ikuti petua ini untuk mengimbas dokumen pengenalan anda dengan berjaya.",
       "title": "Perlukan bantuan?",
       "title_tip_1": "Cari tempat yang terang",
@@ -1968,6 +1973,9 @@
         "description_tip_1": "document.help.description_tip_1",
         "description_tip_2": "document.help.description_tip_2",
         "description_tip_3": "document.help.description_tip_3",
+        "next_slide_button_accessibility": "document.help.next_slide_button_accessibility",
+        "previous_slide_button_accessibility": "document.help.previous_slide_button_accessibility",
+        "slide_stepper_accessibility": "document.help.slide_stepper_accessibility",
         "subtitle": "document.help.subtitle",
         "title": "document.help.title",
         "title_tip_1": "document.help.title_tip_1",
@@ -3303,7 +3311,7 @@
         "title_mortgage_statement": "proofOfAddress.upload.title_mortgage_statement_back",
         "title_pension_property_statement_letter": "proofOfAddress.upload.title_pension_property_statement_letter_back",
         "title_tax_letter": "proofOfAddress.upload.title_council_tax_front",
-        "title_v5c": "proofOfAddress.upload.title_v5c"
+        "title_v5c": "proofOfAddress.guide.title_v5c"
       },
       "poa_welcome_text": "welcome.list_item.poa",
       "profile_data": {
@@ -4580,7 +4588,8 @@
       "title_mortgage_statement": "Hantar penyata gadai janji",
       "title_pension_property_statement_letter": "Hantar kenyataan atau surat",
       "title_tax_letter": "Hantar Surat Cukai Kerajaan Tempatan",
-      "title_utility_bill": "Hantar bil"
+      "title_utility_bill": "Hantar bil",
+      "title_v5c": "Hantar buku log kenderaan (V5C)"
     },
     "intro": {
       "button_primary": "Mulakan pengesahan",
@@ -4702,7 +4711,7 @@
       "title_pension_property_statement_letter_front": "Hantar kenyataan atau surat",
       "title_utility_bill_back": "Hantar bil",
       "title_utility_bill_front": "Hantar bil",
-      "title_v5c": "Hantar buku log kenderaan (V5C)",
+      "title_v5c_front": "Hantar buku log kenderaan (V5C)",
       "upload_photo": "Muat naik fail"
     }
   },

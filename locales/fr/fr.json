@@ -669,7 +669,9 @@
       "utility_bill": "Facture de gaz, électricité, etc.",
       "utility_bill_details": "Gaz, électricité, eau, ligne fixe ou Internet",
       "utility_bill_extra": "relevés électroniques acceptés",
-      "utility_bill_warning": "Désolé, pas de factures de téléphone portable"
+      "utility_bill_warning": "Désolé, pas de factures de téléphone portable",
+      "v5c": "Carnet d'immatriculation du véhicule (V5C)",
+      "v5c_details": "Également connu sous le nom de certificat d'immatriculation du véhicule, délivré par la DVLA"
     },
     "video_player": {
       "button_pause_accessibility": "Pause de l'animation illustrative de la procédure de scan",
@@ -884,6 +886,9 @@
       "description_tip_1": "Évitez les endroits peu éclairés pour éviter le flou. Éloignez-vous de la lumière directe pour éviter les reflets.",
       "description_tip_2": "Assurez-vous que votre document est entièrement dans le cadre. Utilisez un arrière-plan sombre uni si le document n'est pas détecté.",
       "description_tip_3": "Évitez de couvrir la photo et le texte de votre document. Inclinez légèrement votre document pour éliminer les reflets.",
+      "next_slide_button_accessibility": "Diapositive suivante",
+      "previous_slide_button_accessibility": "Diapositive précédente",
+      "slide_stepper_accessibility": "Diapositive %d sur %d",
       "subtitle": "Suivez ces conseils pour scanner votre pièce d'identité avec succès.",
       "title": "Besoin d'aide ?",
       "title_tip_1": "Trouvez un endroit bien éclairé",
@@ -1968,6 +1973,9 @@
         "description_tip_1": "document.help.description_tip_1",
         "description_tip_2": "document.help.description_tip_2",
         "description_tip_3": "document.help.description_tip_3",
+        "next_slide_button_accessibility": "document.help.next_slide_button_accessibility",
+        "previous_slide_button_accessibility": "document.help.previous_slide_button_accessibility",
+        "slide_stepper_accessibility": "document.help.slide_stepper_accessibility",
         "subtitle": "document.help.subtitle",
         "title": "document.help.title",
         "title_tip_1": "document.help.title_tip_1",
@@ -3303,7 +3311,7 @@
         "title_mortgage_statement": "proofOfAddress.upload.title_mortgage_statement_back",
         "title_pension_property_statement_letter": "proofOfAddress.upload.title_pension_property_statement_letter_back",
         "title_tax_letter": "proofOfAddress.upload.title_council_tax_front",
-        "title_v5c": "proofOfAddress.upload.title_v5c"
+        "title_v5c": "proofOfAddress.guide.title_v5c"
       },
       "poa_welcome_text": "welcome.list_item.poa",
       "profile_data": {
@@ -4580,7 +4588,8 @@
       "title_mortgage_statement": "Soumettre le relevé hypothécaire",
       "title_pension_property_statement_letter": "Soumettre une déclaration ou une lettre",
       "title_tax_letter": "Soumettre la Lettre d'Impôt du Gouvernement Local",
-      "title_utility_bill": "Envoyer la facture"
+      "title_utility_bill": "Envoyer la facture",
+      "title_v5c": "Soumettre le certificat d'immatriculation (V5C)"
     },
     "intro": {
       "button_primary": "Commencer la vérification",
@@ -4702,7 +4711,7 @@
       "title_pension_property_statement_letter_front": "Soumettre une déclaration ou une lettre",
       "title_utility_bill_back": "Envoyer la facture",
       "title_utility_bill_front": "Envoyer la facture",
-      "title_v5c": "Soumettre le certificat d'immatriculation (V5C)",
+      "title_v5c_front": "Soumettre le certificat d'immatriculation (V5C)",
       "upload_photo": "Importer un fichier"
     }
   },

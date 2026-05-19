@@ -669,7 +669,9 @@
       "utility_bill": "Tagihan Utilitas",
       "utility_bill_details": "Gas, listrik, air, telepon rumah, atau broadband",
       "utility_bill_extra": "rekening elektronik diterima",
-      "utility_bill_warning": "Maaf, tidak ada tagihan telepon seluler"
+      "utility_bill_warning": "Maaf, tidak ada tagihan telepon seluler",
+      "v5c": "Buku catatan kendaraan (V5C)",
+      "v5c_details": "Juga dikenal sebagai sertifikat registrasi kendaraan, diterbitkan oleh DVLA"
     },
     "video_player": {
       "button_pause_accessibility": "Jeda animasi ilustratif prosedur pemindaian",
@@ -884,6 +886,9 @@
       "description_tip_1": "Hindari tempat dengan cahaya redup agar tidak buram. Menjauh dari cahaya langsung untuk mencegah pantulan.",
       "description_tip_2": "Pastikan dokumen Anda sepenuhnya berada dalam bingkai. Gunakan latar belakang gelap polos jika dokumen tidak terdeteksi.",
       "description_tip_3": "Hindari menutupi foto dan teks pada ID Anda. Miringkan ID sedikit untuk menghilangkan pantulan.",
+      "next_slide_button_accessibility": "Slide berikutnya",
+      "previous_slide_button_accessibility": "Slide sebelumnya",
+      "slide_stepper_accessibility": "Slide %d dari %d",
       "subtitle": "Ikuti tips berikut untuk memindai dokumen identitas Anda dengan sukses.",
       "title": "Butuh bantuan?",
       "title_tip_1": "Cari tempat dengan pencahayaan yang baik",
@@ -1968,6 +1973,9 @@
         "description_tip_1": "document.help.description_tip_1",
         "description_tip_2": "document.help.description_tip_2",
         "description_tip_3": "document.help.description_tip_3",
+        "next_slide_button_accessibility": "document.help.next_slide_button_accessibility",
+        "previous_slide_button_accessibility": "document.help.previous_slide_button_accessibility",
+        "slide_stepper_accessibility": "document.help.slide_stepper_accessibility",
         "subtitle": "document.help.subtitle",
         "title": "document.help.title",
         "title_tip_1": "document.help.title_tip_1",
@@ -3303,7 +3311,7 @@
         "title_mortgage_statement": "proofOfAddress.upload.title_mortgage_statement_back",
         "title_pension_property_statement_letter": "proofOfAddress.upload.title_pension_property_statement_letter_back",
         "title_tax_letter": "proofOfAddress.upload.title_council_tax_front",
-        "title_v5c": "proofOfAddress.upload.title_v5c"
+        "title_v5c": "proofOfAddress.guide.title_v5c"
       },
       "poa_welcome_text": "welcome.list_item.poa",
       "profile_data": {
@@ -4580,7 +4588,8 @@
       "title_mortgage_statement": "Kirimkan pernyataan hipotek",
       "title_pension_property_statement_letter": "Kirim pernyataan atau surat",
       "title_tax_letter": "Kirimkan Surat Pajak Pemerintah Daerah",
-      "title_utility_bill": "Kirim tagihan"
+      "title_utility_bill": "Kirim tagihan",
+      "title_v5c": "Kirim buku catatan kendaraan (V5C)"
     },
     "intro": {
       "button_primary": "Mulai verifikasi",
@@ -4702,7 +4711,7 @@
       "title_pension_property_statement_letter_front": "Kirim pernyataan atau surat",
       "title_utility_bill_back": "Kirim tagihan",
       "title_utility_bill_front": "Kirim tagihan",
-      "title_v5c": "Kirim buku catatan kendaraan (V5C)",
+      "title_v5c_front": "Kirim buku catatan kendaraan (V5C)",
       "upload_photo": "Unggah file"
     }
   },

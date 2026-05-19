@@ -669,7 +669,9 @@
       "utility_bill": "Elräkning",
       "utility_bill_details": "Bensin, el, vatten, fast telefon eller bredband",
       "utility_bill_extra": "e-utdrag godtas",
-      "utility_bill_warning": "Ledsen, inga mobiltelefonräkningar"
+      "utility_bill_warning": "Ledsen, inga mobiltelefonräkningar",
+      "v5c": "Fordonsbok (V5C)",
+      "v5c_details": "Kallas även fordonsregistreringsbevis, utfärdat av DVLA"
     },
     "video_player": {
       "button_pause_accessibility": "Pausa illustrativ animation av skanningsproceduren",
@@ -884,6 +886,9 @@
       "description_tip_1": "Undvik platser med svagt ljus för att förhindra oskärpa. Flytta dig från direkt ljus för att förhindra reflexer.",
       "description_tip_2": "Se till att ditt dokument är helt inom ramen. Använd en enkel mörk bakgrund om dokumentet inte upptäcks.",
       "description_tip_3": "Undvik att täcka fotot och texten på ditt dokument. Luta dokumentet lätt för att bli av med reflektioner.",
+      "next_slide_button_accessibility": "Nästa bild",
+      "previous_slide_button_accessibility": "Föregående bild",
+      "slide_stepper_accessibility": "Bild %d av %d",
       "subtitle": "Följ dessa tips för att skanna ditt ID framgångsrikt.",
       "title": "Behöver du hjälp?",
       "title_tip_1": "Hitta en plats med bra belysning",
@@ -1968,6 +1973,9 @@
         "description_tip_1": "document.help.description_tip_1",
         "description_tip_2": "document.help.description_tip_2",
         "description_tip_3": "document.help.description_tip_3",
+        "next_slide_button_accessibility": "document.help.next_slide_button_accessibility",
+        "previous_slide_button_accessibility": "document.help.previous_slide_button_accessibility",
+        "slide_stepper_accessibility": "document.help.slide_stepper_accessibility",
         "subtitle": "document.help.subtitle",
         "title": "document.help.title",
         "title_tip_1": "document.help.title_tip_1",
@@ -3303,7 +3311,7 @@
         "title_mortgage_statement": "proofOfAddress.upload.title_mortgage_statement_back",
         "title_pension_property_statement_letter": "proofOfAddress.upload.title_pension_property_statement_letter_back",
         "title_tax_letter": "proofOfAddress.upload.title_council_tax_front",
-        "title_v5c": "proofOfAddress.upload.title_v5c"
+        "title_v5c": "proofOfAddress.guide.title_v5c"
       },
       "poa_welcome_text": "welcome.list_item.poa",
       "profile_data": {
@@ -4580,7 +4588,8 @@
       "title_mortgage_statement": "Skicka in låneavi",
       "title_pension_property_statement_letter": "Skicka in uttalande eller brev",
       "title_tax_letter": "Skicka in skattebrev för lokal myndighet",
-      "title_utility_bill": "Skicka in räkning"
+      "title_utility_bill": "Skicka in räkning",
+      "title_v5c": "Skicka in fordonets registreringsbevis (V5C)"
     },
     "intro": {
       "button_primary": "Starta verifiering",
@@ -4702,7 +4711,7 @@
       "title_pension_property_statement_letter_front": "Skicka in uttalande eller brev",
       "title_utility_bill_back": "Skicka in räkning",
       "title_utility_bill_front": "Skicka in räkning",
-      "title_v5c": "Skicka in fordonets registreringsbevis (V5C)",
+      "title_v5c_front": "Skicka in fordonets registreringsbevis (V5C)",
       "upload_photo": "Ladda upp fil"
     }
   },

@@ -669,7 +669,9 @@
       "utility_bill": "बिजली-पानी वगैरह का बिल",
       "utility_bill_details": "गैस, बिजली, पानी, लैंडलाइन या ब्रॉडबैंड",
       "utility_bill_extra": "ई-स्टेटमेंट स्वीकार किए जाते हैं",
-      "utility_bill_warning": "क्षमा करें, कोई मोबाइल फ़ोन का बिल नहीं"
+      "utility_bill_warning": "क्षमा करें, कोई मोबाइल फ़ोन का बिल नहीं",
+      "v5c": "वाहन लॉग बुक (V5C)",
+      "v5c_details": "इसे वाहन पंजीकरण प्रमाणपत्र के नाम से भी जाना जाता है, जो DVLA द्वारा जारी किया जाता है"
     },
     "video_player": {
       "button_pause_accessibility": "स्कैन प्रक्रिया के आदर्श एनिमेशन को रोकें",
@@ -884,6 +886,9 @@
       "description_tip_1": "धुंधलापन से बचने के लिए कम रोशनी वाले स्थानों से दूर रहें। प्रतिबिंब से बचने के लिए सीधे प्रकाश से हटें।",
       "description_tip_2": "सुनिश्चित करें कि आपका दस्तावेज़ पूरी तरह फ़्रेम के भीतर हो। दस्तावेज़ पहचान में न आए तो सादा गहरे रंग की पृष्ठभूमि का उपयोग करें।",
       "description_tip_3": "अपने दस्तावेज़ पर फोटो और टेक्स्ट को न ढकें। चमक/रिफ्लेक्शन हटाने के लिए दस्तावेज़ को थोड़ा झुकाएँ।",
+      "next_slide_button_accessibility": "अगली स्लाइड",
+      "previous_slide_button_accessibility": "पिछली स्लाइड",
+      "slide_stepper_accessibility": "स्लाइड %d / %d",
       "subtitle": "अपना आईडी सफलतापूर्वक स्कैन करने के लिए इन सुझावों का पालन करें।",
       "title": "मदद चाहिए?",
       "title_tip_1": "अच्छी रोशनी वाली जगह चुनें",
@@ -1968,6 +1973,9 @@
         "description_tip_1": "document.help.description_tip_1",
         "description_tip_2": "document.help.description_tip_2",
         "description_tip_3": "document.help.description_tip_3",
+        "next_slide_button_accessibility": "document.help.next_slide_button_accessibility",
+        "previous_slide_button_accessibility": "document.help.previous_slide_button_accessibility",
+        "slide_stepper_accessibility": "document.help.slide_stepper_accessibility",
         "subtitle": "document.help.subtitle",
         "title": "document.help.title",
         "title_tip_1": "document.help.title_tip_1",
@@ -3303,7 +3311,7 @@
         "title_mortgage_statement": "proofOfAddress.upload.title_mortgage_statement_back",
         "title_pension_property_statement_letter": "proofOfAddress.upload.title_pension_property_statement_letter_back",
         "title_tax_letter": "proofOfAddress.upload.title_council_tax_front",
-        "title_v5c": "proofOfAddress.upload.title_v5c"
+        "title_v5c": "proofOfAddress.guide.title_v5c"
       },
       "poa_welcome_text": "welcome.list_item.poa",
       "profile_data": {
@@ -4580,7 +4588,8 @@
       "title_mortgage_statement": "मॉर्गेज विवरण सबमिट करें",
       "title_pension_property_statement_letter": "बयान या पत्र सबमिट करें",
       "title_tax_letter": "स्थानीय सरकार कर पत्र जमा करें",
-      "title_utility_bill": "बिल सबमिट करें"
+      "title_utility_bill": "बिल सबमिट करें",
+      "title_v5c": "वाहन लॉग बुक (V5C) जमा करें"
     },
     "intro": {
       "button_primary": "वेरिफ़िकेशन शुरू करें",
@@ -4702,7 +4711,7 @@
       "title_pension_property_statement_letter_front": "बयान या पत्र सबमिट करें",
       "title_utility_bill_back": "बिल सबमिट करें",
       "title_utility_bill_front": "बिल सबमिट करें",
-      "title_v5c": "वाहन लॉग बुक (V5C) जमा करें",
+      "title_v5c_front": "वाहन लॉग बुक (V5C) जमा करें",
       "upload_photo": "फ़ाइल अपलोड करें"
     }
   },

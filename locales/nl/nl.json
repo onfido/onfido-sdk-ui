@@ -669,7 +669,9 @@
       "utility_bill": "Energierekening",
       "utility_bill_details": "Gas, elektriciteit, water, vaste telefoonlijn of breedband",
       "utility_bill_extra": "Elektronische afschriften geaccepteerd",
-      "utility_bill_warning": "Sorry, geen mobiele telefoonrekeningen"
+      "utility_bill_warning": "Sorry, geen mobiele telefoonrekeningen",
+      "v5c": "Kentekenbewijs (V5C)",
+      "v5c_details": "Ook bekend als het kentekenbewijs van het voertuig, uitgegeven door de DVLA"
     },
     "video_player": {
       "button_pause_accessibility": "Pauzeer illustratieve animatie van scanprocedure",
@@ -884,6 +886,9 @@
       "description_tip_1": "Vermijd plaatsen met weinig licht om vervaging te voorkomen. Ga weg van direct licht om reflecties te voorkomen.",
       "description_tip_2": "Zorg ervoor dat je document volledig binnen het kader valt. Gebruik een effen donkere achtergrond als het document niet wordt gedetecteerd.",
       "description_tip_3": "Bedek de foto en tekst op je document niet. Kantel je document lichtjes om reflecties weg te nemen.",
+      "next_slide_button_accessibility": "Volgende dia",
+      "previous_slide_button_accessibility": "Vorige dia",
+      "slide_stepper_accessibility": "Dia %d van %d",
       "subtitle": "Volg deze tips om je ID succesvol te scannen.",
       "title": "Hulp nodig?",
       "title_tip_1": "Zoek een plek met goede verlichting",
@@ -1968,6 +1973,9 @@
         "description_tip_1": "document.help.description_tip_1",
         "description_tip_2": "document.help.description_tip_2",
         "description_tip_3": "document.help.description_tip_3",
+        "next_slide_button_accessibility": "document.help.next_slide_button_accessibility",
+        "previous_slide_button_accessibility": "document.help.previous_slide_button_accessibility",
+        "slide_stepper_accessibility": "document.help.slide_stepper_accessibility",
         "subtitle": "document.help.subtitle",
         "title": "document.help.title",
         "title_tip_1": "document.help.title_tip_1",
@@ -3303,7 +3311,7 @@
         "title_mortgage_statement": "proofOfAddress.upload.title_mortgage_statement_back",
         "title_pension_property_statement_letter": "proofOfAddress.upload.title_pension_property_statement_letter_back",
         "title_tax_letter": "proofOfAddress.upload.title_council_tax_front",
-        "title_v5c": "proofOfAddress.upload.title_v5c"
+        "title_v5c": "proofOfAddress.guide.title_v5c"
       },
       "poa_welcome_text": "welcome.list_item.poa",
       "profile_data": {
@@ -4580,7 +4588,8 @@
       "title_mortgage_statement": "Hypotheekverklaring indienen",
       "title_pension_property_statement_letter": "Verklaring of brief indienen",
       "title_tax_letter": "Dien Lokale Overheidsbelastingbrief in",
-      "title_utility_bill": "Factuur indienen"
+      "title_utility_bill": "Factuur indienen",
+      "title_v5c": "Kentekenbewijs (V5C) indienen"
     },
     "intro": {
       "button_primary": "Start verificatie",
@@ -4702,7 +4711,7 @@
       "title_pension_property_statement_letter_front": "Verklaring of brief indienen",
       "title_utility_bill_back": "Factuur indienen",
       "title_utility_bill_front": "Factuur indienen",
-      "title_v5c": "Kentekenbewijs (V5C) indienen",
+      "title_v5c_front": "Kentekenbewijs (V5C) indienen",
       "upload_photo": "Bestand uploaden"
     }
   },

@@ -669,7 +669,9 @@
       "utility_bill": "Recibo de servicios públicos",
       "utility_bill_details": "Gas, electricidad, agua, teléfono fijo o Internet",
       "utility_bill_extra": "Estados de cuenta electrónicos aceptados",
-      "utility_bill_warning": "Lo siento, no hay facturas de teléfono móvil"
+      "utility_bill_warning": "Lo siento, no hay facturas de teléfono móvil",
+      "v5c": "Libro de registro del vehículo (V5C)",
+      "v5c_details": "También conocido como el certificado de registro del vehículo, emitido por la DVLA"
     },
     "video_player": {
       "button_pause_accessibility": "Pausar la animación ilustrativa del procedimiento de escaneo",
@@ -884,6 +886,9 @@
       "description_tip_1": "Evita lugares con poca luz para evitar el desenfoque. Aléjate de la luz directa para evitar reflejos.",
       "description_tip_2": "Asegúrate de que tu documento esté completamente dentro del marco. Usa un fondo liso y oscuro si no se detecta el documento.",
       "description_tip_3": "Evita cubrir la foto y el texto de tu documento. Inclina un poco tu documento para eliminar los reflejos.",
+      "next_slide_button_accessibility": "Siguiente diapositiva",
+      "previous_slide_button_accessibility": "Diapositiva anterior",
+      "slide_stepper_accessibility": "Diapositiva %d de %d",
       "subtitle": "Sigue estos consejos para escanear tu documento de identidad con éxito.",
       "title": "¿Necesitas ayuda?",
       "title_tip_1": "Busca un lugar con buena iluminación",
@@ -1968,6 +1973,9 @@
         "description_tip_1": "document.help.description_tip_1",
         "description_tip_2": "document.help.description_tip_2",
         "description_tip_3": "document.help.description_tip_3",
+        "next_slide_button_accessibility": "document.help.next_slide_button_accessibility",
+        "previous_slide_button_accessibility": "document.help.previous_slide_button_accessibility",
+        "slide_stepper_accessibility": "document.help.slide_stepper_accessibility",
         "subtitle": "document.help.subtitle",
         "title": "document.help.title",
         "title_tip_1": "document.help.title_tip_1",
@@ -3303,7 +3311,7 @@
         "title_mortgage_statement": "proofOfAddress.upload.title_mortgage_statement_back",
         "title_pension_property_statement_letter": "proofOfAddress.upload.title_pension_property_statement_letter_back",
         "title_tax_letter": "proofOfAddress.upload.title_council_tax_front",
-        "title_v5c": "proofOfAddress.upload.title_v5c"
+        "title_v5c": "proofOfAddress.guide.title_v5c"
       },
       "poa_welcome_text": "welcome.list_item.poa",
       "profile_data": {
@@ -4580,7 +4588,8 @@
       "title_mortgage_statement": "Enviar estado de cuenta hipotecario",
       "title_pension_property_statement_letter": "Enviar declaración o carta",
       "title_tax_letter": "Envíe la Carta de Impuesto del Gobierno Local",
-      "title_utility_bill": "Enviar factura"
+      "title_utility_bill": "Enviar factura",
+      "title_v5c": "Enviar libro de registro del vehículo (V5C)"
     },
     "intro": {
       "button_primary": "Iniciar verificación",
@@ -4702,7 +4711,7 @@
       "title_pension_property_statement_letter_front": "Enviar declaración o carta",
       "title_utility_bill_back": "Enviar factura",
       "title_utility_bill_front": "Enviar factura",
-      "title_v5c": "Enviar libro de registro del vehículo (V5C)",
+      "title_v5c_front": "Enviar libro de registro del vehículo (V5C)",
       "upload_photo": "Cargar archivo"
     }
   },

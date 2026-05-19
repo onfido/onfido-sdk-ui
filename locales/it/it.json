@@ -669,7 +669,9 @@
       "utility_bill": "Bolletta",
       "utility_bill_details": "Gas, elettricità, acqua, telefono fisso o Internet",
       "utility_bill_extra": "sono accettati gli estratti conto elettronici",
-      "utility_bill_warning": "Spiacente, nessuna bolletta del telefono cellulare"
+      "utility_bill_warning": "Spiacente, nessuna bolletta del telefono cellulare",
+      "v5c": "Libretto di circolazione (V5C)",
+      "v5c_details": "Conosciuto anche come certificato di immatricolazione del veicolo, emesso dalla DVLA"
     },
     "video_player": {
       "button_pause_accessibility": "Interrompi l'animazione illustrativa della procedura di scansione",
@@ -884,6 +886,9 @@
       "description_tip_1": "Evita le aree poco illuminate per evitare sfocature. Allontanati dalla luce diretta per evitare riflessi.",
       "description_tip_2": "Assicurati che il documento sia completamente dentro la cornice. Usa uno sfondo scuro e uniforme se il documento non viene rilevato.",
       "description_tip_3": "Evita di coprire la foto e il testo sul tuo documento. Inclina leggermente il documento per eliminare i riflessi.",
+      "next_slide_button_accessibility": "Slide successiva",
+      "previous_slide_button_accessibility": "Slide precedente",
+      "slide_stepper_accessibility": "Slide %d di %d",
       "subtitle": "Segui questi consigli per scansionare correttamente il tuo documento d'identità.",
       "title": "Serve aiuto?",
       "title_tip_1": "Trova un luogo ben illuminato",
@@ -1968,6 +1973,9 @@
         "description_tip_1": "document.help.description_tip_1",
         "description_tip_2": "document.help.description_tip_2",
         "description_tip_3": "document.help.description_tip_3",
+        "next_slide_button_accessibility": "document.help.next_slide_button_accessibility",
+        "previous_slide_button_accessibility": "document.help.previous_slide_button_accessibility",
+        "slide_stepper_accessibility": "document.help.slide_stepper_accessibility",
         "subtitle": "document.help.subtitle",
         "title": "document.help.title",
         "title_tip_1": "document.help.title_tip_1",
@@ -3303,7 +3311,7 @@
         "title_mortgage_statement": "proofOfAddress.upload.title_mortgage_statement_back",
         "title_pension_property_statement_letter": "proofOfAddress.upload.title_pension_property_statement_letter_back",
         "title_tax_letter": "proofOfAddress.upload.title_council_tax_front",
-        "title_v5c": "proofOfAddress.upload.title_v5c"
+        "title_v5c": "proofOfAddress.guide.title_v5c"
       },
       "poa_welcome_text": "welcome.list_item.poa",
       "profile_data": {
@@ -4580,7 +4588,8 @@
       "title_mortgage_statement": "Invia estratto conto del mutuo",
       "title_pension_property_statement_letter": "Invia dichiarazione o lettera",
       "title_tax_letter": "Invia la Lettera Fiscale del Governo Locale",
-      "title_utility_bill": "Invia bolletta"
+      "title_utility_bill": "Invia bolletta",
+      "title_v5c": "Carica il libretto di circolazione (V5C)"
     },
     "intro": {
       "button_primary": "Inizia la verifica",
@@ -4702,7 +4711,7 @@
       "title_pension_property_statement_letter_front": "Invia dichiarazione o lettera",
       "title_utility_bill_back": "Invia bolletta",
       "title_utility_bill_front": "Invia bolletta",
-      "title_v5c": "Carica il libretto di circolazione (V5C)",
+      "title_v5c_front": "Carica il libretto di circolazione (V5C)",
       "upload_photo": "Carica file"
     }
   },

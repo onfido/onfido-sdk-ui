@@ -669,7 +669,9 @@
       "utility_bill": "水電費帳單",
       "utility_bill_details": "天然氣、電力、水、有線電話或寬頻",
       "utility_bill_extra": "接受電子對帳單",
-      "utility_bill_warning": "抱歉，沒有手機費用單"
+      "utility_bill_warning": "抱歉，沒有手機費用單",
+      "v5c": "車輛登記簿 (V5C)",
+      "v5c_details": "又稱車輛登記證，由 DVLA 核發"
     },
     "video_player": {
       "button_pause_accessibility": "暫停掃描程序的示範動畫",
@@ -884,6 +886,9 @@
       "description_tip_1": "避免光線不足的地方以防模糊。遠離直射光線以防反光。",
       "description_tip_2": "確保您的證件完全在框架內。如果無法偵測到證件，請使用純色深色背景。",
       "description_tip_3": "避免遮蓋證件上的照片和文字。稍微傾斜證件以消除反光。",
+      "next_slide_button_accessibility": "下一張投影片",
+      "previous_slide_button_accessibility": "上一張投影片",
+      "slide_stepper_accessibility": "第 %d 張，共 %d 張",
       "subtitle": "請遵循這些提示以成功掃描您的身分證件。",
       "title": "需要協助嗎？",
       "title_tip_1": "找個光線充足的地方",
@@ -1968,6 +1973,9 @@
         "description_tip_1": "document.help.description_tip_1",
         "description_tip_2": "document.help.description_tip_2",
         "description_tip_3": "document.help.description_tip_3",
+        "next_slide_button_accessibility": "document.help.next_slide_button_accessibility",
+        "previous_slide_button_accessibility": "document.help.previous_slide_button_accessibility",
+        "slide_stepper_accessibility": "document.help.slide_stepper_accessibility",
         "subtitle": "document.help.subtitle",
         "title": "document.help.title",
         "title_tip_1": "document.help.title_tip_1",
@@ -3303,7 +3311,7 @@
         "title_mortgage_statement": "proofOfAddress.upload.title_mortgage_statement_back",
         "title_pension_property_statement_letter": "proofOfAddress.upload.title_pension_property_statement_letter_back",
         "title_tax_letter": "proofOfAddress.upload.title_council_tax_front",
-        "title_v5c": "proofOfAddress.upload.title_v5c"
+        "title_v5c": "proofOfAddress.guide.title_v5c"
       },
       "poa_welcome_text": "welcome.list_item.poa",
       "profile_data": {
@@ -4580,7 +4588,8 @@
       "title_mortgage_statement": "提交抵押貸款聲明",
       "title_pension_property_statement_letter": "提交聲明或信件",
       "title_tax_letter": "提交地方政府稅務信函",
-      "title_utility_bill": "提交帳單"
+      "title_utility_bill": "提交帳單",
+      "title_v5c": "提交車輛登記簿 (V5C)"
     },
     "intro": {
       "button_primary": "開始驗證",
@@ -4702,7 +4711,7 @@
       "title_pension_property_statement_letter_front": "提交聲明或信件",
       "title_utility_bill_back": "提交帳單",
       "title_utility_bill_front": "提交帳單",
-      "title_v5c": "提交車輛登記簿 (V5C)",
+      "title_v5c_front": "提交車輛登記簿 (V5C)",
       "upload_photo": "上傳檔案"
     }
   },

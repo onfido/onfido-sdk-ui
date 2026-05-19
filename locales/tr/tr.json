@@ -669,7 +669,9 @@
       "utility_bill": "Fatura",
       "utility_bill_details": "Gaz, elektrik, su, sabit hat veya internet",
       "utility_bill_extra": "e-beyannameler kabul edilir",
-      "utility_bill_warning": "Üzgünüz, cep telefonu faturaları yok"
+      "utility_bill_warning": "Üzgünüz, cep telefonu faturaları yok",
+      "v5c": "Araç kayıt defteri (V5C)",
+      "v5c_details": "Araç tescil belgesi olarak da bilinir; DVLA tarafından verilir"
     },
     "video_player": {
       "button_pause_accessibility": "Tarama işlemi örneğinin animasyonunu duraklat",
@@ -884,6 +886,9 @@
       "description_tip_1": "Bulanıklığı önlemek için loş alanlardan kaçının. Yansımayı önlemek için doğrudan ışıktan uzaklaşın.",
       "description_tip_2": "Belgenin tamamen kadraj içinde olduğundan emin olun. Belge algılanmazsa düz koyu bir arka plan kullanın.",
       "description_tip_3": "Belgenizdeki fotoğrafı ve metni örtmeyin. Yansımaları azaltmak için belgenizi hafifçe eğin.",
+      "next_slide_button_accessibility": "Sonraki slayt",
+      "previous_slide_button_accessibility": "Önceki slayt",
+      "slide_stepper_accessibility": "%d / %d slayt",
       "subtitle": "Kimliğinizi başarıyla taramak için bu ipuçlarını izleyin.",
       "title": "Yardıma mı ihtiyacınız var?",
       "title_tip_1": "İyi aydınlatılmış bir yer bulun",
@@ -1968,6 +1973,9 @@
         "description_tip_1": "document.help.description_tip_1",
         "description_tip_2": "document.help.description_tip_2",
         "description_tip_3": "document.help.description_tip_3",
+        "next_slide_button_accessibility": "document.help.next_slide_button_accessibility",
+        "previous_slide_button_accessibility": "document.help.previous_slide_button_accessibility",
+        "slide_stepper_accessibility": "document.help.slide_stepper_accessibility",
         "subtitle": "document.help.subtitle",
         "title": "document.help.title",
         "title_tip_1": "document.help.title_tip_1",
@@ -3303,7 +3311,7 @@
         "title_mortgage_statement": "proofOfAddress.upload.title_mortgage_statement_back",
         "title_pension_property_statement_letter": "proofOfAddress.upload.title_pension_property_statement_letter_back",
         "title_tax_letter": "proofOfAddress.upload.title_council_tax_front",
-        "title_v5c": "proofOfAddress.upload.title_v5c"
+        "title_v5c": "proofOfAddress.guide.title_v5c"
       },
       "poa_welcome_text": "welcome.list_item.poa",
       "profile_data": {
@@ -4580,7 +4588,8 @@
       "title_mortgage_statement": "İpotek beyanını gönder",
       "title_pension_property_statement_letter": "Beyanname veya mektup gönderin",
       "title_tax_letter": "Yerel Hükümet Vergi Mektubunu Gönderin",
-      "title_utility_bill": "Faturayı gönder"
+      "title_utility_bill": "Faturayı gönder",
+      "title_v5c": "Araç kayıt belgesi gönderin (V5C)"
     },
     "intro": {
       "button_primary": "Doğrulamayı başlat",
@@ -4702,7 +4711,7 @@
       "title_pension_property_statement_letter_front": "Beyanname veya mektup gönderin",
       "title_utility_bill_back": "Faturayı gönder",
       "title_utility_bill_front": "Faturayı gönder",
-      "title_v5c": "Araç kayıt belgesi gönderin (V5C)",
+      "title_v5c_front": "Araç kayıt belgesi gönderin (V5C)",
       "upload_photo": "Dosya yükle"
     }
   },

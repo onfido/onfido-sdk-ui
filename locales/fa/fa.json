@@ -669,7 +669,9 @@
       "utility_bill": "قبض خدمات عمومی",
       "utility_bill_details": "قبض گاز، برق، آب، تلفن ثابت یا اینترنت",
       "utility_bill_extra": "صورتحساب الکترونیکی پذیرفته شد",
-      "utility_bill_warning": "متاسفانه، هیچ قبض تلفن همراهی وجود ندارد"
+      "utility_bill_warning": "متاسفانه، هیچ قبض تلفن همراهی وجود ندارد",
+      "v5c": "دفترچه ثبت خودرو (V5C)",
+      "v5c_details": "که با عنوان گواهی ثبت خودرو نیز شناخته می‌شود و توسط DVLA صادر می‌گردد"
     },
     "video_player": {
       "button_pause_accessibility": "توقف انیمیشن توضیحی روند اسکن",
@@ -884,6 +886,9 @@
       "description_tip_1": "از مکان‌های کم‌نور دوری کنید تا تصویر تار نشود. از نور مستقیم فاصله بگیرید تا بازتاب ایجاد نشود.",
       "description_tip_2": "اطمینان دهید که سند شما کاملاً داخل قاب باشد. اگر سند شناسایی تشخیص داده نمی‌شود، از پس‌زمینه تیره و ساده استفاده کنید.",
       "description_tip_3": "عکس و متن روی مدرک خود را نپوشانید. مدرک را کمی کج بگیرید تا بازتاب‌ها حذف شوند.",
+      "next_slide_button_accessibility": "اسلاید بعدی",
+      "previous_slide_button_accessibility": "اسلاید قبلی",
+      "slide_stepper_accessibility": "اسلاید %d از %d",
       "subtitle": "برای اسکن موفقیت‌آمیز مدرک شناسایی خود، این نکات را دنبال کنید.",
       "title": "نیاز به کمک دارید؟",
       "title_tip_1": "محلی با نور مناسب پیدا کنید",
@@ -1968,6 +1973,9 @@
         "description_tip_1": "document.help.description_tip_1",
         "description_tip_2": "document.help.description_tip_2",
         "description_tip_3": "document.help.description_tip_3",
+        "next_slide_button_accessibility": "document.help.next_slide_button_accessibility",
+        "previous_slide_button_accessibility": "document.help.previous_slide_button_accessibility",
+        "slide_stepper_accessibility": "document.help.slide_stepper_accessibility",
         "subtitle": "document.help.subtitle",
         "title": "document.help.title",
         "title_tip_1": "document.help.title_tip_1",
@@ -3303,7 +3311,7 @@
         "title_mortgage_statement": "proofOfAddress.upload.title_mortgage_statement_back",
         "title_pension_property_statement_letter": "proofOfAddress.upload.title_pension_property_statement_letter_back",
         "title_tax_letter": "proofOfAddress.upload.title_council_tax_front",
-        "title_v5c": "proofOfAddress.upload.title_v5c"
+        "title_v5c": "proofOfAddress.guide.title_v5c"
       },
       "poa_welcome_text": "welcome.list_item.poa",
       "profile_data": {
@@ -4580,7 +4588,8 @@
       "title_mortgage_statement": "گزارش وام مسکن را ارسال کنید",
       "title_pension_property_statement_letter": "بیانیه یا نامه ارسال کنید",
       "title_tax_letter": "ارسال نامه",
-      "title_utility_bill": "ارسال قبض"
+      "title_utility_bill": "ارسال قبض",
+      "title_v5c": "ارسال دفترچه ثبت وسیله نقلیه (V5C)"
     },
     "intro": {
       "button_primary": "شروع فرآیند تأیید",
@@ -4702,7 +4711,7 @@
       "title_pension_property_statement_letter_front": "بیانیه یا نامه ارسال کنید",
       "title_utility_bill_back": "ارسال قبض",
       "title_utility_bill_front": "ارسال قبض",
-      "title_v5c": "ارسال دفترچه ثبت وسیله نقلیه (V5C)",
+      "title_v5c_front": "ارسال دفترچه ثبت وسیله نقلیه (V5C)",
       "upload_photo": "بارگذاری فایل"
     }
   },

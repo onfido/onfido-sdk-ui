@@ -669,7 +669,9 @@
       "utility_bill": "Sąskaita už komunalines paslaugas",
       "utility_bill_details": "Dujos, elektra, vanduo, fiksuotasis ryšys arba plačiajuostis ryšys",
       "utility_bill_extra": "el. išrašai yra tinkami",
-      "utility_bill_warning": "Atsiprašome, mobiliojo telefono sąskaitų nėra"
+      "utility_bill_warning": "Atsiprašome, mobiliojo telefono sąskaitų nėra",
+      "v5c": "Transporto priemonės registracijos liudijimas (V5C)",
+      "v5c_details": "Dar vadinamas transporto priemonės registracijos pažymėjimu, išduodamu DVLA"
     },
     "video_player": {
       "button_pause_accessibility": "Pauzė iliustracinėje nuskaitomo procedūros animacijoje",
@@ -884,6 +886,9 @@
       "description_tip_1": "Venkite prasto apšvietimo, kad vaizdas nebūtų sulietas. Pasitraukite nuo tiesioginės šviesos, kad išvengtumėte atspindžių.",
       "description_tip_2": "Įsitikinkite, kad dokumentas visiškai telpa rėmelyje. Jei dokumentas neaptinkamas, naudokite vientisą tamsų foną.",
       "description_tip_3": "Neklokite nuotraukos ir teksto ant savo dokumento. Šiek tiek pakreipkite dokumentą, kad pašalintumėte atspindžius.",
+      "next_slide_button_accessibility": "Kita skaidrė",
+      "previous_slide_button_accessibility": "Ankstesnė skaidrė",
+      "slide_stepper_accessibility": "Skaidrė %d iš %d",
       "subtitle": "Vadovaukitės šiais patarimais, kad sėkmingai nuskaitytumėte savo asmens dokumentą.",
       "title": "Reikia pagalbos?",
       "title_tip_1": "Raskite gerai apšviestą vietą",
@@ -1968,6 +1973,9 @@
         "description_tip_1": "document.help.description_tip_1",
         "description_tip_2": "document.help.description_tip_2",
         "description_tip_3": "document.help.description_tip_3",
+        "next_slide_button_accessibility": "document.help.next_slide_button_accessibility",
+        "previous_slide_button_accessibility": "document.help.previous_slide_button_accessibility",
+        "slide_stepper_accessibility": "document.help.slide_stepper_accessibility",
         "subtitle": "document.help.subtitle",
         "title": "document.help.title",
         "title_tip_1": "document.help.title_tip_1",
@@ -3303,7 +3311,7 @@
         "title_mortgage_statement": "proofOfAddress.upload.title_mortgage_statement_back",
         "title_pension_property_statement_letter": "proofOfAddress.upload.title_pension_property_statement_letter_back",
         "title_tax_letter": "proofOfAddress.upload.title_council_tax_front",
-        "title_v5c": "proofOfAddress.upload.title_v5c"
+        "title_v5c": "proofOfAddress.guide.title_v5c"
       },
       "poa_welcome_text": "welcome.list_item.poa",
       "profile_data": {
@@ -4580,7 +4588,8 @@
       "title_mortgage_statement": "Pateikti hipotekos išrašą",
       "title_pension_property_statement_letter": "Pateikti pareiškimą ar laišką",
       "title_tax_letter": "Pateikti vietos valdžios mokesčių laišką",
-      "title_utility_bill": "Pateikti sąskaitą"
+      "title_utility_bill": "Pateikti sąskaitą",
+      "title_v5c": "Pateikti transporto priemonės registracijos liudijimą (V5C)"
     },
     "intro": {
       "button_primary": "Pradėti patvirtinimą",
@@ -4702,7 +4711,7 @@
       "title_pension_property_statement_letter_front": "Pateikti pareiškimą ar laišką",
       "title_utility_bill_back": "Pateikti sąskaitą",
       "title_utility_bill_front": "Pateikti sąskaitą",
-      "title_v5c": "Pateikti transporto priemonės registracijos liudijimą (V5C)",
+      "title_v5c_front": "Pateikti transporto priemonės registracijos liudijimą (V5C)",
       "upload_photo": "Įkelti failą"
     }
   },

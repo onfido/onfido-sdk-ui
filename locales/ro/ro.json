@@ -669,7 +669,9 @@
       "utility_bill": "Factură de utilități",
       "utility_bill_details": "Gaz, electricitate, apă, telefon fix sau internet de bandă largă",
       "utility_bill_extra": "Extrase electronice acceptate",
-      "utility_bill_warning": "Ne pare rău, nu sunt facturi de telefon mobil"
+      "utility_bill_warning": "Ne pare rău, nu sunt facturi de telefon mobil",
+      "v5c": "Cartea de înmatriculare a vehiculului (V5C)",
+      "v5c_details": "Cunoscut și sub denumirea de certificat de înmatriculare al vehiculului, emis de DVLA"
     },
     "video_player": {
       "button_pause_accessibility": "Pauză animație ilustrativă a procedurii de scanare",
@@ -884,6 +886,9 @@
       "description_tip_1": "Evitați locurile cu lumină slabă pentru a preveni neclaritatea. Îndepărtați-vă de lumina directă pentru a preveni reflexiile.",
       "description_tip_2": "Asigură-te că documentul este complet în cadru. Folosește un fundal întunecat simplu dacă documentul nu este detectat.",
       "description_tip_3": "Evitați să acoperiți fotografia și textul de pe document. Înclinați ușor documentul pentru a elimina reflexiile.",
+      "next_slide_button_accessibility": "Slideul următor",
+      "previous_slide_button_accessibility": "Slideul anterior",
+      "slide_stepper_accessibility": "Slide %d din %d",
       "subtitle": "Urmează aceste sfaturi pentru a-ți scana documentul de identitate cu succes.",
       "title": "Ai nevoie de ajutor?",
       "title_tip_1": "Găsește un loc cu iluminare bună",
@@ -1968,6 +1973,9 @@
         "description_tip_1": "document.help.description_tip_1",
         "description_tip_2": "document.help.description_tip_2",
         "description_tip_3": "document.help.description_tip_3",
+        "next_slide_button_accessibility": "document.help.next_slide_button_accessibility",
+        "previous_slide_button_accessibility": "document.help.previous_slide_button_accessibility",
+        "slide_stepper_accessibility": "document.help.slide_stepper_accessibility",
         "subtitle": "document.help.subtitle",
         "title": "document.help.title",
         "title_tip_1": "document.help.title_tip_1",
@@ -3303,7 +3311,7 @@
         "title_mortgage_statement": "proofOfAddress.upload.title_mortgage_statement_back",
         "title_pension_property_statement_letter": "proofOfAddress.upload.title_pension_property_statement_letter_back",
         "title_tax_letter": "proofOfAddress.upload.title_council_tax_front",
-        "title_v5c": "proofOfAddress.upload.title_v5c"
+        "title_v5c": "proofOfAddress.guide.title_v5c"
       },
       "poa_welcome_text": "welcome.list_item.poa",
       "profile_data": {
@@ -4580,7 +4588,8 @@
       "title_mortgage_statement": "Trimiteți declarația ipotecară",
       "title_pension_property_statement_letter": "Trimiteți declarația sau scrisoarea",
       "title_tax_letter": "Trimiteți Scrisoarea de Impozit a Guvernului Local",
-      "title_utility_bill": "Trimiteți factură"
+      "title_utility_bill": "Trimiteți factură",
+      "title_v5c": "Trimite cartea de înmatriculare a vehiculului (V5C)"
     },
     "intro": {
       "button_primary": "Începeți verificarea",
@@ -4702,7 +4711,7 @@
       "title_pension_property_statement_letter_front": "Trimiteți declarația sau scrisoarea",
       "title_utility_bill_back": "Trimiteți factură",
       "title_utility_bill_front": "Trimiteți factură",
-      "title_v5c": "Trimite cartea de înmatriculare a vehiculului (V5C)",
+      "title_v5c_front": "Trimite cartea de înmatriculare a vehiculului (V5C)",
       "upload_photo": "Încarcă fișier"
     }
   },

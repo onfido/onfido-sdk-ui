@@ -669,7 +669,9 @@
       "utility_bill": "Utility Bill",
       "utility_bill_details": "Gas, electricity, water, landline, or broadband",
       "utility_bill_extra": "e-statements accepted",
-      "utility_bill_warning": "Sorry, no mobile phone bills"
+      "utility_bill_warning": "Sorry, no mobile phone bills",
+      "v5c": "Vehicle log book (V5C)",
+      "v5c_details": "Also known as the vehicle registration certificate, issued by the DVLA"
     },
     "video_player": {
       "button_pause_accessibility": "Pause illustrative animation of scanning procedure",
@@ -884,6 +886,9 @@
       "description_tip_1": "Avoid places with low light to prevent blur. Move away from direct light to prevent reflections.",
       "description_tip_2": "Ensure your document is fully within the frame. Use a plain dark background if the document is not detected.",
       "description_tip_3": "Avoid covering the photo and text on your document. Tilt your document slightly to get rid of reflections.",
+      "next_slide_button_accessibility": "Next slide",
+      "previous_slide_button_accessibility": "Previous slide",
+      "slide_stepper_accessibility": "Slide %d of %d",
       "subtitle": "Follow these tips to scan your ID successfully.",
       "title": "Need help?",
       "title_tip_1": "Find a place with good lighting",
@@ -1968,6 +1973,9 @@
         "description_tip_1": "document.help.description_tip_1",
         "description_tip_2": "document.help.description_tip_2",
         "description_tip_3": "document.help.description_tip_3",
+        "next_slide_button_accessibility": "document.help.next_slide_button_accessibility",
+        "previous_slide_button_accessibility": "document.help.previous_slide_button_accessibility",
+        "slide_stepper_accessibility": "document.help.slide_stepper_accessibility",
         "subtitle": "document.help.subtitle",
         "title": "document.help.title",
         "title_tip_1": "document.help.title_tip_1",
@@ -3303,7 +3311,7 @@
         "title_mortgage_statement": "proofOfAddress.upload.title_mortgage_statement_back",
         "title_pension_property_statement_letter": "proofOfAddress.upload.title_pension_property_statement_letter_back",
         "title_tax_letter": "proofOfAddress.upload.title_council_tax_front",
-        "title_v5c": "proofOfAddress.upload.title_v5c"
+        "title_v5c": "proofOfAddress.guide.title_v5c"
       },
       "poa_welcome_text": "welcome.list_item.poa",
       "profile_data": {
@@ -4580,7 +4588,8 @@
       "title_mortgage_statement": "Submit mortgage statement",
       "title_pension_property_statement_letter": "Submit statement or letter",
       "title_tax_letter": "Submit Local Government Tax Letter",
-      "title_utility_bill": "Submit bill"
+      "title_utility_bill": "Submit bill",
+      "title_v5c": "Submit vehicle log book (V5C)"
     },
     "intro": {
       "button_primary": "Start verification",
@@ -4702,7 +4711,7 @@
       "title_pension_property_statement_letter_front": "Submit statement or letter",
       "title_utility_bill_back": "Submit bill",
       "title_utility_bill_front": "Submit bill",
-      "title_v5c": "Submit vehicle log book (V5C)",
+      "title_v5c_front": "Submit vehicle log book (V5C)",
       "upload_photo": "Upload file"
     }
   },

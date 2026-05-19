@@ -669,7 +669,9 @@
       "utility_bill": "公共料金請求書",
       "utility_bill_details": "ガス、電気、水道、固定電話、ブロードバンド",
       "utility_bill_extra": "受け入れられる電子明細書",
-      "utility_bill_warning": "申し訳ありません、携帯電話の請求書はありません"
+      "utility_bill_warning": "申し訳ありません、携帯電話の請求書はありません",
+      "v5c": "車両ログブック（V5C）",
+      "v5c_details": "車両登録証明書とも呼ばれ、DVLAが発行します"
     },
     "video_player": {
       "button_pause_accessibility": "スキャン手順の説明アニメーションを一時停止",
@@ -884,6 +886,9 @@
       "description_tip_1": "暗い場所は避けて、ブレを防ぎましょう。直射光から離れて、反射を防いでください。",
       "description_tip_2": "書類がフレーム内に完全に入るようにしてください。検出されない場合は、無地の濃い背景を使用してください。",
       "description_tip_3": "書類の写真や文字を覆わないでください。反射を避けるため、書類を少し傾けてください。",
+      "next_slide_button_accessibility": "次のスライド",
+      "previous_slide_button_accessibility": "前のスライド",
+      "slide_stepper_accessibility": "%d 枚中 %d 枚目のスライド",
       "subtitle": "IDを正しくスキャンするために、次のポイントに従ってください。",
       "title": "お困りですか？",
       "title_tip_1": "明るい場所を見つけてください",
@@ -1968,6 +1973,9 @@
         "description_tip_1": "document.help.description_tip_1",
         "description_tip_2": "document.help.description_tip_2",
         "description_tip_3": "document.help.description_tip_3",
+        "next_slide_button_accessibility": "document.help.next_slide_button_accessibility",
+        "previous_slide_button_accessibility": "document.help.previous_slide_button_accessibility",
+        "slide_stepper_accessibility": "document.help.slide_stepper_accessibility",
         "subtitle": "document.help.subtitle",
         "title": "document.help.title",
         "title_tip_1": "document.help.title_tip_1",
@@ -3303,7 +3311,7 @@
         "title_mortgage_statement": "proofOfAddress.upload.title_mortgage_statement_back",
         "title_pension_property_statement_letter": "proofOfAddress.upload.title_pension_property_statement_letter_back",
         "title_tax_letter": "proofOfAddress.upload.title_council_tax_front",
-        "title_v5c": "proofOfAddress.upload.title_v5c"
+        "title_v5c": "proofOfAddress.guide.title_v5c"
       },
       "poa_welcome_text": "welcome.list_item.poa",
       "profile_data": {
@@ -4580,7 +4588,8 @@
       "title_mortgage_statement": "住宅ローンの明細書を提出する",
       "title_pension_property_statement_letter": "ステートメントまたはレターを提出する",
       "title_tax_letter": "地方自治体税の書類を提出する",
-      "title_utility_bill": "請求書を送信"
+      "title_utility_bill": "請求書を送信",
+      "title_v5c": "車両登録証明書（V5C）を提出する"
     },
     "intro": {
       "button_primary": "認証を開始",
@@ -4702,7 +4711,7 @@
       "title_pension_property_statement_letter_front": "ステートメントまたはレターを提出する",
       "title_utility_bill_back": "請求書を送信",
       "title_utility_bill_front": "請求書を送信",
-      "title_v5c": "車両登録証明書（V5C）を提出する",
+      "title_v5c_front": "車両登録証明書（V5C）を提出する",
       "upload_photo": "ファイルをアップロード"
     }
   },

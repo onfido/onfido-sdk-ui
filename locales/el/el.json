@@ -669,7 +669,9 @@
       "utility_bill": "Λογαριασμός υπηρεσιών κοινής ωφελείας",
       "utility_bill_details": "Αέριο, ηλεκτρικό ρεύμα, νερό, σταθερό τηλέφωνο ή ευρυζωνική σύνδεση",
       "utility_bill_extra": "αποδεκτές ηλεκτρονικές δηλώσεις",
-      "utility_bill_warning": "Συγγνώμη, δεν υπάρχουν λογαριασμοί κινητού τηλεφώνου"
+      "utility_bill_warning": "Συγγνώμη, δεν υπάρχουν λογαριασμοί κινητού τηλεφώνου",
+      "v5c": "Βιβλιάριο οχήματος (V5C)",
+      "v5c_details": "Γνωστό και ως πιστοποιητικό άδειας κυκλοφορίας οχήματος, που εκδίδεται από τη DVLA"
     },
     "video_player": {
       "button_pause_accessibility": "Παύση εικονογραφημένης ανάλυσης της διαδικασίας σάρωσης",
@@ -884,6 +886,9 @@
       "description_tip_1": "Αποφύγετε χώρους με χαμηλό φωτισμό για να μην υπάρχει θόλωμα. Απομακρυνθείτε από το άμεσο φως για να αποφύγετε αντανακλάσεις.",
       "description_tip_2": "Βεβαιωθείτε ότι το έγγραφο είναι πλήρως μέσα στο κάδρο. Χρησιμοποιήστε σκουρόχρωμο φόντο αν το έγγραφο δεν ανιχνεύεται.",
       "description_tip_3": "Αποφύγετε να καλύπτετε τη φωτογραφία και το κείμενο στην ταυτότητά σας. Γείρετε ελαφρά το έγγραφο για να μειώσετε τις αντανακλάσεις.",
+      "next_slide_button_accessibility": "Επόμενη διαφάνεια",
+      "previous_slide_button_accessibility": "Προηγούμενη διαφάνεια",
+      "slide_stepper_accessibility": "Διαφάνεια %d από %d",
       "subtitle": "Ακολουθήστε αυτές τις συμβουλές για να σαρώσετε με επιτυχία το έγγραφό σας ταυτότητας.",
       "title": "Χρειάζεστε βοήθεια;",
       "title_tip_1": "Βρείτε ένα μέρος με καλό φωτισμό",
@@ -1968,6 +1973,9 @@
         "description_tip_1": "document.help.description_tip_1",
         "description_tip_2": "document.help.description_tip_2",
         "description_tip_3": "document.help.description_tip_3",
+        "next_slide_button_accessibility": "document.help.next_slide_button_accessibility",
+        "previous_slide_button_accessibility": "document.help.previous_slide_button_accessibility",
+        "slide_stepper_accessibility": "document.help.slide_stepper_accessibility",
         "subtitle": "document.help.subtitle",
         "title": "document.help.title",
         "title_tip_1": "document.help.title_tip_1",
@@ -3303,7 +3311,7 @@
         "title_mortgage_statement": "proofOfAddress.upload.title_mortgage_statement_back",
         "title_pension_property_statement_letter": "proofOfAddress.upload.title_pension_property_statement_letter_back",
         "title_tax_letter": "proofOfAddress.upload.title_council_tax_front",
-        "title_v5c": "proofOfAddress.upload.title_v5c"
+        "title_v5c": "proofOfAddress.guide.title_v5c"
       },
       "poa_welcome_text": "welcome.list_item.poa",
       "profile_data": {
@@ -4580,7 +4588,8 @@
       "title_mortgage_statement": "Υποβάλετε δήλωση υποθήκης",
       "title_pension_property_statement_letter": "Υποβάλετε δήλωση ή επιστολή",
       "title_tax_letter": "Υποβολή Επιστολής Φορολογίας Τοπικής Αυτοδιοίκησης",
-      "title_utility_bill": "Υποβολή λογαριασμού"
+      "title_utility_bill": "Υποβολή λογαριασμού",
+      "title_v5c": "Υποβολή βιβλίου καταγραφής οχήματος (V5C)"
     },
     "intro": {
       "button_primary": "Έναρξη επαλήθευσης",
@@ -4702,7 +4711,7 @@
       "title_pension_property_statement_letter_front": "Υποβάλετε δήλωση ή επιστολή",
       "title_utility_bill_back": "Υποβολή λογαριασμού",
       "title_utility_bill_front": "Υποβολή λογαριασμού",
-      "title_v5c": "Υποβολή βιβλίου καταγραφής οχήματος (V5C)",
+      "title_v5c_front": "Υποβολή βιβλίου καταγραφής οχήματος (V5C)",
       "upload_photo": "Μεταφόρτωση αρχείου"
     }
   },

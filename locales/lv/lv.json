@@ -669,7 +669,9 @@
       "utility_bill": "Komunālo pakalpojumu rēķins",
       "utility_bill_details": "Gāze, elektrība, ūdens, fiksētais tālrunis vai platjoslas internets",
       "utility_bill_extra": "tiek pieņemtas e-izziņas",
-      "utility_bill_warning": "Atvainojiet, mobilā telefona rēķini nav"
+      "utility_bill_warning": "Atvainojiet, mobilā telefona rēķini nav",
+      "v5c": "Transportlīdzekļa reģistrācijas tehniskā pase (V5C)",
+      "v5c_details": "Zināma arī kā transportlīdzekļa reģistrācijas apliecība, ko izsniedz DVLA"
     },
     "video_player": {
       "button_pause_accessibility": "Pauzēt ilustratīvu animāciju par skenēšanas procedūru",
@@ -884,6 +886,9 @@
       "description_tip_1": "Izvairieties no vāji apgaismotām vietām, lai novērstu aizmiglojumu. Attālinieties no tiešas gaismas, lai izvairītos no atspīdumiem.",
       "description_tip_2": "Pārliecinieties, ka dokuments ir pilnībā kadrā. Ja dokuments netiek atpazīts, izmantojiet vienkāršu tumšu fonu.",
       "description_tip_3": "Nepārklājiet savā dokumentā esošo fotoattēlu un tekstu. Nedaudz pagrieziet dokumentu, lai novērstu atspīdumus.",
+      "next_slide_button_accessibility": "Nākamais slaids",
+      "previous_slide_button_accessibility": "Iepriekšējais slaids",
+      "slide_stepper_accessibility": "Slaids %d no %d",
       "subtitle": "Ievērojiet šos padomus, lai veiksmīgi noskenētu savu identitātes dokumentu.",
       "title": "Nepieciešama palīdzība?",
       "title_tip_1": "Atrodiet vietu ar labu apgaismojumu",
@@ -1968,6 +1973,9 @@
         "description_tip_1": "document.help.description_tip_1",
         "description_tip_2": "document.help.description_tip_2",
         "description_tip_3": "document.help.description_tip_3",
+        "next_slide_button_accessibility": "document.help.next_slide_button_accessibility",
+        "previous_slide_button_accessibility": "document.help.previous_slide_button_accessibility",
+        "slide_stepper_accessibility": "document.help.slide_stepper_accessibility",
         "subtitle": "document.help.subtitle",
         "title": "document.help.title",
         "title_tip_1": "document.help.title_tip_1",
@@ -3303,7 +3311,7 @@
         "title_mortgage_statement": "proofOfAddress.upload.title_mortgage_statement_back",
         "title_pension_property_statement_letter": "proofOfAddress.upload.title_pension_property_statement_letter_back",
         "title_tax_letter": "proofOfAddress.upload.title_council_tax_front",
-        "title_v5c": "proofOfAddress.upload.title_v5c"
+        "title_v5c": "proofOfAddress.guide.title_v5c"
       },
       "poa_welcome_text": "welcome.list_item.poa",
       "profile_data": {
@@ -4580,7 +4588,8 @@
       "title_mortgage_statement": "Iesniegt hipotekāro izrakstu",
       "title_pension_property_statement_letter": "Iesniegt paziņojumu vai vēstuli",
       "title_tax_letter": "Iesniedziet vietējās pašvaldības nodokļu vēstuli",
-      "title_utility_bill": "Iesniegt rēķinu"
+      "title_utility_bill": "Iesniegt rēķinu",
+      "title_v5c": "Iesniegt transportlīdzekļa reģistrācijas apliecību (V5C)"
     },
     "intro": {
       "button_primary": "Sākt pārbaudi",
@@ -4702,7 +4711,7 @@
       "title_pension_property_statement_letter_front": "Iesniegt paziņojumu vai vēstuli",
       "title_utility_bill_back": "Iesniegt rēķinu",
       "title_utility_bill_front": "Iesniegt rēķinu",
-      "title_v5c": "Iesniegt transportlīdzekļa reģistrācijas apliecību (V5C)",
+      "title_v5c_front": "Iesniegt transportlīdzekļa reģistrācijas apliecību (V5C)",
       "upload_photo": "Augšupielādēt failu"
     }
   },

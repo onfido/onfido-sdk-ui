@@ -669,7 +669,9 @@
       "utility_bill": "Կոմունալ ծառայության հաշիվ",
       "utility_bill_details": "Գազ, էլեկտրաէներգիա, ջուր, ֆիքսված հեռախոսակապ կամ ինտերնետ",
       "utility_bill_extra": "էլեկտրոնային քաղվածքներ ընդունվում են",
-      "utility_bill_warning": "Ներողություն, բջջային հաշվետվություններ չկան"
+      "utility_bill_warning": "Ներողություն, բջջային հաշվետվություններ չկան",
+      "v5c": "Տրանսպորտային միջոցի հաշվառման գրքույկ (V5C)",
+      "v5c_details": "Հայտնի է նաև որպես տրանսպորտային միջոցի գրանցման վկայագիր, որը տրվել է DVLA-ի կողմից"
     },
     "video_player": {
       "button_pause_accessibility": "Դադարեցրեք սկանավորման ընթացքի պատկերավորման անիմացիան",
@@ -884,6 +886,9 @@
       "description_tip_1": "Խուսափեք թույլ լուսավորությունից՝ մգումն ու շառագայթումը կանխելու համար։ Հեռացեք ուղիղ լույսից՝ անդրադարձերը կանխելու համար։",
       "description_tip_2": "Համոզվեք, որ ձեր փաստաթուղթը ամբողջությամբ տեղադրված է շրջանակի մեջ։ Եթե փաստաթուղթը չի հայտնաբերվում, օգտագործեք պարզ մուգ ֆոն։",
       "description_tip_3": "Խուսափեք փակել ձեր փաստաթղթի լուսանկարը և տեքստը։ Թեթևակի թեքեք փաստաթուղթը, чтобы վերացնել անդրադարձերը։",
+      "next_slide_button_accessibility": "Հաջորդ սլայդ",
+      "previous_slide_button_accessibility": "Նախորդ սլայդ",
+      "slide_stepper_accessibility": "Սլայդ %d / %d",
       "subtitle": "Հետևեք այս խորհուրդներին՝ ձեր անձնագիրը հաջողությամբ սկանավորելու համար։",
       "title": "Օգնության կարիք ունե՞ք։",
       "title_tip_1": "Գտեք լավ լուսավորությամբ վայր",
@@ -1968,6 +1973,9 @@
         "description_tip_1": "document.help.description_tip_1",
         "description_tip_2": "document.help.description_tip_2",
         "description_tip_3": "document.help.description_tip_3",
+        "next_slide_button_accessibility": "document.help.next_slide_button_accessibility",
+        "previous_slide_button_accessibility": "document.help.previous_slide_button_accessibility",
+        "slide_stepper_accessibility": "document.help.slide_stepper_accessibility",
         "subtitle": "document.help.subtitle",
         "title": "document.help.title",
         "title_tip_1": "document.help.title_tip_1",
@@ -3303,7 +3311,7 @@
         "title_mortgage_statement": "proofOfAddress.upload.title_mortgage_statement_back",
         "title_pension_property_statement_letter": "proofOfAddress.upload.title_pension_property_statement_letter_back",
         "title_tax_letter": "proofOfAddress.upload.title_council_tax_front",
-        "title_v5c": "proofOfAddress.upload.title_v5c"
+        "title_v5c": "proofOfAddress.guide.title_v5c"
       },
       "poa_welcome_text": "welcome.list_item.poa",
       "profile_data": {
@@ -4580,7 +4588,8 @@
       "title_mortgage_statement": "Ներկայացրեք հիպոտեկային հաշվետվությունը",
       "title_pension_property_statement_letter": "Ներկայացրեք հայտարարություն կամ նամակ",
       "title_tax_letter": "Ներկայացրեք տեղական կառավարության հարկային նամակը",
-      "title_utility_bill": "Ուղարկել հաշիվ"
+      "title_utility_bill": "Ուղարկել հաշիվ",
+      "title_v5c": "Ուղարկել տրանսպորտային միջոցի գրանցման վկայականը (V5C)"
     },
     "intro": {
       "button_primary": "Սկսել նույնականացումը",
@@ -4702,7 +4711,7 @@
       "title_pension_property_statement_letter_front": "Ներկայացրեք հայտարարություն կամ նամակ",
       "title_utility_bill_back": "Ուղարկել հաշիվ",
       "title_utility_bill_front": "Ուղարկել հաշիվ",
-      "title_v5c": "Ուղարկել տրանսպորտային միջոցի գրանցման վկայականը (V5C)",
+      "title_v5c_front": "Ուղարկել տրանսպորտային միջոցի գրանցման վկայականը (V5C)",
       "upload_photo": "Վերբեռնել ֆայլը"
     }
   },

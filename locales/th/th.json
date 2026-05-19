@@ -669,7 +669,9 @@
       "utility_bill": "ใบแจ้งหนี้ค่าสาธารณูปโภค",
       "utility_bill_details": "แก๊ซ ไฟฟ้า ประปา โทรศัพท์บ้าน หรือบรอดแบนด์",
       "utility_bill_extra": "จะใช้เอกสารอิเล็กทรอนิกส์ก็ได้",
-      "utility_bill_warning": "ขออภัย, ไม่มีใบเสร็จรับเงินโทรศัพท์มือถือ"
+      "utility_bill_warning": "ขออภัย, ไม่มีใบเสร็จรับเงินโทรศัพท์มือถือ",
+      "v5c": "สมุดบันทึกยานพาหนะ (V5C)",
+      "v5c_details": "หรือที่รู้จักในชื่อใบรับรองการจดทะเบียนยานพาหนะ ออกโดย DVLA"
     },
     "video_player": {
       "button_pause_accessibility": "หยุดภาพประกอบการทำงานของกระบวนการสแกนชั่วคราว",
@@ -884,6 +886,9 @@
       "description_tip_1": "หลีกเลี่ยงบริเวณที่แสงน้อยเพื่อลดความเบลอ และหลบจากแสงจ้าโดยตรงเพื่อป้องกันเงาสะท้อน",
       "description_tip_2": "วางเอกสารให้เข้าในกรอบทั้งหมด หากไม่ตรวจพบเอกสาร ให้ใช้พื้นหลังสีเข้มเรียบ",
       "description_tip_3": "อย่าบังรูปถ่ายและข้อความบนบัตรของคุณ เอียงบัตรเล็กน้อยเพื่อลดแสงสะท้อน",
+      "next_slide_button_accessibility": "สไลด์ถัดไป",
+      "previous_slide_button_accessibility": "สไลด์ก่อนหน้า",
+      "slide_stepper_accessibility": "สไลด์ %d จาก %d",
       "subtitle": "ทำตามคำแนะนำเหล่านี้เพื่อสแกนบัตรประจำตัวของคุณให้สำเร็จ",
       "title": "ต้องการความช่วยเหลือหรือไม่?",
       "title_tip_1": "หาสถานที่ที่มีแสงสว่างเพียงพอ",
@@ -1968,6 +1973,9 @@
         "description_tip_1": "document.help.description_tip_1",
         "description_tip_2": "document.help.description_tip_2",
         "description_tip_3": "document.help.description_tip_3",
+        "next_slide_button_accessibility": "document.help.next_slide_button_accessibility",
+        "previous_slide_button_accessibility": "document.help.previous_slide_button_accessibility",
+        "slide_stepper_accessibility": "document.help.slide_stepper_accessibility",
         "subtitle": "document.help.subtitle",
         "title": "document.help.title",
         "title_tip_1": "document.help.title_tip_1",
@@ -3303,7 +3311,7 @@
         "title_mortgage_statement": "proofOfAddress.upload.title_mortgage_statement_back",
         "title_pension_property_statement_letter": "proofOfAddress.upload.title_pension_property_statement_letter_back",
         "title_tax_letter": "proofOfAddress.upload.title_council_tax_front",
-        "title_v5c": "proofOfAddress.upload.title_v5c"
+        "title_v5c": "proofOfAddress.guide.title_v5c"
       },
       "poa_welcome_text": "welcome.list_item.poa",
       "profile_data": {
@@ -4580,7 +4588,8 @@
       "title_mortgage_statement": "ส่งใบแจ้งหนี้สินเชื่อที่อยู่อาศัย",
       "title_pension_property_statement_letter": "ส่งคำชี้แจงหรือจดหมาย",
       "title_tax_letter": "ส่งจดหมายภาษีรัฐบาลท้องถิ่น",
-      "title_utility_bill": "ส่งใบเรียกเก็บเงิน"
+      "title_utility_bill": "ส่งใบเรียกเก็บเงิน",
+      "title_v5c": "ส่งสมุดทะเบียนรถ (V5C)"
     },
     "intro": {
       "button_primary": "เริ่มการยืนยันตัวตน",
@@ -4702,7 +4711,7 @@
       "title_pension_property_statement_letter_front": "ส่งคำชี้แจงหรือจดหมาย",
       "title_utility_bill_back": "ส่งใบเรียกเก็บเงิน",
       "title_utility_bill_front": "ส่งใบเรียกเก็บเงิน",
-      "title_v5c": "ส่งสมุดทะเบียนรถ (V5C)",
+      "title_v5c_front": "ส่งสมุดทะเบียนรถ (V5C)",
       "upload_photo": "อัปโหลดไฟล์"
     }
   },

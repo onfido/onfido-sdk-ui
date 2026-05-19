@@ -669,7 +669,9 @@
       "utility_bill": "Betriebskostenabrechnung",
       "utility_bill_details": "Gas, Strom, Wasser, Festnetz oder Breitband-Internet",
       "utility_bill_extra": "E-Auszüge werden akzeptiert",
-      "utility_bill_warning": "Entschuldigung, keine Handyrechnungen"
+      "utility_bill_warning": "Entschuldigung, keine Handyrechnungen",
+      "v5c": "Fahrzeugschein (V5C)",
+      "v5c_details": "Auch bekannt als Zulassungsbescheinigung, ausgestellt von der DVLA"
     },
     "video_player": {
       "button_pause_accessibility": "Pause der illustrativen Animation des Scanvorgangs",
@@ -884,6 +886,9 @@
       "description_tip_1": "Vermeide Orte mit wenig Licht, um Unschärfe zu verhindern. Gehe aus direktem Licht, um Spiegelungen zu vermeiden.",
       "description_tip_2": "Stelle sicher, dass dein Ausweis vollständig im Rahmen liegt. Verwende einen einfarbig dunklen Hintergrund, wenn der Ausweis nicht erkannt wird.",
       "description_tip_3": "Decke Foto und Text auf deinem Ausweis nicht ab. Kippe den Ausweis leicht, um Spiegelungen zu vermeiden.",
+      "next_slide_button_accessibility": "Nächste Folie",
+      "previous_slide_button_accessibility": "Vorherige Folie",
+      "slide_stepper_accessibility": "Folie %d von %d",
       "subtitle": "Befolgen Sie diese Tipps, um Ihr Ausweisdokument erfolgreich zu scannen.",
       "title": "Brauchst du Hilfe?",
       "title_tip_1": "Suchen Sie einen gut beleuchteten Ort",
@@ -1968,6 +1973,9 @@
         "description_tip_1": "document.help.description_tip_1",
         "description_tip_2": "document.help.description_tip_2",
         "description_tip_3": "document.help.description_tip_3",
+        "next_slide_button_accessibility": "document.help.next_slide_button_accessibility",
+        "previous_slide_button_accessibility": "document.help.previous_slide_button_accessibility",
+        "slide_stepper_accessibility": "document.help.slide_stepper_accessibility",
         "subtitle": "document.help.subtitle",
         "title": "document.help.title",
         "title_tip_1": "document.help.title_tip_1",
@@ -3303,7 +3311,7 @@
         "title_mortgage_statement": "proofOfAddress.upload.title_mortgage_statement_back",
         "title_pension_property_statement_letter": "proofOfAddress.upload.title_pension_property_statement_letter_back",
         "title_tax_letter": "proofOfAddress.upload.title_council_tax_front",
-        "title_v5c": "proofOfAddress.upload.title_v5c"
+        "title_v5c": "proofOfAddress.guide.title_v5c"
       },
       "poa_welcome_text": "welcome.list_item.poa",
       "profile_data": {
@@ -4580,7 +4588,8 @@
       "title_mortgage_statement": "Hypothekenabrechnung einreichen",
       "title_pension_property_statement_letter": "Aussage oder Brief einreichen",
       "title_tax_letter": "Lokale Steuerbescheinigung der Regierung einreichen",
-      "title_utility_bill": "Rechnung senden"
+      "title_utility_bill": "Rechnung senden",
+      "title_v5c": "Fahrzeugschein (V5C) einreichen"
     },
     "intro": {
       "button_primary": "Bestätigung beginnen",
@@ -4702,7 +4711,7 @@
       "title_pension_property_statement_letter_front": "Aussage oder Brief einreichen",
       "title_utility_bill_back": "Rechnung senden",
       "title_utility_bill_front": "Rechnung senden",
-      "title_v5c": "Fahrzeugschein (V5C) einreichen",
+      "title_v5c_front": "Fahrzeugschein (V5C) einreichen",
       "upload_photo": "Datei hochladen"
     }
   },

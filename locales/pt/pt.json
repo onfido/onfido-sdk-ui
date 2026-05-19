@@ -669,7 +669,9 @@
       "utility_bill": "Fatura de serviço essencial",
       "utility_bill_details": "Gás, eletricidade, água, telefone fixo ou banda larga",
       "utility_bill_extra": "Declarações eletrónicas aceites",
-      "utility_bill_warning": "Desculpe, sem contas de telefone móvel"
+      "utility_bill_warning": "Desculpe, sem contas de telefone móvel",
+      "v5c": "Livrete do veículo (V5C)",
+      "v5c_details": "Também conhecido como certificado de matrícula do veículo, emitido pela DVLA"
     },
     "video_player": {
       "button_pause_accessibility": "Pausar animação ilustrativa do procedimento de digitalização",
@@ -884,6 +886,9 @@
       "description_tip_1": "Evite locais com pouca luz para prevenir desfoque. Afaste-se da luz direta para evitar reflexos.",
       "description_tip_2": "Certifique-se de que o seu documento está totalmente dentro da moldura. Use um fundo escuro liso se o documento não for detectado.",
       "description_tip_3": "Evite cobrir a foto e o texto do seu documento. Incline ligeiramente o documento para eliminar reflexos.",
+      "next_slide_button_accessibility": "Próximo slide",
+      "previous_slide_button_accessibility": "Slide anterior",
+      "slide_stepper_accessibility": "Slide %d de %d",
       "subtitle": "Siga estas dicas para digitalizar o seu documento de identidade com sucesso.",
       "title": "Precisa de ajuda?",
       "title_tip_1": "Encontre um local com boa iluminação",
@@ -1968,6 +1973,9 @@
         "description_tip_1": "document.help.description_tip_1",
         "description_tip_2": "document.help.description_tip_2",
         "description_tip_3": "document.help.description_tip_3",
+        "next_slide_button_accessibility": "document.help.next_slide_button_accessibility",
+        "previous_slide_button_accessibility": "document.help.previous_slide_button_accessibility",
+        "slide_stepper_accessibility": "document.help.slide_stepper_accessibility",
         "subtitle": "document.help.subtitle",
         "title": "document.help.title",
         "title_tip_1": "document.help.title_tip_1",
@@ -3303,7 +3311,7 @@
         "title_mortgage_statement": "proofOfAddress.upload.title_mortgage_statement_back",
         "title_pension_property_statement_letter": "proofOfAddress.upload.title_pension_property_statement_letter_back",
         "title_tax_letter": "proofOfAddress.upload.title_council_tax_front",
-        "title_v5c": "proofOfAddress.upload.title_v5c"
+        "title_v5c": "proofOfAddress.guide.title_v5c"
       },
       "poa_welcome_text": "welcome.list_item.poa",
       "profile_data": {
@@ -4580,7 +4588,8 @@
       "title_mortgage_statement": "Enviar extrato de hipoteca",
       "title_pension_property_statement_letter": "Enviar declaração ou carta",
       "title_tax_letter": "Envie a Carta de Imposto do Governo Local",
-      "title_utility_bill": "Enviar fatura"
+      "title_utility_bill": "Enviar fatura",
+      "title_v5c": "Submeter livrete do veículo (V5C)"
     },
     "intro": {
       "button_primary": "Iniciar verificação",
@@ -4702,7 +4711,7 @@
       "title_pension_property_statement_letter_front": "Enviar declaração ou carta",
       "title_utility_bill_back": "Enviar fatura",
       "title_utility_bill_front": "Enviar fatura",
-      "title_v5c": "Submeter livrete do veículo (V5C)",
+      "title_v5c_front": "Submeter livrete do veículo (V5C)",
       "upload_photo": "Carregar ficheiro"
     }
   },

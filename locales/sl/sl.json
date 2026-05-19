@@ -669,7 +669,9 @@
       "utility_bill": "Račun za komunalne storitve",
       "utility_bill_details": "Plin, elektrika, voda, fiksna ali širokopasovna povezava",
       "utility_bill_extra": "sprejeti e-izpiski",
-      "utility_bill_warning": "Oprostite, računov za mobilni telefon ni"
+      "utility_bill_warning": "Oprostite, računov za mobilni telefon ni",
+      "v5c": "Prometno dovoljenje vozila (V5C)",
+      "v5c_details": "Znano tudi kot potrdilo o registraciji vozila, ki ga izda DVLA"
     },
     "video_player": {
       "button_pause_accessibility": "Začasno ustavi ilustrativno animacijo postopka skeniranja",
@@ -884,6 +886,9 @@
       "description_tip_1": "Izogibajte se slabo osvetljenim mestom, da preprečite zameglitev. Umaknite se od neposredne svetlobe, da preprečite odseve.",
       "description_tip_2": "Poskrbite, da je vaš dokument v celoti v kadru. Če dokument ni zaznan, uporabite enostavno temno ozadje.",
       "description_tip_3": "Ne zakrivajte fotografije in besedila na svojem ID-ju. Rahlo nagnite dokument, da zmanjšate odseve.",
+      "next_slide_button_accessibility": "Naslednja diapozitiv",
+      "previous_slide_button_accessibility": "Prejšnji diapozitiv",
+      "slide_stepper_accessibility": "Diapozitiv %d od %d",
       "subtitle": "Upoštevajte te nasvete za uspešno skeniranje osebnega dokumenta.",
       "title": "Potrebujete pomoč?",
       "title_tip_1": "Poiščite prostor z dobro osvetlitvijo",
@@ -1968,6 +1973,9 @@
         "description_tip_1": "document.help.description_tip_1",
         "description_tip_2": "document.help.description_tip_2",
         "description_tip_3": "document.help.description_tip_3",
+        "next_slide_button_accessibility": "document.help.next_slide_button_accessibility",
+        "previous_slide_button_accessibility": "document.help.previous_slide_button_accessibility",
+        "slide_stepper_accessibility": "document.help.slide_stepper_accessibility",
         "subtitle": "document.help.subtitle",
         "title": "document.help.title",
         "title_tip_1": "document.help.title_tip_1",
@@ -3303,7 +3311,7 @@
         "title_mortgage_statement": "proofOfAddress.upload.title_mortgage_statement_back",
         "title_pension_property_statement_letter": "proofOfAddress.upload.title_pension_property_statement_letter_back",
         "title_tax_letter": "proofOfAddress.upload.title_council_tax_front",
-        "title_v5c": "proofOfAddress.upload.title_v5c"
+        "title_v5c": "proofOfAddress.guide.title_v5c"
       },
       "poa_welcome_text": "welcome.list_item.poa",
       "profile_data": {
@@ -4580,7 +4588,8 @@
       "title_mortgage_statement": "Predložite izjavo o hipoteki",
       "title_pension_property_statement_letter": "Predložite izjavo ali pismo",
       "title_tax_letter": "Predložite davčno pismo lokalne vlade",
-      "title_utility_bill": "Predloži račun"
+      "title_utility_bill": "Predloži račun",
+      "title_v5c": "Predložite prometno dovoljenje (V5C)"
     },
     "intro": {
       "button_primary": "Začni s preverjanjem",
@@ -4702,7 +4711,7 @@
       "title_pension_property_statement_letter_front": "Predložite izjavo ali pismo",
       "title_utility_bill_back": "Predloži račun",
       "title_utility_bill_front": "Predloži račun",
-      "title_v5c": "Predložite prometno dovoljenje (V5C)",
+      "title_v5c_front": "Predložite prometno dovoljenje (V5C)",
       "upload_photo": "Naloži datoteko"
     }
   },

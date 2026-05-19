@@ -669,7 +669,9 @@
       "utility_bill": "فواتير المرافق",
       "utility_bill_details": "غاز أو كهرباء أو مياه أو هاتف أرضي أو النطاق العريض",
       "utility_bill_extra": "البيانات الإلكترونية مقبولة ",
-      "utility_bill_warning": "عذرًا، لا توجد فواتير للهاتف المحمول"
+      "utility_bill_warning": "عذرًا، لا توجد فواتير للهاتف المحمول",
+      "v5c": "سجل مركبة (V5C)",
+      "v5c_details": "يُعرَف أيضًا باسم شهادة تسجيل المركبة، الصادرة عن DVLA"
     },
     "video_player": {
       "button_pause_accessibility": "إيقاف الفيديو مؤقتًا",
@@ -884,6 +886,9 @@
       "description_tip_1": "تجنّب الأماكن ضعيفة الإضاءة لتفادي الضبابية. ابتعد عن الضوء المباشر لتفادي الانعكاسات.",
       "description_tip_2": "تأكد من أن وثيقتك ضمن الإطار بالكامل. استخدم خلفية داكنة بسيطة إذا لم يتم اكتشاف الوثيقة.",
       "description_tip_3": "تجنب تغطية الصورة والنص في هويتك. أملِ هويتك قليلًا للتخلص من الانعكاسات.",
+      "next_slide_button_accessibility": "الشريحة التالية",
+      "previous_slide_button_accessibility": "الشريحة السابقة",
+      "slide_stepper_accessibility": "الشريحة %d من %d",
       "subtitle": "اتبع هذه النصائح لمسح وثيقة هويتك بنجاح.",
       "title": "هل تحتاج إلى مساعدة؟",
       "title_tip_1": "ابحث عن مكان بإضاءة جيدة",
@@ -1968,6 +1973,9 @@
         "description_tip_1": "document.help.description_tip_1",
         "description_tip_2": "document.help.description_tip_2",
         "description_tip_3": "document.help.description_tip_3",
+        "next_slide_button_accessibility": "document.help.next_slide_button_accessibility",
+        "previous_slide_button_accessibility": "document.help.previous_slide_button_accessibility",
+        "slide_stepper_accessibility": "document.help.slide_stepper_accessibility",
         "subtitle": "document.help.subtitle",
         "title": "document.help.title",
         "title_tip_1": "document.help.title_tip_1",
@@ -3303,7 +3311,7 @@
         "title_mortgage_statement": "proofOfAddress.upload.title_mortgage_statement_back",
         "title_pension_property_statement_letter": "proofOfAddress.upload.title_pension_property_statement_letter_back",
         "title_tax_letter": "proofOfAddress.upload.title_council_tax_front",
-        "title_v5c": "proofOfAddress.upload.title_v5c"
+        "title_v5c": "proofOfAddress.guide.title_v5c"
       },
       "poa_welcome_text": "welcome.list_item.poa",
       "profile_data": {
@@ -4580,7 +4588,8 @@
       "title_mortgage_statement": "قدم بيان الرهن العقاري",
       "title_pension_property_statement_letter": "قدم بيانًا أو رسالة",
       "title_tax_letter": "قدم خطاب ضريبة الحكومة المحلية",
-      "title_utility_bill": "أرسِل الفاتورة"
+      "title_utility_bill": "أرسِل الفاتورة",
+      "title_v5c": "إرسال دفتر سجل المركبة (V5C)"
     },
     "intro": {
       "button_primary": "ابدأ التحقق",
@@ -4702,7 +4711,7 @@
       "title_pension_property_statement_letter_front": "قدم بيانًا أو رسالة",
       "title_utility_bill_back": "أرسِل الفاتورة",
       "title_utility_bill_front": "أرسِل الفاتورة",
-      "title_v5c": "إرسال دفتر سجل المركبة (V5C)",
+      "title_v5c_front": "إرسال دفتر سجل المركبة (V5C)",
       "upload_photo": "تحميل ملف"
     }
   },

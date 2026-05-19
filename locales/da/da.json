@@ -669,7 +669,9 @@
       "utility_bill": "Regning på forbrugsydelser",
       "utility_bill_details": "Gas, elektricitet, vand, fastnet eller bredbånd",
       "utility_bill_extra": "accepterede e-erklæringer",
-      "utility_bill_warning": "Beklager, ingen mobiltelefonregninger"
+      "utility_bill_warning": "Beklager, ingen mobiltelefonregninger",
+      "v5c": "Køretøjets registreringsattest (V5C)",
+      "v5c_details": "Også kendt som køretøjets registreringscertifikat, udstedt af DVLA"
     },
     "video_player": {
       "button_pause_accessibility": "Pause illustrativ animation af scanning procedure",
@@ -884,6 +886,9 @@
       "description_tip_1": "Undgå steder med svagt lys for at undgå slør. Flyt dig væk fra direkte lys for at undgå reflekser.",
       "description_tip_2": "Sørg for, at dit ID er helt inden for rammen. Brug en ensfarvet mørk baggrund, hvis ID'et ikke registreres.",
       "description_tip_3": "Undgå at dække over foto og tekst på dit ID. Vip ID’et en smule for at fjerne refleksioner.",
+      "next_slide_button_accessibility": "Næste slide",
+      "previous_slide_button_accessibility": "Forrige slide",
+      "slide_stepper_accessibility": "Dias %d af %d",
       "subtitle": "Følg disse tips for at scanne dit ID med succes.",
       "title": "Brug for hjælp?",
       "title_tip_1": "Find et sted med god belysning",
@@ -1968,6 +1973,9 @@
         "description_tip_1": "document.help.description_tip_1",
         "description_tip_2": "document.help.description_tip_2",
         "description_tip_3": "document.help.description_tip_3",
+        "next_slide_button_accessibility": "document.help.next_slide_button_accessibility",
+        "previous_slide_button_accessibility": "document.help.previous_slide_button_accessibility",
+        "slide_stepper_accessibility": "document.help.slide_stepper_accessibility",
         "subtitle": "document.help.subtitle",
         "title": "document.help.title",
         "title_tip_1": "document.help.title_tip_1",
@@ -3303,7 +3311,7 @@
         "title_mortgage_statement": "proofOfAddress.upload.title_mortgage_statement_back",
         "title_pension_property_statement_letter": "proofOfAddress.upload.title_pension_property_statement_letter_back",
         "title_tax_letter": "proofOfAddress.upload.title_council_tax_front",
-        "title_v5c": "proofOfAddress.upload.title_v5c"
+        "title_v5c": "proofOfAddress.guide.title_v5c"
       },
       "poa_welcome_text": "welcome.list_item.poa",
       "profile_data": {
@@ -4580,7 +4588,8 @@
       "title_mortgage_statement": "Indsend realkreditudskrift",
       "title_pension_property_statement_letter": "Indsend erklæring eller brev",
       "title_tax_letter": "Indsend Lokal Skattebrev fra Kommunen",
-      "title_utility_bill": "Indsend regning"
+      "title_utility_bill": "Indsend regning",
+      "title_v5c": "Indsend registreringsattest (V5C)"
     },
     "intro": {
       "button_primary": "Start verificering",
@@ -4702,7 +4711,7 @@
       "title_pension_property_statement_letter_front": "Indsend erklæring eller brev",
       "title_utility_bill_back": "Indsend regning",
       "title_utility_bill_front": "Indsend regning",
-      "title_v5c": "Indsend registreringsattest (V5C)",
+      "title_v5c_front": "Indsend registreringsattest (V5C)",
       "upload_photo": "Upload fil"
     }
   },

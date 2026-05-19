@@ -669,7 +669,9 @@
       "utility_bill": "Hóa đơn dịch vụ thiết yếu",
       "utility_bill_details": "Khí đốt, điện, nước, điện thoại cố định hoặc internet",
       "utility_bill_extra": "các bảng sao kê điện tử được chấp nhận",
-      "utility_bill_warning": "Xin lỗi, không có hóa đơn điện thoại di động"
+      "utility_bill_warning": "Xin lỗi, không có hóa đơn điện thoại di động",
+      "v5c": "Sổ đăng ký xe (V5C)",
+      "v5c_details": "Còn được gọi là giấy chứng nhận đăng ký xe, do DVLA cấp"
     },
     "video_player": {
       "button_pause_accessibility": "Tạm dừng hoạt hình minh họa quy trình quét",
@@ -884,6 +886,9 @@
       "description_tip_1": "Tránh nơi thiếu sáng để không bị mờ. Tránh ánh sáng trực tiếp để không bị phản chiếu.",
       "description_tip_2": "Đảm bảo giấy tờ nằm trọn trong khung. Dùng nền tối đơn giản nếu không phát hiện được giấy tờ.",
       "description_tip_3": "Tránh che phần ảnh và chữ trên giấy tờ. Hơi nghiêng giấy tờ để loại bỏ phản chiếu.",
+      "next_slide_button_accessibility": "Trang tiếp theo",
+      "previous_slide_button_accessibility": "Trang trước",
+      "slide_stepper_accessibility": "Trang chiếu %d trong tổng số %d",
       "subtitle": "Làm theo các mẹo sau để quét giấy tờ tùy thân của bạn thành công.",
       "title": "Cần trợ giúp?",
       "title_tip_1": "Tìm một nơi có đủ ánh sáng",
@@ -1968,6 +1973,9 @@
         "description_tip_1": "document.help.description_tip_1",
         "description_tip_2": "document.help.description_tip_2",
         "description_tip_3": "document.help.description_tip_3",
+        "next_slide_button_accessibility": "document.help.next_slide_button_accessibility",
+        "previous_slide_button_accessibility": "document.help.previous_slide_button_accessibility",
+        "slide_stepper_accessibility": "document.help.slide_stepper_accessibility",
         "subtitle": "document.help.subtitle",
         "title": "document.help.title",
         "title_tip_1": "document.help.title_tip_1",
@@ -3303,7 +3311,7 @@
         "title_mortgage_statement": "proofOfAddress.upload.title_mortgage_statement_back",
         "title_pension_property_statement_letter": "proofOfAddress.upload.title_pension_property_statement_letter_back",
         "title_tax_letter": "proofOfAddress.upload.title_council_tax_front",
-        "title_v5c": "proofOfAddress.upload.title_v5c"
+        "title_v5c": "proofOfAddress.guide.title_v5c"
       },
       "poa_welcome_text": "welcome.list_item.poa",
       "profile_data": {
@@ -4580,7 +4588,8 @@
       "title_mortgage_statement": "Gửi báo cáo khoản vay thế chấp",
       "title_pension_property_statement_letter": "Gửi bản tuyên bố hoặc thư",
       "title_tax_letter": "Gửi Thư Thuế Chính Quyền Địa Phương",
-      "title_utility_bill": "Gửi hóa đơn"
+      "title_utility_bill": "Gửi hóa đơn",
+      "title_v5c": "Gửi sổ đăng ký xe (V5C)"
     },
     "intro": {
       "button_primary": "Bắt đầu xác minh",
@@ -4702,7 +4711,7 @@
       "title_pension_property_statement_letter_front": "Gửi bản tuyên bố hoặc thư",
       "title_utility_bill_back": "Gửi hóa đơn",
       "title_utility_bill_front": "Gửi hóa đơn",
-      "title_v5c": "Gửi sổ đăng ký xe (V5C)",
+      "title_v5c_front": "Gửi sổ đăng ký xe (V5C)",
       "upload_photo": "Tải tệp lên"
     }
   },
