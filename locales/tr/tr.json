@@ -4785,7 +4785,7 @@
       },
       "list_item_1": {
         "accessibility": "GOV.UK web sitesinde elektronik vizenizi görüntüleyin ve paylaşım kodu alın (tarayıcıda açılır)",
-        "label": "GOV.UK web sitesinde elektronik vizenizi görüntüleyin ve paylaşım kodu alın"
+        "label": "e-Vizanızı görüntüleyin ve <link>GOV.UK web sitesinde</link> bir paylaşım kodu alın"
       },
       "list_item_2": {
         "accessibility": "Neden bir paylaşım koduna ihtiyacınız olduğu sorulduğunda, göçmenlik durumunuzu kanıtlamak için seçeneği seçin",

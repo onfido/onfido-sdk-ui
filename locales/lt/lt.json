@@ -4785,7 +4785,7 @@
       },
       "list_item_1": {
         "accessibility": "Peržiūrėkite savo elektroninę vizą ir gaukite bendrinimo kodą GOV.UK svetainėje (atidaro naršyklėje)",
-        "label": "Peržiūrėkite savo elektroninę vizą ir gaukite bendrinimo kodą GOV.UK svetainėje"
+        "label": "Peržiūrėkite savo elektroninę vizą ir gaukite dalijimosi kodą <link>GOV.UK svetainėje</link>"
       },
       "list_item_2": {
         "accessibility": "Kai jūsų paklaus, kodėl jums reikia pasidalijimo kodo, pasirinkite parinktį patvirtinti savo imigracijos statusą",

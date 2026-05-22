@@ -4785,7 +4785,7 @@
       },
       "list_item_1": {
         "accessibility": "Sehen Sie sich Ihr elektronisches Visum an und erhalten Sie einen Freigabecode auf der GOV.UK-Website (öffnet sich im Browser)",
-        "label": "Sehen Sie Ihr elektronisches Visum ein und erhalten Sie einen Freigabecode auf der GOV.UK-Website"
+        "label": "Sehen Sie Ihr elektronisches Visum ein und erhalten Sie einen Freigabecode auf der <link>GOV.UK-Website</link>"
       },
       "list_item_2": {
         "accessibility": "Wenn Sie gefragt werden, warum Sie einen Freigabecode benötigen, wählen Sie die Option, Ihren Einwanderungsstatus nachzuweisen.",

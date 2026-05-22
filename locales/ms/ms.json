@@ -4785,7 +4785,7 @@
       },
       "list_item_1": {
         "accessibility": "Lihat e-Visa anda dan dapatkan kod kongsi di laman web GOV.UK (dibuka dalam pelayar)",
-        "label": "Lihat eVisa anda dan dapatkan kod perkongsian di laman web GOV.UK"
+        "label": "Lihat eVisa anda dan dapatkan kod kongsi di <link>laman web GOV.UK</link>"
       },
       "list_item_2": {
         "accessibility": "Apabila ditanya mengapa anda memerlukan kod perkongsian, pilih pilihan untuk membuktikan status imigresen anda",

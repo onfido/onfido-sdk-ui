@@ -4785,7 +4785,7 @@
       },
       "list_item_1": {
         "accessibility": "Tarkastele sähköistä viisumiasi ja luo jakokoodi GOV.UK-verkkosivustolla (avautuu selaimessa)",
-        "label": "Näytä sähköinen viisumisi ja luo jaettava koodi GOV.UK-sivustolla"
+        "label": "Tarkastele sähköistä viisumia ja hanki jakokoodi <link>GOV.UK-verkkosivustolta</link>"
       },
       "list_item_2": {
         "accessibility": "Kun sinulta kysytään, miksi tarvitset jaettavan koodin, valitse vaihtoehto, jolla todistat maahanmuuttostatuksesi",

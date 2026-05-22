@@ -4785,7 +4785,7 @@
       },
       "list_item_1": {
         "accessibility": "Visualize o seu visto eletrónico e obtenha um código de partilha no site GOV.UK (abre no navegador)",
-        "label": "Visualize o seu visto eletrónico e obtenha um código de partilha no site GOV.UK"
+        "label": "Veja o seu visto eletrónico e obtenha um código de partilha no <link>site do GOV.UK</link>"
       },
       "list_item_2": {
         "accessibility": "Quando perguntado por que você precisa de um código de partilha, selecione a opção para comprovar o seu estatuto de imigração",

@@ -4785,7 +4785,7 @@
       },
       "list_item_1": {
         "accessibility": "Bekijk uw elektronische visum en maak een deelcode aan op de GOV.UK-website (opent in browser)",
-        "label": "Bekijk uw elektronische visum en vraag een deelcode aan op de GOV.UK-website"
+        "label": "Bekijk uw e-visum en vraag een deelcode aan op de <link>GOV.UK‑website</link>"
       },
       "list_item_2": {
         "accessibility": "Wanneer wordt gevraagd waarom je een deelcode nodig hebt, kies je de optie om je immigratiestatus aan te tonen",

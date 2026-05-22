@@ -4785,7 +4785,7 @@
       },
       "list_item_1": {
         "accessibility": "Vezi viza electronică și obține un cod de partajare pe site-ul GOV.UK (se deschide în browser)",
-        "label": "Vizualizează viza electronică și obține un cod de partajare pe site-ul GOV.UK"
+        "label": "Vezi e-viza ta și obține un cod de partajare pe <link>site-ul GOV.UK</link>"
       },
       "list_item_2": {
         "accessibility": "Când ți se cere să precizezi de ce ai nevoie de un cod de partajare, selectează opțiunea pentru a-ți dovedi statutul de imigrare",

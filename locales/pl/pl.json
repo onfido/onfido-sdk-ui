@@ -4785,7 +4785,7 @@
       },
       "list_item_1": {
         "accessibility": "Wyświetl swoją elektroniczną wizę i wygeneruj kod udostępniania na stronie GOV.UK (otwiera się w przeglądarce)",
-        "label": "Wyświetl swoją elektroniczną wizę i wygeneruj kod udostępniania na stronie GOV.UK"
+        "label": "Wyświetl swoją e-wizę i uzyskaj kod udostępniania na <link>stronie internetowej GOV.UK</link>"
       },
       "list_item_2": {
         "accessibility": "Gdy zostaniesz zapytany, dlaczego potrzebujesz kodu udostępniania, wybierz opcję potwierdzenia swojego statusu imigracyjnego",

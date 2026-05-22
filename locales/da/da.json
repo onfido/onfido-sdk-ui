@@ -4785,7 +4785,7 @@
       },
       "list_item_1": {
         "accessibility": "Se din elektroniske visum og få en delekode på GOV.UK-webstedet (åbnes i browser)",
-        "label": "Se dit elektroniske visum og få en delingskode på GOV.UK-webstedet"
+        "label": "Se dit elektroniske visum og få en delingskode på <link>GOV.UK‑webstedet</link>"
       },
       "list_item_2": {
         "accessibility": "Når du bliver spurgt, hvorfor du har brug for en delekode, skal du vælge muligheden for at bevise din immigrationsstatus",

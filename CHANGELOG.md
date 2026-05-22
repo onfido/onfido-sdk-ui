@@ -7,6 +7,12 @@ and the SDK adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html)
 
 When any of the string translations change, it will result in a MINOR version change. As a result, you are responsible for ensuring the correct layout if you are using custom translations (see [language localization](https://documentation.onfido.com/sdk/web/#custom-translations-and-text)).
 
+## [v14.73.1] - 2026-05-22
+
+### Fixed
+
+- Adjust logic for remote SDK configurations
+
 ## [v14.73.0] - 2026-05-06
 
 ### Added

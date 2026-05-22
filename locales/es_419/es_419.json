@@ -4526,7 +4526,7 @@
     "title": {
       "address": "Agrega tu dirección",
       "country_of_residence": "Tu país de residencia",
-      "national_id_number": "Agregue su número de identificación nacional",
+      "national_id_number": "Agrega tu número de identificación nacional",
       "personal_information": "Agrega tu información personal"
     }
   },
@@ -4785,7 +4785,7 @@
       },
       "list_item_1": {
         "accessibility": "Consulta tu visa electrónica y obtén un código para compartir en el sitio web de GOV.UK (se abre en el navegador)",
-        "label": "Consulta tu visado electrónico y obtén un código para compartir en el sitio web de GOV.UK"
+        "label": "Consulta tu eVisa y obtén un código para compartir en el <link>sitio web de GOV.UK</link>"
       },
       "list_item_2": {
         "accessibility": "Cuando se te pregunte por qué necesitas un código para compartir, selecciona la opción para demostrar tu estatus migratorio",

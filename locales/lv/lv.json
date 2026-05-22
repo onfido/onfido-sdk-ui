@@ -4785,7 +4785,7 @@
       },
       "list_item_1": {
         "accessibility": "Skatiet savu elektronisko vīzu un iegūstiet koplietošanas kodu GOV.UK vietnē (atveras pārlūkā)",
-        "label": "Skatiet savu elektronisko vīzu un iegūstiet koplietošanas kodu GOV.UK vietnē"
+        "label": "Skatiet savu elektronisko vīzu un iegūstiet kopīgošanas kodu vietnē <link>GOV.UK tīmekļvietne</link>"
       },
       "list_item_2": {
         "accessibility": "Kad jums tiek jautāts, kāpēc jums nepieciešams kopīgošanas kods, izvēlieties opciju, lai pierādītu savu imigrācijas statusu",

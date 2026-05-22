@@ -4785,7 +4785,7 @@
       },
       "list_item_1": {
         "accessibility": "Zobrazte si svůj elektronický vízový záznam a získejte sdílecí kód na webové stránce GOV.UK (otevře se v prohlížeči)",
-        "label": "Zobrazte si svou elektronickou vízu a získejte sdílecí kód na webové stránce GOV.UK"
+        "label": "Zobrazte své elektronické vízum a získejte sdílecí kód na <link>webu GOV.UK</link>"
       },
       "list_item_2": {
         "accessibility": "Když budete dotázáni, proč potřebujete sdílecí kód, vyberte možnost prokázat svůj imigrační status",

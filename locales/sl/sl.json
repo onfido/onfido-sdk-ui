@@ -4785,7 +4785,7 @@
       },
       "list_item_1": {
         "accessibility": "Oglejte si svojo elektronsko vizo in pridobite kodo za skupno rabo na spletni strani GOV.UK (odpre se v brskalniku)",
-        "label": "Oglejte si svojo e-vizo in pridobite kodo za skupno rabo na spletni strani GOV.UK"
+        "label": "Oglejte si svojo elektronsko vizo in pridobite kodo za skupno rabo na <link>spletnem mestu GOV.UK</link>"
       },
       "list_item_2": {
         "accessibility": "Ko vas vprašajo, zakaj potrebujete kodo za deljenje, izberite možnost za dokazovanje vašega priseljenskega statusa",

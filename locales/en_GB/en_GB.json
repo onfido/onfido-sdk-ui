@@ -4785,7 +4785,7 @@
       },
       "list_item_1": {
         "accessibility": "View your eVisa and get a share code on the GOV.UK website (opens in browser)",
-        "label": "View your eVisa and get a share code on the GOV.UK website"
+        "label": "View your eVisa and get a share code on the <link>GOV.UK website</link>"
       },
       "list_item_2": {
         "accessibility": "When asked why you need a share code, select the option to prove your immigration status",

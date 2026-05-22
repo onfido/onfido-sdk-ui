@@ -4785,7 +4785,7 @@
       },
       "list_item_1": {
         "accessibility": "在 GOV.UK 網站上查看您的電子簽證並取得分享碼(在瀏覽器中開啟)",
-        "label": "在 GOV.UK 網站上查看您的電子簽證並取得分享碼"
+        "label": "在<link>GOV.UK 網站</link>上查看您的電子簽證並獲取分享碼"
       },
       "list_item_2": {
         "accessibility": "當被問及為何需要分享碼時,請選擇證明您移民身分的選項",

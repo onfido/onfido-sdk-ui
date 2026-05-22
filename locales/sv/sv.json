@@ -4785,7 +4785,7 @@
       },
       "list_item_1": {
         "accessibility": "Visa ditt elektroniska visum och få en delningskod på GOV.UK-webbplatsen (öppnas i webbläsare)",
-        "label": "Visa ditt elektroniska visum och få en delningskod på GOV.UK-webbplatsen"
+        "label": "Visa ditt e-visum och hämta en delningskod på <link>GOV.UK webbplats</link>"
       },
       "list_item_2": {
         "accessibility": "När du tillfrågas varför du behöver en delningskod, välj alternativet för att bevisa din immigrationsstatus",

@@ -4785,7 +4785,7 @@
       },
       "list_item_1": {
         "accessibility": "Consultez votre visa électronique et obtenez un code de partage sur le site GOV.UK (s'ouvre dans le navigateur)",
-        "label": "Consultez votre visa électronique et obtenez un code de partage sur le site GOV.UK"
+        "label": "Consultez votre visa électronique et obtenez un code de partage sur le <link>site web GOV.UK</link>"
       },
       "list_item_2": {
         "accessibility": "Lorsqu'on vous demande pourquoi vous avez besoin d'un code de partage, sélectionnez l'option pour prouver votre statut d'immigration",

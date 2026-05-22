@@ -4785,7 +4785,7 @@
       },
       "list_item_1": {
         "accessibility": "Tekintse meg elektronikus vízumát, és igényeljen megosztási kódot a GOV.UK weboldalon (böngészőben nyílik meg)",
-        "label": "Tekintse meg elektronikus vízumát, és kérjen megosztási kódot a GOV.UK weboldalon"
+        "label": "Tekintse meg e-vízumát, és kérjen megosztási kódot a <link>GOV.UK weboldalon</link>"
       },
       "list_item_2": {
         "accessibility": "Amikor megkérdezik, miért van szüksége megosztási kódra, válassza ki a lehetőséget, amellyel igazolhatja bevándorlási státuszát",

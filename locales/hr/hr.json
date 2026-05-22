@@ -4785,7 +4785,7 @@
       },
       "list_item_1": {
         "accessibility": "Pregledajte svoju elektroničku vizu i dobijte kod za dijeljenje na web stranici GOV.UK (otvara se u pregledniku)",
-        "label": "Pregledajte svoju elektroničku vizu i dobijte kod za dijeljenje na web stranici GOV.UK"
+        "label": "Pogledajte svoju e-vizu i dobijte kod za dijeljenje na <link>GOV.UK web-stranici</link>"
       },
       "list_item_2": {
         "accessibility": "Kada vas se pita zašto vam je potreban kod za dijeljenje, odaberite opciju za dokazivanje vašeg imigracijskog statusa",

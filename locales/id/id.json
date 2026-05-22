@@ -4785,7 +4785,7 @@
       },
       "list_item_1": {
         "accessibility": "Lihat visa elektronik Anda dan dapatkan kode berbagi di situs web GOV.UK (terbuka di browser)",
-        "label": "Lihat visa elektronik Anda dan dapatkan kode berbagi di situs web GOV.UK"
+        "label": "Lihat visa elektronik Anda dan dapatkan kode berbagi di <link>situs web GOV.UK</link>"
       },
       "list_item_2": {
         "accessibility": "Ketika ditanya mengapa Anda memerlukan kode berbagi, pilih opsi untuk membuktikan status imigrasi Anda",

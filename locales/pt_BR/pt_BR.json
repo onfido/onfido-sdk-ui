@@ -4785,7 +4785,7 @@
       },
       "list_item_1": {
         "accessibility": "Visualize seu visto eletrônico e obtenha um código de compartilhamento no site GOV.UK (abre no navegador)",
-        "label": "Visualize seu visto eletrônico e obtenha um código de compartilhamento no site GOV.UK"
+        "label": "Visualize seu visto eletrônico e obtenha um código de compartilhamento no <link>site do GOV.UK</link>"
       },
       "list_item_2": {
         "accessibility": "Quando perguntado por que você precisa de um código de compartilhamento, selecione a opção para comprovar seu status de imigração",

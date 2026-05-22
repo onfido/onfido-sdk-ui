@@ -4785,7 +4785,7 @@
       },
       "list_item_1": {
         "accessibility": "在 GOV.UK 网站上查看您的电子签证并获取分享码(在浏览器中打开)",
-        "label": "在 GOV.UK 网站上查看您的电子签证并获取分享码"
+        "label": "在<link>GOV.UK 网站</link>上查看您的电子签证并获取分享码"
       },
       "list_item_2": {
         "accessibility": "当被问及为什么需要分享码时,请选择证明您的移民身份的选项",

@@ -4785,7 +4785,7 @@
       },
       "list_item_1": {
         "accessibility": "Vaadake oma elektroonilist viisa ja hankige jagamiskood GOV.UK veebisaidil (avaneb brauseris)",
-        "label": "Vaadake oma elektroonilist viisa ja hankige jagamiskood GOV.UK veebisaidil"
+        "label": "Vaadake oma e-viisat ja hankige jagamiskood <link>GOV.UK veebisaidil</link>"
       },
       "list_item_2": {
         "accessibility": "Kui küsitakse, miks vajate jagamiskoodi, valige võimalus oma immigratsioonistaatuse tõendamiseks",
