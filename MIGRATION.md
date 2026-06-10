@@ -2,8 +2,20 @@
 
 These guides below are provided to ease the transition of existing applications using the Onfido SDK from one version to another that introduces breaking API changes.
 
+* [Onfido web SDK 14.74.0 Migration Guide](#onfido-web-sdk-14740-migration-guide)
 * [Onfido web SDK 14.44.0 Migration Guide](#onfido-web-sdk-14440-migration-guide)
 * [Onfido web SDK 14.0.0 Migration Guide](#onfido-web-sdk-1400-migration-guide)
+
+## Onfido web SDK 14.74.0 Migration Guide
+
+### Proof of Address translation keys
+
+The Proof of Address guide screen has been removed and its content merged into the upload screen. As a result, the following translation keys are no longer used and have been renamed. If you provide custom translations, update any overrides targeting the old keys to the new keys below — overrides on the old keys will no longer take effect.
+
+- `proofOfAddress.guide.instructions.label` → `proofOfAddress.upload.instructions.label`
+- `proofOfAddress.guide.instructions.<key>` → `proofOfAddress.upload.instructions.<key>` (for every per-document-type instruction key)
+- `proofOfAddress.guide.subtitle_dynamic_grace_period` → `proofOfAddress.upload.subtitle_dynamic_grace_period`
+- `proofOfAddress.preview.upload` → `proofOfAddress.preview.submit`
 
 ## Onfido web SDK 14.44.0 Migration Guide
 
