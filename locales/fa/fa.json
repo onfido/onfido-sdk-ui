@@ -659,7 +659,7 @@
       "national_identity_card": "کارت شناسایی ملی",
       "national_identity_card_details": "رو و پشت",
       "passport": "گذرنامه",
-      "passport_card": "کارت گذرنامه",
+      "passport_card": "کارت پاسپورت",
       "passport_card_details": "رو و پشت",
       "passport_details": "صفحه عکس‌دار",
       "pension_property_statement_letter": "بیانیه یا نامه بازنشستگی/املاک",
@@ -1473,6 +1473,12 @@
       "title_accessibility": "سر خود را به آرامی به دو طرف بچرخانید. هنگامی که ضبط ویدئو از یک سمت کامل شد، یک صدای تأیید می‌شنوید و گوشی می‌لرزد",
       "title_completed": "ضبط کامل شد",
       "turn_head_other_side_accessibility": "سر خود را به طرف دیگر بچرخانید"
+    },
+    "image_quality": {
+      "feedback_blurry": "ویدیو خیلی تار است",
+      "feedback_low_contrast": "نور بهتری پیدا کنید",
+      "feedback_too_bright": "خیلی روشن است",
+      "feedback_too_dark": "خیلی تاریک است"
     },
     "intro": {
       "animation_randomness_accessibility": "نمونه‌ای از انیمیشن که در آن فردی سر خود را به راست، بالا، پایین و چپ می‌چرخاند تا زمانی که علامت تیک سبز ظاهر شود.",
@@ -2349,6 +2355,10 @@
       "face_biometrics": {
         "capture": {
           "feedback": {
+            "blur_high": "faceMotion.image_quality.feedback_blurry",
+            "brightness_high": "faceMotion.image_quality.feedback_too_bright",
+            "brightness_low": "faceMotion.image_quality.feedback_too_dark",
+            "contrast_low": "faceMotion.image_quality.feedback_low_contrast",
             "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
             "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
           }
@@ -4020,6 +4030,12 @@
       "title_accessibility": "سر خود را به آرامی به دو طرف بچرخانید. هنگامی که ضبط ویدئو از یک سمت کامل شد، یک صدای تأیید می‌شنوید و گوشی می‌لرزد",
       "title_completed": "ضبط کامل شد",
       "turn_head_other_side_accessibility": "سر خود را به طرف دیگر بچرخانید"
+    },
+    "image_quality": {
+      "feedback_blurry": "ویدیو خیلی تار است",
+      "feedback_low_contrast": "نور بهتری پیدا کنید",
+      "feedback_too_bright": "خیلی روشن است",
+      "feedback_too_dark": "خیلی تاریک است"
     },
     "intro": {
       "animation_randomness_accessibility": "نمونه‌ای از انیمیشن که در آن فردی سر خود را به راست، بالا، پایین و چپ می‌چرخاند تا زمانی که علامت تیک سبز ظاهر شود.",

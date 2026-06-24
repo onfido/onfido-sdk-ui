@@ -659,7 +659,7 @@
       "national_identity_card": "Carte nationale d’identité",
       "national_identity_card_details": "Recto et verso",
       "passport": "Passeport",
-      "passport_card": "Carte de passeport",
+      "passport_card": "Carte‑passeport",
       "passport_card_details": "Recto et verso",
       "passport_details": "Page de votre passeport contenant votre photo",
       "pension_property_statement_letter": "Déclaration/Lettre de pension ou de propriété",
@@ -1473,6 +1473,12 @@
       "title_accessibility": "Tournez lentement la têtede chaque côté. Vous entendrez une confirmation et sentirez une vibration lorsqu'un côté sera terminé",
       "title_completed": "Enregistrement terminé",
       "turn_head_other_side_accessibility": "Tournez votre tête de l'autre côté"
+    },
+    "image_quality": {
+      "feedback_blurry": "Vidéo trop floue",
+      "feedback_low_contrast": "Trouvez un meilleur éclairage",
+      "feedback_too_bright": "Trop lumineux",
+      "feedback_too_dark": "Trop sombre"
     },
     "intro": {
       "animation_randomness_accessibility": "Exemple d'animation d'une personne tournant la tête à droite, vers le haut, vers le bas et à gauche, jusqu'à l'apparition d'une coche verte.",
@@ -2349,6 +2355,10 @@
       "face_biometrics": {
         "capture": {
           "feedback": {
+            "blur_high": "faceMotion.image_quality.feedback_blurry",
+            "brightness_high": "faceMotion.image_quality.feedback_too_bright",
+            "brightness_low": "faceMotion.image_quality.feedback_too_dark",
+            "contrast_low": "faceMotion.image_quality.feedback_low_contrast",
             "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
             "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
           }
@@ -4020,6 +4030,12 @@
       "title_accessibility": "Tournez lentement la têtede chaque côté. Vous entendrez une confirmation et sentirez une vibration lorsqu'un côté sera terminé",
       "title_completed": "Enregistrement terminé",
       "turn_head_other_side_accessibility": "Tournez votre tête de l'autre côté"
+    },
+    "image_quality": {
+      "feedback_blurry": "Vidéo trop floue",
+      "feedback_low_contrast": "Trouvez un meilleur éclairage",
+      "feedback_too_bright": "Trop lumineux",
+      "feedback_too_dark": "Trop sombre"
     },
     "intro": {
       "animation_randomness_accessibility": "Exemple d'animation d'une personne tournant la tête à droite, vers le haut, vers le bas et à gauche, jusqu'à l'apparition d'une coche verte.",

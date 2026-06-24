@@ -1474,6 +1474,12 @@
       "title_completed": "Записът е завършен",
       "turn_head_other_side_accessibility": "Обърнете главата си на другата страна"
     },
+    "image_quality": {
+      "feedback_blurry": "Видеото е твърде размазано",
+      "feedback_low_contrast": "Намерете по-добро осветление",
+      "feedback_too_bright": "Твърде светло",
+      "feedback_too_dark": "Твърде тъмно"
+    },
     "intro": {
       "animation_randomness_accessibility": "Примерна анимация на човек, който завърта главата си надясно, нагоре, надолу и наляво, докато се появи зелена отметка.",
       "button_primary_ready": "Начало на запис",
@@ -2349,6 +2355,10 @@
       "face_biometrics": {
         "capture": {
           "feedback": {
+            "blur_high": "faceMotion.image_quality.feedback_blurry",
+            "brightness_high": "faceMotion.image_quality.feedback_too_bright",
+            "brightness_low": "faceMotion.image_quality.feedback_too_dark",
+            "contrast_low": "faceMotion.image_quality.feedback_low_contrast",
             "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
             "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
           }
@@ -4020,6 +4030,12 @@
       "title_accessibility": "Бавно обърнете главата си наляво и надясно. Когато изпълните стъпката, ще чуете потвърждение и ще усетите вибрация",
       "title_completed": "Записът е завършен",
       "turn_head_other_side_accessibility": "Обърнете главата си на другата страна"
+    },
+    "image_quality": {
+      "feedback_blurry": "Видеото е твърде размазано",
+      "feedback_low_contrast": "Намерете по-добро осветление",
+      "feedback_too_bright": "Твърде светло",
+      "feedback_too_dark": "Твърде тъмно"
     },
     "intro": {
       "animation_randomness_accessibility": "Примерна анимация на човек, който завърта главата си надясно, нагоре, надолу и наляво, докато се появи зелена отметка.",

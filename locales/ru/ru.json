@@ -659,7 +659,7 @@
       "national_identity_card": "Удостоверение личности государственного образца",
       "national_identity_card_details": "Лицевая и обратная стороны",
       "passport": "Паспорт",
-      "passport_card": "Карта паспорта",
+      "passport_card": "Паспортная карточка",
       "passport_card_details": "Лицевая и обратная стороны",
       "passport_details": "Страница с фото",
       "pension_property_statement_letter": "Пенсионное или имущественное удостоверение/письмо",
@@ -1473,6 +1473,12 @@
       "title_accessibility": "Медленно поверните голову в обе стороны. Когда сторона будет завершена, Вы услышите подтверждение и почувствуете вибрацию",
       "title_completed": "Запись завершена",
       "turn_head_other_side_accessibility": "Поверните голову в другую сторону"
+    },
+    "image_quality": {
+      "feedback_blurry": "Видео слишком размытое",
+      "feedback_low_contrast": "Найдите лучшее освещение",
+      "feedback_too_bright": "Слишком светло",
+      "feedback_too_dark": "Слишком темно"
     },
     "intro": {
       "animation_randomness_accessibility": "Пример анимации, где человек поворачивает голову вправо, вверх, вниз и влево, пока не появится зеленая галочка.",
@@ -2349,6 +2355,10 @@
       "face_biometrics": {
         "capture": {
           "feedback": {
+            "blur_high": "faceMotion.image_quality.feedback_blurry",
+            "brightness_high": "faceMotion.image_quality.feedback_too_bright",
+            "brightness_low": "faceMotion.image_quality.feedback_too_dark",
+            "contrast_low": "faceMotion.image_quality.feedback_low_contrast",
             "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
             "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
           }
@@ -4020,6 +4030,12 @@
       "title_accessibility": "Медленно поверните голову в обе стороны. Когда сторона будет завершена, Вы услышите подтверждение и почувствуете вибрацию",
       "title_completed": "Запись завершена",
       "turn_head_other_side_accessibility": "Поверните голову в другую сторону"
+    },
+    "image_quality": {
+      "feedback_blurry": "Видео слишком размытое",
+      "feedback_low_contrast": "Найдите лучшее освещение",
+      "feedback_too_bright": "Слишком светло",
+      "feedback_too_dark": "Слишком темно"
     },
     "intro": {
       "animation_randomness_accessibility": "Пример анимации, где человек поворачивает голову вправо, вверх, вниз и влево, пока не появится зеленая галочка.",

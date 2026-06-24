@@ -659,7 +659,7 @@
       "national_identity_card": "Ulusal kimlik no",
       "national_identity_card_details": "Ön ve arka",
       "passport": "Pasaport",
-      "passport_card": " Pasaport kartı ",
+      "passport_card": "Pasaport kartı",
       "passport_card_details": "Ön ve arka",
       "passport_details": "Fotoğraf sayfası",
       "pension_property_statement_letter": "Emeklilik veya Mülkiyet Beyanı/Mektubu",
@@ -1473,6 +1473,12 @@
       "title_accessibility": "Başınızı yavaşça her iki tarafa çevirin. Bir taraf tamamlandığında onay sesi duyacak ve titreşim hissedeceksiniz",
       "title_completed": "Kayıt tamamlandı",
       "turn_head_other_side_accessibility": "Başınızı diğer tarafa çevirin"
+    },
+    "image_quality": {
+      "feedback_blurry": "Video çok bulanık",
+      "feedback_low_contrast": "Daha iyi bir aydınlatma bulun",
+      "feedback_too_bright": "Çok parlak",
+      "feedback_too_dark": "Çok karanlık"
     },
     "intro": {
       "animation_randomness_accessibility": "Birinin başını sağa, yukarı, aşağı ve sola çevirdiği, yeşil bir onay işareti görünene kadar devam ettiği örnek animasyon.",
@@ -2349,6 +2355,10 @@
       "face_biometrics": {
         "capture": {
           "feedback": {
+            "blur_high": "faceMotion.image_quality.feedback_blurry",
+            "brightness_high": "faceMotion.image_quality.feedback_too_bright",
+            "brightness_low": "faceMotion.image_quality.feedback_too_dark",
+            "contrast_low": "faceMotion.image_quality.feedback_low_contrast",
             "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
             "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
           }
@@ -4020,6 +4030,12 @@
       "title_accessibility": "Başınızı yavaşça her iki tarafa çevirin. Bir taraf tamamlandığında onay sesi duyacak ve titreşim hissedeceksiniz",
       "title_completed": "Kayıt tamamlandı",
       "turn_head_other_side_accessibility": "Başınızı diğer tarafa çevirin"
+    },
+    "image_quality": {
+      "feedback_blurry": "Video çok bulanık",
+      "feedback_low_contrast": "Daha iyi bir aydınlatma bulun",
+      "feedback_too_bright": "Çok parlak",
+      "feedback_too_dark": "Çok karanlık"
     },
     "intro": {
       "animation_randomness_accessibility": "Birinin başını sağa, yukarı, aşağı ve sola çevirdiği, yeşil bir onay işareti görünene kadar devam ettiği örnek animasyon.",

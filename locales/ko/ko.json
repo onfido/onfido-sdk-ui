@@ -1474,6 +1474,12 @@
       "title_completed": "녹화 완료",
       "turn_head_other_side_accessibility": "고개를 반대편으로 돌리세요"
     },
+    "image_quality": {
+      "feedback_blurry": "영상이 너무 흐려요",
+      "feedback_low_contrast": "더 밝은 곳으로 이동하세요",
+      "feedback_too_bright": "너무 밝아요",
+      "feedback_too_dark": "너무 어두워요"
+    },
     "intro": {
       "animation_randomness_accessibility": "누군가가 머리를 오른쪽, 위, 아래, 왼쪽으로 돌린 뒤 초록색 체크 표시가 나타나는 예시 애니메이션.",
       "button_primary_ready": "녹화 시작",
@@ -2349,6 +2355,10 @@
       "face_biometrics": {
         "capture": {
           "feedback": {
+            "blur_high": "faceMotion.image_quality.feedback_blurry",
+            "brightness_high": "faceMotion.image_quality.feedback_too_bright",
+            "brightness_low": "faceMotion.image_quality.feedback_too_dark",
+            "contrast_low": "faceMotion.image_quality.feedback_low_contrast",
             "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
             "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
           }
@@ -4020,6 +4030,12 @@
       "title_accessibility": "고개를 좌우로 천천히 돌리세요. 측면 촬영이 완료되면 확인 메시지가 표시되며, 진동을 느끼실 수 있습니다",
       "title_completed": "녹화 완료",
       "turn_head_other_side_accessibility": "고개를 반대편으로 돌리세요"
+    },
+    "image_quality": {
+      "feedback_blurry": "영상이 너무 흐려요",
+      "feedback_low_contrast": "더 밝은 곳으로 이동하세요",
+      "feedback_too_bright": "너무 밝아요",
+      "feedback_too_dark": "너무 어두워요"
     },
     "intro": {
       "animation_randomness_accessibility": "누군가가 머리를 오른쪽, 위, 아래, 왼쪽으로 돌린 뒤 초록색 체크 표시가 나타나는 예시 애니메이션.",

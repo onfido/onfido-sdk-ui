@@ -1474,6 +1474,12 @@
       "title_completed": "錄製完成",
       "turn_head_other_side_accessibility": "將頭部轉向另一側"
     },
+    "image_quality": {
+      "feedback_blurry": "影片太模糊",
+      "feedback_low_contrast": "請尋找光線更好的環境",
+      "feedback_too_bright": "太亮",
+      "feedback_too_dark": "太暗"
+    },
     "intro": {
       "animation_randomness_accessibility": "範例動畫顯示某人將頭部向右、向上、向下和向左轉動,直到出現綠色勾選標記。",
       "button_primary_ready": "開始錄製",
@@ -2349,6 +2355,10 @@
       "face_biometrics": {
         "capture": {
           "feedback": {
+            "blur_high": "faceMotion.image_quality.feedback_blurry",
+            "brightness_high": "faceMotion.image_quality.feedback_too_bright",
+            "brightness_low": "faceMotion.image_quality.feedback_too_dark",
+            "contrast_low": "faceMotion.image_quality.feedback_low_contrast",
             "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
             "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
           }
@@ -4020,6 +4030,12 @@
       "title_accessibility": "慢慢將您的頭部轉向兩側。當一側完成時，您會聽到確認聲，並感覺到震動",
       "title_completed": "錄製完成",
       "turn_head_other_side_accessibility": "將頭部轉向另一側"
+    },
+    "image_quality": {
+      "feedback_blurry": "影片太模糊",
+      "feedback_low_contrast": "請尋找光線更好的環境",
+      "feedback_too_bright": "太亮",
+      "feedback_too_dark": "太暗"
     },
     "intro": {
       "animation_randomness_accessibility": "範例動畫顯示某人將頭部向右、向上、向下和向左轉動,直到出現綠色勾選標記。",

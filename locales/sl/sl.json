@@ -659,7 +659,7 @@
       "national_identity_card": "Nacionalna osebna izkaznica",
       "national_identity_card_details": "Spredaj in zadaj",
       "passport": "Potni list",
-      "passport_card": "Identifikacijska kartica potnega lista",
+      "passport_card": "Potna kartica",
       "passport_card_details": "Spredaj in zadaj",
       "passport_details": "Stran s fotografijo",
       "pension_property_statement_letter": "Izjava/Pismo o pokojnini ali lastnini",
@@ -1473,6 +1473,12 @@
       "title_accessibility": "Glavo počasi obrnite na obe strani. Ko bo stran končana, boste slišali potrditev in začutili vibracijo",
       "title_completed": "Snemanje končano",
       "turn_head_other_side_accessibility": "Obrnite glavo na drugo stran"
+    },
+    "image_quality": {
+      "feedback_blurry": "Video je preveč zamegljen",
+      "feedback_low_contrast": "Poiščite boljšo osvetlitev",
+      "feedback_too_bright": "Presvetlo",
+      "feedback_too_dark": "Pretemno"
     },
     "intro": {
       "animation_randomness_accessibility": "Primer animacije, kjer nekdo obrne glavo desno, gor, dol in levo, dokler se ne prikaže zelena kljukica.",
@@ -2349,6 +2355,10 @@
       "face_biometrics": {
         "capture": {
           "feedback": {
+            "blur_high": "faceMotion.image_quality.feedback_blurry",
+            "brightness_high": "faceMotion.image_quality.feedback_too_bright",
+            "brightness_low": "faceMotion.image_quality.feedback_too_dark",
+            "contrast_low": "faceMotion.image_quality.feedback_low_contrast",
             "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
             "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
           }
@@ -4020,6 +4030,12 @@
       "title_accessibility": "Glavo počasi obrnite na obe strani. Ko bo stran končana, boste slišali potrditev in začutili vibracijo",
       "title_completed": "Snemanje končano",
       "turn_head_other_side_accessibility": "Obrnite glavo na drugo stran"
+    },
+    "image_quality": {
+      "feedback_blurry": "Video je preveč zamegljen",
+      "feedback_low_contrast": "Poiščite boljšo osvetlitev",
+      "feedback_too_bright": "Presvetlo",
+      "feedback_too_dark": "Pretemno"
     },
     "intro": {
       "animation_randomness_accessibility": "Primer animacije, kjer nekdo obrne glavo desno, gor, dol in levo, dokler se ne prikaže zelena kljukica.",

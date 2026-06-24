@@ -659,7 +659,7 @@
       "national_identity_card": "Národný preukaz totožnosti",
       "national_identity_card_details": "Predná a zadná strana",
       "passport": "Pas",
-      "passport_card": "Pasová karta",
+      "passport_card": "Karta pasu",
       "passport_card_details": "Predná a zadná strana",
       "passport_details": "Stránka s fotkou",
       "pension_property_statement_letter": "Dôchodkové alebo majetkové vyhlásenie/pismo",
@@ -1473,6 +1473,12 @@
       "title_accessibility": "Pomaly otočte hlavou na obe strany. Po dokončení strany sa prehrá zvuk potvrdenia a spustí vibrácia",
       "title_completed": "Zaznamenávanie je ukončené",
       "turn_head_other_side_accessibility": "Otočte hlavou na druhú stranu"
+    },
+    "image_quality": {
+      "feedback_blurry": "Video je príliš rozmazané",
+      "feedback_low_contrast": "Nájdite lepšie osvetlenie",
+      "feedback_too_bright": "Príliš svetlé",
+      "feedback_too_dark": "Príliš tmavé"
     },
     "intro": {
       "animation_randomness_accessibility": "Ukážková animácia osoby, ktorá otáča hlavu doprava, hore, dole a doľava, až kým sa nezobrazí zelená začiarknutá značka.",
@@ -2349,6 +2355,10 @@
       "face_biometrics": {
         "capture": {
           "feedback": {
+            "blur_high": "faceMotion.image_quality.feedback_blurry",
+            "brightness_high": "faceMotion.image_quality.feedback_too_bright",
+            "brightness_low": "faceMotion.image_quality.feedback_too_dark",
+            "contrast_low": "faceMotion.image_quality.feedback_low_contrast",
             "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
             "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
           }
@@ -4020,6 +4030,12 @@
       "title_accessibility": "Pomaly otočte hlavou na obe strany. Po dokončení strany sa prehrá zvuk potvrdenia a spustí vibrácia",
       "title_completed": "Zaznamenávanie je ukončené",
       "turn_head_other_side_accessibility": "Otočte hlavou na druhú stranu"
+    },
+    "image_quality": {
+      "feedback_blurry": "Video je príliš rozmazané",
+      "feedback_low_contrast": "Nájdite lepšie osvetlenie",
+      "feedback_too_bright": "Príliš svetlé",
+      "feedback_too_dark": "Príliš tmavé"
     },
     "intro": {
       "animation_randomness_accessibility": "Ukážková animácia osoby, ktorá otáča hlavu doprava, hore, dole a doľava, až kým sa nezobrazí zelená začiarknutá značka.",

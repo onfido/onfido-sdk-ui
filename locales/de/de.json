@@ -1474,6 +1474,12 @@
       "title_completed": "Aufnahme abgeschlossen",
       "turn_head_other_side_accessibility": "Drehen Sie Ihren Kopf zur anderen Seite"
     },
+    "image_quality": {
+      "feedback_blurry": "Video ist zu unscharf",
+      "feedback_low_contrast": "Suche dir besseres Licht",
+      "feedback_too_bright": "Zu hell",
+      "feedback_too_dark": "Zu dunkel"
+    },
     "intro": {
       "animation_randomness_accessibility": "Beispielanimation einer Person, die den Kopf nach rechts, oben, unten und links dreht, bis ein grünes Häkchen erscheint.",
       "button_primary_ready": "Aufnahme starten",
@@ -2349,6 +2355,10 @@
       "face_biometrics": {
         "capture": {
           "feedback": {
+            "blur_high": "faceMotion.image_quality.feedback_blurry",
+            "brightness_high": "faceMotion.image_quality.feedback_too_bright",
+            "brightness_low": "faceMotion.image_quality.feedback_too_dark",
+            "contrast_low": "faceMotion.image_quality.feedback_low_contrast",
             "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
             "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
           }
@@ -4020,6 +4030,12 @@
       "title_accessibility": "Drehen Sie Ihren Kopf langsam zu beiden Seiten. Wenn eine Seite abgeschlossen ist, hören Sie eine Bestätigung und spüren eine Vibration.",
       "title_completed": "Aufnahme abgeschlossen",
       "turn_head_other_side_accessibility": "Drehen Sie Ihren Kopf zur anderen Seite"
+    },
+    "image_quality": {
+      "feedback_blurry": "Video ist zu unscharf",
+      "feedback_low_contrast": "Suche dir besseres Licht",
+      "feedback_too_bright": "Zu hell",
+      "feedback_too_dark": "Zu dunkel"
     },
     "intro": {
       "animation_randomness_accessibility": "Beispielanimation einer Person, die den Kopf nach rechts, oben, unten und links dreht, bis ein grünes Häkchen erscheint.",

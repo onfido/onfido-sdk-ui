@@ -1474,6 +1474,12 @@
       "title_completed": "录制完成",
       "turn_head_other_side_accessibility": "把头转向另一侧"
     },
+    "image_quality": {
+      "feedback_blurry": "视频太模糊",
+      "feedback_low_contrast": "请寻找更好的光线",
+      "feedback_too_bright": "太亮",
+      "feedback_too_dark": "太暗"
+    },
     "intro": {
       "animation_randomness_accessibility": "示例动画展示某人向右、向上、向下和向左转动头部,直到出现绿色对勾标记。",
       "button_primary_ready": "开始录制",
@@ -2349,6 +2355,10 @@
       "face_biometrics": {
         "capture": {
           "feedback": {
+            "blur_high": "faceMotion.image_quality.feedback_blurry",
+            "brightness_high": "faceMotion.image_quality.feedback_too_bright",
+            "brightness_low": "faceMotion.image_quality.feedback_too_dark",
+            "contrast_low": "faceMotion.image_quality.feedback_low_contrast",
             "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
             "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
           }
@@ -4020,6 +4030,12 @@
       "title_accessibility": "慢慢地将头转向两侧。在完成一侧拍照时，您将听到确认的声音，并感受到振动",
       "title_completed": "录制完成",
       "turn_head_other_side_accessibility": "把头转向另一侧"
+    },
+    "image_quality": {
+      "feedback_blurry": "视频太模糊",
+      "feedback_low_contrast": "请寻找更好的光线",
+      "feedback_too_bright": "太亮",
+      "feedback_too_dark": "太暗"
     },
     "intro": {
       "animation_randomness_accessibility": "示例动画展示某人向右、向上、向下和向左转动头部,直到出现绿色对勾标记。",

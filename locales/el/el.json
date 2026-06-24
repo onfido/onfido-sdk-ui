@@ -1474,6 +1474,12 @@
       "title_completed": "Η εγγραφή ολοκληρώθηκε",
       "turn_head_other_side_accessibility": "Γυρίστε το κεφάλι σας προς την άλλη πλευρά"
     },
+    "image_quality": {
+      "feedback_blurry": "Το βίντεο είναι πολύ θολό",
+      "feedback_low_contrast": "Βρείτε καλύτερο φωτισμό",
+      "feedback_too_bright": "Πολύ φωτεινό",
+      "feedback_too_dark": "Πολύ σκοτεινό"
+    },
     "intro": {
       "animation_randomness_accessibility": "Παράδειγμα κινούμενης εικόνας με κάποιον που γυρίζει το κεφάλι του δεξιά, πάνω, κάτω και αριστερά, μέχρι να εμφανιστεί ένα πράσινο σημάδι ελέγχου.",
       "button_primary_ready": "Έναρξη εγγραφής",
@@ -2349,6 +2355,10 @@
       "face_biometrics": {
         "capture": {
           "feedback": {
+            "blur_high": "faceMotion.image_quality.feedback_blurry",
+            "brightness_high": "faceMotion.image_quality.feedback_too_bright",
+            "brightness_low": "faceMotion.image_quality.feedback_too_dark",
+            "contrast_low": "faceMotion.image_quality.feedback_low_contrast",
             "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
             "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
           }
@@ -4020,6 +4030,12 @@
       "title_accessibility": "Γυρίστε το κεφάλι σας αργά και προς τις δύο πλευρές. Όταν ολοκληρωθεί η μια πλευρά θα ακούσετε μια επιβεβαίωση και θα νιώσετε μια δόνηση",
       "title_completed": "Η εγγραφή ολοκληρώθηκε",
       "turn_head_other_side_accessibility": "Γυρίστε το κεφάλι σας προς την άλλη πλευρά"
+    },
+    "image_quality": {
+      "feedback_blurry": "Το βίντεο είναι πολύ θολό",
+      "feedback_low_contrast": "Βρείτε καλύτερο φωτισμό",
+      "feedback_too_bright": "Πολύ φωτεινό",
+      "feedback_too_dark": "Πολύ σκοτεινό"
     },
     "intro": {
       "animation_randomness_accessibility": "Παράδειγμα κινούμενης εικόνας με κάποιον που γυρίζει το κεφάλι του δεξιά, πάνω, κάτω και αριστερά, μέχρι να εμφανιστεί ένα πράσινο σημάδι ελέγχου.",

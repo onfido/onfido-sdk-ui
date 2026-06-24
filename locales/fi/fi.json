@@ -1474,6 +1474,12 @@
       "title_completed": "Tallennus valmis",
       "turn_head_other_side_accessibility": "Käännä päätäsi toiselle puolelle"
     },
+    "image_quality": {
+      "feedback_blurry": "Video on liian epätarkka",
+      "feedback_low_contrast": "Etsi parempi valaistus",
+      "feedback_too_bright": "Liian kirkas",
+      "feedback_too_dark": "Liian tumma"
+    },
     "intro": {
       "animation_randomness_accessibility": "Esimerkkianimaatio henkilöstä, joka kääntää päätään oikealle, ylös, alas ja vasemmalle, kunnes vihreä valintamerkki ilmestyy.",
       "button_primary_ready": "Aloita tallennus",
@@ -2349,6 +2355,10 @@
       "face_biometrics": {
         "capture": {
           "feedback": {
+            "blur_high": "faceMotion.image_quality.feedback_blurry",
+            "brightness_high": "faceMotion.image_quality.feedback_too_bright",
+            "brightness_low": "faceMotion.image_quality.feedback_too_dark",
+            "contrast_low": "faceMotion.image_quality.feedback_low_contrast",
             "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
             "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
           }
@@ -4020,6 +4030,12 @@
       "title_accessibility": "Käännä päätäsi hitaasti molemmille puolille. Kun kyseinen puoli on valmis, kuulet vahvistuksen ja tunnet värinän",
       "title_completed": "Tallennus valmis",
       "turn_head_other_side_accessibility": "Käännä päätäsi toiselle puolelle"
+    },
+    "image_quality": {
+      "feedback_blurry": "Video on liian epätarkka",
+      "feedback_low_contrast": "Etsi parempi valaistus",
+      "feedback_too_bright": "Liian kirkas",
+      "feedback_too_dark": "Liian tumma"
     },
     "intro": {
       "animation_randomness_accessibility": "Esimerkkianimaatio henkilöstä, joka kääntää päätään oikealle, ylös, alas ja vasemmalle, kunnes vihreä valintamerkki ilmestyy.",

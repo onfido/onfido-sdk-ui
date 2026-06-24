@@ -659,7 +659,7 @@
       "national_identity_card": "บัตรประจำตัวประชาชน",
       "national_identity_card_details": "ด้านหน้าและด้านหลัง",
       "passport": "หนังสือเดินทาง",
-      "passport_card": "บัตรพาสปอร์ต",
+      "passport_card": "บัตรหนังสือเดินทาง",
       "passport_card_details": "ด้านหน้าและด้านหลัง",
       "passport_details": "หน้ารูปภาพ",
       "pension_property_statement_letter": "หนังสือรับรองการจ่ายบำนาญหรือหนังสือรับรองทรัพย์สิน",
@@ -1473,6 +1473,12 @@
       "title_accessibility": "ค่อยๆ หันศีรษะไปทั้ง 2 ข้าง เมื่อถ่ายด้านหนึ่งเสร็จ คุณจะได้ยินเสียงยืนยันและโทรศัพท์จะสั่น",
       "title_completed": "บันทึกเสร็จสมบูรณ์",
       "turn_head_other_side_accessibility": "หันศีรษะไปอีกด้าน"
+    },
+    "image_quality": {
+      "feedback_blurry": "วิดีโอเบลอเกินไป",
+      "feedback_low_contrast": "หาแสงที่ดีกว่านี้",
+      "feedback_too_bright": "สว่างเกินไป",
+      "feedback_too_dark": "มืดเกินไป"
     },
     "intro": {
       "animation_randomness_accessibility": "ตัวอย่างภาพเคลื่อนไหวของบุคคลที่หันหน้าไปทางขวา ขึ้น ลง และซ้าย จนกว่าจะปรากฏเครื่องหมายถูกสีเขียว",
@@ -2349,6 +2355,10 @@
       "face_biometrics": {
         "capture": {
           "feedback": {
+            "blur_high": "faceMotion.image_quality.feedback_blurry",
+            "brightness_high": "faceMotion.image_quality.feedback_too_bright",
+            "brightness_low": "faceMotion.image_quality.feedback_too_dark",
+            "contrast_low": "faceMotion.image_quality.feedback_low_contrast",
             "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
             "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
           }
@@ -4020,6 +4030,12 @@
       "title_accessibility": "ค่อยๆ หันศีรษะไปทั้ง 2 ข้าง เมื่อถ่ายด้านหนึ่งเสร็จ คุณจะได้ยินเสียงยืนยันและโทรศัพท์จะสั่น",
       "title_completed": "บันทึกเสร็จสมบูรณ์",
       "turn_head_other_side_accessibility": "หันศีรษะไปอีกด้าน"
+    },
+    "image_quality": {
+      "feedback_blurry": "วิดีโอเบลอเกินไป",
+      "feedback_low_contrast": "หาแสงที่ดีกว่านี้",
+      "feedback_too_bright": "สว่างเกินไป",
+      "feedback_too_dark": "มืดเกินไป"
     },
     "intro": {
       "animation_randomness_accessibility": "ตัวอย่างภาพเคลื่อนไหวของบุคคลที่หันหน้าไปทางขวา ขึ้น ลง และซ้าย จนกว่าจะปรากฏเครื่องหมายถูกสีเขียว",

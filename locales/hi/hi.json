@@ -1474,6 +1474,12 @@
       "title_completed": "रिकॉर्डिंग पूरी हुई",
       "turn_head_other_side_accessibility": "अपना सिर दूसरी तरफ़ घुमाएँ"
     },
+    "image_quality": {
+      "feedback_blurry": "वीडियो बहुत धुंधला है",
+      "feedback_low_contrast": "बेहतर रोशनी में जाएं",
+      "feedback_too_bright": "बहुत चमकीला",
+      "feedback_too_dark": "बहुत अंधेरा"
+    },
     "intro": {
       "animation_randomness_accessibility": "किसी व्यक्ति के अपना सिर दाएं, ऊपर, नीचे और बाएं घुमाने का उदाहरण एनिमेशन, जब तक कि हरे रंग का चेक मार्क दिखाई न दे।",
       "button_primary_ready": "रिकॉर्डिंग शुरू करें",
@@ -2349,6 +2355,10 @@
       "face_biometrics": {
         "capture": {
           "feedback": {
+            "blur_high": "faceMotion.image_quality.feedback_blurry",
+            "brightness_high": "faceMotion.image_quality.feedback_too_bright",
+            "brightness_low": "faceMotion.image_quality.feedback_too_dark",
+            "contrast_low": "faceMotion.image_quality.feedback_low_contrast",
             "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
             "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
           }
@@ -4020,6 +4030,12 @@
       "title_accessibility": "अपने सिर को धीरे-धीरे दोनों तरफ़ घुमाएँ। एक तरफ़ घुमाने का ऐक्शन पूरा होने के बाद, आपको एक कंफ़र्मेशन सुनाई देगा और वाइब्रेशन महसूस होगा",
       "title_completed": "रिकॉर्डिंग पूरी हुई",
       "turn_head_other_side_accessibility": "अपना सिर दूसरी तरफ़ घुमाएँ"
+    },
+    "image_quality": {
+      "feedback_blurry": "वीडियो बहुत धुंधला है",
+      "feedback_low_contrast": "बेहतर रोशनी में जाएं",
+      "feedback_too_bright": "बहुत चमकीला",
+      "feedback_too_dark": "बहुत अंधेरा"
     },
     "intro": {
       "animation_randomness_accessibility": "किसी व्यक्ति के अपना सिर दाएं, ऊपर, नीचे और बाएं घुमाने का उदाहरण एनिमेशन, जब तक कि हरे रंग का चेक मार्क दिखाई न दे।",

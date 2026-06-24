@@ -1474,6 +1474,12 @@
       "title_completed": "Ieraksts pabeigts",
       "turn_head_other_side_accessibility": "Pagrieziet galvu uz otru pusi"
     },
+    "image_quality": {
+      "feedback_blurry": "Video ir pārāk izplūdis",
+      "feedback_low_contrast": "Sameklējiet labāku apgaismojumu",
+      "feedback_too_bright": "Pārāk gaišs",
+      "feedback_too_dark": "Pārāk tumšs"
+    },
     "intro": {
       "animation_randomness_accessibility": "Piemēra animācija, kurā persona pagriež galvu pa labi, uz augšu, uz leju un pa kreisi, līdz parādās zaļa atzīme.",
       "button_primary_ready": "Sākt ierakstu",
@@ -2349,6 +2355,10 @@
       "face_biometrics": {
         "capture": {
           "feedback": {
+            "blur_high": "faceMotion.image_quality.feedback_blurry",
+            "brightness_high": "faceMotion.image_quality.feedback_too_bright",
+            "brightness_low": "faceMotion.image_quality.feedback_too_dark",
+            "contrast_low": "faceMotion.image_quality.feedback_low_contrast",
             "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
             "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
           }
@@ -4020,6 +4030,12 @@
       "title_accessibility": "Lēnām pagrieziet galvu uz abām pusēm. Kad puse būs pabeigta, jūs dzirdēsiet apstiprinājumu un sajutīsiet vibrāciju",
       "title_completed": "Ieraksts pabeigts",
       "turn_head_other_side_accessibility": "Pagrieziet galvu uz otru pusi"
+    },
+    "image_quality": {
+      "feedback_blurry": "Video ir pārāk izplūdis",
+      "feedback_low_contrast": "Sameklējiet labāku apgaismojumu",
+      "feedback_too_bright": "Pārāk gaišs",
+      "feedback_too_dark": "Pārāk tumšs"
     },
     "intro": {
       "animation_randomness_accessibility": "Piemēra animācija, kurā persona pagriež galvu pa labi, uz augšu, uz leju un pa kreisi, līdz parādās zaļa atzīme.",

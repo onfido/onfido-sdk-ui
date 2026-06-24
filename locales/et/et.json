@@ -1474,6 +1474,12 @@
       "title_completed": "Salvestamine lõpetatud",
       "turn_head_other_side_accessibility": "Pöörake pea teisele poole"
     },
+    "image_quality": {
+      "feedback_blurry": "Video on liiga udune",
+      "feedback_low_contrast": "Leidke parem valgustus",
+      "feedback_too_bright": "Liiga hele",
+      "feedback_too_dark": "Liiga tume"
+    },
     "intro": {
       "animation_randomness_accessibility": "Näidisanimatsioon, kus keegi pöörab oma pead paremale, üles, alla ja vasakule, kuni ilmub roheline linnuke.",
       "button_primary_ready": "Alustage salvestamist",
@@ -2349,6 +2355,10 @@
       "face_biometrics": {
         "capture": {
           "feedback": {
+            "blur_high": "faceMotion.image_quality.feedback_blurry",
+            "brightness_high": "faceMotion.image_quality.feedback_too_bright",
+            "brightness_low": "faceMotion.image_quality.feedback_too_dark",
+            "contrast_low": "faceMotion.image_quality.feedback_low_contrast",
             "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
             "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
           }
@@ -4020,6 +4030,12 @@
       "title_accessibility": "Keerake oma pead aeglaselt mõlemale poole. Kui üks külg on valmis, kuulete kinnitust ja tunnete vibratsiooni",
       "title_completed": "Salvestamine lõpetatud",
       "turn_head_other_side_accessibility": "Pöörake pea teisele poole"
+    },
+    "image_quality": {
+      "feedback_blurry": "Video on liiga udune",
+      "feedback_low_contrast": "Leidke parem valgustus",
+      "feedback_too_bright": "Liiga hele",
+      "feedback_too_dark": "Liiga tume"
     },
     "intro": {
       "animation_randomness_accessibility": "Näidisanimatsioon, kus keegi pöörab oma pead paremale, üles, alla ja vasakule, kuni ilmub roheline linnuke.",

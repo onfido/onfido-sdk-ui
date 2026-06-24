@@ -659,7 +659,7 @@
       "national_identity_card": "Documento de identificação nacional",
       "national_identity_card_details": "Frente e verso",
       "passport": "Passaporte",
-      "passport_card": "Cartão de passaporte",
+      "passport_card": "Cartão-passaporte",
       "passport_card_details": "Frente e verso",
       "passport_details": "Página com fotografia",
       "pension_property_statement_letter": "Declaração/Carta de Pensão ou Propriedade",
@@ -1473,6 +1473,12 @@
       "title_accessibility": "Vire a cabeça lentamente para ambos os lados. Quando um lado estiver completo, ouvirá uma confirmação e sentirá uma vibração.",
       "title_completed": "Gravação concluída",
       "turn_head_other_side_accessibility": "Vire a cabeça para o outro lado"
+    },
+    "image_quality": {
+      "feedback_blurry": "Vídeo desfocado",
+      "feedback_low_contrast": "Procure melhor iluminação",
+      "feedback_too_bright": "Muito claro",
+      "feedback_too_dark": "Muito escuro"
     },
     "intro": {
       "animation_randomness_accessibility": "Exemplo de animação de alguém virando a cabeça para a direita, para cima, para baixo e para a esquerda, até aparecer uma marca de verificação verde.",
@@ -2349,6 +2355,10 @@
       "face_biometrics": {
         "capture": {
           "feedback": {
+            "blur_high": "faceMotion.image_quality.feedback_blurry",
+            "brightness_high": "faceMotion.image_quality.feedback_too_bright",
+            "brightness_low": "faceMotion.image_quality.feedback_too_dark",
+            "contrast_low": "faceMotion.image_quality.feedback_low_contrast",
             "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
             "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
           }
@@ -4020,6 +4030,12 @@
       "title_accessibility": "Vire a cabeça lentamente para ambos os lados. Quando um lado estiver completo, ouvirá uma confirmação e sentirá uma vibração.",
       "title_completed": "Gravação concluída",
       "turn_head_other_side_accessibility": "Vire a cabeça para o outro lado"
+    },
+    "image_quality": {
+      "feedback_blurry": "Vídeo desfocado",
+      "feedback_low_contrast": "Procure melhor iluminação",
+      "feedback_too_bright": "Muito claro",
+      "feedback_too_dark": "Muito escuro"
     },
     "intro": {
       "animation_randomness_accessibility": "Exemplo de animação de alguém virando a cabeça para a direita, para cima, para baixo e para a esquerda, até aparecer uma marca de verificação verde.",

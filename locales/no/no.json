@@ -1474,6 +1474,12 @@
       "title_completed": "Opptaket er fullført",
       "turn_head_other_side_accessibility": "Snu hodet til den andre siden"
     },
+    "image_quality": {
+      "feedback_blurry": "Videoen er for uklar",
+      "feedback_low_contrast": "Finn bedre lys",
+      "feedback_too_bright": "For lyst",
+      "feedback_too_dark": "For mørkt"
+    },
     "intro": {
       "animation_randomness_accessibility": "Eksempel på animasjon av en person som vender hodet til høyre, opp, ned og venstre, til et grønt hake-symbol vises.",
       "button_primary_ready": "Start opptak",
@@ -2349,6 +2355,10 @@
       "face_biometrics": {
         "capture": {
           "feedback": {
+            "blur_high": "faceMotion.image_quality.feedback_blurry",
+            "brightness_high": "faceMotion.image_quality.feedback_too_bright",
+            "brightness_low": "faceMotion.image_quality.feedback_too_dark",
+            "contrast_low": "faceMotion.image_quality.feedback_low_contrast",
             "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
             "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
           }
@@ -4020,6 +4030,12 @@
       "title_accessibility": "Drei deretter hodet sakte til begge sider. Når en side er fullført, hører du en bekreftelse og føler du en vibrasjon",
       "title_completed": "Opptaket er fullført",
       "turn_head_other_side_accessibility": "Snu hodet til den andre siden"
+    },
+    "image_quality": {
+      "feedback_blurry": "Videoen er for uklar",
+      "feedback_low_contrast": "Finn bedre lys",
+      "feedback_too_bright": "For lyst",
+      "feedback_too_dark": "For mørkt"
     },
     "intro": {
       "animation_randomness_accessibility": "Eksempel på animasjon av en person som vender hodet til høyre, opp, ned og venstre, til et grønt hake-symbol vises.",

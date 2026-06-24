@@ -659,7 +659,7 @@
       "national_identity_card": "Carte de identitate național",
       "national_identity_card_details": "Față și verso",
       "passport": "Pașaport",
-      "passport_card": "Carte de pașaport",
+      "passport_card": "Card de pașaport",
       "passport_card_details": "Față și verso",
       "passport_details": "Pagină poză",
       "pension_property_statement_letter": "Declarație/Scrisoare de pensie sau proprietate",
@@ -1473,6 +1473,12 @@
       "title_accessibility": "Întoarceți capul încet în ambele sensuri. Când o parte a fost vizualizată complet, veți auzi o confirmare și veți simți o vibrație",
       "title_completed": "Înregistrare finalizată",
       "turn_head_other_side_accessibility": "Întoarceți capul spre partea cealaltă"
+    },
+    "image_quality": {
+      "feedback_blurry": "Video-ul este prea neclar",
+      "feedback_low_contrast": "Găsește o lumină mai bună",
+      "feedback_too_bright": "Prea luminos",
+      "feedback_too_dark": "Prea întunecat"
     },
     "intro": {
       "animation_randomness_accessibility": "Animație exemplificativă cu o persoană care își întoarce capul la dreapta, în sus, în jos și la stânga, până apare un semn de bifare verde.",
@@ -2349,6 +2355,10 @@
       "face_biometrics": {
         "capture": {
           "feedback": {
+            "blur_high": "faceMotion.image_quality.feedback_blurry",
+            "brightness_high": "faceMotion.image_quality.feedback_too_bright",
+            "brightness_low": "faceMotion.image_quality.feedback_too_dark",
+            "contrast_low": "faceMotion.image_quality.feedback_low_contrast",
             "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
             "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
           }
@@ -4020,6 +4030,12 @@
       "title_accessibility": "Întoarceți capul încet în ambele sensuri. Când o parte a fost vizualizată complet, veți auzi o confirmare și veți simți o vibrație",
       "title_completed": "Înregistrare finalizată",
       "turn_head_other_side_accessibility": "Întoarceți capul spre partea cealaltă"
+    },
+    "image_quality": {
+      "feedback_blurry": "Video-ul este prea neclar",
+      "feedback_low_contrast": "Găsește o lumină mai bună",
+      "feedback_too_bright": "Prea luminos",
+      "feedback_too_dark": "Prea întunecat"
     },
     "intro": {
       "animation_randomness_accessibility": "Animație exemplificativă cu o persoană care își întoarce capul la dreapta, în sus, în jos și la stânga, până apare un semn de bifare verde.",

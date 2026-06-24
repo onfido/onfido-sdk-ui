@@ -1474,6 +1474,12 @@
       "title_completed": "Nagrywanie zakończone",
       "turn_head_other_side_accessibility": "Obróć głowę w drugą stronę"
     },
+    "image_quality": {
+      "feedback_blurry": "Obraz jest zbyt rozmazany",
+      "feedback_low_contrast": "Znajdź lepsze oświetlenie",
+      "feedback_too_bright": "Za jasno",
+      "feedback_too_dark": "Za ciemno"
+    },
     "intro": {
       "animation_randomness_accessibility": "Przykładowa animacja osoby obracającej głowę w prawo, do góry, w dół i w lewo, aż pojawi się zielony znacznik wyboru.",
       "button_primary_ready": "Rozpocznij nagrywanie",
@@ -2349,6 +2355,10 @@
       "face_biometrics": {
         "capture": {
           "feedback": {
+            "blur_high": "faceMotion.image_quality.feedback_blurry",
+            "brightness_high": "faceMotion.image_quality.feedback_too_bright",
+            "brightness_low": "faceMotion.image_quality.feedback_too_dark",
+            "contrast_low": "faceMotion.image_quality.feedback_low_contrast",
             "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
             "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
           }
@@ -4020,6 +4030,12 @@
       "title_accessibility": "Powoli obróć głowę w obie strony. Kiedy dana strona zostanie ukończona, usłyszysz potwierdzenie i poczujesz wibrację",
       "title_completed": "Nagrywanie zakończone",
       "turn_head_other_side_accessibility": "Obróć głowę w drugą stronę"
+    },
+    "image_quality": {
+      "feedback_blurry": "Obraz jest zbyt rozmazany",
+      "feedback_low_contrast": "Znajdź lepsze oświetlenie",
+      "feedback_too_bright": "Za jasno",
+      "feedback_too_dark": "Za ciemno"
     },
     "intro": {
       "animation_randomness_accessibility": "Przykładowa animacja osoby obracającej głowę w prawo, do góry, w dół i w lewo, aż pojawi się zielony znacznik wyboru.",

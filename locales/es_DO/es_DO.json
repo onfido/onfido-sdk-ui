@@ -1474,6 +1474,12 @@
       "title_completed": "Grabación completa",
       "turn_head_other_side_accessibility": "Gira la cabeza hacia el otro lado"
     },
+    "image_quality": {
+      "feedback_blurry": "El video está muy borroso",
+      "feedback_low_contrast": "Busca una mejor iluminación",
+      "feedback_too_bright": "Muy brillante",
+      "feedback_too_dark": "Muy oscuro"
+    },
     "intro": {
       "animation_randomness_accessibility": "Animación de ejemplo de una persona girando la cabeza a la derecha, arriba, abajo y a la izquierda, hasta que aparece una marca de verificación verde.",
       "button_primary_ready": "Iniciar grabación",
@@ -2349,6 +2355,10 @@
       "face_biometrics": {
         "capture": {
           "feedback": {
+            "blur_high": "faceMotion.image_quality.feedback_blurry",
+            "brightness_high": "faceMotion.image_quality.feedback_too_bright",
+            "brightness_low": "faceMotion.image_quality.feedback_too_dark",
+            "contrast_low": "faceMotion.image_quality.feedback_low_contrast",
             "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
             "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
           }
@@ -4020,6 +4030,12 @@
       "title_accessibility": "Gira la cabeza lentamente hacia ambos lados. Cuando se complete un lado, escucharás una confirmación y sentirás una vibración",
       "title_completed": "Grabación completa",
       "turn_head_other_side_accessibility": "Gira la cabeza hacia el otro lado"
+    },
+    "image_quality": {
+      "feedback_blurry": "El video está muy borroso",
+      "feedback_low_contrast": "Busca una mejor iluminación",
+      "feedback_too_bright": "Muy brillante",
+      "feedback_too_dark": "Muy oscuro"
     },
     "intro": {
       "animation_randomness_accessibility": "Animación de ejemplo de una persona girando la cabeza a la derecha, arriba, abajo y a la izquierda, hasta que aparece una marca de verificación verde.",

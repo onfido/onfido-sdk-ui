@@ -1474,6 +1474,12 @@
       "title_completed": "הצילום הושלם",
       "turn_head_other_side_accessibility": "סובב את הראש לצד השני"
     },
+    "image_quality": {
+      "feedback_blurry": "הסרטון מטושטש מדי",
+      "feedback_low_contrast": "מצא תאורה טובה יותר",
+      "feedback_too_bright": "בהיר מדי",
+      "feedback_too_dark": "כהה מדי"
+    },
     "intro": {
       "animation_randomness_accessibility": "אנימציה לדוגמה של אדם המסובב את ראשו ימינה, למעלה, למטה ושמאלה, עד שמופיע סימן V ירוק.",
       "button_primary_ready": "התחל לצלם",
@@ -2349,6 +2355,10 @@
       "face_biometrics": {
         "capture": {
           "feedback": {
+            "blur_high": "faceMotion.image_quality.feedback_blurry",
+            "brightness_high": "faceMotion.image_quality.feedback_too_bright",
+            "brightness_low": "faceMotion.image_quality.feedback_too_dark",
+            "contrast_low": "faceMotion.image_quality.feedback_low_contrast",
             "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
             "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
           }
@@ -4020,6 +4030,12 @@
       "title_accessibility": "לאחר מכן, סובב את ראשך לאט לשני הצדדים כשצד אחד יושלם, תשמע צליל אישור ותרגיש רטט.",
       "title_completed": "הצילום הושלם",
       "turn_head_other_side_accessibility": "סובב את הראש לצד השני"
+    },
+    "image_quality": {
+      "feedback_blurry": "הסרטון מטושטש מדי",
+      "feedback_low_contrast": "מצא תאורה טובה יותר",
+      "feedback_too_bright": "בהיר מדי",
+      "feedback_too_dark": "כהה מדי"
     },
     "intro": {
       "animation_randomness_accessibility": "אנימציה לדוגמה של אדם המסובב את ראשו ימינה, למעלה, למטה ושמאלה, עד שמופיע סימן V ירוק.",

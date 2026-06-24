@@ -659,7 +659,7 @@
       "national_identity_card": "Nacionalna lična karta",
       "national_identity_card_details": "Prednja i zadnja strana",
       "passport": "Pasoš",
-      "passport_card": "Kartica pasoša",
+      "passport_card": "Пасошка картица",
       "passport_card_details": "Prednja i zadnja strana",
       "passport_details": "Stranica sa fotografijom",
       "pension_property_statement_letter": "Izjava/Pismo o penziji ili imovini",
@@ -1473,6 +1473,12 @@
       "title_accessibility": "Polako okrenite glavu na jednu pa na drugu stranu. Kada jedna strana bude gotova, čućete potvrdu i osetićete vibraciju",
       "title_completed": "Snimanje je završeno",
       "turn_head_other_side_accessibility": "Okrenite glavu na drugu stranu"
+    },
+    "image_quality": {
+      "feedback_blurry": "Video je previše zamućen",
+      "feedback_low_contrast": "Pronađite bolje osvetljenje",
+      "feedback_too_bright": "Previše svetlo",
+      "feedback_too_dark": "Previše tamno"
     },
     "intro": {
       "animation_randomness_accessibility": "Primer animacije kako neko okreće glavu nadesno, nagore, nadole i nalevo, dok se ne pojavi zelena kvačica.",
@@ -2349,6 +2355,10 @@
       "face_biometrics": {
         "capture": {
           "feedback": {
+            "blur_high": "faceMotion.image_quality.feedback_blurry",
+            "brightness_high": "faceMotion.image_quality.feedback_too_bright",
+            "brightness_low": "faceMotion.image_quality.feedback_too_dark",
+            "contrast_low": "faceMotion.image_quality.feedback_low_contrast",
             "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
             "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
           }
@@ -4020,6 +4030,12 @@
       "title_accessibility": "Polako okrenite glavu na jednu pa na drugu stranu. Kada jedna strana bude gotova, čućete potvrdu i osetićete vibraciju",
       "title_completed": "Snimanje je završeno",
       "turn_head_other_side_accessibility": "Okrenite glavu na drugu stranu"
+    },
+    "image_quality": {
+      "feedback_blurry": "Video je previše zamućen",
+      "feedback_low_contrast": "Pronađite bolje osvetljenje",
+      "feedback_too_bright": "Previše svetlo",
+      "feedback_too_dark": "Previše tamno"
     },
     "intro": {
       "animation_randomness_accessibility": "Primer animacije kako neko okreće glavu nadesno, nagore, nadole i nalevo, dok se ne pojavi zelena kvačica.",

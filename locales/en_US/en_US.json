@@ -1474,6 +1474,12 @@
       "title_completed": "Recording complete",
       "turn_head_other_side_accessibility": "Turn your head to the other side"
     },
+    "image_quality": {
+      "feedback_blurry": "Video is too blurry",
+      "feedback_low_contrast": "Find better lighting",
+      "feedback_too_bright": "Too bright",
+      "feedback_too_dark": "Too dark"
+    },
     "intro": {
       "animation_randomness_accessibility": "Example animation of someone turning their head right, up, down, and left, until a green check mark appears.",
       "button_primary_ready": "Start recording",
@@ -2349,6 +2355,10 @@
       "face_biometrics": {
         "capture": {
           "feedback": {
+            "blur_high": "faceMotion.image_quality.feedback_blurry",
+            "brightness_high": "faceMotion.image_quality.feedback_too_bright",
+            "brightness_low": "faceMotion.image_quality.feedback_too_dark",
+            "contrast_low": "faceMotion.image_quality.feedback_low_contrast",
             "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
             "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
           }
@@ -4020,6 +4030,12 @@
       "title_accessibility": "Turn your head slowly to both sides. When a side is completed you will hear a confirmation and feel a vibration",
       "title_completed": "Recording complete",
       "turn_head_other_side_accessibility": "Turn your head to the other side"
+    },
+    "image_quality": {
+      "feedback_blurry": "Video is too blurry",
+      "feedback_low_contrast": "Find better lighting",
+      "feedback_too_bright": "Too bright",
+      "feedback_too_dark": "Too dark"
     },
     "intro": {
       "animation_randomness_accessibility": "Example animation of someone turning their head right, up, down, and left, until a green check mark appears.",

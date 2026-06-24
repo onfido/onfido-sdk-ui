@@ -1474,6 +1474,12 @@
       "title_completed": "اكتمل التسجيل",
       "turn_head_other_side_accessibility": "أدر رأسك إلى الجانب الآخر"
     },
+    "image_quality": {
+      "feedback_blurry": "الفيديو غير واضح بما يكفي",
+      "feedback_low_contrast": "ابحث عن مكان بإضاءة أفضل",
+      "feedback_too_bright": "الإضاءة ساطعة جدًا",
+      "feedback_too_dark": "الإضاءة خافتة جدًا"
+    },
     "intro": {
       "animation_randomness_accessibility": "مثال لرسوم متحركة لشخص يدير رأسه إلى اليمين، ثم للأعلى، ثم للأسفل، ثم إلى اليسار، حتى تظهر علامة تحقق خضراء.",
       "button_primary_ready": "بدء التسجيل",
@@ -2349,6 +2355,10 @@
       "face_biometrics": {
         "capture": {
           "feedback": {
+            "blur_high": "faceMotion.image_quality.feedback_blurry",
+            "brightness_high": "faceMotion.image_quality.feedback_too_bright",
+            "brightness_low": "faceMotion.image_quality.feedback_too_dark",
+            "contrast_low": "faceMotion.image_quality.feedback_low_contrast",
             "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
             "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
           }
@@ -4020,6 +4030,12 @@
       "title_accessibility": "ثم أدر رأسك ببطء إلى كلا الجانبين.عند اكتمال أحد الجوانب، سوف تسمع تأكيدًا وتشعر بالاهتزاز",
       "title_completed": "اكتمل التسجيل",
       "turn_head_other_side_accessibility": "أدر رأسك إلى الجانب الآخر"
+    },
+    "image_quality": {
+      "feedback_blurry": "الفيديو غير واضح بما يكفي",
+      "feedback_low_contrast": "ابحث عن مكان بإضاءة أفضل",
+      "feedback_too_bright": "الإضاءة ساطعة جدًا",
+      "feedback_too_dark": "الإضاءة خافتة جدًا"
     },
     "intro": {
       "animation_randomness_accessibility": "مثال لرسوم متحركة لشخص يدير رأسه إلى اليمين، ثم للأعلى، ثم للأسفل، ثم إلى اليسار، حتى تظهر علامة تحقق خضراء.",

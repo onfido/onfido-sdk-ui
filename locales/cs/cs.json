@@ -1474,6 +1474,12 @@
       "title_completed": "Nahrávání bylo dokončeno",
       "turn_head_other_side_accessibility": "Otočte hlavu na druhou stranu"
     },
+    "image_quality": {
+      "feedback_blurry": "Video je příliš rozmazané",
+      "feedback_low_contrast": "Najděte si lepší osvětlení",
+      "feedback_too_bright": "Příliš světlé",
+      "feedback_too_dark": "Příliš tmavé"
+    },
     "intro": {
       "animation_randomness_accessibility": "Ukázková animace osoby otáčející hlavu doprava, nahoru, dolů a doleva, dokud se nezobrazí zelené zaškrtnutí.",
       "button_primary_ready": "Spuštění nahrávání",
@@ -2349,6 +2355,10 @@
       "face_biometrics": {
         "capture": {
           "feedback": {
+            "blur_high": "faceMotion.image_quality.feedback_blurry",
+            "brightness_high": "faceMotion.image_quality.feedback_too_bright",
+            "brightness_low": "faceMotion.image_quality.feedback_too_dark",
+            "contrast_low": "faceMotion.image_quality.feedback_low_contrast",
             "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
             "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
           }
@@ -4020,6 +4030,12 @@
       "title_accessibility": "Pomalu otáčejte hlavou na obě strany. Po dokončení jedné strany uslyšíte potvrzení a ucítíte vibrace",
       "title_completed": "Nahrávání bylo dokončeno",
       "turn_head_other_side_accessibility": "Otočte hlavu na druhou stranu"
+    },
+    "image_quality": {
+      "feedback_blurry": "Video je příliš rozmazané",
+      "feedback_low_contrast": "Najděte si lepší osvětlení",
+      "feedback_too_bright": "Příliš světlé",
+      "feedback_too_dark": "Příliš tmavé"
     },
     "intro": {
       "animation_randomness_accessibility": "Ukázková animace osoby otáčející hlavu doprava, nahoru, dolů a doleva, dokud se nezobrazí zelené zaškrtnutí.",

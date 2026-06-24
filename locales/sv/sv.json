@@ -659,7 +659,7 @@
       "national_identity_card": "Nationellt identitetskort",
       "national_identity_card_details": "Fram- och baksida",
       "passport": "Pass",
-      "passport_card": "Passkort",
+      "passport_card": "Passkortet",
       "passport_card_details": "Fram- och baksida",
       "passport_details": "Fotosida",
       "pension_property_statement_letter": "Pensions- eller fastighetsuttalande/brev",
@@ -1473,6 +1473,12 @@
       "title_accessibility": "Vrid långsamt huvudet åt båda sidorna. När en sida är klar kommer du att höra en bekräftelse och känna en vibration",
       "title_completed": "Inspelning slutförd",
       "turn_head_other_side_accessibility": "Vrid på huvudet åt andra hållet"
+    },
+    "image_quality": {
+      "feedback_blurry": "Videon är för suddig",
+      "feedback_low_contrast": "Hitta bättre ljussättning",
+      "feedback_too_bright": "För ljust",
+      "feedback_too_dark": "För mörkt"
     },
     "intro": {
       "animation_randomness_accessibility": "Exempelanimation av någon som vrider huvudet åt höger, uppåt, nedåt och åt vänster, tills en grön bock visas.",
@@ -2349,6 +2355,10 @@
       "face_biometrics": {
         "capture": {
           "feedback": {
+            "blur_high": "faceMotion.image_quality.feedback_blurry",
+            "brightness_high": "faceMotion.image_quality.feedback_too_bright",
+            "brightness_low": "faceMotion.image_quality.feedback_too_dark",
+            "contrast_low": "faceMotion.image_quality.feedback_low_contrast",
             "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
             "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
           }
@@ -4020,6 +4030,12 @@
       "title_accessibility": "Vrid långsamt huvudet åt båda sidorna. När en sida är klar kommer du att höra en bekräftelse och känna en vibration",
       "title_completed": "Inspelning slutförd",
       "turn_head_other_side_accessibility": "Vrid på huvudet åt andra hållet"
+    },
+    "image_quality": {
+      "feedback_blurry": "Videon är för suddig",
+      "feedback_low_contrast": "Hitta bättre ljussättning",
+      "feedback_too_bright": "För ljust",
+      "feedback_too_dark": "För mörkt"
     },
     "intro": {
       "animation_randomness_accessibility": "Exempelanimation av någon som vrider huvudet åt höger, uppåt, nedåt och åt vänster, tills en grön bock visas.",

@@ -1474,6 +1474,12 @@
       "title_completed": "Optagelsen er fuldført",
       "turn_head_other_side_accessibility": "Drej hovedet til den anden side"
     },
+    "image_quality": {
+      "feedback_blurry": "Videoen er for sløret",
+      "feedback_low_contrast": "Find bedre belysning",
+      "feedback_too_bright": "For lyst",
+      "feedback_too_dark": "For mørkt"
+    },
     "intro": {
       "animation_randomness_accessibility": "Eksempelanimation af en person, der drejer hovedet til højre, op, ned og til venstre, indtil der vises et grønt flueben.",
       "button_primary_ready": "Start optagelsen",
@@ -2349,6 +2355,10 @@
       "face_biometrics": {
         "capture": {
           "feedback": {
+            "blur_high": "faceMotion.image_quality.feedback_blurry",
+            "brightness_high": "faceMotion.image_quality.feedback_too_bright",
+            "brightness_low": "faceMotion.image_quality.feedback_too_dark",
+            "contrast_low": "faceMotion.image_quality.feedback_low_contrast",
             "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
             "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
           }
@@ -4020,6 +4030,12 @@
       "title_accessibility": "Drej hovedet langsomt til begge sider. Når en side er færdig, hører du en bekræftelse og mærker en vibration",
       "title_completed": "Optagelsen er fuldført",
       "turn_head_other_side_accessibility": "Drej hovedet til den anden side"
+    },
+    "image_quality": {
+      "feedback_blurry": "Videoen er for sløret",
+      "feedback_low_contrast": "Find bedre belysning",
+      "feedback_too_bright": "For lyst",
+      "feedback_too_dark": "For mørkt"
     },
     "intro": {
       "animation_randomness_accessibility": "Eksempelanimation af en person, der drejer hovedet til højre, op, ned og til venstre, indtil der vises et grønt flueben.",

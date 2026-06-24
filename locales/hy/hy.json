@@ -1474,6 +1474,12 @@
       "title_completed": "Տեսագրումն ավարտված է",
       "turn_head_other_side_accessibility": "Գլուխը պտտեք մյուս կողմ"
     },
+    "image_quality": {
+      "feedback_blurry": "Տեսանյութը շատ մշուշոտ է",
+      "feedback_low_contrast": "Գտեք ավելի լավ լուսավորություն",
+      "feedback_too_bright": "Չափազանց պայծառ է",
+      "feedback_too_dark": "Չափազանց մուգ է"
+    },
     "intro": {
       "animation_randomness_accessibility": "Որոշակի օրինակ՝ անիմացիա, որտեղ մարդը թեքում է գլուխը աջ, վեր, ներքև և ձախ, մինչև հայտնվի կանաչ հաստատման նշանը։",
       "button_primary_ready": "Սկսել տեսագրությունը",
@@ -2349,6 +2355,10 @@
       "face_biometrics": {
         "capture": {
           "feedback": {
+            "blur_high": "faceMotion.image_quality.feedback_blurry",
+            "brightness_high": "faceMotion.image_quality.feedback_too_bright",
+            "brightness_low": "faceMotion.image_quality.feedback_too_dark",
+            "contrast_low": "faceMotion.image_quality.feedback_low_contrast",
             "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
             "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
           }
@@ -4020,6 +4030,12 @@
       "title_accessibility": "Ձեր գլուխը դանդաղ պտտեք երկու կողմ։ Երբ տվյալ կողմի գրանցումը ավարտվի, դուք կլսեք հաստատումը և կզգաք թրթռոցը",
       "title_completed": "Տեսագրումն ավարտված է",
       "turn_head_other_side_accessibility": "Գլուխը պտտեք մյուս կողմ"
+    },
+    "image_quality": {
+      "feedback_blurry": "Տեսանյութը շատ մշուշոտ է",
+      "feedback_low_contrast": "Գտեք ավելի լավ լուսավորություն",
+      "feedback_too_bright": "Չափազանց պայծառ է",
+      "feedback_too_dark": "Չափազանց մուգ է"
     },
     "intro": {
       "animation_randomness_accessibility": "Որոշակի օրինակ՝ անիմացիա, որտեղ մարդը թեքում է գլուխը աջ, վեր, ներքև և ձախ, մինչև հայտնվի կանաչ հաստատման նշանը։",

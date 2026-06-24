@@ -1474,6 +1474,12 @@
       "title_completed": "Registrazione completata",
       "turn_head_other_side_accessibility": "Ruota la testa verso l'altro lato"
     },
+    "image_quality": {
+      "feedback_blurry": "Il video è troppo sfocato",
+      "feedback_low_contrast": "Trova una luce migliore",
+      "feedback_too_bright": "Troppo chiaro",
+      "feedback_too_dark": "Troppo scuro"
+    },
     "intro": {
       "animation_randomness_accessibility": "Animazione di esempio di una persona che gira la testa a destra, in alto, in basso e a sinistra, finché non appare un segno di spunta verde.",
       "button_primary_ready": "Inizia a registrare",
@@ -2349,6 +2355,10 @@
       "face_biometrics": {
         "capture": {
           "feedback": {
+            "blur_high": "faceMotion.image_quality.feedback_blurry",
+            "brightness_high": "faceMotion.image_quality.feedback_too_bright",
+            "brightness_low": "faceMotion.image_quality.feedback_too_dark",
+            "contrast_low": "faceMotion.image_quality.feedback_low_contrast",
             "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
             "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
           }
@@ -4020,6 +4030,12 @@
       "title_accessibility": "Ruota lentamente la testa verso entrambi i lati. Quando un lato è completo sentirai la conferma e una vibrazione",
       "title_completed": "Registrazione completata",
       "turn_head_other_side_accessibility": "Ruota la testa verso l'altro lato"
+    },
+    "image_quality": {
+      "feedback_blurry": "Il video è troppo sfocato",
+      "feedback_low_contrast": "Trova una luce migliore",
+      "feedback_too_bright": "Troppo chiaro",
+      "feedback_too_dark": "Troppo scuro"
     },
     "intro": {
       "animation_randomness_accessibility": "Animazione di esempio di una persona che gira la testa a destra, in alto, in basso e a sinistra, finché non appare un segno di spunta verde.",

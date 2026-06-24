@@ -659,7 +659,7 @@
       "national_identity_card": "Посвідчення особи державного зразка",
       "national_identity_card_details": "Лицьовий і зворотний боки",
       "passport": "Паспорт",
-      "passport_card": "Картка паспорту",
+      "passport_card": "Паспортна картка",
       "passport_card_details": "Лицьовий і зворотний боки",
       "passport_details": "Сторінка з фото",
       "pension_property_statement_letter": "Пенсійна або майнова декларація/лист",
@@ -1473,6 +1473,12 @@
       "title_accessibility": "Повільно поверніть голову в обидва боки. Якщо поворот головою буде виконано вдало, ви почуєте підтвердження і відчуєте вібрацію",
       "title_completed": "Запис завершено",
       "turn_head_other_side_accessibility": "Поверніть голову в інший бік"
+    },
+    "image_quality": {
+      "feedback_blurry": "Відео розмите",
+      "feedback_low_contrast": "Знайдіть краще освітлення",
+      "feedback_too_bright": "Занадто яскраво",
+      "feedback_too_dark": "Занадто темно"
     },
     "intro": {
       "animation_randomness_accessibility": "Приклад анімації, де людина повертає голову вправо, вгору, вниз і вліво, доки не з’явиться зелена позначка.",
@@ -2349,6 +2355,10 @@
       "face_biometrics": {
         "capture": {
           "feedback": {
+            "blur_high": "faceMotion.image_quality.feedback_blurry",
+            "brightness_high": "faceMotion.image_quality.feedback_too_bright",
+            "brightness_low": "faceMotion.image_quality.feedback_too_dark",
+            "contrast_low": "faceMotion.image_quality.feedback_low_contrast",
             "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
             "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
           }
@@ -4020,6 +4030,12 @@
       "title_accessibility": "Повільно поверніть голову в обидва боки. Якщо поворот головою буде виконано вдало, ви почуєте підтвердження і відчуєте вібрацію",
       "title_completed": "Запис завершено",
       "turn_head_other_side_accessibility": "Поверніть голову в інший бік"
+    },
+    "image_quality": {
+      "feedback_blurry": "Відео розмите",
+      "feedback_low_contrast": "Знайдіть краще освітлення",
+      "feedback_too_bright": "Занадто яскраво",
+      "feedback_too_dark": "Занадто темно"
     },
     "intro": {
       "animation_randomness_accessibility": "Приклад анімації, де людина повертає голову вправо, вгору, вниз і вліво, доки не з’явиться зелена позначка.",
