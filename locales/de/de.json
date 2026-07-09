@@ -334,7 +334,21 @@
       "cancel": "Abbrechen",
       "exit": "Beenden",
       "exit_subtitle": "Sie müssen den Verifizierungsprozess möglicherweise neu starten, wenn Sie zurückkehren.",
-      "exit_title": "Sind Sie sicher, dass Sie beenden möchten?"
+      "exit_title": "Sind Sie sicher, dass Sie beenden möchten?",
+      "icon": {
+        "error": {
+          "accessibility": "Fehler:"
+        },
+        "info": {
+          "accessibility": "Information:"
+        },
+        "success": {
+          "accessibility": "Erfolg:"
+        },
+        "warning": {
+          "accessibility": "Warnung:"
+        }
+      }
     },
     "loading": {
       "doc_upload": {
@@ -954,7 +968,7 @@
     },
     "scan": {
       "button_help": "Brauchen Sie Hilfe?",
-      "button_help_accessibility": "The Need Help? button is now highlighted. Tap it if you need assistance.",
+      "button_help_accessibility": "Die Schaltfläche „Hilfe erforderlich“ ist jetzt hervorgehoben. Tippen Sie darauf, wenn Sie Unterstützung benötigen.",
       "button_manual": "Scan starten",
       "feedback": {
         "alignment_center_document": "Dokument zentrieren",
@@ -2706,7 +2720,10 @@
         "footer": {
           "branding": "common.footer.branding"
         },
+        "icon_error_accessibility": "common.generic.icon.error.accessibility",
         "icon_info_accessibility": "common.disclaimer.icon_info_accessibility",
+        "icon_success_accessibility": "common.generic.icon.success.accessibility",
+        "icon_warning_accessibility": "common.generic.icon.warning.accessibility",
         "loading": "common.loading.spinner"
       },
       "get_link": {

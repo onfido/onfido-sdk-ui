@@ -334,7 +334,21 @@
       "cancel": "Չեղարկել",
       "exit": "Ելք",
       "exit_subtitle": "Դուք կարող եք պահանջվել վերսկսել հաստատման գործընթացը, եթե վերադառնաք։",
-      "exit_title": "Վստահ եք, որ ուզում եք դուրս գալ՞"
+      "exit_title": "Վստահ եք, որ ուզում եք դուրս գալ՞",
+      "icon": {
+        "error": {
+          "accessibility": "Սխալ:"
+        },
+        "info": {
+          "accessibility": "Տեղեկություն:"
+        },
+        "success": {
+          "accessibility": "Հաջողություն:"
+        },
+        "warning": {
+          "accessibility": "Զգուշացում:"
+        }
+      }
     },
     "loading": {
       "doc_upload": {
@@ -954,7 +968,7 @@
     },
     "scan": {
       "button_help": "Օգնության կարիք ունե՞ք։",
-      "button_help_accessibility": "The Need Help? button is now highlighted. Tap it if you need assistance.",
+      "button_help_accessibility": "«Օգնություն» կոճակը այժմ առանձնացված է։ Եթե աջակցություն է պետք, սեղմեք դրա վրա։",
       "button_manual": "Սկսել սկանավորումը",
       "feedback": {
         "alignment_center_document": "Կենտրոնացրու փաստաթուղթը",
@@ -2706,7 +2720,10 @@
         "footer": {
           "branding": "common.footer.branding"
         },
+        "icon_error_accessibility": "common.generic.icon.error.accessibility",
         "icon_info_accessibility": "common.disclaimer.icon_info_accessibility",
+        "icon_success_accessibility": "common.generic.icon.success.accessibility",
+        "icon_warning_accessibility": "common.generic.icon.warning.accessibility",
         "loading": "common.loading.spinner"
       },
       "get_link": {

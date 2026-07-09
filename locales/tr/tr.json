@@ -334,7 +334,21 @@
       "cancel": "İptal",
       "exit": "Çıkış",
       "exit_subtitle": "Geri dönerseniz doğrulama sürecini yeniden başlatmanız gerekebilir.",
-      "exit_title": "Çıkmak istediğinizden emin misiniz?"
+      "exit_title": "Çıkmak istediğinizden emin misiniz?",
+      "icon": {
+        "error": {
+          "accessibility": "Hata:"
+        },
+        "info": {
+          "accessibility": "Bilgi:"
+        },
+        "success": {
+          "accessibility": "Başarı:"
+        },
+        "warning": {
+          "accessibility": "Uyarı:"
+        }
+      }
     },
     "loading": {
       "doc_upload": {
@@ -954,7 +968,7 @@
     },
     "scan": {
       "button_help": "Yardım mı gerekiyor?",
-      "button_help_accessibility": "The Need Help? button is now highlighted. Tap it if you need assistance.",
+      "button_help_accessibility": "Yardım düğmesi şu anda vurgulanmış durumda. Yardıma ihtiyaç duyarsanız üzerine dokunun.",
       "button_manual": "Taramayı başlat",
       "feedback": {
         "alignment_center_document": "Belgeyi ortala",
@@ -2706,7 +2720,10 @@
         "footer": {
           "branding": "common.footer.branding"
         },
+        "icon_error_accessibility": "common.generic.icon.error.accessibility",
         "icon_info_accessibility": "common.disclaimer.icon_info_accessibility",
+        "icon_success_accessibility": "common.generic.icon.success.accessibility",
+        "icon_warning_accessibility": "common.generic.icon.warning.accessibility",
         "loading": "common.loading.spinner"
       },
       "get_link": {

@@ -334,7 +334,21 @@
       "cancel": "Atcelt",
       "exit": "Iziet",
       "exit_subtitle": "Jums var nākties atkārtoti sākt verifikācijas procesu, ja jūs atgriezīsities.",
-      "exit_title": "Vai tiešām vēlaties iziet?"
+      "exit_title": "Vai tiešām vēlaties iziet?",
+      "icon": {
+        "error": {
+          "accessibility": "Kļūda:"
+        },
+        "info": {
+          "accessibility": "Informācija:"
+        },
+        "success": {
+          "accessibility": "Veiksmīgi:"
+        },
+        "warning": {
+          "accessibility": "Brīdinājums:"
+        }
+      }
     },
     "loading": {
       "doc_upload": {
@@ -954,7 +968,7 @@
     },
     "scan": {
       "button_help": "Nepieciešama palīdzība?",
-      "button_help_accessibility": "The Need Help? button is now highlighted. Tap it if you need assistance.",
+      "button_help_accessibility": "Poga “Palīdzība” tagad ir izcelta. Pieskarieties tai, ja jums nepieciešama palīdzība.",
       "button_manual": "Sākt skenēšanu",
       "feedback": {
         "alignment_center_document": "Novieto dokumentu centrā",
@@ -2706,7 +2720,10 @@
         "footer": {
           "branding": "common.footer.branding"
         },
+        "icon_error_accessibility": "common.generic.icon.error.accessibility",
         "icon_info_accessibility": "common.disclaimer.icon_info_accessibility",
+        "icon_success_accessibility": "common.generic.icon.success.accessibility",
+        "icon_warning_accessibility": "common.generic.icon.warning.accessibility",
         "loading": "common.loading.spinner"
       },
       "get_link": {

@@ -334,7 +334,21 @@
       "cancel": "ביטול",
       "exit": "יציאה",
       "exit_subtitle": "ייתכן שתצטרך להתחיל מחדש את תהליך האימות אם תחזור.",
-      "exit_title": "האם אתה בטוח שאתה רוצה לצאת?"
+      "exit_title": "האם אתה בטוח שאתה רוצה לצאת?",
+      "icon": {
+        "error": {
+          "accessibility": "שגיאה:"
+        },
+        "info": {
+          "accessibility": "מידע:"
+        },
+        "success": {
+          "accessibility": "הצלחה:"
+        },
+        "warning": {
+          "accessibility": "אזהרה:"
+        }
+      }
     },
     "loading": {
       "doc_upload": {
@@ -954,7 +968,7 @@
     },
     "scan": {
       "button_help": "צריך עזרה?",
-      "button_help_accessibility": "The Need Help? button is now highlighted. Tap it if you need assistance.",
+      "button_help_accessibility": "לחצן הסיוע מודגש כעת. הקש עליו אם אתה זקוק לעזרה.",
       "button_manual": "התחל סריקה",
       "feedback": {
         "alignment_center_document": "מרכז את המסמך",
@@ -2706,7 +2720,10 @@
         "footer": {
           "branding": "common.footer.branding"
         },
+        "icon_error_accessibility": "common.generic.icon.error.accessibility",
         "icon_info_accessibility": "common.disclaimer.icon_info_accessibility",
+        "icon_success_accessibility": "common.generic.icon.success.accessibility",
+        "icon_warning_accessibility": "common.generic.icon.warning.accessibility",
         "loading": "common.loading.spinner"
       },
       "get_link": {

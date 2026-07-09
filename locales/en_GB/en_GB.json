@@ -334,7 +334,21 @@
       "cancel": "Cancel",
       "exit": "Exit",
       "exit_subtitle": "You may need to restart the verification process if you return.",
-      "exit_title": "Are you sure you want to exit?"
+      "exit_title": "Are you sure you want to exit?",
+      "icon": {
+        "error": {
+          "accessibility": "Error:"
+        },
+        "info": {
+          "accessibility": "Information:"
+        },
+        "success": {
+          "accessibility": "Success:"
+        },
+        "warning": {
+          "accessibility": "Warning:"
+        }
+      }
     },
     "loading": {
       "doc_upload": {
@@ -954,7 +968,7 @@
     },
     "scan": {
       "button_help": "Need help?",
-      "button_help_accessibility": "The Need Help? button is now highlighted. Tap it if you need assistance.",
+      "button_help_accessibility": "The need help button is now highlighted. Tap it if you need assistance.",
       "button_manual": "Start scan",
       "feedback": {
         "alignment_center_document": "Center document",
@@ -2706,7 +2720,10 @@
         "footer": {
           "branding": "common.footer.branding"
         },
+        "icon_error_accessibility": "common.generic.icon.error.accessibility",
         "icon_info_accessibility": "common.disclaimer.icon_info_accessibility",
+        "icon_success_accessibility": "common.generic.icon.success.accessibility",
+        "icon_warning_accessibility": "common.generic.icon.warning.accessibility",
         "loading": "common.loading.spinner"
       },
       "get_link": {

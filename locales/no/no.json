@@ -334,7 +334,21 @@
       "cancel": "Avbryt",
       "exit": "Avslutt",
       "exit_subtitle": "Du må kanskje starte verifiseringsprosessen på nytt hvis du kommer tilbake.",
-      "exit_title": "Er du sikker på at du vil avslutte?"
+      "exit_title": "Er du sikker på at du vil avslutte?",
+      "icon": {
+        "error": {
+          "accessibility": "Feil:"
+        },
+        "info": {
+          "accessibility": "Informasjon:"
+        },
+        "success": {
+          "accessibility": "Suksess:"
+        },
+        "warning": {
+          "accessibility": "Advarsel:"
+        }
+      }
     },
     "loading": {
       "doc_upload": {
@@ -954,7 +968,7 @@
     },
     "scan": {
       "button_help": "Trenger du hjelp?",
-      "button_help_accessibility": "The Need Help? button is now highlighted. Tap it if you need assistance.",
+      "button_help_accessibility": "Knappen for hjelp er nå uthevet. Trykk på den hvis du trenger assistanse.",
       "button_manual": "Start skanning",
       "feedback": {
         "alignment_center_document": "Sentrer dokumentet",
@@ -2706,7 +2720,10 @@
         "footer": {
           "branding": "common.footer.branding"
         },
+        "icon_error_accessibility": "common.generic.icon.error.accessibility",
         "icon_info_accessibility": "common.disclaimer.icon_info_accessibility",
+        "icon_success_accessibility": "common.generic.icon.success.accessibility",
+        "icon_warning_accessibility": "common.generic.icon.warning.accessibility",
         "loading": "common.loading.spinner"
       },
       "get_link": {

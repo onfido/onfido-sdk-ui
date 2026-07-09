@@ -334,7 +334,21 @@
       "cancel": "कैंसिल करें",
       "exit": "बाहर जाएं",
       "exit_subtitle": "यदि आप वापस आते हैं तो आपको सत्यापन प्रक्रिया को पुनः शुरू करने की आवश्यकता हो सकती है।",
-      "exit_title": "क्या आप निश्चित हैं कि आप बाहर निकलना चाहते हैं?"
+      "exit_title": "क्या आप निश्चित हैं कि आप बाहर निकलना चाहते हैं?",
+      "icon": {
+        "error": {
+          "accessibility": "त्रुटि:"
+        },
+        "info": {
+          "accessibility": "सूचना:"
+        },
+        "success": {
+          "accessibility": "सफलता:"
+        },
+        "warning": {
+          "accessibility": "चेतावनी:"
+        }
+      }
     },
     "loading": {
       "doc_upload": {
@@ -954,7 +968,7 @@
     },
     "scan": {
       "button_help": "मदद चाहिए?",
-      "button_help_accessibility": "The Need Help? button is now highlighted. Tap it if you need assistance.",
+      "button_help_accessibility": "\"मदद चाहिए\" बटन अब हाइलाइट किया गया है। यदि आपको सहायता की आवश्यकता हो तो इस पर टैप करें।",
       "button_manual": "स्कैन शुरू करें",
       "feedback": {
         "alignment_center_document": "दस्तावेज़ को केंद्र में रखें",
@@ -2706,7 +2720,10 @@
         "footer": {
           "branding": "common.footer.branding"
         },
+        "icon_error_accessibility": "common.generic.icon.error.accessibility",
         "icon_info_accessibility": "common.disclaimer.icon_info_accessibility",
+        "icon_success_accessibility": "common.generic.icon.success.accessibility",
+        "icon_warning_accessibility": "common.generic.icon.warning.accessibility",
         "loading": "common.loading.spinner"
       },
       "get_link": {

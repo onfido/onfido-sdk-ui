@@ -334,7 +334,21 @@
       "cancel": "لغو",
       "exit": "خروج",
       "exit_subtitle": "شما ممکن است نیاز به شروع مجدد فرآیند تأیید هویت داشته باشید اگر بازگردید.",
-      "exit_title": "آیا مطمئن هستید که می خواهید خارج شوید؟"
+      "exit_title": "آیا مطمئن هستید که می خواهید خارج شوید؟",
+      "icon": {
+        "error": {
+          "accessibility": "خطا:"
+        },
+        "info": {
+          "accessibility": "اطلاعات:"
+        },
+        "success": {
+          "accessibility": "موفقیت:"
+        },
+        "warning": {
+          "accessibility": "هشدار:"
+        }
+      }
     },
     "loading": {
       "doc_upload": {
@@ -954,7 +968,7 @@
     },
     "scan": {
       "button_help": "نیاز به کمک دارید؟",
-      "button_help_accessibility": "The Need Help? button is now highlighted. Tap it if you need assistance.",
+      "button_help_accessibility": "دکمه «نیاز به راهنمایی» اکنون برجسته شده است. اگر به کمک نیاز دارید، روی آن بزنید.",
       "button_manual": "شروع اسکن",
       "feedback": {
         "alignment_center_document": "مدرک را در مرکز قرار بده",
@@ -2706,7 +2720,10 @@
         "footer": {
           "branding": "common.footer.branding"
         },
+        "icon_error_accessibility": "common.generic.icon.error.accessibility",
         "icon_info_accessibility": "common.disclaimer.icon_info_accessibility",
+        "icon_success_accessibility": "common.generic.icon.success.accessibility",
+        "icon_warning_accessibility": "common.generic.icon.warning.accessibility",
         "loading": "common.loading.spinner"
       },
       "get_link": {

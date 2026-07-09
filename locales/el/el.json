@@ -334,7 +334,21 @@
       "cancel": "Ακύρωση",
       "exit": "Έξοδος",
       "exit_subtitle": "Ίσως χρειαστεί να επανεκκινήσετε τη διαδικασία επαλήθευσης εάν επιστρέψετε.",
-      "exit_title": "Είστε σίγουροι ότι θέλετε να εξέλθετε;"
+      "exit_title": "Είστε σίγουροι ότι θέλετε να εξέλθετε;",
+      "icon": {
+        "error": {
+          "accessibility": "Σφάλμα:"
+        },
+        "info": {
+          "accessibility": "Πληροφορίες:"
+        },
+        "success": {
+          "accessibility": "Επιτυχία:"
+        },
+        "warning": {
+          "accessibility": "Προειδοποίηση:"
+        }
+      }
     },
     "loading": {
       "doc_upload": {
@@ -954,7 +968,7 @@
     },
     "scan": {
       "button_help": "Χρειάζεστε βοήθεια;",
-      "button_help_accessibility": "The Need Help? button is now highlighted. Tap it if you need assistance.",
+      "button_help_accessibility": "Το κουμπί βοήθειας είναι τώρα επισημασμένο. Πατήστε το αν χρειάζεστε βοήθεια.",
       "button_manual": "Έναρξη σάρωσης",
       "feedback": {
         "alignment_center_document": "Κεντράρισε το έγγραφο",
@@ -2706,7 +2720,10 @@
         "footer": {
           "branding": "common.footer.branding"
         },
+        "icon_error_accessibility": "common.generic.icon.error.accessibility",
         "icon_info_accessibility": "common.disclaimer.icon_info_accessibility",
+        "icon_success_accessibility": "common.generic.icon.success.accessibility",
+        "icon_warning_accessibility": "common.generic.icon.warning.accessibility",
         "loading": "common.loading.spinner"
       },
       "get_link": {

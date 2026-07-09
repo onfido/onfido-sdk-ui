@@ -334,7 +334,21 @@
       "cancel": "取消",
       "exit": "退出",
       "exit_subtitle": "如果您返回，可能需要重新開始驗證過程。",
-      "exit_title": "您確定要退出嗎？"
+      "exit_title": "您確定要退出嗎？",
+      "icon": {
+        "error": {
+          "accessibility": "錯誤："
+        },
+        "info": {
+          "accessibility": "資訊："
+        },
+        "success": {
+          "accessibility": "成功："
+        },
+        "warning": {
+          "accessibility": "警告："
+        }
+      }
     },
     "loading": {
       "doc_upload": {
@@ -954,7 +968,7 @@
     },
     "scan": {
       "button_help": "需要協助嗎？",
-      "button_help_accessibility": "The Need Help? button is now highlighted. Tap it if you need assistance.",
+      "button_help_accessibility": "「需要協助」按鈕現已醒目顯示。如需協助，請點選該按鈕。",
       "button_manual": "開始掃描",
       "feedback": {
         "alignment_center_document": "將證件置中",
@@ -2706,7 +2720,10 @@
         "footer": {
           "branding": "common.footer.branding"
         },
+        "icon_error_accessibility": "common.generic.icon.error.accessibility",
         "icon_info_accessibility": "common.disclaimer.icon_info_accessibility",
+        "icon_success_accessibility": "common.generic.icon.success.accessibility",
+        "icon_warning_accessibility": "common.generic.icon.warning.accessibility",
         "loading": "common.loading.spinner"
       },
       "get_link": {

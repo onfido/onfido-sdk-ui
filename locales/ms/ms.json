@@ -334,7 +334,21 @@
       "cancel": "Batalkan",
       "exit": "Keluar",
       "exit_subtitle": "Anda mungkin perlu memulakan semula proses pengesahan identiti jika anda kembali.",
-      "exit_title": "Adakah anda pasti ingin keluar?"
+      "exit_title": "Adakah anda pasti ingin keluar?",
+      "icon": {
+        "error": {
+          "accessibility": "Ralat:"
+        },
+        "info": {
+          "accessibility": "Maklumat:"
+        },
+        "success": {
+          "accessibility": "Berjaya:"
+        },
+        "warning": {
+          "accessibility": "Amaran:"
+        }
+      }
     },
     "loading": {
       "doc_upload": {
@@ -954,7 +968,7 @@
     },
     "scan": {
       "button_help": "Perlukan bantuan?",
-      "button_help_accessibility": "The Need Help? button is now highlighted. Tap it if you need assistance.",
+      "button_help_accessibility": "Butang bantuan kini diserlahkan. Ketik butang tersebut jika anda memerlukan bantuan.",
       "button_manual": "Mulakan imbasan",
       "feedback": {
         "alignment_center_document": "Pusatkan dokumen",
@@ -2706,7 +2720,10 @@
         "footer": {
           "branding": "common.footer.branding"
         },
+        "icon_error_accessibility": "common.generic.icon.error.accessibility",
         "icon_info_accessibility": "common.disclaimer.icon_info_accessibility",
+        "icon_success_accessibility": "common.generic.icon.success.accessibility",
+        "icon_warning_accessibility": "common.generic.icon.warning.accessibility",
         "loading": "common.loading.spinner"
       },
       "get_link": {

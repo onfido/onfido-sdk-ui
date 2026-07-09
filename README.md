@@ -98,7 +98,11 @@ The CSS style will be included inline with the JS code when the library is impor
 
 NPM is a public repository of libraries available for download and integration into web/native apps. Onfido has been publishing all its SDKs there for convenience to customers.
 
-The Web SDK version 14 will continue with the existing [package name](https://www.npmjs.com/package/onfido-sdk-ui):
+From version 14 onwards, the `onfido-sdk-ui` package loads the Web SDK at runtime from the Entrust CDN. By default, npm integrations use Entrust Managed SDK Upgrades, which means Entrust manages the runtime SDK version delivered to your integration within the latest major version. This means you get continuous improvements with lower maintenance effort, backed by progressive rollouts and automated monitoring.
+
+If you need full version control, you can optionally specify a major, minor, or patch version in `Onfido.init()`. See the [Version pinning](#version-pinning) section below for details.
+
+The Web SDK version 14 maintains the existing [package name](https://www.npmjs.com/package/onfido-sdk-ui):
 
 ```bash
 npm install onfido-sdk-ui
@@ -110,19 +114,13 @@ or
 yarn add onfido-sdk-ui
 ```
 
-From version 14 onwards, the `onfido-sdk-ui` package will, by default, be connected to the Onfido CDN. In addition to the benefits of using a CDN and the library being directly in your build process, core functions will also be typed when used with [Typesript](#typescript).
+From version 14 onwards, in addition to the benefits of CDN delivery, core functions are also typed when used with [TypeScript](#typescript).
 
 <Callout type="warning">
 
 > From version 14 onwards, "split bundles" are no longer supported. Onfido recommends the use of either the direct or NPM CDN integration.
 
 </Callout>
-
-#### NPM package version pinning
-
-In order to facilitate integration and A/B tests, the CDN-powered NPM package will also **optionally** support the ability to specify a version (major, minor or patch) of the Onfido Web SDK library.
-
-NPM bundle is by default evergreen and subscribes to the latest major version of the SDK. More details are provided in the [SDK version pinning](#version-pinning) section below.
 
 #### TypeScript
 
@@ -216,8 +214,13 @@ Please refer to this [guide](https://documentation.onfido.com/sdk/sdk-webview-gu
 
 ### Version pinning
 
-NPM bundle is by default evergreen and subscribes to the latest major version of the SDK.
-Based on the same major version, the minor and patch versions of the library can be specified in the `Onfido.init()` object.
+From version 14 onwards, when you install the Web SDK from npm, the package you add to your application does not by itself determine the exact SDK version that end users run in the browser.
+
+For npm integrations, the Web SDK runtime is fetched dynamically from the Entrust CDN when the SDK is initialized.
+
+By default, npm integrations use Entrust Managed SDK Upgrades. This means Entrust manages the runtime SDK version delivered to your integration within the latest major version, using a controlled rollout process.
+
+If you want to control the runtime version loaded from the CDN, you can set the version option in `Onfido.init()`.
 
 - **`version {String}` - optional**
 

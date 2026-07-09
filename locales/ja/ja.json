@@ -334,7 +334,21 @@
       "cancel": "キャンセル",
       "exit": "終了",
       "exit_subtitle": "戻る場合、確認プロセスを再開する必要があるかもしれません。",
-      "exit_title": "本当に終了しますか？"
+      "exit_title": "本当に終了しますか？",
+      "icon": {
+        "error": {
+          "accessibility": "エラー:"
+        },
+        "info": {
+          "accessibility": "情報:"
+        },
+        "success": {
+          "accessibility": "成功:"
+        },
+        "warning": {
+          "accessibility": "警告:"
+        }
+      }
     },
     "loading": {
       "doc_upload": {
@@ -954,7 +968,7 @@
     },
     "scan": {
       "button_help": "お困りですか？",
-      "button_help_accessibility": "The Need Help? button is now highlighted. Tap it if you need assistance.",
+      "button_help_accessibility": "ヘルプが必要な場合のボタンが、今はっきり表示されています。支援が必要なときは、そのボタンをタップしてください。",
       "button_manual": "スキャンを開始",
       "feedback": {
         "alignment_center_document": "書類を中央に合わせる",
@@ -2706,7 +2720,10 @@
         "footer": {
           "branding": "common.footer.branding"
         },
+        "icon_error_accessibility": "common.generic.icon.error.accessibility",
         "icon_info_accessibility": "common.disclaimer.icon_info_accessibility",
+        "icon_success_accessibility": "common.generic.icon.success.accessibility",
+        "icon_warning_accessibility": "common.generic.icon.warning.accessibility",
         "loading": "common.loading.spinner"
       },
       "get_link": {

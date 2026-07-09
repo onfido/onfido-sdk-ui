@@ -334,7 +334,21 @@
       "cancel": "Annuleren",
       "exit": "Afsluiten",
       "exit_subtitle": "U moet mogelijk het verificatieproces opnieuw starten als u terugkeert.",
-      "exit_title": "Weet je zeker dat je wilt afsluiten?"
+      "exit_title": "Weet je zeker dat je wilt afsluiten?",
+      "icon": {
+        "error": {
+          "accessibility": "Fout:"
+        },
+        "info": {
+          "accessibility": "Informatie:"
+        },
+        "success": {
+          "accessibility": "Succes:"
+        },
+        "warning": {
+          "accessibility": "Waarschuwing:"
+        }
+      }
     },
     "loading": {
       "doc_upload": {
@@ -954,7 +968,7 @@
     },
     "scan": {
       "button_help": "Hulp nodig?",
-      "button_help_accessibility": "The Need Help? button is now highlighted. Tap it if you need assistance.",
+      "button_help_accessibility": "De knop ‘Hulp nodig’ is nu gemarkeerd. Tik erop als u hulp nodig heeft.",
       "button_manual": "Start scan",
       "feedback": {
         "alignment_center_document": "Centreer document",
@@ -2706,7 +2720,10 @@
         "footer": {
           "branding": "common.footer.branding"
         },
+        "icon_error_accessibility": "common.generic.icon.error.accessibility",
         "icon_info_accessibility": "common.disclaimer.icon_info_accessibility",
+        "icon_success_accessibility": "common.generic.icon.success.accessibility",
+        "icon_warning_accessibility": "common.generic.icon.warning.accessibility",
         "loading": "common.loading.spinner"
       },
       "get_link": {

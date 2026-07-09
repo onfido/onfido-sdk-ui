@@ -334,7 +334,21 @@
       "cancel": "Annuler",
       "exit": "Sortie",
       "exit_subtitle": "Vous devrez peut-être redémarrer le processus de vérification si vous revenez.",
-      "exit_title": "Êtes-vous sûr de vouloir quitter ?"
+      "exit_title": "Êtes-vous sûr de vouloir quitter ?",
+      "icon": {
+        "error": {
+          "accessibility": "Erreur :"
+        },
+        "info": {
+          "accessibility": "Information :"
+        },
+        "success": {
+          "accessibility": "Succès :"
+        },
+        "warning": {
+          "accessibility": "Avertissement :"
+        }
+      }
     },
     "loading": {
       "doc_upload": {
@@ -954,7 +968,7 @@
     },
     "scan": {
       "button_help": "Besoin d'aide ?",
-      "button_help_accessibility": "The Need Help? button is now highlighted. Tap it if you need assistance.",
+      "button_help_accessibility": "Le bouton « Besoin d’aide » est maintenant mis en évidence. Touchez-le si vous avez besoin d’aide.",
       "button_manual": "Commencer la numérisation",
       "feedback": {
         "alignment_center_document": "Centrez le document",
@@ -2706,7 +2720,10 @@
         "footer": {
           "branding": "common.footer.branding"
         },
+        "icon_error_accessibility": "common.generic.icon.error.accessibility",
         "icon_info_accessibility": "common.disclaimer.icon_info_accessibility",
+        "icon_success_accessibility": "common.generic.icon.success.accessibility",
+        "icon_warning_accessibility": "common.generic.icon.warning.accessibility",
         "loading": "common.loading.spinner"
       },
       "get_link": {

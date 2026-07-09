@@ -334,7 +334,21 @@
       "cancel": "Prekliči",
       "exit": "Izhod",
       "exit_subtitle": "Morda boste morali ponovno zagnati postopek preverjanja, če se vrnete.",
-      "exit_title": "Ste prepričani, da želite izstopiti?"
+      "exit_title": "Ste prepričani, da želite izstopiti?",
+      "icon": {
+        "error": {
+          "accessibility": "Napaka:"
+        },
+        "info": {
+          "accessibility": "Informacije:"
+        },
+        "success": {
+          "accessibility": "Uspeh:"
+        },
+        "warning": {
+          "accessibility": "Opozorilo:"
+        }
+      }
     },
     "loading": {
       "doc_upload": {
@@ -954,7 +968,7 @@
     },
     "scan": {
       "button_help": "Potrebujete pomoč?",
-      "button_help_accessibility": "The Need Help? button is now highlighted. Tap it if you need assistance.",
+      "button_help_accessibility": "Gumb za pomoč je zdaj označen. Tapnite ga, če potrebujete pomoč.",
       "button_manual": "Začni skeniranje",
       "feedback": {
         "alignment_center_document": "Poravnaj dokument na sredino",
@@ -2706,7 +2720,10 @@
         "footer": {
           "branding": "common.footer.branding"
         },
+        "icon_error_accessibility": "common.generic.icon.error.accessibility",
         "icon_info_accessibility": "common.disclaimer.icon_info_accessibility",
+        "icon_success_accessibility": "common.generic.icon.success.accessibility",
+        "icon_warning_accessibility": "common.generic.icon.warning.accessibility",
         "loading": "common.loading.spinner"
       },
       "get_link": {

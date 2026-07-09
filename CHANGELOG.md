@@ -7,6 +7,14 @@ and the SDK adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html)
 
 When any of the string translations change, it will result in a MINOR version change. As a result, you are responsible for ensuring the correct layout if you are using custom translations (see [language localization](https://documentation.onfido.com/sdk/web/#custom-translations-and-text)).
 
+
+## [v14.78.0] - 2026-07-09
+
+### Changed
+
+- Fix screen reader not announcing the newly selected country in the SMS phone number input country selector
+- Fix screen reader not announcing SMS sending status after the Send button is clicked
+
 ## [v14.77.0] - 2026-06-24
 
 ### Changed

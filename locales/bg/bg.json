@@ -334,7 +334,21 @@
       "cancel": "Отказ",
       "exit": "Изход",
       "exit_subtitle": "Може да се наложи да рестартирате процеса на потвърждение, ако се върнете.",
-      "exit_title": "Сигурни ли сте, че искате да излезете?"
+      "exit_title": "Сигурни ли сте, че искате да излезете?",
+      "icon": {
+        "error": {
+          "accessibility": "Грешка:"
+        },
+        "info": {
+          "accessibility": "Информация:"
+        },
+        "success": {
+          "accessibility": "Успех:"
+        },
+        "warning": {
+          "accessibility": "Предупреждение:"
+        }
+      }
     },
     "loading": {
       "doc_upload": {
@@ -954,7 +968,7 @@
     },
     "scan": {
       "button_help": "Нуждаете се от помощ?",
-      "button_help_accessibility": "The Need Help? button is now highlighted. Tap it if you need assistance.",
+      "button_help_accessibility": "Бутонът за помощ вече е осветен. Натиснете го, ако имате нужда от съдействие.",
       "button_manual": "Започнете сканиране",
       "feedback": {
         "alignment_center_document": "Подравни документа в центъра",
@@ -2706,7 +2720,10 @@
         "footer": {
           "branding": "common.footer.branding"
         },
+        "icon_error_accessibility": "common.generic.icon.error.accessibility",
         "icon_info_accessibility": "common.disclaimer.icon_info_accessibility",
+        "icon_success_accessibility": "common.generic.icon.success.accessibility",
+        "icon_warning_accessibility": "common.generic.icon.warning.accessibility",
         "loading": "common.loading.spinner"
       },
       "get_link": {

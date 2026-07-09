@@ -334,7 +334,21 @@
       "cancel": "Hủy",
       "exit": "Thoát",
       "exit_subtitle": "Bạn có thể cần khởi động lại quá trình xác minh nếu bạn quay trở lại.",
-      "exit_title": "Bạn có chắc chắn muốn thoát không?"
+      "exit_title": "Bạn có chắc chắn muốn thoát không?",
+      "icon": {
+        "error": {
+          "accessibility": "Lỗi:"
+        },
+        "info": {
+          "accessibility": "Thông tin:"
+        },
+        "success": {
+          "accessibility": "Thành công:"
+        },
+        "warning": {
+          "accessibility": "Cảnh báo:"
+        }
+      }
     },
     "loading": {
       "doc_upload": {
@@ -954,7 +968,7 @@
     },
     "scan": {
       "button_help": "Cần trợ giúp?",
-      "button_help_accessibility": "The Need Help? button is now highlighted. Tap it if you need assistance.",
+      "button_help_accessibility": "Nút Cần trợ giúp hiện đang được làm nổi bật. Chạm vào nút nếu bạn cần hỗ trợ.",
       "button_manual": "Bắt đầu quét",
       "feedback": {
         "alignment_center_document": "Đặt tài liệu vào giữa",
@@ -2706,7 +2720,10 @@
         "footer": {
           "branding": "common.footer.branding"
         },
+        "icon_error_accessibility": "common.generic.icon.error.accessibility",
         "icon_info_accessibility": "common.disclaimer.icon_info_accessibility",
+        "icon_success_accessibility": "common.generic.icon.success.accessibility",
+        "icon_warning_accessibility": "common.generic.icon.warning.accessibility",
         "loading": "common.loading.spinner"
       },
       "get_link": {

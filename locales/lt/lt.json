@@ -334,7 +334,21 @@
       "cancel": "Atšaukti",
       "exit": "Išeiti",
       "exit_subtitle": "Jums gali tekti iš naujo pradėti tapatybės patvirtinimo procesą, jei grįšite.",
-      "exit_title": "Ar tikrai norite išeiti?"
+      "exit_title": "Ar tikrai norite išeiti?",
+      "icon": {
+        "error": {
+          "accessibility": "Klaida:"
+        },
+        "info": {
+          "accessibility": "Informacija:"
+        },
+        "success": {
+          "accessibility": "Sėkmė:"
+        },
+        "warning": {
+          "accessibility": "Įspėjimas:"
+        }
+      }
     },
     "loading": {
       "doc_upload": {
@@ -954,7 +968,7 @@
     },
     "scan": {
       "button_help": "Reikia pagalbos?",
-      "button_help_accessibility": "The Need Help? button is now highlighted. Tap it if you need assistance.",
+      "button_help_accessibility": "Mygtukas „Reikia pagalbos“ dabar paryškintas. Bakstelėkite jį, jei jums reikia pagalbos.",
       "button_manual": "Pradėti skenavimą",
       "feedback": {
         "alignment_center_document": "Sulygiuokite dokumentą centre",
@@ -2706,7 +2720,10 @@
         "footer": {
           "branding": "common.footer.branding"
         },
+        "icon_error_accessibility": "common.generic.icon.error.accessibility",
         "icon_info_accessibility": "common.disclaimer.icon_info_accessibility",
+        "icon_success_accessibility": "common.generic.icon.success.accessibility",
+        "icon_warning_accessibility": "common.generic.icon.warning.accessibility",
         "loading": "common.loading.spinner"
       },
       "get_link": {

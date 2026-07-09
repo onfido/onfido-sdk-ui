@@ -334,7 +334,21 @@
       "cancel": "Cancelar",
       "exit": "Saída",
       "exit_subtitle": "Você pode precisar reiniciar o processo de verificação se retornar.",
-      "exit_title": "Tem certeza de que deseja sair?"
+      "exit_title": "Tem certeza de que deseja sair?",
+      "icon": {
+        "error": {
+          "accessibility": "Erro:"
+        },
+        "info": {
+          "accessibility": "Informação:"
+        },
+        "success": {
+          "accessibility": "Sucesso:"
+        },
+        "warning": {
+          "accessibility": "Aviso:"
+        }
+      }
     },
     "loading": {
       "doc_upload": {
@@ -954,7 +968,7 @@
     },
     "scan": {
       "button_help": "Precisa de ajuda?",
-      "button_help_accessibility": "The Need Help? button is now highlighted. Tap it if you need assistance.",
+      "button_help_accessibility": "O botão de ajuda agora está realçado. Toque nele se precisar de assistência.",
       "button_manual": "Iniciar digitalização",
       "feedback": {
         "alignment_center_document": "Centralize o documento",
@@ -2706,7 +2720,10 @@
         "footer": {
           "branding": "common.footer.branding"
         },
+        "icon_error_accessibility": "common.generic.icon.error.accessibility",
         "icon_info_accessibility": "common.disclaimer.icon_info_accessibility",
+        "icon_success_accessibility": "common.generic.icon.success.accessibility",
+        "icon_warning_accessibility": "common.generic.icon.warning.accessibility",
         "loading": "common.loading.spinner"
       },
       "get_link": {

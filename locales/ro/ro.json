@@ -334,7 +334,21 @@
       "cancel": "Anulați",
       "exit": "Ieșire",
       "exit_subtitle": "S-ar putea să fie nevoie să reporniți procesul de verificare dacă vă întoarceți.",
-      "exit_title": "Ești sigur că vrei să ieși?"
+      "exit_title": "Ești sigur că vrei să ieși?",
+      "icon": {
+        "error": {
+          "accessibility": "Eroare:"
+        },
+        "info": {
+          "accessibility": "Informație:"
+        },
+        "success": {
+          "accessibility": "Succes:"
+        },
+        "warning": {
+          "accessibility": "Avertisment:"
+        }
+      }
     },
     "loading": {
       "doc_upload": {
@@ -954,7 +968,7 @@
     },
     "scan": {
       "button_help": "Ai nevoie de ajutor?",
-      "button_help_accessibility": "The Need Help? button is now highlighted. Tap it if you need assistance.",
+      "button_help_accessibility": "Butonul „Ai nevoie de ajutor” este acum evidențiat. Atinge-l dacă ai nevoie de asistență.",
       "button_manual": "Începe scanarea",
       "feedback": {
         "alignment_center_document": "Centrează documentul",
@@ -2706,7 +2720,10 @@
         "footer": {
           "branding": "common.footer.branding"
         },
+        "icon_error_accessibility": "common.generic.icon.error.accessibility",
         "icon_info_accessibility": "common.disclaimer.icon_info_accessibility",
+        "icon_success_accessibility": "common.generic.icon.success.accessibility",
+        "icon_warning_accessibility": "common.generic.icon.warning.accessibility",
         "loading": "common.loading.spinner"
       },
       "get_link": {

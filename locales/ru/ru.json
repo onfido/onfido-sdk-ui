@@ -334,7 +334,21 @@
       "cancel": "Отмена",
       "exit": "Выход",
       "exit_subtitle": "Возможно, вам придется начать процесс верификации заново, если вы вернетесь.",
-      "exit_title": "Вы уверены, что хотите выйти?"
+      "exit_title": "Вы уверены, что хотите выйти?",
+      "icon": {
+        "error": {
+          "accessibility": "Ошибка:"
+        },
+        "info": {
+          "accessibility": "Информация:"
+        },
+        "success": {
+          "accessibility": "Успех:"
+        },
+        "warning": {
+          "accessibility": "Предупреждение:"
+        }
+      }
     },
     "loading": {
       "doc_upload": {
@@ -954,7 +968,7 @@
     },
     "scan": {
       "button_help": "Нужна помощь?",
-      "button_help_accessibility": "The Need Help? button is now highlighted. Tap it if you need assistance.",
+      "button_help_accessibility": "Кнопка «Нужна помощь» теперь подсвечена. Нажмите на неё, если вам нужна помощь.",
       "button_manual": "Начать сканирование",
       "feedback": {
         "alignment_center_document": "Расположите документ по центру",
@@ -2706,7 +2720,10 @@
         "footer": {
           "branding": "common.footer.branding"
         },
+        "icon_error_accessibility": "common.generic.icon.error.accessibility",
         "icon_info_accessibility": "common.disclaimer.icon_info_accessibility",
+        "icon_success_accessibility": "common.generic.icon.success.accessibility",
+        "icon_warning_accessibility": "common.generic.icon.warning.accessibility",
         "loading": "common.loading.spinner"
       },
       "get_link": {

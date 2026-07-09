@@ -334,7 +334,21 @@
       "cancel": "Zrušit",
       "exit": "Ukončit",
       "exit_subtitle": "Možná budete muset restartovat proces ověření, pokud se vrátíte.",
-      "exit_title": "Jste si jisti, že chcete ukončit?"
+      "exit_title": "Jste si jisti, že chcete ukončit?",
+      "icon": {
+        "error": {
+          "accessibility": "Chyba:"
+        },
+        "info": {
+          "accessibility": "Informace:"
+        },
+        "success": {
+          "accessibility": "Úspěch:"
+        },
+        "warning": {
+          "accessibility": "Varování:"
+        }
+      }
     },
     "loading": {
       "doc_upload": {
@@ -954,7 +968,7 @@
     },
     "scan": {
       "button_help": "Potřebujete pomoc?",
-      "button_help_accessibility": "The Need Help? button is now highlighted. Tap it if you need assistance.",
+      "button_help_accessibility": "Tlačítko nápovědy je nyní zvýrazněno. Pokud potřebujete pomoc, klepněte na něj.",
       "button_manual": "Spustit skenování",
       "feedback": {
         "alignment_center_document": "Vystřeďte doklad",
@@ -2706,7 +2720,10 @@
         "footer": {
           "branding": "common.footer.branding"
         },
+        "icon_error_accessibility": "common.generic.icon.error.accessibility",
         "icon_info_accessibility": "common.disclaimer.icon_info_accessibility",
+        "icon_success_accessibility": "common.generic.icon.success.accessibility",
+        "icon_warning_accessibility": "common.generic.icon.warning.accessibility",
         "loading": "common.loading.spinner"
       },
       "get_link": {
