@@ -51,10 +51,10 @@
   "common": {
     "alert": {
       "accessibility": {
-        "error": "정보:",
+        "error": "오류:",
         "info": "정보:",
-        "success": "정보:",
-        "warning": "정보:"
+        "success": "성공:",
+        "warning": "경고:"
       },
       "dismiss_alert": "경고 해제",
       "instruction": "사진이 부착된 유효한 신분증으로 다시 시도하고 정보가 선명하게 보이는지 확인하세요",
@@ -919,7 +919,7 @@
       "title_tip_2": "신분증을 프레임 안에 맞춰 주세요"
     },
     "intro": {
-      "animation_accessibility": "An animation of the successful ID scanning process",
+      "animation_accessibility": "신분증 스캔 성공 과정의 애니메이션",
       "button_primary_selection_off": "스캔 시작",
       "button_primary_selection_on": "신분증 선택",
       "list_item_tip_1": "조명이 좋은 곳을 찾으세요",
@@ -2906,7 +2906,8 @@
           "passport_usa": {
             "sheet_android": "nfc.sheet.subtitle.ready.passport_usa_android",
             "sheet_ios": "nfc.sheet.subtitle.ready.passport_usa_ios"
-          }
+          },
+          "scanning_sheet_1": "nfc.sheet.subtitle.scanning.progress_ios"
         },
         "card": {
           "scan_doc_realign_body": "nfc.sheet.subtitle.interrupted.document_ios"
@@ -2933,7 +2934,9 @@
         "passport_usa_list_item_2": "nfc.error.instruction_2.passport_usa",
         "passport_usa_list_item_3": "nfc.error.instruction_3.passport_usa_android",
         "passport_usa_list_item_3_ios": "nfc.error.instruction_3.passport_usa_ios",
-        "passport_usa_list_item_4": "nfc.error.instruction_4.passport_usa"
+        "passport_usa_list_item_4": "nfc.error.instruction_4.passport_usa",
+        "title_card": "nfc.sheet.subtitle.error.document_ios",
+        "title_passport": "nfc.sheet.subtitle.error.passport_ios"
       },
       "nfc_intro": {
         "passport_scan_guide_3": "nfc.scan.instruction_3.passport",
@@ -4184,6 +4187,10 @@
     "sheet": {
       "button_secondary": "취소",
       "subtitle": {
+        "error": {
+          "document_ios": "NFC 카드를 스캔할 수 없습니다",
+          "passport_ios": "여권을 스캔할 수 없습니다"
+        },
         "interrupted": {
           "document_android": "칩을 찾기 위해 휴대폰에 신분증을 다시 위치시키세요.",
           "document_ios": "문서를 휴대폰에 다시 맞추세요.",
@@ -4201,7 +4208,8 @@
         },
         "scanning": {
           "document": "휴대폰과 신분증을 가만히 두세요.",
-          "passport": "휴대폰과 여권을 그대로 유지하세요."
+          "passport": "휴대폰과 여권을 그대로 유지하세요.",
+          "progress_ios": "스캔 중, 가만히 계세요..."
         }
       },
       "title": {

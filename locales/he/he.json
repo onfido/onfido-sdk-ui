@@ -51,10 +51,10 @@
   "common": {
     "alert": {
       "accessibility": {
-        "error": "מידע:",
+        "error": "שגיאה:",
         "info": "מידע:",
-        "success": "מידע:",
-        "warning": "מידע:"
+        "success": "הצלחה:",
+        "warning": "אזהרה:"
       },
       "dismiss_alert": "דחה התראה",
       "instruction": "נסה שוב עם תעודה מזהה חוקית שכוללת תמונה וודא שהפרטים מופיעים בבירור",
@@ -919,7 +919,7 @@
       "title_tip_2": "מקם את תעודת הזהות שלך במסגרת"
     },
     "intro": {
-      "animation_accessibility": "An animation of the successful ID scanning process",
+      "animation_accessibility": "אנימציה של תהליך סריקת תעודת הזהות שהושלם בהצלחה",
       "button_primary_selection_off": "התחל סריקה",
       "button_primary_selection_on": "בחר מסמך",
       "list_item_tip_1": "מצאו מקום עם תאורה טובה",
@@ -2906,7 +2906,8 @@
           "passport_usa": {
             "sheet_android": "nfc.sheet.subtitle.ready.passport_usa_android",
             "sheet_ios": "nfc.sheet.subtitle.ready.passport_usa_ios"
-          }
+          },
+          "scanning_sheet_1": "nfc.sheet.subtitle.scanning.progress_ios"
         },
         "card": {
           "scan_doc_realign_body": "nfc.sheet.subtitle.interrupted.document_ios"
@@ -2933,7 +2934,9 @@
         "passport_usa_list_item_2": "nfc.error.instruction_2.passport_usa",
         "passport_usa_list_item_3": "nfc.error.instruction_3.passport_usa_android",
         "passport_usa_list_item_3_ios": "nfc.error.instruction_3.passport_usa_ios",
-        "passport_usa_list_item_4": "nfc.error.instruction_4.passport_usa"
+        "passport_usa_list_item_4": "nfc.error.instruction_4.passport_usa",
+        "title_card": "nfc.sheet.subtitle.error.document_ios",
+        "title_passport": "nfc.sheet.subtitle.error.passport_ios"
       },
       "nfc_intro": {
         "passport_scan_guide_3": "nfc.scan.instruction_3.passport",
@@ -4184,6 +4187,10 @@
     "sheet": {
       "button_secondary": "ביטול",
       "subtitle": {
+        "error": {
+          "document_ios": "לא הצלחנו לסרוק את כרטיס ה-NFC שלך",
+          "passport_ios": "לא הצלחנו לסרוק את הדרכון שלך"
+        },
         "interrupted": {
           "document_android": "ממקם מחדש את המסמך שלך במגע עם הטלפון שלך כדי לאתר את השבב.",
           "document_ios": "מקם מחדש את המסמך שלך מול הטלפון שלך.",
@@ -4201,7 +4208,8 @@
         },
         "scanning": {
           "document": "השאירו את הטלפון והמסמך שלכם במקום.",
-          "passport": "שמור את הטלפון והדרכון שלך יציבים."
+          "passport": "שמור את הטלפון והדרכון שלך יציבים.",
+          "progress_ios": "סורק, הישארו במקום..."
         }
       },
       "title": {

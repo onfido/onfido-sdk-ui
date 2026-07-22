@@ -51,10 +51,10 @@
   "common": {
     "alert": {
       "accessibility": {
-        "error": "اطلاعات:",
+        "error": "خطا:",
         "info": "اطلاعات:",
-        "success": "اطلاعات:",
-        "warning": "اطلاعات:"
+        "success": "موفقیت:",
+        "warning": "هشدار:"
       },
       "dismiss_alert": "رد هشدار",
       "instruction": "لطفاً با یک کارت شناسایی عکس‌دار معتبر دوباره امتحان کنید و مطمئن شوید که اطلاعات شما به وضوح قابل مشاهده است",
@@ -919,7 +919,7 @@
       "title_tip_2": "کارت شناسایی خود را در قاب قرار دهید"
     },
     "intro": {
-      "animation_accessibility": "An animation of the successful ID scanning process",
+      "animation_accessibility": "انیمیشنی از فرایند موفق اسکن شناسه",
       "button_primary_selection_off": "شروع اسکن",
       "button_primary_selection_on": "انتخاب مدرک شناسایی",
       "list_item_tip_1": "یک محل با نور مناسب پیدا کنید",
@@ -2906,7 +2906,8 @@
           "passport_usa": {
             "sheet_android": "nfc.sheet.subtitle.ready.passport_usa_android",
             "sheet_ios": "nfc.sheet.subtitle.ready.passport_usa_ios"
-          }
+          },
+          "scanning_sheet_1": "nfc.sheet.subtitle.scanning.progress_ios"
         },
         "card": {
           "scan_doc_realign_body": "nfc.sheet.subtitle.interrupted.document_ios"
@@ -2933,7 +2934,9 @@
         "passport_usa_list_item_2": "nfc.error.instruction_2.passport_usa",
         "passport_usa_list_item_3": "nfc.error.instruction_3.passport_usa_android",
         "passport_usa_list_item_3_ios": "nfc.error.instruction_3.passport_usa_ios",
-        "passport_usa_list_item_4": "nfc.error.instruction_4.passport_usa"
+        "passport_usa_list_item_4": "nfc.error.instruction_4.passport_usa",
+        "title_card": "nfc.sheet.subtitle.error.document_ios",
+        "title_passport": "nfc.sheet.subtitle.error.passport_ios"
       },
       "nfc_intro": {
         "passport_scan_guide_3": "nfc.scan.instruction_3.passport",
@@ -4184,6 +4187,10 @@
     "sheet": {
       "button_secondary": "لغو",
       "subtitle": {
+        "error": {
+          "document_ios": "نتوانستیم کارت NFC شما را اسکن کنیم",
+          "passport_ios": "نتوانستیم گذرنامه شما را اسکن کنیم"
+        },
         "interrupted": {
           "document_android": "سند خود را در تماس با تلفن خود قرار دهید تا تراشه را پیدا کنید.",
           "document_ios": "سند خود را در مقابل تلفن خود قرار دهید.",
@@ -4201,7 +4208,8 @@
         },
         "scanning": {
           "document": "تلفن و سند خود را ساکت نگه دارید.",
-          "passport": "گوشی و گذرنامه خود را ثابت نگه دارید."
+          "passport": "گوشی و گذرنامه خود را ثابت نگه دارید.",
+          "progress_ios": "در حال اسکن، لطفاً ثابت بمانید..."
         }
       },
       "title": {

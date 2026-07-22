@@ -51,10 +51,10 @@
   "common": {
     "alert": {
       "accessibility": {
-        "error": "Teave:",
+        "error": "Viga:",
         "info": "Teave:",
-        "success": "Teave:",
-        "warning": "Teave:"
+        "success": "Edu:",
+        "warning": "Hoiatus:"
       },
       "dismiss_alert": "Hoiatuse sulgemine",
       "instruction": "Proovige uuesti, kasutades kehtiva fotoga isikutunnistust ja veenduge, et teie andmed on selgelt nähtavad",
@@ -919,7 +919,7 @@
       "title_tip_2": "Asetage oma isikutunnistus kaadri sisse"
     },
     "intro": {
-      "animation_accessibility": "An animation of the successful ID scanning process",
+      "animation_accessibility": "Animatsioon edukast isikutuvastuse dokumendi skaneerimise protsessist",
       "button_primary_selection_off": "Alusta skaneerimist",
       "button_primary_selection_on": "Vali dokument",
       "list_item_tip_1": "Leia hea valgustusega koht",
@@ -2906,7 +2906,8 @@
           "passport_usa": {
             "sheet_android": "nfc.sheet.subtitle.ready.passport_usa_android",
             "sheet_ios": "nfc.sheet.subtitle.ready.passport_usa_ios"
-          }
+          },
+          "scanning_sheet_1": "nfc.sheet.subtitle.scanning.progress_ios"
         },
         "card": {
           "scan_doc_realign_body": "nfc.sheet.subtitle.interrupted.document_ios"
@@ -2933,7 +2934,9 @@
         "passport_usa_list_item_2": "nfc.error.instruction_2.passport_usa",
         "passport_usa_list_item_3": "nfc.error.instruction_3.passport_usa_android",
         "passport_usa_list_item_3_ios": "nfc.error.instruction_3.passport_usa_ios",
-        "passport_usa_list_item_4": "nfc.error.instruction_4.passport_usa"
+        "passport_usa_list_item_4": "nfc.error.instruction_4.passport_usa",
+        "title_card": "nfc.sheet.subtitle.error.document_ios",
+        "title_passport": "nfc.sheet.subtitle.error.passport_ios"
       },
       "nfc_intro": {
         "passport_scan_guide_3": "nfc.scan.instruction_3.passport",
@@ -4184,6 +4187,10 @@
     "sheet": {
       "button_secondary": "Tühistage",
       "subtitle": {
+        "error": {
+          "document_ios": "Teie NFC-kiibiga kaarti ei õnnestunud skannida",
+          "passport_ios": "Meil ei õnnestunud teie passi skannida"
+        },
         "interrupted": {
           "document_android": "Paigutage oma dokument oma telefoni lähedusse, et kiip üles leida.",
           "document_ios": "Asetage oma dokument telefoni vastu.",
@@ -4201,7 +4208,8 @@
         },
         "scanning": {
           "document": "Hoia oma telefoni ja dokumenti paigal.",
-          "passport": "Hoidke oma telefon ja pass paigal."
+          "passport": "Hoidke oma telefon ja pass paigal.",
+          "progress_ios": "Skaneerimine, hoidke paigal..."
         }
       },
       "title": {

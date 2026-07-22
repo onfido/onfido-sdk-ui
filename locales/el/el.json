@@ -51,10 +51,10 @@
   "common": {
     "alert": {
       "accessibility": {
-        "error": "Πληροφορίες:",
+        "error": "Σφάλμα:",
         "info": "Πληροφορίες:",
-        "success": "Πληροφορίες:",
-        "warning": "Πληροφορίες:"
+        "success": "Επιτυχία:",
+        "warning": "Προειδοποίηση:"
       },
       "dismiss_alert": "Απόρριψη ειδοποίησης",
       "instruction": "Δοκιμάστε ξανά με μια έγκυρη φωτογραφία ταυτότητας και βεβαιωθείτε ότι τα στοιχεία σας είναι ευδιάκριτα",
@@ -919,7 +919,7 @@
       "title_tip_2": "Τοποθετήστε την ταυτότητά σας στο πλαίσιο"
     },
     "intro": {
-      "animation_accessibility": "An animation of the successful ID scanning process",
+      "animation_accessibility": "Κινούμενη εικόνα της επιτυχημένης διαδικασίας σάρωσης ταυτότητας",
       "button_primary_selection_off": "Έναρξη σάρωσης",
       "button_primary_selection_on": "Επιλέξτε έγγραφο",
       "list_item_tip_1": "Βρείτε ένα μέρος με καλό φωτισμό",
@@ -2906,7 +2906,8 @@
           "passport_usa": {
             "sheet_android": "nfc.sheet.subtitle.ready.passport_usa_android",
             "sheet_ios": "nfc.sheet.subtitle.ready.passport_usa_ios"
-          }
+          },
+          "scanning_sheet_1": "nfc.sheet.subtitle.scanning.progress_ios"
         },
         "card": {
           "scan_doc_realign_body": "nfc.sheet.subtitle.interrupted.document_ios"
@@ -2933,7 +2934,9 @@
         "passport_usa_list_item_2": "nfc.error.instruction_2.passport_usa",
         "passport_usa_list_item_3": "nfc.error.instruction_3.passport_usa_android",
         "passport_usa_list_item_3_ios": "nfc.error.instruction_3.passport_usa_ios",
-        "passport_usa_list_item_4": "nfc.error.instruction_4.passport_usa"
+        "passport_usa_list_item_4": "nfc.error.instruction_4.passport_usa",
+        "title_card": "nfc.sheet.subtitle.error.document_ios",
+        "title_passport": "nfc.sheet.subtitle.error.passport_ios"
       },
       "nfc_intro": {
         "passport_scan_guide_3": "nfc.scan.instruction_3.passport",
@@ -4184,6 +4187,10 @@
     "sheet": {
       "button_secondary": "Ακύρωση",
       "subtitle": {
+        "error": {
+          "document_ios": "Δεν ήταν δυνατή η σάρωση του δελτίου σας με NFC",
+          "passport_ios": "Δεν ήταν δυνατή η σάρωση του διαβατηρίου σας"
+        },
         "interrupted": {
           "document_android": "Τοποθετήστε ξανά το έγγραφό σας σε επαφή με το τηλέφωνό σας για να εντοπίσετε το τσιπ.",
           "document_ios": "Τοποθετήστε ξανά το έγγραφό σας πάνω στο τηλέφωνό σας.",
@@ -4201,7 +4208,8 @@
         },
         "scanning": {
           "document": "Κρατήστε το τηλέφωνό σας και το έγγραφο σταθερά.",
-          "passport": "Κρατήστε το τηλέφωνο και το διαβατήριό σας ακίνητα."
+          "passport": "Κρατήστε το τηλέφωνο και το διαβατήριό σας ακίνητα.",
+          "progress_ios": "Σάρωση, μείνετε ακίνητοι..."
         }
       },
       "title": {

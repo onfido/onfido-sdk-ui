@@ -51,10 +51,10 @@
   "common": {
     "alert": {
       "accessibility": {
-        "error": "Thông tin:",
+        "error": "Lỗi:",
         "info": "Thông tin:",
-        "success": "Thông tin:",
-        "warning": "Thông tin:"
+        "success": "Thành công:",
+        "warning": "Cảnh báo:"
       },
       "dismiss_alert": "Bỏ cảnh báo",
       "instruction": "Vui lòng thử lại với giấy tờ tùy thân có ảnh hợp lệ và đảm bảo thông tin của bạn được hiển thị rõ ràng",
@@ -919,7 +919,7 @@
       "title_tip_2": "Đặt giấy tờ tùy thân của bạn vào khung hình"
     },
     "intro": {
-      "animation_accessibility": "An animation of the successful ID scanning process",
+      "animation_accessibility": "Hoạt ảnh quá trình quét giấy tờ tùy thân thành công",
       "button_primary_selection_off": "Bắt đầu quét",
       "button_primary_selection_on": "Chọn giấy tờ tùy thân",
       "list_item_tip_1": "Tìm một nơi có đủ ánh sáng",
@@ -2906,7 +2906,8 @@
           "passport_usa": {
             "sheet_android": "nfc.sheet.subtitle.ready.passport_usa_android",
             "sheet_ios": "nfc.sheet.subtitle.ready.passport_usa_ios"
-          }
+          },
+          "scanning_sheet_1": "nfc.sheet.subtitle.scanning.progress_ios"
         },
         "card": {
           "scan_doc_realign_body": "nfc.sheet.subtitle.interrupted.document_ios"
@@ -2933,7 +2934,9 @@
         "passport_usa_list_item_2": "nfc.error.instruction_2.passport_usa",
         "passport_usa_list_item_3": "nfc.error.instruction_3.passport_usa_android",
         "passport_usa_list_item_3_ios": "nfc.error.instruction_3.passport_usa_ios",
-        "passport_usa_list_item_4": "nfc.error.instruction_4.passport_usa"
+        "passport_usa_list_item_4": "nfc.error.instruction_4.passport_usa",
+        "title_card": "nfc.sheet.subtitle.error.document_ios",
+        "title_passport": "nfc.sheet.subtitle.error.passport_ios"
       },
       "nfc_intro": {
         "passport_scan_guide_3": "nfc.scan.instruction_3.passport",
@@ -4184,6 +4187,10 @@
     "sheet": {
       "button_secondary": "Hủy",
       "subtitle": {
+        "error": {
+          "document_ios": "Chúng tôi không thể quét thẻ NFC của bạn",
+          "passport_ios": "Chúng tôi không thể quét hộ chiếu của bạn"
+        },
         "interrupted": {
           "document_android": "Đặt lại tài liệu của bạn vào liên lạc với điện thoại của bạn để tìm chip.",
           "document_ios": "Đặt lại tài liệu của bạn sát với điện thoại.",
@@ -4201,7 +4208,8 @@
         },
         "scanning": {
           "document": "Giữ điện thoại và giấy tờ của bạn ở trạng thái cố định.",
-          "passport": "Giữ điện thoại và hộ chiếu của bạn yên."
+          "passport": "Giữ điện thoại và hộ chiếu của bạn yên.",
+          "progress_ios": "Đang quét, giữ nguyên..."
         }
       },
       "title": {

@@ -51,10 +51,10 @@
   "common": {
     "alert": {
       "accessibility": {
-        "error": "Informacije:",
+        "error": "Napaka:",
         "info": "Informacije:",
-        "success": "Informacije:",
-        "warning": "Informacije:"
+        "success": "Uspeh:",
+        "warning": "Opozorilo:"
       },
       "dismiss_alert": "Zavrni opozorilo",
       "instruction": "Poskusite znova z veljavnim osebnim dokumentom s fotografijo in preverite, ali so vaši podatki jasno vidni",
@@ -919,7 +919,7 @@
       "title_tip_2": "Postavite osebni dokument v okvir"
     },
     "intro": {
-      "animation_accessibility": "An animation of the successful ID scanning process",
+      "animation_accessibility": "Animacija uspešnega postopka skeniranja osebnega dokumenta",
       "button_primary_selection_off": "Začni skeniranje",
       "button_primary_selection_on": "Izberite dokument",
       "list_item_tip_1": "Poiščite prostor z dobro osvetlitvijo",
@@ -2906,7 +2906,8 @@
           "passport_usa": {
             "sheet_android": "nfc.sheet.subtitle.ready.passport_usa_android",
             "sheet_ios": "nfc.sheet.subtitle.ready.passport_usa_ios"
-          }
+          },
+          "scanning_sheet_1": "nfc.sheet.subtitle.scanning.progress_ios"
         },
         "card": {
           "scan_doc_realign_body": "nfc.sheet.subtitle.interrupted.document_ios"
@@ -2933,7 +2934,9 @@
         "passport_usa_list_item_2": "nfc.error.instruction_2.passport_usa",
         "passport_usa_list_item_3": "nfc.error.instruction_3.passport_usa_android",
         "passport_usa_list_item_3_ios": "nfc.error.instruction_3.passport_usa_ios",
-        "passport_usa_list_item_4": "nfc.error.instruction_4.passport_usa"
+        "passport_usa_list_item_4": "nfc.error.instruction_4.passport_usa",
+        "title_card": "nfc.sheet.subtitle.error.document_ios",
+        "title_passport": "nfc.sheet.subtitle.error.passport_ios"
       },
       "nfc_intro": {
         "passport_scan_guide_3": "nfc.scan.instruction_3.passport",
@@ -4184,6 +4187,10 @@
     "sheet": {
       "button_secondary": "Prekliči",
       "subtitle": {
+        "error": {
+          "document_ios": "Vaše NFC kartice ni bilo mogoče skenirati",
+          "passport_ios": "Nismo mogli skenirati vašega potnega lista"
+        },
         "interrupted": {
           "document_android": "Ponovno postavite svoj dokument v stik s telefonom, da najdete čip.",
           "document_ios": "Ponovno postavite svoj dokument ob telefon.",
@@ -4201,7 +4208,8 @@
         },
         "scanning": {
           "document": "Držite telefon in dokument mirno.",
-          "passport": "Obdržite telefon in potni list mirno."
+          "passport": "Obdržite telefon in potni list mirno.",
+          "progress_ios": "Skeniranje, ostanite pri miru..."
         }
       },
       "title": {

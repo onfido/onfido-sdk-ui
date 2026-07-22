@@ -7,6 +7,31 @@ and the SDK adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html)
 
 When any of the string translations change, it will result in a MINOR version change. As a result, you are responsible for ensuring the correct layout if you are using custom translations (see [language localization](https://documentation.onfido.com/sdk/web/#custom-translations-and-text)).
 
+## [v14.79.0] - 2026-07-22
+
+### Fixed
+
+- Improve loading screen styling that caused some flickering in the UI.
+- Fixed an issue in cross-device where, in some cases, the next task did not start automatically, requiring users to manually refresh the browser to continue the flow.
+- Fix selfie oval guide rendering at the wrong size/position when the SDK theme overrides the body font-size
+- Fixed infrared camera being selected instead of standard camera on certain devices, causing greyscale previews
+- Fix the background color of media containers.
+- Fix bottom drawer stability so the upload dialog no longer disappears after repeated background interactions.
+
+### Changed
+
+- Added borderRadiusSelector UI token
+- Fixed colorBackgroundDropdownItemHover UI token
+- Fixed colorBackgroundDropdownItemActive UI token
+- Fixed colorBackgroundSelector UI token
+- Added colorIconAlertInfo UI token
+- Added borderRadiusDocTypeButton UI token
+- Added colorBackgroundDocHelpMediaContainer UI token
+- Added colorBackgroundButtonIcon UI token
+- Added borderRadiusButtonIcon UI token
+- Added colorBorderButtonIcon UI token
+- Added colorBorderButtonIconHover UI token
+- Added colorBorderButtonIconActive UI token
 
 ## [v14.78.0] - 2026-07-09
 

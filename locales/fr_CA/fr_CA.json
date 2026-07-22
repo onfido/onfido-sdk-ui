@@ -51,10 +51,10 @@
   "common": {
     "alert": {
       "accessibility": {
-        "error": "Information :",
+        "error": "Erreur :",
         "info": "Information :",
-        "success": "Information :",
-        "warning": "Information :"
+        "success": "Succès :",
+        "warning": "Avertissement :"
       },
       "dismiss_alert": "Ignorer l'alerte",
       "instruction": "Veuillez réessayer avec une pièce d'identité avec photo valide et assurez-vous que vos informations sont clairement visibles",
@@ -919,7 +919,7 @@
       "title_tip_2": "Positionnez votre pièce d'identité dans le cadre"
     },
     "intro": {
-      "animation_accessibility": "An animation of the successful ID scanning process",
+      "animation_accessibility": "Animation du processus de numérisation de la pièce d’identité réussi",
       "button_primary_selection_off": "Commencer la numérisation",
       "button_primary_selection_on": "Sélectionner le document",
       "list_item_tip_1": "Trouvez un endroit bien éclairé",
@@ -2906,7 +2906,8 @@
           "passport_usa": {
             "sheet_android": "nfc.sheet.subtitle.ready.passport_usa_android",
             "sheet_ios": "nfc.sheet.subtitle.ready.passport_usa_ios"
-          }
+          },
+          "scanning_sheet_1": "nfc.sheet.subtitle.scanning.progress_ios"
         },
         "card": {
           "scan_doc_realign_body": "nfc.sheet.subtitle.interrupted.document_ios"
@@ -2933,7 +2934,9 @@
         "passport_usa_list_item_2": "nfc.error.instruction_2.passport_usa",
         "passport_usa_list_item_3": "nfc.error.instruction_3.passport_usa_android",
         "passport_usa_list_item_3_ios": "nfc.error.instruction_3.passport_usa_ios",
-        "passport_usa_list_item_4": "nfc.error.instruction_4.passport_usa"
+        "passport_usa_list_item_4": "nfc.error.instruction_4.passport_usa",
+        "title_card": "nfc.sheet.subtitle.error.document_ios",
+        "title_passport": "nfc.sheet.subtitle.error.passport_ios"
       },
       "nfc_intro": {
         "passport_scan_guide_3": "nfc.scan.instruction_3.passport",
@@ -4184,6 +4187,10 @@
     "sheet": {
       "button_secondary": "Annuler",
       "subtitle": {
+        "error": {
+          "document_ios": "Impossible de balayer votre carte NFC",
+          "passport_ios": "Impossible de numériser votre passeport"
+        },
         "interrupted": {
           "document_android": "Repositionnez votre document en contact avec votre téléphone pour localiser la puce.",
           "document_ios": "Repositionnez votre document contre votre téléphone.",
@@ -4201,7 +4208,8 @@
         },
         "scanning": {
           "document": "Gardez votre téléphone et votre document immobiles.",
-          "passport": "Gardez votre téléphone et votre passeport immobiles."
+          "passport": "Gardez votre téléphone et votre passeport immobiles.",
+          "progress_ios": "Scan en cours, restez immobile..."
         }
       },
       "title": {

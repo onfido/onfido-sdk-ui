@@ -51,10 +51,10 @@
   "common": {
     "alert": {
       "accessibility": {
-        "error": "Informatie:",
+        "error": "Fout:",
         "info": "Informatie:",
-        "success": "Informatie:",
-        "warning": "Informatie:"
+        "success": "Succes:",
+        "warning": "Waarschuwing:"
       },
       "dismiss_alert": "Melding negeren",
       "instruction": "Probeer het opnieuw met een geldig identiteitsbewijs met foto en zorg ervoor dat uw gegevens duidelijk leesbaar zijn",
@@ -919,7 +919,7 @@
       "title_tip_2": "Plaats je ID in het kader"
     },
     "intro": {
-      "animation_accessibility": "An animation of the successful ID scanning process",
+      "animation_accessibility": "Een animatie van het geslaagde ID-scanproces",
       "button_primary_selection_off": "Start scan",
       "button_primary_selection_on": "Selecteer document",
       "list_item_tip_1": "Zoek een plek met goede verlichting",
@@ -2906,7 +2906,8 @@
           "passport_usa": {
             "sheet_android": "nfc.sheet.subtitle.ready.passport_usa_android",
             "sheet_ios": "nfc.sheet.subtitle.ready.passport_usa_ios"
-          }
+          },
+          "scanning_sheet_1": "nfc.sheet.subtitle.scanning.progress_ios"
         },
         "card": {
           "scan_doc_realign_body": "nfc.sheet.subtitle.interrupted.document_ios"
@@ -2933,7 +2934,9 @@
         "passport_usa_list_item_2": "nfc.error.instruction_2.passport_usa",
         "passport_usa_list_item_3": "nfc.error.instruction_3.passport_usa_android",
         "passport_usa_list_item_3_ios": "nfc.error.instruction_3.passport_usa_ios",
-        "passport_usa_list_item_4": "nfc.error.instruction_4.passport_usa"
+        "passport_usa_list_item_4": "nfc.error.instruction_4.passport_usa",
+        "title_card": "nfc.sheet.subtitle.error.document_ios",
+        "title_passport": "nfc.sheet.subtitle.error.passport_ios"
       },
       "nfc_intro": {
         "passport_scan_guide_3": "nfc.scan.instruction_3.passport",
@@ -4184,6 +4187,10 @@
     "sheet": {
       "button_secondary": "Annuleren",
       "subtitle": {
+        "error": {
+          "document_ios": "We konden uw NFC-kaart niet scannen",
+          "passport_ios": "We konden uw paspoort niet scannen"
+        },
         "interrupted": {
           "document_android": "Plaats uw document opnieuw in contact met uw telefoon om de chip te lokaliseren.",
           "document_ios": "Verplaats uw document tegen uw telefoon.",
@@ -4201,7 +4208,8 @@
         },
         "scanning": {
           "document": "Houd uw telefoon en document stil.",
-          "passport": "Houd je telefoon en paspoort stil."
+          "passport": "Houd je telefoon en paspoort stil.",
+          "progress_ios": "Scannen, blijf stil..."
         }
       },
       "title": {

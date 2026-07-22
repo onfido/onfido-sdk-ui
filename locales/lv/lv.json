@@ -51,10 +51,10 @@
   "common": {
     "alert": {
       "accessibility": {
-        "error": "Informācija:",
+        "error": "Kļūda:",
         "info": "Informācija:",
-        "success": "Informācija:",
-        "warning": "Informācija:"
+        "success": "Veiksmīgi:",
+        "warning": "Brīdinājums:"
       },
       "dismiss_alert": "Izslēgt brīdinājumu",
       "instruction": "Mēģiniet vēlreiz, izmantojot derīgu ID ar fotoattēlu, un pārliecinieties, ka jūsu informācija ir skaidri redzama",
@@ -919,7 +919,7 @@
       "title_tip_2": "Novietojiet savu identifikācijas dokumentu rāmī"
     },
     "intro": {
-      "animation_accessibility": "An animation of the successful ID scanning process",
+      "animation_accessibility": "Animācija ar veiksmīgu personas dokumenta skenēšanas procesu",
       "button_primary_selection_off": "Sākt skenēšanu",
       "button_primary_selection_on": "Izvēlieties dokumentu",
       "list_item_tip_1": "Atrodiet vietu ar labu apgaismojumu",
@@ -2906,7 +2906,8 @@
           "passport_usa": {
             "sheet_android": "nfc.sheet.subtitle.ready.passport_usa_android",
             "sheet_ios": "nfc.sheet.subtitle.ready.passport_usa_ios"
-          }
+          },
+          "scanning_sheet_1": "nfc.sheet.subtitle.scanning.progress_ios"
         },
         "card": {
           "scan_doc_realign_body": "nfc.sheet.subtitle.interrupted.document_ios"
@@ -2933,7 +2934,9 @@
         "passport_usa_list_item_2": "nfc.error.instruction_2.passport_usa",
         "passport_usa_list_item_3": "nfc.error.instruction_3.passport_usa_android",
         "passport_usa_list_item_3_ios": "nfc.error.instruction_3.passport_usa_ios",
-        "passport_usa_list_item_4": "nfc.error.instruction_4.passport_usa"
+        "passport_usa_list_item_4": "nfc.error.instruction_4.passport_usa",
+        "title_card": "nfc.sheet.subtitle.error.document_ios",
+        "title_passport": "nfc.sheet.subtitle.error.passport_ios"
       },
       "nfc_intro": {
         "passport_scan_guide_3": "nfc.scan.instruction_3.passport",
@@ -4184,6 +4187,10 @@
     "sheet": {
       "button_secondary": "Atcelt",
       "subtitle": {
+        "error": {
+          "document_ios": "Neizdevās noskenēt jūsu NFC karti",
+          "passport_ios": "Neizdevās noskenēt jūsu pasi"
+        },
         "interrupted": {
           "document_android": "Pārvietojiet savu dokumentu, lai tas saskartos ar jūsu tālruni un atrastu mikroshēmu.",
           "document_ios": "Novietojiet savu dokumentu pret tālruni.",
@@ -4201,7 +4208,8 @@
         },
         "scanning": {
           "document": "Turiet savu telefonu un dokumentu nekustīgu.",
-          "passport": "Saglabājiet savu tālruni un pasi nekustīgus."
+          "passport": "Saglabājiet savu tālruni un pasi nekustīgus.",
+          "progress_ios": "Skenēšana, lūdzu, nekustieties..."
         }
       },
       "title": {

@@ -51,10 +51,10 @@
   "common": {
     "alert": {
       "accessibility": {
-        "error": "Information:",
+        "error": "Error:",
         "info": "Information:",
-        "success": "Information:",
-        "warning": "Information:"
+        "success": "Success:",
+        "warning": "Warning:"
       },
       "dismiss_alert": "Dismiss alert",
       "instruction": "Please try again with a valid photo ID and make sure your information is clearly visible",
@@ -2906,7 +2906,8 @@
           "passport_usa": {
             "sheet_android": "nfc.sheet.subtitle.ready.passport_usa_android",
             "sheet_ios": "nfc.sheet.subtitle.ready.passport_usa_ios"
-          }
+          },
+          "scanning_sheet_1": "nfc.sheet.subtitle.scanning.progress_ios"
         },
         "card": {
           "scan_doc_realign_body": "nfc.sheet.subtitle.interrupted.document_ios"
@@ -2933,7 +2934,9 @@
         "passport_usa_list_item_2": "nfc.error.instruction_2.passport_usa",
         "passport_usa_list_item_3": "nfc.error.instruction_3.passport_usa_android",
         "passport_usa_list_item_3_ios": "nfc.error.instruction_3.passport_usa_ios",
-        "passport_usa_list_item_4": "nfc.error.instruction_4.passport_usa"
+        "passport_usa_list_item_4": "nfc.error.instruction_4.passport_usa",
+        "title_card": "nfc.sheet.subtitle.error.document_ios",
+        "title_passport": "nfc.sheet.subtitle.error.passport_ios"
       },
       "nfc_intro": {
         "passport_scan_guide_3": "nfc.scan.instruction_3.passport",
@@ -4184,6 +4187,10 @@
     "sheet": {
       "button_secondary": "Cancel",
       "subtitle": {
+        "error": {
+          "document_ios": "We couldn’t scan your NFC card",
+          "passport_ios": "We couldn’t scan your passport"
+        },
         "interrupted": {
           "document_android": "Reposition your document in contact with your phone to locate the chip.",
           "document_ios": "Reposition your document against your phone.",
@@ -4201,7 +4208,8 @@
         },
         "scanning": {
           "document": "Keep your phone and document still.",
-          "passport": "Keep your phone and passport still."
+          "passport": "Keep your phone and passport still.",
+          "progress_ios": "Scanning, hold still..."
         }
       },
       "title": {

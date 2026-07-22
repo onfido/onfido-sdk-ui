@@ -51,10 +51,10 @@
   "common": {
     "alert": {
       "accessibility": {
-        "error": "Information:",
+        "error": "Fehler:",
         "info": "Information:",
-        "success": "Information:",
-        "warning": "Information:"
+        "success": "Erfolg:",
+        "warning": "Warnung:"
       },
       "dismiss_alert": "Alarm verwerfen",
       "instruction": "Versuchen Sie es mit einem gültigen Lichtbildausweis erneut und stellen Sie sicher, dass die Angaben zu Ihrer Person gut sichtbar sind",
@@ -919,7 +919,7 @@
       "title_tip_2": "Positionieren Sie Ihren Ausweis im Rahmen"
     },
     "intro": {
-      "animation_accessibility": "An animation of the successful ID scanning process",
+      "animation_accessibility": "Eine Animation des erfolgreichen Ausweisscanvorgangs",
       "button_primary_selection_off": "Scan starten",
       "button_primary_selection_on": "Dokument auswählen",
       "list_item_tip_1": "Suchen Sie einen gut beleuchteten Ort",
@@ -2906,7 +2906,8 @@
           "passport_usa": {
             "sheet_android": "nfc.sheet.subtitle.ready.passport_usa_android",
             "sheet_ios": "nfc.sheet.subtitle.ready.passport_usa_ios"
-          }
+          },
+          "scanning_sheet_1": "nfc.sheet.subtitle.scanning.progress_ios"
         },
         "card": {
           "scan_doc_realign_body": "nfc.sheet.subtitle.interrupted.document_ios"
@@ -2933,7 +2934,9 @@
         "passport_usa_list_item_2": "nfc.error.instruction_2.passport_usa",
         "passport_usa_list_item_3": "nfc.error.instruction_3.passport_usa_android",
         "passport_usa_list_item_3_ios": "nfc.error.instruction_3.passport_usa_ios",
-        "passport_usa_list_item_4": "nfc.error.instruction_4.passport_usa"
+        "passport_usa_list_item_4": "nfc.error.instruction_4.passport_usa",
+        "title_card": "nfc.sheet.subtitle.error.document_ios",
+        "title_passport": "nfc.sheet.subtitle.error.passport_ios"
       },
       "nfc_intro": {
         "passport_scan_guide_3": "nfc.scan.instruction_3.passport",
@@ -4184,6 +4187,10 @@
     "sheet": {
       "button_secondary": "Abbrechen",
       "subtitle": {
+        "error": {
+          "document_ios": "Wir konnten Ihre NFC-Karte nicht scannen",
+          "passport_ios": "Wir konnten Ihren Reisepass nicht scannen"
+        },
         "interrupted": {
           "document_android": "Positionieren Sie Ihr Dokument erneut in Kontakt mit Ihrem Telefon, um den Chip zu lokalisieren.",
           "document_ios": "Positionieren Sie Ihr Dokument neu an Ihrem Telefon.",
@@ -4201,7 +4208,8 @@
         },
         "scanning": {
           "document": "Halten Sie Ihr Telefon und Ihr Dokument still.",
-          "passport": "Halten Sie Ihr Telefon und Ihren Reisepass still."
+          "passport": "Halten Sie Ihr Telefon und Ihren Reisepass still.",
+          "progress_ios": "Scannen, bitte stillhalten..."
         }
       },
       "title": {

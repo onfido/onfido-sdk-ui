@@ -51,10 +51,10 @@
   "common": {
     "alert": {
       "accessibility": {
-        "error": "ข้อมูล:",
+        "error": "ข้อผิดพลาด:",
         "info": "ข้อมูล:",
-        "success": "ข้อมูล:",
-        "warning": "ข้อมูล:"
+        "success": "สำเร็จ:",
+        "warning": "คำเตือน:"
       },
       "dismiss_alert": "ปิดการแจ้งเตือน",
       "instruction": "โปรดลองอีกครั้งโดยใช้บัตรประจำตัวที่มีรูปถ่ายที่ถูกต้อง และตรวจให้แน่ใจว่าเห็นข้อมูลของคุณได้อย่างชัดเจน",
@@ -919,7 +919,7 @@
       "title_tip_2": "วางบัตรประจำตัวของคุณในกรอบ"
     },
     "intro": {
-      "animation_accessibility": "An animation of the successful ID scanning process",
+      "animation_accessibility": "ภาพเคลื่อนไหวแสดงกระบวนการสแกนเอกสารประจำตัวที่สำเร็จ",
       "button_primary_selection_off": "เริ่มสแกน",
       "button_primary_selection_on": "เลือกเอกสาร",
       "list_item_tip_1": "หาสถานที่ที่มีแสงสว่างเพียงพอ",
@@ -2906,7 +2906,8 @@
           "passport_usa": {
             "sheet_android": "nfc.sheet.subtitle.ready.passport_usa_android",
             "sheet_ios": "nfc.sheet.subtitle.ready.passport_usa_ios"
-          }
+          },
+          "scanning_sheet_1": "nfc.sheet.subtitle.scanning.progress_ios"
         },
         "card": {
           "scan_doc_realign_body": "nfc.sheet.subtitle.interrupted.document_ios"
@@ -2933,7 +2934,9 @@
         "passport_usa_list_item_2": "nfc.error.instruction_2.passport_usa",
         "passport_usa_list_item_3": "nfc.error.instruction_3.passport_usa_android",
         "passport_usa_list_item_3_ios": "nfc.error.instruction_3.passport_usa_ios",
-        "passport_usa_list_item_4": "nfc.error.instruction_4.passport_usa"
+        "passport_usa_list_item_4": "nfc.error.instruction_4.passport_usa",
+        "title_card": "nfc.sheet.subtitle.error.document_ios",
+        "title_passport": "nfc.sheet.subtitle.error.passport_ios"
       },
       "nfc_intro": {
         "passport_scan_guide_3": "nfc.scan.instruction_3.passport",
@@ -4184,6 +4187,10 @@
     "sheet": {
       "button_secondary": "ยกเลิก",
       "subtitle": {
+        "error": {
+          "document_ios": "เราสแกนบัตร NFC ของคุณไม่ได้",
+          "passport_ios": "เราสแกนหนังสือเดินทางของคุณไม่ได้"
+        },
         "interrupted": {
           "document_android": "จัดตำแหน่งเอกสารของคุณให้สัมผัสกับโทรศัพท์เพื่อค้นหาชิป",
           "document_ios": "จัดตำแหน่งเอกสารของคุณกับโทรศัพท์ของคุณใหม่",
@@ -4201,7 +4208,8 @@
         },
         "scanning": {
           "document": "เก็บโทรศัพท์และเอกสารของคุณให้นิ่ง",
-          "passport": "เก็บโทรศัพท์และหนังสือเดินทางของคุณให้นิ่ง"
+          "passport": "เก็บโทรศัพท์และหนังสือเดินทางของคุณให้นิ่ง",
+          "progress_ios": "กำลังสแกน, กรุณาถือให้นิ่ง..."
         }
       },
       "title": {

@@ -51,10 +51,10 @@
   "common": {
     "alert": {
       "accessibility": {
-        "error": "सूचना:",
+        "error": "त्रुटि:",
         "info": "सूचना:",
-        "success": "सूचना:",
-        "warning": "सूचना:"
+        "success": "सफलता:",
+        "warning": "चेतावनी:"
       },
       "dismiss_alert": "अलर्ट खारिज करें",
       "instruction": "कृपया एक मान्य फ़ोटो आईडी के साथ फिर से कोशिश करें और पक्का करें कि आपकी जानकारी साफ़-साफ़ दिख रही है",
@@ -919,7 +919,7 @@
       "title_tip_2": "अपना आईडी फ्रेम में रखें"
     },
     "intro": {
-      "animation_accessibility": "An animation of the successful ID scanning process",
+      "animation_accessibility": "सफल आईडी स्कैनिंग प्रक्रिया का एनीमेशन",
       "button_primary_selection_off": "स्कैन शुरू करें",
       "button_primary_selection_on": "दस्तावेज़ चुनें",
       "list_item_tip_1": "अच्छी रोशनी वाली जगह चुनें",
@@ -2906,7 +2906,8 @@
           "passport_usa": {
             "sheet_android": "nfc.sheet.subtitle.ready.passport_usa_android",
             "sheet_ios": "nfc.sheet.subtitle.ready.passport_usa_ios"
-          }
+          },
+          "scanning_sheet_1": "nfc.sheet.subtitle.scanning.progress_ios"
         },
         "card": {
           "scan_doc_realign_body": "nfc.sheet.subtitle.interrupted.document_ios"
@@ -2933,7 +2934,9 @@
         "passport_usa_list_item_2": "nfc.error.instruction_2.passport_usa",
         "passport_usa_list_item_3": "nfc.error.instruction_3.passport_usa_android",
         "passport_usa_list_item_3_ios": "nfc.error.instruction_3.passport_usa_ios",
-        "passport_usa_list_item_4": "nfc.error.instruction_4.passport_usa"
+        "passport_usa_list_item_4": "nfc.error.instruction_4.passport_usa",
+        "title_card": "nfc.sheet.subtitle.error.document_ios",
+        "title_passport": "nfc.sheet.subtitle.error.passport_ios"
       },
       "nfc_intro": {
         "passport_scan_guide_3": "nfc.scan.instruction_3.passport",
@@ -4184,6 +4187,10 @@
     "sheet": {
       "button_secondary": "कैंसिल करें",
       "subtitle": {
+        "error": {
+          "document_ios": "हम आपका NFC कार्ड स्कैन नहीं कर सके",
+          "passport_ios": "हम आपका पासपोर्ट स्कैन नहीं कर सके"
+        },
         "interrupted": {
           "document_android": "चिप का स्थान ढूंढने के लिए अपने फ़ोन के संपर्क में अपने दस्तावेज़ को पुनः स्थापित करें।",
           "document_ios": "अपने दस्तावेज़ को अपने फोन के खिलाफ पुनः स्थिति में लाएं।",
@@ -4201,7 +4208,8 @@
         },
         "scanning": {
           "document": "अपने फ़ोन और दस्तावेज़ को स्थिर रखें।",
-          "passport": "अपने फोन और पासपोर्ट को स्थिर रखें।"
+          "passport": "अपने फोन और पासपोर्ट को स्थिर रखें।",
+          "progress_ios": "स्कैनिंग, कृपया स्थिर रहें..."
         }
       },
       "title": {

@@ -51,10 +51,10 @@
   "common": {
     "alert": {
       "accessibility": {
-        "error": "信息：",
+        "error": "错误：",
         "info": "信息：",
-        "success": "信息：",
-        "warning": "信息："
+        "success": "成功：",
+        "warning": "警告："
       },
       "dismiss_alert": "忽略警报",
       "instruction": "请使用带照片的有效身份证件重试，并确保您的信息清晰可见",
@@ -919,7 +919,7 @@
       "title_tip_2": "将您的证件放置在框内"
     },
     "intro": {
-      "animation_accessibility": "An animation of the successful ID scanning process",
+      "animation_accessibility": "身份证件扫描成功过程的动画演示",
       "button_primary_selection_off": "开始扫描",
       "button_primary_selection_on": "选择证件",
       "list_item_tip_1": "找一个光线充足的地方",
@@ -2906,7 +2906,8 @@
           "passport_usa": {
             "sheet_android": "nfc.sheet.subtitle.ready.passport_usa_android",
             "sheet_ios": "nfc.sheet.subtitle.ready.passport_usa_ios"
-          }
+          },
+          "scanning_sheet_1": "nfc.sheet.subtitle.scanning.progress_ios"
         },
         "card": {
           "scan_doc_realign_body": "nfc.sheet.subtitle.interrupted.document_ios"
@@ -2933,7 +2934,9 @@
         "passport_usa_list_item_2": "nfc.error.instruction_2.passport_usa",
         "passport_usa_list_item_3": "nfc.error.instruction_3.passport_usa_android",
         "passport_usa_list_item_3_ios": "nfc.error.instruction_3.passport_usa_ios",
-        "passport_usa_list_item_4": "nfc.error.instruction_4.passport_usa"
+        "passport_usa_list_item_4": "nfc.error.instruction_4.passport_usa",
+        "title_card": "nfc.sheet.subtitle.error.document_ios",
+        "title_passport": "nfc.sheet.subtitle.error.passport_ios"
       },
       "nfc_intro": {
         "passport_scan_guide_3": "nfc.scan.instruction_3.passport",
@@ -4184,6 +4187,10 @@
     "sheet": {
       "button_secondary": "取消",
       "subtitle": {
+        "error": {
+          "document_ios": "我们无法扫描您的NFC卡",
+          "passport_ios": "我们无法扫描您的护照"
+        },
         "interrupted": {
           "document_android": "将您的证件重新放置在您的手机上以找到芯片。",
           "document_ios": "将您的证件重新放置在手机上。",
@@ -4201,7 +4208,8 @@
         },
         "scanning": {
           "document": "保持您的手机和证件静止不动。",
-          "passport": "保持手机和护照不动。"
+          "passport": "保持手机和护照不动。",
+          "progress_ios": "扫描中，请保持不动..."
         }
       },
       "title": {

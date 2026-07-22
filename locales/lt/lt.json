@@ -51,10 +51,10 @@
   "common": {
     "alert": {
       "accessibility": {
-        "error": "Informacija:",
+        "error": "Klaida:",
         "info": "Informacija:",
-        "success": "Informacija:",
-        "warning": "Informacija:"
+        "success": "Sėkmė:",
+        "warning": "Įspėjimas:"
       },
       "dismiss_alert": "Pašalinti įspėjimą",
       "instruction": "Bandykite dar kartą naudodami galiojantį asmens tapatybės dokumentą su nuotrauka ir įsitikinkite, kad jūsų informacija aiškiai matoma",
@@ -919,7 +919,7 @@
       "title_tip_2": "Padėkite savo dokumentą rėmelyje"
     },
     "intro": {
-      "animation_accessibility": "An animation of the successful ID scanning process",
+      "animation_accessibility": "Sėkmingo asmens dokumento nuskaitymo proceso animacija",
       "button_primary_selection_off": "Pradėti skenavimą",
       "button_primary_selection_on": "Pasirinkite dokumentą",
       "list_item_tip_1": "Raskite gerai apšviestą vietą",
@@ -2906,7 +2906,8 @@
           "passport_usa": {
             "sheet_android": "nfc.sheet.subtitle.ready.passport_usa_android",
             "sheet_ios": "nfc.sheet.subtitle.ready.passport_usa_ios"
-          }
+          },
+          "scanning_sheet_1": "nfc.sheet.subtitle.scanning.progress_ios"
         },
         "card": {
           "scan_doc_realign_body": "nfc.sheet.subtitle.interrupted.document_ios"
@@ -2933,7 +2934,9 @@
         "passport_usa_list_item_2": "nfc.error.instruction_2.passport_usa",
         "passport_usa_list_item_3": "nfc.error.instruction_3.passport_usa_android",
         "passport_usa_list_item_3_ios": "nfc.error.instruction_3.passport_usa_ios",
-        "passport_usa_list_item_4": "nfc.error.instruction_4.passport_usa"
+        "passport_usa_list_item_4": "nfc.error.instruction_4.passport_usa",
+        "title_card": "nfc.sheet.subtitle.error.document_ios",
+        "title_passport": "nfc.sheet.subtitle.error.passport_ios"
       },
       "nfc_intro": {
         "passport_scan_guide_3": "nfc.scan.instruction_3.passport",
@@ -4184,6 +4187,10 @@
     "sheet": {
       "button_secondary": "Atšaukti",
       "subtitle": {
+        "error": {
+          "document_ios": "Nepavyko nuskaityti jūsų NFC kortelės",
+          "passport_ios": "Nepavyko nuskaityti jūsų paso"
+        },
         "interrupted": {
           "document_android": "Perkelkite savo dokumentą taip, kad jis būtų kontakto su jūsų telefonu, kad rastumėte lustą.",
           "document_ios": "Perstatykite savo dokumentą prie telefono.",
@@ -4201,7 +4208,8 @@
         },
         "scanning": {
           "document": "Laikykite savo telefoną ir dokumentą nejudant.",
-          "passport": "Laikykite telefoną ir pasą nejudančius."
+          "passport": "Laikykite telefoną ir pasą nejudančius.",
+          "progress_ios": "Skenavimas, laikykite ramiai..."
         }
       },
       "title": {

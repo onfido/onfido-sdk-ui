@@ -51,10 +51,10 @@
   "common": {
     "alert": {
       "accessibility": {
-        "error": "Tietoa:",
+        "error": "Virhe:",
         "info": "Tietoa:",
-        "success": "Tietoa:",
-        "warning": "Tietoa:"
+        "success": "Onnistuminen:",
+        "warning": "Varoitus:"
       },
       "dismiss_alert": "Hylkää hälytys",
       "instruction": "Yritä uudelleen voimassa olevalla kuvallisella ID:llä ja varmista, että tietosi näkyvät selvästi",
@@ -919,7 +919,7 @@
       "title_tip_2": "Aseta henkilöllisyystodistuksesi kehykseen"
     },
     "intro": {
-      "animation_accessibility": "An animation of the successful ID scanning process",
+      "animation_accessibility": "Animaatio onnistuneesta henkilöllisyysasiakirjan skannausprosessista",
       "button_primary_selection_off": "Aloita skannaus",
       "button_primary_selection_on": "Valitse asiakirja",
       "list_item_tip_1": "Etsi paikka, jossa on hyvä valaistus",
@@ -2906,7 +2906,8 @@
           "passport_usa": {
             "sheet_android": "nfc.sheet.subtitle.ready.passport_usa_android",
             "sheet_ios": "nfc.sheet.subtitle.ready.passport_usa_ios"
-          }
+          },
+          "scanning_sheet_1": "nfc.sheet.subtitle.scanning.progress_ios"
         },
         "card": {
           "scan_doc_realign_body": "nfc.sheet.subtitle.interrupted.document_ios"
@@ -2933,7 +2934,9 @@
         "passport_usa_list_item_2": "nfc.error.instruction_2.passport_usa",
         "passport_usa_list_item_3": "nfc.error.instruction_3.passport_usa_android",
         "passport_usa_list_item_3_ios": "nfc.error.instruction_3.passport_usa_ios",
-        "passport_usa_list_item_4": "nfc.error.instruction_4.passport_usa"
+        "passport_usa_list_item_4": "nfc.error.instruction_4.passport_usa",
+        "title_card": "nfc.sheet.subtitle.error.document_ios",
+        "title_passport": "nfc.sheet.subtitle.error.passport_ios"
       },
       "nfc_intro": {
         "passport_scan_guide_3": "nfc.scan.instruction_3.passport",
@@ -4184,6 +4187,10 @@
     "sheet": {
       "button_secondary": "Peruuta",
       "subtitle": {
+        "error": {
+          "document_ios": "NFC-korttiasi ei voitu skannata",
+          "passport_ios": "Passisi skannaus epäonnistui"
+        },
         "interrupted": {
           "document_android": "Aseta asiakirjasi uudelleen puhelimesi kosketukseen sirun paikantamiseksi.",
           "document_ios": "Aseta asiakirjasi uudelleen puhelintasi vasten.",
@@ -4201,7 +4208,8 @@
         },
         "scanning": {
           "document": "Pidä puhelimesi ja asiakirjasi paikallaan.",
-          "passport": "Pidä puhelimesi ja passisi paikallaan."
+          "passport": "Pidä puhelimesi ja passisi paikallaan.",
+          "progress_ios": "Skannaus, pysy paikallasi..."
         }
       },
       "title": {

@@ -51,10 +51,10 @@
   "common": {
     "alert": {
       "accessibility": {
-        "error": "Informație:",
+        "error": "Eroare:",
         "info": "Informație:",
-        "success": "Informație:",
-        "warning": "Informație:"
+        "success": "Succes:",
+        "warning": "Avertisment:"
       },
       "dismiss_alert": "Respingeți alerta",
       "instruction": "Vă rugăm să încercați din nou cu un document de identitate cu poză valabil și asigurați-vă că informațiile dvs. sunt clar vizibile",
@@ -919,7 +919,7 @@
       "title_tip_2": "Poziționați actul de identitate în cadru"
     },
     "intro": {
-      "animation_accessibility": "An animation of the successful ID scanning process",
+      "animation_accessibility": "O animație a procesului reușit de scanare a actului de identitate",
       "button_primary_selection_off": "Începe scanarea",
       "button_primary_selection_on": "Selectează documentul",
       "list_item_tip_1": "Găsește un loc cu iluminare bună",
@@ -2906,7 +2906,8 @@
           "passport_usa": {
             "sheet_android": "nfc.sheet.subtitle.ready.passport_usa_android",
             "sheet_ios": "nfc.sheet.subtitle.ready.passport_usa_ios"
-          }
+          },
+          "scanning_sheet_1": "nfc.sheet.subtitle.scanning.progress_ios"
         },
         "card": {
           "scan_doc_realign_body": "nfc.sheet.subtitle.interrupted.document_ios"
@@ -2933,7 +2934,9 @@
         "passport_usa_list_item_2": "nfc.error.instruction_2.passport_usa",
         "passport_usa_list_item_3": "nfc.error.instruction_3.passport_usa_android",
         "passport_usa_list_item_3_ios": "nfc.error.instruction_3.passport_usa_ios",
-        "passport_usa_list_item_4": "nfc.error.instruction_4.passport_usa"
+        "passport_usa_list_item_4": "nfc.error.instruction_4.passport_usa",
+        "title_card": "nfc.sheet.subtitle.error.document_ios",
+        "title_passport": "nfc.sheet.subtitle.error.passport_ios"
       },
       "nfc_intro": {
         "passport_scan_guide_3": "nfc.scan.instruction_3.passport",
@@ -4184,6 +4187,10 @@
     "sheet": {
       "button_secondary": "Anulează",
       "subtitle": {
+        "error": {
+          "document_ios": "Nu am reușit să vă scanăm cardul NFC",
+          "passport_ios": "Nu am reușit să vă scanăm pașaportul"
+        },
         "interrupted": {
           "document_android": "Repoziționați documentul în contact cu telefonul dvs. pentru a localiza cipul.",
           "document_ios": "Repoziționați documentul în fața telefonului.",
@@ -4201,7 +4208,8 @@
         },
         "scanning": {
           "document": "Păstrați telefonul și documentul nemișcate.",
-          "passport": "Țineți telefonul și pașaportul nemișcate."
+          "passport": "Țineți telefonul și pașaportul nemișcate.",
+          "progress_ios": "Scanare, stai nemișcat..."
         }
       },
       "title": {

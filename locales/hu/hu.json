@@ -51,10 +51,10 @@
   "common": {
     "alert": {
       "accessibility": {
-        "error": "Információ:",
+        "error": "Hiba:",
         "info": "Információ:",
-        "success": "Információ:",
-        "warning": "Információ:"
+        "success": "Siker:",
+        "warning": "Figyelem:"
       },
       "dismiss_alert": "Figyelmeztetés elvetése",
       "instruction": "Próbálkozzon újra érvényes fényképes személyazonosító okmánnyal, és győződjön meg róla, hogy az adatai jól láthatók",
@@ -919,7 +919,7 @@
       "title_tip_2": "Helyezze a személyi igazolványát a keretbe"
     },
     "intro": {
-      "animation_accessibility": "An animation of the successful ID scanning process",
+      "animation_accessibility": "Animáció a sikeres személyi igazolvány-beolvasási folyamatról",
       "button_primary_selection_off": "Szkennelés indítása",
       "button_primary_selection_on": "Válasszon okmányt",
       "list_item_tip_1": "Keressen egy jól megvilágított helyet",
@@ -2906,7 +2906,8 @@
           "passport_usa": {
             "sheet_android": "nfc.sheet.subtitle.ready.passport_usa_android",
             "sheet_ios": "nfc.sheet.subtitle.ready.passport_usa_ios"
-          }
+          },
+          "scanning_sheet_1": "nfc.sheet.subtitle.scanning.progress_ios"
         },
         "card": {
           "scan_doc_realign_body": "nfc.sheet.subtitle.interrupted.document_ios"
@@ -2933,7 +2934,9 @@
         "passport_usa_list_item_2": "nfc.error.instruction_2.passport_usa",
         "passport_usa_list_item_3": "nfc.error.instruction_3.passport_usa_android",
         "passport_usa_list_item_3_ios": "nfc.error.instruction_3.passport_usa_ios",
-        "passport_usa_list_item_4": "nfc.error.instruction_4.passport_usa"
+        "passport_usa_list_item_4": "nfc.error.instruction_4.passport_usa",
+        "title_card": "nfc.sheet.subtitle.error.document_ios",
+        "title_passport": "nfc.sheet.subtitle.error.passport_ios"
       },
       "nfc_intro": {
         "passport_scan_guide_3": "nfc.scan.instruction_3.passport",
@@ -4184,6 +4187,10 @@
     "sheet": {
       "button_secondary": "Mégse",
       "subtitle": {
+        "error": {
+          "document_ios": "Nem sikerült beolvasni az NFC-kártyát",
+          "passport_ios": "Nem tudtuk beolvasni az útlevelét"
+        },
         "interrupted": {
           "document_android": "Helyezze újra az okmányát a telefonjához, hogy megtalálja a chipet.",
           "document_ios": "Helyezze át a dokumentumot a telefonjához.",
@@ -4201,7 +4208,8 @@
         },
         "scanning": {
           "document": "Tartsa nyugton a telefonját és az okmányát.",
-          "passport": "Tartsa mozdulatlanul a telefonját és az útlevelét."
+          "passport": "Tartsa mozdulatlanul a telefonját és az útlevelét.",
+          "progress_ios": "Szkennelés, maradjon nyugodtan..."
         }
       },
       "title": {

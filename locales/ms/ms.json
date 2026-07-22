@@ -51,10 +51,10 @@
   "common": {
     "alert": {
       "accessibility": {
-        "error": "Maklumat:",
+        "error": "Ralat:",
         "info": "Maklumat:",
-        "success": "Maklumat:",
-        "warning": "Maklumat:"
+        "success": "Berjaya:",
+        "warning": "Amaran:"
       },
       "dismiss_alert": "Abaikan amaran",
       "instruction": "Sila cuba lagi dengan ID bergambar yang sah dan pastikan maklumat anda kelihatan dengan jelas",
@@ -919,7 +919,7 @@
       "title_tip_2": "Letakkan ID anda dalam bingkai"
     },
     "intro": {
-      "animation_accessibility": "An animation of the successful ID scanning process",
+      "animation_accessibility": "Animasi proses pengimbasan dokumen pengenalan diri yang berjaya",
       "button_primary_selection_off": "Mulakan imbasan",
       "button_primary_selection_on": "Pilih dokumen",
       "list_item_tip_1": "Cari tempat yang terang",
@@ -2906,7 +2906,8 @@
           "passport_usa": {
             "sheet_android": "nfc.sheet.subtitle.ready.passport_usa_android",
             "sheet_ios": "nfc.sheet.subtitle.ready.passport_usa_ios"
-          }
+          },
+          "scanning_sheet_1": "nfc.sheet.subtitle.scanning.progress_ios"
         },
         "card": {
           "scan_doc_realign_body": "nfc.sheet.subtitle.interrupted.document_ios"
@@ -2933,7 +2934,9 @@
         "passport_usa_list_item_2": "nfc.error.instruction_2.passport_usa",
         "passport_usa_list_item_3": "nfc.error.instruction_3.passport_usa_android",
         "passport_usa_list_item_3_ios": "nfc.error.instruction_3.passport_usa_ios",
-        "passport_usa_list_item_4": "nfc.error.instruction_4.passport_usa"
+        "passport_usa_list_item_4": "nfc.error.instruction_4.passport_usa",
+        "title_card": "nfc.sheet.subtitle.error.document_ios",
+        "title_passport": "nfc.sheet.subtitle.error.passport_ios"
       },
       "nfc_intro": {
         "passport_scan_guide_3": "nfc.scan.instruction_3.passport",
@@ -4184,6 +4187,10 @@
     "sheet": {
       "button_secondary": "Batal",
       "subtitle": {
+        "error": {
+          "document_ios": "Kami tidak dapat mengimbas kad NFC anda",
+          "passport_ios": "Kami tidak dapat mengimbas pasport anda"
+        },
         "interrupted": {
           "document_android": "Posisikan semula dokumen anda berhubung dengan telefon anda untuk mencari cip.",
           "document_ios": "Letakkan semula dokumen anda pada telefon anda.",
@@ -4201,7 +4208,8 @@
         },
         "scanning": {
           "document": "Kekalkan telefon dan dokumen anda dalam keadaan tetap.",
-          "passport": "Pastikan telefon dan pasport anda tidak bergerak."
+          "passport": "Pastikan telefon dan pasport anda tidak bergerak.",
+          "progress_ios": "Imbasan, sila jangan bergerak..."
         }
       },
       "title": {

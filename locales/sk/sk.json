@@ -51,10 +51,10 @@
   "common": {
     "alert": {
       "accessibility": {
-        "error": "Informácie:",
+        "error": "Chyba:",
         "info": "Informácie:",
-        "success": "Informácie:",
-        "warning": "Informácie:"
+        "success": "Úspech:",
+        "warning": "Upozornenie:"
       },
       "dismiss_alert": "Skryť upozornenie",
       "instruction": "Skúste to znova s platným dokladom totožnosti s fotkou a uistite sa, že vaše údaje sú jasne viditeľné",
@@ -919,7 +919,7 @@
       "title_tip_2": "Umiestnite svoj doklad totožnosti do rámčeka"
     },
     "intro": {
-      "animation_accessibility": "An animation of the successful ID scanning process",
+      "animation_accessibility": "Animácia úspešného procesu skenovania dokladu totožnosti",
       "button_primary_selection_off": "Spustiť skenovanie",
       "button_primary_selection_on": "Vyberte doklad",
       "list_item_tip_1": "Nájdite miesto s dobrým osvetlením",
@@ -2906,7 +2906,8 @@
           "passport_usa": {
             "sheet_android": "nfc.sheet.subtitle.ready.passport_usa_android",
             "sheet_ios": "nfc.sheet.subtitle.ready.passport_usa_ios"
-          }
+          },
+          "scanning_sheet_1": "nfc.sheet.subtitle.scanning.progress_ios"
         },
         "card": {
           "scan_doc_realign_body": "nfc.sheet.subtitle.interrupted.document_ios"
@@ -2933,7 +2934,9 @@
         "passport_usa_list_item_2": "nfc.error.instruction_2.passport_usa",
         "passport_usa_list_item_3": "nfc.error.instruction_3.passport_usa_android",
         "passport_usa_list_item_3_ios": "nfc.error.instruction_3.passport_usa_ios",
-        "passport_usa_list_item_4": "nfc.error.instruction_4.passport_usa"
+        "passport_usa_list_item_4": "nfc.error.instruction_4.passport_usa",
+        "title_card": "nfc.sheet.subtitle.error.document_ios",
+        "title_passport": "nfc.sheet.subtitle.error.passport_ios"
       },
       "nfc_intro": {
         "passport_scan_guide_3": "nfc.scan.instruction_3.passport",
@@ -4184,6 +4187,10 @@
     "sheet": {
       "button_secondary": "Zrušiť",
       "subtitle": {
+        "error": {
+          "document_ios": "Nepodarilo sa naskenovať váš preukaz s NFC",
+          "passport_ios": "Nepodarilo sa naskenovať váš pas"
+        },
         "interrupted": {
           "document_android": "Presuňte váš dokument do kontaktu s telefónom, aby ste našli čip.",
           "document_ios": "Umiestnite svoj dokument proti telefónu.",
@@ -4201,7 +4208,8 @@
         },
         "scanning": {
           "document": "Držte svoj telefón a dokument v pokoji.",
-          "passport": "Majte svoj telefón a pas stále pri sebe."
+          "passport": "Majte svoj telefón a pas stále pri sebe.",
+          "progress_ios": "Skenovanie, zostaňte v pokoji..."
         }
       },
       "title": {

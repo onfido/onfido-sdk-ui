@@ -51,10 +51,10 @@
   "common": {
     "alert": {
       "accessibility": {
-        "error": "Інформація:",
+        "error": "Помилка:",
         "info": "Інформація:",
-        "success": "Інформація:",
-        "warning": "Інформація:"
+        "success": "Успіх:",
+        "warning": "Попередження:"
       },
       "dismiss_alert": "Відхилити сповіщення",
       "instruction": "Повторіть спробу, надавши дійсне посвідчення особи з фотографією, і переконайтеся, що всі ваші дані чітко видно",
@@ -919,7 +919,7 @@
       "title_tip_2": "Розмістіть своє посвідчення особи в рамці"
     },
     "intro": {
-      "animation_accessibility": "An animation of the successful ID scanning process",
+      "animation_accessibility": "Анімація успішного процесу сканування документа",
       "button_primary_selection_off": "Почати сканування",
       "button_primary_selection_on": "Оберіть документ",
       "list_item_tip_1": "Знайдіть місце з хорошим освітленням",
@@ -2906,7 +2906,8 @@
           "passport_usa": {
             "sheet_android": "nfc.sheet.subtitle.ready.passport_usa_android",
             "sheet_ios": "nfc.sheet.subtitle.ready.passport_usa_ios"
-          }
+          },
+          "scanning_sheet_1": "nfc.sheet.subtitle.scanning.progress_ios"
         },
         "card": {
           "scan_doc_realign_body": "nfc.sheet.subtitle.interrupted.document_ios"
@@ -2933,7 +2934,9 @@
         "passport_usa_list_item_2": "nfc.error.instruction_2.passport_usa",
         "passport_usa_list_item_3": "nfc.error.instruction_3.passport_usa_android",
         "passport_usa_list_item_3_ios": "nfc.error.instruction_3.passport_usa_ios",
-        "passport_usa_list_item_4": "nfc.error.instruction_4.passport_usa"
+        "passport_usa_list_item_4": "nfc.error.instruction_4.passport_usa",
+        "title_card": "nfc.sheet.subtitle.error.document_ios",
+        "title_passport": "nfc.sheet.subtitle.error.passport_ios"
       },
       "nfc_intro": {
         "passport_scan_guide_3": "nfc.scan.instruction_3.passport",
@@ -4184,6 +4187,10 @@
     "sheet": {
       "button_secondary": "Скасувати",
       "subtitle": {
+        "error": {
+          "document_ios": "Не вдалося відсканувати ваше посвідчення з NFC",
+          "passport_ios": "Не вдалося відсканувати паспорт"
+        },
         "interrupted": {
           "document_android": "Переставте ваш документ так, щоб він торкався вашого телефону, щоб знайти чіп.",
           "document_ios": "Перемістіть ваш документ до телефону.",
@@ -4201,7 +4208,8 @@
         },
         "scanning": {
           "document": "Тримайте свій телефон та документ нерухомо.",
-          "passport": "Тримайте телефон і паспорт нерухомо."
+          "passport": "Тримайте телефон і паспорт нерухомо.",
+          "progress_ios": "Сканування, не рухайтеся..."
         }
       },
       "title": {

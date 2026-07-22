@@ -51,10 +51,10 @@
   "common": {
     "alert": {
       "accessibility": {
-        "error": "情報:",
+        "error": "エラー:",
         "info": "情報:",
-        "success": "情報:",
-        "warning": "情報:"
+        "success": "成功:",
+        "warning": "警告:"
       },
       "dismiss_alert": "警告を解除する",
       "instruction": "有効な写真付き身分証明書で再度お試しいただき、情報がはっきりと見えるようにしてください",
@@ -919,7 +919,7 @@
       "title_tip_2": "枠内にIDを配置してください"
     },
     "intro": {
-      "animation_accessibility": "An animation of the successful ID scanning process",
+      "animation_accessibility": "IDスキャンが正常に完了するまでの流れを示すアニメーション",
       "button_primary_selection_off": "スキャンを開始",
       "button_primary_selection_on": "書類を選択",
       "list_item_tip_1": "明るい場所を見つけてください",
@@ -2906,7 +2906,8 @@
           "passport_usa": {
             "sheet_android": "nfc.sheet.subtitle.ready.passport_usa_android",
             "sheet_ios": "nfc.sheet.subtitle.ready.passport_usa_ios"
-          }
+          },
+          "scanning_sheet_1": "nfc.sheet.subtitle.scanning.progress_ios"
         },
         "card": {
           "scan_doc_realign_body": "nfc.sheet.subtitle.interrupted.document_ios"
@@ -2933,7 +2934,9 @@
         "passport_usa_list_item_2": "nfc.error.instruction_2.passport_usa",
         "passport_usa_list_item_3": "nfc.error.instruction_3.passport_usa_android",
         "passport_usa_list_item_3_ios": "nfc.error.instruction_3.passport_usa_ios",
-        "passport_usa_list_item_4": "nfc.error.instruction_4.passport_usa"
+        "passport_usa_list_item_4": "nfc.error.instruction_4.passport_usa",
+        "title_card": "nfc.sheet.subtitle.error.document_ios",
+        "title_passport": "nfc.sheet.subtitle.error.passport_ios"
       },
       "nfc_intro": {
         "passport_scan_guide_3": "nfc.scan.instruction_3.passport",
@@ -4184,6 +4187,10 @@
     "sheet": {
       "button_secondary": "キャンセル",
       "subtitle": {
+        "error": {
+          "document_ios": "NFCカードをスキャンできませんでした",
+          "passport_ios": "パスポートをスキャンできませんでした"
+        },
         "interrupted": {
           "document_android": "チップを見つけるために、あなたの書類をあなたの電話に接触させて位置を調整してください。",
           "document_ios": "書類を携帯電話に対して再配置してください。",
@@ -4201,7 +4208,8 @@
         },
         "scanning": {
           "document": "あなたの電話と身分証明書を静止させてください。",
-          "passport": "携帯電話とパスポートを動かさないでください。"
+          "passport": "携帯電話とパスポートを動かさないでください。",
+          "progress_ios": "スキャン中、動かないでください..."
         }
       },
       "title": {

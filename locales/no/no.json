@@ -51,10 +51,10 @@
   "common": {
     "alert": {
       "accessibility": {
-        "error": "Informasjon:",
+        "error": "Feil:",
         "info": "Informasjon:",
-        "success": "Informasjon:",
-        "warning": "Informasjon:"
+        "success": "Suksess:",
+        "warning": "Advarsel:"
       },
       "dismiss_alert": "Avvis varsel",
       "instruction": "Vennligst prøv igjen med en gyldig bilde-ID og sørg for at informasjonen din er godt synlig",
@@ -919,7 +919,7 @@
       "title_tip_2": "Plasser ID-en din i rammen"
     },
     "intro": {
-      "animation_accessibility": "An animation of the successful ID scanning process",
+      "animation_accessibility": "En animasjon av en vellykket skanning av ID",
       "button_primary_selection_off": "Start skanning",
       "button_primary_selection_on": "Velg dokument",
       "list_item_tip_1": "Finn et sted med godt lys",
@@ -2906,7 +2906,8 @@
           "passport_usa": {
             "sheet_android": "nfc.sheet.subtitle.ready.passport_usa_android",
             "sheet_ios": "nfc.sheet.subtitle.ready.passport_usa_ios"
-          }
+          },
+          "scanning_sheet_1": "nfc.sheet.subtitle.scanning.progress_ios"
         },
         "card": {
           "scan_doc_realign_body": "nfc.sheet.subtitle.interrupted.document_ios"
@@ -2933,7 +2934,9 @@
         "passport_usa_list_item_2": "nfc.error.instruction_2.passport_usa",
         "passport_usa_list_item_3": "nfc.error.instruction_3.passport_usa_android",
         "passport_usa_list_item_3_ios": "nfc.error.instruction_3.passport_usa_ios",
-        "passport_usa_list_item_4": "nfc.error.instruction_4.passport_usa"
+        "passport_usa_list_item_4": "nfc.error.instruction_4.passport_usa",
+        "title_card": "nfc.sheet.subtitle.error.document_ios",
+        "title_passport": "nfc.sheet.subtitle.error.passport_ios"
       },
       "nfc_intro": {
         "passport_scan_guide_3": "nfc.scan.instruction_3.passport",
@@ -4184,6 +4187,10 @@
     "sheet": {
       "button_secondary": "Avbryt",
       "subtitle": {
+        "error": {
+          "document_ios": "Vi kunne ikke skanne NFC-kortet ditt",
+          "passport_ios": "Vi kunne ikke skanne passet ditt"
+        },
         "interrupted": {
           "document_android": "Posisjoner dokumentet ditt i kontakt med telefonen din for å finne chipen.",
           "document_ios": "Plasser dokumentet ditt mot telefonen din igjen.",
@@ -4201,7 +4208,8 @@
         },
         "scanning": {
           "document": "Hold telefonen og dokumentet ditt i ro.",
-          "passport": "Hold telefonen og passet ditt stille."
+          "passport": "Hold telefonen og passet ditt stille.",
+          "progress_ios": "Skanning, hold rolig..."
         }
       },
       "title": {
