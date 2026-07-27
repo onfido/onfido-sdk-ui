@@ -833,8 +833,10 @@
       "camera_not_working_message": "המצלמה לא פועלת",
       "captured": "התמונה צולמה",
       "capturing": "מצלם תמונה",
+      "description_address_page": "עמוד אחרון של דרכון",
       "flip_document": "הפוך לצד האחורי",
       "folded_doc_front": "הנח את המסמך על המשטח, כולל כל הדפים הפנימיים (התמונה שלך חייבת להופיע)",
+      "header_address_page": "דף כתובת",
       "header_folded_doc_front": "תמונת פרופיל",
       "hold_still": "אל תזוז",
       "inactive_timeout_instruction": "ייתכן שהיא מנותקת. <fallback>נסה להשתמש בטלפון שלך במקום</fallback>.",
@@ -927,6 +929,14 @@
       "list_item_tip_3": "ודא שכל השדות קריאים",
       "subtitle": "אנחנו צריכים לצלם את המסמך שלך כדי לוודא שהוא אמיתי.",
       "title": "סרוק את תעודת הזהות שלך"
+    },
+    "intro_address_page": {
+      "animation_accessibility": "איור של דף הכתובת בדרכון ההודי",
+      "button_primary": "צלם תמונה",
+      "list_item_tip_1": "עברו לעמוד האחרון בדרכון",
+      "list_item_tip_2": "צלמו את הדף המכיל את שמות ההורים, הכתובת ומספר התיק",
+      "subtitle": "הדבר נדרש מסיבות רגולטוריות",
+      "title": "לאחר מכן, צלמו את דף הכתובת"
     },
     "intro_tilt": {
       "callout": "אנו נשתמש בפנס של הטלפון שלך",
@@ -1490,9 +1500,11 @@
     },
     "image_quality": {
       "feedback_blurry": "הסרטון מטושטש מדי",
+      "feedback_high_contrast": "מצא תאורה טובה יותר",
       "feedback_low_contrast": "מצא תאורה טובה יותר",
       "feedback_too_bright": "בהיר מדי",
-      "feedback_too_dark": "כהה מדי"
+      "feedback_too_dark": "כהה מדי",
+      "feedback_too_sharp": "מצא תאורה טובה יותר"
     },
     "intro": {
       "animation_randomness_accessibility": "אנימציה לדוגמה של אדם המסובב את ראשו ימינה, למעלה, למטה ושמאלה, עד שמופיע סימן V ירוק.",
@@ -1917,6 +1929,7 @@
           "no_barcode_detail": "proofOfAddress.preview.no_barcode_detail",
           "no_barcode_title": "proofOfAddress.preview.no_barcode_title"
         },
+        "description_address_page": "document.capture.description_address_page",
         "detail": {
           "folded_doc_front": "document.capture.folded_doc_front"
         },
@@ -1932,6 +1945,7 @@
           "recording_complete": "document.capture.recording_complete",
           "recording_video": "document.capture.recording_video"
         },
+        "header_address_page": "document.capture.header_address_page",
         "header_folded_doc_front": "document.capture.header_folded_doc_front",
         "prompt": {
           "button_card": "document.capture.prompt_button_card",
@@ -2011,6 +2025,14 @@
         "list_item_tip_3": "document.intro.list_item_tip_3",
         "subtitle_generic_document": "document.intro.subtitle",
         "title_generic_document": "document.intro.title"
+      },
+      "doc_intro_address_page": {
+        "continue_button": "document.intro_address_page.button_primary",
+        "illustration_accessibility": "document.intro_address_page.animation_accessibility",
+        "option_1": "document.intro_address_page.list_item_tip_1",
+        "option_2": "document.intro_address_page.list_item_tip_2",
+        "subtitle": "document.intro_address_page.subtitle",
+        "title": "document.intro_address_page.title"
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
@@ -2370,8 +2392,10 @@
         "capture": {
           "feedback": {
             "blur_high": "faceMotion.image_quality.feedback_blurry",
+            "blur_low": "faceMotion.image_quality.feedback_too_sharp",
             "brightness_high": "faceMotion.image_quality.feedback_too_bright",
             "brightness_low": "faceMotion.image_quality.feedback_too_dark",
+            "contrast_high": "faceMotion.image_quality.feedback_high_contrast",
             "contrast_low": "faceMotion.image_quality.feedback_low_contrast",
             "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
             "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
@@ -4053,9 +4077,11 @@
     },
     "image_quality": {
       "feedback_blurry": "הסרטון מטושטש מדי",
+      "feedback_high_contrast": "מצא תאורה טובה יותר",
       "feedback_low_contrast": "מצא תאורה טובה יותר",
       "feedback_too_bright": "בהיר מדי",
-      "feedback_too_dark": "כהה מדי"
+      "feedback_too_dark": "כהה מדי",
+      "feedback_too_sharp": "מצא תאורה טובה יותר"
     },
     "intro": {
       "animation_randomness_accessibility": "אנימציה לדוגמה של אדם המסובב את ראשו ימינה, למעלה, למטה ושמאלה, עד שמופיע סימן V ירוק.",

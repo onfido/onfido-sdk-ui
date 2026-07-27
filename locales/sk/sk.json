@@ -833,8 +833,10 @@
       "camera_not_working_message": "Fotoaparát nefunguje",
       "captured": "Fotka bola zaznamenaná",
       "capturing": "Zaznamenáva sa fotka",
+      "description_address_page": "Posledná stránka pasu",
       "flip_document": "Otočte na zadnú stranu",
       "folded_doc_front": "Umiestnite doklad na rovnú plochu a zahrňte všetky vnútorné strany (musia obsahovať vašu fotku)",
+      "header_address_page": "Stránka s adresou",
       "header_folded_doc_front": "Fotka z profilu",
       "hold_still": "Držte bez pohybu",
       "inactive_timeout_instruction": "Môže byť odpojený. <fallback>Skúste namiesto toho použiť telefón</fallback>.",
@@ -927,6 +929,14 @@
       "list_item_tip_3": "Uistite sa, že všetky údaje sú čitateľné",
       "subtitle": "Potrebujeme odfotiť váš doklad, aby sme overili jeho pravosť.",
       "title": "Naskenujte svoj doklad"
+    },
+    "intro_address_page": {
+      "animation_accessibility": "Ilustrácia strany s adresou v indickom pase",
+      "button_primary": "Odfotiť",
+      "list_item_tip_1": "Prejdite na poslednú stranu pasu",
+      "list_item_tip_2": "Odfotografujte stranu obsahujúcu mená rodičov, adresu a číslo spisu",
+      "subtitle": "Vyžaduje to regulácia",
+      "title": "Ďalej nasnímajte stranu s adresou"
     },
     "intro_tilt": {
       "callout": "Použijeme blesk vášho telefónu",
@@ -1490,9 +1500,11 @@
     },
     "image_quality": {
       "feedback_blurry": "Video je príliš rozmazané",
+      "feedback_high_contrast": "Nájdite lepšie osvetlenie",
       "feedback_low_contrast": "Nájdite lepšie osvetlenie",
       "feedback_too_bright": "Príliš svetlé",
-      "feedback_too_dark": "Príliš tmavé"
+      "feedback_too_dark": "Príliš tmavé",
+      "feedback_too_sharp": "Nájdite lepšie osvetlenie"
     },
     "intro": {
       "animation_randomness_accessibility": "Ukážková animácia osoby, ktorá otáča hlavu doprava, hore, dole a doľava, až kým sa nezobrazí zelená začiarknutá značka.",
@@ -1917,6 +1929,7 @@
           "no_barcode_detail": "proofOfAddress.preview.no_barcode_detail",
           "no_barcode_title": "proofOfAddress.preview.no_barcode_title"
         },
+        "description_address_page": "document.capture.description_address_page",
         "detail": {
           "folded_doc_front": "document.capture.folded_doc_front"
         },
@@ -1932,6 +1945,7 @@
           "recording_complete": "document.capture.recording_complete",
           "recording_video": "document.capture.recording_video"
         },
+        "header_address_page": "document.capture.header_address_page",
         "header_folded_doc_front": "document.capture.header_folded_doc_front",
         "prompt": {
           "button_card": "document.capture.prompt_button_card",
@@ -2011,6 +2025,14 @@
         "list_item_tip_3": "document.intro.list_item_tip_3",
         "subtitle_generic_document": "document.intro.subtitle",
         "title_generic_document": "document.intro.title"
+      },
+      "doc_intro_address_page": {
+        "continue_button": "document.intro_address_page.button_primary",
+        "illustration_accessibility": "document.intro_address_page.animation_accessibility",
+        "option_1": "document.intro_address_page.list_item_tip_1",
+        "option_2": "document.intro_address_page.list_item_tip_2",
+        "subtitle": "document.intro_address_page.subtitle",
+        "title": "document.intro_address_page.title"
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
@@ -2370,8 +2392,10 @@
         "capture": {
           "feedback": {
             "blur_high": "faceMotion.image_quality.feedback_blurry",
+            "blur_low": "faceMotion.image_quality.feedback_too_sharp",
             "brightness_high": "faceMotion.image_quality.feedback_too_bright",
             "brightness_low": "faceMotion.image_quality.feedback_too_dark",
+            "contrast_high": "faceMotion.image_quality.feedback_high_contrast",
             "contrast_low": "faceMotion.image_quality.feedback_low_contrast",
             "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
             "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
@@ -4053,9 +4077,11 @@
     },
     "image_quality": {
       "feedback_blurry": "Video je príliš rozmazané",
+      "feedback_high_contrast": "Nájdite lepšie osvetlenie",
       "feedback_low_contrast": "Nájdite lepšie osvetlenie",
       "feedback_too_bright": "Príliš svetlé",
-      "feedback_too_dark": "Príliš tmavé"
+      "feedback_too_dark": "Príliš tmavé",
+      "feedback_too_sharp": "Nájdite lepšie osvetlenie"
     },
     "intro": {
       "animation_randomness_accessibility": "Ukážková animácia osoby, ktorá otáča hlavu doprava, hore, dole a doľava, až kým sa nezobrazí zelená začiarknutá značka.",

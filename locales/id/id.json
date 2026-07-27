@@ -833,8 +833,10 @@
       "camera_not_working_message": "Kamera tidak berfungsi",
       "captured": "Foto direkam",
       "capturing": "Merekam foto",
+      "description_address_page": "Halaman terakhir paspor",
       "flip_document": "Balik ke sisi belakang",
       "folded_doc_front": "Letakkan dokumen secara mendatar, sertakan semua halaman dalam (harus memuat foto Anda)",
+      "header_address_page": "Halaman alamat",
       "header_folded_doc_front": "Sisi foto profil",
       "hold_still": "Jangan sampai goyang",
       "inactive_timeout_instruction": "Mungkin terputus. <fallback>Coba gunakan ponsel Anda</fallback>.",
@@ -927,6 +929,14 @@
       "list_item_tip_3": "Pastikan semua kolom dapat terbaca",
       "subtitle": "Kami perlu mengambil foto dokumen Anda untuk memastikan keasliannya.",
       "title": "Pindai dokumen identitas Anda"
+    },
+    "intro_address_page": {
+      "animation_accessibility": "Ilustrasi halaman alamat pada Paspor India",
+      "button_primary": "Ambil foto",
+      "list_item_tip_1": "Buka halaman terakhir paspor Anda",
+      "list_item_tip_2": "Ambil foto halaman yang memuat nama orang tua, alamat, dan nomor berkas Anda",
+      "subtitle": "Ini diperlukan untuk keperluan regulasi",
+      "title": "Selanjutnya, ambil foto halaman alamat"
     },
     "intro_tilt": {
       "callout": "Kami akan menggunakan senter ponsel Anda",
@@ -1490,9 +1500,11 @@
     },
     "image_quality": {
       "feedback_blurry": "Video terlalu buram",
+      "feedback_high_contrast": "Cari pencahayaan yang lebih baik",
       "feedback_low_contrast": "Cari pencahayaan yang lebih baik",
       "feedback_too_bright": "Terlalu terang",
-      "feedback_too_dark": "Terlalu gelap"
+      "feedback_too_dark": "Terlalu gelap",
+      "feedback_too_sharp": "Cari pencahayaan yang lebih baik"
     },
     "intro": {
       "animation_randomness_accessibility": "Contoh animasi seseorang yang memutar kepala ke kanan, atas, bawah, dan kiri, hingga muncul tanda centang hijau.",
@@ -1917,6 +1929,7 @@
           "no_barcode_detail": "proofOfAddress.preview.no_barcode_detail",
           "no_barcode_title": "proofOfAddress.preview.no_barcode_title"
         },
+        "description_address_page": "document.capture.description_address_page",
         "detail": {
           "folded_doc_front": "document.capture.folded_doc_front"
         },
@@ -1932,6 +1945,7 @@
           "recording_complete": "document.capture.recording_complete",
           "recording_video": "document.capture.recording_video"
         },
+        "header_address_page": "document.capture.header_address_page",
         "header_folded_doc_front": "document.capture.header_folded_doc_front",
         "prompt": {
           "button_card": "document.capture.prompt_button_card",
@@ -2011,6 +2025,14 @@
         "list_item_tip_3": "document.intro.list_item_tip_3",
         "subtitle_generic_document": "document.intro.subtitle",
         "title_generic_document": "document.intro.title"
+      },
+      "doc_intro_address_page": {
+        "continue_button": "document.intro_address_page.button_primary",
+        "illustration_accessibility": "document.intro_address_page.animation_accessibility",
+        "option_1": "document.intro_address_page.list_item_tip_1",
+        "option_2": "document.intro_address_page.list_item_tip_2",
+        "subtitle": "document.intro_address_page.subtitle",
+        "title": "document.intro_address_page.title"
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
@@ -2370,8 +2392,10 @@
         "capture": {
           "feedback": {
             "blur_high": "faceMotion.image_quality.feedback_blurry",
+            "blur_low": "faceMotion.image_quality.feedback_too_sharp",
             "brightness_high": "faceMotion.image_quality.feedback_too_bright",
             "brightness_low": "faceMotion.image_quality.feedback_too_dark",
+            "contrast_high": "faceMotion.image_quality.feedback_high_contrast",
             "contrast_low": "faceMotion.image_quality.feedback_low_contrast",
             "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
             "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
@@ -4053,9 +4077,11 @@
     },
     "image_quality": {
       "feedback_blurry": "Video terlalu buram",
+      "feedback_high_contrast": "Cari pencahayaan yang lebih baik",
       "feedback_low_contrast": "Cari pencahayaan yang lebih baik",
       "feedback_too_bright": "Terlalu terang",
-      "feedback_too_dark": "Terlalu gelap"
+      "feedback_too_dark": "Terlalu gelap",
+      "feedback_too_sharp": "Cari pencahayaan yang lebih baik"
     },
     "intro": {
       "animation_randomness_accessibility": "Contoh animasi seseorang yang memutar kepala ke kanan, atas, bawah, dan kiri, hingga muncul tanda centang hijau.",

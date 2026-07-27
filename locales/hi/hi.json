@@ -833,8 +833,10 @@
       "camera_not_working_message": "कैमरा काम नहीं कर रहा",
       "captured": "फ़ोटो कैप्चर हो गई",
       "capturing": "फ़ोटो कैप्चर की जा रही है",
+      "description_address_page": "पासपोर्ट का अंतिम पृष्ठ",
       "flip_document": "पीछे पलटें",
       "folded_doc_front": "अपने डॉक्यूमेंट को सीधा रखें, अंदर के सभी पेज शामिल करें (आपकी फ़ोटो होनी चाहिए)",
+      "header_address_page": "पते वाला पृष्ठ",
       "header_folded_doc_front": "एक तरफ़ से प्रोफ़ाइल फ़ोटो",
       "hold_still": "बिना हिलाए होल्ड करें",
       "inactive_timeout_instruction": "यह शायद कनेक्टेड ना हो। <fallback>इसके बजाय, अपना फ़ोन इस्तेमाल करें</fallback>।",
@@ -927,6 +929,14 @@
       "list_item_tip_3": "सुनिश्चित करें कि सभी विवरण पढ़ने योग्य हों",
       "subtitle": "हमें यह सुनिश्चित करने के लिए आपके दस्तावेज़ की तस्वीरें लेनी होंगी कि यह असली है।",
       "title": "अपना पहचान पत्र स्कैन करें"
+    },
+    "intro_address_page": {
+      "animation_accessibility": "भारतीय पासपोर्ट में पता पृष्ठ का एक चित्रण",
+      "button_primary": "फ़ोटो खींचें",
+      "list_item_tip_1": "अपने पासपोर्ट के अंतिम पृष्ठ पर जाएँ",
+      "list_item_tip_2": "उस पृष्ठ की फोटो लें जिसमें आपके माता-पिता के नाम, पता और फाइल नंबर हो",
+      "subtitle": "हमें यह नियामकीय कारणों से चाहिए",
+      "title": "अब, पता पृष्ठ कैप्चर करें"
     },
     "intro_tilt": {
       "callout": "हम आपके फ़ोन की फ्लैशलाइट का उपयोग करेंगे",
@@ -1490,9 +1500,11 @@
     },
     "image_quality": {
       "feedback_blurry": "वीडियो बहुत धुंधला है",
+      "feedback_high_contrast": "बेहतर रोशनी में जाएं",
       "feedback_low_contrast": "बेहतर रोशनी में जाएं",
       "feedback_too_bright": "बहुत चमकीला",
-      "feedback_too_dark": "बहुत अंधेरा"
+      "feedback_too_dark": "बहुत अंधेरा",
+      "feedback_too_sharp": "बेहतर रोशनी में जाएं"
     },
     "intro": {
       "animation_randomness_accessibility": "किसी व्यक्ति के अपना सिर दाएं, ऊपर, नीचे और बाएं घुमाने का उदाहरण एनिमेशन, जब तक कि हरे रंग का चेक मार्क दिखाई न दे।",
@@ -1917,6 +1929,7 @@
           "no_barcode_detail": "proofOfAddress.preview.no_barcode_detail",
           "no_barcode_title": "proofOfAddress.preview.no_barcode_title"
         },
+        "description_address_page": "document.capture.description_address_page",
         "detail": {
           "folded_doc_front": "document.capture.folded_doc_front"
         },
@@ -1932,6 +1945,7 @@
           "recording_complete": "document.capture.recording_complete",
           "recording_video": "document.capture.recording_video"
         },
+        "header_address_page": "document.capture.header_address_page",
         "header_folded_doc_front": "document.capture.header_folded_doc_front",
         "prompt": {
           "button_card": "document.capture.prompt_button_card",
@@ -2011,6 +2025,14 @@
         "list_item_tip_3": "document.intro.list_item_tip_3",
         "subtitle_generic_document": "document.intro.subtitle",
         "title_generic_document": "document.intro.title"
+      },
+      "doc_intro_address_page": {
+        "continue_button": "document.intro_address_page.button_primary",
+        "illustration_accessibility": "document.intro_address_page.animation_accessibility",
+        "option_1": "document.intro_address_page.list_item_tip_1",
+        "option_2": "document.intro_address_page.list_item_tip_2",
+        "subtitle": "document.intro_address_page.subtitle",
+        "title": "document.intro_address_page.title"
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
@@ -2370,8 +2392,10 @@
         "capture": {
           "feedback": {
             "blur_high": "faceMotion.image_quality.feedback_blurry",
+            "blur_low": "faceMotion.image_quality.feedback_too_sharp",
             "brightness_high": "faceMotion.image_quality.feedback_too_bright",
             "brightness_low": "faceMotion.image_quality.feedback_too_dark",
+            "contrast_high": "faceMotion.image_quality.feedback_high_contrast",
             "contrast_low": "faceMotion.image_quality.feedback_low_contrast",
             "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
             "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
@@ -4053,9 +4077,11 @@
     },
     "image_quality": {
       "feedback_blurry": "वीडियो बहुत धुंधला है",
+      "feedback_high_contrast": "बेहतर रोशनी में जाएं",
       "feedback_low_contrast": "बेहतर रोशनी में जाएं",
       "feedback_too_bright": "बहुत चमकीला",
-      "feedback_too_dark": "बहुत अंधेरा"
+      "feedback_too_dark": "बहुत अंधेरा",
+      "feedback_too_sharp": "बेहतर रोशनी में जाएं"
     },
     "intro": {
       "animation_randomness_accessibility": "किसी व्यक्ति के अपना सिर दाएं, ऊपर, नीचे और बाएं घुमाने का उदाहरण एनिमेशन, जब तक कि हरे रंग का चेक मार्क दिखाई न दे।",

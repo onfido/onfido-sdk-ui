@@ -833,8 +833,10 @@
       "camera_not_working_message": "Kamera funktioniert nicht",
       "captured": "Foto aufgenommen",
       "capturing": "Foto aufnehmen",
+      "description_address_page": "Letzte Seite des Reisepasses",
       "flip_document": "Auf die Rückseite drehen",
       "folded_doc_front": "Legen Sie Ihr Dokument flach hin, einschließlich aller Innenseiten (Ihr Foto muss enthalten sein)",
+      "header_address_page": "Adressseite",
       "header_folded_doc_front": "Profilfotoseite",
       "hold_still": "Stillhalten",
       "inactive_timeout_instruction": "Die Verbindung kann unterbrochen werden. <fallback>Versuchen Sie stattdessen, Ihr Telefon zu benutzen</fallback>.",
@@ -927,6 +929,14 @@
       "list_item_tip_3": "Stellen Sie sicher, dass alle Angaben lesbar sind",
       "subtitle": "Wir müssen Fotos Ihres Dokuments machen, um sicherzustellen, dass es echt ist.",
       "title": "Scannen Sie Ihr Ausweisdokument"
+    },
+    "intro_address_page": {
+      "animation_accessibility": "Eine Darstellung der Adressseite im indischen Reisepass",
+      "button_primary": "Foto machen",
+      "list_item_tip_1": "Gehen Sie zur letzten Seite Ihres Reisepasses",
+      "list_item_tip_2": "Machen Sie ein Foto der Seite mit den Namen Ihrer Eltern, der Adresse und der Aktennummer",
+      "subtitle": "Dies ist aus regulatorischen Gründen erforderlich",
+      "title": "Als Nächstes fotografieren Sie die Adressseite"
     },
     "intro_tilt": {
       "callout": "Wir verwenden die Taschenlampe Ihres Telefons",
@@ -1490,9 +1500,11 @@
     },
     "image_quality": {
       "feedback_blurry": "Video ist zu unscharf",
+      "feedback_high_contrast": "Suche dir besseres Licht",
       "feedback_low_contrast": "Suche dir besseres Licht",
       "feedback_too_bright": "Zu hell",
-      "feedback_too_dark": "Zu dunkel"
+      "feedback_too_dark": "Zu dunkel",
+      "feedback_too_sharp": "Suche dir besseres Licht"
     },
     "intro": {
       "animation_randomness_accessibility": "Beispielanimation einer Person, die den Kopf nach rechts, oben, unten und links dreht, bis ein grünes Häkchen erscheint.",
@@ -1917,6 +1929,7 @@
           "no_barcode_detail": "proofOfAddress.preview.no_barcode_detail",
           "no_barcode_title": "proofOfAddress.preview.no_barcode_title"
         },
+        "description_address_page": "document.capture.description_address_page",
         "detail": {
           "folded_doc_front": "document.capture.folded_doc_front"
         },
@@ -1932,6 +1945,7 @@
           "recording_complete": "document.capture.recording_complete",
           "recording_video": "document.capture.recording_video"
         },
+        "header_address_page": "document.capture.header_address_page",
         "header_folded_doc_front": "document.capture.header_folded_doc_front",
         "prompt": {
           "button_card": "document.capture.prompt_button_card",
@@ -2011,6 +2025,14 @@
         "list_item_tip_3": "document.intro.list_item_tip_3",
         "subtitle_generic_document": "document.intro.subtitle",
         "title_generic_document": "document.intro.title"
+      },
+      "doc_intro_address_page": {
+        "continue_button": "document.intro_address_page.button_primary",
+        "illustration_accessibility": "document.intro_address_page.animation_accessibility",
+        "option_1": "document.intro_address_page.list_item_tip_1",
+        "option_2": "document.intro_address_page.list_item_tip_2",
+        "subtitle": "document.intro_address_page.subtitle",
+        "title": "document.intro_address_page.title"
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
@@ -2370,8 +2392,10 @@
         "capture": {
           "feedback": {
             "blur_high": "faceMotion.image_quality.feedback_blurry",
+            "blur_low": "faceMotion.image_quality.feedback_too_sharp",
             "brightness_high": "faceMotion.image_quality.feedback_too_bright",
             "brightness_low": "faceMotion.image_quality.feedback_too_dark",
+            "contrast_high": "faceMotion.image_quality.feedback_high_contrast",
             "contrast_low": "faceMotion.image_quality.feedback_low_contrast",
             "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
             "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
@@ -4053,9 +4077,11 @@
     },
     "image_quality": {
       "feedback_blurry": "Video ist zu unscharf",
+      "feedback_high_contrast": "Suche dir besseres Licht",
       "feedback_low_contrast": "Suche dir besseres Licht",
       "feedback_too_bright": "Zu hell",
-      "feedback_too_dark": "Zu dunkel"
+      "feedback_too_dark": "Zu dunkel",
+      "feedback_too_sharp": "Suche dir besseres Licht"
     },
     "intro": {
       "animation_randomness_accessibility": "Beispielanimation einer Person, die den Kopf nach rechts, oben, unten und links dreht, bis ein grünes Häkchen erscheint.",

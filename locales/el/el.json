@@ -833,8 +833,10 @@
       "camera_not_working_message": "Η κάμερα δεν λειτουργεί",
       "captured": "Έγινε λήψη της φωτογραφίας",
       "capturing": "Λήψη φωτογραφίας",
+      "description_address_page": "Τελευταία σελίδα διαβατηρίου",
       "flip_document": "Γυρίστε στην πίσω όψη",
       "folded_doc_front": "Τοποθετήστε το έγγραφό σας σε επίπεδη θέση, συμπεριλάβετε όλες τις εσωτερικές σελίδες (πρέπει να περιέχεται η φωτογραφία σας)",
+      "header_address_page": "Σελίδα διεύθυνσης",
       "header_folded_doc_front": "Πλευρά φωτογραφίας προφίλ",
       "hold_still": "Μείνετε ακίνητος/η",
       "inactive_timeout_instruction": "Μπορεί να αποσυνδεθεί. <fallback>Δοκιμάστε να χρησιμοποιήσετε το τηλέφωνό σας</fallback>.",
@@ -927,6 +929,14 @@
       "list_item_tip_3": "Βεβαιωθείτε ότι όλα τα πεδία είναι ευανάγνωστα",
       "subtitle": "Χρειάζεται να τραβήξουμε φωτογραφίες του εγγράφου σας για να διασφαλίσουμε ότι είναι αυθεντικό.",
       "title": "Σαρώστε το έγγραφό σας ταυτότητας"
+    },
+    "intro_address_page": {
+      "animation_accessibility": "Απεικόνιση της σελίδας διεύθυνσης στο ινδικό διαβατήριο",
+      "button_primary": "Λήψη φωτογραφίας",
+      "list_item_tip_1": "Μεταβείτε στην τελευταία σελίδα του διαβατηρίου σας",
+      "list_item_tip_2": "Τραβήξτε μια φωτογραφία της σελίδας που περιέχει τα ονόματα των γονέων, τη διεύθυνση και τον αριθμό αρχείου",
+      "subtitle": "Αυτό απαιτείται για κανονιστικούς λόγους",
+      "title": "Στη συνέχεια, φωτογραφίστε τη σελίδα διεύθυνσης"
     },
     "intro_tilt": {
       "callout": "Θα χρησιμοποιήσουμε τον φακό του τηλεφώνου σας",
@@ -1490,9 +1500,11 @@
     },
     "image_quality": {
       "feedback_blurry": "Το βίντεο είναι πολύ θολό",
+      "feedback_high_contrast": "Βρείτε καλύτερο φωτισμό",
       "feedback_low_contrast": "Βρείτε καλύτερο φωτισμό",
       "feedback_too_bright": "Πολύ φωτεινό",
-      "feedback_too_dark": "Πολύ σκοτεινό"
+      "feedback_too_dark": "Πολύ σκοτεινό",
+      "feedback_too_sharp": "Βρείτε καλύτερο φωτισμό"
     },
     "intro": {
       "animation_randomness_accessibility": "Παράδειγμα κινούμενης εικόνας με κάποιον που γυρίζει το κεφάλι του δεξιά, πάνω, κάτω και αριστερά, μέχρι να εμφανιστεί ένα πράσινο σημάδι ελέγχου.",
@@ -1917,6 +1929,7 @@
           "no_barcode_detail": "proofOfAddress.preview.no_barcode_detail",
           "no_barcode_title": "proofOfAddress.preview.no_barcode_title"
         },
+        "description_address_page": "document.capture.description_address_page",
         "detail": {
           "folded_doc_front": "document.capture.folded_doc_front"
         },
@@ -1932,6 +1945,7 @@
           "recording_complete": "document.capture.recording_complete",
           "recording_video": "document.capture.recording_video"
         },
+        "header_address_page": "document.capture.header_address_page",
         "header_folded_doc_front": "document.capture.header_folded_doc_front",
         "prompt": {
           "button_card": "document.capture.prompt_button_card",
@@ -2011,6 +2025,14 @@
         "list_item_tip_3": "document.intro.list_item_tip_3",
         "subtitle_generic_document": "document.intro.subtitle",
         "title_generic_document": "document.intro.title"
+      },
+      "doc_intro_address_page": {
+        "continue_button": "document.intro_address_page.button_primary",
+        "illustration_accessibility": "document.intro_address_page.animation_accessibility",
+        "option_1": "document.intro_address_page.list_item_tip_1",
+        "option_2": "document.intro_address_page.list_item_tip_2",
+        "subtitle": "document.intro_address_page.subtitle",
+        "title": "document.intro_address_page.title"
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
@@ -2370,8 +2392,10 @@
         "capture": {
           "feedback": {
             "blur_high": "faceMotion.image_quality.feedback_blurry",
+            "blur_low": "faceMotion.image_quality.feedback_too_sharp",
             "brightness_high": "faceMotion.image_quality.feedback_too_bright",
             "brightness_low": "faceMotion.image_quality.feedback_too_dark",
+            "contrast_high": "faceMotion.image_quality.feedback_high_contrast",
             "contrast_low": "faceMotion.image_quality.feedback_low_contrast",
             "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
             "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
@@ -4053,9 +4077,11 @@
     },
     "image_quality": {
       "feedback_blurry": "Το βίντεο είναι πολύ θολό",
+      "feedback_high_contrast": "Βρείτε καλύτερο φωτισμό",
       "feedback_low_contrast": "Βρείτε καλύτερο φωτισμό",
       "feedback_too_bright": "Πολύ φωτεινό",
-      "feedback_too_dark": "Πολύ σκοτεινό"
+      "feedback_too_dark": "Πολύ σκοτεινό",
+      "feedback_too_sharp": "Βρείτε καλύτερο φωτισμό"
     },
     "intro": {
       "animation_randomness_accessibility": "Παράδειγμα κινούμενης εικόνας με κάποιον που γυρίζει το κεφάλι του δεξιά, πάνω, κάτω και αριστερά, μέχρι να εμφανιστεί ένα πράσινο σημάδι ελέγχου.",

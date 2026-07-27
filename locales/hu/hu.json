@@ -833,8 +833,10 @@
       "camera_not_working_message": "A kamera nem működik",
       "captured": "Fénykép rögzítve",
       "capturing": "Fénykép rögzítése",
+      "description_address_page": "Útlevél utolsó oldala",
       "flip_document": "Fordítsa a hátoldalára",
       "folded_doc_front": "Fektesse a dokumentumot sík felületre, és mutassa az összes belső oldalt (a fényképes oldalt is beleértve)",
+      "header_address_page": "Lakcím oldal",
       "header_folded_doc_front": "Profilkép",
       "hold_still": "Ne mozduljon",
       "inactive_timeout_instruction": "Lehet, hogy nincs bekapcsolva. <fallback>Próbálja helyette a telefonját használni</fallback>.",
@@ -927,6 +929,14 @@
       "list_item_tip_3": "Győződjön meg róla, hogy minden mező olvasható",
       "subtitle": "Le kell fényképeznünk az okmányát, hogy megbizonyosodjunk annak hitelességéről.",
       "title": "Szkennelje be személyazonosító okmányát"
+    },
+    "intro_address_page": {
+      "animation_accessibility": "Illusztráció az indiai útlevél lakcímet tartalmazó oldaláról",
+      "button_primary": "Készítsen egy fényképet",
+      "list_item_tip_1": "Lépjen az útlevele utolsó oldalára",
+      "list_item_tip_2": "Készítsen fényképet arról az oldalról, amely a szülei nevét, a címét és az ügyszámot tartalmazza",
+      "subtitle": "Erre szabályozási okokból van szükség",
+      "title": "Ezután készítsen képet a lakcímet tartalmazó oldalról"
     },
     "intro_tilt": {
       "callout": "A telefonja zseblámpáját fogjuk használni",
@@ -1490,9 +1500,11 @@
     },
     "image_quality": {
       "feedback_blurry": "A videó túl homályos",
+      "feedback_high_contrast": "Keressen jobb megvilágítást",
       "feedback_low_contrast": "Keressen jobb megvilágítást",
       "feedback_too_bright": "Túl világos",
-      "feedback_too_dark": "Túl sötét"
+      "feedback_too_dark": "Túl sötét",
+      "feedback_too_sharp": "Keressen jobb megvilágítást"
     },
     "intro": {
       "animation_randomness_accessibility": "Példaanimáció valakiről, aki jobbra, fel, le és balra fordítja a fejét, amíg meg nem jelenik egy zöld pipa.",
@@ -1917,6 +1929,7 @@
           "no_barcode_detail": "proofOfAddress.preview.no_barcode_detail",
           "no_barcode_title": "proofOfAddress.preview.no_barcode_title"
         },
+        "description_address_page": "document.capture.description_address_page",
         "detail": {
           "folded_doc_front": "document.capture.folded_doc_front"
         },
@@ -1932,6 +1945,7 @@
           "recording_complete": "document.capture.recording_complete",
           "recording_video": "document.capture.recording_video"
         },
+        "header_address_page": "document.capture.header_address_page",
         "header_folded_doc_front": "document.capture.header_folded_doc_front",
         "prompt": {
           "button_card": "document.capture.prompt_button_card",
@@ -2011,6 +2025,14 @@
         "list_item_tip_3": "document.intro.list_item_tip_3",
         "subtitle_generic_document": "document.intro.subtitle",
         "title_generic_document": "document.intro.title"
+      },
+      "doc_intro_address_page": {
+        "continue_button": "document.intro_address_page.button_primary",
+        "illustration_accessibility": "document.intro_address_page.animation_accessibility",
+        "option_1": "document.intro_address_page.list_item_tip_1",
+        "option_2": "document.intro_address_page.list_item_tip_2",
+        "subtitle": "document.intro_address_page.subtitle",
+        "title": "document.intro_address_page.title"
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
@@ -2370,8 +2392,10 @@
         "capture": {
           "feedback": {
             "blur_high": "faceMotion.image_quality.feedback_blurry",
+            "blur_low": "faceMotion.image_quality.feedback_too_sharp",
             "brightness_high": "faceMotion.image_quality.feedback_too_bright",
             "brightness_low": "faceMotion.image_quality.feedback_too_dark",
+            "contrast_high": "faceMotion.image_quality.feedback_high_contrast",
             "contrast_low": "faceMotion.image_quality.feedback_low_contrast",
             "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
             "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
@@ -4053,9 +4077,11 @@
     },
     "image_quality": {
       "feedback_blurry": "A videó túl homályos",
+      "feedback_high_contrast": "Keressen jobb megvilágítást",
       "feedback_low_contrast": "Keressen jobb megvilágítást",
       "feedback_too_bright": "Túl világos",
-      "feedback_too_dark": "Túl sötét"
+      "feedback_too_dark": "Túl sötét",
+      "feedback_too_sharp": "Keressen jobb megvilágítást"
     },
     "intro": {
       "animation_randomness_accessibility": "Példaanimáció valakiről, aki jobbra, fel, le és balra fordítja a fejét, amíg meg nem jelenik egy zöld pipa.",

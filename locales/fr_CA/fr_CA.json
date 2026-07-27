@@ -833,8 +833,10 @@
       "camera_not_working_message": "L'appareil photo ne fonctionne pas",
       "captured": "Photo saisie",
       "capturing": "Capture de la photo",
+      "description_address_page": "Dernière page du passeport",
       "flip_document": "Retourner au verso",
       "folded_doc_front": "Posez votre document à plat, incluant toutes les pages intérieures (doit contenir votre photo)",
+      "header_address_page": "Page d’adresse",
       "header_folded_doc_front": "Côté photo de profil",
       "hold_still": "Ne bougez pas",
       "inactive_timeout_instruction": "Il peut être déconnecté. <fallback>Essayez plutôt d'utiliser votre téléphone</fallback>.",
@@ -927,6 +929,14 @@
       "list_item_tip_3": "Assurez-vous que tous les champs sont lisibles",
       "subtitle": "Nous devons prendre des photos de votre document pour nous assurer qu'il est authentique.",
       "title": "Numérisez votre pièce d'identité"
+    },
+    "intro_address_page": {
+      "animation_accessibility": "Illustration de la page d’adresse dans le passeport indien",
+      "button_primary": "Prendre la photo",
+      "list_item_tip_1": "Allez à la dernière page de votre passeport",
+      "list_item_tip_2": "Prenez une photo de la page contenant les noms de vos parents, l’adresse et le numéro de dossier",
+      "subtitle": "Nous en avons besoin pour des raisons réglementaires",
+      "title": "Ensuite, capturez la page d’adresse"
     },
     "intro_tilt": {
       "callout": "Nous utiliserons la lampe de poche de votre téléphone",
@@ -1490,9 +1500,11 @@
     },
     "image_quality": {
       "feedback_blurry": "Vidéo trop floue",
+      "feedback_high_contrast": "Trouvez un meilleur éclairage",
       "feedback_low_contrast": "Trouvez un meilleur éclairage",
       "feedback_too_bright": "Trop lumineux",
-      "feedback_too_dark": "Trop sombre"
+      "feedback_too_dark": "Trop sombre",
+      "feedback_too_sharp": "Trouvez un meilleur éclairage"
     },
     "intro": {
       "animation_randomness_accessibility": "Exemple d'animation d'une personne tournant la tête vers la droite, vers le haut, vers le bas et vers la gauche, jusqu'à ce qu'un crochet vert apparaisse.",
@@ -1917,6 +1929,7 @@
           "no_barcode_detail": "proofOfAddress.preview.no_barcode_detail",
           "no_barcode_title": "proofOfAddress.preview.no_barcode_title"
         },
+        "description_address_page": "document.capture.description_address_page",
         "detail": {
           "folded_doc_front": "document.capture.folded_doc_front"
         },
@@ -1932,6 +1945,7 @@
           "recording_complete": "document.capture.recording_complete",
           "recording_video": "document.capture.recording_video"
         },
+        "header_address_page": "document.capture.header_address_page",
         "header_folded_doc_front": "document.capture.header_folded_doc_front",
         "prompt": {
           "button_card": "document.capture.prompt_button_card",
@@ -2011,6 +2025,14 @@
         "list_item_tip_3": "document.intro.list_item_tip_3",
         "subtitle_generic_document": "document.intro.subtitle",
         "title_generic_document": "document.intro.title"
+      },
+      "doc_intro_address_page": {
+        "continue_button": "document.intro_address_page.button_primary",
+        "illustration_accessibility": "document.intro_address_page.animation_accessibility",
+        "option_1": "document.intro_address_page.list_item_tip_1",
+        "option_2": "document.intro_address_page.list_item_tip_2",
+        "subtitle": "document.intro_address_page.subtitle",
+        "title": "document.intro_address_page.title"
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
@@ -2370,8 +2392,10 @@
         "capture": {
           "feedback": {
             "blur_high": "faceMotion.image_quality.feedback_blurry",
+            "blur_low": "faceMotion.image_quality.feedback_too_sharp",
             "brightness_high": "faceMotion.image_quality.feedback_too_bright",
             "brightness_low": "faceMotion.image_quality.feedback_too_dark",
+            "contrast_high": "faceMotion.image_quality.feedback_high_contrast",
             "contrast_low": "faceMotion.image_quality.feedback_low_contrast",
             "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
             "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
@@ -4053,9 +4077,11 @@
     },
     "image_quality": {
       "feedback_blurry": "Vidéo trop floue",
+      "feedback_high_contrast": "Trouvez un meilleur éclairage",
       "feedback_low_contrast": "Trouvez un meilleur éclairage",
       "feedback_too_bright": "Trop lumineux",
-      "feedback_too_dark": "Trop sombre"
+      "feedback_too_dark": "Trop sombre",
+      "feedback_too_sharp": "Trouvez un meilleur éclairage"
     },
     "intro": {
       "animation_randomness_accessibility": "Exemple d'animation d'une personne tournant la tête vers la droite, vers le haut, vers le bas et vers la gauche, jusqu'à ce qu'un crochet vert apparaisse.",

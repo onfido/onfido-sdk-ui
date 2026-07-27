@@ -833,8 +833,10 @@
       "camera_not_working_message": "Kameraet fungerer ikke",
       "captured": "Bildet er tatt",
       "capturing": "Tar bilde",
+      "description_address_page": "Siste side i passet",
       "flip_document": "Snu til baksiden",
       "folded_doc_front": "Legg dokumentet flatt, inkluder alle sidene (må inneholde bildet)",
+      "header_address_page": "Adressside",
       "header_folded_doc_front": "Profilbildeside",
       "hold_still": "Hold det stille",
       "inactive_timeout_instruction": "Det kan være frakoblet. <fallback>Prøv å bruke telefonen i stedet</fallback>.",
@@ -927,6 +929,14 @@
       "list_item_tip_3": "Sørg for at alle felt er lesbare",
       "subtitle": "Vi må ta bilder av dokumentet ditt for å sikre at det er ekte.",
       "title": "Skann ID-en din"
+    },
+    "intro_address_page": {
+      "animation_accessibility": "En illustrasjon av adressesiden i det indiske passet",
+      "button_primary": "Ta bilde",
+      "list_item_tip_1": "Gå til den siste siden i passet ditt",
+      "list_item_tip_2": "Ta et bilde av siden som inneholder foreldrenes navn, adresse og saksnummer",
+      "subtitle": "Vi trenger dette av regulatoriske årsaker",
+      "title": "Ta deretter bilde av adressesiden"
     },
     "intro_tilt": {
       "callout": "Vi vil bruke lommelykten på telefonen din",
@@ -1490,9 +1500,11 @@
     },
     "image_quality": {
       "feedback_blurry": "Videoen er for uklar",
+      "feedback_high_contrast": "Finn bedre lys",
       "feedback_low_contrast": "Finn bedre lys",
       "feedback_too_bright": "For lyst",
-      "feedback_too_dark": "For mørkt"
+      "feedback_too_dark": "For mørkt",
+      "feedback_too_sharp": "Finn bedre lys"
     },
     "intro": {
       "animation_randomness_accessibility": "Eksempel på animasjon av en person som vender hodet til høyre, opp, ned og venstre, til et grønt hake-symbol vises.",
@@ -1917,6 +1929,7 @@
           "no_barcode_detail": "proofOfAddress.preview.no_barcode_detail",
           "no_barcode_title": "proofOfAddress.preview.no_barcode_title"
         },
+        "description_address_page": "document.capture.description_address_page",
         "detail": {
           "folded_doc_front": "document.capture.folded_doc_front"
         },
@@ -1932,6 +1945,7 @@
           "recording_complete": "document.capture.recording_complete",
           "recording_video": "document.capture.recording_video"
         },
+        "header_address_page": "document.capture.header_address_page",
         "header_folded_doc_front": "document.capture.header_folded_doc_front",
         "prompt": {
           "button_card": "document.capture.prompt_button_card",
@@ -2011,6 +2025,14 @@
         "list_item_tip_3": "document.intro.list_item_tip_3",
         "subtitle_generic_document": "document.intro.subtitle",
         "title_generic_document": "document.intro.title"
+      },
+      "doc_intro_address_page": {
+        "continue_button": "document.intro_address_page.button_primary",
+        "illustration_accessibility": "document.intro_address_page.animation_accessibility",
+        "option_1": "document.intro_address_page.list_item_tip_1",
+        "option_2": "document.intro_address_page.list_item_tip_2",
+        "subtitle": "document.intro_address_page.subtitle",
+        "title": "document.intro_address_page.title"
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
@@ -2370,8 +2392,10 @@
         "capture": {
           "feedback": {
             "blur_high": "faceMotion.image_quality.feedback_blurry",
+            "blur_low": "faceMotion.image_quality.feedback_too_sharp",
             "brightness_high": "faceMotion.image_quality.feedback_too_bright",
             "brightness_low": "faceMotion.image_quality.feedback_too_dark",
+            "contrast_high": "faceMotion.image_quality.feedback_high_contrast",
             "contrast_low": "faceMotion.image_quality.feedback_low_contrast",
             "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
             "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
@@ -4053,9 +4077,11 @@
     },
     "image_quality": {
       "feedback_blurry": "Videoen er for uklar",
+      "feedback_high_contrast": "Finn bedre lys",
       "feedback_low_contrast": "Finn bedre lys",
       "feedback_too_bright": "For lyst",
-      "feedback_too_dark": "For mørkt"
+      "feedback_too_dark": "For mørkt",
+      "feedback_too_sharp": "Finn bedre lys"
     },
     "intro": {
       "animation_randomness_accessibility": "Eksempel på animasjon av en person som vender hodet til høyre, opp, ned og venstre, til et grønt hake-symbol vises.",

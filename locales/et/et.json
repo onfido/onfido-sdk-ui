@@ -833,8 +833,10 @@
       "camera_not_working_message": "Kaamera ei tööta",
       "captured": "Foto on jäädvustatud",
       "capturing": "Foto jäädvustamine",
+      "description_address_page": "Passi viimane leht",
       "flip_document": "Pöörake ette tagumine külg",
       "folded_doc_front": "Asetage dokument avatult tasapinnale nii, et on näha sisemised lehed (peab sisaldama teie fotot)",
+      "header_address_page": "Aadressileht",
       "header_folded_doc_front": "Profiili pildi külg",
       "hold_still": "Olge paigal",
       "inactive_timeout_instruction": "See võib olla ühendamata. <fallback>Proovige kasutada oma telefoni</fallback>.",
@@ -927,6 +929,14 @@
       "list_item_tip_3": "Veendu, et kõik väljad oleksid loetavad",
       "subtitle": "Peame teie dokumendist fotod tegema, et veenduda selle ehtsuses.",
       "title": "Skaneeri oma isikut tõendavat dokumenti"
+    },
+    "intro_address_page": {
+      "animation_accessibility": "India passi aadressilehe illustratsioon",
+      "button_primary": "Tehke foto",
+      "list_item_tip_1": "Minge passi viimasele leheküljele",
+      "list_item_tip_2": "Tehke foto leheküljest, mis sisaldab vanemate nimesid, aadressi ja toimiku numbrit",
+      "subtitle": "Seda on vaja regulatiivsetel põhjustel",
+      "title": "Jäädvustage järgmisena aadressileht"
     },
     "intro_tilt": {
       "callout": "Kasutame teie telefoni taskulampi",
@@ -1490,9 +1500,11 @@
     },
     "image_quality": {
       "feedback_blurry": "Video on liiga udune",
+      "feedback_high_contrast": "Leidke parem valgustus",
       "feedback_low_contrast": "Leidke parem valgustus",
       "feedback_too_bright": "Liiga hele",
-      "feedback_too_dark": "Liiga tume"
+      "feedback_too_dark": "Liiga tume",
+      "feedback_too_sharp": "Leidke parem valgustus"
     },
     "intro": {
       "animation_randomness_accessibility": "Näidisanimatsioon, kus keegi pöörab oma pead paremale, üles, alla ja vasakule, kuni ilmub roheline linnuke.",
@@ -1917,6 +1929,7 @@
           "no_barcode_detail": "proofOfAddress.preview.no_barcode_detail",
           "no_barcode_title": "proofOfAddress.preview.no_barcode_title"
         },
+        "description_address_page": "document.capture.description_address_page",
         "detail": {
           "folded_doc_front": "document.capture.folded_doc_front"
         },
@@ -1932,6 +1945,7 @@
           "recording_complete": "document.capture.recording_complete",
           "recording_video": "document.capture.recording_video"
         },
+        "header_address_page": "document.capture.header_address_page",
         "header_folded_doc_front": "document.capture.header_folded_doc_front",
         "prompt": {
           "button_card": "document.capture.prompt_button_card",
@@ -2011,6 +2025,14 @@
         "list_item_tip_3": "document.intro.list_item_tip_3",
         "subtitle_generic_document": "document.intro.subtitle",
         "title_generic_document": "document.intro.title"
+      },
+      "doc_intro_address_page": {
+        "continue_button": "document.intro_address_page.button_primary",
+        "illustration_accessibility": "document.intro_address_page.animation_accessibility",
+        "option_1": "document.intro_address_page.list_item_tip_1",
+        "option_2": "document.intro_address_page.list_item_tip_2",
+        "subtitle": "document.intro_address_page.subtitle",
+        "title": "document.intro_address_page.title"
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
@@ -2370,8 +2392,10 @@
         "capture": {
           "feedback": {
             "blur_high": "faceMotion.image_quality.feedback_blurry",
+            "blur_low": "faceMotion.image_quality.feedback_too_sharp",
             "brightness_high": "faceMotion.image_quality.feedback_too_bright",
             "brightness_low": "faceMotion.image_quality.feedback_too_dark",
+            "contrast_high": "faceMotion.image_quality.feedback_high_contrast",
             "contrast_low": "faceMotion.image_quality.feedback_low_contrast",
             "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
             "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
@@ -4053,9 +4077,11 @@
     },
     "image_quality": {
       "feedback_blurry": "Video on liiga udune",
+      "feedback_high_contrast": "Leidke parem valgustus",
       "feedback_low_contrast": "Leidke parem valgustus",
       "feedback_too_bright": "Liiga hele",
-      "feedback_too_dark": "Liiga tume"
+      "feedback_too_dark": "Liiga tume",
+      "feedback_too_sharp": "Leidke parem valgustus"
     },
     "intro": {
       "animation_randomness_accessibility": "Näidisanimatsioon, kus keegi pöörab oma pead paremale, üles, alla ja vasakule, kuni ilmub roheline linnuke.",

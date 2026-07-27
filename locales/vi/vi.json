@@ -833,8 +833,10 @@
       "camera_not_working_message": "Máy ảnh không hoạt động",
       "captured": "Ảnh đã chụp",
       "capturing": "Đang chụp ảnh",
+      "description_address_page": "Trang cuối hộ chiếu",
       "flip_document": "Lật sang mặt sau",
       "folded_doc_front": "Đặt giấy tờ của bạn lên mặt phẳng, chụp tất cả các trang bên trong (phải có ảnh rõ mặt)",
+      "header_address_page": "Trang địa chỉ",
       "header_folded_doc_front": "Bên có ảnh hồ sơ",
       "hold_still": "Hãy giữ yên",
       "inactive_timeout_instruction": "Kết nối có thể đã bị ngắt. <fallback>Hãy thử sử dụng điện thoại</fallback>.",
@@ -927,6 +929,14 @@
       "list_item_tip_3": "Đảm bảo tất cả các trường đều đọc được",
       "subtitle": "Chúng tôi cần chụp ảnh giấy tờ tùy thân của bạn để đảm bảo tính xác thực.",
       "title": "Quét giấy tờ tùy thân của bạn"
+    },
+    "intro_address_page": {
+      "animation_accessibility": "Minh họa trang địa chỉ trong Hộ chiếu Ấn Độ",
+      "button_primary": "Chụp ảnh",
+      "list_item_tip_1": "Đi đến trang cuối hộ chiếu của bạn",
+      "list_item_tip_2": "Chụp ảnh trang có tên cha mẹ, địa chỉ và số hồ sơ của bạn",
+      "subtitle": "Chúng tôi cần thông tin này vì lý do tuân thủ quy định",
+      "title": "Tiếp theo, chụp trang địa chỉ"
     },
     "intro_tilt": {
       "callout": "Chúng tôi sẽ sử dụng đèn pin trên điện thoại của bạn",
@@ -1490,9 +1500,11 @@
     },
     "image_quality": {
       "feedback_blurry": "Video bị mờ quá",
+      "feedback_high_contrast": "Tìm chỗ sáng hơn",
       "feedback_low_contrast": "Tìm chỗ sáng hơn",
       "feedback_too_bright": "Quá sáng",
-      "feedback_too_dark": "Quá tối"
+      "feedback_too_dark": "Quá tối",
+      "feedback_too_sharp": "Tìm chỗ sáng hơn"
     },
     "intro": {
       "animation_randomness_accessibility": "Ví dụ hoạt ảnh về một người quay đầu sang phải, lên trên, xuống dưới và sang trái, cho đến khi xuất hiện dấu kiểm màu xanh lá.",
@@ -1917,6 +1929,7 @@
           "no_barcode_detail": "proofOfAddress.preview.no_barcode_detail",
           "no_barcode_title": "proofOfAddress.preview.no_barcode_title"
         },
+        "description_address_page": "document.capture.description_address_page",
         "detail": {
           "folded_doc_front": "document.capture.folded_doc_front"
         },
@@ -1932,6 +1945,7 @@
           "recording_complete": "document.capture.recording_complete",
           "recording_video": "document.capture.recording_video"
         },
+        "header_address_page": "document.capture.header_address_page",
         "header_folded_doc_front": "document.capture.header_folded_doc_front",
         "prompt": {
           "button_card": "document.capture.prompt_button_card",
@@ -2011,6 +2025,14 @@
         "list_item_tip_3": "document.intro.list_item_tip_3",
         "subtitle_generic_document": "document.intro.subtitle",
         "title_generic_document": "document.intro.title"
+      },
+      "doc_intro_address_page": {
+        "continue_button": "document.intro_address_page.button_primary",
+        "illustration_accessibility": "document.intro_address_page.animation_accessibility",
+        "option_1": "document.intro_address_page.list_item_tip_1",
+        "option_2": "document.intro_address_page.list_item_tip_2",
+        "subtitle": "document.intro_address_page.subtitle",
+        "title": "document.intro_address_page.title"
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
@@ -2370,8 +2392,10 @@
         "capture": {
           "feedback": {
             "blur_high": "faceMotion.image_quality.feedback_blurry",
+            "blur_low": "faceMotion.image_quality.feedback_too_sharp",
             "brightness_high": "faceMotion.image_quality.feedback_too_bright",
             "brightness_low": "faceMotion.image_quality.feedback_too_dark",
+            "contrast_high": "faceMotion.image_quality.feedback_high_contrast",
             "contrast_low": "faceMotion.image_quality.feedback_low_contrast",
             "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
             "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
@@ -4053,9 +4077,11 @@
     },
     "image_quality": {
       "feedback_blurry": "Video bị mờ quá",
+      "feedback_high_contrast": "Tìm chỗ sáng hơn",
       "feedback_low_contrast": "Tìm chỗ sáng hơn",
       "feedback_too_bright": "Quá sáng",
-      "feedback_too_dark": "Quá tối"
+      "feedback_too_dark": "Quá tối",
+      "feedback_too_sharp": "Tìm chỗ sáng hơn"
     },
     "intro": {
       "animation_randomness_accessibility": "Ví dụ hoạt ảnh về một người quay đầu sang phải, lên trên, xuống dưới và sang trái, cho đến khi xuất hiện dấu kiểm màu xanh lá.",

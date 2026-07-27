@@ -833,8 +833,10 @@
       "camera_not_working_message": "กล้องไม่ทำงาน",
       "captured": "ถ่ายภาพแล้ว",
       "capturing": "การถ่ายภาพ",
+      "description_address_page": "หน้าสุดท้ายของหนังสือเดินทาง",
       "flip_document": "พลิกไปด้านหลัง",
       "folded_doc_front": "วางเอกสารของคุณให้ราบเรียบ โดยให้เห็นหน้าด้านในทั้งหมด (ต้องมีรูปภาพของคุณด้วย)",
+      "header_address_page": "หน้าที่อยู่",
       "header_folded_doc_front": "ด้านรูปโปรไฟล์",
       "hold_still": "ถือนิ่ง",
       "inactive_timeout_instruction": "อาจไม่ได้เชื่อมต่อกล้อง <fallback>ลองใช้โทรศัพท์ของคุณแทน</fallback>",
@@ -927,6 +929,14 @@
       "list_item_tip_3": "ตรวจสอบให้แน่ใจว่าข้อมูลทั้งหมดอ่านได้ชัดเจน",
       "subtitle": "เราจำเป็นต้องถ่ายภาพเอกสารของคุณเพื่อยืนยันว่าเป็นของแท้",
       "title": "สแกนบัตรประจำตัวของคุณ"
+    },
+    "intro_address_page": {
+      "animation_accessibility": "ภาพประกอบหน้าที่อยู่ในหนังสือเดินทางอินเดีย",
+      "button_primary": "ถ่ายรูปภาพ",
+      "list_item_tip_1": "ไปที่หน้าสุดท้ายของหนังสือเดินทาง",
+      "list_item_tip_2": "ถ่ายภาพหน้าที่มีชื่อบิดามารดา ที่อยู่ และหมายเลขแฟ้ม",
+      "subtitle": "จำเป็นต้องใช้ข้อมูลนี้เพื่อวัตถุประสงค์ด้านกฎระเบียบ",
+      "title": "ถัดไป ถ่ายภาพหน้าที่อยู่"
     },
     "intro_tilt": {
       "callout": "เราจะใช้ไฟฉายของโทรศัพท์คุณ",
@@ -1490,9 +1500,11 @@
     },
     "image_quality": {
       "feedback_blurry": "วิดีโอเบลอเกินไป",
+      "feedback_high_contrast": "หาแสงที่ดีกว่านี้",
       "feedback_low_contrast": "หาแสงที่ดีกว่านี้",
       "feedback_too_bright": "สว่างเกินไป",
-      "feedback_too_dark": "มืดเกินไป"
+      "feedback_too_dark": "มืดเกินไป",
+      "feedback_too_sharp": "หาแสงที่ดีกว่านี้"
     },
     "intro": {
       "animation_randomness_accessibility": "ตัวอย่างภาพเคลื่อนไหวของบุคคลที่หันหน้าไปทางขวา ขึ้น ลง และซ้าย จนกว่าจะปรากฏเครื่องหมายถูกสีเขียว",
@@ -1917,6 +1929,7 @@
           "no_barcode_detail": "proofOfAddress.preview.no_barcode_detail",
           "no_barcode_title": "proofOfAddress.preview.no_barcode_title"
         },
+        "description_address_page": "document.capture.description_address_page",
         "detail": {
           "folded_doc_front": "document.capture.folded_doc_front"
         },
@@ -1932,6 +1945,7 @@
           "recording_complete": "document.capture.recording_complete",
           "recording_video": "document.capture.recording_video"
         },
+        "header_address_page": "document.capture.header_address_page",
         "header_folded_doc_front": "document.capture.header_folded_doc_front",
         "prompt": {
           "button_card": "document.capture.prompt_button_card",
@@ -2011,6 +2025,14 @@
         "list_item_tip_3": "document.intro.list_item_tip_3",
         "subtitle_generic_document": "document.intro.subtitle",
         "title_generic_document": "document.intro.title"
+      },
+      "doc_intro_address_page": {
+        "continue_button": "document.intro_address_page.button_primary",
+        "illustration_accessibility": "document.intro_address_page.animation_accessibility",
+        "option_1": "document.intro_address_page.list_item_tip_1",
+        "option_2": "document.intro_address_page.list_item_tip_2",
+        "subtitle": "document.intro_address_page.subtitle",
+        "title": "document.intro_address_page.title"
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
@@ -2370,8 +2392,10 @@
         "capture": {
           "feedback": {
             "blur_high": "faceMotion.image_quality.feedback_blurry",
+            "blur_low": "faceMotion.image_quality.feedback_too_sharp",
             "brightness_high": "faceMotion.image_quality.feedback_too_bright",
             "brightness_low": "faceMotion.image_quality.feedback_too_dark",
+            "contrast_high": "faceMotion.image_quality.feedback_high_contrast",
             "contrast_low": "faceMotion.image_quality.feedback_low_contrast",
             "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
             "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
@@ -4053,9 +4077,11 @@
     },
     "image_quality": {
       "feedback_blurry": "วิดีโอเบลอเกินไป",
+      "feedback_high_contrast": "หาแสงที่ดีกว่านี้",
       "feedback_low_contrast": "หาแสงที่ดีกว่านี้",
       "feedback_too_bright": "สว่างเกินไป",
-      "feedback_too_dark": "มืดเกินไป"
+      "feedback_too_dark": "มืดเกินไป",
+      "feedback_too_sharp": "หาแสงที่ดีกว่านี้"
     },
     "intro": {
       "animation_randomness_accessibility": "ตัวอย่างภาพเคลื่อนไหวของบุคคลที่หันหน้าไปทางขวา ขึ้น ลง และซ้าย จนกว่าจะปรากฏเครื่องหมายถูกสีเขียว",

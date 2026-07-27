@@ -833,8 +833,10 @@
       "camera_not_working_message": "Kamera ne radi",
       "captured": "Fotografija je snimljena",
       "capturing": "Snimanje fotografije",
+      "description_address_page": "Zadnja stranica putovnice",
       "flip_document": "Okrenite na stražnju stranu",
       "folded_doc_front": "Postavite dokument na ravno i ne zaboravite unutarnje stranice (tu mora biti vaša fotografija)",
+      "header_address_page": "Stranica s adresom",
       "header_folded_doc_front": "Strana fotografije profila",
       "hold_still": "Držite mirno",
       "inactive_timeout_instruction": "Možda nije povezana. <fallback>Pokušajte upotrijebiti mobitel</fallback>.",
@@ -927,6 +929,14 @@
       "list_item_tip_3": "Provjerite jesu li sva polja čitljiva",
       "subtitle": "Moramo fotografirati vašu ispravu kako bismo provjerili njezinu autentičnost.",
       "title": "Skenirajte svoju osobnu iskaznicu"
+    },
+    "intro_address_page": {
+      "animation_accessibility": "Ilustracija stranice s adresom u indijskoj putovnici",
+      "button_primary": "Snimite fotografiju",
+      "list_item_tip_1": "Idite na posljednju stranicu putovnice",
+      "list_item_tip_2": "Fotografirajte stranicu koja sadrži imena roditelja, adresu i broj spisa",
+      "subtitle": "To nam je potrebno iz regulatornih razloga",
+      "title": "Zatim snimite stranicu s adresom"
     },
     "intro_tilt": {
       "callout": "Koristit ćemo baterijsku lampu vašeg telefona",
@@ -1490,9 +1500,11 @@
     },
     "image_quality": {
       "feedback_blurry": "Video je preslab",
+      "feedback_high_contrast": "Pronađite bolje osvjetljenje",
       "feedback_low_contrast": "Pronađite bolje osvjetljenje",
       "feedback_too_bright": "Previše svijetlo",
-      "feedback_too_dark": "Previše tamno"
+      "feedback_too_dark": "Previše tamno",
+      "feedback_too_sharp": "Pronađite bolje osvjetljenje"
     },
     "intro": {
       "animation_randomness_accessibility": "Primjer animacije osobe koja okreće glavu udesno, gore, dolje i ulijevo, dok se ne pojavi zelena kvačica.",
@@ -1917,6 +1929,7 @@
           "no_barcode_detail": "proofOfAddress.preview.no_barcode_detail",
           "no_barcode_title": "proofOfAddress.preview.no_barcode_title"
         },
+        "description_address_page": "document.capture.description_address_page",
         "detail": {
           "folded_doc_front": "document.capture.folded_doc_front"
         },
@@ -1932,6 +1945,7 @@
           "recording_complete": "document.capture.recording_complete",
           "recording_video": "document.capture.recording_video"
         },
+        "header_address_page": "document.capture.header_address_page",
         "header_folded_doc_front": "document.capture.header_folded_doc_front",
         "prompt": {
           "button_card": "document.capture.prompt_button_card",
@@ -2011,6 +2025,14 @@
         "list_item_tip_3": "document.intro.list_item_tip_3",
         "subtitle_generic_document": "document.intro.subtitle",
         "title_generic_document": "document.intro.title"
+      },
+      "doc_intro_address_page": {
+        "continue_button": "document.intro_address_page.button_primary",
+        "illustration_accessibility": "document.intro_address_page.animation_accessibility",
+        "option_1": "document.intro_address_page.list_item_tip_1",
+        "option_2": "document.intro_address_page.list_item_tip_2",
+        "subtitle": "document.intro_address_page.subtitle",
+        "title": "document.intro_address_page.title"
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
@@ -2370,8 +2392,10 @@
         "capture": {
           "feedback": {
             "blur_high": "faceMotion.image_quality.feedback_blurry",
+            "blur_low": "faceMotion.image_quality.feedback_too_sharp",
             "brightness_high": "faceMotion.image_quality.feedback_too_bright",
             "brightness_low": "faceMotion.image_quality.feedback_too_dark",
+            "contrast_high": "faceMotion.image_quality.feedback_high_contrast",
             "contrast_low": "faceMotion.image_quality.feedback_low_contrast",
             "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
             "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
@@ -4053,9 +4077,11 @@
     },
     "image_quality": {
       "feedback_blurry": "Video je preslab",
+      "feedback_high_contrast": "Pronađite bolje osvjetljenje",
       "feedback_low_contrast": "Pronađite bolje osvjetljenje",
       "feedback_too_bright": "Previše svijetlo",
-      "feedback_too_dark": "Previše tamno"
+      "feedback_too_dark": "Previše tamno",
+      "feedback_too_sharp": "Pronađite bolje osvjetljenje"
     },
     "intro": {
       "animation_randomness_accessibility": "Primjer animacije osobe koja okreće glavu udesno, gore, dolje i ulijevo, dok se ne pojavi zelena kvačica.",

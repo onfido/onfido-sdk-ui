@@ -833,8 +833,10 @@
       "camera_not_working_message": "카메라가 작동하지 않습니다",
       "captured": "사진이 캡처되었습니다",
       "capturing": "사진 캡처하기",
+      "description_address_page": "여권 마지막 페이지",
       "flip_document": "뒷면이 나오게 뒤집기",
       "folded_doc_front": "모든 내부 페이지를 포함하여 (사진이 부착된 면이 보이도록 해서) 평평하게 펼치세요",
+      "header_address_page": "주소 페이지",
       "header_folded_doc_front": "프로필 사진 면",
       "hold_still": "움직이지 마세요",
       "inactive_timeout_instruction": "연결이 끊어졌을 수 있습니다. <fallback>대신 휴대폰을 사용해보세요</fallback>.",
@@ -927,6 +929,14 @@
       "list_item_tip_3": "모든 항목이 읽을 수 있도록 하세요",
       "subtitle": "신분증이 진짜인지 확인하기 위해 사진을 촬영해야 합니다.",
       "title": "신분증을 스캔하세요"
+    },
+    "intro_address_page": {
+      "animation_accessibility": "인도 여권 주소 페이지 예시 이미지",
+      "button_primary": "사진 촬영",
+      "list_item_tip_1": "여권의 마지막 페이지로 이동하세요",
+      "list_item_tip_2": "부모님 성함, 주소, 파일 번호가 포함된 페이지를 촬영하세요",
+      "subtitle": "규정상의 이유로 필요한 정보입니다",
+      "title": "다음으로, 주소 페이지를 촬영하세요"
     },
     "intro_tilt": {
       "callout": "휴대전화 플래시를 사용합니다",
@@ -1490,9 +1500,11 @@
     },
     "image_quality": {
       "feedback_blurry": "영상이 너무 흐려요",
+      "feedback_high_contrast": "더 밝은 곳으로 이동하세요",
       "feedback_low_contrast": "더 밝은 곳으로 이동하세요",
       "feedback_too_bright": "너무 밝아요",
-      "feedback_too_dark": "너무 어두워요"
+      "feedback_too_dark": "너무 어두워요",
+      "feedback_too_sharp": "더 밝은 곳으로 이동하세요"
     },
     "intro": {
       "animation_randomness_accessibility": "누군가가 머리를 오른쪽, 위, 아래, 왼쪽으로 돌린 뒤 초록색 체크 표시가 나타나는 예시 애니메이션.",
@@ -1917,6 +1929,7 @@
           "no_barcode_detail": "proofOfAddress.preview.no_barcode_detail",
           "no_barcode_title": "proofOfAddress.preview.no_barcode_title"
         },
+        "description_address_page": "document.capture.description_address_page",
         "detail": {
           "folded_doc_front": "document.capture.folded_doc_front"
         },
@@ -1932,6 +1945,7 @@
           "recording_complete": "document.capture.recording_complete",
           "recording_video": "document.capture.recording_video"
         },
+        "header_address_page": "document.capture.header_address_page",
         "header_folded_doc_front": "document.capture.header_folded_doc_front",
         "prompt": {
           "button_card": "document.capture.prompt_button_card",
@@ -2011,6 +2025,14 @@
         "list_item_tip_3": "document.intro.list_item_tip_3",
         "subtitle_generic_document": "document.intro.subtitle",
         "title_generic_document": "document.intro.title"
+      },
+      "doc_intro_address_page": {
+        "continue_button": "document.intro_address_page.button_primary",
+        "illustration_accessibility": "document.intro_address_page.animation_accessibility",
+        "option_1": "document.intro_address_page.list_item_tip_1",
+        "option_2": "document.intro_address_page.list_item_tip_2",
+        "subtitle": "document.intro_address_page.subtitle",
+        "title": "document.intro_address_page.title"
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
@@ -2370,8 +2392,10 @@
         "capture": {
           "feedback": {
             "blur_high": "faceMotion.image_quality.feedback_blurry",
+            "blur_low": "faceMotion.image_quality.feedback_too_sharp",
             "brightness_high": "faceMotion.image_quality.feedback_too_bright",
             "brightness_low": "faceMotion.image_quality.feedback_too_dark",
+            "contrast_high": "faceMotion.image_quality.feedback_high_contrast",
             "contrast_low": "faceMotion.image_quality.feedback_low_contrast",
             "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
             "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
@@ -4053,9 +4077,11 @@
     },
     "image_quality": {
       "feedback_blurry": "영상이 너무 흐려요",
+      "feedback_high_contrast": "더 밝은 곳으로 이동하세요",
       "feedback_low_contrast": "더 밝은 곳으로 이동하세요",
       "feedback_too_bright": "너무 밝아요",
-      "feedback_too_dark": "너무 어두워요"
+      "feedback_too_dark": "너무 어두워요",
+      "feedback_too_sharp": "더 밝은 곳으로 이동하세요"
     },
     "intro": {
       "animation_randomness_accessibility": "누군가가 머리를 오른쪽, 위, 아래, 왼쪽으로 돌린 뒤 초록색 체크 표시가 나타나는 예시 애니메이션.",

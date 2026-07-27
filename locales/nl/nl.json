@@ -833,8 +833,10 @@
       "camera_not_working_message": "Camera doet het niet",
       "captured": "Foto gemaakt",
       "capturing": "Foto maken",
+      "description_address_page": "Laatste pagina van paspoort",
       "flip_document": "Draai naar de achterkant",
       "folded_doc_front": "Leg uw document plat neer, inclusief alle binnenste pagina's (moeten uw foto bevatten)",
+      "header_address_page": "Adrespagina",
       "header_folded_doc_front": "Kant van de profiel foto",
       "hold_still": "Niet bewegen",
       "inactive_timeout_instruction": "Hij is mogelijk losgekoppeld. <fallback>Probeer het met uw telefoon</fallback>.",
@@ -927,6 +929,14 @@
       "list_item_tip_3": "Zorg ervoor dat alle velden leesbaar zijn",
       "subtitle": "We moeten foto's van uw document maken om te controleren of het echt is.",
       "title": "Scan je ID"
+    },
+    "intro_address_page": {
+      "animation_accessibility": "Een illustratie van de adrespagina in het Indiase paspoort",
+      "button_primary": "Foto nemen",
+      "list_item_tip_1": "Ga naar de laatste pagina van uw paspoort",
+      "list_item_tip_2": "Maak een foto van de pagina met de namen van uw ouders, uw adres en dossiernummer",
+      "subtitle": "We hebben dit nodig om aan regelgeving te voldoen",
+      "title": "Maak nu een foto van de adrespagina"
     },
     "intro_tilt": {
       "callout": "We gebruiken de zaklamp van je telefoon",
@@ -1490,9 +1500,11 @@
     },
     "image_quality": {
       "feedback_blurry": "Video is te wazig",
+      "feedback_high_contrast": "Zoek beter licht",
       "feedback_low_contrast": "Zoek beter licht",
       "feedback_too_bright": "Te licht",
-      "feedback_too_dark": "Te donker"
+      "feedback_too_dark": "Te donker",
+      "feedback_too_sharp": "Zoek beter licht"
     },
     "intro": {
       "animation_randomness_accessibility": "Voorbeeldanimatie van iemand die zijn hoofd naar rechts, omhoog, omlaag en naar links draait, totdat er een groen vinkje verschijnt.",
@@ -1917,6 +1929,7 @@
           "no_barcode_detail": "proofOfAddress.preview.no_barcode_detail",
           "no_barcode_title": "proofOfAddress.preview.no_barcode_title"
         },
+        "description_address_page": "document.capture.description_address_page",
         "detail": {
           "folded_doc_front": "document.capture.folded_doc_front"
         },
@@ -1932,6 +1945,7 @@
           "recording_complete": "document.capture.recording_complete",
           "recording_video": "document.capture.recording_video"
         },
+        "header_address_page": "document.capture.header_address_page",
         "header_folded_doc_front": "document.capture.header_folded_doc_front",
         "prompt": {
           "button_card": "document.capture.prompt_button_card",
@@ -2011,6 +2025,14 @@
         "list_item_tip_3": "document.intro.list_item_tip_3",
         "subtitle_generic_document": "document.intro.subtitle",
         "title_generic_document": "document.intro.title"
+      },
+      "doc_intro_address_page": {
+        "continue_button": "document.intro_address_page.button_primary",
+        "illustration_accessibility": "document.intro_address_page.animation_accessibility",
+        "option_1": "document.intro_address_page.list_item_tip_1",
+        "option_2": "document.intro_address_page.list_item_tip_2",
+        "subtitle": "document.intro_address_page.subtitle",
+        "title": "document.intro_address_page.title"
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
@@ -2370,8 +2392,10 @@
         "capture": {
           "feedback": {
             "blur_high": "faceMotion.image_quality.feedback_blurry",
+            "blur_low": "faceMotion.image_quality.feedback_too_sharp",
             "brightness_high": "faceMotion.image_quality.feedback_too_bright",
             "brightness_low": "faceMotion.image_quality.feedback_too_dark",
+            "contrast_high": "faceMotion.image_quality.feedback_high_contrast",
             "contrast_low": "faceMotion.image_quality.feedback_low_contrast",
             "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
             "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
@@ -4053,9 +4077,11 @@
     },
     "image_quality": {
       "feedback_blurry": "Video is te wazig",
+      "feedback_high_contrast": "Zoek beter licht",
       "feedback_low_contrast": "Zoek beter licht",
       "feedback_too_bright": "Te licht",
-      "feedback_too_dark": "Te donker"
+      "feedback_too_dark": "Te donker",
+      "feedback_too_sharp": "Zoek beter licht"
     },
     "intro": {
       "animation_randomness_accessibility": "Voorbeeldanimatie van iemand die zijn hoofd naar rechts, omhoog, omlaag en naar links draait, totdat er een groen vinkje verschijnt.",

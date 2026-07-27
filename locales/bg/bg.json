@@ -833,8 +833,10 @@
       "camera_not_working_message": "Камерата не работи",
       "captured": "Снимката е заснета",
       "capturing": "Снимане",
+      "description_address_page": "Последна страница на паспорта",
       "flip_document": "Обърнете задната страна",
       "folded_doc_front": "Поставете документа си върху равна повърхност, като включите всички вътрешни страници (трябва да съдържа снимката ви)",
+      "header_address_page": "Страница с адрес",
       "header_folded_doc_front": "Страна с профилна снимка",
       "hold_still": "Стойте неподвижно",
       "inactive_timeout_instruction": "Може да не е свързана. <fallback>Опитайте да използвате телефона си</fallback>.",
@@ -927,6 +929,14 @@
       "list_item_tip_3": "Уверете се, че всички полета са четливи",
       "subtitle": "Трябва да направим снимки на вашия документ, за да се уверим, че е автентичен.",
       "title": "Сканирайте своя документ за самоличност"
+    },
+    "intro_address_page": {
+      "animation_accessibility": "Илюстрация на страницата с адрес в индийския паспорт",
+      "button_primary": "Направете снимка",
+      "list_item_tip_1": "Отидете на последната страница на паспорта си",
+      "list_item_tip_2": "Направете снимка на страницата, съдържаща имената на родителите ви, адреса и номера на досието",
+      "subtitle": "Това се изисква по регулаторни причини",
+      "title": "След това заснемете страницата с адреса"
     },
     "intro_tilt": {
       "callout": "Ще използваме фенерчето на вашия телефон",
@@ -1490,9 +1500,11 @@
     },
     "image_quality": {
       "feedback_blurry": "Видеото е твърде размазано",
+      "feedback_high_contrast": "Намерете по-добро осветление",
       "feedback_low_contrast": "Намерете по-добро осветление",
       "feedback_too_bright": "Твърде светло",
-      "feedback_too_dark": "Твърде тъмно"
+      "feedback_too_dark": "Твърде тъмно",
+      "feedback_too_sharp": "Намерете по-добро осветление"
     },
     "intro": {
       "animation_randomness_accessibility": "Примерна анимация на човек, който завърта главата си надясно, нагоре, надолу и наляво, докато се появи зелена отметка.",
@@ -1917,6 +1929,7 @@
           "no_barcode_detail": "proofOfAddress.preview.no_barcode_detail",
           "no_barcode_title": "proofOfAddress.preview.no_barcode_title"
         },
+        "description_address_page": "document.capture.description_address_page",
         "detail": {
           "folded_doc_front": "document.capture.folded_doc_front"
         },
@@ -1932,6 +1945,7 @@
           "recording_complete": "document.capture.recording_complete",
           "recording_video": "document.capture.recording_video"
         },
+        "header_address_page": "document.capture.header_address_page",
         "header_folded_doc_front": "document.capture.header_folded_doc_front",
         "prompt": {
           "button_card": "document.capture.prompt_button_card",
@@ -2011,6 +2025,14 @@
         "list_item_tip_3": "document.intro.list_item_tip_3",
         "subtitle_generic_document": "document.intro.subtitle",
         "title_generic_document": "document.intro.title"
+      },
+      "doc_intro_address_page": {
+        "continue_button": "document.intro_address_page.button_primary",
+        "illustration_accessibility": "document.intro_address_page.animation_accessibility",
+        "option_1": "document.intro_address_page.list_item_tip_1",
+        "option_2": "document.intro_address_page.list_item_tip_2",
+        "subtitle": "document.intro_address_page.subtitle",
+        "title": "document.intro_address_page.title"
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
@@ -2370,8 +2392,10 @@
         "capture": {
           "feedback": {
             "blur_high": "faceMotion.image_quality.feedback_blurry",
+            "blur_low": "faceMotion.image_quality.feedback_too_sharp",
             "brightness_high": "faceMotion.image_quality.feedback_too_bright",
             "brightness_low": "faceMotion.image_quality.feedback_too_dark",
+            "contrast_high": "faceMotion.image_quality.feedback_high_contrast",
             "contrast_low": "faceMotion.image_quality.feedback_low_contrast",
             "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
             "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
@@ -4053,9 +4077,11 @@
     },
     "image_quality": {
       "feedback_blurry": "Видеото е твърде размазано",
+      "feedback_high_contrast": "Намерете по-добро осветление",
       "feedback_low_contrast": "Намерете по-добро осветление",
       "feedback_too_bright": "Твърде светло",
-      "feedback_too_dark": "Твърде тъмно"
+      "feedback_too_dark": "Твърде тъмно",
+      "feedback_too_sharp": "Намерете по-добро осветление"
     },
     "intro": {
       "animation_randomness_accessibility": "Примерна анимация на човек, който завърта главата си надясно, нагоре, надолу и наляво, докато се появи зелена отметка.",

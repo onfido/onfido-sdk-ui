@@ -833,8 +833,10 @@
       "camera_not_working_message": "Kameraet fungerer ikke",
       "captured": "Billedet er taget",
       "capturing": "Tager et billede",
+      "description_address_page": "Sidste side i pas",
       "flip_document": "Vend det om på bagsiden",
       "folded_doc_front": "Du skal sørge for, at dit dokument ligger fladt, og at alle de indvendige sider indgår (skal indeholde dit foto)",
+      "header_address_page": "Adresseside",
       "header_folded_doc_front": "Side med profilbillede",
       "hold_still": "Hold det stille",
       "inactive_timeout_instruction": "Det kan være afbrudt. <fallback>Brug din telefon i stedet</fallback>.",
@@ -927,6 +929,14 @@
       "list_item_tip_3": "Sørg for, at alle felter er læselige",
       "subtitle": "Vi skal tage billeder af dit dokument for at sikre, at det er ægte.",
       "title": "Scan dit ID-dokument"
+    },
+    "intro_address_page": {
+      "animation_accessibility": "En illustration af adressesiden i det indiske pas",
+      "button_primary": "Tag et billede",
+      "list_item_tip_1": "Gå til den sidste side i dit pas",
+      "list_item_tip_2": "Tag et foto af siden med dine forældres navne, adresse og sagsnummer",
+      "subtitle": "Dette er påkrævet af regulatoriske årsager",
+      "title": "Tag derefter et billede af adressesiden"
     },
     "intro_tilt": {
       "callout": "Vi bruger din telefons lommelygte",
@@ -1490,9 +1500,11 @@
     },
     "image_quality": {
       "feedback_blurry": "Videoen er for sløret",
+      "feedback_high_contrast": "Find bedre belysning",
       "feedback_low_contrast": "Find bedre belysning",
       "feedback_too_bright": "For lyst",
-      "feedback_too_dark": "For mørkt"
+      "feedback_too_dark": "For mørkt",
+      "feedback_too_sharp": "Find bedre belysning"
     },
     "intro": {
       "animation_randomness_accessibility": "Eksempelanimation af en person, der drejer hovedet til højre, op, ned og til venstre, indtil der vises et grønt flueben.",
@@ -1917,6 +1929,7 @@
           "no_barcode_detail": "proofOfAddress.preview.no_barcode_detail",
           "no_barcode_title": "proofOfAddress.preview.no_barcode_title"
         },
+        "description_address_page": "document.capture.description_address_page",
         "detail": {
           "folded_doc_front": "document.capture.folded_doc_front"
         },
@@ -1932,6 +1945,7 @@
           "recording_complete": "document.capture.recording_complete",
           "recording_video": "document.capture.recording_video"
         },
+        "header_address_page": "document.capture.header_address_page",
         "header_folded_doc_front": "document.capture.header_folded_doc_front",
         "prompt": {
           "button_card": "document.capture.prompt_button_card",
@@ -2011,6 +2025,14 @@
         "list_item_tip_3": "document.intro.list_item_tip_3",
         "subtitle_generic_document": "document.intro.subtitle",
         "title_generic_document": "document.intro.title"
+      },
+      "doc_intro_address_page": {
+        "continue_button": "document.intro_address_page.button_primary",
+        "illustration_accessibility": "document.intro_address_page.animation_accessibility",
+        "option_1": "document.intro_address_page.list_item_tip_1",
+        "option_2": "document.intro_address_page.list_item_tip_2",
+        "subtitle": "document.intro_address_page.subtitle",
+        "title": "document.intro_address_page.title"
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
@@ -2370,8 +2392,10 @@
         "capture": {
           "feedback": {
             "blur_high": "faceMotion.image_quality.feedback_blurry",
+            "blur_low": "faceMotion.image_quality.feedback_too_sharp",
             "brightness_high": "faceMotion.image_quality.feedback_too_bright",
             "brightness_low": "faceMotion.image_quality.feedback_too_dark",
+            "contrast_high": "faceMotion.image_quality.feedback_high_contrast",
             "contrast_low": "faceMotion.image_quality.feedback_low_contrast",
             "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
             "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
@@ -4053,9 +4077,11 @@
     },
     "image_quality": {
       "feedback_blurry": "Videoen er for sløret",
+      "feedback_high_contrast": "Find bedre belysning",
       "feedback_low_contrast": "Find bedre belysning",
       "feedback_too_bright": "For lyst",
-      "feedback_too_dark": "For mørkt"
+      "feedback_too_dark": "For mørkt",
+      "feedback_too_sharp": "Find bedre belysning"
     },
     "intro": {
       "animation_randomness_accessibility": "Eksempelanimation af en person, der drejer hovedet til højre, op, ned og til venstre, indtil der vises et grønt flueben.",

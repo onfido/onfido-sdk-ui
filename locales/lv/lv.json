@@ -833,8 +833,10 @@
       "camera_not_working_message": "Kamera nedarbojas",
       "captured": "Fotoattēls uzņemts",
       "capturing": "Notiek fotoattēla uzņemšana",
+      "description_address_page": "Pēdējā pase lapa",
       "flip_document": "Apgrieziet",
       "folded_doc_front": "Novietojiet dokumentu plakani uz līdzenas virsmas, ir jābūt redzamām visām iekšējām lapām (tajās jābūt jūsu fotoattēlam)",
+      "header_address_page": "Adreses lapa",
       "header_folded_doc_front": "Profila fotoattēla puse",
       "hold_still": "Turiet nekustīgi",
       "inactive_timeout_instruction": "Tā var būt atvienota. <fallback>Tā vietā mēģiniet izmantot tālruni</fallback>.",
@@ -927,6 +929,14 @@
       "list_item_tip_3": "Pārliecinieties, ka visi lauki ir salasāmi",
       "subtitle": "Mums ir jāuzņem jūsu dokumenta fotogrāfijas, lai pārliecinātos, ka tas ir īsts.",
       "title": "Skenējiet savu identitātes dokumentu"
+    },
+    "intro_address_page": {
+      "animation_accessibility": "Indijas pases adreses lapas ilustrācija",
+      "button_primary": "Uzņemt fotoattēlu",
+      "list_item_tip_1": "Atveriet pēdējo sava pases lapu",
+      "list_item_tip_2": "Nofotografējiet lapu, kurā ir norādīti jūsu vecāku vārdi, adrese un lietas numurs",
+      "subtitle": "Tas mums nepieciešams normatīvo prasību dēļ",
+      "title": "Tālāk nofotografējiet adreses lapu"
     },
     "intro_tilt": {
       "callout": "Mēs izmantosim Jūsu tālruņa zibspuldzi",
@@ -1490,9 +1500,11 @@
     },
     "image_quality": {
       "feedback_blurry": "Video ir pārāk izplūdis",
+      "feedback_high_contrast": "Sameklējiet labāku apgaismojumu",
       "feedback_low_contrast": "Sameklējiet labāku apgaismojumu",
       "feedback_too_bright": "Pārāk gaišs",
-      "feedback_too_dark": "Pārāk tumšs"
+      "feedback_too_dark": "Pārāk tumšs",
+      "feedback_too_sharp": "Sameklējiet labāku apgaismojumu"
     },
     "intro": {
       "animation_randomness_accessibility": "Piemēra animācija, kurā persona pagriež galvu pa labi, uz augšu, uz leju un pa kreisi, līdz parādās zaļa atzīme.",
@@ -1917,6 +1929,7 @@
           "no_barcode_detail": "proofOfAddress.preview.no_barcode_detail",
           "no_barcode_title": "proofOfAddress.preview.no_barcode_title"
         },
+        "description_address_page": "document.capture.description_address_page",
         "detail": {
           "folded_doc_front": "document.capture.folded_doc_front"
         },
@@ -1932,6 +1945,7 @@
           "recording_complete": "document.capture.recording_complete",
           "recording_video": "document.capture.recording_video"
         },
+        "header_address_page": "document.capture.header_address_page",
         "header_folded_doc_front": "document.capture.header_folded_doc_front",
         "prompt": {
           "button_card": "document.capture.prompt_button_card",
@@ -2011,6 +2025,14 @@
         "list_item_tip_3": "document.intro.list_item_tip_3",
         "subtitle_generic_document": "document.intro.subtitle",
         "title_generic_document": "document.intro.title"
+      },
+      "doc_intro_address_page": {
+        "continue_button": "document.intro_address_page.button_primary",
+        "illustration_accessibility": "document.intro_address_page.animation_accessibility",
+        "option_1": "document.intro_address_page.list_item_tip_1",
+        "option_2": "document.intro_address_page.list_item_tip_2",
+        "subtitle": "document.intro_address_page.subtitle",
+        "title": "document.intro_address_page.title"
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
@@ -2370,8 +2392,10 @@
         "capture": {
           "feedback": {
             "blur_high": "faceMotion.image_quality.feedback_blurry",
+            "blur_low": "faceMotion.image_quality.feedback_too_sharp",
             "brightness_high": "faceMotion.image_quality.feedback_too_bright",
             "brightness_low": "faceMotion.image_quality.feedback_too_dark",
+            "contrast_high": "faceMotion.image_quality.feedback_high_contrast",
             "contrast_low": "faceMotion.image_quality.feedback_low_contrast",
             "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
             "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
@@ -4053,9 +4077,11 @@
     },
     "image_quality": {
       "feedback_blurry": "Video ir pārāk izplūdis",
+      "feedback_high_contrast": "Sameklējiet labāku apgaismojumu",
       "feedback_low_contrast": "Sameklējiet labāku apgaismojumu",
       "feedback_too_bright": "Pārāk gaišs",
-      "feedback_too_dark": "Pārāk tumšs"
+      "feedback_too_dark": "Pārāk tumšs",
+      "feedback_too_sharp": "Sameklējiet labāku apgaismojumu"
     },
     "intro": {
       "animation_randomness_accessibility": "Piemēra animācija, kurā persona pagriež galvu pa labi, uz augšu, uz leju un pa kreisi, līdz parādās zaļa atzīme.",

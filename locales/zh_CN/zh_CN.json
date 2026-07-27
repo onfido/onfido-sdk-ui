@@ -833,8 +833,10 @@
       "camera_not_working_message": "相机未工作",
       "captured": "已拍摄照片",
       "capturing": "正在拍摄照片",
+      "description_address_page": "护照最后一页",
       "flip_document": "翻转到背面",
       "folded_doc_front": "平放您的证明文件，包括所有内页（必须包含您的照片）",
+      "header_address_page": "地址页",
       "header_folded_doc_front": "资料照片一面",
       "hold_still": "保持不动",
       "inactive_timeout_instruction": "其可能已断开连接。<fallback>请尝试改用手机</fallback>。",
@@ -927,6 +929,14 @@
       "list_item_tip_3": "确保所有字段清晰可读",
       "subtitle": "我们需要拍摄您的证件照片以确保其真实性。",
       "title": "扫描您的身份证件"
+    },
+    "intro_address_page": {
+      "animation_accessibility": "印度护照地址页示意图",
+      "button_primary": "拍照",
+      "list_item_tip_1": "请翻到护照的最后一页",
+      "list_item_tip_2": "请拍摄包含父母姓名、地址和档案编号的页面",
+      "subtitle": "出于合规原因，我们需要此信息",
+      "title": "接下来，拍摄地址页"
     },
     "intro_tilt": {
       "callout": "我们将使用您手机的闪光灯",
@@ -1490,9 +1500,11 @@
     },
     "image_quality": {
       "feedback_blurry": "视频太模糊",
+      "feedback_high_contrast": "请寻找更好的光线",
       "feedback_low_contrast": "请寻找更好的光线",
       "feedback_too_bright": "太亮",
-      "feedback_too_dark": "太暗"
+      "feedback_too_dark": "太暗",
+      "feedback_too_sharp": "请寻找更好的光线"
     },
     "intro": {
       "animation_randomness_accessibility": "示例动画展示某人向右、向上、向下和向左转动头部,直到出现绿色对勾标记。",
@@ -1917,6 +1929,7 @@
           "no_barcode_detail": "proofOfAddress.preview.no_barcode_detail",
           "no_barcode_title": "proofOfAddress.preview.no_barcode_title"
         },
+        "description_address_page": "document.capture.description_address_page",
         "detail": {
           "folded_doc_front": "document.capture.folded_doc_front"
         },
@@ -1932,6 +1945,7 @@
           "recording_complete": "document.capture.recording_complete",
           "recording_video": "document.capture.recording_video"
         },
+        "header_address_page": "document.capture.header_address_page",
         "header_folded_doc_front": "document.capture.header_folded_doc_front",
         "prompt": {
           "button_card": "document.capture.prompt_button_card",
@@ -2011,6 +2025,14 @@
         "list_item_tip_3": "document.intro.list_item_tip_3",
         "subtitle_generic_document": "document.intro.subtitle",
         "title_generic_document": "document.intro.title"
+      },
+      "doc_intro_address_page": {
+        "continue_button": "document.intro_address_page.button_primary",
+        "illustration_accessibility": "document.intro_address_page.animation_accessibility",
+        "option_1": "document.intro_address_page.list_item_tip_1",
+        "option_2": "document.intro_address_page.list_item_tip_2",
+        "subtitle": "document.intro_address_page.subtitle",
+        "title": "document.intro_address_page.title"
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
@@ -2370,8 +2392,10 @@
         "capture": {
           "feedback": {
             "blur_high": "faceMotion.image_quality.feedback_blurry",
+            "blur_low": "faceMotion.image_quality.feedback_too_sharp",
             "brightness_high": "faceMotion.image_quality.feedback_too_bright",
             "brightness_low": "faceMotion.image_quality.feedback_too_dark",
+            "contrast_high": "faceMotion.image_quality.feedback_high_contrast",
             "contrast_low": "faceMotion.image_quality.feedback_low_contrast",
             "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
             "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
@@ -4053,9 +4077,11 @@
     },
     "image_quality": {
       "feedback_blurry": "视频太模糊",
+      "feedback_high_contrast": "请寻找更好的光线",
       "feedback_low_contrast": "请寻找更好的光线",
       "feedback_too_bright": "太亮",
-      "feedback_too_dark": "太暗"
+      "feedback_too_dark": "太暗",
+      "feedback_too_sharp": "请寻找更好的光线"
     },
     "intro": {
       "animation_randomness_accessibility": "示例动画展示某人向右、向上、向下和向左转动头部,直到出现绿色对勾标记。",

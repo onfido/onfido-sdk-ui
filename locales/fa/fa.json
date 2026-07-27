@@ -833,8 +833,10 @@
       "camera_not_working_message": "دوربین عمل نمی‌کند",
       "captured": "عکس گرفته شده است",
       "capturing": "در حال عکس گرفتن",
+      "description_address_page": "آخرین صفحهٔ گذرنامه",
       "flip_document": "به پشت برگردانید",
       "folded_doc_front": "مدرک خود را به شکل مسطح قرار دهید، بطوری که تمام صفحات داخلی را شامل شود (باید عکس شما روی مدرک باشد)",
+      "header_address_page": "صفحهٔ نشانی",
       "header_folded_doc_front": "سمت عکس پروفایل",
       "hold_still": "ثابت بمانید",
       "inactive_timeout_instruction": "ممکن است ارتباط آن قطع شده باشد. <fallback>سعی کنید بجای آن از گوشی خود استفاده کنید</fallback>.",
@@ -927,6 +929,14 @@
       "list_item_tip_3": "اطمینان حاصل کنید که همه اطلاعات قابل خواندن باشند",
       "subtitle": "ما باید از مدرک شناسایی شما عکس بگیریم تا از اصالت آن اطمینان حاصل کنیم.",
       "title": "مدرک شناسایی خود را اسکن کنید"
+    },
+    "intro_address_page": {
+      "animation_accessibility": "یک تصویر نمونه از صفحهٔ نشانی در گذرنامه هندی",
+      "button_primary": "عکس گرفتن",
+      "list_item_tip_1": "به آخرین صفحهٔ گذرنامه‌تان بروید",
+      "list_item_tip_2": "از صفحه‌ای که نام والدین، نشانی و شماره پروندهٔ شما روی آن است عکس بگیرید",
+      "subtitle": "ما به دلایل مقرراتی به این مورد نیاز داریم",
+      "title": "در مرحله بعد، صفحهٔ نشانی را ثبت کنید"
     },
     "intro_tilt": {
       "callout": "ما از چراغ‌قوهٔ گوشی شما استفاده می‌کنیم",
@@ -1490,9 +1500,11 @@
     },
     "image_quality": {
       "feedback_blurry": "ویدیو خیلی تار است",
+      "feedback_high_contrast": "نور بهتری پیدا کنید",
       "feedback_low_contrast": "نور بهتری پیدا کنید",
       "feedback_too_bright": "خیلی روشن است",
-      "feedback_too_dark": "خیلی تاریک است"
+      "feedback_too_dark": "خیلی تاریک است",
+      "feedback_too_sharp": "نور بهتری پیدا کنید"
     },
     "intro": {
       "animation_randomness_accessibility": "نمونه‌ای از انیمیشن که در آن فردی سر خود را به راست، بالا، پایین و چپ می‌چرخاند تا زمانی که علامت تیک سبز ظاهر شود.",
@@ -1917,6 +1929,7 @@
           "no_barcode_detail": "proofOfAddress.preview.no_barcode_detail",
           "no_barcode_title": "proofOfAddress.preview.no_barcode_title"
         },
+        "description_address_page": "document.capture.description_address_page",
         "detail": {
           "folded_doc_front": "document.capture.folded_doc_front"
         },
@@ -1932,6 +1945,7 @@
           "recording_complete": "document.capture.recording_complete",
           "recording_video": "document.capture.recording_video"
         },
+        "header_address_page": "document.capture.header_address_page",
         "header_folded_doc_front": "document.capture.header_folded_doc_front",
         "prompt": {
           "button_card": "document.capture.prompt_button_card",
@@ -2011,6 +2025,14 @@
         "list_item_tip_3": "document.intro.list_item_tip_3",
         "subtitle_generic_document": "document.intro.subtitle",
         "title_generic_document": "document.intro.title"
+      },
+      "doc_intro_address_page": {
+        "continue_button": "document.intro_address_page.button_primary",
+        "illustration_accessibility": "document.intro_address_page.animation_accessibility",
+        "option_1": "document.intro_address_page.list_item_tip_1",
+        "option_2": "document.intro_address_page.list_item_tip_2",
+        "subtitle": "document.intro_address_page.subtitle",
+        "title": "document.intro_address_page.title"
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
@@ -2370,8 +2392,10 @@
         "capture": {
           "feedback": {
             "blur_high": "faceMotion.image_quality.feedback_blurry",
+            "blur_low": "faceMotion.image_quality.feedback_too_sharp",
             "brightness_high": "faceMotion.image_quality.feedback_too_bright",
             "brightness_low": "faceMotion.image_quality.feedback_too_dark",
+            "contrast_high": "faceMotion.image_quality.feedback_high_contrast",
             "contrast_low": "faceMotion.image_quality.feedback_low_contrast",
             "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
             "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
@@ -4053,9 +4077,11 @@
     },
     "image_quality": {
       "feedback_blurry": "ویدیو خیلی تار است",
+      "feedback_high_contrast": "نور بهتری پیدا کنید",
       "feedback_low_contrast": "نور بهتری پیدا کنید",
       "feedback_too_bright": "خیلی روشن است",
-      "feedback_too_dark": "خیلی تاریک است"
+      "feedback_too_dark": "خیلی تاریک است",
+      "feedback_too_sharp": "نور بهتری پیدا کنید"
     },
     "intro": {
       "animation_randomness_accessibility": "نمونه‌ای از انیمیشن که در آن فردی سر خود را به راست، بالا، پایین و چپ می‌چرخاند تا زمانی که علامت تیک سبز ظاهر شود.",

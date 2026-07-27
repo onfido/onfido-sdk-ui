@@ -833,8 +833,10 @@
       "camera_not_working_message": "Kameran fungerar inte",
       "captured": "Foto taget",
       "capturing": "Ta foto",
+      "description_address_page": "Sista sidan i passet",
       "flip_document": "Vänd till baksidan",
       "folded_doc_front": "Lägg dokumentet platt och inkludera alla inre sidor (ditt foto måste finnas med)",
+      "header_address_page": "Adresssida",
       "header_folded_doc_front": "Sida med profilfoto",
       "hold_still": "Håll stilla",
       "inactive_timeout_instruction": "Den kan vara frånkopplad. <fallback>Prova att använda din telefon istället</fallback>.",
@@ -927,6 +929,14 @@
       "list_item_tip_3": "Se till att alla fält är läsbara",
       "subtitle": "Vi behöver ta foton av ditt dokument för att säkerställa att det är äkta.",
       "title": "Skanna din legitimation"
+    },
+    "intro_address_page": {
+      "animation_accessibility": "En illustration av adresssidan i det indiska passet",
+      "button_primary": "Ta foto",
+      "list_item_tip_1": "Gå till sista sidan i ditt pass",
+      "list_item_tip_2": "Ta ett foto av sidan som innehåller dina föräldrars namn, adress och ärendenummer",
+      "subtitle": "Detta krävs av regulatoriska skäl",
+      "title": "Fotografera sedan adresssidan"
     },
     "intro_tilt": {
       "callout": "Vi kommer att använda din telefons ficklampa",
@@ -1490,9 +1500,11 @@
     },
     "image_quality": {
       "feedback_blurry": "Videon är för suddig",
+      "feedback_high_contrast": "Hitta bättre ljussättning",
       "feedback_low_contrast": "Hitta bättre ljussättning",
       "feedback_too_bright": "För ljust",
-      "feedback_too_dark": "För mörkt"
+      "feedback_too_dark": "För mörkt",
+      "feedback_too_sharp": "Hitta bättre ljussättning"
     },
     "intro": {
       "animation_randomness_accessibility": "Exempelanimation av någon som vrider huvudet åt höger, uppåt, nedåt och åt vänster, tills en grön bock visas.",
@@ -1917,6 +1929,7 @@
           "no_barcode_detail": "proofOfAddress.preview.no_barcode_detail",
           "no_barcode_title": "proofOfAddress.preview.no_barcode_title"
         },
+        "description_address_page": "document.capture.description_address_page",
         "detail": {
           "folded_doc_front": "document.capture.folded_doc_front"
         },
@@ -1932,6 +1945,7 @@
           "recording_complete": "document.capture.recording_complete",
           "recording_video": "document.capture.recording_video"
         },
+        "header_address_page": "document.capture.header_address_page",
         "header_folded_doc_front": "document.capture.header_folded_doc_front",
         "prompt": {
           "button_card": "document.capture.prompt_button_card",
@@ -2011,6 +2025,14 @@
         "list_item_tip_3": "document.intro.list_item_tip_3",
         "subtitle_generic_document": "document.intro.subtitle",
         "title_generic_document": "document.intro.title"
+      },
+      "doc_intro_address_page": {
+        "continue_button": "document.intro_address_page.button_primary",
+        "illustration_accessibility": "document.intro_address_page.animation_accessibility",
+        "option_1": "document.intro_address_page.list_item_tip_1",
+        "option_2": "document.intro_address_page.list_item_tip_2",
+        "subtitle": "document.intro_address_page.subtitle",
+        "title": "document.intro_address_page.title"
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
@@ -2370,8 +2392,10 @@
         "capture": {
           "feedback": {
             "blur_high": "faceMotion.image_quality.feedback_blurry",
+            "blur_low": "faceMotion.image_quality.feedback_too_sharp",
             "brightness_high": "faceMotion.image_quality.feedback_too_bright",
             "brightness_low": "faceMotion.image_quality.feedback_too_dark",
+            "contrast_high": "faceMotion.image_quality.feedback_high_contrast",
             "contrast_low": "faceMotion.image_quality.feedback_low_contrast",
             "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
             "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
@@ -4053,9 +4077,11 @@
     },
     "image_quality": {
       "feedback_blurry": "Videon är för suddig",
+      "feedback_high_contrast": "Hitta bättre ljussättning",
       "feedback_low_contrast": "Hitta bättre ljussättning",
       "feedback_too_bright": "För ljust",
-      "feedback_too_dark": "För mörkt"
+      "feedback_too_dark": "För mörkt",
+      "feedback_too_sharp": "Hitta bättre ljussättning"
     },
     "intro": {
       "animation_randomness_accessibility": "Exempelanimation av någon som vrider huvudet åt höger, uppåt, nedåt och åt vänster, tills en grön bock visas.",

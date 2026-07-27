@@ -833,8 +833,10 @@
       "camera_not_working_message": "カメラが動作していません",
       "captured": "写真がキャプチャされました",
       "capturing": "写真をキャプチャしています",
+      "description_address_page": "パスポートの最終ページ",
       "flip_document": "裏側に反転してください",
       "folded_doc_front": "ドキュメントを平らに置き、すべての内側のページを含める（ご自身の写真を含める必要があります）",
+      "header_address_page": "住所ページ",
       "header_folded_doc_front": "プロフィール写真側",
       "hold_still": "そのまま動かさないでください",
       "inactive_timeout_instruction": "接続されていない可能性があります。<fallback>代わりに携帯を使用してみてください</fallback>。",
@@ -927,6 +929,14 @@
       "list_item_tip_3": "すべての項目が読み取れるようにしてください",
       "subtitle": "書類が本物であることを確認するために、写真を撮影する必要があります。",
       "title": "身分証明書をスキャンしてください"
+    },
+    "intro_address_page": {
+      "animation_accessibility": "インドのパスポートにおける住所ページのイラスト",
+      "button_primary": "写真を撮る",
+      "list_item_tip_1": "パスポートの一番最後のページを開いてください",
+      "list_item_tip_2": "ご両親の氏名、住所、ファイル番号が記載されたページを撮影してください",
+      "subtitle": "規制上の理由で、この情報が必要です",
+      "title": "次に、住所のページを撮影してください"
     },
     "intro_tilt": {
       "callout": "お使いの携帯電話のフラッシュライトを使用します",
@@ -1490,9 +1500,11 @@
     },
     "image_quality": {
       "feedback_blurry": "動画がぼやけています",
+      "feedback_high_contrast": "明るい場所に移動してください",
       "feedback_low_contrast": "明るい場所に移動してください",
       "feedback_too_bright": "明るすぎます",
-      "feedback_too_dark": "暗すぎます"
+      "feedback_too_dark": "暗すぎます",
+      "feedback_too_sharp": "明るい場所に移動してください"
     },
     "intro": {
       "animation_randomness_accessibility": "緑色のチェックマークが表示されるまで、右、上、下、左に頭を動かす様子のアニメーション例。",
@@ -1917,6 +1929,7 @@
           "no_barcode_detail": "proofOfAddress.preview.no_barcode_detail",
           "no_barcode_title": "proofOfAddress.preview.no_barcode_title"
         },
+        "description_address_page": "document.capture.description_address_page",
         "detail": {
           "folded_doc_front": "document.capture.folded_doc_front"
         },
@@ -1932,6 +1945,7 @@
           "recording_complete": "document.capture.recording_complete",
           "recording_video": "document.capture.recording_video"
         },
+        "header_address_page": "document.capture.header_address_page",
         "header_folded_doc_front": "document.capture.header_folded_doc_front",
         "prompt": {
           "button_card": "document.capture.prompt_button_card",
@@ -2011,6 +2025,14 @@
         "list_item_tip_3": "document.intro.list_item_tip_3",
         "subtitle_generic_document": "document.intro.subtitle",
         "title_generic_document": "document.intro.title"
+      },
+      "doc_intro_address_page": {
+        "continue_button": "document.intro_address_page.button_primary",
+        "illustration_accessibility": "document.intro_address_page.animation_accessibility",
+        "option_1": "document.intro_address_page.list_item_tip_1",
+        "option_2": "document.intro_address_page.list_item_tip_2",
+        "subtitle": "document.intro_address_page.subtitle",
+        "title": "document.intro_address_page.title"
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
@@ -2370,8 +2392,10 @@
         "capture": {
           "feedback": {
             "blur_high": "faceMotion.image_quality.feedback_blurry",
+            "blur_low": "faceMotion.image_quality.feedback_too_sharp",
             "brightness_high": "faceMotion.image_quality.feedback_too_bright",
             "brightness_low": "faceMotion.image_quality.feedback_too_dark",
+            "contrast_high": "faceMotion.image_quality.feedback_high_contrast",
             "contrast_low": "faceMotion.image_quality.feedback_low_contrast",
             "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
             "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
@@ -4053,9 +4077,11 @@
     },
     "image_quality": {
       "feedback_blurry": "動画がぼやけています",
+      "feedback_high_contrast": "明るい場所に移動してください",
       "feedback_low_contrast": "明るい場所に移動してください",
       "feedback_too_bright": "明るすぎます",
-      "feedback_too_dark": "暗すぎます"
+      "feedback_too_dark": "暗すぎます",
+      "feedback_too_sharp": "明るい場所に移動してください"
     },
     "intro": {
       "animation_randomness_accessibility": "緑色のチェックマークが表示されるまで、右、上、下、左に頭を動かす様子のアニメーション例。",

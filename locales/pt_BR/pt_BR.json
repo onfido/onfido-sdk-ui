@@ -833,8 +833,10 @@
       "camera_not_working_message": "A câmera não está funcionando",
       "captured": "Foto capturada",
       "capturing": "Capturando foto",
+      "description_address_page": "Última página do passaporte",
       "flip_document": "Vire para o verso",
       "folded_doc_front": "Coloque seu documento em um local plano, inclua todas as páginas internas (deve conter sua foto)",
+      "header_address_page": "Página de endereço",
       "header_folded_doc_front": "Lado da foto de perfil",
       "hold_still": "Não se mova",
       "inactive_timeout_instruction": "Ela pode estar desconectada. <fallback>Tente usar seu celular</fallback>.",
@@ -927,6 +929,14 @@
       "list_item_tip_3": "Certifique-se de que todos os campos estejam legíveis",
       "subtitle": "Precisamos tirar fotos do seu documento para garantir que ele é autêntico.",
       "title": "Escaneie seu documento"
+    },
+    "intro_address_page": {
+      "animation_accessibility": "Uma ilustração da página de endereço no passaporte indiano",
+      "button_primary": "Tirar foto",
+      "list_item_tip_1": "Vá até a última página do seu passaporte",
+      "list_item_tip_2": "Tire uma foto da página que contém os nomes dos seus pais, endereço e número do processo",
+      "subtitle": "Precisamos disso por motivos regulatórios",
+      "title": "Em seguida, capture a página de endereço"
     },
     "intro_tilt": {
       "callout": "Usaremos a lanterna do seu celular",
@@ -1490,9 +1500,11 @@
     },
     "image_quality": {
       "feedback_blurry": "Vídeo muito desfocado",
+      "feedback_high_contrast": "Procure uma iluminação melhor",
       "feedback_low_contrast": "Procure uma iluminação melhor",
       "feedback_too_bright": "Muito claro",
-      "feedback_too_dark": "Muito escuro"
+      "feedback_too_dark": "Muito escuro",
+      "feedback_too_sharp": "Procure uma iluminação melhor"
     },
     "intro": {
       "animation_randomness_accessibility": "Exemplo de animação de alguém virando a cabeça para a direita, para cima, para baixo e para a esquerda, até que uma marca de verificação verde apareça.",
@@ -1917,6 +1929,7 @@
           "no_barcode_detail": "proofOfAddress.preview.no_barcode_detail",
           "no_barcode_title": "proofOfAddress.preview.no_barcode_title"
         },
+        "description_address_page": "document.capture.description_address_page",
         "detail": {
           "folded_doc_front": "document.capture.folded_doc_front"
         },
@@ -1932,6 +1945,7 @@
           "recording_complete": "document.capture.recording_complete",
           "recording_video": "document.capture.recording_video"
         },
+        "header_address_page": "document.capture.header_address_page",
         "header_folded_doc_front": "document.capture.header_folded_doc_front",
         "prompt": {
           "button_card": "document.capture.prompt_button_card",
@@ -2011,6 +2025,14 @@
         "list_item_tip_3": "document.intro.list_item_tip_3",
         "subtitle_generic_document": "document.intro.subtitle",
         "title_generic_document": "document.intro.title"
+      },
+      "doc_intro_address_page": {
+        "continue_button": "document.intro_address_page.button_primary",
+        "illustration_accessibility": "document.intro_address_page.animation_accessibility",
+        "option_1": "document.intro_address_page.list_item_tip_1",
+        "option_2": "document.intro_address_page.list_item_tip_2",
+        "subtitle": "document.intro_address_page.subtitle",
+        "title": "document.intro_address_page.title"
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
@@ -2370,8 +2392,10 @@
         "capture": {
           "feedback": {
             "blur_high": "faceMotion.image_quality.feedback_blurry",
+            "blur_low": "faceMotion.image_quality.feedback_too_sharp",
             "brightness_high": "faceMotion.image_quality.feedback_too_bright",
             "brightness_low": "faceMotion.image_quality.feedback_too_dark",
+            "contrast_high": "faceMotion.image_quality.feedback_high_contrast",
             "contrast_low": "faceMotion.image_quality.feedback_low_contrast",
             "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
             "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
@@ -4053,9 +4077,11 @@
     },
     "image_quality": {
       "feedback_blurry": "Vídeo muito desfocado",
+      "feedback_high_contrast": "Procure uma iluminação melhor",
       "feedback_low_contrast": "Procure uma iluminação melhor",
       "feedback_too_bright": "Muito claro",
-      "feedback_too_dark": "Muito escuro"
+      "feedback_too_dark": "Muito escuro",
+      "feedback_too_sharp": "Procure uma iluminação melhor"
     },
     "intro": {
       "animation_randomness_accessibility": "Exemplo de animação de alguém virando a cabeça para a direita, para cima, para baixo e para a esquerda, até que uma marca de verificação verde apareça.",

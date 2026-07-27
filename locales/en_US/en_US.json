@@ -833,8 +833,10 @@
       "camera_not_working_message": "Camera not working",
       "captured": "Photo captured",
       "capturing": "Capturing photo",
+      "description_address_page": "Last page of passport",
       "flip_document": "Flip to back side",
       "folded_doc_front": "Lay your document flat, include all inner pages (must contain your photo)",
+      "header_address_page": "Address page",
       "header_folded_doc_front": "Profile photo side",
       "hold_still": "Hold still",
       "inactive_timeout_instruction": "It may be disconnected. <fallback>Try using your phone instead</fallback>.",
@@ -927,6 +929,14 @@
       "list_item_tip_3": "Make sure all fields are readable",
       "subtitle": "We need to take photos of your document to ensure it is genuine.",
       "title": "Scan your ID"
+    },
+    "intro_address_page": {
+      "animation_accessibility": "An illustration of the address page in the Indian Passport",
+      "button_primary": "Take photo",
+      "list_item_tip_1": "Go to the last page of your passport",
+      "list_item_tip_2": "Take a photo of the page containing your parents’ names, address, and file number",
+      "subtitle": "We need this for regulatory reasons",
+      "title": "Next, capture the address page"
     },
     "intro_tilt": {
       "callout": "We will use your phone’s flashlight",
@@ -1490,9 +1500,11 @@
     },
     "image_quality": {
       "feedback_blurry": "Video is too blurry",
+      "feedback_high_contrast": "Find better lighting",
       "feedback_low_contrast": "Find better lighting",
       "feedback_too_bright": "Too bright",
-      "feedback_too_dark": "Too dark"
+      "feedback_too_dark": "Too dark",
+      "feedback_too_sharp": "Find better lighting"
     },
     "intro": {
       "animation_randomness_accessibility": "Example animation of someone turning their head right, up, down, and left, until a green check mark appears.",
@@ -1917,6 +1929,7 @@
           "no_barcode_detail": "proofOfAddress.preview.no_barcode_detail",
           "no_barcode_title": "proofOfAddress.preview.no_barcode_title"
         },
+        "description_address_page": "document.capture.description_address_page",
         "detail": {
           "folded_doc_front": "document.capture.folded_doc_front"
         },
@@ -1932,6 +1945,7 @@
           "recording_complete": "document.capture.recording_complete",
           "recording_video": "document.capture.recording_video"
         },
+        "header_address_page": "document.capture.header_address_page",
         "header_folded_doc_front": "document.capture.header_folded_doc_front",
         "prompt": {
           "button_card": "document.capture.prompt_button_card",
@@ -2011,6 +2025,14 @@
         "list_item_tip_3": "document.intro.list_item_tip_3",
         "subtitle_generic_document": "document.intro.subtitle",
         "title_generic_document": "document.intro.title"
+      },
+      "doc_intro_address_page": {
+        "continue_button": "document.intro_address_page.button_primary",
+        "illustration_accessibility": "document.intro_address_page.animation_accessibility",
+        "option_1": "document.intro_address_page.list_item_tip_1",
+        "option_2": "document.intro_address_page.list_item_tip_2",
+        "subtitle": "document.intro_address_page.subtitle",
+        "title": "document.intro_address_page.title"
       },
       "doc_scan": {
         "button_help": "document.scan.button_help",
@@ -2370,8 +2392,10 @@
         "capture": {
           "feedback": {
             "blur_high": "faceMotion.image_quality.feedback_blurry",
+            "blur_low": "faceMotion.image_quality.feedback_too_sharp",
             "brightness_high": "faceMotion.image_quality.feedback_too_bright",
             "brightness_low": "faceMotion.image_quality.feedback_too_dark",
+            "contrast_high": "faceMotion.image_quality.feedback_high_contrast",
             "contrast_low": "faceMotion.image_quality.feedback_low_contrast",
             "multiple_faces": "faceMotion.face_alignment.feedback_multiple_faces_detected",
             "multiple_faces_accessibility": "faceMotion.face_alignment.feedback_multiple_faces_detected_accessibility"
@@ -4053,9 +4077,11 @@
     },
     "image_quality": {
       "feedback_blurry": "Video is too blurry",
+      "feedback_high_contrast": "Find better lighting",
       "feedback_low_contrast": "Find better lighting",
       "feedback_too_bright": "Too bright",
-      "feedback_too_dark": "Too dark"
+      "feedback_too_dark": "Too dark",
+      "feedback_too_sharp": "Find better lighting"
     },
     "intro": {
       "animation_randomness_accessibility": "Example animation of someone turning their head right, up, down, and left, until a green check mark appears.",
