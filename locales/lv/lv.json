@@ -61,6 +61,7 @@
       "message": "Radās problēma ar jūsu dokumentu"
     },
     "country_selection": {
+      "clear_selection": "Notīrīt",
       "countries": {
         "ABW": "Aruba",
         "AFG": "Afganistāna",
@@ -1814,6 +1815,7 @@
         "title": "sample.selection.country_select_placeholder"
       },
       "country_selection": {
+        "clear_selection": "common.country_selection.clear_selection",
         "country_selected_accessibility": "document.country_select.country_selected_accessibility",
         "no_country_selected_accessibility": "document.country_select.country_not_selected_accessibility",
         "results_multiple_accessibility": "document.country_select.search_results_multiple_accessibility",

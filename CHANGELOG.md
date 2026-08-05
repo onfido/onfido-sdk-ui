@@ -7,6 +7,19 @@ and the SDK adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html)
 
 When any of the string translations change, it will result in a MINOR version change. As a result, you are responsible for ensuring the correct layout if you are using custom translations (see [language localization](https://documentation.onfido.com/sdk/web/#custom-translations-and-text)).
 
+## [v14.80.0] - 2026-08-05
+
+### Fixed
+
+- Fixed motion-capture instructions being hidden from screen readers.
+- Fix issue with interactive elements not being compatible with a screen reader cursor.
+- Associate issuing country combobox error message with the input via aria-describedby
+- Fixed screen reader focus returning to the Back button instead of the issuing country combobox after a country is selected or the listbox is dismissed
+- Fix aria-selected not being updated on issuing country listbox options to reflect the current selection.
+- Fix issue where the clear button in the "Issuing country" combobox had an inappropriate accessible name of "Close" instead of "Clear", which did not accurately describe its function.
+- Fixed country select interaction: the dropdown now opens only on click (replacing focus) and also on ArrowDown/ArrowUp key presses; focus is now correctly retained in the select component after a country is chosen.
+- Fix a hairline seam appearing around the face oval overlay during face video/motion capture on some devices
+
 ## [v14.79.1] - 2026-07-27
 
 ### Fixed

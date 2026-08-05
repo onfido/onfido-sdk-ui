@@ -61,6 +61,7 @@
       "message": "서류에 문제가 있습니다"
     },
     "country_selection": {
+      "clear_selection": "지우기",
       "countries": {
         "ABW": "아루바",
         "AFG": "아프가니스탄",
@@ -1814,6 +1815,7 @@
         "title": "sample.selection.country_select_placeholder"
       },
       "country_selection": {
+        "clear_selection": "common.country_selection.clear_selection",
         "country_selected_accessibility": "document.country_select.country_selected_accessibility",
         "no_country_selected_accessibility": "document.country_select.country_not_selected_accessibility",
         "results_multiple_accessibility": "document.country_select.search_results_multiple_accessibility",

@@ -525,11 +525,19 @@ At the end of the capture process, users will be instructed to revert back to th
 
 For more information regarding region blocking, please contact Onfido's [Customer Support](mailto:support@onfido.com).
 
+#### Cross-device configuration in the Workflow Builder
+
+Cross-device configurations can be managed either directly in Workflow Studio through the Workflow Builder – Entrust's recommended approach – or through the SDK initialization code.
+
+For more detailed documentation on workflow-level configurations in the Workflow Builder, please refer to the [Workflow Studio product guide](https://documentation.identity.entrust.com/getting-started/workflow-studio-product/#sdk-configuration-through-the-workflow-builder).
+
 #### Enforcing cross-device navigation
 
-In order to optimize the capture quality, it is recommended to enforce the cross-device flow. The option is available in Onfido Studio, configurable in the [workflow builder](https://documentation.onfido.com/getting-started/onfido-studio-product#document-capture-task).
+In order to optimize the capture quality, it is recommended to enforce the cross-device flow.
 
-Cross-device can also be enforced at run-time using the following initialization option:
+Cross-device enforcement can be managed directly in Workflow Studio through the Workflow Builder. For detailed documentation on cross-device configurations in Studio, please refer to the [Workflow Studio product guide](https://documentation.identity.entrust.com/getting-started/workflow-studio-product/#sdk-configuration-through-the-workflow-builder).
+
+Alternatively, cross-device navigation can be enforced at run-time using the following initialization option:
 
 - **`crossDevicePolicy {String}` - optional**
 
@@ -545,7 +553,9 @@ Cross-device can also be enforced at run-time using the following initialization
 
 #### Customizing the cross-device experience
 
-In addition to forcing the cross-device flow, the cross-device experience can be further customized during the SDK initialization with the following options:
+In addition to forcing the cross-device flow, the cross-device experience can be further customized directly in Workflow Studio through the Workflow Builder. This includes defining the cross-device method settings, two-factor authentication and custom URLs. For detailed documentation on cross-device configurations in Studio, please refer to the [Workflow Studio product guide](https://documentation.identity.entrust.com/getting-started/workflow-studio-product/#sdk-configuration-through-the-workflow-builder). 
+
+Alternatively, the cross-device experience can be customized in the SDK initialization code, with the following options:
 
 - **`_crossDeviceLinkMethods {List<String>}` - optional**
 
@@ -601,6 +611,16 @@ Success Manager.
 | **Dynamic cross-device QR code** <br/> When enabled, the QR code displayed in the source (desktop) session will automatically refresh every 20 seconds. <br/>This feature cannot currently be used with other link methods.                                                                                                                                           |                                                                                                                                                                              |
 | **User connection confirmation screen** <br/> When enabled, this new screen would appear as the first screen on the end-user's mobile device. It displays metadata relating to the source (desktop) session as well as guidance and an opportunity to drop out of the cross-device flow.                                                                              | ![Cross-device confirmation screen](demo/cross-device-confirmation.png)                                                                                                      |
 | **User verification screen** <br/> This screen is provided independently of (and would appear after) the aforementioned cross-device confirmation screen. When enabled, the mobile screen would request the end-user to select the confirmation code that appears on the initiating source (desktop) screen. Incorrect entry results in the cancellation of the flow. | ![Cross-device verification desktop screen](demo/cross-device-verification-source.png) ![Cross-device verification mobile screen](demo/cross-device-verification-mobile.png) |
+
+### Welcome screen and completion screen configuration in the Workflow Builder
+
+The Entrust Web SDK includes an introduction screen and a completion screen that can be optionally enabled as part of a verification workflow. 
+
+The introduction screen - or Welcome screen – is designed to establish trust in the identity verification process, setting the context for the IDV journey by providing end users with clear instructions and preliminary guidance on what to expect. 
+
+The completion screen - or Thank you screen – signals to end users that the identity verification workflow has finished. 
+
+By default, both the Welcome and Thank you screens are enabled, but can be optionally disabled with the toggle switches available in the Workflow Builder. For detailed documentation on SDK screen configurations in Studio, please refer to the [Workflow Studio product guide](https://documentation.identity.entrust.com/getting-started/workflow-studio-product/#welcome-screen-and-thank-you-screen).
 
 ## Completing a session
 
