@@ -325,6 +325,10 @@
           "instruction": "Intenta usar un archivo JPG o PNG",
           "message": "Tipo de archivo no compatible"
         }
+      },
+      "workflow_input_error": {
+        "subtitle": "Lamentablemente, ha ocurrido un error. Por favor, contacta a tu soporte.",
+        "title": "Lamentablemente, ha ocurrido un error. Por favor, contacta a tu soporte."
       }
     },
     "footer": {
@@ -2741,6 +2745,10 @@
           "workflow_abandoned": {
             "subtitle": "error.workflow_input.subtitle",
             "title": "error.workflow_input.title"
+          },
+          "workflow_input_error": {
+            "subtitle": "common.error.workflow_input_error.subtitle",
+            "title": "common.error.workflow_input_error.title"
           }
         },
         "footer": {

@@ -325,6 +325,10 @@
           "instruction": "Próbálkozzon JPG- vagy PNG-fájl használatával",
           "message": "A fájltípus nem támogatott"
         }
+      },
+      "workflow_input_error": {
+        "subtitle": "Sajnos hiba történt. Kérjük, lépjen kapcsolatba a támogatásával.",
+        "title": "Sajnos hiba történt. Kérjük, lépjen kapcsolatba a támogatásával."
       }
     },
     "footer": {
@@ -2741,6 +2745,10 @@
           "workflow_abandoned": {
             "subtitle": "error.workflow_input.subtitle",
             "title": "error.workflow_input.title"
+          },
+          "workflow_input_error": {
+            "subtitle": "common.error.workflow_input_error.subtitle",
+            "title": "common.error.workflow_input_error.title"
           }
         },
         "footer": {

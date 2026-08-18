@@ -325,6 +325,10 @@
           "instruction": "Poskusite uporabiti datoteko JPG ali PNG",
           "message": "Vrsta datoteke ni podprta"
         }
+      },
+      "workflow_input_error": {
+        "subtitle": "Na žalost je prišlo do napake. Prosimo, obrnite se na vašo podporo.",
+        "title": "Na žalost je prišlo do napake. Prosimo, obrnite se na vašo podporo."
       }
     },
     "footer": {
@@ -2741,6 +2745,10 @@
           "workflow_abandoned": {
             "subtitle": "error.workflow_input.subtitle",
             "title": "error.workflow_input.title"
+          },
+          "workflow_input_error": {
+            "subtitle": "common.error.workflow_input_error.subtitle",
+            "title": "common.error.workflow_input_error.title"
           }
         },
         "footer": {

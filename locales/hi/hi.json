@@ -325,6 +325,10 @@
           "instruction": "JPG या PNG फ़ाइल इस्तेमाल करके देखें",
           "message": "फ़ाइल का प्रकार समर्थित नहीं है"
         }
+      },
+      "workflow_input_error": {
+        "subtitle": "दुर्भाग्यवश, एक त्रुटि हुई है। कृपया अपने सहायता से संपर्क करें।",
+        "title": "दुर्भाग्यवश, एक त्रुटि हुई है। कृपया अपने सहायता से संपर्क करें।"
       }
     },
     "footer": {
@@ -2741,6 +2745,10 @@
           "workflow_abandoned": {
             "subtitle": "error.workflow_input.subtitle",
             "title": "error.workflow_input.title"
+          },
+          "workflow_input_error": {
+            "subtitle": "common.error.workflow_input_error.subtitle",
+            "title": "common.error.workflow_input_error.title"
           }
         },
         "footer": {

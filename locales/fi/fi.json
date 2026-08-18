@@ -325,6 +325,10 @@
           "instruction": "Kokeile JPG- tai PNG-tiedostoa",
           "message": "Tiedostotyyppiä ei tueta"
         }
+      },
+      "workflow_input_error": {
+        "subtitle": "Valitettavasti on tapahtunut virhe. Ota yhteyttä tukeesi.",
+        "title": "Valitettavasti on tapahtunut virhe. Ota yhteyttä tukeesi."
       }
     },
     "footer": {
@@ -2741,6 +2745,10 @@
           "workflow_abandoned": {
             "subtitle": "error.workflow_input.subtitle",
             "title": "error.workflow_input.title"
+          },
+          "workflow_input_error": {
+            "subtitle": "common.error.workflow_input_error.subtitle",
+            "title": "common.error.workflow_input_error.title"
           }
         },
         "footer": {

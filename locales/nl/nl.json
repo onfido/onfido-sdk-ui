@@ -325,6 +325,10 @@
           "instruction": "Probeer het met een .JPG- of .PNG-bestand",
           "message": "Bestandstype wordt niet ondersteund"
         }
+      },
+      "workflow_input_error": {
+        "subtitle": "Helaas is er een fout opgetreden. Neem alstublieft contact op met uw ondersteuning.",
+        "title": "Helaas is er een fout opgetreden. Neem alstublieft contact op met uw ondersteuning."
       }
     },
     "footer": {
@@ -2741,6 +2745,10 @@
           "workflow_abandoned": {
             "subtitle": "error.workflow_input.subtitle",
             "title": "error.workflow_input.title"
+          },
+          "workflow_input_error": {
+            "subtitle": "common.error.workflow_input_error.subtitle",
+            "title": "common.error.workflow_input_error.title"
           }
         },
         "footer": {

@@ -325,6 +325,10 @@
           "instruction": "נסה להעלות קובץ JPG או PNG",
           "message": "קובץ לא נתמך"
         }
+      },
+      "workflow_input_error": {
+        "subtitle": "למרבה הצער, אירעה שגיאה. אנא צור קשר עם התמיכה שלך.",
+        "title": "למרבה הצער, אירעה שגיאה. אנא צור קשר עם התמיכה שלך."
       }
     },
     "footer": {
@@ -2741,6 +2745,10 @@
           "workflow_abandoned": {
             "subtitle": "error.workflow_input.subtitle",
             "title": "error.workflow_input.title"
+          },
+          "workflow_input_error": {
+            "subtitle": "common.error.workflow_input_error.subtitle",
+            "title": "common.error.workflow_input_error.title"
           }
         },
         "footer": {

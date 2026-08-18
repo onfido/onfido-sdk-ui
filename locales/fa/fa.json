@@ -325,6 +325,10 @@
           "instruction": "سعی کنید از فایل با فرمت JPG یا PNG استفاده کنید",
           "message": "نوع فایل پشتیبانی نمی‌شود"
         }
+      },
+      "workflow_input_error": {
+        "subtitle": "متاسفانه، خطایی رخ داده است. لطفا با پشتیبانی خود تماس بگیرید.",
+        "title": "متاسفانه، خطایی رخ داده است. لطفا با پشتیبانی خود تماس بگیرید."
       }
     },
     "footer": {
@@ -2741,6 +2745,10 @@
           "workflow_abandoned": {
             "subtitle": "error.workflow_input.subtitle",
             "title": "error.workflow_input.title"
+          },
+          "workflow_input_error": {
+            "subtitle": "common.error.workflow_input_error.subtitle",
+            "title": "common.error.workflow_input_error.title"
           }
         },
         "footer": {

@@ -325,6 +325,10 @@
           "instruction": "ลองใช้ไฟล์ JPG หรือ PNG",
           "message": "ไม่รองรับประเภทไฟล์"
         }
+      },
+      "workflow_input_error": {
+        "subtitle": "ขออภัย, มีข้อผิดพลาดเกิดขึ้น กรุณาติดต่อฝ่ายสนับสนุนของคุณ",
+        "title": "ขออภัย, มีข้อผิดพลาดเกิดขึ้น กรุณาติดต่อฝ่ายสนับสนุนของคุณ"
       }
     },
     "footer": {
@@ -2741,6 +2745,10 @@
           "workflow_abandoned": {
             "subtitle": "error.workflow_input.subtitle",
             "title": "error.workflow_input.title"
+          },
+          "workflow_input_error": {
+            "subtitle": "common.error.workflow_input_error.subtitle",
+            "title": "common.error.workflow_input_error.title"
           }
         },
         "footer": {

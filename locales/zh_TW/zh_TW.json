@@ -325,6 +325,10 @@
           "instruction": "嘗試使用 JPG 或 PNG 檔案",
           "message": "不支援的檔案類型"
         }
+      },
+      "workflow_input_error": {
+        "subtitle": "很不幸，發生了一個錯誤。請聯繫您的支援。",
+        "title": "很不幸，發生了一個錯誤。請聯繫您的支援。"
       }
     },
     "footer": {
@@ -2741,6 +2745,10 @@
           "workflow_abandoned": {
             "subtitle": "error.workflow_input.subtitle",
             "title": "error.workflow_input.title"
+          },
+          "workflow_input_error": {
+            "subtitle": "common.error.workflow_input_error.subtitle",
+            "title": "common.error.workflow_input_error.title"
           }
         },
         "footer": {

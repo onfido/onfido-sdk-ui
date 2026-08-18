@@ -325,6 +325,10 @@
           "instruction": "尝试使用JPG或PNG文件",
           "message": "文件类型不受支持"
         }
+      },
+      "workflow_input_error": {
+        "subtitle": "很遗憾，发生了一个错误。请联系您的支持。",
+        "title": "很遗憾，发生了一个错误。请联系您的支持。"
       }
     },
     "footer": {
@@ -2741,6 +2745,10 @@
           "workflow_abandoned": {
             "subtitle": "error.workflow_input.subtitle",
             "title": "error.workflow_input.title"
+          },
+          "workflow_input_error": {
+            "subtitle": "common.error.workflow_input_error.subtitle",
+            "title": "common.error.workflow_input_error.title"
           }
         },
         "footer": {

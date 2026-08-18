@@ -325,6 +325,10 @@
           "instruction": "Kasutage JPG- või PNG-faili",
           "message": "Toetamata failitüüp"
         }
+      },
+      "workflow_input_error": {
+        "subtitle": "Kahjuks on ilmnenud viga. Palun võtke ühendust oma toega.",
+        "title": "Kahjuks on ilmnenud viga. Palun võtke ühendust oma toega."
       }
     },
     "footer": {
@@ -2741,6 +2745,10 @@
           "workflow_abandoned": {
             "subtitle": "error.workflow_input.subtitle",
             "title": "error.workflow_input.title"
+          },
+          "workflow_input_error": {
+            "subtitle": "common.error.workflow_input_error.subtitle",
+            "title": "common.error.workflow_input_error.title"
           }
         },
         "footer": {

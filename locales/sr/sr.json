@@ -325,6 +325,10 @@
           "instruction": "Probajte sa JPG ili PNG datotekom",
           "message": "Tip datoteke nije podržan"
         }
+      },
+      "workflow_input_error": {
+        "subtitle": "Nažalost, došlo je do greške. Molimo vas da kontaktirate vašu podršku.",
+        "title": "Nažalost, došlo je do greške. Molimo vas da kontaktirate vašu podršku."
       }
     },
     "footer": {
@@ -2741,6 +2745,10 @@
           "workflow_abandoned": {
             "subtitle": "error.workflow_input.subtitle",
             "title": "error.workflow_input.title"
+          },
+          "workflow_input_error": {
+            "subtitle": "common.error.workflow_input_error.subtitle",
+            "title": "common.error.workflow_input_error.title"
           }
         },
         "footer": {

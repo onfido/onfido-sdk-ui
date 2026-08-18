@@ -325,6 +325,10 @@
           "instruction": "JPG 또는 PNG 파일을 사용해보세요",
           "message": "지원되지 않는 파일 형식"
         }
+      },
+      "workflow_input_error": {
+        "subtitle": "불행히도 오류가 발생했습니다. 지원팀에 연락해 주세요.",
+        "title": "불행히도 오류가 발생했습니다. 지원팀에 연락해 주세요."
       }
     },
     "footer": {
@@ -2741,6 +2745,10 @@
           "workflow_abandoned": {
             "subtitle": "error.workflow_input.subtitle",
             "title": "error.workflow_input.title"
+          },
+          "workflow_input_error": {
+            "subtitle": "common.error.workflow_input_error.subtitle",
+            "title": "common.error.workflow_input_error.title"
           }
         },
         "footer": {

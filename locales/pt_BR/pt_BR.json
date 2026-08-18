@@ -325,6 +325,10 @@
           "instruction": "Tente usar um arquivo JPG ou PNG",
           "message": "Tipo de arquivo não suportado"
         }
+      },
+      "workflow_input_error": {
+        "subtitle": "Infelizmente, ocorreu um erro. Por favor, entre em contato com o seu suporte.",
+        "title": "Infelizmente, ocorreu um erro. Por favor, entre em contato com o seu suporte."
       }
     },
     "footer": {
@@ -2741,6 +2745,10 @@
           "workflow_abandoned": {
             "subtitle": "error.workflow_input.subtitle",
             "title": "error.workflow_input.title"
+          },
+          "workflow_input_error": {
+            "subtitle": "common.error.workflow_input_error.subtitle",
+            "title": "common.error.workflow_input_error.title"
           }
         },
         "footer": {

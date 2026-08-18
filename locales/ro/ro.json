@@ -325,6 +325,10 @@
           "instruction": "Încercați să utilizați un fișier JPG sau PNG",
           "message": "Tipul de fișier nu este compatibil"
         }
+      },
+      "workflow_input_error": {
+        "subtitle": "Din păcate, a apărut o eroare. Vă rugăm să contactați suportul dvs.",
+        "title": "Din păcate, a apărut o eroare. Vă rugăm să contactați suportul dvs."
       }
     },
     "footer": {
@@ -2741,6 +2745,10 @@
           "workflow_abandoned": {
             "subtitle": "error.workflow_input.subtitle",
             "title": "error.workflow_input.title"
+          },
+          "workflow_input_error": {
+            "subtitle": "common.error.workflow_input_error.subtitle",
+            "title": "common.error.workflow_input_error.title"
           }
         },
         "footer": {

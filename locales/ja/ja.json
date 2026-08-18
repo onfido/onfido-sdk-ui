@@ -325,6 +325,10 @@
           "instruction": "JPGまたはPNGファイルを使用してください",
           "message": "このファイルタイプには対応していません"
         }
+      },
+      "workflow_input_error": {
+        "subtitle": "残念ながら、エラーが発生しました。サポートに連絡してください。",
+        "title": "残念ながら、エラーが発生しました。サポートに連絡してください。"
       }
     },
     "footer": {
@@ -2741,6 +2745,10 @@
           "workflow_abandoned": {
             "subtitle": "error.workflow_input.subtitle",
             "title": "error.workflow_input.title"
+          },
+          "workflow_input_error": {
+            "subtitle": "common.error.workflow_input_error.subtitle",
+            "title": "common.error.workflow_input_error.title"
           }
         },
         "footer": {

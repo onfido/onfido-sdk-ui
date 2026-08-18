@@ -325,6 +325,10 @@
           "instruction": "Prøv å bruke en JPG- eller PNG-fil",
           "message": "Filformatet støttes ikke"
         }
+      },
+      "workflow_input_error": {
+        "subtitle": "Dessverre har det oppstått en feil. Vennligst kontakt din støtte.",
+        "title": "Dessverre har det oppstått en feil. Vennligst kontakt din støtte."
       }
     },
     "footer": {
@@ -2741,6 +2745,10 @@
           "workflow_abandoned": {
             "subtitle": "error.workflow_input.subtitle",
             "title": "error.workflow_input.title"
+          },
+          "workflow_input_error": {
+            "subtitle": "common.error.workflow_input_error.subtitle",
+            "title": "common.error.workflow_input_error.title"
           }
         },
         "footer": {

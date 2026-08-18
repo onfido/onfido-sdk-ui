@@ -325,6 +325,10 @@
           "instruction": "Δοκιμάστε να χρησιμοποιήσετε ένα αρχείο JPG ή PNG",
           "message": "Ο τύπος του αρχείου δεν υποστηρίζεται"
         }
+      },
+      "workflow_input_error": {
+        "subtitle": "Δυστυχώς, παρουσιάστηκε ένα σφάλμα. Παρακαλώ επικοινωνήστε με την υποστήριξή σας.",
+        "title": "Δυστυχώς, παρουσιάστηκε ένα σφάλμα. Παρακαλώ επικοινωνήστε με την υποστήριξή σας."
       }
     },
     "footer": {
@@ -2741,6 +2745,10 @@
           "workflow_abandoned": {
             "subtitle": "error.workflow_input.subtitle",
             "title": "error.workflow_input.title"
+          },
+          "workflow_input_error": {
+            "subtitle": "common.error.workflow_input_error.subtitle",
+            "title": "common.error.workflow_input_error.title"
           }
         },
         "footer": {

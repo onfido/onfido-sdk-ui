@@ -7,6 +7,15 @@ and the SDK adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html)
 
 When any of the string translations change, it will result in a MINOR version change. As a result, you are responsible for ensuring the correct layout if you are using custom translations (see [language localization](https://documentation.onfido.com/sdk/web/#custom-translations-and-text)).
 
+## [v14.81.0] - 2026-08-18
+
+### Fixed
+
+- Fixed the motion capture instruction arrows box being hidden on short viewports; it's now visible.
+- Fixed the Timeout Alert modal clipping its content at high browser zoom, making the Retry button unreachable.
+- Fixed screen readers not announcing the screen title as a heading. Focus on screen load was moved to a wrapper element without a heading role, so assistive technologies read the title text without its role. Focus is now placed on the heading element itself, so it is announced as a heading (for example "Unaccepted document, heading").
+- Fixed FaceMotion sometimes failing with "The module is not supported in the current environment" on capable devices, by replacing a static MediaRecorder existence check with a real codec-support probe that retries once before giving up.
+
 ## [v14.80.0] - 2026-08-05
 
 ### Fixed
