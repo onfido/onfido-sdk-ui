@@ -7,6 +7,25 @@ and the SDK adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html)
 
 When any of the string translations change, it will result in a MINOR version change. As a result, you are responsible for ensuring the correct layout if you are using custom translations (see [language localization](https://documentation.onfido.com/sdk/web/#custom-translations-and-text)).
 
+## [v14.82.0] - 2026-08-27
+
+### Added
+
+- Add user analytics events for camera permission and document capture screens to enable tracking user drop-off at key verification stages
+
+### Changed
+
+- Improve screen reader support by adding descriptive titles to all SDK iframe elements for WCAG compliance
+
+### Fixed
+
+- Fix incorrect rear camera selection during face capture on devices with Spanish language settings
+- Fix validation error messages to properly announce errors to screen readers while keeping decorative error icons hidden from assistive technology
+- Fixed accessibility in the country selector. Decorative chevron icons are now hidden from screen readers.
+- Fix country selection accessibility so assistive technology users receive clear confirmation of their chosen country after selecting from the dropdown.
+- Fix crash in Retry and Consent screens on iOS when custom fonts are configured but unavailable
+- Fix country selector so clearing the search text no longer forgets your previously selected country. If you click away without picking a new one, your original selection is kept.
+
 ## [v14.81.0] - 2026-08-18
 
 ### Fixed

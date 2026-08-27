@@ -834,6 +834,10 @@
     "capture": {
       "button_accessibility": "फ़ोटो खींचें",
       "camera_loading": "कैमरा लोड हो रहा है",
+      "camera_loading_stage_1": "कैमरा तैयार किया जा रहा है",
+      "camera_loading_stage_2": "लगभग तैयार",
+      "camera_loading_stage_3": "बस एक पल और",
+      "camera_loading_warmup_shot": "कैमरा तैयार है",
       "camera_not_working_instruction": "इसके बजाय, <fallback>बेसिक कैमरा मोड</fallback> इस्तेमाल करके फ़ोटो खींचें",
       "camera_not_working_message": "कैमरा काम नहीं कर रहा",
       "captured": "फ़ोटो कैप्चर हो गई",
@@ -948,7 +952,8 @@
       "list_item_tip_1": "अपना आईडी फ्रेम में रखें",
       "list_item_tip_2": "फ़्रेम की चारों भुजाएँ हरी होने तक अपना आईडी झुकाएँ",
       "subtitle": "हम यह सुनिश्चित करने के लिए ऐसा करते हैं कि आपका दस्तावेज़ वास्तविक है",
-      "title": "अपनी ID को होलोग्राम दिखाने के लिए झुकाएँ"
+      "title": "अपनी ID को होलोग्राम दिखाने के लिए झुकाएँ",
+      "video_accessibility": "उदाहरण वीडियो जो दर्शाता है कि आईडी कार्ड को चार दिशाओं (ऊपर, नीचे, बाएँ और दाएँ) में झुकाने पर उसके होलोग्राम कैसे दिखते हैं"
     },
     "preview": {
       "blur_detail": "पक्का करें कि सब कुछ साफ़-साफ़ दिख रहा है",
@@ -1930,6 +1935,20 @@
           "no_document": "document.capture.no_document"
         }
       },
+      "doc_camera_load": {
+        "progress_stage_one": {
+          "title": "document.capture.camera_loading_stage_1"
+        },
+        "progress_stage_three": {
+          "title": "document.capture.camera_loading_stage_3"
+        },
+        "progress_stage_two": {
+          "title": "document.capture.camera_loading_stage_2"
+        },
+        "warmup_shot": {
+          "title": "document.capture.camera_loading_warmup_shot"
+        }
+      },
       "doc_capture": {
         "alert": {
           "no_barcode_detail": "proofOfAddress.preview.no_barcode_detail",
@@ -2281,7 +2300,8 @@
         "list_item_tip_1": "document.intro_tilt.list_item_tip_1",
         "list_item_tip_2": "document.intro_tilt.list_item_tip_2",
         "sub-title": "document.intro_tilt.subtitle",
-        "title": "document.intro_tilt.title"
+        "title": "document.intro_tilt.title",
+        "video_accessibility": "document.intro_tilt.video_accessibility"
       },
       "doc_video_tilt": {
         "error": {

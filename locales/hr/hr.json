@@ -834,6 +834,10 @@
     "capture": {
       "button_accessibility": "Snimite fotografiju",
       "camera_loading": "Učitavanje kamere",
+      "camera_loading_stage_1": "Priprema kamere",
+      "camera_loading_stage_2": "Gotovo spremno",
+      "camera_loading_stage_3": "Samo još trenutak",
+      "camera_loading_warmup_shot": "Kamera je spremna",
       "camera_not_working_instruction": "Umjesto toga snimite fotografiju rabeći <fallback>uobičajeni način na kameri</fallback>",
       "camera_not_working_message": "Kamera ne radi",
       "captured": "Fotografija je snimljena",
@@ -926,14 +930,14 @@
       "title_tip_2": "Postavite svoju osobnu iskaznicu u okvir"
     },
     "intro": {
-      "animation_accessibility": "Animacija uspješnog procesa skeniranja osobne iskaznice",
+      "animation_accessibility": "Animacija uspješnog procesa skeniranja identifikacijskog dokumenta",
       "button_primary_selection_off": "Započni skeniranje",
       "button_primary_selection_on": "Odaberite dokument",
       "list_item_tip_1": "Pronađite mjesto s dobrim osvjetljenjem",
-      "list_item_tip_2": "Postavite svoju osobnu iskaznicu u okvir",
+      "list_item_tip_2": "Postavite svoj identifikacijski dokument u okvir",
       "list_item_tip_3": "Provjerite jesu li sva polja čitljiva",
       "subtitle": "Moramo fotografirati vašu ispravu kako bismo provjerili njezinu autentičnost.",
-      "title": "Skenirajte svoju osobnu iskaznicu"
+      "title": "Skenirajte svoj identifikacijski dokument"
     },
     "intro_address_page": {
       "animation_accessibility": "Ilustracija stranice s adresom u indijskoj putovnici",
@@ -948,7 +952,8 @@
       "list_item_tip_1": "Držite osobnu iskaznicu unutar okvira",
       "list_item_tip_2": "Naginjite osobnu iskaznicu dok sve četiri strane okvira ne postanu zelene",
       "subtitle": "Ovo radimo kako bismo osigurali da je vaš dokument autentičan",
-      "title": "Nagnite osobnu iskaznicu kako biste prikazali njezine hologramе"
+      "title": "Nagnite osobnu iskaznicu kako biste prikazali njezine hologramе",
+      "video_accessibility": "Primjer videozapisa koji pokazuje kako naginjanje osobne iskaznice u četiri smjera (gore, dolje, lijevo i desno) otkriva njezine hologramе"
     },
     "preview": {
       "blur_detail": "Pobrinite se da se sve jasno vidi",
@@ -1930,6 +1935,20 @@
           "no_document": "document.capture.no_document"
         }
       },
+      "doc_camera_load": {
+        "progress_stage_one": {
+          "title": "document.capture.camera_loading_stage_1"
+        },
+        "progress_stage_three": {
+          "title": "document.capture.camera_loading_stage_3"
+        },
+        "progress_stage_two": {
+          "title": "document.capture.camera_loading_stage_2"
+        },
+        "warmup_shot": {
+          "title": "document.capture.camera_loading_warmup_shot"
+        }
+      },
       "doc_capture": {
         "alert": {
           "no_barcode_detail": "proofOfAddress.preview.no_barcode_detail",
@@ -2281,7 +2300,8 @@
         "list_item_tip_1": "document.intro_tilt.list_item_tip_1",
         "list_item_tip_2": "document.intro_tilt.list_item_tip_2",
         "sub-title": "document.intro_tilt.subtitle",
-        "title": "document.intro_tilt.title"
+        "title": "document.intro_tilt.title",
+        "video_accessibility": "document.intro_tilt.video_accessibility"
       },
       "doc_video_tilt": {
         "error": {

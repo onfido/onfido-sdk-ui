@@ -834,6 +834,10 @@
     "capture": {
       "button_accessibility": "Fotografuoti",
       "camera_loading": "Kraunama kamera",
+      "camera_loading_stage_1": "Ruošiame kamerą",
+      "camera_loading_stage_2": "Beveik baigta",
+      "camera_loading_stage_3": "Dar akimirka",
+      "camera_loading_warmup_shot": "Kamera paruošta",
       "camera_not_working_instruction": "Fotografuokite naudodami <fallback>pagrindinį kameros režimą</fallback>",
       "camera_not_working_message": "Kamera neveikia",
       "captured": "Nufotografuota nuotrauka",
@@ -948,7 +952,8 @@
       "list_item_tip_1": "Laikykite savo asmens dokumentą rėmelyje",
       "list_item_tip_2": "Pakreipkite savo asmens dokumentą, kol visos keturios rėmelio pusės taps žalios",
       "subtitle": "Tai darome siekdami užtikrinti, kad jūsų dokumentas yra tikras",
-      "title": "Palenkite savo asmens dokumentą, kad matytųsi jo hologramos"
+      "title": "Palenkite savo asmens dokumentą, kad matytųsi jo hologramos",
+      "video_accessibility": "Pavyzdinis vaizdo įrašas, rodantis, kaip pakreipus asmens tapatybės kortelę keturiomis kryptimis (aukštyn, žemyn, į kairę ir į dešinę) matyti jos hologramos"
     },
     "preview": {
       "blur_detail": "Įsitikinkite, kad viskas aiškiai matosi",
@@ -1930,6 +1935,20 @@
           "no_document": "document.capture.no_document"
         }
       },
+      "doc_camera_load": {
+        "progress_stage_one": {
+          "title": "document.capture.camera_loading_stage_1"
+        },
+        "progress_stage_three": {
+          "title": "document.capture.camera_loading_stage_3"
+        },
+        "progress_stage_two": {
+          "title": "document.capture.camera_loading_stage_2"
+        },
+        "warmup_shot": {
+          "title": "document.capture.camera_loading_warmup_shot"
+        }
+      },
       "doc_capture": {
         "alert": {
           "no_barcode_detail": "proofOfAddress.preview.no_barcode_detail",
@@ -2281,7 +2300,8 @@
         "list_item_tip_1": "document.intro_tilt.list_item_tip_1",
         "list_item_tip_2": "document.intro_tilt.list_item_tip_2",
         "sub-title": "document.intro_tilt.subtitle",
-        "title": "document.intro_tilt.title"
+        "title": "document.intro_tilt.title",
+        "video_accessibility": "document.intro_tilt.video_accessibility"
       },
       "doc_video_tilt": {
         "error": {

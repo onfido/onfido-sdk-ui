@@ -834,6 +834,10 @@
     "capture": {
       "button_accessibility": "Posnemite fotografijo",
       "camera_loading": "Nalaganje kamere",
+      "camera_loading_stage_1": "Priprava kamere",
+      "camera_loading_stage_2": "Skoraj pripravljeno",
+      "camera_loading_stage_3": "Še trenutek",
+      "camera_loading_warmup_shot": "Kamera pripravljena",
       "camera_not_working_instruction": "Namesto tega fotografirajte z <fallback>osnovnim načinom kamere</fallback>",
       "camera_not_working_message": "Kamera ne deluje",
       "captured": "Fotografija je zajeta",
@@ -930,7 +934,7 @@
       "button_primary_selection_off": "Začni skeniranje",
       "button_primary_selection_on": "Izberite dokument",
       "list_item_tip_1": "Poiščite prostor z dobro osvetlitvijo",
-      "list_item_tip_2": "Postavite svojo osebno izkaznico v okvir",
+      "list_item_tip_2": "Postavite svoj osebni dokument v okvir",
       "list_item_tip_3": "Prepričajte se, da so vsa polja berljiva",
       "subtitle": "Za preverjanje pristnosti moramo fotografirati vaš dokument.",
       "title": "Skenirajte svoj osebni dokument"
@@ -948,7 +952,8 @@
       "list_item_tip_1": "Držite osebni dokument v okvirju",
       "list_item_tip_2": "Nagibajte osebni dokument, dokler vse štiri strani okvirja ne postanejo zelene",
       "subtitle": "To storimo, da zagotovimo pristnost vašega dokumenta.",
-      "title": "Nagnite osebni dokument, da prikažete njegove holograme"
+      "title": "Nagnite osebni dokument, da prikažete njegove holograme",
+      "video_accessibility": "Primer videoposnetka, ki prikazuje, kako nagibanje osebne izkaznice v štirih smereh (gor, dol, levo in desno) razkrije njene holograme"
     },
     "preview": {
       "blur_detail": "Prepričajte se, da je vse jasno",
@@ -1930,6 +1935,20 @@
           "no_document": "document.capture.no_document"
         }
       },
+      "doc_camera_load": {
+        "progress_stage_one": {
+          "title": "document.capture.camera_loading_stage_1"
+        },
+        "progress_stage_three": {
+          "title": "document.capture.camera_loading_stage_3"
+        },
+        "progress_stage_two": {
+          "title": "document.capture.camera_loading_stage_2"
+        },
+        "warmup_shot": {
+          "title": "document.capture.camera_loading_warmup_shot"
+        }
+      },
       "doc_capture": {
         "alert": {
           "no_barcode_detail": "proofOfAddress.preview.no_barcode_detail",
@@ -2281,7 +2300,8 @@
         "list_item_tip_1": "document.intro_tilt.list_item_tip_1",
         "list_item_tip_2": "document.intro_tilt.list_item_tip_2",
         "sub-title": "document.intro_tilt.subtitle",
-        "title": "document.intro_tilt.title"
+        "title": "document.intro_tilt.title",
+        "video_accessibility": "document.intro_tilt.video_accessibility"
       },
       "doc_video_tilt": {
         "error": {

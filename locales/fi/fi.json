@@ -834,6 +834,10 @@
     "capture": {
       "button_accessibility": "Ota kuva",
       "camera_loading": "Kamera latautuu",
+      "camera_loading_stage_1": "Valmistellaan kameraa",
+      "camera_loading_stage_2": "Melkein valmis",
+      "camera_loading_stage_3": "Hetki vielä",
+      "camera_loading_warmup_shot": "Kamera on valmis",
       "camera_not_working_instruction": "Ota kuva sen sijaan <fallback>kameran perustilassa</fallback>",
       "camera_not_working_message": "Kamera ei toimi",
       "captured": "Kuva otettu",
@@ -948,7 +952,8 @@
       "list_item_tip_1": "Pidä henkilöllisyystodistuksesi kehyksen sisällä",
       "list_item_tip_2": "Kallista henkilötodistustasi, kunnes kaikki kehyksen neljä sivua muuttuvat vihreiksi",
       "subtitle": "Teemme tämän varmistaaksemme, että asiakirjasi on aito",
-      "title": "Kallista henkilöllisyystodistustasi, jotta hologrammit näkyvät"
+      "title": "Kallista henkilöllisyystodistustasi, jotta hologrammit näkyvät",
+      "video_accessibility": "Esimerkkivideo, joka näyttää, miten henkilökorttia kallistamalla neljään suuntaan (ylös, alas, vasemmalle ja oikealle) sen hologrammit tulevat näkyviin"
     },
     "preview": {
       "blur_detail": "Varmista, että kaikki on selkeää",
@@ -1930,6 +1935,20 @@
           "no_document": "document.capture.no_document"
         }
       },
+      "doc_camera_load": {
+        "progress_stage_one": {
+          "title": "document.capture.camera_loading_stage_1"
+        },
+        "progress_stage_three": {
+          "title": "document.capture.camera_loading_stage_3"
+        },
+        "progress_stage_two": {
+          "title": "document.capture.camera_loading_stage_2"
+        },
+        "warmup_shot": {
+          "title": "document.capture.camera_loading_warmup_shot"
+        }
+      },
       "doc_capture": {
         "alert": {
           "no_barcode_detail": "proofOfAddress.preview.no_barcode_detail",
@@ -2281,7 +2300,8 @@
         "list_item_tip_1": "document.intro_tilt.list_item_tip_1",
         "list_item_tip_2": "document.intro_tilt.list_item_tip_2",
         "sub-title": "document.intro_tilt.subtitle",
-        "title": "document.intro_tilt.title"
+        "title": "document.intro_tilt.title",
+        "video_accessibility": "document.intro_tilt.video_accessibility"
       },
       "doc_video_tilt": {
         "error": {

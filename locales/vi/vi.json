@@ -834,6 +834,10 @@
     "capture": {
       "button_accessibility": "Chụp ảnh",
       "camera_loading": "Đang tải camera",
+      "camera_loading_stage_1": "Đang chuẩn bị camera",
+      "camera_loading_stage_2": "Sắp xong",
+      "camera_loading_stage_3": "Chỉ còn một chút",
+      "camera_loading_warmup_shot": "Máy ảnh sẵn sàng",
       "camera_not_working_instruction": "Thay vào đó, hãy chụp ảnh bằng <fallback>chế độ máy ảnh cơ bản</fallback>",
       "camera_not_working_message": "Máy ảnh không hoạt động",
       "captured": "Ảnh đã chụp",
@@ -948,7 +952,8 @@
       "list_item_tip_1": "Giữ giấy tờ tùy thân trong khung hình",
       "list_item_tip_2": "Nghiêng giấy tờ tùy thân cho đến khi cả bốn cạnh của khung chuyển sang màu xanh lá",
       "subtitle": "Chúng tôi thực hiện điều này để đảm bảo tài liệu của bạn là xác thực",
-      "title": "Nghiêng giấy tờ tùy thân để hiển thị hình ảnh ba chiều"
+      "title": "Nghiêng giấy tờ tùy thân để hiển thị hình ảnh ba chiều",
+      "video_accessibility": "Video ví dụ minh hoạ cách nghiêng thẻ ID theo bốn hướng (trên, dưới, trái, phải) để thấy các hình ba chiều"
     },
     "preview": {
       "blur_detail": "Đảm bảo hình ảnh rõ ràng",
@@ -1930,6 +1935,20 @@
           "no_document": "document.capture.no_document"
         }
       },
+      "doc_camera_load": {
+        "progress_stage_one": {
+          "title": "document.capture.camera_loading_stage_1"
+        },
+        "progress_stage_three": {
+          "title": "document.capture.camera_loading_stage_3"
+        },
+        "progress_stage_two": {
+          "title": "document.capture.camera_loading_stage_2"
+        },
+        "warmup_shot": {
+          "title": "document.capture.camera_loading_warmup_shot"
+        }
+      },
       "doc_capture": {
         "alert": {
           "no_barcode_detail": "proofOfAddress.preview.no_barcode_detail",
@@ -2281,7 +2300,8 @@
         "list_item_tip_1": "document.intro_tilt.list_item_tip_1",
         "list_item_tip_2": "document.intro_tilt.list_item_tip_2",
         "sub-title": "document.intro_tilt.subtitle",
-        "title": "document.intro_tilt.title"
+        "title": "document.intro_tilt.title",
+        "video_accessibility": "document.intro_tilt.video_accessibility"
       },
       "doc_video_tilt": {
         "error": {

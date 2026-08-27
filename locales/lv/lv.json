@@ -834,6 +834,10 @@
     "capture": {
       "button_accessibility": "Uzņemt fotoattēlu",
       "camera_loading": "Kamera tiek ielādēta",
+      "camera_loading_stage_1": "Sagatavojam kameru",
+      "camera_loading_stage_2": "Gandrīz gatavs",
+      "camera_loading_stage_3": "Vēl brīdi",
+      "camera_loading_warmup_shot": "Kamera ir gatava",
       "camera_not_working_instruction": "Tā vietā uzņemiet fotoattēlu, izmantojot <fallback>kameras pamatrežīmu</fallback>",
       "camera_not_working_message": "Kamera nedarbojas",
       "captured": "Fotoattēls uzņemts",
@@ -948,7 +952,8 @@
       "list_item_tip_1": "Turiet savu dokumentu rāmī",
       "list_item_tip_2": "Nolieciet savu dokumentu tā, lai visas četras ietvara malas kļūtu zaļas",
       "subtitle": "Mēs to darām, lai pārliecinātos, ka jūsu dokuments ir īsts.",
-      "title": "Nolieciet savu dokumentu, lai parādītu tā hologrammas"
+      "title": "Nolieciet savu dokumentu, lai parādītu tā hologrammas",
+      "video_accessibility": "Parauga video, kas parāda, kā personas apliecības pagriešana četros virzienos (augšup, lejup, pa kreisi un pa labi) atklāj tās hologrammas"
     },
     "preview": {
       "blur_detail": "Pārliecinieties, ka viss ir skaidri redzams",
@@ -1930,6 +1935,20 @@
           "no_document": "document.capture.no_document"
         }
       },
+      "doc_camera_load": {
+        "progress_stage_one": {
+          "title": "document.capture.camera_loading_stage_1"
+        },
+        "progress_stage_three": {
+          "title": "document.capture.camera_loading_stage_3"
+        },
+        "progress_stage_two": {
+          "title": "document.capture.camera_loading_stage_2"
+        },
+        "warmup_shot": {
+          "title": "document.capture.camera_loading_warmup_shot"
+        }
+      },
       "doc_capture": {
         "alert": {
           "no_barcode_detail": "proofOfAddress.preview.no_barcode_detail",
@@ -2281,7 +2300,8 @@
         "list_item_tip_1": "document.intro_tilt.list_item_tip_1",
         "list_item_tip_2": "document.intro_tilt.list_item_tip_2",
         "sub-title": "document.intro_tilt.subtitle",
-        "title": "document.intro_tilt.title"
+        "title": "document.intro_tilt.title",
+        "video_accessibility": "document.intro_tilt.video_accessibility"
       },
       "doc_video_tilt": {
         "error": {

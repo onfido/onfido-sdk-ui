@@ -834,6 +834,10 @@
     "capture": {
       "button_accessibility": "Зробити фото",
       "camera_loading": "Завантаження камери",
+      "camera_loading_stage_1": "Підготовка камери",
+      "camera_loading_stage_2": "Майже готово",
+      "camera_loading_stage_3": "Ще мить",
+      "camera_loading_warmup_shot": "Камера готова",
       "camera_not_working_instruction": "Спробуйте зробити фото, використовуючи <fallback>базовий режим камери</fallback>",
       "camera_not_working_message": "Камера не працює",
       "captured": "Знімок зроблено",
@@ -930,10 +934,10 @@
       "button_primary_selection_off": "Почати сканування",
       "button_primary_selection_on": "Оберіть документ",
       "list_item_tip_1": "Знайдіть місце з хорошим освітленням",
-      "list_item_tip_2": "Розмістіть ваш документ у рамці",
+      "list_item_tip_2": "Розмістіть посвідчення особи у рамці",
       "list_item_tip_3": "Переконайтеся, що всі поля читабельні",
       "subtitle": "Нам потрібно зробити фото вашого документа, щоб переконатися в його справжності.",
-      "title": "Відскануйте ваш документ"
+      "title": "Відскануйте посвідчення особи"
     },
     "intro_address_page": {
       "animation_accessibility": "Ілюстрація сторінки з адресою в індійському паспорті",
@@ -948,7 +952,8 @@
       "list_item_tip_1": "Тримайте своє посвідчення особи в рамці",
       "list_item_tip_2": "Нахиліть своє посвідчення особи, доки всі чотири сторони рамки не стануть зеленими",
       "subtitle": "Ми робимо це, щоб переконатися, що ваш документ є справжнім",
-      "title": "Нахиліть посвідчення особи, щоб побачити його голограми"
+      "title": "Нахиліть посвідчення особи, щоб побачити його голограми",
+      "video_accessibility": "Приклад відео, що демонструє, як нахил ID-картки в чотирьох напрямках (вгору, вниз, вліво та вправо) розкриває її голограми"
     },
     "preview": {
       "blur_detail": "Переконайтеся, що зображення чітке",
@@ -1930,6 +1935,20 @@
           "no_document": "document.capture.no_document"
         }
       },
+      "doc_camera_load": {
+        "progress_stage_one": {
+          "title": "document.capture.camera_loading_stage_1"
+        },
+        "progress_stage_three": {
+          "title": "document.capture.camera_loading_stage_3"
+        },
+        "progress_stage_two": {
+          "title": "document.capture.camera_loading_stage_2"
+        },
+        "warmup_shot": {
+          "title": "document.capture.camera_loading_warmup_shot"
+        }
+      },
       "doc_capture": {
         "alert": {
           "no_barcode_detail": "proofOfAddress.preview.no_barcode_detail",
@@ -2281,7 +2300,8 @@
         "list_item_tip_1": "document.intro_tilt.list_item_tip_1",
         "list_item_tip_2": "document.intro_tilt.list_item_tip_2",
         "sub-title": "document.intro_tilt.subtitle",
-        "title": "document.intro_tilt.title"
+        "title": "document.intro_tilt.title",
+        "video_accessibility": "document.intro_tilt.video_accessibility"
       },
       "doc_video_tilt": {
         "error": {

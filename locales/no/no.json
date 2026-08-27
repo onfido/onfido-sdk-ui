@@ -834,6 +834,10 @@
     "capture": {
       "button_accessibility": "Ta et bilde",
       "camera_loading": "Kamera lastes",
+      "camera_loading_stage_1": "Klargjør kamera",
+      "camera_loading_stage_2": "Snart klar",
+      "camera_loading_stage_3": "Bare et øyeblikk til",
+      "camera_loading_warmup_shot": "Kameraet er klart",
       "camera_not_working_instruction": "Ta et bilde med  <fallback>stadard kameramodus</fallback> i stedet",
       "camera_not_working_message": "Kameraet fungerer ikke",
       "captured": "Bildet er tatt",
@@ -948,7 +952,8 @@
       "list_item_tip_1": "Hold ID-en din innenfor rammen",
       "list_item_tip_2": "Vipp ID-en din til alle fire sidene av rammen blir grønne",
       "subtitle": "Vi gjør dette for å sikre at dokumentet ditt er ekte",
-      "title": "Vinkle ID-en din for å vise hologrammene"
+      "title": "Vinkle ID-en din for å vise hologrammene",
+      "video_accessibility": "Eksempelvideo som viser hvordan du vipper et ID-kort i fire retninger (opp, ned, venstre og høyre) for å vise hologrammene"
     },
     "preview": {
       "blur_detail": "Sørg for at alt er skarpt",
@@ -1930,6 +1935,20 @@
           "no_document": "document.capture.no_document"
         }
       },
+      "doc_camera_load": {
+        "progress_stage_one": {
+          "title": "document.capture.camera_loading_stage_1"
+        },
+        "progress_stage_three": {
+          "title": "document.capture.camera_loading_stage_3"
+        },
+        "progress_stage_two": {
+          "title": "document.capture.camera_loading_stage_2"
+        },
+        "warmup_shot": {
+          "title": "document.capture.camera_loading_warmup_shot"
+        }
+      },
       "doc_capture": {
         "alert": {
           "no_barcode_detail": "proofOfAddress.preview.no_barcode_detail",
@@ -2281,7 +2300,8 @@
         "list_item_tip_1": "document.intro_tilt.list_item_tip_1",
         "list_item_tip_2": "document.intro_tilt.list_item_tip_2",
         "sub-title": "document.intro_tilt.subtitle",
-        "title": "document.intro_tilt.title"
+        "title": "document.intro_tilt.title",
+        "video_accessibility": "document.intro_tilt.video_accessibility"
       },
       "doc_video_tilt": {
         "error": {

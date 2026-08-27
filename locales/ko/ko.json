@@ -834,6 +834,10 @@
     "capture": {
       "button_accessibility": "사진 촬영",
       "camera_loading": "카메라 불러오는 중",
+      "camera_loading_stage_1": "카메라 준비 중",
+      "camera_loading_stage_2": "거의 다 됐어요",
+      "camera_loading_stage_3": "잠시만 기다려 주세요",
+      "camera_loading_warmup_shot": "카메라 준비 완료",
       "camera_not_working_instruction": "대신 <fallback>기본 카메라 모드</fallback>를 사용하여 사진을 촬영하세요",
       "camera_not_working_message": "카메라가 작동하지 않습니다",
       "captured": "사진이 캡처되었습니다",
@@ -948,7 +952,8 @@
       "list_item_tip_1": "신분증을 프레임 안에 맞춰 주세요",
       "list_item_tip_2": "테두리의 네 변이 모두 초록색이 될 때까지 신분증을 기울이세요",
       "subtitle": "이 절차는 사용자의 문서가 진본인지 확인하기 위해 진행됩니다.",
-      "title": "ID를 기울여 홀로그램을 보이게 해 주세요"
+      "title": "ID를 기울여 홀로그램을 보이게 해 주세요",
+      "video_accessibility": "신분증 카드를 위·아래·왼쪽·오른쪽 네 방향으로 기울여 홀로그램이 드러나는 모습을 보여주는 예시 영상"
     },
     "preview": {
       "blur_detail": "모든 부분이 선명하게 나타나는지 확인하세요",
@@ -1930,6 +1935,20 @@
           "no_document": "document.capture.no_document"
         }
       },
+      "doc_camera_load": {
+        "progress_stage_one": {
+          "title": "document.capture.camera_loading_stage_1"
+        },
+        "progress_stage_three": {
+          "title": "document.capture.camera_loading_stage_3"
+        },
+        "progress_stage_two": {
+          "title": "document.capture.camera_loading_stage_2"
+        },
+        "warmup_shot": {
+          "title": "document.capture.camera_loading_warmup_shot"
+        }
+      },
       "doc_capture": {
         "alert": {
           "no_barcode_detail": "proofOfAddress.preview.no_barcode_detail",
@@ -2281,7 +2300,8 @@
         "list_item_tip_1": "document.intro_tilt.list_item_tip_1",
         "list_item_tip_2": "document.intro_tilt.list_item_tip_2",
         "sub-title": "document.intro_tilt.subtitle",
-        "title": "document.intro_tilt.title"
+        "title": "document.intro_tilt.title",
+        "video_accessibility": "document.intro_tilt.video_accessibility"
       },
       "doc_video_tilt": {
         "error": {

@@ -834,6 +834,10 @@
     "capture": {
       "button_accessibility": "Készítsen egy fényképet",
       "camera_loading": "Kamera betöltése",
+      "camera_loading_stage_1": "Kamera előkészítése",
+      "camera_loading_stage_2": "Mindjárt kész",
+      "camera_loading_stage_3": "Csak még egy pillanat",
+      "camera_loading_warmup_shot": "A kamera készen áll",
       "camera_not_working_instruction": "Fénykép készítéséhez használja inkább az <fallback>alap fényképező üzemmódot</fallback>",
       "camera_not_working_message": "A kamera nem működik",
       "captured": "Fénykép rögzítve",
@@ -948,7 +952,8 @@
       "list_item_tip_1": "Tartsa a személyi igazolványát a keretben",
       "list_item_tip_2": "Döntse meg a személyi igazolványát, amíg a keret mind a négy oldala zöldre nem vált",
       "subtitle": "Ezt azért tesszük, hogy megbizonyosodjunk arról, hogy az okmánya hiteles.",
-      "title": "Döntse meg az igazolványát, hogy láthatóvá váljanak a hologramok"
+      "title": "Döntse meg az igazolványát, hogy láthatóvá váljanak a hologramok",
+      "video_accessibility": "Példavideó arról, hogyan láthatók a hologramok, ha a személyi igazolványt négy irányba (fel, le, balra, jobbra) megdönti"
     },
     "preview": {
       "blur_detail": "Győződjön meg róla, hogy minden jól látható",
@@ -1930,6 +1935,20 @@
           "no_document": "document.capture.no_document"
         }
       },
+      "doc_camera_load": {
+        "progress_stage_one": {
+          "title": "document.capture.camera_loading_stage_1"
+        },
+        "progress_stage_three": {
+          "title": "document.capture.camera_loading_stage_3"
+        },
+        "progress_stage_two": {
+          "title": "document.capture.camera_loading_stage_2"
+        },
+        "warmup_shot": {
+          "title": "document.capture.camera_loading_warmup_shot"
+        }
+      },
       "doc_capture": {
         "alert": {
           "no_barcode_detail": "proofOfAddress.preview.no_barcode_detail",
@@ -2281,7 +2300,8 @@
         "list_item_tip_1": "document.intro_tilt.list_item_tip_1",
         "list_item_tip_2": "document.intro_tilt.list_item_tip_2",
         "sub-title": "document.intro_tilt.subtitle",
-        "title": "document.intro_tilt.title"
+        "title": "document.intro_tilt.title",
+        "video_accessibility": "document.intro_tilt.video_accessibility"
       },
       "doc_video_tilt": {
         "error": {

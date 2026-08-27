@@ -834,6 +834,10 @@
     "capture": {
       "button_accessibility": "ถ่ายภาพ",
       "camera_loading": "กำลังโหลดกล้อง",
+      "camera_loading_stage_1": "กำลังเตรียมกล้อง",
+      "camera_loading_stage_2": "เกือบพร้อมแล้ว",
+      "camera_loading_stage_3": "อีกสักครู่",
+      "camera_loading_warmup_shot": "กล้องพร้อมแล้ว",
       "camera_not_working_instruction": "ถ่ายรูปโดยใช้<fallback>โหมดกล้องพื้นฐาน</fallback>แทน",
       "camera_not_working_message": "กล้องไม่ทำงาน",
       "captured": "ถ่ายภาพแล้ว",
@@ -930,10 +934,10 @@
       "button_primary_selection_off": "เริ่มสแกน",
       "button_primary_selection_on": "เลือกเอกสาร",
       "list_item_tip_1": "หาสถานที่ที่มีแสงสว่างเพียงพอ",
-      "list_item_tip_2": "วางบัตรประจำตัวของคุณให้อยู่ในกรอบ",
+      "list_item_tip_2": "วางเอกสารประจำตัวของคุณให้อยู่ในกรอบ",
       "list_item_tip_3": "ตรวจสอบให้แน่ใจว่าข้อมูลทั้งหมดอ่านได้ชัดเจน",
       "subtitle": "เราจำเป็นต้องถ่ายภาพเอกสารของคุณเพื่อยืนยันว่าเป็นของแท้",
-      "title": "สแกนบัตรประจำตัวของคุณ"
+      "title": "สแกนเอกสารประจำตัวของคุณ"
     },
     "intro_address_page": {
       "animation_accessibility": "ภาพประกอบหน้าที่อยู่ในหนังสือเดินทางอินเดีย",
@@ -948,7 +952,8 @@
       "list_item_tip_1": "ถือบัตรประจำตัวของคุณให้อยู่ในกรอบ",
       "list_item_tip_2": "เอียงบัตรประจำตัวของคุณจนกว่าทั้งสี่ด้านของกรอบเปลี่ยนเป็นสีเขียว",
       "subtitle": "เราดำเนินการนี้เพื่อตรวจสอบว่าเอกสารของคุณเป็นของแท้",
-      "title": "เอียงบัตรประจำตัวของคุณเพื่อแสดงโฮโลแกรม"
+      "title": "เอียงบัตรประจำตัวของคุณเพื่อแสดงโฮโลแกรม",
+      "video_accessibility": "ตัวอย่างวิดีโอแสดงการเอียงบัตรประจำตัวใน 4 ทิศทาง (ขึ้น ลง ซ้าย และขวา) เพื่อให้เห็นโฮโลแกรม"
     },
     "preview": {
       "blur_detail": "เช็คให้แน่ใจว่าทุกอย่างชัดเจน",
@@ -1930,6 +1935,20 @@
           "no_document": "document.capture.no_document"
         }
       },
+      "doc_camera_load": {
+        "progress_stage_one": {
+          "title": "document.capture.camera_loading_stage_1"
+        },
+        "progress_stage_three": {
+          "title": "document.capture.camera_loading_stage_3"
+        },
+        "progress_stage_two": {
+          "title": "document.capture.camera_loading_stage_2"
+        },
+        "warmup_shot": {
+          "title": "document.capture.camera_loading_warmup_shot"
+        }
+      },
       "doc_capture": {
         "alert": {
           "no_barcode_detail": "proofOfAddress.preview.no_barcode_detail",
@@ -2281,7 +2300,8 @@
         "list_item_tip_1": "document.intro_tilt.list_item_tip_1",
         "list_item_tip_2": "document.intro_tilt.list_item_tip_2",
         "sub-title": "document.intro_tilt.subtitle",
-        "title": "document.intro_tilt.title"
+        "title": "document.intro_tilt.title",
+        "video_accessibility": "document.intro_tilt.video_accessibility"
       },
       "doc_video_tilt": {
         "error": {

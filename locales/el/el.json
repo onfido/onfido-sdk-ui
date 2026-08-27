@@ -834,6 +834,10 @@
     "capture": {
       "button_accessibility": "Τραβήξτε μια φωτογραφία",
       "camera_loading": "Φόρτωση κάμερας",
+      "camera_loading_stage_1": "Προετοιμασία κάμερας",
+      "camera_loading_stage_2": "Σχεδόν έτοιμο",
+      "camera_loading_stage_3": "Μια στιγμή ακόμα",
+      "camera_loading_warmup_shot": "Η κάμερα είναι έτοιμη",
       "camera_not_working_instruction": "Τραβήξτε μια φωτογραφία χρησιμοποιώντας εναλλακτικά τη <fallback>βασική λειτουργία κάμερας</fallback>",
       "camera_not_working_message": "Η κάμερα δεν λειτουργεί",
       "captured": "Έγινε λήψη της φωτογραφίας",
@@ -948,7 +952,8 @@
       "list_item_tip_1": "Κρατήστε την ταυτότητά σας μέσα στο πλαίσιο",
       "list_item_tip_2": "Γείρετε την ταυτότητά σας μέχρι να γίνουν πράσινες και οι τέσσερις πλευρές του πλαισίου",
       "subtitle": "Το κάνουμε αυτό για να διασφαλίσουμε ότι το έγγραφό σας είναι γνήσιο",
-      "title": "Γείρετε την ταυτότητά σας ώστε να εμφανιστούν τα ολογράμματά της"
+      "title": "Γείρετε την ταυτότητά σας ώστε να εμφανιστούν τα ολογράμματά της",
+      "video_accessibility": "Ενδεικτικό βίντεο που δείχνει πώς η κλίση του δελτίου ταυτότητας προς τέσσερις κατευθύνσεις (πάνω, κάτω, αριστερά και δεξιά) αποκαλύπτει τα ολογράμματά του"
     },
     "preview": {
       "blur_detail": "Βεβαιωθείτε ότι όλα εμφανίζονται με σαφήνεια",
@@ -1930,6 +1935,20 @@
           "no_document": "document.capture.no_document"
         }
       },
+      "doc_camera_load": {
+        "progress_stage_one": {
+          "title": "document.capture.camera_loading_stage_1"
+        },
+        "progress_stage_three": {
+          "title": "document.capture.camera_loading_stage_3"
+        },
+        "progress_stage_two": {
+          "title": "document.capture.camera_loading_stage_2"
+        },
+        "warmup_shot": {
+          "title": "document.capture.camera_loading_warmup_shot"
+        }
+      },
       "doc_capture": {
         "alert": {
           "no_barcode_detail": "proofOfAddress.preview.no_barcode_detail",
@@ -2281,7 +2300,8 @@
         "list_item_tip_1": "document.intro_tilt.list_item_tip_1",
         "list_item_tip_2": "document.intro_tilt.list_item_tip_2",
         "sub-title": "document.intro_tilt.subtitle",
-        "title": "document.intro_tilt.title"
+        "title": "document.intro_tilt.title",
+        "video_accessibility": "document.intro_tilt.video_accessibility"
       },
       "doc_video_tilt": {
         "error": {

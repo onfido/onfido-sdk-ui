@@ -834,6 +834,10 @@
     "capture": {
       "button_accessibility": "Zrób zdjęcie",
       "camera_loading": "Wczytywanie aparatu",
+      "camera_loading_stage_1": "Przygotowywanie kamery",
+      "camera_loading_stage_2": "Prawie gotowe",
+      "camera_loading_stage_3": "Jeszcze chwila",
+      "camera_loading_warmup_shot": "Kamera gotowa",
       "camera_not_working_instruction": "Zamiast tego wykonaj zdjęcie, korzystając z <fallback>podstawowego trybu pracy aparatu</fallback>",
       "camera_not_working_message": "Aparat nie działa",
       "captured": "Zdjęcie zrobione",
@@ -948,7 +952,8 @@
       "list_item_tip_1": "Trzymaj dokument tożsamości w ramce",
       "list_item_tip_2": "Przechyl dowód tożsamości, aż wszystkie cztery boki ramki zrobią się zielone",
       "subtitle": "Robimy to, aby upewnić się, że Twój dokument jest autentyczny",
-      "title": "Przechyl swój dokument tożsamości, aby wyświetlić jego hologramy"
+      "title": "Przechyl swój dokument tożsamości, aby wyświetlić jego hologramy",
+      "video_accessibility": "Przykładowy film pokazujący, jak przechylanie dowodu osobistego w czterech kierunkach (góra, dół, lewo i prawo) ujawnia hologramy"
     },
     "preview": {
       "blur_detail": "Upewnij się, że wszystko jest wyraźne",
@@ -1930,6 +1935,20 @@
           "no_document": "document.capture.no_document"
         }
       },
+      "doc_camera_load": {
+        "progress_stage_one": {
+          "title": "document.capture.camera_loading_stage_1"
+        },
+        "progress_stage_three": {
+          "title": "document.capture.camera_loading_stage_3"
+        },
+        "progress_stage_two": {
+          "title": "document.capture.camera_loading_stage_2"
+        },
+        "warmup_shot": {
+          "title": "document.capture.camera_loading_warmup_shot"
+        }
+      },
       "doc_capture": {
         "alert": {
           "no_barcode_detail": "proofOfAddress.preview.no_barcode_detail",
@@ -2281,7 +2300,8 @@
         "list_item_tip_1": "document.intro_tilt.list_item_tip_1",
         "list_item_tip_2": "document.intro_tilt.list_item_tip_2",
         "sub-title": "document.intro_tilt.subtitle",
-        "title": "document.intro_tilt.title"
+        "title": "document.intro_tilt.title",
+        "video_accessibility": "document.intro_tilt.video_accessibility"
       },
       "doc_video_tilt": {
         "error": {

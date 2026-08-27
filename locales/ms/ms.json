@@ -834,6 +834,10 @@
     "capture": {
       "button_accessibility": "Ambil gambar",
       "camera_loading": "Memuatkan kamera",
+      "camera_loading_stage_1": "Menyediakan kamera",
+      "camera_loading_stage_2": "Hampir sedia",
+      "camera_loading_stage_3": "Sebentar lagi",
+      "camera_loading_warmup_shot": "Kamera sedia",
       "camera_not_working_instruction": "Ambil gambar menggunakan <fallback>mod kamera asas</fallback> pula",
       "camera_not_working_message": "Kamera tidak berfungsi",
       "captured": "Gambar dirakam",
@@ -948,7 +952,8 @@
       "list_item_tip_1": "Pegang ID anda dalam bingkai",
       "list_item_tip_2": "Condongkan ID anda sehingga keempat-empat sisi bingkai bertukar hijau",
       "subtitle": "Kami melakukan ini untuk memastikan dokumen anda adalah tulen",
-      "title": "Condongkan ID anda untuk memaparkan hologramnya"
+      "title": "Condongkan ID anda untuk memaparkan hologramnya",
+      "video_accessibility": "Video contoh menunjukkan cara menggerakkan kad ID ke empat arah (atas, bawah, kiri dan kanan) untuk menonjolkan hologramnya"
     },
     "preview": {
       "blur_detail": "Pastikan segala-galanya adalah jelas",
@@ -1930,6 +1935,20 @@
           "no_document": "document.capture.no_document"
         }
       },
+      "doc_camera_load": {
+        "progress_stage_one": {
+          "title": "document.capture.camera_loading_stage_1"
+        },
+        "progress_stage_three": {
+          "title": "document.capture.camera_loading_stage_3"
+        },
+        "progress_stage_two": {
+          "title": "document.capture.camera_loading_stage_2"
+        },
+        "warmup_shot": {
+          "title": "document.capture.camera_loading_warmup_shot"
+        }
+      },
       "doc_capture": {
         "alert": {
           "no_barcode_detail": "proofOfAddress.preview.no_barcode_detail",
@@ -2281,7 +2300,8 @@
         "list_item_tip_1": "document.intro_tilt.list_item_tip_1",
         "list_item_tip_2": "document.intro_tilt.list_item_tip_2",
         "sub-title": "document.intro_tilt.subtitle",
-        "title": "document.intro_tilt.title"
+        "title": "document.intro_tilt.title",
+        "video_accessibility": "document.intro_tilt.video_accessibility"
       },
       "doc_video_tilt": {
         "error": {

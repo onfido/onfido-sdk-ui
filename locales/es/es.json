@@ -834,6 +834,10 @@
     "capture": {
       "button_accessibility": "Tome una foto",
       "camera_loading": "Cargando la cámara",
+      "camera_loading_stage_1": "Preparando la cámara",
+      "camera_loading_stage_2": "Casi listo",
+      "camera_loading_stage_3": "Solo un momento más",
+      "camera_loading_warmup_shot": "Cámara lista",
       "camera_not_working_instruction": "Tome una foto usando el <fallback>modo de cámara básica</fallback> en su lugar",
       "camera_not_working_message": "Su cámara no esta funcionando",
       "captured": "Foto capturada",
@@ -948,7 +952,8 @@
       "list_item_tip_1": "Sostén tu documento de identidad dentro del recuadro",
       "list_item_tip_2": "Inclina tu identificación hasta que los cuatro lados del marco se pongan en verde",
       "subtitle": "Hacemos esto para asegurarnos de que tu documento sea auténtico",
-      "title": "Inclina tu documento para mostrar sus hologramas"
+      "title": "Inclina tu documento para mostrar sus hologramas",
+      "video_accessibility": "Vídeo de ejemplo que muestra cómo inclinar un documento de identidad en cuatro direcciones (arriba, abajo, izquierda y derecha) revela sus hologramas"
     },
     "preview": {
       "blur_detail": "Asegúrese de que todo se vea nítido",
@@ -1930,6 +1935,20 @@
           "no_document": "document.capture.no_document"
         }
       },
+      "doc_camera_load": {
+        "progress_stage_one": {
+          "title": "document.capture.camera_loading_stage_1"
+        },
+        "progress_stage_three": {
+          "title": "document.capture.camera_loading_stage_3"
+        },
+        "progress_stage_two": {
+          "title": "document.capture.camera_loading_stage_2"
+        },
+        "warmup_shot": {
+          "title": "document.capture.camera_loading_warmup_shot"
+        }
+      },
       "doc_capture": {
         "alert": {
           "no_barcode_detail": "proofOfAddress.preview.no_barcode_detail",
@@ -2281,7 +2300,8 @@
         "list_item_tip_1": "document.intro_tilt.list_item_tip_1",
         "list_item_tip_2": "document.intro_tilt.list_item_tip_2",
         "sub-title": "document.intro_tilt.subtitle",
-        "title": "document.intro_tilt.title"
+        "title": "document.intro_tilt.title",
+        "video_accessibility": "document.intro_tilt.video_accessibility"
       },
       "doc_video_tilt": {
         "error": {

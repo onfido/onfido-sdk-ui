@@ -834,6 +834,10 @@
     "capture": {
       "button_accessibility": "צלם תמונה",
       "camera_loading": "המצלמה נטענת",
+      "camera_loading_stage_1": "מכין מצלמה",
+      "camera_loading_stage_2": "כמעט מוכן",
+      "camera_loading_stage_3": "עוד רגע",
+      "camera_loading_warmup_shot": "המצלמה מוכנה",
       "camera_not_working_instruction": "צלם תמונה באמצעות <fallback>מצב המצלמה הבסיסי</fallback> במקום",
       "camera_not_working_message": "המצלמה לא פועלת",
       "captured": "התמונה צולמה",
@@ -930,10 +934,10 @@
       "button_primary_selection_off": "התחל סריקה",
       "button_primary_selection_on": "בחר מסמך",
       "list_item_tip_1": "מצאו מקום עם תאורה טובה",
-      "list_item_tip_2": "מקם את תעודת הזהות שלך במסגרת",
+      "list_item_tip_2": "מקם את מסמך הזיהוי שלך במסגרת",
       "list_item_tip_3": "ודא שכל השדות קריאים",
       "subtitle": "אנחנו צריכים לצלם את המסמך שלך כדי לוודא שהוא אמיתי.",
-      "title": "סרוק את תעודת הזהות שלך"
+      "title": "סרוק את מסמך הזיהוי שלך"
     },
     "intro_address_page": {
       "animation_accessibility": "איור של דף הכתובת בדרכון ההודי",
@@ -948,7 +952,8 @@
       "list_item_tip_1": "החזק את תעודת הזהות שלך בתוך המסגרת",
       "list_item_tip_2": "הטה את תעודת הזהות שלך עד שכל ארבעת צידי המסגרת יהפכו לירוק",
       "subtitle": "אנו עושים זאת כדי לוודא שהמסמך שלך אמיתי",
-      "title": "הטה את תעודת הזהות שלך כדי להציג את ההולוגרמות שלה"
+      "title": "הטה את תעודת הזהות שלך כדי להציג את ההולוגרמות שלה",
+      "video_accessibility": "סרטון לדוגמה המדגים כיצד הטיית תעודת זהות בארבעה כיוונים (למעלה, למטה, שמאלה וימינה) חושפת את ההולוגרמות שלה"
     },
     "preview": {
       "blur_detail": "ודא שהכול ברור",
@@ -1930,6 +1935,20 @@
           "no_document": "document.capture.no_document"
         }
       },
+      "doc_camera_load": {
+        "progress_stage_one": {
+          "title": "document.capture.camera_loading_stage_1"
+        },
+        "progress_stage_three": {
+          "title": "document.capture.camera_loading_stage_3"
+        },
+        "progress_stage_two": {
+          "title": "document.capture.camera_loading_stage_2"
+        },
+        "warmup_shot": {
+          "title": "document.capture.camera_loading_warmup_shot"
+        }
+      },
       "doc_capture": {
         "alert": {
           "no_barcode_detail": "proofOfAddress.preview.no_barcode_detail",
@@ -2281,7 +2300,8 @@
         "list_item_tip_1": "document.intro_tilt.list_item_tip_1",
         "list_item_tip_2": "document.intro_tilt.list_item_tip_2",
         "sub-title": "document.intro_tilt.subtitle",
-        "title": "document.intro_tilt.title"
+        "title": "document.intro_tilt.title",
+        "video_accessibility": "document.intro_tilt.video_accessibility"
       },
       "doc_video_tilt": {
         "error": {

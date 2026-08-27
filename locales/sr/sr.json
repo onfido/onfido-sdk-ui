@@ -834,6 +834,10 @@
     "capture": {
       "button_accessibility": "Snimite fotografiju",
       "camera_loading": "Kamera se učitava",
+      "camera_loading_stage_1": "Priprema kamere",
+      "camera_loading_stage_2": "Skoro spremno",
+      "camera_loading_stage_3": "Samo još trenutak",
+      "camera_loading_warmup_shot": "Kamera je spremna",
       "camera_not_working_instruction": "Umesto toga, snimite fotografiju koristeći <fallback>osnovni režim kamere</fallback>",
       "camera_not_working_message": "Kamera ne radi",
       "captured": "Fotografija je snimljena",
@@ -948,7 +952,8 @@
       "list_item_tip_1": "Držite ličnu kartu u okviru",
       "list_item_tip_2": "Нагињите личну карту док све четири стране оквира не постану зелене",
       "subtitle": "Ово радимо како бисмо осигурали да је ваш документ аутентичан",
-      "title": "Нагните личну карту да бисте приказали њене хологrame"
+      "title": "Нагните личну карту да бисте приказали њене хологrame",
+      "video_accessibility": "Primer video snimka koji pokazuje kako naginjanje lične karte u četiri smera (gore, dole, levo i desno) otkriva njene hologram"
     },
     "preview": {
       "blur_detail": "Proverite da li se sve jasno vidi",
@@ -1930,6 +1935,20 @@
           "no_document": "document.capture.no_document"
         }
       },
+      "doc_camera_load": {
+        "progress_stage_one": {
+          "title": "document.capture.camera_loading_stage_1"
+        },
+        "progress_stage_three": {
+          "title": "document.capture.camera_loading_stage_3"
+        },
+        "progress_stage_two": {
+          "title": "document.capture.camera_loading_stage_2"
+        },
+        "warmup_shot": {
+          "title": "document.capture.camera_loading_warmup_shot"
+        }
+      },
       "doc_capture": {
         "alert": {
           "no_barcode_detail": "proofOfAddress.preview.no_barcode_detail",
@@ -2281,7 +2300,8 @@
         "list_item_tip_1": "document.intro_tilt.list_item_tip_1",
         "list_item_tip_2": "document.intro_tilt.list_item_tip_2",
         "sub-title": "document.intro_tilt.subtitle",
-        "title": "document.intro_tilt.title"
+        "title": "document.intro_tilt.title",
+        "video_accessibility": "document.intro_tilt.video_accessibility"
       },
       "doc_video_tilt": {
         "error": {

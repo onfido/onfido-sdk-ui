@@ -834,6 +834,10 @@
     "capture": {
       "button_accessibility": "Maak een foto",
       "camera_loading": "Camera wordt geladen",
+      "camera_loading_stage_1": "Camera voorbereiden",
+      "camera_loading_stage_2": "Bijna klaar",
+      "camera_loading_stage_3": "Nog even",
+      "camera_loading_warmup_shot": "Camera klaar",
       "camera_not_working_instruction": "Neem in plaats daarvan een foto met de <fallback>basismodus van de camera</fallback>",
       "camera_not_working_message": "Camera doet het niet",
       "captured": "Foto gemaakt",
@@ -932,7 +936,7 @@
       "list_item_tip_1": "Zoek een plek met goede verlichting",
       "list_item_tip_2": "Plaats je identiteitsbewijs in het kader",
       "list_item_tip_3": "Zorg ervoor dat alle velden leesbaar zijn",
-      "subtitle": "We moeten foto's van uw document maken om te controleren of het echt is.",
+      "subtitle": "We moeten foto's van je document maken om te controleren of het echt is.",
       "title": "Scan je ID"
     },
     "intro_address_page": {
@@ -948,7 +952,8 @@
       "list_item_tip_1": "Houd uw identiteitsbewijs in het kader",
       "list_item_tip_2": "Kantel uw identiteitsbewijs totdat alle vier de zijden van het kader groen worden",
       "subtitle": "We doen dit om te controleren of uw document echt is",
-      "title": "Kantel je ID zodat de hologrammen zichtbaar worden"
+      "title": "Kantel je ID zodat de hologrammen zichtbaar worden",
+      "video_accessibility": "Voorbeeldvideo die toont hoe het kantelen van een identiteitskaart in vier richtingen (omhoog, omlaag, naar links en naar rechts) de hologrammen zichtbaar maakt"
     },
     "preview": {
       "blur_detail": "Zorg dat alles helder zichtbaar is",
@@ -1930,6 +1935,20 @@
           "no_document": "document.capture.no_document"
         }
       },
+      "doc_camera_load": {
+        "progress_stage_one": {
+          "title": "document.capture.camera_loading_stage_1"
+        },
+        "progress_stage_three": {
+          "title": "document.capture.camera_loading_stage_3"
+        },
+        "progress_stage_two": {
+          "title": "document.capture.camera_loading_stage_2"
+        },
+        "warmup_shot": {
+          "title": "document.capture.camera_loading_warmup_shot"
+        }
+      },
       "doc_capture": {
         "alert": {
           "no_barcode_detail": "proofOfAddress.preview.no_barcode_detail",
@@ -2281,7 +2300,8 @@
         "list_item_tip_1": "document.intro_tilt.list_item_tip_1",
         "list_item_tip_2": "document.intro_tilt.list_item_tip_2",
         "sub-title": "document.intro_tilt.subtitle",
-        "title": "document.intro_tilt.title"
+        "title": "document.intro_tilt.title",
+        "video_accessibility": "document.intro_tilt.video_accessibility"
       },
       "doc_video_tilt": {
         "error": {

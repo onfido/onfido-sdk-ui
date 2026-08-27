@@ -834,6 +834,10 @@
     "capture": {
       "button_accessibility": "Tirar uma foto",
       "camera_loading": "Carregando câmera",
+      "camera_loading_stage_1": "Preparando a câmera",
+      "camera_loading_stage_2": "Quase pronto",
+      "camera_loading_stage_3": "Só mais um momento",
+      "camera_loading_warmup_shot": "Câmera pronta",
       "camera_not_working_instruction": "Tire uma foto usando o <fallback>modo de câmera básico</fallback>",
       "camera_not_working_message": "A câmera não está funcionando",
       "captured": "Foto capturada",
@@ -930,10 +934,10 @@
       "button_primary_selection_off": "Iniciar escaneamento",
       "button_primary_selection_on": "Selecionar documento",
       "list_item_tip_1": "Encontre um local com boa iluminação",
-      "list_item_tip_2": "Posicione seu documento na moldura",
+      "list_item_tip_2": "Posicione seu documento de identidade na moldura",
       "list_item_tip_3": "Certifique-se de que todos os campos estejam legíveis",
       "subtitle": "Precisamos tirar fotos do seu documento para garantir que ele é autêntico.",
-      "title": "Escaneie seu documento"
+      "title": "Escaneie seu documento de identidade"
     },
     "intro_address_page": {
       "animation_accessibility": "Uma ilustração da página de endereço no passaporte indiano",
@@ -948,7 +952,8 @@
       "list_item_tip_1": "Mantenha seu documento na moldura",
       "list_item_tip_2": "Incline seu documento até que os quatro lados da moldura fiquem verdes",
       "subtitle": "Fazemos isso para garantir que seu documento é autêntico",
-      "title": "Incline seu documento para exibir os hologramas"
+      "title": "Incline seu documento para exibir os hologramas",
+      "video_accessibility": "Vídeo de exemplo mostrando como inclinar um documento de identidade em quatro direções (cima, baixo, esquerda e direita) revela seus hologramas"
     },
     "preview": {
       "blur_detail": "Certifique-se de que tudo está nítido",
@@ -1930,6 +1935,20 @@
           "no_document": "document.capture.no_document"
         }
       },
+      "doc_camera_load": {
+        "progress_stage_one": {
+          "title": "document.capture.camera_loading_stage_1"
+        },
+        "progress_stage_three": {
+          "title": "document.capture.camera_loading_stage_3"
+        },
+        "progress_stage_two": {
+          "title": "document.capture.camera_loading_stage_2"
+        },
+        "warmup_shot": {
+          "title": "document.capture.camera_loading_warmup_shot"
+        }
+      },
       "doc_capture": {
         "alert": {
           "no_barcode_detail": "proofOfAddress.preview.no_barcode_detail",
@@ -2281,7 +2300,8 @@
         "list_item_tip_1": "document.intro_tilt.list_item_tip_1",
         "list_item_tip_2": "document.intro_tilt.list_item_tip_2",
         "sub-title": "document.intro_tilt.subtitle",
-        "title": "document.intro_tilt.title"
+        "title": "document.intro_tilt.title",
+        "video_accessibility": "document.intro_tilt.video_accessibility"
       },
       "doc_video_tilt": {
         "error": {
