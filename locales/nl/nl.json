@@ -816,6 +816,14 @@
       "subtitle": "Tik op het nummer dat op uw andere apparaat wordt weergegeven. We willen er zeker van zijn dat u het echt bent.",
       "title": "Match het nummer"
     },
+    "redesigned_intro": {
+      "copyLinkHeader": "Kopieer om verder te gaan de onderstaande link en stuur deze naar uw mobiele apparaat. Open de link vervolgens in de browser op uw mobiele apparaat.",
+      "linkDivider": "Of kies een alternatieve methode:",
+      "qrCodeHeader": "Scan de onderstaande QR-code met de camera of QR-code-app van uw mobiele apparaat om verder te gaan.",
+      "smsHeader": "Vul hieronder uw telefoonnummer in. We sturen een eenmalige link naar uw telefoon via sms.",
+      "subtitle": "Voor de beste ervaring en optimale resultaten moet u in de volgende stap uw mobiele telefoon gebruiken.",
+      "title": "Ga verder op uw mobiele apparaat"
+    },
     "verification": {
       "instruction": "Tik op het nummer op uw mobiel om te verifiëren dat u het bent.",
       "subtitle": "Om uw informatie veilig te houden, wil Onfido ervoor zorgen dat u het echt bent die probeert uw identiteit te verifiëren",
@@ -1854,6 +1862,14 @@
         "mobile_retry_connection": {
           "subtitle": "crossdevice.mobile_retry_connection.subtitle",
           "title": "crossdevice.mobile_retry_connection.title"
+        },
+        "redesigned_intro": {
+          "copy_link_header": "crossdevice.redesigned_intro.copyLinkHeader",
+          "link_divider": "crossdevice.redesigned_intro.linkDivider",
+          "qr_code_header": "crossdevice.redesigned_intro.qrCodeHeader",
+          "sms_header": "crossdevice.redesigned_intro.smsHeader",
+          "subtitle": "crossdevice.redesigned_intro.subtitle",
+          "title": "crossdevice.redesigned_intro.title"
         }
       },
       "cross_device_abort": {

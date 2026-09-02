@@ -816,6 +816,14 @@
       "subtitle": "Chạm vào số hiển thị trên thiết bị khác của bạn. Chúng tôi muốn đảm bảo rằng đó thực sự là bạn.",
       "title": "Khớp số"
     },
+    "redesigned_intro": {
+      "copyLinkHeader": "Để tiếp tục, hãy sao chép liên kết bên dưới và gửi đến thiết bị di động của bạn. Sau đó, mở liên kết trong trình duyệt trên thiết bị di động.",
+      "linkDivider": "Hoặc chọn một phương thức khác:",
+      "qrCodeHeader": "Quét mã QR bên dưới bằng camera hoặc ứng dụng quét mã QR trên thiết bị di động của bạn để tiếp tục.",
+      "smsHeader": "Vui lòng cung cấp số điện thoại của bạn bên dưới. Chúng tôi sẽ gửi một liên kết dùng một lần đến điện thoại của bạn qua SMS.",
+      "subtitle": "Để đảm bảo trải nghiệm tốt nhất và đạt kết quả tối ưu, bước tiếp theo yêu cầu bạn sử dụng điện thoại di động.",
+      "title": "Tiếp tục trên thiết bị di động của bạn"
+    },
     "verification": {
       "instruction": "Chạm vào số trên điện thoại di động của bạn để xác minh đó là bạn.",
       "subtitle": "Để giúp bảo vệ thông tin của bạn, Onfido muốn đảm bảo rằng đó thực sự là bạn đang cố gắng xác minh danh tính của mình",
@@ -1854,6 +1862,14 @@
         "mobile_retry_connection": {
           "subtitle": "crossdevice.mobile_retry_connection.subtitle",
           "title": "crossdevice.mobile_retry_connection.title"
+        },
+        "redesigned_intro": {
+          "copy_link_header": "crossdevice.redesigned_intro.copyLinkHeader",
+          "link_divider": "crossdevice.redesigned_intro.linkDivider",
+          "qr_code_header": "crossdevice.redesigned_intro.qrCodeHeader",
+          "sms_header": "crossdevice.redesigned_intro.smsHeader",
+          "subtitle": "crossdevice.redesigned_intro.subtitle",
+          "title": "crossdevice.redesigned_intro.title"
         }
       },
       "cross_device_abort": {

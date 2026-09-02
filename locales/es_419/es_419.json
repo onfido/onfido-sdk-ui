@@ -816,6 +816,14 @@
       "subtitle": "Toque el número que se muestra en su otro dispositivo. Queremos asegurarnos de que realmente sea usted.",
       "title": "Empareja el número"
     },
+    "redesigned_intro": {
+      "copyLinkHeader": "Para continuar, copie el siguiente enlace y envíelo a su dispositivo móvil. Luego, ábralo en el navegador de su dispositivo móvil.",
+      "linkDivider": "O elija un método alternativo:",
+      "qrCodeHeader": "Escanee el siguiente código QR con la cámara de su dispositivo móvil o con una app de códigos QR para continuar.",
+      "smsHeader": "Ingrese su número de teléfono a continuación. Le enviaremos un enlace de un solo uso a su teléfono por SMS.",
+      "subtitle": "Para garantizar la mejor experiencia y obtener resultados óptimos, el siguiente paso requiere que use su teléfono móvil.",
+      "title": "Continúe en su dispositivo móvil"
+    },
     "verification": {
       "instruction": "Toca el número en tu móvil para verificar que eres tú.",
       "subtitle": "Para ayudar a mantener tu información segura, Onfido quiere asegurarse de que realmente eres tú quien intenta verificar tu identidad",
@@ -1854,6 +1862,14 @@
         "mobile_retry_connection": {
           "subtitle": "crossdevice.mobile_retry_connection.subtitle",
           "title": "crossdevice.mobile_retry_connection.title"
+        },
+        "redesigned_intro": {
+          "copy_link_header": "crossdevice.redesigned_intro.copyLinkHeader",
+          "link_divider": "crossdevice.redesigned_intro.linkDivider",
+          "qr_code_header": "crossdevice.redesigned_intro.qrCodeHeader",
+          "sms_header": "crossdevice.redesigned_intro.smsHeader",
+          "subtitle": "crossdevice.redesigned_intro.subtitle",
+          "title": "crossdevice.redesigned_intro.title"
         }
       },
       "cross_device_abort": {

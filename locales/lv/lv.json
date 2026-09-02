@@ -816,6 +816,14 @@
       "subtitle": "Nospiediet uz numuru, kas parādās jūsu citā ierīcē. Mēs vēlamies pārliecināties, ka tas tiešām esat jūs.",
       "title": "Sakritināt numuru"
     },
+    "redesigned_intro": {
+      "copyLinkHeader": "Lai turpinātu, nokopējiet zemāk redzamo saiti un nosūtiet to uz savu mobilo ierīci. Pēc tam atveriet to savas mobilās ierīces pārlūkprogrammā.",
+      "linkDivider": "Vai izvēlieties citu metodi:",
+      "qrCodeHeader": "Lai turpinātu, noskenējiet zemāk redzamo QR kodu ar savas mobilās ierīces kameru vai QR kodu lietotni.",
+      "smsHeader": "Lūdzu, norādiet savu tālruņa numuru zemāk. Mēs nosūtīsim vienreizēju saiti uz jūsu tālruni īsziņā.",
+      "subtitle": "Lai nodrošinātu vislabāko pieredzi un sasniegtu optimālus rezultātus, nākamajā solī jums jāizmanto mobilais tālrunis.",
+      "title": "Turpiniet savā mobilajā ierīcē"
+    },
     "verification": {
       "instruction": "Nospiediet numuru savā mobilajā tālrunī, lai pārbaudītu, vai tas esat jūs.",
       "subtitle": "Lai palīdzētu aizsargāt jūsu informāciju, Onfido vēlas pārliecināties, ka tiešām esat jūs, kurš mēģina pārbaudīt savu identitāti",
@@ -1854,6 +1862,14 @@
         "mobile_retry_connection": {
           "subtitle": "crossdevice.mobile_retry_connection.subtitle",
           "title": "crossdevice.mobile_retry_connection.title"
+        },
+        "redesigned_intro": {
+          "copy_link_header": "crossdevice.redesigned_intro.copyLinkHeader",
+          "link_divider": "crossdevice.redesigned_intro.linkDivider",
+          "qr_code_header": "crossdevice.redesigned_intro.qrCodeHeader",
+          "sms_header": "crossdevice.redesigned_intro.smsHeader",
+          "subtitle": "crossdevice.redesigned_intro.subtitle",
+          "title": "crossdevice.redesigned_intro.title"
         }
       },
       "cross_device_abort": {

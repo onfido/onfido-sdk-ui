@@ -816,6 +816,14 @@
       "subtitle": "Սեղմեք թվին, որը ցուցադրված է ձեր մյուս սարքի վրա։ Մենք ցանկանում ենք համոզվել, որ դա իրականում դուք եք։",
       "title": "Համապատասխանեցրեք թիվը"
     },
+    "redesigned_intro": {
+      "copyLinkHeader": "Շարունակելու համար պատճենեք ներքևում գտնվող հղումը և ուղարկեք այն ձեր բջջային սարքին։ Այնուհետև բացեք այն ձեր բջջային սարքի դիտարկչում։",
+      "linkDivider": "Կամ ընտրեք այլ տարբերակ․",
+      "qrCodeHeader": "Շարունակելու համար սկանավորեք ներքևում գտնվող QR կոդը ձեր բջջային սարքի տեսախցիկով կամ QR կոդի հավելվածով։",
+      "smsHeader": "Խնդրում ենք ներքևում մուտքագրել ձեր հեռախոսահամարը։ Մենք մեկանգամյա հղում կուղարկենք ձեր հեռախոսին SMS-ով։",
+      "subtitle": "Որպեսզի ապահովեք լավագույն փորձն ու ստանաք օպտիմալ արդյունքներ, հաջորդ քայլը պահանջում է, որ օգտագործեք ձեր բջջային հեռախոսը։",
+      "title": "Շարունակեք ձեր բջջային սարքում"
+    },
     "verification": {
       "instruction": "Սեղմեք ձեր բջջայինի համարը, որպեսզի ստուգեք, որ դա դուք եք։",
       "subtitle": "Որպեսզի պաշտպանենք ձեր տվյալները, Onfido-ն ցանկանում է համոզվել, որ դա իրականում դուք եք, ով փորձում եք ստուգել ձեր իսկությունը",
@@ -1854,6 +1862,14 @@
         "mobile_retry_connection": {
           "subtitle": "crossdevice.mobile_retry_connection.subtitle",
           "title": "crossdevice.mobile_retry_connection.title"
+        },
+        "redesigned_intro": {
+          "copy_link_header": "crossdevice.redesigned_intro.copyLinkHeader",
+          "link_divider": "crossdevice.redesigned_intro.linkDivider",
+          "qr_code_header": "crossdevice.redesigned_intro.qrCodeHeader",
+          "sms_header": "crossdevice.redesigned_intro.smsHeader",
+          "subtitle": "crossdevice.redesigned_intro.subtitle",
+          "title": "crossdevice.redesigned_intro.title"
         }
       },
       "cross_device_abort": {

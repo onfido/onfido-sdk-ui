@@ -816,6 +816,14 @@
       "subtitle": "روی شماره نمایش داده شده روی دستگاه دیگرتان ضربه بزنید. ما می خواهیم مطمئن شویم که واقعا شما هستید.",
       "title": "شماره را مطابقت دهید"
     },
+    "redesigned_intro": {
+      "copyLinkHeader": "برای ادامه، لینک زیر را کپی کرده و به دستگاه همراه خود بفرستید. سپس آن را در مرورگر دستگاه همراه خود باز کنید.",
+      "linkDivider": "یا یک روش جایگزین انتخاب کنید:",
+      "qrCodeHeader": "برای ادامه، با دوربین دستگاه همراه خود یا یک برنامه اسکن QR، کد QR زیر را اسکن کنید.",
+      "smsHeader": "لطفاً شماره تلفن خود را در کادر زیر وارد کنید. ما یک لینک یک‌بارمصرف از طریق پیامک به تلفن شما ارسال می‌کنیم.",
+      "subtitle": "برای اطمینان از بهترین تجربه و دستیابی به نتایج بهینه، در مرحله بعد لازم است از تلفن همراه خود استفاده کنید.",
+      "title": "در دستگاه همراه خود ادامه دهید"
+    },
     "verification": {
       "instruction": "برای تأیید هویت خود، روی شماره موبایل خود ضربه بزنید.",
       "subtitle": "برای حفظ امنیت اطلاعات شما، Onfido می خواهد اطمینان حاصل کند که واقعا شما هستید که سعی در تأیید هویت خود دارید",
@@ -1854,6 +1862,14 @@
         "mobile_retry_connection": {
           "subtitle": "crossdevice.mobile_retry_connection.subtitle",
           "title": "crossdevice.mobile_retry_connection.title"
+        },
+        "redesigned_intro": {
+          "copy_link_header": "crossdevice.redesigned_intro.copyLinkHeader",
+          "link_divider": "crossdevice.redesigned_intro.linkDivider",
+          "qr_code_header": "crossdevice.redesigned_intro.qrCodeHeader",
+          "sms_header": "crossdevice.redesigned_intro.smsHeader",
+          "subtitle": "crossdevice.redesigned_intro.subtitle",
+          "title": "crossdevice.redesigned_intro.title"
         }
       },
       "cross_device_abort": {

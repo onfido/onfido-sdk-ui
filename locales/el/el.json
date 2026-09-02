@@ -816,6 +816,14 @@
       "subtitle": "Πατήστε τον αριθμό που εμφανίζεται στην άλλη σας συσκευή. Θέλουμε να βεβαιωθούμε ότι είστε εσείς.",
       "title": "Ταιριάξτε τον αριθμό"
     },
+    "redesigned_intro": {
+      "copyLinkHeader": "Για να συνεχίσετε, αντιγράψτε τον παρακάτω σύνδεσμο και στείλτε τον στη φορητή σας συσκευή. Στη συνέχεια, ανοίξτε τον στο πρόγραμμα περιήγησης της φορητής σας συσκευής.",
+      "linkDivider": "Ή επιλέξτε εναλλακτική μέθοδο:",
+      "qrCodeHeader": "Σαρώστε τον παρακάτω κωδικό QR με την κάμερα της φορητής σας συσκευής ή με εφαρμογή ανάγνωσης κωδικών QR για να συνεχίσετε.",
+      "smsHeader": "Εισαγάγετε τον αριθμό τηλεφώνου σας παρακάτω. Θα σας αποστείλουμε έναν μοναδικό σύνδεσμο μίας χρήσης μέσω SMS.",
+      "subtitle": "Για να διασφαλιστεί η καλύτερη εμπειρία και τα βέλτιστα αποτελέσματα, το επόμενο βήμα απαιτεί τη χρήση του κινητού σας τηλεφώνου.",
+      "title": "Συνεχίστε στη φορητή σας συσκευή"
+    },
     "verification": {
       "instruction": "Πατήστε τον αριθμό στο κινητό σας για να επιβεβαιώσετε ότι είστε εσείς.",
       "subtitle": "Για να βοηθήσουμε στη διατήρηση της ασφάλειας των πληροφοριών σας, η Onfido θέλει να βεβαιωθεί ότι είστε εσείς πραγματικά που προσπαθείτε να επαληθεύσετε την ταυτότητά σας",
@@ -1854,6 +1862,14 @@
         "mobile_retry_connection": {
           "subtitle": "crossdevice.mobile_retry_connection.subtitle",
           "title": "crossdevice.mobile_retry_connection.title"
+        },
+        "redesigned_intro": {
+          "copy_link_header": "crossdevice.redesigned_intro.copyLinkHeader",
+          "link_divider": "crossdevice.redesigned_intro.linkDivider",
+          "qr_code_header": "crossdevice.redesigned_intro.qrCodeHeader",
+          "sms_header": "crossdevice.redesigned_intro.smsHeader",
+          "subtitle": "crossdevice.redesigned_intro.subtitle",
+          "title": "crossdevice.redesigned_intro.title"
         }
       },
       "cross_device_abort": {

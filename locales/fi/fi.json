@@ -816,6 +816,14 @@
       "subtitle": "Napauta numeroa, joka näkyy toisella laitteellasi. Haluamme varmistaa, että se olet todella sinä.",
       "title": "Sovita numero"
     },
+    "redesigned_intro": {
+      "copyLinkHeader": "Jatkaaksesi kopioi alla oleva linkki ja lähetä se mobiililaitteellesi. Avaa se sitten mobiililaitteesi selaimessa.",
+      "linkDivider": "Tai valitse vaihtoehtoinen tapa:",
+      "qrCodeHeader": "Jatka skannaamalla alla oleva QR-koodi mobiililaitteesi kameralla tai QR-koodisovelluksella.",
+      "smsHeader": "Anna puhelinnumerosi alla. Lähetämme kertalinkin puhelimeesi tekstiviestillä.",
+      "subtitle": "Parhaan kokemuksen ja optimaalisten tulosten varmistamiseksi seuraava vaihe edellyttää matkapuhelimen käyttöä.",
+      "title": "Jatka mobiililaitteellasi"
+    },
     "verification": {
       "instruction": "Napauta numeroa matkapuhelimellasi varmistaaksesi, että se olet sinä.",
       "subtitle": "Onfido haluaa varmistaa, että se olet todella sinä, joka yrität vahvistaa henkilöllisyytesi, jotta tietosi pysyvät turvassa",
@@ -1854,6 +1862,14 @@
         "mobile_retry_connection": {
           "subtitle": "crossdevice.mobile_retry_connection.subtitle",
           "title": "crossdevice.mobile_retry_connection.title"
+        },
+        "redesigned_intro": {
+          "copy_link_header": "crossdevice.redesigned_intro.copyLinkHeader",
+          "link_divider": "crossdevice.redesigned_intro.linkDivider",
+          "qr_code_header": "crossdevice.redesigned_intro.qrCodeHeader",
+          "sms_header": "crossdevice.redesigned_intro.smsHeader",
+          "subtitle": "crossdevice.redesigned_intro.subtitle",
+          "title": "crossdevice.redesigned_intro.title"
         }
       },
       "cross_device_abort": {

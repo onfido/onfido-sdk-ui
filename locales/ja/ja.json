@@ -816,6 +816,14 @@
       "subtitle": "他のデバイスに表示されている番号をタップしてください。本当にあなたであることを確認したいです。",
       "title": "番号を一致させる"
     },
+    "redesigned_intro": {
+      "copyLinkHeader": "続行するには、以下のリンクをコピーしてモバイル端末に送信し、モバイル端末のブラウザで開いてください。",
+      "linkDivider": "または、別の方法を選択してください：",
+      "qrCodeHeader": "続行するには、モバイル端末のカメラまたはQRコードアプリで、以下のQRコードを読み取ってください。",
+      "smsHeader": "以下に電話番号を入力してください。SMSでワンタイムリンクをお送りします。",
+      "subtitle": "最適な体験と結果を得るため、次のステップではモバイル電話の使用が必要です。",
+      "title": "モバイル端末で続行"
+    },
     "verification": {
       "instruction": "携帯の番号をタップして、あなたであることを確認してください。",
       "subtitle": "あなたの情報を安全に保つため、Onfidoは本当にあなたが身元を確認しようとしているのかを確認したいと考えています",
@@ -1854,6 +1862,14 @@
         "mobile_retry_connection": {
           "subtitle": "crossdevice.mobile_retry_connection.subtitle",
           "title": "crossdevice.mobile_retry_connection.title"
+        },
+        "redesigned_intro": {
+          "copy_link_header": "crossdevice.redesigned_intro.copyLinkHeader",
+          "link_divider": "crossdevice.redesigned_intro.linkDivider",
+          "qr_code_header": "crossdevice.redesigned_intro.qrCodeHeader",
+          "sms_header": "crossdevice.redesigned_intro.smsHeader",
+          "subtitle": "crossdevice.redesigned_intro.subtitle",
+          "title": "crossdevice.redesigned_intro.title"
         }
       },
       "cross_device_abort": {

@@ -816,6 +816,14 @@
       "subtitle": "Ketuk nombor yang ditunjukkan pada peranti lain anda. Kami mahu memastikan bahawa itu benar-benar anda.",
       "title": "Padankan nombor"
     },
+    "redesigned_intro": {
+      "copyLinkHeader": "Untuk meneruskan, salin pautan di bawah dan hantarkan ke peranti mudah alih anda. Kemudian, buka pautan tersebut dalam pelayar peranti mudah alih anda.",
+      "linkDivider": "Atau pilih kaedah alternatif:",
+      "qrCodeHeader": "Imbas kod QR di bawah menggunakan kamera peranti mudah alih anda atau aplikasi kod QR untuk meneruskan.",
+      "smsHeader": "Sila masukkan nombor telefon anda di bawah. Kami akan menghantar pautan satu kali ke telefon anda melalui SMS.",
+      "subtitle": "Untuk memastikan pengalaman terbaik dan mencapai hasil yang optimum, langkah seterusnya memerlukan anda menggunakan telefon mudah alih anda.",
+      "title": "Teruskan pada peranti mudah alih anda"
+    },
     "verification": {
       "instruction": "Ketuk nombor pada telefon bimbit anda untuk mengesahkan ia adalah anda.",
       "subtitle": "Untuk membantu menjaga keselamatan maklumat anda, Onfido mahu memastikan bahawa benar-benar anda yang cuba mengesahkan identiti anda",
@@ -1854,6 +1862,14 @@
         "mobile_retry_connection": {
           "subtitle": "crossdevice.mobile_retry_connection.subtitle",
           "title": "crossdevice.mobile_retry_connection.title"
+        },
+        "redesigned_intro": {
+          "copy_link_header": "crossdevice.redesigned_intro.copyLinkHeader",
+          "link_divider": "crossdevice.redesigned_intro.linkDivider",
+          "qr_code_header": "crossdevice.redesigned_intro.qrCodeHeader",
+          "sms_header": "crossdevice.redesigned_intro.smsHeader",
+          "subtitle": "crossdevice.redesigned_intro.subtitle",
+          "title": "crossdevice.redesigned_intro.title"
         }
       },
       "cross_device_abort": {

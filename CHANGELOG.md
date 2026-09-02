@@ -7,6 +7,13 @@ and the SDK adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html)
 
 When any of the string translations change, it will result in a MINOR version change. As a result, you are responsible for ensuring the correct layout if you are using custom translations (see [language localization](https://documentation.onfido.com/sdk/web/#custom-translations-and-text)).
 
+## [v14.83.0] - 2026-09-02
+
+### Fixed
+
+- Fix motion capture recording failures on Safari by detecting and automatically recovering from incomplete video uploads
+- Fix face capture opening the rear camera instead of the front camera on some iPhone devices, ensuring applicants can complete verification without workarounds
+
 ## [v14.82.1] - 2026-08-28
 
 ### Added

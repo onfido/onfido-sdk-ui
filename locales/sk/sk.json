@@ -816,6 +816,14 @@
       "subtitle": "Kliknite na číslo zobrazené na vašom inom zariadení. Chceme sa uistiť, že ste to naozaj vy.",
       "title": "Zodpovedajúce číslo"
     },
+    "redesigned_intro": {
+      "copyLinkHeader": "Ak chcete pokračovať, skopírujte odkaz nižšie a odošlite ho do svojho mobilného zariadenia. Potom ho otvorte v prehliadači mobilného zariadenia.",
+      "linkDivider": "Alebo vyberte alternatívnu metódu:",
+      "qrCodeHeader": "Ak chcete pokračovať, naskenujte QR kód nižšie pomocou fotoaparátu mobilného zariadenia alebo aplikácie na čítanie QR kódov.",
+      "smsHeader": "Zadajte svoje telefónne číslo nižšie. Na váš telefón zašleme jednorazový odkaz prostredníctvom SMS.",
+      "subtitle": "Na zaistenie čo najlepšieho zážitku a dosiahnutie optimálnych výsledkov je na ďalší krok potrebné použiť mobilný telefón.",
+      "title": "Pokračujte na mobilnom zariadení"
+    },
     "verification": {
       "instruction": "Kliknite na číslo na svojom mobile, aby ste overili, že ste to vy.",
       "subtitle": "Aby sme pomohli chrániť vaše informácie, Onfido chce sa uistiť, že ste to naozaj vy, kto sa pokúša overiť svoju totožnosť",
@@ -1854,6 +1862,14 @@
         "mobile_retry_connection": {
           "subtitle": "crossdevice.mobile_retry_connection.subtitle",
           "title": "crossdevice.mobile_retry_connection.title"
+        },
+        "redesigned_intro": {
+          "copy_link_header": "crossdevice.redesigned_intro.copyLinkHeader",
+          "link_divider": "crossdevice.redesigned_intro.linkDivider",
+          "qr_code_header": "crossdevice.redesigned_intro.qrCodeHeader",
+          "sms_header": "crossdevice.redesigned_intro.smsHeader",
+          "subtitle": "crossdevice.redesigned_intro.subtitle",
+          "title": "crossdevice.redesigned_intro.title"
         }
       },
       "cross_device_abort": {

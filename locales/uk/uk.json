@@ -816,6 +816,14 @@
       "subtitle": "Натисніть на номер, що відображається на вашому іншому пристрої. Ми хочемо переконатися, що це дійсно ви.",
       "title": "Зіставте номер"
     },
+    "redesigned_intro": {
+      "copyLinkHeader": "Щоб продовжити, скопіюйте посилання нижче та надішліть його на свій мобільний пристрій. Потім відкрийте його у браузері мобільного пристрою.",
+      "linkDivider": "Або оберіть інший спосіб:",
+      "qrCodeHeader": "Відскануйте QR-код нижче за допомогою камери мобільного пристрою або застосунку для сканування QR-кодів, щоб продовжити.",
+      "smsHeader": "Введіть свій номер телефону нижче. Ми надішлемо одноразове посилання на ваш телефон через SMS.",
+      "subtitle": "Щоб забезпечити найкращий досвід і досягти оптимальних результатів, наступний крок потребує використання мобільного телефону.",
+      "title": "Продовжте на мобільному пристрої"
+    },
     "verification": {
       "instruction": "Натисніть на номер на своєму мобільному, щоб підтвердити, що це ви.",
       "subtitle": "Щоб допомогти зберегти вашу інформацію в безпеці, Onfido хоче переконатися, що це дійсно ви намагаєтеся підтвердити свою особистість",
@@ -1854,6 +1862,14 @@
         "mobile_retry_connection": {
           "subtitle": "crossdevice.mobile_retry_connection.subtitle",
           "title": "crossdevice.mobile_retry_connection.title"
+        },
+        "redesigned_intro": {
+          "copy_link_header": "crossdevice.redesigned_intro.copyLinkHeader",
+          "link_divider": "crossdevice.redesigned_intro.linkDivider",
+          "qr_code_header": "crossdevice.redesigned_intro.qrCodeHeader",
+          "sms_header": "crossdevice.redesigned_intro.smsHeader",
+          "subtitle": "crossdevice.redesigned_intro.subtitle",
+          "title": "crossdevice.redesigned_intro.title"
         }
       },
       "cross_device_abort": {

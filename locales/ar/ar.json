@@ -816,6 +816,14 @@
       "subtitle": "اضغط على الرقم المعروض على جهازك الآخر. نريد التأكد من أنك أنت حقا.",
       "title": "قم بمطابقة الرقم"
     },
+    "redesigned_intro": {
+      "copyLinkHeader": "للمتابعة، انسخ الرابط أدناه وأرسله إلى جهازك المحمول، ثم افتحه في متصفح الجهاز المحمول.",
+      "linkDivider": "أو اختر طريقة بديلة:",
+      "qrCodeHeader": "امسح رمز QR أدناه باستخدام كاميرا جهازك المحمول أو تطبيق رمز QR للمتابعة.",
+      "smsHeader": "يُرجى إدخال رقم هاتفك أدناه. سنرسل رابطًا لمرة واحدة إلى هاتفك عبر الرسائل القصيرة (SMS).",
+      "subtitle": "لضمان أفضل تجربة والحصول على نتائج مثلى، تتطلب الخطوة التالية استخدام هاتفك المحمول.",
+      "title": "المتابعة على جهازك المحمول"
+    },
     "verification": {
       "instruction": "اضغط على الرقم على هاتفك المحمول للتحقق من أنه أنت.",
       "subtitle": "للمساعدة في الحفاظ على معلوماتك آمنة، تريد Onfido التأكد من أنك أنت حقًا الذي تحاول التحقق من هويتك",
@@ -1854,6 +1862,14 @@
         "mobile_retry_connection": {
           "subtitle": "crossdevice.mobile_retry_connection.subtitle",
           "title": "crossdevice.mobile_retry_connection.title"
+        },
+        "redesigned_intro": {
+          "copy_link_header": "crossdevice.redesigned_intro.copyLinkHeader",
+          "link_divider": "crossdevice.redesigned_intro.linkDivider",
+          "qr_code_header": "crossdevice.redesigned_intro.qrCodeHeader",
+          "sms_header": "crossdevice.redesigned_intro.smsHeader",
+          "subtitle": "crossdevice.redesigned_intro.subtitle",
+          "title": "crossdevice.redesigned_intro.title"
         }
       },
       "cross_device_abort": {

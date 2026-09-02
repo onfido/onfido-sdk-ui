@@ -816,6 +816,14 @@
       "subtitle": "Tap the number shown on your other device. We want to make sure that it's really you.",
       "title": "Match the number"
     },
+    "redesigned_intro": {
+      "copyLinkHeader": "To continue, copy the link below and send it to your mobile. Then open it in your mobile browser.",
+      "linkDivider": "Or choose an alternative method:",
+      "qrCodeHeader": "Scan the QR code below with your mobile camera or QR code app to continue.",
+      "smsHeader": "Please provide your mobile number below. We'll send a one-time link to your phone via SMS.",
+      "subtitle": "To ensure the best experience and achieve optimal results, the next step requires you to use your mobile phone.",
+      "title": "Continue on your mobile"
+    },
     "verification": {
       "instruction": "Tap the number on your mobile to verify it's you.",
       "subtitle": "To help keep your information secure, Onfido wants to ensure it's truly you attempting to verify your identity",
@@ -1854,6 +1862,14 @@
         "mobile_retry_connection": {
           "subtitle": "crossdevice.mobile_retry_connection.subtitle",
           "title": "crossdevice.mobile_retry_connection.title"
+        },
+        "redesigned_intro": {
+          "copy_link_header": "crossdevice.redesigned_intro.copyLinkHeader",
+          "link_divider": "crossdevice.redesigned_intro.linkDivider",
+          "qr_code_header": "crossdevice.redesigned_intro.qrCodeHeader",
+          "sms_header": "crossdevice.redesigned_intro.smsHeader",
+          "subtitle": "crossdevice.redesigned_intro.subtitle",
+          "title": "crossdevice.redesigned_intro.title"
         }
       },
       "cross_device_abort": {

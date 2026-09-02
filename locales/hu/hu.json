@@ -816,6 +816,14 @@
       "subtitle": "Érintse meg a másik eszközén megjelenő számot. Meg akarjuk bizonyosodni, hogy valóban Ön az.",
       "title": "Párosítsd a számot"
     },
+    "redesigned_intro": {
+      "copyLinkHeader": "A folytatáshoz másolja ki az alábbi hivatkozást, és küldje el a mobilkészülékére. Ezután nyissa meg a mobilkészüléke böngészőjében.",
+      "linkDivider": "Vagy válasszon egy másik módszert:",
+      "qrCodeHeader": "A folytatáshoz olvassa be az alábbi QR-kódot a mobilkészüléke kamerájával vagy egy QR-kódolvasó alkalmazással.",
+      "smsHeader": "Kérjük, adja meg lent a telefonszámát. Egyszeri hivatkozást küldünk a telefonjára SMS-ben.",
+      "subtitle": "A legjobb élmény és az optimális eredmény érdekében a következő lépéshez kérjük, használja a mobiltelefonját.",
+      "title": "Folytassa a mobilkészülékén"
+    },
     "verification": {
       "instruction": "Érintse meg a számot a mobilján, hogy megerősítse, hogy Ön az.",
       "subtitle": "Az Onfido annak érdekében, hogy biztonságban tartsa az adataidat, meg akarja győződni arról, hogy valóban te próbálod azonosítani magad",
@@ -1854,6 +1862,14 @@
         "mobile_retry_connection": {
           "subtitle": "crossdevice.mobile_retry_connection.subtitle",
           "title": "crossdevice.mobile_retry_connection.title"
+        },
+        "redesigned_intro": {
+          "copy_link_header": "crossdevice.redesigned_intro.copyLinkHeader",
+          "link_divider": "crossdevice.redesigned_intro.linkDivider",
+          "qr_code_header": "crossdevice.redesigned_intro.qrCodeHeader",
+          "sms_header": "crossdevice.redesigned_intro.smsHeader",
+          "subtitle": "crossdevice.redesigned_intro.subtitle",
+          "title": "crossdevice.redesigned_intro.title"
         }
       },
       "cross_device_abort": {

@@ -816,6 +816,14 @@
       "subtitle": "แตะตัวเลขที่แสดงบนอุปกรณ์อื่น ๆ ของคุณ เราต้องการที่จะตรวจสอบว่ามันคือคุณจริง ๆ",
       "title": "จับคู่ตัวเลข"
     },
+    "redesigned_intro": {
+      "copyLinkHeader": "หากต้องการดำเนินการต่อ ให้คัดลอกลิงก์ด้านล่างและส่งไปยังอุปกรณ์มือถือของคุณ จากนั้นเปิดลิงก์ในเบราว์เซอร์บนอุปกรณ์มือถือของคุณ",
+      "linkDivider": "หรือเลือกวิธีอื่น:",
+      "qrCodeHeader": "สแกน QR โค้ดด้านล่างด้วยกล้องหรือแอป QR โค้ดบนอุปกรณ์มือถือของคุณเพื่อดำเนินการต่อ",
+      "smsHeader": "กรุณากรอกหมายเลขโทรศัพท์ของคุณด้านล่าง เราจะส่งลิงก์แบบใช้ครั้งเดียวไปยังโทรศัพท์ของคุณทาง SMS",
+      "subtitle": "เพื่อประสบการณ์ที่ดีที่สุดและผลลัพธ์ที่เหมาะสมที่สุด ขั้นตอนถัดไปจำเป็นต้องใช้โทรศัพท์มือถือของคุณ",
+      "title": "ดำเนินการต่อบนอุปกรณ์มือถือของคุณ"
+    },
     "verification": {
       "instruction": "แตะตัวเลขบนโทรศัพท์มือถือของคุณเพื่อยืนยันว่ามันคือคุณ",
       "subtitle": "เพื่อช่วยรักษาข้อมูลของคุณให้ปลอดภัย, Onfido ต้องการที่จะตรวจสอบว่าคุณเองที่กำลังพยายามยืนยันตัวตน",
@@ -1854,6 +1862,14 @@
         "mobile_retry_connection": {
           "subtitle": "crossdevice.mobile_retry_connection.subtitle",
           "title": "crossdevice.mobile_retry_connection.title"
+        },
+        "redesigned_intro": {
+          "copy_link_header": "crossdevice.redesigned_intro.copyLinkHeader",
+          "link_divider": "crossdevice.redesigned_intro.linkDivider",
+          "qr_code_header": "crossdevice.redesigned_intro.qrCodeHeader",
+          "sms_header": "crossdevice.redesigned_intro.smsHeader",
+          "subtitle": "crossdevice.redesigned_intro.subtitle",
+          "title": "crossdevice.redesigned_intro.title"
         }
       },
       "cross_device_abort": {

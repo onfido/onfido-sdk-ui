@@ -816,6 +816,14 @@
       "subtitle": "Koputage numbrile, mis kuvatakse teie teisel seadmel. Me tahame veenduda, et see olete tõesti teie.",
       "title": "Sobita number"
     },
+    "redesigned_intro": {
+      "copyLinkHeader": "Jätkamiseks kopeerige alljärgnev link ja saatke see oma mobiilseadmesse. Seejärel avage see mobiilseadme brauseris.",
+      "linkDivider": "Või valige mõni muu meetod:",
+      "qrCodeHeader": "Jätkamiseks skannige allolev QR-kood mobiilseadme kaamera või QR-koodi rakendusega.",
+      "smsHeader": "Sisestage allpool oma telefoninumber. Saadame teie telefonile SMS-i teel ühekordse lingi.",
+      "subtitle": "Parima kogemuse ja optimaalsete tulemuste tagamiseks on järgmine samm vajalik teha mobiiltelefoniga.",
+      "title": "Jätkake mobiilseadmes"
+    },
     "verification": {
       "instruction": "Koputage oma mobiilil numbrile, et kinnitada, et see olete teie.",
       "subtitle": "Selleks, et aidata teie teavet turvalisena hoida, soovib Onfido veenduda, et just teie proovite oma isikut tõendada",
@@ -1854,6 +1862,14 @@
         "mobile_retry_connection": {
           "subtitle": "crossdevice.mobile_retry_connection.subtitle",
           "title": "crossdevice.mobile_retry_connection.title"
+        },
+        "redesigned_intro": {
+          "copy_link_header": "crossdevice.redesigned_intro.copyLinkHeader",
+          "link_divider": "crossdevice.redesigned_intro.linkDivider",
+          "qr_code_header": "crossdevice.redesigned_intro.qrCodeHeader",
+          "sms_header": "crossdevice.redesigned_intro.smsHeader",
+          "subtitle": "crossdevice.redesigned_intro.subtitle",
+          "title": "crossdevice.redesigned_intro.title"
         }
       },
       "cross_device_abort": {

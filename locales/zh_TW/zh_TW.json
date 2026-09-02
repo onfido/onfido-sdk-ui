@@ -816,6 +816,14 @@
       "subtitle": "請在您的另一部裝置上點擊顯示的號碼。我們想確認真的是您。",
       "title": "匹配數字"
     },
+    "redesigned_intro": {
+      "copyLinkHeader": "若要繼續，請複製以下連結並將其傳送至您的行動裝置，然後在行動裝置的瀏覽器中開啟。",
+      "linkDivider": "或選擇其他方式：",
+      "qrCodeHeader": "請使用行動裝置的相機或 QR 碼應用程式掃描以下 QR 碼以繼續。",
+      "smsHeader": "請在下方提供您的電話號碼，我們將透過簡訊傳送一次性連結至您的手機。",
+      "subtitle": "為確保最佳體驗並達到最理想的結果，下一步需要您使用行動電話。",
+      "title": "在您的行動裝置上繼續"
+    },
     "verification": {
       "instruction": "點擊您手機上的號碼以驗證是您。",
       "subtitle": "為了幫助保護您的資訊安全，Onfido希望確認真的是您在嘗試驗證您的身份",
@@ -1854,6 +1862,14 @@
         "mobile_retry_connection": {
           "subtitle": "crossdevice.mobile_retry_connection.subtitle",
           "title": "crossdevice.mobile_retry_connection.title"
+        },
+        "redesigned_intro": {
+          "copy_link_header": "crossdevice.redesigned_intro.copyLinkHeader",
+          "link_divider": "crossdevice.redesigned_intro.linkDivider",
+          "qr_code_header": "crossdevice.redesigned_intro.qrCodeHeader",
+          "sms_header": "crossdevice.redesigned_intro.smsHeader",
+          "subtitle": "crossdevice.redesigned_intro.subtitle",
+          "title": "crossdevice.redesigned_intro.title"
         }
       },
       "cross_device_abort": {

@@ -816,6 +816,14 @@
       "subtitle": "Trykk på nummeret som vises på din andre enhet. Vi vil forsikre oss om at det virkelig er deg.",
       "title": "Samsvare med nummeret"
     },
+    "redesigned_intro": {
+      "copyLinkHeader": "For å fortsette, kopier lenken nedenfor og send den til mobilenheten din. Åpne deretter lenken i nettleseren på mobilenheten.",
+      "linkDivider": "Eller velg en alternativ metode:",
+      "qrCodeHeader": "Skann QR-koden nedenfor med kameraet på mobilenheten din eller en QR-kode-app for å fortsette.",
+      "smsHeader": "Oppgi telefonnummeret ditt nedenfor. Vi sender en engangslenke til telefonen din via SMS.",
+      "subtitle": "For å sikre den beste opplevelsen og oppnå optimale resultater, må du bruke mobiltelefonen din i neste trinn.",
+      "title": "Fortsett på mobilenheten din"
+    },
     "verification": {
       "instruction": "Trykk på nummeret på mobilen din for å bekrefte at det er deg.",
       "subtitle": "For å hjelpe med å holde informasjonen din trygg, ønsker Onfido å forsikre seg om at det virkelig er deg som prøver å verifisere identiteten din",
@@ -1854,6 +1862,14 @@
         "mobile_retry_connection": {
           "subtitle": "crossdevice.mobile_retry_connection.subtitle",
           "title": "crossdevice.mobile_retry_connection.title"
+        },
+        "redesigned_intro": {
+          "copy_link_header": "crossdevice.redesigned_intro.copyLinkHeader",
+          "link_divider": "crossdevice.redesigned_intro.linkDivider",
+          "qr_code_header": "crossdevice.redesigned_intro.qrCodeHeader",
+          "sms_header": "crossdevice.redesigned_intro.smsHeader",
+          "subtitle": "crossdevice.redesigned_intro.subtitle",
+          "title": "crossdevice.redesigned_intro.title"
         }
       },
       "cross_device_abort": {

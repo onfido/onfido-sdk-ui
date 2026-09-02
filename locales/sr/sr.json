@@ -816,6 +816,14 @@
       "subtitle": "Dodirnite broj prikazan na vašem drugom uređaju. Želimo da se uverimo da ste to zaista vi.",
       "title": "Uporedi broj"
     },
+    "redesigned_intro": {
+      "copyLinkHeader": "Da biste nastavili, kopirajte link ispod i pošaljite ga na mobilni uređaj. Zatim ga otvorite u pregledaču na mobilnom uređaju.",
+      "linkDivider": "Ili odaberite alternativnu metodu:",
+      "qrCodeHeader": "Skenirajte QR kod ispod kamerom mobilnog uređaja ili aplikacijom za QR kodove da biste nastavili.",
+      "smsHeader": "Unesite broj telefona ispod. Poslaćemo jednokratni link na vaš telefon putem SMS-a.",
+      "subtitle": "Kako bismo osigurali najbolje iskustvo i optimalne rezultate, sledeći korak zahteva korišćenje mobilnog telefona.",
+      "title": "Nastavite na mobilnom uređaju"
+    },
     "verification": {
       "instruction": "Tapnite na broj na svom mobilnom telefonu da potvrdite da ste to vi.",
       "subtitle": "Da bi pomogao u očuvanju vaših informacija, Onfido želi da se uveri da ste to zaista vi koji pokušavate da potvrdite svoj identitet",
@@ -1854,6 +1862,14 @@
         "mobile_retry_connection": {
           "subtitle": "crossdevice.mobile_retry_connection.subtitle",
           "title": "crossdevice.mobile_retry_connection.title"
+        },
+        "redesigned_intro": {
+          "copy_link_header": "crossdevice.redesigned_intro.copyLinkHeader",
+          "link_divider": "crossdevice.redesigned_intro.linkDivider",
+          "qr_code_header": "crossdevice.redesigned_intro.qrCodeHeader",
+          "sms_header": "crossdevice.redesigned_intro.smsHeader",
+          "subtitle": "crossdevice.redesigned_intro.subtitle",
+          "title": "crossdevice.redesigned_intro.title"
         }
       },
       "cross_device_abort": {

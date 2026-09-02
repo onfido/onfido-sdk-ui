@@ -816,6 +816,14 @@
       "subtitle": "Diğer cihazınızda gösterilen numaraya dokunun. Gerçekten siz olduğunuzdan emin olmak istiyoruz.",
       "title": "Numarayı eşleştirin"
     },
+    "redesigned_intro": {
+      "copyLinkHeader": "Devam etmek için aşağıdaki bağlantıyı kopyalayın ve mobil cihazınıza gönderin. Ardından mobil cihazınızın tarayıcısında açın.",
+      "linkDivider": "Ya da alternatif bir yöntem seçin:",
+      "qrCodeHeader": "Devam etmek için aşağıdaki QR kodu mobil cihazınızın kamerası veya QR kod uygulamasıyla tarayın.",
+      "smsHeader": "Lütfen aşağıya telefon numaranızı girin. SMS yoluyla telefonunuza tek kullanımlık bir bağlantı göndereceğiz.",
+      "subtitle": "En iyi deneyimi sağlamak ve en iyi sonuçları elde etmek için sonraki adımda cep telefonunuzu kullanmanız gerekmektedir.",
+      "title": "Mobil cihazınızda devam edin"
+    },
     "verification": {
       "instruction": "Doğrulamanın siz olduğunu onaylamak için mobilinizdeki numaraya dokunun.",
       "subtitle": "Bilgilerinizi güvende tutmak için Onfido, kimliğinizi doğrulamaya çalışanın gerçekten siz olduğunuzdan emin olmak istiyor",
@@ -1854,6 +1862,14 @@
         "mobile_retry_connection": {
           "subtitle": "crossdevice.mobile_retry_connection.subtitle",
           "title": "crossdevice.mobile_retry_connection.title"
+        },
+        "redesigned_intro": {
+          "copy_link_header": "crossdevice.redesigned_intro.copyLinkHeader",
+          "link_divider": "crossdevice.redesigned_intro.linkDivider",
+          "qr_code_header": "crossdevice.redesigned_intro.qrCodeHeader",
+          "sms_header": "crossdevice.redesigned_intro.smsHeader",
+          "subtitle": "crossdevice.redesigned_intro.subtitle",
+          "title": "crossdevice.redesigned_intro.title"
         }
       },
       "cross_device_abort": {
