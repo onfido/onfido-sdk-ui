@@ -818,7 +818,9 @@
     },
     "redesigned_intro": {
       "copyLinkHeader": "Pour continuer, copiez le lien ci-dessous et envoyez-le à votre appareil mobile, puis ouvrez-le dans le navigateur de votre appareil mobile.",
+      "info_qr_how_download": "Si votre appareil photo ne peut pas scanner le code QR, il se peut qu’il ne le prenne pas en charge. Installez une application de lecture de codes QR pour continuer.",
       "linkDivider": "Ou choisissez une autre méthode :",
+      "link_sms": "Envoyer le lien par SMS",
       "qrCodeHeader": "Scannez le code QR ci-dessous avec l’appareil photo de votre appareil mobile ou une application de lecture de codes QR pour continuer.",
       "smsHeader": "Veuillez saisir votre numéro de téléphone ci-dessous. Nous enverrons à votre téléphone un lien à usage unique par SMS.",
       "subtitle": "Pour garantir la meilleure expérience et obtenir des résultats optimaux, l’étape suivante nécessite l’utilisation de votre téléphone mobile.",
@@ -998,6 +1000,12 @@
       "button_help": "Besoin d'aide ?",
       "button_help_accessibility": "Le bouton « Besoin d’aide » est maintenant mis en évidence. Touchez-le si vous avez besoin d’aide.",
       "button_manual": "Commencer la numérisation",
+      "camera_error": {
+        "body": "Vérifiez que la caméra n'est pas utilisée par une autre application",
+        "button_primary": "Réessayer",
+        "icon_accessibility": "Erreur de caméra",
+        "title": "La caméra ne fonctionne pas"
+      },
       "feedback": {
         "alignment_center_document": "Centrez le document",
         "alignment_center_document_down_accessibility": "Déplacez votre document vers le bas.",
@@ -1340,6 +1348,10 @@
     "invalid_token": {
       "subtitle": "Veuillez réessayer",
       "title": "Votre jeton a expiré"
+    },
+    "network_error": {
+      "subtitle": "Il semble qu’il y ait un problème avec votre connexion Internet. Veuillez vérifier qu’elle est stable, puis actualisez cette page pour continuer.",
+      "title": "Connexion perdue"
     },
     "no_camera": {
       "subtitle": "Nous ne sommes pas en mesure de détecter une caméra sur cet appareil. Veuillez vous assurer qu'une caméra est connectée et que les autorisations requises sont accordées.",
@@ -1865,7 +1877,9 @@
         },
         "redesigned_intro": {
           "copy_link_header": "crossdevice.redesigned_intro.copyLinkHeader",
+          "info_qr_how_download": "crossdevice.redesigned_intro.info_qr_how_download",
           "link_divider": "crossdevice.redesigned_intro.linkDivider",
+          "link_sms": "crossdevice.redesigned_intro.link_sms",
           "qr_code_header": "crossdevice.redesigned_intro.qrCodeHeader",
           "sms_header": "crossdevice.redesigned_intro.smsHeader",
           "subtitle": "crossdevice.redesigned_intro.subtitle",
@@ -2079,6 +2093,12 @@
         "button_help": "document.scan.button_help",
         "button_help_accessibility": "document.scan.button_help_accessibility",
         "button_manual": "document.scan.button_manual",
+        "camera_error": {
+          "body": "document.scan.camera_error.body",
+          "button_primary": "document.scan.camera_error.button_primary",
+          "icon_accessibility": "document.scan.camera_error.icon_accessibility",
+          "title": "document.scan.camera_error.title"
+        },
         "feedback": {
           "alignment_center_document": "document.scan.feedback.alignment_center_document",
           "alignment_center_document_down_accessibility": "document.scan.feedback.alignment_center_document_down_accessibility",
@@ -2421,6 +2441,8 @@
         "button_primary": "nfc.pin_entry.button_primary",
         "helper_attempts_left": "nfc.pin_entry.helper_attempts_left",
         "helper_final_attempt": "nfc.pin_entry.helper_final_attempt",
+        "hide_pin": "nfc.pin_entry.hide_pin_accessibility",
+        "show_pin": "nfc.pin_entry.show_pin_accessibility",
         "subtitle": "nfc.pin_entry.subtitle",
         "title": "nfc.pin_entry.title",
         "title_incorrect": "nfc.pin_entry.title_incorrect"
@@ -2679,6 +2701,12 @@
           "ZAF": "common.country_selection.countries.ZAF",
           "ZMB": "common.country_selection.countries.ZMB",
           "ZWE": "common.country_selection.countries.ZWE"
+        },
+        "error": {
+          "network_error": {
+            "subtitle": "error.network_error.subtitle",
+            "title": "error.network_error.title"
+          }
         },
         "error_detail": "facePhoto.error.errors.network.message",
         "error_network": {
@@ -3414,6 +3442,48 @@
         "title_v5c": "proofOfAddress.guide.title_v5c"
       },
       "poa_welcome_text": "welcome.list_item.poa",
+      "present_digital_identity_wallet": {
+        "button": {
+          "digital_wallet": "presentDigitalIdentityWallet.button.digital_wallet",
+          "document_capture": "presentDigitalIdentityWallet.button.document_capture"
+        },
+        "digital_wallet": {
+          "subtitle": "presentDigitalIdentityWallet.digital_wallet.subtitle",
+          "title": "presentDigitalIdentityWallet.digital_wallet.title"
+        },
+        "error": {
+          "attribute_missing": {
+            "subtitle": "presentDigitalIdentityWallet.error.attribute_missing.subtitle",
+            "title": "presentDigitalIdentityWallet.error.attribute_missing.title"
+          },
+          "button_another_method": "presentDigitalIdentityWallet.error.button_another_method",
+          "button_try_again": "presentDigitalIdentityWallet.error.button_try_again",
+          "standard": {
+            "subtitle": "presentDigitalIdentityWallet.error.standard.subtitle",
+            "title": "presentDigitalIdentityWallet.error.standard.title"
+          },
+          "verification_failed": {
+            "subtitle": "presentDigitalIdentityWallet.error.verification_failed.subtitle",
+            "title": "presentDigitalIdentityWallet.error.verification_failed.title"
+          },
+          "wallet_closed": {
+            "subtitle": "presentDigitalIdentityWallet.error.wallet_closed.subtitle",
+            "title": "presentDigitalIdentityWallet.error.wallet_closed.title"
+          }
+        },
+        "field_validation": {
+          "value_missing": "presentDigitalIdentityWallet.field_validation.value_missing"
+        },
+        "intro": {
+          "button_continue": "presentDigitalIdentityWallet.intro.button_continue",
+          "subtitle": "presentDigitalIdentityWallet.intro.subtitle",
+          "title": "presentDigitalIdentityWallet.intro.title"
+        },
+        "issuing_country": {
+          "label": "presentDigitalIdentityWallet.issuing_country.label",
+          "placeholder": "presentDigitalIdentityWallet.issuing_country.placeholder"
+        }
+      },
       "profile_data": {
         "address_title": "profileData.title.address",
         "button_continue": "sample.selection.next",
@@ -3743,6 +3813,7 @@
           "introduction": {
             "button_confirmation_step": "qualifiedElectronicSignature.introduction.button_confirmation_step",
             "certificate_application_form": "qualifiedElectronicSignature.introduction.certificate_application_form",
+            "info_banner": "qualifiedElectronicSignature.introduction.info_banner",
             "privacy_notice": "qualifiedElectronicSignature.introduction.privacy_notice",
             "step1": "qualifiedElectronicSignature.introduction.step1",
             "subtitle": "qualifiedElectronicSignature.introduction.subtitle",
@@ -4219,9 +4290,11 @@
       "button_primary": "Continuer",
       "helper_attempts_left": "%d tentatives restantes",
       "helper_final_attempt": "Il reste 1 tentative. Votre puce sera bloquée après le prochain échec",
+      "hide_pin_accessibility": "Masquer le code PIN",
       "optional_button_tertiary": "Ignorer la lecture de la puce NFC",
       "optional_helper_attempts_left": "%d tentatives restantes. Ignorez cette étape ci-dessous.",
       "optional_helper_final_attempt": "%d tentative restante avant le blocage de votre puce NFC. Ignorez cette étape ci-dessous.",
+      "show_pin_accessibility": "Afficher le code PIN",
       "subtitle": "Ceci est nécessaire pour lire en toute sécurité la puce NFC. Vous avez créé ce numéro à %d chiffres lors de l'émission de votre document.",
       "title": "Saisissez le code PIN de votre document",
       "title_incorrect": "Code PIN incorrect"
@@ -4340,6 +4413,48 @@
       "input_label": "Numéro de téléphone",
       "intro": "Pour vérifier votre numéro de téléphone, nous vous demanderons d'entrer un mot de passe à usage unique.",
       "title": "Mot de Passe à Usage Unique"
+    }
+  },
+  "presentDigitalIdentityWallet": {
+    "button": {
+      "digital_wallet": "Ouvrir le portefeuille numérique",
+      "document_capture": "Je n’ai pas d’eID"
+    },
+    "digital_wallet": {
+      "subtitle": "Terminez votre vérification dans votre application de portefeuille d’identité pour continuer",
+      "title": "Vérification en cours"
+    },
+    "error": {
+      "attribute_missing": {
+        "subtitle": "Tous les attributs demandés sont nécessaires pour continuer. Veuillez revenir en arrière et les partager.",
+        "title": "Certains attributs n’ont pas été partagés"
+      },
+      "button_another_method": "Choisir une autre méthode",
+      "button_try_again": "Réessayer",
+      "standard": {
+        "subtitle": "Un problème est survenu lors de votre vérification. Veuillez réessayer.",
+        "title": "Un problème est survenu"
+      },
+      "verification_failed": {
+        "subtitle": "Vos attributs n’ont pas pu être confirmés. Veuillez essayer une autre méthode.",
+        "title": "Nous n’avons pas pu vérifier votre identité"
+      },
+      "wallet_closed": {
+        "subtitle": "Le portefeuille a mis trop de temps ou a été fermé. Veuillez revenir en arrière et réessayer.",
+        "title": "La vérification n’a pas abouti"
+      }
+    },
+    "field_validation": {
+      "value_missing": "Veuillez sélectionner une option"
+    },
+    "intro": {
+      "button_continue": "Commencer la vérification",
+      "subtitle": "Pour des raisons de sécurité et pour vous protéger contre la fraude, nous devons vérifier votre identité. Cela ne prendra que quelques minutes.",
+      "title": "Vérification d’identité"
+    },
+    "issuing_country": {
+      "label": "Pays émetteur",
+      "placeholder": "Choisissez le pays d'émission"
     }
   },
   "profileData": {
@@ -4848,6 +4963,7 @@
     "introduction": {
       "button_confirmation_step": "Créer ma signature",
       "certificate_application_form": "Formulaire de demande de certificat",
+      "info_banner": "For legal compliance, consent is presented in <default_language></default_language>. And <device_language></device_language> translation is provided on this screen for reference.",
       "privacy_notice": "Avis de confidentialité",
       "step1": "1 sur 2",
       "subtitle": "Pour confirmer votre identité conformément aux règles européennes, vous devez signer numériquement un document.",

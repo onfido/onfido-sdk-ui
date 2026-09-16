@@ -818,7 +818,9 @@
     },
     "redesigned_intro": {
       "copyLinkHeader": "Aby kontynuować, skopiuj poniższy link i wyślij go na swoje urządzenie mobilne. Następnie otwórz go w przeglądarce na urządzeniu mobilnym.",
+      "info_qr_how_download": "Jeśli aparat nie może zeskanować kodu QR, może go nie obsługiwać. Zainstaluj aplikację do odczytu kodów QR, aby kontynuować.",
       "linkDivider": "Lub wybierz alternatywną metodę:",
+      "link_sms": "Wyślij link przez SMS",
       "qrCodeHeader": "Zeskanuj poniższy kod QR aparatem urządzenia mobilnego lub aplikacją do kodów QR, aby kontynuować.",
       "smsHeader": "Podaj swój numer telefonu poniżej. Wyślemy jednorazowy link na Twój telefon za pomocą SMS-a.",
       "subtitle": "Aby zapewnić najlepsze wrażenia i osiągnąć optymalne wyniki, następny krok wymaga użycia telefonu komórkowego.",
@@ -998,6 +1000,12 @@
       "button_help": "Potrzebujesz pomocy?",
       "button_help_accessibility": "Przycisk pomocy jest teraz podświetlony. Naciśnij go, jeśli potrzebujesz pomocy.",
       "button_manual": "Rozpocznij skanowanie",
+      "camera_error": {
+        "body": "Upewnij się, że kamera nie jest używana przez inną aplikację",
+        "button_primary": "Spróbuj ponownie",
+        "icon_accessibility": "Błąd kamery",
+        "title": "Kamera nie działa"
+      },
       "feedback": {
         "alignment_center_document": "Wyśrodkuj dokument",
         "alignment_center_document_down_accessibility": "Przesuń swój dokument w dół.",
@@ -1340,6 +1348,10 @@
     "invalid_token": {
       "subtitle": "Spróbuj ponownie",
       "title": "Twój token wygasł"
+    },
+    "network_error": {
+      "subtitle": "Wygląda na to, że wystąpił problem z Twoim połączeniem internetowym. Upewnij się, że połączenie jest stabilne, a następnie odśwież tę stronę, aby kontynuować.",
+      "title": "Połączenie zerwane"
     },
     "no_camera": {
       "subtitle": "Nie możemy wykryć kamery na tym urządzeniu. Upewnij się, że kamera jest podłączona i udzielono wymaganych uprawnień.",
@@ -1865,7 +1877,9 @@
         },
         "redesigned_intro": {
           "copy_link_header": "crossdevice.redesigned_intro.copyLinkHeader",
+          "info_qr_how_download": "crossdevice.redesigned_intro.info_qr_how_download",
           "link_divider": "crossdevice.redesigned_intro.linkDivider",
+          "link_sms": "crossdevice.redesigned_intro.link_sms",
           "qr_code_header": "crossdevice.redesigned_intro.qrCodeHeader",
           "sms_header": "crossdevice.redesigned_intro.smsHeader",
           "subtitle": "crossdevice.redesigned_intro.subtitle",
@@ -2079,6 +2093,12 @@
         "button_help": "document.scan.button_help",
         "button_help_accessibility": "document.scan.button_help_accessibility",
         "button_manual": "document.scan.button_manual",
+        "camera_error": {
+          "body": "document.scan.camera_error.body",
+          "button_primary": "document.scan.camera_error.button_primary",
+          "icon_accessibility": "document.scan.camera_error.icon_accessibility",
+          "title": "document.scan.camera_error.title"
+        },
         "feedback": {
           "alignment_center_document": "document.scan.feedback.alignment_center_document",
           "alignment_center_document_down_accessibility": "document.scan.feedback.alignment_center_document_down_accessibility",
@@ -2421,6 +2441,8 @@
         "button_primary": "nfc.pin_entry.button_primary",
         "helper_attempts_left": "nfc.pin_entry.helper_attempts_left",
         "helper_final_attempt": "nfc.pin_entry.helper_final_attempt",
+        "hide_pin": "nfc.pin_entry.hide_pin_accessibility",
+        "show_pin": "nfc.pin_entry.show_pin_accessibility",
         "subtitle": "nfc.pin_entry.subtitle",
         "title": "nfc.pin_entry.title",
         "title_incorrect": "nfc.pin_entry.title_incorrect"
@@ -2679,6 +2701,12 @@
           "ZAF": "common.country_selection.countries.ZAF",
           "ZMB": "common.country_selection.countries.ZMB",
           "ZWE": "common.country_selection.countries.ZWE"
+        },
+        "error": {
+          "network_error": {
+            "subtitle": "error.network_error.subtitle",
+            "title": "error.network_error.title"
+          }
         },
         "error_detail": "facePhoto.error.errors.network.message",
         "error_network": {
@@ -3414,6 +3442,48 @@
         "title_v5c": "proofOfAddress.guide.title_v5c"
       },
       "poa_welcome_text": "welcome.list_item.poa",
+      "present_digital_identity_wallet": {
+        "button": {
+          "digital_wallet": "presentDigitalIdentityWallet.button.digital_wallet",
+          "document_capture": "presentDigitalIdentityWallet.button.document_capture"
+        },
+        "digital_wallet": {
+          "subtitle": "presentDigitalIdentityWallet.digital_wallet.subtitle",
+          "title": "presentDigitalIdentityWallet.digital_wallet.title"
+        },
+        "error": {
+          "attribute_missing": {
+            "subtitle": "presentDigitalIdentityWallet.error.attribute_missing.subtitle",
+            "title": "presentDigitalIdentityWallet.error.attribute_missing.title"
+          },
+          "button_another_method": "presentDigitalIdentityWallet.error.button_another_method",
+          "button_try_again": "presentDigitalIdentityWallet.error.button_try_again",
+          "standard": {
+            "subtitle": "presentDigitalIdentityWallet.error.standard.subtitle",
+            "title": "presentDigitalIdentityWallet.error.standard.title"
+          },
+          "verification_failed": {
+            "subtitle": "presentDigitalIdentityWallet.error.verification_failed.subtitle",
+            "title": "presentDigitalIdentityWallet.error.verification_failed.title"
+          },
+          "wallet_closed": {
+            "subtitle": "presentDigitalIdentityWallet.error.wallet_closed.subtitle",
+            "title": "presentDigitalIdentityWallet.error.wallet_closed.title"
+          }
+        },
+        "field_validation": {
+          "value_missing": "presentDigitalIdentityWallet.field_validation.value_missing"
+        },
+        "intro": {
+          "button_continue": "presentDigitalIdentityWallet.intro.button_continue",
+          "subtitle": "presentDigitalIdentityWallet.intro.subtitle",
+          "title": "presentDigitalIdentityWallet.intro.title"
+        },
+        "issuing_country": {
+          "label": "presentDigitalIdentityWallet.issuing_country.label",
+          "placeholder": "presentDigitalIdentityWallet.issuing_country.placeholder"
+        }
+      },
       "profile_data": {
         "address_title": "profileData.title.address",
         "button_continue": "sample.selection.next",
@@ -3743,6 +3813,7 @@
           "introduction": {
             "button_confirmation_step": "qualifiedElectronicSignature.introduction.button_confirmation_step",
             "certificate_application_form": "qualifiedElectronicSignature.introduction.certificate_application_form",
+            "info_banner": "qualifiedElectronicSignature.introduction.info_banner",
             "privacy_notice": "qualifiedElectronicSignature.introduction.privacy_notice",
             "step1": "qualifiedElectronicSignature.introduction.step1",
             "subtitle": "qualifiedElectronicSignature.introduction.subtitle",
@@ -4219,9 +4290,11 @@
       "button_primary": "Kontynuuj",
       "helper_attempts_left": "%d pozostałe próby",
       "helper_final_attempt": "Pozostała 1 próba. Twój chip zostanie zablokowany po następnej nieudanej próbie",
+      "hide_pin_accessibility": "Ukryj PIN",
       "optional_button_tertiary": "Pomiń skanowanie chipu NFC",
       "optional_helper_attempts_left": "%d prób pozostało. Pomiń ten krok poniżej.",
       "optional_helper_final_attempt": "%d pozostała próba, zanim Twój chip NFC zostanie zablokowany. Pomiń ten krok poniżej.",
+      "show_pin_accessibility": "Pokaż PIN",
       "subtitle": "To jest potrzebne do bezpiecznego odczytania chipu NFC. Utworzyłeś ten %d-cyfrowy numer, gdy wydano Twój dokument.",
       "title": "Wprowadź PIN dokumentu",
       "title_incorrect": "Nieprawidłowy PIN"
@@ -4340,6 +4413,48 @@
       "input_label": "Numer telefonu",
       "intro": "Aby zweryfikować Twój numer telefonu, poprosimy Cię o wprowadzenie jednorazowego hasła.",
       "title": "Jednorazowe Hasło"
+    }
+  },
+  "presentDigitalIdentityWallet": {
+    "button": {
+      "digital_wallet": "Otwórz cyfrowy portfel",
+      "document_capture": "Nie mam eID"
+    },
+    "digital_wallet": {
+      "subtitle": "Aby kontynuować, dokończ weryfikację w aplikacji portfela tożsamości",
+      "title": "Weryfikacja w toku"
+    },
+    "error": {
+      "attribute_missing": {
+        "subtitle": "Aby kontynuować, wymagane są wszystkie żądane atrybuty. Wróć i udostępnij je.",
+        "title": "Niektóre atrybuty nie zostały udostępnione"
+      },
+      "button_another_method": "Wybierz inną metodę",
+      "button_try_again": "Spróbuj ponownie",
+      "standard": {
+        "subtitle": "Wystąpił problem z Twoją weryfikacją. Spróbuj ponownie.",
+        "title": "Coś poszło nie tak"
+      },
+      "verification_failed": {
+        "subtitle": "Nie udało się potwierdzić Twoich atrybutów. Spróbuj innej metody.",
+        "title": "Nie udało nam się zweryfikować Twojej tożsamości"
+      },
+      "wallet_closed": {
+        "subtitle": "Portfel działał zbyt długo lub został zamknięty. Wróć i spróbuj ponownie.",
+        "title": "Weryfikacja nie została ukończona"
+      }
+    },
+    "field_validation": {
+      "value_missing": "Wybierz opcję"
+    },
+    "intro": {
+      "button_continue": "Rozpocznij weryfikację",
+      "subtitle": "Ze względów bezpieczeństwa i w celu ochrony przed oszustwem musimy zweryfikować Twoją tożsamość. Zajmie to tylko kilka minut.",
+      "title": "Zweryfikuj swoją tożsamość"
+    },
+    "issuing_country": {
+      "label": "Kraj wydania",
+      "placeholder": "Wybierz kraj wydania"
     }
   },
   "profileData": {
@@ -4848,6 +4963,7 @@
     "introduction": {
       "button_confirmation_step": "Utwórz mój podpis",
       "certificate_application_form": "Formularz wniosku o certyfikat",
+      "info_banner": "For legal compliance, consent is presented in <default_language></default_language>. And <device_language></device_language> translation is provided on this screen for reference.",
       "privacy_notice": "Informacja o prywatności",
       "step1": "1 z 2",
       "subtitle": "Aby potwierdzić swoją tożsamość zgodnie z europejskimi przepisami, musisz cyfrowo podpisać dokument.",

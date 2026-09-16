@@ -818,7 +818,9 @@
     },
     "redesigned_intro": {
       "copyLinkHeader": "Za nadaljevanje kopirajte spodnjo povezavo in jo pošljite na svojo mobilno napravo. Nato jo odprite v brskalniku mobilne naprave.",
+      "info_qr_how_download": "Če vaša kamera ne more prebrati kode QR, je morda ne podpira. Za nadaljevanje namestite aplikacijo za branje kod QR.",
       "linkDivider": "Ali izberite alternativno metodo:",
+      "link_sms": "Pošlji povezavo prek SMS-a",
       "qrCodeHeader": "Za nadaljevanje s kamero mobilne naprave ali aplikacijo za QR kode optično preberite spodnjo QR kodo.",
       "smsHeader": "Vnesite svojo telefonsko številko. Na telefon vam bomo poslali enkratno povezavo prek SMS-a.",
       "subtitle": "Za najboljšo izkušnjo in optimalne rezultate je naslednji korak treba izvesti na mobilnem telefonu.",
@@ -998,6 +1000,12 @@
       "button_help": "Potrebujete pomoč?",
       "button_help_accessibility": "Gumb za pomoč je zdaj označen. Tapnite ga, če potrebujete pomoč.",
       "button_manual": "Začni skeniranje",
+      "camera_error": {
+        "body": "Preverite, ali kamere ne uporablja druga aplikacija",
+        "button_primary": "Poskusi znova",
+        "icon_accessibility": "Napaka kamere",
+        "title": "Kamera ne deluje"
+      },
       "feedback": {
         "alignment_center_document": "Poravnaj dokument na sredino",
         "alignment_center_document_down_accessibility": "Premaknite svoj dokument navzdol.",
@@ -1340,6 +1348,10 @@
     "invalid_token": {
       "subtitle": "Poskusite znova",
       "title": "Vaš žeton je potekel"
+    },
+    "network_error": {
+      "subtitle": "Zdi se, da prihaja do težave z vašo internetno povezavo. Preverite, ali je vaša internetna povezava stabilna, in nato osvežite to stran, da nadaljujete.",
+      "title": "Povezava prekinjena"
     },
     "no_camera": {
       "subtitle": "Na tej napravi ne moremo zaznati kamere. Prosimo, preverite, ali je kamera povezana in ali so podeljena potrebna dovoljenja.",
@@ -1865,7 +1877,9 @@
         },
         "redesigned_intro": {
           "copy_link_header": "crossdevice.redesigned_intro.copyLinkHeader",
+          "info_qr_how_download": "crossdevice.redesigned_intro.info_qr_how_download",
           "link_divider": "crossdevice.redesigned_intro.linkDivider",
+          "link_sms": "crossdevice.redesigned_intro.link_sms",
           "qr_code_header": "crossdevice.redesigned_intro.qrCodeHeader",
           "sms_header": "crossdevice.redesigned_intro.smsHeader",
           "subtitle": "crossdevice.redesigned_intro.subtitle",
@@ -2079,6 +2093,12 @@
         "button_help": "document.scan.button_help",
         "button_help_accessibility": "document.scan.button_help_accessibility",
         "button_manual": "document.scan.button_manual",
+        "camera_error": {
+          "body": "document.scan.camera_error.body",
+          "button_primary": "document.scan.camera_error.button_primary",
+          "icon_accessibility": "document.scan.camera_error.icon_accessibility",
+          "title": "document.scan.camera_error.title"
+        },
         "feedback": {
           "alignment_center_document": "document.scan.feedback.alignment_center_document",
           "alignment_center_document_down_accessibility": "document.scan.feedback.alignment_center_document_down_accessibility",
@@ -2421,6 +2441,8 @@
         "button_primary": "nfc.pin_entry.button_primary",
         "helper_attempts_left": "nfc.pin_entry.helper_attempts_left",
         "helper_final_attempt": "nfc.pin_entry.helper_final_attempt",
+        "hide_pin": "nfc.pin_entry.hide_pin_accessibility",
+        "show_pin": "nfc.pin_entry.show_pin_accessibility",
         "subtitle": "nfc.pin_entry.subtitle",
         "title": "nfc.pin_entry.title",
         "title_incorrect": "nfc.pin_entry.title_incorrect"
@@ -2679,6 +2701,12 @@
           "ZAF": "common.country_selection.countries.ZAF",
           "ZMB": "common.country_selection.countries.ZMB",
           "ZWE": "common.country_selection.countries.ZWE"
+        },
+        "error": {
+          "network_error": {
+            "subtitle": "error.network_error.subtitle",
+            "title": "error.network_error.title"
+          }
         },
         "error_detail": "facePhoto.error.errors.network.message",
         "error_network": {
@@ -3414,6 +3442,48 @@
         "title_v5c": "proofOfAddress.guide.title_v5c"
       },
       "poa_welcome_text": "welcome.list_item.poa",
+      "present_digital_identity_wallet": {
+        "button": {
+          "digital_wallet": "presentDigitalIdentityWallet.button.digital_wallet",
+          "document_capture": "presentDigitalIdentityWallet.button.document_capture"
+        },
+        "digital_wallet": {
+          "subtitle": "presentDigitalIdentityWallet.digital_wallet.subtitle",
+          "title": "presentDigitalIdentityWallet.digital_wallet.title"
+        },
+        "error": {
+          "attribute_missing": {
+            "subtitle": "presentDigitalIdentityWallet.error.attribute_missing.subtitle",
+            "title": "presentDigitalIdentityWallet.error.attribute_missing.title"
+          },
+          "button_another_method": "presentDigitalIdentityWallet.error.button_another_method",
+          "button_try_again": "presentDigitalIdentityWallet.error.button_try_again",
+          "standard": {
+            "subtitle": "presentDigitalIdentityWallet.error.standard.subtitle",
+            "title": "presentDigitalIdentityWallet.error.standard.title"
+          },
+          "verification_failed": {
+            "subtitle": "presentDigitalIdentityWallet.error.verification_failed.subtitle",
+            "title": "presentDigitalIdentityWallet.error.verification_failed.title"
+          },
+          "wallet_closed": {
+            "subtitle": "presentDigitalIdentityWallet.error.wallet_closed.subtitle",
+            "title": "presentDigitalIdentityWallet.error.wallet_closed.title"
+          }
+        },
+        "field_validation": {
+          "value_missing": "presentDigitalIdentityWallet.field_validation.value_missing"
+        },
+        "intro": {
+          "button_continue": "presentDigitalIdentityWallet.intro.button_continue",
+          "subtitle": "presentDigitalIdentityWallet.intro.subtitle",
+          "title": "presentDigitalIdentityWallet.intro.title"
+        },
+        "issuing_country": {
+          "label": "presentDigitalIdentityWallet.issuing_country.label",
+          "placeholder": "presentDigitalIdentityWallet.issuing_country.placeholder"
+        }
+      },
       "profile_data": {
         "address_title": "profileData.title.address",
         "button_continue": "sample.selection.next",
@@ -3743,6 +3813,7 @@
           "introduction": {
             "button_confirmation_step": "qualifiedElectronicSignature.introduction.button_confirmation_step",
             "certificate_application_form": "qualifiedElectronicSignature.introduction.certificate_application_form",
+            "info_banner": "qualifiedElectronicSignature.introduction.info_banner",
             "privacy_notice": "qualifiedElectronicSignature.introduction.privacy_notice",
             "step1": "qualifiedElectronicSignature.introduction.step1",
             "subtitle": "qualifiedElectronicSignature.introduction.subtitle",
@@ -4219,9 +4290,11 @@
       "button_primary": "Nadaljuj",
       "helper_attempts_left": "%d preostalih poskusov",
       "helper_final_attempt": "Preostal je še 1 poskus. Vaš čip bo blokiran po naslednjem neuspelem poskusu",
+      "hide_pin_accessibility": "Skrij PIN",
       "optional_button_tertiary": "Preskoči skeniranje NFC čipa",
       "optional_helper_attempts_left": "%d preostalih poskusov. Spodaj preskočite ta korak.",
       "optional_helper_final_attempt": "%d poskus ostane, preden bo vaš NFC čip blokiran. Spodaj preskočite ta korak.",
+      "show_pin_accessibility": "Pokaži PIN",
       "subtitle": "To je potrebno za varno branje NFC čipa. To %d-mestno številko ste ustvarili ob izdaji dokumenta.",
       "title": "Vnesite PIN dokumenta",
       "title_incorrect": "Napačna PIN"
@@ -4340,6 +4413,48 @@
       "input_label": "Telefonska številka",
       "intro": "Za preverjanje vaše telefonske številke vam bomo poslali enkratno kodo, ki jo vnesete v naslednji zaslon.",
       "title": "Enkratno geslo"
+    }
+  },
+  "presentDigitalIdentityWallet": {
+    "button": {
+      "digital_wallet": "Odpri digitalno denarnico",
+      "document_capture": "Nimam eID-ja"
+    },
+    "digital_wallet": {
+      "subtitle": "Za nadaljevanje dokončajte preverjanje v aplikaciji za identitetno denarnico",
+      "title": "Preverjanje poteka"
+    },
+    "error": {
+      "attribute_missing": {
+        "subtitle": "Za nadaljevanje so potrebni vsi zahtevani atributi. Pojdite nazaj in jih delite.",
+        "title": "Nekateri atributi niso bili deljeni"
+      },
+      "button_another_method": "Izberite drug način",
+      "button_try_again": "Poskusite znova",
+      "standard": {
+        "subtitle": "Pri preverjanju je prišlo do težave. Poskusite znova.",
+        "title": "Nekaj je šlo narobe"
+      },
+      "verification_failed": {
+        "subtitle": "Vaših atributov ni bilo mogoče potrditi. Poskusite z drugim načinom.",
+        "title": "Vaše identitete nismo mogli preveriti"
+      },
+      "wallet_closed": {
+        "subtitle": "Denarnica se je odzvala prepočasi ali pa je bila zaprta. Pojdite nazaj in poskusite znova.",
+        "title": "Preverjanje ni bilo dokončano"
+      }
+    },
+    "field_validation": {
+      "value_missing": "Izberite možnost"
+    },
+    "intro": {
+      "button_continue": "Začni s preverjanjem",
+      "subtitle": "Iz varnostnih razlogov in za zaščito pred goljufijami moramo preveriti vašo identiteto. To bo trajalo le nekaj minut.",
+      "title": "Potrdite svojo identiteto"
+    },
+    "issuing_country": {
+      "label": "Država izdajateljica",
+      "placeholder": "Izberite državo izdajateljico"
     }
   },
   "profileData": {
@@ -4848,6 +4963,7 @@
     "introduction": {
       "button_confirmation_step": "Ustvari moj podpis",
       "certificate_application_form": "Prijavnica za certifikat",
+      "info_banner": "For legal compliance, consent is presented in <default_language></default_language>. And <device_language></device_language> translation is provided on this screen for reference.",
       "privacy_notice": "Obvestilo o zasebnosti",
       "step1": "1 od 2",
       "subtitle": "Za potrditev vaše identitete v skladu z evropskimi pravili morate digitalno podpisati dokument.",

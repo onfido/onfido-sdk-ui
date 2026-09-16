@@ -818,7 +818,9 @@
     },
     "redesigned_intro": {
       "copyLinkHeader": "Για να συνεχίσετε, αντιγράψτε τον παρακάτω σύνδεσμο και στείλτε τον στη φορητή σας συσκευή. Στη συνέχεια, ανοίξτε τον στο πρόγραμμα περιήγησης της φορητής σας συσκευής.",
+      "info_qr_how_download": "Αν η κάμερά σας δεν μπορεί να σαρώσει τον κωδικό QR, ενδέχεται να μην τον υποστηρίζει. Εγκαταστήστε μια εφαρμογή ανάγνωσης κωδικών QR για να συνεχίσετε.",
       "linkDivider": "Ή επιλέξτε εναλλακτική μέθοδο:",
+      "link_sms": "Αποστολή συνδέσμου μέσω SMS",
       "qrCodeHeader": "Σαρώστε τον παρακάτω κωδικό QR με την κάμερα της φορητής σας συσκευής ή με εφαρμογή ανάγνωσης κωδικών QR για να συνεχίσετε.",
       "smsHeader": "Εισαγάγετε τον αριθμό τηλεφώνου σας παρακάτω. Θα σας αποστείλουμε έναν μοναδικό σύνδεσμο μίας χρήσης μέσω SMS.",
       "subtitle": "Για να διασφαλιστεί η καλύτερη εμπειρία και τα βέλτιστα αποτελέσματα, το επόμενο βήμα απαιτεί τη χρήση του κινητού σας τηλεφώνου.",
@@ -998,6 +1000,12 @@
       "button_help": "Χρειάζεστε βοήθεια;",
       "button_help_accessibility": "Το κουμπί βοήθειας είναι τώρα επισημασμένο. Πατήστε το αν χρειάζεστε βοήθεια.",
       "button_manual": "Έναρξη σάρωσης",
+      "camera_error": {
+        "body": "Βεβαιωθείτε ότι η κάμερα δεν χρησιμοποιείται από άλλη εφαρμογή",
+        "button_primary": "Δοκιμάστε ξανά",
+        "icon_accessibility": "Σφάλμα κάμερας",
+        "title": "Η κάμερα δεν λειτουργεί"
+      },
       "feedback": {
         "alignment_center_document": "Κεντράρισε το έγγραφο",
         "alignment_center_document_down_accessibility": "Μετακινήστε το έγγραφό σας προς τα κάτω.",
@@ -1340,6 +1348,10 @@
     "invalid_token": {
       "subtitle": "Δοκιμάστε ξανά",
       "title": "Το διακριτικό σας έχει λήξει"
+    },
+    "network_error": {
+      "subtitle": "Φαίνεται ότι υπάρχει πρόβλημα με τη σύνδεσή σας στο διαδίκτυο. Βεβαιωθείτε ότι η σύνδεσή σας είναι σταθερή και, στη συνέχεια, ανανεώστε αυτή τη σελίδα για να συνεχίσετε.",
+      "title": "Η σύνδεση χάθηκε"
     },
     "no_camera": {
       "subtitle": "Δεν μπορούμε να εντοπίσουμε μια κάμερα σε αυτή τη συσκευή. Βεβαιωθείτε ότι μια κάμερα είναι συνδεδεμένη και ότι έχουν χορηγηθεί οι απαιτούμενες άδειες.",
@@ -1865,7 +1877,9 @@
         },
         "redesigned_intro": {
           "copy_link_header": "crossdevice.redesigned_intro.copyLinkHeader",
+          "info_qr_how_download": "crossdevice.redesigned_intro.info_qr_how_download",
           "link_divider": "crossdevice.redesigned_intro.linkDivider",
+          "link_sms": "crossdevice.redesigned_intro.link_sms",
           "qr_code_header": "crossdevice.redesigned_intro.qrCodeHeader",
           "sms_header": "crossdevice.redesigned_intro.smsHeader",
           "subtitle": "crossdevice.redesigned_intro.subtitle",
@@ -2079,6 +2093,12 @@
         "button_help": "document.scan.button_help",
         "button_help_accessibility": "document.scan.button_help_accessibility",
         "button_manual": "document.scan.button_manual",
+        "camera_error": {
+          "body": "document.scan.camera_error.body",
+          "button_primary": "document.scan.camera_error.button_primary",
+          "icon_accessibility": "document.scan.camera_error.icon_accessibility",
+          "title": "document.scan.camera_error.title"
+        },
         "feedback": {
           "alignment_center_document": "document.scan.feedback.alignment_center_document",
           "alignment_center_document_down_accessibility": "document.scan.feedback.alignment_center_document_down_accessibility",
@@ -2421,6 +2441,8 @@
         "button_primary": "nfc.pin_entry.button_primary",
         "helper_attempts_left": "nfc.pin_entry.helper_attempts_left",
         "helper_final_attempt": "nfc.pin_entry.helper_final_attempt",
+        "hide_pin": "nfc.pin_entry.hide_pin_accessibility",
+        "show_pin": "nfc.pin_entry.show_pin_accessibility",
         "subtitle": "nfc.pin_entry.subtitle",
         "title": "nfc.pin_entry.title",
         "title_incorrect": "nfc.pin_entry.title_incorrect"
@@ -2679,6 +2701,12 @@
           "ZAF": "common.country_selection.countries.ZAF",
           "ZMB": "common.country_selection.countries.ZMB",
           "ZWE": "common.country_selection.countries.ZWE"
+        },
+        "error": {
+          "network_error": {
+            "subtitle": "error.network_error.subtitle",
+            "title": "error.network_error.title"
+          }
         },
         "error_detail": "facePhoto.error.errors.network.message",
         "error_network": {
@@ -3414,6 +3442,48 @@
         "title_v5c": "proofOfAddress.guide.title_v5c"
       },
       "poa_welcome_text": "welcome.list_item.poa",
+      "present_digital_identity_wallet": {
+        "button": {
+          "digital_wallet": "presentDigitalIdentityWallet.button.digital_wallet",
+          "document_capture": "presentDigitalIdentityWallet.button.document_capture"
+        },
+        "digital_wallet": {
+          "subtitle": "presentDigitalIdentityWallet.digital_wallet.subtitle",
+          "title": "presentDigitalIdentityWallet.digital_wallet.title"
+        },
+        "error": {
+          "attribute_missing": {
+            "subtitle": "presentDigitalIdentityWallet.error.attribute_missing.subtitle",
+            "title": "presentDigitalIdentityWallet.error.attribute_missing.title"
+          },
+          "button_another_method": "presentDigitalIdentityWallet.error.button_another_method",
+          "button_try_again": "presentDigitalIdentityWallet.error.button_try_again",
+          "standard": {
+            "subtitle": "presentDigitalIdentityWallet.error.standard.subtitle",
+            "title": "presentDigitalIdentityWallet.error.standard.title"
+          },
+          "verification_failed": {
+            "subtitle": "presentDigitalIdentityWallet.error.verification_failed.subtitle",
+            "title": "presentDigitalIdentityWallet.error.verification_failed.title"
+          },
+          "wallet_closed": {
+            "subtitle": "presentDigitalIdentityWallet.error.wallet_closed.subtitle",
+            "title": "presentDigitalIdentityWallet.error.wallet_closed.title"
+          }
+        },
+        "field_validation": {
+          "value_missing": "presentDigitalIdentityWallet.field_validation.value_missing"
+        },
+        "intro": {
+          "button_continue": "presentDigitalIdentityWallet.intro.button_continue",
+          "subtitle": "presentDigitalIdentityWallet.intro.subtitle",
+          "title": "presentDigitalIdentityWallet.intro.title"
+        },
+        "issuing_country": {
+          "label": "presentDigitalIdentityWallet.issuing_country.label",
+          "placeholder": "presentDigitalIdentityWallet.issuing_country.placeholder"
+        }
+      },
       "profile_data": {
         "address_title": "profileData.title.address",
         "button_continue": "sample.selection.next",
@@ -3743,6 +3813,7 @@
           "introduction": {
             "button_confirmation_step": "qualifiedElectronicSignature.introduction.button_confirmation_step",
             "certificate_application_form": "qualifiedElectronicSignature.introduction.certificate_application_form",
+            "info_banner": "qualifiedElectronicSignature.introduction.info_banner",
             "privacy_notice": "qualifiedElectronicSignature.introduction.privacy_notice",
             "step1": "qualifiedElectronicSignature.introduction.step1",
             "subtitle": "qualifiedElectronicSignature.introduction.subtitle",
@@ -4219,9 +4290,11 @@
       "button_primary": "Συνέχεια",
       "helper_attempts_left": "%d προσπάθειες απομένουν",
       "helper_final_attempt": "Απομένει 1 προσπάθεια. Το chip σας θα αποκλειστεί μετά την επόμενη αποτυχημένη προσπάθεια",
+      "hide_pin_accessibility": "Απόκρυψη PIN",
       "optional_button_tertiary": "Παράλειψη σάρωσης τσιπ NFC",
       "optional_helper_attempts_left": "%d προσπάθειες απομένουν. Παραλείψτε αυτό το βήμα παρακάτω.",
       "optional_helper_final_attempt": "%d προσπάθεια απομένει πριν αποκλειστεί το NFC τσιπ σας. Παραλείψτε αυτό το βήμα παρακάτω.",
+      "show_pin_accessibility": "Εμφάνιση PIN",
       "subtitle": "Αυτό είναι απαραίτητο για την ασφαλή ανάγνωση του NFC chip. Δημιουργήσατε αυτόν τον αριθμό %d ψηφίων όταν εκδόθηκε το έγγραφό σας.",
       "title": "Εισαγάγετε το PIN του εγγράφου σας",
       "title_incorrect": "Λανθασμένο PIN"
@@ -4340,6 +4413,48 @@
       "input_label": "Αριθμός τηλεφώνου",
       "intro": "Για να επαληθεύσουμε τον αριθμό τηλεφώνου σας, πρόκειται να σας στείλουμε έναν κωδικό μίας χρήσης για να εισάγετε στην επόμενη οθόνη.",
       "title": "Κωδικός Μίας Χρήσης"
+    }
+  },
+  "presentDigitalIdentityWallet": {
+    "button": {
+      "digital_wallet": "Άνοιγμα ψηφιακού πορτοφολιού",
+      "document_capture": "Δεν έχω eID"
+    },
+    "digital_wallet": {
+      "subtitle": "Ολοκληρώστε την επαλήθευσή σας στην εφαρμογή ψηφιακού πορτοφολιού ταυτότητας για να συνεχίσετε",
+      "title": "Η επαλήθευση βρίσκεται σε εξέλιξη"
+    },
+    "error": {
+      "attribute_missing": {
+        "subtitle": "Απαιτούνται όλα τα ζητούμενα χαρακτηριστικά για να συνεχίσετε. Παρακαλούμε επιστρέψτε και κοινοποιήστε τα.",
+        "title": "Ορισμένα χαρακτηριστικά δεν κοινοποιήθηκαν"
+      },
+      "button_another_method": "Επιλέξτε άλλη μέθοδο",
+      "button_try_again": "Προσπαθήστε ξανά",
+      "standard": {
+        "subtitle": "Παρουσιάστηκε πρόβλημα με την επαλήθευσή σας. Παρακαλούμε δοκιμάστε ξανά.",
+        "title": "Κάτι πήγε στραβά"
+      },
+      "verification_failed": {
+        "subtitle": "Τα χαρακτηριστικά σας δεν ήταν δυνατό να επιβεβαιωθούν. Παρακαλούμε δοκιμάστε άλλη μέθοδο.",
+        "title": "Δεν ήταν δυνατή η επαλήθευση της ταυτότητάς σας"
+      },
+      "wallet_closed": {
+        "subtitle": "Το πορτοφόλι άργησε πολύ ή έκλεισε. Παρακαλούμε επιστρέψτε και δοκιμάστε ξανά.",
+        "title": "Η επαλήθευση δεν ολοκληρώθηκε"
+      }
+    },
+    "field_validation": {
+      "value_missing": "Επιλέξτε μια επιλογή"
+    },
+    "intro": {
+      "button_continue": "Έναρξη επαλήθευσης",
+      "subtitle": "Για λόγους ασφαλείας και για να σας προστατεύσουμε από απάτες, πρέπει να επαληθεύσουμε την ταυτότητά σας. Αυτό θα διαρκέσει μόνο λίγα λεπτά.",
+      "title": "Επαληθεύστε την ταυτότητά σας"
+    },
+    "issuing_country": {
+      "label": "Εκδούσα χώρα",
+      "placeholder": "Επιλέξτε χώρα έκδοσης"
     }
   },
   "profileData": {
@@ -4848,6 +4963,7 @@
     "introduction": {
       "button_confirmation_step": "Δημιουργήστε την υπογραφή μου",
       "certificate_application_form": "Φόρμα αίτησης πιστοποιητικού",
+      "info_banner": "For legal compliance, consent is presented in <default_language></default_language>. And <device_language></device_language> translation is provided on this screen for reference.",
       "privacy_notice": "Ειδοποίηση ιδιωτικότητας",
       "step1": "1 από 2",
       "subtitle": "Για να επιβεβαιώσετε την ταυτότητά σας σύμφωνα με τους ευρωπαϊκούς κανόνες, πρέπει να υπογράψετε ψηφιακά ένα έγγραφο.",

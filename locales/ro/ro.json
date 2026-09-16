@@ -818,7 +818,9 @@
     },
     "redesigned_intro": {
       "copyLinkHeader": "Pentru a continua, copiază linkul de mai jos și trimite-l pe dispozitivul tău mobil. Apoi deschide-l în browserul de pe mobil.",
+      "info_qr_how_download": "Dacă dispozitivul tău nu poate scana codul QR, este posibil să nu îl suporte. Instalează o aplicație de citire a codurilor QR pentru a continua.",
       "linkDivider": "Sau alege o metodă alternativă:",
+      "link_sms": "Trimite linkul prin SMS",
       "qrCodeHeader": "Scanează codul QR de mai jos cu camera dispozitivului tău mobil sau cu o aplicație de citire coduri QR pentru a continua.",
       "smsHeader": "Te rugăm să introduci mai jos numărul tău de telefon. Îți vom trimite un link unic pe telefon prin SMS.",
       "subtitle": "Pentru a vă asigura cea mai bună experiență și pentru a obține rezultate optime, următorul pas necesită utilizarea telefonului mobil.",
@@ -998,6 +1000,12 @@
       "button_help": "Ai nevoie de ajutor?",
       "button_help_accessibility": "Butonul „Ai nevoie de ajutor” este acum evidențiat. Atinge-l dacă ai nevoie de asistență.",
       "button_manual": "Începe scanarea",
+      "camera_error": {
+        "body": "Asigurați-vă că nu este utilizată camera de o altă aplicație",
+        "button_primary": "Încercați din nou",
+        "icon_accessibility": "Eroare cameră",
+        "title": "Camera nu funcționează"
+      },
       "feedback": {
         "alignment_center_document": "Centrează documentul",
         "alignment_center_document_down_accessibility": "Mută documentul în jos.",
@@ -1340,6 +1348,10 @@
     "invalid_token": {
       "subtitle": "Vă rugăm să încercați din nou",
       "title": "Tokenul a expirat"
+    },
+    "network_error": {
+      "subtitle": "Se pare că există o problemă cu conexiunea ta la internet. Te rugăm să te asiguri că ai o conexiune stabilă la internet și apoi să reîmprospătezi această pagină pentru a continua.",
+      "title": "Conexiune pierdută"
     },
     "no_camera": {
       "subtitle": "Nu putem detecta o cameră pe acest dispozitiv. Vă rugăm să vă asigurați că o cameră este conectată și că permisiunile necesare sunt acordate.",
@@ -1865,7 +1877,9 @@
         },
         "redesigned_intro": {
           "copy_link_header": "crossdevice.redesigned_intro.copyLinkHeader",
+          "info_qr_how_download": "crossdevice.redesigned_intro.info_qr_how_download",
           "link_divider": "crossdevice.redesigned_intro.linkDivider",
+          "link_sms": "crossdevice.redesigned_intro.link_sms",
           "qr_code_header": "crossdevice.redesigned_intro.qrCodeHeader",
           "sms_header": "crossdevice.redesigned_intro.smsHeader",
           "subtitle": "crossdevice.redesigned_intro.subtitle",
@@ -2079,6 +2093,12 @@
         "button_help": "document.scan.button_help",
         "button_help_accessibility": "document.scan.button_help_accessibility",
         "button_manual": "document.scan.button_manual",
+        "camera_error": {
+          "body": "document.scan.camera_error.body",
+          "button_primary": "document.scan.camera_error.button_primary",
+          "icon_accessibility": "document.scan.camera_error.icon_accessibility",
+          "title": "document.scan.camera_error.title"
+        },
         "feedback": {
           "alignment_center_document": "document.scan.feedback.alignment_center_document",
           "alignment_center_document_down_accessibility": "document.scan.feedback.alignment_center_document_down_accessibility",
@@ -2421,6 +2441,8 @@
         "button_primary": "nfc.pin_entry.button_primary",
         "helper_attempts_left": "nfc.pin_entry.helper_attempts_left",
         "helper_final_attempt": "nfc.pin_entry.helper_final_attempt",
+        "hide_pin": "nfc.pin_entry.hide_pin_accessibility",
+        "show_pin": "nfc.pin_entry.show_pin_accessibility",
         "subtitle": "nfc.pin_entry.subtitle",
         "title": "nfc.pin_entry.title",
         "title_incorrect": "nfc.pin_entry.title_incorrect"
@@ -2679,6 +2701,12 @@
           "ZAF": "common.country_selection.countries.ZAF",
           "ZMB": "common.country_selection.countries.ZMB",
           "ZWE": "common.country_selection.countries.ZWE"
+        },
+        "error": {
+          "network_error": {
+            "subtitle": "error.network_error.subtitle",
+            "title": "error.network_error.title"
+          }
         },
         "error_detail": "facePhoto.error.errors.network.message",
         "error_network": {
@@ -3414,6 +3442,48 @@
         "title_v5c": "proofOfAddress.guide.title_v5c"
       },
       "poa_welcome_text": "welcome.list_item.poa",
+      "present_digital_identity_wallet": {
+        "button": {
+          "digital_wallet": "presentDigitalIdentityWallet.button.digital_wallet",
+          "document_capture": "presentDigitalIdentityWallet.button.document_capture"
+        },
+        "digital_wallet": {
+          "subtitle": "presentDigitalIdentityWallet.digital_wallet.subtitle",
+          "title": "presentDigitalIdentityWallet.digital_wallet.title"
+        },
+        "error": {
+          "attribute_missing": {
+            "subtitle": "presentDigitalIdentityWallet.error.attribute_missing.subtitle",
+            "title": "presentDigitalIdentityWallet.error.attribute_missing.title"
+          },
+          "button_another_method": "presentDigitalIdentityWallet.error.button_another_method",
+          "button_try_again": "presentDigitalIdentityWallet.error.button_try_again",
+          "standard": {
+            "subtitle": "presentDigitalIdentityWallet.error.standard.subtitle",
+            "title": "presentDigitalIdentityWallet.error.standard.title"
+          },
+          "verification_failed": {
+            "subtitle": "presentDigitalIdentityWallet.error.verification_failed.subtitle",
+            "title": "presentDigitalIdentityWallet.error.verification_failed.title"
+          },
+          "wallet_closed": {
+            "subtitle": "presentDigitalIdentityWallet.error.wallet_closed.subtitle",
+            "title": "presentDigitalIdentityWallet.error.wallet_closed.title"
+          }
+        },
+        "field_validation": {
+          "value_missing": "presentDigitalIdentityWallet.field_validation.value_missing"
+        },
+        "intro": {
+          "button_continue": "presentDigitalIdentityWallet.intro.button_continue",
+          "subtitle": "presentDigitalIdentityWallet.intro.subtitle",
+          "title": "presentDigitalIdentityWallet.intro.title"
+        },
+        "issuing_country": {
+          "label": "presentDigitalIdentityWallet.issuing_country.label",
+          "placeholder": "presentDigitalIdentityWallet.issuing_country.placeholder"
+        }
+      },
       "profile_data": {
         "address_title": "profileData.title.address",
         "button_continue": "sample.selection.next",
@@ -3743,6 +3813,7 @@
           "introduction": {
             "button_confirmation_step": "qualifiedElectronicSignature.introduction.button_confirmation_step",
             "certificate_application_form": "qualifiedElectronicSignature.introduction.certificate_application_form",
+            "info_banner": "qualifiedElectronicSignature.introduction.info_banner",
             "privacy_notice": "qualifiedElectronicSignature.introduction.privacy_notice",
             "step1": "qualifiedElectronicSignature.introduction.step1",
             "subtitle": "qualifiedElectronicSignature.introduction.subtitle",
@@ -4219,9 +4290,11 @@
       "button_primary": "Continuați",
       "helper_attempts_left": "%d încercări rămase",
       "helper_final_attempt": "A mai rămas 1 încercare. Cipul va fi blocat după următoarea încercare eșuată",
+      "hide_pin_accessibility": "Ascunde PIN-ul",
       "optional_button_tertiary": "Omiteți scanarea cipului NFC",
       "optional_helper_attempts_left": "%d încercări rămase. Omiteți acest pas mai jos.",
       "optional_helper_final_attempt": "%d încercare rămasă înainte ca cipul dvs. NFC să fie blocat. Săriți peste acest pas mai jos.",
+      "show_pin_accessibility": "Afișează PIN-ul",
       "subtitle": "Este necesar pentru a citi în siguranță cipul NFC. Ați creat acest număr de %d cifre atunci când a fost emis documentul.",
       "title": "Introduceți codul PIN al documentului",
       "title_incorrect": "PIN incorect"
@@ -4340,6 +4413,48 @@
       "input_label": "Număr de telefon",
       "intro": "Pentru a verifica numărul dvs. de telefon, vă vom cere să introduceți o parolă unică.",
       "title": "Parolă unică"
+    }
+  },
+  "presentDigitalIdentityWallet": {
+    "button": {
+      "digital_wallet": "Deschide portofelul digital",
+      "document_capture": "Nu am un eID"
+    },
+    "digital_wallet": {
+      "subtitle": "Finalizați verificarea în aplicația portofelului de identitate pentru a continua",
+      "title": "Verificare în curs"
+    },
+    "error": {
+      "attribute_missing": {
+        "subtitle": "Toate atributele solicitate sunt necesare pentru a continua. Vă rugăm să reveniți și să le partajați.",
+        "title": "Unele atribute nu au fost partajate"
+      },
+      "button_another_method": "Alegeți o altă metodă",
+      "button_try_again": "Încercați din nou",
+      "standard": {
+        "subtitle": "A apărut o problemă la verificarea dumneavoastră. Vă rugăm să încercați din nou.",
+        "title": "A apărut o problemă"
+      },
+      "verification_failed": {
+        "subtitle": "Atributele dumneavoastră nu au putut fi confirmate. Vă rugăm să încercați o altă metodă.",
+        "title": "Nu v-am putut verifica identitatea"
+      },
+      "wallet_closed": {
+        "subtitle": "Portofelul a durat prea mult sau a fost închis. Vă rugăm să reveniți și să încercați din nou.",
+        "title": "Verificarea nu s-a încheiat"
+      }
+    },
+    "field_validation": {
+      "value_missing": "Selectați o opțiune"
+    },
+    "intro": {
+      "button_continue": "Începeți verificarea",
+      "subtitle": "Din motive de securitate și pentru a vă proteja împotriva fraudei, trebuie să vă verificăm identitatea. Acest lucru va dura doar câteva minute.",
+      "title": "Verificați identitatea dvs."
+    },
+    "issuing_country": {
+      "label": "Țară emitentă",
+      "placeholder": "Selectați țara emitentă"
     }
   },
   "profileData": {
@@ -4848,6 +4963,7 @@
     "introduction": {
       "button_confirmation_step": "Creează-mi semnătura",
       "certificate_application_form": "Formular de cerere pentru certificat",
+      "info_banner": "For legal compliance, consent is presented in <default_language></default_language>. And <device_language></device_language> translation is provided on this screen for reference.",
       "privacy_notice": "Notificare de confidențialitate",
       "step1": "1 din 2",
       "subtitle": "Pentru a confirma identitatea dumneavoastră în conformitate cu regulile europene, trebuie să semnați digital un document.",

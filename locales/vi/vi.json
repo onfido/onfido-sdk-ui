@@ -818,7 +818,9 @@
     },
     "redesigned_intro": {
       "copyLinkHeader": "Để tiếp tục, hãy sao chép liên kết bên dưới và gửi đến thiết bị di động của bạn. Sau đó, mở liên kết trong trình duyệt trên thiết bị di động.",
+      "info_qr_how_download": "Nếu camera của bạn không quét được mã QR, có thể thiết bị không hỗ trợ. Hãy cài đặt ứng dụng đọc mã QR để tiếp tục.",
       "linkDivider": "Hoặc chọn một phương thức khác:",
+      "link_sms": "Gửi liên kết qua SMS",
       "qrCodeHeader": "Quét mã QR bên dưới bằng camera hoặc ứng dụng quét mã QR trên thiết bị di động của bạn để tiếp tục.",
       "smsHeader": "Vui lòng cung cấp số điện thoại của bạn bên dưới. Chúng tôi sẽ gửi một liên kết dùng một lần đến điện thoại của bạn qua SMS.",
       "subtitle": "Để đảm bảo trải nghiệm tốt nhất và đạt kết quả tối ưu, bước tiếp theo yêu cầu bạn sử dụng điện thoại di động.",
@@ -998,6 +1000,12 @@
       "button_help": "Cần trợ giúp?",
       "button_help_accessibility": "Nút Cần trợ giúp hiện đang được làm nổi bật. Chạm vào nút nếu bạn cần hỗ trợ.",
       "button_manual": "Bắt đầu quét",
+      "camera_error": {
+        "body": "Đảm bảo máy ảnh không bị ứng dụng khác sử dụng",
+        "button_primary": "Thử lại",
+        "icon_accessibility": "Lỗi máy ảnh",
+        "title": "Máy ảnh không hoạt động"
+      },
       "feedback": {
         "alignment_center_document": "Đặt tài liệu vào giữa",
         "alignment_center_document_down_accessibility": "Di chuyển giấy tờ của bạn xuống dưới.",
@@ -1340,6 +1348,10 @@
     "invalid_token": {
       "subtitle": "Vui lòng thử lại",
       "title": "Mã thông báo của bạn đã hết hạn"
+    },
+    "network_error": {
+      "subtitle": "Có vẻ như kết nối internet của bạn đang gặp sự cố. Vui lòng đảm bảo kết nối internet ổn định rồi tải lại trang này để tiếp tục.",
+      "title": "Mất kết nối"
     },
     "no_camera": {
       "subtitle": "Chúng tôi không thể phát hiện ra camera trên thiết bị này. Vui lòng đảm bảo rằng camera đã được kết nối và đã cấp quyền cần thiết.",
@@ -1865,7 +1877,9 @@
         },
         "redesigned_intro": {
           "copy_link_header": "crossdevice.redesigned_intro.copyLinkHeader",
+          "info_qr_how_download": "crossdevice.redesigned_intro.info_qr_how_download",
           "link_divider": "crossdevice.redesigned_intro.linkDivider",
+          "link_sms": "crossdevice.redesigned_intro.link_sms",
           "qr_code_header": "crossdevice.redesigned_intro.qrCodeHeader",
           "sms_header": "crossdevice.redesigned_intro.smsHeader",
           "subtitle": "crossdevice.redesigned_intro.subtitle",
@@ -2079,6 +2093,12 @@
         "button_help": "document.scan.button_help",
         "button_help_accessibility": "document.scan.button_help_accessibility",
         "button_manual": "document.scan.button_manual",
+        "camera_error": {
+          "body": "document.scan.camera_error.body",
+          "button_primary": "document.scan.camera_error.button_primary",
+          "icon_accessibility": "document.scan.camera_error.icon_accessibility",
+          "title": "document.scan.camera_error.title"
+        },
         "feedback": {
           "alignment_center_document": "document.scan.feedback.alignment_center_document",
           "alignment_center_document_down_accessibility": "document.scan.feedback.alignment_center_document_down_accessibility",
@@ -2421,6 +2441,8 @@
         "button_primary": "nfc.pin_entry.button_primary",
         "helper_attempts_left": "nfc.pin_entry.helper_attempts_left",
         "helper_final_attempt": "nfc.pin_entry.helper_final_attempt",
+        "hide_pin": "nfc.pin_entry.hide_pin_accessibility",
+        "show_pin": "nfc.pin_entry.show_pin_accessibility",
         "subtitle": "nfc.pin_entry.subtitle",
         "title": "nfc.pin_entry.title",
         "title_incorrect": "nfc.pin_entry.title_incorrect"
@@ -2679,6 +2701,12 @@
           "ZAF": "common.country_selection.countries.ZAF",
           "ZMB": "common.country_selection.countries.ZMB",
           "ZWE": "common.country_selection.countries.ZWE"
+        },
+        "error": {
+          "network_error": {
+            "subtitle": "error.network_error.subtitle",
+            "title": "error.network_error.title"
+          }
         },
         "error_detail": "facePhoto.error.errors.network.message",
         "error_network": {
@@ -3414,6 +3442,48 @@
         "title_v5c": "proofOfAddress.guide.title_v5c"
       },
       "poa_welcome_text": "welcome.list_item.poa",
+      "present_digital_identity_wallet": {
+        "button": {
+          "digital_wallet": "presentDigitalIdentityWallet.button.digital_wallet",
+          "document_capture": "presentDigitalIdentityWallet.button.document_capture"
+        },
+        "digital_wallet": {
+          "subtitle": "presentDigitalIdentityWallet.digital_wallet.subtitle",
+          "title": "presentDigitalIdentityWallet.digital_wallet.title"
+        },
+        "error": {
+          "attribute_missing": {
+            "subtitle": "presentDigitalIdentityWallet.error.attribute_missing.subtitle",
+            "title": "presentDigitalIdentityWallet.error.attribute_missing.title"
+          },
+          "button_another_method": "presentDigitalIdentityWallet.error.button_another_method",
+          "button_try_again": "presentDigitalIdentityWallet.error.button_try_again",
+          "standard": {
+            "subtitle": "presentDigitalIdentityWallet.error.standard.subtitle",
+            "title": "presentDigitalIdentityWallet.error.standard.title"
+          },
+          "verification_failed": {
+            "subtitle": "presentDigitalIdentityWallet.error.verification_failed.subtitle",
+            "title": "presentDigitalIdentityWallet.error.verification_failed.title"
+          },
+          "wallet_closed": {
+            "subtitle": "presentDigitalIdentityWallet.error.wallet_closed.subtitle",
+            "title": "presentDigitalIdentityWallet.error.wallet_closed.title"
+          }
+        },
+        "field_validation": {
+          "value_missing": "presentDigitalIdentityWallet.field_validation.value_missing"
+        },
+        "intro": {
+          "button_continue": "presentDigitalIdentityWallet.intro.button_continue",
+          "subtitle": "presentDigitalIdentityWallet.intro.subtitle",
+          "title": "presentDigitalIdentityWallet.intro.title"
+        },
+        "issuing_country": {
+          "label": "presentDigitalIdentityWallet.issuing_country.label",
+          "placeholder": "presentDigitalIdentityWallet.issuing_country.placeholder"
+        }
+      },
       "profile_data": {
         "address_title": "profileData.title.address",
         "button_continue": "sample.selection.next",
@@ -3743,6 +3813,7 @@
           "introduction": {
             "button_confirmation_step": "qualifiedElectronicSignature.introduction.button_confirmation_step",
             "certificate_application_form": "qualifiedElectronicSignature.introduction.certificate_application_form",
+            "info_banner": "qualifiedElectronicSignature.introduction.info_banner",
             "privacy_notice": "qualifiedElectronicSignature.introduction.privacy_notice",
             "step1": "qualifiedElectronicSignature.introduction.step1",
             "subtitle": "qualifiedElectronicSignature.introduction.subtitle",
@@ -4219,9 +4290,11 @@
       "button_primary": "Tiếp tục",
       "helper_attempts_left": "%d lần thử còn lại",
       "helper_final_attempt": "Còn 1 lần thử. Chip của bạn sẽ bị khóa sau lần thử thất bại tiếp theo",
+      "hide_pin_accessibility": "Ẩn mã PIN",
       "optional_button_tertiary": "Bỏ qua quét chip NFC",
       "optional_helper_attempts_left": "Còn %d lần thử. Bỏ qua bước này bên dưới.",
       "optional_helper_final_attempt": "Còn %d lần thử trước khi chip NFC của bạn bị khóa. Bỏ qua bước này bên dưới.",
+      "show_pin_accessibility": "Hiện mã PIN",
       "subtitle": "Điều này cần thiết để đọc chip NFC một cách an toàn. Bạn đã tạo số gồm %d chữ số này khi tài liệu của bạn được cấp.",
       "title": "Nhập mã PIN tài liệu của bạn",
       "title_incorrect": "Mã PIN không đúng"
@@ -4340,6 +4413,48 @@
       "input_label": "Số điện thoại",
       "intro": "Để xác minh số điện thoại của bạn, chúng tôi sẽ yêu cầu bạn nhập một mật khẩu một lần.",
       "title": "Mật khẩu một lần"
+    }
+  },
+  "presentDigitalIdentityWallet": {
+    "button": {
+      "digital_wallet": "Mở ví điện tử",
+      "document_capture": "Tôi không có eID"
+    },
+    "digital_wallet": {
+      "subtitle": "Hoàn tất xác minh trong ứng dụng ví danh tính của bạn để tiếp tục",
+      "title": "Đang tiến hành xác minh"
+    },
+    "error": {
+      "attribute_missing": {
+        "subtitle": "Tất cả các thuộc tính được yêu cầu đều cần thiết để tiếp tục. Vui lòng quay lại và chia sẻ chúng.",
+        "title": "Một số thuộc tính chưa được chia sẻ"
+      },
+      "button_another_method": "Chọn phương thức khác",
+      "button_try_again": "Thử lại",
+      "standard": {
+        "subtitle": "Đã xảy ra sự cố với quá trình xác minh của bạn. Vui lòng thử lại.",
+        "title": "Đã xảy ra lỗi"
+      },
+      "verification_failed": {
+        "subtitle": "Không thể xác nhận các thuộc tính của bạn. Vui lòng thử phương thức khác.",
+        "title": "Chúng tôi không thể xác minh danh tính của bạn"
+      },
+      "wallet_closed": {
+        "subtitle": "Ví đã mất quá nhiều thời gian hoặc đã bị đóng. Vui lòng quay lại và thử lại.",
+        "title": "Xác minh chưa hoàn tất"
+      }
+    },
+    "field_validation": {
+      "value_missing": "Vui lòng chọn một tùy chọn"
+    },
+    "intro": {
+      "button_continue": "Bắt đầu xác minh",
+      "subtitle": "Vì lý do bảo mật và để bảo vệ bạn khỏi gian lận, chúng tôi cần xác minh danh tính của bạn. Việc này chỉ mất vài phút.",
+      "title": "Xác minh danh tính của bạn"
+    },
+    "issuing_country": {
+      "label": "Quốc gia cấp giấy tờ",
+      "placeholder": "Chọn quốc gia cấp giấy tờ"
     }
   },
   "profileData": {
@@ -4848,6 +4963,7 @@
     "introduction": {
       "button_confirmation_step": "Tạo chữ ký của tôi",
       "certificate_application_form": "Đơn đăng ký chứng chỉ",
+      "info_banner": "For legal compliance, consent is presented in <default_language></default_language>. And <device_language></device_language> translation is provided on this screen for reference.",
       "privacy_notice": "Thông báo bảo mật",
       "step1": "1 trong 2",
       "subtitle": "Để xác nhận danh tính của bạn theo quy định của Châu Âu, bạn phải ký số vào một tài liệu.",

@@ -818,7 +818,9 @@
     },
     "redesigned_intro": {
       "copyLinkHeader": "如需继续，请复制以下链接并将其发送至您的移动设备，然后在移动设备浏览器中打开。",
+      "info_qr_how_download": "如果您的相机无法扫描二维码，可能是不支持此功能。请安装一个二维码扫描应用后继续。",
       "linkDivider": "或选择其他方式：",
+      "link_sms": "通过短信发送链接",
       "qrCodeHeader": "请使用移动设备摄像头或二维码应用扫描以下二维码以继续操作。",
       "smsHeader": "请在下方输入您的手机号码，我们将通过短信向您的手机发送一次性链接。",
       "subtitle": "为确保最佳体验并获得最优结果，下一步需要您使用手机完成操作。",
@@ -998,6 +1000,12 @@
       "button_help": "需要帮助吗？",
       "button_help_accessibility": "需要帮助按钮现已高亮显示。如需帮助，请点击该按钮。",
       "button_manual": "开始扫描",
+      "camera_error": {
+        "body": "请确认相机未被其他应用使用",
+        "button_primary": "重试",
+        "icon_accessibility": "相机错误",
+        "title": "相机无法使用"
+      },
       "feedback": {
         "alignment_center_document": "居中放置证件",
         "alignment_center_document_down_accessibility": "向下移动您的证件。",
@@ -1340,6 +1348,10 @@
     "invalid_token": {
       "subtitle": "请重试",
       "title": "您的令牌已过期"
+    },
+    "network_error": {
+      "subtitle": "您的网络连接似乎出现了问题。请确保网络连接稳定，然后刷新此页面以继续。",
+      "title": "连接已丢失"
     },
     "no_camera": {
       "subtitle": "我们无法在此设备上检测到摄像头。请确保已连接摄像头并已授予所需的权限。",
@@ -1865,7 +1877,9 @@
         },
         "redesigned_intro": {
           "copy_link_header": "crossdevice.redesigned_intro.copyLinkHeader",
+          "info_qr_how_download": "crossdevice.redesigned_intro.info_qr_how_download",
           "link_divider": "crossdevice.redesigned_intro.linkDivider",
+          "link_sms": "crossdevice.redesigned_intro.link_sms",
           "qr_code_header": "crossdevice.redesigned_intro.qrCodeHeader",
           "sms_header": "crossdevice.redesigned_intro.smsHeader",
           "subtitle": "crossdevice.redesigned_intro.subtitle",
@@ -2079,6 +2093,12 @@
         "button_help": "document.scan.button_help",
         "button_help_accessibility": "document.scan.button_help_accessibility",
         "button_manual": "document.scan.button_manual",
+        "camera_error": {
+          "body": "document.scan.camera_error.body",
+          "button_primary": "document.scan.camera_error.button_primary",
+          "icon_accessibility": "document.scan.camera_error.icon_accessibility",
+          "title": "document.scan.camera_error.title"
+        },
         "feedback": {
           "alignment_center_document": "document.scan.feedback.alignment_center_document",
           "alignment_center_document_down_accessibility": "document.scan.feedback.alignment_center_document_down_accessibility",
@@ -2421,6 +2441,8 @@
         "button_primary": "nfc.pin_entry.button_primary",
         "helper_attempts_left": "nfc.pin_entry.helper_attempts_left",
         "helper_final_attempt": "nfc.pin_entry.helper_final_attempt",
+        "hide_pin": "nfc.pin_entry.hide_pin_accessibility",
+        "show_pin": "nfc.pin_entry.show_pin_accessibility",
         "subtitle": "nfc.pin_entry.subtitle",
         "title": "nfc.pin_entry.title",
         "title_incorrect": "nfc.pin_entry.title_incorrect"
@@ -2679,6 +2701,12 @@
           "ZAF": "common.country_selection.countries.ZAF",
           "ZMB": "common.country_selection.countries.ZMB",
           "ZWE": "common.country_selection.countries.ZWE"
+        },
+        "error": {
+          "network_error": {
+            "subtitle": "error.network_error.subtitle",
+            "title": "error.network_error.title"
+          }
         },
         "error_detail": "facePhoto.error.errors.network.message",
         "error_network": {
@@ -3414,6 +3442,48 @@
         "title_v5c": "proofOfAddress.guide.title_v5c"
       },
       "poa_welcome_text": "welcome.list_item.poa",
+      "present_digital_identity_wallet": {
+        "button": {
+          "digital_wallet": "presentDigitalIdentityWallet.button.digital_wallet",
+          "document_capture": "presentDigitalIdentityWallet.button.document_capture"
+        },
+        "digital_wallet": {
+          "subtitle": "presentDigitalIdentityWallet.digital_wallet.subtitle",
+          "title": "presentDigitalIdentityWallet.digital_wallet.title"
+        },
+        "error": {
+          "attribute_missing": {
+            "subtitle": "presentDigitalIdentityWallet.error.attribute_missing.subtitle",
+            "title": "presentDigitalIdentityWallet.error.attribute_missing.title"
+          },
+          "button_another_method": "presentDigitalIdentityWallet.error.button_another_method",
+          "button_try_again": "presentDigitalIdentityWallet.error.button_try_again",
+          "standard": {
+            "subtitle": "presentDigitalIdentityWallet.error.standard.subtitle",
+            "title": "presentDigitalIdentityWallet.error.standard.title"
+          },
+          "verification_failed": {
+            "subtitle": "presentDigitalIdentityWallet.error.verification_failed.subtitle",
+            "title": "presentDigitalIdentityWallet.error.verification_failed.title"
+          },
+          "wallet_closed": {
+            "subtitle": "presentDigitalIdentityWallet.error.wallet_closed.subtitle",
+            "title": "presentDigitalIdentityWallet.error.wallet_closed.title"
+          }
+        },
+        "field_validation": {
+          "value_missing": "presentDigitalIdentityWallet.field_validation.value_missing"
+        },
+        "intro": {
+          "button_continue": "presentDigitalIdentityWallet.intro.button_continue",
+          "subtitle": "presentDigitalIdentityWallet.intro.subtitle",
+          "title": "presentDigitalIdentityWallet.intro.title"
+        },
+        "issuing_country": {
+          "label": "presentDigitalIdentityWallet.issuing_country.label",
+          "placeholder": "presentDigitalIdentityWallet.issuing_country.placeholder"
+        }
+      },
       "profile_data": {
         "address_title": "profileData.title.address",
         "button_continue": "sample.selection.next",
@@ -3743,6 +3813,7 @@
           "introduction": {
             "button_confirmation_step": "qualifiedElectronicSignature.introduction.button_confirmation_step",
             "certificate_application_form": "qualifiedElectronicSignature.introduction.certificate_application_form",
+            "info_banner": "qualifiedElectronicSignature.introduction.info_banner",
             "privacy_notice": "qualifiedElectronicSignature.introduction.privacy_notice",
             "step1": "qualifiedElectronicSignature.introduction.step1",
             "subtitle": "qualifiedElectronicSignature.introduction.subtitle",
@@ -4219,9 +4290,11 @@
       "button_primary": "继续",
       "helper_attempts_left": "剩余 %d 次尝试机会",
       "helper_final_attempt": "剩余 1 次尝试机会。下次尝试失败后,您的芯片将被锁定",
+      "hide_pin_accessibility": "隐藏PIN码",
       "optional_button_tertiary": "跳过NFC芯片扫描",
       "optional_helper_attempts_left": "%d 次尝试机会剩余。在下方跳过此步骤。",
       "optional_helper_final_attempt": "%d 次尝试机会后,您的 NFC 芯片将被锁定。请在下方跳过此步骤。",
+      "show_pin_accessibility": "显示PIN码",
       "subtitle": "这是安全读取NFC芯片所必需的。您在签发文件时创建了这个%d位数字。",
       "title": "输入您的证件PIN码",
       "title_incorrect": "PIN码错误"
@@ -4340,6 +4413,48 @@
       "input_label": "电话号码",
       "intro": "为了验证您的电话号码，我们会要求您输入一次性密码。",
       "title": "一次性密码"
+    }
+  },
+  "presentDigitalIdentityWallet": {
+    "button": {
+      "digital_wallet": "打开数字钱包",
+      "document_capture": "我没有电子身份证"
+    },
+    "digital_wallet": {
+      "subtitle": "请在您的身份钱包应用中完成验证以继续",
+      "title": "验证进行中"
+    },
+    "error": {
+      "attribute_missing": {
+        "subtitle": "需要所有请求的属性才能继续，请返回并共享这些属性。",
+        "title": "部分属性未被共享"
+      },
+      "button_another_method": "选择其他方式",
+      "button_try_again": "请重试",
+      "standard": {
+        "subtitle": "您的验证过程中出现了问题，请重试。",
+        "title": "出现了问题"
+      },
+      "verification_failed": {
+        "subtitle": "您的属性无法得到确认，请尝试其他方式。",
+        "title": "我们无法验证您的身份"
+      },
+      "wallet_closed": {
+        "subtitle": "钱包响应超时或已关闭，请返回并重试。",
+        "title": "验证未完成"
+      }
+    },
+    "field_validation": {
+      "value_missing": "请选择一个选项"
+    },
+    "intro": {
+      "button_continue": "开始验证",
+      "subtitle": "出于安全原因并保护您免受欺诈，我们需要验证您的身份。这只需要几分钟。",
+      "title": "验证您的身份"
+    },
+    "issuing_country": {
+      "label": "签发国家/地区",
+      "placeholder": "选择签发国家/地区"
     }
   },
   "profileData": {
@@ -4848,6 +4963,7 @@
     "introduction": {
       "button_confirmation_step": "创建我的签名",
       "certificate_application_form": "证书申请表",
+      "info_banner": "For legal compliance, consent is presented in <default_language></default_language>. And <device_language></device_language> translation is provided on this screen for reference.",
       "privacy_notice": "隐私通知",
       "step1": "1 的 2",
       "subtitle": "为了按照欧洲的规定确认您的身份，您必须对一个文件进行数字签名。",

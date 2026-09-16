@@ -818,7 +818,9 @@
     },
     "redesigned_intro": {
       "copyLinkHeader": "Lai turpinātu, nokopējiet zemāk redzamo saiti un nosūtiet to uz savu mobilo ierīci. Pēc tam atveriet to savas mobilās ierīces pārlūkprogrammā.",
+      "info_qr_how_download": "Ja jūsu kamera nevar noskenēt QR kodu, tā, iespējams, to neatbalsta. Lai turpinātu, instalējiet QR koda lasīšanas lietotni.",
       "linkDivider": "Vai izvēlieties citu metodi:",
+      "link_sms": "Sūtīt saiti SMS",
       "qrCodeHeader": "Lai turpinātu, noskenējiet zemāk redzamo QR kodu ar savas mobilās ierīces kameru vai QR kodu lietotni.",
       "smsHeader": "Lūdzu, norādiet savu tālruņa numuru zemāk. Mēs nosūtīsim vienreizēju saiti uz jūsu tālruni īsziņā.",
       "subtitle": "Lai nodrošinātu vislabāko pieredzi un sasniegtu optimālus rezultātus, nākamajā solī jums jāizmanto mobilais tālrunis.",
@@ -998,6 +1000,12 @@
       "button_help": "Nepieciešama palīdzība?",
       "button_help_accessibility": "Poga “Palīdzība” tagad ir izcelta. Pieskarieties tai, ja jums nepieciešama palīdzība.",
       "button_manual": "Sākt skenēšanu",
+      "camera_error": {
+        "body": "Pārliecinieties, ka kameru neizmanto cita lietotne",
+        "button_primary": "Mēģiniet vēlreiz",
+        "icon_accessibility": "Kameras kļūda",
+        "title": "Kamera nedarbojas"
+      },
       "feedback": {
         "alignment_center_document": "Novieto dokumentu centrā",
         "alignment_center_document_down_accessibility": "Pabīdiet savu dokumentu uz leju.",
@@ -1340,6 +1348,10 @@
     "invalid_token": {
       "subtitle": "Mēģiniet vēlreiz",
       "title": "Jūsu pilnvaras derīguma termiņš ir beidzies"
+    },
+    "network_error": {
+      "subtitle": "Šķiet, ka radusies problēma ar jūsu interneta savienojumu. Lūdzu, pārliecinieties, ka interneta savienojums ir stabils, un pēc tam atsvaidziniet šo lapu, lai turpinātu.",
+      "title": "Savienojums pārtrūcis"
     },
     "no_camera": {
       "subtitle": "Mēs nevaram noteikt kameru šajā ierīcē. Lūdzu, pārliecinieties, vai kamera ir pieslēgta un ir piešķirtas nepieciešamās atļaujas.",
@@ -1865,7 +1877,9 @@
         },
         "redesigned_intro": {
           "copy_link_header": "crossdevice.redesigned_intro.copyLinkHeader",
+          "info_qr_how_download": "crossdevice.redesigned_intro.info_qr_how_download",
           "link_divider": "crossdevice.redesigned_intro.linkDivider",
+          "link_sms": "crossdevice.redesigned_intro.link_sms",
           "qr_code_header": "crossdevice.redesigned_intro.qrCodeHeader",
           "sms_header": "crossdevice.redesigned_intro.smsHeader",
           "subtitle": "crossdevice.redesigned_intro.subtitle",
@@ -2079,6 +2093,12 @@
         "button_help": "document.scan.button_help",
         "button_help_accessibility": "document.scan.button_help_accessibility",
         "button_manual": "document.scan.button_manual",
+        "camera_error": {
+          "body": "document.scan.camera_error.body",
+          "button_primary": "document.scan.camera_error.button_primary",
+          "icon_accessibility": "document.scan.camera_error.icon_accessibility",
+          "title": "document.scan.camera_error.title"
+        },
         "feedback": {
           "alignment_center_document": "document.scan.feedback.alignment_center_document",
           "alignment_center_document_down_accessibility": "document.scan.feedback.alignment_center_document_down_accessibility",
@@ -2421,6 +2441,8 @@
         "button_primary": "nfc.pin_entry.button_primary",
         "helper_attempts_left": "nfc.pin_entry.helper_attempts_left",
         "helper_final_attempt": "nfc.pin_entry.helper_final_attempt",
+        "hide_pin": "nfc.pin_entry.hide_pin_accessibility",
+        "show_pin": "nfc.pin_entry.show_pin_accessibility",
         "subtitle": "nfc.pin_entry.subtitle",
         "title": "nfc.pin_entry.title",
         "title_incorrect": "nfc.pin_entry.title_incorrect"
@@ -2679,6 +2701,12 @@
           "ZAF": "common.country_selection.countries.ZAF",
           "ZMB": "common.country_selection.countries.ZMB",
           "ZWE": "common.country_selection.countries.ZWE"
+        },
+        "error": {
+          "network_error": {
+            "subtitle": "error.network_error.subtitle",
+            "title": "error.network_error.title"
+          }
         },
         "error_detail": "facePhoto.error.errors.network.message",
         "error_network": {
@@ -3414,6 +3442,48 @@
         "title_v5c": "proofOfAddress.guide.title_v5c"
       },
       "poa_welcome_text": "welcome.list_item.poa",
+      "present_digital_identity_wallet": {
+        "button": {
+          "digital_wallet": "presentDigitalIdentityWallet.button.digital_wallet",
+          "document_capture": "presentDigitalIdentityWallet.button.document_capture"
+        },
+        "digital_wallet": {
+          "subtitle": "presentDigitalIdentityWallet.digital_wallet.subtitle",
+          "title": "presentDigitalIdentityWallet.digital_wallet.title"
+        },
+        "error": {
+          "attribute_missing": {
+            "subtitle": "presentDigitalIdentityWallet.error.attribute_missing.subtitle",
+            "title": "presentDigitalIdentityWallet.error.attribute_missing.title"
+          },
+          "button_another_method": "presentDigitalIdentityWallet.error.button_another_method",
+          "button_try_again": "presentDigitalIdentityWallet.error.button_try_again",
+          "standard": {
+            "subtitle": "presentDigitalIdentityWallet.error.standard.subtitle",
+            "title": "presentDigitalIdentityWallet.error.standard.title"
+          },
+          "verification_failed": {
+            "subtitle": "presentDigitalIdentityWallet.error.verification_failed.subtitle",
+            "title": "presentDigitalIdentityWallet.error.verification_failed.title"
+          },
+          "wallet_closed": {
+            "subtitle": "presentDigitalIdentityWallet.error.wallet_closed.subtitle",
+            "title": "presentDigitalIdentityWallet.error.wallet_closed.title"
+          }
+        },
+        "field_validation": {
+          "value_missing": "presentDigitalIdentityWallet.field_validation.value_missing"
+        },
+        "intro": {
+          "button_continue": "presentDigitalIdentityWallet.intro.button_continue",
+          "subtitle": "presentDigitalIdentityWallet.intro.subtitle",
+          "title": "presentDigitalIdentityWallet.intro.title"
+        },
+        "issuing_country": {
+          "label": "presentDigitalIdentityWallet.issuing_country.label",
+          "placeholder": "presentDigitalIdentityWallet.issuing_country.placeholder"
+        }
+      },
       "profile_data": {
         "address_title": "profileData.title.address",
         "button_continue": "sample.selection.next",
@@ -3743,6 +3813,7 @@
           "introduction": {
             "button_confirmation_step": "qualifiedElectronicSignature.introduction.button_confirmation_step",
             "certificate_application_form": "qualifiedElectronicSignature.introduction.certificate_application_form",
+            "info_banner": "qualifiedElectronicSignature.introduction.info_banner",
             "privacy_notice": "qualifiedElectronicSignature.introduction.privacy_notice",
             "step1": "qualifiedElectronicSignature.introduction.step1",
             "subtitle": "qualifiedElectronicSignature.introduction.subtitle",
@@ -4219,9 +4290,11 @@
       "button_primary": "Turpināt",
       "helper_attempts_left": "%d mēģinājumi atlikuši",
       "helper_final_attempt": "Atlikis 1 mēģinājums. Pēc nākamā neveiksmīgā mēģinājuma jūsu čips tiks bloķēts",
+      "hide_pin_accessibility": "Slēpt PIN",
       "optional_button_tertiary": "Izlaist NFC čipa skenēšanu",
       "optional_helper_attempts_left": "%d mēģinājumi atlikuši. Izlaidiet šo soli zemāk.",
       "optional_helper_final_attempt": "%d mēģinājums atlicis, pirms jūsu NFC čips tiks bloķēts. Izlaidiet šo soli zemāk.",
+      "show_pin_accessibility": "Rādīt PIN",
       "subtitle": "Tas ir nepieciešams, lai droši nolasītu NFC mikroshēmu. Jūs izveidojāt šo %d ciparu skaitli, kad tika izsniegts jūsu dokuments.",
       "title": "Ievadiet sava dokumenta PIN kodu",
       "title_incorrect": "Nepareizs PIN"
@@ -4340,6 +4413,48 @@
       "input_label": "Tālruņa numurs",
       "intro": "Lai pārbaudītu jūsu tālruņa numuru, mēs lūgsim jūs ievadīt vienreizēju paroli.",
       "title": "Vienreizēja parole"
+    }
+  },
+  "presentDigitalIdentityWallet": {
+    "button": {
+      "digital_wallet": "Atvērt digitālo maku",
+      "document_capture": "Man nav eID"
+    },
+    "digital_wallet": {
+      "subtitle": "Lai turpinātu, pabeidziet verifikāciju savā identitātes maka lietotnē",
+      "title": "Notiek verifikācija"
+    },
+    "error": {
+      "attribute_missing": {
+        "subtitle": "Lai turpinātu, ir nepieciešamas visas pieprasītās īpašības. Lūdzu, dodieties atpakaļ un kopīgojiet tās.",
+        "title": "Dažas īpašības netika kopīgotas"
+      },
+      "button_another_method": "Izvēlēties citu metodi",
+      "button_try_again": "Mēģināt vēlreiz",
+      "standard": {
+        "subtitle": "Radās problēma ar jūsu verifikāciju. Lūdzu, mēģiniet vēlreiz.",
+        "title": "Radās kļūda"
+      },
+      "verification_failed": {
+        "subtitle": "Jūsu īpašības nevarēja tikt apstiprinātas. Lūdzu, mēģiniet citu metodi.",
+        "title": "Mēs nevarējām pārbaudīt jūsu identitāti"
+      },
+      "wallet_closed": {
+        "subtitle": "Maks reaģēja pārāk ilgi vai tika aizvērts. Lūdzu, dodieties atpakaļ un mēģiniet vēlreiz.",
+        "title": "Verifikācija netika pabeigta"
+      }
+    },
+    "field_validation": {
+      "value_missing": "Lūdzu, izvēlieties opciju"
+    },
+    "intro": {
+      "button_continue": "Sākt pārbaudi",
+      "subtitle": "Drošības apsvērumu dēļ un lai pasargātu jūs no krāpniecības, mums ir jāpārbauda jūsu identitāte. Tas aizņems tikai dažas minūtes.",
+      "title": "Apstipriniet savu identitāti"
+    },
+    "issuing_country": {
+      "label": "Izdevējvalsts",
+      "placeholder": "Atlasīt izdevējvalsti"
     }
   },
   "profileData": {
@@ -4848,6 +4963,7 @@
     "introduction": {
       "button_confirmation_step": "Izveidot manu parakstu",
       "certificate_application_form": "Sertifikāta pieteikuma forma",
+      "info_banner": "For legal compliance, consent is presented in <default_language></default_language>. And <device_language></device_language> translation is provided on this screen for reference.",
       "privacy_notice": "Privātuma paziņojums",
       "step1": "1 no 2",
       "subtitle": "Lai apstiprinātu savu identitāti saskaņā ar Eiropas noteikumiem, jums ir jāparaksta dokuments digitāli.",

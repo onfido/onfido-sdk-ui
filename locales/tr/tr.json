@@ -818,7 +818,9 @@
     },
     "redesigned_intro": {
       "copyLinkHeader": "Devam etmek için aşağıdaki bağlantıyı kopyalayın ve mobil cihazınıza gönderin. Ardından mobil cihazınızın tarayıcısında açın.",
+      "info_qr_how_download": "Kameranız QR kodu tarayamıyorsa, bu özelliği desteklemiyor olabilir. Devam etmek için bir QR kod okuyucu uygulaması yükleyin.",
       "linkDivider": "Ya da alternatif bir yöntem seçin:",
+      "link_sms": "SMS ile bağlantı gönder",
       "qrCodeHeader": "Devam etmek için aşağıdaki QR kodu mobil cihazınızın kamerası veya QR kod uygulamasıyla tarayın.",
       "smsHeader": "Lütfen aşağıya telefon numaranızı girin. SMS yoluyla telefonunuza tek kullanımlık bir bağlantı göndereceğiz.",
       "subtitle": "En iyi deneyimi sağlamak ve en iyi sonuçları elde etmek için sonraki adımda cep telefonunuzu kullanmanız gerekmektedir.",
@@ -998,6 +1000,12 @@
       "button_help": "Yardım mı gerekiyor?",
       "button_help_accessibility": "Yardım düğmesi şu anda vurgulanmış durumda. Yardıma ihtiyaç duyarsanız üzerine dokunun.",
       "button_manual": "Taramayı başlat",
+      "camera_error": {
+        "body": "Kameranın başka bir uygulama tarafından kullanılmadığından emin olun",
+        "button_primary": "Tekrar dene",
+        "icon_accessibility": "Kamera hatası",
+        "title": "Kamera çalışmıyor"
+      },
       "feedback": {
         "alignment_center_document": "Belgeyi ortala",
         "alignment_center_document_down_accessibility": "Belgenizi aşağıya hareket ettirin.",
@@ -1340,6 +1348,10 @@
     "invalid_token": {
       "subtitle": "Lütfen tekrar deneyin",
       "title": "Jetonun süresi doldu"
+    },
+    "network_error": {
+      "subtitle": "İnternet bağlantınızda bir sorun olduğu görünüyor. Lütfen internet bağlantınızın kararlı olduğundan emin olun ve devam etmek için bu sayfayı yenileyin.",
+      "title": "Bağlantı kesildi"
     },
     "no_camera": {
       "subtitle": "Bu cihazda bir kamera algılayamıyoruz. Lütfen bir kameranın bağlı olduğundan ve gerekli izinlerin verildiğinden emin olun.",
@@ -1865,7 +1877,9 @@
         },
         "redesigned_intro": {
           "copy_link_header": "crossdevice.redesigned_intro.copyLinkHeader",
+          "info_qr_how_download": "crossdevice.redesigned_intro.info_qr_how_download",
           "link_divider": "crossdevice.redesigned_intro.linkDivider",
+          "link_sms": "crossdevice.redesigned_intro.link_sms",
           "qr_code_header": "crossdevice.redesigned_intro.qrCodeHeader",
           "sms_header": "crossdevice.redesigned_intro.smsHeader",
           "subtitle": "crossdevice.redesigned_intro.subtitle",
@@ -2079,6 +2093,12 @@
         "button_help": "document.scan.button_help",
         "button_help_accessibility": "document.scan.button_help_accessibility",
         "button_manual": "document.scan.button_manual",
+        "camera_error": {
+          "body": "document.scan.camera_error.body",
+          "button_primary": "document.scan.camera_error.button_primary",
+          "icon_accessibility": "document.scan.camera_error.icon_accessibility",
+          "title": "document.scan.camera_error.title"
+        },
         "feedback": {
           "alignment_center_document": "document.scan.feedback.alignment_center_document",
           "alignment_center_document_down_accessibility": "document.scan.feedback.alignment_center_document_down_accessibility",
@@ -2421,6 +2441,8 @@
         "button_primary": "nfc.pin_entry.button_primary",
         "helper_attempts_left": "nfc.pin_entry.helper_attempts_left",
         "helper_final_attempt": "nfc.pin_entry.helper_final_attempt",
+        "hide_pin": "nfc.pin_entry.hide_pin_accessibility",
+        "show_pin": "nfc.pin_entry.show_pin_accessibility",
         "subtitle": "nfc.pin_entry.subtitle",
         "title": "nfc.pin_entry.title",
         "title_incorrect": "nfc.pin_entry.title_incorrect"
@@ -2679,6 +2701,12 @@
           "ZAF": "common.country_selection.countries.ZAF",
           "ZMB": "common.country_selection.countries.ZMB",
           "ZWE": "common.country_selection.countries.ZWE"
+        },
+        "error": {
+          "network_error": {
+            "subtitle": "error.network_error.subtitle",
+            "title": "error.network_error.title"
+          }
         },
         "error_detail": "facePhoto.error.errors.network.message",
         "error_network": {
@@ -3414,6 +3442,48 @@
         "title_v5c": "proofOfAddress.guide.title_v5c"
       },
       "poa_welcome_text": "welcome.list_item.poa",
+      "present_digital_identity_wallet": {
+        "button": {
+          "digital_wallet": "presentDigitalIdentityWallet.button.digital_wallet",
+          "document_capture": "presentDigitalIdentityWallet.button.document_capture"
+        },
+        "digital_wallet": {
+          "subtitle": "presentDigitalIdentityWallet.digital_wallet.subtitle",
+          "title": "presentDigitalIdentityWallet.digital_wallet.title"
+        },
+        "error": {
+          "attribute_missing": {
+            "subtitle": "presentDigitalIdentityWallet.error.attribute_missing.subtitle",
+            "title": "presentDigitalIdentityWallet.error.attribute_missing.title"
+          },
+          "button_another_method": "presentDigitalIdentityWallet.error.button_another_method",
+          "button_try_again": "presentDigitalIdentityWallet.error.button_try_again",
+          "standard": {
+            "subtitle": "presentDigitalIdentityWallet.error.standard.subtitle",
+            "title": "presentDigitalIdentityWallet.error.standard.title"
+          },
+          "verification_failed": {
+            "subtitle": "presentDigitalIdentityWallet.error.verification_failed.subtitle",
+            "title": "presentDigitalIdentityWallet.error.verification_failed.title"
+          },
+          "wallet_closed": {
+            "subtitle": "presentDigitalIdentityWallet.error.wallet_closed.subtitle",
+            "title": "presentDigitalIdentityWallet.error.wallet_closed.title"
+          }
+        },
+        "field_validation": {
+          "value_missing": "presentDigitalIdentityWallet.field_validation.value_missing"
+        },
+        "intro": {
+          "button_continue": "presentDigitalIdentityWallet.intro.button_continue",
+          "subtitle": "presentDigitalIdentityWallet.intro.subtitle",
+          "title": "presentDigitalIdentityWallet.intro.title"
+        },
+        "issuing_country": {
+          "label": "presentDigitalIdentityWallet.issuing_country.label",
+          "placeholder": "presentDigitalIdentityWallet.issuing_country.placeholder"
+        }
+      },
       "profile_data": {
         "address_title": "profileData.title.address",
         "button_continue": "sample.selection.next",
@@ -3743,6 +3813,7 @@
           "introduction": {
             "button_confirmation_step": "qualifiedElectronicSignature.introduction.button_confirmation_step",
             "certificate_application_form": "qualifiedElectronicSignature.introduction.certificate_application_form",
+            "info_banner": "qualifiedElectronicSignature.introduction.info_banner",
             "privacy_notice": "qualifiedElectronicSignature.introduction.privacy_notice",
             "step1": "qualifiedElectronicSignature.introduction.step1",
             "subtitle": "qualifiedElectronicSignature.introduction.subtitle",
@@ -4219,9 +4290,11 @@
       "button_primary": "Devam et",
       "helper_attempts_left": "%d deneme hakkı kaldı",
       "helper_final_attempt": "1 deneme hakkı kaldı. Bir sonraki başarısız denemeden sonra çipiniz engellenecektir",
+      "hide_pin_accessibility": "PIN'i gizle",
       "optional_button_tertiary": "NFC çip taramasını atla",
       "optional_helper_attempts_left": "%d deneme hakkı kaldı. Bu adımı aşağıdan atlayın.",
       "optional_helper_final_attempt": "%d deneme hakkınız kaldı, sonrasında NFC çipiniz bloke edilecek. Bu adımı aşağıdan atlayın.",
+      "show_pin_accessibility": "PIN'i göster",
       "subtitle": "Bu, NFC çipini güvenli bir şekilde okumak için gereklidir. Bu %d haneli numarayı belgeniz düzenlendiğinde oluşturdunuz.",
       "title": "Belge PIN'inizi girin",
       "title_incorrect": "Yanlış PIN"
@@ -4340,6 +4413,48 @@
       "input_label": "Telefon numarası",
       "intro": "Telefon numaranızı doğrulamak için sizden bir seferlik şifre girmenizi isteyeceğiz.",
       "title": "Tek Seferlik Şifre"
+    }
+  },
+  "presentDigitalIdentityWallet": {
+    "button": {
+      "digital_wallet": "Dijital cüzdanı aç",
+      "document_capture": "eKimliğim yok"
+    },
+    "digital_wallet": {
+      "subtitle": "Devam etmek için kimlik cüzdanı uygulamanızda doğrulamanızı tamamlayın",
+      "title": "Doğrulama devam ediyor"
+    },
+    "error": {
+      "attribute_missing": {
+        "subtitle": "Devam etmek için istenen tüm özellikler gereklidir. Lütfen geri dönüp bunları paylaşın.",
+        "title": "Bazı özellikler paylaşılmadı"
+      },
+      "button_another_method": "Başka bir yöntem seçin",
+      "button_try_again": "Tekrar deneyin",
+      "standard": {
+        "subtitle": "Doğrulamanızda bir sorun oluştu. Lütfen tekrar deneyin.",
+        "title": "Bir şeyler ters gitti"
+      },
+      "verification_failed": {
+        "subtitle": "Özellikleriniz doğrulanamadı. Lütfen başka bir yöntem deneyin.",
+        "title": "Kimliğinizi doğrulayamadık"
+      },
+      "wallet_closed": {
+        "subtitle": "Cüzdan çok uzun sürdü veya kapatıldı. Lütfen geri dönüp tekrar deneyin.",
+        "title": "Doğrulama tamamlanamadı"
+      }
+    },
+    "field_validation": {
+      "value_missing": "Lütfen bir seçenek belirleyin"
+    },
+    "intro": {
+      "button_continue": "Doğrulamayı başlat",
+      "subtitle": "Güvenlik nedenleriyle ve sizi dolandırıcılığa karşı korumak için kimliğinizi doğrulamamız gerekiyor. Bu yalnızca birkaç dakika sürecektir.",
+      "title": "Kimliğinizi doğrulayın"
+    },
+    "issuing_country": {
+      "label": "Düzenleyen ülke",
+      "placeholder": "Düzenleyen ülkeyi seçin"
     }
   },
   "profileData": {
@@ -4848,6 +4963,7 @@
     "introduction": {
       "button_confirmation_step": "İmzamı oluştur",
       "certificate_application_form": "Sertifika başvuru formu",
+      "info_banner": "For legal compliance, consent is presented in <default_language></default_language>. And <device_language></device_language> translation is provided on this screen for reference.",
       "privacy_notice": "Gizlilik bildirimi",
       "step1": "2'nin 1'i",
       "subtitle": "Avrupa kurallarına uygun olarak kimliğinizi doğrulamak için bir belgeyi dijital olarak imzalamalısınız.",

@@ -818,7 +818,9 @@
     },
     "redesigned_intro": {
       "copyLinkHeader": "Чтобы продолжить, скопируйте ссылку ниже и отправьте её на своё мобильное устройство, затем откройте её в браузере на мобильном устройстве.",
+      "info_qr_how_download": "Если ваша камера не может отсканировать QR-код, возможно, она его не поддерживает. Установите приложение для чтения QR-кодов, чтобы продолжить.",
       "linkDivider": "Или выберите альтернативный способ:",
+      "link_sms": "Отправить ссылку по SMS",
       "qrCodeHeader": "Чтобы продолжить, отсканируйте QR-код ниже с помощью камеры мобильного устройства или приложения для сканирования QR-кодов.",
       "smsHeader": "Укажите, пожалуйста, свой номер телефона ниже. Мы отправим на него разовую ссылку по SMS.",
       "subtitle": "Чтобы обеспечить наилучший опыт и получить оптимальный результат, на следующем шаге вам понадобится мобильный телефон.",
@@ -998,6 +1000,12 @@
       "button_help": "Нужна помощь?",
       "button_help_accessibility": "Кнопка «Нужна помощь» теперь подсвечена. Нажмите на неё, если вам нужна помощь.",
       "button_manual": "Начать сканирование",
+      "camera_error": {
+        "body": "Убедитесь, что камера не используется другим приложением",
+        "button_primary": "Повторить попытку",
+        "icon_accessibility": "Ошибка камеры",
+        "title": "Камера не работает"
+      },
       "feedback": {
         "alignment_center_document": "Расположите документ по центру",
         "alignment_center_document_down_accessibility": "Опустите документ ниже.",
@@ -1340,6 +1348,10 @@
     "invalid_token": {
       "subtitle": "Повторите попытку",
       "title": "Срок действия токена истек"
+    },
+    "network_error": {
+      "subtitle": "Похоже, возникла проблема с подключением к интернету. Убедитесь, что ваше интернет-соединение стабильно, а затем обновите эту страницу, чтобы продолжить.",
+      "title": "Соединение потеряно"
     },
     "no_camera": {
       "subtitle": "Мы не можем обнаружить камеру на этом устройстве. Пожалуйста, убедитесь, что камера подключена и предоставлены необходимые разрешения.",
@@ -1865,7 +1877,9 @@
         },
         "redesigned_intro": {
           "copy_link_header": "crossdevice.redesigned_intro.copyLinkHeader",
+          "info_qr_how_download": "crossdevice.redesigned_intro.info_qr_how_download",
           "link_divider": "crossdevice.redesigned_intro.linkDivider",
+          "link_sms": "crossdevice.redesigned_intro.link_sms",
           "qr_code_header": "crossdevice.redesigned_intro.qrCodeHeader",
           "sms_header": "crossdevice.redesigned_intro.smsHeader",
           "subtitle": "crossdevice.redesigned_intro.subtitle",
@@ -2079,6 +2093,12 @@
         "button_help": "document.scan.button_help",
         "button_help_accessibility": "document.scan.button_help_accessibility",
         "button_manual": "document.scan.button_manual",
+        "camera_error": {
+          "body": "document.scan.camera_error.body",
+          "button_primary": "document.scan.camera_error.button_primary",
+          "icon_accessibility": "document.scan.camera_error.icon_accessibility",
+          "title": "document.scan.camera_error.title"
+        },
         "feedback": {
           "alignment_center_document": "document.scan.feedback.alignment_center_document",
           "alignment_center_document_down_accessibility": "document.scan.feedback.alignment_center_document_down_accessibility",
@@ -2421,6 +2441,8 @@
         "button_primary": "nfc.pin_entry.button_primary",
         "helper_attempts_left": "nfc.pin_entry.helper_attempts_left",
         "helper_final_attempt": "nfc.pin_entry.helper_final_attempt",
+        "hide_pin": "nfc.pin_entry.hide_pin_accessibility",
+        "show_pin": "nfc.pin_entry.show_pin_accessibility",
         "subtitle": "nfc.pin_entry.subtitle",
         "title": "nfc.pin_entry.title",
         "title_incorrect": "nfc.pin_entry.title_incorrect"
@@ -2679,6 +2701,12 @@
           "ZAF": "common.country_selection.countries.ZAF",
           "ZMB": "common.country_selection.countries.ZMB",
           "ZWE": "common.country_selection.countries.ZWE"
+        },
+        "error": {
+          "network_error": {
+            "subtitle": "error.network_error.subtitle",
+            "title": "error.network_error.title"
+          }
         },
         "error_detail": "facePhoto.error.errors.network.message",
         "error_network": {
@@ -3414,6 +3442,48 @@
         "title_v5c": "proofOfAddress.guide.title_v5c"
       },
       "poa_welcome_text": "welcome.list_item.poa",
+      "present_digital_identity_wallet": {
+        "button": {
+          "digital_wallet": "presentDigitalIdentityWallet.button.digital_wallet",
+          "document_capture": "presentDigitalIdentityWallet.button.document_capture"
+        },
+        "digital_wallet": {
+          "subtitle": "presentDigitalIdentityWallet.digital_wallet.subtitle",
+          "title": "presentDigitalIdentityWallet.digital_wallet.title"
+        },
+        "error": {
+          "attribute_missing": {
+            "subtitle": "presentDigitalIdentityWallet.error.attribute_missing.subtitle",
+            "title": "presentDigitalIdentityWallet.error.attribute_missing.title"
+          },
+          "button_another_method": "presentDigitalIdentityWallet.error.button_another_method",
+          "button_try_again": "presentDigitalIdentityWallet.error.button_try_again",
+          "standard": {
+            "subtitle": "presentDigitalIdentityWallet.error.standard.subtitle",
+            "title": "presentDigitalIdentityWallet.error.standard.title"
+          },
+          "verification_failed": {
+            "subtitle": "presentDigitalIdentityWallet.error.verification_failed.subtitle",
+            "title": "presentDigitalIdentityWallet.error.verification_failed.title"
+          },
+          "wallet_closed": {
+            "subtitle": "presentDigitalIdentityWallet.error.wallet_closed.subtitle",
+            "title": "presentDigitalIdentityWallet.error.wallet_closed.title"
+          }
+        },
+        "field_validation": {
+          "value_missing": "presentDigitalIdentityWallet.field_validation.value_missing"
+        },
+        "intro": {
+          "button_continue": "presentDigitalIdentityWallet.intro.button_continue",
+          "subtitle": "presentDigitalIdentityWallet.intro.subtitle",
+          "title": "presentDigitalIdentityWallet.intro.title"
+        },
+        "issuing_country": {
+          "label": "presentDigitalIdentityWallet.issuing_country.label",
+          "placeholder": "presentDigitalIdentityWallet.issuing_country.placeholder"
+        }
+      },
       "profile_data": {
         "address_title": "profileData.title.address",
         "button_continue": "sample.selection.next",
@@ -3743,6 +3813,7 @@
           "introduction": {
             "button_confirmation_step": "qualifiedElectronicSignature.introduction.button_confirmation_step",
             "certificate_application_form": "qualifiedElectronicSignature.introduction.certificate_application_form",
+            "info_banner": "qualifiedElectronicSignature.introduction.info_banner",
             "privacy_notice": "qualifiedElectronicSignature.introduction.privacy_notice",
             "step1": "qualifiedElectronicSignature.introduction.step1",
             "subtitle": "qualifiedElectronicSignature.introduction.subtitle",
@@ -4219,9 +4290,11 @@
       "button_primary": "Продолжить",
       "helper_attempts_left": "%d попыток осталось",
       "helper_final_attempt": "Осталась 1 попытка. Ваш чип будет заблокирован после следующей неудачной попытки",
+      "hide_pin_accessibility": "Скрыть PIN",
       "optional_button_tertiary": "Пропустить сканирование NFC-чипа",
       "optional_helper_attempts_left": "%d попыток осталось. Пропустите этот шаг ниже.",
       "optional_helper_final_attempt": "%d попытка осталась до блокировки вашего NFC-чипа. Пропустите этот шаг ниже.",
+      "show_pin_accessibility": "Показать PIN",
       "subtitle": "Это необходимо для безопасного считывания чипа NFC. Вы создали этот %d-значный номер при выдаче документа.",
       "title": "Введите PIN-код документа",
       "title_incorrect": "Неверный PIN-код"
@@ -4340,6 +4413,48 @@
       "input_label": "Номер телефона",
       "intro": "Чтобы проверить ваш номер телефона, мы попросим вас ввести одноразовый пароль.",
       "title": "Одноразовый пароль"
+    }
+  },
+  "presentDigitalIdentityWallet": {
+    "button": {
+      "digital_wallet": "Открыть цифровой кошелек",
+      "document_capture": "У меня нет eID"
+    },
+    "digital_wallet": {
+      "subtitle": "Завершите проверку в приложении вашего кошелька идентичности, чтобы продолжить",
+      "title": "Идет проверка"
+    },
+    "error": {
+      "attribute_missing": {
+        "subtitle": "Все запрошенные атрибуты необходимы, чтобы продолжить. Пожалуйста, вернитесь назад и поделитесь ими.",
+        "title": "Некоторые атрибуты не были переданы"
+      },
+      "button_another_method": "Выбрать другой способ",
+      "button_try_again": "Попробовать еще раз",
+      "standard": {
+        "subtitle": "Возникла проблема с вашей проверкой. Пожалуйста, попробуйте еще раз.",
+        "title": "Произошла ошибка"
+      },
+      "verification_failed": {
+        "subtitle": "Ваши атрибуты не удалось подтвердить. Пожалуйста, попробуйте другой способ.",
+        "title": "Нам не удалось подтвердить вашу личность"
+      },
+      "wallet_closed": {
+        "subtitle": "Кошелек слишком долго не отвечал или был закрыт. Пожалуйста, вернитесь назад и попробуйте еще раз.",
+        "title": "Проверка не была завершена"
+      }
+    },
+    "field_validation": {
+      "value_missing": "Пожалуйста, выберите вариант"
+    },
+    "intro": {
+      "button_continue": "Начать проверку",
+      "subtitle": "Из соображений безопасности и для защиты вас от мошенничества нам нужно подтвердить вашу личность. Это займет всего несколько минут.",
+      "title": "Подтвердите свою личность"
+    },
+    "issuing_country": {
+      "label": "Страна выдачи",
+      "placeholder": "Выберите страну выдачи"
     }
   },
   "profileData": {
@@ -4848,6 +4963,7 @@
     "introduction": {
       "button_confirmation_step": "Создать мою подпись",
       "certificate_application_form": "Форма заявления на сертификат",
+      "info_banner": "For legal compliance, consent is presented in <default_language></default_language>. And <device_language></device_language> translation is provided on this screen for reference.",
       "privacy_notice": "Уведомление о конфиденциальности",
       "step1": "1 из 2",
       "subtitle": "Чтобы подтвердить свою личность в соответствии с европейскими правилами, вы должны цифровой подписью подписать документ.",

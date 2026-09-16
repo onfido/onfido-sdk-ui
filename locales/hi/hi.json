@@ -818,7 +818,9 @@
     },
     "redesigned_intro": {
       "copyLinkHeader": "जारी रखने के लिए, नीचे दिए गए लिंक को कॉपी करें और उसे अपने मोबाइल डिवाइस पर भेजें। फिर, उसे अपने मोबाइल डिवाइस के ब्राउज़र में खोलें।",
+      "info_qr_how_download": "यदि आपका कैमरा QR कोड स्कैन नहीं कर पा रहा है, तो संभव है कि वह इसे सपोर्ट न करता हो। जारी रखने के लिए कोई QR कोड रीडर ऐप इंस्टॉल करें।",
       "linkDivider": "या कोई वैकल्पिक तरीका चुनें:",
+      "link_sms": "एसएमएस के जरिए लिंक भेजें",
       "qrCodeHeader": "जारी रखने के लिए, नीचे दिए गए QR कोड को अपने मोबाइल डिवाइस के कैमरा या QR कोड ऐप से स्कैन करें।",
       "smsHeader": "कृपया नीचे अपना फ़ोन नंबर दर्ज करें। हम SMS के माध्यम से आपके फ़ोन पर एक बार उपयोग होने वाला लिंक भेजेंगे।",
       "subtitle": "सबसे अच्छा अनुभव और उत्कृष्ट परिणाम सुनिश्चित करने के लिए, अगले चरण में आपको अपना मोबाइल फ़ोन उपयोग करना होगा।",
@@ -998,6 +1000,12 @@
       "button_help": "मदद चाहिए?",
       "button_help_accessibility": "\"मदद चाहिए\" बटन अब हाइलाइट किया गया है। यदि आपको सहायता की आवश्यकता हो तो इस पर टैप करें।",
       "button_manual": "स्कैन शुरू करें",
+      "camera_error": {
+        "body": "सुनिश्चित करें कि कैमरा किसी अन्य ऐप द्वारा उपयोग नहीं किया जा रहा है",
+        "button_primary": "फिर से प्रयास करें",
+        "icon_accessibility": "कैमरा त्रुटि",
+        "title": "कैमरा काम नहीं कर रहा"
+      },
       "feedback": {
         "alignment_center_document": "दस्तावेज़ को केंद्र में रखें",
         "alignment_center_document_down_accessibility": "अपने दस्तावेज़ को नीचे करें।",
@@ -1340,6 +1348,10 @@
     "invalid_token": {
       "subtitle": "कृपया फिर से कोशिश करें",
       "title": "आपके टोकन की समय-सीमा खत्म हो गई है"
+    },
+    "network_error": {
+      "subtitle": "लगता है आपकी इंटरनेट कनेक्शन में कोई समस्या है। कृपया सुनिश्चित करें कि आपका इंटरनेट कनेक्शन स्थिर है, फिर आगे बढ़ने के लिए इस पेज को रिफ्रेश करें।",
+      "title": "कनेक्शन टूट गया"
     },
     "no_camera": {
       "subtitle": "हम इस उपकरण पर कैमरा का पता नहीं लगा सकते। कृपया सुनिश्चित करें कि कैमरा जोड़ा गया है और आवश्यक अनुमतियाँ प्रदान की गई हैं।",
@@ -1865,7 +1877,9 @@
         },
         "redesigned_intro": {
           "copy_link_header": "crossdevice.redesigned_intro.copyLinkHeader",
+          "info_qr_how_download": "crossdevice.redesigned_intro.info_qr_how_download",
           "link_divider": "crossdevice.redesigned_intro.linkDivider",
+          "link_sms": "crossdevice.redesigned_intro.link_sms",
           "qr_code_header": "crossdevice.redesigned_intro.qrCodeHeader",
           "sms_header": "crossdevice.redesigned_intro.smsHeader",
           "subtitle": "crossdevice.redesigned_intro.subtitle",
@@ -2079,6 +2093,12 @@
         "button_help": "document.scan.button_help",
         "button_help_accessibility": "document.scan.button_help_accessibility",
         "button_manual": "document.scan.button_manual",
+        "camera_error": {
+          "body": "document.scan.camera_error.body",
+          "button_primary": "document.scan.camera_error.button_primary",
+          "icon_accessibility": "document.scan.camera_error.icon_accessibility",
+          "title": "document.scan.camera_error.title"
+        },
         "feedback": {
           "alignment_center_document": "document.scan.feedback.alignment_center_document",
           "alignment_center_document_down_accessibility": "document.scan.feedback.alignment_center_document_down_accessibility",
@@ -2421,6 +2441,8 @@
         "button_primary": "nfc.pin_entry.button_primary",
         "helper_attempts_left": "nfc.pin_entry.helper_attempts_left",
         "helper_final_attempt": "nfc.pin_entry.helper_final_attempt",
+        "hide_pin": "nfc.pin_entry.hide_pin_accessibility",
+        "show_pin": "nfc.pin_entry.show_pin_accessibility",
         "subtitle": "nfc.pin_entry.subtitle",
         "title": "nfc.pin_entry.title",
         "title_incorrect": "nfc.pin_entry.title_incorrect"
@@ -2679,6 +2701,12 @@
           "ZAF": "common.country_selection.countries.ZAF",
           "ZMB": "common.country_selection.countries.ZMB",
           "ZWE": "common.country_selection.countries.ZWE"
+        },
+        "error": {
+          "network_error": {
+            "subtitle": "error.network_error.subtitle",
+            "title": "error.network_error.title"
+          }
         },
         "error_detail": "facePhoto.error.errors.network.message",
         "error_network": {
@@ -3414,6 +3442,48 @@
         "title_v5c": "proofOfAddress.guide.title_v5c"
       },
       "poa_welcome_text": "welcome.list_item.poa",
+      "present_digital_identity_wallet": {
+        "button": {
+          "digital_wallet": "presentDigitalIdentityWallet.button.digital_wallet",
+          "document_capture": "presentDigitalIdentityWallet.button.document_capture"
+        },
+        "digital_wallet": {
+          "subtitle": "presentDigitalIdentityWallet.digital_wallet.subtitle",
+          "title": "presentDigitalIdentityWallet.digital_wallet.title"
+        },
+        "error": {
+          "attribute_missing": {
+            "subtitle": "presentDigitalIdentityWallet.error.attribute_missing.subtitle",
+            "title": "presentDigitalIdentityWallet.error.attribute_missing.title"
+          },
+          "button_another_method": "presentDigitalIdentityWallet.error.button_another_method",
+          "button_try_again": "presentDigitalIdentityWallet.error.button_try_again",
+          "standard": {
+            "subtitle": "presentDigitalIdentityWallet.error.standard.subtitle",
+            "title": "presentDigitalIdentityWallet.error.standard.title"
+          },
+          "verification_failed": {
+            "subtitle": "presentDigitalIdentityWallet.error.verification_failed.subtitle",
+            "title": "presentDigitalIdentityWallet.error.verification_failed.title"
+          },
+          "wallet_closed": {
+            "subtitle": "presentDigitalIdentityWallet.error.wallet_closed.subtitle",
+            "title": "presentDigitalIdentityWallet.error.wallet_closed.title"
+          }
+        },
+        "field_validation": {
+          "value_missing": "presentDigitalIdentityWallet.field_validation.value_missing"
+        },
+        "intro": {
+          "button_continue": "presentDigitalIdentityWallet.intro.button_continue",
+          "subtitle": "presentDigitalIdentityWallet.intro.subtitle",
+          "title": "presentDigitalIdentityWallet.intro.title"
+        },
+        "issuing_country": {
+          "label": "presentDigitalIdentityWallet.issuing_country.label",
+          "placeholder": "presentDigitalIdentityWallet.issuing_country.placeholder"
+        }
+      },
       "profile_data": {
         "address_title": "profileData.title.address",
         "button_continue": "sample.selection.next",
@@ -3743,6 +3813,7 @@
           "introduction": {
             "button_confirmation_step": "qualifiedElectronicSignature.introduction.button_confirmation_step",
             "certificate_application_form": "qualifiedElectronicSignature.introduction.certificate_application_form",
+            "info_banner": "qualifiedElectronicSignature.introduction.info_banner",
             "privacy_notice": "qualifiedElectronicSignature.introduction.privacy_notice",
             "step1": "qualifiedElectronicSignature.introduction.step1",
             "subtitle": "qualifiedElectronicSignature.introduction.subtitle",
@@ -4219,9 +4290,11 @@
       "button_primary": "जारी रखें",
       "helper_attempts_left": "%d प्रयास शेष हैं",
       "helper_final_attempt": "1 प्रयास शेष है। अगले असफल प्रयास के बाद आपकी चिप ब्लॉक हो जाएगी",
+      "hide_pin_accessibility": "PIN छिपाएं",
       "optional_button_tertiary": "NFC चिप स्कैनिंग छोड़ें",
       "optional_helper_attempts_left": "%d प्रयास शेष हैं। नीचे यह चरण छोड़ें।",
       "optional_helper_final_attempt": "%d प्रयास शेष है इससे पहले कि आपकी NFC चिप ब्लॉक हो जाए। नीचे इस चरण को छोड़ें।",
+      "show_pin_accessibility": "PIN दिखाएं",
       "subtitle": "यह NFC चिप को सुरक्षित रूप से पढ़ने के लिए आवश्यक है। आपने यह %d-अंकीय संख्या अपने दस्तावेज़ जारी होने के समय बनाई थी।",
       "title": "अपना दस्तावेज़ PIN दर्ज करें",
       "title_incorrect": "गलत पिन"
@@ -4340,6 +4413,48 @@
       "input_label": "फ़ोन नंबर",
       "intro": "आपका फ़ोन नंबर सत्यापित करने के लिए हम आपसे एक बार का पासवर्ड दर्ज करने के लिए कहेंगे।",
       "title": "एक समय पासवर्ड"
+    }
+  },
+  "presentDigitalIdentityWallet": {
+    "button": {
+      "digital_wallet": "डिजिटल वॉलेट खोलें",
+      "document_capture": "मेरे पास eID नहीं है"
+    },
+    "digital_wallet": {
+      "subtitle": "जारी रखने के लिए अपने आइडेंटिटी वॉलेट ऐप में अपना सत्यापन पूरा करें",
+      "title": "सत्यापन जारी है"
+    },
+    "error": {
+      "attribute_missing": {
+        "subtitle": "आगे बढ़ने के लिए सभी अनुरोधित गुण आवश्यक हैं। कृपया वापस जाएँ और उन्हें साझा करें।",
+        "title": "कुछ गुण साझा नहीं किए गए"
+      },
+      "button_another_method": "कोई और तरीका चुनें",
+      "button_try_again": "फिर से कोशिश करें",
+      "standard": {
+        "subtitle": "आपके सत्यापन में कोई समस्या हुई। कृपया दोबारा प्रयास करें।",
+        "title": "कुछ गड़बड़ हो गई"
+      },
+      "verification_failed": {
+        "subtitle": "आपके गुणों की पुष्टि नहीं हो सकी। कृपया कोई अन्य तरीका आज़माएँ।",
+        "title": "हम आपकी पहचान की पुष्टि नहीं कर सके"
+      },
+      "wallet_closed": {
+        "subtitle": "वॉलेट को बहुत समय लगा या वह बंद हो गया। कृपया वापस जाएँ और फिर से कोशिश करें।",
+        "title": "सत्यापन पूरा नहीं हुआ"
+      }
+    },
+    "field_validation": {
+      "value_missing": "कृपया एक विकल्प चुनें"
+    },
+    "intro": {
+      "button_continue": "वेरिफ़िकेशन शुरू करें",
+      "subtitle": "सुरक्षा कारणों से और आपको धोखाधड़ी से बचाने के लिए हमें आपकी पहचान की पुष्टि करनी होगी। इसमें केवल कुछ मिनट लगेंगे।",
+      "title": "अपनी पहचान वेरिफ़ाई करें"
+    },
+    "issuing_country": {
+      "label": "जारी करने वाला देश",
+      "placeholder": "जारी करने वाला देश चुनें"
     }
   },
   "profileData": {
@@ -4848,6 +4963,7 @@
     "introduction": {
       "button_confirmation_step": "मेरा हस्ताक्षर बनाएं",
       "certificate_application_form": "प्रमाणपत्र आवेदन फॉर्म",
+      "info_banner": "For legal compliance, consent is presented in <default_language></default_language>. And <device_language></device_language> translation is provided on this screen for reference.",
       "privacy_notice": "गोपनीयता सूचना",
       "step1": "1 में से 2",
       "subtitle": "यूरोपीय नियमों के अनुसार अपनी पहचान की पुष्टि करने के लिए, आपको एक दस्तावेज़ को डिजिटल रूप से हस्ताक्षर करना होगा।",

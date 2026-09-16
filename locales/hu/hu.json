@@ -818,7 +818,9 @@
     },
     "redesigned_intro": {
       "copyLinkHeader": "A folytatáshoz másolja ki az alábbi hivatkozást, és küldje el a mobilkészülékére. Ezután nyissa meg a mobilkészüléke böngészőjében.",
+      "info_qr_how_download": "Ha a kamerája nem tudja beolvasni a QR-kódot, lehet, hogy nem támogatja azt. A folytatáshoz telepítsen egy QR-kódolvasó alkalmazást.",
       "linkDivider": "Vagy válasszon egy másik módszert:",
+      "link_sms": "Hivatkozás küldése SMS-ben",
       "qrCodeHeader": "A folytatáshoz olvassa be az alábbi QR-kódot a mobilkészüléke kamerájával vagy egy QR-kódolvasó alkalmazással.",
       "smsHeader": "Kérjük, adja meg lent a telefonszámát. Egyszeri hivatkozást küldünk a telefonjára SMS-ben.",
       "subtitle": "A legjobb élmény és az optimális eredmény érdekében a következő lépéshez kérjük, használja a mobiltelefonját.",
@@ -998,6 +1000,12 @@
       "button_help": "Segítségre van szüksége?",
       "button_help_accessibility": "A „Segítségre van szüksége?” gomb most ki van emelve. Koppintson rá, ha segítségre van szüksége.",
       "button_manual": "Szkennelés indítása",
+      "camera_error": {
+        "body": "Ellenőrizze, hogy a kamerát nem használja-e másik alkalmazás",
+        "button_primary": "Próbálja újra",
+        "icon_accessibility": "Kamerahiba",
+        "title": "A kamera nem működik"
+      },
       "feedback": {
         "alignment_center_document": "Igazítsa középre a dokumentumot",
         "alignment_center_document_down_accessibility": "Mozgassa lejjebb az okmányát.",
@@ -1340,6 +1348,10 @@
     "invalid_token": {
       "subtitle": "Kérjük, próbálja újra",
       "title": "A ön tokenje lejárt"
+    },
+    "network_error": {
+      "subtitle": "Úgy tűnik, probléma van az internetkapcsolatával. Kérjük, ellenőrizze, hogy a kapcsolata stabil, majd frissítse az oldalt a folytatáshoz.",
+      "title": "A kapcsolat megszakadt"
     },
     "no_camera": {
       "subtitle": "Nem érzékelünk kamerát ezen az eszközön. Kérjük, győződjön meg róla, hogy a kamera csatlakoztatva van, és a szükséges engedélyek meg vannak adva.",
@@ -1865,7 +1877,9 @@
         },
         "redesigned_intro": {
           "copy_link_header": "crossdevice.redesigned_intro.copyLinkHeader",
+          "info_qr_how_download": "crossdevice.redesigned_intro.info_qr_how_download",
           "link_divider": "crossdevice.redesigned_intro.linkDivider",
+          "link_sms": "crossdevice.redesigned_intro.link_sms",
           "qr_code_header": "crossdevice.redesigned_intro.qrCodeHeader",
           "sms_header": "crossdevice.redesigned_intro.smsHeader",
           "subtitle": "crossdevice.redesigned_intro.subtitle",
@@ -2079,6 +2093,12 @@
         "button_help": "document.scan.button_help",
         "button_help_accessibility": "document.scan.button_help_accessibility",
         "button_manual": "document.scan.button_manual",
+        "camera_error": {
+          "body": "document.scan.camera_error.body",
+          "button_primary": "document.scan.camera_error.button_primary",
+          "icon_accessibility": "document.scan.camera_error.icon_accessibility",
+          "title": "document.scan.camera_error.title"
+        },
         "feedback": {
           "alignment_center_document": "document.scan.feedback.alignment_center_document",
           "alignment_center_document_down_accessibility": "document.scan.feedback.alignment_center_document_down_accessibility",
@@ -2421,6 +2441,8 @@
         "button_primary": "nfc.pin_entry.button_primary",
         "helper_attempts_left": "nfc.pin_entry.helper_attempts_left",
         "helper_final_attempt": "nfc.pin_entry.helper_final_attempt",
+        "hide_pin": "nfc.pin_entry.hide_pin_accessibility",
+        "show_pin": "nfc.pin_entry.show_pin_accessibility",
         "subtitle": "nfc.pin_entry.subtitle",
         "title": "nfc.pin_entry.title",
         "title_incorrect": "nfc.pin_entry.title_incorrect"
@@ -2679,6 +2701,12 @@
           "ZAF": "common.country_selection.countries.ZAF",
           "ZMB": "common.country_selection.countries.ZMB",
           "ZWE": "common.country_selection.countries.ZWE"
+        },
+        "error": {
+          "network_error": {
+            "subtitle": "error.network_error.subtitle",
+            "title": "error.network_error.title"
+          }
         },
         "error_detail": "facePhoto.error.errors.network.message",
         "error_network": {
@@ -3414,6 +3442,48 @@
         "title_v5c": "proofOfAddress.guide.title_v5c"
       },
       "poa_welcome_text": "welcome.list_item.poa",
+      "present_digital_identity_wallet": {
+        "button": {
+          "digital_wallet": "presentDigitalIdentityWallet.button.digital_wallet",
+          "document_capture": "presentDigitalIdentityWallet.button.document_capture"
+        },
+        "digital_wallet": {
+          "subtitle": "presentDigitalIdentityWallet.digital_wallet.subtitle",
+          "title": "presentDigitalIdentityWallet.digital_wallet.title"
+        },
+        "error": {
+          "attribute_missing": {
+            "subtitle": "presentDigitalIdentityWallet.error.attribute_missing.subtitle",
+            "title": "presentDigitalIdentityWallet.error.attribute_missing.title"
+          },
+          "button_another_method": "presentDigitalIdentityWallet.error.button_another_method",
+          "button_try_again": "presentDigitalIdentityWallet.error.button_try_again",
+          "standard": {
+            "subtitle": "presentDigitalIdentityWallet.error.standard.subtitle",
+            "title": "presentDigitalIdentityWallet.error.standard.title"
+          },
+          "verification_failed": {
+            "subtitle": "presentDigitalIdentityWallet.error.verification_failed.subtitle",
+            "title": "presentDigitalIdentityWallet.error.verification_failed.title"
+          },
+          "wallet_closed": {
+            "subtitle": "presentDigitalIdentityWallet.error.wallet_closed.subtitle",
+            "title": "presentDigitalIdentityWallet.error.wallet_closed.title"
+          }
+        },
+        "field_validation": {
+          "value_missing": "presentDigitalIdentityWallet.field_validation.value_missing"
+        },
+        "intro": {
+          "button_continue": "presentDigitalIdentityWallet.intro.button_continue",
+          "subtitle": "presentDigitalIdentityWallet.intro.subtitle",
+          "title": "presentDigitalIdentityWallet.intro.title"
+        },
+        "issuing_country": {
+          "label": "presentDigitalIdentityWallet.issuing_country.label",
+          "placeholder": "presentDigitalIdentityWallet.issuing_country.placeholder"
+        }
+      },
       "profile_data": {
         "address_title": "profileData.title.address",
         "button_continue": "sample.selection.next",
@@ -3743,6 +3813,7 @@
           "introduction": {
             "button_confirmation_step": "qualifiedElectronicSignature.introduction.button_confirmation_step",
             "certificate_application_form": "qualifiedElectronicSignature.introduction.certificate_application_form",
+            "info_banner": "qualifiedElectronicSignature.introduction.info_banner",
             "privacy_notice": "qualifiedElectronicSignature.introduction.privacy_notice",
             "step1": "qualifiedElectronicSignature.introduction.step1",
             "subtitle": "qualifiedElectronicSignature.introduction.subtitle",
@@ -4219,9 +4290,11 @@
       "button_primary": "Tovább",
       "helper_attempts_left": "%d próbálkozás van hátra",
       "helper_final_attempt": "Még 1 próbálkozás maradt. A chip blokkolva lesz a következő sikertelen próbálkozás után",
+      "hide_pin_accessibility": "PIN elrejtése",
       "optional_button_tertiary": "NFC-chipolvasás kihagyása",
       "optional_helper_attempts_left": "%d próbálkozás maradt. Hagyja ki ezt a lépést lentebb.",
       "optional_helper_final_attempt": "%d próbálkozása maradt, mielőtt az NFC-chipje zárolásra kerül. Az alábbi lépéssel kihagyhatja ezt.",
+      "show_pin_accessibility": "PIN megjelenítése",
       "subtitle": "Ez szükséges az NFC‑chip biztonságos leolvasásához. Ezt a %d számjegyű számot a dokumentuma kiállításakor hozta létre.",
       "title": "Adja meg a dokumentum PIN-kódját",
       "title_incorrect": "Helytelen PIN-kód"
@@ -4340,6 +4413,48 @@
       "input_label": "Telefonszám",
       "intro": "A telefonos azonosítás érdekében megkérjük, hogy írja be az egyszer használatos jelszót.",
       "title": "Egyszeri jelszó"
+    }
+  },
+  "presentDigitalIdentityWallet": {
+    "button": {
+      "digital_wallet": "Digitális pénztárca megnyitása",
+      "document_capture": "Nincs eID-m"
+    },
+    "digital_wallet": {
+      "subtitle": "A folytatáshoz fejezze be az ellenőrzést a személyazonossági pénztárca alkalmazásában",
+      "title": "Ellenőrzés folyamatban"
+    },
+    "error": {
+      "attribute_missing": {
+        "subtitle": "A folytatáshoz minden kért adatra szükség van. Kérjük, lépjen vissza, és ossza meg ezeket.",
+        "title": "Néhány adat nem került megosztásra"
+      },
+      "button_another_method": "Válasszon másik módszert",
+      "button_try_again": "Próbálja újra",
+      "standard": {
+        "subtitle": "Hiba történt az ellenőrzés során. Kérjük, próbálja újra.",
+        "title": "Hiba történt"
+      },
+      "verification_failed": {
+        "subtitle": "Az adatait nem tudtuk megerősíteni. Kérjük, próbáljon ki egy másik módszert.",
+        "title": "Nem sikerült ellenőriznünk személyazonosságát"
+      },
+      "wallet_closed": {
+        "subtitle": "A pénztárca túl sokáig tartott beolvasni, vagy bezárult. Kérjük, lépjen vissza, és próbálja újra.",
+        "title": "Az ellenőrzés nem fejeződött be"
+      }
+    },
+    "field_validation": {
+      "value_missing": "Kérjük, válasszon egy lehetőséget"
+    },
+    "intro": {
+      "button_continue": "Ellenőrzés megkezdése",
+      "subtitle": "Biztonsági okokból és az Ön védelme érdekében meg kell erősítenünk személyazonosságát. Ez csak néhány percet vesz igénybe.",
+      "title": "Igazolja személyazonosságát"
+    },
+    "issuing_country": {
+      "label": "Kibocsátó ország",
+      "placeholder": "Kibocsátó ország kiválasztása"
     }
   },
   "profileData": {
@@ -4848,6 +4963,7 @@
     "introduction": {
       "button_confirmation_step": "Hozza létre az aláírásomat",
       "certificate_application_form": "Igazolás kérelmező űrlap",
+      "info_banner": "For legal compliance, consent is presented in <default_language></default_language>. And <device_language></device_language> translation is provided on this screen for reference.",
       "privacy_notice": "Adatvédelmi tájékoztató",
       "step1": "1 a 2-ből",
       "subtitle": "Az Európai szabályoknak megfelelően, a személyazonosságának megerősítéséhez digitálisan alá kell írnia egy dokumentumot.",

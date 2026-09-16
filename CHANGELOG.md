@@ -7,6 +7,20 @@ and the SDK adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html)
 
 When any of the string translations change, it will result in a MINOR version change. As a result, you are responsible for ensuring the correct layout if you are using custom translations (see [language localization](https://documentation.onfido.com/sdk/web/#custom-translations-and-text)).
 
+## [v14.84.0] - 2026-09-16
+
+### Added
+
+- Add support for pre-filling Profile Data Capture fields with data extracted from identity documents, allowing end users to review, confirm, or edit the extracted information before submission
+
+### Changed
+
+- Improve visual distinction of translated guidance text on the QES introduction screen by displaying it in italic style
+
+### Fixed
+
+- Improve camera selection on touch-screen laptops to prefer rear-facing cameras for document capture, ensuring higher quality images
+
 ## [v14.83.0] - 2026-09-02
 
 ### Fixed
