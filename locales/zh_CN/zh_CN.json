@@ -965,6 +965,16 @@
       "title": "倾斜您的证件以显示其全息图",
       "video_accessibility": "示例视频演示如何将身份证向四个方向（上、下、左、右）倾斜以显示其全息图"
     },
+    "load": {
+      "body": {
+        "stage_four": "这比平常花费的时间更长。请停留在此屏幕。",
+        "stage_one": "通常只需几秒钟",
+        "stage_three": "请稍候，这可能需要多一点时间",
+        "stage_two": "仍在处理中",
+        "warmup_shot": "正在启动相机"
+      },
+      "title": "正在准备"
+    },
     "preview": {
       "blur_detail": "请确保一切都清晰",
       "blur_title": "检测到模糊照片",
@@ -1812,6 +1822,7 @@
       },
       "chip_blocked": {
         "button_help": "nfc.chip_blocked.button_help",
+        "button_help_accessibility": "nfc.chip_blocked.button_help_accessibility",
         "subtitle": "nfc.chip_blocked.subtitle",
         "title": "nfc.chip_blocked.title"
       },
@@ -1966,16 +1977,24 @@
         }
       },
       "doc_camera_load": {
+        "progress_stage_four": {
+          "body": "document.load.body.stage_four"
+        },
         "progress_stage_one": {
+          "body": "document.load.body.stage_one",
           "title": "document.capture.camera_loading_stage_1"
         },
         "progress_stage_three": {
+          "body": "document.load.body.stage_three",
           "title": "document.capture.camera_loading_stage_3"
         },
         "progress_stage_two": {
+          "body": "document.load.body.stage_two",
           "title": "document.capture.camera_loading_stage_2"
         },
+        "title": "document.load.title",
         "warmup_shot": {
+          "body": "document.load.body.warmup_shot",
           "title": "document.capture.camera_loading_warmup_shot"
         }
       },
@@ -3827,6 +3846,18 @@
           "misconfigured": "qualifiedElectronicSignature.error.misconfigured"
         }
       },
+      "request_compliance_consent": {
+        "button_consent": "requestComplianceConsent.button.consent",
+        "button_no_consent": "requestComplianceConsent.button.no_consent",
+        "button_read_more": "requestComplianceConsent.button.read_more",
+        "prompt": {
+          "button_cancel_verification": "requestComplianceConsent.no_consent_prompt.button.cancel_verification",
+          "button_review_again": "requestComplianceConsent.no_consent_prompt.button.review_again",
+          "no_consent_detail": "requestComplianceConsent.no_consent_prompt.detail",
+          "no_consent_title": "requestComplianceConsent.no_consent_prompt.title"
+        },
+        "title": "requestComplianceConsent.title"
+      },
       "request_diatf_consent": {
         "button_consent": "requestDiatfConsent.button.consent",
         "button_no_consent": "requestDiatfConsent.button.no_consent",
@@ -3838,6 +3869,9 @@
           "no_consent_title": "requestDiatfConsent.no_consent_prompt.title"
         },
         "title": "requestDiatfConsent.title"
+      },
+      "request_face_biometrics_nidas": {
+        "loading_title": "requestFaceBiometricsNidas.loading.title"
       },
       "request_uk_evisa": {
         "button_primary": "requestEvisaUk.request_uk_evisa.submit",
@@ -4244,6 +4278,7 @@
   "nfc": {
     "chip_blocked": {
       "button_help": "政府门户网站",
+      "button_help_accessibility": "政府门户网站。外部链接。",
       "optional_button_primary": "继续",
       "optional_subtitle": "PIN 码输入错误次数过多已导致您的 NFC 芯片被锁定,因此我们将跳过此步骤。请联系相关部门重置您的 PIN 码以便日后使用。",
       "optional_title": "继续而不扫描芯片",
@@ -4973,6 +5008,29 @@
       "validation": "需要同意"
     }
   },
+  "requestComplianceConsent": {
+    "button": {
+      "consent": "Accept",
+      "no_consent": "Do not accept",
+      "read_more": "Read more"
+    },
+    "error": {
+      "button": {
+        "refresh": "重新加载屏幕"
+      },
+      "detail": "请检查连接是否稳定，然后重试",
+      "title": "内容加载失败"
+    },
+    "no_consent_prompt": {
+      "button": {
+        "cancel_verification": "Yes, cancel verification",
+        "review_again": "Review again"
+      },
+      "detail": "If you do not accept Entrust’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
+      "title": "Are you sure?"
+    },
+    "title": "Consent to process biometric data and sensitive data"
+  },
   "requestDiatfConsent": {
     "button": {
       "consent": "Accept",
@@ -5036,6 +5094,11 @@
       "submit": "继续",
       "subtitle": "生成您的9位字符分享码,以使用您的电子签证验证您的身份",
       "title": "输入您的英国电子签证分享码"
+    }
+  },
+  "requestFaceBiometricsNidas": {
+    "loading": {
+      "title": "Preparing face verification…"
     }
   },
   "retry": {

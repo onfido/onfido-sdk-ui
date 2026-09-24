@@ -965,6 +965,16 @@
       "title": "Nakloňte svoj doklad totožnosti tak, aby sa zobrazili jeho hologramy",
       "video_accessibility": "Ukážkové video, ktoré ukazuje, ako naklonenie občianskeho preukazu štyrmi smermi (hore, dole, doľava a doprava) odhalí jeho hologramy"
     },
+    "load": {
+      "body": {
+        "stage_four": "Trvá to dlhšie než zvyčajne. Zostaňte prosím na tejto obrazovke",
+        "stage_one": "Zvyčajne to trvá niekoľko sekúnd",
+        "stage_three": "Vydržte, môže to chvíľu trvať",
+        "stage_two": "Stále na tom pracujeme",
+        "warmup_shot": "Spúšťa sa fotoaparát"
+      },
+      "title": "Pripravuje sa"
+    },
     "preview": {
       "blur_detail": "Uistite sa, že je všetko jasné",
       "blur_title": "Bola zistená rozmazaná fotka",
@@ -1812,6 +1822,7 @@
       },
       "chip_blocked": {
         "button_help": "nfc.chip_blocked.button_help",
+        "button_help_accessibility": "nfc.chip_blocked.button_help_accessibility",
         "subtitle": "nfc.chip_blocked.subtitle",
         "title": "nfc.chip_blocked.title"
       },
@@ -1966,16 +1977,24 @@
         }
       },
       "doc_camera_load": {
+        "progress_stage_four": {
+          "body": "document.load.body.stage_four"
+        },
         "progress_stage_one": {
+          "body": "document.load.body.stage_one",
           "title": "document.capture.camera_loading_stage_1"
         },
         "progress_stage_three": {
+          "body": "document.load.body.stage_three",
           "title": "document.capture.camera_loading_stage_3"
         },
         "progress_stage_two": {
+          "body": "document.load.body.stage_two",
           "title": "document.capture.camera_loading_stage_2"
         },
+        "title": "document.load.title",
         "warmup_shot": {
+          "body": "document.load.body.warmup_shot",
           "title": "document.capture.camera_loading_warmup_shot"
         }
       },
@@ -3827,6 +3846,18 @@
           "misconfigured": "qualifiedElectronicSignature.error.misconfigured"
         }
       },
+      "request_compliance_consent": {
+        "button_consent": "requestComplianceConsent.button.consent",
+        "button_no_consent": "requestComplianceConsent.button.no_consent",
+        "button_read_more": "requestComplianceConsent.button.read_more",
+        "prompt": {
+          "button_cancel_verification": "requestComplianceConsent.no_consent_prompt.button.cancel_verification",
+          "button_review_again": "requestComplianceConsent.no_consent_prompt.button.review_again",
+          "no_consent_detail": "requestComplianceConsent.no_consent_prompt.detail",
+          "no_consent_title": "requestComplianceConsent.no_consent_prompt.title"
+        },
+        "title": "requestComplianceConsent.title"
+      },
       "request_diatf_consent": {
         "button_consent": "requestDiatfConsent.button.consent",
         "button_no_consent": "requestDiatfConsent.button.no_consent",
@@ -3838,6 +3869,9 @@
           "no_consent_title": "requestDiatfConsent.no_consent_prompt.title"
         },
         "title": "requestDiatfConsent.title"
+      },
+      "request_face_biometrics_nidas": {
+        "loading_title": "requestFaceBiometricsNidas.loading.title"
       },
       "request_uk_evisa": {
         "button_primary": "requestEvisaUk.request_uk_evisa.submit",
@@ -4244,6 +4278,7 @@
   "nfc": {
     "chip_blocked": {
       "button_help": "Vládny portál",
+      "button_help_accessibility": "Vládny portál. Externý odkaz.",
       "optional_button_primary": "Pokračovať",
       "optional_subtitle": "Príliš veľa nesprávnych zadaní PIN zablokovalo váš čip NFC, preto tento krok preskočíme. Obráťte sa na príslušný úrad, aby vám PIN obnovili na budúce použitie.",
       "optional_title": "Pokračovať bez skenovania čipu",
@@ -4973,6 +5008,29 @@
       "validation": "Vyžadovaný súhlas"
     }
   },
+  "requestComplianceConsent": {
+    "button": {
+      "consent": "Accept",
+      "no_consent": "Do not accept",
+      "read_more": "Read more"
+    },
+    "error": {
+      "button": {
+        "refresh": "Znova načítať obrazovku"
+      },
+      "detail": "Skontrolujte, či je vaše pripojenie stabilné, a potom to skúste znova",
+      "title": "Obsah sa nepodarilo načítať"
+    },
+    "no_consent_prompt": {
+      "button": {
+        "cancel_verification": "Yes, cancel verification",
+        "review_again": "Review again"
+      },
+      "detail": "If you do not accept Entrust’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
+      "title": "Are you sure?"
+    },
+    "title": "Consent to process biometric data and sensitive data"
+  },
   "requestDiatfConsent": {
     "button": {
       "consent": "Accept",
@@ -5036,6 +5094,11 @@
       "submit": "Pokračovať",
       "subtitle": "Vytvorte si 9-znakový zdieľací kód na overenie svojej identity pomocou elektronického víza",
       "title": "Zadajte zdieľací kód svojho britského elektronického víza"
+    }
+  },
+  "requestFaceBiometricsNidas": {
+    "loading": {
+      "title": "Preparing face verification…"
     }
   },
   "retry": {

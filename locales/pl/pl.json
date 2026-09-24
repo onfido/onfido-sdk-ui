@@ -965,6 +965,16 @@
       "title": "Przechyl swój dokument tożsamości, aby wyświetlić jego hologramy",
       "video_accessibility": "Przykładowy film pokazujący, jak przechylanie dowodu osobistego w czterech kierunkach (góra, dół, lewo i prawo) ujawnia hologramy"
     },
+    "load": {
+      "body": {
+        "stage_four": "Trwa to dłużej niż zwykle. Pozostań na tym ekranie",
+        "stage_one": "Zwykle trwa to kilka sekund",
+        "stage_three": "Chwila cierpliwości, może to potrwać nieco dłużej",
+        "stage_two": "Wciąż nad tym pracujemy",
+        "warmup_shot": "Uruchamianie aparatu"
+      },
+      "title": "Przygotowywanie"
+    },
     "preview": {
       "blur_detail": "Upewnij się, że wszystko jest wyraźne",
       "blur_title": "Wykryto nieostre zdjęcie",
@@ -1812,6 +1822,7 @@
       },
       "chip_blocked": {
         "button_help": "nfc.chip_blocked.button_help",
+        "button_help_accessibility": "nfc.chip_blocked.button_help_accessibility",
         "subtitle": "nfc.chip_blocked.subtitle",
         "title": "nfc.chip_blocked.title"
       },
@@ -1966,16 +1977,24 @@
         }
       },
       "doc_camera_load": {
+        "progress_stage_four": {
+          "body": "document.load.body.stage_four"
+        },
         "progress_stage_one": {
+          "body": "document.load.body.stage_one",
           "title": "document.capture.camera_loading_stage_1"
         },
         "progress_stage_three": {
+          "body": "document.load.body.stage_three",
           "title": "document.capture.camera_loading_stage_3"
         },
         "progress_stage_two": {
+          "body": "document.load.body.stage_two",
           "title": "document.capture.camera_loading_stage_2"
         },
+        "title": "document.load.title",
         "warmup_shot": {
+          "body": "document.load.body.warmup_shot",
           "title": "document.capture.camera_loading_warmup_shot"
         }
       },
@@ -3827,6 +3846,18 @@
           "misconfigured": "qualifiedElectronicSignature.error.misconfigured"
         }
       },
+      "request_compliance_consent": {
+        "button_consent": "requestComplianceConsent.button.consent",
+        "button_no_consent": "requestComplianceConsent.button.no_consent",
+        "button_read_more": "requestComplianceConsent.button.read_more",
+        "prompt": {
+          "button_cancel_verification": "requestComplianceConsent.no_consent_prompt.button.cancel_verification",
+          "button_review_again": "requestComplianceConsent.no_consent_prompt.button.review_again",
+          "no_consent_detail": "requestComplianceConsent.no_consent_prompt.detail",
+          "no_consent_title": "requestComplianceConsent.no_consent_prompt.title"
+        },
+        "title": "requestComplianceConsent.title"
+      },
       "request_diatf_consent": {
         "button_consent": "requestDiatfConsent.button.consent",
         "button_no_consent": "requestDiatfConsent.button.no_consent",
@@ -3838,6 +3869,9 @@
           "no_consent_title": "requestDiatfConsent.no_consent_prompt.title"
         },
         "title": "requestDiatfConsent.title"
+      },
+      "request_face_biometrics_nidas": {
+        "loading_title": "requestFaceBiometricsNidas.loading.title"
       },
       "request_uk_evisa": {
         "button_primary": "requestEvisaUk.request_uk_evisa.submit",
@@ -4244,6 +4278,7 @@
   "nfc": {
     "chip_blocked": {
       "button_help": "Portal rządowy",
+      "button_help_accessibility": "Portal rządowy. Link zewnętrzny.",
       "optional_button_primary": "Kontynuuj",
       "optional_subtitle": "Zbyt wiele niepoprawnych wpisów kodu PIN zablokowało Twój chip NFC, więc pominiemy ten krok. Skontaktuj się z odpowiednimi instytucjami, aby zresetować swój PIN do przyszłego użytku.",
       "optional_title": "Kontynuuj bez skanowania chipa",
@@ -4973,6 +5008,29 @@
       "validation": "Wymagana zgoda"
     }
   },
+  "requestComplianceConsent": {
+    "button": {
+      "consent": "Accept",
+      "no_consent": "Do not accept",
+      "read_more": "Read more"
+    },
+    "error": {
+      "button": {
+        "refresh": "Reload screen"
+      },
+      "detail": "Sprawdź, czy twoje połączenie jest stabilne, a następnie spróbuj ponownie",
+      "title": "Content failed to load"
+    },
+    "no_consent_prompt": {
+      "button": {
+        "cancel_verification": "Yes, cancel verification",
+        "review_again": "Review again"
+      },
+      "detail": "If you do not accept Entrust’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
+      "title": "Are you sure?"
+    },
+    "title": "Consent to process biometric data and sensitive data"
+  },
   "requestDiatfConsent": {
     "button": {
       "consent": "Accept",
@@ -5036,6 +5094,11 @@
       "submit": "Kontynuuj",
       "subtitle": "Wygeneruj swój 9-znakowy kod udostępniania, aby potwierdzić swoją tożsamość za pomocą wizy elektronicznej",
       "title": "Wprowadź swój kod udostępniania brytyjskiej e‑wizy"
+    }
+  },
+  "requestFaceBiometricsNidas": {
+    "loading": {
+      "title": "Preparing face verification…"
     }
   },
   "retry": {

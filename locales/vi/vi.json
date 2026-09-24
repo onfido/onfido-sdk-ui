@@ -965,6 +965,16 @@
       "title": "Nghiêng giấy tờ tùy thân để hiển thị hình ảnh ba chiều",
       "video_accessibility": "Video ví dụ minh hoạ cách nghiêng thẻ ID theo bốn hướng (trên, dưới, trái, phải) để thấy các hình ba chiều"
     },
+    "load": {
+      "body": {
+        "stage_four": "Việc này đang mất nhiều thời gian hơn bình thường. Vui lòng ở lại màn hình này",
+        "stage_one": "Việc này thường mất vài giây",
+        "stage_three": "Vui lòng đợi, việc này có thể mất thêm một chút thời gian",
+        "stage_two": "Vẫn đang xử lý",
+        "warmup_shot": "Đang khởi động máy ảnh"
+      },
+      "title": "Đang chuẩn bị"
+    },
     "preview": {
       "blur_detail": "Đảm bảo hình ảnh rõ ràng",
       "blur_title": "Phát hiện ảnh mờ",
@@ -1812,6 +1822,7 @@
       },
       "chip_blocked": {
         "button_help": "nfc.chip_blocked.button_help",
+        "button_help_accessibility": "nfc.chip_blocked.button_help_accessibility",
         "subtitle": "nfc.chip_blocked.subtitle",
         "title": "nfc.chip_blocked.title"
       },
@@ -1966,16 +1977,24 @@
         }
       },
       "doc_camera_load": {
+        "progress_stage_four": {
+          "body": "document.load.body.stage_four"
+        },
         "progress_stage_one": {
+          "body": "document.load.body.stage_one",
           "title": "document.capture.camera_loading_stage_1"
         },
         "progress_stage_three": {
+          "body": "document.load.body.stage_three",
           "title": "document.capture.camera_loading_stage_3"
         },
         "progress_stage_two": {
+          "body": "document.load.body.stage_two",
           "title": "document.capture.camera_loading_stage_2"
         },
+        "title": "document.load.title",
         "warmup_shot": {
+          "body": "document.load.body.warmup_shot",
           "title": "document.capture.camera_loading_warmup_shot"
         }
       },
@@ -3827,6 +3846,18 @@
           "misconfigured": "qualifiedElectronicSignature.error.misconfigured"
         }
       },
+      "request_compliance_consent": {
+        "button_consent": "requestComplianceConsent.button.consent",
+        "button_no_consent": "requestComplianceConsent.button.no_consent",
+        "button_read_more": "requestComplianceConsent.button.read_more",
+        "prompt": {
+          "button_cancel_verification": "requestComplianceConsent.no_consent_prompt.button.cancel_verification",
+          "button_review_again": "requestComplianceConsent.no_consent_prompt.button.review_again",
+          "no_consent_detail": "requestComplianceConsent.no_consent_prompt.detail",
+          "no_consent_title": "requestComplianceConsent.no_consent_prompt.title"
+        },
+        "title": "requestComplianceConsent.title"
+      },
       "request_diatf_consent": {
         "button_consent": "requestDiatfConsent.button.consent",
         "button_no_consent": "requestDiatfConsent.button.no_consent",
@@ -3838,6 +3869,9 @@
           "no_consent_title": "requestDiatfConsent.no_consent_prompt.title"
         },
         "title": "requestDiatfConsent.title"
+      },
+      "request_face_biometrics_nidas": {
+        "loading_title": "requestFaceBiometricsNidas.loading.title"
       },
       "request_uk_evisa": {
         "button_primary": "requestEvisaUk.request_uk_evisa.submit",
@@ -4244,6 +4278,7 @@
   "nfc": {
     "chip_blocked": {
       "button_help": "Cổng thông tin chính phủ",
+      "button_help_accessibility": "Cổng thông tin chính phủ, liên kết bên ngoài",
       "optional_button_primary": "Tiếp tục",
       "optional_subtitle": "Bạn đã nhập mã PIN sai quá nhiều lần khiến chip NFC của bạn bị khóa, vì vậy chúng tôi sẽ bỏ qua bước này. Vui lòng liên hệ với cơ quan có thẩm quyền để đặt lại mã PIN cho lần sử dụng sau.",
       "optional_title": "Tiếp tục mà không quét chip",
@@ -4973,6 +5008,29 @@
       "validation": "Yêu cầu sự đồng ý"
     }
   },
+  "requestComplianceConsent": {
+    "button": {
+      "consent": "Accept",
+      "no_consent": "Do not accept",
+      "read_more": "Read more"
+    },
+    "error": {
+      "button": {
+        "refresh": "Tải lại màn hình"
+      },
+      "detail": "Kiểm tra xem kết nối của bạn và thử lại",
+      "title": "Không thể tải nội dung"
+    },
+    "no_consent_prompt": {
+      "button": {
+        "cancel_verification": "Yes, cancel verification",
+        "review_again": "Review again"
+      },
+      "detail": "If you do not accept Entrust’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
+      "title": "Are you sure?"
+    },
+    "title": "Consent to process biometric data and sensitive data"
+  },
   "requestDiatfConsent": {
     "button": {
       "consent": "Accept",
@@ -5036,6 +5094,11 @@
       "submit": "Tiếp tục",
       "subtitle": "Tạo mã chia sẻ 9 ký tự của bạn để xác minh danh tính bằng thị thực điện tử của bạn",
       "title": "Nhập mã chia sẻ thị thực điện tử Vương quốc Anh của bạn"
+    }
+  },
+  "requestFaceBiometricsNidas": {
+    "loading": {
+      "title": "Preparing face verification…"
     }
   },
   "retry": {

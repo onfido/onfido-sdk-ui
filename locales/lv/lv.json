@@ -965,6 +965,16 @@
       "title": "Nolieciet savu dokumentu, lai parādītu tā hologrammas",
       "video_accessibility": "Parauga video, kas parāda, kā personas apliecības pagriešana četros virzienos (augšup, lejup, pa kreisi un pa labi) atklāj tās hologrammas"
     },
+    "load": {
+      "body": {
+        "stage_four": "Tas aizņem ilgāku laiku nekā parasti. Lūdzu, palieciet šajā ekrānā",
+        "stage_one": "Parasti tas aizņem dažas sekundes",
+        "stage_three": "Uzgaidiet, tas var aizņemt nedaudz ilgāku laiku",
+        "stage_two": "Vēl strādājam pie tā",
+        "warmup_shot": "Kameras palaišana"
+      },
+      "title": "Sagatavojam"
+    },
     "preview": {
       "blur_detail": "Pārliecinieties, ka viss ir skaidri redzams",
       "blur_title": "Konstatēts izplūdis fotoattēls",
@@ -1812,6 +1822,7 @@
       },
       "chip_blocked": {
         "button_help": "nfc.chip_blocked.button_help",
+        "button_help_accessibility": "nfc.chip_blocked.button_help_accessibility",
         "subtitle": "nfc.chip_blocked.subtitle",
         "title": "nfc.chip_blocked.title"
       },
@@ -1966,16 +1977,24 @@
         }
       },
       "doc_camera_load": {
+        "progress_stage_four": {
+          "body": "document.load.body.stage_four"
+        },
         "progress_stage_one": {
+          "body": "document.load.body.stage_one",
           "title": "document.capture.camera_loading_stage_1"
         },
         "progress_stage_three": {
+          "body": "document.load.body.stage_three",
           "title": "document.capture.camera_loading_stage_3"
         },
         "progress_stage_two": {
+          "body": "document.load.body.stage_two",
           "title": "document.capture.camera_loading_stage_2"
         },
+        "title": "document.load.title",
         "warmup_shot": {
+          "body": "document.load.body.warmup_shot",
           "title": "document.capture.camera_loading_warmup_shot"
         }
       },
@@ -3827,6 +3846,18 @@
           "misconfigured": "qualifiedElectronicSignature.error.misconfigured"
         }
       },
+      "request_compliance_consent": {
+        "button_consent": "requestComplianceConsent.button.consent",
+        "button_no_consent": "requestComplianceConsent.button.no_consent",
+        "button_read_more": "requestComplianceConsent.button.read_more",
+        "prompt": {
+          "button_cancel_verification": "requestComplianceConsent.no_consent_prompt.button.cancel_verification",
+          "button_review_again": "requestComplianceConsent.no_consent_prompt.button.review_again",
+          "no_consent_detail": "requestComplianceConsent.no_consent_prompt.detail",
+          "no_consent_title": "requestComplianceConsent.no_consent_prompt.title"
+        },
+        "title": "requestComplianceConsent.title"
+      },
       "request_diatf_consent": {
         "button_consent": "requestDiatfConsent.button.consent",
         "button_no_consent": "requestDiatfConsent.button.no_consent",
@@ -3838,6 +3869,9 @@
           "no_consent_title": "requestDiatfConsent.no_consent_prompt.title"
         },
         "title": "requestDiatfConsent.title"
+      },
+      "request_face_biometrics_nidas": {
+        "loading_title": "requestFaceBiometricsNidas.loading.title"
       },
       "request_uk_evisa": {
         "button_primary": "requestEvisaUk.request_uk_evisa.submit",
@@ -4244,6 +4278,7 @@
   "nfc": {
     "chip_blocked": {
       "button_help": "Valsts portāls",
+      "button_help_accessibility": "Valdības portāls. Ārēja saite",
       "optional_button_primary": "Turpināt",
       "optional_subtitle": "Pārāk daudz nepareizu PIN ievadīšanas mēģinājumu ir bloķējuši jūsu NFC mikroshēmu, tāpēc mēs izlaidīsim šo soli. Sazinieties ar atbildīgo iestādi, lai atiestatītu savu PIN turpmākai lietošanai.",
       "optional_title": "Turpināt bez čipa skenēšanas",
@@ -4973,6 +5008,29 @@
       "validation": "Nepieciešama piekrišana"
     }
   },
+  "requestComplianceConsent": {
+    "button": {
+      "consent": "Accept",
+      "no_consent": "Do not accept",
+      "read_more": "Read more"
+    },
+    "error": {
+      "button": {
+        "refresh": "Ielādēt ekrānu no jauna"
+      },
+      "detail": "Pārbaudiet, vai savienojums ir stabils, un pēc tam mēģiniet vēlreiz",
+      "title": "Saturu neizdevās ielādēt"
+    },
+    "no_consent_prompt": {
+      "button": {
+        "cancel_verification": "Yes, cancel verification",
+        "review_again": "Review again"
+      },
+      "detail": "If you do not accept Entrust’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
+      "title": "Are you sure?"
+    },
+    "title": "Consent to process biometric data and sensitive data"
+  },
   "requestDiatfConsent": {
     "button": {
       "consent": "Accept",
@@ -5036,6 +5094,11 @@
       "submit": "Turpināt",
       "subtitle": "Ģenerējiet savu 9 rakstzīmju kopīgošanas kodu, lai apstiprinātu savu identitāti, izmantojot savu elektronisko vīzu",
       "title": "Ievadiet Apvienotās Karalistes elektroniskās vīzas koplietošanas kodu"
+    }
+  },
+  "requestFaceBiometricsNidas": {
+    "loading": {
+      "title": "Preparing face verification…"
     }
   },
   "retry": {

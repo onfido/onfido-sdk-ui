@@ -965,6 +965,16 @@
       "title": "Ձեր անձնագիրը թեքեք, որպեսզի երևան դրա հոլոգրամները",
       "video_accessibility": "Օրինակ տեսանյութ, որը ցույց է տալիս, թե ինչպես անձը հաստատող քարտը վեր, վար, ձախ ու աջ թեքելիս երևում են դրա հոլոգրամները"
     },
+    "load": {
+      "body": {
+        "stage_four": "Սա տևում է սովորականից ավելի երկար: Խնդրում ենք մնալ այս էկրանին:",
+        "stage_one": "Սովորաբար տևում է մի քանի վայրկյան",
+        "stage_three": "Սպասեք, սա կարող է մի փոքր ավելի երկար տևել",
+        "stage_two": "Դեռ աշխատում ենք դրա վրա",
+        "warmup_shot": "Տեսախցիկի գործարկում"
+      },
+      "title": "Նախապատրաստվում է"
+    },
     "preview": {
       "blur_detail": "Համոզվեք, որ ամեն ինչ հասկացել եք",
       "blur_title": "Գտնվել է խավար լուսանկար",
@@ -1812,6 +1822,7 @@
       },
       "chip_blocked": {
         "button_help": "nfc.chip_blocked.button_help",
+        "button_help_accessibility": "nfc.chip_blocked.button_help_accessibility",
         "subtitle": "nfc.chip_blocked.subtitle",
         "title": "nfc.chip_blocked.title"
       },
@@ -1966,16 +1977,24 @@
         }
       },
       "doc_camera_load": {
+        "progress_stage_four": {
+          "body": "document.load.body.stage_four"
+        },
         "progress_stage_one": {
+          "body": "document.load.body.stage_one",
           "title": "document.capture.camera_loading_stage_1"
         },
         "progress_stage_three": {
+          "body": "document.load.body.stage_three",
           "title": "document.capture.camera_loading_stage_3"
         },
         "progress_stage_two": {
+          "body": "document.load.body.stage_two",
           "title": "document.capture.camera_loading_stage_2"
         },
+        "title": "document.load.title",
         "warmup_shot": {
+          "body": "document.load.body.warmup_shot",
           "title": "document.capture.camera_loading_warmup_shot"
         }
       },
@@ -3827,6 +3846,18 @@
           "misconfigured": "qualifiedElectronicSignature.error.misconfigured"
         }
       },
+      "request_compliance_consent": {
+        "button_consent": "requestComplianceConsent.button.consent",
+        "button_no_consent": "requestComplianceConsent.button.no_consent",
+        "button_read_more": "requestComplianceConsent.button.read_more",
+        "prompt": {
+          "button_cancel_verification": "requestComplianceConsent.no_consent_prompt.button.cancel_verification",
+          "button_review_again": "requestComplianceConsent.no_consent_prompt.button.review_again",
+          "no_consent_detail": "requestComplianceConsent.no_consent_prompt.detail",
+          "no_consent_title": "requestComplianceConsent.no_consent_prompt.title"
+        },
+        "title": "requestComplianceConsent.title"
+      },
       "request_diatf_consent": {
         "button_consent": "requestDiatfConsent.button.consent",
         "button_no_consent": "requestDiatfConsent.button.no_consent",
@@ -3838,6 +3869,9 @@
           "no_consent_title": "requestDiatfConsent.no_consent_prompt.title"
         },
         "title": "requestDiatfConsent.title"
+      },
+      "request_face_biometrics_nidas": {
+        "loading_title": "requestFaceBiometricsNidas.loading.title"
       },
       "request_uk_evisa": {
         "button_primary": "requestEvisaUk.request_uk_evisa.submit",
@@ -4244,6 +4278,7 @@
   "nfc": {
     "chip_blocked": {
       "button_help": "Կառավարական պորտալ",
+      "button_help_accessibility": "Կառավարական պորտալ, արտաքին հղում",
       "optional_button_primary": "Շարունակել",
       "optional_subtitle": "Շատ սխալ մուտքագրված PIN-ների պատճառով ձեր NFC չիպը արգելափակվել է, այդ պատճառով մենք կանցնենք այս քայլը։ Կապվեք համապատասխան մարմինների հետ՝ ձեր PIN-ը ապագայում օգտագործելու համար վերականգնելու նպատակով։",
       "optional_title": "Շարունակել առանց չիպը սկանավորելու",
@@ -4973,6 +5008,29 @@
       "validation": "Համաձայնությունը պահանջվում է"
     }
   },
+  "requestComplianceConsent": {
+    "button": {
+      "consent": "Accept",
+      "no_consent": "Do not accept",
+      "read_more": "Read more"
+    },
+    "error": {
+      "button": {
+        "refresh": "Կրկին բեռնել էկրանը"
+      },
+      "detail": "Համոզվեք, որ ձեր կապը կայուն է, ապա կրկին փորձեք",
+      "title": "Չհաջողվեց բեռնել պարունակությունը"
+    },
+    "no_consent_prompt": {
+      "button": {
+        "cancel_verification": "Yes, cancel verification",
+        "review_again": "Review again"
+      },
+      "detail": "If you do not accept Entrust’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
+      "title": "Are you sure?"
+    },
+    "title": "Consent to process biometric data and sensitive data"
+  },
   "requestDiatfConsent": {
     "button": {
       "consent": "Accept",
@@ -5036,6 +5094,11 @@
       "submit": "Շարունակել",
       "subtitle": "Ստեղծեք ձեր 9 նիշանոց կոդը, որպեսզի հաստատեք ձեր ինքնությունը՝ օգտագործելով ձեր էլեկտրոնային վիզան",
       "title": "Մուտքագրեք Ձեր ՄԹ էլեկտրոնային վիզայի կիսման կոդը"
+    }
+  },
+  "requestFaceBiometricsNidas": {
+    "loading": {
+      "title": "Preparing face verification…"
     }
   },
   "retry": {

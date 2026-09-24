@@ -7,6 +7,20 @@ and the SDK adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html)
 
 When any of the string translations change, it will result in a MINOR version change. As a result, you are responsible for ensuring the correct layout if you are using custom translations (see [language localization](https://documentation.onfido.com/sdk/web/#custom-translations-and-text)).
 
+## [v14.85.0] - 2026-09-24
+
+### Fixed
+
+- Fix country dropdown text overlapping the dropdown arrow when long country names are selected.
+- Fix screen reader navigation in country dropdown fields to announce only the selected country, improving clarity for users with assistive technology.
+- Fix clear button behavior in country dropdowns so screen readers correctly recognize when the field is empty.
+
+### Changed
+
+- Add a dedicated error screen for network connection issues to help users understand and recover from connectivity problems more clearly.
+- Improve screen reader accessibility for modal dialogs by adding accessible names to bottom sheets, ensuring users can identify dialog purposes when opened.
+- Add loading spinner during photo capture to provide visual feedback while the image is being processed and compressed.
+
 ## [v14.84.0] - 2026-09-16
 
 ### Added

@@ -965,6 +965,16 @@
       "title": "Înclinați actul de identitate pentru a afișa hologramele",
       "video_accessibility": "Exemplu de videoclip care arată cum înclinarea unui card de identitate în patru direcții (sus, jos, stânga și dreapta) dezvăluie hologramele"
     },
+    "load": {
+      "body": {
+        "stage_four": "Durează mai mult decât de obicei. Vă rugăm să rămâneți pe acest ecran",
+        "stage_one": "De obicei durează câteva secunde",
+        "stage_three": "Așteptați, ar putea dura puțin mai mult",
+        "stage_two": "Încă lucrăm la asta",
+        "warmup_shot": "Se pornește camera"
+      },
+      "title": "Se pregătește"
+    },
     "preview": {
       "blur_detail": "Asigurați-vă că totul este clar",
       "blur_title": "Pozǎ neclarǎ detectatǎ",
@@ -1812,6 +1822,7 @@
       },
       "chip_blocked": {
         "button_help": "nfc.chip_blocked.button_help",
+        "button_help_accessibility": "nfc.chip_blocked.button_help_accessibility",
         "subtitle": "nfc.chip_blocked.subtitle",
         "title": "nfc.chip_blocked.title"
       },
@@ -1966,16 +1977,24 @@
         }
       },
       "doc_camera_load": {
+        "progress_stage_four": {
+          "body": "document.load.body.stage_four"
+        },
         "progress_stage_one": {
+          "body": "document.load.body.stage_one",
           "title": "document.capture.camera_loading_stage_1"
         },
         "progress_stage_three": {
+          "body": "document.load.body.stage_three",
           "title": "document.capture.camera_loading_stage_3"
         },
         "progress_stage_two": {
+          "body": "document.load.body.stage_two",
           "title": "document.capture.camera_loading_stage_2"
         },
+        "title": "document.load.title",
         "warmup_shot": {
+          "body": "document.load.body.warmup_shot",
           "title": "document.capture.camera_loading_warmup_shot"
         }
       },
@@ -3827,6 +3846,18 @@
           "misconfigured": "qualifiedElectronicSignature.error.misconfigured"
         }
       },
+      "request_compliance_consent": {
+        "button_consent": "requestComplianceConsent.button.consent",
+        "button_no_consent": "requestComplianceConsent.button.no_consent",
+        "button_read_more": "requestComplianceConsent.button.read_more",
+        "prompt": {
+          "button_cancel_verification": "requestComplianceConsent.no_consent_prompt.button.cancel_verification",
+          "button_review_again": "requestComplianceConsent.no_consent_prompt.button.review_again",
+          "no_consent_detail": "requestComplianceConsent.no_consent_prompt.detail",
+          "no_consent_title": "requestComplianceConsent.no_consent_prompt.title"
+        },
+        "title": "requestComplianceConsent.title"
+      },
       "request_diatf_consent": {
         "button_consent": "requestDiatfConsent.button.consent",
         "button_no_consent": "requestDiatfConsent.button.no_consent",
@@ -3838,6 +3869,9 @@
           "no_consent_title": "requestDiatfConsent.no_consent_prompt.title"
         },
         "title": "requestDiatfConsent.title"
+      },
+      "request_face_biometrics_nidas": {
+        "loading_title": "requestFaceBiometricsNidas.loading.title"
       },
       "request_uk_evisa": {
         "button_primary": "requestEvisaUk.request_uk_evisa.submit",
@@ -4244,6 +4278,7 @@
   "nfc": {
     "chip_blocked": {
       "button_help": "Portal guvernamental",
+      "button_help_accessibility": "Portal guvernamental, link extern",
       "optional_button_primary": "Continuați",
       "optional_subtitle": "Prea multe introduceri greșite ale PIN-ului v-au blocat cipul NFC, așa că vom sări peste acest pas. Contactați autoritățile pentru a reseta PIN-ul pentru utilizări viitoare.",
       "optional_title": "Continuați fără scanarea cipului",
@@ -4973,6 +5008,29 @@
       "validation": "Consimțământ necesar"
     }
   },
+  "requestComplianceConsent": {
+    "button": {
+      "consent": "Accept",
+      "no_consent": "Do not accept",
+      "read_more": "Read more"
+    },
+    "error": {
+      "button": {
+        "refresh": "Reload screen"
+      },
+      "detail": "Check that your connection is stable, then try again",
+      "title": "Content failed to load"
+    },
+    "no_consent_prompt": {
+      "button": {
+        "cancel_verification": "Yes, cancel verification",
+        "review_again": "Review again"
+      },
+      "detail": "If you do not accept Entrust’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
+      "title": "Are you sure?"
+    },
+    "title": "Consent to process biometric data and sensitive data"
+  },
   "requestDiatfConsent": {
     "button": {
       "consent": "Accept",
@@ -5036,6 +5094,11 @@
       "submit": "Continuă",
       "subtitle": "Generează codul tău de partajare din 9 caractere pentru a-ți verifica identitatea folosind viza ta electronică",
       "title": "Introduceți codul de partajare pentru viza electronică din Regatul Unit"
+    }
+  },
+  "requestFaceBiometricsNidas": {
+    "loading": {
+      "title": "Preparing face verification…"
     }
   },
   "retry": {
