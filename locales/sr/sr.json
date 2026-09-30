@@ -340,6 +340,12 @@
       "exit": "Izlaz",
       "exit_subtitle": "Možda ćete morati ponovo da pokrenete proces verifikacije ako se vratite.",
       "exit_title": "Да ли сте сигурни да желите да изађете?",
+      "external_link_confirmation": {
+        "body": "Upravo ćete napustiti tok verifikacije kako biste otvorili ovaj link u spoljašnjem pregledaču",
+        "cancel": "Otkaži",
+        "open_link": "Otvori link",
+        "title": "Otvoriti spoljašnji link?"
+      },
       "icon": {
         "error": {
           "accessibility": "Greška:"
@@ -2833,6 +2839,12 @@
             "subtitle": "common.error.workflow_input_error.subtitle",
             "title": "common.error.workflow_input_error.title"
           }
+        },
+        "external_link_confirmation": {
+          "body": "common.generic.external_link_confirmation.body",
+          "cancel_action": "common.generic.external_link_confirmation.cancel",
+          "open_link_action": "common.generic.external_link_confirmation.open_link",
+          "title": "common.generic.external_link_confirmation.title"
         },
         "footer": {
           "branding": "common.footer.branding"

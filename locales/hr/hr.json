@@ -340,6 +340,12 @@
       "exit": "Izlaz",
       "exit_subtitle": "Možda ćete morati ponovno pokrenuti postupak provjere identiteta ako se vratite.",
       "exit_title": "Jeste li sigurni da želite izaći?",
+      "external_link_confirmation": {
+        "body": "Upravo ćete napustiti tijek provjere kako biste otvorili ovu vezu u vanjskom pregledniku",
+        "cancel": "Otkaži",
+        "open_link": "Otvori vezu",
+        "title": "Otvoriti vanjsku vezu?"
+      },
       "icon": {
         "error": {
           "accessibility": "Pogreška:"
@@ -2833,6 +2839,12 @@
             "subtitle": "common.error.workflow_input_error.subtitle",
             "title": "common.error.workflow_input_error.title"
           }
+        },
+        "external_link_confirmation": {
+          "body": "common.generic.external_link_confirmation.body",
+          "cancel_action": "common.generic.external_link_confirmation.cancel",
+          "open_link_action": "common.generic.external_link_confirmation.open_link",
+          "title": "common.generic.external_link_confirmation.title"
         },
         "footer": {
           "branding": "common.footer.branding"

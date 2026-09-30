@@ -340,6 +340,12 @@
       "exit": "बाहर जाएं",
       "exit_subtitle": "यदि आप वापस आते हैं तो आपको सत्यापन प्रक्रिया को पुनः शुरू करने की आवश्यकता हो सकती है।",
       "exit_title": "क्या आप निश्चित हैं कि आप बाहर निकलना चाहते हैं?",
+      "external_link_confirmation": {
+        "body": "आप इस लिंक को बाहरी ब्राउज़र में खोलने के लिए सत्यापन प्रक्रिया से बाहर जाने वाले हैं",
+        "cancel": "कैंसिल करें",
+        "open_link": "लिंक खोलें",
+        "title": "बाहरी लिंक खोलें?"
+      },
       "icon": {
         "error": {
           "accessibility": "त्रुटि:"
@@ -2833,6 +2839,12 @@
             "subtitle": "common.error.workflow_input_error.subtitle",
             "title": "common.error.workflow_input_error.title"
           }
+        },
+        "external_link_confirmation": {
+          "body": "common.generic.external_link_confirmation.body",
+          "cancel_action": "common.generic.external_link_confirmation.cancel",
+          "open_link_action": "common.generic.external_link_confirmation.open_link",
+          "title": "common.generic.external_link_confirmation.title"
         },
         "footer": {
           "branding": "common.footer.branding"

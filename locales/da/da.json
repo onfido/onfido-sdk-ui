@@ -340,6 +340,12 @@
       "exit": "Afslut",
       "exit_subtitle": "Du skal muligvis genstarte verifikationsprocessen, hvis du vender tilbage.",
       "exit_title": "Er du sikker på, at du vil afslutte?",
+      "external_link_confirmation": {
+        "body": "Du er ved at forlade verifikationsforløbet for at åbne dette link i en ekstern browser",
+        "cancel": "Annuller",
+        "open_link": "Åbn link",
+        "title": "Åbn eksternt link?"
+      },
       "icon": {
         "error": {
           "accessibility": "Fejl:"
@@ -2833,6 +2839,12 @@
             "subtitle": "common.error.workflow_input_error.subtitle",
             "title": "common.error.workflow_input_error.title"
           }
+        },
+        "external_link_confirmation": {
+          "body": "common.generic.external_link_confirmation.body",
+          "cancel_action": "common.generic.external_link_confirmation.cancel",
+          "open_link_action": "common.generic.external_link_confirmation.open_link",
+          "title": "common.generic.external_link_confirmation.title"
         },
         "footer": {
           "branding": "common.footer.branding"

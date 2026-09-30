@@ -340,6 +340,12 @@
       "exit": "خروج",
       "exit_subtitle": "قد تحتاج إلى إعادة بدء عملية التحقق من الهوية إذا عدت.",
       "exit_title": "هل أنت متأكد أنك تريد الخروج؟",
+      "external_link_confirmation": {
+        "body": "أنت على وشك مغادرة عملية التحقق لفتح هذا الرابط في متصفح خارجي",
+        "cancel": "إلغاء",
+        "open_link": "فتح الرابط",
+        "title": "فتح رابط خارجي؟"
+      },
       "icon": {
         "error": {
           "accessibility": "خطأ:"
@@ -2833,6 +2839,12 @@
             "subtitle": "common.error.workflow_input_error.subtitle",
             "title": "common.error.workflow_input_error.title"
           }
+        },
+        "external_link_confirmation": {
+          "body": "common.generic.external_link_confirmation.body",
+          "cancel_action": "common.generic.external_link_confirmation.cancel",
+          "open_link_action": "common.generic.external_link_confirmation.open_link",
+          "title": "common.generic.external_link_confirmation.title"
         },
         "footer": {
           "branding": "common.footer.branding"

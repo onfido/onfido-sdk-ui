@@ -340,6 +340,12 @@
       "exit": "Izhod",
       "exit_subtitle": "Morda boste morali ponovno zagnati postopek preverjanja, če se vrnete.",
       "exit_title": "Ste prepričani, da želite izstopiti?",
+      "external_link_confirmation": {
+        "body": "Zapustili boste postopek preverjanja in odprli to povezavo v zunanjem brskalniku",
+        "cancel": "Prekliči",
+        "open_link": "Odpri povezavo",
+        "title": "Odpri zunanjo povezavo?"
+      },
       "icon": {
         "error": {
           "accessibility": "Napaka:"
@@ -2833,6 +2839,12 @@
             "subtitle": "common.error.workflow_input_error.subtitle",
             "title": "common.error.workflow_input_error.title"
           }
+        },
+        "external_link_confirmation": {
+          "body": "common.generic.external_link_confirmation.body",
+          "cancel_action": "common.generic.external_link_confirmation.cancel",
+          "open_link_action": "common.generic.external_link_confirmation.open_link",
+          "title": "common.generic.external_link_confirmation.title"
         },
         "footer": {
           "branding": "common.footer.branding"

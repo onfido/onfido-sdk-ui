@@ -340,6 +340,12 @@
       "exit": "Wyjście",
       "exit_subtitle": "Możesz potrzebować zrestartować proces weryfikacji, jeśli wrócisz.",
       "exit_title": "Czy na pewno chcesz wyjść?",
+      "external_link_confirmation": {
+        "body": "Zamierzasz opuścić proces weryfikacji, aby otworzyć ten link w zewnętrznej przeglądarce",
+        "cancel": "Anuluj",
+        "open_link": "Otwórz link",
+        "title": "Otworzyć zewnętrzny link?"
+      },
       "icon": {
         "error": {
           "accessibility": "Błąd:"
@@ -2833,6 +2839,12 @@
             "subtitle": "common.error.workflow_input_error.subtitle",
             "title": "common.error.workflow_input_error.title"
           }
+        },
+        "external_link_confirmation": {
+          "body": "common.generic.external_link_confirmation.body",
+          "cancel_action": "common.generic.external_link_confirmation.cancel",
+          "open_link_action": "common.generic.external_link_confirmation.open_link",
+          "title": "common.generic.external_link_confirmation.title"
         },
         "footer": {
           "branding": "common.footer.branding"

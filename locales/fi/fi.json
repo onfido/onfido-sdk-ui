@@ -340,6 +340,12 @@
       "exit": "Poistu",
       "exit_subtitle": "Saatat joutua aloittamaan tunnistautumisprosessin alusta, jos palaat takaisin.",
       "exit_title": "Oletko varma, että haluat poistua?",
+      "external_link_confirmation": {
+        "body": "Olet poistumassa vahvistusprosessista avataksesi tämän linkin ulkoisessa selaimessa",
+        "cancel": "Peruuta",
+        "open_link": "Avaa linkki",
+        "title": "Avatko ulkoisen linkin?"
+      },
       "icon": {
         "error": {
           "accessibility": "Virhe:"
@@ -2833,6 +2839,12 @@
             "subtitle": "common.error.workflow_input_error.subtitle",
             "title": "common.error.workflow_input_error.title"
           }
+        },
+        "external_link_confirmation": {
+          "body": "common.generic.external_link_confirmation.body",
+          "cancel_action": "common.generic.external_link_confirmation.cancel",
+          "open_link_action": "common.generic.external_link_confirmation.open_link",
+          "title": "common.generic.external_link_confirmation.title"
         },
         "footer": {
           "branding": "common.footer.branding"

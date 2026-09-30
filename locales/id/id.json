@@ -340,6 +340,12 @@
       "exit": "Keluar",
       "exit_subtitle": "Anda mungkin perlu memulai ulang proses verifikasi jika Anda kembali.",
       "exit_title": "Apakah Anda yakin ingin keluar?",
+      "external_link_confirmation": {
+        "body": "Anda akan meninggalkan alur verifikasi untuk membuka tautan ini di browser eksternal",
+        "cancel": "Batalkan",
+        "open_link": "Buka tautan",
+        "title": "Buka tautan eksternal?"
+      },
       "icon": {
         "error": {
           "accessibility": "Kesalahan:"
@@ -2833,6 +2839,12 @@
             "subtitle": "common.error.workflow_input_error.subtitle",
             "title": "common.error.workflow_input_error.title"
           }
+        },
+        "external_link_confirmation": {
+          "body": "common.generic.external_link_confirmation.body",
+          "cancel_action": "common.generic.external_link_confirmation.cancel",
+          "open_link_action": "common.generic.external_link_confirmation.open_link",
+          "title": "common.generic.external_link_confirmation.title"
         },
         "footer": {
           "branding": "common.footer.branding"

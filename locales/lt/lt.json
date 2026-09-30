@@ -340,6 +340,12 @@
       "exit": "Išeiti",
       "exit_subtitle": "Jums gali tekti iš naujo pradėti tapatybės patvirtinimo procesą, jei grįšite.",
       "exit_title": "Ar tikrai norite išeiti?",
+      "external_link_confirmation": {
+        "body": "Ketinate išeiti iš patvirtinimo proceso, kad atidarytumėte šią nuorodą išorinėje naršyklėje",
+        "cancel": "Atšaukti",
+        "open_link": "Atidaryti nuorodą",
+        "title": "Atidaryti išorinę nuorodą?"
+      },
       "icon": {
         "error": {
           "accessibility": "Klaida:"
@@ -2833,6 +2839,12 @@
             "subtitle": "common.error.workflow_input_error.subtitle",
             "title": "common.error.workflow_input_error.title"
           }
+        },
+        "external_link_confirmation": {
+          "body": "common.generic.external_link_confirmation.body",
+          "cancel_action": "common.generic.external_link_confirmation.cancel",
+          "open_link_action": "common.generic.external_link_confirmation.open_link",
+          "title": "common.generic.external_link_confirmation.title"
         },
         "footer": {
           "branding": "common.footer.branding"

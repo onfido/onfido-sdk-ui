@@ -340,6 +340,12 @@
       "exit": "Изход",
       "exit_subtitle": "Може да се наложи да рестартирате процеса на потвърждение, ако се върнете.",
       "exit_title": "Сигурни ли сте, че искате да излезете?",
+      "external_link_confirmation": {
+        "body": "Предстои ви да напуснете процеса на верификация, за да отворите тази връзка в zewnętrzен браузър",
+        "cancel": "Отказ",
+        "open_link": "Отваряне на връзката",
+        "title": "Отваряне на външна връзка?"
+      },
       "icon": {
         "error": {
           "accessibility": "Грешка:"
@@ -2833,6 +2839,12 @@
             "subtitle": "common.error.workflow_input_error.subtitle",
             "title": "common.error.workflow_input_error.title"
           }
+        },
+        "external_link_confirmation": {
+          "body": "common.generic.external_link_confirmation.body",
+          "cancel_action": "common.generic.external_link_confirmation.cancel",
+          "open_link_action": "common.generic.external_link_confirmation.open_link",
+          "title": "common.generic.external_link_confirmation.title"
         },
         "footer": {
           "branding": "common.footer.branding"

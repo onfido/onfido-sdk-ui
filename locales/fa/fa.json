@@ -340,6 +340,12 @@
       "exit": "خروج",
       "exit_subtitle": "شما ممکن است نیاز به شروع مجدد فرآیند تأیید هویت داشته باشید اگر بازگردید.",
       "exit_title": "آیا مطمئن هستید که می خواهید خارج شوید؟",
+      "external_link_confirmation": {
+        "body": "شما در آستانه خروج از فرایند تأیید برای باز کردن این پیوند در یک مرورگر خارجی هستید",
+        "cancel": "لغو",
+        "open_link": "باز کردن پیوند",
+        "title": "پیوند خارجی باز شود؟"
+      },
       "icon": {
         "error": {
           "accessibility": "خطا:"
@@ -2833,6 +2839,12 @@
             "subtitle": "common.error.workflow_input_error.subtitle",
             "title": "common.error.workflow_input_error.title"
           }
+        },
+        "external_link_confirmation": {
+          "body": "common.generic.external_link_confirmation.body",
+          "cancel_action": "common.generic.external_link_confirmation.cancel",
+          "open_link_action": "common.generic.external_link_confirmation.open_link",
+          "title": "common.generic.external_link_confirmation.title"
         },
         "footer": {
           "branding": "common.footer.branding"

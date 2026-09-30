@@ -340,6 +340,12 @@
       "exit": "退出",
       "exit_subtitle": "如果您返回，可能需要重新開始驗證過程。",
       "exit_title": "您確定要退出嗎？",
+      "external_link_confirmation": {
+        "body": "您即將離開驗證流程，並在外部瀏覽器中開啟此連結",
+        "cancel": "取消",
+        "open_link": "開啟連結",
+        "title": "開啟外部連結？"
+      },
       "icon": {
         "error": {
           "accessibility": "錯誤："
@@ -2833,6 +2839,12 @@
             "subtitle": "common.error.workflow_input_error.subtitle",
             "title": "common.error.workflow_input_error.title"
           }
+        },
+        "external_link_confirmation": {
+          "body": "common.generic.external_link_confirmation.body",
+          "cancel_action": "common.generic.external_link_confirmation.cancel",
+          "open_link_action": "common.generic.external_link_confirmation.open_link",
+          "title": "common.generic.external_link_confirmation.title"
         },
         "footer": {
           "branding": "common.footer.branding"

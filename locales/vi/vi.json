@@ -340,6 +340,12 @@
       "exit": "Thoát",
       "exit_subtitle": "Bạn có thể cần khởi động lại quá trình xác minh nếu bạn quay trở lại.",
       "exit_title": "Bạn có chắc chắn muốn thoát không?",
+      "external_link_confirmation": {
+        "body": "Bạn sắp rời khỏi quy trình xác minh để mở liên kết này trong trình duyệt bên ngoài",
+        "cancel": "Hủy",
+        "open_link": "Mở liên kết",
+        "title": "Mở liên kết bên ngoài?"
+      },
       "icon": {
         "error": {
           "accessibility": "Lỗi:"
@@ -2833,6 +2839,12 @@
             "subtitle": "common.error.workflow_input_error.subtitle",
             "title": "common.error.workflow_input_error.title"
           }
+        },
+        "external_link_confirmation": {
+          "body": "common.generic.external_link_confirmation.body",
+          "cancel_action": "common.generic.external_link_confirmation.cancel",
+          "open_link_action": "common.generic.external_link_confirmation.open_link",
+          "title": "common.generic.external_link_confirmation.title"
         },
         "footer": {
           "branding": "common.footer.branding"

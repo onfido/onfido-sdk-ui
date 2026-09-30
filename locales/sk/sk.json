@@ -340,6 +340,12 @@
       "exit": "Odísť",
       "exit_subtitle": "Možno budete musieť reštartovať proces overovania, ak sa vrátite.",
       "exit_title": "Ste si istý, že chcete skončiť?",
+      "external_link_confirmation": {
+        "body": "Chystáte sa opustiť proces overenia a otvoriť tento odkaz v externom prehliadači",
+        "cancel": "Zrušiť",
+        "open_link": "Otvoriť odkaz",
+        "title": "Otvoriť externý odkaz?"
+      },
       "icon": {
         "error": {
           "accessibility": "Chyba:"
@@ -2833,6 +2839,12 @@
             "subtitle": "common.error.workflow_input_error.subtitle",
             "title": "common.error.workflow_input_error.title"
           }
+        },
+        "external_link_confirmation": {
+          "body": "common.generic.external_link_confirmation.body",
+          "cancel_action": "common.generic.external_link_confirmation.cancel",
+          "open_link_action": "common.generic.external_link_confirmation.open_link",
+          "title": "common.generic.external_link_confirmation.title"
         },
         "footer": {
           "branding": "common.footer.branding"

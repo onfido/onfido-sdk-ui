@@ -340,6 +340,12 @@
       "exit": "Çıkış",
       "exit_subtitle": "Geri dönerseniz doğrulama sürecini yeniden başlatmanız gerekebilir.",
       "exit_title": "Çıkmak istediğinizden emin misiniz?",
+      "external_link_confirmation": {
+        "body": "Bu bağlantıyı harici bir tarayıcıda açmak için doğrulama akışından ayrılmak üzeresiniz",
+        "cancel": "İptal",
+        "open_link": "Bağlantıyı aç",
+        "title": "Harici bağlantı açılsın mı?"
+      },
       "icon": {
         "error": {
           "accessibility": "Hata:"
@@ -2833,6 +2839,12 @@
             "subtitle": "common.error.workflow_input_error.subtitle",
             "title": "common.error.workflow_input_error.title"
           }
+        },
+        "external_link_confirmation": {
+          "body": "common.generic.external_link_confirmation.body",
+          "cancel_action": "common.generic.external_link_confirmation.cancel",
+          "open_link_action": "common.generic.external_link_confirmation.open_link",
+          "title": "common.generic.external_link_confirmation.title"
         },
         "footer": {
           "branding": "common.footer.branding"

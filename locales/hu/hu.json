@@ -340,6 +340,12 @@
       "exit": "Kilépés",
       "exit_subtitle": "Lehet, hogy újra el kell indítania az azonosítási folyamatot, ha visszatér.",
       "exit_title": "Biztosan ki szeretne lépni?",
+      "external_link_confirmation": {
+        "body": "A hivatkozás külső böngészőben való megnyitásához elhagyja az ellenőrzési folyamatot.",
+        "cancel": "Mégse",
+        "open_link": "Hivatkozás megnyitása",
+        "title": "Megnyitja a külső hivatkozást?"
+      },
       "icon": {
         "error": {
           "accessibility": "Hiba:"
@@ -2833,6 +2839,12 @@
             "subtitle": "common.error.workflow_input_error.subtitle",
             "title": "common.error.workflow_input_error.title"
           }
+        },
+        "external_link_confirmation": {
+          "body": "common.generic.external_link_confirmation.body",
+          "cancel_action": "common.generic.external_link_confirmation.cancel",
+          "open_link_action": "common.generic.external_link_confirmation.open_link",
+          "title": "common.generic.external_link_confirmation.title"
         },
         "footer": {
           "branding": "common.footer.branding"

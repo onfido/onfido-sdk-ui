@@ -340,6 +340,12 @@
       "exit": "Keluar",
       "exit_subtitle": "Anda mungkin perlu memulakan semula proses pengesahan identiti jika anda kembali.",
       "exit_title": "Adakah anda pasti ingin keluar?",
+      "external_link_confirmation": {
+        "body": "Anda akan meninggalkan aliran pengesahan untuk membuka pautan ini dalam pelayar luaran",
+        "cancel": "Batalkan",
+        "open_link": "Buka pautan",
+        "title": "Buka pautan luaran?"
+      },
       "icon": {
         "error": {
           "accessibility": "Ralat:"
@@ -2833,6 +2839,12 @@
             "subtitle": "common.error.workflow_input_error.subtitle",
             "title": "common.error.workflow_input_error.title"
           }
+        },
+        "external_link_confirmation": {
+          "body": "common.generic.external_link_confirmation.body",
+          "cancel_action": "common.generic.external_link_confirmation.cancel",
+          "open_link_action": "common.generic.external_link_confirmation.open_link",
+          "title": "common.generic.external_link_confirmation.title"
         },
         "footer": {
           "branding": "common.footer.branding"

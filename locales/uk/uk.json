@@ -340,6 +340,12 @@
       "exit": "Вихід",
       "exit_subtitle": "Можливо, вам доведеться перезапустити процес верифікації, якщо ви повернетесь.",
       "exit_title": "Ви впевнені, що хочете вийти?",
+      "external_link_confirmation": {
+        "body": "Ви збираєтеся покинути процес верифікації, щоб відкрити це посилання у зовнішньому браузері",
+        "cancel": "Скасувати",
+        "open_link": "Відкрити посилання",
+        "title": "Відкрити зовнішнє посилання?"
+      },
       "icon": {
         "error": {
           "accessibility": "Помилка:"
@@ -2833,6 +2839,12 @@
             "subtitle": "common.error.workflow_input_error.subtitle",
             "title": "common.error.workflow_input_error.title"
           }
+        },
+        "external_link_confirmation": {
+          "body": "common.generic.external_link_confirmation.body",
+          "cancel_action": "common.generic.external_link_confirmation.cancel",
+          "open_link_action": "common.generic.external_link_confirmation.open_link",
+          "title": "common.generic.external_link_confirmation.title"
         },
         "footer": {
           "branding": "common.footer.branding"

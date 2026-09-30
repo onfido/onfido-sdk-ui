@@ -340,6 +340,12 @@
       "exit": "Ելք",
       "exit_subtitle": "Դուք կարող եք պահանջվել վերսկսել հաստատման գործընթացը, եթե վերադառնաք։",
       "exit_title": "Վստահ եք, որ ուզում եք դուրս գալ՞",
+      "external_link_confirmation": {
+        "body": "Դուք պատրաստվում եք լքել հաստատման գործընթացը՝ այս հղումը արտաքին դիտարկիչում բացելու համար",
+        "cancel": "Չեղարկել",
+        "open_link": "Բացել հղումը",
+        "title": "Բացե՞լ արտաքին հղումը։"
+      },
       "icon": {
         "error": {
           "accessibility": "Սխալ:"
@@ -2833,6 +2839,12 @@
             "subtitle": "common.error.workflow_input_error.subtitle",
             "title": "common.error.workflow_input_error.title"
           }
+        },
+        "external_link_confirmation": {
+          "body": "common.generic.external_link_confirmation.body",
+          "cancel_action": "common.generic.external_link_confirmation.cancel",
+          "open_link_action": "common.generic.external_link_confirmation.open_link",
+          "title": "common.generic.external_link_confirmation.title"
         },
         "footer": {
           "branding": "common.footer.branding"

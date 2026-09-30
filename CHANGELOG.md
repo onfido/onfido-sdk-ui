@@ -7,6 +7,17 @@ and the SDK adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html)
 
 When any of the string translations change, it will result in a MINOR version change. As a result, you are responsible for ensuring the correct layout if you are using custom translations (see [language localization](https://documentation.onfido.com/sdk/web/#custom-translations-and-text)).
 
+## [v14.86.0] - 2026-09-30
+
+### Added
+
+- Add compliance consent screen to obtain user agreement before starting identity verification
+
+### Fixed
+
+- Fix accessibility issue where VoiceOver on iOS incorrectly announced "50%" on every page with a loading component
+- Fix workflow errors by accepting Indian PAN card numbers in both uppercase and lowercase formats
+
 ## [v14.85.0] - 2026-09-24
 
 ### Fixed

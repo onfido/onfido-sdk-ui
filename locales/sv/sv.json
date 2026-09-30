@@ -340,6 +340,12 @@
       "exit": "Avsluta",
       "exit_subtitle": "Du kan behöva starta om verifieringsprocessen om du kommer tillbaka.",
       "exit_title": "Är du säker på att du vill avsluta?",
+      "external_link_confirmation": {
+        "body": "Du är på väg att lämna verifieringsflödet för att öppna den här länken i en extern webbläsare",
+        "cancel": "Avbryt",
+        "open_link": "Öppna länk",
+        "title": "Öppna extern länk?"
+      },
       "icon": {
         "error": {
           "accessibility": "Fel:"
@@ -2833,6 +2839,12 @@
             "subtitle": "common.error.workflow_input_error.subtitle",
             "title": "common.error.workflow_input_error.title"
           }
+        },
+        "external_link_confirmation": {
+          "body": "common.generic.external_link_confirmation.body",
+          "cancel_action": "common.generic.external_link_confirmation.cancel",
+          "open_link_action": "common.generic.external_link_confirmation.open_link",
+          "title": "common.generic.external_link_confirmation.title"
         },
         "footer": {
           "branding": "common.footer.branding"

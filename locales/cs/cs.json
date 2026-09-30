@@ -340,6 +340,12 @@
       "exit": "Ukončit",
       "exit_subtitle": "Možná budete muset restartovat proces ověření, pokud se vrátíte.",
       "exit_title": "Jste si jisti, že chcete ukončit?",
+      "external_link_confirmation": {
+        "body": "Chystáte se opustit proces ověření a otevřít tento odkaz v externím prohlížeči",
+        "cancel": "Zrušit",
+        "open_link": "Otevřít odkaz",
+        "title": "Otevřít externí odkaz?"
+      },
       "icon": {
         "error": {
           "accessibility": "Chyba:"
@@ -2833,6 +2839,12 @@
             "subtitle": "common.error.workflow_input_error.subtitle",
             "title": "common.error.workflow_input_error.title"
           }
+        },
+        "external_link_confirmation": {
+          "body": "common.generic.external_link_confirmation.body",
+          "cancel_action": "common.generic.external_link_confirmation.cancel",
+          "open_link_action": "common.generic.external_link_confirmation.open_link",
+          "title": "common.generic.external_link_confirmation.title"
         },
         "footer": {
           "branding": "common.footer.branding"
