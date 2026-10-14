@@ -3883,7 +3883,13 @@
         "title": "requestDiatfConsent.title"
       },
       "request_face_biometrics_nidas": {
-        "loading_title": "requestFaceBiometricsNidas.loading.title"
+        "intro_button_primary": "requestFaceBiometricsNidas.intro.button_primary",
+        "intro_detail": "requestFaceBiometricsNidas.intro.detail",
+        "intro_title": "requestFaceBiometricsNidas.intro.title",
+        "loading_title": "requestFaceBiometricsNidas.loading.title",
+        "retry_button": "requestFaceBiometricsNidas.retry.button",
+        "retry_subtitle": "requestFaceBiometricsNidas.retry.subtitle",
+        "retry_title": "requestFaceBiometricsNidas.retry.title"
       },
       "request_uk_evisa": {
         "button_primary": "requestEvisaUk.request_uk_evisa.submit",
@@ -5022,8 +5028,8 @@
   },
   "requestComplianceConsent": {
     "button": {
-      "consent": "Accept",
-      "no_consent": "Do not accept",
+      "consent": "Aceptar",
+      "no_consent": "No aceptar",
       "read_more": "Read more"
     },
     "error": {
@@ -5035,13 +5041,13 @@
     },
     "no_consent_prompt": {
       "button": {
-        "cancel_verification": "Yes, cancel verification",
-        "review_again": "Review again"
+        "cancel_verification": "Sí, cancelar verificación",
+        "review_again": "Revisar de nuevo"
       },
-      "detail": "If you do not accept Entrust’s privacy statements and terms of service, we will not be able to verify your identity and you will exit this step.",
-      "title": "Are you sure?"
+      "detail": "Si no acepta las declaraciones de privacidad y las condiciones de servicio de Entrust, no podremos verificar su identidad y saldrá de este paso.",
+      "title": "¿Estás seguro?"
     },
-    "title": "Consent to process biometric data and sensitive data"
+    "title": "Consentimiento para la verificación de identidad y los datos biométricos"
   },
   "requestDiatfConsent": {
     "button": {
@@ -5109,8 +5115,18 @@
     }
   },
   "requestFaceBiometricsNidas": {
+    "intro": {
+      "button_primary": "Continue",
+      "detail": "To take your selfie, you'll complete a face check through NIDAS, the National ID Authentication Services system.",
+      "title": "Take your selfie with NIDAS"
+    },
     "loading": {
       "title": "Preparing face verification…"
+    },
+    "retry": {
+      "button": "Try again",
+      "subtitle": "We couldn't complete your face check, Try again.",
+      "title": "There was a problem"
     }
   },
   "retry": {

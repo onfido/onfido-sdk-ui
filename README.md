@@ -1627,11 +1627,11 @@ Onfido.init({
 ### User analytics callbacks
 
 The SDK allows you to track a user's journey through the verification process via a dispatched event. This gives insight into how your users make use of the SDK screens.
-In order to track a user's progress through the SDK an `EventListener` must be added that listens for `userAnalytics` events. This can be done anywhere within your application.
+In order to track a user's progress through the SDK an `EventListener` must be added that listens for `userAnalyticsEvent` events. This can be done anywhere within your application.
 The code inside of the `EventListener` callback will be invoked when an event is triggered.
 
 ```javascript
-addEventListener('userAnalytics', (event) => /*Your code here*/);
+addEventListener('userAnalyticsEvent', (event) => /*Your code here*/);
 ```
 
 The `event` parameter being passed in the callback contains the following information:

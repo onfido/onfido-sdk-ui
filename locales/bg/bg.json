@@ -3883,7 +3883,13 @@
         "title": "requestDiatfConsent.title"
       },
       "request_face_biometrics_nidas": {
-        "loading_title": "requestFaceBiometricsNidas.loading.title"
+        "intro_button_primary": "requestFaceBiometricsNidas.intro.button_primary",
+        "intro_detail": "requestFaceBiometricsNidas.intro.detail",
+        "intro_title": "requestFaceBiometricsNidas.intro.title",
+        "loading_title": "requestFaceBiometricsNidas.loading.title",
+        "retry_button": "requestFaceBiometricsNidas.retry.button",
+        "retry_subtitle": "requestFaceBiometricsNidas.retry.subtitle",
+        "retry_title": "requestFaceBiometricsNidas.retry.title"
       },
       "request_uk_evisa": {
         "button_primary": "requestEvisaUk.request_uk_evisa.submit",
@@ -5109,8 +5115,18 @@
     }
   },
   "requestFaceBiometricsNidas": {
+    "intro": {
+      "button_primary": "Continue",
+      "detail": "To take your selfie, you'll complete a face check through NIDAS, the National ID Authentication Services system.",
+      "title": "Take your selfie with NIDAS"
+    },
     "loading": {
       "title": "Preparing face verification…"
+    },
+    "retry": {
+      "button": "Try again",
+      "subtitle": "We couldn't complete your face check, Try again.",
+      "title": "There was a problem"
     }
   },
   "retry": {

@@ -7,6 +7,15 @@ and the SDK adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html)
 
 When any of the string translations change, it will result in a MINOR version change. As a result, you are responsible for ensuring the correct layout if you are using custom translations (see [language localization](https://documentation.onfido.com/sdk/web/#custom-translations-and-text)).
 
+## [v14.88.0] - 2026-10-14
+
+### Fixed
+
+- Fix motion capture failing unexpectedly for users with valid recordings by removing overly strict validation that blocked uploads
+- Fix Proof of Address submitting the first supported country for the chosen document type (e.g. Andorra) instead of the country selected by the user
+- Improve error dialog accessibility by ensuring screen readers announce the error state
+- Fix VoiceOver on Safari not reading the validation error when focusing the country selection field
+
 ## [v14.87.0] - 2026-10-05
 
 ### Changed
