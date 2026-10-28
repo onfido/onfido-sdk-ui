@@ -7,6 +7,26 @@ and the SDK adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html)
 
 When any of the string translations change, it will result in a MINOR version change. As a result, you are responsible for ensuring the correct layout if you are using custom translations (see [language localization](https://documentation.onfido.com/sdk/web/#custom-translations-and-text)).
 
+## [v14.89.0] - 2026-10-28
+
+### Added
+
+- Expand supported document type list for Studio integrations
+- Support issuing Microsoft Entra Verified IDs without a PIN: the PIN code and its instructions are only shown when the credential has a PIN
+- Added support for inline link markup in custom text overrides using `<link href="...">text</link>` tags to display clickable links within SDK screens
+
+### Fixed
+
+- Fix Motion camera feed crashing or showing a black screen on iOS Safari during face capture
+- Motion: when the face is not centred, screen readers now announce which way to move the device (left, right, up or down) instead of a generic "Face not centered" hint
+- Motion Randomness: screen readers now announce "Turn complete" after each head movement, before the next instruction
+- Fix Face Video timeout warning not appearing when users pause during recording
+- Fix back button navigation in Motion to return to the previous step after retrying video capture, preventing users from being stuck in error screens
+- Request device motion permission in third-party iOS browsers (e.g. Chrome, Firefox, Edge) so the permission screen matches Safari
+- Fix intro animations and videos not loading on iOS (Safari and Chrome) after using the SDK back button from the capture screen
+- When no language is configured, the SDK now follows the browser language preference order, so a browser set to es-US with an English fallback shows Spanish instead of English
+- Fix inconsistent loading spinner styles to provide a unified, polished visual experience across all loading states.
+
 ## [v14.88.0] - 2026-10-14
 
 ### Fixed
