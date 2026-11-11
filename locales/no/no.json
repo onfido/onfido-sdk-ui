@@ -4845,7 +4845,7 @@
       },
       "instruction_5_passport": "Når telefonen din oppdager brikken i passet ditt, vil skanningen starte automatisk. Hold telefonen og passet i ro slik at skanningen kan fullføres.",
       "title": "Kan ikke skanne chipen. Trenger du hjelp?",
-      "video_instruction_accessibility": "Videoinstruksjon"
+      "video_instruction_accessibility": "En animasjon som viser hvordan du plasserer en enhet mot et dokument for å lese av brikken."
     },
     "pin_entry": {
       "button_primary": "Fortsett",
@@ -4882,7 +4882,7 @@
       "pin_disclaimer": "Vi ber deg oppgi dokumentets %d-sifrede PIN-kode før vi skanner chipen.",
       "title_document": "Skann dokumentet ditt",
       "title_passport": "Skann NFC-brikken til passet ditt",
-      "video_instruction_accessibility": "Videoinstruksjon"
+      "video_instruction_accessibility": "En animasjon som viser hvordan du plasserer en enhet mot et dokument for å lese av brikken."
     },
     "settings": {
       "button_primary": "Åpne innstillinger",
@@ -4924,7 +4924,7 @@
         "scanning": "Skanner ...",
         "success": "Skanning vellykket."
       },
-      "video_instruction_accessibility": "Videoinstruksjon"
+      "video_instruction_accessibility": "En animasjon som viser hvordan du plasserer en enhet mot et dokument for å lese av brikken."
     },
     "unsupported_device": {
       "button_primary": "Avslutt verifisering",
@@ -4979,30 +4979,30 @@
   "presentDigitalIdentityWallet": {
     "button": {
       "digital_wallet": "Åpne digital lommebok",
-      "document_capture": "Jeg har ikke en e-ID"
+      "document_capture": "Jeg har ikke eID"
     },
     "digital_wallet": {
-      "subtitle": "Fullfør verifiseringen i identitetslommebok-appen for å fortsette",
-      "title": "Verifisering pågår"
+      "subtitle": "Fullfør bekreftelsen i identitetslommebokappen din for å fortsette",
+      "title": "Bekreftelse pågår"
     },
     "error": {
       "attribute_missing": {
-        "subtitle": "Alle forespurte attributter er nødvendige for å fortsette. Gå tilbake og del dem.",
-        "title": "Noen attributter ble ikke delt"
+        "subtitle": "Alle forespurte opplysninger er nødvendige for å fortsette. Gå tilbake og del dem.",
+        "title": "Noen opplysninger ble ikke delt"
       },
       "button_another_method": "Velg en annen metode",
       "button_try_again": "Prøv på nytt",
       "standard": {
-        "subtitle": "Det oppstod et problem med verifiseringen din. Prøv igjen.",
+        "subtitle": "Det oppstod et problem med bekreftelsen. Prøv igjen.",
         "title": "Noe gikk galt"
       },
       "verification_failed": {
-        "subtitle": "Attributtene dine kunne ikke bekreftes. Prøv en annen metode.",
+        "subtitle": "Opplysningene dine kunne ikke bekreftes. Prøv en annen metode.",
         "title": "Vi kunne ikke bekrefte identiteten din"
       },
       "wallet_closed": {
         "subtitle": "Lommeboken brukte for lang tid eller ble lukket. Gå tilbake og prøv igjen.",
-        "title": "Verifiseringen ble ikke fullført"
+        "title": "Bekreftelsen ble ikke fullført"
       }
     },
     "field_validation": {

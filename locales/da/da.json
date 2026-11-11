@@ -4845,7 +4845,7 @@
       },
       "instruction_5_passport": "Når din telefon registrerer chippen i dit pas, vil scanningen starte automatisk. Hold din telefon og dit pas stille, så scanningen kan fuldføres.",
       "title": "Ikke i stand til at scanne chippen. Har du brug for hjælp?",
-      "video_instruction_accessibility": "Videovejledning"
+      "video_instruction_accessibility": "En animation, der viser, hvordan man placerer en enhed mod et dokument for at aflæse dets NFC-chip."
     },
     "pin_entry": {
       "button_primary": "Fortsæt",
@@ -4882,7 +4882,7 @@
       "pin_disclaimer": "Vi beder dig om din dokuments %d-cifrede pinkode, før vi scanner chippen.",
       "title_document": "Scan dit dokument",
       "title_passport": "Scan chippen i dit pas",
-      "video_instruction_accessibility": "Videovejledning"
+      "video_instruction_accessibility": "En animation, der viser, hvordan man placerer en enhed mod et dokument for at aflæse dets NFC-chip."
     },
     "settings": {
       "button_primary": "Åbn indstillinger",
@@ -4924,7 +4924,7 @@
         "scanning": "Scanner...",
         "success": "Scanning lykkedes."
       },
-      "video_instruction_accessibility": "Videovejledning"
+      "video_instruction_accessibility": "En animation, der viser, hvordan man placerer en enhed mod et dokument for at aflæse dets NFC-chip."
     },
     "unsupported_device": {
       "button_primary": "Afslut verifikation",
@@ -4982,8 +4982,8 @@
       "document_capture": "Jeg har ikke et eID"
     },
     "digital_wallet": {
-      "subtitle": "Fuldfør din bekræftelse i din identitetstegnebogs-app for at fortsætte",
-      "title": "Bekræftelse er i gang"
+      "subtitle": "Fuldfør din bekræftelse i din identitetstegnebog-app for at fortsætte",
+      "title": "Bekræftelse i gang"
     },
     "error": {
       "attribute_missing": {

@@ -4845,7 +4845,7 @@
       },
       "instruction_5_passport": "Ko vaš telefon zazna čip v vašem potnem listu, se bo skeniranje začelo samodejno. Držite telefon in potni list pri miru, da se skeniranje lahko dokonča.",
       "title": "Čipa ni mogoče skenirati. Potrebujete pomoč?",
-      "video_instruction_accessibility": "Video navodila"
+      "video_instruction_accessibility": "Animacija, ki prikazuje, kako namestiti napravo ob dokument za branje njegovega čipa NFC."
     },
     "pin_entry": {
       "button_primary": "Nadaljuj",
@@ -4882,7 +4882,7 @@
       "pin_disclaimer": "Pred skeniranjem čipa vas bomo prosili za %d-mestno PIN kodo vašega dokumenta.",
       "title_document": "Preglejte svoj dokument",
       "title_passport": "Skenirajte čip na vašem potnem listu",
-      "video_instruction_accessibility": "Video navodila"
+      "video_instruction_accessibility": "Animacija, ki prikazuje, kako namestiti napravo ob dokument za branje njegovega čipa NFC."
     },
     "settings": {
       "button_primary": "Odprite nastavitve",
@@ -4924,7 +4924,7 @@
         "scanning": "Skeniranje...",
         "success": "Skeniranje uspešno."
       },
-      "video_instruction_accessibility": "Video navodila"
+      "video_instruction_accessibility": "Animacija, ki prikazuje, kako namestiti napravo ob dokument za branje njegovega čipa NFC."
     },
     "unsupported_device": {
       "button_primary": "Preverjanje izhoda",
@@ -4979,10 +4979,10 @@
   "presentDigitalIdentityWallet": {
     "button": {
       "digital_wallet": "Odpri digitalno denarnico",
-      "document_capture": "Nimam eID-ja"
+      "document_capture": "Nimam eID"
     },
     "digital_wallet": {
-      "subtitle": "Za nadaljevanje dokončajte preverjanje v aplikaciji za identitetno denarnico",
+      "subtitle": "Za nadaljevanje dokončajte preverjanje v aplikaciji za identitetno denarnico.",
       "title": "Preverjanje poteka"
     },
     "error": {
@@ -4990,18 +4990,18 @@
         "subtitle": "Za nadaljevanje so potrebni vsi zahtevani atributi. Pojdite nazaj in jih delite.",
         "title": "Nekateri atributi niso bili deljeni"
       },
-      "button_another_method": "Izberite drug način",
+      "button_another_method": "Izberite drugo metodo",
       "button_try_again": "Poskusite znova",
       "standard": {
         "subtitle": "Pri preverjanju je prišlo do težave. Poskusite znova.",
         "title": "Nekaj je šlo narobe"
       },
       "verification_failed": {
-        "subtitle": "Vaših atributov ni bilo mogoče potrditi. Poskusite z drugim načinom.",
+        "subtitle": "Vaših atributov ni bilo mogoče potrditi. Poskusite z drugo metodo.",
         "title": "Vaše identitete nismo mogli preveriti"
       },
       "wallet_closed": {
-        "subtitle": "Denarnica se je odzvala prepočasi ali pa je bila zaprta. Pojdite nazaj in poskusite znova.",
+        "subtitle": "Denarnica je trajala predolgo ali pa je bila zaprta. Pojdite nazaj in poskusite znova.",
         "title": "Preverjanje ni bilo dokončano"
       }
     },

@@ -4845,7 +4845,7 @@
       },
       "instruction_5_passport": "ברגע שהטלפון שלך מזהה את השבב בדרכון שלך, הסריקה תתחיל אוטומטית. שמור את הטלפון והדרכון שלך יציבים כדי שהסריקה תוכל להסתיים.",
       "title": "לא ניתן לסרוק את השבב. צריך עזרה?",
-      "video_instruction_accessibility": "הוראות וידאו"
+      "video_instruction_accessibility": "הנפשה המציגה כיצד להצמיד מכשיר למסמך כדי לקרוא את השבב שלו."
     },
     "pin_entry": {
       "button_primary": "המשך",
@@ -4882,7 +4882,7 @@
       "pin_disclaimer": "נבקש ממך את קוד ה-PIN בן %d ספרות של המסמך שלך לפני סריקת השבב.",
       "title_document": "סרוק את המסמך שלך",
       "title_passport": "סרוק את שבב הדרכון שלך",
-      "video_instruction_accessibility": "הוראות וידאו"
+      "video_instruction_accessibility": "הנפשה המציגה כיצד להצמיד מכשיר למסמך כדי לקרוא את השבב שלו."
     },
     "settings": {
       "button_primary": "פתח הגדרות",
@@ -4924,7 +4924,7 @@
         "scanning": "מתבצעת סריקה...",
         "success": "הסריקה הצליחה."
       },
-      "video_instruction_accessibility": "הוראות וידאו"
+      "video_instruction_accessibility": "הנפשה המציגה כיצד להצמיד מכשיר למסמך כדי לקרוא את השבב שלו."
     },
     "unsupported_device": {
       "button_primary": "אימות יציאה",
@@ -4978,39 +4978,39 @@
   },
   "presentDigitalIdentityWallet": {
     "button": {
-      "digital_wallet": "פתח ארנק דיגיטלי",
+      "digital_wallet": "פתיחת ארנק דיגיטלי",
       "document_capture": "אין לי eID"
     },
     "digital_wallet": {
-      "subtitle": "השלם את האימות באפליקציית ארנק הזהות שלך כדי להמשיך",
-      "title": "האימות בתהליך"
+      "subtitle": "כדי להמשיך, יש להשלים את האימות באפליקציית ארנק הזהויות שלך",
+      "title": "האימות מתבצע"
     },
     "error": {
       "attribute_missing": {
-        "subtitle": "כל המאפיינים המבוקשים נדרשים כדי להמשיך. אנא חזור ושתף אותם.",
+        "subtitle": "כל המאפיינים המבוקשים נדרשים כדי להמשיך. נא לחזור ולשתף אותם.",
         "title": "חלק מהמאפיינים לא שותפו"
       },
-      "button_another_method": "בחר שיטה אחרת",
+      "button_another_method": "בחירת שיטה אחרת",
       "button_try_again": "נסה שוב",
       "standard": {
-        "subtitle": "אירעה בעיה באימות שלך. אנא נסה שוב.",
+        "subtitle": "אירעה בעיה באימות שלך. נא לנסות שוב.",
         "title": "משהו השתבש"
       },
       "verification_failed": {
-        "subtitle": "לא ניתן היה לאשר את המאפיינים שלך. אנא נסה שיטה אחרת.",
+        "subtitle": "לא ניתן היה לאשר את המאפיינים שלך. נא לנסות שיטה אחרת.",
         "title": "לא הצלחנו לאמת את זהותך"
       },
       "wallet_closed": {
-        "subtitle": "הארנק לקח זמן רב מדי או נסגר. אנא חזור ונסה שוב.",
+        "subtitle": "הארנק התעכב יותר מדי או נסגר. נא לחזור ולנסות שוב.",
         "title": "האימות לא הושלם"
       }
     },
     "field_validation": {
-      "value_missing": "אנא בחר אפשרות"
+      "value_missing": "נא לבחור אפשרות"
     },
     "intro": {
       "button_continue": "התחל אימות",
-      "subtitle": "מטעמי אבטחה וכדי להגן עליך מפני הונאה, עלינו לאמת את זהותך. פעולה זו תימשך מספר דקות בלבד.",
+      "subtitle": "מטעמי אבטחה וכדי להגן עליך מפני הונאה, עלינו לאמת את זהותך. התהליך יימשך דקות ספורות בלבד.",
       "title": "אמת את זהותך"
     },
     "issuing_country": {

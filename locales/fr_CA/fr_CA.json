@@ -4845,7 +4845,7 @@
       },
       "instruction_5_passport": "Une fois que votre téléphone détecte la puce dans votre passeport, le scan commencera automatiquement. Gardez votre téléphone et votre passeport immobiles pour que la numérisation puisse se terminer.",
       "title": "Incapable de numériser la puce. Besoin d'aide?",
-      "video_instruction_accessibility": "Instruction vidéo"
+      "video_instruction_accessibility": "Une animation montrant comment placer un appareil contre un document pour lire sa puce."
     },
     "pin_entry": {
       "button_primary": "Continuer",
@@ -4882,7 +4882,7 @@
       "pin_disclaimer": "Nous vous demanderons le NIP à %d chiffres de votre document avant de numériser la puce.",
       "title_document": "Numérisez votre document",
       "title_passport": "Scannez la puce de votre passeport",
-      "video_instruction_accessibility": "Instruction vidéo"
+      "video_instruction_accessibility": "Une animation montrant comment placer un appareil contre un document pour lire sa puce."
     },
     "settings": {
       "button_primary": "Ouvrir paramètres",
@@ -4924,7 +4924,7 @@
         "scanning": "Scan en cours…",
         "success": "Scan réussi."
       },
-      "video_instruction_accessibility": "Instruction vidéo"
+      "video_instruction_accessibility": "Une animation montrant comment placer un appareil contre un document pour lire sa puce."
     },
     "unsupported_device": {
       "button_primary": "Sortie de vérification",
@@ -4979,7 +4979,7 @@
   "presentDigitalIdentityWallet": {
     "button": {
       "digital_wallet": "Ouvrir le portefeuille numérique",
-      "document_capture": "Je n’ai pas d’eID"
+      "document_capture": "Je n’ai pas d’identifiant électronique"
     },
     "digital_wallet": {
       "subtitle": "Terminez votre vérification dans votre application de portefeuille d’identité pour continuer",
@@ -4987,8 +4987,8 @@
     },
     "error": {
       "attribute_missing": {
-        "subtitle": "Toutes les informations demandées sont nécessaires pour continuer. Veuillez revenir en arrière et les partager.",
-        "title": "Certaines informations n’ont pas été partagées"
+        "subtitle": "Tous les attributs demandés sont nécessaires pour continuer. Veuillez revenir en arrière et les partager.",
+        "title": "Certains attributs n’ont pas été partagés"
       },
       "button_another_method": "Choisir une autre méthode",
       "button_try_again": "Réessayer",
@@ -4997,20 +4997,20 @@
         "title": "Un problème est survenu"
       },
       "verification_failed": {
-        "subtitle": "Vos informations n’ont pas pu être confirmées. Veuillez essayer une autre méthode.",
+        "subtitle": "Vos attributs n’ont pas pu être confirmés. Veuillez essayer une autre méthode.",
         "title": "Nous n’avons pas pu vérifier votre identité"
       },
       "wallet_closed": {
-        "subtitle": "Le portefeuille a pris trop de temps ou a été fermé. Veuillez revenir en arrière et réessayer.",
-        "title": "La vérification n’a pas été terminée"
+        "subtitle": "Le portefeuille a pris trop de temps à répondre ou a été fermé. Veuillez revenir en arrière et réessayer.",
+        "title": "La vérification n’est pas terminée"
       }
     },
     "field_validation": {
-      "value_missing": "Veuillez choisir une option"
+      "value_missing": "Veuillez sélectionner une option"
     },
     "intro": {
       "button_continue": "Commencer la vérification",
-      "subtitle": "Pour des raisons de sécurité et pour vous protéger contre la fraude, nous devons vérifier votre identité. Cela ne prendra que quelques minutes.",
+      "subtitle": "Pour des raisons de sécurité et afin de vous protéger contre la fraude, nous devons vérifier votre identité. Cela ne prendra que quelques minutes.",
       "title": "Vérifier votre identité"
     },
     "issuing_country": {

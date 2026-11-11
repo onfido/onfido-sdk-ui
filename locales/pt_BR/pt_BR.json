@@ -4845,7 +4845,7 @@
       },
       "instruction_5_passport": "Assim que seu telefone detectar o chip no seu passaporte, a leitura começará automaticamente. Mantenha seu telefone e passaporte imóveis para que a leitura possa ser concluída.",
       "title": "Incapaz de digitalizar o chip. Precisa de ajuda?",
-      "video_instruction_accessibility": "Instruções em vídeo"
+      "video_instruction_accessibility": "Uma animação mostrando como posicionar um dispositivo junto a um documento para ler o chip."
     },
     "pin_entry": {
       "button_primary": "Continuar",
@@ -4882,7 +4882,7 @@
       "pin_disclaimer": "Solicitaremos o PIN de %d dígitos do seu documento antes de escanear o chip.",
       "title_document": "Escaneie seu documento",
       "title_passport": "Escaneie o chip do seu passaporte",
-      "video_instruction_accessibility": "Instruções em vídeo"
+      "video_instruction_accessibility": "Uma animação mostrando como posicionar um dispositivo junto a um documento para ler o chip."
     },
     "settings": {
       "button_primary": "Abrir configurações",
@@ -4924,7 +4924,7 @@
         "scanning": "Digitalizando...",
         "success": "Leitura bem-sucedida."
       },
-      "video_instruction_accessibility": "Instruções em vídeo"
+      "video_instruction_accessibility": "Uma animação mostrando como posicionar um dispositivo junto a um documento para ler o chip."
     },
     "unsupported_device": {
       "button_primary": "Saída da verificação",
@@ -4979,7 +4979,7 @@
   "presentDigitalIdentityWallet": {
     "button": {
       "digital_wallet": "Abrir carteira digital",
-      "document_capture": "Não tenho um eID"
+      "document_capture": "Não tenho uma identidade digital"
     },
     "digital_wallet": {
       "subtitle": "Conclua sua verificação no aplicativo da sua carteira de identidade para continuar",
@@ -4993,7 +4993,7 @@
       "button_another_method": "Escolher outro método",
       "button_try_again": "Tentar novamente",
       "standard": {
-        "subtitle": "Ocorreu um problema com a sua verificação. Tente novamente.",
+        "subtitle": "Ocorreu um problema com sua verificação. Tente novamente.",
         "title": "Algo deu errado"
       },
       "verification_failed": {
@@ -5001,7 +5001,7 @@
         "title": "Não foi possível verificar sua identidade"
       },
       "wallet_closed": {
-        "subtitle": "A carteira demorou muito ou foi fechada. Volte e tente novamente.",
+        "subtitle": "A carteira demorou demais ou foi fechada. Volte e tente novamente.",
         "title": "A verificação não foi concluída"
       }
     },
@@ -5010,7 +5010,7 @@
     },
     "intro": {
       "button_continue": "Iniciar verificação",
-      "subtitle": "Por motivos de segurança e para protegê-lo contra fraudes, precisamos verificar sua identidade. Isso levará apenas alguns minutos.",
+      "subtitle": "Por motivos de segurança e para proteger você contra fraudes, precisamos verificar sua identidade. Isso levará apenas alguns minutos.",
       "title": "Verifique a sua identidade"
     },
     "issuing_country": {

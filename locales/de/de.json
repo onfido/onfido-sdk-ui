@@ -4845,7 +4845,7 @@
       },
       "instruction_5_passport": "Sobald Ihr Telefon den Chip in Ihrem Reisepass erkennt, beginnt der Scan automatisch. Halten Sie Ihr Telefon und Ihren Reisepass ruhig, damit der Scan abgeschlossen werden kann.",
       "title": "Unfähig, den Chip zu scannen. Brauchen Sie Hilfe?",
-      "video_instruction_accessibility": "Videoanleitung"
+      "video_instruction_accessibility": "Eine Animation, die zeigt, wie ein Gerät an einem Dokument positioniert wird, um dessen Chip auszulesen."
     },
     "pin_entry": {
       "button_primary": "Fortfahren",
@@ -4882,7 +4882,7 @@
       "pin_disclaimer": "Bevor wir den Chip auslesen, fragen wir Sie nach der %d-stelligen PIN Ihres Dokuments.",
       "title_document": "Scannen Sie Ihr Dokument",
       "title_passport": "Scannen Sie den Chip Ihres Passes",
-      "video_instruction_accessibility": "Videoanleitung"
+      "video_instruction_accessibility": "Eine Animation, die zeigt, wie ein Gerät an einem Dokument positioniert wird, um dessen Chip auszulesen."
     },
     "settings": {
       "button_primary": "Einstellungen öffnen",
@@ -4924,7 +4924,7 @@
         "scanning": "Scannen…",
         "success": "Scan erfolgreich."
       },
-      "video_instruction_accessibility": "Videoanleitung"
+      "video_instruction_accessibility": "Eine Animation, die zeigt, wie ein Gerät an einem Dokument positioniert wird, um dessen Chip auszulesen."
     },
     "unsupported_device": {
       "button_primary": "Verifizierung beenden",
@@ -4978,11 +4978,11 @@
   },
   "presentDigitalIdentityWallet": {
     "button": {
-      "digital_wallet": "Digitale Brieftasche öffnen",
+      "digital_wallet": "Digitale Wallet öffnen",
       "document_capture": "Ich habe keine eID"
     },
     "digital_wallet": {
-      "subtitle": "Schließen Sie die Überprüfung in Ihrer Identity-Wallet-App ab, um fortzufahren",
+      "subtitle": "Schließen Sie die Überprüfung in Ihrer Identitäts-Wallet-App ab, um fortzufahren",
       "title": "Überprüfung läuft"
     },
     "error": {
@@ -4998,11 +4998,11 @@
       },
       "verification_failed": {
         "subtitle": "Ihre Attribute konnten nicht bestätigt werden. Bitte versuchen Sie eine andere Methode.",
-        "title": "Wir konnten Ihre Identität nicht überprüfen"
+        "title": "Wir konnten Ihre Identität nicht verifizieren"
       },
       "wallet_closed": {
         "subtitle": "Die Wallet hat zu lange gebraucht oder wurde geschlossen. Bitte gehen Sie zurück und versuchen Sie es erneut.",
-        "title": "Die Überprüfung wurde nicht abgeschlossen"
+        "title": "Überprüfung wurde nicht abgeschlossen"
       }
     },
     "field_validation": {
@@ -5010,7 +5010,7 @@
     },
     "intro": {
       "button_continue": "Verifizierung beginnen",
-      "subtitle": "Aus Sicherheitsgründen und zu Ihrem Schutz vor Betrug müssen wir Ihre Identität überprüfen. Das dauert nur ein paar Minuten.",
+      "subtitle": "Aus Sicherheitsgründen und um Sie vor Betrug zu schützen, müssen wir Ihre Identität bestätigen. Dies dauert nur wenige Minuten.",
       "title": "Identität überprüfen"
     },
     "issuing_country": {

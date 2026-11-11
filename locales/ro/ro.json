@@ -4845,7 +4845,7 @@
       },
       "instruction_5_passport": "Odată ce telefonul detectează cipul din pașaportul tău, scanarea va începe automat. Ține telefonul și pașaportul nemișcate pentru ca scanarea să se poată finaliza.",
       "title": "Imposibil de scanat cipul. Aveți nevoie de ajutor?",
-      "video_instruction_accessibility": "Instrucțiuni video"
+      "video_instruction_accessibility": "O animație care arată cum să poziționați un dispozitiv pe un document pentru a-i citi cipul."
     },
     "pin_entry": {
       "button_primary": "Continuați",
@@ -4882,7 +4882,7 @@
       "pin_disclaimer": "Vă vom cere codul PIN din %d cifre al documentului înainte de a scana cipul.",
       "title_document": "Scanați documentul",
       "title_passport": "Scanați cipul din pașaportul dvs.",
-      "video_instruction_accessibility": "Instrucțiuni video"
+      "video_instruction_accessibility": "O animație care arată cum să poziționați un dispozitiv pe un document pentru a-i citi cipul."
     },
     "settings": {
       "button_primary": "Deschideți setări",
@@ -4924,7 +4924,7 @@
         "scanning": "Scanare în curs...",
         "success": "Scanare reușită."
       },
-      "video_instruction_accessibility": "Instrucțiuni video"
+      "video_instruction_accessibility": "O animație care arată cum să poziționați un dispozitiv pe un document pentru a-i citi cipul."
     },
     "unsupported_device": {
       "button_primary": "Ieşire din verificare",
@@ -4993,24 +4993,24 @@
       "button_another_method": "Alegeți o altă metodă",
       "button_try_again": "Încercați din nou",
       "standard": {
-        "subtitle": "A apărut o problemă la verificarea dumneavoastră. Vă rugăm să încercați din nou.",
+        "subtitle": "A apărut o problemă la verificarea dvs. Vă rugăm să încercați din nou.",
         "title": "A apărut o problemă"
       },
       "verification_failed": {
-        "subtitle": "Atributele dumneavoastră nu au putut fi confirmate. Vă rugăm să încercați o altă metodă.",
-        "title": "Nu v-am putut verifica identitatea"
+        "subtitle": "Atributele dvs. nu au putut fi confirmate. Vă rugăm să încercați o altă metodă.",
+        "title": "Nu am putut verifica identitatea dvs."
       },
       "wallet_closed": {
-        "subtitle": "Portofelul a durat prea mult sau a fost închis. Vă rugăm să reveniți și să încercați din nou.",
-        "title": "Verificarea nu s-a încheiat"
+        "subtitle": "Portofelul a durat prea mult să răspundă sau a fost închis. Vă rugăm să reveniți și să încercați din nou.",
+        "title": "Verificarea nu s-a finalizat"
       }
     },
     "field_validation": {
-      "value_missing": "Selectați o opțiune"
+      "value_missing": "Vă rugăm să selectați o opțiune"
     },
     "intro": {
       "button_continue": "Începeți verificarea",
-      "subtitle": "Din motive de securitate și pentru a vă proteja împotriva fraudei, trebuie să vă verificăm identitatea. Acest lucru va dura doar câteva minute.",
+      "subtitle": "Din motive de securitate și pentru a vă proteja împotriva fraudelor, trebuie să vă verificăm identitatea. Acest lucru va dura doar câteva minute.",
       "title": "Verificați identitatea dvs."
     },
     "issuing_country": {

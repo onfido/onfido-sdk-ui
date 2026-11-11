@@ -4845,7 +4845,7 @@
       },
       "instruction_5_passport": "Kun puhelimesi havaitsee sirun passissasi, skannaus alkaa automaattisesti. Pidä puhelin ja passi paikallaan, jotta skannaus voi valmistua.",
       "title": "Sirun skannaaminen ei onnistu. Tarvitsetko apua?",
-      "video_instruction_accessibility": "Video-opastus"
+      "video_instruction_accessibility": "Animaatio, joka näyttää, kuinka laite asetetaan asiakirjaa vasten sen NFC-sirun lukemiseksi."
     },
     "pin_entry": {
       "button_primary": "Jatka",
@@ -4882,7 +4882,7 @@
       "pin_disclaimer": "Pyydämme asiakirjasi %d-numeroista PIN-koodia ennen sirun lukemista.",
       "title_document": "Skannaa dokumenttisi",
       "title_passport": "Skannaa passisi siru",
-      "video_instruction_accessibility": "Video-opastus"
+      "video_instruction_accessibility": "Animaatio, joka näyttää, kuinka laite asetetaan asiakirjaa vasten sen NFC-sirun lukemiseksi."
     },
     "settings": {
       "button_primary": "Avaa asetukset",
@@ -4924,7 +4924,7 @@
         "scanning": "Skannataan...",
         "success": "Skannaus onnistui."
       },
-      "video_instruction_accessibility": "Video-opastus"
+      "video_instruction_accessibility": "Animaatio, joka näyttää, kuinka laite asetetaan asiakirjaa vasten sen NFC-sirun lukemiseksi."
     },
     "unsupported_device": {
       "button_primary": "Poistumisvarmennus",
@@ -4993,12 +4993,12 @@
       "button_another_method": "Valitse toinen menetelmä",
       "button_try_again": "Yritä uud.",
       "standard": {
-        "subtitle": "Vahvistuksessasi ilmeni ongelma. Yritä uudelleen.",
+        "subtitle": "Vahvistuksessa ilmeni ongelma. Yritä uudelleen.",
         "title": "Jokin meni pieleen"
       },
       "verification_failed": {
         "subtitle": "Tietojasi ei voitu vahvistaa. Kokeile toista menetelmää.",
-        "title": "Emme pystyneet vahvistamaan henkilöllisyyttäsi"
+        "title": "Henkilöllisyyttäsi ei voitu vahvistaa"
       },
       "wallet_closed": {
         "subtitle": "Lompakko kesti liian kauan tai se suljettiin. Palaa takaisin ja yritä uudelleen.",
@@ -5010,7 +5010,7 @@
     },
     "intro": {
       "button_continue": "Aloita vahvistus",
-      "subtitle": "Turvallisuussyistä ja suojataksemme sinut petoksilta meidän on vahvistettava henkilöllisyytesi. Tämä kestää vain muutaman minuutin.",
+      "subtitle": "Turvallisuussyistä ja suojataksemme sinut petoksilta meidän on vahvistettava henkilöllisyytesi. Tämä vie vain muutaman minuutin.",
       "title": "Vahvista henkilöllisyytesi"
     },
     "issuing_country": {

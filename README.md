@@ -435,6 +435,26 @@ It is also possible to identify text that can be customized by using a browser i
   To assist migrations from the Onfido Web SDK version 13 and earlier, mapping is provided for each previously supported screen in the `legacy` subsection of the aforementioned `json` files.
 </Callout>
 
+#### Clickable links in custom text
+
+> Available from Web SDK version **14.89.0**.
+
+An overridden string can carry inline link markup. The SDK parses the markup and renders it as a link.
+
+Wrap the link text in a `link` tag and place the destination in its `href` attribute:
+
+```text
+Read our <link href="https://example.com/privacy">privacy policy</link> before continuing.
+```
+
+Set the string in the `translations` option, in the same way as any other [custom text](#custom-translations-and-text).
+
+- `link` is a Web SDK markup tag, not an HTML tag. `href` is the only supported attribute, and other attributes are ignored. Other tags, such as `<b>` or `<a>`, are not supported and only their text is shown
+- `href` must be an `https://` URL. Otherwise, only the link text is shown, without a link
+- Links open in a new browser tab
+- The URL is part of the translated string. Repeat it in every language that is overridden, pointing at the localized destination where one exists
+- Links are restricted to body text
+
 #### Using custom language files
 
 The Onfido Web SDK allows the use of custom languages alongside all officially supported languages.

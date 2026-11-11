@@ -4845,7 +4845,7 @@
       },
       "instruction_5_passport": "Una vez que tu teléfono detecte el chip en tu pasaporte, la lectura comenzará automáticamente. Mantén tu teléfono y pasaporte quietos para que la lectura pueda completarse.",
       "title": "No se puede escanear el chip. ¿Necesita ayuda?",
-      "video_instruction_accessibility": "Instrucción en vídeo"
+      "video_instruction_accessibility": "Una animación que muestra cómo colocar un dispositivo sobre un documento para leer su chip."
     },
     "pin_entry": {
       "button_primary": "Continuar",
@@ -4882,7 +4882,7 @@
       "pin_disclaimer": "Te pediremos el PIN de %d dígitos de tu documento antes de escanear el chip.",
       "title_document": "Escanear su documento",
       "title_passport": "Escanea el chip de tu pasaporte",
-      "video_instruction_accessibility": "Instrucción en vídeo"
+      "video_instruction_accessibility": "Una animación que muestra cómo colocar un dispositivo sobre un documento para leer su chip."
     },
     "settings": {
       "button_primary": "Abrir configuración",
@@ -4924,7 +4924,7 @@
         "scanning": "Escaneando...",
         "success": "Escaneo exitoso."
       },
-      "video_instruction_accessibility": "Instrucción en vídeo"
+      "video_instruction_accessibility": "Una animación que muestra cómo colocar un dispositivo sobre un documento para leer su chip."
     },
     "unsupported_device": {
       "button_primary": "Salir de la verificación",
@@ -4978,39 +4978,39 @@
   },
   "presentDigitalIdentityWallet": {
     "button": {
-      "digital_wallet": "Abrir billetera digital",
-      "document_capture": "No tengo un eID"
+      "digital_wallet": "Abrir cartera digital",
+      "document_capture": "No tengo una identificación electrónica"
     },
     "digital_wallet": {
-      "subtitle": "Completa la verificación en tu app de billetera de identidad para continuar",
+      "subtitle": "Complete la verificación en la aplicación de su cartera de identidad para continuar",
       "title": "Verificación en curso"
     },
     "error": {
       "attribute_missing": {
-        "subtitle": "Se necesitan todos los atributos solicitados para continuar. Vuelve atrás y compártelos.",
-        "title": "Algunos atributos no se compartieron"
+        "subtitle": "Todos los atributos solicitados son necesarios para continuar. Vuelva atrás y compártalos.",
+        "title": "No se compartieron algunos atributos"
       },
-      "button_another_method": "Elige otro método",
+      "button_another_method": "Elegir otro método",
       "button_try_again": "Intentar otra vez",
       "standard": {
-        "subtitle": "Hubo un problema con tu verificación. Inténtalo de nuevo.",
+        "subtitle": "Se produjo un problema con su verificación. Inténtelo de nuevo.",
         "title": "Algo salió mal"
       },
       "verification_failed": {
-        "subtitle": "No se pudieron confirmar tus atributos. Prueba con otro método.",
-        "title": "No pudimos verificar tu identidad"
+        "subtitle": "No se pudieron confirmar tus datos. Intenta con otro método.",
+        "title": "No pudimos verificar su identidad"
       },
       "wallet_closed": {
-        "subtitle": "La billetera tardó demasiado o se cerró. Vuelve atrás e inténtalo de nuevo.",
+        "subtitle": "La cartera tardó demasiado o se cerró. Vuelva atrás e inténtelo de nuevo.",
         "title": "La verificación no se completó"
       }
     },
     "field_validation": {
-      "value_missing": "Selecciona una opción"
+      "value_missing": "Seleccione una opción"
     },
     "intro": {
       "button_continue": "Empezar la verificación",
-      "subtitle": "Por motivos de seguridad y para protegerte contra el fraude, necesitamos verificar tu identidad. Solo tomará unos minutos.",
+      "subtitle": "Por motivos de seguridad y para protegerle contra el fraude, necesitamos verificar su identidad. Esto solo llevará unos minutos.",
       "title": "Verifique su identidad"
     },
     "issuing_country": {

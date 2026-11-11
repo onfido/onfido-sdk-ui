@@ -4845,7 +4845,7 @@
       },
       "instruction_5_passport": "Una volta che il tuo telefono rileva il chip nel tuo passaporto, la scansione inizierà automaticamente. Tieni fermo il telefono e il passaporto affinché la scansione possa completarsi.",
       "title": "Impossibile eseguire la scansione del chip. Hai bisogno di aiuto?",
-      "video_instruction_accessibility": "Istruzioni video"
+      "video_instruction_accessibility": "Un'animazione che mostra come posizionare un dispositivo contro un documento per leggere il suo chip."
     },
     "pin_entry": {
       "button_primary": "Continua",
@@ -4882,7 +4882,7 @@
       "pin_disclaimer": "Ti chiederemo il PIN a %d cifre del tuo documento prima di scansionare il chip.",
       "title_document": "Scansiona il tuo documento",
       "title_passport": "Esegui la scansione del chip del tuo passaporto",
-      "video_instruction_accessibility": "Istruzioni video"
+      "video_instruction_accessibility": "Un'animazione che mostra come posizionare un dispositivo contro un documento per leggere il suo chip."
     },
     "settings": {
       "button_primary": "Apri impostazioni",
@@ -4924,7 +4924,7 @@
         "scanning": "Scansione...",
         "success": "Scansione riuscita."
       },
-      "video_instruction_accessibility": "Istruzioni video"
+      "video_instruction_accessibility": "Un'animazione che mostra come posizionare un dispositivo contro un documento per leggere il suo chip."
     },
     "unsupported_device": {
       "button_primary": "Uscita dalla verifica",
@@ -4979,30 +4979,30 @@
   "presentDigitalIdentityWallet": {
     "button": {
       "digital_wallet": "Apri il portafoglio digitale",
-      "document_capture": "Non ho un eID"
+      "document_capture": "Non ho un'identità elettronica"
     },
     "digital_wallet": {
-      "subtitle": "Completa la verifica nell'app del tuo portafoglio d'identità per continuare",
+      "subtitle": "Completa la verifica nell'app del tuo portafoglio di identità per continuare",
       "title": "Verifica in corso"
     },
     "error": {
       "attribute_missing": {
-        "subtitle": "Tutti gli attributi richiesti sono necessari per continuare. Torna indietro e condividili.",
+        "subtitle": "Per continuare sono necessari tutti gli attributi richiesti. Torna indietro e condividili.",
         "title": "Alcuni attributi non sono stati condivisi"
       },
       "button_another_method": "Scegli un altro metodo",
       "button_try_again": "Riprova",
       "standard": {
-        "subtitle": "Si è verificato un problema con la tua verifica. Riprova.",
+        "subtitle": "Si è verificato un problema con la verifica. Riprova.",
         "title": "Qualcosa è andato storto"
       },
       "verification_failed": {
-        "subtitle": "I tuoi attributi non hanno potuto essere confermati. Prova un altro metodo.",
-        "title": "Non è stato possibile verificare la tua identità"
+        "subtitle": "Non è stato possibile confermare i tuoi attributi. Prova un altro metodo.",
+        "title": "Non siamo riusciti a verificare la tua identità"
       },
       "wallet_closed": {
-        "subtitle": "Il portafoglio ha impiegato troppo tempo o è stato chiuso. Torna indietro e riprova.",
-        "title": "Verifica non completata"
+        "subtitle": "Il portafoglio ha impiegato troppo tempo oppure è stato chiuso. Torna indietro e riprova.",
+        "title": "La verifica non è stata completata"
       }
     },
     "field_validation": {

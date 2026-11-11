@@ -4845,7 +4845,7 @@
       },
       "instruction_5_passport": "Gdy telefon wykryje chip w twoim paszporcie, skanowanie rozpocznie się automatycznie. Trzymaj telefon i paszport nieruchomo, aby skanowanie mogło się zakończyć.",
       "title": "Nie można zeskanować chipa. Potrzebujesz pomocy?",
-      "video_instruction_accessibility": "Instrukcja wideo"
+      "video_instruction_accessibility": "Animacja pokazująca, jak przyłożyć urządzenie do dokumentu w celu odczytu jego chipa NFC."
     },
     "pin_entry": {
       "button_primary": "Kontynuuj",
@@ -4882,7 +4882,7 @@
       "pin_disclaimer": "Poprosimy Cię o %d-cyfrowy PIN Twojego dokumentu przed zeskanowaniem chipa.",
       "title_document": "Zeskanuj swój dokument",
       "title_passport": "Zeskanuj chip swojego paszportu",
-      "video_instruction_accessibility": "Instrukcja wideo"
+      "video_instruction_accessibility": "Animacja pokazująca, jak przyłożyć urządzenie do dokumentu w celu odczytu jego chipa NFC."
     },
     "settings": {
       "button_primary": "Otwórz ustawienia",
@@ -4924,7 +4924,7 @@
         "scanning": "Skanowanie...",
         "success": "Skanowanie zakończone sukcesem."
       },
-      "video_instruction_accessibility": "Instrukcja wideo"
+      "video_instruction_accessibility": "Animacja pokazująca, jak przyłożyć urządzenie do dokumentu w celu odczytu jego chipa NFC."
     },
     "unsupported_device": {
       "button_primary": "Weryfikacja wyjścia",
@@ -4993,12 +4993,12 @@
       "button_another_method": "Wybierz inną metodę",
       "button_try_again": "Spróbuj ponownie",
       "standard": {
-        "subtitle": "Wystąpił problem z Twoją weryfikacją. Spróbuj ponownie.",
+        "subtitle": "Wystąpił problem z weryfikacją. Spróbuj ponownie.",
         "title": "Coś poszło nie tak"
       },
       "verification_failed": {
         "subtitle": "Nie udało się potwierdzić Twoich atrybutów. Spróbuj innej metody.",
-        "title": "Nie udało nam się zweryfikować Twojej tożsamości"
+        "title": "Nie udało się zweryfikować Twojej tożsamości"
       },
       "wallet_closed": {
         "subtitle": "Portfel działał zbyt długo lub został zamknięty. Wróć i spróbuj ponownie.",

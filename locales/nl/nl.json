@@ -4845,7 +4845,7 @@
       },
       "instruction_5_passport": "Zodra je telefoon de chip in je paspoort detecteert, start de scan automatisch. Houd je telefoon en paspoort stil zodat de scan kan voltooien.",
       "title": "Niet in staat om de chip te scannen. Hulp nodig?",
-      "video_instruction_accessibility": "Video-instructie"
+      "video_instruction_accessibility": "Een animatie die laat zien hoe je een apparaat tegen een document houdt om de chip uit te lezen."
     },
     "pin_entry": {
       "button_primary": "Doorgaan",
@@ -4882,7 +4882,7 @@
       "pin_disclaimer": "We vragen je om de %d-cijferige pincode van je document voordat we de chip scannen.",
       "title_document": "Scan uw document",
       "title_passport": "Scan de chip van uw paspoort",
-      "video_instruction_accessibility": "Video-instructie"
+      "video_instruction_accessibility": "Een animatie die laat zien hoe je een apparaat tegen een document houdt om de chip uit te lezen."
     },
     "settings": {
       "button_primary": "Open instellingen",
@@ -4924,7 +4924,7 @@
         "scanning": "Bezig met scannen...",
         "success": "Scan geslaagd."
       },
-      "video_instruction_accessibility": "Video-instructie"
+      "video_instruction_accessibility": "Een animatie die laat zien hoe je een apparaat tegen een document houdt om de chip uit te lezen."
     },
     "unsupported_device": {
       "button_primary": "Verificatie afsluiten",
@@ -4982,26 +4982,26 @@
       "document_capture": "Ik heb geen eID"
     },
     "digital_wallet": {
-      "subtitle": "Rond uw verificatie af in uw identiteitswallet-app om verder te gaan",
+      "subtitle": "Voltooi uw verificatie in uw identiteitswallet-app om door te gaan",
       "title": "Verificatie wordt uitgevoerd"
     },
     "error": {
       "attribute_missing": {
-        "subtitle": "Alle gevraagde attributen zijn nodig om verder te gaan. Ga terug en deel ze.",
-        "title": "Sommige attributen zijn niet gedeeld"
+        "subtitle": "Alle gevraagde gegevens zijn nodig om door te gaan. Ga terug en deel ze.",
+        "title": "Sommige gegevens zijn niet gedeeld"
       },
       "button_another_method": "Kies een andere methode",
       "button_try_again": "Probeer het opnieuw",
       "standard": {
-        "subtitle": "Er is een probleem opgetreden bij uw verificatie. Probeer het opnieuw.",
+        "subtitle": "Er is een probleem opgetreden met uw verificatie. Probeer het opnieuw.",
         "title": "Er is iets misgegaan"
       },
       "verification_failed": {
-        "subtitle": "Uw attributen konden niet worden bevestigd. Probeer een andere methode.",
+        "subtitle": "Uw gegevens konden niet worden bevestigd. Probeer een andere methode.",
         "title": "We konden uw identiteit niet verifiëren"
       },
       "wallet_closed": {
-        "subtitle": "De wallet deed er te lang over of werd gesloten. Ga terug en probeer het opnieuw.",
+        "subtitle": "De wallet deed er te lang over of is gesloten. Ga terug en probeer het opnieuw.",
         "title": "Verificatie is niet voltooid"
       }
     },
@@ -5010,7 +5010,7 @@
     },
     "intro": {
       "button_continue": "Start verificatie",
-      "subtitle": "Om veiligheidsredenen en om u te beschermen tegen fraude moeten we uw identiteit verifiëren. Dit duurt maar een paar minuten.",
+      "subtitle": "Om veiligheidsredenen en om u tegen fraude te beschermen, moeten we uw identiteit verifiëren. Dit duurt slechts enkele minuten.",
       "title": "Verifieer uw identiteit"
     },
     "issuing_country": {

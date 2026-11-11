@@ -4845,7 +4845,7 @@
       },
       "instruction_5_passport": "Kai jūsų telefonas aptinka lustą jūsų pase, nuskaitymas prasidės automatiškai. Laikykite telefoną ir pasą nejudančius, kad nuskaitymas galėtų baigtis.",
       "title": "Nepavyko nuskaityti lusto. Reikia pagalbos?",
-      "video_instruction_accessibility": "Video instrukcija"
+      "video_instruction_accessibility": "Animacija, rodanti, kaip priglausti įrenginį prie dokumento, kad būtų nuskaityta jo NFC mikroschema."
     },
     "pin_entry": {
       "button_primary": "Tęsti",
@@ -4882,7 +4882,7 @@
       "pin_disclaimer": "Prieš nuskaitydami lustą paprašysime jūsų dokumento %d skaitmenų PIN kodo.",
       "title_document": "Nuskanuokite savo dokumentą",
       "title_passport": "Nuskaitykite savo paso lustą",
-      "video_instruction_accessibility": "Video instrukcija"
+      "video_instruction_accessibility": "Animacija, rodanti, kaip priglausti įrenginį prie dokumento, kad būtų nuskaityta jo NFC mikroschema."
     },
     "settings": {
       "button_primary": "Atidaryti nustatymus",
@@ -4924,7 +4924,7 @@
         "scanning": "Nuskaitoma...",
         "success": "Nuskaitymas sėkmingas."
       },
-      "video_instruction_accessibility": "Video instrukcija"
+      "video_instruction_accessibility": "Animacija, rodanti, kaip priglausti įrenginį prie dokumento, kad būtų nuskaityta jo NFC mikroschema."
     },
     "unsupported_device": {
       "button_primary": "Išeiti iš patvirtinimo",
@@ -4979,30 +4979,30 @@
   "presentDigitalIdentityWallet": {
     "button": {
       "digital_wallet": "Atidaryti skaitmeninę piniginę",
-      "document_capture": "Neturiu eID"
+      "document_capture": "Neturiu e. tapatybės dokumento"
     },
     "digital_wallet": {
-      "subtitle": "Norėdami tęsti, užbaikite tapatybės patvirtinimą savo tapatybės piniginės programėlėje",
+      "subtitle": "Norėdami tęsti, užbaikite patvirtinimą savo tapatybės piniginės programėlėje",
       "title": "Vyksta patvirtinimas"
     },
     "error": {
       "attribute_missing": {
-        "subtitle": "Visos prašomos savybės yra būtinos tęsti. Grįžkite atgal ir pasidalykite jomis.",
-        "title": "Kai kurios savybės nebuvo bendrinamos"
+        "subtitle": "Norint tęsti, reikia visų prašomų atributų. Grįžkite atgal ir bendrinkite juos.",
+        "title": "Kai kurie atributai nebuvo bendrinami"
       },
-      "button_another_method": "Pasirinkite kitą metodą",
+      "button_another_method": "Pasirinkite kitą būdą",
       "button_try_again": "Bandyti dar kartą",
       "standard": {
-        "subtitle": "Kilo problema atliekant jūsų patvirtinimą. Bandykite dar kartą.",
+        "subtitle": "Kilo problema patvirtinant jūsų tapatybę. Bandykite dar kartą.",
         "title": "Įvyko klaida"
       },
       "verification_failed": {
-        "subtitle": "Nepavyko patvirtinti jūsų savybių. Pabandykite kitą metodą.",
-        "title": "Nepavyko patikrinti jūsų tapatybės"
+        "subtitle": "Nepavyko patvirtinti jūsų atributų. Išbandykite kitą būdą.",
+        "title": "Nepavyko patvirtinti jūsų tapatybės"
       },
       "wallet_closed": {
-        "subtitle": "Piniginės patvirtinimas užtruko per ilgai arba ji buvo uždaryta. Grįžkite atgal ir bandykite dar kartą.",
-        "title": "Patvirtinimas nebuvo užbaigtas"
+        "subtitle": "Piniginė užtruko per ilgai arba buvo uždaryta. Grįžkite atgal ir bandykite dar kartą.",
+        "title": "Patvirtinimas nebaigtas"
       }
     },
     "field_validation": {
@@ -5010,7 +5010,7 @@
     },
     "intro": {
       "button_continue": "Pradėti patvirtinimą",
-      "subtitle": "Saugumo sumetimais ir siekdami apsaugoti jus nuo sukčiavimo turime patvirtinti jūsų tapatybę. Tai užtruks tik kelias minutes.",
+      "subtitle": "Saugumo sumetimais ir siekdami apsaugoti jus nuo sukčiavimo, turime patvirtinti jūsų tapatybę. Tai užtruks tik kelias minutes.",
       "title": "Patvirtinkite savo tapatybę"
     },
     "issuing_country": {

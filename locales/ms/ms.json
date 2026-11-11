@@ -4845,7 +4845,7 @@
       },
       "instruction_5_passport": "Sebaik sahaja telefon anda mengesan cip dalam pasport anda, imbasan akan bermula secara automatik. Pastikan telefon dan pasport anda tidak bergerak supaya imbasan dapat diselesaikan.",
       "title": "Tidak dapat mengimbas cip. Perlukan bantuan?",
-      "video_instruction_accessibility": "Arahan video"
+      "video_instruction_accessibility": "Animasi yang menunjukkan cara meletakkan peranti pada dokumen untuk mengimbas cipnya."
     },
     "pin_entry": {
       "button_primary": "Sambung",
@@ -4882,7 +4882,7 @@
       "pin_disclaimer": "Kami akan meminta PIN %d digit untuk dokumen anda sebelum mengimbas cip.",
       "title_document": "Imbas dokumen anda",
       "title_passport": "Imbas cip pasport anda",
-      "video_instruction_accessibility": "Arahan video"
+      "video_instruction_accessibility": "Animasi yang menunjukkan cara meletakkan peranti pada dokumen untuk mengimbas cipnya."
     },
     "settings": {
       "button_primary": "Buka tetapan",
@@ -4924,7 +4924,7 @@
         "scanning": "Mengimbas...",
         "success": "Imbasan berjaya."
       },
-      "video_instruction_accessibility": "Arahan video"
+      "video_instruction_accessibility": "Animasi yang menunjukkan cara meletakkan peranti pada dokumen untuk mengimbas cipnya."
     },
     "unsupported_device": {
       "button_primary": "Pengesahan keluar",
@@ -4982,13 +4982,13 @@
       "document_capture": "Saya tidak mempunyai eID"
     },
     "digital_wallet": {
-      "subtitle": "Lengkapkan pengesahan anda dalam apl dompet identiti anda untuk meneruskan",
-      "title": "Pengesahan sedang dijalankan"
+      "subtitle": "Selesaikan pengesahan anda dalam aplikasi dompet identiti anda untuk meneruskan",
+      "title": "Pengesahan sedang berlangsung"
     },
     "error": {
       "attribute_missing": {
         "subtitle": "Semua atribut yang diminta diperlukan untuk meneruskan. Sila kembali dan kongsikannya.",
-        "title": "Beberapa atribut tidak dikongsi"
+        "title": "Sesetengah atribut tidak dikongsi"
       },
       "button_another_method": "Pilih kaedah lain",
       "button_try_again": "Cuba lagi",

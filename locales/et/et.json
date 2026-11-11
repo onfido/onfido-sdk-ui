@@ -4845,7 +4845,7 @@
       },
       "instruction_5_passport": "Kui teie telefon tuvastab teie passi kiibi, algab skannimine automaatselt. Hoidke oma telefon ja pass paigal, et skannimine saaks lõpule viia.",
       "title": "Ei suuda kiipi skaneerida. Vajate abi?",
-      "video_instruction_accessibility": "Video juhend"
+      "video_instruction_accessibility": "Animatsioon, mis näitab, kuidas asetada seade dokumendi vastu selle NFC-kiibi lugemiseks."
     },
     "pin_entry": {
       "button_primary": "Jätkake",
@@ -4882,7 +4882,7 @@
       "pin_disclaimer": "Enne kiibilt lugemist küsime teie dokumendi %d-kohalist PIN-koodi.",
       "title_document": "Skaneeri oma dokument",
       "title_passport": "Skaneerige oma passi kiip",
-      "video_instruction_accessibility": "Video juhend"
+      "video_instruction_accessibility": "Animatsioon, mis näitab, kuidas asetada seade dokumendi vastu selle NFC-kiibi lugemiseks."
     },
     "settings": {
       "button_primary": "Avage sätted",
@@ -4924,7 +4924,7 @@
         "scanning": "Skaneerimine...",
         "success": "Skannimine õnnestus."
       },
-      "video_instruction_accessibility": "Video juhend"
+      "video_instruction_accessibility": "Animatsioon, mis näitab, kuidas asetada seade dokumendi vastu selle NFC-kiibi lugemiseks."
     },
     "unsupported_device": {
       "button_primary": "Väljumise kontroll",
@@ -4982,13 +4982,13 @@
       "document_capture": "Mul pole eID-d"
     },
     "digital_wallet": {
-      "subtitle": "Jätkamiseks viige isikutuvastus oma digitaalse rahakoti rakenduses lõpule",
+      "subtitle": "Jätkamiseks viige isikusamasuse kontrollimine lõpule oma digitaalse rahakoti rakenduses",
       "title": "Kontrollimine on pooleli"
     },
     "error": {
       "attribute_missing": {
         "subtitle": "Jätkamiseks on vaja kõiki nõutud atribuute. Palun minge tagasi ja jagage neid.",
-        "title": "Mõned atribuudid ei jagatud"
+        "title": "Mõningaid atribuute ei jagatud"
       },
       "button_another_method": "Vali mõni muu meetod",
       "button_try_again": "Proovige uuesti",

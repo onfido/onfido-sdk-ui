@@ -4845,7 +4845,7 @@
       },
       "instruction_5_passport": "Una vez que tu teléfono detecte el chip en tu pasaporte, la lectura comenzará automáticamente. Mantén tu teléfono y pasaporte quietos para que la lectura pueda completarse.",
       "title": "Incapaz de escanear el chip. ¿Necesitas ayuda?",
-      "video_instruction_accessibility": "Instrucciones en video"
+      "video_instruction_accessibility": "Una animación que muestra cómo colocar un dispositivo contra un documento para leer su chip."
     },
     "pin_entry": {
       "button_primary": "Continuar",
@@ -4882,7 +4882,7 @@
       "pin_disclaimer": "Te pediremos el PIN de %d dígitos de tu documento antes de escanear el chip.",
       "title_document": "Escanea tu documento",
       "title_passport": "Escanea el chip de tu pasaporte",
-      "video_instruction_accessibility": "Instrucciones en video"
+      "video_instruction_accessibility": "Una animación que muestra cómo colocar un dispositivo contra un documento para leer su chip."
     },
     "settings": {
       "button_primary": "Abrir configuración",
@@ -4924,7 +4924,7 @@
         "scanning": "Escaneando...",
         "success": "Escaneo exitoso."
       },
-      "video_instruction_accessibility": "Instrucciones en video"
+      "video_instruction_accessibility": "Una animación que muestra cómo colocar un dispositivo contra un documento para leer su chip."
     },
     "unsupported_device": {
       "button_primary": "Verificación de salida",
@@ -4979,10 +4979,10 @@
   "presentDigitalIdentityWallet": {
     "button": {
       "digital_wallet": "Abrir billetera digital",
-      "document_capture": "No tengo un eID"
+      "document_capture": "No tengo una identificación electrónica"
     },
     "digital_wallet": {
-      "subtitle": "Completa tu verificación en la app de tu billetera de identidad para continuar",
+      "subtitle": "Completa la verificación en la aplicación de tu billetera de identidad para continuar",
       "title": "Verificación en curso"
     },
     "error": {
@@ -4993,11 +4993,11 @@
       "button_another_method": "Elegir otro método",
       "button_try_again": "Inténtalo de nuevo",
       "standard": {
-        "subtitle": "Hubo un problema con tu verificación. Intenta nuevamente.",
+        "subtitle": "Hubo un problema con tu verificación. Inténtalo de nuevo.",
         "title": "Algo salió mal"
       },
       "verification_failed": {
-        "subtitle": "No se pudieron confirmar tus atributos. Intenta con otro método.",
+        "subtitle": "No se pudieron confirmar tus atributos. Prueba con otro método.",
         "title": "No pudimos verificar tu identidad"
       },
       "wallet_closed": {
@@ -5010,7 +5010,7 @@
     },
     "intro": {
       "button_continue": "Iniciar verificación",
-      "subtitle": "Por razones de seguridad y para protegerte contra el fraude, necesitamos verificar tu identidad. Esto tomará solo unos minutos.",
+      "subtitle": "Por razones de seguridad y para protegerte contra fraudes, necesitamos verificar tu identidad. Esto solo tomará unos minutos.",
       "title": "Verifica tu identidad"
     },
     "issuing_country": {

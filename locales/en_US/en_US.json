@@ -4845,7 +4845,7 @@
       },
       "instruction_5_passport": "Once your phone detects the chip in your passport, the scan will start automatically. Keep your phone and passport still so the scan can complete.",
       "title": "Unable to scan the chip. Need help?",
-      "video_instruction_accessibility": "Video instruction"
+      "video_instruction_accessibility": "An animation showing how to position a device against a document to scan its chip."
     },
     "pin_entry": {
       "button_primary": "Continue",
@@ -4882,7 +4882,7 @@
       "pin_disclaimer": "We'll ask you for your document's %d-digit PIN before scanning the chip.",
       "title_document": "Scan your document",
       "title_passport": "Scan your passport’s chip",
-      "video_instruction_accessibility": "Video instruction"
+      "video_instruction_accessibility": "An animation showing how to position a device against a document to scan its chip."
     },
     "settings": {
       "button_primary": "Open settings",
@@ -4924,7 +4924,7 @@
         "scanning": "Scanning...",
         "success": "Scan successful."
       },
-      "video_instruction_accessibility": "Video instruction"
+      "video_instruction_accessibility": "An animation showing how to position a device against a document to scan its chip."
     },
     "unsupported_device": {
       "button_primary": "Exit verification",

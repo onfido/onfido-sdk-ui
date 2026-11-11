@@ -4845,7 +4845,7 @@
       },
       "instruction_5_passport": "Kada vaš telefon otkrije čip u vašoj putovnici, skeniranje će započeti automatski. Držite telefon i putovnicu mirno kako bi skeniranje moglo završiti.",
       "title": "Nije moguće skenirati čip. Trebate li pomoć?",
-      "video_instruction_accessibility": "Video uputa"
+      "video_instruction_accessibility": "Animacija koja prikazuje kako postaviti uređaj uz dokument radi očitavanja NFC čipa."
     },
     "pin_entry": {
       "button_primary": "Nastavi",
@@ -4882,7 +4882,7 @@
       "pin_disclaimer": "Zatražit ćemo %d-znamenkasti PIN vašeg dokumenta prije skeniranja čipa.",
       "title_document": "Ubrzajte postupak uz NFC",
       "title_passport": "Skenirajte čip na vašoj putovnici",
-      "video_instruction_accessibility": "Video uputa"
+      "video_instruction_accessibility": "Animacija koja prikazuje kako postaviti uređaj uz dokument radi očitavanja NFC čipa."
     },
     "settings": {
       "button_primary": "Otvorite postavke",
@@ -4924,7 +4924,7 @@
         "scanning": "Skeniranje u tijeku...",
         "success": "Skeniranje uspješno."
       },
-      "video_instruction_accessibility": "Video uputa"
+      "video_instruction_accessibility": "Animacija koja prikazuje kako postaviti uređaj uz dokument radi očitavanja NFC čipa."
     },
     "unsupported_device": {
       "button_primary": "Izlazna provjera",
@@ -4982,7 +4982,7 @@
       "document_capture": "Nemam eID"
     },
     "digital_wallet": {
-      "subtitle": "Dovršite provjeru u aplikaciji novčanika identiteta kako biste nastavili",
+      "subtitle": "Dovršite provjeru u aplikaciji novčanika za identitet kako biste nastavili",
       "title": "Provjera u tijeku"
     },
     "error": {
@@ -4990,7 +4990,7 @@
         "subtitle": "Svi traženi atributi potrebni su za nastavak. Vratite se i podijelite ih.",
         "title": "Neki atributi nisu podijeljeni"
       },
-      "button_another_method": "Odaberite drugu metodu",
+      "button_another_method": "Odaberi drugu metodu",
       "button_try_again": "Pokušajte ponovno",
       "standard": {
         "subtitle": "Došlo je do problema s vašom provjerom. Pokušajte ponovo.",

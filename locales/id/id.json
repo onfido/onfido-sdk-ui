@@ -4845,7 +4845,7 @@
       },
       "instruction_5_passport": "Setelah ponsel Anda mendeteksi chip di paspor Anda, pemindaian akan dimulai secara otomatis. Jaga agar ponsel dan paspor Anda tetap diam agar pemindaian dapat selesai.",
       "title": "Tidak dapat memindai chip. Butuh bantuan?",
-      "video_instruction_accessibility": "Instruksi video"
+      "video_instruction_accessibility": "Animasi yang menunjukkan cara memosisikan perangkat pada dokumen untuk memindai chip-nya."
     },
     "pin_entry": {
       "button_primary": "Lanjutkan",
@@ -4882,7 +4882,7 @@
       "pin_disclaimer": "Kami akan meminta PIN %d digit dokumen Anda sebelum memindai chip.",
       "title_document": "Pindai dokumen Anda",
       "title_passport": "Pindai chip paspor Anda",
-      "video_instruction_accessibility": "Instruksi video"
+      "video_instruction_accessibility": "Animasi yang menunjukkan cara memosisikan perangkat pada dokumen untuk memindai chip-nya."
     },
     "settings": {
       "button_primary": "Buka pengaturan",
@@ -4924,7 +4924,7 @@
         "scanning": "Memindai...",
         "success": "Pindai berhasil."
       },
-      "video_instruction_accessibility": "Instruksi video"
+      "video_instruction_accessibility": "Animasi yang menunjukkan cara memosisikan perangkat pada dokumen untuk memindai chip-nya."
     },
     "unsupported_device": {
       "button_primary": "Verifikasi keluar",
@@ -4993,7 +4993,7 @@
       "button_another_method": "Pilih metode lain",
       "button_try_again": "Coba lagi",
       "standard": {
-        "subtitle": "Terjadi masalah dengan verifikasi Anda. Silakan coba lagi.",
+        "subtitle": "Terjadi masalah pada verifikasi Anda. Silakan coba lagi.",
         "title": "Terjadi kesalahan"
       },
       "verification_failed": {
@@ -5001,16 +5001,16 @@
         "title": "Kami tidak dapat memverifikasi identitas Anda"
       },
       "wallet_closed": {
-        "subtitle": "Dompet membutuhkan waktu terlalu lama atau telah ditutup. Silakan kembali dan coba lagi.",
-        "title": "Verifikasi tidak selesai"
+        "subtitle": "Dompet digital terlalu lama merespons atau ditutup. Silakan kembali dan coba lagi.",
+        "title": "Verifikasi belum selesai"
       }
     },
     "field_validation": {
-      "value_missing": "Silakan pilih opsi"
+      "value_missing": "Silakan pilih salah satu opsi"
     },
     "intro": {
       "button_continue": "Mulai verifikasi",
-      "subtitle": "Untuk alasan keamanan dan melindungi Anda dari penipuan, kami perlu memverifikasi identitas Anda. Ini hanya membutuhkan beberapa menit.",
+      "subtitle": "Demi alasan keamanan dan untuk melindungi Anda dari penipuan, kami perlu memverifikasi identitas Anda. Proses ini hanya memerlukan waktu beberapa menit.",
       "title": "Verifikasi identitas Anda"
     },
     "issuing_country": {

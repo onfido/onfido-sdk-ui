@@ -4845,7 +4845,7 @@
       },
       "instruction_5_passport": "Kada vaš telefon detektuje čip u vašem pasošu, skeniranje će se automatski pokrenuti. Držite telefon i pasoš mirno kako bi skeniranje moglo da se završi.",
       "title": "Nije moguće skenirati čip. Treba vam pomoć?",
-      "video_instruction_accessibility": "Видео упутство"
+      "video_instruction_accessibility": "Animacija koja prikazuje kako postaviti uređaj uz dokument radi očitavanja NFC čipa."
     },
     "pin_entry": {
       "button_primary": "Nastavi",
@@ -4882,7 +4882,7 @@
       "pin_disclaimer": "Zatražićemo od vas %d-cifreni PIN vašeg dokumenta pre skeniranja čipa.",
       "title_document": "Skenirajte svoj dokument",
       "title_passport": "Skenirajte čip na vašem pasošu",
-      "video_instruction_accessibility": "Видео упутство"
+      "video_instruction_accessibility": "Animacija koja prikazuje kako postaviti uređaj uz dokument radi očitavanja NFC čipa."
     },
     "settings": {
       "button_primary": "Otvori podešavanja",
@@ -4924,7 +4924,7 @@
         "scanning": "Skenira se...",
         "success": "Skeniranje uspešno."
       },
-      "video_instruction_accessibility": "Видео упутство"
+      "video_instruction_accessibility": "Animacija koja prikazuje kako postaviti uređaj uz dokument radi očitavanja NFC čipa."
     },
     "unsupported_device": {
       "button_primary": "Izlazna verifikacija",
@@ -4987,7 +4987,7 @@
     },
     "error": {
       "attribute_missing": {
-        "subtitle": "Svi traženi atributi su potrebni za nastavak. Molimo idite nazad i podelite ih.",
+        "subtitle": "Svi traženi atributi su potrebni za nastavak. Molimo vratite se i podelite ih.",
         "title": "Neki atributi nisu podeljeni"
       },
       "button_another_method": "Odaberite drugi metod",
@@ -5001,7 +5001,7 @@
         "title": "Nismo mogli da potvrdimo vaš identitet"
       },
       "wallet_closed": {
-        "subtitle": "Novčanik je predugo čekao ili je zatvoren. Molimo idite nazad i pokušajte ponovo.",
+        "subtitle": "Novčanik je predugo čekao ili je zatvoren. Molimo vratite se i pokušajte ponovo.",
         "title": "Verifikacija nije završena"
       }
     },

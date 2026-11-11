@@ -4845,7 +4845,7 @@
       },
       "instruction_5_passport": "パスポートのチップが携帯電話に検出されると、スキャンが自動的に開始されます。スキャンが完了するまで、携帯電話とパスポートを静止させてください。",
       "title": "チップをスキャンできません。ヘルプが必要ですか？",
-      "video_instruction_accessibility": "動画の説明"
+      "video_instruction_accessibility": "デバイスを文書にかざしてICチップを読み取る方法を示すアニメーション。"
     },
     "pin_entry": {
       "button_primary": "続行",
@@ -4882,7 +4882,7 @@
       "pin_disclaimer": "書類の%d桁のPINを入力していただいた後、チップをスキャンします。",
       "title_document": "あなたのドキュメントをスキャンする",
       "title_passport": "パスポートのチップをスキャンします",
-      "video_instruction_accessibility": "動画の説明"
+      "video_instruction_accessibility": "デバイスを文書にかざしてICチップを読み取る方法を示すアニメーション。"
     },
     "settings": {
       "button_primary": "設定を開く",
@@ -4924,7 +4924,7 @@
         "scanning": "スキャンしています...",
         "success": "スキャンが成功しました。"
       },
-      "video_instruction_accessibility": "動画の説明"
+      "video_instruction_accessibility": "デバイスを文書にかざしてICチップを読み取る方法を示すアニメーション。"
     },
     "unsupported_device": {
       "button_primary": "退出確認",
@@ -4979,29 +4979,29 @@
   "presentDigitalIdentityWallet": {
     "button": {
       "digital_wallet": "デジタルウォレットを開く",
-      "document_capture": "eID を持っていません"
+      "document_capture": "eIDを持っていません"
     },
     "digital_wallet": {
-      "subtitle": "続行するには、本人確認ウォレットアプリで確認を完了してください",
-      "title": "確認を進行中です"
+      "subtitle": "続行するには、IDウォレットアプリで本人確認を完了してください",
+      "title": "本人確認を進めています"
     },
     "error": {
       "attribute_missing": {
-        "subtitle": "続行するには、要求されたすべての属性が必要です。戻ってそれらを共有してください。",
+        "subtitle": "続行するには、要求されたすべての属性が必要です。戻って共有してください。",
         "title": "一部の属性が共有されませんでした"
       },
-      "button_another_method": "別の方法を選ぶ",
+      "button_another_method": "別の方法を選択",
       "button_try_again": "再試行",
       "standard": {
         "subtitle": "本人確認中に問題が発生しました。もう一度お試しください。",
         "title": "問題が発生しました"
       },
       "verification_failed": {
-        "subtitle": "お客様の属性を確認できませんでした。別の方法をお試しください。",
-        "title": "ご本人確認ができませんでした"
+        "subtitle": "属性を確認できませんでした。別の方法をお試しください。",
+        "title": "本人確認を行うことができませんでした"
       },
       "wallet_closed": {
-        "subtitle": "ウォレットの処理に時間がかかりすぎたか、ウォレットが閉じられました。戻ってもう一度お試しください。",
+        "subtitle": "ウォレットの応答に時間がかかりすぎたか、閉じられました。戻ってもう一度お試しください。",
         "title": "本人確認が完了しませんでした"
       }
     },
@@ -5010,7 +5010,7 @@
     },
     "intro": {
       "button_continue": "認証を開始",
-      "subtitle": "セキュリティ上の理由と不正利用からお守りするため、ご本人確認が必要です。数分ほどで完了します。",
+      "subtitle": "セキュリティ上の理由および不正利用からお客様を保護するため、本人確認が必要です。数分で完了します。",
       "title": "本人確認を行う"
     },
     "issuing_country": {

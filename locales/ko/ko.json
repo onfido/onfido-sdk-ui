@@ -4845,7 +4845,7 @@
       },
       "instruction_5_passport": "휴대폰이 여권의 칩을 감지하면 스캔이 자동으로 시작됩니다. 스캔이 완료될 수 있도록 휴대폰과 여권을 고정하세요.",
       "title": "칩을 스캔할 수 없습니다. 도움이 필요하신가요?",
-      "video_instruction_accessibility": "동영상 안내"
+      "video_instruction_accessibility": "기기를 문서에 대고 NFC 칩을 읽는 방법을 보여주는 애니메이션."
     },
     "pin_entry": {
       "button_primary": "계속",
@@ -4882,7 +4882,7 @@
       "pin_disclaimer": "칩을 스캔하기 전에 문서의 %d자리 PIN을 요청합니다.",
       "title_document": "문서를 스캔하십시오",
       "title_passport": "여권의 칩을 스캔합니다",
-      "video_instruction_accessibility": "동영상 안내"
+      "video_instruction_accessibility": "기기를 문서에 대고 NFC 칩을 읽는 방법을 보여주는 애니메이션."
     },
     "settings": {
       "button_primary": "설정 열기",
@@ -4924,7 +4924,7 @@
         "scanning": "스캔 중...",
         "success": "스캔 성공."
       },
-      "video_instruction_accessibility": "동영상 안내"
+      "video_instruction_accessibility": "기기를 문서에 대고 NFC 칩을 읽는 방법을 보여주는 애니메이션."
     },
     "unsupported_device": {
       "button_primary": "출구 확인",
@@ -4987,13 +4987,13 @@
     },
     "error": {
       "attribute_missing": {
-        "subtitle": "계속하려면 요청된 모든 속성이 필요합니다. 뒤로 돌아가서 공유해 주세요.",
+        "subtitle": "계속하려면 요청된 모든 속성이 필요합니다. 뒤로 돌아가서 속성을 공유해 주세요.",
         "title": "일부 속성이 공유되지 않았습니다"
       },
       "button_another_method": "다른 방법 선택",
       "button_try_again": "다시 시도하기",
       "standard": {
-        "subtitle": "인증 중 문제가 발생했습니다. 다시 시도해 주세요.",
+        "subtitle": "인증에 문제가 발생했습니다. 다시 시도해 주세요.",
         "title": "문제가 발생했습니다"
       },
       "verification_failed": {
@@ -5001,7 +5001,7 @@
         "title": "신원을 확인할 수 없습니다"
       },
       "wallet_closed": {
-        "subtitle": "지갑이 너무 오래 걸리거나 닫혔습니다. 뒤로 돌아가서 다시 시도해 주세요.",
+        "subtitle": "지갑 응답 시간이 초과되었거나 지갑이 닫혔습니다. 뒤로 돌아가서 다시 시도해 주세요.",
         "title": "인증이 완료되지 않았습니다"
       }
     },

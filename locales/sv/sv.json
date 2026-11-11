@@ -4845,7 +4845,7 @@
       },
       "instruction_5_passport": "När din telefon upptäcker chipet i ditt pass, startar skanningen automatiskt. Håll din telefon och ditt pass stilla så att skanningen kan slutföras.",
       "title": "Kan inte skanna chippet. Behöver du hjälp?",
-      "video_instruction_accessibility": "Videoinstruktion"
+      "video_instruction_accessibility": "En animation som visar hur man placerar en enhet mot ett dokument för att läsa av dess NFC-chip."
     },
     "pin_entry": {
       "button_primary": "Fortsätt",
@@ -4882,7 +4882,7 @@
       "pin_disclaimer": "Vi kommer att be dig om din dokuments %d-siffriga PIN-kod innan vi skannar chipet.",
       "title_document": "Skanna ditt dokument",
       "title_passport": "Skanna ditt pass NFC-chip",
-      "video_instruction_accessibility": "Videoinstruktion"
+      "video_instruction_accessibility": "En animation som visar hur man placerar en enhet mot ett dokument för att läsa av dess NFC-chip."
     },
     "settings": {
       "button_primary": "Öppna inställningar",
@@ -4924,7 +4924,7 @@
         "scanning": "Skannar...",
         "success": "Skanning lyckades."
       },
-      "video_instruction_accessibility": "Videoinstruktion"
+      "video_instruction_accessibility": "En animation som visar hur man placerar en enhet mot ett dokument för att läsa av dess NFC-chip."
     },
     "unsupported_device": {
       "button_primary": "Avsluta verifiering",
@@ -4979,7 +4979,7 @@
   "presentDigitalIdentityWallet": {
     "button": {
       "digital_wallet": "Öppna digital plånbok",
-      "document_capture": "Jag har inget eID"
+      "document_capture": "Jag har inget e-legitimation"
     },
     "digital_wallet": {
       "subtitle": "Slutför din verifiering i din identitetsplånboksapp för att fortsätta",
@@ -5010,7 +5010,7 @@
     },
     "intro": {
       "button_continue": "Starta verifiering",
-      "subtitle": "Av säkerhetsskäl och för att skydda dig mot bedrägerier behöver vi verifiera din identitet. Det här tar bara några minuter.",
+      "subtitle": "Av säkerhetsskäl och för att skydda dig mot bedrägerier behöver vi verifiera din identitet. Det tar bara några minuter.",
       "title": "Verifiera din identitet"
     },
     "issuing_country": {

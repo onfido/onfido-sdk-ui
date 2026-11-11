@@ -4845,7 +4845,7 @@
       },
       "instruction_5_passport": "一旦您的手机检测到护照中的芯片，扫描将自动开始。请保持手机和护照静止，以便扫描完成。",
       "title": "无法扫描芯片。需要帮助吗？",
-      "video_instruction_accessibility": "视频教程"
+      "video_instruction_accessibility": "一段动画，演示如何将设备贴近证件以读取其NFC芯片。"
     },
     "pin_entry": {
       "button_primary": "继续",
@@ -4882,7 +4882,7 @@
       "pin_disclaimer": "我们将在扫描芯片之前要求您提供文件的 %d 位 PIN 码。",
       "title_document": "扫描您的文档",
       "title_passport": "扫描您护照的芯片",
-      "video_instruction_accessibility": "视频教程"
+      "video_instruction_accessibility": "一段动画，演示如何将设备贴近证件以读取其NFC芯片。"
     },
     "settings": {
       "button_primary": "打开设置",
@@ -4924,7 +4924,7 @@
         "scanning": "正在扫描......",
         "success": "扫描成功。"
       },
-      "video_instruction_accessibility": "视频教程"
+      "video_instruction_accessibility": "一段动画，演示如何将设备贴近证件以读取其NFC芯片。"
     },
     "unsupported_device": {
       "button_primary": "退出验证",
@@ -4987,13 +4987,13 @@
     },
     "error": {
       "attribute_missing": {
-        "subtitle": "需要所有请求的属性才能继续，请返回并共享这些属性。",
-        "title": "部分属性未被共享"
+        "subtitle": "需要所有请求的属性才能继续。请返回并共享这些属性。",
+        "title": "部分属性未共享"
       },
       "button_another_method": "选择其他方式",
       "button_try_again": "请重试",
       "standard": {
-        "subtitle": "您的验证过程中出现了问题，请重试。",
+        "subtitle": "您的验证出现问题，请重试。",
         "title": "出现了问题"
       },
       "verification_failed": {
@@ -5010,7 +5010,7 @@
     },
     "intro": {
       "button_continue": "开始验证",
-      "subtitle": "出于安全原因并保护您免受欺诈，我们需要验证您的身份。这只需要几分钟。",
+      "subtitle": "出于安全原因并保护您免受欺诈，我们需要验证您的身份。这只需几分钟。",
       "title": "验证您的身份"
     },
     "issuing_country": {

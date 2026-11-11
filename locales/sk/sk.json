@@ -4845,7 +4845,7 @@
       },
       "instruction_5_passport": "Akonáhle váš telefón zistí čip vo vašom pase, skenovanie sa automaticky spustí. Držte telefón a pas v pokoji, aby sa skenovanie mohlo dokončiť.",
       "title": "Nepodarilo sa naskenovať čip. Potrebujete pomoc?",
-      "video_instruction_accessibility": "Video návod"
+      "video_instruction_accessibility": "Animácia znázorňujúca, ako priložiť zariadenie k dokladu na načítanie jeho čipu NFC."
     },
     "pin_entry": {
       "button_primary": "Pokračovať",
@@ -4882,7 +4882,7 @@
       "pin_disclaimer": "Pred skenovaním čipu vás požiadame o %d-miestny PIN vášho dokladu.",
       "title_document": "Naskenujte váš dokument",
       "title_passport": "Naskenujte čip vo vašom pase",
-      "video_instruction_accessibility": "Video návod"
+      "video_instruction_accessibility": "Animácia znázorňujúca, ako priložiť zariadenie k dokladu na načítanie jeho čipu NFC."
     },
     "settings": {
       "button_primary": "Otvorte nastavenia",
@@ -4924,7 +4924,7 @@
         "scanning": "Skenuje sa…",
         "success": "Skenovanie úspešné."
       },
-      "video_instruction_accessibility": "Video návod"
+      "video_instruction_accessibility": "Animácia znázorňujúca, ako priložiť zariadenie k dokladu na načítanie jeho čipu NFC."
     },
     "unsupported_device": {
       "button_primary": "Overenie pri odchode",
@@ -5001,8 +5001,8 @@
         "title": "Nepodarilo sa nám overiť vašu totožnosť"
       },
       "wallet_closed": {
-        "subtitle": "Peňaženka trvala príliš dlho alebo bola zatvorená. Vráťte sa späť a skúste to znova.",
-        "title": "Overenie sa nedokončilo"
+        "subtitle": "Peňaženka reagovala príliš dlho alebo bola zatvorená. Vráťte sa späť a skúste to znova.",
+        "title": "Overenie nebolo dokončené"
       }
     },
     "field_validation": {

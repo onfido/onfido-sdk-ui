@@ -4845,7 +4845,7 @@
       },
       "instruction_5_passport": "Jakmile váš telefon detekuje čip ve vašem pasu, skenování se automaticky spustí. Držte telefon a pas v klidu, aby se skenování mohlo dokončit.",
       "title": "Nelze naskenovat čip. Potřebujete pomoc?",
-      "video_instruction_accessibility": "Video návod"
+      "video_instruction_accessibility": "Animace znázorňující, jak přiložit zařízení k dokladu pro načtení jeho NFC čipu."
     },
     "pin_entry": {
       "button_primary": "Pokračovat",
@@ -4882,7 +4882,7 @@
       "pin_disclaimer": "Před skenováním čipu vás požádáme o %dmístný PIN vašeho dokladu.",
       "title_document": "Skenovat váš dokument",
       "title_passport": "Naskenujte čip Vašeho pasu",
-      "video_instruction_accessibility": "Video návod"
+      "video_instruction_accessibility": "Animace znázorňující, jak přiložit zařízení k dokladu pro načtení jeho NFC čipu."
     },
     "settings": {
       "button_primary": "Otevřít nastavení",
@@ -4924,7 +4924,7 @@
         "scanning": "Skenování...",
         "success": "Skenování úspěšné."
       },
-      "video_instruction_accessibility": "Video návod"
+      "video_instruction_accessibility": "Animace znázorňující, jak přiložit zařízení k dokladu pro načtení jeho NFC čipu."
     },
     "unsupported_device": {
       "button_primary": "Ověření při odchodu",
@@ -4987,13 +4987,13 @@
     },
     "error": {
       "attribute_missing": {
-        "subtitle": "Pro pokračování jsou nutné všechny požadované atributy. Vraťte se prosím zpět a sdílejte je.",
+        "subtitle": "Pro pokračování jsou nutné všechny požadované atributy. Vraťte se zpět a sdílejte je.",
         "title": "Některé atributy nebyly sdíleny"
       },
       "button_another_method": "Zvolit jinou metodu",
       "button_try_again": "Zkuste to znovu",
       "standard": {
-        "subtitle": "Při ověřování došlo k chybě. Zkuste to prosím znovu.",
+        "subtitle": "Při ověřování došlo k problému. Zkuste to prosím znovu.",
         "title": "Něco se pokazilo"
       },
       "verification_failed": {
@@ -5001,7 +5001,7 @@
         "title": "Nepodařilo se nám ověřit vaši totožnost"
       },
       "wallet_closed": {
-        "subtitle": "Peněženka trvala příliš dlouho nebo byla zavřena. Vraťte se prosím zpět a zkuste to znovu.",
+        "subtitle": "Peněženka reagovala příliš dlouho nebo byla zavřena. Vraťte se zpět a zkuste to znovu.",
         "title": "Ověření nebylo dokončeno"
       }
     },
@@ -5010,7 +5010,7 @@
     },
     "intro": {
       "button_continue": "Zahájit proces ověřování",
-      "subtitle": "Z bezpečnostních důvodů a pro ochranu před podvodem potřebujeme ověřit vaši totožnost. Zabere to jen několik minut.",
+      "subtitle": "Z bezpečnostních důvodů a z důvodu ochrany před podvodem potřebujeme ověřit vaši totožnost. Zabere to jen několik minut.",
       "title": "Potvrďte svou totožnost"
     },
     "issuing_country": {

@@ -4845,7 +4845,7 @@
       },
       "instruction_5_passport": "Une fois que votre téléphone détecte la puce dans votre passeport, le scan commencera automatiquement. Gardez votre téléphone et votre passeport immobiles pour que la numérisation puisse se terminer.",
       "title": "Incapable de scanner la puce. Besoin d'aide?",
-      "video_instruction_accessibility": "Tutoriel vidéo"
+      "video_instruction_accessibility": "Une animation montrant comment positionner un appareil contre un document pour lire sa puce."
     },
     "pin_entry": {
       "button_primary": "Continuer",
@@ -4882,7 +4882,7 @@
       "pin_disclaimer": "Nous vous demanderons le code PIN à %d chiffres de votre document avant de scanner la puce.",
       "title_document": "Scannez votre document",
       "title_passport": "Scannez la puce de votre passeport",
-      "video_instruction_accessibility": "Tutoriel vidéo"
+      "video_instruction_accessibility": "Une animation montrant comment positionner un appareil contre un document pour lire sa puce."
     },
     "settings": {
       "button_primary": "Ouvrir les paramètres",
@@ -4924,7 +4924,7 @@
         "scanning": "Scan en cours...",
         "success": "Scan réussi."
       },
-      "video_instruction_accessibility": "Tutoriel vidéo"
+      "video_instruction_accessibility": "Une animation montrant comment positionner un appareil contre un document pour lire sa puce."
     },
     "unsupported_device": {
       "button_primary": "Quitter la vérification",
@@ -4978,7 +4978,7 @@
   },
   "presentDigitalIdentityWallet": {
     "button": {
-      "digital_wallet": "Ouvrir le portefeuille numérique",
+      "digital_wallet": "Ouvrir un portefeuille numérique",
       "document_capture": "Je n’ai pas d’eID"
     },
     "digital_wallet": {
@@ -5001,8 +5001,8 @@
         "title": "Nous n’avons pas pu vérifier votre identité"
       },
       "wallet_closed": {
-        "subtitle": "Le portefeuille a mis trop de temps ou a été fermé. Veuillez revenir en arrière et réessayer.",
-        "title": "La vérification n’a pas abouti"
+        "subtitle": "Le portefeuille a mis trop de temps à répondre ou a été fermé. Veuillez revenir en arrière et réessayer.",
+        "title": "La vérification n’a pas été terminée"
       }
     },
     "field_validation": {
@@ -5010,7 +5010,7 @@
     },
     "intro": {
       "button_continue": "Commencer la vérification",
-      "subtitle": "Pour des raisons de sécurité et pour vous protéger contre la fraude, nous devons vérifier votre identité. Cela ne prendra que quelques minutes.",
+      "subtitle": "Pour des raisons de sécurité et afin de vous protéger contre la fraude, nous devons vérifier votre identité. Cela ne prendra que quelques minutes.",
       "title": "Vérification d’identité"
     },
     "issuing_country": {

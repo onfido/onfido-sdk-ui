@@ -4845,7 +4845,7 @@
       },
       "instruction_5_passport": "Amint a telefonod érzékeli a chipet az útleveledben, a beolvasás automatikusan elindul. Tartsd mozdulatlanul a telefonodat és az útleveledet, hogy a beolvasás befejeződhessen.",
       "title": "Nem sikerült a chip beolvasása. Segítségre van szüksége?",
-      "video_instruction_accessibility": "Videós útmutató"
+      "video_instruction_accessibility": "Egy animáció, amely bemutatja, hogyan tartsa az eszközt a dokumentumhoz a chip beolvasásához."
     },
     "pin_entry": {
       "button_primary": "Tovább",
@@ -4882,7 +4882,7 @@
       "pin_disclaimer": "A chip beolvasása előtt kérni fogjuk a dokumentum %d számjegyű PIN-kódját.",
       "title_document": "Scannelje be a dokumentumát",
       "title_passport": "Olvassa le az útlevelének chipjét",
-      "video_instruction_accessibility": "Videós útmutató"
+      "video_instruction_accessibility": "Egy animáció, amely bemutatja, hogyan tartsa az eszközt a dokumentumhoz a chip beolvasásához."
     },
     "settings": {
       "button_primary": "Beállítások megnyitása",
@@ -4924,7 +4924,7 @@
         "scanning": "Beolvasás…",
         "success": "Sikeres beolvasás."
       },
-      "video_instruction_accessibility": "Videós útmutató"
+      "video_instruction_accessibility": "Egy animáció, amely bemutatja, hogyan tartsa az eszközt a dokumentumhoz a chip beolvasásához."
     },
     "unsupported_device": {
       "button_primary": "Azonosítás megszakítása",
@@ -4983,25 +4983,25 @@
     },
     "digital_wallet": {
       "subtitle": "A folytatáshoz fejezze be az ellenőrzést a személyazonossági pénztárca alkalmazásában",
-      "title": "Ellenőrzés folyamatban"
+      "title": "Az ellenőrzés folyamatban van"
     },
     "error": {
       "attribute_missing": {
-        "subtitle": "A folytatáshoz minden kért adatra szükség van. Kérjük, lépjen vissza, és ossza meg ezeket.",
-        "title": "Néhány adat nem került megosztásra"
+        "subtitle": "A folytatáshoz minden kért adatra szükség van. Kérjük, lépjen vissza, és ossza meg őket.",
+        "title": "Egyes adatok nem lettek megosztva"
       },
-      "button_another_method": "Válasszon másik módszert",
+      "button_another_method": "Másik módszer választása",
       "button_try_again": "Próbálja újra",
       "standard": {
         "subtitle": "Hiba történt az ellenőrzés során. Kérjük, próbálja újra.",
         "title": "Hiba történt"
       },
       "verification_failed": {
-        "subtitle": "Az adatait nem tudtuk megerősíteni. Kérjük, próbáljon ki egy másik módszert.",
+        "subtitle": "Az adatait nem tudtuk megerősíteni. Kérjük, próbáljon másik módszert.",
         "title": "Nem sikerült ellenőriznünk személyazonosságát"
       },
       "wallet_closed": {
-        "subtitle": "A pénztárca túl sokáig tartott beolvasni, vagy bezárult. Kérjük, lépjen vissza, és próbálja újra.",
+        "subtitle": "A pénztárca túl sokáig tartott, vagy bezárták. Kérjük, lépjen vissza, és próbálja újra.",
         "title": "Az ellenőrzés nem fejeződött be"
       }
     },
@@ -5010,7 +5010,7 @@
     },
     "intro": {
       "button_continue": "Ellenőrzés megkezdése",
-      "subtitle": "Biztonsági okokból és az Ön védelme érdekében meg kell erősítenünk személyazonosságát. Ez csak néhány percet vesz igénybe.",
+      "subtitle": "Biztonsági okokból és a csalások elleni védelem érdekében ellenőriznünk kell személyazonosságát. Ez csak néhány percet vesz igénybe.",
       "title": "Igazolja személyazonosságát"
     },
     "issuing_country": {

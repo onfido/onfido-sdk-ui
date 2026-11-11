@@ -243,6 +243,22 @@ When any of the string translations change, it will result in a MINOR version ch
 
 - Remove analytics logging for failed requests.
 
+## [14.90.0] - 2026-11-11
+
+### Changed
+
+- Improve screen reader navigation by identifying key interface areas (Navigation, Main Content, and Actions) so users can quickly jump between sections.
+- Improved Cross-Device flow by removing the Cross-Device intro screen and updating the design of the Cross-Device link screen
+
+### Fixed
+
+- Fix screen reader navigation order on the uploads successful screen to follow the visual presentation sequence (heading, body text, banner) instead of reading content in reverse
+- Fix Request Compliance Consent to display content in the SDK's resolved language, including browser language when no language is explicitly configured
+- Fix Motion passive liveness camera feed crashing or showing a black screen on iOS Safari during face capture
+- Fix WebGL contexts being created on every analytics event, which could exhaust the browser's context limit
+- Accessibility: Hide the decorative camera and microphone icons on the permissions screen from screen readers.
+- Accessibility: Announce the new content to screen readers when switching between the QR code, SMS and copy link methods on the cross device link screen.
+
 ## [14.68.0] - 2026-03-11
 
 ### Changed

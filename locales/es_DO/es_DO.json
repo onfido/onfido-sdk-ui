@@ -4845,7 +4845,7 @@
       },
       "instruction_5_passport": "Una vez que tu teléfono detecte el chip en tu pasaporte, la lectura comenzará automáticamente. Mantén tu teléfono y pasaporte quietos para que la lectura pueda completarse.",
       "title": "No se puede escanear el chip. ¿Necesitas ayuda?",
-      "video_instruction_accessibility": "Instrucción en video"
+      "video_instruction_accessibility": "Una animación que muestra cómo colocar un dispositivo sobre un documento para leer su chip NFC."
     },
     "pin_entry": {
       "button_primary": "Continuar",
@@ -4882,7 +4882,7 @@
       "pin_disclaimer": "Te pediremos el PIN de %d dígitos de tu documento antes de escanear el chip.",
       "title_document": "Escanea tu documento",
       "title_passport": "Escanea el chip de tu pasaporte",
-      "video_instruction_accessibility": "Instrucción en video"
+      "video_instruction_accessibility": "Una animación que muestra cómo colocar un dispositivo sobre un documento para leer su chip NFC."
     },
     "settings": {
       "button_primary": "Abrir configuración",
@@ -4924,7 +4924,7 @@
         "scanning": "Escaneando...",
         "success": "Escaneo exitoso."
       },
-      "video_instruction_accessibility": "Instrucción en video"
+      "video_instruction_accessibility": "Una animación que muestra cómo colocar un dispositivo sobre un documento para leer su chip NFC."
     },
     "unsupported_device": {
       "button_primary": "Verificación de salida",
@@ -4979,16 +4979,16 @@
   "presentDigitalIdentityWallet": {
     "button": {
       "digital_wallet": "Abrir billetera digital",
-      "document_capture": "No tengo un eID"
+      "document_capture": "No tengo una eID"
     },
     "digital_wallet": {
-      "subtitle": "Completa tu verificación en tu app de billetera de identidad para continuar",
-      "title": "Verificación en progreso"
+      "subtitle": "Completa la verificación en la aplicación de tu billetera de identidad para continuar",
+      "title": "Verificación en curso"
     },
     "error": {
       "attribute_missing": {
-        "subtitle": "Se necesitan todos los atributos solicitados para continuar. Por favor, regresa y compártelos.",
-        "title": "Algunos atributos no se compartieron"
+        "subtitle": "Todos los atributos solicitados son necesarios para continuar. Por favor, vuelve atrás y compártelos.",
+        "title": "No se compartieron algunos atributos"
       },
       "button_another_method": "Elige otro método",
       "button_try_again": "Inténtalo de nuevo",
@@ -5001,7 +5001,7 @@
         "title": "No pudimos verificar tu identidad"
       },
       "wallet_closed": {
-        "subtitle": "La billetera tardó demasiado o se cerró. Por favor, regresa e inténtalo de nuevo.",
+        "subtitle": "La billetera tardó demasiado o se cerró. Por favor, vuelve atrás e inténtalo de nuevo.",
         "title": "La verificación no se completó"
       }
     },

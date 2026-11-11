@@ -4845,7 +4845,7 @@
       },
       "instruction_5_passport": "Telefonunuz pasaportunuzdaki çipi algıladığında, tarama otomatik olarak başlayacaktır. Taramanın tamamlanabilmesi için telefonunuzu ve pasaportunuzu sabit tutun.",
       "title": "Çipi tarayamıyoruz. Yardıma mı ihtiyacınız var?",
-      "video_instruction_accessibility": "Video talimatı"
+      "video_instruction_accessibility": "Bir cihazın NFC çipini okumak için belgeye nasıl konumlandırılacağını gösteren animasyon."
     },
     "pin_entry": {
       "button_primary": "Devam et",
@@ -4882,7 +4882,7 @@
       "pin_disclaimer": "Çipi taramadan önce belgenizin %d haneli PIN kodunu isteyeceğiz.",
       "title_document": "Belgenizi tarayın",
       "title_passport": "Pasaportunuzun çipini tarayın",
-      "video_instruction_accessibility": "Video talimatı"
+      "video_instruction_accessibility": "Bir cihazın NFC çipini okumak için belgeye nasıl konumlandırılacağını gösteren animasyon."
     },
     "settings": {
       "button_primary": "Ayarları aç",
@@ -4924,7 +4924,7 @@
         "scanning": "Taranıyor...",
         "success": "Tarama başarılı."
       },
-      "video_instruction_accessibility": "Video talimatı"
+      "video_instruction_accessibility": "Bir cihazın NFC çipini okumak için belgeye nasıl konumlandırılacağını gösteren animasyon."
     },
     "unsupported_device": {
       "button_primary": "Çıkış doğrulaması",
@@ -5001,7 +5001,7 @@
         "title": "Kimliğinizi doğrulayamadık"
       },
       "wallet_closed": {
-        "subtitle": "Cüzdan çok uzun sürdü veya kapatıldı. Lütfen geri dönüp tekrar deneyin.",
+        "subtitle": "Cüzdan çok uzun süre bekledi veya kapatıldı. Lütfen geri dönüp tekrar deneyin.",
         "title": "Doğrulama tamamlanamadı"
       }
     },
@@ -5010,7 +5010,7 @@
     },
     "intro": {
       "button_continue": "Doğrulamayı başlat",
-      "subtitle": "Güvenlik nedenleriyle ve sizi dolandırıcılığa karşı korumak için kimliğinizi doğrulamamız gerekiyor. Bu yalnızca birkaç dakika sürecektir.",
+      "subtitle": "Güvenlik nedeniyle ve sizi dolandırıcılığa karşı korumak amacıyla kimliğinizi doğrulamamız gerekiyor. Bu yalnızca birkaç dakika sürecektir.",
       "title": "Kimliğinizi doğrulayın"
     },
     "issuing_country": {

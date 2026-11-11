@@ -4845,7 +4845,7 @@
       },
       "instruction_5_passport": "Khi điện thoại của bạn phát hiện chip trong hộ chiếu, quá trình quét sẽ tự động bắt đầu. Giữ điện thoại và hộ chiếu của bạn yên để quá trình quét có thể hoàn tất.",
       "title": "Không thể quét chip. Cần trợ giúp?",
-      "video_instruction_accessibility": "Hướng dẫn video"
+      "video_instruction_accessibility": "Hoạt ảnh minh họa cách đặt thiết bị vào tài liệu để đọc chip NFC."
     },
     "pin_entry": {
       "button_primary": "Tiếp tục",
@@ -4882,7 +4882,7 @@
       "pin_disclaimer": "Chúng tôi sẽ yêu cầu bạn nhập mã PIN %d chữ số của tài liệu trước khi quét chip.",
       "title_document": "Quét tài liệu của bạn",
       "title_passport": "Quét chip trong hộ chiếu của bạn",
-      "video_instruction_accessibility": "Hướng dẫn video"
+      "video_instruction_accessibility": "Hoạt ảnh minh họa cách đặt thiết bị vào tài liệu để đọc chip NFC."
     },
     "settings": {
       "button_primary": "Mở phần cài đặt",
@@ -4924,7 +4924,7 @@
         "scanning": "Đang quét...",
         "success": "Quét thành công."
       },
-      "video_instruction_accessibility": "Hướng dẫn video"
+      "video_instruction_accessibility": "Hoạt ảnh minh họa cách đặt thiết bị vào tài liệu để đọc chip NFC."
     },
     "unsupported_device": {
       "button_primary": "Xác minh thoát",
@@ -4978,12 +4978,12 @@
   },
   "presentDigitalIdentityWallet": {
     "button": {
-      "digital_wallet": "Mở ví điện tử",
+      "digital_wallet": "Mở ví kỹ thuật số",
       "document_capture": "Tôi không có eID"
     },
     "digital_wallet": {
       "subtitle": "Hoàn tất xác minh trong ứng dụng ví danh tính của bạn để tiếp tục",
-      "title": "Đang tiến hành xác minh"
+      "title": "Đang xác minh"
     },
     "error": {
       "attribute_missing": {
@@ -4993,15 +4993,15 @@
       "button_another_method": "Chọn phương thức khác",
       "button_try_again": "Thử lại",
       "standard": {
-        "subtitle": "Đã xảy ra sự cố với quá trình xác minh của bạn. Vui lòng thử lại.",
+        "subtitle": "Đã xảy ra sự cố trong quá trình xác minh của bạn. Vui lòng thử lại.",
         "title": "Đã xảy ra lỗi"
       },
       "verification_failed": {
-        "subtitle": "Không thể xác nhận các thuộc tính của bạn. Vui lòng thử phương thức khác.",
+        "subtitle": "Các thuộc tính của bạn không thể được xác nhận. Vui lòng thử phương thức khác.",
         "title": "Chúng tôi không thể xác minh danh tính của bạn"
       },
       "wallet_closed": {
-        "subtitle": "Ví đã mất quá nhiều thời gian hoặc đã bị đóng. Vui lòng quay lại và thử lại.",
+        "subtitle": "Ví mất quá nhiều thời gian hoặc đã bị đóng. Vui lòng quay lại và thử lại.",
         "title": "Xác minh chưa hoàn tất"
       }
     },
@@ -5010,7 +5010,7 @@
     },
     "intro": {
       "button_continue": "Bắt đầu xác minh",
-      "subtitle": "Vì lý do bảo mật và để bảo vệ bạn khỏi gian lận, chúng tôi cần xác minh danh tính của bạn. Việc này chỉ mất vài phút.",
+      "subtitle": "Vì lý do bảo mật và để bảo vệ bạn khỏi gian lận, chúng tôi cần xác minh danh tính của bạn. Quá trình này chỉ mất vài phút.",
       "title": "Xác minh danh tính của bạn"
     },
     "issuing_country": {
